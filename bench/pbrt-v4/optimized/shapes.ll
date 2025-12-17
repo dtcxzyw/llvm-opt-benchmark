@@ -7549,9 +7549,9 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %4, %64
   %368 = select i1 %366, i1 %367, i1 false
   %369 = fcmp oge float %.sroa.speculated.i34.i197, %356
   %370 = fcmp ole float %.sroa.speculated.i.i193, %359
-  %371 = select i1 %369, i1 %370, i1 false
-  %or.cond.i = select i1 %365, i1 %368, i1 false
-  %spec.select.i = select i1 %or.cond.i, i1 %371, i1 false
+  %or.cond.i = select i1 %369, i1 %370, i1 false
+  %371 = select i1 %365, i1 %368, i1 false
+  %spec.select.i = select i1 %371, i1 %371, i1 false
   br i1 %spec.select.i, label %.preheader, label %424
 
 372:                                              ; preds = %.preheader
@@ -7945,9 +7945,9 @@ define dso_local noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3R
   %172 = select i1 %170, i1 %171, i1 false
   %173 = fcmp oge float %.sroa.speculated.i34.i321, %157
   %174 = fcmp ole float %.sroa.speculated.i.i317, %160
-  %175 = select i1 %173, i1 %174, i1 false
-  %or.cond.i = select i1 %169, i1 %172, i1 false
-  %spec.select.i = select i1 %or.cond.i, i1 %175, i1 false
+  %or.cond.i = select i1 %173, i1 %174, i1 false
+  %175 = select i1 %169, i1 %172, i1 false
+  %spec.select.i = select i1 %175, i1 %175, i1 false
   br i1 %spec.select.i, label %176, label %178
 
 176:                                              ; preds = %98

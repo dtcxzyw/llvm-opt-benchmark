@@ -6474,7 +6474,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
 
 22:                                               ; preds = %20
   %23 = tail call fastcc noundef ptr @_ZL7decNaNsP9decNumberPKS_S2_P10decContextPj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
-  br label %289
+  br label %285
 
 24:                                               ; preds = %20
   %25 = and i32 %13, 64
@@ -6519,7 +6519,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %50 = load i32, ptr %4, align 4, !tbaa !14
   %51 = or i32 %50, 128
   store i32 %51, ptr %4, align 4, !tbaa !14
-  br label %289
+  br label %285
 
 52:                                               ; preds = %44, %40, %36
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6530,7 +6530,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   store i8 0, ptr %55, align 1, !tbaa !10
   %56 = or disjoint i8 %17, 64
   store i8 %56, ptr %53, align 4, !tbaa !3
-  br label %289
+  br label %285
 
 57:                                               ; preds = %5
   %58 = load i32, ptr %1, align 4, !tbaa !9
@@ -6601,7 +6601,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %96 = load i32, ptr %4, align 4, !tbaa !14
   %97 = or i32 %96, 16
   store i32 %97, ptr %4, align 4, !tbaa !14
-  br label %283
+  br label %279
 
 98:                                               ; preds = %91
   %99 = sext i32 %84 to i64
@@ -6886,7 +6886,7 @@ define internal fastcc noundef ptr @_ZL13decMultiplyOpP9decNumberPKS_S2_P10decCo
   %226 = load i32, ptr %4, align 4, !tbaa !14
   %227 = or i32 %226, 16
   store i32 %227, ptr %4, align 4, !tbaa !14
-  br label %289
+  br label %285
 
 228:                                              ; preds = %._crit_edge392, %214
   %229 = phi i32 [ %62, %214 ], [ %.pre, %._crit_edge392 ]
@@ -7006,36 +7006,36 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %.lr.ph.i, %271, %.l
   store i32 %.0246, ptr %282, align 4, !tbaa !8
   call fastcc void @_ZL11decSetCoeffP9decNumberP10decContextPKhiPiPj(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %.0247, i32 noundef %.0.lcssa.i, ptr noundef %6, ptr noundef %4)
   call fastcc void @_ZL11decFinalizeP9decNumberP10decContextPiPj(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %6, ptr noundef %4)
-  br label %283
+  br label %279
 
-283:                                              ; preds = %_ZL12decGetDigitsPhi.exit, %95
+279:                                              ; preds = %_ZL12decGetDigitsPhi.exit, %95
   %.1265 = phi ptr [ %.0264, %95 ], [ %.2266, %_ZL12decGetDigitsPhi.exit ]
   %.1261 = phi ptr [ %.0260, %95 ], [ %.2262, %_ZL12decGetDigitsPhi.exit ]
   %.1250 = phi ptr [ %.0249, %95 ], [ %.2251, %_ZL12decGetDigitsPhi.exit ]
   %.not296 = icmp eq ptr %.1250, null
-  br i1 %.not296, label %285, label %284
+  br i1 %.not296, label %281, label %280
+
+280:                                              ; preds = %279
+  call void @uprv_free_77(ptr noundef nonnull %.1250)
+  br label %281
+
+281:                                              ; preds = %280, %279
+  %.not297 = icmp eq ptr %.1261, null
+  br i1 %.not297, label %283, label %282
+
+282:                                              ; preds = %281
+  call void @uprv_free_77(ptr noundef nonnull %.1261)
+  br label %283
+
+283:                                              ; preds = %282, %281
+  %.not298 = icmp eq ptr %.1265, null
+  br i1 %.not298, label %285, label %284
 
 284:                                              ; preds = %283
-  call void @uprv_free_77(ptr noundef nonnull %.1250)
+  call void @uprv_free_77(ptr noundef nonnull %.1265)
   br label %285
 
-285:                                              ; preds = %284, %283
-  %.not297 = icmp eq ptr %.1261, null
-  br i1 %.not297, label %287, label %286
-
-286:                                              ; preds = %285
-  call void @uprv_free_77(ptr noundef nonnull %.1261)
-  br label %287
-
-287:                                              ; preds = %286, %285
-  %.not298 = icmp eq ptr %.1265, null
-  br i1 %.not298, label %289, label %288
-
-288:                                              ; preds = %287
-  call void @uprv_free_77(ptr noundef nonnull %.1265)
-  br label %289
-
-289:                                              ; preds = %.thread317, %287, %288, %52, %49, %22
+285:                                              ; preds = %.thread317, %283, %284, %52, %49, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

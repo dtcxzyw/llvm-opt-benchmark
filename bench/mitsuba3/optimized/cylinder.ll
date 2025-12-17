@@ -2817,8 +2817,8 @@ _ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect
   %154 = fcmp contract ogt double %.0309.i, %109
   %155 = select i1 %153, i1 %154, i1 false
   %.not.i214 = xor i1 %narrow.i, true
-  %or.cond.i = select i1 %.not.i214, i1 true, i1 %148
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %155
+  %155 = select i1 %.not.i214, i1 true, i1 %148
+  %or.cond.i = select i1 %155, i1 true, i1 %155
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit.critedge, label %156
 
 156:                                              ; preds = %145
@@ -4630,8 +4630,8 @@ define linkonce_odr hidden void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Spect
   %82 = fcmp contract ogt double %.0309, %37
   %83 = select i1 %81, i1 %82, i1 false
   %.not = xor i1 %narrow, true
-  %or.cond = select i1 %.not, i1 true, i1 %76
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %83
+  %83 = select i1 %.not, i1 true, i1 %76
+  %or.cond = select i1 %83, i1 true, i1 %83
   br i1 %or.cond3, label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge, label %84
 
 84:                                               ; preds = %73
@@ -4767,8 +4767,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   %79 = fcmp contract ogt double %.0285.i, %36
   %80 = select i1 %78, i1 %79, i1 false
   %.not.i = xor i1 %narrow.i, true
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %75
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %80
+  %80 = select i1 %.not.i, i1 true, i1 %75
+  %or.cond.i = select i1 %80, i1 true, i1 %80
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %81
 
 81:                                               ; preds = %72
@@ -4895,8 +4895,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   %77 = fcmp contract ogt double %.0285.i, %34
   %78 = select i1 %76, i1 %77, i1 false
   %.not.i = xor i1 %narrow.i, true
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %73
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %78
+  %78 = select i1 %.not.i, i1 true, i1 %73
+  %or.cond.i = select i1 %78, i1 true, i1 %78
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %79
 
 79:                                               ; preds = %70

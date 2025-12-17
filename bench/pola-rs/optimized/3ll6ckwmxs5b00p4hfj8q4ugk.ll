@@ -36540,7 +36540,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %116 = icmp ne i8 %115, 0
   %117 = and i1 %116, %111
   %118 = trunc nuw i32 %104 to i1
-  %or.cond.i.i = select i1 %110, i1 %118, i1 false
+  %or.cond22.i.i = select i1 %110, i1 %118, i1 false
   %or.cond22.i.i = select i1 %117, i1 %or.cond.i.i, i1 false
   br i1 %or.cond22.i.i, label %119, label %.thread101
 

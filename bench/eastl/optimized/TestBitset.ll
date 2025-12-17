@@ -5707,8 +5707,8 @@ _ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit, %entry
-  %5 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit ]
-  ret i64 %5
+  %7 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit ]
+  ret i64 %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5752,8 +5752,8 @@ _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit, %if.then.i, %entry
-  %6 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ]
-  ret i64 %6
+  %8 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ]
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9404,8 +9404,8 @@ _ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit: ; preds = %entry
   %x.addr.3.i.i = select i1 %cmp15.i.i, i32 %x.addr.2.i.i, i32 %shr18.i.i
   %and20.i.i = and i32 %x.addr.3.i.i, 1
   %cmp5678 = icmp ne i32 %and20.i.i, 0
-  %cmp567 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
-  %cmp56 = select i1 %cmp3.i.i, i1 %cmp567, i1 false
+  %1 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
+  %cmp56 = select i1 %cmp3.i.i, i1 %1, i1 false
   %cmp5 = select i1 %cmp9.i.i, i1 %cmp56, i1 false
   %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
   %not.cmp = xor i1 %cmp, true
@@ -9413,8 +9413,8 @@ _ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit, %entry
-  %1 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit ]
-  ret i64 %1
+  %4 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit ]
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9453,8 +9453,8 @@ _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit: ; preds = %if.then.i
   %x.addr.3.i.i = select i1 %cmp15.i.i, i32 %x.addr.2.i.i, i32 %shr18.i.i
   %and20.i.i = and i32 %x.addr.3.i.i, 1
   %cmp5678 = icmp ne i32 %and20.i.i, 0
-  %cmp567 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
-  %cmp56 = select i1 %cmp3.i.i, i1 %cmp567, i1 false
+  %1 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
+  %cmp56 = select i1 %cmp3.i.i, i1 %1, i1 false
   %cmp5 = select i1 %cmp9.i.i, i1 %cmp56, i1 false
   %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
   %not.cmp = xor i1 %cmp, true
@@ -9462,8 +9462,8 @@ _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ]
-  ret i64 %1
+  %4 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ]
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress uwtable

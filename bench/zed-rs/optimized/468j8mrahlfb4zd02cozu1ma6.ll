@@ -124041,11 +124041,11 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17h1fc043a98f6c1d07E(
   %19 = invoke { i32, i32 } @"_ZN70_$LT$multi_buffer..anchor..Anchor$u20$as$u20$multi_buffer..ToPoint$GT$8to_point17hb8b608f593c84c66E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16)
           to label %22 unwind label %20
 
-20:                                               ; preds = %123, %118, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47, %108, %101, %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit, %94, %.noexc40, %83, %"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE.exit", %51, %.noexc35, %22, %.noexc, %8, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit, %65, %47, %40, %31
+20:                                               ; preds = %122, %117, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47, %107, %100, %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit, %93, %.noexc40, %82, %"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE.exit", %51, %.noexc35, %22, %.noexc, %8, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit, %65, %47, %40, %31
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$17ha3da774c4cce3315E"(ptr noalias noundef align 8 dereferenceable(24) %7) #61
-          to label %130 unwind label %128
+          to label %129 unwind label %127
 
 22:                                               ; preds = %.noexc
   %23 = extractvalue { i32, i32 } %17, 1
@@ -124147,10 +124147,10 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17h1fc043a98f6c1d07E(
   %66 = invoke noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %37)
           to label %78 unwind label %20, !range !3608
 
-67:                                               ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit, %78, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit, %82, %46
-  %.sroa.05.0 = phi i32 [ %.pn5.i.sroa.speculated, %46 ], [ %126, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %82 ], [ %.pn5.i.sroa.speculated, %78 ], [ %34, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %102, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
-  %.sroa.13.0 = phi i32 [ %.pn3.i.sroa.speculated, %46 ], [ %127, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %82 ], [ %.pn3.i.sroa.speculated, %78 ], [ 0, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %105, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
-  %.sroa.2.0 = phi i32 [ %45, %46 ], [ %45, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ %45, %82 ], [ %45, %78 ], [ %45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %102, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+67:                                               ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit, %78, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit, %81, %46
+  %.sroa.05.0 = phi i32 [ %.pn5.i.sroa.speculated, %46 ], [ %125, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %82 ], [ %.pn5.i.sroa.speculated, %78 ], [ %34, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %101, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+  %.sroa.13.0 = phi i32 [ %.pn3.i.sroa.speculated, %46 ], [ %126, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %82 ], [ %.pn3.i.sroa.speculated, %78 ], [ 0, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %104, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+  %.sroa.2.0 = phi i32 [ %45, %46 ], [ %45, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ %45, %82 ], [ %45, %78 ], [ %45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %101, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -124180,112 +124180,112 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17h1fc043a98f6c1d07E(
   %or.cond68 = select i1 %79, i1 true, i1 %or.cond
   br i1 %or.cond68, label %67, label %81
 
-81:                                               ; preds = %78
+80:                                               ; preds = %78
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %82, label %108
+  br i1 %.not, label %81, label %107
+
+81:                                               ; preds = %80
+  %.not31 = icmp eq i32 %34, 0
+  br i1 %.not31, label %67, label %82
 
 82:                                               ; preds = %81
-  %.not31 = icmp eq i32 %34, 0
-  br i1 %.not31, label %67, label %83
-
-83:                                               ; preds = %82
   call void @llvm.experimental.noalias.scope.decl(metadata !33844)
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !33847)
-  %85 = load ptr, ptr %84, align 8, !alias.scope !33850, !nonnull !4, !noundef !4
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 124
-  %87 = load i32, ptr %86, align 4, !noalias !33850, !noundef !4
-  %88 = add i32 %87, -1
-  %89 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %84, i32 noundef %88)
+  %84 = load ptr, ptr %83, align 8, !alias.scope !33850, !nonnull !4, !noundef !4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 124
+  %86 = load i32, ptr %85, align 4, !noalias !33850, !noundef !4
+  %87 = add i32 %86, -1
+  %88 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %83, i32 noundef %87)
           to label %.noexc40 unwind label %20
 
-.noexc40:                                         ; preds = %83
-  %90 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %88, i32 noundef %89)
+.noexc40:                                         ; preds = %82
+  %89 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %87, i32 noundef %88)
           to label %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit unwind label %20
 
 _ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit: ; preds = %.noexc40
-  %91 = extractvalue { i32, i32 } %90, 0
-  %92 = icmp eq i32 %34, %91
-  %93 = extractvalue { i32, i32 } %90, 1
-  %.not32 = icmp eq i32 %93, 0
-  %or.cond33 = select i1 %92, i1 %.not32, i1 false
-  br i1 %or.cond33, label %67, label %94
+  %90 = extractvalue { i32, i32 } %89, 0
+  %91 = icmp eq i32 %34, %90
+  %92 = extractvalue { i32, i32 } %89, 1
+  %.not32 = icmp eq i32 %92, 0
+  %or.cond33 = select i1 %91, i1 %.not32, i1 false
+  br i1 %or.cond33, label %67, label %93
 
-94:                                               ; preds = %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit
-  %95 = add i32 %34, -1
-  %96 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %84, i32 noundef %95)
+93:                                               ; preds = %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit
+  %94 = add i32 %34, -1
+  %95 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %83, i32 noundef %94)
           to label %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit unwind label %20
 
-_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit: ; preds = %94
-  %97 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %95, i32 noundef %96)
+_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit: ; preds = %93
+  %96 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %94, i32 noundef %95)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit unwind label %20
 
 _ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit: ; preds = %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit
-  %98 = extractvalue { i32, i32 } %97, 0
-  %99 = extractvalue { i32, i32 } %97, 1
-  %100 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %4, i32 noundef %98, i32 noundef %99, i1 noundef zeroext false)
-          to label %101 unwind label %20
+  %97 = extractvalue { i32, i32 } %96, 0
+  %98 = extractvalue { i32, i32 } %96, 1
+  %99 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %4, i32 noundef %97, i32 noundef %98, i1 noundef zeroext false)
+          to label %100 unwind label %20
 
-101:                                              ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit
-  %102 = extractvalue { i32, i32 } %100, 0
-  %103 = add i32 %102, 1
-  %104 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %103, i32 noundef 0)
+100:                                              ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit
+  %101 = extractvalue { i32, i32 } %99, 0
+  %102 = add i32 %101, 1
+  %103 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %102, i32 noundef 0)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 unwind label %20
 
-_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45: ; preds = %101
-  %105 = extractvalue { i32, i32 } %100, 1
-  %106 = extractvalue { i32, i32 } %104, 0
-  %107 = extractvalue { i32, i32 } %104, 1
-  store i32 %106, ptr %37, align 4
-  store i32 %107, ptr %38, align 4
+_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45: ; preds = %100
+  %104 = extractvalue { i32, i32 } %99, 1
+  %105 = extractvalue { i32, i32 } %103, 0
+  %106 = extractvalue { i32, i32 } %103, 1
+  store i32 %105, ptr %37, align 4
+  store i32 %106, ptr %38, align 4
   br label %67
 
-108:                                              ; preds = %81
-  %109 = add i32 %35, -1
-  %110 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %34, i32 noundef %109)
+107:                                              ; preds = %80
+  %108 = add i32 %35, -1
+  %109 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %34, i32 noundef %108)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47 unwind label %20
 
-_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47: ; preds = %108
-  %111 = extractvalue { i32, i32 } %110, 0
-  %112 = extractvalue { i32, i32 } %110, 1
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %114 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %113, i32 noundef %111, i32 noundef %112, i1 noundef zeroext false)
+_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47: ; preds = %107
+  %110 = extractvalue { i32, i32 } %109, 0
+  %111 = extractvalue { i32, i32 } %109, 1
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %113 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %112, i32 noundef %110, i32 noundef %111, i1 noundef zeroext false)
           to label %.noexc48 unwind label %20
 
 .noexc48:                                         ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 624
-  %116 = load i8, ptr %115, align 8, !range !21, !alias.scope !33851, !noundef !4
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 624
+  %115 = load i8, ptr %114, align 8, !range !21, !alias.scope !33851, !noundef !4
+  %116 = trunc nuw i8 %115 to i1
+  br i1 %116, label %117, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
-118:                                              ; preds = %.noexc48
-  %119 = extractvalue { i32, i32 } %114, 1
-  %120 = extractvalue { i32, i32 } %114, 0
-  %121 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %113, i32 noundef %120)
+117:                                              ; preds = %.noexc48
+  %118 = extractvalue { i32, i32 } %113, 1
+  %119 = extractvalue { i32, i32 } %113, 0
+  %120 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %112, i32 noundef %119)
           to label %.noexc49 unwind label %20
 
-.noexc49:                                         ; preds = %118
-  %122 = icmp eq i32 %119, %121
-  br i1 %122, label %123, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
+.noexc49:                                         ; preds = %117
+  %121 = icmp eq i32 %118, %120
+  br i1 %121, label %122, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
-123:                                              ; preds = %.noexc49
-  %124 = call i32 @llvm.usub.sat.i32(i32 %119, i32 1)
-  %125 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %113, i32 noundef %120, i32 noundef %124, i1 noundef zeroext false)
+122:                                              ; preds = %.noexc49
+  %123 = call i32 @llvm.usub.sat.i32(i32 %118, i32 1)
+  %124 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %112, i32 noundef %119, i32 noundef %123, i1 noundef zeroext false)
           to label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit unwind label %20
 
-_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit: ; preds = %.noexc49, %.noexc48, %123
-  %.merged.i = phi { i32, i32 } [ %114, %.noexc48 ], [ %114, %.noexc49 ], [ %125, %123 ]
-  %126 = extractvalue { i32, i32 } %.merged.i, 0
-  %127 = extractvalue { i32, i32 } %.merged.i, 1
+_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit: ; preds = %.noexc49, %.noexc48, %122
+  %.merged.i = phi { i32, i32 } [ %113, %.noexc48 ], [ %113, %.noexc49 ], [ %124, %122 ]
+  %125 = extractvalue { i32, i32 } %.merged.i, 0
+  %126 = extractvalue { i32, i32 } %.merged.i, 1
   br label %67
 
-128:                                              ; preds = %20
-  %129 = landingpad { ptr, i32 }
+127:                                              ; preds = %20
+  %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-130:                                              ; preds = %20
+129:                                              ; preds = %20
   resume { ptr, i32 } %21
 }
 
@@ -124324,11 +124324,11 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17ha484b6859efc8808E(
   %28 = invoke { i32, i32 } @"_ZN60_$LT$rope..point..Point$u20$as$u20$multi_buffer..ToPoint$GT$8to_point17h86b1cc94c64fe3a8E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %21)
           to label %31 unwind label %29
 
-29:                                               ; preds = %132, %127, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47, %117, %110, %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit, %103, %.noexc40, %92, %"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE.exit", %60, %.noexc35, %31, %.noexc, %8, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit, %74, %56, %49, %40
+29:                                               ; preds = %131, %126, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47, %116, %109, %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit, %102, %.noexc40, %91, %"_ZN74_$LT$rope..point..Point$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17hb56df5791337dcfdE.exit", %60, %.noexc35, %31, %.noexc, %8, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit, %74, %56, %49, %40
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$gpui..shared_string..SharedString$GT$$GT$17ha3da774c4cce3315E"(ptr noalias noundef align 8 dereferenceable(24) %7) #61
-          to label %139 unwind label %137
+          to label %139 unwind label %136
 
 31:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !33863
@@ -124430,10 +124430,10 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17ha484b6859efc8808E(
   %75 = invoke noundef i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %46)
           to label %87 unwind label %29, !range !3608
 
-76:                                               ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit, %87, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit, %91, %55
-  %.sroa.05.0 = phi i32 [ %.pn5.i.sroa.speculated, %55 ], [ %135, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %91 ], [ %.pn5.i.sroa.speculated, %87 ], [ %43, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %111, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
-  %.sroa.13.0 = phi i32 [ %.pn3.i.sroa.speculated, %55 ], [ %136, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %91 ], [ %.pn3.i.sroa.speculated, %87 ], [ 0, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %114, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
-  %.sroa.2.0 = phi i32 [ %54, %55 ], [ %54, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ %54, %91 ], [ %54, %87 ], [ %54, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %111, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+76:                                               ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit, %87, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit, %90, %55
+  %.sroa.05.0 = phi i32 [ %.pn5.i.sroa.speculated, %55 ], [ %134, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %90 ], [ %.pn5.i.sroa.speculated, %87 ], [ %43, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %110, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+  %.sroa.13.0 = phi i32 [ %.pn3.i.sroa.speculated, %55 ], [ %135, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ 0, %90 ], [ %.pn3.i.sroa.speculated, %87 ], [ 0, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %113, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
+  %.sroa.2.0 = phi i32 [ %54, %55 ], [ %54, %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit ], [ %54, %90 ], [ %54, %87 ], [ %54, %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit ], [ %110, %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -124458,117 +124458,117 @@ define hidden void @_ZN6editor7element15SelectionLayout3new17ha484b6859efc8808E(
 
 87:                                               ; preds = %74
   %88 = icmp eq i8 %75, 2
-  %89 = icmp ne i8 %75, -1
+  %88 = icmp ne i8 %75, -1
   %or.cond = select i1 %89, i1 true, i1 %48
   %or.cond68 = select i1 %88, i1 true, i1 %or.cond
   br i1 %or.cond68, label %76, label %90
 
-90:                                               ; preds = %87
+89:                                               ; preds = %87
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %91, label %117
+  br i1 %.not, label %90, label %116
+
+90:                                               ; preds = %89
+  %.not31 = icmp eq i32 %43, 0
+  br i1 %.not31, label %76, label %91
 
 91:                                               ; preds = %90
-  %.not31 = icmp eq i32 %43, 0
-  br i1 %.not31, label %76, label %92
-
-92:                                               ; preds = %91
   call void @llvm.experimental.noalias.scope.decl(metadata !33883)
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !33886)
-  %94 = load ptr, ptr %93, align 8, !alias.scope !33889, !nonnull !4, !noundef !4
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 124
-  %96 = load i32, ptr %95, align 4, !noalias !33889, !noundef !4
-  %97 = add i32 %96, -1
-  %98 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %93, i32 noundef %97)
+  %93 = load ptr, ptr %92, align 8, !alias.scope !33889, !nonnull !4, !noundef !4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 124
+  %95 = load i32, ptr %94, align 4, !noalias !33889, !noundef !4
+  %96 = add i32 %95, -1
+  %97 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %92, i32 noundef %96)
           to label %.noexc40 unwind label %29
 
-.noexc40:                                         ; preds = %92
-  %99 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %97, i32 noundef %98)
+.noexc40:                                         ; preds = %91
+  %98 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %96, i32 noundef %97)
           to label %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit unwind label %29
 
 _ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit: ; preds = %.noexc40
-  %100 = extractvalue { i32, i32 } %99, 0
-  %101 = icmp eq i32 %43, %100
-  %102 = extractvalue { i32, i32 } %99, 1
-  %.not32 = icmp eq i32 %102, 0
-  %or.cond33 = select i1 %101, i1 %.not32, i1 false
-  br i1 %or.cond33, label %76, label %103
+  %99 = extractvalue { i32, i32 } %98, 0
+  %100 = icmp eq i32 %43, %99
+  %101 = extractvalue { i32, i32 } %98, 1
+  %.not32 = icmp eq i32 %101, 0
+  %or.cond33 = select i1 %100, i1 %.not32, i1 false
+  br i1 %or.cond33, label %76, label %102
 
-103:                                              ; preds = %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit
-  %104 = add i32 %43, -1
-  %105 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %93, i32 noundef %104)
+102:                                              ; preds = %_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E.exit
+  %103 = add i32 %43, -1
+  %104 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %92, i32 noundef %103)
           to label %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit unwind label %29
 
-_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit: ; preds = %103
-  %106 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %104, i32 noundef %105)
+_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit: ; preds = %102
+  %105 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %103, i32 noundef %104)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit unwind label %29
 
 _ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit: ; preds = %_ZN6editor11display_map15DisplaySnapshot8line_len17h10e5cfee3d8e616eE.exit
-  %107 = extractvalue { i32, i32 } %106, 0
-  %108 = extractvalue { i32, i32 } %106, 1
-  %109 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %4, i32 noundef %107, i32 noundef %108, i1 noundef zeroext false)
-          to label %110 unwind label %29
+  %106 = extractvalue { i32, i32 } %105, 0
+  %107 = extractvalue { i32, i32 } %105, 1
+  %108 = invoke { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %4, i32 noundef %106, i32 noundef %107, i1 noundef zeroext false)
+          to label %109 unwind label %29
 
-110:                                              ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit
-  %111 = extractvalue { i32, i32 } %109, 0
-  %112 = add i32 %111, 1
-  %113 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %112, i32 noundef 0)
+109:                                              ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit
+  %110 = extractvalue { i32, i32 } %108, 0
+  %111 = add i32 %110, 1
+  %112 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %111, i32 noundef 0)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45 unwind label %29
 
-_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45: ; preds = %110
-  %114 = extractvalue { i32, i32 } %109, 1
-  %115 = extractvalue { i32, i32 } %113, 0
-  %116 = extractvalue { i32, i32 } %113, 1
-  store i32 %115, ptr %46, align 4
-  store i32 %116, ptr %47, align 4
+_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit45: ; preds = %109
+  %113 = extractvalue { i32, i32 } %108, 1
+  %114 = extractvalue { i32, i32 } %112, 0
+  %115 = extractvalue { i32, i32 } %112, 1
+  store i32 %114, ptr %46, align 4
+  store i32 %115, ptr %47, align 4
   br label %76
 
-117:                                              ; preds = %90
-  %118 = add i32 %44, -1
-  %119 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %43, i32 noundef %118)
+116:                                              ; preds = %89
+  %117 = add i32 %44, -1
+  %118 = invoke { i32, i32 } @_ZN4rope5point5Point3new17hbcb588e2056b8f53E(i32 noundef %43, i32 noundef %117)
           to label %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47 unwind label %29
 
-_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47: ; preds = %117
-  %120 = extractvalue { i32, i32 } %119, 0
-  %121 = extractvalue { i32, i32 } %119, 1
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %123 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %122, i32 noundef %120, i32 noundef %121, i1 noundef zeroext false)
+_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47: ; preds = %116
+  %119 = extractvalue { i32, i32 } %118, 0
+  %120 = extractvalue { i32, i32 } %118, 1
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %122 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %121, i32 noundef %119, i32 noundef %120, i1 noundef zeroext false)
           to label %.noexc48 unwind label %29
 
 .noexc48:                                         ; preds = %_ZN6editor11display_map12DisplayPoint3new17hf7e6519241106871E.exit47
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 624
-  %125 = load i8, ptr %124, align 8, !range !21, !alias.scope !33890, !noundef !4
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %127, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 624
+  %124 = load i8, ptr %123, align 8, !range !21, !alias.scope !33890, !noundef !4
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
-127:                                              ; preds = %.noexc48
-  %128 = extractvalue { i32, i32 } %123, 1
-  %129 = extractvalue { i32, i32 } %123, 0
-  %130 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %122, i32 noundef %129)
+126:                                              ; preds = %.noexc48
+  %127 = extractvalue { i32, i32 } %122, 1
+  %128 = extractvalue { i32, i32 } %122, 0
+  %129 = invoke noundef i32 @_ZN6editor11display_map9block_map13BlockSnapshot8line_len17h0b777e702497dd83E.llvm.5846128800800072799(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %121, i32 noundef %128)
           to label %.noexc49 unwind label %29
 
-.noexc49:                                         ; preds = %127
-  %131 = icmp eq i32 %128, %130
-  br i1 %131, label %132, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
+.noexc49:                                         ; preds = %126
+  %130 = icmp eq i32 %127, %129
+  br i1 %130, label %131, label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit
 
-132:                                              ; preds = %.noexc49
-  %133 = call i32 @llvm.usub.sat.i32(i32 %128, i32 1)
-  %134 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %122, i32 noundef %129, i32 noundef %133, i1 noundef zeroext false)
+131:                                              ; preds = %.noexc49
+  %132 = call i32 @llvm.usub.sat.i32(i32 %127, i32 1)
+  %133 = invoke { i32, i32 } @_ZN6editor11display_map9block_map13BlockSnapshot10clip_point17hc7e8b3634a259edeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %121, i32 noundef %128, i32 noundef %132, i1 noundef zeroext false)
           to label %_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit unwind label %29
 
-_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit: ; preds = %.noexc49, %.noexc48, %132
-  %.merged.i = phi { i32, i32 } [ %123, %.noexc48 ], [ %123, %.noexc49 ], [ %134, %132 ]
-  %135 = extractvalue { i32, i32 } %.merged.i, 0
-  %136 = extractvalue { i32, i32 } %.merged.i, 1
+_ZN6editor11display_map15DisplaySnapshot10clip_point17h3e1b9b95434b0fe3E.exit: ; preds = %.noexc49, %.noexc48, %131
+  %.merged.i = phi { i32, i32 } [ %122, %.noexc48 ], [ %122, %.noexc49 ], [ %133, %132 ]
+  %134 = extractvalue { i32, i32 } %.merged.i, 0
+  %135 = extractvalue { i32, i32 } %.merged.i, 1
   br label %76
 
-137:                                              ; preds = %29
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %29
+  %137 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #60
   unreachable
 
-139:                                              ; preds = %29
+138:                                              ; preds = %29
   resume { ptr, i32 } %30
 }
 

@@ -826,25 +826,25 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.not156 = icmp eq i32 %87, 0
   %88 = select i1 %.not156, i1 true, i1 %.not155
   store i64 512, ptr %14, align 8, !tbaa !11
-  %89 = call i32 @OSSL_HPKE_seal(ptr noundef %64, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %6, i64 noundef %23) #7
-  %90 = icmp ne i32 %89, 0
-  %91 = zext i1 %90 to i32
-  %92 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1039, ptr noundef nonnull @.str.90, i32 noundef %91) #7
-  %.not157 = icmp eq i32 %92, 0
+  %88 = call i32 @OSSL_HPKE_seal(ptr noundef %64, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %6, i64 noundef %23) #7
+  %89 = icmp ne i32 %88, 0
+  %90 = zext i1 %89 to i32
+  %91 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1039, ptr noundef nonnull @.str.90, i32 noundef %90) #7
+  %.not157 = icmp eq i32 %91, 0
   %93 = select i1 %.not157, i1 true, i1 %88
   call void @OSSL_HPKE_CTX_free(ptr noundef %64) #7
-  %94 = load i64, ptr %16, align 8, !tbaa !11
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %17, i8 0, i64 %94, i1 false)
-  %95 = load ptr, ptr @testctx, align 8, !tbaa !13
-  %96 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %22, i48 %.sroa.0.0.insert.insert49, i32 noundef 1, ptr noundef %95, ptr noundef null) #7
-  %97 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1046, ptr noundef nonnull @.str.91, ptr noundef %96) #7
-  %.not158 = icmp eq i32 %97, 0
-  %98 = select i1 %.not158, i1 true, i1 %93
+  %92 = load i64, ptr %16, align 8, !tbaa !11
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %17, i8 0, i64 %92, i1 false)
+  %93 = load ptr, ptr @testctx, align 8, !tbaa !13
+  %94 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %22, i48 %.sroa.0.0.insert.insert49, i32 noundef 1, ptr noundef %93, ptr noundef null) #7
+  %95 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1046, ptr noundef nonnull @.str.91, ptr noundef %94) #7
+  %.not158 = icmp eq i32 %95, 0
+  %96 = select i1 %.not158, i1 true, i1 %93
   %.13 = select i1 %98, i32 0, i32 %.9
   br i1 %or.cond.not, label %104, label %99
 
 99:                                               ; preds = %78
-  %100 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %96, ptr noundef %.0145, ptr noundef %.0147, i64 noundef %.0146) #7
+  %100 = call i32 @OSSL_HPKE_CTX_set1_psk(ptr noundef %94, ptr noundef %.0145, ptr noundef %.0147, i64 noundef %.0146) #7
   %101 = icmp ne i32 %100, 0
   %102 = zext i1 %101 to i32
   %103 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1051, ptr noundef nonnull @.str.92, i32 noundef %102) #7
@@ -860,7 +860,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   br i1 %47, label %106, label %111
 
 106:                                              ; preds = %105
-  %107 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %96, ptr noundef nonnull %8, i64 noundef 10) #7
+  %107 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %94, ptr noundef nonnull %8, i64 noundef 10) #7
   %108 = icmp ne i32 %107, 0
   %109 = zext i1 %108 to i32
   %110 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1062, ptr noundef nonnull @.str.93, i32 noundef %109) #7
@@ -871,7 +871,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 111:                                              ; preds = %106, %105
   %.16 = phi i32 [ %.14, %105 ], [ %spec.select171, %106 ]
   %112 = load i64, ptr %7, align 8, !tbaa !11
-  %113 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %96, ptr noundef %.0143191, i64 noundef %112) #7
+  %113 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %94, ptr noundef %.0143191, i64 noundef %112) #7
   %114 = icmp ne i32 %113, 0
   %115 = zext i1 %114 to i32
   %116 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1067, ptr noundef nonnull @.str.94, i32 noundef %115) #7
@@ -883,35 +883,35 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.15 = phi i32 [ %.14, %104 ], [ %spec.select172, %111 ]
   %118 = load i64, ptr %12, align 8, !tbaa !11
   %119 = load ptr, ptr %5, align 8, !tbaa !6
-  %120 = call i32 @OSSL_HPKE_decap(ptr noundef %96, ptr noundef nonnull %13, i64 noundef %118, ptr noundef %119, ptr noundef %.0148, i64 noundef %.0144) #7
+  %120 = call i32 @OSSL_HPKE_decap(ptr noundef %94, ptr noundef nonnull %13, i64 noundef %118, ptr noundef %119, ptr noundef %.0148, i64 noundef %.0144) #7
   %121 = icmp ne i32 %120, 0
   %122 = zext i1 %121 to i32
   %123 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1072, ptr noundef nonnull @.str.95, i32 noundef %122) #7
   %.not162 = icmp eq i32 %123, 0
   store i64 15, ptr %16, align 8, !tbaa !11
   %124 = load i64, ptr %14, align 8, !tbaa !11
-  %125 = call i32 @OSSL_HPKE_open(ptr noundef %96, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %124) #7
+  %125 = call i32 @OSSL_HPKE_open(ptr noundef %94, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %124) #7
   %126 = icmp ne i32 %125, 0
   %127 = zext i1 %126 to i32
   %128 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1078, ptr noundef nonnull @.str.96, i32 noundef %127) #7
   %.not163 = icmp eq i32 %128, 0
   %129 = select i1 %.not163, i1 true, i1 %.not162
   store i64 512, ptr %16, align 8, !tbaa !11
-  %130 = load i64, ptr %14, align 8, !tbaa !11
-  %131 = call i32 @OSSL_HPKE_open(ptr noundef %96, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %130) #7
-  %132 = icmp ne i32 %131, 0
-  %133 = zext i1 %132 to i32
-  %134 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1084, ptr noundef nonnull @.str.96, i32 noundef %133) #7
-  %.not164 = icmp eq i32 %134, 0
+  %129 = load i64, ptr %14, align 8, !tbaa !11
+  %130 = call i32 @OSSL_HPKE_open(ptr noundef %94, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef %.0142, i64 noundef %.0141, ptr noundef nonnull %15, i64 noundef %129) #7
+  %131 = icmp ne i32 %130, 0
+  %132 = zext i1 %131 to i32
+  %133 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1084, ptr noundef nonnull @.str.96, i32 noundef %132) #7
+  %.not164 = icmp eq i32 %133, 0
   %135 = select i1 %.not164, i1 true, i1 %129
   call void @OSSL_HPKE_CTX_free(ptr noundef %96) #7
   %136 = load ptr, ptr %5, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %136) #7
   store ptr null, ptr %5, align 8, !tbaa !6
-  %137 = load i64, ptr %16, align 8, !tbaa !11
-  %138 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 1090, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %17, i64 noundef %137, ptr noundef nonnull %6, i64 noundef %23) #7
-  %.not165 = icmp eq i32 %138, 0
-  %139 = select i1 %.not165, i1 true, i1 %135
+  %135 = load i64, ptr %16, align 8, !tbaa !11
+  %136 = call i32 @test_mem_eq(ptr noundef nonnull @.str.31, i32 noundef 1090, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull %17, i64 noundef %135, ptr noundef nonnull %6, i64 noundef %23) #7
+  %.not165 = icmp eq i32 %136, 0
+  %137 = select i1 %.not165, i1 true, i1 %135
   %.20 = select i1 %139, i32 0, i32 %.15
   %.b = load i1, ptr @verbose, align 4
   %140 = icmp ne i32 %.20, 1
@@ -1089,14 +1089,14 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
   %.not28 = icmp eq i32 %44, 0
   %45 = select i1 %.not28, i1 true, i1 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2047) %3, i8 65, i64 2047, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 2047
-  store i8 0, ptr %46, align 1, !tbaa !17
-  %47 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
-  %48 = icmp ne i32 %47, 0
-  %49 = zext i1 %48 to i32
-  %50 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1246, ptr noundef nonnull @.str.148, i32 noundef %49) #7
-  %.not29 = icmp eq i32 %50, 0
-  %51 = select i1 %.not29, i1 true, i1 %45
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2047
+  store i8 0, ptr %44, align 1, !tbaa !17
+  %45 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %3, ptr noundef nonnull %2) #7
+  %46 = icmp ne i32 %45, 0
+  %47 = zext i1 %46 to i32
+  %48 = call i32 @test_false(ptr noundef nonnull @.str.31, i32 noundef 1246, ptr noundef nonnull @.str.148, i32 noundef %47) #7
+  %.not29 = icmp eq i32 %48, 0
+  %49 = select i1 %.not29, i1 true, i1 %45
   %.9 = select i1 %51, i32 0, i32 %.5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1144,8 +1144,8 @@ define internal range(i32 0, 2) i32 @test_hpke_grease() #1 {
   %19 = call i64 @OSSL_HPKE_get_recommended_ikmelen(i48 %.0.copyload) #7
   %20 = call i32 @test_size_t_ne(ptr noundef nonnull @.str.31, i32 noundef 1297, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.185, i64 noundef %19, i64 noundef 0) #7
   %.not16 = icmp ne i32 %20, 0
-  %narrow19 = select i1 %.not16, i1 %narrow18, i1 false
-  %.4 = zext i1 %narrow19 to i32
+  %21 = select i1 %.not16, i1 %narrow18, i1 false
+  %.4 = zext i1 %21 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -1545,12 +1545,12 @@ _ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit: ; preds = %wh
   %7 = select i1 %call.i, i1 true, i1 %cmp.i
   %enqueuedChildren_.i = getelementptr inbounds nuw i8, ptr %parent.014, i64 184
   %prev_.i8.i.i.i = getelementptr inbounds nuw i8, ptr %parent.014, i64 192
-  %8 = load ptr, ptr %prev_.i8.i.i.i, align 8
+  %7 = load ptr, ptr %prev_.i8.i.i.i, align 8
   %prev_.i6.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.013, i64 176
-  store ptr %8, ptr %prev_.i6.i.i.i, align 8
+  store ptr %7, ptr %prev_.i6.i.i.i, align 8
   store ptr %enqueuedChildren_.i, ptr %enqueuedHook_.i, align 8
   store ptr %enqueuedHook_.i, ptr %prev_.i8.i.i.i, align 8
-  store ptr %enqueuedHook_.i, ptr %8, align 8
+  store ptr %enqueuedHook_.i, ptr %7, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %parent.0.in = getelementptr inbounds nuw i8, ptr %parent.014, i64 80
   %parent.0 = load ptr, ptr %parent.0.in, align 8

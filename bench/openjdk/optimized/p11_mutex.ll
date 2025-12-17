@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %103, label %5
+  br i1 %4, label %104, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
@@ -46,7 +46,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %5
   tail call void @p11ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #7
-  br label %103
+  br label %104
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -61,7 +61,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %0, align 8
@@ -73,7 +73,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 24:                                               ; preds = %18
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %0, align 8
@@ -92,7 +92,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 36:                                               ; preds = %25
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %0, align 8
@@ -112,7 +112,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 49:                                               ; preds = %37
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
 50:                                               ; preds = %37
   %51 = load ptr, ptr %0, align 8
@@ -132,7 +132,7 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
 
 62:                                               ; preds = %50
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
 63:                                               ; preds = %50
   %64 = load ptr, ptr %0, align 8
@@ -144,69 +144,69 @@ define hidden noalias noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr nou
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %68, ptr %69, align 8
   %brmerge103 = select i1 %.not, i1 true, i1 %.not97
-  %brmerge = select i1 %.not98, i1 true, i1 %.not99
-  %or.cond = select i1 %brmerge103, i1 true, i1 %brmerge
-  br i1 %or.cond, label %70, label %79
+  %70 = select i1 %.not98, i1 true, i1 %.not99
+  %or.cond = select i1 %brmerge103, i1 true, i1 %70
+  br i1 %or.cond, label %71, label %80
 
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 168
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call ptr %73(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
-  store ptr %74, ptr @jInitArgsObject, align 8
-  %75 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
-  store ptr %75, ptr @ckpGlobalInitArgs, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %78
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %0, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call ptr %73(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
+  store ptr %75, ptr @jInitArgsObject, align 8
+  %76 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
+  store ptr %76, ptr @ckpGlobalInitArgs, align 8
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %78, label %79
 
-77:                                               ; preds = %70
+78:                                               ; preds = %71
   tail call void @free(ptr noundef nonnull %6) #7
   tail call void @p11ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #7
-  br label %103
+  br label %104
 
-78:                                               ; preds = %70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
-  br label %79
+79:                                               ; preds = %71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  br label %80
 
-79:                                               ; preds = %63, %78
-  %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 752
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call ptr %82(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #7
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %86
+80:                                               ; preds = %63, %79
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 752
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call ptr %82(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #7
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %79
+86:                                               ; preds = %80
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 808
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call i64 %89(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %83) #7
-  store i64 %90, ptr %10, align 8
-  %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 752
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call ptr %93(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+87:                                               ; preds = %80
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 808
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call i64 %89(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %84) #7
+  store i64 %91, ptr %10, align 8
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 752
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call ptr %93(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-96:                                               ; preds = %86
+97:                                               ; preds = %87
   tail call void @free(ptr noundef nonnull %6) #7
-  br label %103
+  br label %104
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 760
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr %100(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %94) #7
-  %102 = call ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef nonnull %0, ptr noundef %101, ptr noundef nonnull %3) #7
-  store ptr %102, ptr %11, align 8
-  br label %103
+98:                                               ; preds = %87
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 760
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call ptr %100(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %95) #7
+  %103 = call ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef nonnull %0, ptr noundef %102, ptr noundef nonnull %3) #7
+  store ptr %103, ptr %11, align 8
+  br label %104
 
-103:                                              ; preds = %2, %97, %96, %85, %77, %62, %49, %36, %24, %17, %8
+104:                                              ; preds = %2, %98, %97, %86, %78, %62, %49, %36, %24, %17, %8
   %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ null, %24 ], [ null, %36 ], [ null, %49 ], [ null, %62 ], [ null, %77 ], [ null, %85 ], [ null, %96 ], [ %6, %97 ], [ null, %2 ]
   ret ptr %.0
 }

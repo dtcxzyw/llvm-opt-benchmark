@@ -71901,7 +71901,7 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   switch i64 %9, label %10 [
     i64 0, label %11
     i64 1, label %20
-    i64 2, label %53
+    i64 2, label %54
   ]
 
 10:                                               ; preds = %2
@@ -71923,7 +71923,7 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = icmp ult i64 %22, 2305843009213693952
   tail call void @llvm.assume(i1 %23)
-  br label %53
+  br label %54
 
 24:                                               ; preds = %11
   tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22911ec2d3551975e67fbe84588bafe7.523) #35
@@ -71977,14 +71977,14 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   %52 = extractvalue { i64, i1 } %50, 0
   %not. = xor i1 %51, true
   %spec.select7 = zext i1 %not. to i64
-  br label %53
+  br label %54
 
-53:                                               ; preds = %48, %31, %2, %20
+54:                                               ; preds = %48, %31, %2, %20
   %.sroa.6.0 = phi i64 [ %22, %20 ], [ undef, %2 ], [ undef, %31 ], [ %52, %48 ]
   %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %2 ], [ 0, %31 ], [ %spec.select7, %48 ]
-  %54 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %55 = insertvalue { i64, i64 } %54, i64 %.sroa.6.0, 1
-  ret { i64, i64 } %55
+  %55 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %56 = insertvalue { i64, i64 } %55, i64 %.sroa.6.0, 1
+  ret { i64, i64 } %56
 }
 
 ; Function Attrs: nonlazybind uwtable

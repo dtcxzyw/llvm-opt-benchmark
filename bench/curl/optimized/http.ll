@@ -2161,10 +2161,10 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 32
   %.not54 = icmp ne i64 %32, 0
-  %brmerge = select i1 %.not54, i1 true, i1 %.not69
-  br i1 %brmerge, label %.critedge66, label %33
+  %33 = select i1 %.not54, i1 true, i1 %.not69
+  br i1 %brmerge, label %.critedge71, label %33
 
-33:                                               ; preds = %29
+52:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3424
   %35 = load i64, ptr %34, align 8, !tbaa !155
   %36 = icmp eq i64 %35, 8
@@ -2197,43 +2197,43 @@ define internal fastcc void @http_perhapsrewind(ptr noundef %0, ptr noundef %1) 
   %.not62 = icmp eq i64 %50, 0
   br i1 %10, label %51, label %62
 
-51:                                               ; preds = %47
-  br i1 %.not62, label %73, label %52
+53:                                               ; preds = %47
+  br i1 %.not62, label %73, label %56
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %54 = load ptr, ptr %53, align 8, !tbaa !128
-  %.not63 = icmp eq ptr %54, null
-  br i1 %.not63, label %59, label %55
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %58 = load ptr, ptr %57, align 8, !tbaa !128
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %63, label %55
 
-55:                                               ; preds = %52
+60:                                               ; preds = %56
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !129
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %73
 
-59:                                               ; preds = %55, %52
+63:                                               ; preds = %55, %52
   %60 = select i1 %.not60, ptr @.str.35, ptr %.0
   %61 = select i1 %.not60, ptr @.str.35, ptr @.str.61
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %60, ptr noundef nonnull %61, i64 noundef %9) #12
   br label %73
 
-62:                                               ; preds = %47
-  br i1 %.not62, label %73, label %63
+62:; preds = %47
+  br i1 %.not62, label %73, label %67
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %65 = load ptr, ptr %64, align 8, !tbaa !128
-  %.not59 = icmp eq ptr %65, null
-  br i1 %.not59, label %70, label %66
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %69 = load ptr, ptr %68, align 8, !tbaa !128
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %70, label %71
 
-66:                                               ; preds = %63
+71:                                               ; preds = %67
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !129
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %73
+  br i1 %69, label %74, label %73
 
-70:                                               ; preds = %66, %63
+74:                                               ; preds = %66, %63
   %71 = select i1 %.not60, ptr @.str.35, ptr %.0
   %72 = select i1 %.not60, ptr @.str.35, ptr @.str.61
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef %71, ptr noundef nonnull %72) #12

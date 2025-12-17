@@ -1152,96 +1152,96 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
   %.0321.lcssa = phi i32 [ 0, %120 ], [ %.1322, %._crit_edge1212.loopexit ]
   %.0319.lcssa = phi i32 [ 0, %120 ], [ %.1320, %._crit_edge1212.loopexit ]
   %.0318.lcssa = phi i32 [ 0, %120 ], [ %.1, %._crit_edge1212.loopexit ]
-  %474 = call i32 @pclose(ptr noundef nonnull %111)
-  %.not456 = icmp eq i32 %474, 0
-  br i1 %.not456, label %477, label %475
+  %472 = call i32 @pclose(ptr noundef nonnull %111)
+  %.not456 = icmp eq i32 %472, 0
+  br i1 %.not456, label %475, label %473
 
-475:                                              ; preds = %._crit_edge1212
-  %476 = call ptr @wait_result_to_str(i32 noundef %474) #9
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.21, ptr noundef nonnull %2, ptr noundef %476) #10
+473:                                              ; preds = %._crit_edge1212
+  %474 = call ptr @wait_result_to_str(i32 noundef %472) #9
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.21, ptr noundef nonnull %2, ptr noundef %474) #10
   unreachable
 
-477:                                              ; preds = %._crit_edge1212
+475:                                              ; preds = %._crit_edge1212
   %.not457 = icmp eq ptr %.0331, null
-  br i1 %.not457, label %480, label %478
+  br i1 %.not457, label %478, label %476
 
-478:                                              ; preds = %477
-  %479 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull %.0331, i32 noundef 1) #9
-  br label %480
+476:                                              ; preds = %475
+  %477 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull %.0331, i32 noundef 1) #9
+  br label %478
 
-480:                                              ; preds = %478, %477
+478:                                              ; preds = %476, %475
   %.not458 = icmp eq ptr %.0330, null
-  br i1 %.not458, label %483, label %481
+  br i1 %.not458, label %481, label %479
 
-481:                                              ; preds = %480
-  %482 = call i32 @setenv(ptr noundef nonnull @.str.1, ptr noundef nonnull %.0330, i32 noundef 1) #9
-  br label %483
+479:                                              ; preds = %478
+  %480 = call i32 @setenv(ptr noundef nonnull @.str.1, ptr noundef nonnull %.0330, i32 noundef 1) #9
+  br label %481
 
-483:                                              ; preds = %481, %480
+481:                                              ; preds = %479, %478
   %.not459 = icmp eq ptr %.0329, null
-  br i1 %.not459, label %486, label %484
+  br i1 %.not459, label %484, label %482
 
-484:                                              ; preds = %483
-  %485 = call i32 @setenv(ptr noundef nonnull @.str.2, ptr noundef nonnull %.0329, i32 noundef 1) #9
-  br label %486
+482:                                              ; preds = %481
+  %483 = call i32 @setenv(ptr noundef nonnull @.str.2, ptr noundef nonnull %.0329, i32 noundef 1) #9
+  br label %484
 
-486:                                              ; preds = %484, %483
+484:                                              ; preds = %482, %481
   %.not460 = icmp eq ptr %.0328, null
-  br i1 %.not460, label %489, label %487
+  br i1 %.not460, label %487, label %485
 
-487:                                              ; preds = %486
-  %488 = call i32 @setenv(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0328, i32 noundef 1) #9
-  br label %489
+485:                                              ; preds = %484
+  %486 = call i32 @setenv(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0328, i32 noundef 1) #9
+  br label %487
 
-489:                                              ; preds = %487, %486
+487:                                              ; preds = %485, %484
   %.not461 = icmp eq ptr %.0327, null
-  br i1 %.not461, label %492, label %490
+  br i1 %.not461, label %490, label %488
 
-490:                                              ; preds = %489
-  %491 = call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull %.0327, i32 noundef 1) #9
-  br label %492
+488:                                              ; preds = %487
+  %489 = call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull %.0327, i32 noundef 1) #9
+  br label %490
 
-492:                                              ; preds = %490, %489
+490:                                              ; preds = %488, %487
   %.not462 = icmp eq ptr %.0326, null
-  br i1 %.not462, label %495, label %493
+  br i1 %.not462, label %493, label %491
 
-493:                                              ; preds = %492
-  %494 = call i32 @setenv(ptr noundef nonnull @.str.5, ptr noundef nonnull %.0326, i32 noundef 1) #9
-  br label %497
+491:                                              ; preds = %490
+  %492 = call i32 @setenv(ptr noundef nonnull @.str.5, ptr noundef nonnull %.0326, i32 noundef 1) #9
+  br label %495
 
-495:                                              ; preds = %492
-  %496 = call i32 @unsetenv(ptr noundef nonnull @.str.5) #9
-  br label %497
+493:                                              ; preds = %490
+  %494 = call i32 @unsetenv(ptr noundef nonnull @.str.5) #9
+  br label %495
 
-497:                                              ; preds = %495, %493
+495:                                              ; preds = %493, %491
   %.not463 = icmp eq ptr %.0325, null
-  br i1 %.not463, label %500, label %498
+  br i1 %.not463, label %498, label %496
 
-498:                                              ; preds = %497
-  %499 = call i32 @setenv(ptr noundef nonnull @.str.6, ptr noundef nonnull %.0325, i32 noundef 1) #9
-  br label %500
+496:                                              ; preds = %495
+  %497 = call i32 @setenv(ptr noundef nonnull @.str.6, ptr noundef nonnull %.0325, i32 noundef 1) #9
+  br label %498
 
-500:                                              ; preds = %498, %497
+498:                                              ; preds = %496, %495
   %.not464 = icmp eq ptr %.0324, null
-  br i1 %.not464, label %503, label %501
+  br i1 %.not464, label %501, label %499
 
-501:                                              ; preds = %500
-  %502 = call i32 @setenv(ptr noundef nonnull @.str.7, ptr noundef nonnull %.0324, i32 noundef 1) #9
-  br label %503
+499:                                              ; preds = %498
+  %500 = call i32 @setenv(ptr noundef nonnull @.str.7, ptr noundef nonnull %.0324, i32 noundef 1) #9
+  br label %501
 
-503:                                              ; preds = %501, %500
+501:                                              ; preds = %499, %498
   %.not465 = icmp eq ptr %.0323, null
-  br i1 %.not465, label %506, label %504
+  br i1 %.not465, label %504, label %502
 
-504:                                              ; preds = %503
-  %505 = call i32 @setenv(ptr noundef nonnull @.str.8, ptr noundef nonnull %.0323, i32 noundef 1) #9
-  br label %508
+502:                                              ; preds = %501
+  %503 = call i32 @setenv(ptr noundef nonnull @.str.8, ptr noundef nonnull %.0323, i32 noundef 1) #9
+  br label %506
 
-506:                                              ; preds = %503
-  %507 = call i32 @unsetenv(ptr noundef nonnull @.str.8) #9
-  br label %508
+504:                                              ; preds = %501
+  %505 = call i32 @unsetenv(ptr noundef nonnull @.str.8) #9
+  br label %506
 
-508:                                              ; preds = %506, %504
+506:                                              ; preds = %504, %502
   call void @pg_free(ptr noundef %.0331) #9
   call void @pg_free(ptr noundef %.0330) #9
   call void @pg_free(ptr noundef %.0329) #9
@@ -1251,17 +1251,17 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
   call void @pg_free(ptr noundef %.0325) #9
   call void @pg_free(ptr noundef %.0324) #9
   call void @pg_free(ptr noundef %.0323) #9
-  %509 = load i32, ptr %115, align 4
-  %510 = icmp ult i32 %509, 90300
-  %or.cond = select i1 %510, i1 %.0377.lcssa, i1 false
+  %507 = load i32, ptr %115, align 4
+  %508 = icmp ult i32 %507, 90300
+  %509 = select i1 %508, i1 %.0377.lcssa, i1 false
   br i1 %or.cond, label %511, label %514
 
-511:                                              ; preds = %508
+511:                                              ; preds = %506
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %513 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %512, i64 noundef 25, ptr noundef nonnull @.str.59, i32 noundef %.0321.lcssa, i32 noundef %.0319.lcssa, i32 noundef %.0318.lcssa) #9
   br label %514
 
-514:                                              ; preds = %511, %508
+514:                                              ; preds = %511, %506
   %.2360 = phi i8 [ 1, %511 ], [ %.0358.lcssa, %508 ]
   %or.cond7 = select i1 %.0371.lcssa, i1 %.0369.lcssa, i1 false
   %or.cond9 = select i1 %or.cond7, i1 %.0367.lcssa, i1 false

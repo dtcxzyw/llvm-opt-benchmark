@@ -1193,7 +1193,7 @@ read_more_data_.exit:                             ; preds = %145, %135
   %155 = add i64 %154, %153
   store i64 %155, ptr %11, align 8, !tbaa !52
   %156 = icmp sgt i32 %.lcssa, 0
-  br i1 %156, label %157, label %251
+  br i1 %156, label %157, label %252
 
 157:                                              ; preds = %.critedge
   %158 = load i32, ptr %90, align 4, !tbaa !35
@@ -1373,54 +1373,54 @@ read_more_data_.exit:                             ; preds = %145, %135
   %.not301 = select i1 %247, i1 true, i1 %.not244
   %248 = load i32, ptr %71, align 8, !tbaa !23
   %.not246 = icmp ne i32 %248, 0
-  %brmerge = select i1 %.not246, i1 true, i1 %.not301
+  %249 = select i1 %.not246, i1 true, i1 %.not301
   br i1 %brmerge, label %249, label %.thread
 
-249:                                              ; preds = %246
+250:                                              ; preds = %246
   %.0185.mux = select i1 %.not246, i32 %.0185322, i32 0
-  %250 = load i32, ptr %90, align 4, !tbaa !35
-  %.not247 = icmp eq i32 %250, 0
+  %251 = load i32, ptr %90, align 4, !tbaa !35
+  %.not247 = icmp eq i32 %251, 0
   %spec.select255 = select i1 %.not247, i64 %151, i64 %.0173324
   br label %check_size_of_link_allocation_.exit264
 
-251:                                              ; preds = %.critedge
-  %252 = load i32, ptr %93, align 4, !tbaa !24
-  %.not232 = icmp eq i32 %252, 0
-  br i1 %.not232, label %267, label %253
+252:                                              ; preds = %.critedge
+  %253 = load i32, ptr %93, align 4, !tbaa !24
+  %.not232 = icmp eq i32 %253, 0
+  br i1 %.not232, label %268, label %254
 
-253:                                              ; preds = %251
-  %254 = load i32, ptr %90, align 4, !tbaa !35
-  %.not233 = icmp eq i32 %254, 0
-  br i1 %.not233, label %266, label %255
+254:                                              ; preds = %252
+  %255 = load i32, ptr %90, align 4, !tbaa !35
+  %.not233 = icmp eq i32 %255, 0
+  br i1 %.not233, label %267, label %256
 
-255:                                              ; preds = %253
-  %256 = load i32, ptr %96, align 8, !tbaa !36
-  %.not234 = icmp eq i32 %256, 0
-  br i1 %.not234, label %257, label %266
+256:                                              ; preds = %254
+  %257 = load i32, ptr %96, align 8, !tbaa !36
+  %.not234 = icmp eq i32 %257, 0
+  br i1 %.not234, label %258, label %267
 
-257:                                              ; preds = %255
-  %258 = load i32, ptr %16, align 4, !tbaa !33
-  %259 = icmp eq i32 %258, 0
-  br i1 %259, label %.thread, label %260
+258:                                              ; preds = %256
+  %259 = load i32, ptr %16, align 4, !tbaa !33
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %.thread, label %261
 
-260:                                              ; preds = %257
-  %261 = add i32 %258, -1
-  store i32 %261, ptr %16, align 4, !tbaa !33
-  %262 = load ptr, ptr %97, align 8, !tbaa !27
-  %263 = zext i32 %261 to i64
-  %264 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %262, i64 %263
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 48
-  store i32 1, ptr %265, align 8, !tbaa !62
+261:                                              ; preds = %258
+  %262 = add i32 %259, -1
+  store i32 %262, ptr %16, align 4, !tbaa !33
+  %263 = load ptr, ptr %97, align 8, !tbaa !27
+  %264 = zext i32 %262 to i64
+  %265 = getelementptr inbounds nuw %struct.FLAC__OggDecoderAspect_LinkDetails, ptr %263, i64 %264
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
+  store i32 1, ptr %266, align 8, !tbaa !62
   br label %.thread
 
-266:                                              ; preds = %255, %253
+267:                                              ; preds = %256, %254
   br i1 %.not235, label %.thread, label %check_size_of_link_allocation_.exit264
 
-267:                                              ; preds = %251
-  %268 = icmp eq i32 %.lcssa, 0
-  br i1 %268, label %.thread, label %check_size_of_link_allocation_.exit264
+268:                                              ; preds = %252
+  %269 = icmp eq i32 %.lcssa, 0
+  br i1 %269, label %.thread, label %check_size_of_link_allocation_.exit264
 
-check_size_of_link_allocation_.exit264:           ; preds = %267, %266, %249, %231, %216, %228, %225, %214
+check_size_of_link_allocation_.exit264:           ; preds = %268, %267, %250, %231, %216, %228, %225, %214
   %.1198 = phi i32 [ %.2199, %214 ], [ %.2199, %249 ], [ %.2199, %267 ], [ %.2199, %266 ], [ %.2199., %231 ], [ 1, %216 ], [ %.2199, %228 ], [ %.2199, %225 ]
   %.1191 = phi i32 [ %.2192, %214 ], [ %.2192, %249 ], [ %.2192, %267 ], [ %.2192, %266 ], [ 0, %231 ], [ %.2192, %216 ], [ 1, %228 ], [ 0, %225 ]
   %.1186 = phi i32 [ %.0185322, %214 ], [ %.0185.mux, %249 ], [ %.0185322, %267 ], [ %.0185322, %266 ], [ %.0185322, %231 ], [ %.0185322, %216 ], [ %.0185322, %228 ], [ %.0185322, %225 ]
@@ -1429,7 +1429,7 @@ check_size_of_link_allocation_.exit264:           ; preds = %267, %266, %249, %2
   %.not226 = icmp ugt i64 %.1181, %.1174
   br i1 %.not226, label %100, label %.thread
 
-.thread:                                          ; preds = %100, %check_size_of_link_allocation_.exit264, %120, %266, %267, %230, %203, %243, %246, %145, %139, %78, %.thread.i259, %257, %234, %260, %237, %75, %70, %77, %74
+.thread:                                          ; preds = %100, %check_size_of_link_allocation_.exit264, %120, %267, %268, %230, %203, %243, %246, %145, %139, %78, %.thread.i259, %258, %234, %261, %237, %75, %70, %77, %74
   %.4 = phi i32 [ 9, %75 ], [ 9, %70 ], [ 7, %77 ], [ 7, %74 ], [ 3, %257 ], [ 3, %234 ], [ 1, %260 ], [ 1, %237 ], [ 6, %.thread.i259 ], [ 7, %78 ], [ 7, %145 ], [ 8, %139 ], [ 7, %100 ], [ 7, %check_size_of_link_allocation_.exit264 ], [ 0, %120 ], [ 7, %266 ], [ 3, %267 ], [ 7, %230 ], [ 8, %203 ], [ %245, %243 ], [ 0, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

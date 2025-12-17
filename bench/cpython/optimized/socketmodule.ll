@@ -11785,7 +11785,7 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
   %42 = icmp ult i64 %41, 16
   %43 = load ptr, ptr %30, align 8
   %.not65130161174 = icmp eq ptr %43, null
-  %.not65130161 = select i1 %42, i1 true, i1 %.not65130161174
+  %.not65130 = select i1 %42, i1 true, i1 %.not65130161174
   %.not65130 = select i1 %.not64, i1 true, i1 %.not65130161
   br i1 %.not65130, label %.thread112, label %.lr.ph.preheader
 
@@ -11963,7 +11963,7 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
   %125 = icmp ult i64 %124, 16
   %126 = load ptr, ptr %30, align 8
   %.not69138162175 = icmp eq ptr %126, null
-  %.not69138162 = select i1 %125, i1 true, i1 %.not69138162175
+  %.not69138 = select i1 %125, i1 true, i1 %.not69138162175
   %.not69138 = select i1 %.not68, i1 true, i1 %.not69138162
   br i1 %.not69138, label %get_cmsg_data_len.exit87.thread, label %.lr.ph140.preheader
 

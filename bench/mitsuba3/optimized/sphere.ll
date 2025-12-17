@@ -3198,15 +3198,15 @@ define linkonce_odr hidden void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spectru
   %21 = fmul contract <4 x double> %20, %19
   %shift = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd contract <4 x double> %shift, %21
-  %shift366 = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop367 = fadd contract <4 x double> %shift366, %foldExtExtBinop
-  %22 = extractelement <4 x double> %foldExtExtBinop367, i64 0
+  %shift368 = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop369 = fadd contract <4 x double> %shift368, %foldExtExtBinop
+  %22 = extractelement <4 x double> %foldExtExtBinop369, i64 0
   %23 = fmul contract <4 x double> %19, %19
-  %shift369 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop370 = fadd contract <4 x double> %shift369, %23
-  %shift372 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop373 = fadd contract <4 x double> %shift372, %foldExtExtBinop370
-  %24 = extractelement <4 x double> %foldExtExtBinop373, i64 0
+  %shift371 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop372 = fadd contract <4 x double> %shift371, %23
+  %shift374 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop375 = fadd contract <4 x double> %shift374, %foldExtExtBinop372
+  %24 = extractelement <4 x double> %foldExtExtBinop375, i64 0
   %25 = tail call contract noundef double @llvm.sqrt.f64(double %24)
   %26 = fdiv contract double %22, %25
   %27 = fcmp contract oeq double %26, 0.000000e+00
@@ -3229,17 +3229,17 @@ define linkonce_odr hidden void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spectru
   %40 = fpext <4 x float> %39 to <4 x double>
   %41 = fsub contract <4 x double> %40, %11
   %42 = fmul contract <4 x double> %41, %41
-  %shift375 = shufflevector <4 x double> %42, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop376 = fadd contract <4 x double> %shift375, %42
-  %shift378 = shufflevector <4 x double> %42, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop379 = fadd contract <4 x double> %shift378, %foldExtExtBinop376
-  %43 = extractelement <4 x double> %foldExtExtBinop379, i64 0
+  %shift377 = shufflevector <4 x double> %42, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop378 = fadd contract <4 x double> %shift377, %42
+  %shift380 = shufflevector <4 x double> %42, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop381 = fadd contract <4 x double> %shift380, %foldExtExtBinop378
+  %43 = extractelement <4 x double> %foldExtExtBinop381, i64 0
   %44 = fmul contract <4 x double> %41, %19
-  %shift381 = shufflevector <4 x double> %44, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop382 = fadd contract <4 x double> %shift381, %44
-  %shift384 = shufflevector <4 x double> %44, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop385 = fadd contract <4 x double> %shift384, %foldExtExtBinop382
-  %45 = extractelement <4 x double> %foldExtExtBinop385, i64 0
+  %shift383 = shufflevector <4 x double> %44, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop384 = fadd contract <4 x double> %shift383, %44
+  %shift386 = shufflevector <4 x double> %44, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop387 = fadd contract <4 x double> %shift386, %foldExtExtBinop384
+  %45 = extractelement <4 x double> %foldExtExtBinop387, i64 0
   %46 = fmul contract double %45, 2.000000e+00
   %47 = fmul contract double %8, %8
   %48 = fsub contract double %43, %47
@@ -3378,9 +3378,9 @@ _ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIf
   %.not192.i = select i1 %47, i1 %48, i1 false
   %49 = fcmp contract uge double %.0.i, 0.000000e+00
   %50 = fcmp contract ule double %.0186.i, %46
-  %.not194.i = select i1 %49, i1 true, i1 %50
-  %or.cond.not.i = select i1 %narrow.i, i1 %.not192.i, i1 false
-  %or.cond3.not.i = select i1 %or.cond.not.i, i1 %.not194.i, i1 false
+  %.not195.i = select i1 %49, i1 true, i1 %50
+  %.not190.i = select i1 %narrow.i, i1 %.not192.i, i1 false
+  %or.cond.not192.i = select i1 %.not190.i, i1 %.not194.i, i1 false
   ret i1 %or.cond3.not.i
 }
 
@@ -3463,9 +3463,9 @@ _ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIf
   %.not192.i = select i1 %45, i1 %46, i1 false
   %47 = fcmp contract uge double %.0.i, 0.000000e+00
   %48 = fcmp contract ule double %.0186.i, %44
-  %.not194.i = select i1 %47, i1 true, i1 %48
-  %or.cond.not.i = select i1 %narrow.i, i1 %.not192.i, i1 false
-  %or.cond3.not.i = select i1 %or.cond.not.i, i1 %.not194.i, i1 false
+  %.not195.i = select i1 %47, i1 true, i1 %48
+  %.not190.i = select i1 %narrow.i, i1 %.not192.i, i1 false
+  %or.cond.not192.i = select i1 %.not190.i, i1 %.not194.i, i1 false
   ret i1 %or.cond3.not.i
 }
 

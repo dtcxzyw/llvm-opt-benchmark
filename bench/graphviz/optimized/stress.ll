@@ -2579,8 +2579,8 @@ gv_calloc.exit466:                                ; preds = %.thread.i465, %697
   %wide.trip.count742 = zext nneg i32 %4 to i64
   br label %716
 
-716:                                              ; preds = %.lr.ph579, %842
-  %.1577 = phi i32 [ 0, %.lr.ph579 ], [ %843, %842 ]
+716:                                              ; preds = %.lr.ph579, %841
+  %.1577 = phi i32 [ 0, %.lr.ph579 ], [ %842, %842 ]
   %.0375576 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph579 ], [ %.1374.lcssa, %842 ]
   call void @llvm.memset.p0.i64(ptr align 16 %638, i8 0, i64 %712, i1 false)
   br i1 %603, label %717, label %718
@@ -2835,92 +2835,92 @@ gv_calloc.exit466:                                ; preds = %.thread.i465, %697
 .lr.ph574:                                        ; preds = %._crit_edge568
   br i1 %.0352, label %.lr.ph574.split.us, label %.lr.ph574.split
 
-.lr.ph574.split.us:                               ; preds = %.lr.ph574, %811
+.lr.ph574.split.us:                               ; preds = %.lr.ph574, %810
   %indvars.iv739 = phi i64 [ %indvars.iv.next740, %811 ], [ 0, %.lr.ph574 ]
-  %805 = getelementptr inbounds nuw ptr, ptr %566, i64 %indvars.iv739
-  %806 = load ptr, ptr %805, align 8, !tbaa !92
-  %807 = getelementptr inbounds nuw ptr, ptr %664, i64 %indvars.iv739
-  %808 = load ptr, ptr %807, align 8, !tbaa !92
-  %809 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1343, ptr noundef %806, ptr noundef %808, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #16
-  %810 = icmp slt i32 %809, 0
-  br i1 %810, label %.thread, label %811
+  %804 = getelementptr inbounds nuw ptr, ptr %566, i64 %indvars.iv739
+  %805 = load ptr, ptr %804, align 8, !tbaa !92
+  %806 = getelementptr inbounds nuw ptr, ptr %664, i64 %indvars.iv739
+  %807 = load ptr, ptr %806, align 8, !tbaa !92
+  %808 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1343, ptr noundef %805, ptr noundef %807, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #16
+  %809 = icmp slt i32 %808, 0
+  br i1 %809, label %.thread, label %810
 
-811:                                              ; preds = %.lr.ph574.split.us
+810:                                              ; preds = %.lr.ph574.split.us
   %indvars.iv.next740 = add nuw nsw i64 %indvars.iv739, 1
   %exitcond743.not = icmp eq i64 %indvars.iv.next740, %wide.trip.count742
   br i1 %exitcond743.not, label %._crit_edge575, label %.lr.ph574.split.us, !llvm.loop !122
 
 .lr.ph574.split:                                  ; preds = %.lr.ph574, %.loopexit
   %indvars.iv734 = phi i64 [ %indvars.iv.next735, %.loopexit ], [ 0, %.lr.ph574 ]
-  %812 = getelementptr inbounds nuw ptr, ptr %566, i64 %indvars.iv734
-  %813 = load ptr, ptr %812, align 8, !tbaa !92
-  call void @copy_vectorf(i32 noundef %1, ptr noundef %813, ptr noundef %689) #16
-  %814 = getelementptr inbounds nuw ptr, ptr %664, i64 %indvars.iv734
-  %815 = load ptr, ptr %814, align 8, !tbaa !92
-  %816 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1343, ptr noundef %689, ptr noundef %815, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #16
-  %817 = icmp slt i32 %816, 0
-  br i1 %817, label %.thread, label %.preheader476
+  %811 = getelementptr inbounds nuw ptr, ptr %566, i64 %indvars.iv734
+  %812 = load ptr, ptr %811, align 8, !tbaa !92
+  call void @copy_vectorf(i32 noundef %1, ptr noundef %812, ptr noundef %689) #16
+  %813 = getelementptr inbounds nuw ptr, ptr %664, i64 %indvars.iv734
+  %814 = load ptr, ptr %813, align 8, !tbaa !92
+  %815 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1343, ptr noundef %689, ptr noundef %814, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #16
+  %816 = icmp slt i32 %815, 0
+  br i1 %816, label %.thread, label %.preheader476
 
 .preheader476:                                    ; preds = %.lr.ph574.split
   br i1 %.not.i437.not, label %.loopexit, label %.lr.ph571
 
-.lr.ph571:                                        ; preds = %.preheader476, %830
+.lr.ph571:                                        ; preds = %.preheader476, %829
   %indvars.iv729 = phi i64 [ %indvars.iv.next730, %830 ], [ 0, %.preheader476 ]
-  %818 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv729
-  %819 = load ptr, ptr %818, align 8, !tbaa !8
-  %820 = getelementptr inbounds nuw i8, ptr %819, i64 16
-  %821 = load ptr, ptr %820, align 8, !tbaa !10
-  %822 = getelementptr inbounds nuw i8, ptr %821, i64 163
-  %823 = load i8, ptr %822, align 1, !tbaa !16
-  %824 = icmp ugt i8 %823, 1
-  br i1 %824, label %830, label %825
+  %817 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv729
+  %818 = load ptr, ptr %817, align 8, !tbaa !8
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 16
+  %820 = load ptr, ptr %819, align 8, !tbaa !10
+  %821 = getelementptr inbounds nuw i8, ptr %820, i64 163
+  %822 = load i8, ptr %821, align 1, !tbaa !16
+  %823 = icmp ugt i8 %822, 1
+  br i1 %823, label %829, label %824
 
-825:                                              ; preds = %.lr.ph571
-  %826 = getelementptr inbounds nuw float, ptr %689, i64 %indvars.iv729
-  %827 = load float, ptr %826, align 4, !tbaa !47
-  %828 = load ptr, ptr %812, align 8, !tbaa !92
-  %829 = getelementptr inbounds nuw float, ptr %828, i64 %indvars.iv729
-  store float %827, ptr %829, align 4, !tbaa !47
-  br label %830
+824:                                              ; preds = %.lr.ph571
+  %825 = getelementptr inbounds nuw float, ptr %689, i64 %indvars.iv729
+  %826 = load float, ptr %825, align 4, !tbaa !47
+  %827 = load ptr, ptr %811, align 8, !tbaa !92
+  %828 = getelementptr inbounds nuw float, ptr %827, i64 %indvars.iv729
+  store float %826, ptr %828, align 4, !tbaa !47
+  br label %829
 
-830:                                              ; preds = %.lr.ph571, %825
+829:                                              ; preds = %.lr.ph571, %824
   %indvars.iv.next730 = add nuw nsw i64 %indvars.iv729, 1
   %exitcond733.not = icmp eq i64 %indvars.iv.next730, %wide.trip.count732
   br i1 %exitcond733.not, label %.loopexit, label %.lr.ph571, !llvm.loop !123
 
-.loopexit:                                        ; preds = %830, %.preheader476
+.loopexit:                                        ; preds = %829, %.preheader476
   %indvars.iv.next735 = add nuw nsw i64 %indvars.iv734, 1
   %exitcond738.not = icmp eq i64 %indvars.iv.next735, %wide.trip.count737
   br i1 %exitcond738.not, label %._crit_edge575, label %.lr.ph574.split, !llvm.loop !122
 
-._crit_edge575:                                   ; preds = %.loopexit, %811, %._crit_edge568
-  %831 = load i8, ptr @Verbose, align 1, !tbaa !56
-  %.not418 = icmp ne i8 %831, 0
-  %832 = urem i32 %.1577, 5
-  %833 = icmp eq i32 %832, 0
-  %or.cond424 = and i1 %833, %.not418
-  br i1 %or.cond424, label %834, label %842
+._crit_edge575:                                   ; preds = %.loopexit, %810, %._crit_edge568
+  %830 = load i8, ptr @Verbose, align 1, !tbaa !56
+  %.not418 = icmp ne i8 %830, 0
+  %831 = urem i32 %.1577, 5
+  %832 = icmp eq i32 %831, 0
+  %or.cond424 = and i1 %832, %.not418
+  br i1 %or.cond424, label %833, label %841
 
-834:                                              ; preds = %._crit_edge575
-  %835 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %836 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %835, ptr noundef nonnull @.str.11, double noundef %.1374.lcssa) #18
-  %837 = add nuw nsw i32 %.1577, 5
-  %838 = urem i32 %837, 50
-  %839 = icmp eq i32 %838, 0
-  br i1 %839, label %840, label %842
+833:                                              ; preds = %._crit_edge575
+  %834 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %835 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %834, ptr noundef nonnull @.str.11, double noundef %.1374.lcssa) #18
+  %836 = add nuw nsw i32 %.1577, 5
+  %837 = urem i32 %836, 50
+  %838 = icmp eq i32 %837, 0
+  br i1 %838, label %839, label %841
 
-840:                                              ; preds = %834
-  %841 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %fputc = call i32 @fputc(i32 10, ptr %841)
-  br label %842
+839:                                              ; preds = %833
+  %840 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %fputc = call i32 @fputc(i32 10, ptr %840)
+  br label %841
 
-842:                                              ; preds = %._crit_edge575, %840, %834
-  %843 = add nuw nsw i32 %.1577, 1
-  %844 = icmp sge i32 %843, %7
-  %.not416 = select i1 %844, i1 true, i1 %804
+841:                                              ; preds = %._crit_edge575, %839, %833
+  %842 = add nuw nsw i32 %.1577, 1
+  %843 = icmp sge i32 %842, %7
+  %844 = select i1 %843, i1 true, i1 %804
   br i1 %.not416, label %._crit_edge580, label %716, !llvm.loop !124
 
-._crit_edge580:                                   ; preds = %842
+._crit_edge580:                                   ; preds = %841
   %845 = load i8, ptr @Verbose, align 1, !tbaa !56
   %.not417 = icmp eq i8 %845, 0
   br i1 %.not417, label %851, label %846
@@ -2929,7 +2929,7 @@ gv_calloc.exit466:                                ; preds = %.thread.i465, %697
   %847 = load ptr, ptr @stderr, align 8, !tbaa !37
   %848 = call fastcc double @compute_stressf(ptr noundef %566, ptr noundef %.1343, i32 noundef %4, i32 noundef %1, i32 noundef %13)
   %849 = call double @elapsed_sec() #16
-  %850 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %847, ptr noundef nonnull @.str.13, double noundef %848, i32 noundef %843, double noundef %849) #18
+  %850 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %847, ptr noundef nonnull @.str.13, double noundef %848, i32 noundef %842, double noundef %849) #18
   br label %851
 
 851:                                              ; preds = %846, %._crit_edge580
@@ -2976,7 +2976,7 @@ gv_calloc.exit466:                                ; preds = %.thread.i465, %697
   %.0369 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %690, %851 ], [ %690, %.preheader.lr.ph ], [ %690, %._crit_edge584.us ], [ %690, %.lr.ph574.split.us ], [ %690, %.lr.ph574.split ]
   %.0368 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %704, %851 ], [ %704, %.preheader.lr.ph ], [ %704, %._crit_edge584.us ], [ %704, %.lr.ph574.split.us ], [ %704, %.lr.ph574.split ]
   %.0367 = phi ptr [ null, %sparse_stress_subspace_majorization_kD.exit ], [ %566, %851 ], [ %566, %.preheader.lr.ph ], [ %566, %._crit_edge584.us ], [ %566, %.lr.ph574.split.us ], [ %566, %.lr.ph574.split ]
-  %.0341 = phi i32 [ -1, %sparse_stress_subspace_majorization_kD.exit ], [ %843, %851 ], [ %843, %.preheader.lr.ph ], [ %843, %._crit_edge584.us ], [ -1, %.lr.ph574.split.us ], [ -1, %.lr.ph574.split ]
+  %.0341 = phi i32 [ -1, %sparse_stress_subspace_majorization_kD.exit ], [ %842, %851 ], [ %842, %.preheader.lr.ph ], [ %842, %._crit_edge584.us ], [ -1, %.lr.ph574.split.us ], [ -1, %.lr.ph574.split ]
   call void @free(ptr noundef %.0380) #16
   call void @free(ptr noundef %.0367) #16
   call void @free(ptr noundef %.0379) #16

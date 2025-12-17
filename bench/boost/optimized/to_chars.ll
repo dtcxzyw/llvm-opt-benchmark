@@ -10375,7 +10375,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22d
   %37 = add i64 %.neg, %33
   %38 = trunc i64 %37 to i32
   %39 = icmp ugt i32 %16, %38
-  br i1 %39, label %40, label %46
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %3
   %41 = extractvalue { i64, i1 } %30, 0
@@ -10383,153 +10383,153 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22d
   %43 = icmp ne i32 %38, 0
   %.not38 = select i1 %2, i1 true, i1 %42
   %or.cond = select i1 %43, i1 true, i1 %.not38
-  br i1 %or.cond, label %67, label %44
+  br i1 %or.cond, label %68, label %45
 
-44:                                               ; preds = %40
-  %45 = add nsw i64 %36, -1
-  br label %96
+45:                                               ; preds = %40
+  %46 = add nsw i64 %36, -1
+  br label %97
 
-46:                                               ; preds = %3
-  %47 = icmp ult i32 %16, %38
-  br i1 %47, label %96, label %48
+47:                                               ; preds = %3
+  %48 = icmp ult i32 %16, %38
+  br i1 %48, label %97, label %49
 
-48:                                               ; preds = %46
-  %49 = add i64 %0, -1
-  %50 = mul i64 %.sroa.0.0.copyload.i, %49
-  %51 = zext i64 %49 to i128
-  %52 = mul nuw i128 %26, %51
-  %53 = lshr i128 %52, 64
-  %54 = trunc nuw i128 %53 to i64
-  %55 = trunc i128 %52 to i64
-  %56 = add i64 %50, %54
-  %57 = sub nsw i32 64, %12
-  %58 = zext i32 %57 to i64
-  %59 = lshr i64 %56, %58
-  %60 = trunc i64 %59 to i32
-  %.sroa.06.0.insert.ext.i = and i32 %60, 1
-  %61 = shl i64 %56, %18
-  %62 = lshr i64 %55, %58
-  %63 = or i64 %61, %62
-  %64 = icmp eq i64 %63, 0
-  %narrow = select i1 %2, i1 %64, i1 false
-  %65 = zext i1 %narrow to i32
-  %66 = or i32 %.sroa.06.0.insert.ext.i, %65
-  %.not = icmp eq i32 %66, 0
-  br i1 %.not, label %96, label %67
+49:                                               ; preds = %47
+  %50 = add i64 %0, -1
+  %51 = mul i64 %.sroa.0.0.copyload.i, %50
+  %52 = zext i64 %50 to i128
+  %53 = mul nuw i128 %26, %52
+  %54 = lshr i128 %53, 64
+  %55 = trunc nuw i128 %54 to i64
+  %56 = trunc i128 %53 to i64
+  %57 = add i64 %51, %55
+  %58 = sub nsw i32 64, %12
+  %59 = zext i32 %58 to i64
+  %60 = lshr i64 %57, %59
+  %61 = trunc i64 %60 to i32
+  %.sroa.06.0.insert.ext.i = and i32 %61, 1
+  %62 = shl i64 %57, %18
+  %63 = lshr i64 %56, %59
+  %64 = or i64 %62, %63
+  %65 = icmp eq i64 %64, 0
+  %narrow = select i1 %2, i1 %65, i1 false
+  %66 = zext i1 %narrow to i32
+  %67 = or i32 %.sroa.06.0.insert.ext.i, %66
+  %.not = icmp eq i32 %67, 0
+  br i1 %.not, label %97, label %68
 
-67:                                               ; preds = %48, %40
-  %68 = add nsw i32 %5, 1
-  %69 = icmp eq i128 %sum.shift.i, 0
-  br i1 %69, label %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit, label %70
+68:                                               ; preds = %49, %40
+  %69 = add nsw i32 %5, 1
+  %70 = icmp eq i128 %sum.shift.i, 0
+  br i1 %70, label %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit, label %71
 
-70:                                               ; preds = %67
-  %71 = mul nuw nsw i128 %sum.shift.i, 12379400392853802749
-  %72 = trunc i128 %71 to i64
-  %73 = and i128 %71, 1237940020838636201189572608
-  %74 = icmp eq i128 %73, 0
-  %75 = icmp ult i64 %72, -6067343680855748867
-  %or.cond.i = and i1 %75, %74
-  br i1 %or.cond.i, label %76, label %.preheader
+71:                                               ; preds = %68
+  %72 = mul nuw nsw i128 %sum.shift.i, 12379400392853802749
+  %73 = trunc i128 %72 to i64
+  %74 = and i128 %72, 1237940020838636201189572608
+  %75 = icmp eq i128 %74, 0
+  %76 = icmp ult i64 %73, -6067343680855748867
+  %or.cond.i = and i1 %76, %75
+  br i1 %or.cond.i, label %77, label %.preheader
 
-76:                                               ; preds = %70
-  %77 = lshr i128 %71, 90
-  %78 = trunc nuw nsw i128 %77 to i32
-  br label %79
+77:                                               ; preds = %71
+  %78 = lshr i128 %72, 90
+  %79 = trunc nuw nsw i128 %78 to i32
+  br label %80
 
-79:                                               ; preds = %79, %76
-  %.034.i = phi i32 [ 8, %76 ], [ %82, %79 ]
-  %.029.i = phi i32 [ %78, %76 ], [ %81, %79 ]
-  %80 = mul i32 %.029.i, -1030792151
-  %81 = tail call i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 30)
-  %.not45.i = icmp ugt i32 %81, 42949672
-  %82 = add nuw nsw i32 %.034.i, 2
-  br i1 %.not45.i, label %83, label %79
+80:                                               ; preds = %80, %77
+  %.034.i = phi i32 [ 8, %76 ], [ %83, %79 ]
+  %.029.i = phi i32 [ %79, %76 ], [ %82, %79 ]
+  %81 = mul i32 %.029.i, -1030792151
+  %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 30)
+  %.not45.i = icmp ugt i32 %82, 42949672
+  %83 = add nuw nsw i32 %.034.i, 2
+  br i1 %.not45.i, label %84, label %80
 
-83:                                               ; preds = %79
-  %84 = mul i32 %.029.i, -858993459
-  %85 = tail call i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 31)
-  %.not46.i = icmp ult i32 %85, 429496730
-  %86 = zext i1 %.not46.i to i32
-  %spec.select.i = or disjoint i32 %.034.i, %86
-  %spec.select47.i = select i1 %.not46.i, i32 %85, i32 %.029.i
-  %87 = zext i32 %spec.select47.i to i64
+84:                                               ; preds = %80
+  %85 = mul i32 %.029.i, -858993459
+  %86 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 31)
+  %.not46.i = icmp ult i32 %86, 429496730
+  %87 = zext i1 %.not46.i to i32
+  %spec.select.i = or disjoint i32 %.034.i, %87
+  %spec.select47.i = select i1 %.not46.i, i32 %86, i32 %.029.i
+  %88 = zext i32 %spec.select47.i to i64
   br label %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit
 
-.preheader:                                       ; preds = %70, %.preheader
-  %.sroa.067.3 = phi i64 [ %89, %.preheader ], [ %36, %70 ]
-  %.031.i = phi i32 [ %90, %.preheader ], [ 0, %70 ]
-  %88 = mul i64 %.sroa.067.3, -8116567392432202711
-  %89 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 62)
-  %.not.i = icmp ugt i64 %89, 184467440737095516
-  %90 = add nuw nsw i32 %.031.i, 2
-  br i1 %.not.i, label %91, label %.preheader
+.preheader:                                       ; preds = %71, %.preheader
+  %.sroa.067.3 = phi i64 [ %90, %.preheader ], [ %36, %70 ]
+  %.031.i = phi i32 [ %91, %.preheader ], [ 0, %70 ]
+  %89 = mul i64 %.sroa.067.3, -8116567392432202711
+  %90 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 62)
+  %.not.i = icmp ugt i64 %90, 184467440737095516
+  %91 = add nuw nsw i32 %.031.i, 2
+  br i1 %.not.i, label %92, label %.preheader
 
-91:                                               ; preds = %.preheader
-  %92 = mul i64 %.sroa.067.3, -3689348814741910323
-  %93 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 63)
-  %.not44.i = icmp ult i64 %93, 1844674407370955162
-  %spec.select = select i1 %.not44.i, i64 %93, i64 %.sroa.067.3
-  %94 = zext i1 %.not44.i to i32
-  %spec.select99 = or disjoint i32 %.031.i, %94
+92:                                               ; preds = %.preheader
+  %93 = mul i64 %.sroa.067.3, -3689348814741910323
+  %94 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 63)
+  %.not44.i = icmp ult i64 %94, 1844674407370955162
+  %spec.select = select i1 %.not44.i, i64 %94, i64 %.sroa.067.3
+  %95 = zext i1 %.not44.i to i32
+  %spec.select99 = or disjoint i32 %.031.i, %95
   br label %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit
 
-_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit: ; preds = %91, %67, %83
-  %.sroa.067.5 = phi i64 [ 0, %67 ], [ %87, %83 ], [ %spec.select, %91 ]
+_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit: ; preds = %92, %68, %84
+  %.sroa.067.5 = phi i64 [ 0, %67 ], [ %88, %83 ], [ %spec.select, %91 ]
   %.0.i = phi i32 [ 0, %67 ], [ %spec.select.i, %83 ], [ %spec.select99, %91 ]
-  %95 = add nsw i32 %68, %.0.i
-  br label %131
+  %96 = add nsw i32 %69, %.0.i
+  br label %132
 
-96:                                               ; preds = %48, %46, %44
-  %.sroa.067.0 = phi i64 [ %45, %44 ], [ %36, %46 ], [ %36, %48 ]
+97:                                               ; preds = %49, %47, %45
+  %.sroa.067.0 = phi i64 [ %46, %44 ], [ %36, %46 ], [ %36, %48 ]
   %.0 = phi i32 [ 1000, %44 ], [ %38, %46 ], [ %38, %48 ]
-  %97 = mul nsw i64 %.sroa.067.0, 10
-  %98 = lshr i32 %16, 1
-  %99 = sub i32 %.0, %98
-  %100 = mul i32 %99, 656
-  %101 = add i32 %100, 32800
-  %102 = and i32 %101, 65520
-  %103 = icmp samesign ult i32 %102, 656
-  %104 = lshr i32 %101, 16
-  %105 = zext nneg i32 %104 to i64
-  %106 = add nsw i64 %97, %105
-  br i1 %103, label %107, label %131
+  %98 = mul nsw i64 %.sroa.067.0, 10
+  %99 = lshr i32 %16, 1
+  %100 = sub i32 %.0, %99
+  %101 = mul i32 %100, 656
+  %102 = add i32 %101, 32800
+  %103 = and i32 %102, 65520
+  %104 = icmp samesign ult i32 %103, 656
+  %105 = lshr i32 %102, 16
+  %106 = zext nneg i32 %105 to i64
+  %107 = add nsw i64 %98, %106
+  br i1 %104, label %108, label %132
 
-107:                                              ; preds = %96
-  %108 = mul i64 %.sroa.0.0.copyload.i, %0
-  %109 = zext i64 %0 to i128
-  %110 = mul nuw i128 %26, %109
-  %111 = lshr i128 %110, 64
-  %112 = trunc nuw i128 %111 to i64
-  %113 = add i64 %108, %112
-  %114 = sub nsw i32 64, %12
-  %115 = zext i32 %114 to i64
-  %116 = lshr i64 %113, %115
-  %117 = trunc i64 %116 to i32
-  %118 = xor i32 %99, %117
-  %119 = and i32 %118, 1
-  %.not40 = icmp eq i32 %119, 0
-  br i1 %.not40, label %122, label %120
+108:                                              ; preds = %97
+  %109 = mul i64 %.sroa.0.0.copyload.i, %0
+  %110 = zext i64 %0 to i128
+  %111 = mul nuw i128 %26, %110
+  %112 = lshr i128 %111, 64
+  %113 = trunc nuw i128 %112 to i64
+  %114 = add i64 %109, %113
+  %115 = sub nsw i32 64, %12
+  %116 = zext i32 %115 to i64
+  %117 = lshr i64 %114, %116
+  %118 = trunc i64 %117 to i32
+  %119 = xor i32 %100, %118
+  %120 = and i32 %119, 1
+  %.not40 = icmp eq i32 %120, 0
+  br i1 %.not40, label %123, label %121
 
-120:                                              ; preds = %107
-  %121 = add nsw i64 %106, -1
-  br label %131
+121:                                              ; preds = %108
+  %122 = add nsw i64 %107, -1
+  br label %132
 
-122:                                              ; preds = %107
-  %123 = shl i64 %113, %18
-  %124 = trunc i128 %110 to i64
-  %125 = lshr i64 %124, %115
-  %126 = or i64 %123, %125
-  %127 = icmp eq i64 %126, 0
-  %128 = and i64 %105, 1
-  %129 = icmp ne i64 %128, 0
-  %.not41.not = and i1 %127, %129
-  %130 = sext i1 %.not41.not to i64
-  %spec.select100 = add nsw i64 %106, %130
-  br label %131
+123:                                              ; preds = %108
+  %124 = shl i64 %114, %18
+  %125 = trunc i128 %111 to i64
+  %126 = lshr i64 %125, %116
+  %127 = or i64 %124, %126
+  %128 = icmp eq i64 %127, 0
+  %129 = and i64 %106, 1
+  %130 = icmp ne i64 %129, 0
+  %.not41.not = and i1 %128, %130
+  %131 = sext i1 %.not41.not to i64
+  %spec.select100 = add nsw i64 %107, %131
+  br label %132
 
-131:                                              ; preds = %122, %96, %120, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit
-  %.sroa.20.0.in = phi i32 [ %95, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit ], [ %5, %120 ], [ %5, %96 ], [ %5, %122 ]
-  %.sroa.067.1 = phi i64 [ %.sroa.067.5, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit ], [ %121, %120 ], [ %106, %96 ], [ %spec.select100, %122 ]
+132:                                              ; preds = %123, %97, %121, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit
+  %.sroa.20.0.in = phi i32 [ %96, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit ], [ %5, %120 ], [ %5, %96 ], [ %5, %122 ]
+  %.sroa.067.1 = phi i64 [ %.sroa.067.5, %_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE21remove_trailing_zerosERm.exit ], [ %122, %120 ], [ %107, %96 ], [ %spec.select100, %122 ]
   %.sroa.20.0 = zext i32 %.sroa.20.0.in to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.067.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.20.0, 1

@@ -80477,7 +80477,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl11ValueFo
   %10 = zext i8 %9 to i32
   %11 = or i8 %9, %7
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %192, label %13
+  br i1 %12, label %193, label %13
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -80636,7 +80636,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl11ValueFo
   %.3 = phi ptr [ %126, %125 ], [ %.2, %98 ]
   %128 = load i8, ptr %8, align 1
   %129 = icmp ugt i8 %128, 15
-  br i1 %129, label %130, label %192
+  br i1 %129, label %130, label %193
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 104
@@ -80662,7 +80662,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl11ValueFo
   %143 = load i32, ptr %142, align 8
   %144 = icmp ne i32 %143, 0
   %or.cond = select i1 %138, i1 true, i1 %144
-  br i1 %or.cond, label %.thread, label %192
+  br i1 %or.cond, label %.thread, label %193
 
 .thread:                                          ; preds = %137, %141
   %145 = phi i1 [ %144, %141 ], [ true, %137 ]
@@ -80741,21 +80741,21 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl11ValueFo
   %.6 = phi ptr [ %183, %182 ], [ %.5, %173 ]
   %.not91 = icmp slt i8 %9, 0
   %.not = xor i1 %19, true
-  %or.cond5 = select i1 %.not, i1 %145, i1 false
-  %or.cond92 = select i1 %.not91, i1 %or.cond5, i1 false
-  br i1 %or.cond92, label %185, label %192
+  %185 = select i1 %.not, i1 %145, i1 false
+  %or.cond92 = select i1 %.not91, i1 %185, i1 false
+  br i1 %or.cond92, label %186, label %193
 
-185:                                              ; preds = %184
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %187 = call noundef nonnull align 1 dereferenceable(8) ptr @_ZN2OT6Layout9GPOS_impl11ValueFormat10get_deviceEPKNS_7IntTypeItLj2EEEPbPKvR21hb_sanitize_context_t(ptr noundef %.6, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(62) %186)
-  %188 = call noundef i32 @_ZNK2OT6Device11get_y_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %187, ptr noundef nonnull %15, ptr noundef nonnull align 1 dereferenceable(12) %147, ptr noundef %149)
-  %189 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %190 = load i32, ptr %189, align 4
-  %191 = sub nsw i32 %190, %188
-  store i32 %191, ptr %189, align 4
-  br label %192
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %188 = call noundef nonnull align 1 dereferenceable(8) ptr @_ZN2OT6Layout9GPOS_impl11ValueFormat10get_deviceEPKNS_7IntTypeItLj2EEEPbPKvR21hb_sanitize_context_t(ptr noundef %.6, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(62) %187)
+  %189 = call noundef i32 @_ZNK2OT6Device11get_y_deltaEP9hb_font_tRKNS_14VariationStoreEPf(ptr noundef nonnull align 1 dereferenceable(8) %188, ptr noundef nonnull %15, ptr noundef nonnull align 1 dereferenceable(12) %147, ptr noundef %149)
+  %190 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %191 = load i32, ptr %190, align 4
+  %192 = sub nsw i32 %191, %189
+  store i32 %192, ptr %190, align 4
+  br label %193
 
-192:                                              ; preds = %184, %185, %141, %127, %5
+193:                                              ; preds = %184, %186, %141, %127, %5
   %.0.in = load i8, ptr %6, align 1
   %.0 = trunc i8 %.0.in to i1
   ret i1 %.0

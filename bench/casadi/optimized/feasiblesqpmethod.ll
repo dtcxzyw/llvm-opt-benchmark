@@ -63509,41 +63509,41 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369:    ; preds = %.lr.ph.i.i364, %_ZN
   %277 = fcmp ugt double %259, 1.000000e-15
   %278 = fcmp ugt double %257, %268
   %.not270391392393394395 = and i1 %269, %271
-  %.not270391392393394 = select i1 %273, i1 %.not270391392393394395, i1 false
-  %.not270391392393 = select i1 %275, i1 %.not270391392393394, i1 false
-  %.not270391392 = select i1 %276, i1 %.not270391392393, i1 false
-  %.not270391 = select i1 %277, i1 %.not270391392, i1 false
+  %279 = select i1 %273, i1 %.not270391392393394395, i1 false
+  %280 = select i1 %275, i1 %279, i1 false
+  %281 = select i1 %276, i1 %280, i1 false
+  %282 = select i1 %277, i1 %281, i1 false
   %.not270 = select i1 %278, i1 %.not270391, i1 false
   br i1 %.not270, label %82, label %split, !llvm.loop !729
 
 split:                                            ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit369
   %.not.i370 = icmp eq ptr %1, null
-  br i1 %.not.i370, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %279
+  br i1 %.not.i370, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %283
 
-279:                                              ; preds = %split
+283:                                              ; preds = %split
   br i1 %.not.i.not, label %.preheader16.i372, label %.preheader.i378
 
-.preheader16.i372:                                ; preds = %279
+.preheader16.i372:                                ; preds = %283
   br i1 %27, label %.lr.ph.i373, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
-.preheader.i378:                                  ; preds = %279
+.preheader.i378:                                  ; preds = %283
   br i1 %27, label %.lr.ph23.preheader.i379, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
 .lr.ph23.preheader.i379:                          ; preds = %.preheader.i378
-  %280 = shl nuw i64 %3, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %280, i1 false), !tbaa !166
+  %284 = shl nuw i64 %3, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %284, i1 false), !tbaa !166
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380
 
 .lr.ph.i373:                                      ; preds = %.preheader16.i372, %.lr.ph.i373
-  %.020.i374 = phi i64 [ %284, %.lr.ph.i373 ], [ 0, %.preheader16.i372 ]
-  %.01019.i375 = phi ptr [ %283, %.lr.ph.i373 ], [ %1, %.preheader16.i372 ]
-  %.01218.i376 = phi ptr [ %281, %.lr.ph.i373 ], [ %23, %.preheader16.i372 ]
-  %281 = getelementptr inbounds nuw i8, ptr %.01218.i376, i64 8
-  %282 = load double, ptr %.01218.i376, align 8, !tbaa !166
-  %283 = getelementptr inbounds nuw i8, ptr %.01019.i375, i64 8
-  store double %282, ptr %.01019.i375, align 8, !tbaa !166
-  %284 = add nuw nsw i64 %.020.i374, 1
-  %exitcond.not.i377 = icmp eq i64 %284, %3
+  %.020.i374 = phi i64 [ %288, %.lr.ph.i373 ], [ 0, %.preheader16.i372 ]
+  %.01019.i375 = phi ptr [ %287, %.lr.ph.i373 ], [ %1, %.preheader16.i372 ]
+  %.01218.i376 = phi ptr [ %285, %.lr.ph.i373 ], [ %23, %.preheader16.i372 ]
+  %285 = getelementptr inbounds nuw i8, ptr %.01218.i376, i64 8
+  %286 = load double, ptr %.01218.i376, align 8, !tbaa !166
+  %287 = getelementptr inbounds nuw i8, ptr %.01019.i375, i64 8
+  store double %286, ptr %.01019.i375, align 8, !tbaa !166
+  %288 = add nuw nsw i64 %.020.i374, 1
+  %exitcond.not.i377 = icmp eq i64 %288, %3
   br i1 %exitcond.not.i377, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380, label %.lr.ph.i373, !llvm.loop !320
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit380:    ; preds = %.lr.ph.i373, %split, %.preheader16.i372, %.preheader.i378, %.lr.ph23.preheader.i379

@@ -622,7 +622,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %10 = icmp ult i64 %.sroa.7.0.copyload, 10
-  br i1 %10, label %64, label %11
+  br i1 %10, label %63, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -646,7 +646,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   %26 = shl nuw nsw i32 %25, 16
   %27 = or disjoint i32 %26, %22
   %28 = add nuw nsw i32 %27, 1
-  br label %53
+  br label %52
 
 29:                                               ; preds = %4
   %30 = load ptr, ptr %0, align 8, !tbaa !37
@@ -657,7 +657,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   %35 = icmp eq i32 %32, 0
   %36 = icmp eq i32 %34, 0
   %or.cond = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond, label %37, label %49
+  br i1 %or.cond, label %37, label %48
 
 37:                                               ; preds = %29
   %38 = tail call i32 @MuxImageCount(ptr noundef %30, i32 noundef 6) #5
@@ -671,61 +671,61 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnul
   br i1 %44, label %.thread, label %49
 
 .thread:                                          ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !22
-  %47 = getelementptr inbounds nuw i8, ptr %30, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !23
-  br label %50
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %45 = load i32, ptr %44, align 8, !tbaa !22
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 36
+  %47 = load i32, ptr %46, align 4, !tbaa !23
+  br label %49
 
-49:                                               ; preds = %37, %29
+48:                                               ; preds = %37, %29
   %.126 = phi i32 [ 0, %37 ], [ %34, %29 ]
   %.not35 = icmp eq ptr %30, null
-  br i1 %.not35, label %53, label %50
+  br i1 %.not35, label %52, label %49
 
-50:                                               ; preds = %.thread, %49
-  %.12652 = phi i32 [ %48, %.thread ], [ %.126, %49 ]
-  %.12851 = phi i32 [ %46, %.thread ], [ %32, %49 ]
-  %51 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %52 = load i32, ptr %51, align 8, !tbaa !24
-  %.not36 = icmp eq i32 %52, 0
+49:                                               ; preds = %.thread, %48
+  %.12652 = phi i32 [ %47, %.thread ], [ %.126, %49 ]
+  %.12851 = phi i32 [ %45, %.thread ], [ %32, %49 ]
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %51 = load i32, ptr %50, align 8, !tbaa !24
+  %.not36 = icmp eq i32 %51, 0
   %spec.select = select i1 %.not36, i32 0, i32 16
-  br label %53
+  br label %52
 
-53:                                               ; preds = %50, %49, %11
+52:                                               ; preds = %49, %48, %11
   %.027 = phi i32 [ %20, %11 ], [ %.12851, %50 ], [ %32, %49 ]
   %.025 = phi i32 [ %28, %11 ], [ %.12652, %50 ], [ %.126, %49 ]
   %.024 = phi i32 [ %.val.i, %11 ], [ %spec.select, %50 ], [ 0, %49 ]
-  %54 = sext i32 %.027 to i64
-  %55 = sext i32 %.025 to i64
-  %56 = mul nsw i64 %55, %54
-  %57 = icmp ugt i64 %56, 4294967295
-  br i1 %57, label %64, label %58
+  %53 = sext i32 %.027 to i64
+  %54 = sext i32 %.025 to i64
+  %55 = mul nsw i64 %54, %53
+  %56 = icmp ugt i64 %55, 4294967295
+  br i1 %56, label %63, label %57
 
-58:                                               ; preds = %53
+57:                                               ; preds = %52
   %.not37 = icmp eq ptr %1, null
-  br i1 %.not37, label %60, label %59
+  br i1 %.not37, label %59, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   store i32 %.027, ptr %1, align 4, !tbaa !18
-  br label %60
+  br label %59
 
-60:                                               ; preds = %59, %58
+59:                                               ; preds = %58, %57
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %62, label %61
+  br i1 %.not38, label %61, label %60
 
-61:                                               ; preds = %60
+60:                                               ; preds = %59
   store i32 %.025, ptr %2, align 4, !tbaa !18
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %60
+61:                                               ; preds = %60, %59
   %.not39 = icmp eq ptr %3, null
-  br i1 %.not39, label %64, label %63
+  br i1 %.not39, label %63, label %62
 
-63:                                               ; preds = %62
+62:                                               ; preds = %61
   store i32 %.024, ptr %3, align 4, !tbaa !18
-  br label %64
+  br label %63
 
-64:                                               ; preds = %62, %63, %53, %9
+63:                                               ; preds = %61, %62, %52, %9
   %.0 = phi i32 [ -2, %9 ], [ -2, %53 ], [ 1, %63 ], [ 1, %62 ]
   ret i32 %.0
 }

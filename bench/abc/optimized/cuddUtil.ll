@@ -529,7 +529,7 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
   %narrow = select i1 %35, i1 %33, i1 false
   %36 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2)
   %37 = fcmp une double %36, -1.000000e+00
-  %narrow51 = select i1 %37, i1 %narrow, i1 false
+  %38 = select i1 %37, i1 %narrow, i1 false
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %39 = load ptr, ptr %38, align 8, !tbaa !32
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.8, i32 noundef %32, i32 noundef %34, double noundef %36) #26
@@ -548,73 +548,73 @@ cuddP.exit:                                       ; preds = %42
   %47 = tail call i32 @fputc(i32 noundef 10, ptr noundef %46)
   %.fr = freeze i32 %45
   %.not = icmp eq i32 %.fr, 0
-  br i1 %.not, label %cuddP.exit.thread, label %48
+  br i1 %.not, label %cuddP.exit.thread, label %49
 
 cuddP.exit.thread:                                ; preds = %42, %cuddP.exit
-  br label %48
+  br label %49
 
-48:                                               ; preds = %cuddP.exit.thread, %cuddP.exit, %28
+49:                                               ; preds = %cuddP.exit.thread, %cuddP.exit, %28
   %.4.shrunk = phi i1 [ %narrow51, %28 ], [ false, %cuddP.exit.thread ], [ %narrow51, %cuddP.exit ]
   %.4 = zext i1 %.4.shrunk to i32
-  %49 = icmp eq i32 %3, 2
-  %50 = icmp samesign ugt i32 %3, 3
-  %or.cond4 = or i1 %49, %50
-  br i1 %or.cond4, label %51, label %.thread.sink.split
+  %50 = icmp eq i32 %3, 2
+  %51 = icmp samesign ugt i32 %3, 3
+  %or.cond4 = or i1 %50, %51
+  br i1 %or.cond4, label %52, label %.thread.sink.split
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = load ptr, ptr %52, align 8, !tbaa !3
-  store ptr %53, ptr @background, align 8, !tbaa !24
-  %54 = load ptr, ptr %15, align 8, !tbaa !25
-  %55 = ptrtoint ptr %54 to i64
-  %56 = xor i64 %55, 1
-  %57 = inttoptr i64 %56 to ptr
-  store ptr %57, ptr @zero, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %59 = load i32, ptr %58, align 8, !tbaa !26
-  %60 = sext i32 %59 to i64
-  %61 = shl nsw i64 %60, 2
-  %62 = tail call noalias ptr @malloc(i64 noundef %61) #25
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %66, label %.preheader.i
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  store ptr %54, ptr @background, align 8, !tbaa !24
+  %55 = load ptr, ptr %15, align 8, !tbaa !25
+  %56 = ptrtoint ptr %55 to i64
+  %57 = xor i64 %56, 1
+  %58 = inttoptr i64 %57 to ptr
+  store ptr %58, ptr @zero, align 8, !tbaa !24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %60 = load i32, ptr %59, align 8, !tbaa !26
+  %61 = sext i32 %60 to i64
+  %62 = shl nsw i64 %61, 2
+  %63 = tail call noalias ptr @malloc(i64 noundef %62) #25
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %67, label %.preheader.i
 
-.preheader.i:                                     ; preds = %51
-  %64 = icmp sgt i32 %59, 0
-  br i1 %64, label %.lr.ph.preheader.i, label %Cudd_PrintMinterm.exit
+.preheader.i:                                     ; preds = %52
+  %65 = icmp sgt i32 %60, 0
+  br i1 %65, label %.lr.ph.preheader.i, label %Cudd_PrintMinterm.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %59 to i64
+  %wide.trip.count.i = zext nneg i32 %60 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
-  store i32 2, ptr %65, align 4, !tbaa !28
+  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  store i32 2, ptr %66, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Cudd_PrintMinterm.exit, label %.lr.ph.i, !llvm.loop !29
 
 Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.preheader.i
-  tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %62)
-  tail call void @free(ptr noundef nonnull %62) #26
-  br label %68
+  tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63)
+  tail call void @free(ptr noundef nonnull %63) #26
+  br label %69
 
-66:                                               ; preds = %51
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %67, align 8, !tbaa !27
-  br label %68
+67:                                               ; preds = %52
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %68, align 8, !tbaa !27
+  br label %69
 
-68:                                               ; preds = %Cudd_PrintMinterm.exit, %66
-  %69 = phi i32 [ 0, %66 ], [ %.4, %Cudd_PrintMinterm.exit ]
-  %70 = load ptr, ptr %38, align 8, !tbaa !32
-  %fputc = tail call i32 @fputc(i32 10, ptr %70)
+69:                                               ; preds = %Cudd_PrintMinterm.exit, %67
+  %70 = phi i32 [ 0, %66 ], [ %.4, %Cudd_PrintMinterm.exit ]
+  %71 = load ptr, ptr %38, align 8, !tbaa !32
+  %fputc = tail call i32 @fputc(i32 10, ptr %71)
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %68, %48, %6, %23
+.thread.sink.split:                               ; preds = %69, %49, %6, %23
   %.sink.in = phi ptr [ %24, %23 ], [ %7, %6 ], [ %38, %48 ], [ %38, %68 ]
-  %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.4, %48 ], [ %69, %68 ]
+  %.040.ph = phi i32 [ 1, %23 ], [ 0, %6 ], [ %.4, %48 ], [ %70, %68 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !32
-  %71 = tail call i32 @fflush(ptr noundef %.sink)
+  %72 = tail call i32 @fflush(ptr noundef %.sink)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %27

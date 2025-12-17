@@ -60989,12 +60989,12 @@ define dso_local noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEP
   %narrow15.not27 = select i1 %.not14, i1 %narrow.not28, i1 false
   %.not16 = icmp eq i64 %3, 8
   %narrow17.not26 = select i1 %.not16, i1 %narrow15.not27, i1 false
-  %.not18 = icmp eq i64 %4, 16
-  %narrow19.not25 = select i1 %.not18, i1 %narrow17.not26, i1 false
-  %.not20 = icmp eq i64 %5, 20
-  %narrow21.not24 = select i1 %.not20, i1 %narrow19.not25, i1 false
-  %.not22 = icmp eq i64 %6, 2
-  %narrow23.not = select i1 %.not22, i1 %narrow21.not24, i1 false
+  %.not17 = icmp eq i64 %4, 16
+  %narrow19.not25 = select i1 %.not17, i1 %narrow17.not26, i1 false
+  %.not19 = icmp eq i64 %5, 20
+  %narrow21.not24 = select i1 %.not19, i1 %narrow19.not25, i1 false
+  %.not20 = icmp eq i64 %6, 2
+  %narrow23.not = select i1 %.not20, i1 %narrow21.not24, i1 false
   ret i1 %narrow23.not
 }
 

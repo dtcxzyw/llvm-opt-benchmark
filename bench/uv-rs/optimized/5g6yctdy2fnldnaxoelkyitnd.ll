@@ -711,7 +711,7 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %139 = add nuw nsw i64 %.sroa.060.0.i.i33, %.sroa.0.0.i.i20
   %140 = tail call i64 @llvm.uadd.sat.i64(i64 %78, i64 %139)
   %trunc = trunc nuw i64 %80 to i1
-  %or.cond = select i1 %trunc, i1 %.sink.i.i42, i1 false
+  %141 = select i1 %trunc, i1 %.sink.i.i42, i1 false
   %141 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 %.sroa.6.047)
   %142 = extractvalue { i64, i1 } %141, 1
   %143 = add nuw i64 %.sroa.6.047, %82
@@ -721,10 +721,10 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %.sroa.03.0 = zext i1 %narrow to i64
   %.sroa.6.0 = select i1 %or.cond, i64 %spec.select7, i64 undef
   store i64 %140, ptr %0, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0, ptr %144, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.0, ptr %145, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.6.0, ptr %146, align 8
   br label %75
 }
 

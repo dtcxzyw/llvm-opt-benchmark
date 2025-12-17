@@ -308,116 +308,116 @@ geohashEstimateStepsByRadius.exit:                ; preds = %55, %69
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %128 = load double, ptr %127, align 8, !tbaa !24
   %129 = fcmp ogt double %128, %41
-  %narrow39 = select i1 %129, i1 true, i1 %narrow38
+  %130 = select i1 %129, i1 true, i1 %narrow38
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %130 = icmp samesign ugt i8 %.018.i, 1
-  %or.cond = and i1 %130, %narrow39
-  br i1 %or.cond, label %131, label %142
+  %132 = icmp samesign ugt i8 %.018.i, 1
+  %or.cond = and i1 %132, %narrow39
+  br i1 %or.cond, label %133, label %144
 
-131:                                              ; preds = %geohashEstimateStepsByRadius.exit
-  %132 = add nsw i32 %71, -1
-  %133 = trunc nuw nsw i32 %132 to i8
-  %134 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %133, ptr noundef nonnull %5) #12
+133:                                              ; preds = %geohashEstimateStepsByRadius.exit
+  %134 = add nsw i32 %71, -1
+  %135 = trunc nuw nsw i32 %134 to i8
+  %136 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %135, ptr noundef nonnull %5) #12
   call void @geohashNeighbors(ptr noundef nonnull %5, ptr noundef nonnull %6) #12
-  %135 = load double, ptr %3, align 8
-  %136 = load double, ptr %74, align 8
-  %137 = load double, ptr %4, align 8
-  %138 = load double, ptr %77, align 8
-  %139 = load i64, ptr %5, align 8
-  %140 = load i8, ptr %80, align 8
-  %141 = call i32 @geohashDecode(double %135, double %136, double %137, double %138, i64 %139, i8 %140, ptr noundef nonnull %7) #12
-  br label %142
+  %137 = load double, ptr %3, align 8
+  %138 = load double, ptr %74, align 8
+  %139 = load double, ptr %4, align 8
+  %140 = load double, ptr %77, align 8
+  %141 = load i64, ptr %5, align 8
+  %142 = load i8, ptr %80, align 8
+  %143 = call i32 @geohashDecode(double %137, double %138, double %139, double %140, i64 %141, i8 %142, ptr noundef nonnull %7) #12
+  br label %144
 
-142:                                              ; preds = %131, %geohashEstimateStepsByRadius.exit
-  %.036 = phi i32 [ %132, %131 ], [ %71, %geohashEstimateStepsByRadius.exit ]
-  %143 = icmp samesign ugt i32 %.036, 1
-  br i1 %143, label %144, label %180
+144:                                              ; preds = %133, %geohashEstimateStepsByRadius.exit
+  %.036 = phi i32 [ %134, %131 ], [ %71, %geohashEstimateStepsByRadius.exit ]
+  %145 = icmp samesign ugt i32 %.036, 1
+  br i1 %145, label %146, label %182
 
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %146 = load double, ptr %145, align 8, !tbaa !22
-  %147 = fcmp olt double %146, %37
-  br i1 %147, label %148, label %153
+146:                                              ; preds = %144
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %148 = load double, ptr %147, align 8, !tbaa !22
+  %149 = fcmp olt double %148, %37
+  br i1 %149, label %150, label %155
 
-148:                                              ; preds = %144
+150:                                              ; preds = %146
   store i8 0, ptr %97, align 8, !tbaa !25
   store i64 0, ptr %91, align 8, !tbaa !27
-  %149 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %150 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i8 0, ptr %150, align 8, !tbaa !28
-  store i64 0, ptr %149, align 8, !tbaa !29
-  %151 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %152 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i8 0, ptr %152, align 8, !tbaa !30
-  store i64 0, ptr %151, align 8, !tbaa !31
-  br label %153
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store i8 0, ptr %152, align 8, !tbaa !28
+  store i64 0, ptr %151, align 8, !tbaa !29
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i8 0, ptr %154, align 8, !tbaa !30
+  store i64 0, ptr %153, align 8, !tbaa !31
+  br label %155
 
-153:                                              ; preds = %148, %144
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %155 = load double, ptr %154, align 8, !tbaa !17
-  %156 = fcmp ogt double %155, %34
-  br i1 %156, label %157, label %162
+155:                                              ; preds = %150, %146
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %157 = load double, ptr %156, align 8, !tbaa !17
+  %158 = fcmp ogt double %157, %34
+  br i1 %158, label %159, label %164
 
-157:                                              ; preds = %153
+159:                                              ; preds = %155
   store i8 0, ptr %88, align 8, !tbaa !32
   store i64 0, ptr %6, align 8, !tbaa !33
-  %158 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %159 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i8 0, ptr %159, align 8, !tbaa !34
-  store i64 0, ptr %158, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %161 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i8 0, ptr %161, align 8, !tbaa !36
-  store i64 0, ptr %160, align 8, !tbaa !37
-  br label %162
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i8 0, ptr %161, align 8, !tbaa !34
+  store i64 0, ptr %160, align 8, !tbaa !35
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store i8 0, ptr %163, align 8, !tbaa !36
+  store i64 0, ptr %162, align 8, !tbaa !37
+  br label %164
 
-162:                                              ; preds = %157, %153
-  %163 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %164 = load double, ptr %163, align 8, !tbaa !24
-  %165 = fcmp olt double %164, %41
-  br i1 %165, label %166, label %171
+164:                                              ; preds = %159, %155
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %166 = load double, ptr %165, align 8, !tbaa !24
+  %167 = fcmp olt double %166, %41
+  br i1 %167, label %168, label %173
 
-166:                                              ; preds = %162
+168:                                              ; preds = %164
   store i8 0, ptr %115, align 8, !tbaa !38
   store i64 0, ptr %109, align 8, !tbaa !39
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %168 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i8 0, ptr %168, align 8, !tbaa !28
-  store i64 0, ptr %167, align 8, !tbaa !29
-  %169 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %170 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i8 0, ptr %170, align 8, !tbaa !36
-  store i64 0, ptr %169, align 8, !tbaa !37
-  br label %171
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %170 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store i8 0, ptr %170, align 8, !tbaa !28
+  store i64 0, ptr %169, align 8, !tbaa !29
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store i8 0, ptr %172, align 8, !tbaa !36
+  store i64 0, ptr %171, align 8, !tbaa !37
+  br label %173
 
-171:                                              ; preds = %166, %162
-  %172 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %173 = load double, ptr %172, align 8, !tbaa !23
-  %174 = fcmp ogt double %173, %42
-  br i1 %174, label %175, label %180
+173:                                              ; preds = %168, %164
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %175 = load double, ptr %174, align 8, !tbaa !23
+  %176 = fcmp ogt double %175, %42
+  br i1 %176, label %177, label %182
 
-175:                                              ; preds = %171
+177:                                              ; preds = %173
   store i8 0, ptr %106, align 8, !tbaa !40
   store i64 0, ptr %100, align 8, !tbaa !41
-  %176 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %177 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i8 0, ptr %177, align 8, !tbaa !30
-  store i64 0, ptr %176, align 8, !tbaa !31
-  %178 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %179 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i8 0, ptr %179, align 8, !tbaa !34
-  store i64 0, ptr %178, align 8, !tbaa !35
-  br label %180
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i8 0, ptr %179, align 8, !tbaa !30
+  store i64 0, ptr %178, align 8, !tbaa !31
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i8 0, ptr %181, align 8, !tbaa !34
+  store i64 0, ptr %180, align 8, !tbaa !35
+  br label %182
 
-180:                                              ; preds = %171, %175, %142
+182:                                              ; preds = %173, %177, %144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !42
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %181, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false), !tbaa.struct !44
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %182, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !45
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %183, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false), !tbaa.struct !44
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %184, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !45
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

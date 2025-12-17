@@ -17973,22 +17973,22 @@ define noundef ptr @_ZN7glslang13TParseContext14addConstructorERKNS_10TSourceLoc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %270 = load ptr, ptr %208, align 8
   %.not = icmp eq ptr %269, %270
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
-._crit_edge.loopexit:                             ; preds = %242
+._crit_edge:                                      ; preds = %242
   %271 = select i1 %spec.select, i1 %.185, i1 false
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %201
+._crit_edge:; preds = %._crit_edge, %201
   %.082.lcssa = phi i1 [ false, %201 ], [ %271, %._crit_edge.loopexit ]
   %272 = load ptr, ptr %27, align 8
   %273 = call noundef ptr @_ZN7glslang13TIntermediate20setAggregateOperatorEP11TIntermNodeNS_9TOperatorERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %272, ptr noundef nonnull %26, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   store i64 ptrtoint (ptr @.str.348 to i64), ptr %7, align 8
-  %274 = load ptr, ptr %0, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 96
-  %276 = load ptr, ptr %275, align 8
-  %277 = call noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull @.str.349) #23
-  %or.cond99 = select i1 %277, i1 %.082.lcssa, i1 false
+  %273 = load ptr, ptr %0, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 96
+  %275 = load ptr, ptr %274, align 8
+  %276 = call noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull @.str.349) #23
+  %277 = select i1 %276, i1 %.082.lcssa, i1 false
   br i1 %or.cond99, label %278, label %291
 
 278:                                              ; preds = %._crit_edge

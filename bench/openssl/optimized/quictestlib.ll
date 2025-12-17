@@ -1243,17 +1243,17 @@ qtest_add_time.exit:                              ; preds = %32, %35
   %.not99 = icmp eq i32 %80, 0
   %or.cond23 = select i1 %56, i1 true, i1 %55
   %or.cond101 = select i1 %.not99, i1 true, i1 %or.cond23
-  br i1 %or.cond101, label %.loopexit, label %82
+  br i1 %or.cond101, label %.loopexit, label %83
 
 .critedge19.thread:                               ; preds = %68, %.critedge19
-  %81 = phi i1 [ %55, %.critedge19 ], [ false, %68 ]
-  %or.cond23.old = select i1 %56, i1 true, i1 %81
-  br i1 %or.cond23.old, label %.loopexit, label %82
+  %82 = phi i1 [ %55, %.critedge19 ], [ false, %68 ]
+  %or.cond23.old = select i1 %56, i1 true, i1 %82
+  br i1 %or.cond23.old, label %.loopexit, label %83
 
-82:                                               ; preds = %76, %.critedge19.thread
+83:                                               ; preds = %76, %.critedge19.thread
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %82, %70, %76, %11, %5, %60
+.loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %83, %70, %76, %11, %5, %60
   %.081 = phi i32 [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %82 ], [ 0, %76 ], [ 0, %70 ], [ 0, %11 ], [ 0, %5 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081

@@ -82570,7 +82570,7 @@ default.unreachable:                              ; preds = %112, %69
   br label %96
 
 122:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$typst..model..numbering_..Numbering$GT$$GT$$GT$17hee92e61e15c8608eE.exit.i"
-  %switch.not.i.i = icmp samesign ult i64 %71, 2
+  %123 = icmp samesign ult i64 %71, 2
   %123 = icmp ne i64 %71, 0
   %or.cond.i.i.i.i = select i1 %123, i1 %75, i1 false
   %or.cond.i = select i1 %switch.not.i.i, i1 %or.cond.i.i.i.i, i1 false

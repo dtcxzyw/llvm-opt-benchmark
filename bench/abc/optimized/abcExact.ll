@@ -2376,253 +2376,253 @@ Ses_CheckDepthConsistency.exit.thread121:         ; preds = %155
   %or.cond139.i = select i1 %176, i1 %or.cond.i, i1 false
   br i1 %or.cond139.i, label %.preheader.i, label %Ses_CheckDepthConsistency.exit
 
-.preheader.i:                                     ; preds = %._crit_edge180.i, %188
+.preheader.i:                                     ; preds = %._crit_edge180.i, %189
   %indvars.iv211.i = phi i64 [ %indvars.iv.next212.i, %188 ], [ 0, %._crit_edge180.i ]
   %.2184.i = phi i32 [ %.3.i, %188 ], [ 0, %._crit_edge180.i ]
-  %177 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv211.i
-  %178 = load i32, ptr %177, align 4, !tbaa !7
-  %179 = add nsw i32 %178, 3
-  %180 = icmp eq i32 %179, %.pre
-  br i1 %180, label %181, label %188
+  %178 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv211.i
+  %179 = load i32, ptr %178, align 4, !tbaa !7
+  %180 = add nsw i32 %179, 3
+  %181 = icmp eq i32 %180, %.pre
+  br i1 %181, label %182, label %189
 
-181:                                              ; preds = %.preheader.i
+182:                                              ; preds = %.preheader.i
   %.not119.i = icmp eq i32 %.2184.i, 0
-  br i1 %.not119.i, label %188, label %182
+  br i1 %.not119.i, label %189, label %183
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %184 = load i32, ptr %183, align 8, !tbaa !65
-  %.not120.i = icmp eq i32 %184, 0
-  br i1 %.not120.i, label %Ses_CheckDepthConsistency.exit.thread, label %185
+183:                                              ; preds = %182
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %185 = load i32, ptr %184, align 8, !tbaa !65
+  %.not120.i = icmp eq i32 %185, 0
+  br i1 %.not120.i, label %Ses_CheckDepthConsistency.exit.thread, label %186
 
-185:                                              ; preds = %182
-  %186 = trunc nuw nsw i64 %indvars.iv211.i to i32
-  %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %.pre, i32 noundef %186, i32 noundef %178)
+186:                                              ; preds = %183
+  %187 = trunc nuw nsw i64 %indvars.iv211.i to i32
+  %188 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.70, i32 noundef %.pre, i32 noundef %187, i32 noundef %179)
   br label %Ses_CheckDepthConsistency.exit.thread
 
-188:                                              ; preds = %181, %.preheader.i
+189:                                              ; preds = %182, %.preheader.i
   %.3.i = phi i32 [ 1, %181 ], [ %.2184.i, %.preheader.i ]
   %indvars.iv.next212.i = add nuw nsw i64 %indvars.iv211.i, 1
   %exitcond215.not.i = icmp eq i64 %indvars.iv.next212.i, %wide.trip.count209.i
   br i1 %exitcond215.not.i, label %Ses_CheckDepthConsistency.exit, label %.preheader.i, !llvm.loop !128
 
-Ses_CheckDepthConsistency.exit:                   ; preds = %188, %._crit_edge180.i
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 0, ptr %189, align 8, !tbaa !126
+Ses_CheckDepthConsistency.exit:                   ; preds = %189, %._crit_edge180.i
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 0, ptr %190, align 8, !tbaa !126
   %.not148 = icmp eq i32 %.pre, 0
   br i1 %.not148, label %Ses_ManComputeMaxGates.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %Ses_CheckDepthConsistency.exit
-  %190 = load ptr, ptr %23, align 8, !tbaa !101
+  %191 = load ptr, ptr %23, align 8, !tbaa !101
   %wide.trip.count.i35 = zext nneg i32 %156 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
-  %191 = phi i32 [ 0, %.preheader.lr.ph.split.us.i ], [ %198, %._crit_edge.us.i ]
+  %192 = phi i32 [ 0, %.preheader.lr.ph.split.us.i ], [ %199, %._crit_edge.us.i ]
   %.01933.us.i = phi i32 [ %156, %.preheader.lr.ph.split.us.i ], [ %.2.us.i, %._crit_edge.us.i ]
-  %.02032.us.i = phi i32 [ %.pre, %.preheader.lr.ph.split.us.i ], [ %197, %._crit_edge.us.i ]
-  %.02131.us.i = phi i32 [ 1, %.preheader.lr.ph.split.us.i ], [ %199, %._crit_edge.us.i ]
-  br label %192
+  %.02032.us.i = phi i32 [ %.pre, %.preheader.lr.ph.split.us.i ], [ %198, %._crit_edge.us.i ]
+  %.02131.us.i = phi i32 [ 1, %.preheader.lr.ph.split.us.i ], [ %200, %._crit_edge.us.i ]
+  br label %193
 
-192:                                              ; preds = %192, %.preheader.us.i
+193:                                              ; preds = %193, %.preheader.us.i
   %indvars.iv.i36 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i37, %192 ]
   %.127.us.i = phi i32 [ %.01933.us.i, %.preheader.us.i ], [ %.2.us.i, %192 ]
   %.12226.us.i = phi i32 [ %.02131.us.i, %.preheader.us.i ], [ %.223.us.i, %192 ]
-  %193 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv.i36
-  %194 = load i32, ptr %193, align 4, !tbaa !7
-  %195 = icmp eq i32 %194, %.02032.us.i
-  %196 = sext i1 %195 to i32
-  %.223.us.i = add nsw i32 %.12226.us.i, %196
-  %.2.us.i = add nsw i32 %.127.us.i, %196
+  %194 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.i36
+  %195 = load i32, ptr %194, align 4, !tbaa !7
+  %196 = icmp eq i32 %195, %.02032.us.i
+  %197 = sext i1 %196 to i32
+  %.223.us.i = add nsw i32 %.12226.us.i, %197
+  %.2.us.i = add nsw i32 %.127.us.i, %197
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i35
-  br i1 %exitcond.not.i38, label %._crit_edge.us.i, label %192, !llvm.loop !129
+  br i1 %exitcond.not.i38, label %._crit_edge.us.i, label %193, !llvm.loop !129
 
-._crit_edge.us.i:                                 ; preds = %192
-  %197 = add nsw i32 %.02032.us.i, -1
-  %198 = add nsw i32 %.223.us.i, %191
-  store i32 %198, ptr %189, align 8, !tbaa !126
-  %199 = shl nsw i32 %.223.us.i, 1
-  %200 = icmp ne i32 %.223.us.i, 0
-  %201 = icmp ne i32 %197, 0
-  %or.cond.us.i = select i1 %200, i1 %201, i1 false
-  %202 = icmp sgt i32 %.127.us.i, %.12226.us.i
-  %or.cond25.us.i = select i1 %or.cond.us.i, i1 %202, i1 false
+._crit_edge.us.i:                                 ; preds = %193
+  %198 = add nsw i32 %.02032.us.i, -1
+  %199 = add nsw i32 %.223.us.i, %192
+  store i32 %199, ptr %190, align 8, !tbaa !126
+  %200 = shl nsw i32 %.223.us.i, 1
+  %201 = icmp ne i32 %.223.us.i, 0
+  %202 = icmp ne i32 %198, 0
+  %or.cond.us.i = select i1 %201, i1 %202, i1 false
+  %203 = icmp sgt i32 %.127.us.i, %.12226.us.i
+  %or.cond25.us.i = select i1 %or.cond.us.i, i1 %203, i1 false
   br i1 %or.cond25.us.i, label %.preheader.us.i, label %Ses_ManComputeMaxGates.exit, !llvm.loop !130
 
 Ses_ManComputeMaxGates.exit:                      ; preds = %._crit_edge.us.i, %Ses_CheckDepthConsistency.exit.thread121, %Ses_CheckDepthConsistency.exit, %22, %19
-  %203 = load i32, ptr %4, align 4, !tbaa !61
+  %204 = load i32, ptr %4, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !55
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  store i32 0, ptr %204, align 8, !tbaa !131
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %206 = load i32, ptr %205, align 8, !tbaa !126
-  %207 = icmp sgt i32 %206, 9
-  %208 = select i1 %207, i32 3, i32 2
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1156
-  store i32 %208, ptr %209, align 4, !tbaa !132
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %211 = load ptr, ptr %210, align 8, !tbaa !110
-  %212 = getelementptr i8, ptr %211, i64 4
-  %.val.i39 = load i32, ptr %212, align 4, !tbaa !40
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  store i32 0, ptr %205, align 8, !tbaa !131
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %207 = load i32, ptr %206, align 8, !tbaa !126
+  %208 = icmp sgt i32 %207, 9
+  %209 = select i1 %208, i32 3, i32 2
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 1156
+  store i32 %209, ptr %210, align 4, !tbaa !132
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %212 = load ptr, ptr %211, align 8, !tbaa !110
+  %213 = getelementptr i8, ptr %212, i64 4
+  %.val.i39 = load i32, ptr %213, align 4, !tbaa !40
   %.not.i = icmp eq i32 %.val.i39, 0
-  %213 = add nsw i32 %.val.i39, -1
-  %214 = tail call i32 @llvm.smax.i32(i32 %203, i32 %213)
-  %.0.i40 = select i1 %.not.i, i32 %203, i32 %214
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %215, i8 0, i64 32, i1 false)
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %217 = load i32, ptr %216, align 4, !tbaa !106
-  %.not.i.i = icmp eq i32 %217, 0
-  br i1 %.not.i.i, label %Abc_DebugPrintIntInt.exit.i.preheader, label %218
+  %214 = add nsw i32 %.val.i39, -1
+  %215 = tail call i32 @llvm.smax.i32(i32 %204, i32 %214)
+  %.0.i40 = select i1 %.not.i, i32 %204, i32 %215
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %216, i8 0, i64 32, i1 false)
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %218 = load i32, ptr %217, align 4, !tbaa !106
+  %.not.i.i = icmp eq i32 %218, 0
+  br i1 %.not.i.i, label %Abc_DebugPrintIntInt.exit.i.preheader, label %219
 
-218:                                              ; preds = %Ses_ManComputeMaxGates.exit
-  %219 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %.0.i40, i32 noundef %206)
-  %220 = load ptr, ptr @stdout, align 8, !tbaa !116
-  %221 = tail call i32 @fflush(ptr noundef %220)
+219:                                              ; preds = %Ses_ManComputeMaxGates.exit
+  %220 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %.0.i40, i32 noundef %207)
+  %221 = load ptr, ptr @stdout, align 8, !tbaa !116
+  %222 = tail call i32 @fflush(ptr noundef %221)
   br label %Abc_DebugPrintIntInt.exit.i.preheader
 
-Abc_DebugPrintIntInt.exit.i.preheader:            ; preds = %218, %Ses_ManComputeMaxGates.exit
+Abc_DebugPrintIntInt.exit.i.preheader:            ; preds = %219, %Ses_ManComputeMaxGates.exit
   br label %Abc_DebugPrintIntInt.exit.i
 
-Abc_DebugPrintIntInt.exit.i:                      ; preds = %Abc_DebugPrintIntInt.exit.i.preheader, %226
-  %.1.i41 = phi i32 [ %222, %226 ], [ %.0.i40, %Abc_DebugPrintIntInt.exit.i.preheader ]
-  %222 = add nsw i32 %.1.i41, 1
-  %223 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %222, ptr noundef %3)
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %226
-
-225:                                              ; preds = %Abc_DebugPrintIntInt.exit.i
-  store i32 1, ptr %204, align 8, !tbaa !131
-  br label %.loopexit.i
+Abc_DebugPrintIntInt.exit.i:                      ; preds = %Abc_DebugPrintIntInt.exit.i.preheader, %227
+  %.1.i41 = phi i32 [ %223, %226 ], [ %.0.i40, %Abc_DebugPrintIntInt.exit.i.preheader ]
+  %223 = add nsw i32 %.1.i41, 1
+  %224 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %223, ptr noundef %3)
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %227
 
 226:                                              ; preds = %Abc_DebugPrintIntInt.exit.i
-  %227 = and i32 %223, 1
-  %or.cond.not.i = icmp eq i32 %227, 0
+  store i32 1, ptr %205, align 8, !tbaa !131
+  br label %.loopexit.i
+
+227:                                              ; preds = %Abc_DebugPrintIntInt.exit.i
+  %228 = and i32 %224, 1
+  %or.cond.not.i = icmp eq i32 %228, 0
   br i1 %or.cond.not.i, label %Abc_DebugPrintIntInt.exit.i, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %226, %225
-  %228 = load i32, ptr %209, align 4, !tbaa !132
-  %229 = icmp sgt i32 %.1.i41, 8
-  %230 = select i1 %229, i32 5, i32 4
-  %231 = add nsw i32 %228, %230
-  %232 = load i32, ptr %216, align 4, !tbaa !106
-  %.not.i23.i = icmp eq i32 %232, 0
+.loopexit.i:                                      ; preds = %227, %226
+  %229 = load i32, ptr %210, align 4, !tbaa !132
+  %230 = icmp sgt i32 %.1.i41, 8
+  %231 = select i1 %230, i32 5, i32 4
+  %232 = add nsw i32 %229, %231
+  %233 = load i32, ptr %217, align 4, !tbaa !106
+  %.not.i23.i = icmp eq i32 %233, 0
   br i1 %.not.i23.i, label %Ses_ManFindMinimumSizeBottomUp.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit.i
-  %233 = icmp sgt i32 %231, 0
-  br i1 %233, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %234 = icmp sgt i32 %232, 0
+  br i1 %234, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.04.i.i = phi i32 [ %234, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %.04.i.i = phi i32 [ %235, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %putchar.i.i = tail call i32 @putchar(i32 8)
-  %234 = add nuw nsw i32 %.04.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %234, %231
+  %235 = add nuw nsw i32 %.04.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %235, %232
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !133
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %235 = load ptr, ptr @stdout, align 8, !tbaa !116
-  %236 = tail call i32 @fflush(ptr noundef %235)
+  %236 = load ptr, ptr @stdout, align 8, !tbaa !116
+  %237 = tail call i32 @fflush(ptr noundef %236)
   br label %Ses_ManFindMinimumSizeBottomUp.exit
 
 Ses_ManFindMinimumSizeBottomUp.exit:              ; preds = %.loopexit.i, %._crit_edge.i.i
-  %237 = load ptr, ptr %3, align 8, !tbaa !55
+  %238 = load ptr, ptr %3, align 8, !tbaa !55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not30 = icmp eq ptr %237, null
-  br i1 %.not30, label %238, label %Ses_CheckDepthConsistency.exit.thread
+  %.not30 = icmp eq ptr %238, null
+  br i1 %.not30, label %239, label %Ses_CheckDepthConsistency.exit.thread
 
-238:                                              ; preds = %Ses_ManFindMinimumSizeBottomUp.exit
-  %239 = load i32, ptr %20, align 4, !tbaa !100
-  %.not31 = icmp eq i32 %239, -1
-  br i1 %.not31, label %Ses_CheckDepthConsistency.exit.thread, label %240
+239:                                              ; preds = %Ses_ManFindMinimumSizeBottomUp.exit
+  %240 = load i32, ptr %20, align 4, !tbaa !100
+  %.not31 = icmp eq i32 %240, -1
+  br i1 %.not31, label %Ses_CheckDepthConsistency.exit.thread, label %241
 
-240:                                              ; preds = %238
-  %241 = load i32, ptr %204, align 8, !tbaa !131
-  %.not32 = icmp eq i32 %241, 0
-  br i1 %.not32, label %Ses_CheckDepthConsistency.exit.thread, label %242
+241:                                              ; preds = %239
+  %242 = load i32, ptr %205, align 8, !tbaa !131
+  %.not32 = icmp eq i32 %242, 0
+  br i1 %.not32, label %Ses_CheckDepthConsistency.exit.thread, label %243
 
-242:                                              ; preds = %240
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %244 = load i32, ptr %243, align 8, !tbaa !134
-  %245 = load i32, ptr %205, align 8, !tbaa !126
-  %.not33 = icmp eq i32 %244, %245
-  br i1 %.not33, label %Ses_CheckDepthConsistency.exit.thread, label %246
+243:                                              ; preds = %241
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %245 = load i32, ptr %244, align 8, !tbaa !134
+  %246 = load i32, ptr %206, align 8, !tbaa !126
+  %.not33 = icmp eq i32 %245, %246
+  br i1 %.not33, label %Ses_CheckDepthConsistency.exit.thread, label %247
 
-246:                                              ; preds = %242
-  %247 = add nsw i32 %244, 1
+247:                                              ; preds = %243
+  %248 = add nsw i32 %245, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !55
-  store i32 0, ptr %204, align 8, !tbaa !131
-  %248 = load i32, ptr %216, align 4, !tbaa !106
-  %.not.i.i42 = icmp eq i32 %248, 0
-  br i1 %.not.i.i42, label %Abc_DebugPrintIntInt.exit.i43.preheader, label %249
+  store i32 0, ptr %205, align 8, !tbaa !131
+  %249 = load i32, ptr %217, align 4, !tbaa !106
+  %.not.i.i42 = icmp eq i32 %249, 0
+  br i1 %.not.i.i42, label %Abc_DebugPrintIntInt.exit.i43.preheader, label %250
 
-249:                                              ; preds = %246
-  %250 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %245, i32 noundef %245)
-  %251 = load ptr, ptr @stdout, align 8, !tbaa !116
-  %252 = tail call i32 @fflush(ptr noundef %251)
+250:                                              ; preds = %247
+  %251 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %246, i32 noundef %246)
+  %252 = load ptr, ptr @stdout, align 8, !tbaa !116
+  %253 = tail call i32 @fflush(ptr noundef %252)
   br label %Abc_DebugPrintIntInt.exit.i43.preheader
 
-Abc_DebugPrintIntInt.exit.i43.preheader:          ; preds = %249, %246
+Abc_DebugPrintIntInt.exit.i43.preheader:          ; preds = %250, %247
   br label %Abc_DebugPrintIntInt.exit.i43
 
-Abc_DebugPrintIntInt.exit.i43:                    ; preds = %Abc_DebugPrintIntInt.exit.i43.preheader, %258
-  %.018.i = phi i32 [ %259, %258 ], [ %245, %Abc_DebugPrintIntInt.exit.i43.preheader ]
-  %.0.i44 = phi ptr [ %256, %258 ], [ null, %Abc_DebugPrintIntInt.exit.i43.preheader ]
-  %253 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %.018.i, ptr noundef %2)
-  switch i32 %253, label %.loopexit.i45 [
-    i32 0, label %254
-    i32 1, label %255
+Abc_DebugPrintIntInt.exit.i43:                    ; preds = %Abc_DebugPrintIntInt.exit.i43.preheader, %259
+  %.018.i = phi i32 [ %260, %258 ], [ %246, %Abc_DebugPrintIntInt.exit.i43.preheader ]
+  %.0.i44 = phi ptr [ %257, %258 ], [ null, %Abc_DebugPrintIntInt.exit.i43.preheader ]
+  %254 = call fastcc i32 @Ses_ManFindNetworkExactCEGAR(ptr noundef %0, i32 noundef %.018.i, ptr noundef %2)
+  switch i32 %254, label %.loopexit.i45 [
+    i32 0, label %255
+    i32 1, label %256
   ]
 
-254:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
-  store i32 1, ptr %204, align 8, !tbaa !131
+255:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
+  store i32 1, ptr %205, align 8, !tbaa !131
   br label %.loopexit.i45
 
-255:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
-  %256 = load ptr, ptr %2, align 8, !tbaa !55
-  %257 = icmp eq i32 %.018.i, %247
-  br i1 %257, label %.loopexit.i45, label %258
+256:                                              ; preds = %Abc_DebugPrintIntInt.exit.i43
+  %257 = load ptr, ptr %2, align 8, !tbaa !55
+  %258 = icmp eq i32 %.018.i, %248
+  br i1 %258, label %.loopexit.i45, label %259
 
-258:                                              ; preds = %255
-  %259 = add nsw i32 %.018.i, -1
+259:                                              ; preds = %256
+  %260 = add nsw i32 %.018.i, -1
   br label %Abc_DebugPrintIntInt.exit.i43
 
-.loopexit.i45:                                    ; preds = %255, %Abc_DebugPrintIntInt.exit.i43, %254
-  %.01826.i = phi i32 [ %.018.i, %254 ], [ %247, %255 ], [ %.018.i, %Abc_DebugPrintIntInt.exit.i43 ]
-  %.1.i46 = phi ptr [ %.0.i44, %254 ], [ %256, %255 ], [ %.0.i44, %Abc_DebugPrintIntInt.exit.i43 ]
-  %260 = load i32, ptr %209, align 4, !tbaa !132
-  %261 = icmp sgt i32 %.01826.i, 9
-  %262 = select i1 %261, i32 5, i32 4
-  %263 = add nsw i32 %260, %262
-  %264 = load i32, ptr %216, align 4, !tbaa !106
-  %.not.i20.i = icmp eq i32 %264, 0
+.loopexit.i45:                                    ; preds = %256, %Abc_DebugPrintIntInt.exit.i43, %255
+  %.01826.i = phi i32 [ %.018.i, %254 ], [ %248, %255 ], [ %.018.i, %Abc_DebugPrintIntInt.exit.i43 ]
+  %.1.i46 = phi ptr [ %.0.i44, %254 ], [ %257, %255 ], [ %.0.i44, %Abc_DebugPrintIntInt.exit.i43 ]
+  %261 = load i32, ptr %210, align 4, !tbaa !132
+  %262 = icmp sgt i32 %.01826.i, 9
+  %263 = select i1 %262, i32 5, i32 4
+  %264 = add nsw i32 %261, %263
+  %265 = load i32, ptr %217, align 4, !tbaa !106
+  %.not.i20.i = icmp eq i32 %265, 0
   br i1 %.not.i20.i, label %Ses_ManFindMinimumSizeTopDown.exit, label %.preheader.i.i47
 
 .preheader.i.i47:                                 ; preds = %.loopexit.i45
-  %265 = icmp sgt i32 %263, 0
-  br i1 %265, label %.lr.ph.i.i49, label %._crit_edge.i.i48
+  %266 = icmp sgt i32 %264, 0
+  br i1 %266, label %.lr.ph.i.i49, label %._crit_edge.i.i48
 
 .lr.ph.i.i49:                                     ; preds = %.preheader.i.i47, %.lr.ph.i.i49
-  %.04.i.i50 = phi i32 [ %266, %.lr.ph.i.i49 ], [ 0, %.preheader.i.i47 ]
+  %.04.i.i50 = phi i32 [ %267, %.lr.ph.i.i49 ], [ 0, %.preheader.i.i47 ]
   %putchar.i.i51 = tail call i32 @putchar(i32 8)
-  %266 = add nuw nsw i32 %.04.i.i50, 1
-  %exitcond.not.i.i52 = icmp eq i32 %266, %263
+  %267 = add nuw nsw i32 %.04.i.i50, 1
+  %exitcond.not.i.i52 = icmp eq i32 %267, %264
   br i1 %exitcond.not.i.i52, label %._crit_edge.i.i48, label %.lr.ph.i.i49, !llvm.loop !133
 
 ._crit_edge.i.i48:                                ; preds = %.lr.ph.i.i49, %.preheader.i.i47
-  %267 = load ptr, ptr @stdout, align 8, !tbaa !116
-  %268 = tail call i32 @fflush(ptr noundef %267)
+  %268 = load ptr, ptr @stdout, align 8, !tbaa !116
+  %269 = tail call i32 @fflush(ptr noundef %268)
   br label %Ses_ManFindMinimumSizeTopDown.exit
 
 Ses_ManFindMinimumSizeTopDown.exit:               ; preds = %.loopexit.i45, %._crit_edge.i.i48
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Ses_CheckDepthConsistency.exit.thread
 
-Ses_CheckDepthConsistency.exit.thread:            ; preds = %15, %182, %185, %168, %171, %143, %146, %89, %92, %64, %67, %52, %55, %40, %43, %Ses_ManFindMinimumSizeBottomUp.exit, %238, %240, %242, %17, %Ses_ManFindMinimumSizeTopDown.exit
-  %.0 = phi ptr [ %.1.i46, %Ses_ManFindMinimumSizeTopDown.exit ], [ %18, %17 ], [ null, %242 ], [ null, %240 ], [ null, %238 ], [ %237, %Ses_ManFindMinimumSizeBottomUp.exit ], [ null, %43 ], [ null, %40 ], [ null, %55 ], [ null, %52 ], [ null, %67 ], [ null, %64 ], [ null, %92 ], [ null, %89 ], [ null, %146 ], [ null, %143 ], [ null, %171 ], [ null, %168 ], [ null, %185 ], [ null, %182 ], [ null, %15 ]
+Ses_CheckDepthConsistency.exit.thread:            ; preds = %15, %183, %186, %168, %171, %143, %146, %89, %92, %64, %67, %52, %55, %40, %43, %Ses_ManFindMinimumSizeBottomUp.exit, %239, %241, %243, %17, %Ses_ManFindMinimumSizeTopDown.exit
+  %.0 = phi ptr [ %.1.i46, %Ses_ManFindMinimumSizeTopDown.exit ], [ %18, %17 ], [ null, %242 ], [ null, %240 ], [ null, %238 ], [ %238, %Ses_ManFindMinimumSizeBottomUp.exit ], [ null, %43 ], [ null, %40 ], [ null, %55 ], [ null, %52 ], [ null, %67 ], [ null, %64 ], [ null, %92 ], [ null, %89 ], [ null, %146 ], [ null, %143 ], [ null, %171 ], [ null, %168 ], [ null, %185 ], [ null, %182 ], [ null, %15 ]
   ret ptr %.0
 }
 

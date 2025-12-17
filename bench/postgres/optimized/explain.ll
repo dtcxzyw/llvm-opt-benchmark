@@ -2014,10 +2014,10 @@ peek_buffer_usage.exit.i:                         ; preds = %352
   %379 = load i64, ptr %378, align 8
   %380 = icmp ne i64 %379, 0
   %or.cond.i.i = select i1 %338, i1 true, i1 %353
-  %or.cond3.i.i = select i1 %or.cond.i.i, i1 true, i1 %377
-  %or.cond5.i.i = select i1 %or.cond3.i.i, i1 true, i1 %370
-  %or.cond7.i.i = select i1 %or.cond5.i.i, i1 true, i1 %363
-  %spec.select.i.i = select i1 %or.cond7.i.i, i1 true, i1 %380
+  %378 = select i1 %or.cond.i.i, i1 true, i1 %377
+  %or.cond3.i.i = select i1 %378, i1 true, i1 %370
+  %379 = select i1 %or.cond3.i.i, i1 true, i1 %363
+  %or.cond5.i.i = select i1 %379, i1 true, i1 %380
   br i1 %spec.select.i.i, label %peek_buffer_usage.exit.thread.i, label %ExplainPrintSerialize.exit
 
 peek_buffer_usage.exit.thread.i:                  ; preds = %peek_buffer_usage.exit.i, %352, %321

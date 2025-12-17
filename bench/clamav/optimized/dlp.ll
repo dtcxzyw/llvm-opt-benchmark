@@ -481,7 +481,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(addre
   %42 = icmp eq i32 %41, 666
   %43 = add i32 %41, -773
   %44 = icmp ult i32 %43, -772
-  %or.cond7.not50.not65 = or i1 %42, %44
+  %or.cond7.not50.not67 = or i1 %42, %44
   %45 = load i32, ptr %5, align 4
   %46 = add i32 %45, -100
   %47 = icmp ult i32 %46, -99
@@ -492,11 +492,11 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly captures(addre
   %or.cond15.not.not60 = select i1 %or.cond11.not47.not62, i1 true, i1 %50
   %51 = icmp eq i32 %41, 987
   %52 = icmp eq i32 %45, 65
-  %or.cond17.not54.not58 = select i1 %51, i1 %52, i1 false
+  %or.cond17.not54.not64 = select i1 %51, i1 %52, i1 false
   %53 = add i32 %48, -4320
   %or.cond19 = icmp ult i32 %53, 10
-  %.not51.not55 = select i1 %or.cond17.not54.not58, i1 %or.cond19, i1 false
-  %narrow.not = select i1 %.not51.not55, i1 true, i1 %or.cond15.not.not60
+  %.not51.not61 = select i1 %or.cond17.not54.not64, i1 %or.cond19, i1 false
+  %narrow.not = select i1 %.not51.not61, i1 true, i1 %or.cond15.not.not60
   br i1 %narrow.not, label %56, label %54
 
 54:                                               ; preds = %40
