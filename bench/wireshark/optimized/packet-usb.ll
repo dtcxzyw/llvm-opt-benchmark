@@ -6824,8 +6824,8 @@ define internal i32 @dissect_usb_setup_get_descriptor_response(ptr noundef %0, p
   br label %sanitize_usb_max_packet_size.exit.i.i
 
 sanitize_usb_max_packet_size.exit.i.i:            ; preds = %82, %80, %78, %76, %75, %68
-  %.023.i.i.i = phi i32 [ %73, %68 ], [ %..i.i.i, %80 ], [ 8, %75 ], [ 64, %76 ], [ 32, %78 ], [ 64, %82 ]
-  %.0.i.i.i = phi i32 [ %74, %68 ], [ 0, %80 ], [ 0, %75 ], [ 0, %76 ], [ 0, %78 ], [ 0, %82 ]
+  %.023.i.i.i = phi i32 [ %73, %68 ], [ 64, %76 ], [ 8, %75 ], [ %..i.i.i, %80 ], [ 32, %78 ], [ 64, %82 ]
+  %.0.i.i.i = phi i32 [ %74, %68 ], [ 0, %76 ], [ 0, %75 ], [ 0, %80 ], [ 0, %78 ], [ 0, %82 ]
   %83 = or disjoint i32 %.0.i.i.i, %.023.i.i.i
   %.not.i.i = icmp eq i32 %83, %72
   br i1 %.not.i.i, label %dissect_max_packet_size0.exit.i, label %84
@@ -7713,9 +7713,9 @@ dissect_usb_string_descriptor.exit:               ; preds = %533, %.critedge.i
   br label %sanitize_usb_max_packet_size.exit.i.i58
 
 sanitize_usb_max_packet_size.exit.i.i58:          ; preds = %624, %622, %621, %618, %.thread.i.i, %612
-  %.03.i.i = phi i32 [ %.val.i56, %618 ], [ 2, %624 ], [ 1, %621 ], [ 2, %.thread.i.i ], [ 2, %622 ], [ 3, %612 ]
-  %.023.i.i.i59 = phi i32 [ %619, %618 ], [ %..i.i.i57, %624 ], [ 8, %621 ], [ 64, %.thread.i.i ], [ 32, %622 ], [ 64, %612 ]
-  %.0.i.i.i60 = phi i32 [ %620, %618 ], [ 0, %624 ], [ 0, %621 ], [ 0, %.thread.i.i ], [ 0, %622 ], [ 0, %612 ]
+  %.03.i.i = phi i32 [ %.val.i56, %618 ], [ 2, %.thread.i.i ], [ 1, %621 ], [ 2, %624 ], [ 2, %622 ], [ 3, %612 ]
+  %.023.i.i.i59 = phi i32 [ %619, %618 ], [ 64, %.thread.i.i ], [ 8, %621 ], [ %..i.i.i57, %624 ], [ 32, %622 ], [ 64, %612 ]
+  %.0.i.i.i60 = phi i32 [ %620, %618 ], [ 0, %.thread.i.i ], [ 0, %621 ], [ 0, %624 ], [ 0, %622 ], [ 0, %612 ]
   %626 = or disjoint i32 %.0.i.i.i60, %.023.i.i.i59
   %.not.i.i61 = icmp eq i32 %626, %616
   br i1 %.not.i.i61, label %dissect_usb_device_qualifier_descriptor.exit, label %627

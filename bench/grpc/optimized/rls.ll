@@ -34966,7 +34966,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %949, %946, %943, 
   br label %_ZN9grpc_coremlENS_8DurationEd.exit.i
 
 _ZN9grpc_coremlENS_8DurationEd.exit.i:            ; preds = %960, %958, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
-  %.sroa.04.0.i.i = phi i64 [ -9223372036854775808, %958 ], [ %961, %960 ], [ %930, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i ]
+  %.sroa.04.0.i.i = phi i64 [ %961, %960 ], [ -9223372036854775808, %958 ], [ %930, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i ]
   %962 = icmp eq i64 %.sroa.04.0.i.i, 9223372036854775807
   %or.cond.i.i96.i = or i1 %936, %962
   br i1 %or.cond.i.i96.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit99.i, label %963

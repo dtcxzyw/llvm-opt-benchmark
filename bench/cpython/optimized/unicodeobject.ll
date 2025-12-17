@@ -56956,7 +56956,7 @@ ucs2lib_fastsearch.exit.us.i:                     ; preds = %.lr.ph.i.i.us.i
   br i1 %135, label %.lr.ph.i.i.i, label %ucs1lib_replace_1char_inplace.exit, !llvm.loop !311
 
 ucs2lib_fastsearch.exit.i:                        ; preds = %103, %131, %122
-  %.pn.i = phi i64 [ %132, %131 ], [ %123, %122 ], [ %105, %103 ]
+  %.pn.i = phi i64 [ %123, %122 ], [ %132, %131 ], [ %105, %103 ]
   %.0.i.in.i = sub i64 %.pn.i, %93
   %136 = icmp sgt i64 %.0.i.in.i, -1
   %137 = getelementptr i8, ptr %92, i64 %.0.i.in.i
