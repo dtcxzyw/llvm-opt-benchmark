@@ -5987,9 +5987,9 @@ getKeySlot.exit:                                  ; preds = %14, %18
   %31 = icmp ne ptr %30, null
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7388), align 4
   %33 = icmp eq i32 %32, 0
-  %34 = icmp ne ptr %0, null
-  %35 = select i1 %34, i1 %31, i1 false
-  %or.cond = select i1 %35, i1 %33, i1 false
+  %34 = select i1 %31, i1 %33, i1 false
+  %35 = icmp ne ptr %0, null
+  %or.cond = select i1 %35, i1 %34, i1 false
   br i1 %or.cond, label %36, label %41
 
 36:                                               ; preds = %.thread

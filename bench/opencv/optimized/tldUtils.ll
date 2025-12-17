@@ -512,7 +512,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 
 .preheader131:                                    ; preds = %.preheader131.preheader, %.critedge
   %indvars.iv153 = phi i64 [ 1, %.preheader131.preheader ], [ %indvars.iv.next154, %.critedge ]
-  br label %101
+  br label %102
 
 .preheader130:                                    ; preds = %.critedge, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit._crit_edge.thread, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit._crit_edge
   %83 = load ptr, ptr %6, align 8, !tbaa !42
@@ -532,38 +532,39 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %94 = load double, ptr %93, align 8, !tbaa !50
   %95 = fcmp ole double %92, 0.000000e+00
   %96 = fcmp ole double %94, 0.000000e+00
-  %97 = load double, ptr %1, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %99 = load double, ptr %98, align 8
-  %100 = fmul double %92, %94
+  %97 = select i1 %95, i1 true, i1 %96
+  %98 = load double, ptr %1, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = load double, ptr %99, align 8
+  %101 = fmul double %92, %94
   %wide.trip.count164 = zext nneg i32 %2 to i64
-  br label %115
+  br label %116
 
-101:                                              ; preds = %.preheader131, %107
-  %indvars.iv155 = phi i64 [ %indvars.iv153, %.preheader131 ], [ %indvars.iv.next156, %107 ]
+102:                                              ; preds = %.preheader131, %108
+  %indvars.iv155 = phi i64 [ %indvars.iv153, %.preheader131 ], [ %indvars.iv.next156, %108 ]
   %indvars.iv.next156 = add nsw i64 %indvars.iv155, -1
-  %102 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv.next156
-  %103 = load double, ptr %102, align 8, !tbaa !46
-  %104 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv155
-  %105 = load double, ptr %104, align 8, !tbaa !46
-  %106 = fcmp ogt double %103, %105
-  br i1 %106, label %107, label %.critedge
+  %103 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv.next156
+  %104 = load double, ptr %103, align 8, !tbaa !46
+  %105 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %indvars.iv155
+  %106 = load double, ptr %105, align 8, !tbaa !46
+  %107 = fcmp ogt double %104, %106
+  br i1 %107, label %108, label %.critedge
 
-107:                                              ; preds = %101
-  store double %103, ptr %104, align 8, !tbaa !46
-  store double %105, ptr %102, align 8, !tbaa !46
-  %108 = load ptr, ptr %3, align 8, !tbaa !45
-  %109 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %108, i64 %indvars.iv155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %109, i64 32, i1 false), !tbaa.struct !55
-  %110 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %108, i64 %indvars.iv.next156
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false), !tbaa.struct !55
-  %111 = load ptr, ptr %3, align 8, !tbaa !45
-  %112 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %111, i64 %indvars.iv.next156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !55
-  %113 = icmp sgt i64 %indvars.iv155, 1
-  br i1 %113, label %101, label %.critedge, !llvm.loop !56
+108:                                              ; preds = %102
+  store double %104, ptr %105, align 8, !tbaa !46
+  store double %106, ptr %103, align 8, !tbaa !46
+  %109 = load ptr, ptr %3, align 8, !tbaa !45
+  %110 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %109, i64 %indvars.iv155
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false), !tbaa.struct !55
+  %111 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %109, i64 %indvars.iv.next156
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull align 8 dereferenceable(32) %111, i64 32, i1 false), !tbaa.struct !55
+  %112 = load ptr, ptr %3, align 8, !tbaa !45
+  %113 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %112, i64 %indvars.iv.next156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !55
+  %114 = icmp sgt i64 %indvars.iv155, 1
+  br i1 %114, label %102, label %.critedge, !llvm.loop !56
 
-.critedge:                                        ; preds = %107, %101
+.critedge:                                        ; preds = %108, %102
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count159
   br i1 %exitcond160.not, label %.preheader130, label %.preheader131, !llvm.loop !57
@@ -571,72 +572,71 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 ._crit_edge143:                                   ; preds = %.preheader130
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %.sroa.0104.1, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %114
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %115
 
-114:                                              ; preds = %._crit_edge143.thread, %._crit_edge143
+115:                                              ; preds = %._crit_edge143.thread, %._crit_edge143
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0104.1) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-115:                                              ; preds = %.lr.ph142, %180
-  %116 = phi ptr [ %84, %.lr.ph142 ], [ %181, %180 ]
-  %117 = phi ptr [ %83, %.lr.ph142 ], [ %182, %180 ]
+116:                                              ; preds = %.lr.ph142, %180
+  %117 = phi ptr [ %84, %.lr.ph142 ], [ %181, %180 ]
+  %118 = phi ptr [ %83, %.lr.ph142 ], [ %182, %180 ]
   %indvars.iv171 = phi i64 [ %16, %.lr.ph142 ], [ %indvars.iv.next172, %180 ]
-  %118 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %116, i64 %indvars.iv171
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = load double, ptr %119, align 8, !tbaa !48
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  %122 = load double, ptr %121, align 8, !tbaa !50
-  %.sroa.7.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %117, i64 %indvars.iv171
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load double, ptr %120, align 8, !tbaa !48
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %123 = load double, ptr %122, align 8, !tbaa !50
+  %.sroa.7.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.sroa.7.0.copyload.i.i83 = load double, ptr %.sroa.7.0..sroa_idx.i.i82, align 8, !tbaa !46, !noalias !58
-  %123 = fcmp ole double %120, 0.000000e+00
-  %124 = fcmp ole double %122, 0.000000e+00
-  %125 = select i1 %123, i1 true, i1 %124
-  %126 = select i1 %125, i1 true, i1 %95
-  %brmerge = select i1 %126, i1 true, i1 %96
+  %124 = fcmp ole double %121, 0.000000e+00
+  %125 = fcmp ole double %123, 0.000000e+00
+  %126 = select i1 %124, i1 true, i1 %125
+  %brmerge = select i1 %126, i1 true, i1 %97
   br i1 %brmerge, label %152, label %127
 
-127:                                              ; preds = %115
-  %.sroa.0.0.copyload.i.i81 = load double, ptr %118, align 8, !tbaa !46, !noalias !58
-  %128 = fcmp olt double %.sroa.0.0.copyload.i.i81, %97
-  %129 = select i1 %128, double %.sroa.0.0.copyload.i.i81, double %97
-  %130 = select i1 %128, double %97, double %.sroa.0.0.copyload.i.i81
-  %131 = fcmp olt double %.sroa.7.0.copyload.i.i83, %99
+127:                                              ; preds = %116
+  %.sroa.0.0.copyload.i.i81 = load double, ptr %119, align 8, !tbaa !46, !noalias !58
+  %128 = fcmp olt double %.sroa.0.0.copyload.i.i81, %98
+  %129 = select i1 %128, double %.sroa.0.0.copyload.i.i81, double %98
+  %130 = select i1 %128, double %98, double %.sroa.0.0.copyload.i.i81
+  %131 = fcmp olt double %.sroa.7.0.copyload.i.i83, %100
   %132 = fcmp olt double %129, 0.000000e+00
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %127
-  %.sroa.speculated38.i.i97 = select i1 %128, double %120, double %92
+  %.sroa.speculated38.i.i97 = select i1 %128, double %121, double %92
   %134 = fadd double %129, %.sroa.speculated38.i.i97
   %135 = fcmp olt double %134, %130
   br i1 %135, label %152, label %136
 
 136:                                              ; preds = %133, %127
-  %.sroa.speculated46.i.i84 = select i1 %131, double %.sroa.7.0.copyload.i.i83, double %99
+  %.sroa.speculated46.i.i84 = select i1 %131, double %.sroa.7.0.copyload.i.i83, double %100
   %137 = fcmp olt double %.sroa.speculated46.i.i84, 0.000000e+00
-  %.sroa.speculated33.i.i85 = select i1 %131, double %122, double %94
+  %.sroa.speculated33.i.i85 = select i1 %131, double %123, double %94
   br i1 %137, label %138, label %._crit_edge.i.i.i86
 
 ._crit_edge.i.i.i86:                              ; preds = %136
-  %.pre75.i.sroa.speculated.i.i87 = select i1 %131, double %99, double %.sroa.7.0.copyload.i.i83
+  %.pre75.i.sroa.speculated.i.i87 = select i1 %131, double %100, double %.sroa.7.0.copyload.i.i83
   br label %141
 
 138:                                              ; preds = %136
   %139 = fadd double %.sroa.speculated46.i.i84, %.sroa.speculated33.i.i85
-  %.sroa.speculated43.i.i96 = select i1 %131, double %99, double %.sroa.7.0.copyload.i.i83
+  %.sroa.speculated43.i.i96 = select i1 %131, double %100, double %.sroa.7.0.copyload.i.i83
   %140 = fcmp olt double %139, %.sroa.speculated43.i.i96
   br i1 %140, label %152, label %141
 
 141:                                              ; preds = %138, %._crit_edge.i.i.i86
   %142 = phi double [ %.pre75.i.sroa.speculated.i.i87, %._crit_edge.i.i.i86 ], [ %.sroa.speculated43.i.i96, %138 ]
-  %.sroa.speculated41.i.i88 = select i1 %128, double %120, double %92
+  %.sroa.speculated41.i.i88 = select i1 %128, double %121, double %92
   %143 = fsub double %129, %130
   %144 = fadd double %.sroa.speculated41.i.i88, %143
-  %.sroa.speculated35.i.i89 = select i1 %128, double %92, double %120
+  %.sroa.speculated35.i.i89 = select i1 %128, double %92, double %121
   %145 = fcmp olt double %.sroa.speculated35.i.i89, %144
   %.sroa.speculated55.i.i.i90 = select i1 %145, double %.sroa.speculated35.i.i89, double %144
   %146 = fsub double %.sroa.speculated46.i.i84, %142
   %147 = fadd double %.sroa.speculated33.i.i85, %146
-  %.sroa.speculated.i.i91 = select i1 %131, double %94, double %122
+  %.sroa.speculated.i.i91 = select i1 %131, double %94, double %123
   %148 = fcmp olt double %.sroa.speculated.i.i91, %147
   %.sroa.speculated.i.i.i92 = select i1 %148, double %.sroa.speculated.i.i91, double %147
   %149 = fcmp ole double %.sroa.speculated55.i.i.i90, 0.000000e+00
@@ -647,12 +647,12 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 .sink.split.i.i.i95:                              ; preds = %141
   br label %152
 
-152:                                              ; preds = %115, %.sink.split.i.i.i95, %141, %138, %133
-  %.sroa.12.0.i.i93 = phi double [ %.sroa.speculated55.i.i.i90, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
-  %.sroa.17.0.i.i94 = phi double [ %.sroa.speculated.i.i.i92, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
-  %153 = fmul double %120, %122
+152:                                              ; preds = %116, %.sink.split.i.i.i95, %141, %138, %133
+  %.sroa.12.0.i.i93 = phi double [ %.sroa.speculated55.i.i.i90, %141 ], [ 0.000000e+00, %116 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
+  %.sroa.17.0.i.i94 = phi double [ %.sroa.speculated.i.i.i92, %141 ], [ 0.000000e+00, %116 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
+  %153 = fmul double %121, %123
   %154 = fmul double %.sroa.12.0.i.i93, %.sroa.17.0.i.i94
-  %155 = fadd double %153, %100
+  %155 = fadd double %153, %101
   %156 = fsub double %155, %154
   %157 = fdiv double %154, %156
   %158 = load double, ptr %.sroa.0104.1, align 8, !tbaa !46
@@ -694,7 +694,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %.critedge2
   %167 = phi i32 [ %165, %._crit_edge.loopexit ], [ %165, %.critedge2 ], [ -1, %.preheader ]
-  %168 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %116, %.critedge2 ], [ %116, %.preheader ]
+  %168 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %117, %.critedge2 ], [ %117, %.preheader ]
   %169 = sext i32 %167 to i64
   %170 = getelementptr inbounds nuw double, ptr %.sroa.0104.1, i64 %169
   store double %157, ptr %170, align 8, !tbaa !46
@@ -721,8 +721,8 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   br i1 %exitcond170.not, label %._crit_edge.loopexit, label %.lr.ph140, !llvm.loop !62
 
 180:                                              ; preds = %152, %._crit_edge
-  %181 = phi ptr [ %116, %152 ], [ %.pre175, %._crit_edge ]
-  %182 = phi ptr [ %117, %152 ], [ %.pre174, %._crit_edge ]
+  %181 = phi ptr [ %117, %152 ], [ %.pre175, %._crit_edge ]
+  %182 = phi ptr [ %118, %152 ], [ %.pre174, %._crit_edge ]
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %183 = ptrtoint ptr %182 to i64
   %184 = ptrtoint ptr %181 to i64
@@ -730,13 +730,13 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   %sext = shl i64 %185, 27
   %186 = ashr i64 %sext, 32
   %187 = icmp slt i64 %indvars.iv.next172, %186
-  br i1 %187, label %115, label %._crit_edge143.thread, !llvm.loop !63
+  br i1 %187, label %116, label %._crit_edge143.thread, !llvm.loop !63
 
 ._crit_edge143.thread:                            ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %114
+  br label %115
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %114, %._crit_edge143, %14
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %115, %._crit_edge143, %14
   ret void
 
 188:                                              ; preds = %_ZNSt6vectorIdSaIdEE6assignEmRKd.exit

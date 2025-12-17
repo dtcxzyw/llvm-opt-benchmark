@@ -7555,8 +7555,8 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %
   store ptr %.038.lcssa, ptr %7, align 8, !tbaa !55
   %100 = icmp ne ptr %.0.lcssa, %3
   %101 = icmp ne i16 %.045.lcssa, 0
-  %102 = select i1 %.not101.not.lcssa, i1 true, i1 %100
-  %narrow = select i1 %102, i1 true, i1 %101
+  %or.cond = select i1 %100, i1 true, i1 %101
+  %narrow = select i1 %.not101.not.lcssa, i1 true, i1 %or.cond
   %spec.select98 = zext i1 %narrow to i32
   store i16 %.045.lcssa, ptr %1, align 4
   ret i32 %spec.select98

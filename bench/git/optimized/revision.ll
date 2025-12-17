@@ -12486,13 +12486,13 @@ define internal fastcc void @try_to_simplify_commit(ptr noundef %0, ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2196
   br label %28
 
-28:                                               ; preds = %.lr.ph, %153
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %153 ]
-  %29 = phi ptr [ %11, %.lr.ph ], [ %155, %153 ]
-  %.071158 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %153 ]
-  %.072156 = phi i32 [ 0, %.lr.ph ], [ %.274.ph, %153 ]
-  %.075154 = phi i32 [ 0, %.lr.ph ], [ %.277.ph, %153 ]
-  %.079153 = phi ptr [ null, %.lr.ph ], [ %.180, %153 ]
+28:                                               ; preds = %.lr.ph, %152
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %152 ]
+  %29 = phi ptr [ %11, %.lr.ph ], [ %154, %152 ]
+  %.071158 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %152 ]
+  %.072156 = phi i32 [ 0, %.lr.ph ], [ %.274.ph, %152 ]
+  %.075154 = phi i32 [ 0, %.lr.ph ], [ %.277.ph, %152 ]
+  %.079153 = phi ptr [ null, %.lr.ph ], [ %.180, %152 ]
   %30 = load ptr, ptr %29, align 8, !tbaa !59
   %.val108 = load i32, ptr %30, align 8
   %31 = and i32 %.val108, 16416
@@ -12662,8 +12662,8 @@ check_maybe_different_in_bloom_filter.exit.thread31.i: ; preds = %check_maybe_di
   %.pre42.i = load i32, ptr @tree_difference, align 4, !tbaa !42
   %.not48.i = xor i1 %79, true
   %110 = icmp eq i32 %.pre42.i, 0
-  %111 = and i1 %.0.i, %.not48.i
-  %or.cond49.i = select i1 %111, i1 %110, i1 false
+  %or.cond3.i = select i1 %.0.i, i1 %110, i1 false
+  %or.cond49.i = select i1 %.not48.i, i1 %or.cond3.i, i1 false
   br i1 %or.cond49.i, label %rev_compare_tree.exit.thread.sink.split, label %rev_compare_tree.exit
 
 rev_compare_tree.exit:                            ; preds = %.thread36.i, %107
@@ -12677,138 +12677,138 @@ rev_compare_tree.exit:                            ; preds = %.thread36.i, %107
 
 rev_compare_tree.exit.thread.sink.split:          ; preds = %.lr.ph.i, %107
   %count_bloom_filter_false_positive.sink216 = phi ptr [ @count_bloom_filter_false_positive, %107 ], [ @count_bloom_filter_definitely_not, %.lr.ph.i ]
-  %112 = load i32, ptr %count_bloom_filter_false_positive.sink216, align 4, !tbaa !42
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %count_bloom_filter_false_positive.sink216, align 4, !tbaa !42
+  %111 = load i32, ptr %count_bloom_filter_false_positive.sink216, align 4, !tbaa !42
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %count_bloom_filter_false_positive.sink216, align 4, !tbaa !42
   br label %rev_compare_tree.exit.thread
 
 rev_compare_tree.exit.thread:                     ; preds = %rev_compare_tree.exit.thread.sink.split, %74, %rev_compare_tree.exit
-  %114 = load i64, ptr %3, align 8
-  %115 = and i64 %114, 128
-  %.not99 = icmp eq i64 %115, 0
-  br i1 %.not99, label %118, label %116
+  %113 = load i64, ptr %3, align 8
+  %114 = and i64 %113, 128
+  %.not99 = icmp eq i64 %114, 0
+  br i1 %.not99, label %117, label %115
 
-116:                                              ; preds = %rev_compare_tree.exit.thread
+115:                                              ; preds = %rev_compare_tree.exit.thread
   %.val107 = load i32, ptr %30, align 8
-  %117 = and i32 %.val107, 16416
-  %.not129 = icmp eq i32 %117, 32
-  br i1 %.not129, label %118, label %122
+  %116 = and i32 %.val107, 16416
+  %.not129 = icmp eq i32 %116, 32
+  br i1 %.not129, label %117, label %121
 
-118:                                              ; preds = %116, %rev_compare_tree.exit.thread
+117:                                              ; preds = %115, %rev_compare_tree.exit.thread
   %.not101 = icmp eq ptr %.180, null
-  br i1 %.not101, label %153, label %119
+  br i1 %.not101, label %152, label %118
 
-119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw i8, ptr %.180, i64 4
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv
-  store i8 1, ptr %121, align 1, !tbaa !28
-  br label %153
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %.180, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %indvars.iv
+  store i8 1, ptr %120, align 1, !tbaa !28
+  br label %152
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !251
-  tail call void @free_commit_list(ptr noundef %124) #27
-  store ptr null, ptr %123, align 8, !tbaa !251
-  %125 = load ptr, ptr %10, align 8, !tbaa !363
-  %.not102168 = icmp eq ptr %125, %29
+121:                                              ; preds = %115
+  %122 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %123 = load ptr, ptr %122, align 8, !tbaa !251
+  tail call void @free_commit_list(ptr noundef %123) #27
+  store ptr null, ptr %122, align 8, !tbaa !251
+  %124 = load ptr, ptr %10, align 8, !tbaa !363
+  %.not102168 = icmp eq ptr %124, %29
   br i1 %.not102168, label %._crit_edge171, label %.lr.ph170
 
-.lr.ph170:                                        ; preds = %122, %.lr.ph170
-  %126 = tail call ptr @pop_commit(ptr noundef nonnull %10) #27
-  %127 = load ptr, ptr %10, align 8, !tbaa !363
-  %.not102 = icmp eq ptr %127, %29
+.lr.ph170:                                        ; preds = %121, %.lr.ph170
+  %125 = tail call ptr @pop_commit(ptr noundef nonnull %10) #27
+  %126 = load ptr, ptr %10, align 8, !tbaa !363
+  %.not102 = icmp eq ptr %126, %29
   br i1 %.not102, label %._crit_edge171, label %.lr.ph170, !llvm.loop !438
 
-._crit_edge171:                                   ; preds = %.lr.ph170, %122
+._crit_edge171:                                   ; preds = %.lr.ph170, %121
   store ptr %29, ptr %10, align 8, !tbaa !363
-  %128 = load i64, ptr %3, align 8
-  %129 = and i64 %128, 256
-  %130 = icmp ne i64 %129, 0
-  %131 = icmp ne i64 %indvars.iv, 0
-  %or.cond3 = and i1 %130, %131
+  %127 = load i64, ptr %3, align 8
+  %128 = and i64 %127, 256
+  %129 = icmp ne i64 %128, 0
+  %130 = icmp ne i64 %indvars.iv, 0
+  %or.cond3 = and i1 %129, %130
   br i1 %or.cond3, label %.thread123, label %.thread123.sink.split
 
 rev_compare_tree.exit.thread113:                  ; preds = %63, %rev_compare_tree.exit
-  %132 = load i64, ptr %3, align 8
-  %133 = and i64 %132, 64
-  %.not95 = icmp eq i64 %133, 0
-  br i1 %.not95, label %rev_compare_tree.exit.thread111, label %134
+  %131 = load i64, ptr %3, align 8
+  %132 = and i64 %131, 64
+  %.not95 = icmp eq i64 %132, 0
+  br i1 %.not95, label %rev_compare_tree.exit.thread111, label %133
 
-134:                                              ; preds = %rev_compare_tree.exit.thread113
-  %135 = trunc nuw nsw i64 %indvars.iv to i32
-  %136 = tail call fastcc i32 @rev_same_tree_as_empty(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %135)
-  %.not96 = icmp eq i32 %136, 0
-  br i1 %.not96, label %rev_compare_tree.exit.thread111, label %137
+133:                                              ; preds = %rev_compare_tree.exit.thread113
+  %134 = trunc nuw nsw i64 %indvars.iv to i32
+  %135 = tail call fastcc i32 @rev_same_tree_as_empty(ptr noundef nonnull %0, ptr noundef nonnull %30, i32 noundef %134)
+  %.not96 = icmp eq i32 %135, 0
+  br i1 %.not96, label %rev_compare_tree.exit.thread111, label %136
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %21, align 8, !tbaa !73
-  %139 = tail call i32 @repo_parse_commit_gently(ptr noundef %138, ptr noundef nonnull %30, i32 noundef 0) #27
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %141, label %146
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %21, align 8, !tbaa !73
+  %138 = tail call i32 @repo_parse_commit_gently(ptr noundef %137, ptr noundef nonnull %30, i32 noundef 0) #27
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %140, label %145
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %143 = tail call ptr @oid_to_hex(ptr noundef nonnull %142) #27
-  %144 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %145 = tail call ptr @oid_to_hex(ptr noundef nonnull %144) #27
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.227, ptr noundef %143, ptr noundef %145) #29
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %142 = tail call ptr @oid_to_hex(ptr noundef nonnull %141) #27
+  %143 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %144 = tail call ptr @oid_to_hex(ptr noundef nonnull %143) #27
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.227, ptr noundef %142, ptr noundef %144) #29
   unreachable
 
-146:                                              ; preds = %137
-  %147 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %148 = load ptr, ptr %147, align 8, !tbaa !363
-  tail call void @free_commit_list(ptr noundef %148) #27
-  store ptr null, ptr %147, align 8, !tbaa !363
+145:                                              ; preds = %136
+  %146 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %147 = load ptr, ptr %146, align 8, !tbaa !363
+  tail call void @free_commit_list(ptr noundef %147) #27
+  store ptr null, ptr %146, align 8, !tbaa !363
   br label %rev_compare_tree.exit.thread111
 
-rev_compare_tree.exit.thread111:                  ; preds = %72, %68, %rev_compare_tree.exit.thread113, %134, %146, %rev_compare_tree.exit, %rev_compare_tree.exit
+rev_compare_tree.exit.thread111:                  ; preds = %72, %68, %rev_compare_tree.exit.thread113, %133, %145, %rev_compare_tree.exit, %rev_compare_tree.exit
   %.val = load i32, ptr %30, align 8
-  %149 = and i32 %.val, 16416
-  %.not130 = icmp eq i32 %149, 32
+  %148 = and i32 %.val, 16416
+  %.not130 = icmp eq i32 %148, 32
   %.075. = select i1 %.not130, i32 %.075154, i32 1
   %..072 = select i1 %.not130, i32 1, i32 %.072156
   %.not98 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not98, label %150, label %153
+  br i1 %.not98, label %149, label %152
 
-150:                                              ; preds = %rev_compare_tree.exit.thread111
-  %151 = load i32, ptr %1, align 8
-  %152 = or i32 %151, 524288
-  store i32 %152, ptr %1, align 8
-  br label %153
+149:                                              ; preds = %rev_compare_tree.exit.thread111
+  %150 = load i32, ptr %1, align 8
+  %151 = or i32 %150, 524288
+  store i32 %151, ptr %1, align 8
+  br label %152
 
 default.unreachable:                              ; preds = %rev_compare_tree.exit
   unreachable
 
-153:                                              ; preds = %119, %118, %150, %rev_compare_tree.exit.thread111
-  %.277.ph = phi i32 [ %.075., %rev_compare_tree.exit.thread111 ], [ %.075., %150 ], [ %.075154, %118 ], [ %.075154, %119 ]
-  %.274.ph = phi i32 [ %..072, %rev_compare_tree.exit.thread111 ], [ %..072, %150 ], [ %.072156, %118 ], [ %.072156, %119 ]
-  %154 = getelementptr inbounds nuw i8, ptr %29, i64 8
+152:                                              ; preds = %118, %117, %149, %rev_compare_tree.exit.thread111
+  %.277.ph = phi i32 [ %.075., %rev_compare_tree.exit.thread111 ], [ %.075., %149 ], [ %.075154, %117 ], [ %.075154, %118 ]
+  %.274.ph = phi i32 [ %..072, %rev_compare_tree.exit.thread111 ], [ %..072, %149 ], [ %.072156, %117 ], [ %.072156, %118 ]
+  %153 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %155 = load ptr, ptr %154, align 8, !tbaa !58
-  %.not89 = icmp eq ptr %155, null
+  %154 = load ptr, ptr %153, align 8, !tbaa !58
+  %.not89 = icmp eq ptr %154, null
   br i1 %.not89, label %._crit_edge, label %28, !llvm.loop !439
 
-._crit_edge:                                      ; preds = %153, %34
-  %.075.lcssa.ph = phi i32 [ %.277.ph, %153 ], [ %.075154, %34 ]
-  %.072.lcssa.ph = phi i32 [ %.274.ph, %153 ], [ %.072156, %34 ]
+._crit_edge:                                      ; preds = %152, %34
+  %.075.lcssa.ph = phi i32 [ %.277.ph, %152 ], [ %.075154, %34 ]
+  %.072.lcssa.ph = phi i32 [ %.274.ph, %152 ], [ %.072156, %34 ]
   %.not103 = icmp eq i32 %spec.select, 0
-  br i1 %.not103, label %157, label %156
+  br i1 %.not103, label %156, label %155
 
-156:                                              ; preds = %._crit_edge
+155:                                              ; preds = %._crit_edge
   %.not105 = icmp eq i32 %.075.lcssa.ph, 0
   br i1 %.not105, label %.thread123.sink.split, label %.thread123
 
-157:                                              ; preds = %._crit_edge
+156:                                              ; preds = %._crit_edge
   %.not104 = icmp eq i32 %.072.lcssa.ph, 0
   br i1 %.not104, label %.thread123.sink.split, label %.thread123
 
-.thread123.sink.split:                            ; preds = %156, %157, %._crit_edge171, %12
-  %158 = load i32, ptr %1, align 8
-  %159 = or i32 %158, 64
-  store i32 %159, ptr %1, align 8
+.thread123.sink.split:                            ; preds = %155, %156, %._crit_edge171, %12
+  %157 = load i32, ptr %1, align 8
+  %158 = or i32 %157, 64
+  store i32 %158, ptr %1, align 8
   br label %.thread123
 
-.thread123:                                       ; preds = %.thread123.sink.split, %._crit_edge171, %156, %157, %17, %12, %6, %2
+.thread123:                                       ; preds = %.thread123.sink.split, %._crit_edge171, %155, %156, %17, %12, %6, %2
   ret void
 }
 

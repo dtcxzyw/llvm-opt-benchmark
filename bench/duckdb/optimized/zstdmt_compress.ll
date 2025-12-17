@@ -1780,8 +1780,8 @@ _ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit.i: ; preds
   %or.cond19.not.i.not79.i = select i1 %59, i1 true, i1 %60
   %61 = icmp uge ptr %52, %58
   %62 = icmp uge ptr %.sroa.0.3.i.i, %57
-  %.not76.i = select i1 %or.cond19.not.i.not79.i, i1 true, i1 %61
-  %narrow.i.not.i = select i1 %.not76.i, i1 true, i1 %62
+  %.not81.i = select i1 %61, i1 true, i1 %62
+  %narrow.i.not.i = select i1 %or.cond19.not.i.not79.i, i1 true, i1 %.not81.i
   br i1 %narrow.i.not.i, label %_ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit.thread.i, label %_ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exit.thread139
 
 _ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit.thread.i: ; preds = %_ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit.i, %51
@@ -1812,8 +1812,8 @@ _ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit50.i: ; pre
   %or.cond19.not.i46.not84.i = select i1 %76, i1 true, i1 %77
   %78 = icmp uge ptr %71, %75
   %79 = icmp uge ptr %.sroa.0.3.i.i, %74
-  %.not82.i = select i1 %or.cond19.not.i46.not84.i, i1 true, i1 %78
-  %narrow.i47.not.i = select i1 %.not82.i, i1 true, i1 %79
+  %.not87.i = select i1 %78, i1 true, i1 %79
+  %narrow.i47.not.i = select i1 %or.cond19.not.i46.not84.i, i1 true, i1 %.not87.i
   br i1 %narrow.i47.not.i, label %_ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit50.thread.i, label %_ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit50.i._ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exitthread-pre-split_crit_edge
 
 _ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit50.i._ZN11duckdb_zstdL23ZSTDMT_tryGetInputRangeEPNS_13ZSTDMT_CCtx_sE.exitthread-pre-split_crit_edge: ; preds = %_ZN11duckdb_zstdL19ZSTDMT_isOverlappedENS_8buffer_sENS_7range_tE.exit50.i

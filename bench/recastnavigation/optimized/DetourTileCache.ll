@@ -1224,13 +1224,13 @@ define noundef i32 @_ZNK11dtTileCache10queryTilesEPKfS1_PjPii(ptr noundef nonnul
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge47
   %.051 = phi i32 [ %.2.lcssa, %._crit_edge47 ], [ 0, %.preheader.lr.ph ]
-  %.03350 = phi i32 [ %154, %._crit_edge47 ], [ %37, %.preheader.lr.ph ]
+  %.03350 = phi i32 [ %153, %._crit_edge47 ], [ %37, %.preheader.lr.ph ]
   %50 = mul i32 %.03350, -669632447
   br label %51
 
 51:                                               ; preds = %.preheader, %._crit_edge
   %.145 = phi i32 [ %.051, %.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %.03444 = phi i32 [ %24, %.preheader ], [ %153, %._crit_edge ]
+  %.03444 = phi i32 [ %24, %.preheader ], [ %152, %._crit_edge ]
   %52 = load i32, ptr %44, align 4
   %53 = mul i32 %.03444, -1918454973
   %54 = add i32 %53, %50
@@ -1378,31 +1378,31 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %84
   %145 = load float, ptr %38, align 4
   %146 = fcmp uge float %145, %107
   %147 = icmp slt i32 %.242, %5
-  %148 = and i1 %141, %146
-  %or.cond40 = select i1 %148, i1 %147, i1 false
-  br i1 %or.cond40, label %149, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
+  %or.cond = select i1 %141, i1 %147, i1 false
+  %or.cond40 = select i1 %146, i1 %or.cond, i1 false
+  br i1 %or.cond40, label %148, label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
-149:                                              ; preds = %144
-  %150 = add nsw i32 %.242, 1
-  %151 = sext i32 %.242 to i64
-  %152 = getelementptr inbounds i32, ptr %3, i64 %151
-  store i32 %89, ptr %152, align 4
+148:                                              ; preds = %144
+  %149 = add nsw i32 %.242, 1
+  %150 = sext i32 %.242 to i64
+  %151 = getelementptr inbounds i32, ptr %3, i64 %150
+  store i32 %89, ptr %151, align 4
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
-_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %140, %144, %149
-  %.3 = phi i32 [ %150, %149 ], [ %.242, %144 ], [ %.242, %140 ]
+_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %140, %144, %148
+  %.3 = phi i32 [ %149, %148 ], [ %.242, %144 ], [ %.242, %140 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %51, %_ZNK11dtTileCache10getTilesAtEiiPji.exit
   %.2.lcssa = phi i32 [ %.145, %_ZNK11dtTileCache10getTilesAtEiiPji.exit ], [ %.145, %51 ], [ %.3, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
-  %153 = add i32 %.03444, 1
+  %152 = add i32 %.03444, 1
   %exitcond56.not = icmp eq i32 %.03444, %29
   br i1 %exitcond56.not, label %._crit_edge47, label %51, !llvm.loop !12
 
 ._crit_edge47:                                    ; preds = %._crit_edge
-  %154 = add i32 %.03350, 1
+  %153 = add i32 %.03350, 1
   %exitcond57.not = icmp eq i32 %.03350, %43
   br i1 %exitcond57.not, label %._crit_edge52, label %.preheader, !llvm.loop !13
 

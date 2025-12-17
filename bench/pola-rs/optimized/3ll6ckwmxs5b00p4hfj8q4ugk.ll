@@ -36531,16 +36531,17 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3154
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3154
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3154
-  %110 = trunc nuw i32 %85 to i1
-  %111 = trunc nuw i32 %104 to i1
+  %110 = trunc i8 %101 to i1
+  %111 = trunc nuw i32 %85 to i1
   %112 = and i8 %89, 1
   %113 = and i8 %112, %92
   %114 = and i8 %113, %95
   %115 = and i8 %114, %98
-  %116 = and i8 %115, %101
-  %117 = icmp ne i8 %116, 0
-  %118 = and i1 %117, %110
-  %or.cond22.i.i = select i1 %118, i1 %111, i1 false
+  %116 = icmp ne i8 %115, 0
+  %117 = and i1 %116, %111
+  %118 = trunc nuw i32 %104 to i1
+  %or.cond.i.i = select i1 %110, i1 %118, i1 false
+  %or.cond22.i.i = select i1 %117, i1 %or.cond.i.i, i1 false
   br i1 %or.cond22.i.i, label %119, label %.thread101
 
 .thread101:                                       ; preds = %105

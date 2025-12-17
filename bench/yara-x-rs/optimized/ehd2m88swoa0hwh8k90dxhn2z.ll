@@ -71901,7 +71901,7 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   switch i64 %9, label %10 [
     i64 0, label %11
     i64 1, label %20
-    i64 2, label %54
+    i64 2, label %53
   ]
 
 10:                                               ; preds = %2
@@ -71923,7 +71923,7 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = icmp ult i64 %22, 2305843009213693952
   tail call void @llvm.assume(i1 %23)
-  br label %54
+  br label %53
 
 24:                                               ; preds = %11
   tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.22911ec2d3551975e67fbe84588bafe7.523) #35
@@ -71962,29 +71962,29 @@ define hidden { i64, i64 } @_ZN6yara_x8compiler2ir8Iterable14num_iterations17h2a
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %44 = load i64, ptr %43, align 8, !range !274, !noalias !9752
   %45 = icmp eq i64 %44, 0
+  %or.cond.i8 = select i1 %42, i1 %45, i1 false
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %47 = load i64, ptr %46, align 8, !noalias !9752
   call fastcc void @"_ZN4core3ptr45drop_in_place$LT$yara_x..types..TypeValue$GT$17hde68797bd4e11393E"(ptr noalias noundef align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !9752
-  %48 = and i1 %or.cond.i, %42
-  %or.cond = select i1 %48, i1 %45, i1 false
-  br i1 %or.cond, label %49, label %54
+  %or.cond = select i1 %or.cond.i, i1 %or.cond.i8, i1 false
+  br i1 %or.cond, label %48, label %53
 
-49:                                               ; preds = %31
-  %50 = add i64 %47, 1
-  %51 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %50, i64 %40)
-  %52 = extractvalue { i64, i1 } %51, 1
-  %53 = extractvalue { i64, i1 } %51, 0
-  %not. = xor i1 %52, true
+48:                                               ; preds = %31
+  %49 = add i64 %47, 1
+  %50 = call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %49, i64 %40)
+  %51 = extractvalue { i64, i1 } %50, 1
+  %52 = extractvalue { i64, i1 } %50, 0
+  %not. = xor i1 %51, true
   %spec.select7 = zext i1 %not. to i64
-  br label %54
+  br label %53
 
-54:                                               ; preds = %49, %31, %2, %20
-  %.sroa.6.0 = phi i64 [ %22, %20 ], [ undef, %2 ], [ undef, %31 ], [ %53, %49 ]
-  %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %2 ], [ 0, %31 ], [ %spec.select7, %49 ]
-  %55 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %56 = insertvalue { i64, i64 } %55, i64 %.sroa.6.0, 1
-  ret { i64, i64 } %56
+53:                                               ; preds = %48, %31, %2, %20
+  %.sroa.6.0 = phi i64 [ %22, %20 ], [ undef, %2 ], [ undef, %31 ], [ %52, %48 ]
+  %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %2 ], [ 0, %31 ], [ %spec.select7, %48 ]
+  %54 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %55 = insertvalue { i64, i64 } %54, i64 %.sroa.6.0, 1
+  ret { i64, i64 } %55
 }
 
 ; Function Attrs: nonlazybind uwtable

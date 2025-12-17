@@ -124,59 +124,59 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %31 = tail call float @llvm.floor.f32(float %25)
   %32 = fsub float %25, %31
   %33 = fcmp uge float %32, %27
-  %34 = fptosi float %24 to i32
-  %35 = fptosi float %25 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i32, ptr %36, align 8
+  %34 = or i1 %30, %33
+  %35 = fptosi float %24 to i32
+  %36 = fptosi float %25 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8
   %.neg = mul i32 %.fr87, -2
   %.neg68 = sub i32 %.neg, %.fr78
-  %38 = add i32 %.neg68, %37
-  %39 = sitofp i32 %38 to float
-  %40 = fdiv float %39, %23
-  %41 = fptosi float %40 to i32
-  %.fr = freeze i32 %41
+  %39 = add i32 %.neg68, %38
+  %40 = sitofp i32 %39 to float
+  %41 = fdiv float %40, %23
+  %42 = fptosi float %41 to i32
+  %.fr = freeze i32 %42
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %.fr, i32 0)
-  %42 = add nuw i32 %.sroa.speculated.i, 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %43, align 8
-  %.fr76 = freeze ptr %45
-  %47 = ptrtoint ptr %.fr76 to i64
-  %.fr77 = freeze ptr %46
-  %48 = ptrtoint ptr %.fr77 to i64
-  %49 = sub i64 %47, %48
-  %50 = sdiv i64 %49, 40
-  %51 = trunc i64 %50 to i32
-  %52 = add i32 %.sroa.speculated.i, %51
-  %53 = sdiv i32 %52, %42
-  %54 = icmp sgt i32 %34, -1
-  %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr = freeze i32 %35
-  br i1 %54, label %55, label %.thread
+  %43 = add nuw i32 %.sroa.speculated.i, 1
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %44, align 8
+  %.fr76 = freeze ptr %46
+  %48 = ptrtoint ptr %.fr76 to i64
+  %.fr77 = freeze ptr %47
+  %49 = ptrtoint ptr %.fr77 to i64
+  %50 = sub i64 %48, %49
+  %51 = sdiv i64 %50, 40
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %.sroa.speculated.i, %52
+  %54 = sdiv i32 %53, %43
+  %55 = icmp sgt i32 %35, -1
+  %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr = freeze i32 %36
+  br i1 %55, label %56, label %.thread
 
-55:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %56 = icmp sgt i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, -1
-  %57 = fcmp oge float %24, 0.000000e+00
-  %or.cond.not66 = and i1 %57, %56
-  %58 = fcmp oge float %25, 0.000000e+00
-  %or.cond60.not63 = and i1 %or.cond.not66, %58
-  %59 = icmp samesign uge i32 %.sroa.speculated.i, %34
-  %or.cond61 = and i1 %59, %or.cond60.not63
-  br i1 %or.cond61, label %60, label %.thread
+56:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %57 = icmp sgt i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, -1
+  %58 = fcmp oge float %24, 0.000000e+00
+  %or.cond.not66 = and i1 %58, %57
+  %59 = fcmp oge float %25, 0.000000e+00
+  %or.cond60.not63 = and i1 %or.cond.not66, %59
+  %60 = icmp samesign uge i32 %.sroa.speculated.i, %35
+  %or.cond61 = and i1 %60, %or.cond60.not63
+  br i1 %or.cond61, label %61, label %.thread
 
-60:                                               ; preds = %55
-  %61 = icmp sge i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %53
-  %62 = or i1 %61, %30
-  %63 = or i1 %62, %33
-  %64 = mul nuw nsw i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %42
-  %65 = add nuw nsw i32 %64, %34
+61:                                               ; preds = %56
+  %62 = icmp sge i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %54
+  %63 = or i1 %62, %34
+  %64 = mul nuw nsw i32 %.sroa.4.0..sroa.4.0..sroa.4.4.16.pre.fr, %43
+  %65 = add nuw nsw i32 %64, %35
   br i1 %63, label %.thread, label %66
 
-.thread:                                          ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %55, %60
+.thread:                                          ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %56, %61
   br label %66
 
-66:                                               ; preds = %60, %.thread
-  %67 = phi i32 [ -1, %.thread ], [ %65, %60 ]
+66:                                               ; preds = %61, %.thread
+  %67 = phi i32 [ -1, %.thread ], [ %65, %61 ]
   ret i32 %67
 }
 

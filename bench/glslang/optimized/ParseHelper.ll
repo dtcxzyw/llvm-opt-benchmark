@@ -17973,27 +17973,29 @@ define noundef ptr @_ZN7glslang13TParseContext14addConstructorERKNS_10TSourceLoc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %270 = load ptr, ptr %208, align 8
   %.not = icmp eq ptr %269, %270
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %242, %201
-  %.084.lcssa = phi i1 [ false, %201 ], [ %.185, %242 ]
-  %.082.lcssa = phi i1 [ true, %201 ], [ %spec.select, %242 ]
-  %271 = load ptr, ptr %27, align 8
-  %272 = call noundef ptr @_ZN7glslang13TIntermediate20setAggregateOperatorEP11TIntermNodeNS_9TOperatorERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %271, ptr noundef nonnull %26, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %1) #23
+._crit_edge.loopexit:                             ; preds = %242
+  %271 = select i1 %spec.select, i1 %.185, i1 false
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %201
+  %.082.lcssa = phi i1 [ false, %201 ], [ %271, %._crit_edge.loopexit ]
+  %272 = load ptr, ptr %27, align 8
+  %273 = call noundef ptr @_ZN7glslang13TIntermediate20setAggregateOperatorEP11TIntermNodeNS_9TOperatorERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %272, ptr noundef nonnull %26, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %1) #23
   store i64 ptrtoint (ptr @.str.348 to i64), ptr %7, align 8
-  %273 = load ptr, ptr %0, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 96
-  %275 = load ptr, ptr %274, align 8
-  %276 = call noundef zeroext i1 %275(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull @.str.349) #23
-  %277 = select i1 %276, i1 %.082.lcssa, i1 false
-  %or.cond99 = select i1 %277, i1 %.084.lcssa, i1 false
+  %274 = load ptr, ptr %0, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 96
+  %276 = load ptr, ptr %275, align 8
+  %277 = call noundef zeroext i1 %276(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull @.str.349) #23
+  %or.cond99 = select i1 %277, i1 %.082.lcssa, i1 false
   br i1 %or.cond99, label %278, label %291
 
 278:                                              ; preds = %._crit_edge
-  %279 = load ptr, ptr %272, align 8
+  %279 = load ptr, ptr %273, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 248
   %281 = load ptr, ptr %280, align 8
-  %282 = call noundef nonnull align 8 dereferenceable(152) ptr %281(ptr noundef nonnull align 8 dereferenceable(184) %272) #23
+  %282 = call noundef nonnull align 8 dereferenceable(152) ptr %281(ptr noundef nonnull align 8 dereferenceable(184) %273) #23
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 80
   %285 = load ptr, ptr %284, align 8
@@ -18006,10 +18008,10 @@ define noundef ptr @_ZN7glslang13TParseContext14addConstructorERKNS_10TSourceLoc
   br label %291
 
 291:                                              ; preds = %278, %._crit_edge
-  %292 = load ptr, ptr %272, align 8
+  %292 = load ptr, ptr %273, align 8
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 48
   %294 = load ptr, ptr %293, align 8
-  %295 = call noundef ptr %294(ptr noundef nonnull align 8 dereferenceable(32) %272) #23
+  %295 = call noundef ptr %294(ptr noundef nonnull align 8 dereferenceable(32) %273) #23
   %.not94 = icmp eq ptr %295, null
   br i1 %.not94, label %.loopexit, label %296
 
@@ -18042,7 +18044,7 @@ define noundef ptr @_ZN7glslang13TParseContext14addConstructorERKNS_10TSourceLoc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %241, %193, %198, %192, %311, %306, %291, %4, %9, %77
-  %.0 = phi ptr [ %79, %77 ], [ null, %9 ], [ null, %4 ], [ %200, %198 ], [ %.080, %193 ], [ null, %192 ], [ %272, %311 ], [ %272, %306 ], [ %272, %291 ], [ null, %241 ]
+  %.0 = phi ptr [ %79, %77 ], [ null, %9 ], [ null, %4 ], [ %200, %198 ], [ %.080, %193 ], [ null, %192 ], [ %273, %311 ], [ %273, %306 ], [ %273, %291 ], [ null, %241 ]
   ret ptr %.0
 }
 

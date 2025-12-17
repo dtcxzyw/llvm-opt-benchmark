@@ -3506,7 +3506,7 @@ define internal range(i32 0, 4) i32 @png_handle_cHRM(ptr noalias noundef %0, ptr
 png_crc_read.exit:                                ; preds = %3, %6
   %7 = call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %png_get_int_32_checked.exit, label %179
+  br i1 %.not, label %png_get_int_32_checked.exit, label %173
 
 png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %8 = load i8, ptr %4, align 16, !tbaa !3
@@ -3553,6 +3553,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i9 = add i32 %44, -1
   %46 = icmp sgt i32 %notsub.i9, -1
   %or.cond.i10.not = select i1 %45, i1 %46, i1 false
+  %narrow = select i1 %or.cond.i10.not, i1 true, i1 %or.cond.i.not
   %.0.i11 = select i1 %or.cond.i10.not, i32 0, i32 %44
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load i8, ptr %47, align 8, !tbaa !3
@@ -3576,6 +3577,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i13 = add i32 %64, -1
   %66 = icmp sgt i32 %notsub.i13, -1
   %or.cond.i14.not = select i1 %65, i1 %66, i1 false
+  %narrow46 = select i1 %or.cond.i14.not, i1 true, i1 %narrow
   %.0.i15 = select i1 %or.cond.i14.not, i32 0, i32 %64
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %68 = load i8, ptr %67, align 4, !tbaa !3
@@ -3599,6 +3601,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i17 = add i32 %84, -1
   %86 = icmp sgt i32 %notsub.i17, -1
   %or.cond.i18.not = select i1 %85, i1 %86, i1 false
+  %narrow49 = select i1 %or.cond.i18.not, i1 true, i1 %narrow46
   %.0.i19 = select i1 %or.cond.i18.not, i32 0, i32 %84
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %88 = load i8, ptr %87, align 16, !tbaa !3
@@ -3622,6 +3625,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i21 = add i32 %104, -1
   %106 = icmp sgt i32 %notsub.i21, -1
   %or.cond.i22.not = select i1 %105, i1 %106, i1 false
+  %narrow52 = select i1 %or.cond.i22.not, i1 true, i1 %narrow49
   %.0.i23 = select i1 %or.cond.i22.not, i32 0, i32 %104
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %108 = load i8, ptr %107, align 4, !tbaa !3
@@ -3645,6 +3649,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i25 = add i32 %124, -1
   %126 = icmp sgt i32 %notsub.i25, -1
   %or.cond.i26.not = select i1 %125, i1 %126, i1 false
+  %narrow55 = select i1 %or.cond.i26.not, i1 true, i1 %narrow52
   %.0.i27 = select i1 %or.cond.i26.not, i32 0, i32 %124
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %128 = load i8, ptr %127, align 8, !tbaa !3
@@ -3668,6 +3673,7 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %notsub.i29 = add i32 %144, -1
   %146 = icmp sgt i32 %notsub.i29, -1
   %or.cond.i30.not = select i1 %145, i1 %146, i1 false
+  %narrow58 = select i1 %or.cond.i30.not, i1 true, i1 %narrow55
   %.0.i31 = select i1 %or.cond.i30.not, i32 0, i32 %144
   %147 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %148 = load i8, ptr %147, align 4, !tbaa !3
@@ -3690,31 +3696,25 @@ png_get_int_32_checked.exit:                      ; preds = %png_crc_read.exit
   %165 = icmp slt i32 %150, 0
   %notsub.i33 = add i32 %164, -1
   %166 = icmp sgt i32 %notsub.i33, -1
-  %or.cond.i34.not61 = select i1 %165, i1 %166, i1 false
-  %167 = select i1 %or.cond.i34.not61, i1 true, i1 %or.cond.i30.not
-  %168 = select i1 %167, i1 true, i1 %or.cond.i26.not
-  %169 = select i1 %168, i1 true, i1 %or.cond.i22.not
-  %170 = select i1 %169, i1 true, i1 %or.cond.i18.not
-  %171 = select i1 %170, i1 true, i1 %or.cond.i14.not
-  %172 = select i1 %171, i1 true, i1 %or.cond.i10.not
-  %or.cond.not = select i1 %172, i1 true, i1 %or.cond.i.not
-  br i1 %or.cond.not, label %png_get_int_32_checked.exit36.thread, label %173
+  %or.cond.i34.not63 = select i1 %165, i1 %166, i1 false
+  %or.cond.not = select i1 %or.cond.i34.not63, i1 true, i1 %narrow58
+  br i1 %or.cond.not, label %png_get_int_32_checked.exit36.thread, label %167
 
 png_get_int_32_checked.exit36.thread:             ; preds = %png_get_int_32_checked.exit
   call void @png_chunk_benign_error(ptr noundef %0, ptr noundef nonnull @.str.30) #13
-  br label %179
+  br label %173
 
-173:                                              ; preds = %png_get_int_32_checked.exit
+167:                                              ; preds = %png_get_int_32_checked.exit
   call void @png_set_cHRM_fixed(ptr noundef %0, ptr noundef %1, i32 noundef %spec.select41, i32 noundef %.0.i11, i32 noundef %.0.i15, i32 noundef %.0.i19, i32 noundef %.0.i23, i32 noundef %.0.i27, i32 noundef %.0.i31, i32 noundef %164) #13
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %175 = load i32, ptr %174, align 8, !tbaa !49
-  %176 = and i32 %175, 65536
-  %.not8 = icmp eq i32 %176, 0
-  br i1 %.not8, label %177, label %179
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %169 = load i32, ptr %168, align 8, !tbaa !49
+  %170 = and i32 %169, 65536
+  %.not8 = icmp eq i32 %170, 0
+  br i1 %.not8, label %171, label %173
 
-177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store i32 %.0.i15, ptr %178, align 8, !tbaa !59
+171:                                              ; preds = %167
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store i32 %.0.i15, ptr %172, align 8, !tbaa !59
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 684
   store i32 %.0.i19, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !59
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -3729,10 +3729,10 @@ png_get_int_32_checked.exit36.thread:             ; preds = %png_get_int_32_chec
   store i32 %spec.select41, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !59
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 708
   store i32 %.0.i11, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !59
-  br label %179
+  br label %173
 
-179:                                              ; preds = %173, %177, %png_crc_read.exit, %png_get_int_32_checked.exit36.thread
-  %.0 = phi i32 [ 0, %png_get_int_32_checked.exit36.thread ], [ 0, %png_crc_read.exit ], [ 3, %177 ], [ 3, %173 ]
+173:                                              ; preds = %167, %171, %png_crc_read.exit, %png_get_int_32_checked.exit36.thread
+  %.0 = phi i32 [ 0, %png_get_int_32_checked.exit36.thread ], [ 0, %png_crc_read.exit ], [ 3, %171 ], [ 3, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

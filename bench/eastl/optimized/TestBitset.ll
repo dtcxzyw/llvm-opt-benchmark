@@ -2059,18 +2059,19 @@ entry:
 
 _ZNK5eastl10BitsetBaseILm1EhE11DoFindFirstEv.exit: ; preds = %entry
   %1 = and i8 %.fr, 15
-  %cmp.i.i = icmp eq i8 %1, 0
+  %cmp.i.i = icmp ne i8 %1, 0
   %shr.i.i = lshr i8 %.fr, 4
-  %spec.select.i.i = select i1 %cmp.i.i, i8 %shr.i.i, i8 %.fr
+  %spec.select.i.i = select i1 %cmp.i.i, i8 %.fr, i8 %shr.i.i
   %2 = and i8 %spec.select.i.i, 3
-  %cmp6.i.i = icmp eq i8 %2, 0
+  %cmp6.i.i = icmp ne i8 %2, 0
   %shr10.i.i = lshr i8 %spec.select.i.i, 2
-  %x.addr.1.i.i = select i1 %cmp6.i.i, i8 %shr10.i.i, i8 %spec.select.i.i
+  %x.addr.1.i.i = select i1 %cmp6.i.i, i8 %spec.select.i.i, i8 %shr10.i.i
   %3 = and i8 %x.addr.1.i.i, 1
-  %cmp56 = icmp eq i8 %3, 0
-  %.not = or i1 %cmp.i.i, %cmp6.i.i
-  %cmp = select i1 %.not, i1 true, i1 %cmp56
-  %spec.select = zext i1 %cmp to i64
+  %cmp56 = icmp ne i8 %3, 0
+  %cmp5 = select i1 %cmp.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp6.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EhE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EhE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EhE11DoFindFirstEv.exit, %entry
@@ -2098,18 +2099,19 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit: ; preds = %if.then.i
   %2 = and i8 %conv2.i, 15
-  %cmp.i.i = icmp eq i8 %2, 0
+  %cmp.i.i = icmp ne i8 %2, 0
   %shr.i.i = lshr i8 %conv2.i, 4
-  %spec.select.i.i = select i1 %cmp.i.i, i8 %shr.i.i, i8 %conv2.i
+  %spec.select.i.i = select i1 %cmp.i.i, i8 %conv2.i, i8 %shr.i.i
   %3 = and i8 %spec.select.i.i, 3
-  %cmp6.i.i = icmp eq i8 %3, 0
+  %cmp6.i.i = icmp ne i8 %3, 0
   %shr10.i.i = lshr i8 %spec.select.i.i, 2
-  %x.addr.1.i.i = select i1 %cmp6.i.i, i8 %shr10.i.i, i8 %spec.select.i.i
+  %x.addr.1.i.i = select i1 %cmp6.i.i, i8 %spec.select.i.i, i8 %shr10.i.i
   %4 = and i8 %x.addr.1.i.i, 1
-  %cmp56 = icmp eq i8 %4, 0
-  %.not = or i1 %cmp.i.i, %cmp6.i.i
-  %cmp = select i1 %.not, i1 true, i1 %cmp56
-  %spec.select = zext i1 %cmp to i64
+  %cmp56 = icmp ne i8 %4, 0
+  %cmp5 = select i1 %cmp.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp6.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit, %if.then.i, %entry
@@ -5696,17 +5698,17 @@ _ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit: ; preds = %entry
   %shr19.i.i = lshr i16 %x.addr.1.i.i, 2
   %x.addr.2.i.i = select i1 %cmp15.i.i, i16 %x.addr.1.i.i, i16 %shr19.i.i
   %4 = and i16 %x.addr.2.i.i, 1
-  %cmp567 = icmp eq i16 %4, 0
-  %5 = and i1 %cmp.i.i, %cmp6.i.i
-  %6 = and i1 %5, %cmp15.i.i
-  %not. = xor i1 %6, true
-  %cmp = select i1 %not., i1 true, i1 %cmp567
-  %spec.select = zext i1 %cmp to i64
+  %cmp567 = icmp ne i16 %4, 0
+  %cmp56 = select i1 %cmp.i.i, i1 %cmp567, i1 false
+  %cmp5 = select i1 %cmp6.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit, %entry
-  %7 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit ]
-  ret i64 %7
+  %5 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE11DoFindFirstEv.exit ]
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5741,17 +5743,17 @@ _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit: ; preds = %if.then.i
   %shr19.i.i = lshr i16 %x.addr.1.i.i, 2
   %x.addr.2.i.i = select i1 %cmp15.i.i, i16 %x.addr.1.i.i, i16 %shr19.i.i
   %5 = and i16 %x.addr.2.i.i, 1
-  %cmp567 = icmp eq i16 %5, 0
-  %6 = and i1 %cmp.i.i, %cmp6.i.i
-  %7 = and i1 %6, %cmp15.i.i
-  %not. = xor i1 %7, true
-  %cmp = select i1 %not., i1 true, i1 %cmp567
-  %spec.select = zext i1 %cmp to i64
+  %cmp567 = icmp ne i16 %5, 0
+  %cmp56 = select i1 %cmp.i.i, i1 %cmp567, i1 false
+  %cmp5 = select i1 %cmp6.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit, %if.then.i, %entry
-  %8 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ]
-  ret i64 %8
+  %6 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit ]
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9401,18 +9403,18 @@ _ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit: ; preds = %entry
   %shr18.i.i = lshr i32 %x.addr.2.i.i, 2
   %x.addr.3.i.i = select i1 %cmp15.i.i, i32 %x.addr.2.i.i, i32 %shr18.i.i
   %and20.i.i = and i32 %x.addr.3.i.i, 1
-  %cmp5678 = icmp eq i32 %and20.i.i, 0
-  %1 = select i1 %cmp15.i.i, i1 %cmp9.i.i, i1 false
-  %2 = and i1 %cmp.i.i, %1
-  %3 = and i1 %cmp3.i.i, %2
-  %not. = xor i1 %3, true
-  %cmp = select i1 %not., i1 true, i1 %cmp5678
-  %spec.select = zext i1 %cmp to i64
+  %cmp5678 = icmp ne i32 %and20.i.i, 0
+  %cmp567 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
+  %cmp56 = select i1 %cmp3.i.i, i1 %cmp567, i1 false
+  %cmp5 = select i1 %cmp9.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit, %entry
-  %4 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit ]
-  ret i64 %4
+  %1 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE11DoFindFirstEv.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9450,18 +9452,18 @@ _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit: ; preds = %if.then.i
   %shr18.i.i = lshr i32 %x.addr.2.i.i, 2
   %x.addr.3.i.i = select i1 %cmp15.i.i, i32 %x.addr.2.i.i, i32 %shr18.i.i
   %and20.i.i = and i32 %x.addr.3.i.i, 1
-  %cmp5678 = icmp eq i32 %and20.i.i, 0
-  %1 = select i1 %cmp15.i.i, i1 %cmp9.i.i, i1 false
-  %2 = and i1 %cmp.i.i, %1
-  %3 = and i1 %cmp3.i.i, %2
-  %not. = xor i1 %3, true
-  %cmp = select i1 %not., i1 true, i1 %cmp5678
-  %spec.select = zext i1 %cmp to i64
+  %cmp5678 = icmp ne i32 %and20.i.i, 0
+  %cmp567 = select i1 %cmp.i.i, i1 %cmp5678, i1 false
+  %cmp56 = select i1 %cmp3.i.i, i1 %cmp567, i1 false
+  %cmp5 = select i1 %cmp9.i.i, i1 %cmp56, i1 false
+  %cmp = select i1 %cmp15.i.i, i1 %cmp5, i1 false
+  %not.cmp = xor i1 %cmp, true
+  %spec.select = zext i1 %not.cmp to i64
   br label %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit, %if.then.i, %entry
-  %4 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ]
-  ret i64 %4
+  %1 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EjE10DoFindNextEm.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable

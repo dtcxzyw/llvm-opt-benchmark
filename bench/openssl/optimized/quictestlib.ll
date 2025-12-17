@@ -1241,20 +1241,20 @@ qtest_add_time.exit:                              ; preds = %32, %35
   %79 = zext i1 %78 to i32
   %80 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @.str.32, i32 noundef %79) #10
   %.not99 = icmp eq i32 %80, 0
-  %81 = or i1 %56, %.not99
-  %or.cond101 = select i1 %81, i1 true, i1 %55
-  br i1 %or.cond101, label %.loopexit, label %83
+  %or.cond23 = select i1 %56, i1 true, i1 %55
+  %or.cond101 = select i1 %.not99, i1 true, i1 %or.cond23
+  br i1 %or.cond101, label %.loopexit, label %82
 
 .critedge19.thread:                               ; preds = %68, %.critedge19
-  %82 = phi i1 [ %55, %.critedge19 ], [ false, %68 ]
-  %or.cond23.old = select i1 %56, i1 true, i1 %82
-  br i1 %or.cond23.old, label %.loopexit, label %83
+  %81 = phi i1 [ %55, %.critedge19 ], [ false, %68 ]
+  %or.cond23.old = select i1 %56, i1 true, i1 %81
+  br i1 %or.cond23.old, label %.loopexit, label %82
 
-83:                                               ; preds = %76, %.critedge19.thread
+82:                                               ; preds = %76, %.critedge19.thread
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %83, %70, %76, %11, %5, %60
-  %.081 = phi i32 [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %83 ], [ 0, %76 ], [ 0, %70 ], [ 0, %11 ], [ 0, %5 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %64 ]
+.loopexit:                                        ; preds = %64, %51, %.thread, %.critedge19.thread, %82, %70, %76, %11, %5, %60
+  %.081 = phi i32 [ 0, %60 ], [ 0, %.critedge19.thread ], [ 1, %82 ], [ 0, %76 ], [ 0, %70 ], [ 0, %11 ], [ 0, %5 ], [ 0, %.thread ], [ 0, %51 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.081
 }

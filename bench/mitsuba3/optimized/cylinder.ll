@@ -2808,30 +2808,30 @@ _ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect
   %narrow.i = select i1 %127, i1 %134, i1 %128
   %146 = fcmp contract ugt double %.0308.i, %109
   %147 = fcmp contract ult double %.0309.i, 0.000000e+00
-  %148 = fmul contract double %.0308.i, %115
-  %149 = fadd contract double %148, %112
-  %150 = fmul contract double %.0309.i, %115
-  %151 = fadd contract double %150, %112
-  %152 = fcmp contract olt double %.0308.i, 0.000000e+00
-  %153 = fcmp contract ogt double %.0309.i, %109
-  %154 = select i1 %152, i1 %153, i1 false
+  %148 = select i1 %146, i1 true, i1 %147
+  %149 = fmul contract double %.0308.i, %115
+  %150 = fadd contract double %149, %112
+  %151 = fmul contract double %.0309.i, %115
+  %152 = fadd contract double %151, %112
+  %153 = fcmp contract olt double %.0308.i, 0.000000e+00
+  %154 = fcmp contract ogt double %.0309.i, %109
+  %155 = select i1 %153, i1 %154, i1 false
   %.not.i214 = xor i1 %narrow.i, true
-  %155 = select i1 %.not.i214, i1 true, i1 %146
-  %or.cond.i = select i1 %155, i1 true, i1 %147
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %154
+  %or.cond.i = select i1 %.not.i214, i1 true, i1 %148
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %155
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit.critedge, label %156
 
 156:                                              ; preds = %145
-  %157 = fcmp contract ult double %149, 0.000000e+00
-  %158 = fcmp contract ugt double %149, 1.000000e+00
+  %157 = fcmp contract ult double %150, 0.000000e+00
+  %158 = fcmp contract ugt double %150, 1.000000e+00
   %or.cond246.i = or i1 %157, %158
   %159 = fcmp contract ult double %.0308.i, 0.000000e+00
   %or.cond310.i = select i1 %or.cond246.i, i1 true, i1 %159
   br i1 %or.cond310.i, label %160, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit.critedge
 
 160:                                              ; preds = %156
-  %161 = fcmp contract ult double %151, 0.000000e+00
-  %162 = fcmp contract ugt double %151, 1.000000e+00
+  %161 = fcmp contract ult double %152, 0.000000e+00
+  %162 = fcmp contract ugt double %152, 1.000000e+00
   %or.cond247.i = or i1 %161, %162
   %163 = fcmp contract ugt double %.0309.i, %109
   %spec.select.i = select i1 %or.cond247.i, i1 true, i1 %163
@@ -2839,8 +2839,8 @@ _ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect
 
 _ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit.critedge: ; preds = %160, %156, %145
   %.not245.i = phi i1 [ true, %145 ], [ false, %156 ], [ %spec.select.i, %160 ]
-  %164 = fcmp contract oge double %149, 0.000000e+00
-  %165 = fcmp contract ole double %149, 1.000000e+00
+  %164 = fcmp contract oge double %150, 0.000000e+00
+  %165 = fcmp contract ole double %150, 1.000000e+00
   %or.cond248.not.i = and i1 %164, %165
   %166 = fcmp contract oge double %.0308.i, 0.000000e+00
   %spec.select311.i = select i1 %or.cond248.not.i, i1 %166, i1 false
@@ -4621,30 +4621,30 @@ define linkonce_odr hidden void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Spect
   %narrow = select i1 %55, i1 %62, i1 %56
   %74 = fcmp contract ugt double %.0308, %37
   %75 = fcmp contract ult double %.0309, 0.000000e+00
-  %76 = fmul contract double %.0308, %43
-  %77 = fadd contract double %76, %40
-  %78 = fmul contract double %.0309, %43
-  %79 = fadd contract double %78, %40
-  %80 = fcmp contract olt double %.0308, 0.000000e+00
-  %81 = fcmp contract ogt double %.0309, %37
-  %82 = select i1 %80, i1 %81, i1 false
+  %76 = select i1 %74, i1 true, i1 %75
+  %77 = fmul contract double %.0308, %43
+  %78 = fadd contract double %77, %40
+  %79 = fmul contract double %.0309, %43
+  %80 = fadd contract double %79, %40
+  %81 = fcmp contract olt double %.0308, 0.000000e+00
+  %82 = fcmp contract ogt double %.0309, %37
+  %83 = select i1 %81, i1 %82, i1 false
   %.not = xor i1 %narrow, true
-  %83 = select i1 %.not, i1 true, i1 %74
-  %or.cond = select i1 %83, i1 true, i1 %75
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %82
+  %or.cond = select i1 %.not, i1 true, i1 %76
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %83
   br i1 %or.cond3, label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge, label %84
 
 84:                                               ; preds = %73
-  %85 = fcmp contract ult double %77, 0.000000e+00
-  %86 = fcmp contract ugt double %77, 1.000000e+00
+  %85 = fcmp contract ult double %78, 0.000000e+00
+  %86 = fcmp contract ugt double %78, 1.000000e+00
   %or.cond246 = or i1 %85, %86
   %87 = fcmp contract ult double %.0308, 0.000000e+00
   %or.cond310 = select i1 %or.cond246, i1 true, i1 %87
   br i1 %or.cond310, label %88, label %_ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge
 
 88:                                               ; preds = %84
-  %89 = fcmp contract ult double %79, 0.000000e+00
-  %90 = fcmp contract ugt double %79, 1.000000e+00
+  %89 = fcmp contract ult double %80, 0.000000e+00
+  %90 = fcmp contract ugt double %80, 1.000000e+00
   %or.cond247 = or i1 %89, %90
   %91 = fcmp contract ugt double %.0309, %37
   %spec.select = select i1 %or.cond247, i1 true, i1 %91
@@ -4652,8 +4652,8 @@ define linkonce_odr hidden void @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Spect
 
 _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit.critedge: ; preds = %88, %84, %73
   %.not245 = phi i1 [ true, %73 ], [ false, %84 ], [ %spec.select, %88 ]
-  %92 = fcmp contract oge double %77, 0.000000e+00
-  %93 = fcmp contract ole double %77, 1.000000e+00
+  %92 = fcmp contract oge double %78, 0.000000e+00
+  %93 = fcmp contract ole double %78, 1.000000e+00
   %or.cond248.not = and i1 %92, %93
   %94 = fcmp contract oge double %.0308, 0.000000e+00
   %spec.select311 = select i1 %or.cond248.not, i1 %94, i1 false
@@ -4760,15 +4760,15 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   %narrow.i = select i1 %54, i1 %61, i1 %55
   %73 = fcmp contract ugt double %.0284.i, %36
   %74 = fcmp contract ult double %.0285.i, 0.000000e+00
-  %75 = fmul contract double %.0285.i, %42
-  %76 = fadd contract double %75, %39
-  %77 = fcmp contract olt double %.0284.i, 0.000000e+00
-  %78 = fcmp contract ogt double %.0285.i, %36
-  %79 = select i1 %77, i1 %78, i1 false
+  %75 = select i1 %73, i1 true, i1 %74
+  %76 = fmul contract double %.0285.i, %42
+  %77 = fadd contract double %76, %39
+  %78 = fcmp contract olt double %.0284.i, 0.000000e+00
+  %79 = fcmp contract ogt double %.0285.i, %36
+  %80 = select i1 %78, i1 %79, i1 false
   %.not.i = xor i1 %narrow.i, true
-  %80 = select i1 %.not.i, i1 true, i1 %73
-  %or.cond.i = select i1 %80, i1 true, i1 %74
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %79
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %75
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %80
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %81
 
 81:                                               ; preds = %72
@@ -4782,8 +4782,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   br i1 %or.cond286.i, label %87, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
 87:                                               ; preds = %81
-  %88 = fcmp contract oge double %76, 0.000000e+00
-  %89 = fcmp contract ole double %76, 1.000000e+00
+  %88 = fcmp contract oge double %77, 0.000000e+00
+  %89 = fcmp contract ole double %77, 1.000000e+00
   %or.cond228.not.i = and i1 %88, %89
   %90 = fcmp contract ole double %.0285.i, %36
   %spec.select.i = select i1 %or.cond228.not.i, i1 %90, i1 false
@@ -4888,15 +4888,15 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   %narrow.i = select i1 %52, i1 %59, i1 %53
   %71 = fcmp contract ugt double %.0284.i, %34
   %72 = fcmp contract ult double %.0285.i, 0.000000e+00
-  %73 = fmul contract double %.0285.i, %40
-  %74 = fadd contract double %73, %37
-  %75 = fcmp contract olt double %.0284.i, 0.000000e+00
-  %76 = fcmp contract ogt double %.0285.i, %34
-  %77 = select i1 %75, i1 %76, i1 false
+  %73 = select i1 %71, i1 true, i1 %72
+  %74 = fmul contract double %.0285.i, %40
+  %75 = fadd contract double %74, %37
+  %76 = fcmp contract olt double %.0284.i, 0.000000e+00
+  %77 = fcmp contract ogt double %.0285.i, %34
+  %78 = select i1 %76, i1 %77, i1 false
   %.not.i = xor i1 %narrow.i, true
-  %78 = select i1 %.not.i, i1 true, i1 %71
-  %or.cond.i = select i1 %78, i1 true, i1 %72
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %77
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %73
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %78
   br i1 %or.cond3.i, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %79
 
 79:                                               ; preds = %70
@@ -4910,8 +4910,8 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8Sp
   br i1 %or.cond286.i, label %85, label %_ZNK7mitsuba8CylinderIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
 85:                                               ; preds = %79
-  %86 = fcmp contract oge double %74, 0.000000e+00
-  %87 = fcmp contract ole double %74, 1.000000e+00
+  %86 = fcmp contract oge double %75, 0.000000e+00
+  %87 = fcmp contract ole double %75, 1.000000e+00
   %or.cond228.not.i = and i1 %86, %87
   %88 = fcmp contract ole double %.0285.i, %34
   %spec.select.i = select i1 %or.cond228.not.i, i1 %88, i1 false

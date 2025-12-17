@@ -112,7 +112,7 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %.0118137 = phi ptr [ %51, %.lr.ph ], [ %156, %.critedge ]
+  %.0118137 = phi ptr [ %51, %.lr.ph ], [ %155, %.critedge ]
   %64 = getelementptr inbounds nuw i8, ptr %.0118137, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %.0118137, i64 36
@@ -162,11 +162,11 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 
 94:                                               ; preds = %91
   store ptr @jsimd_h2v1_fancy_upsample, ptr %93, align 8, !tbaa !63
-  br label %139
+  br label %138
 
 95:                                               ; preds = %91
   store ptr @h2v1_fancy_upsample, ptr %93, align 8, !tbaa !63
-  br label %139
+  br label %138
 
 96:                                               ; preds = %87, %86
   %97 = tail call i32 @jsimd_can_h2v1_upsample() #7
@@ -176,128 +176,128 @@ define void @jinit_upsampler(ptr noundef %0) local_unnamed_addr #0 {
 
 99:                                               ; preds = %96
   store ptr @jsimd_h2v1_upsample, ptr %98, align 8, !tbaa !63
-  br label %139
+  br label %138
 
 100:                                              ; preds = %96
   store ptr @h2v1_upsample, ptr %98, align 8, !tbaa !63
-  br label %139
+  br label %138
 
 101:                                              ; preds = %83
   %102 = shl nsw i32 %74, 1
   %103 = icmp eq i32 %102, %76
-  %104 = select i1 %81, i1 %103, i1 false
-  %or.cond145 = select i1 %104, i1 %46, i1 false
-  br i1 %or.cond145, label %105, label %._crit_edge140
+  %or.cond = select i1 %103, i1 %46, i1 false
+  %or.cond145 = select i1 %81, i1 %or.cond, i1 false
+  br i1 %or.cond145, label %104, label %._crit_edge140
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
-  store ptr @h1v2_fancy_upsample, ptr %106, align 8, !tbaa !63
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  store ptr @h1v2_fancy_upsample, ptr %105, align 8, !tbaa !63
   store i32 1, ptr %59, align 8, !tbaa !48
-  br label %139
+  br label %138
 
 ._crit_edge140:                                   ; preds = %101
-  %107 = icmp eq i32 %102, %76
-  %or.cond136 = select i1 %85, i1 %107, i1 false
-  br i1 %or.cond136, label %108, label %121
+  %106 = icmp eq i32 %102, %76
+  %or.cond136 = select i1 %85, i1 %106, i1 false
+  br i1 %or.cond136, label %107, label %120
 
-108:                                              ; preds = %._crit_edge140
-  br i1 %46, label %109, label %116
+107:                                              ; preds = %._crit_edge140
+  br i1 %46, label %108, label %115
 
-109:                                              ; preds = %108
-  %110 = getelementptr inbounds nuw i8, ptr %.0118137, i64 40
-  %111 = load i32, ptr %110, align 8, !tbaa !62
-  %112 = icmp ugt i32 %111, 2
-  br i1 %112, label %113, label %116
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %.0118137, i64 40
+  %110 = load i32, ptr %109, align 8, !tbaa !62
+  %111 = icmp ugt i32 %110, 2
+  br i1 %111, label %112, label %115
 
-113:                                              ; preds = %109
-  %114 = tail call i32 @jsimd_can_h2v2_fancy_upsample() #7
-  %.not127 = icmp eq i32 %114, 0
-  %115 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+112:                                              ; preds = %108
+  %113 = tail call i32 @jsimd_can_h2v2_fancy_upsample() #7
+  %.not127 = icmp eq i32 %113, 0
+  %114 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
   %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample = select i1 %.not127, ptr @h2v2_fancy_upsample, ptr @jsimd_h2v2_fancy_upsample
-  store ptr %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample, ptr %115, align 8, !tbaa !63
+  store ptr %h2v2_fancy_upsample.jsimd_h2v2_fancy_upsample, ptr %114, align 8, !tbaa !63
   store i32 1, ptr %59, align 8, !tbaa !48
-  br label %139
+  br label %138
 
-116:                                              ; preds = %109, %108
-  %117 = tail call i32 @jsimd_can_h2v2_upsample() #7
-  %.not126 = icmp eq i32 %117, 0
-  %118 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
-  br i1 %.not126, label %120, label %119
+115:                                              ; preds = %108, %107
+  %116 = tail call i32 @jsimd_can_h2v2_upsample() #7
+  %.not126 = icmp eq i32 %116, 0
+  %117 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  br i1 %.not126, label %119, label %118
 
-119:                                              ; preds = %116
-  store ptr @jsimd_h2v2_upsample, ptr %118, align 8, !tbaa !63
-  br label %139
+118:                                              ; preds = %115
+  store ptr @jsimd_h2v2_upsample, ptr %117, align 8, !tbaa !63
+  br label %138
 
-120:                                              ; preds = %116
-  store ptr @h2v2_upsample, ptr %118, align 8, !tbaa !63
-  br label %139
+119:                                              ; preds = %115
+  store ptr @h2v2_upsample, ptr %117, align 8, !tbaa !63
+  br label %138
 
-121:                                              ; preds = %._crit_edge140
-  %122 = srem i32 %75, %70
-  %123 = sdiv i32 %75, %70
-  %124 = icmp eq i32 %122, 0
-  br i1 %124, label %125, label %135
+120:                                              ; preds = %._crit_edge140
+  %121 = srem i32 %75, %70
+  %122 = sdiv i32 %75, %70
+  %123 = icmp eq i32 %121, 0
+  br i1 %123, label %124, label %134
 
-125:                                              ; preds = %121
-  %126 = srem i32 %76, %74
-  %127 = sdiv i32 %76, %74
-  %128 = icmp eq i32 %126, 0
-  br i1 %128, label %129, label %135
+124:                                              ; preds = %120
+  %125 = srem i32 %76, %74
+  %126 = sdiv i32 %76, %74
+  %127 = icmp eq i32 %125, 0
+  br i1 %127, label %128, label %134
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
-  store ptr @int_upsample, ptr %130, align 8, !tbaa !63
-  %131 = trunc i32 %123 to i8
-  %132 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
-  store i8 %131, ptr %132, align 1, !tbaa !37
-  %133 = trunc i32 %127 to i8
-  %134 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
-  store i8 %133, ptr %134, align 1, !tbaa !37
-  br label %139
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  store ptr @int_upsample, ptr %129, align 8, !tbaa !63
+  %130 = trunc i32 %122 to i8
+  %131 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
+  store i8 %130, ptr %131, align 1, !tbaa !37
+  %132 = trunc i32 %126 to i8
+  %133 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
+  store i8 %132, ptr %133, align 1, !tbaa !37
+  br label %138
 
-135:                                              ; preds = %125, %121
-  %136 = load ptr, ptr %0, align 8, !tbaa !33
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  store i32 38, ptr %137, align 8, !tbaa !34
-  %138 = load ptr, ptr %136, align 8, !tbaa !38
-  tail call void %138(ptr noundef nonnull %0) #7
-  br label %139
+134:                                              ; preds = %124, %120
+  %135 = load ptr, ptr %0, align 8, !tbaa !33
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  store i32 38, ptr %136, align 8, !tbaa !34
+  %137 = load ptr, ptr %135, align 8, !tbaa !38
+  tail call void %137(ptr noundef nonnull %0) #7
+  br label %138
 
-139:                                              ; preds = %99, %100, %94, %95, %119, %120, %113, %135, %129, %105
-  %140 = load ptr, ptr %2, align 8, !tbaa !3
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 112
-  %142 = load i32, ptr %141, align 8, !tbaa !39
-  %.not131 = icmp eq i32 %142, 0
-  br i1 %.not131, label %143, label %.critedge
+138:                                              ; preds = %99, %100, %94, %95, %118, %119, %112, %134, %128, %104
+  %139 = load ptr, ptr %2, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 112
+  %141 = load i32, ptr %140, align 8, !tbaa !39
+  %.not131 = icmp eq i32 %141, 0
+  br i1 %.not131, label %142, label %.critedge
 
-143:                                              ; preds = %139
-  %144 = load ptr, ptr %60, align 8, !tbaa !40
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %146 = load ptr, ptr %145, align 8, !tbaa !64
-  %147 = load i32, ptr %61, align 8, !tbaa !65
-  %148 = zext i32 %147 to i64
-  %149 = load i32, ptr %53, align 8, !tbaa !58
-  %150 = sext i32 %149 to i64
-  %151 = tail call i64 @jround_up(i64 noundef %148, i64 noundef %150) #7
-  %152 = trunc i64 %151 to i32
-  %153 = load i32, ptr %54, align 4, !tbaa !59
-  %154 = tail call ptr %146(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %152, i32 noundef %153) #7
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %60, align 8, !tbaa !40
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %145 = load ptr, ptr %144, align 8, !tbaa !64
+  %146 = load i32, ptr %61, align 8, !tbaa !65
+  %147 = zext i32 %146 to i64
+  %148 = load i32, ptr %53, align 8, !tbaa !58
+  %149 = sext i32 %148 to i64
+  %150 = tail call i64 @jround_up(i64 noundef %147, i64 noundef %149) #7
+  %151 = trunc i64 %150 to i32
+  %152 = load i32, ptr %54, align 4, !tbaa !59
+  %153 = tail call ptr %145(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %151, i32 noundef %152) #7
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %80, %63, %143
-  %.sink146 = phi ptr [ %62, %143 ], [ %56, %63 ], [ %56, %80 ]
-  %fullsize_upsample.sink = phi ptr [ %154, %143 ], [ @noop_upsample, %63 ], [ @fullsize_upsample, %80 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %.sink146, i64 %indvars.iv
-  store ptr %fullsize_upsample.sink, ptr %155, align 8, !tbaa !63
+.critedge.sink.split:                             ; preds = %80, %63, %142
+  %.sink146 = phi ptr [ %62, %142 ], [ %56, %63 ], [ %56, %80 ]
+  %fullsize_upsample.sink = phi ptr [ %153, %142 ], [ @noop_upsample, %63 ], [ @fullsize_upsample, %80 ]
+  %154 = getelementptr inbounds nuw ptr, ptr %.sink146, i64 %indvars.iv
+  store ptr %fullsize_upsample.sink, ptr %154, align 8, !tbaa !63
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %139
+.critedge:                                        ; preds = %.critedge.sink.split, %138
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = getelementptr inbounds nuw i8, ptr %.0118137, i64 96
-  %157 = load i32, ptr %47, align 8, !tbaa !52
-  %158 = sext i32 %157 to i64
-  %159 = icmp slt i64 %indvars.iv.next, %158
-  br i1 %159, label %63, label %._crit_edge, !llvm.loop !66
+  %155 = getelementptr inbounds nuw i8, ptr %.0118137, i64 96
+  %156 = load i32, ptr %47, align 8, !tbaa !52
+  %157 = sext i32 %156 to i64
+  %158 = icmp slt i64 %indvars.iv.next, %157
+  br i1 %158, label %63, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.critedge, %45
   ret void

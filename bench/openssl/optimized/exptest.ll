@@ -184,6 +184,7 @@ a_is_zero_mod_one.exit122:                        ; preds = %33, %35
   %.0.i121 = phi i32 [ 0, %35 ], [ 1, %33 ]
   %36 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @.str.13, i32 noundef %.0.i121) #3
   %.not96 = icmp ne i32 %36, 0
+  %narrow.not135 = select i1 %.not96, i1 %.not94, i1 false
   %37 = tail call i32 @BN_mod_exp_simple(ptr noundef %11, ptr noundef %5, ptr noundef %8, ptr noundef %2, ptr noundef %1) #3
   %38 = icmp ne i32 %37, 0
   %39 = zext i1 %38 to i32
@@ -225,9 +226,12 @@ a_is_zero_mod_one.exit125:                        ; preds = %41, %43
 56:                                               ; preds = %49
   %.not100 = icmp ne i32 %51, 0
   %.not98 = icmp ne i32 %44, 0
+  %narrow126.not134 = select i1 %.not98, i1 %narrow.not135, i1 false
+  %narrow127.not133 = select i1 %.not100, i1 %narrow126.not134, i1 false
   %57 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.23, ptr noundef %11, ptr noundef %5)
   %58 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 95, ptr noundef nonnull @.str.22, i32 noundef %57) #3
   %.not102 = icmp ne i32 %58, 0
+  %narrow128.not132 = select i1 %.not102, i1 %narrow127.not133, i1 false
   %59 = tail call ptr @BN_MONT_CTX_new() #3
   %60 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 98, ptr noundef nonnull @.str.24, ptr noundef %59) #3
   %.not103 = icmp eq i32 %60, 0
@@ -279,15 +283,11 @@ a_is_zero_mod_one.exit125:                        ; preds = %41, %43
 
 90:                                               ; preds = %83
   %.not108 = icmp ne i32 %85, 0
+  %narrow129.not131 = select i1 %.not108, i1 %narrow128.not132, i1 false
   %91 = tail call fastcc i32 @a_is_zero_mod_one(ptr noundef nonnull @.str.20, ptr noundef %11, ptr noundef %5)
   %92 = tail call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 122, ptr noundef nonnull @.str.19, i32 noundef %91) #3
   %.not110 = icmp ne i32 %92, 0
-  %.not138 = select i1 %.not110, i1 %.not108, i1 false
-  %.not137 = select i1 %.not138, i1 %.not102, i1 false
-  %.not135 = select i1 %.not137, i1 %.not100, i1 false
-  %.not133 = select i1 %.not135, i1 %.not98, i1 false
-  %.not131 = select i1 %.not133, i1 %.not96, i1 false
-  %narrow128.not = select i1 %.not131, i1 %.not94, i1 false
+  %narrow130.not = select i1 %.not110, i1 %narrow129.not131, i1 false
   %93 = tail call i32 @BN_mod_exp_mont_word(ptr noundef %11, i64 noundef 1, ptr noundef %8, ptr noundef %2, ptr noundef %1, ptr noundef null) #3
   %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
@@ -306,7 +306,7 @@ a_is_zero_mod_one.exit125:                        ; preds = %41, %43
   br label %102
 
 100:                                              ; preds = %97
-  %101 = zext i1 %narrow128.not to i32
+  %101 = zext i1 %narrow130.not to i32
   br label %102
 
 102:                                              ; preds = %90, %83, %78, %72, %67, %61, %56, %49, %a_is_zero_mod_one.exit125, %a_is_zero_mod_one.exit122, %a_is_zero_mod_one.exit, %20, %13, %0, %4, %7, %10, %100, %99

@@ -1484,17 +1484,17 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
 93:                                               ; preds = %89
   store i64 %91, ptr %82, align 8, !tbaa !113
   %.pre.i = load i32, ptr %73, align 4, !tbaa !97
-  %.pre235.i = zext nneg i32 %.pre.i to i64
-  %.pre236.i = shl nuw i64 1, %.pre235.i
+  %.pre234.i = zext nneg i32 %.pre.i to i64
+  %.pre235.i = shl nuw i64 1, %.pre234.i
   br label %94
 
 94:                                               ; preds = %93, %70
-  %.pre-phi237.i = phi i64 [ %.pre236.i, %93 ], [ %76, %70 ]
+  %.pre-phi236.i = phi i64 [ %.pre235.i, %93 ], [ %76, %70 ]
   %95 = getelementptr inbounds nuw i8, ptr %56, i64 328
   store i64 %81, ptr %95, align 8, !tbaa !115
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 264
   %97 = load i64, ptr %96, align 8, !tbaa !116
-  %98 = icmp ult i64 %97, %.pre-phi237.i
+  %98 = icmp ult i64 %97, %.pre-phi236.i
   br i1 %98, label %99, label %107
 
 99:                                               ; preds = %94
@@ -1508,7 +1508,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   br label %103
 
 103:                                              ; preds = %102, %99
-  %104 = call noalias ptr @malloc(i64 noundef %.pre-phi237.i) #23
+  %104 = call noalias ptr @malloc(i64 noundef %.pre-phi236.i) #23
   store ptr %104, ptr %100, align 8, !tbaa !117
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %107
@@ -1518,7 +1518,7 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   br label %zisofs_read_data.exit
 
 107:                                              ; preds = %103, %94
-  store i64 %.pre-phi237.i, ptr %96, align 8, !tbaa !116
+  store i64 %.pre-phi236.i, ptr %96, align 8, !tbaa !116
   %108 = getelementptr inbounds nuw i8, ptr %56, i64 296
   %109 = load i64, ptr %108, align 8, !tbaa !101
   %110 = icmp ult i64 %109, 16
@@ -1559,18 +1559,18 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %129 = zext i32 %128 to i64
   %130 = load i64, ptr %71, align 8, !tbaa !99
   %.not198.i = icmp eq i64 %130, %129
+  %narrow.not233.i = select i1 %.not198.i, i1 %.not197.i, i1 false
   %131 = getelementptr inbounds nuw i8, ptr %56, i64 288
   %132 = load i8, ptr %131, align 8, !tbaa !45
   %.not199.i = icmp eq i8 %132, 4
+  %narrow230.not232.i = select i1 %.not199.i, i1 %narrow.not233.i, i1 false
   %133 = getelementptr inbounds nuw i8, ptr %56, i64 289
   %134 = load i8, ptr %133, align 1, !tbaa !45
   %135 = zext i8 %134 to i32
   %136 = load i32, ptr %73, align 4, !tbaa !97
   %.not200.i = icmp eq i32 %136, %135
-  %.not234.i = select i1 %.not200.i, i1 %.not199.i, i1 false
-  %.not233.i = select i1 %.not234.i, i1 %.not198.i, i1 false
-  %narrow.not.i = select i1 %.not233.i, i1 %.not197.i, i1 false
-  br i1 %narrow.not.i, label %.thread210.i, label %137
+  %narrow231.not.i = select i1 %.not200.i, i1 %narrow230.not232.i, i1 false
+  br i1 %narrow231.not.i, label %.thread210.i, label %137
 
 .thread210.i:                                     ; preds = %125
   store i32 1, ptr %121, align 8, !tbaa !102
@@ -1719,10 +1719,10 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %207 = getelementptr inbounds nuw i8, ptr %56, i64 360
   store ptr %.0159.i, ptr %207, align 8, !tbaa !123
   %208 = zext i32 %206 to i64
-  %spec.select251252.i = call i64 @llvm.umin.i64(i64 %.0166.i, i64 %208)
-  %spec.select251.i = trunc nuw i64 %spec.select251252.i to i32
+  %spec.select250251.i = call i64 @llvm.umin.i64(i64 %.0166.i, i64 %208)
+  %spec.select250.i = trunc nuw i64 %spec.select250251.i to i32
   %209 = getelementptr inbounds nuw i8, ptr %56, i64 368
-  store i32 %spec.select251.i, ptr %209, align 8, !tbaa !124
+  store i32 %spec.select250.i, ptr %209, align 8, !tbaa !124
   %210 = getelementptr inbounds nuw i8, ptr %56, i64 256
   %211 = load ptr, ptr %210, align 8, !tbaa !117
   %212 = getelementptr inbounds nuw i8, ptr %56, i64 384

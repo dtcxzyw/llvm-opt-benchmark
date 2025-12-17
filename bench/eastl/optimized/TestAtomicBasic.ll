@@ -12220,13 +12220,9 @@ if.end39:                                         ; preds = %if.end, %if.then24
   %10 = extractvalue { i16, i1 } %8, 0
   %cmp52 = xor i1 %9, true
   %call54 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp52, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.3)
-  %11 = and i16 %10, 255
-  %cmp.i2138 = icmp eq i16 %11, 0
-  %cmp.i21 = select i1 %9, i1 true, i1 %cmp.i2138
-  %cmp8.i2439 = icmp ult i16 %10, 256
-  %12 = xor i1 %9, %cmp.i21
-  %13 = select i1 %12, i1 %cmp8.i2439, i1 false
-  %call57 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
+  %cmp8.i24 = icmp eq i16 %10, 0
+  %11 = select i1 %cmp52, i1 %cmp8.i24, i1 false
+  %call57 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
   ret void
 }
 
@@ -12264,13 +12260,9 @@ entry:
   %10 = extractvalue { i16, i1 } %8, 0
   %cmp48 = xor i1 %9, true
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1801, ptr noundef nonnull @.str.3)
-  %11 = and i16 %10, 255
-  %cmp.i1932 = icmp eq i16 %11, 0
-  %cmp.i19 = select i1 %9, i1 true, i1 %cmp.i1932
-  %cmp8.i2233 = icmp ult i16 %10, 256
-  %12 = xor i1 %9, %cmp.i19
-  %13 = select i1 %12, i1 %cmp8.i2233, i1 false
-  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
+  %cmp8.i22 = icmp eq i16 %10, 0
+  %11 = select i1 %cmp48, i1 %cmp8.i22, i1 false
+  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
   ret void
 }
 
@@ -12320,13 +12312,9 @@ if.end37:                                         ; preds = %if.end, %if.then22
   %10 = extractvalue { i32, i1 } %8, 0
   %cmp48 = xor i1 %9, true
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.3)
-  %11 = and i32 %10, 65535
-  %cmp.i3047 = icmp eq i32 %11, 0
-  %cmp.i30 = select i1 %9, i1 true, i1 %cmp.i3047
-  %cmp8.i3348 = icmp ult i32 %10, 65536
-  %12 = xor i1 %9, %cmp.i30
-  %13 = select i1 %12, i1 %cmp8.i3348, i1 false
-  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
+  %cmp8.i33 = icmp eq i32 %10, 0
+  %11 = select i1 %cmp48, i1 %cmp8.i33, i1 false
+  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
   ret void
 }
 
@@ -12364,13 +12352,9 @@ entry:
   %10 = extractvalue { i32, i1 } %8, 0
   %cmp44 = xor i1 %9, true
   %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1801, ptr noundef nonnull @.str.3)
-  %11 = and i32 %10, 65535
-  %cmp.i2841 = icmp eq i32 %11, 0
-  %cmp.i28 = select i1 %9, i1 true, i1 %cmp.i2841
-  %cmp8.i3142 = icmp ult i32 %10, 65536
-  %12 = xor i1 %9, %cmp.i28
-  %13 = select i1 %12, i1 %cmp8.i3142, i1 false
-  %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
+  %cmp8.i31 = icmp eq i32 %10, 0
+  %11 = select i1 %cmp44, i1 %cmp8.i31, i1 false
+  %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
   ret void
 }
 
@@ -12784,13 +12768,9 @@ if.end37:                                         ; preds = %if.end, %if.then22
   %10 = extractvalue { i32, i1 } %8, 0
   %cmp48 = xor i1 %9, true
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.3)
-  %11 = and i32 %10, 65535
-  %cmp.i3047 = icmp eq i32 %11, 0
-  %cmp.i30 = select i1 %9, i1 true, i1 %cmp.i3047
-  %cmp8.i3348 = icmp ult i32 %10, 65536
-  %12 = xor i1 %9, %cmp.i30
-  %13 = select i1 %12, i1 %cmp8.i3348, i1 false
-  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
+  %cmp8.i33 = icmp eq i32 %10, 0
+  %11 = select i1 %cmp48, i1 %cmp8.i33, i1 false
+  %call53 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1759, ptr noundef nonnull @.str.71)
   ret void
 }
 
@@ -12828,13 +12808,9 @@ entry:
   %10 = extractvalue { i32, i1 } %8, 0
   %cmp44 = xor i1 %9, true
   %call46 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp44, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1801, ptr noundef nonnull @.str.3)
-  %11 = and i32 %10, 65535
-  %cmp.i2841 = icmp eq i32 %11, 0
-  %cmp.i28 = select i1 %9, i1 true, i1 %cmp.i2841
-  %cmp8.i3142 = icmp ult i32 %10, 65536
-  %12 = xor i1 %9, %cmp.i28
-  %13 = select i1 %12, i1 %cmp8.i3142, i1 false
-  %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %13, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
+  %cmp8.i31 = icmp eq i32 %10, 0
+  %11 = select i1 %cmp44, i1 %cmp8.i31, i1 false
+  %call49 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %11, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 1802, ptr noundef nonnull @.str.71)
   ret void
 }
 

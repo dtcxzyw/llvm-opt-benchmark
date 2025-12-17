@@ -11781,10 +11781,12 @@ define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %0, ptr noundef %1, i3
 
 40:                                               ; preds = %37
   %41 = load i64, ptr %31, align 8, !tbaa !180
+  %.not64 = icmp eq i64 %41, 0
   %42 = icmp ult i64 %41, 16
   %43 = load ptr, ptr %30, align 8
   %.not65130161174 = icmp eq ptr %43, null
-  %.not65130 = select i1 %42, i1 true, i1 %.not65130161174
+  %.not65130161 = select i1 %42, i1 true, i1 %.not65130161174
+  %.not65130 = select i1 %.not64, i1 true, i1 %.not65130161
   br i1 %.not65130, label %.thread112, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %40
@@ -11957,10 +11959,12 @@ Py_XDECREF.exit:                                  ; preds = %25, %get_cmsg_data_
 
 .thread109:                                       ; preds = %Py_DECREF.exit, %69, %get_cmsg_data_len.exit.thread.thread, %get_cmsg_data_len.exit.thread, %67, %.thread112, %37
   %124 = load i64, ptr %31, align 8, !tbaa !180
+  %.not68 = icmp eq i64 %124, 0
   %125 = icmp ult i64 %124, 16
   %126 = load ptr, ptr %30, align 8
   %.not69138162175 = icmp eq ptr %126, null
-  %.not69138 = select i1 %125, i1 true, i1 %.not69138162175
+  %.not69138162 = select i1 %125, i1 true, i1 %.not69138162175
+  %.not69138 = select i1 %.not68, i1 true, i1 %.not69138162
   br i1 %.not69138, label %get_cmsg_data_len.exit87.thread, label %.lr.ph140.preheader
 
 .lr.ph140.preheader:                              ; preds = %.thread109

@@ -2397,8 +2397,10 @@ condstore.split.i.i:                              ; preds = %.lr.ph.i36.i
   %or.cond25.not.i.i = icmp eq i32 %713, 67108864
   %714 = and i32 %710, -83886336
   %715 = select i1 %or.cond25.not.i.i, i32 %714, i32 %710
+  %.3.i.i = select i1 %or.cond25.not.i.i, i1 true, i1 %.128.i.i
   %716 = and i32 %715, 83886080
   %or.cond.i49.i = icmp eq i32 %716, 83886080
+  %.2.ph.i.i = select i1 %or.cond.i49.i, i1 true, i1 %.3.i.i
   %717 = or i1 %or.cond25.not.i.i, %or.cond.i49.i
   br i1 %717, label %718, label %720
 
@@ -2409,7 +2411,7 @@ condstore.split.i.i:                              ; preds = %.lr.ph.i36.i
   br label %720
 
 720:                                              ; preds = %718, %condstore.split.i.i, %.lr.ph.i36.i
-  %.2.i.i = phi i1 [ %.128.i.i, %.lr.ph.i36.i ], [ %.128.i.i, %condstore.split.i.i ], [ true, %718 ]
+  %.2.i.i = phi i1 [ %.128.i.i, %.lr.ph.i36.i ], [ %.2.ph.i.i, %condstore.split.i.i ], [ %.2.ph.i.i, %718 ]
   %721 = getelementptr inbounds nuw i8, ptr %.01727.i.i, i64 32
   %.not.i37.i = icmp eq ptr %721, %698
   br i1 %.not.i37.i, label %._crit_edge.i38.i, label %.lr.ph.i36.i

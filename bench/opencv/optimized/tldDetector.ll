@@ -744,13 +744,14 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE5clearEv.exit: ; preds = %5, %11
   %22 = fmul double %14, 1.200000e+00
   %23 = fcmp ogt double %21, %13
   %24 = fcmp ogt double %22, %14
+  %or.cond52 = select i1 %23, i1 true, i1 %24
   br label %.preheader61
 
-.preheader61:                                     ; preds = %.preheader61.lr.ph, %91
-  %25 = phi ptr [ %8, %.preheader61.lr.ph ], [ %35, %91 ]
-  %26 = phi ptr [ %12, %.preheader61.lr.ph ], [ %36, %91 ]
-  %.04067 = phi double [ %14, %.preheader61.lr.ph ], [ %.1, %91 ]
-  %.04165 = phi double [ %13, %.preheader61.lr.ph ], [ %.142, %91 ]
+.preheader61:                                     ; preds = %.preheader61.lr.ph, %90
+  %25 = phi ptr [ %8, %.preheader61.lr.ph ], [ %35, %90 ]
+  %26 = phi ptr [ %12, %.preheader61.lr.ph ], [ %36, %90 ]
+  %.04067 = phi double [ %14, %.preheader61.lr.ph ], [ %.1, %90 ]
+  %.04165 = phi double [ %13, %.preheader61.lr.ph ], [ %.142, %90 ]
   %27 = fadd double %.04067, 0.000000e+00
   %28 = fadd double %27, 1.000000e+00
   %29 = fcmp ugt double %28, %15
@@ -878,7 +879,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit: ; preds = %45, %_ZNSt6v
 
 73:                                               ; preds = %._crit_edge64
   %74 = fcmp ugt double %.04165, %13
-  br i1 %74, label %88, label %75
+  br i1 %74, label %87, label %75
 
 75:                                               ; preds = %73
   %76 = fdiv double %.04165, 1.200000e+00
@@ -886,53 +887,52 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit: ; preds = %45, %_ZNSt6v
   %78 = fcmp uge double %76, 2.000000e+01
   %79 = fcmp uge double %77, 2.000000e+01
   %or.cond.not73 = and i1 %78, %79
-  %80 = or i1 %or.cond.not73, %23
-  %brmerge = select i1 %80, i1 true, i1 %24
+  %brmerge = select i1 %or.cond.not73, i1 true, i1 %or.cond52
   %.mux = select i1 %or.cond.not73, double %76, double %21
   %.mux71 = select i1 %or.cond.not73, double %77, double %22
-  br i1 %brmerge, label %91, label %81
+  br i1 %brmerge, label %90, label %80
 
-81:                                               ; preds = %75
+80:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %7)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv8tracking4impl3tld11TLDDetector16generateScanGridEiiNS_5Size_IiEERSt6vectorINS_5Rect_IdEESaIS8_EEb, ptr noundef nonnull @.str.2, i32 noundef 314) #24
-          to label %82 unwind label %83
+          to label %81 unwind label %82
 
-82:                                               ; preds = %81
+81:                                               ; preds = %80
   unreachable
 
-83:                                               ; preds = %81
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %80
+  %83 = landingpad { ptr, i32 }
           cleanup
-  %85 = load ptr, ptr %6, align 8, !tbaa !82
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %87 = icmp eq ptr %85, %86
-  br i1 %87, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %84 = load ptr, ptr %6, align 8, !tbaa !82
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %86 = icmp eq ptr %84, %85
+  br i1 %86, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %83
-  call void @_ZdlPv(ptr noundef %85) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %82
+  call void @_ZdlPv(ptr noundef %84) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %84
+  resume { ptr, i32 } %83
 
-88:                                               ; preds = %73
-  %89 = fmul double %.04165, 1.200000e+00
-  %90 = fmul double %.04067, 1.200000e+00
-  br label %91
+87:                                               ; preds = %73
+  %88 = fmul double %.04165, 1.200000e+00
+  %89 = fmul double %.04067, 1.200000e+00
+  br label %90
 
-91:                                               ; preds = %75, %88
-  %.142 = phi double [ %.mux, %75 ], [ %89, %88 ]
-  %.1 = phi double [ %.mux71, %75 ], [ %90, %88 ]
-  %92 = fcmp olt double %.142, %15
-  %93 = fcmp olt double %.1, %16
-  %94 = select i1 %92, i1 %93, i1 false
-  br i1 %94, label %.preheader61, label %._crit_edge69, !llvm.loop !86
+90:                                               ; preds = %75, %87
+  %.142 = phi double [ %.mux, %75 ], [ %88, %87 ]
+  %.1 = phi double [ %.mux71, %75 ], [ %89, %87 ]
+  %91 = fcmp olt double %.142, %15
+  %92 = fcmp olt double %.1, %16
+  %93 = select i1 %91, i1 %92, i1 false
+  br i1 %93, label %.preheader61, label %._crit_edge69, !llvm.loop !86
 
-._crit_edge69:                                    ; preds = %91, %._crit_edge64, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE5clearEv.exit
+._crit_edge69:                                    ; preds = %90, %._crit_edge64, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE5clearEv.exit
   ret void
 }
 

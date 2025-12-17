@@ -74,8 +74,8 @@ define internal noundef i32 @vp9_metadata_update_fragment(ptr noundef %0, ptr re
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 84
   br label %13
 
-13:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+13:                                               ; preds = %.lr.ph, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %14 = load ptr, ptr %9, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -144,7 +144,7 @@ define internal noundef i32 @vp9_metadata_update_fragment(ptr noundef %0, ptr re
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 9
   %54 = load i8, ptr %53, align 1, !tbaa !35
   %55 = icmp eq i8 %54, 7
-  br i1 %55, label %56, label %78
+  br i1 %55, label %56, label %77
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %10, align 8, !tbaa !34
@@ -168,39 +168,39 @@ define internal noundef i32 @vp9_metadata_update_fragment(ptr noundef %0, ptr re
 65:                                               ; preds = %62, %59, %56
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 10
   store i8 1, ptr %66, align 2, !tbaa !37
-  br label %78
+  br label %77
 
 67:                                               ; preds = %23
   %68 = load i32, ptr %10, align 8, !tbaa !34
   %69 = and i32 %68, 4
   %.not = icmp ne i32 %69, 0
   %70 = icmp eq i8 %27, 0
-  %71 = or i1 %70, %.not
-  %or.cond48 = select i1 %71, i1 true, i1 %30
-  br i1 %or.cond48, label %78, label %72
+  %or.cond3 = select i1 %70, i1 true, i1 %30
+  %or.cond48 = select i1 %.not, i1 true, i1 %or.cond3
+  br i1 %or.cond48, label %77, label %71
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr %11, align 8, !tbaa !29
-  %74 = icmp slt i32 %73, 0
-  %.not41 = icmp eq i32 %73, 1
-  %or.cond47 = or i1 %74, %.not41
-  br i1 %or.cond47, label %78, label %75
+71:                                               ; preds = %67
+  %72 = load i32, ptr %11, align 8, !tbaa !29
+  %73 = icmp slt i32 %72, 0
+  %.not41 = icmp eq i32 %72, 1
+  %or.cond47 = or i1 %73, %.not41
+  br i1 %or.cond47, label %77, label %74
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.33) #2
-  %76 = load i32, ptr %10, align 8, !tbaa !34
-  %77 = or i32 %76, 4
-  store i32 %77, ptr %10, align 8, !tbaa !34
-  br label %78
+  %75 = load i32, ptr %10, align 8, !tbaa !34
+  %76 = or i32 %75, 4
+  store i32 %76, ptr %10, align 8, !tbaa !34
+  br label %77
 
-78:                                               ; preds = %67, %72, %75, %52, %65
+77:                                               ; preds = %67, %71, %74, %52, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %4, align 8, !tbaa !4
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %13, label %._crit_edge, !llvm.loop !38
+  %78 = load i32, ptr %4, align 8, !tbaa !4
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  br i1 %80, label %13, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %78, %3
+._crit_edge:                                      ; preds = %77, %3
   ret i32 0
 }
 

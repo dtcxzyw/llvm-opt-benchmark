@@ -40296,7 +40296,7 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
   %or.cond11 = select i1 %59, i1 true, i1 %60
   %..1174 = select i1 %or.cond11, i32 2070, i32 %.1174
   %.0164 = select i1 %58, i32 %.1174, i32 %..1174
-  br label %232
+  br label %231
 
 61:                                               ; preds = %8
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -40325,7 +40325,7 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
   %76 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 346), align 2
   %77 = icmp ne i16 %76, 0
   %or.cond16 = select i1 %or.cond13, i1 true, i1 %77
-  br i1 %or.cond16, label %232, label %.thread
+  br i1 %or.cond16, label %231, label %.thread
 
 .thread:                                          ; preds = %54, %71, %74
   %.1172 = phi i32 [ %67, %74 ], [ %67, %71 ], [ %.0171.lcssa, %54 ]
@@ -40361,12 +40361,12 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 91:                                               ; preds = %87, %86
   %92 = tail call i32 @get_log_level() #27
   %93 = icmp sgt i32 %92, 2
-  br i1 %93, label %94, label %232
+  br i1 %93, label %94, label %231
 
 94:                                               ; preds = %91
   %95 = load i32, ptr %78, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.378, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %95, i32 noundef %.1168) #27
-  br label %232
+  br label %231
 
 96:                                               ; preds = %87, %82
   %97 = icmp ult i32 %79, %.1166
@@ -40411,12 +40411,12 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 115:                                              ; preds = %111, %110
   %116 = tail call i32 @get_log_level() #27
   %117 = icmp sgt i32 %116, 2
-  br i1 %117, label %118, label %232
+  br i1 %117, label %118, label %231
 
 118:                                              ; preds = %115
   %119 = load i32, ptr %104, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.379, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %119, i32 noundef %.1166) #27
-  br label %232
+  br label %231
 
 120:                                              ; preds = %111, %102
   %121 = icmp eq i32 %103, 0
@@ -40449,11 +40449,11 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 134:                                              ; preds = %131, %125, %122
   %135 = tail call i32 @get_log_level() #27
   %136 = icmp sgt i32 %135, 2
-  br i1 %136, label %137, label %232
+  br i1 %136, label %137, label %231
 
 137:                                              ; preds = %134
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.380, ptr noundef nonnull @__func__._valid_job_part) #27
-  br label %232
+  br label %231
 
 138:                                              ; preds = %131, %128, %120
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 660
@@ -40472,11 +40472,11 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 145:                                              ; preds = %142
   %146 = tail call i32 @get_log_level() #27
   %147 = icmp sgt i32 %146, 2
-  br i1 %147, label %148, label %232
+  br i1 %147, label %148, label %231
 
 148:                                              ; preds = %145
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.381, ptr noundef nonnull @__func__._valid_job_part) #27
-  br label %232
+  br label %231
 
 149:                                              ; preds = %142
   store i32 %144, ptr %139, align 4
@@ -40505,164 +40505,164 @@ define internal fastcc i32 @_valid_job_part(ptr noundef %0, i32 noundef %1, ptr 
 160:                                              ; preds = %156, %155
   %161 = tail call i32 @get_log_level() #27
   %162 = icmp sgt i32 %161, 2
-  br i1 %162, label %163, label %232
+  br i1 %162, label %163, label %231
 
 163:                                              ; preds = %160
   %164 = load i32, ptr %152, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.382, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %164, i32 noundef %.1172) #27
-  br label %232
+  br label %231
 
 165:                                              ; preds = %156, %150
   %.not228 = icmp ne i32 %151, -2
   %166 = icmp ugt i32 %151, %.1172
   %or.cond245 = select i1 %.not228, i1 %166, i1 false
   %167 = icmp eq i32 %153, -2
-  %168 = and i1 %167, %or.cond245
-  %or.cond252 = select i1 %168, i1 %108, i1 false
-  br i1 %or.cond252, label %169, label %179
+  %or.cond25 = select i1 %167, i1 %108, i1 false
+  %or.cond252 = select i1 %or.cond245, i1 %or.cond25, i1 false
+  br i1 %or.cond252, label %168, label %178
 
-169:                                              ; preds = %165
+168:                                              ; preds = %165
   %.not229 = icmp eq ptr %6, null
-  br i1 %.not229, label %174, label %170
+  br i1 %.not229, label %173, label %169
 
-170:                                              ; preds = %169
-  %171 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %172 = load i32, ptr %171, align 4
-  %173 = and i32 %172, 4
-  %.not230 = icmp eq i32 %173, 0
-  br i1 %.not230, label %174, label %.thread250
+169:                                              ; preds = %168
+  %170 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %171 = load i32, ptr %170, align 4
+  %172 = and i32 %171, 4
+  %.not230 = icmp eq i32 %172, 0
+  br i1 %.not230, label %173, label %.thread250
 
-174:                                              ; preds = %170, %169
-  %175 = tail call i32 @get_log_level() #27
-  %176 = icmp sgt i32 %175, 2
-  br i1 %176, label %177, label %232
+173:                                              ; preds = %169, %168
+  %174 = tail call i32 @get_log_level() #27
+  %175 = icmp sgt i32 %174, 2
+  br i1 %175, label %176, label %231
 
-177:                                              ; preds = %174
-  %178 = load i32, ptr %139, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %178, i32 noundef %.1172) #27
-  br label %232
+176:                                              ; preds = %173
+  %177 = load i32, ptr %139, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.383, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %177, i32 noundef %.1172) #27
+  br label %231
 
-179:                                              ; preds = %165
-  %180 = icmp ugt i32 %153, %151
-  %or.cond253 = and i1 %.not225, %180
-  br i1 %or.cond253, label %181, label %.thread250
+178:                                              ; preds = %165
+  %179 = icmp ugt i32 %153, %151
+  %or.cond253 = and i1 %.not225, %179
+  br i1 %or.cond253, label %180, label %.thread250
 
-181:                                              ; preds = %179
+180:                                              ; preds = %178
   %.not232 = icmp eq ptr %6, null
-  br i1 %.not232, label %186, label %182
+  br i1 %.not232, label %185, label %181
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %184 = load i32, ptr %183, align 4
-  %185 = and i32 %184, 4
-  %.not233 = icmp eq i32 %185, 0
-  br i1 %.not233, label %186, label %.thread250
+181:                                              ; preds = %180
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %183 = load i32, ptr %182, align 4
+  %184 = and i32 %183, 4
+  %.not233 = icmp eq i32 %184, 0
+  br i1 %.not233, label %185, label %.thread250
 
-186:                                              ; preds = %182, %181
-  %187 = tail call i32 @get_log_level() #27
-  %188 = icmp sgt i32 %187, 2
-  br i1 %188, label %189, label %232
+185:                                              ; preds = %181, %180
+  %186 = tail call i32 @get_log_level() #27
+  %187 = icmp sgt i32 %186, 2
+  br i1 %187, label %188, label %231
 
-189:                                              ; preds = %186
-  %190 = load i32, ptr %152, align 8
-  %191 = load i32, ptr %139, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.384, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %190, i32 noundef %191) #27
-  br label %232
+188:                                              ; preds = %185
+  %189 = load i32, ptr %152, align 8
+  %190 = load i32, ptr %139, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.384, ptr noundef nonnull @__func__._valid_job_part, i32 noundef %189, i32 noundef %190) #27
+  br label %231
 
-.thread250:                                       ; preds = %170, %182, %179
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %193 = load i64, ptr %192, align 8
-  switch i64 %193, label %194 [
-    i64 0, label %232
-    i64 4294967294, label %232
+.thread250:                                       ; preds = %169, %181, %178
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %192 = load i64, ptr %191, align 8
+  switch i64 %192, label %193 [
+    i64 0, label %231
+    i64 4294967294, label %231
   ]
 
-194:                                              ; preds = %.thread250
+193:                                              ; preds = %.thread250
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %195 = tail call i64 @time(ptr noundef null) #27
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %197 = load i64, ptr %196, align 8
+  %194 = tail call i64 @time(ptr noundef null) #27
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %196 = load i64, ptr %195, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %198 = tail call i64 @llvm.smax.i64(i64 %197, i64 %195)
-  store i64 %198, ptr %11, align 8
-  %199 = load i32, ptr %139, align 4
-  %200 = mul i32 %199, 60
-  %201 = zext i32 %200 to i64
-  %202 = load i32, ptr %152, align 8
-  %203 = mul i32 %202, 60
-  %204 = zext i32 %203 to i64
-  call void @slurm_make_time_str(ptr noundef nonnull %192, ptr noundef nonnull %10, i32 noundef 256) #27
+  %197 = tail call i64 @llvm.smax.i64(i64 %196, i64 %194)
+  store i64 %197, ptr %11, align 8
+  %198 = load i32, ptr %139, align 4
+  %199 = mul i32 %198, 60
+  %200 = zext i32 %199 to i64
+  %201 = load i32, ptr %152, align 8
+  %202 = mul i32 %201, 60
+  %203 = zext i32 %202 to i64
+  call void @slurm_make_time_str(ptr noundef nonnull %191, ptr noundef nonnull %10, i32 noundef 256) #27
   call void @slurm_make_time_str(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 256) #27
-  %205 = load i64, ptr %192, align 8
-  %206 = load i64, ptr %11, align 8
-  %207 = icmp slt i64 %205, %206
-  br i1 %207, label %208, label %212
+  %204 = load i64, ptr %191, align 8
+  %205 = load i64, ptr %11, align 8
+  %206 = icmp slt i64 %204, %205
+  br i1 %206, label %207, label %211
 
-208:                                              ; preds = %194
-  %209 = call i32 @get_log_level() #27
-  %210 = icmp sgt i32 %209, 2
-  br i1 %210, label %211, label %231
+207:                                              ; preds = %193
+  %208 = call i32 @get_log_level() #27
+  %209 = icmp sgt i32 %208, 2
+  br i1 %209, label %210, label %230
 
-211:                                              ; preds = %208
+210:                                              ; preds = %207
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.385, ptr noundef nonnull @__func__._valid_job_part, ptr noundef nonnull %10, ptr noundef nonnull %9) #27
-  br label %231
+  br label %230
 
-212:                                              ; preds = %194
-  %213 = load i32, ptr %152, align 8
-  switch i32 %213, label %214 [
-    i32 0, label %222
-    i32 -2, label %222
+211:                                              ; preds = %193
+  %212 = load i32, ptr %152, align 8
+  switch i32 %212, label %213 [
+    i32 0, label %221
+    i32 -2, label %221
   ]
 
-214:                                              ; preds = %212
-  %215 = add nsw i64 %206, %204
-  %216 = icmp slt i64 %205, %215
-  br i1 %216, label %217, label %221
+213:                                              ; preds = %211
+  %214 = add nsw i64 %205, %203
+  %215 = icmp slt i64 %204, %214
+  br i1 %215, label %216, label %220
 
-217:                                              ; preds = %214
-  %218 = call i32 @get_log_level() #27
-  %219 = icmp sgt i32 %218, 2
-  br i1 %219, label %220, label %231
+216:                                              ; preds = %213
+  %217 = call i32 @get_log_level() #27
+  %218 = icmp sgt i32 %217, 2
+  br i1 %218, label %219, label %230
 
-220:                                              ; preds = %217
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.386, ptr noundef nonnull @__func__._valid_job_part, ptr noundef nonnull %9, i64 noundef %204, ptr noundef nonnull %10) #27
-  br label %231
+219:                                              ; preds = %216
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.386, ptr noundef nonnull @__func__._valid_job_part, ptr noundef nonnull %9, i64 noundef %203, ptr noundef nonnull %10) #27
+  br label %230
 
-221:                                              ; preds = %214
-  %cond = icmp eq i32 %213, 0
-  br i1 %cond, label %222, label %231
+220:                                              ; preds = %213
+  %cond = icmp eq i32 %212, 0
+  br i1 %cond, label %221, label %230
 
-222:                                              ; preds = %221, %212, %212
-  %223 = load i32, ptr %139, align 4
-  switch i32 %223, label %224 [
-    i32 0, label %231
-    i32 -2, label %231
+221:                                              ; preds = %220, %211, %211
+  %222 = load i32, ptr %139, align 4
+  switch i32 %222, label %223 [
+    i32 0, label %230
+    i32 -2, label %230
   ]
 
-224:                                              ; preds = %222
-  %225 = add nsw i64 %206, %201
-  %226 = icmp slt i64 %205, %225
-  br i1 %226, label %227, label %231
+223:                                              ; preds = %221
+  %224 = add nsw i64 %205, %200
+  %225 = icmp slt i64 %204, %224
+  br i1 %225, label %226, label %230
 
-227:                                              ; preds = %224
-  %228 = call i32 @get_log_level() #27
-  %229 = icmp sgt i32 %228, 2
-  br i1 %229, label %230, label %231
+226:                                              ; preds = %223
+  %227 = call i32 @get_log_level() #27
+  %228 = icmp sgt i32 %227, 2
+  br i1 %228, label %229, label %230
 
-230:                                              ; preds = %227
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.387, ptr noundef nonnull @__func__._valid_job_part, ptr noundef nonnull %9, i64 noundef %201, ptr noundef nonnull %10) #27
-  br label %231
+229:                                              ; preds = %226
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.387, ptr noundef nonnull @__func__._valid_job_part, ptr noundef nonnull %9, i64 noundef %200, ptr noundef nonnull %10) #27
+  br label %230
 
-231:                                              ; preds = %221, %224, %222, %222, %227, %230, %217, %220, %208, %211
-  %.4 = phi i32 [ 2051, %211 ], [ 2051, %208 ], [ 2124, %220 ], [ 2124, %217 ], [ 2051, %230 ], [ 2051, %227 ], [ 0, %222 ], [ 0, %222 ], [ 0, %221 ], [ 0, %224 ]
+230:                                              ; preds = %220, %223, %221, %221, %226, %229, %216, %219, %207, %210
+  %.4 = phi i32 [ 2051, %210 ], [ 2051, %207 ], [ 2124, %219 ], [ 2124, %216 ], [ 2051, %229 ], [ 2051, %226 ], [ 0, %221 ], [ 0, %221 ], [ 0, %220 ], [ 0, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %232
+  br label %231
 
-232:                                              ; preds = %57, %74, %94, %91, %118, %115, %137, %134, %148, %145, %163, %160, %177, %174, %189, %186, %.thread250, %.thread250, %231
-  %.2 = phi i32 [ %.4, %231 ], [ 0, %.thread250 ], [ %.0164, %57 ], [ %73, %74 ], [ 2006, %94 ], [ 2006, %91 ], [ 2006, %118 ], [ 2006, %115 ], [ 2006, %137 ], [ 2006, %134 ], [ 2051, %148 ], [ 2051, %145 ], [ 2124, %163 ], [ 2124, %160 ], [ 2051, %177 ], [ 2051, %174 ], [ 2124, %189 ], [ 2124, %186 ], [ 0, %.thread250 ]
+231:                                              ; preds = %57, %74, %94, %91, %118, %115, %137, %134, %148, %145, %163, %160, %176, %173, %188, %185, %.thread250, %.thread250, %230
+  %.2 = phi i32 [ %.4, %230 ], [ 0, %.thread250 ], [ %.0164, %57 ], [ %73, %74 ], [ 2006, %94 ], [ 2006, %91 ], [ 2006, %118 ], [ 2006, %115 ], [ 2006, %137 ], [ 2006, %134 ], [ 2051, %148 ], [ 2051, %145 ], [ 2124, %163 ], [ 2124, %160 ], [ 2051, %176 ], [ 2051, %173 ], [ 2124, %188 ], [ 2124, %185 ], [ 0, %.thread250 ]
   ret i32 %.2
 }
 

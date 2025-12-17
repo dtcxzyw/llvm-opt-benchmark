@@ -1943,7 +1943,7 @@ prepare_wnaf_table.exit:                          ; preds = %128
 
 135:                                              ; preds = %prepare_wnaf_table.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) @ossl_curve448_point_identity, i64 256, i1 false), !tbaa.struct !28
-  br label %233
+  br label %232
 
 136:                                              ; preds = %prepare_wnaf_table.exit
   %137 = load i32, ptr %14, align 16, !tbaa !45
@@ -2030,10 +2030,10 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %181
 
-181:                                              ; preds = %.lr.ph, %231
-  %.15395.in = phi i32 [ %.052, %.lr.ph ], [ %.15395, %231 ]
-  %.194 = phi i32 [ %.0, %.lr.ph ], [ %.2, %231 ]
-  %.15093 = phi i32 [ %.049, %.lr.ph ], [ %.251, %231 ]
+181:                                              ; preds = %.lr.ph, %230
+  %.15395.in = phi i32 [ %.052, %.lr.ph ], [ %.15395, %230 ]
+  %.194 = phi i32 [ %.0, %.lr.ph ], [ %.2, %230 ]
+  %.15093 = phi i32 [ %.049, %.lr.ph ], [ %.251, %230 ]
   %.15395 = add nsw i32 %.15395.in, -1
   %182 = sext i32 %.15093 to i64
   %183 = getelementptr inbounds %struct.smvt_control, ptr %13, i64 %182
@@ -2044,93 +2044,93 @@ prepare_wnaf_table.exit:                          ; preds = %128
   %188 = load i32, ptr %187, align 8, !tbaa !45
   %189 = icmp ne i32 %.15395, %188
   %190 = icmp ne i32 %.15395, 0
-  %191 = select i1 %190, i1 %185, i1 false
-  %narrow = select i1 %191, i1 %189, i1 false
-  %192 = zext i1 %narrow to i32
-  call fastcc void @point_double_internal(ptr noundef %0, ptr noundef %0, i32 noundef %192)
-  br i1 %185, label %214, label %193
+  %.not61 = select i1 %185, i1 %189, i1 false
+  %narrow = select i1 %190, i1 %.not61, i1 false
+  %191 = zext i1 %narrow to i32
+  call fastcc void @point_double_internal(ptr noundef %0, ptr noundef %0, i32 noundef %191)
+  br i1 %185, label %213, label %192
 
-193:                                              ; preds = %181
-  %194 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !48
-  %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %197, label %204
+192:                                              ; preds = %181
+  %193 = getelementptr inbounds nuw i8, ptr %183, i64 4
+  %194 = load i32, ptr %193, align 4, !tbaa !48
+  %195 = icmp sgt i32 %194, 0
+  br i1 %195, label %196, label %203
 
-197:                                              ; preds = %193
-  %198 = lshr i32 %195, 1
-  %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %199
-  %201 = select i1 %190, i1 %189, i1 false
-  %202 = zext i1 %201 to i32
+196:                                              ; preds = %192
+  %197 = lshr i32 %194, 1
+  %198 = zext nneg i32 %197 to i64
+  %199 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %198
+  %200 = select i1 %190, i1 %189, i1 false
+  %201 = zext i1 %200 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %203 = getelementptr inbounds nuw i8, ptr %200, i64 192
-  call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %180, ptr noundef nonnull %203) #7
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 192
+  call void @ossl_gf_mul(ptr noundef nonnull %6, ptr noundef nonnull %180, ptr noundef nonnull %202) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !25
-  call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef nonnull %200, i32 noundef range(i32 0, 2) %202)
+  call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef nonnull %199, i32 noundef range(i32 0, 2) %201)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %212
+  br label %211
 
-204:                                              ; preds = %193
-  %205 = sub nsw i32 0, %195
-  %206 = lshr i32 %205, 1
-  %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %207
-  %209 = select i1 %190, i1 %189, i1 false
-  %210 = zext i1 %209 to i32
+203:                                              ; preds = %192
+  %204 = sub nsw i32 0, %194
+  %205 = lshr i32 %204, 1
+  %206 = zext nneg i32 %205 to i64
+  %207 = getelementptr inbounds nuw [1 x %struct.anon], ptr %15, i64 %206
+  %208 = select i1 %190, i1 %189, i1 false
+  %209 = zext i1 %208 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %211 = getelementptr inbounds nuw i8, ptr %208, i64 192
-  call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %180, ptr noundef nonnull %211) #7
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 192
+  call void @ossl_gf_mul(ptr noundef nonnull %5, ptr noundef nonnull %180, ptr noundef nonnull %210) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %180, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !25
-  call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef nonnull %208, i32 noundef range(i32 0, 2) %210)
+  call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef nonnull %207, i32 noundef range(i32 0, 2) %209)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %212
+  br label %211
 
-212:                                              ; preds = %204, %197
-  %213 = add nsw i32 %.15093, 1
-  br label %214
+211:                                              ; preds = %203, %196
+  %212 = add nsw i32 %.15093, 1
+  br label %213
 
-214:                                              ; preds = %212, %181
-  %.251 = phi i32 [ %213, %212 ], [ %.15093, %181 ]
-  br i1 %189, label %231, label %215
+213:                                              ; preds = %211, %181
+  %.251 = phi i32 [ %212, %211 ], [ %.15093, %181 ]
+  br i1 %189, label %230, label %214
 
-215:                                              ; preds = %214
-  %216 = getelementptr inbounds nuw i8, ptr %187, i64 4
-  %217 = load i32, ptr %216, align 4, !tbaa !48
-  %218 = icmp sgt i32 %217, 0
-  %219 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
-  br i1 %218, label %220, label %224
+214:                                              ; preds = %213
+  %215 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  %216 = load i32, ptr %215, align 4, !tbaa !48
+  %217 = icmp sgt i32 %216, 0
+  %218 = load ptr, ptr @ossl_curve448_wnaf_base, align 8, !tbaa !53
+  br i1 %217, label %219, label %223
 
-220:                                              ; preds = %215
-  %221 = lshr i32 %217, 1
-  %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %219, i64 %222
-  call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef %223, i32 noundef %.15395)
-  br label %229
+219:                                              ; preds = %214
+  %220 = lshr i32 %216, 1
+  %221 = zext nneg i32 %220 to i64
+  %222 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %218, i64 %221
+  call fastcc void @add_niels_to_pt(ptr noundef %0, ptr noundef %222, i32 noundef %.15395)
+  br label %228
 
-224:                                              ; preds = %215
-  %225 = sub nsw i32 0, %217
-  %226 = lshr i32 %225, 1
-  %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %219, i64 %227
-  call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef %228, i32 noundef %.15395)
-  br label %229
+223:                                              ; preds = %214
+  %224 = sub nsw i32 0, %216
+  %225 = lshr i32 %224, 1
+  %226 = zext nneg i32 %225 to i64
+  %227 = getelementptr inbounds nuw [1 x %struct.niels_s], ptr %218, i64 %226
+  call fastcc void @sub_niels_from_pt(ptr noundef %0, ptr noundef %227, i32 noundef %.15395)
+  br label %228
 
-229:                                              ; preds = %224, %220
-  %230 = add nsw i32 %.194, 1
-  br label %231
+228:                                              ; preds = %223, %219
+  %229 = add nsw i32 %.194, 1
+  br label %230
 
-231:                                              ; preds = %229, %214
-  %.2 = phi i32 [ %230, %229 ], [ %.194, %214 ]
-  %232 = icmp samesign ugt i32 %.15395.in, 1
-  br i1 %232, label %181, label %._crit_edge, !llvm.loop !54
+230:                                              ; preds = %228, %213
+  %.2 = phi i32 [ %229, %228 ], [ %.194, %213 ]
+  %231 = icmp samesign ugt i32 %.15395.in, 1
+  br i1 %231, label %181, label %._crit_edge, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %231, %179
+._crit_edge:                                      ; preds = %230, %179
   call void @OPENSSL_cleanse(ptr noundef nonnull %13, i64 noundef 912) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %14, i64 noundef 616) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %15, i64 noundef 2048) #7
-  br label %233
+  br label %232
 
-233:                                              ; preds = %._crit_edge, %135
+232:                                              ; preds = %._crit_edge, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

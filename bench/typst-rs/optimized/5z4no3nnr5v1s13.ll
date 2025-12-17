@@ -69631,11 +69631,13 @@ default.unreachable:                              ; preds = %485
   %503 = icmp ne i8 %502, 33
   %504 = trunc nuw i8 %.1234.i to i1
   %or.cond17.i = select i1 %503, i1 %504, i1 false
-  %505 = trunc nuw i8 %.1227.i to i1
-  %506 = add nsw i8 %502, -33
-  %507 = icmp ult i8 %506, -3
-  %508 = select i1 %or.cond17.i, i1 %507, i1 false
-  %or.cond288.i = select i1 %508, i1 %505, i1 false
+  %505 = add nsw i8 %502, -33
+  %506 = icmp ult i8 %505, -2
+  %or.cond286.i = select i1 %or.cond17.i, i1 %506, i1 false
+  %507 = icmp ne i8 %502, 30
+  %508 = trunc nuw i8 %.1227.i to i1
+  %or.cond21.i = select i1 %507, i1 %508, i1 false
+  %or.cond288.i = select i1 %or.cond286.i, i1 %or.cond21.i, i1 false
   br i1 %or.cond288.i, label %788, label %787
 
 509:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6bebb4b4f0ab03dE.llvm.16845035774076767816.exit.i325.i", %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc6bebb4b4f0ab03dE.llvm.16845035774076767816.exit.i.i", %516, %511, %495
@@ -70436,10 +70438,12 @@ _ZN5typst4eval7binding11destructure17h5c204e03327fc5e8E.exit.i: ; preds = %686
   %752 = icmp ne i8 %751, 33
   %753 = trunc nuw i8 %.4237.i to i1
   %or.cond9.i = select i1 %752, i1 %753, i1 false
-  %754 = trunc nuw i8 %.4230.i to i1
-  %755 = icmp samesign ult i8 %751, 30
-  %756 = select i1 %or.cond9.i, i1 %755, i1 false
-  %or.cond284.i = select i1 %756, i1 %754, i1 false
+  %754 = icmp samesign ult i8 %751, 31
+  %or.cond282.i = select i1 %or.cond9.i, i1 %754, i1 false
+  %755 = icmp ne i8 %751, 30
+  %756 = trunc nuw i8 %.4230.i to i1
+  %or.cond13.i = select i1 %755, i1 %756, i1 false
+  %or.cond284.i = select i1 %or.cond282.i, i1 %or.cond13.i, i1 false
   br i1 %or.cond284.i, label %781, label %774
 
 757:                                              ; preds = %653

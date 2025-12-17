@@ -14844,9 +14844,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %38 = icmp ne i32 %37, 0
   %39 = icmp ugt i8 %28, 63
   %40 = icmp ugt i8 %30, 63
+  %41 = select i1 %39, i1 %40, i1 false
   %or.cond.i.i = select i1 %35, i1 %38, i1 false
-  %41 = select i1 %or.cond.i.i, i1 %39, i1 false
-  %or.cond3.i.i = select i1 %41, i1 %40, i1 false
+  %or.cond3.i.i = select i1 %or.cond.i.i, i1 %41, i1 false
   br i1 %or.cond3.i.i, label %42, label %.critedge.i.i
 
 42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
@@ -14976,9 +14976,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %33 = icmp ne i32 %32, 0
   %34 = icmp ugt i8 %23, 63
   %35 = icmp ugt i8 %25, 63
+  %36 = select i1 %34, i1 %35, i1 false
   %or.cond.i = select i1 %30, i1 %33, i1 false
-  %36 = select i1 %or.cond.i, i1 %34, i1 false
-  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  %or.cond3.i = select i1 %or.cond.i, i1 %36, i1 false
   br i1 %or.cond3.i, label %37, label %.critedge.i
 
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
@@ -15240,9 +15240,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %33 = icmp ne i32 %32, 0
   %34 = icmp ugt i8 %23, 63
   %35 = icmp ugt i8 %25, 63
+  %36 = select i1 %34, i1 %35, i1 false
   %or.cond.i = select i1 %30, i1 %33, i1 false
-  %36 = select i1 %or.cond.i, i1 %34, i1 false
-  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  %or.cond3.i = select i1 %or.cond.i, i1 %36, i1 false
   br i1 %or.cond3.i, label %37, label %.critedge.i
 
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -15392,9 +15392,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %36 = icmp ne i32 %35, 0
   %37 = icmp ugt i8 %26, 63
   %38 = icmp ugt i8 %28, 63
+  %39 = select i1 %37, i1 %38, i1 false
   %or.cond.i.i = select i1 %33, i1 %36, i1 false
-  %39 = select i1 %or.cond.i.i, i1 %37, i1 false
-  %or.cond3.i.i = select i1 %39, i1 %38, i1 false
+  %or.cond3.i.i = select i1 %or.cond.i.i, i1 %39, i1 false
   br i1 %or.cond3.i.i, label %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
 40:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
@@ -15467,9 +15467,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %79 = icmp ne i32 %78, 0
   %80 = icmp ugt i8 %69, 63
   %81 = icmp ugt i8 %71, 63
+  %82 = select i1 %80, i1 %81, i1 false
   %or.cond.i.i12 = select i1 %76, i1 %79, i1 false
-  %82 = select i1 %or.cond.i.i12, i1 %80, i1 false
-  %or.cond3.i.i13 = select i1 %82, i1 %81, i1 false
+  %or.cond3.i.i13 = select i1 %or.cond.i.i12, i1 %82, i1 false
   br i1 %or.cond3.i.i13, label %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
 
 83:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
@@ -15738,9 +15738,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %33 = icmp ne i32 %32, 0
   %34 = icmp ugt i8 %23, 63
   %35 = icmp ugt i8 %25, 63
+  %36 = select i1 %34, i1 %35, i1 false
   %or.cond.i = select i1 %30, i1 %33, i1 false
-  %36 = select i1 %or.cond.i, i1 %34, i1 false
-  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  %or.cond3.i = select i1 %or.cond.i, i1 %36, i1 false
   br i1 %or.cond3.i, label %37, label %.critedge.i
 
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
@@ -19279,9 +19279,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %65 = icmp ne i32 %64, 0
   %66 = icmp ugt i8 %55, 63
   %67 = icmp ugt i8 %57, 63
+  %68 = select i1 %66, i1 %67, i1 false
   %or.cond.i = select i1 %62, i1 %65, i1 false
-  %68 = select i1 %or.cond.i, i1 %66, i1 false
-  %or.cond3.i = select i1 %68, i1 %67, i1 false
+  %or.cond3.i = select i1 %or.cond.i, i1 %68, i1 false
   br i1 %or.cond3.i, label %69, label %.critedge.i
 
 69:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread1

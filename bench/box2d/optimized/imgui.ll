@@ -60984,18 +60984,18 @@ define dso_local noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEP
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.78) #64
   %.not = icmp eq i32 %8, 0
   %.not13 = icmp eq i64 %1, 2944
+  %narrow.not28 = select i1 %.not13, i1 %.not, i1 false
   %.not14 = icmp eq i64 %2, 1156
-  %.not31 = and i1 %.not13, %.not14
+  %narrow15.not27 = select i1 %.not14, i1 %narrow.not28, i1 false
   %.not16 = icmp eq i64 %3, 8
-  %.not30 = and i1 %.not16, %.not31
-  %.not17 = icmp eq i64 %4, 16
-  %.not28 = and i1 %.not17, %.not30
-  %.not19 = icmp eq i64 %5, 20
-  %.not26 = and i1 %.not19, %.not28
-  %.not20 = icmp eq i64 %6, 2
-  %.not24 = and i1 %.not20, %.not26
-  %narrow21.not = select i1 %.not24, i1 %.not, i1 false
-  ret i1 %narrow21.not
+  %narrow17.not26 = select i1 %.not16, i1 %narrow15.not27, i1 false
+  %.not18 = icmp eq i64 %4, 16
+  %narrow19.not25 = select i1 %.not18, i1 %narrow17.not26, i1 false
+  %.not20 = icmp eq i64 %5, 20
+  %narrow21.not24 = select i1 %.not20, i1 %narrow19.not25, i1 false
+  %.not22 = icmp eq i64 %6, 2
+  %narrow23.not = select i1 %.not22, i1 %narrow21.not24, i1 false
+  ret i1 %narrow23.not
 }
 
 declare void @_ZN5ImGui8EndTableEv() local_unnamed_addr #2

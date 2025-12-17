@@ -13956,14 +13956,14 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer10finishImplEv(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %.sroa.0.0.copyload.i = load i24, ptr %16, align 8
   tail call void @_ZN4llvm16MCDwarfLineTable4emitEPNS_10MCStreamerENS_22MCDwarfLineTableParamsE(ptr noundef nonnull %0, i24 %.sroa.0.0.copyload.i) #24
-  br label %82
+  br label %81
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr %2, align 8, !tbaa !329
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1752
   %20 = load i64, ptr %19, align 8, !tbaa !491
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %82, label %22
+  br i1 %21, label %81, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 1736
@@ -13971,7 +13971,7 @@ define internal void @_ZN12_GLOBAL__N_113MCAsmStreamer10finishImplEv(ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !493
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %82, label %27
+  br i1 %.not, label %81, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 168
@@ -14003,81 +14003,81 @@ _ZNK4llvm10MCStreamer17getCurrentSectionEv.exit.i: ; preds = %34, %27
   %43 = trunc nuw i8 %42 to i1
   %.not7 = xor i1 %43, true
   %44 = icmp ne ptr %31, %.sroa.0.0.i.i
-  %45 = select i1 %.not7, i1 true, i1 %44
-  %or.cond = select i1 %45, i1 true, i1 %.sroa.3.0.i.i
+  %.not3.i.i = select i1 %44, i1 true, i1 %.sroa.3.0.i.i
+  %or.cond = select i1 %.not7, i1 true, i1 %.not3.i.i
   br i1 %or.cond, label %.critedge.i, label %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit
 
 .critedge.i:                                      ; preds = %_ZNK4llvm10MCStreamer17getCurrentSectionEv.exit.i
   store i8 1, ptr %41, align 8, !tbaa !330
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !331
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %54, label %48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !331
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %53, label %47
 
-48:                                               ; preds = %.critedge.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %50 = load ptr, ptr %49, align 8, !tbaa !295
-  %51 = load ptr, ptr %47, align 8, !tbaa !12
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %.sroa.0.0.i.i, ptr noundef %31, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %50) #24
+47:                                               ; preds = %.critedge.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %49 = load ptr, ptr %48, align 8, !tbaa !295
+  %50 = load ptr, ptr %46, align 8, !tbaa !12
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef %.sroa.0.0.i.i, ptr noundef %31, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %49) #24
   br label %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit
 
-54:                                               ; preds = %.critedge.i
-  %55 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %57 = load ptr, ptr %56, align 8, !tbaa !295
-  %58 = load ptr, ptr %31, align 8, !tbaa !12
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(148) %31, ptr noundef nonnull align 8 dereferenceable(451) %10, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(48) %57, i32 noundef 0) #24
+53:                                               ; preds = %.critedge.i
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %56 = load ptr, ptr %55, align 8, !tbaa !295
+  %57 = load ptr, ptr %31, align 8, !tbaa !12
+  %58 = load ptr, ptr %57, align 8
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(148) %31, ptr noundef nonnull align 8 dereferenceable(451) %10, ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull align 8 dereferenceable(48) %56, i32 noundef 0) #24
   br label %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit
 
-_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit: ; preds = %_ZNK4llvm10MCStreamer17getCurrentSectionEv.exit.i, %48, %54
+_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit: ; preds = %_ZNK4llvm10MCStreamer17getCurrentSectionEv.exit.i, %47, %53
   tail call void @_ZN4llvm10MCStreamer13switchSectionEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %31, i32 noundef 0) #24
   tail call void @_ZN4llvm10MCStreamer9emitLabelEPNS_8MCSymbolENS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %26, ptr null) #24
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %61 = load ptr, ptr %60, align 8, !tbaa !295
-  %62 = load ptr, ptr %9, align 8, !tbaa !173
-  tail call void @_ZNK4llvm8MCSymbol5printERNS_11raw_ostreamEPKNS_9MCAsmInfoE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef %62) #24
-  %63 = load ptr, ptr %60, align 8, !tbaa !295
-  %64 = load ptr, ptr %9, align 8, !tbaa !173
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 72
-  %66 = load ptr, ptr %65, align 8, !tbaa !332
-  %.not.i.i.i5 = icmp eq ptr %66, null
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %60 = load ptr, ptr %59, align 8, !tbaa !295
+  %61 = load ptr, ptr %9, align 8, !tbaa !173
+  tail call void @_ZNK4llvm8MCSymbol5printERNS_11raw_ostreamEPKNS_9MCAsmInfoE(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %61) #24
+  %62 = load ptr, ptr %59, align 8, !tbaa !295
+  %63 = load ptr, ptr %9, align 8, !tbaa !173
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
+  %65 = load ptr, ptr %64, align 8, !tbaa !332
+  %.not.i.i.i5 = icmp eq ptr %65, null
   br i1 %.not.i.i.i5, label %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit
-  %67 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #24
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !296
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !297
-  %72 = ptrtoint ptr %69 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = icmp ugt i64 %67, %74
-  br i1 %75, label %76, label %78
+  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !296
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !297
+  %71 = ptrtoint ptr %68 to i64
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  %74 = icmp ugt i64 %66, %73
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  %77 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull %66, i64 noundef %67) #24
+75:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
+  %76 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %65, i64 noundef %66) #24
   br label %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit
 
-78:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  %.not.i2.i.i = icmp eq i64 %67, 0
-  br i1 %.not.i2.i.i, label %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit, label %79
+77:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
+  %.not.i2.i.i = icmp eq i64 %66, 0
+  br i1 %.not.i2.i.i, label %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit, label %78
 
-79:                                               ; preds = %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %66, i64 %67, i1 false)
-  %80 = load ptr, ptr %70, align 8, !tbaa !297
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %67
-  store ptr %81, ptr %70, align 8, !tbaa !297
+78:                                               ; preds = %77
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %65, i64 %66, i1 false)
+  %79 = load ptr, ptr %69, align 8, !tbaa !297
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %66
+  store ptr %80, ptr %69, align 8, !tbaa !297
   br label %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit
 
-_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit: ; preds = %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit, %76, %78, %79
+_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit: ; preds = %_ZN12_GLOBAL__N_113MCAsmStreamer13switchSectionEPN4llvm9MCSectionEj.exit, %75, %77, %78
   tail call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(752) %0)
-  br label %82
+  br label %81
 
-82:                                               ; preds = %17, %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit, %22, %14
+81:                                               ; preds = %17, %_ZN12_GLOBAL__N_113MCAsmStreamer9emitLabelEPN4llvm8MCSymbolENS1_5SMLocE.exit, %22, %14
   ret void
 }
 
