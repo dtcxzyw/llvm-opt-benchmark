@@ -108,6 +108,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store i32 0, ptr %16, align 4, !tbaa !3
   %brmerge = select i1 %51, i1 true, i1 %57
   %.mux = select i1 %51, i32 -1, i32 -2
+  %.mux969 = select i1 %51, i32 -1, i32 -2
   br i1 %brmerge, label %.thread747.sink.split, label %65
 
 65:                                               ; preds = %55
@@ -170,12 +171,13 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %.not704, label %101, label %.thread747
 
 .thread747.sink.split:                            ; preds = %55, %82, %78, %74, %71, %68, %65
-  %.sink = phi i32 [ %.mux, %55 ], [ -3, %65 ], [ -5, %68 ], [ -7, %71 ], [ -12, %74 ], [ -14, %78 ], [ -16, %82 ]
+  %.sink = phi i32 [ %.mux, %55 ], [ -3, %65 ], [ -7, %71 ], [ -14, %78 ], [ -12, %74 ], [ -5, %68 ], [ -16, %82 ]
+  %.ph = phi i32 [ %.mux969, %55 ], [ -3, %65 ], [ -7, %71 ], [ -14, %78 ], [ -12, %74 ], [ -5, %68 ], [ -16, %82 ]
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %.thread747
 
 .thread747:                                       ; preds = %.thread747.sink.split, %.thread
-  %98 = phi i32 [ %.pr746.pr, %.thread ], [ %.sink, %.thread747.sink.split ]
+  %98 = phi i32 [ %.pr746.pr, %.thread ], [ %.ph, %.thread747.sink.split ]
   %99 = sub nsw i32 0, %98
   store i32 %99, ptr %18, align 4, !tbaa !3
   %100 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, i32 noundef 6) #5
@@ -876,8 +878,8 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %431
 
 431:                                              ; preds = %419, %426, %429, %424, %414
-  %.0664 = phi double [ %418, %414 ], [ 1.000000e+00, %424 ], [ 1.000000e+00, %429 ], [ 1.000000e+00, %426 ], [ 1.000000e+00, %419 ]
-  %.0641 = phi i32 [ 1, %414 ], [ 0, %424 ], [ 0, %429 ], [ 0, %426 ], [ 0, %419 ]
+  %.0664 = phi double [ %418, %414 ], [ 1.000000e+00, %424 ], [ 1.000000e+00, %429 ], [ 1.000000e+00, %419 ], [ 1.000000e+00, %426 ]
+  %.0641 = phi i32 [ 1, %414 ], [ 0, %424 ], [ 0, %429 ], [ 0, %419 ], [ 0, %426 ]
   %432 = fmul double %106, %393
   %433 = fcmp oge double %399, 0.000000e+00
   %434 = fneg double %399
@@ -967,13 +969,13 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond905.not, label %.loopexit, label %383, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %254, %147, %.thread749, %.thread753, %.thread757, %240, %269, %275, %327, %260, %262
-  %.sink968 = phi i32 [ %263, %262 ], [ %261, %260 ], [ %328, %327 ], [ %276, %275 ], [ %271, %269 ], [ %242, %240 ], [ %227, %.thread757 ], [ %197, %.thread753 ], [ %177, %.thread749 ], [ %149, %147 ], [ %246, %254 ]
-  %.0.ph = phi i32 [ %.5773777, %262 ], [ %.5773777, %260 ], [ %253, %327 ], [ %253, %275 ], [ %253, %269 ], [ %.3764, %240 ], [ %.4760, %.thread757 ], [ %.2756, %.thread753 ], [ %.1752, %.thread749 ], [ %61, %147 ], [ %253, %254 ]
+  %.sink968 = phi i32 [ %149, %147 ], [ %263, %262 ], [ %261, %260 ], [ %328, %327 ], [ %276, %275 ], [ %271, %269 ], [ %242, %240 ], [ %227, %.thread757 ], [ %197, %.thread753 ], [ %177, %.thread749 ], [ %246, %254 ]
+  %.0.ph = phi i32 [ %61, %147 ], [ %.5773777, %262 ], [ %.5773777, %260 ], [ %253, %327 ], [ %253, %275 ], [ %253, %269 ], [ %.3764, %240 ], [ %.4760, %.thread757 ], [ %.2756, %.thread753 ], [ %.1752, %.thread749 ], [ %253, %254 ]
   store i32 %.sink968, ptr %16, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %329, %.loopexit800
-  %.0 = phi i32 [ %253, %.loopexit800 ], [ %253, %329 ], [ %.0.ph, %.loopexit.sink.split ], [ %253, %.critedge ]
+  %.0 = phi i32 [ %253, %329 ], [ %253, %.loopexit800 ], [ %.0.ph, %.loopexit.sink.split ], [ %253, %.critedge ]
   %485 = uitofp nneg i32 %.0 to double
   store double %485, ptr %14, align 8, !tbaa !7
   br label %486

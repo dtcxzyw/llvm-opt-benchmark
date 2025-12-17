@@ -1687,7 +1687,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.15562554790
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -1887,7 +1887,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.15562554790
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2206,7 +2206,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %6
           cleanup
   br label %76
 
-.loopexit.split-lp:                               ; preds = %36, %30
+.loopexit.split-lp:                               ; preds = %30, %36
   %.174.ph.ph = phi ptr [ null, %30 ], [ %.275, %36 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
@@ -3051,7 +3051,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.15562554790
   unreachable
 
 common.resume.i:                                  ; preds = %89, %76, %70
-  %common.resume.op.i = phi { ptr, i32 } [ %71, %76 ], [ %71, %70 ], [ %90, %89 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %71, %70 ], [ %71, %76 ], [ %90, %89 ]
   resume { ptr, i32 } %common.resume.op.i
 
 84:                                               ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h4e4e12e566bb6bc1E.exit"

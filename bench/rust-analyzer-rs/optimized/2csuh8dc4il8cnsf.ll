@@ -694,8 +694,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
           to label %.backedge.i unwind label %38
 
 .backedge.i:                                      ; preds = %.noexc8, %32, %25
-  %.sroa.7.2 = phi i64 [ %26, %25 ], [ %35, %32 ], [ %26, %.noexc8 ]
-  %.sroa.16.3 = phi i64 [ %27, %25 ], [ %.sroa.16.2, %32 ], [ %27, %.noexc8 ]
+  %.sroa.7.2 = phi i64 [ %35, %32 ], [ %26, %25 ], [ %26, %.noexc8 ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.2, %32 ], [ %27, %25 ], [ %27, %.noexc8 ]
   %.not.i7 = icmp eq i64 %.sroa.7.2, %4
   br i1 %.not.i7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit", label %.lr.ph.i2
 

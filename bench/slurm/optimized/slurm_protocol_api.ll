@@ -268,8 +268,8 @@ define dso_local void @convert_num_unit2(double noundef %0, ptr noundef writeonl
   br i1 %47, label %.critedge, label %.lr.ph79, !llvm.loop !13
 
 .critedge:                                        ; preds = %24, %17, %37, %41, %.lr.ph79, %.preheader61, %.preheader, %27, %29, %21
-  %.250 = phi i32 [ %3, %21 ], [ %3, %29 ], [ 0, %27 ], [ %3, %.preheader ], [ %3, %.preheader61 ], [ %46, %.lr.ph79 ], [ %.35171, %37 ], [ %43, %41 ], [ %4, %17 ], [ %4, %24 ]
-  %.2 = phi double [ %0, %21 ], [ %0, %29 ], [ %0, %27 ], [ %0, %.preheader ], [ %0, %.preheader61 ], [ %45, %.lr.ph79 ], [ %.372, %37 ], [ %42, %41 ], [ %18, %17 ], [ %25, %24 ]
+  %.250 = phi i32 [ %3, %21 ], [ %3, %29 ], [ 0, %27 ], [ %3, %.preheader ], [ %3, %.preheader61 ], [ %4, %17 ], [ %46, %.lr.ph79 ], [ %43, %41 ], [ %.35171, %37 ], [ %4, %24 ]
+  %.2 = phi double [ %0, %21 ], [ %0, %29 ], [ %0, %27 ], [ %0, %.preheader ], [ %0, %.preheader61 ], [ %18, %17 ], [ %45, %.lr.ph79 ], [ %42, %41 ], [ %.372, %37 ], [ %25, %24 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.250, i32 6)
   %48 = fptoui double %.2 to i64
   %49 = uitofp i64 %48 to double
@@ -624,7 +624,7 @@ get_convert_unit_val.exit.i:                      ; preds = %.lr.ph.i.i
   br label %89
 
 85:                                               ; preds = %79, %get_convert_unit_val.exit.i, %.preheader.i.i, %56, %54
-  %.021.i = phi double [ %49, %56 ], [ %49, %54 ], [ %81, %79 ], [ %49, %get_convert_unit_val.exit.i ], [ %49, %.preheader.i.i ]
+  %.021.i = phi double [ %49, %54 ], [ %49, %56 ], [ %81, %79 ], [ %49, %get_convert_unit_val.exit.i ], [ %49, %.preheader.i.i ]
   %86 = sext i32 %39 to i64
   %87 = getelementptr inbounds double, ptr %18, i64 %86
   store double %.021.i, ptr %87, align 8
@@ -815,7 +815,7 @@ define dso_local range(i32 0, -2147483648) i32 @slurm_get_auth_ttl() local_unnam
   br label %12
 
 12:                                               ; preds = %3, %0, %11
-  %.0 = phi i32 [ %storemerge, %11 ], [ %1, %0 ], [ 0, %3 ]
+  %.0 = phi i32 [ %1, %0 ], [ %storemerge, %11 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -951,7 +951,7 @@ define dso_local i32 @slurm_init_msg_engine_port(i16 noundef zeroext %0) local_u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %15, %6, %1
-  %.012 = phi i32 [ %13, %15 ], [ %4, %6 ], [ %4, %1 ], [ %13, %.preheader ]
+  %.012 = phi i32 [ %13, %15 ], [ %4, %1 ], [ %4, %6 ], [ %13, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.012
 }
@@ -1790,12 +1790,12 @@ define internal fastcc i32 @_check_hash(ptr noundef readonly captures(none) %0, 
   br label %94
 
 94:                                               ; preds = %91, %61, %42, %55, %49, %90
-  %.2 = phi i32 [ %.1, %90 ], [ %30, %61 ], [ -1, %42 ], [ -1, %55 ], [ -1, %49 ], [ %spec.select, %91 ]
+  %.2 = phi i32 [ %spec.select, %91 ], [ %.1, %90 ], [ -1, %49 ], [ -1, %42 ], [ %30, %61 ], [ -1, %55 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #19
   br label %95
 
 95:                                               ; preds = %25, %4, %94
-  %.0 = phi i32 [ %.2, %94 ], [ 0, %4 ], [ 0, %25 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.2, %94 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -2308,7 +2308,7 @@ define dso_local ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 nou
   %.not109 = icmp eq i32 %152, 0
   br i1 %.not109, label %.thread136, label %.thread125
 
-.thread132:                                       ; preds = %70, %71
+.thread132:                                       ; preds = %71, %70
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %153) #19
   br label %.thread125
@@ -2318,7 +2318,7 @@ define dso_local ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 nou
   call void @free_buf(ptr noundef nonnull %68) #19
   br label %154
 
-154:                                              ; preds = %.sink.split, %101, %119
+154:                                              ; preds = %.sink.split, %119, %101
   %.069.ph = phi i32 [ 1007, %119 ], [ 5003, %101 ], [ %.069.ph.ph, %.sink.split ]
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %155) #19
@@ -2336,8 +2336,8 @@ define dso_local ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 nou
   br label %.thread125
 
 .thread125:                                       ; preds = %149, %.thread132, %156, %154
-  %.069117130 = phi i32 [ %.069.ph, %156 ], [ %.069.ph, %154 ], [ %69, %.thread132 ], [ %152, %149 ]
-  %.066118129 = phi ptr [ %.167, %156 ], [ null, %154 ], [ null, %.thread132 ], [ null, %149 ]
+  %.069117130 = phi i32 [ %69, %.thread132 ], [ %.069.ph, %156 ], [ %.069.ph, %154 ], [ %152, %149 ]
+  %.066118129 = phi ptr [ null, %.thread132 ], [ %.167, %156 ], [ null, %154 ], [ null, %149 ]
   %160 = load ptr, ptr %8, align 8
   %.not112 = icmp eq ptr %160, null
   br i1 %.not112, label %161, label %163
@@ -2659,7 +2659,7 @@ define dso_local ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i3
   %.not88 = icmp eq i32 %126, 0
   br i1 %.not88, label %.thread115, label %.thread104
 
-.thread111:                                       ; preds = %70, %71
+.thread111:                                       ; preds = %71, %70
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %127) #19
   br label %.thread104
@@ -2685,8 +2685,8 @@ define dso_local ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i3
   br label %.thread104
 
 .thread104:                                       ; preds = %123, %.thread111, %130, %128
-  %.05696109 = phi i32 [ 5003, %130 ], [ 5003, %128 ], [ %69, %.thread111 ], [ %126, %123 ]
-  %.05497108 = phi ptr [ %.155, %130 ], [ null, %128 ], [ null, %.thread111 ], [ null, %123 ]
+  %.05696109 = phi i32 [ %69, %.thread111 ], [ 5003, %130 ], [ 5003, %128 ], [ %126, %123 ]
+  %.05497108 = phi ptr [ null, %.thread111 ], [ %.155, %130 ], [ null, %128 ], [ null, %123 ]
   %134 = load ptr, ptr %8, align 8
   %.not91 = icmp eq ptr %134, null
   br i1 %.not91, label %135, label %137
@@ -3173,7 +3173,7 @@ define dso_local i32 @slurm_receive_msg_and_forward(i32 noundef %0, ptr noundef 
   br label %226
 
 226:                                              ; preds = %223, %225, %220, %190, %196, %168, %174, %46, %47, %30
-  %.0 = phi i32 [ %33, %30 ], [ %45, %47 ], [ %45, %46 ], [ 5003, %174 ], [ 5003, %168 ], [ 1007, %196 ], [ 1007, %190 ], [ 5003, %220 ], [ 0, %225 ], [ 0, %223 ]
+  %.0 = phi i32 [ %33, %30 ], [ %45, %46 ], [ 1007, %190 ], [ 0, %223 ], [ 5003, %168 ], [ %45, %47 ], [ 5003, %174 ], [ 1007, %196 ], [ 5003, %220 ], [ 0, %225 ]
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %227) #19
   %228 = tail call ptr @__errno_location() #21
@@ -3543,7 +3543,7 @@ _compute_hash.exit.thread:                        ; preds = %29, %_compute_hash.
   br label %156
 
 156:                                              ; preds = %142, %149, %130, %113, %55
-  %.065 = phi i32 [ -1, %113 ], [ -1, %130 ], [ -1, %55 ], [ 0, %149 ], [ 0, %142 ]
+  %.065 = phi i32 [ -1, %55 ], [ -1, %113 ], [ -1, %130 ], [ 0, %149 ], [ 0, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.065
@@ -3908,7 +3908,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_addr_array(ptr noundef write
   br i1 %.not22, label %13, label %.thread
 
 ._crit_edge:                                      ; preds = %13, %6, %11
-  %19 = phi ptr [ %10, %11 ], [ null, %6 ], [ %10, %13 ]
+  %19 = phi ptr [ null, %6 ], [ %10, %11 ], [ %10, %13 ]
   store ptr %19, ptr %0, align 8
   br label %20
 
@@ -4089,7 +4089,7 @@ _response_init.exit:                              ; preds = %46, %56, %57
   br label %93
 
 93:                                               ; preds = %79, %87, %84, %74, %61, %66, %69, %63, %11
-  %.0 = phi i32 [ 107, %11 ], [ %62, %63 ], [ %62, %69 ], [ %62, %66 ], [ 0, %61 ], [ 0, %74 ], [ %81, %84 ], [ %81, %87 ], [ %81, %79 ]
+  %.0 = phi i32 [ 107, %11 ], [ 0, %61 ], [ 0, %74 ], [ %62, %63 ], [ %62, %69 ], [ %62, %66 ], [ %81, %84 ], [ %81, %87 ], [ %81, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -4463,9 +4463,9 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %17
 
 .critedge:                                        ; preds = %101, %.thread, %112, %.split.us, %22, %66, %96
-  %.05699 = phi ptr [ %.056, %66 ], [ null, %96 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %.thread ], [ %.056, %101 ]
-  %.not6474 = phi i1 [ false, %96 ], [ false, %66 ], [ true, %.thread ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
-  %.05872 = phi i32 [ -1, %96 ], [ -1, %66 ], [ 0, %.thread ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
+  %.05699 = phi ptr [ %.056, %.thread ], [ null, %96 ], [ %.056, %66 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %101 ]
+  %.not6474 = phi i1 [ true, %.thread ], [ false, %66 ], [ false, %96 ], [ true, %112 ], [ false, %.split.us ], [ false, %22 ], [ true, %101 ]
+  %.05872 = phi i32 [ 0, %.thread ], [ -1, %66 ], [ -1, %96 ], [ 0, %112 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %101 ]
   %.not67 = icmp eq ptr %.05699, %2
   br i1 %.not67, label %122, label %121
 
@@ -4778,7 +4778,7 @@ slurm_send_recv_msg.exit.i:                       ; preds = %24, %21
   br label %_send_and_recv_msg.exit
 
 _send_and_recv_msg.exit:                          ; preds = %27, %slurm_send_recv_msg.exit.i, %7, %13, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %13 ], [ -1, %7 ], [ %.0.i.i, %slurm_send_recv_msg.exit.i ], [ %.0.i.i, %27 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %10 ], [ -1, %13 ], [ %.0.i.i, %slurm_send_recv_msg.exit.i ], [ %.0.i.i, %27 ]
   ret i32 %.0
 }
 
@@ -5072,7 +5072,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_send_only_node_msg(ptr noundef %0) 
   br label %108
 
 108:                                              ; preds = %8, %14, %11, %106, %104, %71, %52
-  %.0 = phi i32 [ -1, %52 ], [ -1, %71 ], [ -1, %104 ], [ %.018, %106 ], [ -1, %11 ], [ -1, %14 ], [ -1, %8 ]
+  %.0 = phi i32 [ %.018, %106 ], [ -1, %52 ], [ -1, %71 ], [ -1, %104 ], [ -1, %11 ], [ -1, %14 ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -5255,7 +5255,7 @@ define dso_local ptr @slurm_send_addr_recv_msgs(ptr noundef %0, ptr noundef %1, 
   %52 = icmp slt i64 %49, %51
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %23, %47, %18
+._crit_edge:                                      ; preds = %47, %23, %18
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %54 = and i64 %53, 1024
   %.not37 = icmp eq i64 %54, 0
@@ -5438,7 +5438,7 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %47
 
 47:                                               ; preds = %36, %_send_and_recv_msg.exit, %10, %16, %13
-  %.010 = phi i32 [ -1, %13 ], [ -1, %16 ], [ -1, %10 ], [ 0, %36 ], [ -1, %_send_and_recv_msg.exit ]
+  %.010 = phi i32 [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ 0, %36 ], [ -1, %_send_and_recv_msg.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.010
 }
@@ -5722,7 +5722,7 @@ define dso_local i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 nou
   br label %53
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %23, %._crit_edge, %49
-  %.028.lcssa62 = phi i32 [ %.129, %._crit_edge ], [ %.129, %49 ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
+  %.028.lcssa62 = phi i32 [ %.129, %49 ], [ %.129, %._crit_edge ], [ 0, %23 ], [ %.028.mux.us, %.lr.ph.split.us ]
   call void @list_destroy(ptr noundef nonnull %22) #19
   br label %53
 
@@ -5847,7 +5847,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef
   br label %25
 
 25:                                               ; preds = %2, %24, %22, %20
-  %.0 = phi i32 [ -1, %22 ], [ 0, %24 ], [ -1, %20 ], [ -1, %2 ]
+  %.0 = phi i32 [ -1, %20 ], [ -1, %22 ], [ 0, %24 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

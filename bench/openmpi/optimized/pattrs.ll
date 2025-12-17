@@ -478,10 +478,10 @@ pmix_cmd_line_get_param.exit.loopexit.i273:       ; preds = %155, %.lr.ph.i.i269
   br label %pmix_cmd_line_is_taken.exit277
 
 pmix_cmd_line_is_taken.exit277:                   ; preds = %pmix_cmd_line_get_nth_instance.exit237, %pmix_cmd_line_get_param.exit.loopexit.i273
-  %.08.i.i265332 = phi i1 [ %150, %pmix_cmd_line_get_param.exit.loopexit.i273 ], [ false, %pmix_cmd_line_get_nth_instance.exit237 ]
-  %.08.i.i322325331 = phi i1 [ %136, %pmix_cmd_line_get_param.exit.loopexit.i273 ], [ false, %pmix_cmd_line_get_nth_instance.exit237 ]
-  %.08.i.i254326330 = phi i1 [ %143, %pmix_cmd_line_get_param.exit.loopexit.i273 ], [ false, %pmix_cmd_line_get_nth_instance.exit237 ]
-  %.08.i.i276 = phi i1 [ %157, %pmix_cmd_line_get_param.exit.loopexit.i273 ], [ false, %pmix_cmd_line_get_nth_instance.exit237 ]
+  %.08.i.i265332 = phi i1 [ false, %pmix_cmd_line_get_nth_instance.exit237 ], [ %150, %pmix_cmd_line_get_param.exit.loopexit.i273 ]
+  %.08.i.i322325331 = phi i1 [ false, %pmix_cmd_line_get_nth_instance.exit237 ], [ %136, %pmix_cmd_line_get_param.exit.loopexit.i273 ]
+  %.08.i.i254326330 = phi i1 [ false, %pmix_cmd_line_get_nth_instance.exit237 ], [ %143, %pmix_cmd_line_get_param.exit.loopexit.i273 ]
+  %.08.i.i276 = phi i1 [ false, %pmix_cmd_line_get_nth_instance.exit237 ], [ %157, %pmix_cmd_line_get_param.exit.loopexit.i273 ]
   %or.cond4 = or i1 %.08.i.i322325331, %.08.i.i254326330
   %or.cond6 = or i1 %or.cond4, %.08.i.i265332
   %or.cond8 = or i1 %or.cond6, %.08.i.i276
@@ -1142,7 +1142,7 @@ pmix_obj_run_destructors.exit320:                 ; preds = %.lr.ph.i317, %._cri
   br label %480
 
 480:                                              ; preds = %.thread337, %2, %.thread, %74, %31, %26, %20, %15
-  %.0 = phi i32 [ %14, %15 ], [ %19, %20 ], [ -1, %26 ], [ -1, %31 ], [ -1, %74 ], [ %.0146, %.thread ], [ -1, %2 ], [ -27, %.thread337 ]
+  %.0 = phi i32 [ %14, %15 ], [ %19, %20 ], [ -1, %26 ], [ -1, %31 ], [ -1, %74 ], [ %.0146, %.thread ], [ -27, %.thread337 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

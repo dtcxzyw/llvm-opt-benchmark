@@ -543,7 +543,7 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   br label %skip_prefix.exit.thread.i
 
 skip_prefix.exit.preheader._crit_edge.i:          ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18, %skip_prefix.exit.preheader.us.i, %skip_prefix.exit.us.i
-  %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
+  %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !41
   %111 = load ptr, ptr %110, align 8, !tbaa !42

@@ -1787,7 +1787,7 @@ define dso_local noundef range(i32 0, 5766) i32 @_ZN4llvm8RISCV_MC28resolveVaria
   br label %389
 
 389:                                              ; preds = %4, %5, %13, %21, %29, %37, %45, %53, %61, %69, %77, %85, %93, %101, %109, %117, %125, %133, %141, %149, %157, %165, %173, %181, %189, %197, %205, %213, %221, %229, %237, %245, %253, %261, %269, %277, %285, %293, %301, %309, %317, %325, %333, %341, %349, %357, %365, %373, %381, %383, %375, %367, %359, %351, %343, %335, %327, %319, %311, %303, %295, %287, %279, %271, %263, %255, %247, %239, %231, %223, %215, %207, %199, %191, %183, %175, %167, %159, %151, %143, %135, %127, %119, %111, %103, %95, %87, %79, %71, %63, %55, %47, %39, %31, %23, %15, %7
-  %.0 = phi i32 [ %., %7 ], [ %.97, %15 ], [ %.98, %23 ], [ %.99, %31 ], [ %.100, %39 ], [ %.101, %47 ], [ %.102, %55 ], [ %.103, %63 ], [ %.104, %71 ], [ %.105, %79 ], [ %.106, %87 ], [ %.107, %95 ], [ %.108, %103 ], [ %.109, %111 ], [ %.110, %119 ], [ %.111, %127 ], [ %.112, %135 ], [ %.113, %143 ], [ %.114, %151 ], [ %.115, %159 ], [ %.116, %167 ], [ %.117, %175 ], [ %.118, %183 ], [ %.119, %191 ], [ %.120, %199 ], [ %.121, %207 ], [ %.122, %215 ], [ %.123, %223 ], [ %.124, %231 ], [ %.125, %239 ], [ %.126, %247 ], [ %.127, %255 ], [ %.128, %263 ], [ %.129, %271 ], [ %.130, %279 ], [ %.131, %287 ], [ %.132, %295 ], [ %.133, %303 ], [ %.134, %311 ], [ %.135, %319 ], [ %.136, %327 ], [ %.137, %335 ], [ %.138, %343 ], [ %.139, %351 ], [ %.140, %359 ], [ %.141, %367 ], [ %.142, %375 ], [ %.143, %383 ], [ 0, %381 ], [ 0, %373 ], [ 0, %365 ], [ 0, %357 ], [ 0, %349 ], [ 0, %341 ], [ 0, %333 ], [ 0, %325 ], [ 0, %317 ], [ 0, %309 ], [ 0, %301 ], [ 0, %293 ], [ 0, %285 ], [ 0, %277 ], [ 0, %269 ], [ 0, %261 ], [ 0, %253 ], [ 0, %245 ], [ 0, %237 ], [ 0, %229 ], [ 0, %221 ], [ 0, %213 ], [ 0, %205 ], [ 0, %197 ], [ 0, %189 ], [ 0, %181 ], [ 0, %173 ], [ 0, %165 ], [ 0, %157 ], [ 0, %149 ], [ 0, %141 ], [ 0, %133 ], [ 0, %125 ], [ 0, %117 ], [ 0, %109 ], [ 0, %101 ], [ 0, %93 ], [ 0, %85 ], [ 0, %77 ], [ 0, %69 ], [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %37 ], [ 0, %29 ], [ 0, %21 ], [ 0, %13 ], [ 0, %5 ], [ 0, %4 ]
+  %.0 = phi i32 [ %.132, %295 ], [ %., %7 ], [ %.120, %199 ], [ %.97, %15 ], [ %.143, %383 ], [ %.98, %23 ], [ %.126, %247 ], [ %.99, %31 ], [ %.142, %375 ], [ %.100, %39 ], [ %.121, %207 ], [ %.101, %47 ], [ %.141, %367 ], [ %.102, %55 ], [ %.131, %287 ], [ %.103, %63 ], [ %.140, %359 ], [ %.104, %71 ], [ %.122, %215 ], [ %.105, %79 ], [ %.139, %351 ], [ %.106, %87 ], [ %.128, %263 ], [ %.107, %95 ], [ %.138, %343 ], [ %.108, %103 ], [ %.123, %223 ], [ %.109, %111 ], [ %.137, %335 ], [ %.110, %119 ], [ %.130, %279 ], [ %.111, %127 ], [ %.136, %327 ], [ %.112, %135 ], [ %.124, %231 ], [ %.113, %143 ], [ %.135, %319 ], [ %.114, %151 ], [ %.127, %255 ], [ %.115, %159 ], [ %.134, %311 ], [ %.116, %167 ], [ %.125, %239 ], [ %.117, %175 ], [ %.133, %303 ], [ %.118, %183 ], [ %.129, %271 ], [ %.119, %191 ], [ 0, %381 ], [ 0, %373 ], [ 0, %365 ], [ 0, %357 ], [ 0, %349 ], [ 0, %341 ], [ 0, %333 ], [ 0, %325 ], [ 0, %317 ], [ 0, %309 ], [ 0, %301 ], [ 0, %293 ], [ 0, %285 ], [ 0, %277 ], [ 0, %269 ], [ 0, %261 ], [ 0, %253 ], [ 0, %245 ], [ 0, %237 ], [ 0, %229 ], [ 0, %221 ], [ 0, %213 ], [ 0, %205 ], [ 0, %197 ], [ 0, %189 ], [ 0, %181 ], [ 0, %173 ], [ 0, %165 ], [ 0, %157 ], [ 0, %149 ], [ 0, %141 ], [ 0, %133 ], [ 0, %125 ], [ 0, %117 ], [ 0, %109 ], [ 0, %101 ], [ 0, %93 ], [ 0, %85 ], [ 0, %77 ], [ 0, %69 ], [ 0, %61 ], [ 0, %53 ], [ 0, %45 ], [ 0, %37 ], [ 0, %29 ], [ 0, %21 ], [ 0, %13 ], [ 0, %5 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1834,7 +1834,7 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm23RISCVGenMCSubtargetInf
   unreachable
 
 16:                                               ; preds = %13, %11, %7, %2, %8
-  %.0 = phi i32 [ %10, %8 ], [ 0, %2 ], [ 0, %7 ], [ %12, %11 ], [ %14, %13 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %2 ], [ %14, %13 ], [ %12, %11 ]
   ret i32 %.0
 }
 
@@ -1888,8 +1888,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseI
   br label %.thread27.i.i
 
 .thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %17, %11
-  %28 = phi i64 [ %5, %17 ], [ %5, %11 ], [ %21, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %29 = phi ptr [ %.034.i.i, %17 ], [ %.034.i.i, %11 ], [ %19, %.thread.i.i ], [ %spec.select32.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+  %28 = phi i64 [ %5, %11 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %5, %17 ], [ %21, %.thread.i.i ]
+  %29 = phi ptr [ %.034.i.i, %11 ], [ %spec.select32.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i ], [ %.034.i.i, %17 ], [ %19, %.thread.i.i ]
   %30 = icmp sgt i64 %28, 0
   br i1 %30, label %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !17
 
@@ -1918,7 +1918,7 @@ _ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBase
   br label %42
 
 42:                                               ; preds = %36, %32, %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit, %39, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %36 ], [ null, %32 ], [ null, %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit ], [ %spec.select, %39 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZSt11lower_boundIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoEZNS1_11getBaseInfoEjhhE7KeyTypeZNS1_11getBaseInfoEjhhE4CompET_S7_S7_RKT0_T1_.exit ], [ %spec.select, %39 ], [ null, %36 ], [ null, %32 ]
   ret ptr %.0
 }
 
@@ -2477,7 +2477,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %_ZN4llv
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %17, %.thread.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i = phi i32 [ %19, %17 ], [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.thread.i.i.i.i.i.i.i ]
+  %.1.i.i.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %19, %17 ], [ 0, %.thread.i.i.i.i.i.i.i ]
   %20 = icmp slt i32 %.1.i.i.i.i.i.i.i, 0
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %22 = xor i64 %8, -1
@@ -2859,7 +2859,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %28, %23, %19, %15, %13, %2
-  %.0 = phi i1 [ true, %2 ], [ %18, %15 ], [ %spec.select.i7.not.i, %28 ], [ false, %13 ], [ false, %19 ], [ %spec.select.i.not.i, %23 ]
+  %.0 = phi i1 [ true, %2 ], [ %spec.select.i7.not.i, %28 ], [ %18, %15 ], [ false, %13 ], [ false, %19 ], [ %spec.select.i.not.i, %23 ]
   ret i1 %.0
 }
 
@@ -2932,7 +2932,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit: ; preds = %29, %24, %20, %16, %14, %2
-  %.0 = phi i1 [ true, %2 ], [ %19, %16 ], [ %spec.select.i7.not.i, %29 ], [ false, %14 ], [ false, %20 ], [ %spec.select.i.not.i, %24 ]
+  %.0 = phi i1 [ true, %2 ], [ %spec.select.i7.not.i, %29 ], [ %19, %16 ], [ false, %14 ], [ false, %20 ], [ %spec.select.i.not.i, %24 ]
   ret i1 %.0
 }
 
@@ -3153,7 +3153,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20mayAf
   br label %34
 
 34:                                               ; preds = %25, %23, %3, %8, %13, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %13 ], [ true, %8 ], [ true, %3 ], [ %33, %25 ], [ false, %23 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %18 ], [ true, %13 ], [ true, %8 ], [ %33, %25 ], [ false, %23 ]
   ret i1 %.0
 }
 
@@ -3253,8 +3253,8 @@ _ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
   %47 = load i64, ptr %46, align 8, !tbaa !56
   br label %48
 
-48:                                               ; preds = %29, %44
-  %.sroa.03.0.i.ph = phi i64 [ 0, %29 ], [ %47, %44 ]
+48:                                               ; preds = %44, %29
+  %.sroa.03.0.i.ph = phi i64 [ %47, %44 ], [ 0, %29 ]
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !9
   %51 = add nsw i64 %50, %.sroa.03.0.i.ph

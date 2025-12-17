@@ -433,7 +433,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   br label %309
 
 309:                                              ; preds = %4, %272, %100, %49, %8
-  %.0 = phi i32 [ %308, %272 ], [ %48, %8 ], [ %99, %49 ], [ %192, %100 ], [ 11, %4 ]
+  %.0 = phi i32 [ %308, %272 ], [ %192, %100 ], [ %48, %8 ], [ %99, %49 ], [ 11, %4 ]
   ret i32 %.0
 }
 
@@ -475,7 +475,7 @@ define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr no
   br i1 %or.cond.not, label %13, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %13, %.preheader, %3, %8
-  %.014 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %.preheader ], [ %.not17, %13 ]
+  %.014 = phi i1 [ false, %3 ], [ false, %8 ], [ true, %.preheader ], [ %.not17, %13 ]
   ret i1 %.014
 }
 

@@ -1071,8 +1071,8 @@ _.exit264:                                        ; preds = %231, %232
   %.not219 = icmp eq i32 %247, 0
   br i1 %.not219, label %249, label %.thread290
 
-.thread290:                                       ; preds = %78, %130, %139, %210, %149, %246, %_.exit240, %_.exit249, %129, %_.exit261, %_.exit264, %_.exit256, %_.exit234, %_.exit, %.thread283
-  %.2166.ph = phi i32 [ -1, %.thread283 ], [ -1, %_.exit ], [ -1, %_.exit234 ], [ -1, %_.exit264 ], [ -1, %_.exit261 ], [ -2, %_.exit256 ], [ -1, %129 ], [ -1, %_.exit249 ], [ -1, %_.exit240 ], [ %83, %78 ], [ %134, %130 ], [ %142, %139 ], [ -1, %210 ], [ %150, %149 ], [ %247, %246 ]
+.thread290:                                       ; preds = %78, %246, %210, %130, %149, %139, %_.exit240, %_.exit256, %_.exit249, %129, %_.exit261, %_.exit264, %_.exit234, %_.exit, %.thread283
+  %.2166.ph = phi i32 [ -1, %.thread283 ], [ -1, %_.exit ], [ -1, %_.exit234 ], [ -1, %_.exit261 ], [ -2, %_.exit256 ], [ -1, %129 ], [ -1, %_.exit264 ], [ -1, %_.exit249 ], [ -1, %_.exit240 ], [ %83, %78 ], [ %247, %246 ], [ -1, %210 ], [ %134, %130 ], [ %150, %149 ], [ %142, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
@@ -1085,8 +1085,8 @@ _.exit264:                                        ; preds = %231, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread300
 
-249:                                              ; preds = %246, %149, %243, %245, %144, %147
-  %.2166.ph294 = phi i32 [ 0, %243 ], [ 0, %245 ], [ %142, %144 ], [ %142, %147 ], [ 0, %149 ], [ 0, %246 ]
+249:                                              ; preds = %149, %246, %144, %147, %243, %245
+  %.2166.ph294 = phi i32 [ 0, %246 ], [ %142, %144 ], [ %142, %147 ], [ 0, %243 ], [ 0, %245 ], [ 0, %149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %250 = add nuw i64 %.2361, 1
@@ -1103,7 +1103,7 @@ _.exit264:                                        ; preds = %231, %232
   br label %278
 
 .loopexit:                                        ; preds = %30, %.thread290, %64
-  %.0164 = phi i32 [ %65, %64 ], [ %.2166.ph, %.thread290 ], [ %34, %30 ]
+  %.0164 = phi i32 [ %.2166.ph, %.thread290 ], [ %65, %64 ], [ %34, %30 ]
   %255 = icmp slt i32 %.0164, 0
   br i1 %255, label %.thread300, label %278
 
@@ -1646,7 +1646,7 @@ reftable_be_downcast.exit:                        ; preds = %12
   br label %29
 
 29:                                               ; preds = %27, %22, %20, %reftable_be_downcast.exit, %28
-  %.0 = phi i32 [ -1, %28 ], [ %18, %reftable_be_downcast.exit ], [ %21, %20 ], [ %25, %22 ], [ 0, %27 ]
+  %.0 = phi i32 [ %25, %22 ], [ %18, %reftable_be_downcast.exit ], [ %21, %20 ], [ -1, %28 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -1952,15 +1952,15 @@ st_mult.exit.us:                                  ; preds = %40
   br label %.loopexit, !llvm.loop !125
 
 .loopexit.thread:                                 ; preds = %20, %22, %.loopexit77, %27
-  %.046.ph = phi ptr [ %.14793.us108, %.loopexit77 ], [ null, %22 ], [ null, %20 ], [ null, %27 ]
-  %.035.ph = phi i32 [ 0, %.loopexit77 ], [ %25, %22 ], [ %21, %20 ], [ %29, %27 ]
+  %.046.ph = phi ptr [ null, %20 ], [ %.14793.us108, %.loopexit77 ], [ null, %22 ], [ null, %27 ]
+  %.035.ph = phi i32 [ %21, %20 ], [ 0, %.loopexit77 ], [ %25, %22 ], [ %29, %27 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   br label %._crit_edge
 
 .loopexit:                                        ; preds = %51, %..loopexit_crit_edge, %.thread71
-  %.046 = phi ptr [ %.us-phi99, %.thread71 ], [ %.14793.us108, %..loopexit_crit_edge ], [ %.14793.us108, %51 ]
-  %.038 = phi i64 [ %.us-phi100, %.thread71 ], [ %.13995.us106, %..loopexit_crit_edge ], [ %.13995.us106, %51 ]
-  %.035 = phi i32 [ %.us-phi, %.thread71 ], [ %56, %..loopexit_crit_edge ], [ 0, %51 ]
+  %.046 = phi ptr [ %.14793.us108, %..loopexit_crit_edge ], [ %.us-phi99, %.thread71 ], [ %.14793.us108, %51 ]
+  %.038 = phi i64 [ %.13995.us106, %..loopexit_crit_edge ], [ %.us-phi100, %.thread71 ], [ %.13995.us106, %51 ]
+  %.035 = phi i32 [ %56, %..loopexit_crit_edge ], [ %.us-phi, %.thread71 ], [ 0, %51 ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %6) #20
   %.not121 = icmp eq i64 %.038, 0
   br i1 %.not121, label %._crit_edge, label %.lr.ph120
@@ -1980,7 +1980,7 @@ st_mult.exit.us:                                  ; preds = %40
   br label %59
 
 59:                                               ; preds = %reftable_be_downcast.exit, %._crit_edge
-  %.051 = phi i32 [ %.035152, %._crit_edge ], [ %18, %reftable_be_downcast.exit ]
+  %.051 = phi i32 [ %18, %reftable_be_downcast.exit ], [ %.035152, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.051
@@ -2072,7 +2072,7 @@ reftable_be_downcast.exit:                        ; preds = %12
   br i1 %.not25, label %31, label %.loopexit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %35, %36, %31, %32, %40, %22, %20
-  %.0 = phi i32 [ %21, %20 ], [ %25, %22 ], [ 0, %35 ], [ 0, %36 ], [ %.1, %31 ], [ %42, %40 ], [ %33, %32 ]
+  %.0 = phi i32 [ %21, %20 ], [ %25, %22 ], [ 0, %35 ], [ 0, %36 ], [ %42, %40 ], [ %.1, %31 ], [ %33, %32 ]
   call void @reftable_log_record_release(ptr noundef nonnull %6) #20
   call void @reftable_iterator_destroy(ptr noundef nonnull %7) #20
   br label %43
@@ -2513,9 +2513,9 @@ st_mult.exit:                                     ; preds = %95
   br label %104
 
 104:                                              ; preds = %102, %91
-  %.292 = phi ptr [ %.191165, %91 ], [ %.393, %102 ]
-  %.286 = phi i64 [ %.185166, %91 ], [ %93, %102 ]
-  %.183 = phi i64 [ %.082167, %91 ], [ %.3, %102 ]
+  %.292 = phi ptr [ %.393, %102 ], [ %.191165, %91 ]
+  %.286 = phi i64 [ %93, %102 ], [ %.185166, %91 ]
+  %.183 = phi i64 [ %.3, %102 ], [ %.082167, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -2741,10 +2741,10 @@ oidread.exit142:                                  ; preds = %181, %.split.loop.e
   br label %199
 
 199:                                              ; preds = %.thread149, %196, %._crit_edge.thread, %48, %44, %40, %35, %32
-  %.090 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %40 ], [ null, %44 ], [ null, %48 ], [ %.191165, %._crit_edge.thread ], [ %.191165, %196 ], [ %.191.lcssa, %.thread149 ]
-  %.089 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %40 ], [ null, %44 ], [ null, %48 ], [ %108, %._crit_edge.thread ], [ %108, %196 ], [ null, %.thread149 ]
-  %.084 = phi i64 [ 0, %32 ], [ 0, %35 ], [ 0, %40 ], [ 0, %44 ], [ 0, %48 ], [ %.185166, %._crit_edge.thread ], [ %.185166, %196 ], [ %.185.lcssa, %.thread149 ]
-  %.080 = phi i32 [ %33, %32 ], [ %38, %35 ], [ %42, %40 ], [ %46, %44 ], [ %50, %48 ], [ %193, %._crit_edge.thread ], [ %198, %196 ], [ %.lcssa, %.thread149 ]
+  %.090 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %40 ], [ null, %44 ], [ null, %48 ], [ %.191165, %._crit_edge.thread ], [ %.191.lcssa, %.thread149 ], [ %.191165, %196 ]
+  %.089 = phi ptr [ null, %32 ], [ null, %35 ], [ null, %40 ], [ null, %44 ], [ null, %48 ], [ %108, %._crit_edge.thread ], [ null, %.thread149 ], [ %108, %196 ]
+  %.084 = phi i64 [ 0, %32 ], [ 0, %35 ], [ 0, %40 ], [ 0, %44 ], [ 0, %48 ], [ %.185166, %._crit_edge.thread ], [ %.185.lcssa, %.thread149 ], [ %.185166, %196 ]
+  %.080 = phi i32 [ %33, %32 ], [ %38, %35 ], [ %42, %40 ], [ %46, %44 ], [ %50, %48 ], [ %193, %._crit_edge.thread ], [ %.lcssa, %.thread149 ], [ %198, %196 ]
   %200 = load ptr, ptr %10, align 8, !tbaa !135
   %.not112 = icmp eq ptr %200, null
   br i1 %.not112, label %202, label %201
@@ -2775,7 +2775,7 @@ oidread.exit142:                                  ; preds = %181, %.split.loop.e
   br label %206
 
 206:                                              ; preds = %reftable_be_downcast.exit, %._crit_edge177
-  %.0 = phi i32 [ %.080, %._crit_edge177 ], [ %30, %reftable_be_downcast.exit ]
+  %.0 = phi i32 [ %30, %reftable_be_downcast.exit ], [ %.080, %._crit_edge177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3118,7 +3118,7 @@ st_mult.exit:                                     ; preds = %32
   br label %52
 
 52:                                               ; preds = %.thread, %.critedge61, %51, %5
-  %.048 = phi i32 [ %9, %5 ], [ 0, %51 ], [ 0, %.critedge61 ], [ %.149.ph, %.thread ]
+  %.048 = phi i32 [ %.149.ph, %.thread ], [ %9, %5 ], [ 0, %51 ], [ 0, %.critedge61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.048
 }
@@ -3224,7 +3224,7 @@ strbuf_setlen.exit:                               ; preds = %14, %16
   unreachable
 
 47:                                               ; preds = %40, %39, %44, %10
-  %.026 = phi ptr [ %.127, %39 ], [ %45, %44 ], [ %11, %10 ], [ %spec.select, %40 ]
+  %.026 = phi ptr [ %.127, %39 ], [ %11, %10 ], [ %spec.select, %40 ], [ %45, %44 ]
   %.not32 = icmp eq i32 %4, 0
   br i1 %.not32, label %51, label %48
 
@@ -3355,7 +3355,7 @@ oidread.exit:                                     ; preds = %42, %48
   unreachable
 
 55:                                               ; preds = %16, %strbuf_setlen.exit, %oidread.exit, %14, %12, %9
-  %.017 = phi i32 [ %13, %12 ], [ %15, %14 ], [ 0, %strbuf_setlen.exit ], [ 0, %oidread.exit ], [ %11, %9 ], [ 1, %16 ]
+  %.017 = phi i32 [ %13, %12 ], [ %15, %14 ], [ %11, %9 ], [ 0, %strbuf_setlen.exit ], [ 0, %oidread.exit ], [ 1, %16 ]
   call void @reftable_ref_record_release(ptr noundef nonnull %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.017
@@ -3888,10 +3888,10 @@ st_mult.exit203:                                  ; preds = %121
   br label %185
 
 185:                                              ; preds = %116, %138, %95, %should_write_log.exit, %.thread
-  %.6158 = phi i32 [ %.0152299, %95 ], [ %.0152299, %should_write_log.exit ], [ 0, %.thread ], [ %.0152299, %138 ], [ %.0152299, %116 ]
-  %.8147 = phi i64 [ %.0139301, %95 ], [ %.0139301, %should_write_log.exit ], [ %.2141.lcssa, %.thread ], [ %.11, %138 ], [ %.0139301, %116 ]
-  %.6136 = phi i64 [ %.0130302, %95 ], [ %.0130302, %should_write_log.exit ], [ %.2132.lcssa, %.thread ], [ %119, %138 ], [ %.0130302, %116 ]
-  %.7 = phi ptr [ %.0123303, %95 ], [ %.0123303, %should_write_log.exit ], [ %.2.lcssa, %.thread ], [ %.9, %138 ], [ %.0123303, %116 ]
+  %.6158 = phi i32 [ %.0152299, %95 ], [ 0, %.thread ], [ %.0152299, %should_write_log.exit ], [ %.0152299, %138 ], [ %.0152299, %116 ]
+  %.8147 = phi i64 [ %.0139301, %95 ], [ %.2141.lcssa, %.thread ], [ %.0139301, %should_write_log.exit ], [ %.11, %138 ], [ %.0139301, %116 ]
+  %.6136 = phi i64 [ %.0130302, %95 ], [ %.2132.lcssa, %.thread ], [ %.0130302, %should_write_log.exit ], [ %119, %138 ], [ %.0130302, %116 ]
+  %.7 = phi ptr [ %.0123303, %95 ], [ %.2.lcssa, %.thread ], [ %.0123303, %should_write_log.exit ], [ %.9, %138 ], [ %.0123303, %116 ]
   %186 = load i32, ptr %54, align 8, !tbaa !54
   %187 = and i32 %186, 128
   %.not186 = icmp eq i32 %187, 0
@@ -3985,7 +3985,7 @@ st_mult.exit203:                                  ; preds = %121
   br i1 %217, label %.thread220, label %.loopexit
 
 .thread220:                                       ; preds = %196, %191, %204, %215, %200, %185
-  %.5157226 = phi i32 [ %.6158, %185 ], [ %194, %191 ], [ %202, %200 ], [ %216, %215 ], [ %.6158, %204 ], [ %.6158, %196 ]
+  %.5157226 = phi i32 [ %.6158, %204 ], [ %.6158, %185 ], [ %194, %191 ], [ %202, %200 ], [ %216, %215 ], [ %.6158, %196 ]
   %218 = add nuw i64 %.0150300, 1
   %219 = load i64, ptr %22, align 8, !tbaa !167
   %220 = icmp ult i64 %218, %219
@@ -4001,9 +4001,9 @@ st_mult.exit203:                                  ; preds = %121
   br label %.loopexit
 
 .loopexit:                                        ; preds = %215, %200, %191, %.thread, %.thread230, %221, %._crit_edge
-  %.8160 = phi i32 [ %223, %221 ], [ %.5157226, %._crit_edge ], [ %66, %.thread230 ], [ %.3155, %.thread ], [ %216, %215 ], [ %202, %200 ], [ %194, %191 ]
-  %.8138 = phi i64 [ %.6136, %221 ], [ %.6136, %._crit_edge ], [ %.0130302, %.thread230 ], [ %.2132.lcssa, %.thread ], [ %.6136, %215 ], [ %.6136, %200 ], [ %.6136, %191 ]
-  %.10 = phi ptr [ %.7, %221 ], [ null, %._crit_edge ], [ %.0123303, %.thread230 ], [ %.2.lcssa, %.thread ], [ %.7, %215 ], [ %.7, %200 ], [ %.7, %191 ]
+  %.8160 = phi i32 [ %66, %.thread230 ], [ %223, %221 ], [ %.5157226, %._crit_edge ], [ %194, %191 ], [ %216, %215 ], [ %.3155, %.thread ], [ %202, %200 ]
+  %.8138 = phi i64 [ %.0130302, %.thread230 ], [ %.6136, %221 ], [ %.6136, %._crit_edge ], [ %.6136, %191 ], [ %.6136, %215 ], [ %.2132.lcssa, %.thread ], [ %.6136, %200 ]
+  %.10 = phi ptr [ %.0123303, %.thread230 ], [ %.7, %221 ], [ null, %._crit_edge ], [ %.7, %191 ], [ %.7, %215 ], [ %.2.lcssa, %.thread ], [ %.7, %200 ]
   %.not312 = icmp eq i64 %.8138, 0
   br i1 %.not312, label %._crit_edge310, label %.lr.ph309
 
@@ -5042,8 +5042,8 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
   unreachable
 
 .sink.split:                                      ; preds = %113, %100, %84, %.split.loop.exit9.i.i92, %.split.loop.exit9.i.i86, %.split.loop.exit9.i.i
-  %.2.i.i91.sink = phi i32 [ %86, %.split.loop.exit9.i.i ], [ %102, %.split.loop.exit9.i.i86 ], [ %115, %.split.loop.exit9.i.i92 ], [ 0, %84 ], [ 0, %100 ], [ 0, %113 ]
-  %.2.ph = phi ptr [ %.056135, %.split.loop.exit9.i.i ], [ %.056135, %.split.loop.exit9.i.i86 ], [ null, %.split.loop.exit9.i.i92 ], [ %.056135, %84 ], [ %.056135, %100 ], [ null, %113 ]
+  %.2.i.i91.sink = phi i32 [ %86, %.split.loop.exit9.i.i ], [ %102, %.split.loop.exit9.i.i86 ], [ %115, %.split.loop.exit9.i.i92 ], [ 0, %100 ], [ 0, %84 ], [ 0, %113 ]
+  %.2.ph = phi ptr [ %.056135, %.split.loop.exit9.i.i ], [ %.056135, %.split.loop.exit9.i.i86 ], [ null, %.split.loop.exit9.i.i92 ], [ %.056135, %100 ], [ %.056135, %84 ], [ null, %113 ]
   store i32 %.2.i.i91.sink, ptr %18, align 4, !tbaa !139
   br label %117
 
@@ -5152,12 +5152,12 @@ split:                                            ; preds = %145, %._crit_edge
   br label %.thread
 
 .thread:                                          ; preds = %20, %37, %split
-  %.pr = phi i32 [ 1, %37 ], [ %.pr.pre, %split ], [ %21, %20 ]
+  %.pr = phi i32 [ %.pr.pre, %split ], [ 1, %37 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 157:                                              ; preds = %141, %should_exclude_current_ref.exit, %147, %66, %25, %28
-  %.1 = phi ptr [ %.056135, %28 ], [ %.056135, %25 ], [ %.056135, %should_exclude_current_ref.exit ], [ %.056135, %66 ], [ %.2, %147 ], [ %.2, %141 ]
+  %.1 = phi ptr [ %.2, %141 ], [ %.056135, %28 ], [ %.056135, %25 ], [ %.056135, %should_exclude_current_ref.exit ], [ %.056135, %66 ], [ %.2, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %158 = load i32, ptr %4, align 4, !tbaa !194
   %.not = icmp eq i32 %158, 0
@@ -5183,7 +5183,7 @@ split:                                            ; preds = %145, %._crit_edge
   br label %167
 
 167:                                              ; preds = %163, %161, %165
-  %.057 = phi i32 [ -2, %165 ], [ %., %161 ], [ 0, %163 ]
+  %.057 = phi i32 [ %., %161 ], [ -2, %165 ], [ 0, %163 ]
   ret i32 %.057
 }
 
@@ -5392,7 +5392,7 @@ strbuf_setlen.exit:                               ; preds = %16, %20
   br label %33
 
 33:                                               ; preds = %29, %27, %31
-  %.0 = phi i32 [ -2, %31 ], [ %., %27 ], [ 0, %29 ]
+  %.0 = phi i32 [ %., %27 ], [ -2, %31 ], [ 0, %29 ]
   ret i32 %.0
 }
 
@@ -5617,7 +5617,7 @@ define internal i32 @write_reflog_delete_table(ptr noundef %0, ptr noundef reado
   br i1 %30, label %19, label %.loopexit, !llvm.loop !208
 
 .loopexit:                                        ; preds = %19, %27, %23, %22, %11, %2
-  %.0 = phi i32 [ %9, %2 ], [ %14, %11 ], [ %20, %19 ], [ %29, %27 ], [ 0, %23 ], [ 0, %22 ]
+  %.0 = phi i32 [ %9, %2 ], [ %14, %11 ], [ 0, %23 ], [ %29, %27 ], [ %20, %19 ], [ 0, %22 ]
   call void @reftable_log_record_release(ptr noundef nonnull %3) #20
   call void @reftable_iterator_destroy(ptr noundef nonnull %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -5743,7 +5743,7 @@ define internal i32 @write_reflog_expiry_table(ptr noundef %0, ptr noundef %1) #
   br i1 %.not49, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph54, %49, %46, %39, %34
-  %.2 = phi i32 [ %45, %39 ], [ %36, %34 ], [ 0, %46 ], [ %55, %.lr.ph54 ], [ 0, %49 ]
+  %.2 = phi i32 [ %36, %34 ], [ %45, %39 ], [ 0, %46 ], [ %55, %.lr.ph54 ], [ 0, %49 ]
   ret i32 %.2
 }
 

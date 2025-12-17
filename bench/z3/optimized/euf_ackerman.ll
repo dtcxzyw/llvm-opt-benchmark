@@ -749,7 +749,7 @@ define hidden noundef zeroext i1 @_ZN3euf8ackerman9enable_ccEP3appS2_(ptr nounde
   br i1 %or.cond.not, label %.lr.ph40, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %._crit_edge, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ %27, %.lr.ph40 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %._crit_edge ], [ %27, %.lr.ph40 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -869,7 +869,7 @@ _ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %46, %._crit_edge.i
   tail call void @_ZN3euf8ackerman2gcEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   br label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
 
-_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread:  ; preds = %.lr.ph.i, %.lr.ph40.i, %29, %26, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %21, %16, %13, %3, %8
+_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread:  ; preds = %.lr.ph.i, %.lr.ph40.i, %26, %29, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %21, %16, %13, %3, %8
   ret void
 }
 
@@ -1135,7 +1135,7 @@ _ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %29, %._crit_edge.i
   store i32 %66, ptr %52, align 8, !tbaa !24
   br label %_ZN3euf8ackerman2gcEv.exit
 
-_ZN3euf8ackerman2gcEv.exit:                       ; preds = %.lr.ph.i, %.lr.ph40.i, %10, %8, %._crit_edge.i6, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %3
+_ZN3euf8ackerman2gcEv.exit:                       ; preds = %.lr.ph.i, %.lr.ph40.i, %8, %10, %._crit_edge.i6, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %3
   ret void
 }
 
@@ -2276,7 +2276,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infer
   br label %144
 
 _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit.thread: ; preds = %74, %80, %87, %91, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit, %77
-  %.1 = phi ptr [ %.04985, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit ], [ %.04985, %77 ], [ %.04985, %91 ], [ %.04985, %87 ], [ %.04985, %80 ], [ %.05084, %74 ]
+  %.1 = phi ptr [ %.04985, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit ], [ %.04985, %77 ], [ %.05084, %74 ], [ %.04985, %91 ], [ %.04985, %87 ], [ %.04985, %80 ]
   %108 = getelementptr inbounds nuw i8, ptr %.05084, i64 16
   %.not = icmp eq ptr %108, %71
   br i1 %.not, label %.preheader, label %74, !llvm.loop !466
@@ -2351,7 +2351,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infer
   br label %144
 
 _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit56.thread: ; preds = %109, %115, %122, %126, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit56, %112
-  %.3 = phi ptr [ %.288, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit56 ], [ %.288, %112 ], [ %.288, %126 ], [ %.288, %122 ], [ %.288, %115 ], [ %.15187, %109 ]
+  %.3 = phi ptr [ %.288, %_ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14inference_hashENS2_12inference_eqEE6equalsERKS4_SA_.exit56 ], [ %.288, %112 ], [ %.15187, %109 ], [ %.288, %126 ], [ %.288, %122 ], [ %.288, %115 ]
   %143 = getelementptr inbounds nuw i8, ptr %.15187, i64 16
   %.not53 = icmp eq ptr %143, %69
   br i1 %.not53, label %._crit_edge, label %109, !llvm.loop !467

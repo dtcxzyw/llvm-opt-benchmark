@@ -346,9 +346,9 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br label %125
 
 125:                                              ; preds = %96, %prune_element_hashtable.exit, %77, %.lr.ph
-  %.1245 = phi i8 [ 1, %.lr.ph ], [ %.0244265, %77 ], [ %.0244265, %prune_element_hashtable.exit ], [ %.0244265, %96 ]
-  %.3232 = phi i64 [ %.2231266, %.lr.ph ], [ %.2231266, %77 ], [ %97, %prune_element_hashtable.exit ], [ %97, %96 ]
-  %.3 = phi i32 [ %.2227267, %.lr.ph ], [ %.2227267, %77 ], [ %124, %prune_element_hashtable.exit ], [ %.2227267, %96 ]
+  %.1245 = phi i8 [ %.0244265, %77 ], [ 1, %.lr.ph ], [ %.0244265, %prune_element_hashtable.exit ], [ %.0244265, %96 ]
+  %.3232 = phi i64 [ %.2231266, %77 ], [ %.2231266, %.lr.ph ], [ %97, %prune_element_hashtable.exit ], [ %97, %96 ]
+  %.3 = phi i32 [ %.2227267, %77 ], [ %.2227267, %.lr.ph ], [ %124, %prune_element_hashtable.exit ], [ %.2227267, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

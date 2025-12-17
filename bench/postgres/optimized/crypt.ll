@@ -260,7 +260,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %26
   unreachable
 
 46:                                               ; preds = %41, %33, %select.unfold
-  %.0 = phi ptr [ %31, %select.unfold ], [ %34, %33 ], [ %42, %41 ]
+  %.0 = phi ptr [ %31, %select.unfold ], [ %42, %41 ], [ %34, %33 ]
   %.not12 = icmp eq ptr %.0, null
   br i1 %.not12, label %.thread, label %47
 
@@ -278,7 +278,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %26
   unreachable
 
 .thread:                                          ; preds = %32, %47, %46
-  %.025 = phi ptr [ %.0, %47 ], [ null, %46 ], [ null, %32 ]
+  %.025 = phi ptr [ null, %46 ], [ %.0, %47 ], [ null, %32 ]
   %55 = load i8, ptr @md5_password_warnings, align 1, !range !4, !noundef !5
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %78

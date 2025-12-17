@@ -216,7 +216,7 @@ define internal zeroext i1 @dissect_fp_heur(ptr noundef %0, ptr noundef %1, ptr 
   br label %18
 
 18:                                               ; preds = %.split17, %9, %13, %11, %7
-  %.015 = phi i1 [ false, %7 ], [ false, %11 ], [ false, %13 ], [ false, %9 ], [ %17, %.split17 ]
+  %.015 = phi i1 [ false, %7 ], [ %17, %.split17 ], [ false, %9 ], [ false, %11 ], [ false, %13 ]
   ret i1 %.015
 }
 

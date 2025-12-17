@@ -382,11 +382,11 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %144, %.lr.ph151.spl
 
 163:                                              ; preds = %159
   %.not123.i = icmp slt i32 %.2106.i, %117
-  %164 = getelementptr i8, ptr %.1103.i, i64 %154
-  %165 = getelementptr i8, ptr %164, i64 -1
-  %166 = sext i32 %.2106.i to i64
-  %167 = getelementptr inbounds i8, ptr %.1103.i, i64 %166
-  %.shrunk124.in.i = select i1 %.not123.i, ptr %167, ptr %165
+  %164 = sext i32 %.2106.i to i64
+  %165 = getelementptr inbounds i8, ptr %.1103.i, i64 %164
+  %166 = getelementptr i8, ptr %.1103.i, i64 %154
+  %167 = getelementptr i8, ptr %166, i64 -1
+  %.shrunk124.in.i = select i1 %.not123.i, ptr %165, ptr %167
   %.shrunk124.i = load i8, ptr %.shrunk124.in.i, align 1, !tbaa !46
   %168 = icmp eq i8 %.shrunk124.i, %.0101165.i
   br i1 %168, label %.lr.ph157.i, label %.critedge.i
@@ -409,11 +409,11 @@ bytestream2_put_buffer.exit.us.i:                 ; preds = %144, %.lr.ph151.spl
 
 172:                                              ; preds = %.lr.ph157.i
   %.not127.i = icmp slt i32 %.4108.i, %117
-  %173 = getelementptr i8, ptr %.3.i, i64 %154
-  %174 = getelementptr i8, ptr %173, i64 -1
-  %175 = sext i32 %.4108.i to i64
-  %176 = getelementptr inbounds i8, ptr %.3.i, i64 %175
-  %.shrunk128.in.i = select i1 %.not127.i, ptr %176, ptr %174
+  %173 = sext i32 %.4108.i to i64
+  %174 = getelementptr inbounds i8, ptr %.3.i, i64 %173
+  %175 = getelementptr i8, ptr %.3.i, i64 %154
+  %176 = getelementptr i8, ptr %175, i64 -1
+  %.shrunk128.in.i = select i1 %.not127.i, ptr %174, ptr %176
   %.shrunk128.i = load i8, ptr %.shrunk128.in.i, align 1, !tbaa !46
   %177 = icmp eq i8 %.shrunk128.i, %.0101165.i
   %178 = icmp samesign ult i32 %.0156.i, 255

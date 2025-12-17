@@ -1033,7 +1033,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %65, %73
-  %common.resume.op = phi { ptr, i32 } [ %66, %73 ], [ %66, %65 ], [ %.pn10, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %66, %65 ], [ %66, %73 ], [ %.pn10, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$salsa..runtime..Runtime$GT$17h5b029ba154b3400fE.exit", %57, %64

@@ -1129,8 +1129,8 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph.i192
   br label %Abc_TtEqual.exit.thread
 
 Abc_TtEqual.exit.thread:                          ; preds = %69, %54, %41, %Abc_TtXor.exit
-  %.1157 = phi i32 [ %137, %Abc_TtXor.exit ], [ %.0156449, %41 ], [ %.0156449, %54 ], [ %.0156449, %69 ]
-  %.1155 = phi ptr [ %124, %Abc_TtXor.exit ], [ %.0154450, %41 ], [ %.0154450, %54 ], [ %.0154450, %69 ]
+  %.1157 = phi i32 [ %137, %Abc_TtXor.exit ], [ %.0156449, %54 ], [ %.0156449, %41 ], [ %.0156449, %69 ]
+  %.1155 = phi ptr [ %124, %Abc_TtXor.exit ], [ %.0154450, %54 ], [ %.0154450, %41 ], [ %.0154450, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !43
@@ -1377,13 +1377,13 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i228.us
   br label %214
 
 214:                                              ; preds = %.thread, %.loopexit421.split.us
-  %215 = phi ptr [ %208, %.loopexit421.split.us ], [ %202, %.thread ]
-  %216 = phi ptr [ %165, %.loopexit421.split.us ], [ %203, %.thread ]
-  %217 = phi i1 [ true, %.loopexit421.split.us ], [ %142, %.thread ]
-  %.not.i.i211367 = phi i1 [ true, %.loopexit421.split.us ], [ false, %.thread ]
-  %218 = phi ptr [ %210, %.loopexit421.split.us ], [ %205, %.thread ]
-  %.4338.ph366 = phi i32 [ %.4338.ph, %.loopexit421.split.us ], [ %.4338.ph.ph, %.thread ]
-  %.0.i.i = phi ptr [ %213, %.loopexit421.split.us ], [ %207, %.thread ]
+  %215 = phi ptr [ %202, %.thread ], [ %208, %.loopexit421.split.us ]
+  %216 = phi ptr [ %203, %.thread ], [ %165, %.loopexit421.split.us ]
+  %217 = phi i1 [ %142, %.thread ], [ true, %.loopexit421.split.us ]
+  %.not.i.i211367 = phi i1 [ false, %.thread ], [ true, %.loopexit421.split.us ]
+  %218 = phi ptr [ %205, %.thread ], [ %210, %.loopexit421.split.us ]
+  %.4338.ph366 = phi i32 [ %.4338.ph.ph, %.thread ], [ %.4338.ph, %.loopexit421.split.us ]
+  %.0.i.i = phi ptr [ %207, %.thread ], [ %213, %.loopexit421.split.us ]
   %219 = getelementptr inbounds nuw i8, ptr %159, i64 160
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 160
   %221 = load i8, ptr %219, align 1, !tbaa !3
@@ -1926,7 +1926,7 @@ Abc_TtCofactor1.exit.i:                           ; preds = %._crit_edge.us.i.i,
   br i1 %exitcond.not.i277, label %cubeCofactor.exit333, label %354, !llvm.loop !31
 
 cubeCofactor.exit333:                             ; preds = %Abc_TtCofactor1.exit.i293, %Abc_TtCofactor1.exit.i, %348, %265
-  %431 = phi ptr [ %349, %348 ], [ %266, %265 ], [ %349, %Abc_TtCofactor1.exit.i ], [ %266, %Abc_TtCofactor1.exit.i293 ]
+  %431 = phi ptr [ %266, %265 ], [ %349, %348 ], [ %349, %Abc_TtCofactor1.exit.i ], [ %266, %Abc_TtCofactor1.exit.i293 ]
   %.in102.idx.i = select i1 %.not17.i.i, i64 8, i64 0
   %.in102.i = getelementptr inbounds nuw i8, ptr %216, i64 %.in102.idx.i
   %432 = load ptr, ptr %.in102.i, align 8, !tbaa !13
@@ -2094,7 +2094,7 @@ Abc_TtIsConst1.exit262:                           ; preds = %.lr.ph.i257, %.lr.p
   br label %482
 
 482:                                              ; preds = %._crit_edge488.thread, %481, %465, %.thread405, %477, %.thread410, %479, %Abc_TtIsConst1.exit262, %Abc_TtIsConst1.exit, %155, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %155 ], [ -1, %Abc_TtIsConst1.exit ], [ 0, %465 ], [ 0, %.thread405 ], [ 0, %477 ], [ 0, %.thread410 ], [ -1, %479 ], [ -1, %Abc_TtIsConst1.exit262 ], [ -1, %481 ], [ -1, %._crit_edge488.thread ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %155 ], [ -1, %Abc_TtIsConst1.exit ], [ -1, %Abc_TtIsConst1.exit262 ], [ 0, %.thread410 ], [ 0, %.thread405 ], [ 0, %465 ], [ 0, %477 ], [ -1, %479 ], [ -1, %481 ], [ -1, %._crit_edge488.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2279,8 +2279,8 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %31
 
 31:                                               ; preds = %30, %.critedge2
-  %32 = phi i8 [ %.pre80, %30 ], [ %.lcssa, %.critedge2 ]
-  %33 = phi ptr [ %27, %30 ], [ %.lcssa63, %.critedge2 ]
+  %32 = phi i8 [ %.lcssa, %.critedge2 ], [ %.pre80, %30 ]
+  %33 = phi ptr [ %.lcssa63, %.critedge2 ], [ %27, %30 ]
   %34 = add i8 %32, -97
   %or.cond61 = icmp ult i8 %34, 26
   br i1 %or.cond61, label %.loopexit, label %35

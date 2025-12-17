@@ -199,7 +199,7 @@ php_dom_first_child_of_container_node.exit:       ; preds = %68, %70
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %dom_nodelist_iter_start_first_child.exit, %php_dom_first_child_of_container_node.exit
-  %80 = phi i64 [ 0, %dom_nodelist_iter_start_first_child.exit ], [ %.pre48, %php_dom_first_child_of_container_node.exit ], [ %storemerge, %.preheader ]
+  %80 = phi i64 [ %.pre48, %php_dom_first_child_of_container_node.exit ], [ 0, %dom_nodelist_iter_start_first_child.exit ], [ %storemerge, %.preheader ]
   %81 = trunc i64 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %81, ptr %82, align 4, !tbaa !47
@@ -568,7 +568,7 @@ objmap_cache_release_cached_obj.exit107:          ; preds = %135, %141, %132, %o
   store ptr %105, ptr %142, align 8, !tbaa !53
   br label %144
 
-.critedge.thread:                                 ; preds = %13, %28, %26, %.critedge.thread134, %3, %.critedge
+.critedge.thread:                                 ; preds = %26, %28, %13, %.critedge.thread134, %3, %.critedge
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %143, align 8, !tbaa !36
   br label %144
@@ -715,7 +715,7 @@ define hidden { i64, i32 } @dom_modern_nodelist_get_index(ptr noundef readonly c
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %13, %20, %22
-  %.0.i11 = phi i64 [ %21, %20 ], [ %23, %22 ], [ 0, %13 ]
+  %.0.i11 = phi i64 [ %23, %22 ], [ %21, %20 ], [ 0, %13 ]
   %24 = sitofp i64 %.0.i11 to double
   %25 = fcmp oeq double %14, %24
   br i1 %25, label %zend_dval_to_lval_safe.exit, label %26
@@ -773,8 +773,8 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   br label %zend_dval_to_lval_safe.exit
 
 zend_dval_to_lval_safe.exit:                      ; preds = %9, %26, %zend_dval_to_lval.exit, %46, %11
-  %.sroa.5.0 = phi i32 [ 2, %11 ], [ %.sroa.5.1, %46 ], [ 2, %zend_dval_to_lval.exit ], [ 2, %26 ], [ 0, %9 ]
-  %.sroa.0.0 = phi i64 [ %12, %11 ], [ %.sroa.0.1, %46 ], [ %.0.i11, %zend_dval_to_lval.exit ], [ %.0.i11, %26 ], [ undef, %9 ]
+  %.sroa.5.0 = phi i32 [ 2, %11 ], [ 0, %9 ], [ %.sroa.5.1, %46 ], [ 2, %zend_dval_to_lval.exit ], [ 2, %26 ]
+  %.sroa.0.0 = phi i64 [ %12, %11 ], [ undef, %9 ], [ %.sroa.0.1, %46 ], [ %.0.i11, %zend_dval_to_lval.exit ], [ %.0.i11, %26 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert

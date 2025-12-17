@@ -565,8 +565,8 @@ _make_time_str.exit159:                           ; preds = %156
   br label %191
 
 191:                                              ; preds = %182, %188, %186, %178
-  %.099 = phi i32 [ 0, %178 ], [ 0, %188 ], [ 0, %186 ], [ %183, %182 ]
-  %.098 = phi i32 [ 0, %178 ], [ %190, %188 ], [ 0, %186 ], [ 0, %182 ]
+  %.099 = phi i32 [ 0, %178 ], [ 0, %186 ], [ 0, %188 ], [ %183, %182 ]
+  %.098 = phi i32 [ 0, %178 ], [ 0, %186 ], [ %190, %188 ], [ 0, %182 ]
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.11, i32 noundef %.098, i32 noundef %.099) #11
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %193 = load i32, ptr %192, align 4
@@ -590,8 +590,8 @@ _make_time_str.exit159:                           ; preds = %156
   br label %204
 
 204:                                              ; preds = %195, %201, %199, %191
-  %.1100 = phi i32 [ 0, %191 ], [ 0, %201 ], [ 0, %199 ], [ %196, %195 ]
-  %.1 = phi i32 [ 0, %191 ], [ %203, %201 ], [ 0, %199 ], [ 0, %195 ]
+  %.1100 = phi i32 [ 0, %191 ], [ 0, %199 ], [ 0, %201 ], [ %196, %195 ]
+  %.1 = phi i32 [ 0, %191 ], [ 0, %199 ], [ %203, %201 ], [ 0, %195 ]
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.11, i32 noundef %.1, i32 noundef %.1100) #11
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %206 = load i32, ptr %205, align 8

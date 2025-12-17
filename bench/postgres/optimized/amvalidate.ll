@@ -289,7 +289,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.pre315348 = load i32, ptr %48, align 4
   br label %166
 
-.split109.us.thread341:                           ; preds = %121, %116, %.lr.ph.split.split.split
+.split109.us.thread341:                           ; preds = %.lr.ph.split.split.split, %121, %116
   %150 = tail call ptr @palloc(i64 noundef 24) #7
   br label %.split109.us._crit_edge
 
@@ -310,10 +310,10 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br i1 %46, label %154, label %166
 
 154:                                              ; preds = %.split109.us.thread.thread, %153
-  %.pre315353 = phi i32 [ %.pre315, %153 ], [ %.pre315348358, %.split109.us.thread.thread ]
-  %.us-phi112333351 = phi ptr [ %.171.ph89238, %153 ], [ %.171104.us129.us, %.split109.us.thread.thread ]
-  %.us-phi113338349 = phi i32 [ %.1.ph91241, %153 ], [ %.1105.us128.us, %.split109.us.thread.thread ]
-  %155 = phi ptr [ %151, %153 ], [ %148, %.split109.us.thread.thread ]
+  %.pre315353 = phi i32 [ %.pre315348358, %.split109.us.thread.thread ], [ %.pre315, %153 ]
+  %.us-phi112333351 = phi ptr [ %.171104.us129.us, %.split109.us.thread.thread ], [ %.171.ph89238, %153 ]
+  %.us-phi113338349 = phi i32 [ %.1105.us128.us, %.split109.us.thread.thread ], [ %.1.ph91241, %153 ]
+  %155 = phi ptr [ %148, %.split109.us.thread.thread ], [ %151, %153 ]
   %156 = getelementptr inbounds nuw i8, ptr %.us-phi112333351, i64 8
   %157 = load i32, ptr %156, align 4
   %158 = icmp ult i32 %.pre315353, %157
@@ -363,7 +363,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br label %.lr.ph.lr.ph
 
 .outer87._crit_edge:                              ; preds = %.outer87, %135, %138, %37
-  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %135 ], [ %.077.ph244, %.outer87 ]
+  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %135 ], [ %.077.ph244, %138 ], [ %.077.ph244, %.outer87 ]
   ret ptr %.077.ph.lcssa
 }
 
@@ -561,7 +561,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %86, %47, %66, %31
-  %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us, %66 ], [ %.2.us.us, %47 ], [ %.2, %86 ]
+  %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us.us, %47 ], [ %.2.us, %66 ], [ %.2, %86 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

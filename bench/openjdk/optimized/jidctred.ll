@@ -73,7 +73,7 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %15, %34, %30, %26, %22
-  %46 = phi i16 [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ], [ %20, %15 ]
+  %46 = phi i16 [ %20, %15 ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %22 ]
   %47 = load i16, ptr %.0126130, align 2
   %48 = sext i16 %47 to i32
   %49 = load i32, ptr %.0125131, align 4
@@ -217,7 +217,7 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %216
 
 ._crit_edge137:                                   ; preds = %122, %144, %140, %136, %132
-  %158 = phi i32 [ 0, %144 ], [ 0, %140 ], [ 0, %136 ], [ 0, %132 ], [ %130, %122 ]
+  %158 = phi i32 [ %130, %122 ], [ 0, %144 ], [ 0, %140 ], [ 0, %136 ], [ 0, %132 ]
   %159 = load i32, ptr %.1124134, align 4
   %160 = shl i32 %159, 14
   %161 = mul nsw i32 %158, 15137
@@ -351,7 +351,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %16, %27, %23
-  %37 = phi i16 [ 0, %27 ], [ 0, %23 ], [ %21, %16 ]
+  %37 = phi i16 [ %21, %16 ], [ 0, %27 ], [ 0, %23 ]
   %38 = load i16, ptr %.07784, align 2
   %39 = sext i16 %38 to i32
   %40 = load i32, ptr %.07883, align 4
@@ -446,7 +446,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %136
 
 ._crit_edge89:                                    ; preds = %82, %97, %93
-  %109 = phi i32 [ 0, %97 ], [ 0, %93 ], [ %91, %82 ]
+  %109 = phi i32 [ %91, %82 ], [ 0, %97 ], [ 0, %93 ]
   %110 = load i32, ptr %.18086, align 4
   %111 = shl i32 %110, 15
   %112 = getelementptr inbounds nuw i8, ptr %.18086, i64 28

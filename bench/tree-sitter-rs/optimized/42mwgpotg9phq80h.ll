@@ -793,7 +793,7 @@ define hidden noundef align 8 ptr @_ZN10serde_json4read13ignore_escape17heff4185
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %7, %7, %7, %7, %7, %7, %7, %7, %36, %13, %10
-  %.0 = phi ptr [ %18, %13 ], [ %.sink.i, %36 ], [ %12, %10 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %35 ]
+  %.0 = phi ptr [ %18, %13 ], [ %12, %10 ], [ %.sink.i, %36 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %7 ], [ null, %35 ]
   ret ptr %.0
 }
 
@@ -1490,8 +1490,8 @@ tailrecurse.i:                                    ; preds = %272
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !374
   br label %319
 
-319:                                              ; preds = %73, %tailrecurse._crit_edge.i, %313, %275, %292, %274, %299, %251, %306, %242, %179
-  %.0.i.ph = phi ptr [ %.sink.i.i13, %179 ], [ %244, %242 ], [ %311, %306 ], [ %253, %251 ], [ %304, %299 ], [ %.sink.i, %274 ], [ %297, %292 ], [ %280, %275 ], [ %318, %313 ], [ %72, %tailrecurse._crit_edge.i ], [ %78, %73 ]
+319:                                              ; preds = %73, %tailrecurse._crit_edge.i, %313, %275, %292, %274, %299, %179, %251, %306, %242
+  %.0.i.ph = phi ptr [ %244, %242 ], [ %311, %306 ], [ %253, %251 ], [ %.sink.i.i13, %179 ], [ %304, %299 ], [ %.sink.i, %274 ], [ %297, %292 ], [ %280, %275 ], [ %318, %313 ], [ %72, %tailrecurse._crit_edge.i ], [ %78, %73 ]
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.ph, ptr %320, align 8
   store ptr null, ptr %0, align 8
@@ -2022,7 +2022,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   br label %"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$str$C$$RP$$GT$$GT$8call_mut17h9202418d09053165E.llvm.10840908634243202882.exit"
 
 "_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..FnMut$LT$$LP$$RF$str$C$$RP$$GT$$GT$8call_mut17h9202418d09053165E.llvm.10840908634243202882.exit": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i.i", %14
-  %.merged.i.i = phi { ptr, i64 } [ %16, %14 ], [ %..i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i.i" ]
+  %.merged.i.i = phi { ptr, i64 } [ %..i.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i.i" ], [ %16, %14 ]
   ret { ptr, i64 } %.merged.i.i
 }
 
@@ -2399,7 +2399,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17haeeb6350d1c070deE(ptr 
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$anyhow..Error$GT$$GT$17h5d353b1b452e97daE.llvm.10840908634243202882.exit": ; preds = %17, %29, %.body
-  %.pn14 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %29 ], [ %lpad.thr_comm.split-lp, %.body ], [ %18, %17 ]
+  %.pn14 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm.split-lp, %29 ], [ %18, %17 ]
   resume { ptr, i32 } %.pn14
 
 29:                                               ; preds = %.body
@@ -3937,7 +3937,7 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
   br label %17
 
 17:                                               ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16", %14
-  %.merged = phi { ptr, i64 } [ %16, %14 ], [ %., %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16" ]
+  %.merged = phi { ptr, i64 } [ %., %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16" ], [ %16, %14 ]
   ret { ptr, i64 } %.merged
 }
 
@@ -4046,7 +4046,7 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
   br label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17hbd984049252ca69fE.llvm.10840908634243202882.exit"
 
 "_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17hbd984049252ca69fE.llvm.10840908634243202882.exit": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i", %14
-  %.merged.i = phi { ptr, i64 } [ %16, %14 ], [ %..i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i" ]
+  %.merged.i = phi { ptr, i64 } [ %..i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h04c8fe4286bab7f8E.exit16.i" ], [ %16, %14 ]
   ret { ptr, i64 } %.merged.i
 }
 

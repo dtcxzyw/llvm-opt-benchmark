@@ -195,7 +195,7 @@ compile_and_marshal.exit.thread:                  ; preds = %62
   br label %compile_and_marshal.exit
 
 compile_and_marshal.exit:                         ; preds = %60, %66, %69, %72
-  %.0.i21 = phi ptr [ %61, %60 ], [ %67, %66 ], [ %67, %69 ], [ %67, %72 ]
+  %.0.i21 = phi ptr [ %61, %60 ], [ %67, %72 ], [ %67, %66 ], [ %67, %69 ]
   call void @free(ptr noundef nonnull %41) #13
   %73 = icmp eq ptr %.0.i21, null
   br i1 %73, label %127, label %74

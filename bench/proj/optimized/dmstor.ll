@@ -191,9 +191,9 @@ _ZL11proj_strtodPcPS_.exit:                       ; preds = %42, %._crit_edge.i
   br label %._crit_edge
 
 66:                                               ; preds = %49, %49, %49, %54, %52, %53
-  %67 = phi i1 [ true, %52 ], [ false, %53 ], [ true, %49 ], [ true, %49 ], [ true, %49 ], [ true, %54 ]
-  %.3 = phi i32 [ 1, %52 ], [ 2, %53 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %54 ]
-  %.0 = phi i64 [ 1, %52 ], [ 1, %53 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 2, %54 ]
+  %67 = phi i1 [ true, %49 ], [ true, %52 ], [ false, %53 ], [ true, %49 ], [ true, %49 ], [ true, %54 ]
+  %.3 = phi i32 [ 0, %49 ], [ 1, %52 ], [ 2, %53 ], [ 0, %49 ], [ 0, %49 ], [ 0, %54 ]
+  %.0 = phi i64 [ 1, %49 ], [ 1, %52 ], [ 1, %53 ], [ 1, %49 ], [ 1, %49 ], [ 2, %54 ]
   %68 = icmp samesign ult i32 %.3, %.04684
   br i1 %68, label %69, label %70
 
@@ -255,7 +255,7 @@ split:                                            ; preds = %34, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL11proj_strtodPcPS_.exit, %59, %69, %88, %92
-  %.141 = phi double [ %.244, %92 ], [ %.244, %88 ], [ 0x7FF0000000000000, %69 ], [ 0x7FF0000000000000, %59 ], [ 0x7FF0000000000000, %_ZL11proj_strtodPcPS_.exit ]
+  %.141 = phi double [ %.244, %88 ], [ %.244, %92 ], [ 0x7FF0000000000000, %69 ], [ 0x7FF0000000000000, %59 ], [ 0x7FF0000000000000, %_ZL11proj_strtodPcPS_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.141

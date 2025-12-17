@@ -234,8 +234,8 @@ codepoint_range_cmp.exit.thread.i141:             ; preds = %101, %.lr.ph.i.i135
   %103 = icmp ult i64 %.1.i.i143, %.118.i.i142
   br i1 %103, label %.lr.ph.i.i135, label %is_code_in_table.exit144.sink.split, !llvm.loop !6
 
-is_code_in_table.exit144.sink.split:              ; preds = %codepoint_range_cmp.exit.i, %codepoint_range_cmp.exit.thread.i141, %91, %.thread194, %.lr.ph249
-  %.sink = phi i32 [ %76, %.lr.ph249 ], [ %76, %.thread194 ], [ %76, %91 ], [ %76, %codepoint_range_cmp.exit.thread.i141 ], [ 32, %codepoint_range_cmp.exit.i ]
+is_code_in_table.exit144.sink.split:              ; preds = %codepoint_range_cmp.exit.i, %codepoint_range_cmp.exit.thread.i141, %.thread194, %91, %.lr.ph249
+  %.sink = phi i32 [ %76, %.lr.ph249 ], [ %76, %91 ], [ %76, %.thread194 ], [ %76, %codepoint_range_cmp.exit.thread.i141 ], [ 32, %codepoint_range_cmp.exit.i ]
   %104 = add i32 %.099247, 1
   %105 = sext i32 %.099247 to i64
   %106 = getelementptr inbounds i32, ptr %24, i64 %105
@@ -658,7 +658,7 @@ is_code_in_table.exit154.thread201:               ; preds = %codepoint_range_cmp
   br label %pg_utf8_string_len.exit.thread
 
 pg_utf8_string_len.exit.thread:                   ; preds = %12, %.lr.ph.i, %.thread224.thread, %.thread230, %.thread215, %.thread224, %is_code_in_table.exit154.thread201, %pg_utf8_string_len.exit, %5, %._crit_edge270
-  %.0 = phi i32 [ 0, %._crit_edge270 ], [ 0, %5 ], [ -2, %pg_utf8_string_len.exit ], [ -3, %is_code_in_table.exit154.thread201 ], [ -1, %.thread224 ], [ -3, %.thread215 ], [ -1, %.thread230 ], [ -1, %.thread224.thread ], [ -2, %.lr.ph.i ], [ -2, %12 ]
+  %.0 = phi i32 [ 0, %._crit_edge270 ], [ 0, %5 ], [ -2, %pg_utf8_string_len.exit ], [ -3, %is_code_in_table.exit154.thread201 ], [ -1, %.thread224 ], [ -1, %.thread230 ], [ -3, %.thread215 ], [ -1, %.thread224.thread ], [ -2, %.lr.ph.i ], [ -2, %12 ]
   ret i32 %.0
 }
 
@@ -719,7 +719,7 @@ codepoint_range_cmp.exit.thread:                  ; preds = %.lr.ph.i, %23
   br i1 %25, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !6
 
 bsearch.exit:                                     ; preds = %codepoint_range_cmp.exit.thread, %codepoint_range_cmp.exit, %3, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %3 ], [ true, %codepoint_range_cmp.exit ], [ false, %codepoint_range_cmp.exit.thread ]
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ false, %codepoint_range_cmp.exit.thread ], [ true, %codepoint_range_cmp.exit ]
   ret i1 %.0
 }
 

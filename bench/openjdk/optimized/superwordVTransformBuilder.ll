@@ -1604,7 +1604,7 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %49, %
   br label %86
 
 86:                                               ; preds = %81, %82, %78, %79, %64, %70, %37, %46, %26, %32, %15, %21
-  %.0 = phi ptr [ %19, %21 ], [ null, %15 ], [ %30, %32 ], [ null, %26 ], [ %44, %46 ], [ null, %37 ], [ %68, %70 ], [ null, %64 ], [ %76, %79 ], [ null, %78 ], [ %76, %82 ], [ null, %81 ]
+  %.0 = phi ptr [ null, %78 ], [ null, %15 ], [ null, %26 ], [ null, %37 ], [ null, %64 ], [ %19, %21 ], [ %30, %32 ], [ %44, %46 ], [ %68, %70 ], [ %76, %79 ], [ %76, %82 ], [ null, %81 ]
   %87 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %87, 0
   br i1 %.not.i, label %_ZN20VTransformVectorNode9set_nodesEPK9Node_List.exit, label %.lr.ph.i
@@ -2943,7 +2943,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit85:          ; preds = %336, %372
   unreachable
 
 _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %30, %61, %90, %93, %70, %64, %41, %33, %10, %_ZN14VTransformNode7set_reqEjPS_.exit85, %_ZN14VTransformNode7set_reqEjPS_.exit77, %_ZN14VTransformNode7set_reqEjPS_.exit
-  %.0 = phi ptr [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %213, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %340, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %90 ], [ null, %61 ], [ null, %30 ]
+  %.0 = phi ptr [ %340, %_ZN14VTransformNode7set_reqEjPS_.exit85 ], [ %134, %_ZN14VTransformNode7set_reqEjPS_.exit ], [ %213, %_ZN14VTransformNode7set_reqEjPS_.exit77 ], [ %35, %33 ], [ null, %10 ], [ %66, %64 ], [ null, %41 ], [ %95, %93 ], [ null, %70 ], [ null, %61 ], [ null, %90 ], [ null, %30 ]
   ret ptr %.0
 }
 

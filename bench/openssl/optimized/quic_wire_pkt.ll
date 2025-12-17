@@ -77,7 +77,7 @@ switch.lookup:                                    ; preds = %6
   br label %31
 
 28:                                               ; preds = %21, %14, %18
-  %.sink = phi i32 [ 47, %18 ], [ 47, %14 ], [ 53, %21 ]
+  %.sink = phi i32 [ 47, %14 ], [ 47, %18 ], [ 53, %21 ]
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_quic_hdr_protector_init) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524294, ptr noundef null) #10
@@ -296,7 +296,7 @@ define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %27, %31, %30, %22, %19, %11
-  %.017 = phi i32 [ 0, %11 ], [ 0, %19 ], [ 0, %22 ], [ 0, %30 ], [ 0, %31 ], [ 1, %27 ], [ 1, %.preheader.preheader ]
+  %.017 = phi i32 [ 0, %11 ], [ 0, %31 ], [ 0, %19 ], [ 0, %22 ], [ 0, %30 ], [ 1, %27 ], [ 1, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
@@ -930,8 +930,8 @@ PACKET_forward.exit247:                           ; preds = %253
   store i64 %272, ptr %6, align 8, !tbaa !30
   br label %.critedge192
 
-.critedge192:                                     ; preds = %89, %194, %152, %130, %120, %116, %87, %71, %67, %55, %17, %PACKET_get_1.exit227, %PACKET_get_1.exit220, %142, %161, %160, %164, %.critedge, %.thread, %269, %270, %32, %30, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %30 ], [ 0, %32 ], [ 1, %270 ], [ 1, %269 ], [ 0, %.thread ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %160 ], [ 0, %161 ], [ 0, %142 ], [ 0, %PACKET_get_1.exit220 ], [ 0, %PACKET_get_1.exit227 ], [ 0, %17 ], [ 0, %55 ], [ 0, %67 ], [ 0, %71 ], [ 0, %87 ], [ 0, %116 ], [ 0, %120 ], [ 0, %130 ], [ 0, %152 ], [ 0, %194 ], [ 0, %89 ]
+.critedge192:                                     ; preds = %89, %194, %152, %130, %120, %116, %87, %71, %67, %55, %17, %PACKET_get_1.exit220, %142, %160, %164, %.critedge, %PACKET_get_1.exit227, %161, %.thread, %269, %270, %32, %30, %15
+  %.0 = phi i32 [ 1, %270 ], [ 0, %15 ], [ 0, %30 ], [ 1, %269 ], [ 0, %67 ], [ 0, %17 ], [ 0, %55 ], [ 0, %32 ], [ 0, %89 ], [ 0, %.thread ], [ 0, %152 ], [ 0, %130 ], [ 0, %120 ], [ 0, %116 ], [ 0, %194 ], [ 0, %87 ], [ 0, %71 ], [ 0, %161 ], [ 0, %PACKET_get_1.exit227 ], [ 0, %.critedge ], [ 0, %164 ], [ 0, %160 ], [ 0, %142 ], [ 0, %PACKET_get_1.exit220 ]
   ret i32 %.0
 }
 
@@ -1110,7 +1110,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   br label %73
 
 73:                                               ; preds = %66, %67, %72, %71, %70
-  %.0 = phi i8 [ -112, %70 ], [ -96, %71 ], [ -80, %72 ], [ -128, %67 ], [ -128, %66 ]
+  %.0 = phi i8 [ -80, %72 ], [ -128, %67 ], [ -112, %70 ], [ -96, %71 ], [ -128, %66 ]
   %74 = and i32 %15, 33023
   %or.cond147 = icmp eq i32 %74, 6
   %75 = or disjoint i8 %.0, 64
@@ -1304,8 +1304,8 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   store ptr %185, ptr %186, align 8, !tbaa !22
   br label %.thread150
 
-.thread150:                                       ; preds = %144, %152, %138, %125, %129, %122, %86, %94, %99, %103, %108, %112, %66, %67, %62, %54, %56, %124, %164, %166, %167, %29, %42, %45, %47, %25, %14, %22, %10, %4, %154
-  %.0103.shrunk = phi i1 [ false, %154 ], [ false, %4 ], [ false, %10 ], [ false, %22 ], [ false, %14 ], [ false, %25 ], [ false, %47 ], [ false, %45 ], [ false, %42 ], [ false, %29 ], [ %not..not144, %164 ], [ true, %167 ], [ true, %166 ], [ false, %144 ], [ false, %152 ], [ %.not135, %138 ], [ false, %125 ], [ false, %129 ], [ false, %122 ], [ false, %86 ], [ false, %94 ], [ false, %99 ], [ false, %103 ], [ false, %108 ], [ false, %112 ], [ false, %66 ], [ false, %67 ], [ false, %62 ], [ false, %54 ], [ false, %56 ], [ true, %124 ]
+.thread150:                                       ; preds = %152, %94, %99, %103, %108, %112, %56, %122, %129, %144, %138, %125, %86, %124, %62, %67, %54, %66, %164, %166, %167, %29, %42, %45, %47, %25, %14, %22, %10, %4, %154
+  %.0103.shrunk = phi i1 [ false, %10 ], [ false, %14 ], [ %not..not144, %164 ], [ false, %29 ], [ false, %66 ], [ false, %154 ], [ false, %4 ], [ false, %22 ], [ false, %25 ], [ false, %47 ], [ false, %45 ], [ false, %42 ], [ true, %167 ], [ true, %166 ], [ false, %152 ], [ false, %94 ], [ false, %99 ], [ false, %103 ], [ false, %108 ], [ false, %112 ], [ false, %56 ], [ false, %122 ], [ false, %129 ], [ false, %144 ], [ %.not135, %138 ], [ false, %125 ], [ false, %86 ], [ true, %124 ], [ false, %62 ], [ false, %67 ], [ false, %54 ]
   %.0103 = zext i1 %.0103.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1407,7 +1407,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %46 = icmp ult i64 %39, 4611686018427387904
   br i1 %46, label %.thread59, label %ossl_quic_vlint_encode_len.exit
 
-.thread59:                                        ; preds = %43, %41, %37, %45
+.thread59:                                        ; preds = %41, %37, %43, %45
   %.0.i.ph = phi i64 [ 4, %43 ], [ 2, %41 ], [ 1, %37 ], [ 8, %45 ]
   %47 = add nuw nsw i64 %39, %35
   %48 = add nuw nsw i64 %47, %.0.i.ph
@@ -1436,7 +1436,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %61 = icmp ult i64 %54, 4611686018427387904
   br i1 %61, label %select.unfold64, label %ossl_quic_vlint_encode_len.exit
 
-select.unfold64:                                  ; preds = %60, %.thread77, %56, %58
+select.unfold64:                                  ; preds = %60, %58, %.thread77, %56
   %.0.i54.ph = phi i64 [ 4, %58 ], [ 2, %56 ], [ 1, %.thread77 ], [ 8, %60 ]
   %62 = add nuw nsw i64 %.0.i54.ph, %.163
   br label %63
@@ -1447,7 +1447,7 @@ select.unfold64:                                  ; preds = %60, %.thread77, %56
   br label %ossl_quic_vlint_encode_len.exit
 
 ossl_quic_vlint_encode_len.exit:                  ; preds = %60, %45, %30, %21, %23, %13, %2, %10, %63, %17
-  %.036 = phi i32 [ %20, %17 ], [ %64, %63 ], [ 0, %10 ], [ 0, %2 ], [ 0, %13 ], [ 0, %23 ], [ 0, %21 ], [ 0, %30 ], [ 0, %45 ], [ 0, %60 ]
+  %.036 = phi i32 [ 0, %30 ], [ 0, %2 ], [ %20, %17 ], [ 0, %60 ], [ 0, %21 ], [ %64, %63 ], [ 0, %45 ], [ 0, %10 ], [ 0, %13 ], [ 0, %23 ]
   ret i32 %.036
 }
 
@@ -1527,7 +1527,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef r
   br label %39
 
 39:                                               ; preds = %.sink.split, %31, %24, %23, %18, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %23 ], [ 0, %24 ], [ 0, %31 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %23 ], [ 0, %24 ], [ 0, %31 ], [ 0, %18 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1648,7 +1648,7 @@ define range(i32 1, 5) i32 @ossl_quic_wire_determine_pn_len(i64 noundef %0, i64 
   br label %9
 
 9:                                                ; preds = %7, %5, %2
-  %.0 = phi i32 [ 1, %2 ], [ 2, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ 1, %2 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -1728,7 +1728,7 @@ define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %
   br label %21
 
 21:                                               ; preds = %11, %4, %7, %13
-  %.0 = phi i32 [ %20, %13 ], [ 0, %7 ], [ 0, %4 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %4 ], [ %20, %13 ], [ 0, %7 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1926,10 +1926,10 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br label %83
 
 83:                                               ; preds = %80, %46, %82, %79, %76, %69, %64, %61, %57, %53, %45, %35, %31
-  %.030 = phi ptr [ null, %31 ], [ null, %57 ], [ %55, %61 ], [ %55, %69 ], [ %55, %76 ], [ %55, %79 ], [ %55, %82 ], [ %55, %64 ], [ null, %53 ], [ null, %46 ], [ null, %45 ], [ null, %35 ], [ %55, %80 ]
-  %.029 = phi ptr [ null, %31 ], [ null, %57 ], [ null, %61 ], [ %59, %69 ], [ %59, %76 ], [ %59, %79 ], [ %59, %82 ], [ %59, %64 ], [ null, %53 ], [ null, %46 ], [ null, %45 ], [ null, %35 ], [ %59, %80 ]
-  %.028 = phi i32 [ 0, %31 ], [ 0, %57 ], [ 0, %61 ], [ 0, %69 ], [ 0, %76 ], [ 0, %79 ], [ 0, %82 ], [ 0, %64 ], [ 0, %53 ], [ 0, %46 ], [ 0, %45 ], [ 0, %35 ], [ 1, %80 ]
-  %.not46 = phi i1 [ true, %31 ], [ false, %57 ], [ false, %61 ], [ false, %69 ], [ false, %76 ], [ false, %79 ], [ false, %82 ], [ false, %64 ], [ false, %53 ], [ false, %46 ], [ false, %45 ], [ true, %35 ], [ false, %80 ]
+  %.030 = phi ptr [ null, %31 ], [ null, %57 ], [ %55, %61 ], [ %55, %69 ], [ %55, %76 ], [ %55, %79 ], [ %55, %82 ], [ null, %35 ], [ %55, %64 ], [ null, %53 ], [ null, %46 ], [ null, %45 ], [ %55, %80 ]
+  %.029 = phi ptr [ null, %31 ], [ null, %57 ], [ null, %61 ], [ %59, %69 ], [ %59, %76 ], [ %59, %79 ], [ %59, %82 ], [ null, %35 ], [ %59, %64 ], [ null, %53 ], [ null, %46 ], [ null, %45 ], [ %59, %80 ]
+  %.028 = phi i32 [ 0, %31 ], [ 0, %57 ], [ 0, %61 ], [ 0, %69 ], [ 0, %76 ], [ 0, %79 ], [ 0, %82 ], [ 0, %35 ], [ 0, %64 ], [ 0, %53 ], [ 0, %46 ], [ 0, %45 ], [ 1, %80 ]
+  %.not46 = phi i1 [ true, %31 ], [ false, %57 ], [ false, %61 ], [ false, %69 ], [ false, %76 ], [ false, %79 ], [ false, %82 ], [ true, %35 ], [ false, %64 ], [ false, %53 ], [ false, %46 ], [ false, %45 ], [ false, %80 ]
   call void @EVP_CIPHER_free(ptr noundef %.030) #10
   call void @EVP_CIPHER_CTX_free(ptr noundef %.029) #10
   br i1 %.not46, label %86, label %84

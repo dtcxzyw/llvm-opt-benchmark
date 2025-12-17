@@ -199,7 +199,7 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
   unreachable
 
 .thread:                                          ; preds = %22, %26, %8
-  %.pn9 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %8 ], [ %23, %22 ]
+  %.pn9 = phi { ptr, i32 } [ %.pn, %8 ], [ %.pn, %26 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn9
 
 26:                                               ; preds = %8

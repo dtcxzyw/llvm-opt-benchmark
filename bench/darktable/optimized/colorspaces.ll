@@ -620,12 +620,12 @@ define internal fastcc range(i32 0, 5) i32 @_colorspaces_get_matrix_from_profile
   br label %165
 
 165:                                              ; preds = %.thread, %.loopexit, %164, %68
-  %.3 = phi i32 [ 3, %68 ], [ 0, %164 ], [ 0, %.loopexit ], [ %.4.ph, %.thread ]
+  %.3 = phi i32 [ %.4.ph, %.thread ], [ 3, %68 ], [ 0, %164 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %166
 
 166:                                              ; preds = %20, %18, %16, %12, %22, %165, %7, %10
-  %.0147 = phi i32 [ 1, %10 ], [ 1, %7 ], [ 1, %20 ], [ 1, %18 ], [ 1, %16 ], [ 1, %12 ], [ %.3, %165 ], [ 2, %22 ]
+  %.0147 = phi i32 [ 1, %7 ], [ 1, %10 ], [ 1, %12 ], [ 1, %20 ], [ 1, %18 ], [ 1, %16 ], [ %.3, %165 ], [ 2, %22 ]
   ret i32 %.0147
 }
 
@@ -1583,7 +1583,7 @@ _get_profile.exit:                                ; preds = %116, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_get_profile.exit58
 
-_get_profile.exit.thread:                         ; preds = %42, %29, %13, %44, %46, %_get_profile.exit.thread66
+_get_profile.exit.thread:                         ; preds = %42, %29, %13, %46, %44, %_get_profile.exit.thread66
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
   %.02539.i50 = load ptr, ptr %125, align 8, !tbaa !25
   %.not40.i51 = icmp eq ptr %.02539.i50, null
@@ -1609,7 +1609,7 @@ _get_profile.exit.thread:                         ; preds = %42, %29, %13, %44, 
   br i1 %.not.us50.i57, label %_get_profile.exit58, label %.lr.ph.split.split.us.i54
 
 _get_profile.exit58:                              ; preds = %39, %26, %133, %130, %_get_profile.exit.thread, %_get_profile.exit
-  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ %126, %130 ], [ null, %133 ], [ %15, %26 ], [ %31, %39 ]
+  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ %15, %26 ], [ null, %133 ], [ %126, %130 ], [ %31, %39 ]
   ret ptr %.3
 }
 
@@ -2043,7 +2043,7 @@ _get_profile.exit34:                              ; preds = %41
   store ptr %50, ptr %2, align 8, !tbaa !81
   br label %.lr.ph.split.split.us.i39
 
-.lr.ph.split.split.us.i39:                        ; preds = %58, %_get_profile.exit34
+.lr.ph.split.split.us.i39:                        ; preds = %_get_profile.exit34, %58
   %.02541.us48.i40.in = phi ptr [ %59, %58 ], [ %0, %_get_profile.exit34 ]
   %.02541.us48.i40 = load ptr, ptr %.02541.us48.i40.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
   %51 = load ptr, ptr %.02541.us48.i40, align 8, !tbaa !27
@@ -2193,7 +2193,7 @@ _get_profile.exit34:                              ; preds = %41
   store ptr %50, ptr %2, align 8, !tbaa !88
   br label %.lr.ph.split.split.us.i39
 
-.lr.ph.split.split.us.i39:                        ; preds = %58, %_get_profile.exit34
+.lr.ph.split.split.us.i39:                        ; preds = %_get_profile.exit34, %58
   %.02541.us48.i40.in = phi ptr [ %59, %58 ], [ %0, %_get_profile.exit34 ]
   %.02541.us48.i40 = load ptr, ptr %.02541.us48.i40.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
   %51 = load ptr, ptr %.02541.us48.i40, align 8, !tbaa !27
@@ -2754,7 +2754,7 @@ _HLG_fct.exit4.thread.i:                          ; preds = %257
   br i1 %267, label %_HLG_fct.exit.i, label %269
 
 _HLG_fct.exit.i:                                  ; preds = %_HLG_fct.exit4.i, %_HLG_fct.exit4.thread.i, %247
-  %.012.i.i = phi nsz double [ 0.000000e+00, %247 ], [ %266, %_HLG_fct.exit4.thread.i ], [ %263, %_HLG_fct.exit4.i ]
+  %.012.i.i = phi nsz double [ %266, %_HLG_fct.exit4.thread.i ], [ 0.000000e+00, %247 ], [ %263, %_HLG_fct.exit4.i ]
   %268 = fptrunc reassoc nsz arcp contract afn double %.012.i.i to float
   br label %269
 
@@ -2906,7 +2906,7 @@ _HLG_fct.exit4.thread.i276:                       ; preds = %335
   br i1 %345, label %_HLG_fct.exit.i280, label %347
 
 _HLG_fct.exit.i280:                               ; preds = %_HLG_fct.exit4.i282, %_HLG_fct.exit4.thread.i276, %325
-  %.012.i.i281 = phi nsz double [ 0.000000e+00, %325 ], [ %344, %_HLG_fct.exit4.thread.i276 ], [ %341, %_HLG_fct.exit4.i282 ]
+  %.012.i.i281 = phi nsz double [ %344, %_HLG_fct.exit4.thread.i276 ], [ 0.000000e+00, %325 ], [ %341, %_HLG_fct.exit4.i282 ]
   %346 = fptrunc reassoc nsz arcp contract afn double %.012.i.i281 to float
   br label %347
 
@@ -3087,8 +3087,8 @@ _colorspaces_create_xyz_profile.exit:             ; preds = %_create_profile.exi
   br label %_create_profile.exit290
 
 _create_profile.exit290:                          ; preds = %420, %.split220, %414, %.split
-  %phi.call = phi ptr [ null, %.split ], [ %413, %414 ], [ null, %.split220 ], [ %413, %420 ]
-  %.0210 = phi i32 [ 10, %.split ], [ 10, %414 ], [ 11, %.split220 ], [ 11, %420 ]
+  %phi.call = phi ptr [ %413, %414 ], [ null, %.split ], [ null, %.split220 ], [ %413, %420 ]
+  %.0210 = phi i32 [ 10, %414 ], [ 10, %.split ], [ 11, %.split220 ], [ 11, %420 ]
   %427 = call ptr @g_list_append(ptr noundef %398, ptr noundef %phi.call) #23
   store ptr %427, ptr %10, align 8, !tbaa !103
   %428 = call ptr @cmsD50_xyY() #23
@@ -3870,7 +3870,7 @@ define ptr @dt_colorspaces_get_name(i32 noundef %0, ptr noundef readnone capture
   br label %56
 
 56:                                               ; preds = %2, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3
-  %.0 = phi ptr [ null, %55 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %1, %2 ]
+  %.0 = phi ptr [ null, %55 ], [ %54, %53 ], [ %52, %51 ], [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %1, %2 ]
   ret ptr %.0
 }
 
@@ -4462,7 +4462,7 @@ switch.lookup:                                    ; preds = %12
   br label %39
 
 39:                                               ; preds = %switch.lookup, %29, %30, %33, %26, %21, %16, %8, %25, %24, %20, %19
-  %.0 = phi i32 [ 22, %19 ], [ 23, %20 ], [ 25, %24 ], [ 26, %25 ], [ -1, %8 ], [ 4, %16 ], [ 24, %21 ], [ 5, %26 ], [ -1, %33 ], [ -1, %30 ], [ -1, %29 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 5, %26 ], [ 24, %21 ], [ -1, %8 ], [ -1, %29 ], [ -1, %30 ], [ %switch.load, %switch.lookup ], [ 22, %19 ], [ 23, %20 ], [ 4, %16 ], [ 25, %24 ], [ 26, %25 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -4787,7 +4787,7 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split.split
 
 ._crit_edge:                                      ; preds = %158, %161, %132, %135, %110, %113, %87, %90, %63, %66, %38, %41, %4
-  %163 = phi ptr [ null, %4 ], [ null, %41 ], [ %10, %38 ], [ null, %66 ], [ %43, %63 ], [ null, %90 ], [ %68, %87 ], [ null, %113 ], [ %92, %110 ], [ null, %135 ], [ %115, %132 ], [ null, %161 ], [ %137, %158 ]
+  %163 = phi ptr [ null, %135 ], [ null, %41 ], [ null, %4 ], [ null, %66 ], [ null, %113 ], [ null, %90 ], [ %10, %38 ], [ %43, %63 ], [ %68, %87 ], [ %92, %110 ], [ %115, %132 ], [ null, %161 ], [ %137, %158 ]
   ret ptr %163
 }
 

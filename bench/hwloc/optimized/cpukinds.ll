@@ -182,7 +182,7 @@ hwloc_internal_cpukinds_destroy.exit:             ; preds = %.lr.ph.i, %.loopexi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %15, %hwloc_tma_malloc.exit, %2, %hwloc_internal_cpukinds_destroy.exit
-  %.036 = phi i32 [ -1, %hwloc_internal_cpukinds_destroy.exit ], [ 0, %2 ], [ -1, %hwloc_tma_malloc.exit ], [ 0, %15 ], [ 0, %39 ]
+  %.036 = phi i32 [ -1, %hwloc_internal_cpukinds_destroy.exit ], [ -1, %hwloc_tma_malloc.exit ], [ 0, %2 ], [ 0, %15 ], [ 0, %39 ]
   ret i32 %.036
 }
 
@@ -591,8 +591,8 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
   %121 = icmp eq i64 %115, %120
   br i1 %121, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit111, label %116
 
-122:                                              ; preds = %16, %18, %20, %22, %24, %26
-  %.055178.ph = phi i32 [ 8, %26 ], [ 7, %24 ], [ 6, %22 ], [ 5, %20 ], [ 4, %18 ], [ 3, %16 ]
+122:                                              ; preds = %26, %24, %22, %20, %18, %16
+  %.055178.ph = phi i32 [ 5, %20 ], [ 6, %22 ], [ 7, %24 ], [ 8, %26 ], [ 4, %18 ], [ 3, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %123 = zext i32 %5 to i64
   %124 = tail call noalias ptr @calloc(i64 noundef %123, i64 noundef 12) #26
@@ -629,7 +629,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
   %133 = load i32, ptr %132, align 4
   %.not99.i = icmp eq i32 %133, 0
   %or.cond201 = select i1 %.not98.i, i1 %.not99.i, i1 false
-  %.pre249 = load ptr, ptr %125, align 8, !tbaa !56
+  %.pre248 = load ptr, ptr %125, align 8, !tbaa !56
   br i1 %or.cond201, label %hwloc__cpukinds_try_rank_by_info.exit146, label %134
 
 134:                                              ; preds = %130
@@ -646,7 +646,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
 .lr.ph119.split.us.i:                             ; preds = %.lr.ph119.i, %.lr.ph119.split.us.i
   %indvars.iv171.i = phi i64 [ %indvars.iv.next172.i, %.lr.ph119.split.us.i ], [ 0, %.lr.ph119.i ]
   %138 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %137, i64 %indvars.iv171.i
-  %139 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre249, i64 %indvars.iv171.i
+  %139 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre248, i64 %indvars.iv171.i
   %140 = load i32, ptr %139, align 4, !tbaa !60
   %141 = shl i32 %140, 20
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 4
@@ -662,7 +662,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
 .lr.ph119.split.i:                                ; preds = %.lr.ph119.i, %.lr.ph119.split.i
   %indvars.iv166.i = phi i64 [ %indvars.iv.next167.i, %.lr.ph119.split.i ], [ 0, %.lr.ph119.i ]
   %147 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %137, i64 %indvars.iv166.i
-  %148 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre249, i64 %indvars.iv166.i
+  %148 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre248, i64 %indvars.iv166.i
   %149 = load i32, ptr %148, align 4, !tbaa !60
   %150 = shl i32 %149, 20
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -686,7 +686,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
   %161 = load i32, ptr %160, align 4
   %.not95.i145 = icmp eq i32 %161, 0
   %or.cond204 = select i1 %or.cond202, i1 %.not95.i145, i1 false
-  %.pre248 = load ptr, ptr %125, align 8, !tbaa !56
+  %.pre = load ptr, ptr %125, align 8, !tbaa !56
   br i1 %or.cond204, label %hwloc__cpukinds_try_rank_by_info.exit146, label %162
 
 162:                                              ; preds = %156
@@ -703,7 +703,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
 .lr.ph117.split.us.i140:                          ; preds = %.lr.ph117.i133, %.lr.ph117.split.us.i140
   %indvars.iv161.i141 = phi i64 [ %indvars.iv.next162.i142, %.lr.ph117.split.us.i140 ], [ 0, %.lr.ph117.i133 ]
   %166 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %165, i64 %indvars.iv161.i141
-  %167 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre248, i64 %indvars.iv161.i141
+  %167 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre, i64 %indvars.iv161.i141
   %168 = load i32, ptr %167, align 4, !tbaa !60
   %169 = shl i32 %168, 20
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 4
@@ -719,7 +719,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
 .lr.ph117.split.i136:                             ; preds = %.lr.ph117.i133, %.lr.ph117.split.i136
   %indvars.iv156.i137 = phi i64 [ %indvars.iv.next157.i138, %.lr.ph117.split.i136 ], [ 0, %.lr.ph117.i133 ]
   %175 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %165, i64 %indvars.iv156.i137
-  %176 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre248, i64 %indvars.iv156.i137
+  %176 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre, i64 %indvars.iv156.i137
   %177 = load i32, ptr %176, align 4, !tbaa !60
   %178 = shl i32 %177, 20
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -736,7 +736,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %186 = load i32, ptr %185, align 8, !tbaa !59
   %.not92.i = icmp eq i32 %186, 0
-  %.pre = load ptr, ptr %125, align 8, !tbaa !56
+  %.pre249 = load ptr, ptr %125, align 8, !tbaa !56
   br i1 %.not92.i, label %hwloc__cpukinds_try_rank_by_info.exit146, label %.preheader.i
 
 .preheader.i:                                     ; preds = %184
@@ -753,7 +753,7 @@ hwloc__cpukinds_try_rank_by_info.exit:            ; preds = %96, %63
 190:                                              ; preds = %190, %.lr.ph115.i
   %indvars.iv151.i = phi i64 [ 0, %.lr.ph115.i ], [ %indvars.iv.next152.i, %190 ]
   %191 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %189, i64 %indvars.iv151.i
-  %192 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre, i64 %indvars.iv151.i
+  %192 = getelementptr inbounds nuw %struct.hwloc_cpukind_info_summary, ptr %.pre249, i64 %indvars.iv151.i
   %193 = load i32, ptr %192, align 4, !tbaa !60
   %194 = shl i32 %193, 20
   %195 = zext i32 %194 to i64
@@ -875,10 +875,10 @@ default.unreachable268:                           ; preds = %126
   unreachable
 
 .lr.ph17.i.i118:                                  ; preds = %235, %222, %.lr.ph113.split.i, %.lr.ph113.split.us.i, %190, %.lr.ph117.split.i136, %.lr.ph117.split.us.i140, %.lr.ph119.split.i, %.lr.ph119.split.us.i
-  %.pre-phi255 = phi i64 [ %wide.trip.count174.i, %.lr.ph119.split.us.i ], [ %wide.trip.count174.i, %.lr.ph119.split.i ], [ %wide.trip.count164.i135, %.lr.ph117.split.us.i140 ], [ %wide.trip.count164.i135, %.lr.ph117.split.i136 ], [ %wide.trip.count154.i, %190 ], [ %wide.trip.count149.i, %.lr.ph113.split.us.i ], [ %wide.trip.count149.i, %.lr.ph113.split.i ], [ %wide.trip.count139.i, %222 ], [ %wide.trip.count.i114, %235 ]
-  %242 = phi ptr [ %.pre249, %.lr.ph119.split.us.i ], [ %.pre249, %.lr.ph119.split.i ], [ %.pre248, %.lr.ph117.split.us.i140 ], [ %.pre248, %.lr.ph117.split.i136 ], [ %.pre, %190 ], [ %.pre247, %.lr.ph113.split.us.i ], [ %.pre247, %.lr.ph113.split.i ], [ %.pre250, %222 ], [ %.pre251, %235 ]
-  %243 = phi ptr [ %137, %.lr.ph119.split.us.i ], [ %137, %.lr.ph119.split.i ], [ %165, %.lr.ph117.split.us.i140 ], [ %165, %.lr.ph117.split.i136 ], [ %189, %190 ], [ %204, %.lr.ph113.split.us.i ], [ %204, %.lr.ph113.split.i ], [ %221, %222 ], [ %234, %235 ]
-  %244 = phi i32 [ %135, %.lr.ph119.split.us.i ], [ %135, %.lr.ph119.split.i ], [ %163, %.lr.ph117.split.us.i140 ], [ %163, %.lr.ph117.split.i136 ], [ %187, %190 ], [ %202, %.lr.ph113.split.us.i ], [ %202, %.lr.ph113.split.i ], [ %219, %222 ], [ %232, %235 ]
+  %.pre-phi255 = phi i64 [ %wide.trip.count139.i, %222 ], [ %wide.trip.count174.i, %.lr.ph119.split.us.i ], [ %wide.trip.count174.i, %.lr.ph119.split.i ], [ %wide.trip.count164.i135, %.lr.ph117.split.us.i140 ], [ %wide.trip.count164.i135, %.lr.ph117.split.i136 ], [ %wide.trip.count154.i, %190 ], [ %wide.trip.count149.i, %.lr.ph113.split.us.i ], [ %wide.trip.count149.i, %.lr.ph113.split.i ], [ %wide.trip.count.i114, %235 ]
+  %242 = phi ptr [ %.pre250, %222 ], [ %.pre248, %.lr.ph119.split.us.i ], [ %.pre248, %.lr.ph119.split.i ], [ %.pre, %.lr.ph117.split.us.i140 ], [ %.pre, %.lr.ph117.split.i136 ], [ %.pre249, %190 ], [ %.pre247, %.lr.ph113.split.us.i ], [ %.pre247, %.lr.ph113.split.i ], [ %.pre251, %235 ]
+  %243 = phi ptr [ %221, %222 ], [ %137, %.lr.ph119.split.us.i ], [ %137, %.lr.ph119.split.i ], [ %165, %.lr.ph117.split.us.i140 ], [ %165, %.lr.ph117.split.i136 ], [ %189, %190 ], [ %204, %.lr.ph113.split.us.i ], [ %204, %.lr.ph113.split.i ], [ %234, %235 ]
+  %244 = phi i32 [ %219, %222 ], [ %135, %.lr.ph119.split.us.i ], [ %135, %.lr.ph119.split.i ], [ %163, %.lr.ph117.split.us.i140 ], [ %163, %.lr.ph117.split.i136 ], [ %187, %190 ], [ %202, %.lr.ph113.split.us.i ], [ %202, %.lr.ph113.split.i ], [ %232, %235 ]
   br label %245
 
 .loopexit.i.i122:                                 ; preds = %250, %245
@@ -914,7 +914,7 @@ default.unreachable268:                           ; preds = %126
   br i1 %255, label %hwloc__cpukinds_try_rank_by_info.exit146, label %250
 
 hwloc__cpukinds_try_rank_by_info.exit146:         ; preds = %251, %.hwloc__cpukinds_try_rank_by_info.exit146_crit_edge, %197, %156, %130, %184, %217, %229
-  %256 = phi ptr [ %.pre246, %.hwloc__cpukinds_try_rank_by_info.exit146_crit_edge ], [ %.pre247, %197 ], [ %.pre248, %156 ], [ %.pre249, %130 ], [ %.pre, %184 ], [ %.pre250, %217 ], [ %.pre251, %229 ], [ %242, %251 ]
+  %256 = phi ptr [ %.pre246, %.hwloc__cpukinds_try_rank_by_info.exit146_crit_edge ], [ %.pre251, %229 ], [ %.pre247, %197 ], [ %.pre, %156 ], [ %.pre248, %130 ], [ %.pre249, %184 ], [ %.pre250, %217 ], [ %242, %251 ]
   tail call void @free(ptr noundef %256) #22
   br label %.thread187
 
@@ -922,8 +922,8 @@ hwloc__cpukinds_try_rank_by_info.exit146:         ; preds = %251, %.hwloc__cpuki
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit111
 
-.loopexit210:                                     ; preds = %.loopexit.i.i122, %134, %162, %.preheader.i, %201, %.preheader105.i, %.preheader107.i
-  %257 = phi ptr [ %.pre249, %134 ], [ %.pre248, %162 ], [ %.pre, %.preheader.i ], [ %.pre247, %201 ], [ %.pre250, %.preheader105.i ], [ %.pre251, %.preheader107.i ], [ %242, %.loopexit.i.i122 ]
+.loopexit210:                                     ; preds = %.loopexit.i.i122, %201, %.preheader105.i, %.preheader107.i, %134, %162, %.preheader.i
+  %257 = phi ptr [ %.pre249, %.preheader.i ], [ %.pre247, %201 ], [ %.pre250, %.preheader105.i ], [ %.pre251, %.preheader107.i ], [ %.pre248, %134 ], [ %.pre, %162 ], [ %242, %.loopexit.i.i122 ]
   tail call void @free(ptr noundef %257) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit111.thread
@@ -1475,7 +1475,7 @@ define range(i32 -1, 1) i32 @hwloc_cpukinds_register(ptr noundef captures(none) 
   br label %20
 
 20:                                               ; preds = %15, %13, %18, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ 0, %18 ], [ -1, %13 ], [ -1, %15 ]
+  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ -1, %13 ], [ 0, %18 ], [ -1, %15 ]
   ret i32 %.0
 }
 

@@ -560,9 +560,9 @@ common.ret:                                       ; preds = %130, %133
   br label %62
 
 .body.i:                                          ; preds = %81, %77, %74, %52
-  %57 = phi ptr [ %63, %74 ], [ %29, %52 ], [ %63, %81 ], [ %63, %77 ]
-  %58 = phi ptr [ %64, %74 ], [ %30, %52 ], [ %64, %81 ], [ %64, %77 ]
-  %.pn9.i = phi { ptr, i32 } [ %75, %74 ], [ %53, %52 ], [ %82, %81 ], [ %78, %77 ]
+  %57 = phi ptr [ %29, %52 ], [ %63, %74 ], [ %63, %81 ], [ %63, %77 ]
+  %58 = phi ptr [ %30, %52 ], [ %64, %74 ], [ %64, %81 ], [ %64, %77 ]
+  %.pn9.i = phi { ptr, i32 } [ %53, %52 ], [ %75, %74 ], [ %82, %81 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.030.sroa.10.i)
   br label %93
 
@@ -879,8 +879,8 @@ common.ret:                                       ; preds = %130, %133
   br label %common.ret
 
 .body:                                            ; preds = %126, %122
-  %134 = phi ptr [ %26, %126 ], [ %124, %122 ]
-  %.pn3 = phi { ptr, i32 } [ %127, %126 ], [ %.pn15.i, %122 ]
+  %134 = phi ptr [ %124, %122 ], [ %26, %126 ]
+  %.pn3 = phi { ptr, i32 } [ %.pn15.i, %122 ], [ %127, %126 ]
   invoke fastcc void @"_ZN4core3ptr480drop_in_place$LT$object_store..util..coalesce_ranges$LT$$LT$deltalake_mount..file..MountFileStorageBackend$u20$as$u20$object_store..ObjectStore$GT$..get_ranges..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$object_store..Error$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb50abab3efec8c20E"(ptr noundef nonnull align 8 %134) #30
           to label %22 unwind label %135
 
@@ -1120,7 +1120,7 @@ common.ret:                                       ; preds = %95, %53, %"_ZN4core
   br label %34
 
 .body18:                                          ; preds = %41, %25, %49, %54, %96, %91, %68, %83
-  %.pn6 = phi { ptr, i32 } [ %84, %83 ], [ %69, %68 ], [ %97, %96 ], [ %92, %91 ], [ %42, %41 ], [ %26, %25 ], [ %55, %54 ], [ %50, %49 ]
+  %.pn6 = phi { ptr, i32 } [ %69, %68 ], [ %84, %83 ], [ %97, %96 ], [ %92, %91 ], [ %26, %25 ], [ %42, %41 ], [ %50, %49 ], [ %55, %54 ]
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn6
 
@@ -2299,7 +2299,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$deltalake_mount..fi
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h042b6de1e7b644f8E.exit"
 
 common.resume:                                    ; preds = %156, %115, %123, %132, %145, %107, %80, %88, %96, %63, %71
-  %common.resume.op = phi { ptr, i32 } [ %64, %71 ], [ %64, %63 ], [ %89, %96 ], [ %89, %88 ], [ %146, %145 ], [ %81, %80 ], [ %108, %107 ], [ %133, %132 ], [ %116, %123 ], [ %116, %115 ], [ %157, %156 ]
+  %common.resume.op = phi { ptr, i32 } [ %116, %115 ], [ %64, %63 ], [ %89, %88 ], [ %133, %132 ], [ %64, %71 ], [ %89, %96 ], [ %146, %145 ], [ %81, %80 ], [ %108, %107 ], [ %116, %123 ], [ %157, %156 ]
   resume { ptr, i32 } %common.resume.op
 
 80:                                               ; preds = %19
@@ -2894,8 +2894,8 @@ default.unreachable1:                             ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %1, %1, %7, %5, %3
-  %.sroa.7.0 = phi ptr [ @anon.b197a4c86746c65d6887cae8be7ec8a4.84, %3 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.86, %5 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.88, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ undef, %1 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.84, %3 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.86, %5 ], [ undef, %1 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.88, %7 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %4, %3 ], [ %6, %5 ], [ null, %1 ], [ %8, %7 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %11
@@ -2929,8 +2929,8 @@ default.unreachable1:                             ; preds = %1
   br label %9
 
 9:                                                ; preds = %1, %1, %1, %7, %5, %3
-  %.sroa.7.0 = phi ptr [ @anon.b197a4c86746c65d6887cae8be7ec8a4.84, %3 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.86, %5 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.88, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %4, %3 ], [ %6, %5 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.sroa.7.0 = phi ptr [ undef, %1 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.84, %3 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.86, %5 ], [ undef, %1 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.88, %7 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %4, %3 ], [ %6, %5 ], [ null, %1 ], [ %8, %7 ], [ null, %1 ]
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %11
@@ -3556,7 +3556,7 @@ define hidden void @_ZN15deltalake_mount4file23MountFileStorageBackend7try_new17
   br label %63
 
 .thread:                                          ; preds = %.body37, %59, %31, %35, %.thread49
-  %.pn48 = phi { ptr, i32 } [ %eh.lpad-body52, %.thread49 ], [ %32, %35 ], [ %32, %31 ], [ %49, %59 ], [ %49, %.body37 ]
+  %.pn48 = phi { ptr, i32 } [ %49, %.body37 ], [ %eh.lpad-body52, %.thread49 ], [ %32, %31 ], [ %32, %35 ], [ %49, %59 ]
   resume { ptr, i32 } %.pn48
 
 .thread49:                                        ; preds = %26, %.thread53
@@ -3641,8 +3641,8 @@ define { ptr, ptr } @"_ZN68_$LT$deltalake_mount..error..Error$u20$as$u20$core..e
   br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
 
 "_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %41, %36, %31, %26, %21, %19, %14, %9, %4, %1
-  %.sroa.5.0 = phi ptr [ undef, %1 ], [ %13, %9 ], [ %18, %14 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.59, %19 ], [ %25, %21 ], [ %30, %26 ], [ %35, %31 ], [ %40, %36 ], [ undef, %41 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.57, %4 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %11, %9 ], [ %16, %14 ], [ %20, %19 ], [ %23, %21 ], [ %28, %26 ], [ %33, %31 ], [ %38, %36 ], [ null, %41 ], [ %0, %4 ]
+  %.sroa.5.0 = phi ptr [ undef, %1 ], [ %13, %9 ], [ %18, %14 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.57, %4 ], [ @anon.b197a4c86746c65d6887cae8be7ec8a4.59, %19 ], [ %25, %21 ], [ %30, %26 ], [ %35, %31 ], [ %40, %36 ], [ undef, %41 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %11, %9 ], [ %16, %14 ], [ %0, %4 ], [ %20, %19 ], [ %23, %21 ], [ %28, %26 ], [ %33, %31 ], [ %38, %36 ], [ null, %41 ]
   %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.5.0, 1
   ret { ptr, ptr } %43

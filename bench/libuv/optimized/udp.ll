@@ -285,7 +285,7 @@ define hidden i32 @uv__udp_bind(ptr noundef captures(none) %0, ptr noundef %1, i
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
-uv__set_recverr.exit.thread:                      ; preds = %25, %29, %27
+uv__set_recverr.exit.thread:                      ; preds = %29, %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
@@ -371,7 +371,7 @@ uv__sock_reuseaddr.exit:                          ; preds = %36
   br label %67
 
 67:                                               ; preds = %42, %uv__sock_reuseaddr.exit, %uv__set_recverr.exit, %17, %11, %4, %._crit_edge, %54, %48
-  %.0 = phi i32 [ %51, %48 ], [ %spec.store.select, %54 ], [ 0, %._crit_edge ], [ -22, %4 ], [ -22, %11 ], [ %20, %17 ], [ %33, %uv__set_recverr.exit ], [ %40, %uv__sock_reuseaddr.exit ], [ %43, %42 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -22, %4 ], [ -22, %11 ], [ %20, %17 ], [ %33, %uv__set_recverr.exit ], [ %40, %uv__sock_reuseaddr.exit ], [ %51, %48 ], [ %spec.store.select, %54 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -501,7 +501,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %16
   br label %41
 
 41:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit, %37, %.critedge
-  %.0 = phi i32 [ %36, %.critedge ], [ 0, %37 ], [ %27, %uv__udp_maybe_deferred_bind.exit ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread ]
+  %.0 = phi i32 [ 0, %37 ], [ %36, %.critedge ], [ %27, %uv__udp_maybe_deferred_bind.exit ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread ]
   ret i32 %.0
 }
 
@@ -753,7 +753,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %21
   br label %101
 
 101:                                              ; preds = %uv__udp_maybe_deferred_bind.exit.thread60, %98, %95, %93, %uv__udp_maybe_deferred_bind.exit, %59
-  %.0 = phi i32 [ -12, %59 ], [ %32, %uv__udp_maybe_deferred_bind.exit ], [ 0, %93 ], [ 0, %95 ], [ 0, %98 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread60 ]
+  %.0 = phi i32 [ %32, %uv__udp_maybe_deferred_bind.exit ], [ -12, %59 ], [ 0, %93 ], [ 0, %95 ], [ 0, %98 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread60 ]
   ret i32 %.0
 }
 
@@ -944,7 +944,7 @@ define hidden i32 @uv__udp_try_send(ptr noundef captures(none) %0, ptr noundef %
   br label %uv__udp_sendmsg1.exit
 
 uv__udp_sendmsg1.exit:                            ; preds = %.critedge.i, %.critedge.thread.i, %29
-  %.08.i = phi i32 [ -11, %29 ], [ %28, %.critedge.thread.i ], [ 1, %.critedge.i ]
+  %.08.i = phi i32 [ %28, %.critedge.thread.i ], [ 1, %.critedge.i ], [ -11, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
@@ -1039,7 +1039,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %42
   br label %61
 
 61:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread25, %56, %uv__udp_maybe_deferred_bind.exit, %9, %5, %58
-  %.0 = phi i32 [ %60, %58 ], [ -22, %5 ], [ -11, %9 ], [ %53, %uv__udp_maybe_deferred_bind.exit ], [ %phi.call, %56 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread25 ]
+  %.0 = phi i32 [ %53, %uv__udp_maybe_deferred_bind.exit ], [ -22, %5 ], [ -11, %9 ], [ %60, %58 ], [ %phi.call, %56 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread25 ]
   ret i32 %.0
 }
 
@@ -1119,7 +1119,7 @@ uv__udp_prep_pkt.exit:                            ; preds = %uv__udp_prep_pkt.ex
   br label %uv__udp_prep_pkt.exit.thread
 
 uv__udp_prep_pkt.exit.thread:                     ; preds = %11, %.critedge, %27, %.critedge.thread
-  %.08 = phi i32 [ -11, %27 ], [ %26, %.critedge.thread ], [ 1, %.critedge ], [ -22, %11 ]
+  %.08 = phi i32 [ %26, %.critedge.thread ], [ 1, %.critedge ], [ -11, %27 ], [ -22, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.08
 }
@@ -1520,7 +1520,7 @@ uv__sock_reuseaddr.exit:                          ; preds = %12
   br label %23
 
 23:                                               ; preds = %17, %19, %uv__sock_reuseaddr.exit, %10, %6, %2
-  %.0 = phi i32 [ -16, %2 ], [ -17, %6 ], [ %11, %10 ], [ %16, %uv__sock_reuseaddr.exit ], [ 0, %19 ], [ 0, %17 ]
+  %.0 = phi i32 [ %16, %uv__sock_reuseaddr.exit ], [ -16, %2 ], [ -17, %6 ], [ %11, %10 ], [ 0, %19 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1606,7 +1606,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %14
   br label %uv__udp_set_membership4.exit
 
 uv__udp_set_membership4.exit:                     ; preds = %20, %23, %27, %30
-  %.0.i18 = phi i32 [ %33, %30 ], [ %21, %20 ], [ -22, %23 ], [ 0, %27 ]
+  %.0.i18 = phi i32 [ -22, %23 ], [ %21, %20 ], [ %33, %30 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %59
 
@@ -1680,13 +1680,13 @@ uv__udp_maybe_deferred_bind.exit21:               ; preds = %37
   br label %uv__udp_set_membership6.exit
 
 uv__udp_set_membership6.exit:                     ; preds = %44, %49, %52, %55
-  %.06.i = phi i32 [ %58, %55 ], [ -22, %44 ], [ -22, %49 ], [ 0, %52 ]
+  %.06.i = phi i32 [ -22, %49 ], [ -22, %44 ], [ %58, %55 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %34, %uv__udp_maybe_deferred_bind.exit21, %uv__udp_maybe_deferred_bind.exit, %uv__udp_set_membership6.exit, %uv__udp_set_membership4.exit
-  %.0 = phi i32 [ %.0.i18, %uv__udp_set_membership4.exit ], [ %.06.i, %uv__udp_set_membership6.exit ], [ %17, %uv__udp_maybe_deferred_bind.exit ], [ %41, %uv__udp_maybe_deferred_bind.exit21 ], [ -22, %34 ]
+  %.0 = phi i32 [ %41, %uv__udp_maybe_deferred_bind.exit21 ], [ %.0.i18, %uv__udp_set_membership4.exit ], [ %17, %uv__udp_maybe_deferred_bind.exit ], [ %.06.i, %uv__udp_set_membership6.exit ], [ -22, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -1788,7 +1788,7 @@ uv__udp_maybe_deferred_bind.exit.i:               ; preds = %18
   br label %uv__udp_set_source_membership6.exit
 
 uv__udp_set_source_membership6.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i, %24, %29, %33, %36
-  %.013.i = phi i32 [ %39, %36 ], [ %22, %uv__udp_maybe_deferred_bind.exit.i ], [ %25, %24 ], [ -22, %29 ], [ 0, %33 ]
+  %.013.i = phi i32 [ %25, %24 ], [ %22, %uv__udp_maybe_deferred_bind.exit.i ], [ %39, %36 ], [ -22, %29 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %64
@@ -1859,12 +1859,12 @@ uv__udp_maybe_deferred_bind.exit.i30:             ; preds = %42
   br label %uv__udp_set_source_membership4.exit
 
 uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i30, %47, %50, %57, %60
-  %.013.i27 = phi i32 [ %63, %60 ], [ %45, %uv__udp_maybe_deferred_bind.exit.i30 ], [ %49, %47 ], [ -22, %50 ], [ 0, %57 ]
+  %.013.i27 = phi i32 [ %49, %47 ], [ %45, %uv__udp_maybe_deferred_bind.exit.i30 ], [ %63, %60 ], [ -22, %50 ], [ 0, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
 64:                                               ; preds = %40, %16, %14, %uv__udp_set_source_membership4.exit, %uv__udp_set_source_membership6.exit
-  %.0 = phi i32 [ %.013.i, %uv__udp_set_source_membership6.exit ], [ %.013.i27, %uv__udp_set_source_membership4.exit ], [ %15, %14 ], [ %17, %16 ], [ %41, %40 ]
+  %.0 = phi i32 [ %.013.i27, %uv__udp_set_source_membership4.exit ], [ %15, %14 ], [ %.013.i, %uv__udp_set_source_membership6.exit ], [ %17, %16 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -1929,7 +1929,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr nou
   br label %uv__setsockopt_maybe_char.exit
 
 uv__setsockopt_maybe_char.exit:                   ; preds = %15, %16
-  %.0.i = phi i32 [ %19, %16 ], [ 0, %15 ]
+  %.0.i = phi i32 [ 0, %15 ], [ %19, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
@@ -2089,7 +2089,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_i
   br label %31
 
 31:                                               ; preds = %.sink.split, %15, %21, %11
-  %.0 = phi i32 [ -22, %11 ], [ 0, %21 ], [ 0, %15 ], [ %30, %.sink.split ]
+  %.0 = phi i32 [ 0, %21 ], [ -22, %11 ], [ 0, %15 ], [ %30, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2213,7 +2213,7 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %18
   br label %46
 
 46:                                               ; preds = %uv__udp_maybe_deferred_bind.exit.thread27, %30, %38, %41, %uv__udp_maybe_deferred_bind.exit, %7, %3
-  %.0 = phi i32 [ -22, %3 ], [ -114, %7 ], [ %29, %uv__udp_maybe_deferred_bind.exit ], [ 0, %41 ], [ 0, %38 ], [ 0, %30 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread27 ]
+  %.0 = phi i32 [ %29, %uv__udp_maybe_deferred_bind.exit ], [ -22, %3 ], [ -114, %7 ], [ 0, %41 ], [ 0, %38 ], [ 0, %30 ], [ %.0.i.ph, %uv__udp_maybe_deferred_bind.exit.thread27 ]
   ret i32 %.0
 }
 
@@ -2347,7 +2347,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   store ptr null, ptr %14, align 16
   br label %32
 
-32:                                               ; preds = %28, %29, %30, %31, %13
+32:                                               ; preds = %31, %13, %28, %29, %30
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp samesign ult i64 %indvars.iv.next111, %8
@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
   br i1 %43, label %uv__udp_prep_pkt.exit.thread64, label %uv__udp_prep_pkt.exit
 
 uv__udp_prep_pkt.exit.thread64:                   ; preds = %.critedge, %26, %39
-  %.1.ph = phi i32 [ -1, %39 ], [ -22, %26 ], [ %37, %.critedge ]
+  %.1.ph = phi i32 [ -22, %26 ], [ -1, %39 ], [ %37, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
@@ -2414,7 +2414,7 @@ uv__udp_prep_pkt.exit:                            ; preds = %.critedge
   br label %.thread72
 
 .thread72:                                        ; preds = %.lr.ph.split, %.preheader78, %.loopexit.thread, %57, %53, %.loopexit
-  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %.2121, %.loopexit.thread ], [ %56, %53 ], [ 0, %.preheader78 ], [ 1, %.lr.ph.split ]
+  %.049 = phi i32 [ %.243, %.loopexit ], [ -11, %57 ], [ %56, %53 ], [ %.2121, %.loopexit.thread ], [ 0, %.preheader78 ], [ 1, %.lr.ph.split ]
   ret i32 %.049
 }
 

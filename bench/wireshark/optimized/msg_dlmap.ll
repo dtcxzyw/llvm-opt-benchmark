@@ -2534,7 +2534,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %909, label %.lr.ph.split.split.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split.i.i, %.lr.ph.split.split.us.i.i, %873, %860
-  %.3.lcssa.i.i = phi i32 [ %863, %860 ], [ %885, %873 ], [ %894, %.lr.ph.split.split.us.i.i ], [ %906, %.lr.ph.split.split.i.i ]
+  %.3.lcssa.i.i = phi i32 [ %863, %860 ], [ %894, %.lr.ph.split.split.us.i.i ], [ %885, %873 ], [ %906, %.lr.ph.split.split.i.i ]
   %910 = add nuw nsw i32 %.0103119.i.i, 1
   %exitcond.not.i163.i = icmp eq i32 %.0103119.i.i, %815
   br i1 %exitcond.not.i163.i, label %911, label %822, !llvm.loop !14
@@ -2724,7 +2724,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %1036, label %.lr.ph.split.i172.i, label %._crit_edge.i167.i, !llvm.loop !15
 
 ._crit_edge.i167.i:                               ; preds = %1021, %.lr.ph.split.us.split.i.i, %.lr.ph.split.us.split.us.i.i, %994
-  %.3.lcssa.i168.i = phi i32 [ %997, %994 ], [ %1004, %.lr.ph.split.us.split.us.i.i ], [ %1013, %.lr.ph.split.us.split.i.i ], [ %1033, %1021 ]
+  %.3.lcssa.i168.i = phi i32 [ %997, %994 ], [ %1013, %.lr.ph.split.us.split.i.i ], [ %1004, %.lr.ph.split.us.split.us.i.i ], [ %1033, %1021 ]
   %1037 = add nuw nsw i32 %.092100.i.i, 1
   %exitcond.not.i169.i = icmp eq i32 %.092100.i.i, %949
   br i1 %exitcond.not.i169.i, label %1038, label %956, !llvm.loop !16
@@ -2899,7 +2899,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br i1 %1157, label %.lr.ph.split.split.i184.i, label %._crit_edge.i178.i, !llvm.loop !17
 
 ._crit_edge.i178.i:                               ; preds = %.lr.ph.split.split.i184.i, %.lr.ph.split.split.us.i185.i, %1118, %1105
-  %.3.lcssa.i179.i = phi i32 [ %1108, %1105 ], [ %1133, %1118 ], [ %1142, %.lr.ph.split.split.us.i185.i ], [ %1154, %.lr.ph.split.split.i184.i ]
+  %.3.lcssa.i179.i = phi i32 [ %1108, %1105 ], [ %1142, %.lr.ph.split.split.us.i185.i ], [ %1133, %1118 ], [ %1154, %.lr.ph.split.split.i184.i ]
   %1158 = add nuw nsw i32 %.096107.i.i, 1
   %exitcond.not.i180.i = icmp eq i32 %.096107.i.i, %1060
   br i1 %exitcond.not.i180.i, label %1159, label %1067, !llvm.loop !18
@@ -5770,7 +5770,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   br label %125
 
 125:                                              ; preds = %110, %106, %118, %111, %.loopexit
-  %.4 = phi i32 [ %109, %106 ], [ %117, %111 ], [ %124, %118 ], [ %.1131, %.loopexit ], [ %.1131, %110 ]
+  %.4 = phi i32 [ %109, %106 ], [ %117, %111 ], [ %124, %118 ], [ %.1131, %110 ], [ %.1131, %.loopexit ]
   %126 = srem i32 %.4, 4
   %.not137 = icmp eq i32 %126, 0
   br i1 %.not137, label %138, label %127

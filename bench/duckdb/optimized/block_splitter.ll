@@ -118,7 +118,7 @@ _ZL23CopyLiteralsToByteArrayPKN13duckdb_brotli7CommandEmPKhmmPh.exit: ; preds = 
   br i1 %.not, label %.thread465, label %48
 
 .thread465:                                       ; preds = %_ZL23CopyLiteralsToByteArrayPKN13duckdb_brotli7CommandEmPKhmmPh.exit, %10
-  %47 = phi ptr [ null, %10 ], [ %.ph, %_ZL23CopyLiteralsToByteArrayPKN13duckdb_brotli7CommandEmPKhmmPh.exit ]
+  %47 = phi ptr [ %.ph, %_ZL23CopyLiteralsToByteArrayPKN13duckdb_brotli7CommandEmPKhmmPh.exit ], [ null, %10 ]
   store i64 1, ptr %7, align 8, !tbaa !20
   br label %_ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
 

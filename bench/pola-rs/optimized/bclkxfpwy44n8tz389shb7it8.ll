@@ -374,7 +374,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -651,7 +651,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -1014,7 +1014,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -1147,7 +1147,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -1422,7 +1422,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -1785,7 +1785,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -1918,7 +1918,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -2805,7 +2805,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -3637,7 +3637,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -3772,7 +3772,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -4049,7 +4049,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -4410,7 +4410,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -4755,7 +4755,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -5030,7 +5030,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -5305,7 +5305,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -5882,7 +5882,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -6326,7 +6326,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -6973,7 +6973,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -7410,7 +7410,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -7687,7 +7687,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -7962,7 +7962,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -8715,7 +8715,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -8990,7 +8990,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -9479,7 +9479,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -9756,7 +9756,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -10031,7 +10031,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -10306,7 +10306,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -10822,7 +10822,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -11099,7 +11099,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -11376,7 +11376,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -11653,7 +11653,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -12243,7 +12243,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -13032,7 +13032,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -13165,7 +13165,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -13751,7 +13751,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -14026,7 +14026,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -14303,7 +14303,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -14578,7 +14578,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -14853,7 +14853,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -15128,7 +15128,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -15403,7 +15403,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -15764,7 +15764,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -15985,7 +15985,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -16855,7 +16855,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -17202,7 +17202,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -17565,7 +17565,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -17786,7 +17786,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -17921,7 +17921,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -18496,7 +18496,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -18629,7 +18629,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -18904,7 +18904,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -19267,7 +19267,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.026.0 = phi i128 [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.026.0 = phi i128 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %66, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %.sroa.026.0, ptr %124, align 16
   store i64 17, ptr %0, align 16
@@ -19661,7 +19661,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -20234,7 +20234,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -20581,7 +20581,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -20856,7 +20856,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -21133,7 +21133,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -21408,7 +21408,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -22132,7 +22132,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he13448193ff83834E.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -22407,7 +22407,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -22684,7 +22684,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -22959,7 +22959,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -23234,7 +23234,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h81fb42a908c38947E.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -23511,7 +23511,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -24262,7 +24262,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -24539,7 +24539,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -25619,7 +25619,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %71, label %81
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i64 [ %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd61be28089f7ef7fE.exit.i.i.i" ], [ %68, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %70, align 8
   store i64 17, ptr %0, align 8
@@ -25894,7 +25894,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i32 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i32 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a27c805134c9e64E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8
@@ -26255,7 +26255,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hac5ae76294e891a8E.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -26390,7 +26390,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %70, label %73, label %83
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i8 [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i8 [ %71, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h69e0affaa62777feE.exit.i.i.i" ], [ %71, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.022.0, ptr %72, align 8
   store i64 17, ptr %0, align 8
@@ -27064,7 +27064,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i64 [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %.val3.i.i, %24 ]
+  %.sroa.022.0 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09b723e1bcdb0cdeE.exit.i.i.i" ], [ %64, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %24 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.022.0, ptr %122, align 8
   store i64 17, ptr %0, align 8
@@ -27197,7 +27197,7 @@ define hidden void @"_ZN12polars_arrow5array10dictionary9value_map21ValueMap$LT$
   br i1 %69, label %72, label %82
 
 .loopexit:                                        ; preds = %27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i", %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i
-  %.sroa.022.0 = phi i16 [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %.val3.i.i, %27 ]
+  %.sroa.022.0 = phi i16 [ %70, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h950f4be52ee96630E.exit.i.i.i" ], [ %70, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.i.i ], [ %.val3.i.i, %27 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.022.0, ptr %71, align 8
   store i64 17, ptr %0, align 8

@@ -1144,7 +1144,7 @@ _ZNK5ZXing5ErrorneERKS0_.exit:                    ; preds = %_ZSteqIcEN9__gnu_cx
   br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52.thread91
 
 _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52.thread91: ; preds = %_ZNK5ZXing6Result7isValidEv.exit, %64, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i, %42, %106, %128, %84, %41, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52, %_ZNK5ZXing5ErrorneERKS0_.exit, %10, %104, %_ZN5ZXing6CenterINS_6PointTIiEEEET_RKNS_13QuadrilateralIS3_EE.exit
-  %.0 = phi i1 [ %40, %_ZN5ZXing6CenterINS_6PointTIiEEEET_RKNS_13QuadrilateralIS3_EE.exit ], [ %105, %104 ], [ false, %10 ], [ false, %_ZNK5ZXing5ErrorneERKS0_.exit ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52 ], [ false, %41 ], [ false, %84 ], [ false, %106 ], [ %136, %128 ], [ false, %42 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52.thread ], [ false, %64 ], [ false, %_ZNK5ZXing6Result7isValidEv.exit ]
+  %.0 = phi i1 [ false, %42 ], [ %40, %_ZN5ZXing6CenterINS_6PointTIiEEEET_RKNS_13QuadrilateralIS3_EE.exit ], [ false, %10 ], [ false, %41 ], [ %105, %104 ], [ false, %_ZNK5ZXing6Result7isValidEv.exit ], [ false, %_ZNK5ZXing5ErrorneERKS0_.exit ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52 ], [ false, %84 ], [ %136, %128 ], [ false, %106 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i ], [ false, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit52.thread ], [ false, %64 ]
   ret i1 %.0
 }
 
@@ -3582,17 +3582,17 @@ define linkonce_odr { ptr, ptr } @_ZSt16__minmax_elementIPKiN9__gnu_cxx5__ops15_
   br label %40
 
 40:                                               ; preds = %35, %28
-  %41 = phi i32 [ %34, %28 ], [ %39, %35 ]
-  %42 = phi i32 [ %31, %28 ], [ %37, %35 ]
-  %.4 = phi ptr [ %spec.select49, %28 ], [ %spec.select50, %35 ]
-  %.2 = phi ptr [ %spec.select51, %28 ], [ %spec.select52, %35 ]
+  %41 = phi i32 [ %39, %35 ], [ %34, %28 ]
+  %42 = phi i32 [ %37, %35 ], [ %31, %28 ]
+  %.4 = phi ptr [ %spec.select50, %35 ], [ %spec.select49, %28 ]
+  %.2 = phi ptr [ %spec.select52, %35 ], [ %spec.select51, %28 ]
   %storemerge20 = getelementptr inbounds nuw i8, ptr %storemerge2064, i64 8
   %.not = icmp eq ptr %storemerge20, %1
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !149
 
 .loopexit:                                        ; preds = %40, %7, %17, %21, %2, %4
-  %.pn55 = phi ptr [ %0, %4 ], [ %0, %2 ], [ %storemerge2064, %17 ], [ %.14561, %21 ], [ %spec.select, %7 ], [ %.4, %40 ]
-  %.pn53 = phi ptr [ %0, %4 ], [ %0, %2 ], [ %.062, %17 ], [ %spec.select48, %21 ], [ %spec.select47, %7 ], [ %.2, %40 ]
+  %.pn55 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %storemerge2064, %17 ], [ %.14561, %21 ], [ %spec.select, %7 ], [ %.4, %40 ]
+  %.pn53 = phi ptr [ %0, %2 ], [ %0, %4 ], [ %.062, %17 ], [ %spec.select48, %21 ], [ %spec.select47, %7 ], [ %.2, %40 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, ptr } poison, ptr %.pn55, 0
   %.pn21 = insertvalue { ptr, ptr } %.fca.0.insert.i.pn, ptr %.pn53, 1
   ret { ptr, ptr } %.pn21
@@ -3862,8 +3862,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br label %62
 
 62:                                               ; preds = %54, %34, %42, %58, %45, %38, %25, %17, %15
-  %.sroa.030.0 = phi ptr [ %19, %17 ], [ null, %15 ], [ %40, %38 ], [ %27, %25 ], [ %60, %58 ], [ null, %45 ], [ %1, %42 ], [ %spec.select, %34 ], [ %spec.select32, %54 ]
-  %.sroa.12.0 = phi ptr [ %20, %17 ], [ %16, %15 ], [ %41, %38 ], [ %27, %25 ], [ %61, %58 ], [ %47, %45 ], [ null, %42 ], [ %spec.select31, %34 ], [ %spec.select33, %54 ]
+  %.sroa.030.0 = phi ptr [ %19, %17 ], [ null, %15 ], [ %spec.select, %34 ], [ %spec.select32, %54 ], [ %40, %38 ], [ %27, %25 ], [ %1, %42 ], [ %60, %58 ], [ null, %45 ]
+  %.sroa.12.0 = phi ptr [ %20, %17 ], [ %16, %15 ], [ %spec.select31, %34 ], [ %spec.select33, %54 ], [ %41, %38 ], [ %27, %25 ], [ null, %42 ], [ %61, %58 ], [ %47, %45 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.030.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -3974,8 +3974,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   br label %17
 
 17:                                               ; preds = %13, %._crit_edge.thread
-  %.sroa.018.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %13 ]
-  %.sroa.4.0 = phi ptr [ %.019.lcssa29, %._crit_edge.thread ], [ %spec.select21, %13 ]
+  %.sroa.018.0 = phi ptr [ %spec.select, %13 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select21, %13 ], [ %.019.lcssa29, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -4000,7 +4000,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   br label %12
 
 12:                                               ; preds = %7, %4
-  %13 = phi i1 [ true, %4 ], [ %11, %7 ]
+  %13 = phi i1 [ %11, %7 ], [ true, %4 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %13, ptr noundef %3, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i64, ptr %14, align 8, !tbaa !125

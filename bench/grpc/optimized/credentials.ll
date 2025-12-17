@@ -684,7 +684,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
   br label %16
 
 16:                                               ; preds = %1, %13, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit
-  %.0 = phi ptr [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ], [ %15, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -1103,7 +1103,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
   br label %16
 
 16:                                               ; preds = %1, %13, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit
-  %.0 = phi ptr [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit ], [ %15, %13 ], [ null, %1 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit ], [ null, %1 ]
   ret ptr %.0
 }
 

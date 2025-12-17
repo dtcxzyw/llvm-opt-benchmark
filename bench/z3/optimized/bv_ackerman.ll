@@ -1449,7 +1449,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5v
   br label %111
 
 _ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit.thread: ; preds = %.lr.ph, %66, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit, %63
-  %.1 = phi ptr [ %.04979, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit ], [ %.04979, %63 ], [ %.04979, %66 ], [ %.05078, %.lr.ph ]
+  %.1 = phi ptr [ %.04979, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit ], [ %.04979, %63 ], [ %.05078, %.lr.ph ], [ %.04979, %66 ]
   %85 = getelementptr inbounds nuw i8, ptr %.05078, i64 16
   %.not = icmp eq ptr %85, %60
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !236
@@ -1511,7 +1511,7 @@ _ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5v
   br label %111
 
 _ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit56.thread: ; preds = %.lr.ph83, %91, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit56, %88
-  %.3 = phi ptr [ %.282, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit56 ], [ %.282, %88 ], [ %.282, %91 ], [ %.15181, %.lr.ph83 ]
+  %.3 = phi ptr [ %.282, %_ZNK14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE6equalsERKS4_SA_.exit56 ], [ %.282, %88 ], [ %.15181, %.lr.ph83 ], [ %.282, %91 ]
   %110 = getelementptr inbounds nuw i8, ptr %.15181, i64 16
   %.not53 = icmp eq ptr %110, %58
   br i1 %.not53, label %._crit_edge, label %.lr.ph83, !llvm.loop !237

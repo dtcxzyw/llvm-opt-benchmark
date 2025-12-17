@@ -834,7 +834,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35.thread:        ; preds = %56
   br label %68
 
 _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %63, %_ZN4llvm11raw_ostreamlsEc.exit, %thread-pre-split
-  %.b = phi i1 [ false, %thread-pre-split ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %.b.pr.pre, %63 ]
+  %.b = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %thread-pre-split ], [ %.b.pr.pre, %63 ]
   %67 = icmp eq i32 %12, 7
   %or.cond3 = select i1 %67, i1 true, i1 %.b
   br i1 %or.cond3, label %68, label %_ZN4llvm11raw_ostreamlsEc.exit38
@@ -1384,7 +1384,7 @@ _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit: 
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread21
 
 _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread: ; preds = %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit, %58, %30, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.us
-  %.us-phi = phi ptr [ %.026.us, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.us ], [ %.026.us, %30 ], [ %.026, %58 ], [ %.026, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit ]
+  %.us-phi = phi ptr [ %.026.us, %30 ], [ %.026.us, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.us ], [ %.026, %58 ], [ %.026, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 1) #20
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1415,7 +1415,7 @@ _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.t
   store ptr %90, ptr %79, align 8, !tbaa !27
   br label %92
 
-_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread21: ; preds = %54, %50, %.lr.ph.split, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit
+_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread21: ; preds = %54, %.lr.ph.split, %50, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit
   %91 = getelementptr inbounds nuw i8, ptr %.026, i64 88
   %.not = icmp eq ptr %91, %19
   br i1 %.not, label %.critedge, label %.lr.ph.split

@@ -472,7 +472,7 @@ list_length.exit.i:                               ; preds = %97, %93
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %248, %246, %245, %232, %230, %225, %222, %219, %216, %188
-  %.0.i.i = phi i64 [ %189, %188 ], [ %249, %248 ], [ 0, %245 ], [ %247, %246 ], [ %233, %232 ], [ %218, %216 ], [ %221, %219 ], [ %224, %222 ], [ %226, %225 ], [ %231, %230 ]
+  %.0.i.i = phi i64 [ %189, %188 ], [ %249, %248 ], [ %247, %246 ], [ 0, %245 ], [ %233, %232 ], [ %218, %216 ], [ %221, %219 ], [ %224, %222 ], [ %226, %225 ], [ %231, %230 ]
   %250 = load ptr, ptr %116, align 8
   %251 = getelementptr inbounds ptr, ptr %250, i64 %171
   %252 = load ptr, ptr %251, align 8
@@ -1141,7 +1141,7 @@ serialize_expr_stats.exit:                        ; preds = %556, %.preheader92.
   br i1 %562, label %.lr.ph219, label %.critedge99
 
 563:                                              ; preds = %statext_compute_stattarget.exit, %61, %66, %64, %statext_store.exit
-  %.1 = phi i64 [ %348, %statext_store.exit ], [ %.074156224, %64 ], [ %.074156224, %66 ], [ %.074156224, %61 ], [ %.074156224, %statext_compute_stattarget.exit ]
+  %.1 = phi i64 [ %.074156224, %61 ], [ %348, %statext_store.exit ], [ %.074156224, %64 ], [ %.074156224, %66 ], [ %.074156224, %statext_compute_stattarget.exit ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163223, 1
   %564 = load i32, ptr %25, align 4
   %565 = sext i32 %564 to i64
@@ -1777,7 +1777,7 @@ define dso_local i32 @multi_sort_compare(ptr noundef readonly captures(none) %0,
   br i1 %44, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %43, %36
-  %.0.i = phi i32 [ %45, %43 ], [ %39, %36 ]
+  %.0.i = phi i32 [ %39, %36 ], [ %45, %43 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread25_crit_edge, label %ApplySortComparator.exit.thread
 
@@ -1793,7 +1793,7 @@ ApplySortComparator.exit.thread25:                ; preds = %ApplySortComparator
   br i1 %48, label %9, label %ApplySortComparator.exit.thread, !llvm.loop !29
 
 ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread25, %43, %3, %32, %27
-  %.2 = phi i32 [ %.12.i, %32 ], [ %..i, %27 ], [ 0, %3 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread25 ], [ 1, %43 ]
+  %.2 = phi i32 [ %..i, %27 ], [ %.12.i, %32 ], [ 0, %3 ], [ 0, %ApplySortComparator.exit.thread25 ], [ %.0.i, %ApplySortComparator.exit ], [ 1, %43 ]
   ret i32 %.2
 }
 
@@ -1856,7 +1856,7 @@ define dso_local i32 @multi_sort_compare_dim(i32 noundef %0, ptr noundef readonl
   br label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %24, %25, %30, %34, %41
-  %.0.i = phi i32 [ %44, %41 ], [ %37, %34 ], [ 0, %24 ], [ %..i, %25 ], [ %.12.i, %30 ]
+  %.0.i = phi i32 [ %37, %34 ], [ %..i, %25 ], [ 0, %24 ], [ %.12.i, %30 ], [ %44, %41 ]
   ret i32 %.0.i
 }
 
@@ -1926,7 +1926,7 @@ define dso_local i32 @multi_sort_compare_dims(i32 noundef %0, i32 noundef %1, pt
   br i1 %44, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %43, %36
-  %.0.i = phi i32 [ %45, %43 ], [ %39, %36 ]
+  %.0.i = phi i32 [ %39, %36 ], [ %45, %43 ]
   %.not20 = icmp eq i32 %.0.i, 0
   br i1 %.not20, label %ApplySortComparator.exit.thread24, label %ApplySortComparator.exit.thread
 
@@ -1936,7 +1936,7 @@ ApplySortComparator.exit.thread24:                ; preds = %26, %ApplySortCompa
   br i1 %.not, label %ApplySortComparator.exit.thread, label %9, !llvm.loop !30
 
 ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread24, %43, %5, %32, %27
-  %.2 = phi i32 [ %.12.i, %32 ], [ %..i, %27 ], [ 0, %5 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread24 ], [ 1, %43 ]
+  %.2 = phi i32 [ %..i, %27 ], [ %.12.i, %32 ], [ 0, %5 ], [ 0, %ApplySortComparator.exit.thread24 ], [ %.0.i, %ApplySortComparator.exit ], [ 1, %43 ]
   ret i32 %.2
 }
 
@@ -2256,7 +2256,7 @@ define dso_local noundef zeroext i1 @has_stats_of_kind(ptr noundef readonly capt
   br i1 %or.cond, label %.critedge, label %8
 
 .critedge:                                        ; preds = %8, %.lr.ph, %2
-  %.3 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %.not16, %8 ]
+  %.3 = phi i1 [ false, %.lr.ph ], [ false, %2 ], [ %.not16, %8 ]
   ret i1 %.3
 }
 
@@ -2318,9 +2318,9 @@ list_length.exit.us:                              ; preds = %21, %._crit_edge.us
   br label %.lr.ph78.split.us
 
 .lr.ph78.split.us:                                ; preds = %30, %27, %18, %.lr.ph130
-  %.152.us = phi i32 [ %.05174.us129, %.lr.ph130 ], [ %.05174.us129, %18 ], [ %25, %30 ], [ %.05174.us129, %27 ]
-  %.148.us = phi i32 [ %.04775.us128, %.lr.ph130 ], [ %.04775.us128, %18 ], [ %76, %30 ], [ %.04775.us128, %27 ]
-  %.1.us = phi ptr [ %.04276.us127, %.lr.ph130 ], [ %.04276.us127, %18 ], [ %15, %30 ], [ %.04276.us127, %27 ]
+  %.152.us = phi i32 [ %.05174.us129, %18 ], [ %.05174.us129, %.lr.ph130 ], [ %25, %30 ], [ %.05174.us129, %27 ]
+  %.148.us = phi i32 [ %.04775.us128, %18 ], [ %.04775.us128, %.lr.ph130 ], [ %76, %30 ], [ %.04775.us128, %27 ]
+  %.1.us = phi ptr [ %.04276.us127, %18 ], [ %.04276.us127, %.lr.ph130 ], [ %15, %30 ], [ %.04276.us127, %27 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111126, 1
   %31 = load i32, ptr %7, align 4
   %32 = sext i32 %31 to i64
@@ -2495,9 +2495,9 @@ list_length.exit:                                 ; preds = %.preheader, %98
   br label %108
 
 108:                                              ; preds = %104, %107, %87, %.lr.ph
-  %.152 = phi i32 [ %.05174102, %.lr.ph ], [ %.05174102, %87 ], [ %102, %107 ], [ %.05174102, %104 ]
-  %.148 = phi i32 [ %.04775101, %.lr.ph ], [ %.04775101, %87 ], [ %92, %107 ], [ %.04775101, %104 ]
-  %.1 = phi ptr [ %.04276100, %.lr.ph ], [ %.04276100, %87 ], [ %84, %107 ], [ %.04276100, %104 ]
+  %.152 = phi i32 [ %.05174102, %87 ], [ %.05174102, %.lr.ph ], [ %102, %107 ], [ %.05174102, %104 ]
+  %.148 = phi i32 [ %.04775101, %87 ], [ %.04775101, %.lr.ph ], [ %92, %107 ], [ %.04775101, %104 ]
+  %.1 = phi ptr [ %.04276100, %87 ], [ %.04276100, %.lr.ph ], [ %84, %107 ], [ %.04276100, %104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %109 = load i32, ptr %7, align 4
   %110 = sext i32 %109 to i64
@@ -2829,8 +2829,8 @@ list_length.exit186.i:                            ; preds = %152, %151
   br label %stat_covers_expressions.exit.i
 
 stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.lr.ph74.i.i, %136, %.thread254.i, %111, %108
-  %.1152.i = phi ptr [ %.2153.i, %.thread254.i ], [ %.0151202.i27, %111 ], [ %.0151202.i27, %108 ], [ %.0151202.i27, %136 ], [ %.0151202.i27, %.lr.ph74.i.i ], [ %.0151202.i27, %.lr.ph.i.us.i.i ]
-  %.1150.i = phi ptr [ %158, %.thread254.i ], [ %.0149203.i23, %111 ], [ %.0149203.i23, %108 ], [ %.0149203.i23, %136 ], [ %.0149203.i23, %.lr.ph74.i.i ], [ %.0149203.i23, %.lr.ph.i.us.i.i ]
+  %.1152.i = phi ptr [ %.2153.i, %.thread254.i ], [ %.0151202.i27, %108 ], [ %.0151202.i27, %111 ], [ %.0151202.i27, %136 ], [ %.0151202.i27, %.lr.ph74.i.i ], [ %.0151202.i27, %.lr.ph.i.us.i.i ]
+  %.1150.i = phi ptr [ %158, %.thread254.i ], [ %.0149203.i23, %108 ], [ %.0149203.i23, %111 ], [ %.0149203.i23, %136 ], [ %.0149203.i23, %.lr.ph74.i.i ], [ %.0149203.i23, %.lr.ph.i.us.i.i ]
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i21, 1
   %164 = load i32, ptr %73, align 4
   %165 = sext i32 %164 to i64
@@ -2890,7 +2890,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   br label %191
 
 191:                                              ; preds = %190, %188, %.lr.ph35
-  %.1155.i = phi double [ 1.000000e+00, %190 ], [ %183, %188 ], [ 0.000000e+00, %.lr.ph35 ]
+  %.1155.i = phi double [ %183, %188 ], [ 1.000000e+00, %190 ], [ 0.000000e+00, %.lr.ph35 ]
   %192 = call double @mcv_clause_selectivity_or(ptr noundef %0, ptr noundef nonnull %107, ptr noundef %172, ptr noundef %179, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #10
   %193 = call zeroext i1 @bms_is_member(i32 noundef %indvars39, ptr noundef %.0151.lcssa.i) #10
   br i1 %193, label %198, label %194
@@ -2920,7 +2920,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   br label %209
 
 209:                                              ; preds = %208, %206, %198
-  %.1157.i = phi double [ 1.000000e+00, %208 ], [ %204, %206 ], [ 0.000000e+00, %198 ]
+  %.1157.i = phi double [ %204, %206 ], [ 1.000000e+00, %208 ], [ 0.000000e+00, %198 ]
   %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i31, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2945,11 +2945,11 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   br label %.backedge
 
 .backedge:                                        ; preds = %213, %.critedge175.i
-  %.0144.i.be = phi double [ %187, %.critedge175.i ], [ %219, %213 ]
+  %.0144.i.be = phi double [ %219, %213 ], [ %187, %.critedge175.i ]
   br label %92
 
 statext_mcv_clauselist_selectivity.exit:          ; preds = %46, %list_length.exit180.i, %list_length.exit180.thread.i, %37, %.lr.ph.i.i
-  %.0.i = phi double [ %18, %37 ], [ %18, %.lr.ph.i.i ], [ %.0144.i, %list_length.exit180.thread.i ], [ %.0144.i, %list_length.exit180.i ], [ %18, %46 ]
+  %.0.i = phi double [ %18, %.lr.ph.i.i ], [ %18, %37 ], [ %.0144.i, %list_length.exit180.i ], [ %.0144.i, %list_length.exit180.thread.i ], [ %18, %46 ]
   br i1 %7, label %223, label %220
 
 220:                                              ; preds = %statext_mcv_clauselist_selectivity.exit
@@ -3200,16 +3200,16 @@ is_andclause.exit:                                ; preds = %5
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph81, label %.critedge
+  br i1 %26, label %.lr.ph80, label %.critedge
 
-27:                                               ; preds = %.lr.ph81
+27:                                               ; preds = %.lr.ph80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %23, align 4
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph81, label %.critedge
+  br i1 %30, label %.lr.ph80, label %.critedge
 
-.lr.ph81:                                         ; preds = %.lr.ph, %27
+.lr.ph80:                                         ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %31 = load ptr, ptr %24, align 8
   %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
@@ -3262,21 +3262,21 @@ is_andclause.exit:                                ; preds = %5
   %59 = load ptr, ptr %3, align 8
   %60 = call i32 @bms_next_member(ptr noundef %59, i32 noundef -1) #10
   %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %.lr.ph83, label %._crit_edge
+  br i1 %61, label %.lr.ph82, label %._crit_edge
 
-.lr.ph83:                                         ; preds = %58, %.lr.ph83
-  %62 = phi ptr [ %65, %.lr.ph83 ], [ null, %58 ]
-  %63 = phi i32 [ %67, %.lr.ph83 ], [ %60, %58 ]
+.lr.ph82:                                         ; preds = %58, %.lr.ph82
+  %62 = phi ptr [ %65, %.lr.ph82 ], [ null, %58 ]
+  %63 = phi i32 [ %67, %.lr.ph82 ], [ %60, %58 ]
   %64 = add nuw i32 %63, 7
   %65 = call ptr @bms_add_member(ptr noundef %62, i32 noundef %64) #10
   store ptr %65, ptr %7, align 8
   %66 = load ptr, ptr %3, align 8
   %67 = call i32 @bms_next_member(ptr noundef %66, i32 noundef %63) #10
   %68 = icmp sgt i32 %67, -1
-  br i1 %68, label %.lr.ph83, label %._crit_edge, !llvm.loop !38
+  br i1 %68, label %.lr.ph82, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %.lr.ph83, %58
-  %69 = phi ptr [ null, %58 ], [ %65, %.lr.ph83 ]
+._crit_edge:                                      ; preds = %.lr.ph82, %58
+  %69 = phi ptr [ null, %58 ], [ %65, %.lr.ph82 ]
   %70 = load ptr, ptr %4, align 8
   %.not62 = icmp eq ptr %70, null
   br i1 %.not62, label %72, label %71
@@ -3290,39 +3290,39 @@ is_andclause.exit:                                ; preds = %5
   %73 = phi ptr [ %.pre, %71 ], [ %69, %._crit_edge ]
   %74 = call i32 @bms_next_member(ptr noundef %73, i32 noundef -1) #10
   %75 = icmp slt i32 %74, 0
-  br i1 %75, label %.critedge.sink.split, label %.lr.ph85
+  br i1 %75, label %.critedge.sink.split, label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %72, %.critedge68
-  %76 = phi i32 [ %86, %.critedge68 ], [ %74, %72 ]
+.lr.ph84:                                         ; preds = %72, %85
+  %76 = phi i32 [ %87, %85 ], [ %74, %72 ]
   %77 = trunc i32 %76 to i16
   %78 = add i16 %77, -7
   %79 = icmp eq i16 %78, 0
   %80 = load i32, ptr %55, align 4
   br i1 %79, label %81, label %83
 
-81:                                               ; preds = %.lr.ph85
+81:                                               ; preds = %.lr.ph84
   %82 = call i32 @pg_attribute_aclcheck_all(i32 noundef %80, i32 noundef %54, i64 noundef 2, i32 noundef 0) #10
   %.not64 = icmp eq i32 %82, 0
-  br i1 %.not64, label %.critedge68, label %.critedge.sink.split, !llvm.loop !39
+  br i1 %.not64, label %85, label %.critedge.sink.split
 
-83:                                               ; preds = %.lr.ph85
+83:                                               ; preds = %.lr.ph84
   %84 = call i32 @pg_attribute_aclcheck(i32 noundef %80, i16 noundef signext %78, i32 noundef %54, i64 noundef 2) #10
   %.not63 = icmp eq i32 %84, 0
-  br i1 %.not63, label %.critedge68, label %.critedge.sink.split, !llvm.loop !39
+  br i1 %.not63, label %85, label %.critedge.sink.split
 
-.critedge68:                                      ; preds = %83, %81
-  %85 = load ptr, ptr %7, align 8
-  %86 = call i32 @bms_next_member(ptr noundef %85, i32 noundef %76) #10
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %.critedge.sink.split, label %.lr.ph85
+85:                                               ; preds = %83, %81
+  %86 = load ptr, ptr %7, align 8
+  %87 = call i32 @bms_next_member(ptr noundef %86, i32 noundef %76) #10
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %.critedge.sink.split, label %.lr.ph84, !llvm.loop !39
 
-.critedge.sink.split:                             ; preds = %.critedge68, %83, %81, %72
-  %.2.ph = phi i1 [ true, %72 ], [ false, %81 ], [ false, %83 ], [ true, %.critedge68 ]
+.critedge.sink.split:                             ; preds = %85, %83, %81, %72
+  %.2.ph = phi i1 [ true, %72 ], [ false, %83 ], [ false, %81 ], [ true, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph81, %27, %.critedge.sink.split, %5, %is_andclause.exit, %20, %.lr.ph, %53, %44, %39, %35
-  %.2 = phi i1 [ false, %35 ], [ false, %39 ], [ false, %44 ], [ true, %53 ], [ true, %20 ], [ true, %.lr.ph ], [ false, %is_andclause.exit ], [ false, %5 ], [ %.2.ph, %.critedge.sink.split ], [ %34, %27 ], [ %34, %.lr.ph81 ]
+.critedge:                                        ; preds = %.lr.ph80, %27, %.critedge.sink.split, %5, %is_andclause.exit, %20, %.lr.ph, %53, %44, %39, %35
+  %.2 = phi i1 [ false, %44 ], [ false, %5 ], [ false, %35 ], [ true, %53 ], [ false, %is_andclause.exit ], [ false, %39 ], [ %.2.ph, %.critedge.sink.split ], [ true, %20 ], [ true, %.lr.ph ], [ %34, %27 ], [ %34, %.lr.ph80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.2
 }
@@ -3632,7 +3632,7 @@ is_andclause.exit:                                ; preds = %13
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %76, %29, %list_length.exit86, %examine_opclause_args.exit95, %109, %list_length.exit, %59, %66, %56, %.lr.ph139, %128, %121, %.lr.ph, %116, %73, %141, %25, %15, %18, %21, %.thread118
-  %.1 = phi i1 [ true, %.thread118 ], [ true, %25 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ true, %141 ], [ true, %73 ], [ true, %116 ], [ true, %121 ], [ true, %.lr.ph ], [ %135, %128 ], [ %135, %.lr.ph139 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
+  %.1 = phi i1 [ true, %.thread118 ], [ false, %21 ], [ true, %141 ], [ false, %18 ], [ false, %15 ], [ true, %25 ], [ true, %116 ], [ true, %73 ], [ true, %.lr.ph ], [ true, %121 ], [ %135, %.lr.ph139 ], [ %135, %128 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
   ret i1 %.1
 }
 

@@ -1049,7 +1049,7 @@ _ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit: ;
   br i1 %495, label %.lr.ph220, label %._crit_edge221, !llvm.loop !52
 
 _ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179: ; preds = %488, %.lr.ph.i175, %363, %._crit_edge221, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit, %._crit_edge216, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit
-  %.2141 = phi i64 [ %322, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %322, %._crit_edge216 ], [ %322, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge221 ], [ %322, %363 ], [ %.1140223, %.lr.ph.i175 ], [ %.1140223, %488 ]
+  %.2141 = phi i64 [ %322, %._crit_edge216 ], [ %322, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %322, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge221 ], [ %322, %363 ], [ %.1140223, %.lr.ph.i175 ], [ %.1140223, %488 ]
   %.not = icmp eq i64 %.2141, 0
   br i1 %.not, label %.lr.ph231, label %.lr.ph224
 

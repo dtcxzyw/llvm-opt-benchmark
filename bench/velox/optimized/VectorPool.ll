@@ -1077,7 +1077,7 @@ if.end12:                                         ; preds = %land.lhs.true.i
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %init.end.i, %if.end, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit, %lor.lhs.false, %entry, %if.end12
-  %retval.0 = phi i1 [ %call14, %if.end12 ], [ false, %entry ], [ false, %lor.lhs.false ], [ false, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit ], [ false, %if.end ], [ false, %init.end.i ], [ false, %land.lhs.true.i ]
+  %retval.0 = phi i1 [ %call14, %if.end12 ], [ false, %entry ], [ false, %_ZNKSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE6uniqueEv.exit ], [ false, %lor.lhs.false ], [ false, %land.lhs.true.i ], [ false, %if.end ], [ false, %init.end.i ]
   ret i1 %retval.0
 }
 
@@ -1202,7 +1202,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %return
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end12, %entry, %lor.lhs.false, %lor.lhs.false5
-  %retval.0 = phi i1 [ false, %lor.lhs.false5 ], [ false, %lor.lhs.false ], [ false, %entry ], [ true, %if.end12 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i.i ]
+  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ false, %lor.lhs.false5 ], [ true, %if.end12 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i.i ]
   ret i1 %retval.0
 }
 

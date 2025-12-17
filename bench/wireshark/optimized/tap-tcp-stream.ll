@@ -88,22 +88,22 @@ define internal noundef i32 @tapall_tcpip_packet(ptr noundef captures(none) %0, 
   %24 = zext i16 %23 to i32
   %25 = and i32 %24, 2
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %32
+  br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %28 = load i16, ptr %27, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 30
-  %30 = load i16, ptr %29, align 2
-  %31 = icmp ult i16 %28, %30
-  br i1 %31, label %34, label %59
-
-32:                                               ; preds = %21
-  %33 = and i32 %24, 16
-  %.not98.not = icmp eq i32 %33, 0
+  %27 = and i32 %24, 16
+  %.not98.not = icmp eq i32 %27, 0
   br i1 %.not98.not, label %59, label %34
 
-34:                                               ; preds = %26, %32
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %30 = load i16, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 30
+  %32 = load i16, ptr %31, align 2
+  %33 = icmp ult i16 %30, %32
+  br i1 %33, label %34, label %59
+
+34:                                               ; preds = %26, %28
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -143,7 +143,7 @@ copy_address.exit:                                ; preds = %34, %42
   %58 = icmp eq i32 %55, 0
   br i1 %58, label %.sink.split, label %.sink.split.sink.split
 
-59:                                               ; preds = %26, %32
+59:                                               ; preds = %26, %28
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -198,7 +198,7 @@ copy_address.exit103:                             ; preds = %59, %67
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %copy_address.exit103, %copy_address.exit
-  %.sink113 = phi i64 [ 30, %copy_address.exit ], [ 28, %copy_address.exit103 ], [ %.sink113.ph, %.sink.split.sink.split ]
+  %.sink113 = phi i64 [ 28, %copy_address.exit103 ], [ 30, %copy_address.exit ], [ %.sink113.ph, %.sink.split.sink.split ]
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink113
   %.sink = load i16, ptr %89, align 2
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -561,7 +561,7 @@ cmp_address.exit.thread33:                        ; preds = %17, %cmp_address.ex
   br label %cmp_address.exit26
 
 cmp_address.exit26:                               ; preds = %cmp_address.exit.thread33, %26, %31, %33
-  %.0.i25 = phi i1 [ %39, %33 ], [ false, %cmp_address.exit.thread33 ], [ false, %26 ], [ true, %31 ]
+  %.0.i25 = phi i1 [ %39, %33 ], [ false, %cmp_address.exit.thread33 ], [ true, %31 ], [ false, %26 ]
   %40 = icmp eq i16 %2, %6
   %or.cond = and i1 %40, %.0.i25
   %41 = icmp eq i16 %3, %7
@@ -628,7 +628,7 @@ cmp_address.exit28.thread38:                      ; preds = %51, %cmp_address.ex
   br label %cmp_address.exit30
 
 cmp_address.exit30:                               ; preds = %cmp_address.exit28.thread38, %59, %64, %66
-  %.0.i29 = phi i1 [ %72, %66 ], [ false, %cmp_address.exit28.thread38 ], [ false, %59 ], [ true, %64 ]
+  %.0.i29 = phi i1 [ %72, %66 ], [ false, %cmp_address.exit28.thread38 ], [ true, %64 ], [ false, %59 ]
   %73 = icmp eq i16 %2, %7
   %or.cond23 = and i1 %73, %.0.i29
   %74 = icmp eq i16 %3, %6
@@ -727,7 +727,7 @@ cmp_address.exit.thread33.i:                      ; preds = %cmp_address.exit.i,
   br label %cmp_address.exit26.i
 
 cmp_address.exit26.i:                             ; preds = %40, %38, %34, %cmp_address.exit.thread33.i
-  %.0.i25.i = phi i1 [ %45, %40 ], [ false, %cmp_address.exit.thread33.i ], [ false, %34 ], [ true, %38 ]
+  %.0.i25.i = phi i1 [ %45, %40 ], [ false, %cmp_address.exit.thread33.i ], [ true, %38 ], [ false, %34 ]
   %46 = icmp eq i16 %6, %18
   %or.cond.i = and i1 %46, %.0.i25.i
   %47 = icmp eq i16 %8, %20
@@ -999,7 +999,7 @@ free_address.exit23:                              ; preds = %free_address.exit, 
   br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %free_address.exit23, %40, %13, %1, %38, %34, %8
-  %.016 = phi i32 [ -1, %34 ], [ -1, %38 ], [ -1, %8 ], [ -1, %1 ], [ -1, %13 ], [ %44, %40 ], [ %44, %free_address.exit23 ]
+  %.016 = phi i32 [ -1, %34 ], [ -1, %38 ], [ -1, %13 ], [ -1, %1 ], [ -1, %8 ], [ %44, %40 ], [ %44, %free_address.exit23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

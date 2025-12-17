@@ -1024,7 +1024,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %239, %242, %245
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %272, %271, %263, %262
-  %hf_gsup_destination_name_text.sink.i = phi ptr [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_source_name_text, %263 ], [ @hf_gsup_destination_name_text, %271 ], [ @hf_gsup_destination_name_text, %272 ], [ %hf_gsup_destination_name_text.sink.ph.i, %.sink.split.sink.split.i ]
+  %hf_gsup_destination_name_text.sink.i = phi ptr [ @hf_gsup_destination_name_text, %272 ], [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_source_name_text, %263 ], [ @hf_gsup_destination_name_text, %271 ], [ %hf_gsup_destination_name_text.sink.ph.i, %.sink.split.sink.split.i ]
   %278 = load i32, ptr %hf_gsup_destination_name_text.sink.i, align 4
   %279 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %278, ptr noundef %0, i32 noundef %31, i32 noundef range(i32 0, 256) %33, i32 noundef 0)
   br label %.loopexit

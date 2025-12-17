@@ -329,7 +329,7 @@ define range(i32 0, 7) i32 @Inf_ManOpenSymb(ptr noundef readonly captures(none) 
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi i32 [ 4, %3 ], [ 5, %4 ], [ 6, %5 ], [ 0, %6 ], [ 3, %1 ]
+  %.0 = phi i32 [ 0, %6 ], [ 4, %3 ], [ 5, %4 ], [ 6, %5 ], [ 3, %1 ]
   ret i32 %.0
 }
 
@@ -406,7 +406,7 @@ Inf_ManOpenSymb.exit.thread:                      ; preds = %5, %5, %5, %5
   br label %35
 
 25:                                               ; preds = %12, %10, %10, %10, %10, %10, %10, %10, %10, %10, %16
-  %.1 = phi i32 [ %.0, %10 ], [ %18, %16 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %12 ]
+  %.1 = phi i32 [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %10 ], [ %.0, %12 ], [ %18, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %5, !llvm.loop !26
 
@@ -666,7 +666,7 @@ Inf_ManOpenSymb.exit:                             ; preds = %12
   br label %27
 
 27:                                               ; preds = %22, %15, %2, %25, %20, %Inf_ManOpenSymb.exit, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %20 ], [ 0, %25 ], [ 0, %Inf_ManOpenSymb.exit ], [ 0, %2 ], [ 0, %15 ], [ 1, %22 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %20 ], [ 0, %25 ], [ 0, %15 ], [ 0, %2 ], [ 0, %Inf_ManOpenSymb.exit ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -755,7 +755,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr noundef writeon
   br label %77
 
 26:                                               ; preds = %8, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %12, %16
-  %.1 = phi i32 [ %22, %16 ], [ %.0, %12 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %8 ]
+  %.1 = phi i32 [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %5 ], [ %.0, %8 ], [ %22, %16 ], [ %.0, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %5, !llvm.loop !31
 
@@ -815,7 +815,7 @@ define range(i32 0, 2) i32 @Ifn_ManStrCheck2(ptr noundef %0, ptr noundef writeon
   br label %77
 
 48:                                               ; preds = %29, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %.preheader133, %33, %36, %41
-  %.1110 = phi i32 [ %44, %41 ], [ %.0109, %36 ], [ %.0109, %33 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %29 ]
+  %.1110 = phi i32 [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %.preheader133 ], [ %.0109, %29 ], [ %44, %41 ], [ %.0109, %36 ], [ %.0109, %33 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   br label %.preheader133, !llvm.loop !32
 
@@ -3815,8 +3815,8 @@ Abc_UtilStrsav.exit108:                           ; preds = %Abc_UtilStrsav.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %186, %188, %178, %180
-  %.sink157 = phi ptr [ %179, %178 ], [ %181, %180 ], [ %187, %186 ], [ %189, %188 ]
-  %.sink = phi i32 [ 16, %178 ], [ 16, %180 ], [ %183, %186 ], [ %183, %188 ]
+  %.sink157 = phi ptr [ %181, %180 ], [ %179, %178 ], [ %187, %186 ], [ %189, %188 ]
+  %.sink = phi i32 [ 16, %180 ], [ 16, %178 ], [ %183, %186 ], [ %183, %188 ]
   store ptr %.sink157, ptr %95, align 8, !tbaa !80
   store i32 %.sink, ptr %92, align 8, !tbaa !79
   br label %Vec_IntPush.exit
@@ -5100,7 +5100,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %67) #26
   %.not223 = icmp eq i32 %68, 0
-  br i1 %.not223, label %.loopexit, label %43
+  br i1 %.not223, label %.critedge228, label %43
 
 .critedge.loopexit:                               ; preds = %43
   %.pre = load i32, ptr %0, align 8, !tbaa !13
@@ -5114,15 +5114,15 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %72 = icmp slt i64 %indvars.iv.next320, %71
   br i1 %72, label %.lr.ph265.split, label %.preheader237, !llvm.loop !171
 
-73:                                               ; preds = %.lr.ph292, %.critedge228
-  %indvars.iv348 = phi i64 [ %34, %.lr.ph292 ], [ %indvars.iv.next349, %.critedge228 ]
+73:                                               ; preds = %.lr.ph292, %.critedge226
+  %indvars.iv348 = phi i64 [ %34, %.lr.ph292 ], [ %indvars.iv.next349, %.critedge226 ]
   %74 = getelementptr inbounds %struct.Ifn_Obj_t_, ptr %28, i64 %indvars.iv348
   %75 = load i32, ptr %74, align 8
   %76 = lshr i32 %75, 3
   %77 = and i32 %76, 31
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %79 = and i32 %75, 7
-  switch i32 %79, label %.critedge228 [
+  switch i32 %79, label %.critedge226 [
     i32 3, label %80
     i32 4, label %100
     i32 5, label %135
@@ -5160,7 +5160,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   store i32 %89, ptr %32, align 4, !tbaa !22
   %95 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %33) #26
   %.not222 = icmp eq i32 %95, 0
-  br i1 %.not222, label %.loopexit, label %96
+  br i1 %.not222, label %.critedge228, label %96
 
 96:                                               ; preds = %.lr.ph288
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
@@ -5177,12 +5177,12 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %98 = getelementptr inbounds nuw i32, ptr %4, i64 %.0195.lcssa
   %99 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %98) #26
   %.not221 = icmp eq i32 %99, 0
-  br i1 %.not221, label %.loopexit, label %.critedge228
+  br i1 %.not221, label %.critedge228, label %.critedge226
 
 100:                                              ; preds = %73
   %101 = shl nuw i32 2, %77
   %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.preheader.lr.ph, label %.critedge228
+  br i1 %102, label %.preheader.lr.ph, label %.critedge226
 
 .preheader.lr.ph:                                 ; preds = %100
   %.not296 = icmp eq i32 %77, 0
@@ -5241,12 +5241,12 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
 ._crit_edge282:                                   ; preds = %.lr.ph281, %113
   %132 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %105) #26
   %.not220 = icmp eq i32 %132, 0
-  br i1 %.not220, label %.loopexit, label %133
+  br i1 %.not220, label %.critedge228, label %133
 
-133:                                              ; preds = %110, %._crit_edge282
+133:                                              ; preds = %._crit_edge282, %110
   %134 = add nuw nsw i32 %.0190283, 1
   %exitcond338.not = icmp eq i32 %134, %101
-  br i1 %exitcond338.not, label %.critedge228, label %.preheader, !llvm.loop !175
+  br i1 %exitcond338.not, label %.critedge226, label %.preheader, !llvm.loop !175
 
 135:                                              ; preds = %73
   %136 = lshr i32 %75, 15
@@ -5269,7 +5269,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   store i32 %150, ptr %30, align 8, !tbaa !22
   %151 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %31) #26
   %.not215 = icmp eq i32 %151, 0
-  br i1 %.not215, label %.loopexit, label %152
+  br i1 %.not215, label %.critedge228, label %152
 
 152:                                              ; preds = %135
   %153 = load i32, ptr %74, align 8
@@ -5292,7 +5292,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   store i32 %167, ptr %30, align 8, !tbaa !22
   %168 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %31) #26
   %.not216 = icmp eq i32 %168, 0
-  br i1 %.not216, label %.loopexit, label %169
+  br i1 %.not216, label %.critedge228, label %169
 
 169:                                              ; preds = %152
   %170 = load i32, ptr %74, align 8
@@ -5316,7 +5316,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   store i32 %185, ptr %30, align 8, !tbaa !22
   %186 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %31) #26
   %.not217 = icmp eq i32 %186, 0
-  br i1 %.not217, label %.loopexit, label %187
+  br i1 %.not217, label %.critedge228, label %187
 
 187:                                              ; preds = %169
   %188 = load i32, ptr %74, align 8
@@ -5339,13 +5339,13 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   store i32 %202, ptr %30, align 8, !tbaa !22
   %203 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %31) #26
   %.not218 = icmp eq i32 %203, 0
-  br i1 %.not218, label %.loopexit, label %.critedge228
+  br i1 %.not218, label %.critedge228, label %.critedge226
 
 204:                                              ; preds = %73
   %205 = lshr i32 %75, 8
   %206 = and i32 %205, 255
   %.not214273.not = icmp eq i32 %77, 31
-  br i1 %.not214273.not, label %.critedge228, label %.lr.ph276
+  br i1 %.not214273.not, label %.critedge226, label %.lr.ph276
 
 .lr.ph276:                                        ; preds = %204
   %207 = shl nuw nsw i32 1, %77
@@ -5423,7 +5423,7 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %242 = getelementptr inbounds nuw i32, ptr %5, i64 %241
   %243 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %242) #26
   %.not211 = icmp eq i32 %243, 0
-  br i1 %.not211, label %.loopexit, label %244
+  br i1 %.not211, label %.critedge228, label %244
 
 244:                                              ; preds = %240
   %.pre352 = load i32, ptr %208, align 4, !tbaa !22
@@ -5435,22 +5435,22 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %247 = getelementptr inbounds nuw i32, ptr %4, i64 %246
   %248 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %247) #26
   %.not213 = icmp eq i32 %248, 0
-  br i1 %.not213, label %.loopexit, label %249
+  br i1 %.not213, label %.critedge228, label %249
 
 249:                                              ; preds = %244, %.thread
   %250 = add nuw nsw i32 %.3194274, 1
   %exitcond331.not = icmp eq i32 %250, %207
-  br i1 %exitcond331.not, label %.critedge228, label %209, !llvm.loop !177
+  br i1 %exitcond331.not, label %.critedge226, label %209, !llvm.loop !177
 
-.critedge228:                                     ; preds = %249, %133, %204, %100, %73, %187, %._crit_edge289
+.critedge226:                                     ; preds = %249, %133, %204, %100, %73, %187, %._crit_edge289
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, 1
   %251 = load i32, ptr %7, align 4, !tbaa !12
   %252 = sext i32 %251 to i64
   %253 = icmp slt i64 %indvars.iv.next349, %252
   br i1 %253, label %73, label %._crit_edge293, !llvm.loop !178
 
-._crit_edge293:                                   ; preds = %.critedge228, %.preheader237
-  %.lcssa = phi i32 [ %26, %.preheader237 ], [ %251, %.critedge228 ]
+._crit_edge293:                                   ; preds = %.critedge226, %.preheader237
+  %.lcssa = phi i32 [ %26, %.preheader237 ], [ %251, %.critedge226 ]
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %255 = add nsw i32 %.lcssa, -1
   %256 = sext i32 %255 to i64
@@ -5468,10 +5468,10 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr noundef captures(none) %0, ptr
   %267 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %266) #26
   %.not = icmp ne i32 %267, 0
   %.229 = zext i1 %.not to i32
-  br label %.loopexit
+  br label %.critedge228
 
-.loopexit:                                        ; preds = %._crit_edge258, %._crit_edge289, %135, %152, %169, %187, %240, %.thread, %._crit_edge282, %.lr.ph288, %._crit_edge293
-  %.2 = phi i32 [ %.229, %._crit_edge293 ], [ 0, %.lr.ph288 ], [ 0, %._crit_edge282 ], [ 0, %.thread ], [ 0, %240 ], [ 0, %187 ], [ 0, %169 ], [ 0, %152 ], [ 0, %135 ], [ 0, %._crit_edge289 ], [ 0, %._crit_edge258 ]
+.critedge228:                                     ; preds = %._crit_edge258, %169, %152, %135, %._crit_edge289, %187, %240, %.thread, %._crit_edge282, %.lr.ph288, %._crit_edge293
+  %.2 = phi i32 [ %.229, %._crit_edge293 ], [ 0, %169 ], [ 0, %.lr.ph288 ], [ 0, %._crit_edge282 ], [ 0, %240 ], [ 0, %.thread ], [ 0, %187 ], [ 0, %._crit_edge289 ], [ 0, %135 ], [ 0, %152 ], [ 0, %._crit_edge258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2

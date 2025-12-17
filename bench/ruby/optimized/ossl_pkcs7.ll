@@ -1196,7 +1196,7 @@ define internal i64 @ossl_pkcs7_get_type(i64 noundef %0) #0 {
   br i1 %.not.i35, label %.lr.ph.i34, label %.sink.split, !llvm.loop !42
 
 .sink.split:                                      ; preds = %.lr.ph.i34, %.lr.ph.i28, %.lr.ph.i22, %.lr.ph.i16, %.lr.ph.i, %34, %28, %22, %16, %10
-  %.lcssa.i33.sink = phi i64 [ %.pr.i, %10 ], [ %.pr.i13, %16 ], [ %.pr.i19, %22 ], [ %.pr.i25, %28 ], [ %.pr.i31, %34 ], [ %11, %.lr.ph.i ], [ %17, %.lr.ph.i16 ], [ %23, %.lr.ph.i22 ], [ %29, %.lr.ph.i28 ], [ %35, %.lr.ph.i34 ]
+  %.lcssa.i33.sink = phi i64 [ %.pr.i, %10 ], [ %.pr.i13, %16 ], [ %.pr.i19, %22 ], [ %.pr.i25, %28 ], [ %.pr.i31, %34 ], [ %29, %.lr.ph.i28 ], [ %11, %.lr.ph.i ], [ %17, %.lr.ph.i16 ], [ %23, %.lr.ph.i22 ], [ %35, %.lr.ph.i34 ]
   %36 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i33.sink) #5
   br label %37
 

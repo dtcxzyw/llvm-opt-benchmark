@@ -146,7 +146,7 @@ Abc_NtkIsBddLogic.exit:                           ; preds = %23
   br label %463
 
 Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIsBddLogic.exit
-  %.not492 = phi i1 [ false, %28 ], [ true, %Abc_NtkIsBddLogic.exit ], [ true, %23 ]
+  %.not492 = phi i1 [ true, %Abc_NtkIsBddLogic.exit ], [ false, %28 ], [ true, %23 ]
   %.val507 = load i32, ptr %9, align 4, !tbaa !9
   %31 = icmp sgt i32 %.val507, 0
   br i1 %31, label %.lr.ph, label %.critedge
@@ -280,9 +280,9 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   br label %82
 
 82:                                               ; preds = %80, %74
-  %.1350 = phi i32 [ 1, %74 ], [ %.0349515, %80 ]
-  %.1340 = phi i32 [ %.0339517, %74 ], [ %spec.select423, %80 ]
-  %.1335 = phi i32 [ %.0334518, %74 ], [ %spec.select, %80 ]
+  %.1350 = phi i32 [ %.0349515, %80 ], [ 1, %74 ]
+  %.1340 = phi i32 [ %spec.select423, %80 ], [ %.0339517, %74 ]
+  %.1335 = phi i32 [ %spec.select, %80 ], [ %.0334518, %74 ]
   %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next578, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6, label %74, !llvm.loop !35
@@ -714,7 +714,7 @@ Abc_NtkPrintSop.exit488:                          ; preds = %258
   br label %270
 
 270:                                              ; preds = %Abc_NtkPrintSop.exit488, %268, %233, %238, %Abc_NtkPrintSop.exit
-  %.0 = phi ptr [ %239, %238 ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit ], [ @.str.46, %233 ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit488 ], [ %8, %268 ]
+  %.0 = phi ptr [ @.str.46, %233 ], [ %239, %238 ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit488 ], [ %8, %268 ]
   br i1 %.not406, label %.thread, label %271
 
 271:                                              ; preds = %270
@@ -1236,7 +1236,7 @@ Abc_NtkIsBddLogic.exit:                           ; preds = %21
   br label %458
 
 Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIsBddLogic.exit
-  %.not503 = phi i1 [ false, %26 ], [ true, %Abc_NtkIsBddLogic.exit ], [ true, %21 ]
+  %.not503 = phi i1 [ true, %Abc_NtkIsBddLogic.exit ], [ false, %26 ], [ true, %21 ]
   %.val447528 = load i32, ptr %7, align 4, !tbaa !9
   %29 = icmp sgt i32 %.val447528, 0
   br i1 %29, label %.lr.ph, label %.critedge
@@ -1370,9 +1370,9 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   br label %80
 
 80:                                               ; preds = %78, %72
-  %.1357 = phi i32 [ %.0356536, %72 ], [ %spec.select, %78 ]
-  %.1354 = phi i32 [ %.0353537, %72 ], [ %spec.select433, %78 ]
-  %.1352 = phi i32 [ 1, %72 ], [ %.0351538, %78 ]
+  %.1357 = phi i32 [ %spec.select, %78 ], [ %.0356536, %72 ]
+  %.1354 = phi i32 [ %spec.select433, %78 ], [ %.0353537, %72 ]
+  %.1352 = phi i32 [ %.0351538, %78 ], [ 1, %72 ]
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6, label %72, !llvm.loop !69
@@ -1765,7 +1765,7 @@ Abc_NtkPrintSop.exit498:                          ; preds = %.preheader682
   br label %250
 
 250:                                              ; preds = %221, %226, %Abc_NtkPrintSop.exit498, %Abc_NtkPrintSop.exit
-  %.0359 = phi ptr [ %227, %226 ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit498 ], [ @.str.46, %221 ]
+  %.0359 = phi ptr [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit498 ], [ %227, %226 ], [ @Abc_NtkPrintSop.Buffer, %Abc_NtkPrintSop.exit ], [ @.str.46, %221 ]
   %251 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %252 = load i32, ptr %251, align 8, !tbaa !47
   %253 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.56, i32 noundef %252, i32 noundef %252, ptr noundef %.0359) #7

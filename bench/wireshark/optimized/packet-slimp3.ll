@@ -318,7 +318,7 @@ define internal i32 @dissect_slimp3(ptr noundef %0, ptr noundef readonly capture
   br label %addresses_equal.exitthread-pre-split
 
 addresses_equal.exitthread-pre-split:             ; preds = %38, %42, %25
-  %.0294.ph = phi i1 [ true, %25 ], [ true, %38 ], [ false, %42 ]
+  %.0294.ph = phi i1 [ true, %25 ], [ false, %42 ], [ true, %38 ]
   %.pr = load i32, ptr %22, align 8
   br label %addresses_equal.exit
 
@@ -337,8 +337,8 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br label %50
 
 50:                                               ; preds = %45, %addresses_equal.exit
-  %.0296 = phi i1 [ true, %addresses_equal.exit ], [ %48, %45 ]
-  %.1295 = phi i1 [ true, %addresses_equal.exit ], [ %49, %45 ]
+  %.0296 = phi i1 [ %48, %45 ], [ true, %addresses_equal.exit ]
+  %.1295 = phi i1 [ %49, %45 ], [ true, %addresses_equal.exit ]
   switch i8 %8, label %296 [
     i8 105, label %51
     i8 108, label %87
@@ -488,10 +488,10 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br label %128
 
 128:                                              ; preds = %111, %120, %106, %108, %125, %93
-  %.1303 = phi i1 [ %.0302318, %125 ], [ false, %93 ], [ true, %106 ], [ true, %108 ], [ false, %120 ], [ false, %111 ]
-  %.1298 = phi i32 [ %.0297319, %125 ], [ 0, %93 ], [ %107, %106 ], [ 2, %108 ], [ 0, %120 ], [ 0, %111 ]
-  %.1292.in = phi i32 [ %.0291320, %125 ], [ %.0291320, %93 ], [ %.0291320, %106 ], [ %.0291320, %108 ], [ %121, %120 ], [ %.0291320, %111 ]
-  %.1 = phi ptr [ %.0290321, %125 ], [ %.0290321, %93 ], [ %.0290321, %106 ], [ %110, %108 ], [ %116, %120 ], [ %116, %111 ]
+  %.1303 = phi i1 [ %.0302318, %125 ], [ false, %93 ], [ true, %108 ], [ true, %106 ], [ false, %120 ], [ false, %111 ]
+  %.1298 = phi i32 [ %.0297319, %125 ], [ 0, %93 ], [ 2, %108 ], [ %107, %106 ], [ 0, %120 ], [ 0, %111 ]
+  %.1292.in = phi i32 [ %.0291320, %125 ], [ %.0291320, %93 ], [ %.0291320, %108 ], [ %.0291320, %106 ], [ %121, %120 ], [ %.0291320, %111 ]
+  %.1 = phi ptr [ %.0290321, %125 ], [ %.0290321, %93 ], [ %110, %108 ], [ %.0290321, %106 ], [ %116, %120 ], [ %116, %111 ]
   %.1292 = add i32 %.1292.in, 2
   %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %130 = icmp slt i32 %.1292, %129
@@ -580,8 +580,8 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br label %172
 
 172:                                              ; preds = %145, %150, %162, %160, %139, %135, %133
-  %.4301 = phi i32 [ %.3300322, %133 ], [ %136, %135 ], [ %140, %139 ], [ %169, %162 ], [ %.3300322, %160 ], [ %.3300322, %150 ], [ %140, %145 ]
-  %.4 = phi i32 [ %.3323, %133 ], [ %.3323, %135 ], [ %.3323, %139 ], [ %.3323, %162 ], [ %.3323, %160 ], [ %.3323, %150 ], [ %spec.select316, %145 ]
+  %.4301 = phi i32 [ %.3300322, %133 ], [ %136, %135 ], [ %.3300322, %150 ], [ %140, %145 ], [ %140, %139 ], [ %169, %162 ], [ %.3300322, %160 ]
+  %.4 = phi i32 [ %.3323, %133 ], [ %.3323, %135 ], [ %.3323, %150 ], [ %spec.select316, %145 ], [ %.3323, %139 ], [ %.3323, %162 ], [ %.3323, %160 ]
   %173 = add i32 %.4, 2
   %174 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %173)
   %175 = icmp slt i32 %.4301, 128
@@ -778,7 +778,7 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br label %302
 
 302:                                              ; preds = %7, %4, %300
-  %.0 = phi i32 [ %301, %300 ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %4 ], [ %301, %300 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

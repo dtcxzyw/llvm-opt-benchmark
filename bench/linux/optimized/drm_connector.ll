@@ -3180,7 +3180,7 @@ define dso_local i32 @drm_connector_set_obj_prop(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %15, %24, %21
-  %26 = phi i32 [ 0, %24 ], [ %22, %21 ], [ -22, %15 ]
+  %26 = phi i32 [ %22, %21 ], [ 0, %24 ], [ -22, %15 ]
   ret i32 %26
 }
 

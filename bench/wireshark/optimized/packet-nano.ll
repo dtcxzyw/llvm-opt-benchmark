@@ -459,7 +459,7 @@ dissect_nano_keepalive.exit:                      ; preds = %46
   br label %138
 
 138:                                              ; preds = %4, %136, %dissect_nano_keepalive.exit
-  %.036 = phi i32 [ %137, %136 ], [ 152, %dissect_nano_keepalive.exit ], [ 0, %4 ]
+  %.036 = phi i32 [ 152, %dissect_nano_keepalive.exit ], [ %137, %136 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.036
@@ -759,7 +759,7 @@ define internal fastcc zeroext i1 @test_nano(ptr noundef %0) unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %6, %9, %16, %4, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %6 ], [ %18, %16 ], [ false, %9 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %1 ], [ false, %6 ], [ %18, %16 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -850,7 +850,7 @@ switch.lookup15:                                  ; preds = %17
   br label %26
 
 26:                                               ; preds = %switch.lookup15, %switch.lookup, %13, %21, %10
-  %.0 = phi i32 [ %12, %10 ], [ %23, %21 ], [ 0, %13 ], [ %switch.load, %switch.lookup ], [ %switch.load17, %switch.lookup15 ]
+  %.0 = phi i32 [ %12, %10 ], [ %switch.load, %switch.lookup ], [ %switch.load17, %switch.lookup15 ], [ %23, %21 ], [ 0, %13 ]
   ret i32 %.0
 }
 

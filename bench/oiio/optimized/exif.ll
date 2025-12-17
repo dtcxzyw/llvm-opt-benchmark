@@ -1678,10 +1678,10 @@ define range(i64 256, -4294443008) i64 @_ZN11OpenImageIO6v3_1_025tiff_datatype_t
   br label %16
 
 16:                                               ; preds = %2, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.58.0 = phi i64 [ %spec.store.select, %4 ], [ 0, %5 ], [ %spec.store.select, %6 ], [ %spec.store.select, %7 ], [ %spec.store.select, %8 ], [ %spec.store.select, %9 ], [ %spec.store.select, %10 ], [ %spec.store.select, %11 ], [ %spec.store.select, %12 ], [ %spec.store.select, %13 ], [ %spec.store.select, %14 ], [ %spec.store.select, %15 ], [ 0, %2 ]
-  %.sroa.32.0 = phi i64 [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 458752, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %12 ], [ 0, %13 ], [ 0, %14 ], [ 0, %15 ], [ 0, %2 ]
-  %.sroa.19.0 = phi i64 [ 256, %4 ], [ 256, %5 ], [ 256, %6 ], [ 256, %7 ], [ 512, %8 ], [ 256, %9 ], [ 256, %10 ], [ 256, %11 ], [ 256, %12 ], [ 256, %13 ], [ 256, %14 ], [ 256, %15 ], [ 256, %2 ]
-  %.sroa.0.0 = phi i64 [ 2, %4 ], [ 13, %5 ], [ 4, %6 ], [ 6, %7 ], [ 7, %8 ], [ 3, %9 ], [ 5, %10 ], [ 7, %11 ], [ 11, %12 ], [ 12, %13 ], [ 8, %14 ], [ 9, %15 ], [ 0, %2 ]
+  %.sroa.58.0 = phi i64 [ %spec.store.select, %15 ], [ %spec.store.select, %14 ], [ %spec.store.select, %4 ], [ 0, %5 ], [ %spec.store.select, %6 ], [ %spec.store.select, %7 ], [ %spec.store.select, %8 ], [ %spec.store.select, %9 ], [ 0, %2 ], [ %spec.store.select, %10 ], [ %spec.store.select, %11 ], [ %spec.store.select, %13 ], [ %spec.store.select, %12 ]
+  %.sroa.32.0 = phi i64 [ 0, %15 ], [ 0, %14 ], [ 0, %4 ], [ 0, %5 ], [ 0, %6 ], [ 0, %7 ], [ 458752, %8 ], [ 0, %9 ], [ 0, %2 ], [ 0, %10 ], [ 0, %11 ], [ 0, %13 ], [ 0, %12 ]
+  %.sroa.19.0 = phi i64 [ 256, %15 ], [ 256, %14 ], [ 256, %4 ], [ 256, %5 ], [ 256, %6 ], [ 256, %7 ], [ 512, %8 ], [ 256, %9 ], [ 256, %2 ], [ 256, %10 ], [ 256, %11 ], [ 256, %13 ], [ 256, %12 ]
+  %.sroa.0.0 = phi i64 [ 9, %15 ], [ 8, %14 ], [ 2, %4 ], [ 13, %5 ], [ 4, %6 ], [ 6, %7 ], [ 7, %8 ], [ 3, %9 ], [ 0, %2 ], [ 5, %10 ], [ 7, %11 ], [ 12, %13 ], [ 11, %12 ]
   %.sroa.58.0.insert.ext = shl i64 %.sroa.58.0, 32
   %.sroa.32.0.insert.insert = or disjoint i64 %.sroa.58.0.insert.ext, %.sroa.32.0
   %.sroa.19.0.insert.insert = or disjoint i64 %.sroa.32.0.insert.insert, %.sroa.19.0
@@ -1786,7 +1786,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i: ; preds = %13, 
   br label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
 
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit: ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i, %23, %27
-  %.0.i = phi ptr [ null, %23 ], [ %spec.select.i, %27 ], [ %22, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i ]
+  %.0.i = phi ptr [ %spec.select.i, %27 ], [ null, %23 ], [ %22, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i ]
   br i1 %or.cond.i.i.i, label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit, label %32
 
 32:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
@@ -2056,7 +2056,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i: ; preds = %12, 
   br label %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
 
 _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit: ; preds = %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i, %22, %26
-  %.0.i = phi ptr [ null, %22 ], [ %spec.select.i, %26 ], [ %21, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i ]
+  %.0.i = phi ptr [ %spec.select.i, %26 ], [ null, %22 ], [ %21, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i ]
   br i1 %or.cond.i.i.i, label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit, label %31
 
 31:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
@@ -2139,8 +2139,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1:  ; preds = %1
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %5
-  %.sroa.012.0 = phi ptr [ @_ZN11OpenImageIO6v3_1_0L14tiff_tag_tableE, %5 ], [ @_ZN11OpenImageIO6v3_1_0L14exif_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ @_ZN11OpenImageIO6v3_1_0L13gps_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ]
-  %.sroa.4.0 = phi i64 [ 21, %5 ], [ 104, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ]
+  %.sroa.012.0 = phi ptr [ @_ZN11OpenImageIO6v3_1_0L14tiff_tag_tableE, %5 ], [ @_ZN11OpenImageIO6v3_1_0L13gps_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ @_ZN11OpenImageIO6v3_1_0L14exif_tag_tableE, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %.sroa.4.0 = phi i64 [ 21, %5 ], [ 32, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i1 ], [ 104, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.012.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2305,7 +2305,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit: ; preds = %.lr.ph
   br label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98
 
 _ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit98: ; preds = %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit, %.lr.ph.i94, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
-  %56 = phi i16 [ %41, %.lr.ph.i94 ], [ %41, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %40, %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit ]
+  %56 = phi i16 [ %41, %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit ], [ %41, %.lr.ph.i94 ], [ %40, %_ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit ]
   %57 = zext i16 %56 to i32
   switch i16 %56, label %126 [
     i16 -30683, label %_ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit103
@@ -2398,7 +2398,7 @@ select.unfold.i.i:                                ; preds = %79, %._crit_edge.th
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %83, %select.unfold.i.i
-  %87 = phi i1 [ true, %select.unfold.i.i ], [ %86, %83 ]
+  %87 = phi i1 [ %86, %83 ], [ true, %select.unfold.i.i ]
   %88 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i64 %59, ptr %89, align 8, !tbaa !52
@@ -2475,7 +2475,7 @@ _ZNSt3setImSt4lessImESaImEE4findERKm.exit128:     ; preds = %_ZNSt8_Rb_treeImmSt
   %117 = icmp ugt i64 %116, %106
   br i1 %117, label %_ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi.exit.thread
 
-_ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread: ; preds = %107, %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i125, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit128
+_ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread: ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE14_M_lower_boundEPSt13_Rb_tree_nodeImEPSt18_Rb_tree_node_baseRKm.exit.i.i125, %107, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit128
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %106, ptr %12, align 8, !tbaa !52
   %118 = call { ptr, i8 } @_ZNSt3setImSt4lessImESaImEE6insertEOm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -3224,7 +3224,7 @@ _ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRN
           to label %_ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRNS0_9ImageSpecERKNS1_6TagMapERSt3setImSt4lessImESaImEEbi.exit unwind label %.loopexit.split-lp
 
 _ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRNS0_9ImageSpecERKNS1_6TagMapERSt3setImSt4lessImESaImEEbi.exit: ; preds = %141, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i60, %61, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i, %_ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRNS0_9ImageSpecERKNS1_6TagMapERSt3setImSt4lessImESaImEEbi.exit72.thread, %131
-  %.1 = phi i1 [ true, %_ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRNS0_9ImageSpecERKNS1_6TagMapERSt3setImSt4lessImESaImEEbi.exit72.thread ], [ true, %131 ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i ], [ false, %61 ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i60 ], [ false, %141 ]
+  %.1 = phi i1 [ true, %131 ], [ false, %61 ], [ true, %_ZN11OpenImageIO6v3_1_03pvt10decode_ifdENS0_4spanIKhLm18446744073709551615EEEmRNS0_9ImageSpecERKNS1_6TagMapERSt3setImSt4lessImESaImEEbi.exit72.thread ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i ], [ false, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.i60 ], [ false, %141 ]
   %156 = load ptr, ptr %47, align 8, !tbaa !95
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %156)
           to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %157
@@ -3241,7 +3241,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZN11OpenImageIO6v3
   br label %160
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %75, %59, %99, %126
-  %.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %100, %99 ], [ %76, %75 ], [ %60, %59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %60, %59 ], [ %127, %126 ], [ %76, %75 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
@@ -4084,7 +4084,7 @@ _ZNSt6vectorI12TIFFDirEntrySaIS0_EED2Ev.exit173:  ; preds = %_ZNSt6vectorI12TIFF
   ret void
 
 385:                                              ; preds = %99, %101, %111, %190, %202, %208, %276, %120
-  %.pn137.pn = phi { ptr, i32 } [ %121, %120 ], [ %209, %208 ], [ %203, %202 ], [ %191, %190 ], [ %277, %276 ], [ %102, %101 ], [ %112, %111 ], [ %100, %99 ]
+  %.pn137.pn = phi { ptr, i32 } [ %100, %99 ], [ %121, %120 ], [ %191, %190 ], [ %209, %208 ], [ %203, %202 ], [ %277, %276 ], [ %102, %101 ], [ %112, %111 ]
   %386 = load ptr, ptr %18, align 8, !tbaa !121
   %.not.i.i.i174 = icmp eq ptr %386, null
   br i1 %.not.i.i.i174, label %_ZNSt6vectorI12TIFFDirEntrySaIS0_EED2Ev.exit175, label %387
@@ -4456,8 +4456,8 @@ _ZN11OpenImageIO6v3_1_017float_to_rationalEfRjS1_.exit: ; preds = %_ZN11OpenImag
   br i1 %or.cond.i106, label %.lr.ph.i.preheader.i, label %_ZN11OpenImageIO6v3_1_017float_to_rationalEfRiS1_.exit, !llvm.loop !147
 
 _ZN11OpenImageIO6v3_1_017float_to_rationalEfRiS1_.exit: ; preds = %.lr.ph.i.preheader.i, %.lr.ph, %140, %147
-  %.2.i = phi i32 [ %146, %147 ], [ 0, %.lr.ph ], [ 1, %140 ], [ %154, %.lr.ph.i.preheader.i ]
-  %.1.i = phi i32 [ 1, %147 ], [ 1, %.lr.ph ], [ %146, %140 ], [ %152, %.lr.ph.i.preheader.i ]
+  %.2.i = phi i32 [ %146, %147 ], [ 1, %140 ], [ 0, %.lr.ph ], [ %154, %.lr.ph.i.preheader.i ]
+  %.1.i = phi i32 [ 1, %147 ], [ %146, %140 ], [ 1, %.lr.ph ], [ %152, %.lr.ph.i.preheader.i ]
   %160 = fcmp oge float %135, 0.000000e+00
   %161 = sub nsw i32 0, %.2.i
   %162 = select i1 %160, i32 %.2.i, i32 %161
@@ -6849,7 +6849,7 @@ select.unfold.i:                                  ; preds = %13, %._crit_edge.th
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i: ; preds = %17, %select.unfold.i
-  %21 = phi i1 [ true, %select.unfold.i ], [ %20, %17 ]
+  %21 = phi i1 [ %20, %17 ], [ true, %select.unfold.i ]
   %22 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 %.pre.i.pre.pre.i, ptr %23, align 8, !tbaa !52
@@ -8595,7 +8595,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %54, label %.lr.ph.split.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN11OpenImageIO6v3_1_011encode_exifERKNSB_9ImageSpecERS4_IcSaIcEENSB_6endianEE3$_0EEEvT_T0_SM_T1_RT2_.exit", !llvm.loop !208
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN11OpenImageIO6v3_1_011encode_exifERKNSB_9ImageSpecERS4_IcSaIcEENSB_6endianEE3$_0EEEvT_T0_SM_T1_RT2_.exit": ; preds = %.lr.ph.split.i, %52, %.lr.ph.split.us.i, %46, %41
-  %.0.lcssa.i = phi i64 [ %.1, %41 ], [ %.011.us.i, %.lr.ph.split.us.i ], [ %.01012.us.i, %46 ], [ %.011.i, %.lr.ph.split.i ], [ %.01012.i, %52 ]
+  %.0.lcssa.i = phi i64 [ %.1, %41 ], [ %.01012.us.i, %46 ], [ %.011.us.i, %.lr.ph.split.us.i ], [ %.011.i, %.lr.ph.split.i ], [ %.01012.i, %52 ]
   %55 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.0.lcssa.i
   store i64 %3, ptr %55, align 4
   %.sroa.3.0..sroa.0.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 8

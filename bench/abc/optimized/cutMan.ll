@@ -101,8 +101,8 @@ Vec_PtrAlloc.exit.thread:                         ; preds = %1
   br label %Vec_PtrGrow.exit.i
 
 Vec_PtrGrow.exit.i:                               ; preds = %25, %Vec_PtrAlloc.exit
-  %.not.i.i116 = phi i1 [ true, %25 ], [ false, %Vec_PtrAlloc.exit ]
-  %28 = phi ptr [ %26, %25 ], [ %10, %Vec_PtrAlloc.exit ]
+  %.not.i.i116 = phi i1 [ false, %Vec_PtrAlloc.exit ], [ true, %25 ]
+  %28 = phi ptr [ %10, %Vec_PtrAlloc.exit ], [ %26, %25 ]
   %29 = icmp sgt i32 %3, 0
   br i1 %29, label %.lr.ph.i, label %Vec_PtrFill.exit
 
@@ -259,7 +259,7 @@ Vec_PtrAlloc.exit79.thread:                       ; preds = %Vec_PtrFill.exit75
   br label %Vec_PtrGrow.exit.i81
 
 Vec_PtrGrow.exit.i81:                             ; preds = %88, %Vec_PtrAlloc.exit79
-  %91 = phi ptr [ %89, %88 ], [ %73, %Vec_PtrAlloc.exit79 ]
+  %91 = phi ptr [ %73, %Vec_PtrAlloc.exit79 ], [ %89, %88 ]
   %92 = icmp sgt i32 %66, 0
   br i1 %92, label %.lr.ph.i82, label %Vec_PtrFill.exit88
 

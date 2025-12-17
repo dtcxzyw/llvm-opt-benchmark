@@ -851,8 +851,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %88
 
 88:                                               ; preds = %81, %77
-  %89 = phi i8 [ %.pre, %81 ], [ %79, %77 ]
-  %.sroa.411.0.ph = phi i64 [ %87, %81 ], [ %.sroa.6.1.i.i, %77 ]
+  %89 = phi i8 [ %79, %77 ], [ %.pre, %81 ]
+  %.sroa.411.0.ph = phi i64 [ %.sroa.6.1.i.i, %77 ], [ %87, %81 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %90 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.411.0.ph
   %91 = and i8 %89, 1

@@ -800,7 +800,7 @@ switch.early.test:                                ; preds = %14
   br label %lmp_msg_to_filter_num.exit
 
 lmp_msg_to_filter_num.exit:                       ; preds = %14, %switch.early.test, %34, %35, %36, %37, %38
-  %.0.i = phi i32 [ 33, %34 ], [ 34, %35 ], [ 35, %36 ], [ 36, %37 ], [ 37, %38 ], [ 32, %switch.early.test ], [ %12, %14 ]
+  %.0.i = phi i32 [ 37, %38 ], [ %12, %14 ], [ 32, %switch.early.test ], [ 33, %34 ], [ 34, %35 ], [ 35, %36 ], [ 36, %37 ]
   %39 = zext nneg i32 %.0.i to i64
   %40 = getelementptr i32, ptr @hf_lmp_filter, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -955,8 +955,8 @@ lmp_valid_class.exit.thread:                      ; preds = %proto_item_set_gene
   %107 = getelementptr i8, ptr %106, i64 168
   br label %lmp_valid_class.exit.thread.i
 
-lmp_valid_class.exit:                             ; preds = %proto_item_set_generated.exit, %104, %103, %102, %101, %100
-  %.0.i1114.ph.ph = phi i64 [ 58, %100 ], [ 59, %101 ], [ 60, %102 ], [ 61, %103 ], [ 62, %104 ], [ 57, %proto_item_set_generated.exit ]
+lmp_valid_class.exit:                             ; preds = %proto_item_set_generated.exit, %103, %102, %101, %100, %104
+  %.0.i1114.ph.ph = phi i64 [ 62, %104 ], [ 58, %100 ], [ 59, %101 ], [ 60, %102 ], [ 61, %103 ], [ 57, %proto_item_set_generated.exit ]
   %108 = and i32 %91, 254
   %or.cond3.i = icmp ne i32 %108, 20
   %109 = icmp ne i8 %87, 22
@@ -994,7 +994,7 @@ lmp_valid_class.exit.thread.i:                    ; preds = %lmp_valid_class.exi
   br label %lmp_class_to_subtree.exit
 
 lmp_class_to_subtree.exit:                        ; preds = %lmp_valid_class.exit.thread.i, %114, %115, %116
-  %.0.i1116.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 1064), %114 ], [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 1068), %115 ], [ %119, %116 ], [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 276), %lmp_valid_class.exit.thread.i ]
+  %.0.i1116.in = phi ptr [ %119, %116 ], [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 1064), %114 ], [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 1068), %115 ], [ getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 276), %lmp_valid_class.exit.thread.i ]
   %.0.i1116 = load i32, ptr %.0.i1116.in, align 4
   %120 = call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %.0.i1116)
   %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lmp_subtree, i64 12), align 4
@@ -2284,7 +2284,7 @@ switch.lookup:                                    ; preds = %485
   br label %919
 
 919:                                              ; preds = %.thread1140, %.loopexit1158, %52
-  %.0 = phi i32 [ %918, %.loopexit1158 ], [ %54, %52 ], [ %152, %.thread1140 ]
+  %.0 = phi i32 [ %152, %.thread1140 ], [ %918, %.loopexit1158 ], [ %54, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

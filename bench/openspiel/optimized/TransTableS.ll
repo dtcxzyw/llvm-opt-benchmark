@@ -1251,7 +1251,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   br label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread
 
 _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread: ; preds = %42, %39, %.backedge.i, %89, %.loopexit30.sink.split.i, %59
-  %.027 = phi ptr [ null, %59 ], [ %95, %.loopexit30.sink.split.i ], [ null, %89 ], [ null, %.backedge.i ], [ null, %39 ], [ null, %42 ]
+  %.027 = phi ptr [ null, %59 ], [ %95, %.loopexit30.sink.split.i ], [ null, %.backedge.i ], [ null, %89 ], [ null, %39 ], [ null, %42 ]
   ret ptr %.027
 }
 
@@ -1489,8 +1489,8 @@ _ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %99, %115, %132, %13
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %145, %._crit_edge.sink.split, %89, %30, %21
-  %.sink = phi i8 [ 1, %21 ], [ 0, %30 ], [ 0, %89 ], [ 1, %._crit_edge.sink.split ], [ 1, %145 ]
-  %.046 = phi ptr [ %1, %21 ], [ null, %30 ], [ null, %89 ], [ %.0, %._crit_edge.sink.split ], [ %.1, %145 ]
+  %.sink = phi i8 [ 0, %30 ], [ 1, %21 ], [ 0, %89 ], [ 1, %._crit_edge.sink.split ], [ 1, %145 ]
+  %.046 = phi ptr [ null, %30 ], [ %1, %21 ], [ null, %89 ], [ %.0, %._crit_edge.sink.split ], [ %.1, %145 ]
   store i8 %.sink, ptr %6, align 1
   ret ptr %.046
 }

@@ -1255,7 +1255,7 @@ define void @_ZN5uu_tr6uu_app17hd4527f1920fd687dE(ptr noalias noundef writeonly 
   ret void
 
 .body:                                            ; preds = %285, %278, %227, %176, %126, %57, %298, %297, %296, %295, %294, %290
-  %.pn = phi { ptr, i32 } [ %291, %290 ], [ %eh.lpad-body103.ph, %294 ], [ %eh.lpad-body80.ph, %295 ], [ %eh.lpad-body57.ph, %296 ], [ %eh.lpad-body26.ph, %297 ], [ %299, %298 ], [ %58, %57 ], [ %127, %126 ], [ %177, %176 ], [ %228, %227 ], [ %279, %278 ], [ %286, %285 ]
+  %.pn = phi { ptr, i32 } [ %291, %290 ], [ %279, %278 ], [ %eh.lpad-body103.ph, %294 ], [ %228, %227 ], [ %eh.lpad-body80.ph, %295 ], [ %177, %176 ], [ %eh.lpad-body57.ph, %296 ], [ %127, %126 ], [ %eh.lpad-body26.ph, %297 ], [ %58, %57 ], [ %299, %298 ], [ %286, %285 ]
   resume { ptr, i32 } %.pn
 
 290:                                              ; preds = %282
@@ -1286,7 +1286,7 @@ define void @_ZN5uu_tr6uu_app17hd4527f1920fd687dE(ptr noalias noundef writeonly 
           to label %.body unwind label %292
 
 297:                                              ; preds = %64, %72, %85, %113
-  %eh.lpad-body26.ph = phi { ptr, i32 } [ %65, %64 ], [ %73, %72 ], [ %.pn.i, %85 ], [ %114, %113 ]
+  %eh.lpad-body26.ph = phi { ptr, i32 } [ %65, %64 ], [ %.pn.i, %85 ], [ %73, %72 ], [ %114, %113 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h008dd60f4e840975E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %32) #6
           to label %.body unwind label %292
 

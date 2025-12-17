@@ -1433,7 +1433,7 @@ define dso_local i32 @__udp6_lib_err(ptr noundef %0, ptr noundef %1, i8 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %63, %76, %59, %94
-  %97 = phi ptr [ %96, %94 ], [ %70, %76 ], [ %38, %59 ], [ %38, %63 ]
+  %97 = phi ptr [ %96, %94 ], [ %38, %59 ], [ %70, %76 ], [ %38, %63 ]
   %98 = zext i16 %53 to i64
   %99 = getelementptr i8, ptr %47, i64 %98
   %100 = ptrtoint ptr %99 to i64
@@ -1757,7 +1757,7 @@ define dso_local range(i32 0, -2147483648) i32 @__udp6_lib_rcv(ptr noundef %0, p
   br label %88
 
 88:                                               ; preds = %76, %83
-  %89 = phi i1 [ false, %76 ], [ %87, %83 ]
+  %89 = phi i1 [ %87, %83 ], [ false, %76 ]
   store ptr null, ptr %74, align 8
   store ptr null, ptr %70, align 8
   %90 = load volatile i8, ptr %77, align 2
@@ -1800,8 +1800,8 @@ define dso_local range(i32 0, -2147483648) i32 @__udp6_lib_rcv(ptr noundef %0, p
   br label %109
 
 109:                                              ; preds = %.thread16, %104, %108, %101, %98, %95, %88
-  %110 = phi i1 [ %89, %88 ], [ %89, %98 ], [ %89, %101 ], [ %89, %95 ], [ %89, %104 ], [ false, %108 ], [ false, %.thread16 ]
-  %111 = phi ptr [ %71, %88 ], [ %71, %98 ], [ %71, %101 ], [ %71, %95 ], [ %.mux, %104 ], [ %106, %108 ], [ %71, %.thread16 ]
+  %110 = phi i1 [ false, %.thread16 ], [ %89, %88 ], [ %89, %98 ], [ %89, %101 ], [ %89, %95 ], [ %89, %104 ], [ false, %108 ]
+  %111 = phi ptr [ %71, %.thread16 ], [ %71, %88 ], [ %71, %98 ], [ %71, %101 ], [ %71, %95 ], [ %.mux, %104 ], [ %106, %108 ]
   %112 = icmp ugt ptr %111, inttoptr (i64 -4096 to ptr)
   br i1 %112, label %186, label %113
 
@@ -2135,7 +2135,7 @@ udp_lib_checksum_complete.exit.thread:            ; preds = %273, %nf_reset_ct.e
   br label %.thread22
 
 .thread21:                                        ; preds = %131, %.thread23, %udp_lib_checksum_complete.exit, %186, %179, %60
-  %315 = phi i32 [ 7, %60 ], [ 3, %udp_lib_checksum_complete.exit ], [ 3, %186 ], [ 7, %179 ], [ 7, %.thread23 ], [ 7, %131 ]
+  %315 = phi i32 [ 7, %60 ], [ 3, %udp_lib_checksum_complete.exit ], [ 3, %186 ], [ 7, %.thread23 ], [ 7, %179 ], [ 7, %131 ]
   %316 = icmp eq i32 %2, 136
   br i1 %316, label %.critedge.thread30, label %320
 
@@ -2154,7 +2154,7 @@ udp_lib_checksum_complete.exit.thread:            ; preds = %273, %nf_reset_ct.e
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %232, %227, %254, %20, %16, %14
-  %324 = phi i32 [ 3, %254 ], [ 2, %16 ], [ 4, %20 ], [ 2, %14 ], [ 3, %227 ], [ 3, %232 ]
+  %324 = phi i32 [ 4, %20 ], [ 2, %14 ], [ 3, %254 ], [ 2, %16 ], [ 3, %227 ], [ 3, %232 ]
   %325 = icmp eq i32 %2, 136
   br i1 %325, label %326, label %.critedge.thread
 
@@ -2814,7 +2814,7 @@ define dso_local void @udp_v6_early_demux(ptr noundef %0) local_unnamed_addr #0 
   br label %162
 
 162:                                              ; preds = %160, %158, %154
-  %163 = phi ptr [ %155, %154 ], [ %159, %158 ], [ %161, %160 ]
+  %163 = phi ptr [ %161, %160 ], [ %159, %158 ], [ %155, %154 ]
   %164 = icmp eq ptr %163, null
   br i1 %164, label %.thread, label %.thread11
 
@@ -3187,9 +3187,9 @@ thread-pre-split28:                               ; preds = %187, %177, %173, %1
   br label %thread-pre-split28.thread
 
 thread-pre-split28.thread:                        ; preds = %thread-pre-split, %203, %thread-pre-split28
-  %206 = phi i8 [ %199, %203 ], [ %199, %thread-pre-split28 ], [ 0, %thread-pre-split ]
-  %207 = phi ptr [ %198, %203 ], [ %198, %thread-pre-split28 ], [ %155, %thread-pre-split ]
-  %208 = phi ptr [ %197, %203 ], [ %197, %thread-pre-split28 ], [ %171, %thread-pre-split ]
+  %206 = phi i8 [ %199, %thread-pre-split28 ], [ %199, %203 ], [ 0, %thread-pre-split ]
+  %207 = phi ptr [ %198, %thread-pre-split28 ], [ %198, %203 ], [ %155, %thread-pre-split ]
+  %208 = phi ptr [ %197, %thread-pre-split28 ], [ %197, %203 ], [ %171, %thread-pre-split ]
   %209 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %211 = load i32, ptr %210, align 8
@@ -3350,7 +3350,7 @@ select.unfold:                                    ; preds = %241, %thread-pre-sp
   br label %309
 
 309:                                              ; preds = %302, %296
-  %310 = phi i8 [ %299, %296 ], [ %307, %302 ]
+  %310 = phi i8 [ %307, %302 ], [ %299, %296 ]
   call void @security_sk_classify_flow(ptr noundef %0, ptr noundef nonnull %21) #14
   %311 = load i16, ptr %40, align 2
   %312 = icmp slt i16 %311, 0
@@ -4148,7 +4148,7 @@ define internal fastcc noundef i32 @udp_v6_send_skb(ptr noundef nonnull %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %75, %60, %54, %50, %248, %244, %237, %233, %225, %223
-  %252 = phi i32 [ -105, %225 ], [ 0, %244 ], [ 0, %248 ], [ %224, %223 ], [ 0, %237 ], [ 0, %233 ], [ -5, %75 ], [ -22, %60 ], [ -22, %54 ], [ -22, %50 ]
+  %252 = phi i32 [ 0, %233 ], [ -105, %225 ], [ 0, %244 ], [ 0, %248 ], [ %224, %223 ], [ 0, %237 ], [ -5, %75 ], [ -22, %60 ], [ -22, %54 ], [ -22, %50 ]
   ret i32 %252
 }
 
@@ -4981,7 +4981,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @udpv6_queue_rcv_one_skb(p
   br label %xfrm6_policy_check.exit
 
 xfrm6_policy_check.exit:                          ; preds = %41, %71, %95
-  %99 = phi i32 [ %42, %41 ], [ %74, %71 ], [ %98, %95 ]
+  %99 = phi i32 [ %42, %41 ], [ %98, %95 ], [ %74, %71 ]
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.critedge18, label %xfrm6_policy_check.exit.thread
 
@@ -5458,7 +5458,7 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
   br label %391
 
 .critedge18:                                      ; preds = %66, %183, %.critedge20, %187, %xfrm6_policy_check.exit
-  %382 = phi i32 [ 2, %187 ], [ 14, %xfrm6_policy_check.exit ], [ 6, %.critedge20 ], [ 2, %183 ], [ 14, %66 ]
+  %382 = phi i32 [ 6, %.critedge20 ], [ 2, %183 ], [ 2, %187 ], [ 14, %xfrm6_policy_check.exit ], [ 14, %66 ]
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %384 = load ptr, ptr %383, align 8
   br i1 %5, label %385, label %391
@@ -5489,7 +5489,7 @@ xfrm6_policy_check.exit.thread:                   ; preds = %80, %89, %xfrm6_pol
   br label %400
 
 400:                                              ; preds = %.thread24, %397, %368, %364, %351, %349, %311
-  %401 = phi i32 [ -1, %397 ], [ 0, %311 ], [ -1, %349 ], [ -1, %351 ], [ -1, %364 ], [ -1, %368 ], [ %174, %.thread24 ]
+  %401 = phi i32 [ %174, %.thread24 ], [ -1, %397 ], [ 0, %311 ], [ -1, %349 ], [ -1, %351 ], [ -1, %364 ], [ -1, %368 ]
   ret i32 %401
 }
 

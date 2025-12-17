@@ -318,7 +318,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
   ret void
 
 .body:                                            ; preds = %85, %97
-  %.pn32.pn = phi { ptr, i32 } [ %98, %97 ], [ %86, %85 ]
+  %.pn32.pn = phi { ptr, i32 } [ %86, %85 ], [ %98, %97 ]
   %152 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %152) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -650,7 +650,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
   ret void
 
 .body:                                            ; preds = %83, %94
-  %.pn32.pn = phi { ptr, i32 } [ %95, %94 ], [ %84, %83 ]
+  %.pn32.pn = phi { ptr, i32 } [ %84, %83 ], [ %95, %94 ]
   %148 = load ptr, ptr %4, align 8, !tbaa !4
   call void @free(ptr noundef %148) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

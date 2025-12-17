@@ -161,7 +161,7 @@ define hidden noundef ptr @_Z14luaF_findupvalP9lua_StateP10lua_TValue(ptr nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %2
-  %.033.lcssa = phi ptr [ %5, %2 ], [ %17, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %18, %.critedge.loopexit ]
+  %.033.lcssa = phi ptr [ %5, %2 ], [ %5, %.lr.ph.preheader ], [ %17, %..critedge.loopexit_crit_edge ], [ %18, %.critedge.loopexit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i8, ptr %19, align 4, !tbaa !4
   %21 = tail call noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 noundef 40, i8 noundef zeroext %20)

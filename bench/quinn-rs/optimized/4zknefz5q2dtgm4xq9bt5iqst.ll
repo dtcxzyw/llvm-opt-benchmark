@@ -1255,8 +1255,8 @@ _ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.threa
   br label %.thread
 
 .thread:                                          ; preds = %.thread19, %3, %13, %_ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.thread15
-  %.sroa.4.1 = phi ptr [ %14, %13 ], [ undef, %_ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.thread15 ], [ null, %3 ], [ null, %.thread19 ]
-  %.sroa.0.1 = phi i64 [ 0, %13 ], [ 1, %_ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.thread15 ], [ 0, %3 ], [ 0, %.thread19 ]
+  %.sroa.4.1 = phi ptr [ undef, %_ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.thread15 ], [ %14, %13 ], [ null, %3 ], [ null, %.thread19 ]
+  %.sroa.0.1 = phi i64 [ 1, %_ZN5quinn11recv_stream10RecvStream13poll_read_buf17h59d17c36cec47465E.exit.thread15 ], [ 0, %13 ], [ 0, %3 ], [ 0, %.thread19 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.4.1, 1
   ret { i64, ptr } %16
@@ -1632,7 +1632,7 @@ common.resume:                                    ; preds = %29, %16
           to label %38 unwind label %29
 
 38:                                               ; preds = %33, %35, %39
-  %.sroa.0.0 = phi i1 [ false, %39 ], [ false, %35 ], [ true, %33 ]
+  %.sroa.0.0 = phi i1 [ false, %35 ], [ false, %39 ], [ true, %33 ]
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1751,7 +1751,7 @@ common.resume:                                    ; preds = %38, %17
           to label %47 unwind label %38
 
 47:                                               ; preds = %44, %40, %43
-  %.sroa.0.1 = phi i1 [ false, %40 ], [ true, %43 ], [ false, %44 ]
+  %.sroa.0.1 = phi i1 [ true, %43 ], [ false, %40 ], [ false, %44 ]
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.sroa.0.1
@@ -2187,8 +2187,8 @@ define { i64, ptr } @"_ZN85_$LT$quinn..send_stream..SendStream$u20$as$u20$tokio.
   br label %19
 
 19:                                               ; preds = %4, %15, %13
-  %.sroa.4.0 = phi ptr [ %14, %13 ], [ %18, %15 ], [ undef, %4 ]
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ 0, %15 ], [ 2, %4 ]
+  %.sroa.4.0 = phi ptr [ %18, %15 ], [ %14, %13 ], [ undef, %4 ]
+  %.sroa.0.0 = phi i64 [ 0, %15 ], [ 1, %13 ], [ 2, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.4.0, 1

@@ -2021,7 +2021,7 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   br i1 %switch39, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %25, %14, %24
-  %.3.ph = phi ptr [ %20, %24 ], [ %.03447, %14 ], [ %26, %25 ]
+  %.3.ph = phi ptr [ %.03447, %14 ], [ %20, %24 ], [ %26, %25 ]
   %30 = load i32, ptr %11, align 8
   %31 = add i32 %30, 1
   store i32 %31, ptr %11, align 8
@@ -2030,7 +2030,7 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   br i1 %33, label %14, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.thread, %25, %19
-  %.1.ph = phi ptr [ %.3.ph, %.thread ], [ %26, %25 ], [ %20, %19 ]
+  %.1.ph = phi ptr [ %.3.ph, %.thread ], [ %20, %19 ], [ %26, %25 ]
   %.pre = load i32, ptr %11, align 8
   %.pre53 = load i32, ptr @num_ieee802154_keys, align 4
   %34 = icmp eq i32 %.pre, %.pre53
@@ -2838,7 +2838,7 @@ dissect_ieee802154_fcf.exit:                      ; preds = %152, %154, %156
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %366, %378, %386, %383, %362, %342, %359
-  %.sink589 = phi i32 [ 2, %359 ], [ 2, %342 ], [ 2, %362 ], [ 8, %383 ], [ 8, %386 ], [ 8, %378 ], [ 8, %366 ], [ %.sink589.ph, %.sink.split.sink.split ]
+  %.sink589 = phi i32 [ 8, %378 ], [ 2, %359 ], [ 2, %342 ], [ 2, %362 ], [ 8, %383 ], [ 8, %366 ], [ 8, %386 ], [ %.sink589.ph, %.sink.split.sink.split ]
   %393 = add nuw nsw i32 %335, %.sink589
   store i32 %393, ptr %7, align 4
   br label %394
@@ -3366,7 +3366,7 @@ thread-pre-split523:                              ; preds = %595, %602
   br label %662
 
 662:                                              ; preds = %660, %316, %.thread515, %232, %216, %206, %199, %193
-  %.0 = phi i32 [ 0, %193 ], [ 0, %199 ], [ 0, %206 ], [ %661, %660 ], [ 0, %216 ], [ 0, %232 ], [ 0, %.thread515 ], [ 0, %316 ]
+  %.0 = phi i32 [ 0, %193 ], [ 0, %199 ], [ 0, %206 ], [ %661, %660 ], [ 0, %216 ], [ 0, %232 ], [ 0, %316 ], [ 0, %.thread515 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -4029,9 +4029,9 @@ proto_item_set_generated.exit:                    ; preds = %61, %58, %53, %51, 
   %76 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %75)
   br label %79
 
-.critedge.sink.split:                             ; preds = %51, %65, %66, %67, %68
-  %.str.29.sink = phi ptr [ @.str.29, %68 ], [ @.str.28, %67 ], [ @.str.27, %66 ], [ @.str.26, %65 ], [ @.str.25, %51 ]
-  %77 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %10, ptr noundef nonnull @ei_ieee802154_decrypt_error, ptr noundef nonnull %.str.29.sink)
+.critedge.sink.split:                             ; preds = %51, %68, %65, %66, %67
+  %.str.28.sink = phi ptr [ @.str.28, %67 ], [ @.str.27, %66 ], [ @.str.26, %65 ], [ @.str.29, %68 ], [ @.str.25, %51 ]
+  %77 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %10, ptr noundef nonnull @ei_ieee802154_decrypt_error, ptr noundef nonnull %.str.28.sink)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %69
@@ -4242,7 +4242,7 @@ define internal ptr @dissect_ieee802154_decrypt(ptr noundef %0, i32 noundef %1, 
   br label %366
 
 75:                                               ; preds = %69, %41, %48, %55
-  %.0127 = phi i64 [ %50, %48 ], [ %64, %55 ], [ 3821021400699012882, %41 ], [ %71, %69 ]
+  %.0127 = phi i64 [ 3821021400699012882, %41 ], [ %50, %48 ], [ %64, %55 ], [ %71, %69 ]
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %77 = load i8, ptr %76, align 8, !range !6, !noundef !7
   %78 = trunc nuw i8 %77 to i1
@@ -4605,8 +4605,8 @@ ccm_init_block.exit140:                           ; preds = %257
   br label %ccm_init_block.exit143
 
 .thread145:                                       ; preds = %247, %257, %254
-  %.0152 = phi i32 [ %.0.ph167, %257 ], [ %255, %254 ], [ %1, %247 ]
-  %.0120150 = phi i32 [ %.0120.ph166, %257 ], [ 0, %254 ], [ %.0126, %247 ]
+  %.0152 = phi i32 [ %255, %254 ], [ %.0.ph167, %257 ], [ %1, %247 ]
+  %.0120150 = phi i32 [ 0, %254 ], [ %.0120.ph166, %257 ], [ %.0126, %247 ]
   %302 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %303 = load i32, ptr %302, align 4
   %.not156 = icmp eq i32 %16, 0
@@ -4715,7 +4715,7 @@ ccm_init_block.exit143:                           ; preds = %345, %308, %ccm_ini
   br label %366
 
 366:                                              ; preds = %228, %243, %365, %237, %72, %22
-  %.0121 = phi ptr [ null, %22 ], [ null, %228 ], [ null, %237 ], [ null, %72 ], [ %.1125, %365 ], [ %.1125, %243 ]
+  %.0121 = phi ptr [ null, %22 ], [ null, %72 ], [ null, %228 ], [ null, %237 ], [ %.1125, %365 ], [ %.1125, %243 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0121
@@ -5122,7 +5122,7 @@ define hidden i32 @ieee802154_dissect_frame_payload(ptr noundef %0, ptr noundef 
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %46
-  %.0.i = phi ptr [ %0, %46 ], [ %55, %.sink.split.i ]
+  %.0.i = phi ptr [ %55, %.sink.split.i ], [ %0, %46 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 105
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %397 [
@@ -5649,7 +5649,7 @@ ieee802154_short_addr_invalidate.exit.i.i:        ; preds = %200, %190
   br label %.thread70.i.i
 
 .thread70.i.i:                                    ; preds = %350, %349, %344
-  %.072.i.i = phi i32 [ %.075.i.i, %350 ], [ 7, %349 ], [ 8, %344 ]
+  %.072.i.i = phi i32 [ 7, %349 ], [ %.075.i.i, %350 ], [ 8, %344 ]
   %352 = call i32 @tvb_captured_length(ptr noundef %.0.i)
   %353 = icmp ugt i32 %352, %.072.i.i
   br i1 %353, label %354, label %dissect_ieee802154_realign.exit.i
@@ -6078,8 +6078,8 @@ define hidden zeroext i1 @ccm_ctr_encrypt(ptr noundef %0, ptr noundef %1, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %12, %8, %18
-  %.sink = phi ptr [ %21, %18 ], [ %11, %8 ], [ %14, %12 ], [ %17, %15 ]
-  %.0.ph = phi i1 [ %.not8, %18 ], [ false, %8 ], [ false, %12 ], [ false, %15 ]
+  %.sink = phi ptr [ %21, %18 ], [ %14, %12 ], [ %11, %8 ], [ %17, %15 ]
+  %.0.ph = phi i1 [ %.not8, %18 ], [ false, %12 ], [ false, %8 ], [ false, %15 ]
   call void @gcry_cipher_close(ptr noundef %.sink)
   br label %22
 
@@ -7165,7 +7165,7 @@ define internal noundef zeroext i1 @addr_uat_update_cb(ptr noundef readonly capt
   br i1 %.not, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %6, %2
-  %.str.1148.sink = phi ptr [ @.str.1146, %2 ], [ @.str.1147, %6 ], [ @.str.1148, %10 ]
+  %.str.1148.sink = phi ptr [ @.str.1147, %6 ], [ @.str.1146, %2 ], [ @.str.1148, %10 ]
   %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.1148.sink)
   store ptr %13, ptr %1, align 8
   br label %14
@@ -8162,7 +8162,7 @@ proto_item_set_generated.exit:                    ; preds = %switch.lookup, %354
   br label %367
 
 367:                                              ; preds = %.sink.split, %26, %4
-  %.045 = phi i32 [ 0, %4 ], [ 0, %26 ], [ %366, %.sink.split ]
+  %.045 = phi i32 [ 0, %26 ], [ 0, %4 ], [ %366, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   ret i32 %.045
 }
@@ -8247,7 +8247,7 @@ define internal zeroext i1 @ieee802154_filter_valid(ptr noundef readonly capture
   br label %17
 
 17:                                               ; preds = %12, %6, %2
-  %18 = phi i1 [ false, %2 ], [ false, %6 ], [ %spec.select, %12 ]
+  %18 = phi i1 [ false, %6 ], [ false, %2 ], [ %spec.select, %12 ]
   ret i1 %18
 }
 
@@ -8755,8 +8755,8 @@ define internal i32 @dissect_mpx_ie(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread120
 
 .thread120:                                       ; preds = %75, %77, %79, %82, %58, %60, %63, %67, %87, %85
-  %.1112 = phi ptr [ %89, %87 ], [ null, %85 ], [ null, %67 ], [ %59, %58 ], [ null, %60 ], [ null, %63 ], [ null, %82 ], [ %76, %75 ], [ %78, %77 ], [ null, %79 ]
-  %.3 = phi i32 [ %.0108, %87 ], [ %.0108, %85 ], [ %57, %67 ], [ %57, %58 ], [ %57, %60 ], [ %66, %63 ], [ %74, %82 ], [ %74, %75 ], [ %74, %77 ], [ %74, %79 ]
+  %.1112 = phi ptr [ null, %85 ], [ null, %63 ], [ %89, %87 ], [ null, %67 ], [ %59, %58 ], [ null, %60 ], [ null, %82 ], [ %76, %75 ], [ %78, %77 ], [ null, %79 ]
+  %.3 = phi i32 [ %.0108, %85 ], [ %66, %63 ], [ %.0108, %87 ], [ %57, %67 ], [ %57, %58 ], [ %57, %60 ], [ %74, %82 ], [ %74, %75 ], [ %74, %77 ], [ %74, %79 ]
   %or.cond = icmp samesign ult i8 %9, 2
   br i1 %or.cond, label %90, label %.thread120.thread
 
@@ -9052,8 +9052,8 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not234, label %.thread237, label %.lr.ph274, !llvm.loop !34
 
 .thread251:                                       ; preds = %114, %108, %121
-  %.0214247257 = phi i32 [ %56, %121 ], [ %102, %108 ], [ %102, %114 ]
-  %.0211248256 = phi i32 [ 11, %121 ], [ 7, %108 ], [ 7, %114 ]
+  %.0214247257 = phi i32 [ %56, %121 ], [ %102, %114 ], [ %102, %108 ]
+  %.0211248256 = phi i32 [ 11, %121 ], [ 7, %114 ], [ 7, %108 ]
   %157 = load i32, ptr @hf_ieee802154_6top_cell_list, align 4
   %158 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %157, ptr noundef %0, i32 noundef %.0211248256, i32 noundef %.0214247257, i32 noundef 0)
   %159 = load i32, ptr @ett_ieee802154_p_ie_6top_cell_list, align 4
@@ -9078,8 +9078,8 @@ define internal i32 @dissect_ietf_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %.not233 = icmp eq i32 %170, 0
   br i1 %.not233, label %.thread237, label %.lr.ph, !llvm.loop !35
 
-.thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %82, %85, %119, %103, %103, %103, %103, %103, %103, %103, %103, %114, %104, %111, %105, %117, %91, %89, %80, %68, %67, %61, %59, %47, %45, %94, %11, %4
-  %.0210 = phi i32 [ %8, %4 ], [ %8, %11 ], [ 9, %82 ], [ %8, %85 ], [ 7, %119 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ 7, %45 ], [ 7, %94 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
+.thread237:                                       ; preds = %.lr.ph, %.lr.ph274, %.thread251, %._crit_edge, %103, %103, %103, %103, %103, %103, %103, %103, %114, %104, %111, %82, %105, %117, %91, %89, %80, %68, %67, %61, %59, %47, %85, %119, %45, %94, %11, %4
+  %.0210 = phi i32 [ %8, %11 ], [ %8, %4 ], [ 7, %45 ], [ 7, %94 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %103 ], [ 7, %114 ], [ %8, %104 ], [ %8, %111 ], [ 9, %82 ], [ 9, %105 ], [ 7, %117 ], [ 9, %91 ], [ 7, %89 ], [ 7, %80 ], [ 15, %68 ], [ 7, %67 ], [ 10, %61 ], [ 7, %59 ], [ 11, %47 ], [ %8, %85 ], [ 7, %119 ], [ %.2213.lcssa, %._crit_edge ], [ %.0211248256, %.thread251 ], [ %156, %.lr.ph274 ], [ %171, %.lr.ph ]
   ret i32 %.0210
 }
 
@@ -9490,9 +9490,9 @@ define internal fastcc void @dissect_ieee802154_common(ptr noundef %0, ptr nound
   br label %is_fcs_ok.exit
 
 is_fcs_ok.exit:                                   ; preds = %40, %32, %5, %15, %24, %18
-  %.167 = phi ptr [ %0, %15 ], [ %20, %24 ], [ %20, %18 ], [ %0, %5 ], [ %20, %32 ], [ %20, %40 ]
-  %.165 = phi i1 [ true, %15 ], [ %28, %24 ], [ true, %18 ], [ true, %5 ], [ %39, %32 ], [ %46, %40 ]
-  %.1 = phi i1 [ false, %15 ], [ true, %24 ], [ false, %18 ], [ false, %5 ], [ true, %32 ], [ true, %40 ]
+  %.167 = phi ptr [ %20, %18 ], [ %20, %24 ], [ %0, %15 ], [ %0, %5 ], [ %20, %32 ], [ %20, %40 ]
+  %.165 = phi i1 [ true, %18 ], [ %28, %24 ], [ true, %15 ], [ true, %5 ], [ %39, %32 ], [ %46, %40 ]
+  %.1 = phi i1 [ false, %18 ], [ true, %24 ], [ false, %15 ], [ false, %5 ], [ true, %32 ], [ true, %40 ]
   %47 = call i32 @ieee802154_dissect_header(ptr noundef %.167, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not75 = icmp eq i32 %47, 0
   br i1 %.not75, label %568, label %48
@@ -9734,7 +9734,7 @@ proto_item_set_generated.exit.i:                  ; preds = %169, %166, %163
   br label %175
 
 175:                                              ; preds = %.critedge.i, %144
-  %.047.i = phi ptr [ %104, %144 ], [ %162, %.critedge.i ]
+  %.047.i = phi ptr [ %162, %.critedge.i ], [ %104, %144 ]
   %176 = getelementptr inbounds nuw i8, ptr %.047.i, i64 32
   %177 = load i32, ptr %176, align 8
   %.not53.i = icmp eq i32 %177, 0
@@ -9785,13 +9785,13 @@ transaction_start.exit:                           ; preds = %proto_item_set_gene
   %197 = load ptr, ptr @transaction_unmatched_pdus, align 8
   %198 = call ptr @wmem_tree_lookup32_array(ptr noundef %197, ptr noundef nonnull %6)
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %242, label %200
+  br i1 %199, label %.critedge.i89, label %200
 
 200:                                              ; preds = %193
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %202 = load i32, ptr %201, align 8
   %.not101.i = icmp eq i32 %202, 0
-  br i1 %.not101.i, label %203, label %242
+  br i1 %.not101.i, label %203, label %.critedge.i89
 
 203:                                              ; preds = %200
   %204 = load i32, ptr %53, align 4
@@ -9806,14 +9806,14 @@ transaction_start.exit:                           ; preds = %proto_item_set_gene
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %209 = load i16, ptr %208, align 8
   %.not103.i = icmp eq i16 %207, %209
-  br i1 %.not103.i, label %214, label %242
+  br i1 %.not103.i, label %214, label %.critedge.i89
 
 210:                                              ; preds = %203
   %211 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %212 = load i64, ptr %211, align 8
   %213 = load i64, ptr %198, align 8
   %.not102.i = icmp eq i64 %212, %213
-  br i1 %.not102.i, label %214, label %242
+  br i1 %.not102.i, label %214, label %.critedge.i89
 
 214:                                              ; preds = %210, %205, %203
   %215 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -9829,7 +9829,7 @@ transaction_start.exit:                           ; preds = %proto_item_set_gene
   %220 = getelementptr inbounds nuw i8, ptr %198, i64 26
   %221 = load i16, ptr %220, align 2
   %.not105.i = icmp eq i16 %219, %221
-  br i1 %.not105.i, label %227, label %242
+  br i1 %.not105.i, label %227, label %.critedge.i89
 
 222:                                              ; preds = %214
   %223 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -9837,7 +9837,7 @@ transaction_start.exit:                           ; preds = %proto_item_set_gene
   %225 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %226 = load i64, ptr %225, align 8
   %.not104.i = icmp eq i64 %224, %226
-  br i1 %.not104.i, label %227, label %242
+  br i1 %.not104.i, label %227, label %.critedge.i89
 
 227:                                              ; preds = %222, %217, %214
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9845,39 +9845,34 @@ transaction_start.exit:                           ; preds = %proto_item_set_gene
   call void @nstime_delta(ptr noundef nonnull %8, ptr noundef nonnull %228, ptr noundef nonnull %229)
   %230 = call i32 @nstime_cmp(ptr noundef nonnull %8, ptr noundef nonnull @ieee802154_transaction_timeout)
   %231 = icmp sgt i32 %230, 0
-  br i1 %231, label %242, label %.critedge.i89
+  br i1 %231, label %.critedge.i89, label %232
 
-.critedge.i89:                                    ; preds = %227
-  %232 = getelementptr inbounds nuw i8, ptr %198, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %234 = load i32, ptr %233, align 4
-  store i32 %234, ptr %201, align 8
+232:                                              ; preds = %227
+  %233 = getelementptr inbounds nuw i8, ptr %198, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %235 = load i32, ptr %234, align 4
+  store i32 %235, ptr %201, align 8
   store i32 2, ptr %6, align 16
   store ptr %14, ptr %194, align 8
   store i32 1, ptr %195, align 16
   store ptr %7, ptr %196, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 0, ptr %235, align 16
-  %236 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %236, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %198, i64 28
-  %238 = load i32, ptr %237, align 4
-  store i32 %238, ptr %7, align 4
-  %239 = load ptr, ptr @transaction_matched_pdus, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %239, ptr noundef nonnull %6, ptr noundef nonnull %198)
-  %240 = load i32, ptr %201, align 8
-  store i32 %240, ptr %7, align 4
-  %241 = load ptr, ptr @transaction_matched_pdus, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %241, ptr noundef nonnull %6, ptr noundef nonnull %198)
+  %236 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 0, ptr %236, align 16
+  %237 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr null, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %198, i64 28
+  %239 = load i32, ptr %238, align 4
+  store i32 %239, ptr %7, align 4
+  %240 = load ptr, ptr @transaction_matched_pdus, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %240, ptr noundef nonnull %6, ptr noundef nonnull %198)
+  %241 = load i32, ptr %201, align 8
+  store i32 %241, ptr %7, align 4
+  %242 = load ptr, ptr @transaction_matched_pdus, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %242, ptr noundef nonnull %6, ptr noundef nonnull %198)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %265
-
-242:                                              ; preds = %227, %222, %217, %210, %205, %200, %193
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %transaction_end.exit
 
 243:                                              ; preds = %188
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9929,8 +9924,8 @@ proto_item_set_generated.exit.i88:                ; preds = %259, %256, %253
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %265
 
-265:                                              ; preds = %.critedge108.i, %.critedge.i89
-  %.093.i = phi ptr [ %198, %.critedge.i89 ], [ %252, %.critedge108.i ]
+265:                                              ; preds = %.critedge108.i, %232
+  %.093.i = phi ptr [ %252, %.critedge108.i ], [ %198, %232 ]
   %266 = getelementptr inbounds nuw i8, ptr %52, i64 26
   %267 = load i8, ptr %266, align 2, !range !6, !noundef !7
   %268 = icmp eq i8 %267, 0
@@ -10285,7 +10280,12 @@ proto_item_set_generated.exit155.i:               ; preds = %437, %434, %proto_i
   store i32 %450, ptr %448, align 4
   br label %transaction_end.exit
 
-transaction_end.exit:                             ; preds = %242, %proto_item_set_generated.exit.i88, %proto_item_set_generated.exit155.i, %444, %447
+.critedge.i89:                                    ; preds = %227, %222, %217, %210, %205, %200, %193
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %transaction_end.exit
+
+transaction_end.exit:                             ; preds = %proto_item_set_generated.exit.i88, %proto_item_set_generated.exit155.i, %444, %447, %.critedge.i89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %451
 

@@ -308,7 +308,7 @@ hostcache_entry_is_stale.exit.thread:             ; preds = %28, %.thread65
   br i1 %65, label %.thread73.sink.split.sink.split, label %.thread73.sink.split
 
 .thread73.sink.split.sink.split:                  ; preds = %59, %62, %38, %41
-  %.str.21.sink = phi ptr [ @.str.20, %41 ], [ @.str.20, %38 ], [ @.str.21, %62 ], [ @.str.21, %59 ]
+  %.str.21.sink = phi ptr [ @.str.20, %38 ], [ @.str.20, %41 ], [ @.str.21, %62 ], [ @.str.21, %59 ]
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.21.sink) #10
   br label %.thread73.sink.split
 
@@ -885,7 +885,7 @@ get_localhost6.exit.thread.i:                     ; preds = %98
   br label %get_localhost.exit
 
 get_localhost.exit:                               ; preds = %89, %94, %get_localhost6.exit.thread.i, %112
-  %.0.i = phi ptr [ %111, %112 ], [ null, %89 ], [ null, %94 ], [ %97, %get_localhost6.exit.thread.i ]
+  %.0.i = phi ptr [ null, %89 ], [ %111, %112 ], [ null, %94 ], [ %97, %get_localhost6.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %135
 
@@ -912,7 +912,7 @@ get_localhost.exit:                               ; preds = %89, %94, %get_local
   br label %135
 
 135:                                              ; preds = %get_localhost.exit, %133, %129
-  %.384 = phi ptr [ %.0.i, %get_localhost.exit ], [ %130, %129 ], [ %134, %133 ]
+  %.384 = phi ptr [ %134, %133 ], [ %.0.i, %get_localhost.exit ], [ %130, %129 ]
   %.not110 = icmp eq ptr %.384, null
   br i1 %.not110, label %136, label %.thread124
 
@@ -967,8 +967,8 @@ get_localhost.exit:                               ; preds = %89, %94, %get_local
   br label %153
 
 153:                                              ; preds = %136, %152, %151, %140
-  %.pre = phi ptr [ %146, %152 ], [ %.pre.pre, %151 ], [ null, %136 ], [ %141, %140 ]
-  %.279 = phi i32 [ 0, %152 ], [ %.077, %151 ], [ %.077, %136 ], [ %., %140 ]
+  %.pre = phi ptr [ %146, %152 ], [ %.pre.pre, %151 ], [ %141, %140 ], [ null, %136 ]
+  %.279 = phi i32 [ 0, %152 ], [ %.077, %151 ], [ %., %140 ], [ %.077, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %154
@@ -979,7 +979,7 @@ get_localhost.exit:                               ; preds = %89, %94, %get_local
   store ptr %155, ptr %4, align 8, !tbaa !125
   br label %156
 
-.critedge118:                                     ; preds = %73, %138, %131, %79, %68, %58
+.critedge118:                                     ; preds = %73, %58, %68, %79, %131, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %156
@@ -1661,12 +1661,12 @@ create_hostcache_id.exit:                         ; preds = %21
   %.not183 = icmp eq ptr %.2153, null
   br i1 %.not183, label %.thread232, label %113
 
-.thread232.loopexit:                              ; preds = %83, %81, %92
+.thread232.loopexit:                              ; preds = %81, %92, %83
   store ptr %.0143, ptr %4, align 8
   br label %.thread232
 
 .thread232:                                       ; preds = %56, %69, %66, %59, %._crit_edge, %.thread232.loopexit, %97, %102, %106
-  %.0151238 = phi ptr [ %.1152263, %106 ], [ %.1152263, %102 ], [ %.1152263, %97 ], [ %.1152263, %.thread232.loopexit ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
+  %.0151238 = phi ptr [ %.1152263, %.thread232.loopexit ], [ %.1152263, %106 ], [ %.1152263, %102 ], [ %.1152263, %97 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
   %112 = load ptr, ptr %.0132268, align 8, !tbaa !136
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %112) #10
   br label %.loopexit

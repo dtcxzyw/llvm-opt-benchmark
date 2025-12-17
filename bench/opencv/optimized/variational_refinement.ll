@@ -3188,8 +3188,8 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628: ;
   br label %343
 
 341:                                              ; preds = %328, %330, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628
-  %.sroa.0706.0.ph = phi ptr [ %193, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628 ], [ %191, %330 ], [ %190, %328 ]
-  %.pn119.pn.pn.ph = phi { ptr, i32 } [ %.pn119.pn, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628 ], [ %331, %330 ], [ %329, %328 ]
+  %.sroa.0706.0.ph = phi ptr [ %193, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628 ], [ %190, %328 ], [ %191, %330 ]
+  %.pn119.pn.pn.ph = phi { ptr, i32 } [ %.pn119.pn, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit628 ], [ %329, %328 ], [ %331, %330 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0706.0.ph) #21
   br label %343
 
@@ -3216,7 +3216,7 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630: ;
   br label %346
 
 346:                                              ; preds = %.thread924, %.thread929
-  %.pn119.pn.pn.pn.pn928 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn927, %.thread924 ], [ %319, %.thread929 ]
+  %.pn119.pn.pn.pn.pn928 = phi { ptr, i32 } [ %319, %.thread929 ], [ %.pn119.pn.pn.pn.pn927, %.thread924 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.thread934
 
@@ -3227,7 +3227,7 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630: ;
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit636:              ; preds = %.thread939, %.thread934
-  %.pn119.pn.pn.pn.pn.pn938 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn937, %.thread934 ], [ %314, %.thread939 ]
+  %.pn119.pn.pn.pn.pn.pn938 = phi { ptr, i32 } [ %314, %.thread939 ], [ %.pn119.pn.pn.pn.pn.pn937, %.thread934 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %381
 
@@ -3333,13 +3333,13 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit638: ;
   br label %.thread949
 
 .thread949:                                       ; preds = %377, %354, %356, %.thread957
-  %.pn126.pn.pn.pn.pn952 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.ph, %377 ], [ %376, %.thread957 ], [ %355, %354 ], [ %357, %356 ]
-  %378 = phi ptr [ %232, %377 ], [ %232, %.thread957 ], [ %228, %354 ], [ %229, %356 ]
+  %.pn126.pn.pn.pn.pn952 = phi { ptr, i32 } [ %376, %.thread957 ], [ %.pn126.pn.pn.pn.ph, %377 ], [ %355, %354 ], [ %357, %356 ]
+  %378 = phi ptr [ %232, %.thread957 ], [ %232, %377 ], [ %228, %354 ], [ %229, %356 ]
   call void @_ZdlPv(ptr noundef nonnull %378) #21
   br label %379
 
 379:                                              ; preds = %.thread949, %.thread954
-  %.pn126.pn.pn.pn.pn953 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn952, %.thread949 ], [ %353, %.thread954 ]
+  %.pn126.pn.pn.pn.pn953 = phi { ptr, i32 } [ %353, %.thread954 ], [ %.pn126.pn.pn.pn.pn952, %.thread949 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.thread963
 
@@ -3350,7 +3350,7 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit638: ;
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit646:              ; preds = %.thread968, %.thread963
-  %.pn126.pn.pn.pn.pn.pn967 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn966, %.thread963 ], [ %348, %.thread968 ]
+  %.pn126.pn.pn.pn.pn.pn967 = phi { ptr, i32 } [ %348, %.thread968 ], [ %.pn126.pn.pn.pn.pn.pn966, %.thread963 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %381
 
@@ -4635,27 +4635,27 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge289, %78
   br label %336
 
 336:                                              ; preds = %325, %314, %199, %188
-  %.0263 = phi ptr [ %90, %188 ], [ %90, %199 ], [ %216, %314 ], [ %216, %325 ]
-  %.0262 = phi ptr [ %96, %188 ], [ %96, %199 ], [ %222, %314 ], [ %222, %325 ]
-  %.0261 = phi ptr [ %189, %188 ], [ %200, %199 ], [ %315, %314 ], [ %326, %325 ]
-  %.0260 = phi ptr [ %120, %188 ], [ %120, %199 ], [ %246, %314 ], [ %246, %325 ]
-  %.0259 = phi ptr [ %193, %188 ], [ %204, %199 ], [ %319, %314 ], [ %330, %325 ]
-  %.0258 = phi ptr [ %102, %188 ], [ %102, %199 ], [ %228, %314 ], [ %228, %325 ]
-  %.0257 = phi ptr [ %190, %188 ], [ %201, %199 ], [ %316, %314 ], [ %327, %325 ]
-  %.0256 = phi ptr [ %126, %188 ], [ %126, %199 ], [ %252, %314 ], [ %252, %325 ]
-  %.0255 = phi ptr [ %194, %188 ], [ %205, %199 ], [ %320, %314 ], [ %331, %325 ]
-  %.0254 = phi ptr [ %108, %188 ], [ %108, %199 ], [ %234, %314 ], [ %234, %325 ]
-  %.0253 = phi ptr [ %191, %188 ], [ %202, %199 ], [ %317, %314 ], [ %328, %325 ]
-  %.0252 = phi ptr [ %145, %188 ], [ %145, %199 ], [ %271, %314 ], [ %271, %325 ]
-  %.0251 = phi ptr [ %132, %188 ], [ %132, %199 ], [ %258, %314 ], [ %258, %325 ]
-  %.0250 = phi ptr [ %195, %188 ], [ %206, %199 ], [ %321, %314 ], [ %332, %325 ]
-  %.0249 = phi ptr [ %151, %188 ], [ %151, %199 ], [ %277, %314 ], [ %277, %325 ]
-  %.0248 = phi ptr [ %114, %188 ], [ %114, %199 ], [ %240, %314 ], [ %240, %325 ]
-  %.0247 = phi ptr [ %192, %188 ], [ %203, %199 ], [ %318, %314 ], [ %329, %325 ]
-  %.0246 = phi ptr [ %138, %188 ], [ %138, %199 ], [ %264, %314 ], [ %264, %325 ]
-  %.0245 = phi ptr [ %196, %188 ], [ %207, %199 ], [ %322, %314 ], [ %333, %325 ]
-  %.0244 = phi i32 [ %197, %188 ], [ %208, %199 ], [ %323, %314 ], [ %334, %325 ]
-  %.0243 = phi i1 [ %.not273, %188 ], [ %.not272, %199 ], [ %.not271, %314 ], [ %.not, %325 ]
+  %.0263 = phi ptr [ %90, %188 ], [ %216, %314 ], [ %90, %199 ], [ %216, %325 ]
+  %.0262 = phi ptr [ %96, %188 ], [ %222, %314 ], [ %96, %199 ], [ %222, %325 ]
+  %.0261 = phi ptr [ %189, %188 ], [ %315, %314 ], [ %200, %199 ], [ %326, %325 ]
+  %.0260 = phi ptr [ %120, %188 ], [ %246, %314 ], [ %120, %199 ], [ %246, %325 ]
+  %.0259 = phi ptr [ %193, %188 ], [ %319, %314 ], [ %204, %199 ], [ %330, %325 ]
+  %.0258 = phi ptr [ %102, %188 ], [ %228, %314 ], [ %102, %199 ], [ %228, %325 ]
+  %.0257 = phi ptr [ %190, %188 ], [ %316, %314 ], [ %201, %199 ], [ %327, %325 ]
+  %.0256 = phi ptr [ %126, %188 ], [ %252, %314 ], [ %126, %199 ], [ %252, %325 ]
+  %.0255 = phi ptr [ %194, %188 ], [ %320, %314 ], [ %205, %199 ], [ %331, %325 ]
+  %.0254 = phi ptr [ %108, %188 ], [ %234, %314 ], [ %108, %199 ], [ %234, %325 ]
+  %.0253 = phi ptr [ %191, %188 ], [ %317, %314 ], [ %202, %199 ], [ %328, %325 ]
+  %.0252 = phi ptr [ %145, %188 ], [ %271, %314 ], [ %145, %199 ], [ %271, %325 ]
+  %.0251 = phi ptr [ %132, %188 ], [ %258, %314 ], [ %132, %199 ], [ %258, %325 ]
+  %.0250 = phi ptr [ %195, %188 ], [ %321, %314 ], [ %206, %199 ], [ %332, %325 ]
+  %.0249 = phi ptr [ %151, %188 ], [ %277, %314 ], [ %151, %199 ], [ %277, %325 ]
+  %.0248 = phi ptr [ %114, %188 ], [ %240, %314 ], [ %114, %199 ], [ %240, %325 ]
+  %.0247 = phi ptr [ %192, %188 ], [ %318, %314 ], [ %203, %199 ], [ %329, %325 ]
+  %.0246 = phi ptr [ %138, %188 ], [ %264, %314 ], [ %138, %199 ], [ %264, %325 ]
+  %.0245 = phi ptr [ %196, %188 ], [ %322, %314 ], [ %207, %199 ], [ %333, %325 ]
+  %.0244 = phi i32 [ %197, %188 ], [ %323, %314 ], [ %208, %199 ], [ %334, %325 ]
+  %.0243 = phi i1 [ %.not273, %188 ], [ %.not271, %314 ], [ %.not272, %199 ], [ %.not, %325 ]
   %337 = add i32 %.0244, -1
   %338 = icmp sgt i32 %.0244, 1
   br i1 %338, label %.lr.ph.preheader, label %._crit_edge
@@ -7482,7 +7482,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit179:    ; preds = %525, %528
   br label %535
 
 535:                                              ; preds = %359, %534, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %65
-  %.pn139.pn = phi { ptr, i32 } [ %.pn139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ], [ %.pn135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %.pn133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162 ], [ %66, %65 ], [ %.pn95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159 ], [ %.pn93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn, %534 ], [ %360, %359 ]
+  %.pn139.pn = phi { ptr, i32 } [ %.pn139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144 ], [ %.pn135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153 ], [ %.pn133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ], [ %.pn97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162 ], [ %66, %65 ], [ %.pn95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159 ], [ %.pn93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn, %534 ], [ %360, %359 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn139.pn

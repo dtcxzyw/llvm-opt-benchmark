@@ -433,7 +433,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
   br label %36
 
 36:                                               ; preds = %35, %34, %33, %32, %31, %30, %29, %28, %27
-  %37 = phi ptr [ @.str.12, %35 ], [ @.str.9, %30 ], [ @.str.8, %29 ], [ @.str.7, %28 ], [ @.str.9, %34 ], [ @.str.8, %33 ], [ @.str.6, %32 ], [ @.str.6, %27 ], [ @.str.7, %31 ]
+  %37 = phi ptr [ @.str.12, %35 ], [ @.str.6, %27 ], [ @.str.7, %31 ], [ @.str.9, %30 ], [ @.str.8, %29 ], [ @.str.7, %28 ], [ @.str.9, %34 ], [ @.str.8, %33 ], [ @.str.6, %32 ]
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %21, ptr noundef nonnull %37) #8
   br label %38
 
@@ -565,7 +565,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br label %53
 
 53:                                               ; preds = %37, %44
-  %.pr = phi i32 [ %.pr.pre10, %37 ], [ %.pr.pre, %44 ]
+  %.pr = phi i32 [ %.pr.pre, %44 ], [ %.pr.pre10, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = icmp sgt i32 %.pr, 0
   br i1 %54, label %55, label %.thread9
@@ -611,7 +611,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br label %77
 
 77:                                               ; preds = %61, %68
-  %.pr8 = phi i32 [ %.pr8.pre12, %61 ], [ %.pr8.pre, %68 ]
+  %.pr8 = phi i32 [ %.pr8.pre, %68 ], [ %.pr8.pre12, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %78 = icmp sgt i32 %.pr8, 0
   br i1 %78, label %79, label %.thread9
@@ -1276,7 +1276,7 @@ split.thread:                                     ; preds = %38, %44, %split
   br i1 %311, label %227, label %.thread35.sink.split, !llvm.loop !20
 
 .thread35.sink.split:                             ; preds = %.thread41, %.loopexit, %138, %120, %215, %222, %136, %212, %117
-  %.sink = phi ptr [ %115, %117 ], [ %210, %212 ], [ %115, %120 ], [ %210, %222 ], [ %210, %215 ], [ %115, %136 ], [ %115, %138 ], [ %115, %.loopexit ], [ %210, %.thread41 ]
+  %.sink = phi ptr [ %115, %117 ], [ %210, %212 ], [ %115, %120 ], [ %210, %222 ], [ %210, %215 ], [ %115, %136 ], [ %115, %.loopexit ], [ %115, %138 ], [ %210, %.thread41 ]
   tail call void @kfree(ptr noundef nonnull %.sink) #8
   br label %.thread35
 

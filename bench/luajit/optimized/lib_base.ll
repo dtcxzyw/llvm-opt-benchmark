@@ -1726,7 +1726,7 @@ define internal noundef i32 @lj_cf_coroutine_status(ptr noundef %0) #2 {
   br label %31
 
 31:                                               ; preds = %27, %19, %15, %11, %18
-  %.0 = phi ptr [ @.str.12, %18 ], [ @.str.10, %11 ], [ @.str.11, %15 ], [ @.str.13, %19 ], [ %.str.12..str.11, %27 ]
+  %.0 = phi ptr [ @.str.13, %19 ], [ @.str.10, %11 ], [ @.str.12, %18 ], [ @.str.11, %15 ], [ %.str.12..str.11, %27 ]
   tail call void @lua_pushstring(ptr noundef nonnull %0, ptr noundef nonnull %.0) #11
   ret i32 1
 }

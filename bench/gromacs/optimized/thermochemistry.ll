@@ -418,7 +418,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   br label %47
 
 47:                                               ; preds = %20, %36, %42, %40
-  %.1 = phi double [ %.030, %42 ], [ %.030, %40 ], [ %34, %36 ], [ %34, %20 ]
+  %.1 = phi double [ %.030, %40 ], [ %.030, %42 ], [ %34, %36 ], [ %34, %20 ]
   %48 = add nuw nsw i64 %.02229, 1
   %exitcond.not = icmp eq i64 %48, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !16

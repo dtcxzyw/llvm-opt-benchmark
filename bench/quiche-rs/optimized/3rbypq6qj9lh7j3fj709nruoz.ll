@@ -1413,7 +1413,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0f17a6923630afE.exit"
 
 "_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0f17a6923630afE.exit": ; preds = %2, %15, %22, %28
-  %.sroa.0.0.i.i = phi i1 [ false, %2 ], [ %27, %22 ], [ %33, %28 ], [ false, %15 ]
+  %.sroa.0.0.i.i = phi i1 [ false, %15 ], [ false, %2 ], [ %27, %22 ], [ %33, %28 ]
   ret i1 %.sroa.0.0.i.i
 }
 
@@ -1448,7 +1448,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   br label %"_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4efc44d236c0158cE.exit"
 
 "_ZN75_$LT$prometools..serde..Bridge$LT$S$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4efc44d236c0158cE.exit": ; preds = %2, %10
-  %.sroa.0.0.i.i.i = phi i1 [ false, %2 ], [ %spec.select.i.i.i, %10 ]
+  %.sroa.0.0.i.i.i = phi i1 [ %spec.select.i.i.i, %10 ], [ false, %2 ]
   ret i1 %.sroa.0.0.i.i.i
 }
 
@@ -3497,7 +3497,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha2ce0c49df012e24E.exit.thread2.i.i: ; p
   br label %.body.i
 
 .body.i:                                          ; preds = %.loopexit, %.loopexit.split-lp, %54, %43
-  %eh.lpad-body.i = phi { ptr, i32 } [ %44, %43 ], [ %55, %54 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h82dfa1a59f78d7b5E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %8) #27
           to label %63 unwind label %61, !noalias !133
 

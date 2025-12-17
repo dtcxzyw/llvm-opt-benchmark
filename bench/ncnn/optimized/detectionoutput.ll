@@ -436,7 +436,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %177
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %177
-  %.0.i.i.i.i = phi ptr [ %178, %177 ], [ %181, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %181, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %178, %177 ]
   store ptr %.0.i.i.i.i, ptr %159, align 8, !tbaa !67
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -729,7 +729,7 @@ _ZNSt6vectorIS_IN4ncnn8BBoxRectESaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_Dest
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
 306:                                              ; preds = %134, %136, %236, %204
-  %.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %205, %204 ], [ %137, %136 ], [ %135, %134 ]
+  %.pn.pn = phi { ptr, i32 } [ %205, %204 ], [ %237, %236 ], [ %137, %136 ], [ %135, %134 ]
   %307 = load ptr, ptr %15, align 8, !tbaa !69
   %.not.i.i.i100 = icmp eq ptr %307, null
   br i1 %.not.i.i.i100, label %_ZNSt6vectorIfSaIfEED2Ev.exit101, label %308
@@ -1228,7 +1228,7 @@ define internal void @_ZNK4ncnn15DetectionOutput7forwardERKSt6vectorINS_3MatESaI
   br i1 %98, label %.invoke, label %_ZNKSt6vectorIN4ncnn8BBoxRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 .invoke:                                          ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit.i, %178, %115, %93, %365, %336
-  %99 = phi ptr [ @.str.2, %336 ], [ @.str.2, %365 ], [ @.str.2, %93 ], [ @.str.2, %115 ], [ @.str, %178 ], [ @.str.3, %_ZNSt6vectorImSaImEE5clearEv.exit.i ]
+  %99 = phi ptr [ @.str.2, %115 ], [ @.str.2, %365 ], [ @.str.2, %336 ], [ @.str.2, %93 ], [ @.str, %178 ], [ @.str.3, %_ZNSt6vectorImSaImEE5clearEv.exit.i ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %99) #21
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1348,11 +1348,11 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %113, %_ZNSt6vectorI
   br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 _ZN4ncnnL21qsort_descent_inplaceINS_8BBoxRectEEEvRSt6vectorIT_SaIS3_EERS2_IfSaIfEE.exit: ; preds = %35, %44, %._crit_edge
-  %139 = phi ptr [ %135, %44 ], [ %135, %._crit_edge ], [ null, %35 ]
-  %140 = phi ptr [ %134, %44 ], [ %134, %._crit_edge ], [ null, %35 ]
-  %141 = phi i64 [ %41, %44 ], [ %41, %._crit_edge ], [ 0, %35 ]
-  %142 = phi ptr [ %.pre138, %44 ], [ %.pre, %._crit_edge ], [ null, %35 ]
-  %143 = phi ptr [ %.pre137, %44 ], [ %.pre136, %._crit_edge ], [ null, %35 ]
+  %139 = phi ptr [ %135, %44 ], [ null, %35 ], [ %135, %._crit_edge ]
+  %140 = phi ptr [ %134, %44 ], [ null, %35 ], [ %134, %._crit_edge ]
+  %141 = phi i64 [ %41, %44 ], [ 0, %35 ], [ %41, %._crit_edge ]
+  %142 = phi ptr [ %.pre138, %44 ], [ null, %35 ], [ %.pre, %._crit_edge ]
+  %143 = phi ptr [ %.pre137, %44 ], [ null, %35 ], [ %.pre136, %._crit_edge ]
   %144 = load i32, ptr %32, align 8, !tbaa !28
   %145 = ptrtoint ptr %143 to i64
   %146 = ptrtoint ptr %142 to i64
@@ -1425,7 +1425,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %173
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %173
-  %.0.i.i.i.i = phi ptr [ %174, %173 ], [ %177, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %177, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %174, %173 ]
   store ptr %.0.i.i.i.i, ptr %30, align 8, !tbaa !67
   br label %_ZNSt6vectorImSaImEE5clearEv.exit.i
 

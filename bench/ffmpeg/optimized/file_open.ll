@@ -154,7 +154,7 @@ define noalias noundef ptr @avpriv_fopen_utf8(ptr noundef readonly captures(none
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %5, %4
-  %.1.ph = phi i32 [ 0, %2 ], [ 1089, %5 ], [ 577, %4 ]
+  %.1.ph = phi i32 [ 577, %4 ], [ 1089, %5 ], [ 0, %2 ]
   br label %.outer
 
 5:                                                ; preds = %2

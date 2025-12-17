@@ -580,7 +580,7 @@ define hidden range(i32 -1, 256) i32 @jHufDecode(ptr noundef captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %7, %54, %45
-  %.040 = phi i32 [ 0, %45 ], [ %65, %54 ], [ -1, %7 ], [ -1, %28 ]
+  %.040 = phi i32 [ -1, %7 ], [ 0, %45 ], [ %65, %54 ], [ -1, %28 ]
   ret i32 %.040
 }
 
@@ -1229,8 +1229,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br i1 %243, label %.preheader, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %196, %199, %240, %241
-  %.18167 = phi i32 [ %.17166, %241 ], [ %.15164, %240 ], [ %.11160, %199 ], [ %.9158, %196 ]
-  %.18 = phi i32 [ %.17, %241 ], [ %.15, %240 ], [ %.11, %199 ], [ %.9, %196 ]
+  %.18167 = phi i32 [ %.15164, %240 ], [ %.17166, %241 ], [ %.11160, %199 ], [ %.9158, %196 ]
+  %.18 = phi i32 [ %.15, %240 ], [ %.17, %241 ], [ %.11, %199 ], [ %.9, %196 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %244 = load i32, ptr %56, align 8
   %245 = sext i32 %244 to i64
@@ -1266,7 +1266,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   br label %process_restart.exit
 
 process_restart.exit:                             ; preds = %104, %96, %74, %170, %159, %139, %233, %223, %203, %13, %252
-  %.0 = phi i32 [ 1, %252 ], [ 0, %13 ], [ 0, %203 ], [ 0, %223 ], [ 0, %233 ], [ 0, %139 ], [ 0, %159 ], [ 0, %170 ], [ 0, %74 ], [ 0, %96 ], [ 0, %104 ]
+  %.0 = phi i32 [ 1, %252 ], [ 0, %13 ], [ 0, %170 ], [ 0, %233 ], [ 0, %203 ], [ 0, %223 ], [ 0, %139 ], [ 0, %159 ], [ 0, %74 ], [ 0, %96 ], [ 0, %104 ]
   ret i32 %.0
 }
 

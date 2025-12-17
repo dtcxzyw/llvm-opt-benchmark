@@ -458,7 +458,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_valid(ptr noundef readonly ca
   br i1 %.not, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %32, %33, %40, %27, %8, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %8 ], [ 1, %27 ], [ 1, %32 ], [ 0, %33 ], [ 0, %40 ]
+  %.0 = phi i32 [ 1, %1 ], [ 0, %8 ], [ 1, %27 ], [ 0, %33 ], [ 1, %32 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -819,7 +819,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %65, %64
   br label %H5S__hyper_is_regular.exit
 
 H5S__hyper_is_regular.exit:                       ; preds = %48, %88
-  %.0.i = phi i1 [ false, %48 ], [ %90, %88 ]
+  %.0.i = phi i1 [ %90, %88 ], [ false, %48 ]
   %91 = load i32, ptr %9, align 4
   %92 = and i32 %91, -2
   %or.cond = icmp eq i32 %92, 2
@@ -1693,8 +1693,8 @@ H5S__hyper_is_regular.exit:                       ; preds = %48, %88
   br label %.loopexit
 
 .loopexit:                                        ; preds = %326, %226, %.loopexit.loopexit413, %.preheader329, %.preheader328, %._crit_edge395, %.loopexit483
-  %541 = phi i32 [ %91, %._crit_edge395 ], [ %91, %.loopexit483 ], [ %91, %.preheader328 ], [ %91, %.preheader329 ], [ %.pre451, %.loopexit.loopexit413 ], [ %91, %226 ], [ %91, %326 ]
-  %.3300 = phi i32 [ %.0297, %._crit_edge395 ], [ %.4301, %.loopexit483 ], [ %.0297, %.preheader328 ], [ %.0297, %.preheader329 ], [ %.2299.lcssa, %.loopexit.loopexit413 ], [ %.0297, %226 ], [ %.0297, %326 ]
+  %541 = phi i32 [ %91, %._crit_edge395 ], [ %91, %.preheader329 ], [ %91, %.preheader328 ], [ %91, %.loopexit483 ], [ %.pre451, %.loopexit.loopexit413 ], [ %91, %226 ], [ %91, %326 ]
+  %.3300 = phi i32 [ %.0297, %._crit_edge395 ], [ %.0297, %.preheader329 ], [ %.0297, %.preheader328 ], [ %.4301, %.loopexit483 ], [ %.2299.lcssa, %.loopexit.loopexit413 ], [ %.0297, %226 ], [ %.0297, %326 ]
   %542 = icmp ult i32 %541, 3
   br i1 %542, label %.loopexit.thread, label %543
 
@@ -2329,7 +2329,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br label %.thread527
 
 .loopexit558:                                     ; preds = %361, %228, %179, %.preheader561, %.preheader559, %.preheader557
-  %.4452 = phi ptr [ %137, %.preheader557 ], [ %137, %.preheader559 ], [ %137, %.preheader561 ], [ %216, %179 ], [ %305, %228 ], [ %362, %361 ]
+  %.4452 = phi ptr [ %137, %.preheader557 ], [ %137, %.preheader559 ], [ %137, %.preheader561 ], [ %305, %228 ], [ %216, %179 ], [ %362, %361 ]
   %367 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %368 = icmp slt i32 %367, 0
   br i1 %368, label %369, label %373
@@ -2340,7 +2340,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %372 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4389, i64 noundef %370, i64 noundef %371, ptr noundef nonnull @.str.81) #14
   br label %.thread527
 
-.thread527:                                       ; preds = %363, %175, %369, %224, %313
+.thread527:                                       ; preds = %363, %175, %369, %313, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %591
@@ -2455,8 +2455,8 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br label %.thread532
 
 .loopexit757:                                     ; preds = %422, %404, %388
-  %.sink = phi i64 [ 8, %404 ], [ 6, %388 ], [ 12, %422 ]
-  %.0418 = phi i64 [ %406, %404 ], [ %390, %388 ], [ %427, %422 ]
+  %.sink = phi i64 [ 6, %388 ], [ 8, %404 ], [ 12, %422 ]
+  %.0418 = phi i64 [ %390, %388 ], [ %406, %404 ], [ %427, %422 ]
   %433 = getelementptr i8, ptr %.1449526, i64 %.sink
   %.not651 = icmp eq i64 %.0418, 0
   br i1 %.not651, label %._crit_edge643, label %.lr.ph642
@@ -2748,7 +2748,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   br i1 %exitcond697.not, label %._crit_edge, label %.lr.ph638, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph638, %540, %489, %458
-  %.18717 = phi ptr [ %.15639, %458 ], [ %.15639, %489 ], [ %.15639, %540 ], [ %.18722, %.lr.ph638 ]
+  %.18717 = phi ptr [ %.15639, %540 ], [ %.15639, %489 ], [ %.15639, %458 ], [ %.18722, %.lr.ph638 ]
   %580 = icmp ne i32 %.3447640, 0
   %581 = zext i1 %580 to i32
   %582 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %.1431, i32 noundef %581, ptr noundef nonnull %6, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull @H5S_hyper_ones_g, ptr noundef nonnull %7)
@@ -2761,7 +2761,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_deserialize(ptr noundef capture
   %587 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_deserialize, i32 noundef 4482, i64 noundef %585, i64 noundef %586, ptr noundef nonnull @.str.81) #14
   br label %.thread532
 
-.thread532:                                       ; preds = %429, %567, %584, %454, %485, %536, %384, %400, %416
+.thread532:                                       ; preds = %429, %567, %584, %454, %485, %536, %416, %384, %400
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %591
 
@@ -2909,7 +2909,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_bounds(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %.preheader, %3, %57, %39
-  %.039 = phi i32 [ 0, %57 ], [ 0, %3 ], [ -1, %39 ], [ 0, %.preheader ], [ 0, %55 ]
+  %.039 = phi i32 [ 0, %3 ], [ 0, %57 ], [ -1, %39 ], [ 0, %.preheader ], [ 0, %55 ]
   ret i32 %.039
 }
 
@@ -3053,7 +3053,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_offset(ptr noundef readonly cap
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %21, %.thread, %2, %.loopexit84
-  %.065 = phi i32 [ %.6, %.loopexit84 ], [ 0, %2 ], [ -1, %.thread ], [ 0, %21 ], [ 0, %37 ]
+  %.065 = phi i32 [ 0, %2 ], [ %.6, %.loopexit84 ], [ -1, %.thread ], [ 0, %21 ], [ 0, %37 ]
   ret i32 %.065
 }
 
@@ -3274,7 +3274,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_contiguous(ptr noundef readon
   br i1 %.not70, label %.loopexit, label %79, !llvm.loop !100
 
 .loopexit:                                        ; preds = %74, %88, %79, %92, %32, %47, %37, %44, %13, %.loopexit82, %55, %1
-  %.057 = phi i32 [ 0, %1 ], [ 1, %55 ], [ 1, %.loopexit82 ], [ 1, %13 ], [ 1, %47 ], [ 0, %37 ], [ 0, %44 ], [ 1, %32 ], [ 0, %88 ], [ 0, %79 ], [ 1, %92 ], [ 1, %74 ]
+  %.057 = phi i32 [ 0, %1 ], [ 1, %55 ], [ 1, %.loopexit82 ], [ 1, %13 ], [ 1, %92 ], [ 0, %44 ], [ 1, %32 ], [ 1, %47 ], [ 0, %37 ], [ 0, %88 ], [ 0, %79 ], [ 1, %74 ]
   ret i32 %.057
 }
 
@@ -3340,7 +3340,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_is_single(ptr noundef readonly c
   br i1 %.not22, label %22, label %.thread
 
 .thread:                                          ; preds = %22, %.lr.ph, %.lr.ph34, %15, %20, %.preheader, %1
-  %.019 = phi i32 [ 1, %1 ], [ 1, %.preheader ], [ 1, %20 ], [ 0, %.lr.ph34 ], [ 1, %15 ], [ 1, %22 ], [ 0, %.lr.ph ]
+  %.019 = phi i32 [ 1, %1 ], [ 1, %20 ], [ 1, %.preheader ], [ 1, %15 ], [ 0, %.lr.ph34 ], [ 0, %.lr.ph ], [ 1, %22 ]
   ret i32 %.019
 }
 
@@ -3418,7 +3418,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %19, %20
   br label %47
 
 47:                                               ; preds = %44, %1
-  %.0 = phi i32 [ -1, %1 ], [ %., %44 ]
+  %.0 = phi i32 [ %., %44 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -3814,7 +3814,7 @@ H5S__hyper_spans_shape_same.exit:                 ; preds = %.thread86, %.crited
   br label %.loopexit
 
 .loopexit:                                        ; preds = %167, %.lr.ph, %122, %117, %110, %.lr.ph100, %127, %.preheader, %2, %H5S__hyper_spans_shape_same.exit, %153, %141
-  %.067 = phi i32 [ 1, %2 ], [ -1, %141 ], [ -1, %153 ], [ %218, %H5S__hyper_spans_shape_same.exit ], [ 1, %.preheader ], [ 0, %.lr.ph100 ], [ 1, %127 ], [ 0, %110 ], [ 0, %117 ], [ 0, %122 ], [ 0, %.lr.ph ], [ 0, %167 ]
+  %.067 = phi i32 [ 1, %2 ], [ -1, %141 ], [ -1, %153 ], [ %218, %H5S__hyper_spans_shape_same.exit ], [ 1, %.preheader ], [ 0, %122 ], [ 1, %127 ], [ 0, %.lr.ph100 ], [ 0, %110 ], [ 0, %117 ], [ 0, %.lr.ph ], [ 0, %167 ]
   ret i32 %.067
 }
 
@@ -3959,7 +3959,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %21, %22
   %.not64 = icmp ult i64 %80, %69
   br i1 %.not64, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %76, %._crit_edge87, %57
+.thread:                                          ; preds = %._crit_edge87, %76, %57
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
   br i1 %exitcond85.not, label %.loopexit, label %57, !llvm.loop !109
@@ -3977,7 +3977,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %21, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %76, %.preheader71, %3, %81, %._crit_edge
-  %.054 = phi i32 [ %89, %81 ], [ -1, %3 ], [ 1, %._crit_edge ], [ 1, %.preheader71 ], [ 1, %.thread ], [ 0, %76 ]
+  %.054 = phi i32 [ -1, %3 ], [ %89, %81 ], [ 1, %._crit_edge ], [ 1, %.preheader71 ], [ 0, %76 ], [ 1, %.thread ]
   ret i32 %.054
 }
 
@@ -5856,7 +5856,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
   br label %165
 
 165:                                              ; preds = %157, %153
-  %.promoted.i = phi i64 [ %164, %157 ], [ %.promoted.pre.i, %153 ]
+  %.promoted.i = phi i64 [ %.promoted.pre.i, %153 ], [ %164, %157 ]
   %.not152.i = icmp eq i64 %.promoted.i, 0
   br i1 %.not152.i, label %._crit_edge.i, label %.lr.ph101.i
 
@@ -6141,7 +6141,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_add_span_element(ptr noundef captures(non
   br label %.thread
 
 .thread:                                          ; preds = %76, %30, %13, %59, %17, %80, %77
-  %.1 = phi i32 [ -1, %80 ], [ -1, %77 ], [ 0, %17 ], [ %.2, %76 ], [ 0, %59 ], [ -1, %30 ], [ -1, %13 ]
+  %.1 = phi i32 [ -1, %80 ], [ -1, %77 ], [ -1, %13 ], [ 0, %17 ], [ %.2, %76 ], [ 0, %59 ], [ -1, %30 ]
   ret i32 %.1
 }
 
@@ -6394,27 +6394,27 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   %64 = getelementptr inbounds nuw i8, ptr %.0111168, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !92
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %73, label %67
+  br i1 %66, label %67, label %71
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %69 = load i64, ptr %68, align 8, !tbaa !146
-  %.not137 = icmp eq i64 %69, %59
-  br i1 %.not137, label %121, label %70
+  %68 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !96
+  %70 = icmp eq ptr %69, %.
+  br i1 %70, label %77, label %121
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %62, align 8, !tbaa !92
-  %72 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef nonnull %65, ptr noundef %71) #15
-  store i64 %59, ptr %68, align 8, !tbaa !146
-  br i1 %72, label %77, label %121
+71:                                               ; preds = %63
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %73 = load i64, ptr %72, align 8, !tbaa !146
+  %.not137 = icmp eq i64 %73, %59
+  br i1 %.not137, label %121, label %74
 
-73:                                               ; preds = %63
-  %74 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !96
-  %76 = icmp eq ptr %75, %.
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %62, align 8, !tbaa !92
+  %76 = tail call fastcc zeroext i1 @H5S__hyper_cmp_spans(ptr noundef nonnull %65, ptr noundef %75) #15
+  store i64 %59, ptr %72, align 8, !tbaa !146
   br i1 %76, label %77, label %121
 
-77:                                               ; preds = %70, %73
+77:                                               ; preds = %67, %74
   %78 = getelementptr inbounds nuw i8, ptr %.0111168, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %.0111168, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !97
@@ -6484,7 +6484,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_add_span_element_helper(
   store i32 %120, ptr %118, align 8, !tbaa !20
   br label %.thread
 
-121:                                              ; preds = %73, %67, %70
+121:                                              ; preds = %74, %71, %67
   %122 = getelementptr inbounds nuw i8, ptr %.0111168, i64 24
   %.0111 = load ptr, ptr %122, align 8, !tbaa !88
   %.not136 = icmp eq ptr %.0111, %.
@@ -6586,7 +6586,7 @@ H5S__hyper_coord_to_span.exit:                    ; preds = %123
   br label %.thread
 
 .thread:                                          ; preds = %121, %58, %84, %99, %117, %108, %113, %101, %.thread156, %30, %55, %4, %._crit_edge
-  %.0 = phi i32 [ 0, %4 ], [ 0, %._crit_edge ], [ -1, %30 ], [ 0, %55 ], [ -1, %.thread156 ], [ 0, %117 ], [ 0, %108 ], [ -1, %113 ], [ -1, %101 ], [ 0, %99 ], [ 0, %84 ], [ 0, %58 ], [ 0, %121 ]
+  %.0 = phi i32 [ -1, %.thread156 ], [ 0, %._crit_edge ], [ 0, %4 ], [ -1, %30 ], [ 0, %55 ], [ -1, %101 ], [ 0, %117 ], [ 0, %108 ], [ -1, %113 ], [ 0, %99 ], [ 0, %84 ], [ 0, %58 ], [ 0, %121 ]
   ret i32 %.0
 }
 
@@ -6676,7 +6676,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_free_span_info(ptr nound
   br label %46
 
 46:                                               ; preds = %.thread, %1, %13, %9, %._crit_edge
-  %.017 = phi i32 [ 0, %13 ], [ -1, %9 ], [ 0, %1 ], [ 0, %._crit_edge ], [ -1, %.thread ]
+  %.017 = phi i32 [ 0, %1 ], [ -1, %9 ], [ 0, %13 ], [ -1, %.thread ], [ 0, %._crit_edge ]
   ret i32 %.017
 }
 
@@ -6831,15 +6831,15 @@ define range(i32 -1, 2) i32 @H5S_hyper_normalize_offset(ptr noundef captures(non
   br label %H5S__hyper_adjust_s.exit
 
 H5S__hyper_adjust_s.exit:                         ; preds = %36, %.preheader, %._crit_edge, %.loopexit.i, %66
-  %69 = phi ptr [ %35, %._crit_edge ], [ %35, %.loopexit.i ], [ %35, %66 ], [ %29, %.preheader ], [ %35, %36 ]
-  %70 = phi i32 [ %28, %._crit_edge ], [ %28, %.loopexit.i ], [ %.pre32, %66 ], [ 0, %.preheader ], [ %28, %36 ]
+  %69 = phi ptr [ %29, %.preheader ], [ %35, %._crit_edge ], [ %35, %.loopexit.i ], [ %35, %66 ], [ %35, %36 ]
+  %70 = phi i32 [ 0, %.preheader ], [ %28, %._crit_edge ], [ %28, %.loopexit.i ], [ %.pre32, %66 ], [ %28, %36 ]
   %71 = zext i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %69, i8 0, i64 %72, i1 false)
   br label %73
 
 73:                                               ; preds = %15, %18, %23, %11, %H5S__hyper_adjust_s.exit
-  %.022 = phi i32 [ -1, %11 ], [ 1, %H5S__hyper_adjust_s.exit ], [ 0, %23 ], [ 0, %18 ], [ 0, %15 ]
+  %.022 = phi i32 [ -1, %11 ], [ 0, %15 ], [ 1, %H5S__hyper_adjust_s.exit ], [ 0, %23 ], [ 0, %18 ]
   ret i32 %.022
 }
 
@@ -6956,7 +6956,7 @@ define range(i32 -1, 1) i32 @H5S_hyper_denormalize_offset(ptr noundef captures(n
   br label %H5S__hyper_adjust_s.exit
 
 H5S__hyper_adjust_s.exit:                         ; preds = %20, %.preheader34.i, %.loopexit.i, %50
-  %53 = phi i32 [ 0, %.preheader34.i ], [ %19, %.loopexit.i ], [ %.pre8, %50 ], [ %19, %20 ]
+  %53 = phi i32 [ %.pre8, %50 ], [ 0, %.preheader34.i ], [ %19, %.loopexit.i ], [ %19, %20 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = zext i32 %53 to i64
   %56 = shl nuw nsw i64 %55, 3
@@ -6964,7 +6964,7 @@ H5S__hyper_adjust_s.exit:                         ; preds = %20, %.preheader34.i
   br label %57
 
 57:                                               ; preds = %11, %H5S__hyper_adjust_s.exit, %15
-  %.0 = phi i32 [ -1, %11 ], [ 0, %H5S__hyper_adjust_s.exit ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %11 ], [ 0, %15 ], [ 0, %H5S__hyper_adjust_s.exit ]
   ret i32 %.0
 }
 
@@ -7126,7 +7126,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br label %.thread
 
 .thread:                                          ; preds = %39, %32, %30, %14, %44, %2
-  %.040 = phi i1 [ true, %44 ], [ true, %2 ], [ false, %14 ], [ false, %30 ], [ false, %32 ], [ false, %39 ]
+  %.040 = phi i1 [ false, %14 ], [ true, %44 ], [ true, %2 ], [ false, %30 ], [ false, %32 ], [ false, %39 ]
   ret i1 %.040
 }
 
@@ -7332,8 +7332,8 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   br label %.thread294
 
 .thread294:                                       ; preds = %94, %89
-  %96 = phi i64 [ -1, %89 ], [ %88, %94 ]
-  %.sink = phi i64 [ %83, %89 ], [ %spec.select297, %94 ]
+  %96 = phi i64 [ %88, %94 ], [ -1, %89 ]
+  %.sink = phi i64 [ %spec.select297, %94 ], [ %83, %89 ]
   %97 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv253
   store i64 %.sink, ptr %97, align 8, !tbaa !11
   %98 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv253
@@ -7349,10 +7349,10 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   br i1 %exitcond257.not, label %.loopexit, label %.lr.ph244, !llvm.loop !154
 
 .loopexit:                                        ; preds = %99, %.preheader.thread, %._crit_edge.thread, %._crit_edge
-  %.0185.lcssa292 = phi i32 [ %.1186, %._crit_edge ], [ -1, %._crit_edge.thread ], [ -1, %.preheader.thread ], [ %.1186, %99 ]
-  %.0189 = phi ptr [ @H5S_hyper_ones_g, %._crit_edge ], [ @H5S_hyper_ones_g, %._crit_edge.thread ], [ %7, %.preheader.thread ], [ %7, %99 ]
-  %.0188 = phi ptr [ @H5S_hyper_ones_g, %._crit_edge ], [ @H5S_hyper_ones_g, %._crit_edge.thread ], [ %8, %.preheader.thread ], [ %8, %99 ]
-  %.0187 = phi ptr [ %4, %._crit_edge ], [ %4, %._crit_edge.thread ], [ %9, %.preheader.thread ], [ %9, %99 ]
+  %.0185.lcssa292 = phi i32 [ %.1186, %._crit_edge ], [ -1, %.preheader.thread ], [ -1, %._crit_edge.thread ], [ %.1186, %99 ]
+  %.0189 = phi ptr [ @H5S_hyper_ones_g, %._crit_edge ], [ %7, %.preheader.thread ], [ @H5S_hyper_ones_g, %._crit_edge.thread ], [ %7, %99 ]
+  %.0188 = phi ptr [ @H5S_hyper_ones_g, %._crit_edge ], [ %8, %.preheader.thread ], [ @H5S_hyper_ones_g, %._crit_edge.thread ], [ %8, %99 ]
+  %.0187 = phi ptr [ %4, %._crit_edge ], [ %9, %.preheader.thread ], [ %4, %._crit_edge.thread ], [ %9, %99 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %102 = load ptr, ptr %101, align 8, !tbaa !41
   %103 = load i32, ptr %102, align 8, !tbaa !42
@@ -7499,7 +7499,7 @@ define noundef range(i32 -1, 1) i32 @H5S_select_hyperslab(ptr noundef %0, i32 no
   %177 = icmp eq i32 %1, 0
   br i1 %177, label %.thread210, label %184
 
-.thread210:                                       ; preds = %171, %150, %150, %145, %145, %145, %145, %.thread295
+.thread210:                                       ; preds = %150, %150, %171, %145, %145, %145, %145, %.thread295
   %178 = call fastcc i32 @H5S__set_regular_hyperslab(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef %4, ptr noundef nonnull %spec.store.select12, ptr noundef nonnull %.0189, ptr noundef nonnull %.0188, ptr noundef %.0187)
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %180, label %286
@@ -7715,7 +7715,7 @@ H5S__hyper_get_clip_diminfo.exit:                 ; preds = %229, %213, %232, %2
   br label %286
 
 286:                                              ; preds = %.thread220, %156, %24, %.thread210, %282, %180, %173, %167, %163, %146, %139, %119, %114, %73, %66, %57, %53, %41, %20, %50, %49, %49, %49, %145, %145, %150, %160, %256, %275, %278, %271, %259
-  %.0179 = phi i32 [ -1, %20 ], [ -1, %41 ], [ -1, %57 ], [ -1, %53 ], [ -1, %66 ], [ -1, %73 ], [ -1, %114 ], [ -1, %139 ], [ -1, %173 ], [ -1, %146 ], [ -1, %180 ], [ 0, %.thread210 ], [ -1, %282 ], [ -1, %167 ], [ -1, %156 ], [ -1, %163 ], [ -1, %119 ], [ 0, %24 ], [ 0, %50 ], [ 0, %49 ], [ 0, %49 ], [ 0, %49 ], [ 0, %145 ], [ 0, %145 ], [ 0, %150 ], [ 0, %160 ], [ -1, %259 ], [ -1, %271 ], [ -1, %278 ], [ 0, %275 ], [ 0, %256 ], [ -1, %.thread220 ]
+  %.0179 = phi i32 [ -1, %20 ], [ -1, %41 ], [ -1, %57 ], [ -1, %53 ], [ 0, %24 ], [ 0, %50 ], [ -1, %66 ], [ -1, %73 ], [ -1, %114 ], [ -1, %139 ], [ -1, %173 ], [ -1, %146 ], [ -1, %180 ], [ 0, %.thread210 ], [ 0, %160 ], [ 0, %145 ], [ -1, %282 ], [ 0, %49 ], [ -1, %167 ], [ 0, %145 ], [ -1, %156 ], [ -1, %163 ], [ 0, %150 ], [ -1, %119 ], [ 0, %49 ], [ 0, %49 ], [ -1, %259 ], [ -1, %.thread220 ], [ -1, %271 ], [ -1, %278 ], [ 0, %275 ], [ 0, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7836,8 +7836,8 @@ H5S__hyper_get_clip_diminfo.exit.thread99:        ; preds = %39
   br label %116
 
 .thread100:                                       ; preds = %H5S__hyper_get_clip_diminfo.exit, %H5S__hyper_get_clip_diminfo.exit.thread99
-  %61 = phi i64 [ 1, %H5S__hyper_get_clip_diminfo.exit.thread99 ], [ %.sink101, %H5S__hyper_get_clip_diminfo.exit ]
-  %62 = phi i64 [ %50, %H5S__hyper_get_clip_diminfo.exit.thread99 ], [ %34, %H5S__hyper_get_clip_diminfo.exit ]
+  %61 = phi i64 [ %.sink101, %H5S__hyper_get_clip_diminfo.exit ], [ 1, %H5S__hyper_get_clip_diminfo.exit.thread99 ]
+  %62 = phi i64 [ %34, %H5S__hyper_get_clip_diminfo.exit ], [ %50, %H5S__hyper_get_clip_diminfo.exit.thread99 ]
   %63 = icmp eq i64 %29, 1
   br i1 %63, label %64, label %69
 
@@ -7940,11 +7940,11 @@ H5S__hyper_get_clip_diminfo.exit.thread99:        ; preds = %39
   %.pre89 = load i64, ptr %33, align 8, !tbaa !46
   br label %.thread78
 
-.thread78:                                        ; preds = %..thread78_crit_edge, %102, %64
-  %105 = phi i64 [ %.pre89, %..thread78_crit_edge ], [ %62, %102 ], [ %62, %64 ]
-  %106 = phi i64 [ %.pre88, %..thread78_crit_edge ], [ %61, %102 ], [ %61, %64 ]
-  %107 = phi i64 [ %.pre87, %..thread78_crit_edge ], [ %32, %102 ], [ %32, %64 ]
-  %108 = phi i64 [ %.pre86, %..thread78_crit_edge ], [ %30, %102 ], [ %30, %64 ]
+.thread78:                                        ; preds = %..thread78_crit_edge, %64, %102
+  %105 = phi i64 [ %.pre89, %..thread78_crit_edge ], [ %62, %64 ], [ %62, %102 ]
+  %106 = phi i64 [ %.pre88, %..thread78_crit_edge ], [ %61, %64 ], [ %61, %102 ]
+  %107 = phi i64 [ %.pre87, %..thread78_crit_edge ], [ %32, %64 ], [ %32, %102 ]
+  %108 = phi i64 [ %.pre86, %..thread78_crit_edge ], [ %30, %64 ], [ %30, %102 ]
   %109 = add i64 %106, -1
   %110 = mul i64 %109, %107
   %111 = add i64 %108, -1
@@ -8357,9 +8357,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   br label %102
 
 102:                                              ; preds = %92, %78
-  %103 = phi i64 [ %80, %78 ], [ %97, %92 ]
-  %.3180 = phi i1 [ %spec.select, %78 ], [ %spec.select278, %92 ]
-  %.0173 = phi i64 [ %.fr277, %78 ], [ %spec.select279, %92 ]
+  %103 = phi i64 [ %97, %92 ], [ %80, %78 ]
+  %.3180 = phi i1 [ %spec.select278, %92 ], [ %spec.select, %78 ]
+  %.0173 = phi i64 [ %spec.select279, %92 ], [ %.fr277, %78 ]
   %104 = icmp ult i64 %66, %72
   br i1 %104, label %105, label %108
 
@@ -8492,7 +8492,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_regular_and_single_block
   br label %168
 
 168:                                              ; preds = %3, %60, %167
-  %.0185 = phi i32 [ %.1186, %60 ], [ %.2187, %167 ], [ 0, %3 ]
+  %.0185 = phi i32 [ 0, %3 ], [ %.1186, %60 ], [ %.2187, %167 ]
   ret i32 %.0185
 }
 
@@ -8751,7 +8751,7 @@ H5S__hyper_spans_nelem.exit:                      ; preds = %39, %48
   br label %.thread
 
 .thread:                                          ; preds = %78, %H5S__hyper_spans_nelem.exit, %22, %6, %81, %84
-  %.035 = phi i32 [ -1, %84 ], [ %.13654, %81 ], [ 0, %6 ], [ 0, %H5S__hyper_spans_nelem.exit ], [ -1, %22 ], [ 0, %78 ]
+  %.035 = phi i32 [ -1, %84 ], [ %.13654, %81 ], [ -1, %22 ], [ 0, %6 ], [ 0, %H5S__hyper_spans_nelem.exit ], [ 0, %78 ]
   ret i32 %.035
 }
 
@@ -9339,7 +9339,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   br label %215
 
 215:                                              ; preds = %114, %136, %158, %177, %193, %200, %207, %211, %._crit_edge158, %174, %197, %185, %204
-  %.3 = phi i32 [ -1, %114 ], [ -1, %211 ], [ -1, %136 ], [ -1, %158 ], [ -1, %177 ], [ -1, %193 ], [ -1, %200 ], [ -1, %207 ], [ 0, %._crit_edge158 ], [ 0, %174 ], [ 0, %197 ], [ 0, %185 ], [ 0, %204 ]
+  %.3 = phi i32 [ -1, %114 ], [ -1, %211 ], [ -1, %136 ], [ -1, %158 ], [ -1, %207 ], [ -1, %200 ], [ -1, %177 ], [ -1, %193 ], [ 0, %._crit_edge158 ], [ 0, %174 ], [ 0, %197 ], [ 0, %185 ], [ 0, %204 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9369,7 +9369,7 @@ define range(i32 -1, 1) i32 @H5S_combine_hyperslab(ptr noundef %0, i32 noundef %
   br label %230
 
 230:                                              ; preds = %215, %23, %223, %226, %219, %71, %67, %60, %53, %41, %19, %57, %64
-  %.0125 = phi i32 [ -1, %19 ], [ -1, %41 ], [ -1, %71 ], [ -1, %53 ], [ -1, %60 ], [ -1, %67 ], [ -1, %219 ], [ -1, %226 ], [ 0, %223 ], [ %.3, %215 ], [ 0, %23 ], [ 0, %57 ], [ 0, %64 ]
+  %.0125 = phi i32 [ -1, %19 ], [ -1, %41 ], [ -1, %71 ], [ -1, %53 ], [ -1, %60 ], [ 0, %23 ], [ -1, %67 ], [ 0, %57 ], [ -1, %219 ], [ -1, %226 ], [ 0, %223 ], [ %.3, %215 ], [ 0, %64 ]
   ret i32 %.0125
 }
 
@@ -10517,7 +10517,7 @@ H5S__fill_in_select.exit.thread.i:                ; preds = %155, %153, %145, %1
   %193 = call i32 @H5CX_pop(i1 noundef zeroext true) #14
   br label %195
 
-.thread64:                                        ; preds = %20, %33, %40, %.thread73, %.thread69
+.thread64:                                        ; preds = %33, %40, %20, %.thread73, %.thread69
   %194 = call i32 @H5E_dump_api_stack() #14
   br label %195
 
@@ -10675,7 +10675,7 @@ define range(i32 -1, 1) i32 @H5S__modify_select(ptr noundef %0, i32 noundef %1, 
   store i32 1, ptr %85, align 8, !tbaa !13
   br label %H5S__fill_in_select.exit.thread
 
-H5S__fill_in_select.exit.thread:                  ; preds = %81, %83, %73, %63
+H5S__fill_in_select.exit.thread:                  ; preds = %63, %81, %83, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
@@ -10692,7 +10692,7 @@ H5S__fill_in_select.exit.thread:                  ; preds = %81, %83, %73, %63
   br label %93
 
 93:                                               ; preds = %H5S__fill_in_select.exit.thread, %3, %86, %26, %62
-  %.025 = phi i32 [ -1, %26 ], [ %.1, %62 ], [ -1, %86 ], [ 0, %3 ], [ 0, %H5S__fill_in_select.exit.thread ]
+  %.025 = phi i32 [ -1, %26 ], [ 0, %3 ], [ %.1, %62 ], [ -1, %86 ], [ 0, %H5S__fill_in_select.exit.thread ]
   ret i32 %.025
 }
 
@@ -11230,7 +11230,7 @@ H5S__hyper_rebuild.exit:                          ; preds = %H5S__hyper_spans_ne
   br i1 %220, label %205, label %.loopexit, !llvm.loop !184
 
 .loopexit:                                        ; preds = %217, %.preheader, %.thread73, %5
-  %.053 = phi i32 [ 0, %.thread73 ], [ 0, %5 ], [ -1, %.preheader ], [ -1, %217 ]
+  %.053 = phi i32 [ 0, %5 ], [ 0, %.thread73 ], [ -1, %.preheader ], [ -1, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.053
 }
@@ -11586,10 +11586,10 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5S__hyper_proj_int_iterate
   br label %193
 
 193:                                              ; preds = %138, %145, %130, %191, %186
-  %.1227 = phi i64 [ %.0226, %186 ], [ %192, %191 ], [ %132, %130 ], [ %139, %138 ], [ %146, %145 ]
-  %.2223 = phi i64 [ %187, %186 ], [ %.0221, %191 ], [ %.1222402, %130 ], [ %140, %138 ], [ %142, %145 ]
-  %.1220 = phi ptr [ %.0219, %186 ], [ %190, %191 ], [ %131, %130 ], [ %.0219, %138 ], [ %144, %145 ]
-  %.1 = phi ptr [ %185, %186 ], [ %.0210, %191 ], [ %123, %130 ], [ %137, %138 ], [ %.0210, %145 ]
+  %.1227 = phi i64 [ %.0226, %186 ], [ %146, %145 ], [ %192, %191 ], [ %139, %138 ], [ %132, %130 ]
+  %.2223 = phi i64 [ %187, %186 ], [ %142, %145 ], [ %.0221, %191 ], [ %140, %138 ], [ %.1222402, %130 ]
+  %.1220 = phi ptr [ %.0219, %186 ], [ %144, %145 ], [ %190, %191 ], [ %.0219, %138 ], [ %131, %130 ]
+  %.1 = phi ptr [ %185, %186 ], [ %.0210, %145 ], [ %.0210, %191 ], [ %137, %138 ], [ %123, %130 ]
   %.not301 = icmp eq ptr %.1, null
   br i1 %.not301, label %.thread.thread297, label %60, !llvm.loop !190
 
@@ -12093,7 +12093,7 @@ define i64 @H5S_hyper_get_clip_extent(ptr noundef readonly captures(none) %0, pt
   br label %H5S__hyper_get_clip_extent_real.exit
 
 H5S__hyper_get_clip_extent_real.exit:             ; preds = %72, %69, %64, %57, %47, %45, %12, %16
-  %.0 = phi i64 [ 0, %12 ], [ 0, %16 ], [ %59, %57 ], [ %67, %64 ], [ %71, %69 ], [ %76, %72 ], [ %48, %47 ], [ 0, %45 ]
+  %.0 = phi i64 [ 0, %12 ], [ 0, %16 ], [ 0, %45 ], [ %59, %57 ], [ %67, %64 ], [ %71, %69 ], [ %76, %72 ], [ %48, %47 ]
   ret i64 %.0
 }
 
@@ -12270,7 +12270,7 @@ H5S__hyper_get_clip_diminfo.exit.thread32:        ; preds = %33
   br label %H5S__hyper_get_clip_extent_real.exit
 
 H5S__hyper_get_clip_extent_real.exit:             ; preds = %103, %100, %95, %88, %77, %75, %13, %17
-  %.0 = phi i64 [ 0, %13 ], [ 0, %17 ], [ %90, %88 ], [ %98, %95 ], [ %102, %100 ], [ %107, %103 ], [ %78, %77 ], [ 0, %75 ]
+  %.0 = phi i64 [ 0, %13 ], [ 0, %17 ], [ 0, %75 ], [ %90, %88 ], [ %98, %95 ], [ %102, %100 ], [ %107, %103 ], [ %78, %77 ]
   ret i64 %.0
 }
 
@@ -12420,7 +12420,7 @@ define ptr @H5S_hyper_get_unlim_block(ptr noundef %0, i64 noundef %1) local_unna
   br label %.thread
 
 .thread:                                          ; preds = %57, %15, %68, %78, %75, %19
-  %.1 = phi ptr [ null, %78 ], [ null, %75 ], [ null, %19 ], [ %55, %68 ], [ null, %57 ], [ null, %15 ]
+  %.1 = phi ptr [ null, %78 ], [ null, %75 ], [ null, %15 ], [ null, %19 ], [ %55, %68 ], [ null, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -12679,7 +12679,7 @@ H5S__hyper_is_regular.exit.thread27:              ; preds = %48, %40
   br label %H5S__hyper_is_regular.exit.thread21
 
 H5S__hyper_is_regular.exit:                       ; preds = %94, %52
-  %.011.ph = phi i32 [ %..i, %94 ], [ -1, %52 ]
+  %.011.ph = phi i32 [ -1, %52 ], [ %..i, %94 ]
   %98 = call i32 @H5CX_pop(i1 noundef zeroext true) #14
   br label %100
 
@@ -13261,7 +13261,7 @@ define internal range(i32 0, 2) i32 @H5S__hyper_iter_has_next_block(ptr noundef 
   br i1 %.not, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %22, %31, %.preheader, %16, %1
-  %.025 = phi i32 [ 0, %1 ], [ 0, %16 ], [ 0, %.preheader ], [ 1, %22 ], [ 0, %31 ], [ 1, %.lr.ph ], [ 0, %32 ]
+  %.025 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ 0, %16 ], [ 0, %31 ], [ 1, %22 ], [ 1, %.lr.ph ], [ 0, %32 ]
   ret i32 %.025
 }
 
@@ -14104,8 +14104,8 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_iter_get_seq_list(ptr noundef %
   br i1 %155, label %.lr.ph205.i, label %._crit_edge206.i, !llvm.loop !225
 
 ._crit_edge206.i:                                 ; preds = %153, %.lr.ph205.i
-  %.pre-phi.i = phi i64 [ %148, %.lr.ph205.i ], [ %128, %153 ]
-  %.0170.i = phi i32 [ %.0156203.i, %.lr.ph205.i ], [ %126, %153 ]
+  %.pre-phi.i = phi i64 [ %128, %153 ], [ %148, %.lr.ph205.i ]
+  %.0170.i = phi i32 [ %126, %153 ], [ %.0156203.i, %.lr.ph205.i ]
   %156 = getelementptr inbounds nuw i64, ptr %103, i64 %.pre-phi.i
   %157 = load i64, ptr %156, align 8, !tbaa !11
   %158 = icmp eq i32 %.0170.i, 0
@@ -14612,11 +14612,11 @@ H5S__hyper_iter_get_seq_list_single.exit:         ; preds = %.critedge, %._crit_
   br label %.loopexit.i159
 
 .loopexit.i159:                                   ; preds = %381, %367, %.lr.ph434.i, %391, %349, %._crit_edge421.i
-  %396 = phi i64 [ %344, %391 ], [ %344, %349 ], [ %.pre512.i, %._crit_edge421.i ], [ %344, %.lr.ph434.i ], [ %344, %367 ], [ %344, %381 ]
-  %.0383.i = phi i64 [ %347, %391 ], [ %347, %349 ], [ %308, %._crit_edge421.i ], [ %347, %.lr.ph434.i ], [ %347, %367 ], [ %347, %381 ]
-  %.1365.i = phi i64 [ %.2366.lcssa.i, %391 ], [ %352, %349 ], [ %.0364.lcssa.i, %._crit_edge421.i ], [ %388, %381 ], [ %374, %367 ], [ %.3367432.i, %.lr.ph434.i ]
-  %.0356.i = phi i64 [ %.1357.lcssa.i, %391 ], [ %.1357.lcssa.i, %349 ], [ 0, %._crit_edge421.i ], [ %.1357.lcssa.i, %.lr.ph434.i ], [ %.1357.lcssa.i, %367 ], [ %.1357.lcssa.i, %381 ]
-  %.0354.i = phi i64 [ %346, %391 ], [ %346, %349 ], [ %.535.i, %._crit_edge421.i ], [ %346, %.lr.ph434.i ], [ %346, %367 ], [ %346, %381 ]
+  %396 = phi i64 [ %344, %391 ], [ %.pre512.i, %._crit_edge421.i ], [ %344, %349 ], [ %344, %.lr.ph434.i ], [ %344, %367 ], [ %344, %381 ]
+  %.0383.i = phi i64 [ %347, %391 ], [ %308, %._crit_edge421.i ], [ %347, %349 ], [ %347, %.lr.ph434.i ], [ %347, %367 ], [ %347, %381 ]
+  %.1365.i = phi i64 [ %.2366.lcssa.i, %391 ], [ %.0364.lcssa.i, %._crit_edge421.i ], [ %352, %349 ], [ %388, %381 ], [ %374, %367 ], [ %.3367432.i, %.lr.ph434.i ]
+  %.0356.i = phi i64 [ %.1357.lcssa.i, %391 ], [ 0, %._crit_edge421.i ], [ %.1357.lcssa.i, %349 ], [ %.1357.lcssa.i, %.lr.ph434.i ], [ %.1357.lcssa.i, %367 ], [ %.1357.lcssa.i, %381 ]
+  %.0354.i = phi i64 [ %346, %391 ], [ %.535.i, %._crit_edge421.i ], [ %346, %349 ], [ %346, %.lr.ph434.i ], [ %346, %367 ], [ %346, %381 ]
   %397 = udiv i64 %.0383.i, %396
   %.not399450.i = icmp ugt i64 %396, %.0383.i
   br i1 %.not399450.i, label %._crit_edge456.i, label %.lr.ph455.i
@@ -15394,8 +15394,8 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %244, %._crit_edge47
   br i1 %exitcond637.not.i, label %.loopexit.i174, label %.lr.ph550.i, !llvm.loop !250
 
 .thread431.i:                                     ; preds = %.thread397.thread.i, %.loopexit.i174, %743, %706, %693, %.thread.i172, %580, %573
-  %.2342.i = phi i64 [ %.4344406.i, %706 ], [ %.4344406.i, %693 ], [ %.0340.i, %.thread.i172 ], [ 0, %573 ], [ 0, %580 ], [ %.4344407.i, %743 ], [ %.4344407.i, %.loopexit.i174 ], [ %.4344407.i, %.thread397.thread.i ]
-  %.2328.i = phi i64 [ %.4330412.i, %706 ], [ %.4330412.i, %693 ], [ %.0326.i, %.thread.i172 ], [ 1, %573 ], [ 1, %580 ], [ %.4330413.i, %743 ], [ %.4330413.i, %.loopexit.i174 ], [ %.4330413.i, %.thread397.thread.i ]
+  %.2342.i = phi i64 [ %.4344406.i, %693 ], [ %.4344406.i, %706 ], [ %.0340.i, %.thread.i172 ], [ 0, %580 ], [ 0, %573 ], [ %.4344407.i, %743 ], [ %.4344407.i, %.loopexit.i174 ], [ %.4344407.i, %.thread397.thread.i ]
+  %.2328.i = phi i64 [ %.4330412.i, %693 ], [ %.4330412.i, %706 ], [ %.0326.i, %.thread.i172 ], [ 1, %580 ], [ 1, %573 ], [ %.4330413.i, %743 ], [ %.4330413.i, %.loopexit.i174 ], [ %.4330413.i, %.thread397.thread.i ]
   %765 = sub i64 %..i163, %.2342.i
   %766 = load i64, ptr %538, align 8, !tbaa !207
   %767 = sub i64 %766, %765
@@ -15405,7 +15405,7 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %244, %._crit_edge47
   br label %.critedge147
 
 .critedge147:                                     ; preds = %.thread431.i, %._crit_edge, %7, %H5S__hyper_iter_get_seq_list_single.exit, %H5S__hyper_iter_get_seq_list_opt.exit
-  %.3 = phi i32 [ -1, %7 ], [ 0, %H5S__hyper_iter_get_seq_list_single.exit ], [ 0, %H5S__hyper_iter_get_seq_list_opt.exit ], [ 0, %._crit_edge ], [ 0, %.thread431.i ]
+  %.3 = phi i32 [ 0, %H5S__hyper_iter_get_seq_list_opt.exit ], [ -1, %7 ], [ 0, %._crit_edge ], [ 0, %H5S__hyper_iter_get_seq_list_single.exit ], [ 0, %.thread431.i ]
   ret i32 %.3
 }
 
@@ -15720,7 +15720,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %96, %95
   br label %H5S__hyper_is_regular.exit
 
 H5S__hyper_is_regular.exit:                       ; preds = %79, %120
-  %.0.i = phi i32 [ -1, %79 ], [ %..i, %120 ]
+  %.0.i = phi i32 [ %..i, %120 ], [ -1, %79 ]
   %123 = load i32, ptr %7, align 4, !tbaa !20
   %124 = icmp sgt i32 %123, 2
   br i1 %124, label %.thread, label %125
@@ -15764,7 +15764,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
   br label %145
 
 145:                                              ; preds = %141, %138, %.thread, %130, %136
-  %.089 = phi i32 [ %137, %136 ], [ %134, %.thread ], [ 2, %130 ], [ %144, %141 ], [ 1, %138 ]
+  %.089 = phi i32 [ 2, %130 ], [ %137, %136 ], [ %134, %.thread ], [ %144, %141 ], [ 1, %138 ]
   %146 = load i32, ptr %8, align 4, !tbaa !20
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i32, ptr @H5O_sds_hyper_ver_bounds, i64 %147
@@ -15871,8 +15871,8 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
   br label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %186, %._crit_edge, %184
-  %.ph = phi i1 [ true, %184 ], [ %182, %._crit_edge ], [ true, %186 ]
-  %.0.i103.ph = phi i8 [ 8, %184 ], [ 2, %._crit_edge ], [ %spec.select187, %186 ]
+  %.ph = phi i1 [ true, %186 ], [ %182, %._crit_edge ], [ true, %184 ]
+  %.0.i103.ph = phi i8 [ %spec.select187, %186 ], [ 2, %._crit_edge ], [ 8, %184 ]
   %188 = load ptr, ptr %16, align 8, !tbaa !10
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 1032
   %wide.trip.count145 = zext i32 %168 to i64
@@ -15908,7 +15908,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %79, %120
   br label %H5S__hyper_get_enc_size_real.exit107
 
 H5S__hyper_get_enc_size_real.exit107:             ; preds = %198, %.preheader112, %._crit_edge125, %196
-  %.0.i105 = phi i8 [ %.0.i103.ph, %._crit_edge125 ], [ 8, %196 ], [ 2, %.preheader112 ], [ %spec.select188, %198 ]
+  %.0.i105 = phi i8 [ %.0.i103.ph, %._crit_edge125 ], [ %spec.select188, %198 ], [ 8, %196 ], [ 2, %.preheader112 ]
   store i8 %.0.i105, ptr %3, align 1, !tbaa !10
   br label %217
 
@@ -15942,7 +15942,7 @@ H5S__hyper_get_enc_size_real.exit107:             ; preds = %198, %.preheader112
   br label %H5S__hyper_get_enc_size_real.exit110
 
 H5S__hyper_get_enc_size_real.exit110:             ; preds = %._crit_edge130, %209, %211
-  %.0.i108 = phi i8 [ 2, %._crit_edge130 ], [ 8, %209 ], [ %..i109, %211 ]
+  %.0.i108 = phi i8 [ 2, %._crit_edge130 ], [ %..i109, %211 ], [ 8, %209 ]
   store i8 %.0.i108, ptr %3, align 1, !tbaa !10
   br label %217
 
@@ -16788,7 +16788,7 @@ define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %19, %48, %44, %41, %5, %12, %._crit_edge50
-  %.036 = phi i1 [ false, %12 ], [ false, %5 ], [ false, %._crit_edge50 ], [ %.not59.not, %41 ], [ %.not59.not, %44 ], [ %.not59.not, %48 ], [ false, %19 ], [ false, %25 ]
+  %.036 = phi i1 [ false, %5 ], [ false, %12 ], [ false, %._crit_edge50 ], [ %.not59.not, %48 ], [ %.not59.not, %41 ], [ %.not59.not, %44 ], [ false, %19 ], [ false, %25 ]
   ret i1 %.036
 }
 
@@ -17508,7 +17508,7 @@ H5S__hyper_spans_nelem.exit115:                   ; preds = %286, %293
   br label %.thread
 
 .thread:                                          ; preds = %H5S__hyper_spans_nelem.exit, %135, %104, %H5S__hyper_spans_nelem.exit115, %228, %282, %204, %195, %105, %301, %304, %308, %189, %140, %108, %99, %91, %23
-  %.1 = phi i32 [ -1, %23 ], [ -1, %308 ], [ 0, %304 ], [ 0, %301 ], [ -1, %189 ], [ -1, %99 ], [ -1, %91 ], [ -1, %108 ], [ -1, %140 ], [ 0, %105 ], [ -1, %195 ], [ -1, %204 ], [ -1, %282 ], [ -1, %228 ], [ 0, %H5S__hyper_spans_nelem.exit115 ], [ 0, %104 ], [ 0, %135 ], [ 0, %H5S__hyper_spans_nelem.exit ]
+  %.1 = phi i32 [ -1, %23 ], [ -1, %308 ], [ 0, %304 ], [ 0, %301 ], [ 0, %105 ], [ -1, %189 ], [ -1, %99 ], [ -1, %91 ], [ -1, %108 ], [ -1, %140 ], [ -1, %195 ], [ -1, %204 ], [ -1, %228 ], [ -1, %282 ], [ 0, %H5S__hyper_spans_nelem.exit115 ], [ 0, %104 ], [ 0, %135 ], [ 0, %H5S__hyper_spans_nelem.exit ]
   %312 = load ptr, ptr %8, align 8, !tbaa !99
   %.not = icmp eq ptr %312, null
   br i1 %.not, label %320, label %313
@@ -17675,8 +17675,8 @@ define internal fastcc noundef zeroext i1 @H5S__check_spans_overlap(ptr noundef 
   br label %67
 
 67:                                               ; preds = %63, %55, %66, %58
-  %.129 = phi ptr [ %53, %58 ], [ %.02839, %66 ], [ %.02839, %55 ], [ %65, %63 ]
-  %.1 = phi ptr [ %.02740, %58 ], [ %61, %66 ], [ %57, %55 ], [ %.02740, %63 ]
+  %.129 = phi ptr [ %.02839, %66 ], [ %53, %58 ], [ %.02839, %55 ], [ %65, %63 ]
+  %.1 = phi ptr [ %61, %66 ], [ %.02740, %58 ], [ %57, %55 ], [ %.02740, %63 ]
   %68 = icmp ne ptr %.129, null
   %69 = icmp ne ptr %.1, null
   %70 = and i1 %68, %69
@@ -18921,26 +18921,26 @@ H5S__hyper_new_span.exit549:                      ; preds = %419, %415
   %748 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7946, i64 noundef %746, i64 noundef %747, ptr noundef nonnull @.str.96) #14
   br label %.thread681
 
-.thread681:                                       ; preds = %109, %130, %149, %163, %.loopexit705, %278, %269, %300, %289, %172, %183, %190, %201, %208, %219, %226, %315, %328, %.loopexit706, %440, %429, %337, %348, %355, %366, %373, %384, %391, %453, %467, %546, %566, %557, %588, %577, %476, %487, %494, %505, %512, %523, %530, %601, %615, %691, %711, %700, %624, %635, %642, %653, %660, %671, %678, %721, %742
+.thread681:                                       ; preds = %109, %742, %130, %149, %163, %.loopexit705, %278, %269, %300, %289, %172, %183, %190, %201, %208, %219, %226, %315, %328, %.loopexit706, %440, %429, %337, %348, %355, %366, %373, %384, %391, %453, %467, %546, %566, %557, %588, %577, %476, %487, %494, %505, %512, %523, %530, %601, %615, %691, %711, %700, %624, %635, %642, %653, %660, %671, %678, %721
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .thread.sink.split:                               ; preds = %736, %739, %124, %127
-  %.04151058.sink = phi ptr [ %.04031059, %127 ], [ %.04031059, %124 ], [ %.04151058, %739 ], [ %.04151058, %736 ]
-  %.1448.ph = phi i8 [ %.04471056, %127 ], [ %.04471056, %124 ], [ 0, %739 ], [ 0, %736 ]
-  %.1428.ph = phi i8 [ 0, %127 ], [ 0, %124 ], [ %.04271057, %739 ], [ %.04271057, %736 ]
-  %.1416.ph = phi ptr [ %.04151058, %127 ], [ %.04151058, %124 ], [ %727, %739 ], [ %727, %736 ]
-  %.1404.ph = phi ptr [ %115, %127 ], [ %115, %124 ], [ %.04031059, %739 ], [ %.04031059, %736 ]
+  %.04151058.sink = phi ptr [ %.04031059, %124 ], [ %.04031059, %127 ], [ %.04151058, %739 ], [ %.04151058, %736 ]
+  %.1448.ph = phi i8 [ %.04471056, %124 ], [ %.04471056, %127 ], [ 0, %739 ], [ 0, %736 ]
+  %.1428.ph = phi i8 [ 0, %124 ], [ 0, %127 ], [ %.04271057, %739 ], [ %.04271057, %736 ]
+  %.1416.ph = phi ptr [ %.04151058, %124 ], [ %.04151058, %127 ], [ %727, %739 ], [ %727, %736 ]
+  %.1404.ph = phi ptr [ %115, %124 ], [ %115, %127 ], [ %.04031059, %739 ], [ %.04031059, %736 ]
   %749 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.04151058.sink) #14
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %729, %725, %704, %708, %581, %585, %561, %563, %433, %437, %293, %297, %273, %275, %117, %113
-  %.1448 = phi i8 [ %.04471056, %113 ], [ %.04471056, %117 ], [ 1, %275 ], [ 1, %273 ], [ 0, %297 ], [ 0, %293 ], [ 0, %437 ], [ 0, %433 ], [ 1, %563 ], [ 1, %561 ], [ 0, %585 ], [ 0, %581 ], [ 0, %708 ], [ 0, %704 ], [ 0, %725 ], [ 0, %729 ], [ %.1448.ph, %.thread.sink.split ]
-  %.1428 = phi i8 [ 0, %113 ], [ 0, %117 ], [ 0, %275 ], [ 0, %273 ], [ 0, %297 ], [ 0, %293 ], [ 1, %437 ], [ 1, %433 ], [ 0, %563 ], [ 0, %561 ], [ 0, %585 ], [ 0, %581 ], [ 1, %708 ], [ 1, %704 ], [ %.04271057, %725 ], [ %.04271057, %729 ], [ %.1428.ph, %.thread.sink.split ]
-  %.1416 = phi ptr [ %.04151058, %113 ], [ %.04151058, %117 ], [ %247, %275 ], [ %247, %273 ], [ %295, %297 ], [ %295, %293 ], [ %435, %437 ], [ %435, %433 ], [ %544, %563 ], [ %544, %561 ], [ %583, %585 ], [ %583, %581 ], [ %706, %708 ], [ %706, %704 ], [ %727, %725 ], [ %727, %729 ], [ %.1416.ph, %.thread.sink.split ]
-  %.1404 = phi ptr [ %115, %113 ], [ %115, %117 ], [ %264, %275 ], [ %264, %273 ], [ %284, %297 ], [ %284, %293 ], [ %409, %437 ], [ %409, %433 ], [ %552, %563 ], [ %552, %561 ], [ %572, %585 ], [ %572, %581 ], [ %689, %708 ], [ %689, %704 ], [ %.04031059, %725 ], [ %.04031059, %729 ], [ %.1404.ph, %.thread.sink.split ]
+  %.1448 = phi i8 [ 0, %433 ], [ 0, %704 ], [ 1, %273 ], [ 0, %293 ], [ %.04471056, %117 ], [ 1, %561 ], [ 0, %581 ], [ %.04471056, %113 ], [ 0, %729 ], [ 1, %275 ], [ 0, %297 ], [ 0, %437 ], [ 1, %563 ], [ 0, %585 ], [ 0, %708 ], [ 0, %725 ], [ %.1448.ph, %.thread.sink.split ]
+  %.1428 = phi i8 [ 1, %433 ], [ 1, %704 ], [ 0, %273 ], [ 0, %293 ], [ 0, %117 ], [ 0, %561 ], [ 0, %581 ], [ 0, %113 ], [ %.04271057, %729 ], [ 0, %275 ], [ 0, %297 ], [ 1, %437 ], [ 0, %563 ], [ 0, %585 ], [ 1, %708 ], [ %.04271057, %725 ], [ %.1428.ph, %.thread.sink.split ]
+  %.1416 = phi ptr [ %435, %433 ], [ %706, %704 ], [ %247, %273 ], [ %295, %293 ], [ %.04151058, %117 ], [ %544, %561 ], [ %583, %581 ], [ %.04151058, %113 ], [ %727, %729 ], [ %247, %275 ], [ %295, %297 ], [ %435, %437 ], [ %544, %563 ], [ %583, %585 ], [ %706, %708 ], [ %727, %725 ], [ %.1416.ph, %.thread.sink.split ]
+  %.1404 = phi ptr [ %409, %433 ], [ %689, %704 ], [ %264, %273 ], [ %284, %293 ], [ %115, %117 ], [ %552, %561 ], [ %572, %581 ], [ %115, %113 ], [ %.04031059, %729 ], [ %264, %275 ], [ %284, %297 ], [ %409, %437 ], [ %552, %563 ], [ %572, %585 ], [ %689, %708 ], [ %.04031059, %725 ], [ %.1404.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19130,7 +19130,7 @@ H5S__hyper_free_span.exit558.thread:              ; preds = %816, %828, %813
   br label %.loopexit
 
 .loopexit:                                        ; preds = %H5S__hyper_free_span.exit558.thread, %H5S__hyper_free_span.exit555.thread, %.preheader703, %.preheader, %.thread696, %.thread690, %.thread681, %H5S__hyper_copy_span.exit543, %H5S__hyper_copy_span.exit541, %H5S__hyper_copy_span.exit, %7, %23, %65, %87, %44, %83, %61, %40, %791, %792, %799, %837, %836, %840, %809, %795, %764
-  %.0402 = phi i32 [ 0, %23 ], [ -1, %40 ], [ 0, %H5S__hyper_copy_span.exit ], [ 0, %44 ], [ -1, %61 ], [ 0, %H5S__hyper_copy_span.exit541 ], [ 0, %65 ], [ -1, %83 ], [ 0, %H5S__hyper_copy_span.exit543 ], [ 0, %87 ], [ 0, %7 ], [ -1, %764 ], [ -1, %795 ], [ -1, %809 ], [ -1, %840 ], [ 0, %792 ], [ 0, %791 ], [ 0, %837 ], [ 0, %836 ], [ 0, %799 ], [ -1, %.thread681 ], [ -1, %.thread690 ], [ -1, %.thread696 ], [ 0, %.preheader ], [ 0, %.preheader703 ], [ 0, %H5S__hyper_free_span.exit555.thread ], [ 0, %H5S__hyper_free_span.exit558.thread ]
+  %.0402 = phi i32 [ 0, %23 ], [ -1, %40 ], [ 0, %H5S__hyper_copy_span.exit ], [ 0, %44 ], [ -1, %61 ], [ 0, %H5S__hyper_copy_span.exit541 ], [ 0, %65 ], [ -1, %83 ], [ 0, %H5S__hyper_copy_span.exit543 ], [ 0, %87 ], [ 0, %7 ], [ -1, %.thread681 ], [ -1, %764 ], [ -1, %.thread690 ], [ -1, %840 ], [ -1, %795 ], [ -1, %809 ], [ -1, %.thread696 ], [ 0, %792 ], [ 0, %791 ], [ 0, %837 ], [ 0, %836 ], [ 0, %799 ], [ 0, %.preheader ], [ 0, %.preheader703 ], [ 0, %H5S__hyper_free_span.exit555.thread ], [ 0, %H5S__hyper_free_span.exit558.thread ]
   ret i32 %.0402
 }
 
@@ -19339,8 +19339,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_append_span(ptr noundef 
   br label %87
 
 87:                                               ; preds = %80, %82, %.thread
-  %or.cond = phi i1 [ %86, %82 ], [ false, %.thread ], [ %81, %80 ]
-  %.080 = phi ptr [ %spec.select, %82 ], [ null, %.thread ], [ %4, %80 ]
+  %or.cond = phi i1 [ %81, %80 ], [ %86, %82 ], [ false, %.thread ]
+  %.080 = phi ptr [ %4, %80 ], [ %spec.select, %82 ], [ null, %.thread ]
   %88 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list) #14
   %89 = icmp eq ptr %88, null
   br i1 %89, label %97, label %90
@@ -19468,7 +19468,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_append_span(ptr noundef 
   br label %.thread117
 
 .thread117:                                       ; preds = %133, %148, %97, %25, %.loopexit, %77, %48, %56, %5, %150
-  %.083 = phi i32 [ -1, %150 ], [ 0, %5 ], [ 0, %.loopexit ], [ -1, %97 ], [ 0, %77 ], [ 0, %48 ], [ 0, %56 ], [ -1, %25 ], [ -1, %148 ], [ -1, %133 ]
+  %.083 = phi i32 [ -1, %150 ], [ -1, %25 ], [ -1, %133 ], [ 0, %5 ], [ 0, %.loopexit ], [ -1, %97 ], [ 0, %77 ], [ 0, %48 ], [ 0, %56 ], [ -1, %148 ]
   ret i32 %.083
 }
 
@@ -20521,19 +20521,19 @@ H5S__hyper_free_span.exit460.thread:              ; preds = %599, %611, %H5S__hy
   br label %.thread609
 
 .thread.sink.split:                               ; preds = %650, %652, %513, %515, %466, %468, %347, %349, %229, %231, %182, %184, %62, %64
-  %.0316861.sink = phi ptr [ %.0303862, %64 ], [ %.0303862, %62 ], [ %.0316861, %184 ], [ %.0316861, %182 ], [ %.0316861, %231 ], [ %.0316861, %229 ], [ %.0316861, %349 ], [ %.0316861, %347 ], [ %.0316861, %468 ], [ %.0316861, %466 ], [ %.0316861, %515 ], [ %.0316861, %513 ], [ %.0316861, %652 ], [ %.0316861, %650 ]
-  %.1349.ph = phi i8 [ %.0348859, %64 ], [ %.0348859, %62 ], [ 1, %184 ], [ 1, %182 ], [ 0, %231 ], [ 0, %229 ], [ 0, %349 ], [ 0, %347 ], [ 1, %468 ], [ 1, %466 ], [ 0, %515 ], [ 0, %513 ], [ 0, %652 ], [ 0, %650 ]
-  %.1329.ph = phi i8 [ 0, %64 ], [ 0, %62 ], [ 0, %184 ], [ 0, %182 ], [ 0, %231 ], [ 0, %229 ], [ 1, %349 ], [ 1, %347 ], [ 0, %468 ], [ 0, %466 ], [ 0, %515 ], [ 0, %513 ], [ %.0328860, %652 ], [ %.0328860, %650 ]
-  %.1317.ph = phi ptr [ %.0316861, %64 ], [ %.0316861, %62 ], [ %134, %184 ], [ %134, %182 ], [ %220, %231 ], [ %220, %229 ], [ %338, %349 ], [ %338, %347 ], [ %418, %468 ], [ %418, %466 ], [ %504, %515 ], [ %504, %513 ], [ %641, %652 ], [ %641, %650 ]
-  %.1304.ph = phi ptr [ %53, %64 ], [ %53, %62 ], [ %151, %184 ], [ %151, %182 ], [ %196, %231 ], [ %196, %229 ], [ %299, %349 ], [ %299, %347 ], [ %435, %468 ], [ %435, %466 ], [ %480, %515 ], [ %480, %513 ], [ %.0303862, %652 ], [ %.0303862, %650 ]
+  %.0316861.sink = phi ptr [ %.0316861, %513 ], [ %.0316861, %466 ], [ %.0316861, %347 ], [ %.0316861, %229 ], [ %.0316861, %182 ], [ %.0303862, %62 ], [ %.0303862, %64 ], [ %.0316861, %184 ], [ %.0316861, %231 ], [ %.0316861, %349 ], [ %.0316861, %468 ], [ %.0316861, %515 ], [ %.0316861, %652 ], [ %.0316861, %650 ]
+  %.1349.ph = phi i8 [ 0, %513 ], [ 1, %466 ], [ 0, %347 ], [ 0, %229 ], [ 1, %182 ], [ %.0348859, %62 ], [ %.0348859, %64 ], [ 1, %184 ], [ 0, %231 ], [ 0, %349 ], [ 1, %468 ], [ 0, %515 ], [ 0, %652 ], [ 0, %650 ]
+  %.1329.ph = phi i8 [ 0, %513 ], [ 0, %466 ], [ 1, %347 ], [ 0, %229 ], [ 0, %182 ], [ 0, %62 ], [ 0, %64 ], [ 0, %184 ], [ 0, %231 ], [ 1, %349 ], [ 0, %468 ], [ 0, %515 ], [ %.0328860, %652 ], [ %.0328860, %650 ]
+  %.1317.ph = phi ptr [ %504, %513 ], [ %418, %466 ], [ %338, %347 ], [ %220, %229 ], [ %134, %182 ], [ %.0316861, %62 ], [ %.0316861, %64 ], [ %134, %184 ], [ %220, %231 ], [ %338, %349 ], [ %418, %468 ], [ %504, %515 ], [ %641, %652 ], [ %641, %650 ]
+  %.1304.ph = phi ptr [ %480, %513 ], [ %435, %466 ], [ %299, %347 ], [ %196, %229 ], [ %151, %182 ], [ %53, %62 ], [ %53, %64 ], [ %151, %184 ], [ %196, %231 ], [ %299, %349 ], [ %435, %468 ], [ %480, %515 ], [ %.0303862, %652 ], [ %.0303862, %650 ]
   %662 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.0316861.sink) #14
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %643, %639, %H5S__hyper_free_span.exit460.thread, %623, %506, %H5S__hyper_free_span.exit451.thread, %459, %H5S__hyper_free_span.exit445.thread, %340, %H5S__hyper_free_span.exit436.thread, %222, %H5S__hyper_free_span.exit427.thread, %175, %H5S__hyper_free_span.exit421.thread, %55, %51
-  %.1349 = phi i8 [ %.0348859, %51 ], [ %.0348859, %55 ], [ 1, %H5S__hyper_free_span.exit421.thread ], [ 1, %175 ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ 0, %222 ], [ 0, %H5S__hyper_free_span.exit436.thread ], [ 0, %340 ], [ 1, %H5S__hyper_free_span.exit445.thread ], [ 1, %459 ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %506 ], [ 0, %623 ], [ 0, %H5S__hyper_free_span.exit460.thread ], [ 0, %639 ], [ 0, %643 ], [ %.1349.ph, %.thread.sink.split ]
-  %.1329 = phi i8 [ 0, %51 ], [ 0, %55 ], [ 0, %H5S__hyper_free_span.exit421.thread ], [ 0, %175 ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ 0, %222 ], [ 1, %H5S__hyper_free_span.exit436.thread ], [ 1, %340 ], [ 0, %H5S__hyper_free_span.exit445.thread ], [ 0, %459 ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %506 ], [ 1, %623 ], [ 1, %H5S__hyper_free_span.exit460.thread ], [ %.0328860, %639 ], [ %.0328860, %643 ], [ %.1329.ph, %.thread.sink.split ]
-  %.1317 = phi ptr [ %.0316861, %51 ], [ %.0316861, %55 ], [ %134, %H5S__hyper_free_span.exit421.thread ], [ %134, %175 ], [ %220, %H5S__hyper_free_span.exit427.thread ], [ %220, %222 ], [ %338, %H5S__hyper_free_span.exit436.thread ], [ %338, %340 ], [ %418, %H5S__hyper_free_span.exit445.thread ], [ %418, %459 ], [ %504, %H5S__hyper_free_span.exit451.thread ], [ %504, %506 ], [ %621, %623 ], [ %621, %H5S__hyper_free_span.exit460.thread ], [ %641, %639 ], [ %641, %643 ], [ %.1317.ph, %.thread.sink.split ]
-  %.1304 = phi ptr [ %53, %51 ], [ %53, %55 ], [ %151, %H5S__hyper_free_span.exit421.thread ], [ %151, %175 ], [ %196, %H5S__hyper_free_span.exit427.thread ], [ %196, %222 ], [ %299, %H5S__hyper_free_span.exit436.thread ], [ %299, %340 ], [ %435, %H5S__hyper_free_span.exit445.thread ], [ %435, %459 ], [ %480, %H5S__hyper_free_span.exit451.thread ], [ %480, %506 ], [ %582, %623 ], [ %582, %H5S__hyper_free_span.exit460.thread ], [ %.0303862, %639 ], [ %.0303862, %643 ], [ %.1304.ph, %.thread.sink.split ]
+  %.1349 = phi i8 [ 0, %340 ], [ 0, %H5S__hyper_free_span.exit460.thread ], [ 1, %175 ], [ 0, %222 ], [ %.0348859, %55 ], [ 1, %459 ], [ 0, %506 ], [ %.0348859, %51 ], [ 0, %639 ], [ 1, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ 0, %643 ], [ 0, %H5S__hyper_free_span.exit436.thread ], [ 0, %623 ], [ 1, %H5S__hyper_free_span.exit445.thread ], [ %.1349.ph, %.thread.sink.split ]
+  %.1329 = phi i8 [ 1, %340 ], [ 1, %H5S__hyper_free_span.exit460.thread ], [ 0, %175 ], [ 0, %222 ], [ 0, %55 ], [ 0, %459 ], [ 0, %506 ], [ 0, %51 ], [ %.0328860, %639 ], [ 0, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ %.0328860, %643 ], [ 1, %H5S__hyper_free_span.exit436.thread ], [ 1, %623 ], [ 0, %H5S__hyper_free_span.exit445.thread ], [ %.1329.ph, %.thread.sink.split ]
+  %.1317 = phi ptr [ %338, %340 ], [ %621, %H5S__hyper_free_span.exit460.thread ], [ %134, %175 ], [ %220, %222 ], [ %.0316861, %55 ], [ %418, %459 ], [ %504, %506 ], [ %.0316861, %51 ], [ %641, %639 ], [ %134, %H5S__hyper_free_span.exit421.thread ], [ %504, %H5S__hyper_free_span.exit451.thread ], [ %220, %H5S__hyper_free_span.exit427.thread ], [ %641, %643 ], [ %338, %H5S__hyper_free_span.exit436.thread ], [ %621, %623 ], [ %418, %H5S__hyper_free_span.exit445.thread ], [ %.1317.ph, %.thread.sink.split ]
+  %.1304 = phi ptr [ %299, %340 ], [ %582, %H5S__hyper_free_span.exit460.thread ], [ %151, %175 ], [ %196, %222 ], [ %53, %55 ], [ %435, %459 ], [ %480, %506 ], [ %53, %51 ], [ %.0303862, %639 ], [ %151, %H5S__hyper_free_span.exit421.thread ], [ %480, %H5S__hyper_free_span.exit451.thread ], [ %196, %H5S__hyper_free_span.exit427.thread ], [ %.0303862, %643 ], [ %299, %H5S__hyper_free_span.exit436.thread ], [ %582, %623 ], [ %435, %H5S__hyper_free_span.exit445.thread ], [ %.1304.ph, %.thread.sink.split ]
   %663 = icmp ne ptr %.1304, null
   %664 = icmp ne ptr %.1317, null
   %665 = select i1 %663, i1 %664, i1 false
@@ -20683,8 +20683,8 @@ H5S__hyper_free_span.exit469.thread:              ; preds = %719, %731, %716
   %740 = load ptr, ptr %4, align 8, !tbaa !99
   br label %.thread609
 
-.thread609:                                       ; preds = %655, %635, %564, %557, %545, %613, %626, %.loopexit616, %535, %398, %391, %379, %496, %518, %451, %471, %.loopexit615, %369, %281, %274, %262, %330, %352, %.loopexit617, %254, %114, %107, %95, %212, %234, %167, %187, %.loopexit614, %87, %67, %47, %697, %733, %712, %676, %.loopexit, %20
-  %.1 = phi ptr [ %740, %.loopexit ], [ null, %20 ], [ null, %676 ], [ null, %712 ], [ null, %733 ], [ null, %697 ], [ null, %47 ], [ null, %67 ], [ null, %87 ], [ null, %.loopexit614 ], [ null, %187 ], [ null, %167 ], [ null, %234 ], [ null, %212 ], [ null, %95 ], [ null, %107 ], [ null, %114 ], [ null, %254 ], [ null, %.loopexit617 ], [ null, %352 ], [ null, %330 ], [ null, %262 ], [ null, %274 ], [ null, %281 ], [ null, %369 ], [ null, %.loopexit615 ], [ null, %471 ], [ null, %451 ], [ null, %518 ], [ null, %496 ], [ null, %379 ], [ null, %391 ], [ null, %398 ], [ null, %535 ], [ null, %.loopexit616 ], [ null, %626 ], [ null, %613 ], [ null, %545 ], [ null, %557 ], [ null, %564 ], [ null, %635 ], [ null, %655 ]
+.thread609:                                       ; preds = %635, %564, %557, %545, %613, %626, %.loopexit616, %535, %398, %391, %379, %496, %518, %451, %471, %.loopexit615, %369, %281, %274, %262, %330, %352, %.loopexit617, %254, %114, %107, %95, %212, %234, %167, %187, %.loopexit614, %87, %67, %655, %47, %733, %697, %712, %676, %.loopexit, %20
+  %.1 = phi ptr [ %740, %.loopexit ], [ null, %20 ], [ null, %676 ], [ null, %712 ], [ null, %697 ], [ null, %733 ], [ null, %47 ], [ null, %655 ], [ null, %67 ], [ null, %87 ], [ null, %.loopexit614 ], [ null, %187 ], [ null, %167 ], [ null, %234 ], [ null, %212 ], [ null, %95 ], [ null, %107 ], [ null, %114 ], [ null, %254 ], [ null, %.loopexit617 ], [ null, %352 ], [ null, %330 ], [ null, %262 ], [ null, %274 ], [ null, %281 ], [ null, %369 ], [ null, %.loopexit615 ], [ null, %471 ], [ null, %451 ], [ null, %518 ], [ null, %496 ], [ null, %379 ], [ null, %391 ], [ null, %398 ], [ null, %535 ], [ null, %.loopexit616 ], [ null, %626 ], [ null, %613 ], [ null, %545 ], [ null, %557 ], [ null, %564 ], [ null, %635 ]
   %741 = icmp eq ptr %.1, null
   %742 = load ptr, ptr %4, align 8
   %743 = icmp ne ptr %742, null
@@ -21214,7 +21214,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %217, label %.loopexit544, label %.lr.ph, !llvm.loop !289
 
 .loopexit544:                                     ; preds = %122, %.loopexit541, %178, %201, %199, %59, %..loopexit544_crit_edge, %.loopexit545
-  %.pre787 = phi i32 [ %.pre787.pre, %..loopexit544_crit_edge ], [ %31, %.loopexit545 ], [ %15, %59 ], [ %144, %199 ], [ %144, %201 ], [ %166, %178 ], [ %166, %.loopexit541 ], [ %119, %122 ]
+  %.pre787 = phi i32 [ %.pre787.pre, %..loopexit544_crit_edge ], [ %31, %.loopexit545 ], [ %15, %59 ], [ %144, %199 ], [ %166, %.loopexit541 ], [ %144, %201 ], [ %166, %178 ], [ %119, %122 ]
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 792
@@ -21933,8 +21933,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br i1 %.not519, label %._crit_edge, label %.preheader, !llvm.loop !292
 
 .loopexit:                                        ; preds = %600, %537
-  %732 = phi i64 [ %616, %600 ], [ %538, %537 ]
-  %733 = phi i32 [ %602, %600 ], [ %525, %537 ]
+  %732 = phi i64 [ %538, %537 ], [ %616, %600 ]
+  %733 = phi i32 [ %525, %537 ], [ %602, %600 ]
   %.not516 = icmp eq i64 %732, 0
   br i1 %.not516, label %._crit_edge, label %.lr.ph685, !llvm.loop !293
 
@@ -21967,7 +21967,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %114, %99, %88, %421, %414, %356, %485, %470, %459, %344, %281, %._crit_edge, %712, %705, %640, %628, %565, %555, %271, %741, %744, %1
-  %.0 = phi i32 [ 0, %1 ], [ -1, %744 ], [ -1, %741 ], [ -1, %114 ], [ -1, %99 ], [ -1, %88 ], [ -1, %421 ], [ -1, %414 ], [ -1, %356 ], [ -1, %485 ], [ -1, %470 ], [ -1, %459 ], [ -1, %344 ], [ -1, %281 ], [ 0, %._crit_edge ], [ -1, %712 ], [ -1, %705 ], [ -1, %640 ], [ -1, %628 ], [ -1, %565 ], [ -1, %555 ], [ -1, %271 ]
+  %.0 = phi i32 [ 0, %1 ], [ -1, %741 ], [ -1, %744 ], [ -1, %114 ], [ -1, %99 ], [ -1, %88 ], [ -1, %421 ], [ -1, %414 ], [ -1, %356 ], [ -1, %485 ], [ -1, %470 ], [ -1, %459 ], [ -1, %344 ], [ -1, %281 ], [ 0, %._crit_edge ], [ -1, %712 ], [ -1, %705 ], [ -1, %640 ], [ -1, %628 ], [ -1, %565 ], [ -1, %555 ], [ -1, %271 ]
   ret i32 %.0
 }
 

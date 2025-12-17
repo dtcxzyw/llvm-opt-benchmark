@@ -291,7 +291,7 @@ open_midx_bitmap.exit:                            ; preds = %.lr.ph.i
   br i1 %.not6, label %76, label %open_midx_bitmap.exit.thread
 
 open_midx_bitmap.exit.thread:                     ; preds = %2, %7, %open_midx_bitmap.exit
-  %.not13.not = phi i1 [ false, %7 ], [ true, %open_midx_bitmap.exit ], [ true, %2 ]
+  %.not13.not = phi i1 [ true, %open_midx_bitmap.exit ], [ false, %7 ], [ true, %2 ]
   %9 = tail call ptr @get_all_packs(ptr noundef %0) #22
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %open_pack_bitmap.exit, label %.lr.ph.i8
@@ -630,15 +630,15 @@ read_bitmap_1.exit41:                             ; preds = %69
   br i1 %88, label %load_reverse_index.exit.thread46, label %113
 
 load_reverse_index.exit.thread46.sink.split.sink.split: ; preds = %78, %64, %50, %36
-  %.sink.ph = phi ptr [ %30, %36 ], [ %44, %50 ], [ %58, %64 ], [ %72, %78 ]
-  %.sink64.ph = phi i64 [ 40, %36 ], [ 48, %50 ], [ 56, %64 ], [ 64, %78 ]
+  %.sink.ph = phi ptr [ %58, %64 ], [ %44, %50 ], [ %30, %36 ], [ %72, %78 ]
+  %.sink64.ph = phi i64 [ 56, %64 ], [ 48, %50 ], [ 40, %36 ], [ 64, %78 ]
   %89 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #22
   br label %load_reverse_index.exit.thread46.sink.split
 
 load_reverse_index.exit.thread46.sink.split:      ; preds = %load_reverse_index.exit.thread46.sink.split.sink.split, %78, %64, %50, %36
-  %.0.i.i.i40.sink = phi ptr [ @.str, %36 ], [ @.str, %50 ], [ @.str, %64 ], [ @.str, %78 ], [ %89, %load_reverse_index.exit.thread46.sink.split.sink.split ]
-  %.sink = phi ptr [ %30, %36 ], [ %44, %50 ], [ %58, %64 ], [ %72, %78 ], [ %.sink.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
-  %.sink64 = phi i64 [ 40, %36 ], [ 48, %50 ], [ 56, %64 ], [ 64, %78 ], [ %.sink64.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
+  %.0.i.i.i40.sink = phi ptr [ @.str, %64 ], [ @.str, %50 ], [ @.str, %36 ], [ @.str, %78 ], [ %89, %load_reverse_index.exit.thread46.sink.split.sink.split ]
+  %.sink = phi ptr [ %58, %64 ], [ %44, %50 ], [ %30, %36 ], [ %72, %78 ], [ %.sink.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
+  %.sink64 = phi i64 [ 56, %64 ], [ 48, %50 ], [ 40, %36 ], [ 64, %78 ], [ %.sink64.ph, %load_reverse_index.exit.thread46.sink.split.sink.split ]
   %90 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i.i.i40.sink) #22
   tail call void @ewah_pool_free(ptr noundef %.sink) #22
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink64
@@ -1181,7 +1181,7 @@ kh_get_oid_map.exit.thread:                       ; preds = %.critedge2.i
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %spec.select.i, %.critedge.i ]
+  %.1.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp ult i32 %.1.i, %11
   br i1 %.not, label %365, label %39
@@ -1578,7 +1578,7 @@ kh_get_oid_map.exit.thread.i:                     ; preds = %.critedge2.i.i
   br label %kh_get_oid_map.exit.i
 
 kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %258
-  %.1.i.i = phi i32 [ 0, %258 ], [ %spec.select.i.i, %.critedge.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %288 = icmp ult i32 %.1.i.i, %260
   br i1 %288, label %289, label %295
@@ -1733,7 +1733,7 @@ _.exit81.i:                                       ; preds = %348, %346
   store i1 true, ptr @lazy_bitmap_for_commit.is_corrupt, align 4
   br label %lazy_bitmap_for_commit.exit.thread
 
-lazy_bitmap_for_commit.exit.thread:               ; preds = %80, %.loopexit.i, %42, %bitmap_bsearch_pos.exit.i, %51
+lazy_bitmap_for_commit.exit.thread:               ; preds = %80, %42, %bitmap_bsearch_pos.exit.i, %.loopexit.i, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %372
 
@@ -1862,7 +1862,7 @@ bitmap_num_objects.exit:                          ; preds = %17, %19
   br label %28
 
 28:                                               ; preds = %.thread27, %._crit_edge, %2, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %2 ], [ null, %._crit_edge ], [ null, %.thread27 ]
+  %.0 = phi ptr [ null, %2 ], [ %27, %26 ], [ null, %._crit_edge ], [ null, %.thread27 ]
   ret ptr %.0
 }
 
@@ -1994,7 +1994,7 @@ kh_get_oid_pos.exit.thread.i:                     ; preds = %.critedge2.i.i
   br label %kh_get_oid_pos.exit.i
 
 kh_get_oid_pos.exit.i:                            ; preds = %.critedge.i.i, %26
-  %.1.i.i = phi i32 [ 0, %26 ], [ %spec.select.i.i, %.critedge.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = icmp ult i32 %.1.i.i, %29
   br i1 %57, label %58, label %bitmap_position_extended.exit
@@ -2366,7 +2366,7 @@ bitmap_walk_contains.exit.thread.i:               ; preds = %bitmap_walk_contain
   br label %add_commit_to_bitmap.exit.i
 
 add_commit_to_bitmap.exit.i:                      ; preds = %151, %149, %bitmap_walk_contains.exit.i, %.lr.ph102.i
-  %.164.i = phi i32 [ %.06398.i, %bitmap_walk_contains.exit.i ], [ %.06398.i, %.lr.ph102.i ], [ 1, %151 ], [ 1, %149 ]
+  %.164.i = phi i32 [ %.06398.i, %.lr.ph102.i ], [ %.06398.i, %bitmap_walk_contains.exit.i ], [ 1, %149 ], [ 1, %151 ]
   %152 = getelementptr inbounds nuw i8, ptr %.0100.i, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !172
   %.not69.i = icmp eq ptr %153, null
@@ -2729,7 +2729,7 @@ in_bitmapped_pack.exit.thread:                    ; preds = %78, %81, %80, %in_b
   br label %301
 
 301:                                              ; preds = %11, %2, %in_bitmapped_pack.exit.thread, %filter_packed_objects_from_bitmap.exit
-  %.0 = phi ptr [ null, %in_bitmapped_pack.exit.thread ], [ %15, %filter_packed_objects_from_bitmap.exit ], [ null, %2 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %in_bitmapped_pack.exit.thread ], [ %15, %filter_packed_objects_from_bitmap.exit ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
@@ -2941,8 +2941,8 @@ add_commit_to_bitmap.exit:                        ; preds = %56
   br label %cascade_pseudo_merges_1.exit71
 
 cascade_pseudo_merges_1.exit71:                   ; preds = %._crit_edge92.thread, %80, %77, %75
-  %.179.lcssa112116 = phi ptr [ %.2, %80 ], [ %.2, %77 ], [ %.2, %75 ], [ %.0, %._crit_edge92.thread ]
-  %85 = phi ptr [ %73, %80 ], [ %73, %77 ], [ %73, %75 ], [ %74, %._crit_edge92.thread ]
+  %.179.lcssa112116 = phi ptr [ %.2, %75 ], [ %.2, %80 ], [ %.2, %77 ], [ %.0, %._crit_edge92.thread ]
+  %85 = phi ptr [ %73, %75 ], [ %73, %80 ], [ %73, %77 ], [ %74, %._crit_edge92.thread ]
   %86 = icmp eq ptr %.179.lcssa112116, null
   br i1 %86, label %cascade_pseudo_merges_1.exit71.split.us, label %cascade_pseudo_merges_1.exit71.split.outer
 
@@ -3356,7 +3356,7 @@ filter_bitmap_object_type.exit:                   ; preds = %112, %113
   br label %.thread
 
 .thread:                                          ; preds = %114, %.lr.ph, %.preheader, %7, %.thread.fold.split, %98, %104, %filter_bitmap_object_type.exit, %102, %103, %15, %filter_bitmap_blob_limit.exit, %13, %14, %4
-  %.035 = phi i32 [ %9, %7 ], [ 0, %4 ], [ 0, %14 ], [ 0, %13 ], [ 0, %filter_bitmap_blob_limit.exit ], [ 0, %15 ], [ 0, %103 ], [ 0, %102 ], [ 0, %filter_bitmap_object_type.exit ], [ 0, %104 ], [ -1, %98 ], [ -1, %.thread.fold.split ], [ 0, %.preheader ], [ 0, %114 ], [ -1, %.lr.ph ]
+  %.035 = phi i32 [ -1, %98 ], [ 0, %4 ], [ 0, %13 ], [ 0, %15 ], [ 0, %102 ], [ 0, %104 ], [ %9, %7 ], [ 0, %14 ], [ 0, %filter_bitmap_blob_limit.exit ], [ 0, %103 ], [ 0, %filter_bitmap_object_type.exit ], [ -1, %.thread.fold.split ], [ 0, %.preheader ], [ 0, %114 ], [ -1, %.lr.ph ]
   ret i32 %.035
 }
 
@@ -3591,10 +3591,10 @@ sane_qsort.exit.thread:                           ; preds = %._crit_edge
   br label %108
 
 108:                                              ; preds = %.thread151, %106
-  %109 = phi ptr [ %.ph208, %106 ], [ %39, %.thread151 ]
-  %110 = phi ptr [ %.ph, %106 ], [ %40, %.thread151 ]
-  %.185 = phi ptr [ %107, %106 ], [ %104, %.thread151 ]
-  %.1 = phi i32 [ -1, %106 ], [ %101, %.thread151 ]
+  %109 = phi ptr [ %39, %.thread151 ], [ %.ph208, %106 ]
+  %110 = phi ptr [ %40, %.thread151 ], [ %.ph, %106 ]
+  %.185 = phi ptr [ %104, %.thread151 ], [ %107, %106 ]
+  %.1 = phi i32 [ %101, %.thread151 ], [ -1, %106 ]
   %111 = call i32 @is_pack_valid(ptr noundef %.185) #22
   %.not118 = icmp eq i32 %111, 0
   br i1 %.not118, label %120, label %.split
@@ -6491,7 +6491,7 @@ st_mult.exit142:                                  ; preds = %116
   br label %.critedge109
 
 .critedge109:                                     ; preds = %.thread149, %.thread, %_.exit124, %_.exit138, %_.exit135, %.critedge, %_.exit117, %_.exit114, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit114 ], [ -1, %_.exit117 ], [ 0, %.critedge ], [ -1, %_.exit135 ], [ -1, %_.exit138 ], [ -1, %_.exit124 ], [ -1, %.thread ], [ -1, %.thread149 ]
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit114 ], [ -1, %_.exit117 ], [ 0, %.critedge ], [ -1, %_.exit135 ], [ -1, %_.exit138 ], [ -1, %.thread149 ], [ -1, %.thread ], [ -1, %_.exit124 ]
   ret i32 %.0
 }
 
@@ -7186,7 +7186,7 @@ add_to_include_set.exit.thread20:                 ; preds = %25
   store i32 %33, ptr @pseudo_merges_satisfied_nr, align 4, !tbaa !8
   br label %add_to_include_set.exit.thread
 
-add_to_include_set.exit.thread:                   ; preds = %._crit_edge.i, %14, %21, %add_to_include_set.exit.thread20
+add_to_include_set.exit.thread:                   ; preds = %21, %14, %._crit_edge.i, %add_to_include_set.exit.thread20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.023 = load ptr, ptr %34, align 8, !tbaa !110
   %.not1724 = icmp eq ptr %.023, null
@@ -7242,7 +7242,7 @@ define internal range(i32 0, 2) i32 @should_include_obj(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %._crit_edge, %2, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %2 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %15 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

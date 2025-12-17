@@ -294,7 +294,7 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit.i: ; preds = %.noex
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfd7fee46913f4923E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfd7fee46913f4923E.exit": ; preds = %.noexc4, %2
-  %.0.shrunk = phi i1 [ %59, %.noexc4 ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %59, %.noexc4 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %60 = load ptr, ptr %1, align 8, !alias.scope !94, !noundef !7
@@ -403,7 +403,7 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit.i: ; preds = %36, %
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfd7fee46913f4923E.exit"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfd7fee46913f4923E.exit": ; preds = %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit.i, %2
-  %.0.shrunk = phi i1 [ %47, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit.i ], [ false, %2 ]
+  %.0.shrunk = phi i1 [ false, %2 ], [ %47, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit.i ]
   ret i1 %.0.shrunk
 }
 

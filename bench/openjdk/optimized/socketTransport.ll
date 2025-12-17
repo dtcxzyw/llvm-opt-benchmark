@@ -279,7 +279,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
   br label %108
 
 108:                                              ; preds = %readPreferIPv6Addresses.exit, %98, %103, %7, %4
-  %.0 = phi i32 [ -3, %4 ], [ -5, %7 ], [ 0, %103 ], [ 0, %98 ], [ 0, %readPreferIPv6Addresses.exit ]
+  %.0 = phi i32 [ -5, %7 ], [ -3, %4 ], [ 0, %103 ], [ 0, %98 ], [ 0, %readPreferIPv6Addresses.exit ]
   ret i32 %.0
 }
 
@@ -492,8 +492,8 @@ setLastError.exit.i:                              ; preds = %87, %83
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.15)
   br label %91
 
-91:                                               ; preds = %48, %setLastError.exit.i, %90, %setOptionsCommon.exit.i
-  %.018.i.ph = phi i32 [ 202, %setOptionsCommon.exit.i ], [ 202, %90 ], [ 203, %setLastError.exit.i ], [ 202, %48 ]
+91:                                               ; preds = %48, %setOptionsCommon.exit.i, %setLastError.exit.i, %90
+  %.018.i.ph = phi i32 [ 202, %90 ], [ 203, %setLastError.exit.i ], [ 202, %setOptionsCommon.exit.i ], [ 202, %48 ]
   %92 = load i32, ptr @socketFD, align 4
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %94, label %96
@@ -553,7 +553,7 @@ connectToAddr.exit:                               ; preds = %96, %.connectToAddr
   br label %113
 
 113:                                              ; preds = %107, %._crit_edge, %24, %110, %setLastError.exit
-  %.024 = phi i32 [ 103, %setLastError.exit ], [ %109, %110 ], [ %25, %24 ], [ %.3, %._crit_edge ], [ 0, %107 ]
+  %.024 = phi i32 [ 103, %setLastError.exit ], [ %.3, %._crit_edge ], [ %25, %24 ], [ %109, %110 ], [ 0, %107 ]
   ret i32 %.024
 }
 
@@ -810,8 +810,8 @@ startListening.exit:                              ; preds = %88
   call void @dbgsysFreeAddrInfo(ptr noundef %102) #13
   br label %109
 
-103:                                              ; preds = %54, %78, %83, %87, %100, %setOptionsCommon.exit.i, %setReuseAddrOption.exit.i
-  %.0.i37.ph = phi i32 [ 202, %setReuseAddrOption.exit.i ], [ 202, %setOptionsCommon.exit.i ], [ 110, %100 ], [ 202, %87 ], [ 202, %83 ], [ 202, %78 ], [ 202, %54 ]
+103:                                              ; preds = %54, %setOptionsCommon.exit.i, %78, %83, %87, %100, %setReuseAddrOption.exit.i
+  %.0.i37.ph = phi i32 [ 202, %setReuseAddrOption.exit.i ], [ 110, %100 ], [ 202, %87 ], [ 202, %83 ], [ 202, %78 ], [ 202, %setOptionsCommon.exit.i ], [ 202, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -827,7 +827,7 @@ startListening.exit:                              ; preds = %88
   br label %109
 
 109:                                              ; preds = %startListening.exit, %103, %107, %19
-  %.021 = phi i32 [ %20, %19 ], [ %.0.i37.ph, %107 ], [ %.0.i37.ph, %103 ], [ 0, %startListening.exit ]
+  %.021 = phi i32 [ %.0.i37.ph, %103 ], [ %20, %19 ], [ %.0.i37.ph, %107 ], [ 0, %startListening.exit ]
   ret i32 %.021
 }
 
@@ -1160,7 +1160,7 @@ define internal range(i32 0, 203) i32 @socketTransport_close(ptr readnone captur
   br label %8
 
 8:                                                ; preds = %4, %1, %7
-  %.0 = phi i32 [ 202, %7 ], [ 0, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %1 ], [ 202, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1223,7 +1223,7 @@ setLastError.exit:                                ; preds = %12, %16
   br i1 %30, label %.lr.ph.i, label %recv_fully.exit, !llvm.loop !15
 
 recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
-  %.0.i47 = phi i32 [ %29, %28 ], [ %.01316.i, %26 ], [ %24, %.lr.ph.i ]
+  %.0.i47 = phi i32 [ %24, %.lr.ph.i ], [ %.01316.i, %26 ], [ %29, %28 ]
   switch i32 %.0.i47, label %32 [
     i32 0, label %31
     i32 4, label %33
@@ -1418,7 +1418,7 @@ recv_fully.exit67:                                ; preds = %66, %78
   br label %108
 
 108:                                              ; preds = %96, %87, %107, %106, %95, %84, %.thread87, %80, %.thread83, %73, %.thread79, %67, %.thread73, %60, %.thread, %51, %32, %31, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 0, %31 ], [ 202, %32 ], [ 202, %51 ], [ 202, %.thread ], [ 202, %60 ], [ 202, %.thread73 ], [ 202, %67 ], [ 202, %.thread79 ], [ 202, %84 ], [ 110, %95 ], [ 202, %106 ], [ 202, %107 ], [ 202, %73 ], [ 202, %.thread83 ], [ 202, %80 ], [ 202, %.thread87 ], [ 0, %87 ], [ 0, %96 ]
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 0, %31 ], [ 202, %.thread87 ], [ 202, %32 ], [ 202, %51 ], [ 202, %.thread ], [ 202, %60 ], [ 202, %.thread73 ], [ 202, %67 ], [ 202, %.thread79 ], [ 202, %84 ], [ 202, %80 ], [ 110, %95 ], [ 202, %106 ], [ 202, %107 ], [ 202, %73 ], [ 202, %.thread83 ], [ 0, %87 ], [ 0, %96 ]
   ret i32 %.0
 }
 
@@ -1559,7 +1559,7 @@ setLastError.exit31:                              ; preds = %29, %33
   br i1 %74, label %.lr.ph.i, label %send_fully.exit, !llvm.loop !16
 
 send_fully.exit:                                  ; preds = %.lr.ph.i, %70, %72
-  %.0.i32 = phi i32 [ %73, %72 ], [ %.01316.i, %70 ], [ %68, %.lr.ph.i ]
+  %.0.i32 = phi i32 [ %68, %.lr.ph.i ], [ %.01316.i, %70 ], [ %73, %72 ]
   %.not27 = icmp eq i32 %.0.i32, %19
   br i1 %.not27, label %101, label %75
 
@@ -1621,7 +1621,7 @@ send_fully.exit36.thread:                         ; preds = %.lr.ph.i33, %send_f
   br i1 %99, label %.lr.ph.i38, label %send_fully.exit40, !llvm.loop !16
 
 send_fully.exit40:                                ; preds = %.lr.ph.i38, %95, %97
-  %.0.i37.ph = phi i32 [ %93, %.lr.ph.i38 ], [ %.01316.i39, %95 ], [ %98, %97 ]
+  %.0.i37.ph = phi i32 [ %93, %.lr.ph.i38 ], [ %98, %97 ], [ %.01316.i39, %95 ]
   %.not26 = icmp eq i32 %.0.i37.ph, %88
   br i1 %.not26, label %101, label %100
 
@@ -1630,7 +1630,7 @@ send_fully.exit40:                                ; preds = %.lr.ph.i38, %95, %9
   br label %101
 
 101:                                              ; preds = %send_fully.exit, %send_fully.exit40, %100, %send_fully.exit36.thread, %75, %setLastError.exit31, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit31 ], [ 202, %75 ], [ 202, %send_fully.exit36.thread ], [ 202, %100 ], [ 0, %send_fully.exit40 ], [ 0, %send_fully.exit ]
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit31 ], [ 202, %75 ], [ 202, %100 ], [ 202, %send_fully.exit36.thread ], [ 0, %send_fully.exit40 ], [ 0, %send_fully.exit ]
   ret i32 %.0
 }
 
@@ -1824,8 +1824,8 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br label %83
 
 83:                                               ; preds = %81, %78, %74
-  %.125.i.i = phi ptr [ %82, %81 ], [ %75, %74 ], [ null, %78 ]
-  %.1.i.i = phi ptr [ %75, %81 ], [ null, %74 ], [ %75, %78 ]
+  %.125.i.i = phi ptr [ %75, %74 ], [ %82, %81 ], [ null, %78 ]
+  %.1.i.i = phi ptr [ null, %74 ], [ %75, %81 ], [ %75, %78 ]
   store i8 0, ptr %72, align 1
   br label %84
 
@@ -2013,7 +2013,7 @@ parseAllowedPeers.exit.thread64:                  ; preds = %.loopexit.i.i
   br label %166
 
 parseAllowedPeers.exit:                           ; preds = %104, %108, %146, %150
-  %.sink56.i = phi ptr [ %107, %108 ], [ null, %104 ], [ null, %146 ], [ %149, %150 ]
+  %.sink56.i = phi ptr [ null, %104 ], [ %107, %108 ], [ null, %146 ], [ %149, %150 ]
   %162 = load i32, ptr @tlsIndex, align 4
   call void @dbgsysTlsPut(i32 noundef %162, ptr noundef %.sink56.i) #13
   %163 = load ptr, ptr @callback, align 8
@@ -2023,7 +2023,7 @@ parseAllowedPeers.exit:                           ; preds = %104, %108, %146, %1
   br label %166
 
 166:                                              ; preds = %19, %42, %parseAllowedPeers.exit.thread64, %parseAllowedPeers.exit, %parseAllowedPeers.exit.thread, %43, %setLastError.exit22, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit22 ], [ 103, %43 ], [ 103, %parseAllowedPeers.exit ], [ 110, %parseAllowedPeers.exit.thread ], [ 0, %parseAllowedPeers.exit.thread64 ], [ 0, %42 ], [ 0, %19 ]
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit22 ], [ 103, %43 ], [ 110, %parseAllowedPeers.exit.thread ], [ 103, %parseAllowedPeers.exit ], [ 0, %parseAllowedPeers.exit.thread64 ], [ 0, %42 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2333,7 +2333,7 @@ parseScopeId.exit.thread.i:                       ; preds = %104, %83
   br label %123
 
 118:                                              ; preds = %117, %113, %103, %99
-  %.sink16.i.i = phi ptr [ null, %99 ], [ %102, %103 ], [ null, %113 ], [ %116, %117 ]
+  %.sink16.i.i = phi ptr [ %102, %103 ], [ null, %99 ], [ null, %113 ], [ %116, %117 ]
   %119 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %119, ptr noundef %.sink16.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2344,7 +2344,7 @@ parseScopeId.exit.thread.i:                       ; preds = %104, %83
   br label %getAddrInfo.exit
 
 123:                                              ; preds = %parseScopeId.exit.thread.i, %80
-  %.0.ph.i = phi i64 [ %.05.i.ph.i, %parseScopeId.exit.thread.i ], [ 0, %80 ]
+  %.0.ph.i = phi i64 [ 0, %80 ], [ %.05.i.ph.i, %parseScopeId.exit.thread.i ]
   %124 = call i32 @dbgsysGetAddrInfo(ptr noundef nonnull %65, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
   %125 = load ptr, ptr @callback, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -2717,7 +2717,7 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %13, %3
-  %.0 = phi i32 [ 0, %3 ], [ %14, %13 ], [ %.01316, %11 ], [ %9, %.lr.ph ]
+  %.0 = phi i32 [ 0, %3 ], [ %.01316, %11 ], [ %14, %13 ], [ %9, %.lr.ph ]
   ret i32 %.0
 }
 

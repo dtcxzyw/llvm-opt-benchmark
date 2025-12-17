@@ -3828,8 +3828,8 @@ ehcleanup19.i.i:                                  ; preds = %lpad15.i.body.threa
   br label %ehcleanup44.i.i
 
 ehcleanup44.sink.split.i.i:                       ; preds = %lpad15.i.body.i, %lpad5.i.body.i, %ehcleanup19.i.thread.i, %ehcleanup19.thread.i.i, %ehcleanup.i.thread.i, %ehcleanup.thread.i.i
-  %exception28.sink.i.i = phi ptr [ %exception.i.i, %ehcleanup.thread.i.i ], [ %exception10.i.i, %ehcleanup19.thread.i.i ], [ %exception.i.i, %ehcleanup.i.thread.i ], [ %exception10.i.i, %ehcleanup19.i.thread.i ], [ %exception.i.i, %lpad5.i.body.i ], [ %exception10.i.i, %lpad15.i.body.i ]
-  %.pn49.pn.ph.i.i = phi { ptr, i32 } [ %19, %ehcleanup.thread.i.i ], [ %40, %ehcleanup19.thread.i.i ], [ %.pn.i421.i, %ehcleanup.i.thread.i ], [ %.pn.i369.i, %ehcleanup19.i.thread.i ], [ %.pn.i421.i, %lpad5.i.body.i ], [ %.pn.i369.i, %lpad15.i.body.i ]
+  %exception28.sink.i.i = phi ptr [ %exception10.i.i, %ehcleanup19.i.thread.i ], [ %exception.i.i, %ehcleanup.thread.i.i ], [ %exception.i.i, %lpad5.i.body.i ], [ %exception10.i.i, %ehcleanup19.thread.i.i ], [ %exception.i.i, %ehcleanup.i.thread.i ], [ %exception10.i.i, %lpad15.i.body.i ]
+  %.pn49.pn.ph.i.i = phi { ptr, i32 } [ %.pn.i369.i, %ehcleanup19.i.thread.i ], [ %19, %ehcleanup.thread.i.i ], [ %.pn.i421.i, %lpad5.i.body.i ], [ %40, %ehcleanup19.thread.i.i ], [ %.pn.i421.i, %ehcleanup.i.thread.i ], [ %.pn.i369.i, %lpad15.i.body.i ]
   call void @__cxa_free_exception(ptr %exception28.sink.i.i) #26
   br label %ehcleanup44.i.i
 

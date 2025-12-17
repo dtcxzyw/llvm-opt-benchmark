@@ -881,7 +881,7 @@ split:                                            ; preds = %76, %._crit_edge253
   unreachable
 
 82:                                               ; preds = %.thread, %76, %61
-  %.2105 = phi i32 [ %.0103, %61 ], [ 1, %76 ], [ %.0103, %.thread ]
+  %.2105 = phi i32 [ %.0103, %.thread ], [ %.0103, %61 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 

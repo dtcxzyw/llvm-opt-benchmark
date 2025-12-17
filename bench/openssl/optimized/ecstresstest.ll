@@ -91,7 +91,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %4, %11, %2
-  %.0 = phi i32 [ 1, %11 ], [ 0, %2 ], [ 0, %4 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %11 ], [ 0, %4 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 
@@ -206,9 +206,9 @@ walk_curve.exit:                                  ; preds = %18, %.preheader.i, 
   br label %47
 
 47:                                               ; preds = %44, %31, %36, %41, %0, %4, %walk_curve.exit
-  %.010 = phi ptr [ %6, %31 ], [ %6, %41 ], [ %6, %36 ], [ %6, %walk_curve.exit ], [ %6, %4 ], [ null, %0 ], [ %6, %44 ]
-  %.09 = phi ptr [ %.015.i, %31 ], [ %.015.i, %41 ], [ %.015.i, %36 ], [ %.015.i, %walk_curve.exit ], [ null, %4 ], [ null, %0 ], [ %.015.i, %44 ]
-  %.0 = phi i32 [ 1, %31 ], [ 0, %41 ], [ 0, %36 ], [ 0, %walk_curve.exit ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %44 ]
+  %.010 = phi ptr [ %6, %31 ], [ null, %0 ], [ %6, %44 ], [ %6, %41 ], [ %6, %36 ], [ %6, %walk_curve.exit ], [ %6, %4 ]
+  %.09 = phi ptr [ %.015.i, %31 ], [ null, %0 ], [ %.015.i, %44 ], [ %.015.i, %41 ], [ %.015.i, %36 ], [ %.015.i, %walk_curve.exit ], [ null, %4 ]
+  %.0 = phi i32 [ 1, %31 ], [ 0, %0 ], [ %spec.select, %44 ], [ 0, %41 ], [ 0, %36 ], [ 0, %walk_curve.exit ], [ 0, %4 ]
   call void @EC_GROUP_free(ptr noundef %2) #4
   call void @EC_POINT_free(ptr noundef %.010) #4
   call void @BN_free(ptr noundef %.09) #4

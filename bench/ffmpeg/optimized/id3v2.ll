@@ -454,11 +454,11 @@ get_size.exit.i:                                  ; preds = %.preheader296.i
   br i1 %119, label %.thread283.i, label %.thread.i
 
 .thread.i:                                        ; preds = %115, %105, %103
-  %.0167257.i = phi i32 [ 1, %105 ], [ 1, %115 ], [ 0, %103 ]
-  %.not209256.i = phi i1 [ false, %105 ], [ false, %115 ], [ true, %103 ]
-  %.0175255.i = phi ptr [ @.str.75, %105 ], [ @.str.75, %115 ], [ @.str.74, %103 ]
-  %.0188254.i = phi i32 [ 10, %105 ], [ 10, %115 ], [ 6, %103 ]
-  %.0.i = phi i32 [ %93, %105 ], [ %118, %115 ], [ %93, %103 ]
+  %.0167257.i = phi i32 [ 1, %115 ], [ 1, %105 ], [ 0, %103 ]
+  %.not209256.i = phi i1 [ false, %115 ], [ false, %105 ], [ true, %103 ]
+  %.0175255.i = phi ptr [ @.str.75, %115 ], [ @.str.75, %105 ], [ @.str.74, %103 ]
+  %.0188254.i = phi i32 [ 10, %115 ], [ 10, %105 ], [ 6, %103 ]
+  %.0.i = phi i32 [ %118, %115 ], [ %93, %105 ], [ %93, %103 ]
   %.not211300.i = icmp samesign ult i32 %.0.i, %.0188254.i
   br i1 %.not211300.i, label %.thread258.thread.i, label %.lr.ph303.i
 
@@ -584,7 +584,7 @@ get_size.exit.i:                                  ; preds = %.preheader296.i
   %or.cond15.i.i = and i1 %or.cond.i.i, %or.cond14.i.i
   br i1 %or.cond15.i.i, label %check_tag.exit.thread, label %.preheader.i57, !llvm.loop !16
 
-check_tag.exit.thread:                            ; preds = %168, %.loopexit294.i, %173
+check_tag.exit.thread:                            ; preds = %.loopexit294.i, %168, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread278.i
 
@@ -611,7 +611,7 @@ check_tag.exit:                                   ; preds = %.preheader.i57, %17
   br label %192
 
 192:                                              ; preds = %181, %179, %126
-  %.0190.i = phi i32 [ %.2192.i, %179 ], [ %191, %181 ], [ %127, %126 ]
+  %.0190.i = phi i32 [ %127, %126 ], [ %.2192.i, %179 ], [ %191, %181 ]
   %193 = call i32 @avio_rb16(ptr noundef %0) #9
   %194 = and i32 %193, 2
   %195 = icmp ne i32 %194, 0
@@ -748,7 +748,7 @@ check_tag.exit:                                   ; preds = %.preheader.i57, %17
   br i1 %.not.i54, label %get_extra_meta_func.exit, label %.split.split.i, !llvm.loop !22
 
 get_extra_meta_func.exit.thread:                  ; preds = %.split.split.i, %237, %.split.split.us.i, %233, %232, %229
-  %.2178.i = phi ptr [ %.0176301.i, %229 ], [ %.0176301.i, %233 ], [ %.0176301.i, %232 ], [ @id3v2_extra_meta_funcs, %.split.split.us.i ], [ %238, %237 ], [ %240, %.split.split.i ]
+  %.2178.i = phi ptr [ %.0176301.i, %229 ], [ %.0176301.i, %232 ], [ %.0176301.i, %233 ], [ @id3v2_extra_meta_funcs, %.split.split.us.i ], [ %238, %237 ], [ %240, %.split.split.i ]
   %or.cond.i = select i1 %121, i1 true, i1 %.0168.i
   %244 = icmp ne i32 %224, 0
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %244
@@ -802,7 +802,7 @@ get_extra_meta_func.exit.thread:                  ; preds = %.split.split.i, %23
   br label %263
 
 263:                                              ; preds = %260, %258
-  %.1164.i = phi ptr [ %255, %258 ], [ %spec.select239.i, %260 ]
+  %.1164.i = phi ptr [ %spec.select239.i, %260 ], [ %255, %258 ]
   %.not226.i = icmp eq ptr %.1164.i, %253
   br i1 %.not226.i, label %.thread268.i, label %.lr.ph.i, !llvm.loop !24
 
@@ -825,8 +825,8 @@ get_extra_meta_func.exit.thread:                  ; preds = %.split.split.i, %23
   br label %.thread273.i
 
 274:                                              ; preds = %.thread268.i, %249
-  %.5.i = phi i32 [ %.4194.i, %249 ], [ %272, %.thread268.i ]
-  %.0181.i = phi ptr [ %0, %249 ], [ %18, %.thread268.i ]
+  %.5.i = phi i32 [ %272, %.thread268.i ], [ %.4194.i, %249 ]
+  %.0181.i = phi ptr [ %18, %.thread268.i ], [ %0, %249 ]
   br i1 %244, label %275, label %304
 
 275:                                              ; preds = %274
@@ -1079,7 +1079,7 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   br label %.thread278.i
 
 .thread273.i:                                     ; preds = %get_extra_meta_func.exit, %364, %read_comment.exit, %read_uslt.exit, %307, %297, %292, %285, %278, %275, %273, %248, %226
-  %.4180.i = phi ptr [ %.0176301.i, %226 ], [ %.2178.i, %307 ], [ %.2178.i, %364 ], [ %.2178.i, %read_comment.exit ], [ %.2178.i, %read_uslt.exit ], [ %.2178.i, %273 ], [ %.2178.i, %248 ], [ %.3179.i, %get_extra_meta_func.exit ], [ %.2178.i, %297 ], [ %.2178.i, %292 ], [ %.2178.i, %285 ], [ %.2178.i, %275 ], [ %.2178.i, %278 ]
+  %.4180.i = phi ptr [ %.0176301.i, %226 ], [ %.2178.i, %307 ], [ %.2178.i, %364 ], [ %.2178.i, %read_comment.exit ], [ %.2178.i, %read_uslt.exit ], [ %.3179.i, %get_extra_meta_func.exit ], [ %.2178.i, %273 ], [ %.2178.i, %248 ], [ %.2178.i, %285 ], [ %.2178.i, %275 ], [ %.2178.i, %297 ], [ %.2178.i, %292 ], [ %.2178.i, %278 ]
   %373 = call i64 @avio_seek(ptr noundef %0, i64 noundef %210, i32 noundef 0) #9
   br label %374
 
@@ -1088,7 +1088,7 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   br label %.thread258.thread.i
 
 374:                                              ; preds = %.thread273.i, %213, %211
-  %.1177.i = phi ptr [ %.4180.i, %.thread273.i ], [ %.0176301.i, %213 ], [ %.0176301.i, %211 ]
+  %.1177.i = phi ptr [ %.0176301.i, %211 ], [ %.4180.i, %.thread273.i ], [ %.0176301.i, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not211.i = icmp slt i32 %205, %.0188254.i
   br i1 %.not211.i, label %.thread258.thread.i, label %122
@@ -1103,7 +1103,7 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   br label %378
 
 .thread283.i:                                     ; preds = %115, %get_size.exit.i, %103, %99
-  %.0185289.i = phi ptr [ @.str.76, %99 ], [ @.str.73, %103 ], [ @.str.77, %get_size.exit.i ], [ @.str.78, %115 ]
+  %.0185289.i = phi ptr [ @.str.77, %get_size.exit.i ], [ @.str.76, %99 ], [ @.str.73, %103 ], [ @.str.78, %115 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.91, i32 noundef %101, ptr noundef nonnull %.0185289.i) #9
   br label %378
 
@@ -1377,7 +1377,7 @@ get_extra_meta_func.exit:                         ; preds = %.split.split.i
   br label %get_extra_meta_func.exit.thread
 
 get_extra_meta_func.exit.thread:                  ; preds = %8, %.lr.ph, %get_extra_meta_func.exit
-  %12 = phi ptr [ %storemerge10, %.lr.ph ], [ %.pre, %get_extra_meta_func.exit ], [ %storemerge10, %8 ]
+  %12 = phi ptr [ %.pre, %get_extra_meta_func.exit ], [ %storemerge10, %.lr.ph ], [ %storemerge10, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   call void @av_freep(ptr noundef nonnull %2) #9
@@ -1507,8 +1507,8 @@ define range(i32 -2147483648, 1) i32 @ff_id3v2_parse_chapters(ptr noundef %0, pt
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %._crit_edge, label %23
 
-23:                                               ; preds = %.lr.ph, %5, %17
-  %.119.ph = phi i32 [ %7, %17 ], [ %7, %5 ], [ %.01830, %.lr.ph ]
+23:                                               ; preds = %.lr.ph, %17, %5
+  %.119.ph = phi i32 [ %7, %5 ], [ %7, %17 ], [ %.01830, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %.01531, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !50
   %.not = icmp eq ptr %25, null

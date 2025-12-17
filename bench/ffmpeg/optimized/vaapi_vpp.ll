@@ -1653,7 +1653,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   br i1 %exitcond125.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i, !llvm.loop !143
 
 vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i.split.split.us.us, %.split.i.split.split, %.split.i.split.us.us.split.us.us, %.split.i.split.us.us.split, %.split.us.split.us92.i.split.us.us, %.split.us.split.us92.i.split, %.split.us.split.us.split.us.us.us.us.i, %.split.us.split.us.split.us105.us.i, %._crit_edge.i
-  %.0.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.us.us.us104.us.i, %.split.us.split.us.split.us105.us.i ], [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ %.2.us.us91.i.us.us, %.split.us.split.us92.i.split.us.us ], [ %.2.i.us.us, %.split.i.split.us.us.split ], [ %.2.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ %.2.i, %.split.i.split.split ], [ %.2.i.us32.us, %.split.i.split.split.us.us ], [ 13, %.lr.ph.i ]
+  %.0.lcssa.sink.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.i.us32.us, %.split.i.split.split.us.us ], [ %.2.us.us.us104.us.i, %.split.us.split.us.split.us105.us.i ], [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ %.2.us.us91.i.us.us, %.split.us.split.us92.i.split.us.us ], [ %.2.i.us.us, %.split.i.split.us.us.split ], [ %.2.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ %.2.i, %.split.i.split.split ], [ 13, %.lr.ph.i ]
   store i32 %.0.lcssa.sink.i, ptr %1, align 4, !tbaa !123
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %155 = load i32, ptr %154, align 4, !tbaa !144

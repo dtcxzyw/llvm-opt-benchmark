@@ -2477,7 +2477,7 @@ enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id
   %38 = icmp slt i32 %32, %37
   br i1 %38, label %._crit_edge, label %.lr.ph106
 
-39:                                               ; preds = %.thread94, %22
+39:                                               ; preds = %22, %.thread94
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store ptr %3, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 408
@@ -2512,9 +2512,9 @@ enc_key_cmp_id.exit51:                            ; preds = %53
   %.not61 = icmp ugt i32 %54, %56
   br i1 %.not61, label %.thread, label %.loopexit
 
-._crit_edge:                                      ; preds = %46, %53, %.lr.ph
-  %.lcssa = phi ptr [ %34, %.lr.ph ], [ %63, %46 ], [ %51, %53 ]
-  %.073.lcssa = phi ptr [ %3, %.lr.ph ], [ %51, %46 ], [ %.073105, %53 ]
+._crit_edge:                                      ; preds = %53, %46, %.lr.ph
+  %.lcssa = phi ptr [ %34, %.lr.ph ], [ %51, %53 ], [ %63, %46 ]
+  %.073.lcssa = phi ptr [ %3, %.lr.ph ], [ %.073105, %53 ], [ %51, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store ptr %.lcssa, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.073.lcssa, i64 408
@@ -2798,7 +2798,7 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
   br label %74
 
 74:                                               ; preds = %.sink.split, %67, %54, %48, %50, %39, %28, %22, %24, %14, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %24 ], [ null, %22 ], [ null, %28 ], [ null, %39 ], [ null, %50 ], [ null, %48 ], [ null, %54 ], [ %70, %67 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %22 ], [ null, %28 ], [ null, %39 ], [ null, %48 ], [ null, %54 ], [ null, %24 ], [ null, %50 ], [ %70, %67 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -3343,7 +3343,7 @@ define hidden i32 @dissect_kerberos_KERB_TICKET_LOGON(ptr noundef %0, i32 nounde
   br label %36
 
 36:                                               ; preds = %33, %28, %7, %4
-  %.0 = phi i32 [ %1, %4 ], [ %26, %7 ], [ %30, %28 ], [ %35, %33 ]
+  %.0 = phi i32 [ %35, %33 ], [ %1, %4 ], [ %26, %7 ], [ %30, %28 ]
   ret i32 %.0
 }
 
@@ -3870,14 +3870,14 @@ proto_item_set_generated.exit102:                 ; preds = %proto_item_set_gene
   %.0..0..0..0.51 = load volatile i32, ptr %8, align 4
   br label %192
 
-.critedge:                                        ; preds = %55, %52
+.critedge:                                        ; preds = %52, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %192
 
 192:                                              ; preds = %.critedge, %25, %191
-  %.0 = phi i32 [ %.0..0..0..0.51, %191 ], [ -1, %25 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %.critedge ], [ %.0..0..0..0.51, %191 ], [ -1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4115,7 +4115,7 @@ define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr noundef readonly 
   br label %16
 
 16:                                               ; preds = %12, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ %., %12 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ %., %12 ]
   ret i32 %.0
 }
 
@@ -4263,7 +4263,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br label %34
 
 34:                                               ; preds = %30, %26, %20, %19
-  %.082 = phi i1 [ false, %26 ], [ false, %20 ], [ false, %19 ], [ %spec.select100, %30 ]
+  %.082 = phi i1 [ false, %19 ], [ %spec.select100, %30 ], [ false, %26 ], [ false, %20 ]
   %.not92 = icmp eq ptr %16, null
   %.not93 = icmp eq ptr %16, %1
   %or.cond101 = or i1 %.not92, %.not93
@@ -4305,7 +4305,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %
   br label %55
 
 55:                                               ; preds = %52, %48, %45, %41, %35, %34
-  %.081 = phi i1 [ false, %45 ], [ false, %41 ], [ false, %35 ], [ false, %34 ], [ %51, %48 ], [ %.not94, %52 ]
+  %.081 = phi i1 [ false, %45 ], [ false, %34 ], [ false, %35 ], [ %51, %48 ], [ %.not94, %52 ], [ false, %41 ]
   br i1 %.082, label %56, label %114
 
 56:                                               ; preds = %55
@@ -7740,8 +7740,8 @@ kerberos_get_private_data.exit:                   ; preds = %6, %14
   br label %59
 
 53:                                               ; preds = %43, %33, %26
-  %.044 = phi ptr [ %28, %26 ], [ %42, %33 ], [ %45, %43 ]
-  %.0 = phi ptr [ %32, %26 ], [ %39, %33 ], [ %49, %43 ]
+  %.044 = phi ptr [ %45, %43 ], [ %28, %26 ], [ %42, %33 ]
+  %.0 = phi ptr [ %49, %43 ], [ %32, %26 ], [ %39, %33 ]
   %54 = icmp ne ptr %.044, null
   %55 = icmp ne ptr %.0, null
   %or.cond = select i1 %54, i1 %55, i1 false
@@ -8325,7 +8325,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
   br label %47
 
 47:                                               ; preds = %kerberos_get_private_data.exit, %43, %30
-  %.0 = phi i32 [ %46, %43 ], [ %42, %30 ], [ %2, %kerberos_get_private_data.exit ]
+  %.0 = phi i32 [ %42, %30 ], [ %46, %43 ], [ %2, %kerberos_get_private_data.exit ]
   ret i32 %.0
 }
 
@@ -9724,7 +9724,7 @@ kerberos_get_private_data.exit:                   ; preds = %1, %5
   br label %56
 
 56:                                               ; preds = %53, %50, %55, %52
-  %.sink = phi i32 [ 3, %55 ], [ 1, %52 ], [ 0, %50 ], [ 2, %53 ]
+  %.sink = phi i32 [ 3, %55 ], [ 0, %50 ], [ 1, %52 ], [ 2, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 36
   store i32 %.sink, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -9871,7 +9871,7 @@ decrypt_krb5_data_asn1.exit37:                    ; preds = %56, %58
   br label %66
 
 66:                                               ; preds = %decrypt_krb5_data_asn1.exit33, %decrypt_krb5_data_asn1.exit37, %decrypt_krb5_data_asn1.exit
-  %.028 = phi ptr [ %29, %decrypt_krb5_data_asn1.exit ], [ %44, %decrypt_krb5_data_asn1.exit33 ], [ %65, %decrypt_krb5_data_asn1.exit37 ]
+  %.028 = phi ptr [ %65, %decrypt_krb5_data_asn1.exit37 ], [ %29, %decrypt_krb5_data_asn1.exit ], [ %44, %decrypt_krb5_data_asn1.exit33 ]
   %.not31 = icmp eq ptr %.028, null
   br i1 %.not31, label %.thread, label %.thread40
 
@@ -10255,7 +10255,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %9
   br label %23
 
 23:                                               ; preds = %kerberos_get_private_data.exit, %21, %19
-  %.sink = phi i32 [ %22, %21 ], [ %20, %19 ], [ -1, %kerberos_get_private_data.exit ]
+  %.sink = phi i32 [ %20, %19 ], [ %22, %21 ], [ -1, %kerberos_get_private_data.exit ]
   store i32 %.sink, ptr %14, align 8
   store ptr @save_EncKDCRepPart_key, ptr %16, align 8
   %24 = load ptr, ptr %7, align 8

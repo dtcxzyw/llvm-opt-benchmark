@@ -527,14 +527,14 @@ define internal fastcc ptr @find_sample(ptr noundef nonnull readonly captures(no
   %.not53 = icmp eq i32 %63, 0
   br i1 %.not53, label %.critedge, label %58
 
-.loopexit:                                        ; preds = %58, %.critedge55, %.lr.ph74.split.split, %32, %37, %._crit_edge
+.loopexit:                                        ; preds = %58, %.critedge55, %32, %.lr.ph74.split.split, %37, %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %.03771, i64 48
   %.037 = load ptr, ptr %64, align 8, !tbaa !58
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %.critedge, label %.lr.ph74.split.split
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph68, %.loopexit.us, %.lr.ph68.us, %13, %11, %5
-  %.03762 = phi ptr [ null, %5 ], [ null, %13 ], [ %.03771.us, %11 ], [ %.03771.us80, %.lr.ph68.us ], [ null, %.loopexit.us ], [ %.03771, %.lr.ph68 ], [ null, %.loopexit ]
+  %.03762 = phi ptr [ null, %5 ], [ %.03771, %.lr.ph68 ], [ null, %13 ], [ %.03771.us80, %.lr.ph68.us ], [ null, %.loopexit.us ], [ %.03771.us, %11 ], [ null, %.loopexit ]
   ret ptr %.03762
 }
 

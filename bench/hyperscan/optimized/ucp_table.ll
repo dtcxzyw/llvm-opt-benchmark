@@ -7281,7 +7281,7 @@ select.unfold.i.i.i:                              ; preds = %.thread.i, %71, %._
   br label %84
 
 84:                                               ; preds = %80, %select.unfold.i.i.i
-  %85 = phi i1 [ true, %select.unfold.i.i.i ], [ %83, %80 ]
+  %85 = phi i1 [ %83, %80 ], [ true, %select.unfold.i.i.i ]
   %86 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
           to label %.noexc unwind label %56
 
@@ -7343,7 +7343,7 @@ _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EE
   br i1 %.not, label %.critedge5, label %.preheader, !llvm.loop !146
 
 .critedge5:                                       ; preds = %98, %.preheader
-  %.2 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), %98 ], [ %.374, %.preheader ]
+  %.2 = phi ptr [ %.374, %.preheader ], [ getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), %98 ]
   %100 = add nuw i32 %.03576, 1
   %exitcond.not = icmp eq i32 %.03576, %41
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !147
@@ -7495,7 +7495,7 @@ select.unfold.i.i:                                ; preds = %.thread, %20, %._cr
   br label %33
 
 33:                                               ; preds = %select.unfold.i.i, %29
-  %34 = phi i1 [ true, %select.unfold.i.i ], [ %32, %29 ]
+  %34 = phi i1 [ %32, %29 ], [ true, %select.unfold.i.i ]
   %35 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i64, ptr %1, align 4
@@ -7767,8 +7767,8 @@ _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
   br label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 _ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i, %27
-  %29 = phi i32 [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.pre53.pre, %27 ], [ %.pre53.pre, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.pre53.pre, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.sroa.0.0.insert.insert.i.i.i, %27 ], [ %.sroa.09.0.copyload, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.sroa.09.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
+  %29 = phi i32 [ %.pre53.pre, %27 ], [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.pre53.pre, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.pre53.pre, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %27 ], [ %.sroa.0.0.copyload.i.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.sroa.09.0.copyload, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.sroa.09.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.07.0.copyload = load i64, ptr %30, align 4
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.07.0.copyload, 32
@@ -7819,7 +7819,7 @@ _ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
   br label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit
 
 _ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i22, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i26, %45
-  %.sroa.0.0.i28 = phi i64 [ %.sroa.0.0.copyload.i.i27, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i26 ], [ %.sroa.0.0.insert.insert.i.i.i32, %45 ], [ %.sroa.07.0.copyload, %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit ], [ %.sroa.07.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i22 ]
+  %.sroa.0.0.i28 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i32, %45 ], [ %.sroa.0.0.copyload.i.i27, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i26 ], [ %.sroa.07.0.copyload, %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit ], [ %.sroa.07.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i22 ]
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.i28 to i32
   %.sroa.5.0.extract.shift = lshr i64 %.sroa.0.0.i28, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -7897,7 +7897,7 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
   br label %_ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_static_boundsIT_EES7_E4typeES7_RKS7_.exit
 
 _ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_static_boundsIT_EES7_E4typeES7_RKS7_.exit: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit, %69, %70
-  %.sroa.0.0.i40 = phi i64 [ %.sroa.0.0.copyload4.i, %69 ], [ %.sroa.0.0.insert.insert.i.i.i39, %70 ], [ %.sroa.0.0.i, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit ]
+  %.sroa.0.0.i40 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i39, %70 ], [ %.sroa.0.0.copyload4.i, %69 ], [ %.sroa.0.0.i, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit ]
   %.sroa.0.0.extract.trunc.i41 = trunc i64 %.sroa.0.0.i40 to i32
   %.sroa.4.0.extract.shift.i42 = lshr i64 %.sroa.0.0.i40, 32
   %.sroa.4.0.extract.trunc.i43 = trunc nuw i64 %.sroa.4.0.extract.shift.i42 to i32

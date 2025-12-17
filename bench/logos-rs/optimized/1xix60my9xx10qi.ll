@@ -645,7 +645,7 @@ define zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp
   br i1 %brmerge, label %7, label %8
 
 7:                                                ; preds = %2, %8
-  %.sroa.0.0 = phi i1 [ %9, %8 ], [ %.mux, %2 ]
+  %.sroa.0.0 = phi i1 [ %.mux, %2 ], [ %9, %8 ]
   ret i1 %.sroa.0.0
 
 8:                                                ; preds = %2

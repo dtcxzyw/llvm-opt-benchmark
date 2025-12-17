@@ -858,7 +858,7 @@ _.exit:                                           ; preds = %174, %176
   br label %180
 
 180:                                              ; preds = %fetch_remote.exit, %158, %_.exit, %strbuf_setlen.exit49
-  %.0 = phi i32 [ -1, %_.exit ], [ 0, %strbuf_setlen.exit49 ], [ 0, %158 ], [ 1, %fetch_remote.exit ]
+  %.0 = phi i32 [ 0, %158 ], [ -1, %_.exit ], [ 0, %strbuf_setlen.exit49 ], [ 1, %fetch_remote.exit ]
   call void @strbuf_release(ptr noundef nonnull %11) #19
   call void @strbuf_release(ptr noundef nonnull %12) #19
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #19
@@ -3332,7 +3332,7 @@ _.exit.sink.split.i:                              ; preds = %35
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %_.exit.sink.split.i, %35
-  %40 = phi ptr [ %39, %_.exit.sink.split.i ], [ %.str.193..str.192.i, %35 ]
+  %40 = phi ptr [ %.str.193..str.192.i, %35 ], [ %39, %_.exit.sink.split.i ]
   call fastcc void @get_remote_ref_states(ptr noundef %36, ptr noundef %5, i32 noundef 1)
   %41 = load i64, ptr %28, align 8, !tbaa !118
   %.not22.i = icmp eq i64 %41, 0
@@ -4143,8 +4143,8 @@ define internal noundef i32 @config_read_branches(ptr noundef %0, ptr noundef %1
   br i1 %.not.i.i56, label %strip_suffix.exit, label %strip_suffix.exit58.thread
 
 strip_suffix.exit:                                ; preds = %.thread91, %24, %19, %14, %10
-  %.0 = phi i64 [ %11, %10 ], [ %15, %14 ], [ %20, %19 ], [ %25, %24 ], [ %17, %.thread91 ]
-  %.041 = phi i32 [ 0, %10 ], [ 1, %14 ], [ 2, %19 ], [ 3, %24 ], [ 1, %.thread91 ]
+  %.0 = phi i64 [ %20, %19 ], [ %11, %10 ], [ %15, %14 ], [ %25, %24 ], [ %17, %.thread91 ]
+  %.041 = phi i32 [ 2, %19 ], [ 0, %10 ], [ 1, %14 ], [ 3, %24 ], [ 1, %.thread91 ]
   %27 = tail call ptr @xmemdupz(ptr noundef nonnull %7, i64 noundef %.0) #19
   %28 = tail call ptr @string_list_insert(ptr noundef nonnull @branch_list, ptr noundef %27) #19
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4981,7 +4981,7 @@ abbrev_ref.exit43.i:                              ; preds = %171, %170
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %185, %183, %179, %177, %abbrev_ref.exit43.i
-  %.sink.i = phi i32 [ 4, %185 ], [ 1, %abbrev_ref.exit43.i ], [ 2, %177 ], [ 0, %179 ], [ 3, %183 ]
+  %.sink.i = phi i32 [ 1, %abbrev_ref.exit43.i ], [ 2, %177 ], [ 4, %185 ], [ 0, %179 ], [ 3, %183 ]
   %186 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 %.sink.i, ptr %186, align 4, !tbaa !161
   br label %187
@@ -5337,8 +5337,8 @@ _.exit:                                           ; preds = %10, %12
   br label %_.exit25
 
 _.exit25:                                         ; preds = %39, %38, %36, %35, %29, %27, %22, %20, %_.exit
-  %.018 = phi ptr [ %.0.i, %_.exit ], [ @.str.43, %20 ], [ @.str.43, %22 ], [ @.str.43, %27 ], [ @.str.43, %29 ], [ @.str.43, %35 ], [ @.str.43, %36 ], [ @.str.43, %38 ], [ @.str.43, %39 ]
-  %.0 = phi ptr [ %16, %_.exit ], [ @.str.166, %20 ], [ %23, %22 ], [ @.str.167, %27 ], [ %30, %29 ], [ @.str.168, %35 ], [ %37, %36 ], [ @.str.169, %38 ], [ %40, %39 ]
+  %.018 = phi ptr [ %.0.i, %_.exit ], [ @.str.43, %36 ], [ @.str.43, %22 ], [ @.str.43, %29 ], [ @.str.43, %20 ], [ @.str.43, %27 ], [ @.str.43, %35 ], [ @.str.43, %38 ], [ @.str.43, %39 ]
+  %.0 = phi ptr [ %16, %_.exit ], [ %37, %36 ], [ %23, %22 ], [ %30, %29 ], [ @.str.166, %20 ], [ @.str.167, %27 ], [ @.str.168, %35 ], [ @.str.169, %38 ], [ %40, %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %42 = load i32, ptr %41, align 8, !tbaa !112
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.170, i32 noundef %42, ptr noundef %4)
@@ -5470,12 +5470,12 @@ _.exit:                                           ; preds = %16, %18
   br i1 %.not4.i35, label %_.exit31, label %_.exit31.sink.split
 
 _.exit31.sink.split:                              ; preds = %31, %30, %29
-  %.str.176.sink = phi ptr [ @.str.174, %29 ], [ @.str.175, %30 ], [ @.str.176, %31 ]
+  %.str.176.sink = phi ptr [ @.str.175, %30 ], [ @.str.174, %29 ], [ @.str.176, %31 ]
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.176.sink, i32 noundef 5) #19
   br label %_.exit31
 
 _.exit31:                                         ; preds = %_.exit31.sink.split, %31, %30, %29
-  %.0 = phi ptr [ @.str.174, %29 ], [ @.str.175, %30 ], [ @.str.176, %31 ], [ %32, %_.exit31.sink.split ]
+  %.0 = phi ptr [ @.str.175, %30 ], [ @.str.174, %29 ], [ @.str.176, %31 ], [ %32, %_.exit31.sink.split ]
   %33 = load ptr, ptr %5, align 8, !tbaa !33
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   %35 = tail call i32 (ptr, ...) @printf_ln(ptr noundef %.0, ptr noundef %34) #19
@@ -5677,14 +5677,14 @@ _.exit28:                                         ; preds = %12
   br label %_.exit
 
 _.exit:                                           ; preds = %27, %23, %19, %15, %_.exit28, %10
-  %.023 = phi ptr [ %5, %10 ], [ %16, %15 ], [ @.str.181, %_.exit28 ], [ %5, %19 ], [ %5, %23 ], [ %5, %27 ]
-  %.0 = phi ptr [ %11, %10 ], [ %14, %15 ], [ %14, %_.exit28 ], [ %20, %19 ], [ %24, %23 ], [ %28, %27 ]
+  %.023 = phi ptr [ %16, %15 ], [ %5, %23 ], [ %5, %10 ], [ @.str.181, %_.exit28 ], [ %5, %19 ], [ %5, %27 ]
+  %.0 = phi ptr [ %14, %15 ], [ %24, %23 ], [ %11, %10 ], [ %14, %_.exit28 ], [ %20, %19 ], [ %28, %27 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_.exit.thread61, label %_.exit.thread
 
-_.exit.thread:                                    ; preds = %12, %25, %21, %17, %8, %_.exit
-  %.060 = phi ptr [ %.0, %_.exit ], [ @.str.184, %25 ], [ @.str.183, %21 ], [ @.str.182, %17 ], [ @.str.180, %8 ], [ @.str.103, %12 ]
-  %.02359 = phi ptr [ %.023, %_.exit ], [ %5, %25 ], [ %5, %21 ], [ %5, %17 ], [ %5, %8 ], [ @.str.181, %12 ]
+_.exit.thread:                                    ; preds = %12, %25, %17, %8, %21, %_.exit
+  %.060 = phi ptr [ %.0, %_.exit ], [ @.str.184, %25 ], [ @.str.182, %17 ], [ @.str.183, %21 ], [ @.str.180, %8 ], [ @.str.103, %12 ]
+  %.02359 = phi ptr [ %.023, %_.exit ], [ %5, %25 ], [ %5, %17 ], [ %5, %21 ], [ %5, %8 ], [ @.str.181, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !158
   %.not25 = icmp eq i32 %30, 0

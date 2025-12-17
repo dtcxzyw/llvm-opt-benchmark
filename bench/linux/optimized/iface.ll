@@ -2145,7 +2145,7 @@ thread-pre-split:                                 ; preds = %307
   br label %.thread
 
 .thread:                                          ; preds = %98, %399, %394, %392, %391
-  %405 = phi i32 [ %.ph, %399 ], [ %.ph, %394 ], [ %.ph, %392 ], [ %.ph, %391 ], [ %60, %98 ]
+  %405 = phi i32 [ %.ph, %391 ], [ %.ph, %399 ], [ %.ph, %394 ], [ %.ph, %392 ], [ %60, %98 ]
   %406 = getelementptr i8, ptr %0, i64 1248
   %407 = load i32, ptr %406, align 8
   %408 = and i32 %407, 1
@@ -3168,7 +3168,7 @@ define dso_local i32 @ieee80211_if_add(ptr noundef %0, ptr noundef %1, i8 nounde
   br label %.thread13
 
 .thread13:                                        ; preds = %43, %80, %82, %236, %229, %228, %16
-  %237 = phi i32 [ %226, %228 ], [ 0, %236 ], [ 0, %229 ], [ -12, %16 ], [ -12, %43 ], [ -12, %80 ], [ %78, %82 ]
+  %237 = phi i32 [ %226, %228 ], [ -12, %16 ], [ 0, %236 ], [ 0, %229 ], [ -12, %43 ], [ -12, %80 ], [ %78, %82 ]
   ret i32 %237
 }
 
@@ -3319,10 +3319,10 @@ define internal fastcc void @ieee80211_assign_perm_addr(ptr noundef %0, ptr noun
   br label %.loopexit10
 
 .loopexit10:                                      ; preds = %63, %.thread, %.loopexit12
-  %.pre-phi45 = phi i32 [ %.pre44, %.thread ], [ %13, %.loopexit12 ], [ %13, %63 ]
-  %.in = phi i16 [ %.pre42, %.thread ], [ %11, %.loopexit12 ], [ %11, %63 ]
-  %.in55 = phi i32 [ %.pre40, %.thread ], [ %9, %.loopexit12 ], [ %9, %63 ]
-  %86 = phi ptr [ %.pre, %.thread ], [ %7, %.loopexit12 ], [ %7, %63 ]
+  %.pre-phi45 = phi i32 [ %13, %.loopexit12 ], [ %.pre44, %.thread ], [ %13, %63 ]
+  %.in = phi i16 [ %11, %.loopexit12 ], [ %.pre42, %.thread ], [ %11, %63 ]
+  %.in55 = phi i32 [ %9, %.loopexit12 ], [ %.pre40, %.thread ], [ %9, %63 ]
+  %86 = phi ptr [ %7, %.loopexit12 ], [ %.pre, %.thread ], [ %7, %63 ]
   %87 = icmp eq i32 %.pre-phi45, 0
   br i1 %87, label %.loopexit, label %88
 
@@ -5669,7 +5669,7 @@ define internal fastcc i32 @ieee80211_check_concurrent_iface(ptr noundef %0, i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %.thread35, %130, %126, %86, %._crit_edge18, %.thread34, %106, %88, %88, %69, %44, %40, %38, %34, %61, %.loopexit5
-  %161 = phi i32 [ %160, %.loopexit5 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %38 ], [ -16, %88 ], [ -76, %106 ], [ -16, %.thread34 ], [ -16, %._crit_edge18 ], [ -16, %86 ], [ -16, %88 ], [ -76, %148 ], [ -16, %.thread35 ], [ -16, %126 ], [ -16, %130 ]
+  %161 = phi i32 [ %160, %.loopexit5 ], [ -16, %88 ], [ -16, %38 ], [ -95, %69 ], [ -76, %61 ], [ -16, %44 ], [ -16, %40 ], [ -16, %34 ], [ -16, %.thread34 ], [ -16, %88 ], [ -76, %106 ], [ -16, %86 ], [ -16, %._crit_edge18 ], [ -76, %148 ], [ -16, %.thread35 ], [ -16, %126 ], [ -16, %130 ]
   ret i32 %161
 }
 

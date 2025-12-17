@@ -499,7 +499,7 @@ _ZN6icu_7710UCharsTrie5firstEi.exit:              ; preds = %117, %120
   br label %_ZNK6icu_7710UCharsTrie8getValueEv.exit
 
 _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %146, %140, %136
-  %176 = phi i32 [ %145, %140 ], [ %153, %146 ], [ %137, %136 ], [ %158, %156 ], [ %167, %161 ], [ %175, %168 ]
+  %176 = phi i32 [ %137, %136 ], [ %153, %146 ], [ %145, %140 ], [ %158, %156 ], [ %167, %161 ], [ %175, %168 ]
   %177 = sext i32 %.044 to i64
   %178 = getelementptr inbounds i32, ptr %6, i64 %177
   store i32 %176, ptr %178, align 4, !tbaa !21
@@ -551,8 +551,8 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %1
           to label %.preheader.split unwind label %.loopexit.split, !llvm.loop !22
 
 .thread:                                          ; preds = %192, %.preheader.split, %188, %190, %.preheader.split.us.split.split, %96, %105, %107, %.preheader.split.us.split.split.us, %66, %74, %76, %46, %44, %34, %.preheader.split.us.split.us
-  %.us-phi = phi i32 [ %.4.us.us, %46 ], [ %.044.us.us, %.preheader.split.us.split.us ], [ %.044.us.us, %34 ], [ %.246.us.us, %44 ], [ %.4.us.us83, %76 ], [ %.044.us.us78, %.preheader.split.us.split.split.us ], [ %.044.us.us78, %66 ], [ %.246.us.us82, %74 ], [ %.4.us, %107 ], [ %.044.us, %.preheader.split.us.split.split ], [ %.044.us, %96 ], [ %.246.us, %105 ], [ %.4, %192 ], [ %.044, %.preheader.split ], [ %.044, %190 ], [ %.246, %188 ]
-  %.us-phi67 = phi i32 [ %32, %46 ], [ %.042.us.us, %.preheader.split.us.split.us ], [ %32, %34 ], [ %32, %44 ], [ %64, %76 ], [ %.042.us.us79, %.preheader.split.us.split.split.us ], [ %64, %66 ], [ %64, %74 ], [ %94, %107 ], [ %.042.us, %.preheader.split.us.split.split ], [ %94, %96 ], [ %94, %105 ], [ %127, %192 ], [ %.042, %.preheader.split ], [ %127, %190 ], [ %127, %188 ]
+  %.us-phi = phi i32 [ %.246.us, %105 ], [ %.246.us.us82, %74 ], [ %.246.us.us, %44 ], [ %.4.us.us, %46 ], [ %.044.us.us, %.preheader.split.us.split.us ], [ %.044.us.us, %34 ], [ %.4.us.us83, %76 ], [ %.044.us.us78, %.preheader.split.us.split.split.us ], [ %.044.us.us78, %66 ], [ %.4.us, %107 ], [ %.044.us, %.preheader.split.us.split.split ], [ %.044.us, %96 ], [ %.4, %192 ], [ %.044, %.preheader.split ], [ %.044, %190 ], [ %.246, %188 ]
+  %.us-phi67 = phi i32 [ %94, %105 ], [ %64, %74 ], [ %32, %44 ], [ %32, %46 ], [ %.042.us.us, %.preheader.split.us.split.us ], [ %32, %34 ], [ %64, %76 ], [ %.042.us.us79, %.preheader.split.us.split.split.us ], [ %64, %66 ], [ %94, %107 ], [ %.042.us, %.preheader.split.us.split.split ], [ %94, %96 ], [ %127, %192 ], [ %.042, %.preheader.split ], [ %127, %190 ], [ %127, %188 ]
   %.not58 = icmp eq ptr %7, null
   br i1 %.not58, label %196, label %195
 
@@ -566,7 +566,7 @@ _ZNK6icu_7710UCharsTrie8getValueEv.exit:          ; preds = %168, %161, %156, %1
   ret i32 %.us-phi
 
 .loopexit:                                        ; preds = %.split70, %.split70.us.split.split, %.split70.us.split.split.us, %.split70.us.split.us, %.split, %.split.us.split.split, %.split.us.split.split.us, %.split.us.split.us, %.loopexit.split-lp, %.loopexit.split.us.split.us, %.loopexit.split.us.split.split.us, %.loopexit.split.us.split.split, %.loopexit.split, %113
-  %.pn59.pn = phi { ptr, i32 } [ %114, %113 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.us, %.loopexit.split.us.split.split ], [ %lpad.loopexit.us.us91, %.loopexit.split.us.split.split.us ], [ %179, %.split ], [ %49, %.split.us.split.us ], [ %110, %.split.us.split.split ], [ %79, %.split.us.split.split.us ], [ %180, %.split70 ], [ %50, %.split70.us.split.us ], [ %111, %.split70.us.split.split ], [ %80, %.split70.us.split.split.us ]
+  %.pn59.pn = phi { ptr, i32 } [ %114, %113 ], [ %lpad.loopexit.us.us91, %.loopexit.split.us.split.split.us ], [ %79, %.split.us.split.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.us, %.loopexit.split.us.split.split ], [ %179, %.split ], [ %49, %.split.us.split.us ], [ %110, %.split.us.split.split ], [ %180, %.split70 ], [ %50, %.split70.us.split.us ], [ %111, %.split70.us.split.split ], [ %80, %.split70.us.split.split.us ]
   call void @_ZN6icu_7710UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn59.pn
@@ -632,7 +632,7 @@ define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher9transformEi(ptr noundef 
   br label %12
 
 12:                                               ; preds = %2, %7, %9, %8
-  %.0 = phi i32 [ 254, %8 ], [ %., %9 ], [ 255, %7 ], [ %1, %2 ]
+  %.0 = phi i32 [ 255, %7 ], [ 254, %8 ], [ %., %9 ], [ %1, %2 ]
   ret i32 %.0
 }
 
@@ -718,7 +718,7 @@ define noundef i32 @_ZNK6icu_7722BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3
   br label %_ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit
 
 _ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit: ; preds = %29, %30, %31, %32
-  %.0.i = phi i32 [ 254, %31 ], [ %..i, %32 ], [ 255, %30 ], [ %.040, %29 ]
+  %.0.i = phi i32 [ 255, %30 ], [ 254, %31 ], [ %..i, %32 ], [ %.040, %29 ]
   store i32 -1, ptr %14, align 8, !tbaa !35
   %35 = lshr i32 %.0.i, 23
   %36 = and i32 %35, 256
@@ -747,7 +747,7 @@ _ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit: ; preds = %29, %30, %31, %
   br label %_ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit63
 
 _ZNK6icu_7722BytesDictionaryMatcher9transformEi.exit63: ; preds = %39, %40, %41, %42
-  %.0.i60 = phi i32 [ 254, %41 ], [ %..i62, %42 ], [ 255, %40 ], [ %.040, %39 ]
+  %.0.i60 = phi i32 [ 255, %40 ], [ 254, %41 ], [ %..i62, %42 ], [ %.040, %39 ]
   %45 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %9, i32 noundef %.0.i60)
           to label %_ZN6icu_779BytesTrie5firstEi.exit unwind label %65
 
@@ -851,7 +851,7 @@ _ZNK6icu_779BytesTrie8getValueEv.exit:            ; preds = %56
   ret i32 %.144
 
 88:                                               ; preds = %.loopexit, %.loopexit.split-lp, %67, %65, %22
-  %.pn57.pn = phi { ptr, i32 } [ %23, %22 ], [ %68, %67 ], [ %66, %65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn57.pn = phi { ptr, i32 } [ %23, %22 ], [ %66, %65 ], [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn57.pn
@@ -904,7 +904,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   br i1 %30, label %43, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %27, %23, %19
-  %31 = phi i8 [ 105, %27 ], [ 105, %23 ], [ 105, %19 ], [ %17, %12 ]
+  %31 = phi i8 [ %17, %12 ], [ 105, %27 ], [ 105, %23 ], [ 105, %19 ]
   %32 = zext i8 %14 to i32
   %33 = zext i8 %31 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1011,7 +1011,7 @@ define i32 @udict_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   br label %88
 
 88:                                               ; preds = %.critedge, %5, %9, %86, %66, %53, %._crit_edge
-  %.0 = phi i32 [ 0, %53 ], [ 0, %66 ], [ %87, %86 ], [ 0, %._crit_edge ], [ 0, %9 ], [ 0, %5 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %53 ], [ 0, %66 ], [ %87, %86 ], [ 0, %.critedge ], [ 0, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

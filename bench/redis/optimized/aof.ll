@@ -353,7 +353,7 @@ define dso_local ptr @aofInfoFormat(ptr noundef %0, ptr noundef readonly capture
   br label %30
 
 30:                                               ; preds = %27, %23, %19, %15, %12, %5
-  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %5 ]
+  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ 0, %5 ]
   %31 = tail call ptr @sdscatrepr(ptr noundef %6, ptr noundef nonnull %7, i64 noundef %.0.i) #20
   %.not21 = icmp eq ptr %31, null
   br i1 %.not21, label %.thread, label %33
@@ -866,7 +866,7 @@ define dso_local noalias noundef ptr @aofLoadManifestFromFile(ptr noundef %0) lo
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %47, %50, %54, %58, %62
-  %.0.i = phi i64 [ %49, %47 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ], [ %64, %62 ]
+  %.0.i = phi i64 [ %64, %62 ], [ %49, %47 ], [ %53, %50 ], [ %57, %54 ], [ %61, %58 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %.thread136, label %65
 
@@ -1040,9 +1040,9 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   br label %.thread111.thread167
 
-.thread111.thread167:                             ; preds = %123, %120, %._crit_edge, %.thread111.thread167.loopexit
-  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %._crit_edge ], [ %118, %120 ], [ %118, %123 ]
-  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %._crit_edge ], [ @.str.24, %120 ], [ @.str.24, %123 ]
+.thread111.thread167:                             ; preds = %._crit_edge, %123, %120, %.thread111.thread167.loopexit
+  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %120 ], [ %118, %123 ], [ %118, %._crit_edge ]
+  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %120 ], [ @.str.24, %123 ], [ @.str.24, %._crit_edge ]
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %143) #20
   br label %.thread111.thread156
 
@@ -1051,14 +1051,14 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   br label %.thread136
 
 .thread111.thread156:                             ; preds = %128, %134, %126, %.thread111.thread167
-  %.182118165 = phi ptr [ %.182131.ph, %.thread111.thread167 ], [ @.str.28, %126 ], [ @.str.27, %134 ], [ @.str.26, %128 ]
+  %.182118165 = phi ptr [ %.182131.ph, %.thread111.thread167 ], [ @.str.28, %126 ], [ @.str.26, %128 ], [ @.str.27, %134 ]
   call void @aofInfoFree(ptr noundef nonnull %73)
   br label %.thread136
 
-.thread136:                                       ; preds = %40, %37, %sdslen.exit, %31, %29, %.thread111, %142, %.thread111.thread156
-  %.182118144 = phi ptr [ @.str.24, %.thread111 ], [ %.182118165, %.thread111.thread156 ], [ @.str.24, %142 ], [ @.str.20, %31 ], [ @.str.21, %29 ], [ @.str.24, %sdslen.exit ], [ @.str.22, %37 ], [ @.str.24, %40 ]
-  %.175120143 = phi ptr [ %42, %.thread111 ], [ %42, %.thread111.thread156 ], [ %42, %142 ], [ null, %31 ], [ null, %29 ], [ %42, %sdslen.exit ], [ null, %37 ], [ %42, %40 ]
-  %.1121142 = phi i32 [ %34, %.thread111 ], [ %34, %.thread111.thread156 ], [ %34, %142 ], [ 0, %31 ], [ %.073, %29 ], [ %34, %sdslen.exit ], [ %34, %37 ], [ %34, %40 ]
+.thread136:                                       ; preds = %40, %sdslen.exit, %37, %31, %29, %.thread111, %142, %.thread111.thread156
+  %.182118144 = phi ptr [ %.182118165, %.thread111.thread156 ], [ @.str.24, %.thread111 ], [ @.str.24, %142 ], [ @.str.21, %29 ], [ @.str.20, %31 ], [ @.str.22, %37 ], [ @.str.24, %sdslen.exit ], [ @.str.24, %40 ]
+  %.175120143 = phi ptr [ %42, %.thread111.thread156 ], [ %42, %.thread111 ], [ %42, %142 ], [ null, %29 ], [ null, %31 ], [ null, %37 ], [ %42, %sdslen.exit ], [ %42, %40 ]
+  %.1121142 = phi i32 [ %34, %.thread111.thread156 ], [ %34, %.thread111 ], [ %34, %142 ], [ %.073, %29 ], [ 0, %31 ], [ %34, %37 ], [ %34, %sdslen.exit ], [ %34, %40 ]
   %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !65
   %145 = icmp sgt i32 %144, 3
   br i1 %145, label %147, label %146
@@ -1615,7 +1615,7 @@ define dso_local range(i32 -1, 1) i32 @writeAofManifestFile(ptr noundef readonly
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %26, %29, %33, %37, %41
-  %.0.i = phi i64 [ %28, %26 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %43, %41 ]
+  %.0.i = phi i64 [ %43, %41 ], [ %28, %26 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ]
   %44 = trunc i64 %.0.i to i32
   %.not41 = icmp eq i32 %44, 0
   br i1 %.not41, label %.outer._crit_edge, label %.outer.split.preheader
@@ -1712,12 +1712,12 @@ sdslen.exit:                                      ; preds = %26, %29, %33, %37, 
   br label %91
 
 91:                                               ; preds = %81, %54, %57, %65, %68, %74, %77, %84, %87
-  %.030 = phi i32 [ 0, %81 ], [ -1, %54 ], [ -1, %57 ], [ -1, %65 ], [ -1, %68 ], [ -1, %74 ], [ -1, %77 ], [ -1, %84 ], [ -1, %87 ]
+  %.030 = phi i32 [ 0, %81 ], [ -1, %57 ], [ -1, %68 ], [ -1, %77 ], [ -1, %54 ], [ -1, %65 ], [ -1, %74 ], [ -1, %84 ], [ -1, %87 ]
   %92 = tail call i32 @close(i32 noundef %12) #20
   br label %.thread
 
 .thread:                                          ; preds = %14, %17, %91
-  %.03038 = phi i32 [ %.030, %91 ], [ -1, %17 ], [ -1, %14 ]
+  %.03038 = phi i32 [ -1, %14 ], [ %.030, %91 ], [ -1, %17 ]
   tail call void @sdsfree(ptr noundef %4) #20
   tail call void @sdsfree(ptr noundef %6) #20
   tail call void @sdsfree(ptr noundef %9) #20
@@ -1979,7 +1979,7 @@ define dso_local range(i32 -1, 1) i32 @aofDelHistoryFiles() local_unnamed_addr #
   br label %persistAofManifest.exit
 
 persistAofManifest.exit:                          ; preds = %._crit_edge, %39
-  %.0.i = phi i32 [ 0, %39 ], [ -1, %._crit_edge ]
+  %.0.i = phi i32 [ -1, %._crit_edge ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %40
 
@@ -2285,7 +2285,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFile(ptr noundef readonl
   br label %71
 
 59:                                               ; preds = %23, %44, %26, %29, %31
-  %.011 = phi ptr [ %7, %29 ], [ %7, %31 ], [ %7, %23 ], [ %7, %26 ], [ null, %44 ]
+  %.011 = phi ptr [ %7, %29 ], [ %7, %31 ], [ %7, %26 ], [ %7, %23 ], [ null, %44 ]
   %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !65
   %61 = icmp sgt i32 %60, 3
   br i1 %61, label %66, label %62
@@ -2311,7 +2311,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFile(ptr noundef readonl
   br label %71
 
 71:                                               ; preds = %11, %8, %69, %58, %56
-  %.012 = phi i32 [ -1, %69 ], [ -1, %56 ], [ 0, %58 ], [ -1, %8 ], [ -1, %11 ]
+  %.012 = phi i32 [ -1, %11 ], [ -1, %69 ], [ -1, %56 ], [ 0, %58 ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.012
@@ -2637,7 +2637,7 @@ aofManifestFree.exit:                             ; preds = %91, %94
   br label %95
 
 95:                                               ; preds = %aofManifestFreeAndUpdate.exit, %61, %aofManifestFree.exit, %81, %3
-  %.0 = phi i32 [ %4, %3 ], [ 0, %aofManifestFreeAndUpdate.exit ], [ 0, %61 ], [ -1, %aofManifestFree.exit ], [ -1, %81 ]
+  %.0 = phi i32 [ %4, %3 ], [ 0, %61 ], [ 0, %aofManifestFreeAndUpdate.exit ], [ -1, %aofManifestFree.exit ], [ -1, %81 ]
   ret i32 %.0
 }
 
@@ -2812,7 +2812,7 @@ define dso_local range(i32 0, 2) i32 @aofRewriteLimited() local_unnamed_addr #0 
   br label %24
 
 24:                                               ; preds = %23, %11, %6, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 1, %6 ], [ 1, %11 ], [ 1, %23 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 0, %10 ], [ 1, %11 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -3049,7 +3049,7 @@ define dso_local void @flushAppendOnlyFile(i32 noundef %0) local_unnamed_addr #0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ]
   %25 = icmp eq i64 %.0.i, 0
   br i1 %25, label %sdslen.exit.thread, label %46
 
@@ -3136,8 +3136,8 @@ sdslen.exit.thread:                               ; preds = %1, %sdslen.exit
   br label %.thread99
 
 .thread99:                                        ; preds = %46, %64, %69, %49
-  %70 = phi i1 [ true, %64 ], [ true, %69 ], [ %51, %49 ], [ false, %46 ]
-  %.147103 = phi i32 [ 1, %64 ], [ 1, %69 ], [ %52, %49 ], [ 0, %46 ]
+  %70 = phi i1 [ %51, %49 ], [ true, %64 ], [ true, %69 ], [ false, %46 ]
+  %.147103 = phi i32 [ %52, %49 ], [ 1, %64 ], [ 1, %69 ], [ 0, %46 ]
   %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6592), align 8, !tbaa !104
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %sdslen.exit87.thread, label %72
@@ -3185,7 +3185,7 @@ sdslen.exit.thread:                               ; preds = %1, %sdslen.exit
   br label %sdslen.exit87
 
 sdslen.exit87:                                    ; preds = %78, %81, %85, %89, %93
-  %.0.i86 = phi i64 [ %80, %78 ], [ %84, %81 ], [ %88, %85 ], [ %92, %89 ], [ %95, %93 ]
+  %.0.i86 = phi i64 [ %95, %93 ], [ %80, %78 ], [ %84, %81 ], [ %88, %85 ], [ %92, %89 ]
   %.not61 = icmp eq i64 %.0.i86, 0
   br i1 %.not61, label %sdslen.exit87.thread, label %96
 
@@ -3247,7 +3247,7 @@ sdslen.exit87.thread:                             ; preds = %72, %96, %sdslen.ex
   br label %sdslen.exit89
 
 sdslen.exit89:                                    ; preds = %108, %111, %115, %119, %123
-  %.0.i88 = phi i64 [ %110, %108 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %125, %123 ]
+  %.0.i88 = phi i64 [ %125, %123 ], [ %110, %108 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ]
   %.not21.i = icmp eq i64 %.0.i88, 0
   br i1 %.not21.i, label %aofWrite.exit, label %.outer.split.i
 
@@ -3372,7 +3372,7 @@ aofWrite.exit:                                    ; preds = %.outer.i, %101, %sd
   br label %sdslen.exit91
 
 sdslen.exit91:                                    ; preds = %151, %157, %160, %164, %168, %172
-  %.0.i90 = phi i64 [ %159, %157 ], [ %163, %160 ], [ %167, %164 ], [ %171, %168 ], [ %174, %172 ], [ 0, %151 ]
+  %.0.i90 = phi i64 [ %174, %172 ], [ %159, %157 ], [ %163, %160 ], [ %167, %164 ], [ %171, %168 ], [ 0, %151 ]
   %.not73 = icmp eq i64 %.016.i, %.0.i90
   br i1 %.not73, label %244, label %175
 
@@ -3455,7 +3455,7 @@ sdslen.exit91:                                    ; preds = %151, %157, %160, %1
   br label %sdslen.exit93
 
 sdslen.exit93:                                    ; preds = %192, %198, %201, %205, %209, %213
-  %.0.i92 = phi i64 [ %200, %198 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ %215, %213 ], [ 0, %192 ]
+  %.0.i92 = phi i64 [ %215, %213 ], [ %200, %198 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ 0, %192 ]
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.81, i64 noundef %.016.i, i64 noundef %.0.i92) #20
   br label %216
 
@@ -3585,7 +3585,7 @@ sdslen.exit93:                                    ; preds = %192, %198, %201, %2
   br label %sdslen.exit95
 
 sdslen.exit95:                                    ; preds = %252, %262, %265, %269, %273, %277
-  %.0.i94 = phi i64 [ %264, %262 ], [ %268, %265 ], [ %272, %269 ], [ %276, %273 ], [ %279, %277 ], [ 0, %252 ]
+  %.0.i94 = phi i64 [ %279, %277 ], [ %264, %262 ], [ %268, %265 ], [ %272, %269 ], [ %276, %273 ], [ 0, %252 ]
   %280 = and i8 %259, 7
   switch i8 %280, label %sdsavail.exit [
     i8 4, label %304
@@ -3632,7 +3632,7 @@ sdslen.exit95:                                    ; preds = %252, %262, %265, %2
   br label %sdsavail.exit
 
 sdsavail.exit:                                    ; preds = %sdslen.exit95, %281, %289, %297, %304
-  %.0.i96 = phi i64 [ %288, %281 ], [ %296, %289 ], [ %303, %297 ], [ %309, %304 ], [ 0, %sdslen.exit95 ]
+  %.0.i96 = phi i64 [ %303, %297 ], [ %309, %304 ], [ %288, %281 ], [ %296, %289 ], [ 0, %sdslen.exit95 ]
   %310 = add i64 %.0.i96, %.0.i94
   %311 = icmp ult i64 %310, 4000
   br i1 %311, label %312, label %313
@@ -3648,7 +3648,7 @@ sdsavail.exit:                                    ; preds = %sdslen.exit95, %281
   br label %315
 
 315:                                              ; preds = %33, %312, %313, %40
-  %.046 = phi i32 [ %43, %40 ], [ %.147103, %312 ], [ %.147103, %313 ], [ 0, %33 ]
+  %.046 = phi i32 [ %43, %40 ], [ 0, %33 ], [ %.147103, %312 ], [ %.147103, %313 ]
   %316 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6544), align 8, !tbaa !109
   %.not74 = icmp eq i32 %316, 0
   br i1 %.not74, label %319, label %317
@@ -3866,7 +3866,7 @@ define dso_local range(i32 -1, 1) i32 @startAppendOnly() local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %40, %47, %30, %27
-  %.0 = phi i32 [ -1, %27 ], [ -1, %30 ], [ 0, %47 ], [ 0, %40 ]
+  %.0 = phi i32 [ -1, %30 ], [ -1, %27 ], [ 0, %47 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -3998,7 +3998,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFileBackground() local_u
   br label %56
 
 56:                                               ; preds = %45, %42, %0, %41, %54, %18, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %18 ], [ 0, %41 ], [ 0, %54 ], [ -1, %0 ], [ -1, %42 ], [ -1, %45 ]
+  %.0 = phi i32 [ 0, %54 ], [ -1, %15 ], [ -1, %18 ], [ 0, %41 ], [ -1, %0 ], [ -1, %42 ], [ -1, %45 ]
   ret i32 %.0
 }
 
@@ -4229,7 +4229,7 @@ define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %0, i32 noundef %1
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %25, %28, %32, %36, %40
-  %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %42, %40 ], [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ 0, %.lr.ph ]
   %43 = call i32 @ll2string(ptr noundef nonnull %5, i64 noundef 31, i64 noundef %.0.i) #20
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %4, i64 %44
@@ -4282,7 +4282,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %25, %28, %
   br label %sdslen.exit22
 
 sdslen.exit22:                                    ; preds = %sdslen.exit, %56, %59, %63, %67, %71
-  %.0.i21 = phi i64 [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ], [ 0, %sdslen.exit ]
+  %.0.i21 = phi i64 [ %73, %71 ], [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ 0, %sdslen.exit ]
   %74 = call ptr @sdscatlen(ptr noundef %50, ptr noundef nonnull %51, i64 noundef %.0.i21) #20
   %75 = call ptr @sdscatlen(ptr noundef %74, ptr noundef nonnull @.str.87, i64 noundef 2) #20
   call void @decrRefCount(ptr noundef nonnull %18) #20
@@ -4354,7 +4354,7 @@ define dso_local ptr @genAofTimestampAnnotationIfNeeded(i32 noundef %0) local_un
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %17, %21, %25
-  %.0.i = phi i64 [ %20, %17 ], [ %24, %21 ], [ %27, %25 ]
+  %.0.i = phi i64 [ %27, %25 ], [ %20, %17 ], [ %24, %21 ]
   %28 = icmp ult i64 %.0.i, 1025
   br i1 %28, label %sdslen.exit.thread, label %29, !prof !122
 
@@ -4436,7 +4436,7 @@ define dso_local void @feedAppendOnlyFile(i32 noundef %0, ptr noundef readonly c
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %34, %30, %26
-  %.0.i.i = phi i64 [ %29, %26 ], [ %33, %30 ], [ %36, %34 ]
+  %.0.i.i = phi i64 [ %36, %34 ], [ %29, %26 ], [ %33, %30 ]
   %37 = icmp ult i64 %.0.i.i, 1025
   br i1 %37, label %39, label %38, !prof !122
 
@@ -4523,7 +4523,7 @@ genAofTimestampAnnotationIfNeeded.exit:           ; preds = %14, %39, %.critedge
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %54, %60, %63, %67, %71, %75
-  %.0.i26 = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %54 ]
+  %.0.i26 = phi i64 [ %77, %75 ], [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ 0, %54 ]
   %78 = call ptr @sdscatlen(ptr noundef %55, ptr noundef nonnull %47, i64 noundef %.0.i26) #20
   store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6600), align 8, !tbaa !100
   br label %79
@@ -4928,8 +4928,8 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %178
 
-.thread188.thread.sink.split:                     ; preds = %118, %125
-  %.sink = phi i32 [ %127, %125 ], [ %119, %118 ]
+.thread188.thread.sink.split:                     ; preds = %125, %118
+  %.sink = phi i32 [ %119, %118 ], [ %127, %125 ]
   store i32 %.sink, ptr %73, align 8, !tbaa !136
   call void @freeClientArgv(ptr noundef nonnull %42) #20
   br label %.thread188.thread
@@ -4939,8 +4939,8 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   br label %178
 
 .thread188:                                       ; preds = %165, %167, %91
-  %.1133 = phi i64 [ %.0132, %91 ], [ %spec.select, %167 ], [ %spec.select, %165 ]
-  %.2131 = phi i64 [ %.1130, %91 ], [ %.3, %167 ], [ %.3, %165 ]
+  %.1133 = phi i64 [ %spec.select, %165 ], [ %spec.select, %167 ], [ %.0132, %91 ]
+  %.2131 = phi i64 [ %.3, %165 ], [ %.3, %167 ], [ %.1130, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %80
 
@@ -4970,8 +4970,8 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   br label %.thread218
 
 178:                                              ; preds = %.thread188.thread, %.thread192, %70, %47
-  %.0135 = phi i64 [ 0, %47 ], [ 0, %70 ], [ %.4139, %.thread192 ], [ %.4139, %.thread188.thread ]
-  %.0129 = phi i64 [ 0, %47 ], [ 0, %70 ], [ %.1130, %.thread192 ], [ %.1130, %.thread188.thread ]
+  %.0135 = phi i64 [ 0, %47 ], [ %.4139, %.thread188.thread ], [ 0, %70 ], [ %.4139, %.thread192 ]
+  %.0129 = phi i64 [ 0, %47 ], [ %.1130, %.thread188.thread ], [ 0, %70 ], [ %.1130, %.thread192 ]
   %179 = call i32 @feof(ptr noundef nonnull %9) #20
   %.not171 = icmp eq i32 %179, 0
   br i1 %.not171, label %180, label %187
@@ -5091,7 +5091,7 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   br label %.thread218
 
 .thread218:                                       ; preds = %175, %180, %183, %225, %227, %.thread188.thread229, %230, %.thread210, %214, %.critedge178, %202, %.thread219
-  %.2142222 = phi i32 [ 4, %.thread219 ], [ %.5145, %175 ], [ 4, %180 ], [ 4, %183 ], [ 4, %225 ], [ 4, %227 ], [ 4, %.thread188.thread229 ], [ 4, %230 ], [ 4, %.thread210 ], [ 4, %214 ], [ 4, %.critedge178 ], [ 4, %202 ]
+  %.2142222 = phi i32 [ 4, %.thread219 ], [ 4, %183 ], [ %.5145, %175 ], [ 4, %230 ], [ 4, %227 ], [ 4, %.thread210 ], [ 4, %180 ], [ 4, %225 ], [ 4, %.thread188.thread229 ], [ 4, %214 ], [ 4, %.critedge178 ], [ 4, %202 ]
   call void @freeClient(ptr noundef nonnull %42) #20
   store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1480), align 8, !tbaa !134
   store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1488), align 8, !tbaa !135
@@ -5101,7 +5101,7 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   br label %232
 
 232:                                              ; preds = %23, %29, %.thread218, %37
-  %.1 = phi i32 [ 2, %37 ], [ %.2142222, %.thread218 ], [ 3, %23 ], [ 1, %29 ]
+  %.1 = phi i32 [ %.2142222, %.thread218 ], [ 2, %37 ], [ 3, %23 ], [ 1, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
@@ -5458,7 +5458,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   br label %.thread102
 
 131:                                              ; preds = %.thread113, %.thread105
-  %.3 = phi i32 [ %.073, %.thread105 ], [ %.4.lcssa, %.thread113 ]
+  %.3 = phi i32 [ %.4.lcssa, %.thread113 ], [ %.073, %.thread105 ]
   store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6568), align 8, !tbaa !108
   store i64 %.078, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6560), align 8, !tbaa !154
   br label %.thread102
@@ -5473,7 +5473,7 @@ getBaseAndIncrAppendOnlyFilesNum.exit:            ; preds = %39, %41
   br label %136
 
 136:                                              ; preds = %53, %50, %54, %34, %.thread102
-  %.0 = phi i32 [ %.2, %.thread102 ], [ 1, %34 ], [ 2, %54 ], [ %52, %50 ], [ 4, %53 ]
+  %.0 = phi i32 [ 2, %54 ], [ %.2, %.thread102 ], [ 1, %34 ], [ %52, %50 ], [ 4, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -5636,7 +5636,7 @@ define dso_local i32 @rioWriteBulkObject(ptr noundef %0, ptr noundef readonly ca
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %11, %18, %21, %25, %29, %33
-  %.0.i = phi i64 [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %35, %33 ], [ 0, %11 ]
+  %.0.i = phi i64 [ %35, %33 ], [ %20, %18 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ 0, %11 ]
   %36 = tail call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %.0.i) #20
   br label %38
 
@@ -5739,7 +5739,7 @@ define dso_local range(i32 0, 2) i32 @rewriteListObject(ptr noundef %0, ptr noun
   br label %33
 
 33:                                               ; preds = %.critedge38, %.critedge, %._crit_edge
-  %.3 = phi i32 [ 1, %._crit_edge ], [ 0, %.critedge ], [ 0, %.critedge38 ]
+  %.3 = phi i32 [ 0, %.critedge38 ], [ 0, %.critedge ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.3
 }
@@ -5825,7 +5825,7 @@ define dso_local range(i32 0, 2) i32 @rewriteSetObject(ptr noundef %0, ptr nound
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !157
 
 .critedge:                                        ; preds = %30, %28, %11, %16, %18, %3
-  %.3 = phi i32 [ 1, %3 ], [ 0, %18 ], [ 0, %16 ], [ 0, %11 ], [ 0, %28 ], [ 1, %30 ]
+  %.3 = phi i32 [ 1, %3 ], [ 0, %11 ], [ 0, %28 ], [ 0, %18 ], [ 0, %16 ], [ 1, %30 ]
   call void @setTypeReleaseIterator(ptr noundef %8) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6043,7 +6043,7 @@ define dso_local range(i32 0, 2) i32 @rewriteSortedSetObject(ptr noundef %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %75, %80, %83, %87, %91, %95
-  %.0.i = phi i64 [ %82, %80 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %97, %95 ], [ 0, %75 ]
+  %.0.i = phi i64 [ %97, %95 ], [ %82, %80 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ 0, %75 ]
   %98 = tail call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %.0.i) #20
   %.not76 = icmp eq i64 %98, 0
   br i1 %.not76, label %99, label %100
@@ -6078,7 +6078,7 @@ sdslen.exit:                                      ; preds = %75, %80, %83, %87, 
   br label %.critedge92.thread
 
 .critedge92.thread:                               ; preds = %.critedge90, %99, %.critedge88, %.critedge92, %50
-  %.4 = phi i32 [ 0, %50 ], [ 1, %.critedge92 ], [ 1, %.critedge88 ], [ 0, %99 ], [ 0, %.critedge90 ]
+  %.4 = phi i32 [ 1, %.critedge88 ], [ 0, %50 ], [ 1, %.critedge92 ], [ 0, %99 ], [ 0, %.critedge90 ]
   ret i32 %.4
 }
 
@@ -6327,8 +6327,8 @@ rioWrite.exit78:                                  ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %37, %30, %28, %32, %24, %17, %26, %.thread.sink.split, %.preheader
-  %.043 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %30 ], [ 0, %28 ], [ 1, %32 ], [ 0, %24 ], [ 0, %17 ], [ 0, %26 ], [ 1, %37 ]
+.thread:                                          ; preds = %37, %30, %28, %32, %17, %24, %26, %.thread.sink.split, %.preheader
+  %.043 = phi i32 [ 1, %.preheader ], [ 0, %.thread.sink.split ], [ 0, %26 ], [ 0, %24 ], [ 0, %17 ], [ 1, %32 ], [ 0, %28 ], [ 0, %30 ], [ 1, %37 ]
   call void @hashTypeReleaseIterator(ptr noundef %8) #20
   ret i32 %.043
 }
@@ -6461,7 +6461,7 @@ define dso_local i32 @rioWriteBulkStreamID(ptr noundef %0, ptr noundef readonly 
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ 0, %2 ]
   %30 = tail call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %.0.i) #20
   %31 = trunc i64 %30 to i32
   tail call void @sdsfree(ptr noundef nonnull %7) #20
@@ -6536,7 +6536,7 @@ define dso_local range(i32 0, 2) i32 @rioWriteStreamPendingEntry(ptr noundef %0,
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %20, %27, %30, %34, %38, %42
-  %.0.i = phi i64 [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %44, %42 ], [ 0, %20 ]
+  %.0.i = phi i64 [ %44, %42 ], [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ 0, %20 ]
   %45 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %22, i64 noundef %.0.i) #20
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %102, label %47
@@ -6593,7 +6593,7 @@ sdslen.exit:                                      ; preds = %20, %27, %30, %34, 
   br label %rioWriteBulkStreamID.exit
 
 rioWriteBulkStreamID.exit:                        ; preds = %50, %60, %63, %67, %71, %75
-  %.0.i.i = phi i64 [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ %77, %75 ], [ 0, %50 ]
+  %.0.i.i = phi i64 [ %77, %75 ], [ %62, %60 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ 0, %50 ]
   %78 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %55, i64 noundef %.0.i.i) #20
   call void @sdsfree(ptr noundef nonnull %55) #20
   %79 = and i64 %78, 4294967295
@@ -6635,7 +6635,7 @@ rioWriteBulkStreamID.exit:                        ; preds = %50, %60, %63, %67, 
   br label %102
 
 102:                                              ; preds = %99, %96, %91, %88, %84, %81, %rioWriteBulkStreamID.exit, %47, %sdslen.exit, %17, %14, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %14 ], [ 0, %17 ], [ 0, %sdslen.exit ], [ 0, %47 ], [ 0, %rioWriteBulkStreamID.exit ], [ 0, %81 ], [ 0, %84 ], [ 0, %88 ], [ 0, %91 ], [ 0, %96 ], [ %., %99 ]
+  %.0 = phi i32 [ 0, %96 ], [ 0, %7 ], [ 0, %11 ], [ 0, %14 ], [ 0, %17 ], [ 0, %sdslen.exit ], [ 0, %47 ], [ 0, %rioWriteBulkStreamID.exit ], [ 0, %81 ], [ 0, %84 ], [ 0, %88 ], [ 0, %91 ], [ %., %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6712,14 +6712,14 @@ define dso_local range(i32 0, 2) i32 @rioWriteStreamEmptyConsumer(ptr noundef %0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %20, %27, %30, %34, %38, %42
-  %.0.i = phi i64 [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %44, %42 ], [ 0, %20 ]
+  %.0.i = phi i64 [ %44, %42 ], [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ 0, %20 ]
   %45 = tail call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %22, i64 noundef %.0.i) #20
   %46 = icmp ne i64 %45, 0
   %. = zext i1 %46 to i32
   br label %47
 
 47:                                               ; preds = %sdslen.exit, %17, %14, %11, %8, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ], [ 0, %17 ], [ %., %sdslen.exit ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %5 ], [ 0, %8 ], [ 0, %11 ], [ 0, %14 ], [ %., %sdslen.exit ]
   ret i32 %.0
 }
 
@@ -6824,7 +6824,7 @@ define dso_local range(i32 0, 2) i32 @rewriteStreamObject(ptr noundef %0, ptr no
   br label %rioWriteBulkStreamID.exit
 
 rioWriteBulkStreamID.exit:                        ; preds = %30, %39, %42, %46, %50, %54
-  %.0.i.i = phi i64 [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %56, %54 ], [ 0, %30 ]
+  %.0.i.i = phi i64 [ %56, %54 ], [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ 0, %30 ]
   %57 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %34, i64 noundef %.0.i.i) #20
   call void @sdsfree(ptr noundef nonnull %34) #20
   %58 = and i64 %57, 4294967295
@@ -6954,7 +6954,7 @@ rioWriteBulkStreamID.exit:                        ; preds = %30, %39, %42, %46, 
   br label %rioWriteBulkStreamID.exit111
 
 rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, %103, %107
-  %.0.i.i110 = phi i64 [ %94, %92 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ %109, %107 ], [ 0, %83 ]
+  %.0.i.i110 = phi i64 [ %109, %107 ], [ %94, %92 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ 0, %83 ]
   %110 = call i64 @rioWriteBulkString(ptr noundef %0, ptr noundef nonnull %87, i64 noundef %.0.i.i110) #20
   call void @sdsfree(ptr noundef nonnull %87) #20
   %111 = and i64 %110, 4294967295
@@ -7186,7 +7186,7 @@ rioWriteBulkStreamID.exit111:                     ; preds = %83, %92, %95, %99, 
   br label %198
 
 198:                                              ; preds = %.loopexit117, %.thread116, %.critedge, %197, %136, %116, %61
-  %.1 = phi i32 [ 0, %61 ], [ 1, %197 ], [ 0, %.loopexit117 ], [ 0, %136 ], [ 0, %116 ], [ 0, %.critedge ], [ 0, %.thread116 ]
+  %.1 = phi i32 [ 0, %.critedge ], [ 0, %61 ], [ 1, %197 ], [ 0, %.loopexit117 ], [ 0, %136 ], [ 0, %116 ], [ 0, %.thread116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7303,7 +7303,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteAppendOnlyFileRio(ptr noundef %0) 
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %25, %21, %17
-  %.0.i.i = phi i64 [ %20, %17 ], [ %24, %21 ], [ %27, %25 ]
+  %.0.i.i = phi i64 [ %27, %25 ], [ %20, %17 ], [ %24, %21 ]
   %28 = icmp ult i64 %.0.i.i, 1025
   br i1 %28, label %genAofTimestampAnnotationIfNeeded.exit, label %29, !prof !122
 
@@ -7352,7 +7352,7 @@ genAofTimestampAnnotationIfNeeded.exit:           ; preds = %9, %sdslen.exit.i
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %32, %35, %39, %43, %47
-  %.0.i = phi i64 [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ], [ %49, %47 ]
+  %.0.i = phi i64 [ %49, %47 ], [ %34, %32 ], [ %38, %35 ], [ %42, %39 ], [ %46, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i64, ptr %50, align 8, !tbaa !165
   %52 = and i64 %51, 6
@@ -7568,7 +7568,7 @@ rioWrite.exit23.i:                                ; preds = %120
   br label %sdslen.exit.i99
 
 sdslen.exit.i99:                                  ; preds = %146, %142, %138, %134, %131, %rioWrite.exit23.i
-  %.0.i.i100 = phi i64 [ %133, %131 ], [ %137, %134 ], [ %141, %138 ], [ %145, %142 ], [ %148, %146 ], [ 0, %rioWrite.exit23.i ]
+  %.0.i.i100 = phi i64 [ %148, %146 ], [ %133, %131 ], [ %137, %134 ], [ %141, %138 ], [ %145, %142 ], [ 0, %rioWrite.exit23.i ]
   %149 = call i64 @rioWriteBulkString(ptr noundef nonnull %0, ptr noundef nonnull %126, i64 noundef %.0.i.i100) #20
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %.thread27.i, label %151
@@ -7930,7 +7930,7 @@ rioWrite.exit135:                                 ; preds = %282
   call void @debugDelay(i32 noundef %301) #20
   br label %303
 
-.thread153:                                       ; preds = %234, %237, %240, %243, %246, %rewriteModuleObject.exit, %.thread, %.thread149
+.thread153:                                       ; preds = %rewriteModuleObject.exit, %246, %234, %237, %240, %243, %.thread, %.thread149
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread159
 
@@ -7966,8 +7966,8 @@ rioWrite.exit135:                                 ; preds = %282
   call void @kvstoreIteratorRelease(ptr noundef nonnull %.075) #20
   br label %.thread175
 
-.thread175:                                       ; preds = %.thread166, %rewriteFunctions.exit, %rewriteFunctions.exit.thread, %rioWrite.exit.thread, %.thread159, %308
-  %.0 = phi i32 [ -1, %308 ], [ -1, %.thread159 ], [ -1, %rioWrite.exit.thread ], [ -1, %rewriteFunctions.exit.thread ], [ 0, %rewriteFunctions.exit ], [ 0, %.thread166 ]
+.thread175:                                       ; preds = %.thread166, %rewriteFunctions.exit, %rioWrite.exit.thread, %rewriteFunctions.exit.thread, %.thread159, %308
+  %.0 = phi i32 [ -1, %.thread159 ], [ -1, %308 ], [ -1, %rewriteFunctions.exit.thread ], [ -1, %rioWrite.exit.thread ], [ 0, %rewriteFunctions.exit ], [ 0, %.thread166 ]
   ret i32 %.0
 }
 

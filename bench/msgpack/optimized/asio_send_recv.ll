@@ -3691,7 +3691,7 @@ _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKc.exit70: ; preds 
   ret void
 
 .body:                                            ; preds = %_ZN5boost6system12system_errorD2Ev.exit.i.i, %_ZN5boost6system12system_errorD2Ev.exit.i.i45, %_ZN5boost6system12system_errorD2Ev.exit.i.i65, %82, %_ZN5boost6system12system_errorD2Ev.exit.i.i26
-  %.pn = phi { ptr, i32 } [ %43, %_ZN5boost6system12system_errorD2Ev.exit.i.i ], [ %77, %_ZN5boost6system12system_errorD2Ev.exit.i.i26 ], [ %116, %_ZN5boost6system12system_errorD2Ev.exit.i.i45 ], [ %83, %82 ], [ %150, %_ZN5boost6system12system_errorD2Ev.exit.i.i65 ]
+  %.pn = phi { ptr, i32 } [ %150, %_ZN5boost6system12system_errorD2Ev.exit.i.i65 ], [ %43, %_ZN5boost6system12system_errorD2Ev.exit.i.i ], [ %77, %_ZN5boost6system12system_errorD2Ev.exit.i.i26 ], [ %116, %_ZN5boost6system12system_errorD2Ev.exit.i.i45 ], [ %83, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5boost4asio6detail14io_object_implINS1_23reactive_socket_serviceINS0_2ip3tcpEEENS0_9execution12any_executorIJNS7_12context_as_tIRNS0_17execution_contextEEENS7_6detail8blocking7never_tILi0EEENS7_11prefer_onlyINSE_10possibly_tILi0EEEEENSH_INSD_16outstanding_work9tracked_tILi0EEEEENSH_INSL_11untracked_tILi0EEEEENSH_INSD_12relationship6fork_tILi0EEEEENSH_INSS_14continuation_tILi0EEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #36
   resume { ptr, i32 } %.pn
@@ -4204,7 +4204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %
           to label %24 unwind label %25
 
 24:                                               ; preds = %4, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %6
-  %.0 = phi ptr [ %2, %6 ], [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ @.str.53, %20 ], [ %2, %4 ]
+  %.0 = phi ptr [ @.str.53, %20 ], [ %2, %6 ], [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %2, %4 ]
   ret ptr %.0
 
 25:                                               ; preds = %20
@@ -6078,7 +6078,7 @@ _ZNKSt9type_infoeqERKS_.exit.i:                   ; preds = %37
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.split.us, label %_ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7service3keyES7_.exit
 
-.split.us:                                        ; preds = %.lr.ph.split, %32, %_ZNKSt9type_infoeqERKS_.exit.i, %.lr.ph.split.us
+.split.us:                                        ; preds = %32, %_ZNKSt9type_infoeqERKS_.exit.i, %.lr.ph.split, %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.41)
           to label %44 unwind label %46
@@ -7167,7 +7167,7 @@ _ZN5boost4asio6detail12posix_thread4joinEv.exit.thread: ; preds = %_ZN5boost4asi
   br label %_ZN5boost4asio6detail12posix_threadD2Ev.exit
 
 _ZN5boost4asio6detail12posix_threadD2Ev.exit:     ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread, %50
-  %53 = phi ptr [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %.pr, %50 ], [ %41, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ]
+  %53 = phi ptr [ %.pr, %50 ], [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %41, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ]
   call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef 16) #40
   br label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
@@ -8471,7 +8471,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; pred
   br label %72
 
 72:                                               ; preds = %58, %68, %69, %59
-  %.130 = phi i1 [ %spec.select, %58 ], [ true, %59 ], [ %.02960, %69 ], [ %.02960, %68 ]
+  %.130 = phi i1 [ true, %59 ], [ %.02960, %68 ], [ %spec.select, %58 ], [ %.02960, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !325
@@ -9196,7 +9196,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i3.i.i.i.i.i.i: ; pred
   br label %"_ZN5boost4asio12basic_socketINS0_2ip3tcpENS0_9execution12any_executorIJNS4_12context_as_tIRNS0_17execution_contextEEENS4_6detail8blocking7never_tILi0EEENS4_11prefer_onlyINSB_10possibly_tILi0EEEEENSE_INSA_16outstanding_work9tracked_tILi0EEEEENSE_INSI_11untracked_tILi0EEEEENSE_INSA_12relationship6fork_tILi0EEEEENSE_INSP_14continuation_tILi0EEEEEEEEE13async_connectITkNS0_20completion_token_forIFvNS_6system10error_codeEEEENS0_6detail19iterator_connect_opIS3_SW_NS2_23basic_resolver_iteratorIS3_EENS13_25default_connect_conditionEZ4mainE3$_1EEEEDaRKNS2_14basic_endpointIS3_EEOT_.exit"
 
 common.resume:                                    ; preds = %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit8, %.body, %143, %238
-  %common.resume.op = phi { ptr, i32 } [ %144, %143 ], [ %239, %238 ], [ %352, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit8 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %239, %238 ], [ %144, %143 ], [ %352, %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit8 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 143:                                              ; preds = %"_ZN5boost4asio6detail12bind_handlerINS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS6_12context_as_tIRNS0_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEENS4_23basic_resolver_iteratorIS5_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEENS1_7binder1INSt5decayIT_E4typeET0_EEOS18_RKS1B_.exit.i.i.i.i"
@@ -11272,7 +11272,7 @@ _ZN5boost4asio6detail10socket_ops14get_last_errorERNS_6system10error_codeEb.exit
   br label %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit23.thread
 
 _ZN5boost6systemeqERKNS0_10error_codeES3_.exit23.thread: ; preds = %26, %_ZN5boost4asio6detail10socket_ops14get_last_errorERNS_6system10error_codeEb.exit28, %.critedge, %4
-  %.0 = phi i32 [ %35, %_ZN5boost4asio6detail10socket_ops14get_last_errorERNS_6system10error_codeEb.exit28 ], [ 0, %.critedge ], [ 0, %4 ], [ %14, %26 ]
+  %.0 = phi i32 [ %35, %_ZN5boost4asio6detail10socket_ops14get_last_errorERNS_6system10error_codeEb.exit28 ], [ %14, %26 ], [ 0, %.critedge ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -14712,7 +14712,7 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
   br label %.thread73
 
 .thread73:                                        ; preds = %.thread72, %111, %109
-  %113 = phi i32 [ %112, %111 ], [ %104, %109 ], [ %107, %.thread72 ]
+  %113 = phi i32 [ %104, %109 ], [ %112, %111 ], [ %107, %.thread72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %113, ptr %9, align 4, !tbaa !273
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -16698,7 +16698,7 @@ _ZN5boost4asio6detail10socket_ops5send1EiPKvmiRNS_6system10error_codeE.exit.thre
   br i1 %66, label %.lr.ph.split, label %._crit_edge
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN5boost4asio6detail10socket_ops5send1EiPKvmiRNS_6system10error_codeE.exit.thread, %.critedge.thread35, %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit, %9
-  %.021 = phi i64 [ 0, %9 ], [ 0, %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit ], [ 0, %.critedge.thread35 ], [ %.lcssa, %_ZN5boost4asio6detail10socket_ops5send1EiPKvmiRNS_6system10error_codeE.exit.thread ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
+  %.021 = phi i64 [ 0, %9 ], [ 0, %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit ], [ %.lcssa, %_ZN5boost4asio6detail10socket_ops5send1EiPKvmiRNS_6system10error_codeE.exit.thread ], [ 0, %.critedge.thread35 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split ]
   ret i64 %.021
 }
 
@@ -17039,8 +17039,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   store ptr %36, ptr %7, align 8, !tbaa !138
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29
 
-.split.us:                                        ; preds = %.lr.ph51.split, %53, %_ZNKSt9type_infoeqERKS_.exit.i24, %.lr.ph51.split.us
-  %.us-phi52 = phi ptr [ %.11750.us, %.lr.ph51.split.us ], [ %.11750, %_ZNKSt9type_infoeqERKS_.exit.i24 ], [ %.11750, %53 ], [ %.11750, %.lr.ph51.split ]
+.split.us:                                        ; preds = %53, %_ZNKSt9type_infoeqERKS_.exit.i24, %.lr.ph51.split, %.lr.ph51.split.us
+  %.us-phi52 = phi ptr [ %.11750.us, %.lr.ph51.split.us ], [ %.11750, %.lr.ph51.split ], [ %.11750, %_ZNKSt9type_infoeqERKS_.exit.i24 ], [ %.11750, %53 ]
   %67 = icmp eq ptr %36, null
   br i1 %67, label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29, label %68
 
@@ -17051,8 +17051,8 @@ _ZN5boost4asio6detail16service_registry10keys_matchERKNS0_17execution_context7se
   tail call void %71(ptr noundef nonnull align 8 dereferenceable(40) %36) #36
   br label %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29
 
-_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split, %.lr.ph.split.us, %68, %.split.us, %.thread
-  %.0 = phi ptr [ %36, %.thread ], [ %.us-phi52, %.split.us ], [ %.us-phi52, %68 ], [ %.01647.us, %.lr.ph.split.us ], [ %.01647, %.lr.ph.split ], [ %.01647, %22 ], [ %.01647, %_ZNKSt9type_infoeqERKS_.exit.i ]
+_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit29: ; preds = %.lr.ph.split, %_ZNKSt9type_infoeqERKS_.exit.i, %22, %.lr.ph.split.us, %68, %.split.us, %.thread
+  %.0 = phi ptr [ %.us-phi52, %68 ], [ %36, %.thread ], [ %.us-phi52, %.split.us ], [ %.01647.us, %.lr.ph.split.us ], [ %.01647, %22 ], [ %.01647, %_ZNKSt9type_infoeqERKS_.exit.i ], [ %.01647, %.lr.ph.split ]
   %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #36
   ret ptr %.0
 }
@@ -17151,7 +17151,7 @@ _ZN5boost4asio6detail26eventfd_select_interrupterC2Ev.exit: ; preds = %2
           to label %_ZN5boost4asio6detail13epoll_reactor17do_timerfd_createEv.exit unwind label %57
 
 _ZN5boost4asio6detail13epoll_reactor17do_timerfd_createEv.exit: ; preds = %31, %27, %23, %33
-  %.0.i = phi i32 [ -1, %31 ], [ -1, %27 ], [ %25, %23 ], [ %32, %33 ]
+  %.0.i = phi i32 [ %25, %23 ], [ -1, %31 ], [ -1, %27 ], [ %32, %33 ]
   store i32 %.0.i, ptr %24, align 4, !tbaa !322
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %35, align 8, !tbaa !522
@@ -17304,7 +17304,7 @@ _ZN5boost6system12system_errorD2Ev.exit.i.i:      ; preds = %19, %_ZNKSt7__cxx11
   resume { ptr, i32 } %20
 
 _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKc.exit: ; preds = %11, %0, %9
-  %.010 = phi i32 [ %8, %9 ], [ %2, %0 ], [ -1, %11 ]
+  %.010 = phi i32 [ %2, %0 ], [ %8, %9 ], [ -1, %11 ]
   ret i32 %.010
 }
 
@@ -25985,14 +25985,14 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796: ; p
   br label %.thread
 
 .sink.split2673:                                  ; preds = %1385, %1337, %1289, %1236, %1184, %1128, %1076, %1020, %969, %918, %871, %824, %777, %730, %683, %636, %588, %541, %494, %448, %401, %355, %309, %263, %1405, %1393, %1357, %1345, %1309, %1297, %1256, %1244, %1214, %1204, %1192, %1162, %1148, %1136, %1106, %1096, %1084, %1054, %1040, %1028, %999, %989, %977, %948, %938, %926, %891, %879, %844, %832, %797, %785, %750, %738, %703, %691, %656, %644, %608, %596, %561, %549, %514, %502, %468, %456, %421, %409, %375, %363, %329, %317, %283, %271, %1050, %1158, %1266
-  %.sink = phi i32 [ 34, %1266 ], [ 34, %1158 ], [ 34, %1050 ], [ 0, %271 ], [ 0, %283 ], [ 0, %317 ], [ 0, %329 ], [ 0, %363 ], [ 0, %375 ], [ 0, %409 ], [ 0, %421 ], [ 0, %456 ], [ 0, %468 ], [ 0, %502 ], [ 0, %514 ], [ 0, %549 ], [ 0, %561 ], [ 0, %596 ], [ 0, %608 ], [ 0, %644 ], [ 0, %656 ], [ 0, %691 ], [ 0, %703 ], [ 0, %738 ], [ 0, %750 ], [ 0, %785 ], [ 0, %797 ], [ 0, %832 ], [ 0, %844 ], [ 0, %879 ], [ 0, %891 ], [ 0, %926 ], [ 0, %938 ], [ 32, %948 ], [ 0, %977 ], [ 0, %989 ], [ 33, %999 ], [ 0, %1028 ], [ 0, %1040 ], [ 32, %1054 ], [ 0, %1084 ], [ 0, %1096 ], [ 33, %1106 ], [ 0, %1136 ], [ 0, %1148 ], [ 32, %1162 ], [ 0, %1192 ], [ 0, %1204 ], [ 33, %1214 ], [ 0, %1244 ], [ 0, %1256 ], [ 0, %1297 ], [ 0, %1309 ], [ 0, %1345 ], [ 0, %1357 ], [ 0, %1393 ], [ 0, %1405 ], [ 0, %263 ], [ 0, %309 ], [ 0, %355 ], [ 0, %401 ], [ 0, %448 ], [ 0, %494 ], [ 0, %541 ], [ 0, %588 ], [ 0, %636 ], [ 0, %683 ], [ 0, %730 ], [ 0, %777 ], [ 0, %824 ], [ 0, %871 ], [ 0, %918 ], [ 0, %969 ], [ 0, %1020 ], [ 0, %1076 ], [ 0, %1128 ], [ 0, %1184 ], [ 0, %1236 ], [ 0, %1289 ], [ 0, %1337 ], [ 0, %1385 ]
-  %.23413.ph = phi i1 [ true, %1266 ], [ true, %1158 ], [ true, %1050 ], [ false, %271 ], [ false, %283 ], [ false, %317 ], [ false, %329 ], [ false, %363 ], [ false, %375 ], [ false, %409 ], [ false, %421 ], [ false, %456 ], [ false, %468 ], [ false, %502 ], [ false, %514 ], [ false, %549 ], [ false, %561 ], [ false, %596 ], [ false, %608 ], [ false, %644 ], [ false, %656 ], [ false, %691 ], [ false, %703 ], [ false, %738 ], [ false, %750 ], [ false, %785 ], [ false, %797 ], [ false, %832 ], [ false, %844 ], [ false, %879 ], [ false, %891 ], [ false, %926 ], [ false, %938 ], [ true, %948 ], [ false, %977 ], [ false, %989 ], [ true, %999 ], [ false, %1028 ], [ false, %1040 ], [ true, %1054 ], [ false, %1084 ], [ false, %1096 ], [ true, %1106 ], [ false, %1136 ], [ false, %1148 ], [ true, %1162 ], [ false, %1192 ], [ false, %1204 ], [ true, %1214 ], [ false, %1244 ], [ false, %1256 ], [ false, %1297 ], [ false, %1309 ], [ false, %1345 ], [ false, %1357 ], [ false, %1393 ], [ false, %1405 ], [ false, %263 ], [ false, %309 ], [ false, %355 ], [ false, %401 ], [ false, %448 ], [ false, %494 ], [ false, %541 ], [ false, %588 ], [ false, %636 ], [ false, %683 ], [ false, %730 ], [ false, %777 ], [ false, %824 ], [ false, %871 ], [ false, %918 ], [ false, %969 ], [ false, %1020 ], [ false, %1076 ], [ false, %1128 ], [ false, %1184 ], [ false, %1236 ], [ false, %1289 ], [ false, %1337 ], [ false, %1385 ]
+  %.sink = phi i32 [ 0, %1357 ], [ 0, %1309 ], [ 0, %1256 ], [ 33, %1214 ], [ 0, %1204 ], [ 32, %1162 ], [ 0, %1148 ], [ 33, %1106 ], [ 0, %1096 ], [ 32, %1054 ], [ 0, %1040 ], [ 33, %999 ], [ 0, %989 ], [ 32, %948 ], [ 0, %938 ], [ 0, %891 ], [ 0, %844 ], [ 0, %797 ], [ 0, %750 ], [ 0, %703 ], [ 0, %656 ], [ 0, %608 ], [ 0, %561 ], [ 0, %514 ], [ 0, %468 ], [ 0, %421 ], [ 0, %375 ], [ 0, %329 ], [ 0, %283 ], [ 34, %1050 ], [ 34, %1266 ], [ 34, %1158 ], [ 0, %271 ], [ 0, %317 ], [ 0, %363 ], [ 0, %409 ], [ 0, %456 ], [ 0, %502 ], [ 0, %549 ], [ 0, %596 ], [ 0, %644 ], [ 0, %691 ], [ 0, %738 ], [ 0, %785 ], [ 0, %832 ], [ 0, %879 ], [ 0, %926 ], [ 0, %977 ], [ 0, %1028 ], [ 0, %1084 ], [ 0, %1136 ], [ 0, %1192 ], [ 0, %1244 ], [ 0, %1297 ], [ 0, %1345 ], [ 0, %1393 ], [ 0, %1405 ], [ 0, %1337 ], [ 0, %263 ], [ 0, %309 ], [ 0, %355 ], [ 0, %401 ], [ 0, %448 ], [ 0, %494 ], [ 0, %541 ], [ 0, %588 ], [ 0, %636 ], [ 0, %683 ], [ 0, %730 ], [ 0, %777 ], [ 0, %824 ], [ 0, %871 ], [ 0, %918 ], [ 0, %969 ], [ 0, %1020 ], [ 0, %1076 ], [ 0, %1128 ], [ 0, %1184 ], [ 0, %1236 ], [ 0, %1289 ], [ 0, %1385 ]
+  %.23413.ph = phi i1 [ false, %1357 ], [ false, %1309 ], [ false, %1256 ], [ true, %1214 ], [ false, %1204 ], [ true, %1162 ], [ false, %1148 ], [ true, %1106 ], [ false, %1096 ], [ true, %1054 ], [ false, %1040 ], [ true, %999 ], [ false, %989 ], [ true, %948 ], [ false, %938 ], [ false, %891 ], [ false, %844 ], [ false, %797 ], [ false, %750 ], [ false, %703 ], [ false, %656 ], [ false, %608 ], [ false, %561 ], [ false, %514 ], [ false, %468 ], [ false, %421 ], [ false, %375 ], [ false, %329 ], [ false, %283 ], [ true, %1050 ], [ true, %1266 ], [ true, %1158 ], [ false, %271 ], [ false, %317 ], [ false, %363 ], [ false, %409 ], [ false, %456 ], [ false, %502 ], [ false, %549 ], [ false, %596 ], [ false, %644 ], [ false, %691 ], [ false, %738 ], [ false, %785 ], [ false, %832 ], [ false, %879 ], [ false, %926 ], [ false, %977 ], [ false, %1028 ], [ false, %1084 ], [ false, %1136 ], [ false, %1192 ], [ false, %1244 ], [ false, %1297 ], [ false, %1345 ], [ false, %1393 ], [ false, %1405 ], [ false, %1337 ], [ false, %263 ], [ false, %309 ], [ false, %355 ], [ false, %401 ], [ false, %448 ], [ false, %494 ], [ false, %541 ], [ false, %588 ], [ false, %636 ], [ false, %683 ], [ false, %730 ], [ false, %777 ], [ false, %824 ], [ false, %871 ], [ false, %918 ], [ false, %969 ], [ false, %1020 ], [ false, %1076 ], [ false, %1128 ], [ false, %1184 ], [ false, %1236 ], [ false, %1289 ], [ false, %1385 ]
   store i32 %.sink, ptr %22, align 8, !tbaa !176
   br label %1431
 
 1431:                                             ; preds = %.sink.split2673, %224, %1421, %1419, %1417, %1415
-  %.23413 = phi i1 [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ false, %1421 ], [ false, %224 ], [ %.23413.ph, %.sink.split2673 ]
-  %.1340 = phi ptr [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %1421 ], [ %.0339, %224 ], [ %232, %.sink.split2673 ]
+  %.23413 = phi i1 [ false, %1421 ], [ false, %224 ], [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ %.23413.ph, %.sink.split2673 ]
+  %.1340 = phi ptr [ %232, %1421 ], [ %.0339, %224 ], [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %.sink.split2673 ]
   %1432 = load ptr, ptr %19, align 8, !tbaa !842
   %.not493 = icmp eq ptr %1432, %20
   br i1 %.not493, label %1433, label %29, !llvm.loop !849
@@ -26005,7 +26005,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796: ; p
   br label %.thread
 
 .thread:                                          ; preds = %213, %207, %201, %198, %194, %1421, %1419, %1417, %1415, %4, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread, %218, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread, %.loopexit1011, %.thread977, %.loopexit1010, %.thread964, %.loopexit1009, %.thread951, %.loopexit1008, %.thread938, %.loopexit1007, %.thread925, %.loopexit, %.thread912, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558, %238, %1423, %1433
-  %.0 = phi i32 [ 0, %238 ], [ -1, %1423 ], [ 0, %1433 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703 ], [ 2, %.loopexit ], [ 2, %.loopexit1007 ], [ 2, %.loopexit1008 ], [ 2, %.loopexit1009 ], [ 2, %.loopexit1010 ], [ 2, %.loopexit1011 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread ], [ -2, %.thread912 ], [ -2, %.thread925 ], [ -2, %.thread938 ], [ -2, %.thread951 ], [ -2, %.thread964 ], [ -2, %.thread977 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread ], [ -1, %218 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit ], [ 0, %4 ], [ %195, %194 ], [ %199, %198 ], [ %206, %201 ], [ %212, %207 ], [ %217, %213 ], [ %1422, %1421 ], [ %1420, %1419 ], [ %1418, %1417 ], [ %1416, %1415 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %238 ], [ -1, %1423 ], [ 0, %1433 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit653 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703 ], [ 2, %.loopexit ], [ 2, %.loopexit1007 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thread ], [ 2, %.loopexit1008 ], [ 2, %.loopexit1009 ], [ -1, %218 ], [ 2, %.loopexit1010 ], [ 2, %.loopexit1011 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit540 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796 ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thread ], [ -2, %.thread912 ], [ -2, %.thread925 ], [ -2, %.thread938 ], [ -2, %.thread951 ], [ -2, %.thread964 ], [ -2, %.thread977 ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548.thread ], [ %195, %194 ], [ %199, %198 ], [ %206, %201 ], [ %212, %207 ], [ %217, %213 ], [ %1418, %1417 ], [ %1416, %1415 ], [ %1420, %1419 ], [ %1422, %1421 ]
   ret i32 %.0
 }
 
@@ -26449,7 +26449,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %109
 
 109:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %72, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %72 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %72 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -26666,7 +26666,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %109
 
 109:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %72, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %72 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %72 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -27144,7 +27144,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %108
 
 108:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %71, %15
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %15 ], [ -2, %71 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %71 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -27356,7 +27356,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %106
 
 106:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %69, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %69 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %69 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -27573,7 +27573,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %108
 
 108:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %71, %15
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %15 ], [ -2, %71 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %71 ], [ -2, %15 ]
   ret i32 %.0
 }
 
@@ -27787,7 +27787,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextINS1_8unpackerEE12unpack_stack10stack_el
   br label %106
 
 106:                                              ; preds = %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit, %.critedge, %69, %16
-  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %16 ], [ -2, %69 ]
+  %.0 = phi i32 [ 0, %.critedge ], [ 2, %_ZN7msgpack2v26detail7contextINS0_8unpackerEE12unpack_stack7consumeERS3_.exit ], [ -2, %69 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -28340,7 +28340,7 @@ _ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; pred
   br label %_ZSt27__uninitialized_default_n_aIPPN7msgpack2v26objectEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN7msgpack2v26objectEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !211
   br label %41
 
@@ -28720,7 +28720,7 @@ _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36: ; 
   unreachable
 
 _ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit: ; preds = %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit, %65, %63, %50, %39, %32, %27, %22, %20, %18, %10, %44
-  %.0.shrunk = phi i1 [ false, %10 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ false, %18 ], [ false, %20 ], [ false, %63 ], [ false, %65 ], [ %115, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit ], [ %155, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36 ]
+  %.0.shrunk = phi i1 [ false, %10 ], [ false, %63 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ false, %39 ], [ false, %44 ], [ false, %50 ], [ false, %20 ], [ false, %65 ], [ %155, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit36 ], [ %115, %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE9push_backEOS3_.exit ], [ false, %18 ]
   %158 = load ptr, ptr %3, align 8, !tbaa !907
   %159 = load ptr, ptr %4, align 8, !tbaa !907
   %160 = icmp eq ptr %158, %159
@@ -28846,7 +28846,7 @@ _ZN7msgpack2v124object_stringize_visitor14end_array_itemEv.exit.i: ; preds = %21
   store ptr %226, ptr %224, align 8, !tbaa !19
   br label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62
 
-227:                                              ; preds = %197, %218, %175, %173
+227:                                              ; preds = %175, %197, %173, %218
   %228 = load ptr, ptr %4, align 8, !tbaa !896
   %229 = getelementptr inbounds i8, ptr %228, i64 -24
   store ptr %229, ptr %4, align 8, !tbaa !896
@@ -28854,7 +28854,7 @@ _ZN7msgpack2v124object_stringize_visitor14end_array_itemEv.exit.i: ; preds = %21
   %231 = icmp eq ptr %230, %229
   br i1 %231, label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64, label %_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit
 
-_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62: ; preds = %223, %202, %182, %161
+_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread62: ; preds = %202, %182, %223, %161
   %232 = load ptr, ptr %4, align 8, !tbaa !907
   %233 = getelementptr inbounds i8, ptr %232, i64 -24
   %234 = getelementptr inbounds i8, ptr %232, i64 -8
@@ -28870,7 +28870,7 @@ _ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8ne
   store ptr %.0.i38, ptr %0, align 8, !tbaa !828
   br label %7
 
-_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64: ; preds = %44, %76, %116, %_ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit, %227
+_ZN7msgpack2v113object_parser4elem4nextINS0_24object_stringize_visitorEEENS1_8next_retERT_.exit.thread64: ; preds = %44, %76, %_ZN7msgpack2v124object_stringize_visitor13visit_booleanEb.exit, %116, %227
   ret void
 }
 
@@ -29477,7 +29477,7 @@ _ZN5boost6systemeqERKNS0_10error_codeES3_.exit24.thread.i: ; preds = %34
   store i64 0, ptr %12, align 8, !tbaa !205
   br label %39
 
-39:                                               ; preds = %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit24.thread.i, %33, %32
+39:                                               ; preds = %33, %32, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit24.thread.i
   %40 = load i8, ptr %7, align 4, !tbaa !798
   %41 = and i8 %40, 16
   %.not = icmp eq i8 %41, 0
@@ -29822,7 +29822,7 @@ _ZN5boost6systemeqERKNS0_10error_codeES3_.exit20: ; preds = %_ZN5boost4asio6deta
   br label %.thread33
 
 .thread33:                                        ; preds = %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit20, %_ZN5boost4asio6detail10socket_ops6acceptEiP8sockaddrPmRNS_6system10error_codeE.exit, %.split45, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ true, %_ZN5boost4asio6detail10socket_ops6acceptEiP8sockaddrPmRNS_6system10error_codeE.exit ], [ true, %.split45 ], [ true, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit20 ]
+  %.0 = phi i1 [ true, %.split45 ], [ false, %.critedge ], [ true, %_ZN5boost4asio6detail10socket_ops6acceptEiP8sockaddrPmRNS_6system10error_codeE.exit ], [ true, %_ZN5boost6systemeqERKNS0_10error_codeES3_.exit20 ]
   ret i1 %.0
 }
 
@@ -30521,7 +30521,7 @@ _ZN5boost4asio6detail12posix_thread4joinEv.exit.thread: ; preds = %_ZN5boost4asi
   br label %_ZN5boost4asio6detail12posix_threadD2Ev.exit.i
 
 _ZN5boost4asio6detail12posix_threadD2Ev.exit.i:   ; preds = %_ZN5boost4asio6detail9scheduler4stopEv.exit, %48, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread
-  %51 = phi ptr [ %.pr, %48 ], [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %40, %_ZN5boost4asio6detail9scheduler4stopEv.exit ]
+  %51 = phi ptr [ %.pr, %_ZN5boost4asio6detail12posix_thread4joinEv.exit.thread ], [ %.pr, %48 ], [ %40, %_ZN5boost4asio6detail9scheduler4stopEv.exit ]
   call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 16) #40
   br label %_ZN5boost4asio6detail10scoped_ptrINS1_12posix_threadEE5resetEPS3_.exit
 
@@ -32538,8 +32538,8 @@ _ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9
   br label %41
 
 41:                                               ; preds = %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit, %1, %35, %16, %15, %8
-  %.sroa.1343.0 = phi ptr [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %35 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %8 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %15 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %16 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %1 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
-  %.sroa.11.0 = phi i64 [ %40, %35 ], [ 4294967318, %8 ], [ 4294967393, %15 ], [ 4294967308, %16 ], [ 0, %1 ], [ 2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967298, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 3, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ 4294967299, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ 1, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ 4294967297, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ 4294967288, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 8589934584, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 4294967289, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ 8589934585, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
+  %.sroa.1343.0 = phi ptr [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %35 ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %1 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %8 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %15 ], [ @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, %16 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ @_ZZN5boost4asio5error18get_netdb_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ @_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
+  %.sroa.11.0 = phi i64 [ %40, %35 ], [ 8589934584, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %1 ], [ 4294967318, %8 ], [ 4294967298, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 4294967393, %15 ], [ 4294967308, %16 ], [ 4294967299, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6.thread ], [ 4294967297, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13.thread ], [ 2, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 3, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit6 ], [ 1, %_ZN5boost6system10error_codeC2INS_4asio5error12netdb_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit13 ], [ 4294967288, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit ], [ 4294967289, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22 ], [ 8589934585, %_ZN5boost6system10error_codeC2INS_4asio5error15addrinfo_errorsEEET_PNS0_6detail9enable_ifIXsr18is_error_code_enumIS6_EE5valueEvE4typeE.exit22.thread ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.11.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.1343.0, 1
   ret { i64, ptr } %.fca.1.insert

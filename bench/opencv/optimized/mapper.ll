@@ -864,8 +864,8 @@ define void @_ZNK2cv3reg6Mapper4gridERKNS_3MatERS2_S5_(ptr noundef nonnull readn
   ret void
 
 78:                                               ; preds = %70, %76, %60, %66, %50, %56, %37, %43
-  %.sink51 = phi ptr [ %5, %43 ], [ %5, %37 ], [ %8, %56 ], [ %8, %50 ], [ %11, %66 ], [ %11, %60 ], [ %14, %76 ], [ %14, %70 ]
-  %.pn41.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %38, %37 ], [ %.pn41, %56 ], [ %51, %50 ], [ %.pn38, %66 ], [ %61, %60 ], [ %.pn35, %76 ], [ %71, %70 ]
+  %.sink51 = phi ptr [ %11, %60 ], [ %8, %50 ], [ %5, %37 ], [ %5, %43 ], [ %8, %56 ], [ %11, %66 ], [ %14, %76 ], [ %14, %70 ]
+  %.pn41.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %51, %50 ], [ %38, %37 ], [ %.pn, %43 ], [ %.pn41, %56 ], [ %.pn38, %66 ], [ %.pn35, %76 ], [ %71, %70 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink51) #12
   resume { ptr, i32 } %.pn41.pn.pn
 }

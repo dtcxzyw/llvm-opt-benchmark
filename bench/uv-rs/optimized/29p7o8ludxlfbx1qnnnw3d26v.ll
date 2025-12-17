@@ -493,7 +493,7 @@ define internal void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508ErrorSou
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h2edcaff4ed133fbeE.exit.i": ; preds = %92, %87
@@ -1165,7 +1165,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19: ; preds = %.lr.p
   br i1 %or.cond, label %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha8ad838f9705d52dE.exit"
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread: ; preds = %.preheader.i, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit, %41, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us, %.preheader.i.us, %28
-  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %.preheader.i.us ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %41 ], [ 0, %.preheader.i ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ]
+  %.sroa.0.0.i18 = phi i64 [ 0, %28 ], [ 0, %41 ], [ %22, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.us ], [ 0, %.preheader.i.us ], [ %44, %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit ], [ 0, %.preheader.i ]
   store i64 %6, ptr %4, align 8
   br label %.loopexit
 
@@ -1746,7 +1746,7 @@ default.unreachable63:                            ; preds = %69, %3
   unreachable
 
 common.resume:                                    ; preds = %92, %36, %52
-  %common.resume.op = phi { ptr, i32 } [ %37, %36 ], [ %53, %52 ], [ %93, %92 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %37, %36 ], [ %93, %92 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN72_$LT$anstream..strip..StripStream$LT$S$GT$$u20$as$u20$std..io..Write$GT$9write_fmt17heb31a5624c036f50E.exit.i": ; preds = %49, %44, %38
@@ -1841,7 +1841,7 @@ common.resume:                                    ; preds = %92, %36, %52
   br label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit: ; preds = %80, %77, %73
-  %.sroa.0.0.i46 = phi i8 [ %spec.select.i.i.i, %73 ], [ %79, %77 ], [ %82, %80 ]
+  %.sroa.0.0.i46 = phi i8 [ %82, %80 ], [ %spec.select.i.i.i, %73 ], [ %79, %77 ]
   %.not44 = icmp eq i8 %.sroa.0.0.i46, 11
   br i1 %.not44, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread54, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread, !prof !408
 

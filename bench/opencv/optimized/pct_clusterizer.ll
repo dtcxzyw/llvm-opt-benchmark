@@ -788,7 +788,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %65
   br i1 %117, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !81
 
 .loopexit.i:                                      ; preds = %113, %107, %80
-  %118 = phi i32 [ %.pre34.i, %107 ], [ %81, %80 ], [ %114, %113 ]
+  %118 = phi i32 [ %81, %80 ], [ %.pre34.i, %107 ], [ %114, %113 ]
   %119 = add nsw i32 %118, -1
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %.pre35.i, %120
@@ -1200,7 +1200,7 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
   br i1 %289, label %.lr.ph.i92, label %.loopexit.i89, !llvm.loop !81
 
 .loopexit.i89:                                    ; preds = %285, %279, %.lr.ph25.i84
-  %290 = phi i32 [ %.pre34.i95, %279 ], [ %253, %.lr.ph25.i84 ], [ %286, %285 ]
+  %290 = phi i32 [ %253, %.lr.ph25.i84 ], [ %.pre34.i95, %279 ], [ %286, %285 ]
   %291 = add nsw i32 %290, -1
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %.pre35.i87, %292
@@ -1220,7 +1220,7 @@ _ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl17joinCloseClustersERNS_
   br i1 %297, label %148, label %.loopexit119, !llvm.loop !92
 
 298:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit112, %.loopexit.split-lp113, %187, %181
-  %.pn66 = phi { ptr, i32 } [ %.pn60.pn, %187 ], [ %182, %181 ], [ %lpad.loopexit114, %.loopexit112 ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn66 = phi { ptr, i32 } [ %182, %181 ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp113 ], [ %.pn60.pn, %187 ], [ %lpad.loopexit114, %.loopexit112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #18
   br label %299
 
@@ -2264,7 +2264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %132, 
   resume { ptr, i32 } %133
 
 _ZN2cv11xfeatures2d14pct_signaturesL10distanceL1ERKNS_3MatEiS4_i.exit: ; preds = %123, %86, %52, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit
-  %.032 = phi float [ %24, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit ], [ %42, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit ], [ %76, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit ], [ %113, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit ], [ %59, %52 ], [ %92, %86 ], [ %.1.i, %123 ]
+  %.032 = phi float [ %24, %_ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit ], [ %42, %_ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit ], [ %76, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit ], [ %113, %_ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit ], [ %92, %86 ], [ %59, %52 ], [ %.1.i, %123 ]
   ret float %.032
 }
 

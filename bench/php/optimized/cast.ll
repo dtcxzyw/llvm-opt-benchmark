@@ -362,7 +362,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   br label %124
 
 124:                                              ; preds = %120, %122, %94, %95, %85, %86, %78
-  %.0 = phi i32 [ -1, %78 ], [ -1, %86 ], [ -1, %85 ], [ -1, %95 ], [ -1, %94 ], [ 0, %122 ], [ 0, %120 ]
+  %.0 = phi i32 [ -1, %94 ], [ -1, %85 ], [ -1, %78 ], [ -1, %86 ], [ -1, %95 ], [ 0, %122 ], [ 0, %120 ]
   ret i32 %.0
 }
 
@@ -430,7 +430,7 @@ define dso_local ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr nound
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %25, %20, %16, %12, %14, %4, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %4 ], [ null, %14 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %4 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -496,7 +496,7 @@ define dso_local range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, 
   br label %30
 
 30:                                               ; preds = %19, %3, %26, %23, %12
-  %.0 = phi i32 [ 0, %12 ], [ 3, %23 ], [ 1, %26 ], [ 2, %3 ], [ 2, %19 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %12 ], [ 2, %3 ], [ 3, %23 ], [ 2, %19 ]
   ret i32 %.0
 }
 

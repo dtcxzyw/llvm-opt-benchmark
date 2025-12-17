@@ -377,7 +377,7 @@ fill_vaapi_ReferenceFrames.exit.thread:           ; preds = %206, %218
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %fill_vaapi_ReferenceFrames.exit.thread, %224, %221
-  %.096 = phi i32 [ %222, %221 ], [ %230, %224 ], [ -1, %fill_vaapi_ReferenceFrames.exit.thread ]
+  %.096 = phi i32 [ -1, %fill_vaapi_ReferenceFrames.exit.thread ], [ %222, %221 ], [ %230, %224 ]
   %233 = call i32 @ff_vaapi_decode_cancel(ptr noundef %0, ptr noundef nonnull %13) #7
   br label %234
 
@@ -895,7 +895,7 @@ define internal fastcc range(i32 -1, 1) i32 @dpb_add(ptr noundef nonnull capture
   br label %43
 
 43:                                               ; preds = %.sink.split, %33, %29, %26, %20
-  %.1 = phi i32 [ %.02747, %29 ], [ %.02747, %26 ], [ %.02747, %20 ], [ %.02747, %33 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ %.02747, %20 ], [ %.02747, %29 ], [ %.02747, %26 ], [ %.02747, %33 ], [ 1, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !165

@@ -1534,7 +1534,7 @@ add_interface_id_text_and_name.exit113.i:         ; preds = %149, %ht_interface_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %add_interface_id_text_and_name.exit113.i, %add_interface_id_text_and_name.exit.i, %._crit_edge.loopexit.i, %106, %105
-  %.2.i = phi i32 [ 32, %105 ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
+  %.2.i = phi i32 [ 32, %105 ], [ 40, %add_interface_id_text_and_name.exit113.i ], [ 37, %add_interface_id_text_and_name.exit.i ], [ 36, %106 ], [ %121, %._crit_edge.loopexit.i ]
   %162 = add i32 %.2.i, -12
   %.not.i = icmp eq i32 %87, %162
   br i1 %.not.i, label %dissect_tecmp_control_msg.exit, label %163

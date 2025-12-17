@@ -610,7 +610,7 @@ ossl_property_unlock.exit38:                      ; preds = %.lr.ph
   br i1 %39, label %.lr.ph, label %.sink.split, !llvm.loop !42
 
 .sink.split:                                      ; preds = %.critedge, %.preheader, %ossl_method_cache_flush.exit, %ossl_property_unlock.exit38
-  %.0.ph = phi i32 [ 1, %ossl_property_unlock.exit38 ], [ 0, %ossl_method_cache_flush.exit ], [ 0, %.preheader ], [ 0, %.critedge ]
+  %.0.ph = phi i32 [ 0, %ossl_method_cache_flush.exit ], [ 1, %ossl_property_unlock.exit38 ], [ 0, %.preheader ], [ 0, %.critedge ]
   %40 = load ptr, ptr %7, align 8, !tbaa !16
   %41 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %40) #7
   br label %42
@@ -1059,8 +1059,8 @@ ossl_property_unlock.exit:                        ; preds = %21
   br i1 %.not101, label %ossl_property_unlock.exit107, label %.thread113
 
 .thread113:                                       ; preds = %102, %74, %58, %.lr.ph162.split.us, %._crit_edge
-  %.063120 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %50, %.lr.ph162.split.us ], [ %57, %58 ], [ %73, %74 ], [ %98, %102 ]
-  %.275118 = phi ptr [ %.174110, %._crit_edge ], [ null, %.lr.ph162.split.us ], [ null, %58 ], [ %.174110, %74 ], [ %.174110, %102 ]
+  %.063120 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %73, %74 ], [ %50, %.lr.ph162.split.us ], [ %57, %58 ], [ %98, %102 ]
+  %.275118 = phi ptr [ %.174110, %._crit_edge ], [ %.174110, %74 ], [ null, %.lr.ph162.split.us ], [ null, %58 ], [ %.174110, %102 ]
   %128 = getelementptr inbounds nuw i8, ptr %.063120, i64 16
   %.val = load ptr, ptr %128, align 8, !tbaa !36
   %129 = getelementptr i8, ptr %.063120, i64 24
@@ -1080,15 +1080,15 @@ ossl_property_unlock.exit:                        ; preds = %21
   br label %ossl_property_unlock.exit107
 
 ossl_property_unlock.exit107:                     ; preds = %107, %79, %61, %51, %.thread, %.preheader, %39, %._crit_edge, %.thread113, %133, %131
-  %.275119 = phi ptr [ %.275118, %133 ], [ %.275118, %131 ], [ %.275118, %.thread113 ], [ %.174110, %._crit_edge ], [ null, %39 ], [ null, %.preheader ], [ %.174110, %.thread ], [ null, %51 ], [ null, %61 ], [ %.174110, %79 ], [ %.174110, %107 ]
-  %.3 = phi i32 [ 1, %133 ], [ 1, %131 ], [ 0, %.thread113 ], [ 0, %._crit_edge ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %51 ], [ 0, %61 ], [ 0, %79 ], [ 0, %107 ]
+  %.275119 = phi ptr [ %.275118, %133 ], [ %.275118, %131 ], [ %.275118, %.thread113 ], [ %.174110, %._crit_edge ], [ null, %39 ], [ null, %.preheader ], [ %.174110, %.thread ], [ %.174110, %79 ], [ null, %51 ], [ null, %61 ], [ %.174110, %107 ]
+  %.3 = phi i32 [ 1, %133 ], [ 1, %131 ], [ 0, %.thread113 ], [ 0, %._crit_edge ], [ 0, %39 ], [ 0, %.preheader ], [ 0, %.thread ], [ 0, %79 ], [ 0, %51 ], [ 0, %61 ], [ 0, %107 ]
   %135 = load ptr, ptr %19, align 8, !tbaa !16
   %136 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %135) #7
   tail call void @ossl_property_free(ptr noundef %.275119) #7
   br label %137
 
 137:                                              ; preds = %18, %16, %9, %ossl_property_unlock.exit107, %ossl_property_unlock.exit
-  %.0 = phi i32 [ 0, %ossl_property_unlock.exit ], [ %.3, %ossl_property_unlock.exit107 ], [ 0, %9 ], [ 0, %16 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %ossl_property_unlock.exit ], [ %.3, %ossl_property_unlock.exit107 ], [ 0, %16 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1196,7 +1196,7 @@ ossl_property_unlock.exit:                        ; preds = %24, %28, %18, %13
   br label %32
 
 32:                                               ; preds = %10, %5, %ossl_property_unlock.exit
-  %.019 = phi i32 [ %.0, %ossl_property_unlock.exit ], [ 0, %5 ], [ 0, %10 ]
+  %.019 = phi i32 [ 0, %5 ], [ %.0, %ossl_property_unlock.exit ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.019
 }
@@ -1379,7 +1379,7 @@ ossl_property_unlock.exit:                        ; preds = %75, %80, %43, %impl
   br label %85
 
 85:                                               ; preds = %ossl_property_write_lock.exit, %7, %ossl_property_unlock.exit
-  %.045 = phi i32 [ %.0, %ossl_property_unlock.exit ], [ 0, %7 ], [ 0, %ossl_property_write_lock.exit ]
+  %.045 = phi i32 [ 0, %7 ], [ %.0, %ossl_property_unlock.exit ], [ 0, %ossl_property_write_lock.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.045
 }

@@ -208,7 +208,7 @@ lean_dec.exit25.backedge:                         ; preds = %42, %46, %55, %54, 
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.018) #4
   br label %lean_dec.exit25.backedge
 
-.thread:                                          ; preds = %8, %19, %18, %16, %12
+.thread:                                          ; preds = %8, %12, %19, %18, %16
   ret ptr %.018
 }
 
@@ -360,7 +360,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit32
   br label %lean_dec.exit35
 
 lean_dec.exit35:                                  ; preds = %10, %8, %19, %18, %16
-  %.1.i51 = phi ptr [ %13, %16 ], [ %13, %18 ], [ %13, %19 ], [ inttoptr (i64 1 to ptr), %8 ], [ %12, %10 ]
+  %.1.i51 = phi ptr [ %13, %19 ], [ %13, %16 ], [ %13, %18 ], [ inttoptr (i64 1 to ptr), %8 ], [ %12, %10 ]
   %20 = tail call ptr @lean_string_utf8_next(ptr noundef %0, ptr noundef %.026) #4
   %21 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %.026) #4
   %22 = ptrtoint ptr %.026 to i64
@@ -413,7 +413,7 @@ lean_dec.exit34:                                  ; preds = %30, %29, %27, %lean
   br label %lean_dec.exit32.backedge
 
 lean_dec.exit32.backedge:                         ; preds = %45, %41, %51, %53, %54
-  %.028.be = phi ptr [ %48, %51 ], [ %48, %53 ], [ %48, %54 ], [ %46, %45 ], [ %44, %41 ]
+  %.028.be = phi ptr [ %48, %54 ], [ %48, %53 ], [ %48, %51 ], [ %46, %45 ], [ %44, %41 ]
   br label %lean_dec.exit32
 
 47:                                               ; preds = %lean_dec.exit34
@@ -647,7 +647,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_dec.exit32
   br label %lean_dec.exit34
 
 lean_dec.exit34:                                  ; preds = %10, %16, %31, %30, %28
-  %.1.i50 = phi ptr [ %25, %28 ], [ %25, %30 ], [ %25, %31 ], [ inttoptr (i64 1 to ptr), %10 ], [ %20, %16 ]
+  %.1.i50 = phi ptr [ %25, %31 ], [ %25, %28 ], [ %25, %30 ], [ inttoptr (i64 1 to ptr), %10 ], [ %20, %16 ]
   %32 = tail call ptr @lean_string_utf8_next(ptr noundef %0, ptr noundef %.026) #4
   %33 = ptrtoint ptr %.026 to i64
   %34 = and i64 %33, 1
@@ -691,7 +691,7 @@ lean_dec.exit33:                                  ; preds = %41, %40, %38, %lean
   br label %lean_dec.exit32.backedge
 
 lean_dec.exit32.backedge:                         ; preds = %48, %52, %58, %60, %61
-  %.028.be = phi ptr [ %55, %58 ], [ %55, %60 ], [ %55, %61 ], [ %53, %52 ], [ %51, %48 ]
+  %.028.be = phi ptr [ %55, %61 ], [ %55, %60 ], [ %55, %58 ], [ %53, %52 ], [ %51, %48 ]
   br label %lean_dec.exit32
 
 52:                                               ; preds = %44
@@ -917,7 +917,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit19
   br label %lean_dec.exit20
 
 lean_dec.exit20:                                  ; preds = %9, %7, %18, %17, %15
-  %.1.i28 = phi ptr [ %12, %15 ], [ %12, %17 ], [ %12, %18 ], [ inttoptr (i64 1 to ptr), %7 ], [ %11, %9 ]
+  %.1.i28 = phi ptr [ %12, %18 ], [ %12, %15 ], [ %12, %17 ], [ inttoptr (i64 1 to ptr), %7 ], [ %11, %9 ]
   %19 = tail call ptr @lean_string_utf8_next(ptr noundef %0, ptr noundef %.015) #4
   %20 = ptrtoint ptr %.015 to i64
   %21 = and i64 %20, 1
@@ -1058,7 +1058,7 @@ lean_dec.exit:                                    ; preds = %2
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %32, %31, %29, %20, %14, %17
-  %.1 = phi ptr [ %19, %17 ], [ inttoptr (i64 1 to ptr), %14 ], [ %24, %20 ], [ %24, %29 ], [ %24, %31 ], [ %24, %32 ]
+  %.1 = phi ptr [ inttoptr (i64 1 to ptr), %14 ], [ %19, %17 ], [ %24, %20 ], [ %24, %29 ], [ %24, %31 ], [ %24, %32 ]
   ret ptr %.1
 }
 
@@ -1127,7 +1127,7 @@ lean_dec.exit.i:                                  ; preds = %2
   br label %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit
 
 l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit: ; preds = %14, %17, %20, %29, %31, %32
-  %.1.i = phi ptr [ %19, %17 ], [ inttoptr (i64 1 to ptr), %14 ], [ %24, %20 ], [ %24, %29 ], [ %24, %31 ], [ %24, %32 ]
+  %.1.i = phi ptr [ inttoptr (i64 1 to ptr), %14 ], [ %19, %17 ], [ %24, %20 ], [ %24, %29 ], [ %24, %31 ], [ %24, %32 ]
   br i1 %.not.i8, label %33, label %lean_dec.exit5
 
 33:                                               ; preds = %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit
@@ -1266,7 +1266,7 @@ lean_dec.exit.i:                                  ; preds = %12, %11, %9
   br label %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit
 
 l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit: ; preds = %28, %32, %35, %45, %47, %48
-  %.1.i = phi ptr [ %34, %32 ], [ inttoptr (i64 1 to ptr), %28 ], [ %40, %35 ], [ %40, %45 ], [ %40, %47 ], [ %40, %48 ]
+  %.1.i = phi ptr [ inttoptr (i64 1 to ptr), %28 ], [ %34, %32 ], [ %40, %35 ], [ %40, %45 ], [ %40, %47 ], [ %40, %48 ]
   br i1 %.not, label %49, label %lean_dec.exit18
 
 49:                                               ; preds = %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit
@@ -1444,7 +1444,7 @@ define ptr @l_Lean_FileMap_leanPosToLspPos(ptr noundef readonly captures(none) %
   br label %lean_dec.exit43
 
 lean_dec.exit43:                                  ; preds = %13, %11, %23, %22, %20
-  %.1.i4065 = phi ptr [ %17, %20 ], [ %17, %22 ], [ %17, %23 ], [ inttoptr (i64 1 to ptr), %11 ], [ %15, %13 ]
+  %.1.i4065 = phi ptr [ %17, %23 ], [ %17, %20 ], [ %17, %22 ], [ inttoptr (i64 1 to ptr), %11 ], [ %15, %13 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1506,7 +1506,7 @@ lean_dec.exit.i:                                  ; preds = %lean_dec.exit43
   br label %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit
 
 l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit: ; preds = %37, %40, %43, %52, %54, %55
-  %.1.i50 = phi ptr [ %42, %40 ], [ inttoptr (i64 1 to ptr), %37 ], [ %47, %43 ], [ %47, %52 ], [ %47, %54 ], [ %47, %55 ]
+  %.1.i50 = phi ptr [ inttoptr (i64 1 to ptr), %37 ], [ %42, %40 ], [ %47, %43 ], [ %47, %52 ], [ %47, %54 ], [ %47, %55 ]
   %56 = tail call ptr @l___private_Lean_Data_Lsp_Utf16_0__String_codepointPosToUtf16PosFromAux(ptr noundef %25, ptr noundef %7, ptr noundef %.1.i50, ptr noundef nonnull inttoptr (i64 1 to ptr))
   store ptr %56, ptr %6, align 8, !tbaa !14
   store ptr %.1.i4065, ptr %4, align 8, !tbaa !14
@@ -1616,7 +1616,7 @@ lean_dec.exit42:                                  ; preds = %82, %81, %79, %lean
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %85, %83, %95, %94, %92
-  %.1.i68 = phi ptr [ %89, %92 ], [ %89, %94 ], [ %89, %95 ], [ inttoptr (i64 1 to ptr), %83 ], [ %87, %85 ]
+  %.1.i68 = phi ptr [ %89, %95 ], [ %89, %92 ], [ %89, %94 ], [ inttoptr (i64 1 to ptr), %83 ], [ %87, %85 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !14
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1678,7 +1678,7 @@ lean_dec.exit.i62:                                ; preds = %lean_dec.exit
   br label %l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit63
 
 l___private_Lean_Data_Lsp_Utf16_0__Lean_FileMap_lineStartPos.exit63: ; preds = %109, %112, %115, %124, %126, %127
-  %.1.i58 = phi ptr [ %114, %112 ], [ inttoptr (i64 1 to ptr), %109 ], [ %119, %115 ], [ %119, %124 ], [ %119, %126 ], [ %119, %127 ]
+  %.1.i58 = phi ptr [ inttoptr (i64 1 to ptr), %109 ], [ %114, %112 ], [ %119, %115 ], [ %119, %124 ], [ %119, %126 ], [ %119, %127 ]
   %128 = tail call ptr @l___private_Lean_Data_Lsp_Utf16_0__String_codepointPosToUtf16PosFromAux(ptr noundef %97, ptr noundef %7, ptr noundef %.1.i58, ptr noundef nonnull inttoptr (i64 1 to ptr))
   tail call void @lean_inc_heartbeat() #4
   %129 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
@@ -2832,7 +2832,7 @@ lean_dec_ref.exit21:                              ; preds = %44, %46, %47
   br label %54
 
 54:                                               ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink41, %.sink.split ]
+  %.0 = phi ptr [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink41, %.sink.split ]
   ret ptr %.0
 }
 

@@ -429,7 +429,7 @@ dt_slist_length_equal.exit:                       ; preds = %.lr.ph.i, %18
   br i1 %58, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %52, %.lr.ph, %43, %1, %5, %9, %dt_slist_length_equal.exit, %35, %41
-  %.121 = phi i32 [ 1, %41 ], [ 1, %35 ], [ 0, %dt_slist_length_equal.exit ], [ 0, %9 ], [ 0, %5 ], [ 0, %1 ], [ 1, %43 ], [ 1, %52 ], [ 0, %.lr.ph ]
+  %.121 = phi i32 [ 1, %41 ], [ 0, %5 ], [ 1, %35 ], [ 0, %1 ], [ 0, %dt_slist_length_equal.exit ], [ 0, %9 ], [ 1, %43 ], [ 1, %52 ], [ 0, %.lr.ph ]
   ret i32 %.121
 }
 
@@ -629,7 +629,7 @@ define ptr @dt_act_on_get_images(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %14
 
 14:                                               ; preds = %.sink.split, %6, %.critedge
-  %.0 = phi ptr [ null, %.critedge ], [ null, %6 ], [ %13, %.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ null, %.critedge ], [ %13, %.sink.split ]
   ret ptr %.0
 }
 
@@ -905,12 +905,12 @@ define i32 @dt_act_on_get_main_image() local_unnamed_addr #0 {
   br label %.thread
 
 .thread:                                          ; preds = %26, %35, %34
-  %.116 = phi i32 [ %.1.ph, %35 ], [ %.1.ph, %34 ], [ 0, %26 ]
+  %.116 = phi i32 [ %.1.ph, %34 ], [ %.1.ph, %35 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %37
 
 37:                                               ; preds = %0, %8, %.thread
-  %.0 = phi i32 [ %11, %8 ], [ %.116, %.thread ], [ %2, %0 ]
+  %.0 = phi i32 [ %.116, %.thread ], [ %11, %8 ], [ %2, %0 ]
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !64
   %39 = and i32 %38, 4194304
   %.not13 = icmp eq i32 %39, 0
@@ -975,7 +975,7 @@ define i32 @dt_act_on_get_images_nb(i32 noundef %0, i32 noundef %1) local_unname
   br label %22
 
 22:                                               ; preds = %11, %6, %.critedge, %19, %14
-  %.1 = phi i32 [ %16, %14 ], [ %21, %19 ], [ %8, %6 ], [ 0, %.critedge ], [ 0, %11 ]
+  %.1 = phi i32 [ %16, %14 ], [ %8, %6 ], [ %21, %19 ], [ 0, %.critedge ], [ 0, %11 ]
   ret i32 %.1
 }
 

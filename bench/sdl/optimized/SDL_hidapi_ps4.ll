@@ -72,7 +72,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_IsSupportedDevice(ptr noundef reado
   br label %25
 
 25:                                               ; preds = %13, %15, %16, %19, %10
-  %.0 = phi i1 [ true, %10 ], [ %or.cond, %19 ], [ true, %16 ], [ true, %15 ], [ false, %13 ]
+  %.0 = phi i1 [ true, %15 ], [ %or.cond, %19 ], [ true, %10 ], [ true, %16 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
@@ -279,7 +279,7 @@ ReadWiredSerial.exit130:                          ; preds = %84, %87, %106
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %70, %ReadWiredSerial.exit, %114, %ReadWiredSerial.exit130
-  %.ph = phi ptr [ %37, %ReadWiredSerial.exit ], [ %115, %114 ], [ %37, %ReadWiredSerial.exit130 ], [ %37, %70 ], [ %37, %78 ]
+  %.ph = phi ptr [ %37, %ReadWiredSerial.exit ], [ %115, %114 ], [ %37, %70 ], [ %37, %ReadWiredSerial.exit130 ], [ %37, %78 ]
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i8 1, ptr %116, align 4
   br label %117
@@ -431,7 +431,7 @@ switch.lookup:                                    ; preds = %184
   br label %201
 
 201:                                              ; preds = %191, %194, %198, %195, %121
-  %.0112 = phi i32 [ 1, %121 ], [ 1, %198 ], [ 1, %195 ], [ %.1, %194 ], [ %.1, %191 ]
+  %.0112 = phi i32 [ 1, %121 ], [ 1, %195 ], [ 1, %198 ], [ %.1, %194 ], [ %.1, %191 ]
   %202 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %203 = load i8, ptr %202, align 4, !range !5, !noundef !6
   %204 = trunc nuw i8 %203 to i1
@@ -529,7 +529,7 @@ switch.lookup:                                    ; preds = %184
   br label %248
 
 248:                                              ; preds = %245, %239, %233, %1, %246
-  %.0 = phi i1 [ %247, %246 ], [ false, %1 ], [ true, %233 ], [ true, %239 ], [ true, %245 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %233 ], [ %247, %246 ], [ true, %239 ], [ true, %245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
@@ -794,7 +794,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %41, label %.outer._crit_edge.loopexit, !llvm.loop !7
 
-.thread32.i:                                      ; preds = %87, %88, %44, %73, %85
+.thread32.i:                                      ; preds = %87, %88, %73, %44, %85
   %94 = add nuw nsw i32 %.068.ph90, 1
   store i64 %8, ptr %36, align 8
   br i1 %.not73, label %.outer.backedge, label %95
@@ -1018,7 +1018,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   br label %.thread
 
 .thread:                                          ; preds = %156, %189, %196, %193, %191
-  %.06977 = phi i32 [ %.lcssa81114, %196 ], [ %.lcssa81114, %193 ], [ %.lcssa81114, %191 ], [ %.lcssa81114, %156 ], [ %160, %189 ]
+  %.06977 = phi i32 [ %.lcssa81114, %191 ], [ %.lcssa81114, %196 ], [ %.lcssa81114, %193 ], [ %.lcssa81114, %156 ], [ %160, %189 ]
   %200 = icmp sgt i32 %.06977, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %200
@@ -1850,7 +1850,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
   br label %56
 
 56:                                               ; preds = %51, %54, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread, %10
-  %.0 = phi i1 [ %55, %54 ], [ %22, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread ], [ %11, %10 ], [ true, %51 ]
+  %.0 = phi i1 [ %55, %54 ], [ %11, %10 ], [ %22, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread ], [ true, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -2346,8 +2346,8 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   br label %173
 
 173:                                              ; preds = %169, %167, %171
-  %.0165.shrunk = phi i8 [ %narrow182, %167 ], [ %narrow180, %171 ], [ %., %169 ]
-  %.0164 = phi i32 [ 3, %167 ], [ 1, %171 ], [ %.184, %169 ]
+  %.0165.shrunk = phi i8 [ %narrow182, %167 ], [ %., %169 ], [ %narrow180, %171 ]
+  %.0164 = phi i32 [ 3, %167 ], [ %.184, %169 ], [ 1, %171 ]
   %.0165 = zext nneg i8 %.0165.shrunk to i32
   tail call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %0, i32 noundef %.0164, i32 noundef %.0165) #9
   br label %174

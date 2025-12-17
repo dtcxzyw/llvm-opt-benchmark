@@ -346,8 +346,8 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %.not104.not = icmp eq ptr %115, null
   br i1 %.not104.not, label %.critedge, label %49
 
-.critedge:                                        ; preds = %111, %49, %105, %99, %93, %87, %81, %75, %52, %1
-  %spec.select = phi i32 [ 0, %1 ], [ -12, %52 ], [ -12, %75 ], [ -12, %81 ], [ -12, %87 ], [ -12, %93 ], [ -12, %99 ], [ -12, %105 ], [ 0, %49 ], [ -12, %111 ]
+.critedge:                                        ; preds = %111, %49, %52, %75, %81, %87, %93, %99, %105, %1
+  %spec.select = phi i32 [ 0, %1 ], [ -12, %105 ], [ -12, %99 ], [ -12, %93 ], [ -12, %87 ], [ -12, %81 ], [ -12, %75 ], [ -12, %52 ], [ 0, %49 ], [ -12, %111 ]
   ret i32 %spec.select
 }
 
@@ -560,7 +560,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br i1 %113, label %.preheader, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %110, %105, %.preheader101, %.thread, %70, %1
-  %.094 = phi i32 [ %68, %1 ], [ %84, %70 ], [ %103, %.thread ], [ 0, %.preheader101 ], [ %108, %105 ], [ 0, %110 ]
+  %.094 = phi i32 [ %84, %70 ], [ %68, %1 ], [ %103, %.thread ], [ 0, %.preheader101 ], [ %108, %105 ], [ 0, %110 ]
   ret i32 %.094
 }
 
@@ -1228,7 +1228,7 @@ define internal void @prepare_impulse(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond118.not, label %.loopexit, label %.lr.ph.us95, !llvm.loop !103
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us96, %.lr.ph93, %.lr.ph87, %.preheader81, %.preheader
-  %.2 = phi nsz float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader81 ], [ 0.000000e+00, %.lr.ph87 ], [ 0.000000e+00, %.lr.ph93 ], [ %48, %._crit_edge.us96 ], [ %34, %._crit_edge.us ]
+  %.2 = phi nsz float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader81 ], [ 0.000000e+00, %.lr.ph93 ], [ 0.000000e+00, %.lr.ph87 ], [ %48, %._crit_edge.us96 ], [ %34, %._crit_edge.us ]
   %49 = fcmp nsz olt float %.2, 1.000000e+00
   %50 = select nsz i1 %49, float 1.000000e+00, float %.2
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 1600

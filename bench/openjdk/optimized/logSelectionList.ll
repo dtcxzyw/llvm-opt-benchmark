@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
   br i1 %19, label %.lr.ph.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph.split.us, %8, %2
-  %.015 = phi i1 [ true, %2 ], [ %.not26.not, %8 ], [ %.not26.not, %.lr.ph.split.us ], [ %.1, %16 ]
+  %.015 = phi i1 [ true, %2 ], [ %.not26.not, %.lr.ph.split.us ], [ %.not26.not, %8 ], [ %.1, %16 ]
   ret i1 %.015
 }
 
@@ -142,7 +142,7 @@ define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %9, %15, %16
-  %.not26 = phi i1 [ false, %15 ], [ false, %16 ], [ true, %9 ], [ %.not26.ph, %.loopexit.loopexit ]
+  %.not26 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %9 ], [ %.not26.ph, %.loopexit.loopexit ]
   call void @_ZN2os4freeEPv(ptr noundef %10) #4
   ret i1 %.not26
 }

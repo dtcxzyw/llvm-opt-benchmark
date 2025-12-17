@@ -1455,7 +1455,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   br label %dissect_idn_servicemap_response.exit
 
 dissect_idn_channel_configuration.exit.i:         ; preds = %dissect_idn_laser_dictionary.exit.i.i, %dissect_idn_dmx_dictionary.exit.i.i, %233, %dissect_idn_channel_configuration_header.exit.i.i
-  %.048.i = phi i32 [ %231, %233 ], [ %.0.lcssa.i.i.i, %dissect_idn_dmx_dictionary.exit.i.i ], [ %.0.lcssa.i26.i.i, %dissect_idn_laser_dictionary.exit.i.i ], [ %231, %dissect_idn_channel_configuration_header.exit.i.i ]
+  %.048.i = phi i32 [ %231, %dissect_idn_channel_configuration_header.exit.i.i ], [ %231, %233 ], [ %.0.lcssa.i.i.i, %dissect_idn_dmx_dictionary.exit.i.i ], [ %.0.lcssa.i26.i.i, %dissect_idn_laser_dictionary.exit.i.i ]
   %.not52.i = icmp eq ptr %.077.i.i.i, null
   br i1 %.not52.i, label %dissect_idn_servicemap_response.exit, label %dissect_idn_channel_configuration.exit.i.dissect_idn_channel_configuration.exit.thread79.i_crit_edge
 
@@ -2011,7 +2011,7 @@ dissect_idn_laser_data.exit.i:                    ; preds = %set_laser_sample_va
   br label %dissect_idn_servicemap_response.exit
 
 dissect_idn_servicemap_response.exit:             ; preds = %dissect_idn_dmx_sample_values.exit.i.i, %.lr.ph.i.i, %.lr.ph.i, %dissect_idn_laser_data.exit.i, %734, %715, %dissect_idn_octet_segment.exit.i, %659, %574, %572, %dissect_idn_channel_configuration.exit.i, %.thread.i.i, %534, %determine_message_type.exit.i, %51, %dissect_idn_header.exit, %885, %29
-  %.0 = phi i32 [ %.sink.i, %dissect_idn_header.exit ], [ %.sink.i, %29 ], [ %896, %885 ], [ %67, %51 ], [ %.04884.i, %572 ], [ %.0.i58.i, %659 ], [ %123, %determine_message_type.exit.i ], [ %.1.i.i, %dissect_idn_octet_segment.exit.i ], [ %.042.i.i, %dissect_idn_laser_data.exit.i ], [ %.048.i, %dissect_idn_channel_configuration.exit.i ], [ %.05465.i.i, %734 ], [ %.2132.i, %715 ], [ %123, %534 ], [ %123, %.thread.i.i ], [ %.04884.i, %574 ], [ %95, %.lr.ph.i ], [ %.05465.i.i, %.lr.ph.i.i ], [ %.1.i.i64.i, %dissect_idn_dmx_sample_values.exit.i.i ]
+  %.0 = phi i32 [ %.sink.i, %dissect_idn_header.exit ], [ %.sink.i, %29 ], [ %896, %885 ], [ %67, %51 ], [ %123, %determine_message_type.exit.i ], [ %.04884.i, %572 ], [ %.0.i58.i, %659 ], [ %.04884.i, %574 ], [ %.1.i.i, %dissect_idn_octet_segment.exit.i ], [ %123, %534 ], [ %.042.i.i, %dissect_idn_laser_data.exit.i ], [ %.048.i, %dissect_idn_channel_configuration.exit.i ], [ %.05465.i.i, %734 ], [ %.2132.i, %715 ], [ %123, %.thread.i.i ], [ %95, %.lr.ph.i ], [ %.1.i.i64.i, %dissect_idn_dmx_sample_values.exit.i.i ], [ %.05465.i.i, %.lr.ph.i.i ]
   ret i32 %.0
 }
 

@@ -225,7 +225,7 @@ spt_copyargs.exit.thread:                         ; preds = %57, %spt_copyargs.e
   store ptr %.2.lcssa, ptr @SPT.2, align 8, !tbaa !25
   br label %spt_copyenv.exit.thread
 
-spt_copyenv.exit.thread:                          ; preds = %37, %51, %42, %spt_copyargs.exit, %34, %31, %.critedge2._crit_edge, %2, %spt_copyargs.exit.thread
+spt_copyenv.exit.thread:                          ; preds = %51, %42, %37, %spt_copyargs.exit, %34, %31, %.critedge2._crit_edge, %2, %spt_copyargs.exit.thread
   ret void
 }
 

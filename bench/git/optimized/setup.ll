@@ -391,7 +391,7 @@ abspath_part_inside_repo.exit.thread:             ; preds = %49, %60, %27, %35
   br label %70
 
 70:                                               ; preds = %abspath_part_inside_repo.exit.thread, %67, %69, %62, %12
-  %.023 = phi ptr [ null, %12 ], [ null, %62 ], [ null, %69 ], [ %65, %67 ], [ %8, %abspath_part_inside_repo.exit.thread ]
+  %.023 = phi ptr [ null, %12 ], [ null, %62 ], [ null, %69 ], [ %8, %abspath_part_inside_repo.exit.thread ], [ %65, %67 ]
   ret ptr %.023
 }
 
@@ -1085,7 +1085,7 @@ validate_headref.exit.thread:                     ; preds = %strbuf_complete.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %92
 
-validate_headref.exit.thread21:                   ; preds = %35, %57
+validate_headref.exit.thread21:                   ; preds = %57, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1191,7 +1191,7 @@ strbuf_setlen.exit17:                             ; preds = %86, %88
   br label %92
 
 92:                                               ; preds = %validate_headref.exit.thread, %strbuf_setlen.exit17, %strbuf_setlen.exit14, %70, %validate_headref.exit
-  %.0 = phi i32 [ 0, %validate_headref.exit ], [ 0, %70 ], [ 0, %strbuf_setlen.exit14 ], [ %spec.select, %strbuf_setlen.exit17 ], [ 0, %validate_headref.exit.thread ]
+  %.0 = phi i32 [ 0, %validate_headref.exit ], [ 0, %70 ], [ %spec.select, %strbuf_setlen.exit17 ], [ 0, %strbuf_setlen.exit14 ], [ 0, %validate_headref.exit.thread ]
   call void @strbuf_release(ptr noundef nonnull %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1430,9 +1430,9 @@ define dso_local ptr @read_gitfile_gently(ptr noundef %0, ptr noundef writeonly 
   br i1 %.not52, label %44, label %.thread
 
 44:                                               ; preds = %42, %27, %21, %17, %14, %10, %5, %2
-  %.041 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %10 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %27 ], [ %.142, %42 ]
-  %.040 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %10 ], [ null, %14 ], [ %18, %17 ], [ %18, %21 ], [ %18, %27 ], [ %.1, %42 ]
-  %.039 = phi i32 [ 1, %2 ], [ 2, %5 ], [ 8, %10 ], [ 3, %14 ], [ 4, %17 ], [ 5, %21 ], [ 6, %27 ], [ 7, %42 ]
+  %.041 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %10 ], [ null, %14 ], [ null, %21 ], [ %.142, %42 ], [ null, %27 ], [ null, %17 ]
+  %.040 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %10 ], [ null, %14 ], [ %18, %21 ], [ %.1, %42 ], [ %18, %27 ], [ %18, %17 ]
+  %.039 = phi i32 [ 1, %2 ], [ 2, %5 ], [ 8, %10 ], [ 3, %14 ], [ 5, %21 ], [ 7, %42 ], [ 6, %27 ], [ 4, %17 ]
   %.not53 = icmp eq ptr %1, null
   br i1 %.not53, label %.thread85, label %47
 
@@ -1455,8 +1455,8 @@ define dso_local ptr @read_gitfile_gently(ptr noundef %0, ptr noundef writeonly 
   br label %.thread80
 
 .thread80:                                        ; preds = %.thread, %.thread89, %47, %.thread85
-  %.1.sink = phi ptr [ %.1, %.thread89 ], [ %.040, %47 ], [ %.040, %.thread85 ], [ %.1, %.thread ]
-  %48 = phi ptr [ %46, %.thread89 ], [ null, %47 ], [ null, %.thread85 ], [ %46, %.thread ]
+  %.1.sink = phi ptr [ %.040, %.thread85 ], [ %.1, %.thread89 ], [ %.040, %47 ], [ %.1, %.thread ]
+  %48 = phi ptr [ null, %.thread85 ], [ %46, %.thread89 ], [ null, %47 ], [ %46, %.thread ]
   tail call void @free(ptr noundef %.1.sink) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %48
@@ -1587,7 +1587,7 @@ define dso_local range(i32 -1, 2) i32 @upgrade_repository_format(i32 noundef %0)
   br label %38
 
 38:                                               ; preds = %1, %34, %30, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %30 ], [ 1, %34 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %34 ], [ -1, %21 ], [ -1, %30 ], [ 0, %1 ]
   call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #25
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @string_list_clear(ptr noundef nonnull %39, i32 noundef 0) #25
@@ -1798,7 +1798,7 @@ Q_.exit34:                                        ; preds = %35, %38
   br i1 %46, label %.lr.ph, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph38, %Q_.exit34, %Q_.exit, %10, %11, %29, %_.exit
-  %.024 = phi i32 [ -1, %_.exit ], [ 0, %29 ], [ 0, %11 ], [ 0, %10 ], [ -1, %Q_.exit ], [ -1, %Q_.exit34 ], [ -1, %.lr.ph38 ], [ -1, %.lr.ph ]
+  %.024 = phi i32 [ -1, %_.exit ], [ 0, %29 ], [ 0, %10 ], [ 0, %11 ], [ -1, %Q_.exit ], [ -1, %Q_.exit34 ], [ -1, %.lr.ph38 ], [ -1, %.lr.ph ]
   ret i32 %.024
 }
 
@@ -2133,8 +2133,8 @@ skip_prefix.exit:                                 ; preds = %10, %7
   store ptr %125, ptr %123, align 8, !tbaa !36
   br label %read_worktree_config.exit
 
-read_worktree_config.exit:                        ; preds = %89, %_.exit61.i, %54, %_.exit58.i, %_.exit55.i, %39, %_.exit.i, %122, %120, %116, %113, %15, %19, %25, %30, %handle_extension_v0.exit, %handle_extension.exit, %106
-  %.0 = phi i32 [ 0, %106 ], [ 0, %handle_extension.exit ], [ -1, %handle_extension_v0.exit ], [ 0, %30 ], [ 0, %25 ], [ 0, %19 ], [ 0, %15 ], [ -1, %120 ], [ 0, %116 ], [ 0, %122 ], [ 0, %113 ], [ -1, %_.exit.i ], [ -1, %39 ], [ -1, %_.exit55.i ], [ -1, %_.exit58.i ], [ -1, %54 ], [ -1, %_.exit61.i ], [ -1, %89 ]
+read_worktree_config.exit:                        ; preds = %_.exit61.i, %_.exit58.i, %_.exit55.i, %_.exit.i, %39, %54, %89, %122, %120, %116, %113, %19, %25, %30, %15, %handle_extension_v0.exit, %handle_extension.exit, %106
+  %.0 = phi i32 [ 0, %19 ], [ -1, %handle_extension_v0.exit ], [ 0, %106 ], [ 0, %handle_extension.exit ], [ 0, %113 ], [ 0, %15 ], [ 0, %30 ], [ 0, %25 ], [ -1, %120 ], [ 0, %116 ], [ 0, %122 ], [ -1, %89 ], [ -1, %54 ], [ -1, %39 ], [ -1, %_.exit.i ], [ -1, %_.exit55.i ], [ -1, %_.exit58.i ], [ -1, %_.exit61.i ]
   ret i32 %.0
 }
 
@@ -2491,7 +2491,7 @@ is_path_owned_by_current_uid.exit44:              ; preds = %62, %81
   br label %89
 
 89:                                               ; preds = %is_path_owned_by_current_uid.exit44.thread19, %82, %59, %is_path_owned_by_current_uid.exit44, %85
-  %.0 = phi i32 [ %88, %85 ], [ 1, %is_path_owned_by_current_uid.exit44 ], [ 1, %59 ], [ 0, %82 ], [ 1, %is_path_owned_by_current_uid.exit44.thread19 ]
+  %.0 = phi i32 [ %88, %85 ], [ 1, %59 ], [ 1, %is_path_owned_by_current_uid.exit44 ], [ 0, %82 ], [ 1, %is_path_owned_by_current_uid.exit44.thread19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -2724,7 +2724,7 @@ strbuf_setlen.exit35:                             ; preds = %84, %86
   br label %101
 
 101:                                              ; preds = %2, %94, %strbuf_setlen.exit35, %21
-  %.0 = phi i32 [ %19, %21 ], [ -6, %strbuf_setlen.exit35 ], [ %19, %94 ], [ -7, %2 ]
+  %.0 = phi i32 [ %19, %94 ], [ %19, %21 ], [ -6, %strbuf_setlen.exit35 ], [ -7, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2784,7 +2784,7 @@ define internal fastcc range(i32 -5, 4) i32 @setup_git_directory_gently_1(ptr no
   br label %27
 
 27:                                               ; preds = %21, %.thread
-  %28 = phi i32 [ %20, %.thread ], [ %spec.select, %21 ]
+  %28 = phi i32 [ %spec.select, %21 ], [ %20, %.thread ]
   br i1 %14, label %29, label %45
 
 29:                                               ; preds = %27
@@ -3006,7 +3006,7 @@ is_implicit_bare_repo.exit:                       ; preds = %111
   %.not4.i.not = icmp eq ptr %113, null
   br i1 %.not4.i.not, label %.critedge.thread5, label %is_implicit_bare_repo.exit.thread
 
-is_implicit_bare_repo.exit.thread:                ; preds = %111, %108, %is_implicit_bare_repo.exit, %104
+is_implicit_bare_repo.exit.thread:                ; preds = %108, %111, %is_implicit_bare_repo.exit, %104
   %114 = load ptr, ptr %12, align 8, !tbaa !14
   %115 = call fastcc i32 @ensure_valid_ownership(ptr noundef null, ptr noundef null, ptr noundef %114)
   %.not104 = icmp eq i32 %115, 0
@@ -3081,7 +3081,7 @@ get_device_or_die.exit123:                        ; preds = %134
   br i1 %.not102, label %.critedge, label %.critedge.thread5
 
 .critedge.thread5:                                ; preds = %81, %117, %get_device_or_die.exit123, %.preheader, %100, %116, %is_implicit_bare_repo.exit, %is_implicit_bare_repo.exit.thread
-  %.2.ph = phi i32 [ -4, %is_implicit_bare_repo.exit.thread ], [ -5, %is_implicit_bare_repo.exit ], [ 3, %116 ], [ %.070, %100 ], [ -1, %.preheader ], [ -3, %81 ], [ -1, %117 ], [ -2, %get_device_or_die.exit123 ]
+  %.2.ph = phi i32 [ 3, %116 ], [ %.070, %100 ], [ -4, %is_implicit_bare_repo.exit.thread ], [ -5, %is_implicit_bare_repo.exit ], [ -1, %.preheader ], [ -3, %81 ], [ -1, %117 ], [ -2, %get_device_or_die.exit123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %140
 
@@ -3792,7 +3792,7 @@ set_git_dir.exit.i41:                             ; preds = %175, %strbuf_setlen
   unreachable
 
 setup_discovered_git_dir.exit:                    ; preds = %176, %set_git_dir.exit.i41, %151, %128, %strbuf_addch.exit.i, %98, %set_git_dir.exit.i, %64, %42, %26
-  %.0 = phi ptr [ %29, %26 ], [ %65, %64 ], [ %115, %strbuf_addch.exit.i ], [ null, %42 ], [ null, %set_git_dir.exit.i ], [ null, %98 ], [ %153, %151 ], [ null, %128 ], [ null, %176 ], [ null, %set_git_dir.exit.i41 ]
+  %.0 = phi ptr [ %29, %26 ], [ null, %98 ], [ %115, %strbuf_addch.exit.i ], [ %65, %64 ], [ null, %42 ], [ null, %set_git_dir.exit.i ], [ null, %128 ], [ %153, %151 ], [ null, %176 ], [ null, %set_git_dir.exit.i41 ]
   br i1 %.not, label %203, label %setup_discovered_git_dir.exit.thread
 
 setup_discovered_git_dir.exit.thread:             ; preds = %setup_discovered_git_dir.exit
@@ -4386,7 +4386,7 @@ switch.lookup:                                    ; preds = %22
   br label %32
 
 32:                                               ; preds = %switch.lookup, %8, %10, %12, %6, %4, %2, %28, %19
-  %.0 = phi i32 [ %21, %19 ], [ %30, %28 ], [ 432, %2 ], [ 0, %4 ], [ 432, %6 ], [ 436, %12 ], [ 436, %10 ], [ 436, %8 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %21, %19 ], [ %30, %28 ], [ 436, %8 ], [ %switch.load, %switch.lookup ], [ 436, %10 ], [ 432, %6 ], [ 0, %4 ], [ 432, %2 ], [ 436, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -4587,7 +4587,7 @@ get_common_dir.exit:                              ; preds = %7, %9
   br label %48
 
 48:                                               ; preds = %.sink.split, %34, %41, %get_common_dir.exit
-  %.017 = phi i32 [ 0, %get_common_dir.exit ], [ 0, %41 ], [ 0, %34 ], [ %.017.ph, %.sink.split ]
+  %.017 = phi i32 [ 0, %get_common_dir.exit ], [ 0, %34 ], [ 0, %41 ], [ %.017.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
@@ -4745,7 +4745,7 @@ define dso_local ptr @get_template_dir(ptr noundef readnone captures(address_is_
   br label %.thread12
 
 .thread12:                                        ; preds = %9, %11, %1, %2, %7
-  %.2 = phi ptr [ %8, %7 ], [ %3, %2 ], [ %0, %1 ], [ %12, %11 ], [ %10, %9 ]
+  %.2 = phi ptr [ %8, %7 ], [ %0, %1 ], [ %3, %2 ], [ %12, %11 ], [ %10, %9 ]
   ret ptr %.2
 }
 
@@ -5351,7 +5351,7 @@ repository_format_configure.exit:                 ; preds = %.thread45.i, %110, 
   br label %get_template_dir.exit.i.i
 
 get_template_dir.exit.i.i:                        ; preds = %129, %127, %125, %120, %repository_format_configure.exit
-  %.2.i.i.i = phi ptr [ %126, %125 ], [ %121, %120 ], [ %2, %repository_format_configure.exit ], [ %130, %129 ], [ %128, %127 ]
+  %.2.i.i.i = phi ptr [ %126, %125 ], [ %2, %repository_format_configure.exit ], [ %121, %120 ], [ %130, %129 ], [ %128, %127 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_object_directory.path, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -5655,7 +5655,7 @@ is_reinit.exit.i:                                 ; preds = %220, %copy_template
   br label %251
 
 251:                                              ; preds = %248, %244, %239
-  %252 = phi i32 [ 0, %244 ], [ 0, %239 ], [ %250, %248 ]
+  %252 = phi i32 [ %250, %248 ], [ 0, %244 ], [ 0, %239 ]
   %253 = icmp eq i32 %252, 0
   %254 = icmp ne i32 %225, 0
   %or.cond.i61 = or i1 %254, %253
@@ -5933,7 +5933,7 @@ _.exit.sink.split:                                ; preds = %365
   br label %_.exit
 
 _.exit:                                           ; preds = %365, %_.exit.sink.split
-  %367 = phi ptr [ %366, %_.exit.sink.split ], [ %.str.88..str.87, %365 ]
+  %367 = phi ptr [ %.str.88..str.87, %365 ], [ %366, %_.exit.sink.split ]
   %.not46 = icmp eq i32 %362, 0
   br i1 %.not46, label %374, label %368
 
@@ -5961,7 +5961,7 @@ _.exit70.sink.split:                              ; preds = %377
   br label %_.exit70
 
 _.exit70:                                         ; preds = %377, %_.exit70.sink.split
-  %379 = phi ptr [ %378, %_.exit70.sink.split ], [ %.str.91..str.90, %377 ]
+  %379 = phi ptr [ %.str.91..str.90, %377 ], [ %378, %_.exit70.sink.split ]
   %.not43 = icmp eq i32 %362, 0
   br i1 %.not43, label %386, label %380
 
@@ -6190,7 +6190,7 @@ _.exit:                                           ; preds = %.tail33.thread, %24
   br label %43
 
 43:                                               ; preds = %31, %36, %41, %38, %27, %_.exit
-  %.020 = phi ptr [ %28, %38 ], [ %28, %41 ], [ null, %27 ], [ null, %_.exit ], [ %28, %36 ], [ %28, %31 ]
+  %.020 = phi ptr [ null, %_.exit ], [ %28, %38 ], [ %28, %41 ], [ null, %27 ], [ %28, %36 ], [ %28, %31 ]
   call void @free(ptr noundef %.020) #25
   %44 = load ptr, ptr %5, align 8, !tbaa !58
   call void @free(ptr noundef %44) #25
@@ -6265,7 +6265,7 @@ define internal range(i32 0, 2) i32 @canonicalize_ceiling_entry(ptr noundef capt
   br label %12
 
 12:                                               ; preds = %2, %10, %8, %6, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %6 ], [ 1, %10 ], [ 0, %8 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ 0, %5 ], [ 1, %10 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -6437,7 +6437,7 @@ define internal i32 @read_default_format_config(ptr noundef %0, ptr noundef %1, 
   br label %28
 
 28:                                               ; preds = %.sink.split, %15, %19, %17, %9, %7
-  %.0 = phi i32 [ %18, %17 ], [ 0, %19 ], [ %8, %7 ], [ 0, %9 ], [ 0, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ %18, %17 ], [ 0, %19 ], [ %8, %7 ], [ 0, %15 ], [ 0, %.sink.split ]
   %29 = load ptr, ptr %5, align 8, !tbaa !58
   call void @free(ptr noundef %29) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

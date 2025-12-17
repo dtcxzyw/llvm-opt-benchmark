@@ -126,7 +126,7 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %15
 
 15:                                               ; preds = %4, %8, %9
-  %.082 = phi i1 [ false, %8 ], [ %14, %9 ], [ true, %4 ]
+  %.082 = phi i1 [ %14, %9 ], [ false, %8 ], [ true, %4 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef nonnull @.str.13)

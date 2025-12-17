@@ -577,7 +577,7 @@ gen_test.exit:                                    ; preds = %13, %16, %25, %41, 
   unreachable
 
 gen_exists.exit:                                  ; preds = %129, %122, %97, %147, %135, %gen_test.exit
-  %.0 = phi ptr [ null, %gen_test.exit ], [ %98, %97 ], [ %136, %135 ], [ %148, %147 ], [ null, %122 ], [ null, %129 ]
+  %.0 = phi ptr [ null, %gen_test.exit ], [ %98, %97 ], [ %148, %147 ], [ %136, %135 ], [ null, %122 ], [ null, %129 ]
   ret ptr %.0
 }
 
@@ -701,7 +701,7 @@ default.unreachable:                              ; preds = %10
   unreachable
 
 select_opcode.exit:                               ; preds = %5, %11, %15
-  %.0.i = phi i32 [ %14, %11 ], [ %18, %15 ], [ %1, %5 ]
+  %.0.i = phi i32 [ %18, %15 ], [ %14, %11 ], [ %1, %5 ]
   %19 = call ptr @dfvm_insn_new(i32 noundef range(i32 0, 45) %.0.i)
   %20 = call ptr @dfvm_value_ref(ptr noundef %7)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -822,7 +822,7 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i
   br label %select_opcode.exit
 
 select_opcode.exit:                               ; preds = %._crit_edge, %43, %47
-  %.0.i = phi i32 [ %46, %43 ], [ %50, %47 ], [ %1, %._crit_edge ]
+  %.0.i = phi i32 [ %50, %47 ], [ %46, %43 ], [ %1, %._crit_edge ]
   %51 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
   %52 = call ptr @dfvm_value_ref(ptr noundef %8)
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -1190,7 +1190,7 @@ dfw_append_read_reference.exit:                   ; preds = %137, %119
   br label %common.ret103
 
 common.ret103:                                    ; preds = %155, %171, %153, %287, %gen_arithmetic.exit, %dfw_append_function.exit, %181, %73, %92, %75, %184
-  %common.ret103.op = phi ptr [ %193, %184 ], [ %86, %92 ], [ %86, %75 ], [ %39, %73 ], [ %165, %171 ], [ %165, %155 ], [ %116, %153 ], [ %183, %181 ], [ %.0.i, %dfw_append_function.exit ], [ %289, %287 ], [ %.018.i, %gen_arithmetic.exit ]
+  %common.ret103.op = phi ptr [ %193, %184 ], [ %289, %287 ], [ %86, %92 ], [ %86, %75 ], [ %39, %73 ], [ %165, %171 ], [ %165, %155 ], [ %116, %153 ], [ %183, %181 ], [ %.018.i, %gen_arithmetic.exit ], [ %.0.i, %dfw_append_function.exit ]
   ret ptr %common.ret103.op
 
 184:                                              ; preds = %3

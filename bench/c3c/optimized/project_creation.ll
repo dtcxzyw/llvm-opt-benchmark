@@ -376,8 +376,8 @@ define internal fastcc ptr @module_name(ptr noundef readonly captures(none) %0) 
   br label %16
 
 16:                                               ; preds = %12, %9, %11
-  %.sink = phi i8 [ %7, %11 ], [ %7, %9 ], [ %spec.select, %12 ]
-  %.1 = phi i8 [ 1, %11 ], [ 1, %9 ], [ %spec.select29, %12 ]
+  %.sink = phi i8 [ %7, %9 ], [ %spec.select, %12 ], [ %7, %11 ]
+  %.1 = phi i8 [ 1, %9 ], [ %spec.select29, %12 ], [ 1, %11 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #9
   %17 = add nuw i64 %.02325, 1
   %exitcond.not = icmp eq i64 %17, %4

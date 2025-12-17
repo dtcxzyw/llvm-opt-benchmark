@@ -113,7 +113,7 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
   br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
 _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, %31, %32, %33, %.fold.split.i
-  %.0.i = phi i64 [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 4, %31 ], [ 5, %32 ], [ 7, %24 ], [ %..i, %33 ], [ 0, %.fold.split.i ]
+  %.0.i = phi i64 [ 5, %32 ], [ %..i, %33 ], [ 7, %24 ], [ 1, %28 ], [ 2, %29 ], [ 3, %30 ], [ 4, %31 ], [ 0, %.fold.split.i ]
   %35 = getelementptr inbounds nuw [8 x i32], ptr @_ZN4YAMLL18s_introTransitionsE, i64 %22
   %36 = getelementptr inbounds nuw i32, ptr %35, i64 %.0.i
   %37 = load i32, ptr %36, align 4, !tbaa !34
@@ -1409,7 +1409,7 @@ _ZNK4YAML6Stream11GetNextByteEv.exit52:           ; preds = %133, %143
   br label %170
 
 170:                                              ; preds = %.thread74, %81
-  %.0 = phi i64 [ %85, %81 ], [ %169, %.thread74 ]
+  %.0 = phi i64 [ %169, %.thread74 ], [ %85, %81 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr noundef nonnull align 8 dereferenceable(80) %171, i64 noundef %.0)
   br label %172
@@ -2356,7 +2356,7 @@ _ZSt4copyIPPcS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPcS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPcS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPcS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPcS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPcS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !45
   %57 = load ptr, ptr %.0, align 8, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

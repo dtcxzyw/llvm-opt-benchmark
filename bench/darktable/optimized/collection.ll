@@ -1674,7 +1674,7 @@ dt_collection_get_query_no_group.exit.sink.split: ; preds = %7, %4
   br label %dt_collection_get_query_no_group.exit
 
 dt_collection_get_query_no_group.exit:            ; preds = %dt_collection_get_query_no_group.exit.sink.split, %7, %4
-  %.in = phi ptr [ %5, %4 ], [ %8, %7 ], [ %.in.ph, %dt_collection_get_query_no_group.exit.sink.split ]
+  %.in = phi ptr [ %8, %7 ], [ %5, %4 ], [ %.in.ph, %dt_collection_get_query_no_group.exit.sink.split ]
   %11 = load ptr, ptr %.in, align 8, !tbaa !69
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
   %13 = tail call ptr @g_strstr_len(ptr noundef nonnull %11, i64 noundef %12, ptr noundef nonnull @.str.197) #19
@@ -2310,7 +2310,7 @@ switch.lookup:                                    ; preds = %1
   br label %13
 
 13:                                               ; preds = %switch.lookup, %3, %7, %5
-  %.0 = phi ptr [ null, %3 ], [ %spec.select, %7 ], [ null, %5 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ null, %3 ], [ null, %5 ], [ %spec.select, %7 ]
   ret ptr %.0
 }
 
@@ -2365,7 +2365,7 @@ define internal fastcc noalias ptr @_dt_collection_get_sort_text(i32 noundef %0,
   br label %7
 
 7:                                                ; preds = %2, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.179, %3 ], [ @.str.180, %4 ], [ @.str.181, %5 ], [ @.str.182, %6 ], [ @.str.178, %2 ]
+  %.0 = phi ptr [ @.str.178, %2 ], [ @.str.182, %6 ], [ @.str.179, %3 ], [ @.str.180, %4 ], [ @.str.181, %5 ]
   %.not26 = icmp eq i32 %1, 0
   %8 = select i1 %.not26, ptr @.str.34, ptr @.str.85
   %9 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.183, ptr noundef nonnull %.0, ptr noundef nonnull %8) #19
@@ -2913,7 +2913,7 @@ define void @dt_collection_split_operator_number(ptr noundef %0, ptr noundef wri
   br label %32
 
 32:                                               ; preds = %.sink.split, %17, %29, %23
-  %.sink = phi ptr [ %18, %23 ], [ %18, %29 ], [ %18, %17 ], [ %.sink.ph, %.sink.split ]
+  %.sink = phi ptr [ %18, %17 ], [ %18, %23 ], [ %18, %29 ], [ %.sink.ph, %.sink.split ]
   %33 = load ptr, ptr %5, align 8, !tbaa !89
   call void @g_match_info_free(ptr noundef %33) #19
   call void @g_regex_unref(ptr noundef %.sink) #19
@@ -3321,7 +3321,7 @@ define void @dt_collection_split_operator_exposure(ptr noundef %0, ptr noundef w
   br label %50
 
 50:                                               ; preds = %.sink.split, %29, %47, %45
-  %.sink = phi ptr [ %30, %45 ], [ %30, %47 ], [ %30, %29 ], [ %.sink.ph, %.sink.split ]
+  %.sink = phi ptr [ %30, %29 ], [ %30, %45 ], [ %30, %47 ], [ %.sink.ph, %.sink.split ]
   %51 = load ptr, ptr %5, align 8, !tbaa !89
   call void @g_match_info_free(ptr noundef %51) #19
   call void @g_regex_unref(ptr noundef %.sink) #19
@@ -4036,7 +4036,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %128
 
 128:                                              ; preds = %124, %120, %116, %112, %108
-  %.0332.i = phi i32 [ 0, %108 ], [ 1, %112 ], [ 2, %116 ], [ 3, %120 ], [ %spec.select.i, %124 ]
+  %.0332.i = phi i32 [ %spec.select.i, %124 ], [ 0, %108 ], [ 1, %112 ], [ 2, %116 ], [ 3, %120 ]
   %129 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.223, i32 noundef %.0332.i) #19
   store ptr %129, ptr %7, align 8, !tbaa !69
   br label %720
@@ -5159,7 +5159,7 @@ sub_1540.i:                                       ; preds = %sub_0539.i
   br label %561
 
 561:                                              ; preds = %560, %559, %558, %557, %48, %48
-  %.0334.i = phi ptr [ @.str.179, %557 ], [ @.str.180, %558 ], [ @.str.181, %559 ], [ @.str.182, %560 ], [ @.str.178, %48 ], [ @.str.178, %48 ]
+  %.0334.i = phi ptr [ @.str.182, %560 ], [ @.str.181, %559 ], [ @.str.178, %48 ], [ @.str.179, %557 ], [ @.str.180, %558 ], [ @.str.178, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -5274,7 +5274,7 @@ sub_1554.i:                                       ; preds = %sub_0553.i
   br i1 %.not605.i, label %.tail552.i, label %.tail552.thread.i
 
 .tail552.thread.i:                                ; preds = %.tail543.i, %sub_1545.i..thread710.i_crit_edge, %sub_1554.i, %sub_0553.i, %.tail548.i
-  %.ph713.i = phi ptr [ %601, %sub_1554.i ], [ %601, %sub_0553.i ], [ %.old.i, %.tail548.i ], [ %.pre, %sub_1545.i..thread710.i_crit_edge ], [ %.pre27, %.tail543.i ]
+  %.ph713.i = phi ptr [ %601, %sub_0553.i ], [ %601, %sub_1554.i ], [ %.old.i, %.tail548.i ], [ %.pre, %sub_1545.i..thread710.i_crit_edge ], [ %.pre27, %.tail543.i ]
   %.not740.i = icmp eq ptr %.ph713.i, null
   br i1 %.not740.i, label %.tail552.thread.thread.i, label %613
 
@@ -5515,7 +5515,7 @@ sub_1559.i:                                       ; preds = %sub_0558.i
   br label %706
 
 706:                                              ; preds = %.sink.split737.i, %696, %682, %651
-  %707 = phi ptr [ %666, %682 ], [ null, %696 ], [ %652, %651 ], [ %.ph738.i, %.sink.split737.i ]
+  %707 = phi ptr [ null, %696 ], [ %666, %682 ], [ %652, %651 ], [ %.ph738.i, %.sink.split737.i ]
   tail call void @g_free(ptr noundef %644) #19
   tail call void @g_free(ptr noundef %707) #19
   %708 = load ptr, ptr %31, align 8, !tbaa !69

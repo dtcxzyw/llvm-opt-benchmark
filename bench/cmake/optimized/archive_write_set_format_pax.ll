@@ -336,7 +336,7 @@ define internal range(i32 -30, 1) i32 @archive_write_pax_options(ptr noundef %0,
   br label %72
 
 72:                                               ; preds = %30, %38, %55, %71, %66, %45, %13, %29, %20, %25
-  %.031 = phi i32 [ -25, %13 ], [ 0, %20 ], [ -25, %29 ], [ %., %25 ], [ -25, %38 ], [ 0, %45 ], [ 0, %55 ], [ 0, %66 ], [ -25, %71 ], [ -20, %30 ]
+  %.031 = phi i32 [ -25, %71 ], [ -25, %29 ], [ -25, %13 ], [ 0, %20 ], [ %., %25 ], [ -25, %38 ], [ 0, %45 ], [ 0, %55 ], [ 0, %66 ], [ -20, %30 ]
   ret i32 %.031
 }
 
@@ -1055,7 +1055,7 @@ has_non_ASCII.exit625:                            ; preds = %.preheader.i619
   br label %307
 
 307:                                              ; preds = %302, %301, %306, %305, %288, %has_non_ASCII.exit625
-  %.1444 = phi i32 [ %.0443, %has_non_ASCII.exit625 ], [ %.0443, %288 ], [ 1, %305 ], [ 1, %306 ], [ 1, %301 ], [ 1, %302 ]
+  %.1444 = phi i32 [ %.0443, %288 ], [ %.0443, %has_non_ASCII.exit625 ], [ 1, %305 ], [ 1, %306 ], [ 1, %301 ], [ 1, %302 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %308 = call ptr @archive_entry_pathname(ptr noundef nonnull %143) #17
   %309 = call ptr @archive_entry_pathname(ptr noundef nonnull %143) #17
@@ -1720,7 +1720,7 @@ sparse_list_add.exit:                             ; preds = %495, %496
   br label %.thread646
 
 .thread646:                                       ; preds = %572, %568, %560, %557, %archive_write_pax_finish_entry.exit, %116, %105, %90, %.thread680, %.thread, %get_entry_hardlink.exit602, %get_entry_hardlink.exit.thread643, %37, %582, %576, %539, %501, %449, %443, %437, %257, %253, %249, %242, %230, %226, %217, %213, %204, %200, %191, %185, %145, %79, %29
-  %.0 = phi i32 [ -25, %29 ], [ -25, %79 ], [ -30, %145 ], [ -30, %185 ], [ -30, %191 ], [ -30, %200 ], [ -30, %204 ], [ -30, %213 ], [ -30, %217 ], [ -30, %226 ], [ -30, %230 ], [ -30, %437 ], [ -30, %443 ], [ -30, %449 ], [ -30, %501 ], [ -30, %539 ], [ %575, %576 ], [ %.14, %582 ], [ -30, %242 ], [ -30, %249 ], [ -30, %253 ], [ -30, %257 ], [ -25, %37 ], [ -30, %get_entry_hardlink.exit602 ], [ -30, %get_entry_hardlink.exit.thread643 ], [ -30, %.thread ], [ -30, %.thread680 ], [ %139, %archive_write_pax_finish_entry.exit ], [ %119, %116 ], [ %114, %105 ], [ -25, %90 ], [ -30, %557 ], [ -30, %560 ], [ -30, %568 ], [ -30, %572 ]
+  %.0 = phi i32 [ -25, %29 ], [ -25, %37 ], [ -30, %get_entry_hardlink.exit.thread643 ], [ -25, %79 ], [ -30, %145 ], [ -30, %185 ], [ -30, %191 ], [ -30, %200 ], [ -30, %204 ], [ -30, %213 ], [ -30, %217 ], [ -30, %226 ], [ -30, %230 ], [ -30, %437 ], [ -30, %443 ], [ -30, %449 ], [ -30, %501 ], [ -30, %539 ], [ %575, %576 ], [ %.14, %582 ], [ -25, %90 ], [ -30, %.thread680 ], [ -30, %242 ], [ -30, %249 ], [ -30, %253 ], [ -30, %257 ], [ -30, %get_entry_hardlink.exit602 ], [ -30, %.thread ], [ %139, %archive_write_pax_finish_entry.exit ], [ %119, %116 ], [ %114, %105 ], [ -30, %557 ], [ -30, %560 ], [ -30, %568 ], [ -30, %572 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -2561,7 +2561,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_pax_acl(ptr noundef %0, ptr no
   br i1 %.not20, label %27, label %10
 
 10:                                               ; preds = %9, %7, %4
-  %.017 = phi ptr [ @.str.59, %4 ], [ @.str.60, %7 ], [ @.str.61, %9 ]
+  %.017 = phi ptr [ @.str.60, %7 ], [ @.str.59, %4 ], [ @.str.61, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = tail call ptr @_archive_entry_acl_to_text_l(ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef %12) #17
@@ -3069,7 +3069,7 @@ url_encode.exit.thread:                           ; preds = %._crit_edge.thread.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %167, %3, %.thread27, %url_encode.exit.thread
-  %.2 = phi i32 [ -30, %url_encode.exit.thread ], [ -25, %.thread27 ], [ 0, %3 ], [ 0, %167 ]
+  %.2 = phi i32 [ -25, %.thread27 ], [ -30, %url_encode.exit.thread ], [ 0, %3 ], [ 0, %167 ]
   ret i32 %.2
 }
 
@@ -3140,7 +3140,7 @@ define internal fastcc noundef nonnull ptr @build_pax_attribute_name(ptr noundef
   br label %27
 
 .thread36:                                        ; preds = %18, %16, %._crit_edge, %23
-  %.0.idx43 = phi i64 [ %10, %._crit_edge ], [ 1, %23 ], [ %.0.idx45, %16 ], [ %.0.idx45, %18 ]
+  %.0.idx43 = phi i64 [ 1, %23 ], [ %10, %._crit_edge ], [ %.0.idx45, %16 ], [ %.0.idx45, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.76, i64 10, i1 false) #17
   %26 = call fastcc ptr @build_ustar_entry_name(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0.idx43, ptr noundef nonnull %3)
   br label %27

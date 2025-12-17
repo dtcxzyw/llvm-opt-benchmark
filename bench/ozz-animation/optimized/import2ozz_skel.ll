@@ -1150,7 +1150,7 @@ _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit105: ; pr
   br label %425
 
 424:                                              ; preds = %279, %285, %414, %201, %193, %187
-  %.pn62.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %201 ], [ %.pn49, %193 ], [ %188, %187 ], [ %.pn62.pn.pn.pn, %414 ], [ %.pn54, %285 ], [ %280, %279 ]
+  %.pn62.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %188, %187 ], [ %.pn51.pn, %201 ], [ %.pn49, %193 ], [ %.pn62.pn.pn.pn, %414 ], [ %.pn54, %285 ], [ %280, %279 ]
   call void @_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.body
@@ -1534,7 +1534,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc76
   ret void
 
 153:                                              ; preds = %144, %145
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi83, %145 ], [ %lpad.phi, %144 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %144 ], [ %lpad.phi83, %145 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1830,7 +1830,7 @@ select.unfold:                                    ; preds = %16, %._crit_edge.th
   br label %28
 
 28:                                               ; preds = %22, %select.unfold
-  %29 = phi i1 [ true, %select.unfold ], [ %27, %22 ]
+  %29 = phi i1 [ %27, %22 ], [ true, %select.unfold ]
   %30 = invoke noundef ptr @_ZN3ozz6memory17default_allocatorEv()
           to label %31 unwind label %36
 

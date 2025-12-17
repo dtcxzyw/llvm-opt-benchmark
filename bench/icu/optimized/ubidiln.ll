@@ -441,7 +441,7 @@ define zeroext i8 @ubidi_getLevelAt_77(ptr noundef %0, i32 noundef %1) local_unn
   br label %40
 
 40:                                               ; preds = %29, %32, %2, %6, %7, %11, %12, %34
-  %.0 = phi i8 [ %39, %34 ], [ 0, %12 ], [ 0, %11 ], [ 0, %7 ], [ 0, %6 ], [ 0, %2 ], [ %31, %29 ], [ %33, %32 ]
+  %.0 = phi i8 [ %39, %34 ], [ 0, %2 ], [ 0, %12 ], [ 0, %11 ], [ 0, %7 ], [ 0, %6 ], [ %31, %29 ], [ %33, %32 ]
   ret i8 %.0
 }
 
@@ -541,7 +541,7 @@ define ptr @ubidi_getLevels_77(ptr noundef %0, ptr noundef captures(address_is_n
   br label %51
 
 51:                                               ; preds = %2, %4, %50, %42, %25, %20, %15
-  %.0 = phi ptr [ null, %20 ], [ %27, %25 ], [ %35, %42 ], [ null, %50 ], [ null, %15 ], [ null, %4 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %15 ], [ null, %20 ], [ %27, %25 ], [ %35, %42 ], [ null, %50 ], [ null, %4 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -678,7 +678,7 @@ define void @ubidi_getLogicalRun_77(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %ubidi_countRuns_77.exit.sink.split
 
 ubidi_countRuns_77.exit.sink.split:               ; preds = %51, %54, %34, %56
-  %.sink = phi i8 [ %61, %56 ], [ %36, %34 ], [ %53, %51 ], [ %55, %54 ]
+  %.sink = phi i8 [ %36, %34 ], [ %61, %56 ], [ %53, %51 ], [ %55, %54 ]
   store i8 %.sink, ptr %3, align 1, !tbaa !47
   br label %ubidi_countRuns_77.exit
 
@@ -730,7 +730,7 @@ define i32 @ubidi_countRuns_77(ptr noundef %0, ptr noundef captures(address_is_n
   br label %23
 
 23:                                               ; preds = %16, %2, %4, %20, %15
-  %.0 = phi i32 [ %22, %20 ], [ -1, %15 ], [ -1, %4 ], [ -1, %2 ], [ -1, %16 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %2 ], [ %22, %20 ], [ -1, %4 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -1246,7 +1246,7 @@ _ZL22getRunFromLogicalIndexP5UBiDii.exit181:      ; preds = %217
   br i1 %229, label %202, label %.critedge159, !llvm.loop !78
 
 .critedge159:                                     ; preds = %227, %192, %._crit_edge.thread, %.loopexit, %2
-  %.0126 = phi i8 [ 1, %2 ], [ 1, %.loopexit ], [ 0, %._crit_edge.thread ], [ 1, %192 ], [ 1, %227 ]
+  %.0126 = phi i8 [ 1, %.loopexit ], [ 1, %2 ], [ 0, %._crit_edge.thread ], [ 1, %192 ], [ 1, %227 ]
   ret i8 %.0126
 }
 
@@ -1325,7 +1325,7 @@ define range(i32 0, 2) i32 @ubidi_getVisualRun_77(ptr noundef %0, i32 noundef %1
   br label %39
 
 39:                                               ; preds = %12, %15, %4, %8, %9, %37
-  %.0 = phi i32 [ %38, %37 ], [ 0, %9 ], [ 0, %8 ], [ 0, %4 ], [ 0, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ %38, %37 ], [ 0, %4 ], [ 0, %9 ], [ 0, %8 ], [ 0, %15 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -1704,7 +1704,7 @@ define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %52, %50, %23, %26
-  %.0113 = phi i32 [ %28, %26 ], [ %1, %23 ], [ %54, %52 ], [ %51, %50 ]
+  %.0113 = phi i32 [ %1, %23 ], [ %28, %26 ], [ %54, %52 ], [ %51, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %56 = load i32, ptr %55, align 4, !tbaa !71
   %57 = icmp sgt i32 %56, 0
@@ -1859,7 +1859,7 @@ switch.early.test:                                ; preds = %84
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %32, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %84, %80, %107, %._crit_edge174, %3, %5, %._crit_edge181, %31, %22, %16
-  %.0110 = phi i32 [ -1, %22 ], [ %68, %._crit_edge181 ], [ -1, %31 ], [ -1, %16 ], [ -1, %5 ], [ -1, %3 ], [ %108, %107 ], [ %127, %._crit_edge174 ], [ -1, %switch.early.test ], [ %.0113, %80 ], [ -1, %84 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %32 ], [ -1, %38 ]
+  %.0110 = phi i32 [ -1, %16 ], [ -1, %22 ], [ %68, %._crit_edge181 ], [ -1, %3 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %31 ], [ -1, %5 ], [ %127, %._crit_edge174 ], [ %108, %107 ], [ %.0113, %80 ], [ -1, %84 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %switch.early.test ], [ -1, %32 ], [ -1, %38 ]
   ret i32 %.0110
 }
 
@@ -2211,7 +2211,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %66, %31, %3, %5, %164, %162, %41, %34, %22, %16
-  %.0130 = phi i32 [ -1, %22 ], [ %38, %34 ], [ %163, %162 ], [ %170, %164 ], [ -1, %41 ], [ -1, %16 ], [ -1, %5 ], [ -1, %3 ], [ %1, %31 ], [ -1, %66 ], [ -1, %55 ]
+  %.0130 = phi i32 [ -1, %16 ], [ -1, %22 ], [ -1, %3 ], [ %38, %34 ], [ %163, %162 ], [ %170, %164 ], [ %1, %31 ], [ -1, %41 ], [ -1, %5 ], [ -1, %66 ], [ -1, %55 ]
   ret i32 %.0130
 }
 
@@ -2551,13 +2551,13 @@ switch.early.test:                                ; preds = %.lr.ph153.split
   br i1 %exitcond.not, label %.loopexit139, label %.lr.ph153.split, !llvm.loop !105
 
 .loopexit139:                                     ; preds = %142, %122, %.lr.ph157, %.preheader140, %.preheader138, %91
-  %.1118 = phi i32 [ %.0117158, %91 ], [ %.0117158, %.preheader138 ], [ %.0117158, %.preheader140 ], [ %.0117158, %.lr.ph157 ], [ %.3120.us, %122 ], [ %.3120, %142 ]
+  %.1118 = phi i32 [ %.0117158, %91 ], [ %.0117158, %.preheader138 ], [ %.0117158, %.preheader140 ], [ %.3120.us, %122 ], [ %.0117158, %.lr.ph157 ], [ %.3120, %142 ]
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %.loopexit137, label %91, !llvm.loop !107
 
 .loopexit137.sink.split:                          ; preds = %18, %13, %12, %8
-  %.sink = phi i32 [ 27, %8 ], [ 27, %12 ], [ 27, %13 ], [ 1, %18 ]
+  %.sink = phi i32 [ 27, %13 ], [ 27, %8 ], [ 27, %12 ], [ 1, %18 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !3
   br label %.loopexit137
 

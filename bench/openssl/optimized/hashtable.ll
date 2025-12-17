@@ -56,7 +56,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerInitialize(ptr noundef readnone cap
   br label %12
 
 12:                                               ; preds = %7, %2, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %2 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %10 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -413,7 +413,7 @@ default.unreachable60:                            ; preds = %12
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %ossl_ht_fz_FUZZER_VALUE_get.exit, %36, %44, %66, %91
-  %.0 = phi i32 [ 0, %91 ], [ 0, %66 ], [ 0, %44 ], [ 0, %36 ], [ 0, %ossl_ht_fz_FUZZER_VALUE_get.exit ], [ %.0.ph, %.critedge.sink.split ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %ossl_ht_fz_FUZZER_VALUE_get.exit ], [ 0, %91 ], [ 0, %44 ], [ 0, %36 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

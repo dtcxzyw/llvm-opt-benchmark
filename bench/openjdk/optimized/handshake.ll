@@ -735,7 +735,7 @@ _ZN14HandshakeState30possibly_can_process_handshakeEv.exit: ; preds = %19
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
 
-_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %12, %16, %6, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
+_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %16, %6, %12, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
   br i1 %24, label %25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
@@ -962,8 +962,8 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, 
   %142 = select i1 %141, i32 4, i32 3
   br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
 
-_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26: ; preds = %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i, %12, %19, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit, %2, %140, %45
-  %.0 = phi i32 [ %142, %140 ], [ 1, %45 ], [ 0, %2 ], [ 1, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit ], [ 1, %19 ], [ 1, %12 ], [ 2, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i ], [ 2, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread ]
+_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26: ; preds = %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread, %12, %19, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit, %2, %140, %45
+  %.0 = phi i32 [ %142, %140 ], [ 1, %45 ], [ 1, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit ], [ 0, %2 ], [ 1, %12 ], [ 1, %19 ], [ 2, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread ], [ 2, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i ]
   ret i32 %.0
 }
 
@@ -1073,7 +1073,7 @@ _ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i: ; pr
   br label %55
 
 55:                                               ; preds = %53, %51, %_ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i
-  %.1.i = phi ptr [ %40, %51 ], [ %40, %53 ], [ %.030.i, %_ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i ]
+  %.1.i = phi ptr [ %.030.i, %_ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i ], [ %40, %51 ], [ %40, %53 ]
   %56 = load i32, ptr %15, align 8
   %57 = load ptr, ptr %27, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -1093,7 +1093,7 @@ _ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i: ; pr
   br label %.thread.i
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %55, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i
-  %.0.lcssa.i = phi ptr [ %.030.i, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i ], [ %.1.i, %55 ]
+  %.0.lcssa.i = phi ptr [ %.1.i, %55 ], [ %.030.i, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i ]
   %.not18.i = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not18.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread.i, label %.thread.i
 
@@ -1592,7 +1592,7 @@ _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split: ; p
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit: ; preds = %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split, %48, %38, %36, %27, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %27 ], [ null, %36 ], [ null, %38 ], [ null, %48 ], [ %51, %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split ]
+  %.0 = phi ptr [ null, %36 ], [ null, %27 ], [ null, %48 ], [ null, %.thread ], [ null, %38 ], [ %51, %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1703,7 +1703,7 @@ _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i: ;
   br label %_ZN14HandshakeState15get_op_for_selfEbb.exit
 
 _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.thread.i, %30, %39, %41, %51, %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i
-  %.0.i = phi i1 [ false, %.thread.i ], [ false, %30 ], [ false, %39 ], [ false, %41 ], [ false, %51 ], [ %55, %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i ]
+  %.0.i = phi i1 [ false, %39 ], [ false, %30 ], [ false, %51 ], [ false, %.thread.i ], [ false, %41 ], [ %55, %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #11
   br label %56
 
@@ -2382,8 +2382,8 @@ _ZL18log_handshake_infolPKciiS0_.exit:            ; preds = %_ZN18HandshakeOpera
   call void %169(ptr noundef nonnull align 8 dereferenceable(40) %61) #11
   br label %_ZN11MutexLockerD2Ev.exit.thread
 
-_ZN11MutexLockerD2Ev.exit.thread:                 ; preds = %_ZN14HandshakeState15get_op_for_selfEbb.exit, %.thread.i, %39, %46, %48, %58, %_ZL18log_handshake_infolPKciiS0_.exit
-  %.1.ph = phi i1 [ true, %_ZL18log_handshake_infolPKciiS0_.exit ], [ false, %58 ], [ false, %48 ], [ false, %46 ], [ false, %39 ], [ false, %.thread.i ], [ false, %_ZN14HandshakeState15get_op_for_selfEbb.exit ]
+_ZN11MutexLockerD2Ev.exit.thread:                 ; preds = %_ZN14HandshakeState15get_op_for_selfEbb.exit, %46, %39, %58, %.thread.i, %48, %_ZL18log_handshake_infolPKciiS0_.exit
+  %.1.ph = phi i1 [ true, %_ZL18log_handshake_infolPKciiS0_.exit ], [ false, %48 ], [ false, %.thread.i ], [ false, %58 ], [ false, %39 ], [ false, %46 ], [ false, %_ZN14HandshakeState15get_op_for_selfEbb.exit ]
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #11
   br label %.loopexit
 
@@ -2479,7 +2479,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_hand
   br label %_ZN15JavaFrameAnchor8walkableEv.exit
 
 _ZN15JavaFrameAnchor8walkableEv.exit:             ; preds = %16, %14, %7, %11, %1, %20
-  %.0 = phi i1 [ false, %20 ], [ true, %1 ], [ true, %11 ], [ true, %7 ], [ false, %14 ], [ %19, %16 ]
+  %.0 = phi i1 [ true, %7 ], [ false, %20 ], [ true, %1 ], [ true, %11 ], [ false, %14 ], [ %19, %16 ]
   ret i1 %.0
 }
 
@@ -2528,7 +2528,7 @@ _ZN14HandshakeState34have_non_self_executable_operationEv.exit: ; preds = %16, %
   br label %23
 
 23:                                               ; preds = %18, %1, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit
-  %.0 = phi i1 [ false, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit ], [ false, %1 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -2666,7 +2666,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
   br label %39
 
 39:                                               ; preds = %22, %21, %9, %7, %35, %29
-  %.0 = phi i1 [ true, %29 ], [ true, %35 ], [ false, %7 ], [ false, %9 ], [ false, %21 ], [ false, %22 ]
+  %.0 = phi i1 [ true, %35 ], [ false, %9 ], [ true, %29 ], [ false, %7 ], [ false, %21 ], [ false, %22 ]
   ret i1 %.0
 }
 

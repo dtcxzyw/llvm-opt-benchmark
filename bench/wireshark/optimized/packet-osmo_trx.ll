@@ -488,7 +488,7 @@ dissect_otrxd_tx_hdr_v2.exit.i:                   ; preds = %113, %110
   br label %dissect_otrxd_tx.exit
 
 dissect_otrxd_tx_burst_v0.exit.i:                 ; preds = %116, %dissect_otrxd_tx_hdr_v2.exit.i, %73, %71
-  %.1.i = phi i32 [ %.3.i, %dissect_otrxd_tx_hdr_v2.exit.i ], [ %124, %116 ], [ %69, %73 ], [ %66, %71 ]
+  %.1.i = phi i32 [ %124, %116 ], [ %.3.i, %dissect_otrxd_tx_hdr_v2.exit.i ], [ %69, %73 ], [ %66, %71 ]
   %127 = load ptr, ptr %6, align 8
   %128 = sub i32 %.1.i, %.052.i
   call void @proto_item_set_len(ptr noundef %127, i32 noundef %128)
@@ -851,8 +851,8 @@ otrxcd_guess_dir.exit:                            ; preds = %26
   %29 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_otrxc_unknown_dir)
   br label %otrxcd_guess_dir.exit.thread
 
-otrxcd_guess_dir.exit.thread:                     ; preds = %26, %26, %26, %26, %26, %26, %28, %otrxcd_guess_dir.exit, %4
-  %.094 = phi i32 [ 0, %otrxcd_guess_dir.exit ], [ %.0.i, %4 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 2, %28 ]
+otrxcd_guess_dir.exit.thread:                     ; preds = %28, %26, %26, %26, %26, %26, %26, %otrxcd_guess_dir.exit, %4
+  %.094 = phi i32 [ 0, %otrxcd_guess_dir.exit ], [ %.0.i, %4 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 2, %28 ], [ 1, %26 ]
   %30 = load i32, ptr @hf_otrxc_msg_dir, align 4
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.094)
   %.not.i = icmp eq ptr %31, null

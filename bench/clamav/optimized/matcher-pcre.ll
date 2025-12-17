@@ -794,7 +794,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   br i1 %.not34, label %.split.us, label %58
 
 .split.us:                                        ; preds = %.lr.ph.split.us.split, %.lr.ph.split, %.lr.ph.split.us.split.us
-  %.us-phi.in = phi i64 [ %indvars.iv69, %.lr.ph.split.us.split.us ], [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv66, %.lr.ph.split.us.split ]
+  %.us-phi.in = phi i64 [ %indvars.iv, %.lr.ph.split ], [ %indvars.iv69, %.lr.ph.split.us.split.us ], [ %indvars.iv66, %.lr.ph.split.us.split ]
   %.us-phi = trunc nuw i64 %.us-phi.in to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28, i32 noundef %.us-phi) #13
   br label %.loopexit
@@ -822,7 +822,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %58, %26, %.thread, %7, %.split44.us, %.split.us
-  %.030 = phi i32 [ %.us-phi48, %.split44.us ], [ 2, %.split.us ], [ 0, %7 ], [ 0, %.thread ], [ 0, %26 ], [ 0, %58 ], [ 0, %52 ]
+  %.030 = phi i32 [ %.us-phi48, %.split44.us ], [ 2, %.split.us ], [ 0, %7 ], [ 0, %.thread ], [ 0, %58 ], [ 0, %26 ], [ 0, %52 ]
   ret i32 %.030
 }
 
@@ -1000,7 +1000,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   br i1 %89, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %78, %.preheader, %4, %64, %30, %27, %20
-  %.0 = phi i32 [ %63, %64 ], [ 20, %30 ], [ 20, %27 ], [ 0, %20 ], [ 2, %4 ], [ 0, %.preheader ], [ 0, %78 ]
+  %.0 = phi i32 [ %63, %64 ], [ 2, %4 ], [ 20, %30 ], [ 20, %27 ], [ 0, %20 ], [ 0, %.preheader ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1236,8 +1236,8 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   br label %cli_pcre_qoff.exit.thread
 
 cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i, %74, %79, %85
-  %.2176 = phi i32 [ %88, %85 ], [ -1, %.sink.split.i ], [ %82, %79 ], [ %76, %74 ], [ 0, %71 ]
-  %.2172 = phi i32 [ %91, %85 ], [ 0, %.sink.split.i ], [ %84, %79 ], [ %78, %74 ], [ 0, %71 ]
+  %.2176 = phi i32 [ %88, %85 ], [ -1, %.sink.split.i ], [ %76, %74 ], [ %82, %79 ], [ 0, %71 ]
+  %.2172 = phi i32 [ %91, %85 ], [ 0, %.sink.split.i ], [ %78, %74 ], [ %84, %79 ], [ 0, %71 ]
   %.2176.fr = freeze i32 %.2176
   %92 = icmp eq i32 %68, 0
   %93 = icmp eq i32 %.2172, 0
@@ -1273,7 +1273,7 @@ switch.early.test:                                ; preds = %98
   br label %105
 
 105:                                              ; preds = %99, %103
-  %.0110 = phi i32 [ %104, %103 ], [ %spec.select158, %99 ]
+  %.0110 = phi i32 [ %spec.select158, %99 ], [ %104, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %107 = zext i32 %spec.select229 to i64
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 %107
@@ -1407,8 +1407,8 @@ switch.early.test:                                ; preds = %98
   br i1 %or.cond, label %115, label %.critedge
 
 .critedge:                                        ; preds = %132, %168, %166, %145, %121, %154, %139, %117
-  %.3108 = phi i32 [ 21, %117 ], [ 0, %139 ], [ 20, %154 ], [ 0, %132 ], [ %167, %166 ], [ %.4, %168 ], [ %150, %145 ], [ %122, %121 ]
-  %.3 = phi i32 [ %.2103, %117 ], [ %127, %139 ], [ %127, %154 ], [ %127, %132 ], [ %127, %166 ], [ %127, %168 ], [ %127, %145 ], [ %.2103, %121 ]
+  %.3108 = phi i32 [ 21, %117 ], [ 20, %154 ], [ 0, %139 ], [ 0, %132 ], [ %.4, %168 ], [ %167, %166 ], [ %150, %145 ], [ %122, %121 ]
+  %.3 = phi i32 [ %.2103, %117 ], [ %127, %154 ], [ %127, %139 ], [ %127, %132 ], [ %127, %168 ], [ %127, %166 ], [ %127, %145 ], [ %.2103, %121 ]
   %171 = icmp slt i32 %.3, 0
   %172 = load i32, ptr %9, align 8
   %173 = icmp ne i32 %172, 0

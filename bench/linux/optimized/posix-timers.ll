@@ -2067,7 +2067,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   br i1 %35, label %.thread4, label %38
 
 .thread4:                                         ; preds = %16, %25, %18, %33, %30
-  %36 = phi i32 [ %31, %33 ], [ %31, %30 ], [ -95, %25 ], [ -22, %18 ], [ -22, %16 ]
+  %36 = phi i32 [ %31, %30 ], [ %31, %33 ], [ -22, %18 ], [ -95, %25 ], [ -22, %16 ]
   %37 = sext i32 %36 to i64
   br label %38
 
@@ -2134,7 +2134,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   br i1 %36, label %.thread4, label %39
 
 .thread4:                                         ; preds = %18, %26, %20, %34, %31
-  %37 = phi i32 [ %32, %34 ], [ %32, %31 ], [ -95, %26 ], [ -22, %20 ], [ -22, %18 ]
+  %37 = phi i32 [ %32, %31 ], [ %32, %34 ], [ -22, %20 ], [ -95, %26 ], [ -22, %18 ]
   %38 = sext i32 %37 to i64
   br label %39
 
@@ -2591,7 +2591,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   br i1 %37, label %.thread5, label %40
 
 .thread5:                                         ; preds = %18, %27, %20, %35, %32
-  %38 = phi i32 [ %33, %35 ], [ %33, %32 ], [ -95, %27 ], [ -22, %20 ], [ -22, %18 ]
+  %38 = phi i32 [ %33, %32 ], [ %33, %35 ], [ -22, %20 ], [ -95, %27 ], [ -22, %18 ]
   %39 = sext i32 %38 to i64
   br label %40
 
@@ -2662,7 +2662,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   br i1 %38, label %.thread5, label %41
 
 .thread5:                                         ; preds = %20, %28, %22, %36, %33
-  %39 = phi i32 [ %34, %36 ], [ %34, %33 ], [ -95, %28 ], [ -22, %22 ], [ -22, %20 ]
+  %39 = phi i32 [ %34, %33 ], [ %34, %36 ], [ -22, %22 ], [ -95, %28 ], [ -22, %20 ]
   %40 = sext i32 %39 to i64
   br label %41
 
@@ -3398,7 +3398,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   br label %.thread24
 
 .thread24:                                        ; preds = %116, %99, %105, %111, %132, %128, %122
-  %134 = phi ptr [ %123, %132 ], [ %123, %128 ], [ null, %122 ], [ null, %111 ], [ null, %105 ], [ null, %99 ], [ null, %116 ]
+  %134 = phi ptr [ null, %122 ], [ %123, %132 ], [ %123, %128 ], [ null, %111 ], [ null, %105 ], [ null, %99 ], [ null, %116 ]
   %135 = getelementptr inbounds nuw i8, ptr %27, i64 104
   store ptr %134, ptr %135, align 8
   tail call void @__rcu_read_unlock() #8

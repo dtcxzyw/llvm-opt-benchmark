@@ -476,8 +476,8 @@ _ZN4llvm5ErrorD2Ev.exit36:                        ; preds = %107, %104
   br label %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit
 
 _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit: ; preds = %151, %150, %145, %146, %134, %137, %128, %131, %122, %125
-  %.not.i = phi i8 [ %.sroa.049.0.extract.trunc, %146 ], [ %.sroa.049.0.extract.trunc, %145 ], [ %.sroa.5.080, %125 ], [ %.sroa.5.080, %122 ], [ %.sroa.5.080, %131 ], [ %.sroa.5.080, %128 ], [ %.sroa.5.080, %137 ], [ %.sroa.5.080, %134 ], [ %.sroa.5.080, %150 ], [ %.sroa.5.080, %151 ]
-  %.sroa.550.0 = phi i64 [ 1, %146 ], [ 1, %145 ], [ 0, %125 ], [ 0, %122 ], [ 0, %131 ], [ 0, %128 ], [ 0, %137 ], [ 0, %134 ], [ 0, %150 ], [ 0, %151 ]
+  %.not.i = phi i8 [ %.sroa.049.0.extract.trunc, %146 ], [ %.sroa.049.0.extract.trunc, %145 ], [ %.sroa.5.080, %134 ], [ %.sroa.5.080, %125 ], [ %.sroa.5.080, %122 ], [ %.sroa.5.080, %131 ], [ %.sroa.5.080, %128 ], [ %.sroa.5.080, %137 ], [ %.sroa.5.080, %150 ], [ %.sroa.5.080, %151 ]
+  %.sroa.550.0 = phi i64 [ 1, %146 ], [ 1, %145 ], [ 0, %134 ], [ 0, %125 ], [ 0, %122 ], [ 0, %131 ], [ 0, %128 ], [ 0, %137 ], [ 0, %150 ], [ 0, %151 ]
   %.sroa.2.0.insert.ext = shl i64 %88, 16
   %.sroa.2.0.insert.shift = and i64 %.sroa.2.0.insert.ext, 4294901760
   %.sroa.044.0.insert.ext = and i64 %80, 65535
@@ -502,10 +502,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSp
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit, %117
-  %.sink = phi i32 [ %119, %117 ], [ %152, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.pre.i38, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
-  %.sroa.044.0.insert.insert.sink = phi i64 [ %.sroa.051.0.insert.insert, %117 ], [ %.sroa.044.0.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.044.0.insert.insert.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
-  %.sroa.345.8.insert.insert.sink = phi i64 [ %118, %117 ], [ %.sroa.345.8.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.345.8.insert.insert.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.080, %117 ], [ %.not.i, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.5.1.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
+  %.sink = phi i32 [ %152, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %119, %117 ], [ %.pre.i38, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
+  %.sroa.044.0.insert.insert.sink = phi i64 [ %.sroa.044.0.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.051.0.insert.insert, %117 ], [ %.sroa.044.0.insert.insert.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
+  %.sroa.345.8.insert.insert.sink = phi i64 [ %.sroa.345.8.insert.insert, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %118, %117 ], [ %.sroa.345.8.insert.insert.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
+  %.sroa.5.1 = phi i8 [ %.not.i, %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit ], [ %.sroa.5.080, %117 ], [ %.sroa.5.1.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit.sink.split ]
   %156 = load ptr, ptr %76, align 8, !tbaa !14
   %157 = zext i32 %.sink to i64
   %158 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %156, i64 %157
@@ -537,7 +537,7 @@ _ZN4llvm5ErrorD2Ev.exit41:                        ; preds = %_ZN4llvm23SmallVect
   store ptr %162, ptr %0, align 8, !tbaa !32, !alias.scope !89
   br label %.thread
 
-.thread:                                          ; preds = %97, %_ZN4llvm5ErrorD2Ev.exit36, %_ZN4llvm5ErrorD2Ev.exit41, %_ZN4llvm5ErrorD2Ev.exit34, %24
+.thread:                                          ; preds = %_ZN4llvm5ErrorD2Ev.exit36, %97, %_ZN4llvm5ErrorD2Ev.exit41, %_ZN4llvm5ErrorD2Ev.exit34, %24
   %.pr.pr = load ptr, ptr %8, align 8, !tbaa !18
   %168 = icmp eq ptr %.pr.pr, null
   br i1 %168, label %_ZN4llvm5ErrorD2Ev.exit42, label %169
@@ -920,8 +920,8 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %.sink.i.i = zext nneg i16 %32 to i64
   br label %33
 
-33:                                               ; preds = %25, %15, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i
-  %.sroa.02.0.i.ph = phi i64 [ %.sink.i.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i ], [ 0, %15 ], [ %28, %25 ]
+33:                                               ; preds = %15, %25, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i
+  %.sroa.02.0.i.ph = phi i64 [ %.sink.i.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i ], [ %28, %25 ], [ 0, %15 ]
   %34 = load i64, ptr %6, align 8, !tbaa !16
   %35 = add i64 %34, %.sroa.02.0.i.ph
   store i64 %35, ptr %6, align 8, !tbaa !16
@@ -977,8 +977,8 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   br label %19
 
 19:                                               ; preds = %14, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit, %2, %10
-  %.sroa.02.0 = phi i64 [ %13, %10 ], [ 0, %2 ], [ %.sink.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit ], [ undef, %14 ]
-  %.sroa.43.0 = phi i8 [ 1, %10 ], [ 1, %2 ], [ 1, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit ], [ 0, %14 ]
+  %.sroa.02.0 = phi i64 [ 0, %2 ], [ %13, %10 ], [ %.sink.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit ], [ undef, %14 ]
+  %.sroa.43.0 = phi i8 [ 1, %2 ], [ 1, %10 ], [ 1, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.43.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1133,7 +1133,7 @@ _ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   br label %47
 
 47:                                               ; preds = %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i.i, %39, %29
-  %.sroa.02.0.i.ph.i = phi i64 [ %.sink.i.i.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i.i ], [ 0, %29 ], [ %42, %39 ]
+  %.sroa.02.0.i.ph.i = phi i64 [ %.sink.i.i.i, %_ZNSt8optionalIlEaSIRhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIlES5_IlNSt5decayIS8_E4typeEEEEESt16is_constructibleIlJS8_EESt13is_assignableIRlS8_EEERS0_E4typeEOS8_.exit.i.i ], [ %42, %39 ], [ 0, %29 ]
   %48 = load i64, ptr %10, align 8, !tbaa !16
   %49 = add i64 %48, %.sroa.02.0.i.ph.i
   store i64 %49, ptr %10, align 8, !tbaa !16
@@ -1327,8 +1327,8 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedA
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit
 
 _ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit: ; preds = %2, %34, %31
-  %.sroa.0.0 = phi i64 [ %41, %34 ], [ %.1.i, %31 ], [ undef, %2 ]
-  %.sroa.2.0 = phi i8 [ 1, %34 ], [ 1, %31 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.1.i, %31 ], [ %41, %34 ], [ undef, %2 ]
+  %.sroa.2.0 = phi i8 [ 1, %31 ], [ 1, %34 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

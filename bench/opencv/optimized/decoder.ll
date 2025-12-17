@@ -581,9 +581,9 @@ _ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49: ; preds = %_ZN5zxi
   %.not.i51 = icmp eq ptr %.pre, null
   br i1 %.not.i51, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42, label %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread
 
-_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread: ; preds = %146, %141, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49
-  %.pn83 = phi { ptr, i32 } [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %142, %141 ], [ %142, %146 ]
-  %161 = phi ptr [ %.pre, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pre70, %141 ], [ %.pre70, %146 ]
+_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread: ; preds = %141, %146, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49
+  %.pn83 = phi { ptr, i32 } [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %142, %146 ], [ %142, %141 ]
+  %161 = phi ptr [ %.pre, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pre70, %146 ], [ %.pre70, %141 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8, !tbaa !3
   %164 = add i32 %163, -1
@@ -605,7 +605,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split: ; preds = %110, %166
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49, %105
-  %.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pn83, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread ], [ %.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn83, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread ], [ %106, %105 ], [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %181
 
@@ -664,7 +664,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split: ; preds = %81, %188
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split, %183, %181, %76, %74
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %75, %76 ], [ %.pn.pn.pn, %181 ], [ %.pn.pn.pn, %183 ], [ %.pn.pn.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %183 ], [ %75, %74 ], [ %75, %76 ], [ %.pn.pn.pn, %181 ], [ %.pn.pn.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %202
 
@@ -713,7 +713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5z
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit60
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit60:         ; preds = %38, %40, %202, %206, %36, %34
-  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %.pn27, %202 ], [ %.pn27, %206 ]
+  %.pn27.pn.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ], [ %41, %40 ], [ %39, %38 ], [ %.pn27, %202 ], [ %.pn27, %206 ]
   %210 = load ptr, ptr %4, align 8, !tbaa !45
   %211 = icmp eq ptr %210, %9
   br i1 %211, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
@@ -1808,7 +1808,7 @@ _ZN5zxing6qrcode22DecodedBitStreamParserD2Ev.exit: ; preds = %_ZN5zxing3RefINS_1
   br label %468
 
 _ZN5zxing3RefINS_13DecoderResultEED2Ev.exit:      ; preds = %447, %442, %439, %_ZN5zxing8ArrayRefIcED2Ev.exit178
-  %.pn99 = phi { ptr, i32 } [ %428, %_ZN5zxing8ArrayRefIcED2Ev.exit178 ], [ %440, %439 ], [ %440, %442 ], [ %440, %447 ]
+  %.pn99 = phi { ptr, i32 } [ %440, %447 ], [ %428, %_ZN5zxing8ArrayRefIcED2Ev.exit178 ], [ %440, %439 ], [ %440, %442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %466 = load ptr, ptr %20, align 8, !tbaa !45
   %467 = icmp eq ptr %466, %397
@@ -1854,7 +1854,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit189:                ; preds = %468, %471, %476
   br label %491
 
 _ZN5zxing3RefINS_6qrcode9DataBlockEED2Ev.exit172: ; preds = %_ZN5zxing8ArrayRefIcED2Ev.exit170, %393, %332, %_ZN5zxing6qrcode22DecodedBitStreamParserD2Ev.exit187
-  %.pn99.pn.pn = phi { ptr, i32 } [ %.pn99, %_ZN5zxing6qrcode22DecodedBitStreamParserD2Ev.exit187 ], [ %333, %332 ], [ %.pn.pn, %_ZN5zxing8ArrayRefIcED2Ev.exit170 ], [ %.pn.pn, %393 ]
+  %.pn99.pn.pn = phi { ptr, i32 } [ %.pn99, %_ZN5zxing6qrcode22DecodedBitStreamParserD2Ev.exit187 ], [ %333, %332 ], [ %.pn.pn, %393 ], [ %.pn.pn, %_ZN5zxing8ArrayRefIcED2Ev.exit170 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %17, align 8, !tbaa !12
   %480 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %481 = load ptr, ptr %480, align 8, !tbaa !51
@@ -2746,7 +2746,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit30:                 ; preds = %.loopexit, %79
   ret void
 
 83:                                               ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit28, %54
-  %.pn25 = phi { ptr, i32 } [ %55, %54 ], [ %57, %_ZN5zxing8ArrayRefIiED2Ev.exit28 ]
+  %.pn25 = phi { ptr, i32 } [ %57, %_ZN5zxing8ArrayRefIiED2Ev.exit28 ], [ %55, %54 ]
   %84 = load i32, ptr %17, align 8, !tbaa !3
   %85 = add i32 %84, -1
   store i32 %85, ptr %17, align 8, !tbaa !3

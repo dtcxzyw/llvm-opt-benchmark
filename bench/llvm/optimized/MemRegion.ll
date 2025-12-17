@@ -6893,7 +6893,7 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEP
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !19
-  switch i32 %9, label %233 [
+  switch i32 %9, label %232 [
     i32 9, label %10
     i32 10, label %10
     i32 26, label %14
@@ -6909,9 +6909,9 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento16MemRegionManager13getStaticSizeEP
     i32 24, label %40
     i32 25, label %40
     i32 20, label %65
-    i32 11, label %229
-    i32 12, label %229
-    i32 13, label %229
+    i32 11, label %228
+    i32 12, label %228
+    i32 13, label %228
   ]
 
 10:                                               ; preds = %3, %3
@@ -7066,7 +7066,7 @@ _ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit5
     i16 0, label %97
     i16 1, label %152
     i16 2, label %207
-    i16 3, label %226
+    i16 3, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
   ]
 
 97:                                               ; preds = %87
@@ -7172,28 +7172,28 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i:      ; preds = %_ZNK5clang17Constan
   %136 = and i32 %135, 33554432
   %.not.i.i17.i = icmp eq i32 %136, 0
   %137 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  br i1 %.not.i.i17.i, label %146, label %138
+  br i1 %.not.i.i17.i, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", label %138
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %137, align 8, !tbaa !48
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !722
   %142 = icmp ult i32 %141, 65
-  br i1 %142, label %143, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i"
+  br i1 %142, label %143, label %146
 
 143:                                              ; preds = %138
   %144 = load i64, ptr %139, align 8, !tbaa !48
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-146:                                              ; preds = %134
-  %147 = load i64, ptr %137, align 8, !tbaa !48
-  %148 = icmp eq i64 %147, 0
+146:                                              ; preds = %138
+  %147 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %139) #25
+  %148 = icmp eq i32 %147, %141
   br i1 %148, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i": ; preds = %138
-  %149 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %139) #25
-  %150 = icmp eq i32 %149, %141
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i": ; preds = %134
+  %149 = load i64, ptr %137, align 8, !tbaa !48
+  %150 = icmp eq i64 %149, 0
   br i1 %150, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
 "_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i": ; preds = %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit.thread.i"
@@ -7289,11 +7289,11 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i21.i:    ; preds = %_ZNK5clang17Constan
   br label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.ithread-pre-split"
 
 "_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.ithread-pre-split": ; preds = %183, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.sink.split.i"
-  %.pr80 = load i8, ptr %95, align 16
+  %.pr78 = load i8, ptr %95, align 16
   br label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.i"
 
 "_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.i": ; preds = %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.ithread-pre-split", %152
-  %187 = phi i8 [ %.pr80, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.ithread-pre-split" ], [ %96, %152 ]
+  %187 = phi i8 [ %.pr78, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.ithread-pre-split" ], [ %96, %152 ]
   %188 = and i8 %187, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i30.i = icmp eq i8 %188, 2
   br i1 %spec.select.i.i.i.i.i.i.i.i.not.i30.i, label %189, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i"
@@ -7303,28 +7303,28 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i21.i:    ; preds = %_ZNK5clang17Constan
   %191 = and i32 %190, 33554432
   %.not.i.i31.i = icmp eq i32 %191, 0
   %192 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  br i1 %.not.i.i31.i, label %201, label %193
+  br i1 %.not.i.i31.i, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i", label %193
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %192, align 8, !tbaa !48
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load i32, ptr %195, align 8, !tbaa !722
   %197 = icmp ult i32 %196, 65
-  br i1 %197, label %198, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i"
+  br i1 %197, label %198, label %201
 
 198:                                              ; preds = %193
   %199 = load i64, ptr %194, align 8, !tbaa !48
   %200 = icmp eq i64 %199, 0
   br i1 %200, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-201:                                              ; preds = %189
-  %202 = load i64, ptr %192, align 8, !tbaa !48
-  %203 = icmp eq i64 %202, 0
+201:                                              ; preds = %193
+  %202 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %194) #25
+  %203 = icmp eq i32 %202, %196
   br i1 %203, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i": ; preds = %193
-  %204 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %194) #25
-  %205 = icmp eq i32 %204, %196
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i": ; preds = %189
+  %204 = load i64, ptr %192, align 8, !tbaa !48
+  %205 = icmp eq i64 %204, 0
   br i1 %205, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
 "_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i": ; preds = %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.thread.i"
@@ -7334,62 +7334,62 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i21.i:    ; preds = %_ZNK5clang17Constan
 207:                                              ; preds = %87
   %208 = and i8 %96, -2
   %spec.select.i.i.i.i.i.i.i.i.not.i33.i = icmp eq i8 %208, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i33.i, label %209, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i33.i, label %209, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.thread.i"
 
 209:                                              ; preds = %207
   %210 = load i32, ptr %95, align 16
   %211 = and i32 %210, 33554432
   %.not.i.i34.i = icmp eq i32 %211, 0
   %212 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  br i1 %.not.i.i34.i, label %221, label %213
+  br i1 %.not.i.i34.i, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i", label %213
 
 213:                                              ; preds = %209
   %214 = load ptr, ptr %212, align 8, !tbaa !48
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load i32, ptr %215, align 8, !tbaa !722
   %217 = icmp ult i32 %216, 65
-  br i1 %217, label %218, label %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i"
+  br i1 %217, label %218, label %221
 
 218:                                              ; preds = %213
   %219 = load i64, ptr %214, align 8, !tbaa !48
   %220 = icmp eq i64 %219, 0
   br i1 %220, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-221:                                              ; preds = %209
-  %222 = load i64, ptr %212, align 8, !tbaa !48
-  %223 = icmp eq i64 %222, 0
+221:                                              ; preds = %213
+  %222 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %214) #25
+  %223 = icmp eq i32 %222, %216
   br i1 %223, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i": ; preds = %213
-  %224 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %214) #25
-  %225 = icmp eq i32 %224, %216
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i": ; preds = %209
+  %224 = load i64, ptr %212, align 8, !tbaa !48
+  %225 = icmp eq i64 %224, 0
   br i1 %225, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
+
+"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.thread.i": ; preds = %207
+  %226 = icmp eq i8 %96, 5
+  br i1 %226, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
 default.unreachable:                              ; preds = %87
   unreachable
 
-226:                                              ; preds = %87
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit": ; preds = %87
   %227 = icmp eq i8 %96, 5
   br i1 %227, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit": ; preds = %207
-  %228 = icmp eq i8 %96, 5
-  br i1 %228, label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
-
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread": ; preds = %218, %221, %198, %201, %183, %143, %146, %128, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %226, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread": ; preds = %218, %221, %198, %201, %183, %143, %146, %128, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit29.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E1_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.thread.i", %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit"
   br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-229:                                              ; preds = %3, %3, %3
-  %230 = call noundef ptr @_ZN5clang4ento13SymbolManager7acquireINS0_12SymbolExtentEJRPKNS0_9SubRegionEEEEPKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %231 = insertvalue { ptr, i8 } poison, ptr %230, 0
-  %232 = insertvalue { ptr, i8 } %231, i8 9, 1
+228:                                              ; preds = %3, %3, %3
+  %229 = call noundef ptr @_ZN5clang4ento13SymbolManager7acquireINS0_12SymbolExtentEJRPKNS0_9SubRegionEEEEPKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %230 = insertvalue { ptr, i8 } poison, ptr %229, 0
+  %231 = insertvalue { ptr, i8 } %230, i8 9, 1
   br label %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76"
 
-233:                                              ; preds = %3
+232:                                              ; preds = %3
   unreachable
 
-"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76": ; preds = %198, %201, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i", %143, %146, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i", %221, %218, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit54, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit", %226, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i", %65, %57, %63, %61, %229, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %10
-  %.fca.1.insert.merged = phi { ptr, i8 } [ %13, %10 ], [ %.fca.1.insert.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %232, %229 ], [ %60, %57 ], [ %64, %63 ], [ { ptr null, i8 1 }, %61 ], [ { ptr null, i8 1 }, %65 ], [ { ptr null, i8 1 }, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread" ], [ %84, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit" ], [ %84, %226 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i" ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i" ], [ %84, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit54 ], [ %84, %218 ], [ %84, %221 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i" ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i" ], [ %84, %146 ], [ %84, %143 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i" ], [ %84, %201 ], [ %84, %198 ]
+"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread76": ; preds = %218, %221, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i", %198, %201, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i", %143, %146, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i", %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit54, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread", %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i", %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i", %65, %57, %63, %61, %228, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %10
+  %.fca.1.insert.merged = phi { ptr, i8 } [ %13, %10 ], [ %.fca.1.insert.i, %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit ], [ %231, %228 ], [ { ptr null, i8 1 }, %61 ], [ { ptr null, i8 1 }, %65 ], [ %60, %57 ], [ %64, %63 ], [ { ptr null, i8 1 }, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit.thread" ], [ %84, %"_ZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeE.exit" ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.thread.i" ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.thread.i" ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.thread.i" ], [ %84, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit54 ], [ %84, %198 ], [ %84, %143 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit.i" ], [ %84, %146 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit32.i" ], [ %84, %201 ], [ %84, %"_ZZZNK5clang4ento16MemRegionManager13getStaticSizeEPKNS0_9MemRegionERNS0_11SValBuilderEENK3$_0clEPKNS_9ArrayTypeEENKUlSA_E0_clESA_.exit35.i" ], [ %84, %221 ], [ %84, %218 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { ptr, i8 } %.fca.1.insert.merged
 }
@@ -8061,7 +8061,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %_ZN5clang4ento16MemRegionManager12LazyAllocateINS0_23GlobalSystemSpaceRegionEEEPKT_RPS4_.exit
 
 _ZN5clang4ento16MemRegionManager12LazyAllocateINS0_23GlobalSystemSpaceRegionEEEPKT_RPS4_.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16, %62, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12, %34, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i, %6, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit, %90
-  %.0 = phi ptr [ %.0.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %93, %90 ], [ %.0.i.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i ], [ %8, %6 ], [ %.0.i.i.i.i13, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12 ], [ %36, %34 ], [ %.0.i.i.i.i17, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16 ], [ %64, %62 ]
+  %.0 = phi ptr [ %36, %34 ], [ %93, %90 ], [ %8, %6 ], [ %.0.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %.0.i.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i ], [ %.0.i.i.i.i13, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12 ], [ %.0.i.i.i.i17, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16 ], [ %64, %62 ]
   ret ptr %.0
 }
 
@@ -8841,7 +8841,7 @@ _ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameConte
   %126 = call noundef ptr @_ZN5clang4ento16MemRegionManager12getSubRegionINS0_14ParamVarRegionENS0_25StackArgumentsSpaceRegionEPKNS_4ExprEjEEPT_T1_T2_PKT0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %24, i32 noundef %21, ptr noundef nonnull %.0.i102)
   br label %.critedge
 
-.critedge.thread:                                 ; preds = %81, %85, %35, %38, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit, %3
+.critedge.thread:                                 ; preds = %81, %85, %38, %35, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit, %3
   %127 = load ptr, ptr %1, align 8, !tbaa !33
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load ptr, ptr %128, align 8
@@ -9224,7 +9224,7 @@ _ZNK5clang4ento15BlockDataRegion15referenced_varsEv.exit: ; preds = %_ZNK5clang4
   br i1 %.not.i118, label %.thread, label %.lr.ph230, !llvm.loop !786
 
 _ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit: ; preds = %315, %280
-  %.sroa.0186.5 = phi i64 [ %318, %315 ], [ %282, %280 ]
+  %.sroa.0186.5 = phi i64 [ %282, %280 ], [ %318, %315 ]
   %321 = and i64 %.sroa.0186.5, 4
   %.not.i.i119 = icmp eq i64 %321, 0
   %322 = and i64 %.sroa.0186.5, -8
@@ -9676,7 +9676,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
 _ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i279, %534, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit131, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit, %.thread, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i124, %_ZN5clang4ento16MemRegionManager18getBlockCodeRegionEPKNS_9BlockDeclENS_7CanQualINS_4TypeEEEPNS_19AnalysisDeclContextE.exit, %_ZN5clang4ento16MemRegionManager21getFunctionCodeRegionEPKNS_9NamedDeclE.exit, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i, %209, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i
-  %.173 = phi ptr [ %.0.i.i.i.i13.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i ], [ %176, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread ], [ %.0.i.i.i.i.i113, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i ], [ %211, %209 ], [ %.0.i.i.i.i17.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i ], [ %238, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread ], [ %533, %_ZN5clang4ento16MemRegionManager18getBlockCodeRegionEPKNS_9BlockDeclENS_7CanQualINS_4TypeEEEPNS_19AnalysisDeclContextE.exit ], [ %463, %_ZN5clang4ento16MemRegionManager21getFunctionCodeRegionEPKNS_9NamedDeclE.exit ], [ %326, %.thread ], [ %.0.i.i.i.i.i125, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i124 ], [ %.0.i133, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit ], [ %.0.i127, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit131 ], [ %.0.i.i.i.i17.i280, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i279 ], [ %536, %534 ]
+  %.173 = phi ptr [ %238, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread ], [ %.0.i.i.i.i.i113, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i ], [ %.0.i.i.i.i13.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i ], [ %176, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread ], [ %211, %209 ], [ %.0.i.i.i.i17.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i ], [ %.0.i133, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit ], [ %533, %_ZN5clang4ento16MemRegionManager18getBlockCodeRegionEPKNS_9BlockDeclENS_7CanQualINS_4TypeEEEPNS_19AnalysisDeclContextE.exit ], [ %463, %_ZN5clang4ento16MemRegionManager21getFunctionCodeRegionEPKNS_9NamedDeclE.exit ], [ %.0.i.i.i.i.i125, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i124 ], [ %.0.i127, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit131 ], [ %326, %.thread ], [ %.0.i.i.i.i17.i280, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i16.i279 ], [ %536, %534 ]
   %562 = load ptr, ptr %130, align 8, !tbaa !33
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 32
   %564 = load ptr, ptr %563, align 8
@@ -9689,7 +9689,7 @@ _ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14C
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit, %92, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
-  %.6 = phi ptr [ %568, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit ], [ %77, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit ], [ %94, %92 ], [ %126, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106 ], [ %323, %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit ]
+  %.6 = phi ptr [ %126, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit106 ], [ %568, %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit ], [ %77, %_ZN5clang4ento16MemRegionManager23getStackArgumentsRegionEPKNS_17StackFrameContextE.exit ], [ %94, %92 ], [ %323, %_ZL37getStackOrCaptureRegionForDeclContextPKN5clang15LocationContextEPKNS_11DeclContextEPKNS_7VarDeclE.exit ]
   ret ptr %.6
 }
 
@@ -9935,7 +9935,7 @@ _ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit.thread: ; preds = %1, %61, %61, 
   br label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread8
 
 _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread8: ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread, %_ZNK5clang8QualType15getAddressSpaceEv.exit, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit.thread
-  %.0 = phi i1 [ %70, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit.thread ], [ false, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ false, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit ], [ %47, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread ], [ false, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ]
+  %.0 = phi i1 [ %47, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread ], [ false, %_ZNK5clang8QualType15getAddressSpaceEv.exit ], [ %70, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit.thread ], [ false, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit ], [ false, %_ZNK5clang7VarDecl20isLocalVarDeclOrParmEv.exit ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ]
   ret i1 %.0
 }
 
@@ -10407,7 +10407,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
 _ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit: ; preds = %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i, %83, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i, %15, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit
-  %.0 = phi ptr [ %.0.i14, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit ], [ %.0.i.i.i.i13.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i ], [ %17, %15 ], [ %.0.i.i.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i ], [ %85, %83 ]
+  %.0 = phi ptr [ %.0.i.i.i.i13.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i12.i ], [ %.0.i14, %_ZN5clang4ento16MemRegionManager20getStackLocalsRegionEPKNS_17StackFrameContextE.exit ], [ %17, %15 ], [ %.0.i.i.i.i.i, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit.i.i ], [ %85, %83 ]
   %111 = call noundef ptr @_ZN5clang4ento16MemRegionManager12getSubRegionINS0_15BlockDataRegionENS0_14MemSpaceRegionEPKNS0_15BlockCodeRegionEPKNS_15LocationContextEjEEPT_T1_T2_T3_PKT0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.0)
   ret ptr %111
 }
@@ -12628,7 +12628,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(pt
   br i1 %cond, label %.lr.ph, label %.split18.us, !llvm.loop !813
 
 .split18.us:                                      ; preds = %.lr.ph, %.thread, %.split.us, %8, %.split.preheader
-  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %8 ], [ %.012.us, %.split.us ], [ %.214, %.thread ], [ %.01225, %.lr.ph ]
+  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %.split.us ], [ %.012.us, %8 ], [ %.214, %.thread ], [ %.01225, %.lr.ph ]
   ret ptr %.us-phi
 }
 
@@ -12734,7 +12734,7 @@ _ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS
   br i1 %41, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.thread98
 
 _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit: ; preds = %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit, %16
-  %.575 = phi i64 [ %.0125, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %.0125, %16 ], [ %39, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
+  %.575 = phi i64 [ %.0125, %16 ], [ %.0125, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ %39, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !19
   %44 = icmp ne i32 %43, 24
@@ -12743,8 +12743,8 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit: ; p
   br i1 %.not, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.thread98, label %7
 
 _ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit.thread98: ; preds = %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit, %32, %26, %7, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit
-  %.sroa.054.6 = phi ptr [ %9, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit ], [ null, %7 ], [ %.026124, %26 ], [ null, %32 ], [ null, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
-  %.sroa.455.6 = phi i64 [ %.575, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit ], [ 0, %7 ], [ %.0125, %26 ], [ 0, %32 ], [ 0, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
+  %.sroa.054.6 = phi ptr [ null, %7 ], [ %.026124, %26 ], [ %9, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit ], [ null, %32 ], [ null, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
+  %.sroa.455.6 = phi i64 [ 0, %7 ], [ %.0125, %26 ], [ %.575, %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11ConcreteIntEEESt8optionalIT_Ev.exit ], [ 0, %32 ], [ 0, %_ZN4llvm13checkedMulAddIlEENSt9enable_ifIXsr3stdE11is_signed_vIT_EESt8optionalIS2_EE4typeES2_S2_S2_.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.054.6, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.455.6, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -12937,7 +12937,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i:  ; preds = %71, %.lr.ph.i.i
   br i1 %.not14.i.i, label %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i, label %62
 
 _ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i: ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i, %62, %56, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit.i
-  %.3.i = phi ptr [ %.mux.i, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit.i ], [ %.072.i, %56 ], [ %.072.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ], [ %14, %62 ]
+  %.3.i = phi ptr [ %.072.i, %56 ], [ %.mux.i, %_ZNK5clang4ento16TypedValueRegion21getDesugaredValueTypeERNS_10ASTContextE.exit.i ], [ %14, %62 ], [ %.072.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ]
   %.not94.i = icmp eq ptr %.3.i, null
   br i1 %.not94.i, label %77, label %.backedge.i, !llvm.loop !814
 
@@ -13050,8 +13050,8 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i: ; 
   br label %.outer.i
 
 .backedge.i:                                      ; preds = %193, %146, %133, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i, %58, %56
-  %.072.be.i = phi ptr [ %.7.i, %193 ], [ %.3.i, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %14, %58 ], [ %135, %133 ], [ %.072.i, %146 ]
-  %.0.be.i = phi ptr [ %173, %193 ], [ %14, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %14, %58 ], [ %135, %133 ], [ %135, %146 ]
+  %.072.be.i = phi ptr [ %14, %58 ], [ %.7.i, %193 ], [ %.3.i, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %135, %133 ], [ %.072.i, %146 ]
+  %.0.be.i = phi ptr [ %14, %58 ], [ %173, %193 ], [ %14, %_ZL15isImmediateBasePKN5clang13CXXRecordDeclES2_.exit.i ], [ %14, %56 ], [ %135, %133 ], [ %135, %146 ]
   br label %8, !llvm.loop !814
 
 133:                                              ; preds = %8
@@ -17200,8 +17200,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i:           ; preds = %2
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %22, %_ZNK4llvm5APInt12getSExtValueEv.exit.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i
-  %.sroa.2.022.i = phi i8 [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.sroa.2.02329.i, %22 ], [ 1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ]
-  %.sroa.0.020.i = phi i64 [ undef, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.sroa.0.02130.i, %22 ], [ %.0.i.i.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ]
+  %.sroa.2.022.i = phi i8 [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ 1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ], [ %.sroa.2.02329.i, %22 ]
+  %.sroa.0.020.i = phi i64 [ undef, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.0.i.i.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ], [ %.sroa.0.02130.i, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load i32, ptr %8, align 8, !tbaa !722
@@ -17295,8 +17295,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i:           ; preds = %2
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %22, %_ZNK4llvm5APInt12getSExtValueEv.exit.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i
-  %.sroa.2.022.i = phi i8 [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.sroa.2.02329.i, %22 ], [ 1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ]
-  %.sroa.0.020.i = phi i64 [ undef, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.sroa.0.02130.i, %22 ], [ %.0.i.i.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ]
+  %.sroa.2.022.i = phi i8 [ 0, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ 1, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ], [ %.sroa.2.02329.i, %22 ]
+  %.sroa.0.020.i = phi i64 [ undef, %_ZNK4llvm5APInt12getSExtValueEv.exit.i ], [ %.0.i.i.i, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread24.i ], [ %.sroa.0.02130.i, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load i32, ptr %8, align 8, !tbaa !722

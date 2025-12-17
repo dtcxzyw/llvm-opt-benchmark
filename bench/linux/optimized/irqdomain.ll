@@ -420,7 +420,7 @@ define internal fastcc ptr @__irq_domain_create(ptr noundef %0, i32 noundef %1, 
   br label %94
 
 94:                                               ; preds = %.thread, %90, %76, %64, %33, %9, %8
-  %95 = phi ptr [ null, %64 ], [ null, %33 ], [ null, %8 ], [ null, %9 ], [ %13, %76 ], [ %13, %90 ], [ null, %.thread ]
+  %95 = phi ptr [ null, %64 ], [ null, %33 ], [ null, %.thread ], [ null, %8 ], [ null, %9 ], [ %13, %76 ], [ %13, %90 ]
   ret ptr %95
 }
 
@@ -844,7 +844,7 @@ define dso_local ptr @irq_find_matching_fwspec(ptr noundef %0, i32 noundef %1) #
   br i1 %84, label %.split.split, label %.split6.us, !llvm.loop !20
 
 .split6.us:                                       ; preds = %82, %.split.split, %52, %.split.split.us, %.split.us, %25
-  %.us-phi = phi ptr [ null, %.split.us ], [ %7, %25 ], [ null, %.split.split.us ], [ %30, %52 ], [ null, %.split.split ], [ %56, %82 ]
+  %.us-phi = phi ptr [ %30, %52 ], [ %7, %25 ], [ null, %.split.us ], [ null, %.split.split.us ], [ null, %.split.split ], [ %56, %82 ]
   tail call void @mutex_unlock(ptr noundef nonnull @irq_domain_mutex) #16
   ret ptr %.us-phi
 }
@@ -1279,7 +1279,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   br i1 %93, label %.split, label %.split31.us, !llvm.loop !20
 
 .split31.us:                                      ; preds = %.split, %91, %.split.us, %64
-  %.us-phi = phi ptr [ null, %.split.us ], [ %46, %64 ], [ null, %.split ], [ %68, %91 ]
+  %.us-phi = phi ptr [ %46, %64 ], [ null, %.split.us ], [ null, %.split ], [ %68, %91 ]
   tail call void @mutex_unlock(ptr noundef nonnull @irq_domain_mutex) #16
   br label %96
 
@@ -1288,7 +1288,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   br label %96
 
 96:                                               ; preds = %94, %.split31.us
-  %97 = phi ptr [ %.us-phi, %.split31.us ], [ %95, %94 ]
+  %97 = phi ptr [ %95, %94 ], [ %.us-phi, %.split31.us ]
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %.thread24
 
@@ -1526,7 +1526,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
   br label %.thread28
 
 .thread28:                                        ; preds = %215, %221, %227, %226, %199, %191, %178, %175, %161, %155
-  %240 = phi i32 [ %151, %155 ], [ %151, %161 ], [ %151, %178 ], [ 0, %191 ], [ %223, %227 ], [ 0, %175 ], [ 0, %199 ], [ 0, %226 ], [ 0, %221 ], [ 0, %215 ]
+  %240 = phi i32 [ %151, %155 ], [ %151, %161 ], [ %151, %178 ], [ 0, %191 ], [ %223, %227 ], [ 0, %226 ], [ 0, %175 ], [ 0, %199 ], [ 0, %221 ], [ 0, %215 ]
   %241 = load ptr, ptr %129, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 48
   call void @mutex_unlock(ptr noundef nonnull %242) #16
@@ -1787,7 +1787,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   br i1 %150, label %.loopexit30, label %.preheader29, !llvm.loop !58
 
 .thread:                                          ; preds = %.preheader33, %.preheader32, %100, %.loopexit41, %72
-  %151 = phi i32 [ %73, %72 ], [ -38, %.loopexit41 ], [ -22, %100 ], [ -22, %.preheader32 ], [ -22, %.preheader33 ]
+  %151 = phi i32 [ %73, %72 ], [ -38, %.loopexit41 ], [ -22, %.preheader32 ], [ -22, %100 ], [ -22, %.preheader33 ]
   br i1 %20, label %.loopexit26, label %.preheader25
 
 .preheader25:                                     ; preds = %.thread, %.loopexit
@@ -3097,7 +3097,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %
   br i1 %25, label %26, label %.preheader11, !llvm.loop !76
 
 26:                                               ; preds = %22, %.preheader11
-  %27 = phi ptr [ %18, %.preheader11 ], [ null, %22 ]
+  %27 = phi ptr [ null, %22 ], [ %18, %.preheader11 ]
   %28 = icmp eq ptr %3, %27
   br i1 %28, label %29, label %.thread, !prof !108
 
@@ -3356,7 +3356,7 @@ define internal fastcc i32 @__irq_domain_activate_irq(ptr noundef %0, i1 noundef
   br i1 %40, label %__irq_domain_deactivate_irq.exit, label %.preheader
 
 __irq_domain_deactivate_irq.exit:                 ; preds = %37, %.preheader, %23, %20, %.thread, %12, %4, %2
-  %41 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %13, %12 ], [ %21, %23 ], [ 0, %20 ], [ 0, %.thread ], [ %21, %.preheader ], [ %21, %37 ]
+  %41 = phi i32 [ 0, %4 ], [ 0, %2 ], [ %13, %12 ], [ 0, %.thread ], [ %21, %23 ], [ 0, %20 ], [ %21, %.preheader ], [ %21, %37 ]
   ret i32 %41
 }
 

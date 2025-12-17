@@ -620,7 +620,7 @@ _ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit: ; preds = %52
   br label %.loopexit349
 
 .loopexit349:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit349.loopexit.split.loop.exit, %.loopexit349.loopexit.split.loop.exit453, %.loopexit349.loopexit.split.loop.exit455, %178, %175, %172
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %172 ], [ %.1.i.i.i.i.i, %175 ], [ %.2.i.i.i.i.i, %178 ], [ %179, %.loopexit349.loopexit.split.loop.exit ], [ %180, %.loopexit349.loopexit.split.loop.exit453 ], [ %181, %.loopexit349.loopexit.split.loop.exit455 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %175 ], [ %.029.lcssa.i.i.i.i.i, %172 ], [ %.2.i.i.i.i.i, %178 ], [ %181, %.loopexit349.loopexit.split.loop.exit455 ], [ %180, %.loopexit349.loopexit.split.loop.exit453 ], [ %179, %.loopexit349.loopexit.split.loop.exit ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not327 = icmp eq ptr %157, %.028.i.i.i.i.i
   br i1 %.not327, label %.thread, label %182
 
@@ -1393,8 +1393,8 @@ _ZN3gmx14LogEntryWriterD2Ev.exit254:              ; preds = %577, %_ZNKSt7__cxx1
   br label %622
 
 622:                                              ; preds = %614, %611, %609
-  %storemerge.i = phi i8 [ 0, %611 ], [ %621, %614 ], [ 0, %609 ]
-  %623 = phi ptr [ null, %611 ], [ %613, %614 ], [ null, %609 ]
+  %storemerge.i = phi i8 [ %621, %614 ], [ 0, %611 ], [ 0, %609 ]
+  %623 = phi ptr [ %613, %614 ], [ null, %611 ], [ null, %609 ]
   store i8 %storemerge.i, ptr %29, align 8, !tbaa !357
   %624 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %623, ptr %624, align 8, !tbaa !359
@@ -2802,7 +2802,7 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit337, %.loopexit.split-lp338, %991, %993, %1144, %1150, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit282, %1035, %1267, %1273, %1265, %763, %769, %887, %740
-  %.pn193.pn.pn = phi { ptr, i32 } [ %888, %887 ], [ %741, %740 ], [ %.pn193, %769 ], [ %764, %763 ], [ %.pn181.pn, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit282 ], [ %.pn179, %1150 ], [ %1145, %1144 ], [ %994, %993 ], [ %992, %991 ], [ %1036, %1035 ], [ %1266, %1265 ], [ %.pn188, %1273 ], [ %1268, %1267 ], [ %lpad.loopexit339, %.loopexit337 ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp338 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn193.pn.pn = phi { ptr, i32 } [ %741, %740 ], [ %764, %763 ], [ %.pn188, %1273 ], [ %888, %887 ], [ %.pn193, %769 ], [ %1268, %1267 ], [ %lpad.loopexit.split-lp340, %.loopexit.split-lp338 ], [ %.pn181.pn, %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEED2Ev.exit282 ], [ %.pn179, %1150 ], [ %1145, %1144 ], [ %992, %991 ], [ %994, %993 ], [ %1036, %1035 ], [ %1266, %1265 ], [ %lpad.loopexit339, %.loopexit337 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit342, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp343, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1396
 
@@ -2817,12 +2817,12 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %1398
 
 1398:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit254, %_ZN3gmx14LogEntryWriterD2Ev.exit242, %1397, %539, %498
-  %.pn193.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn, %1397 ], [ %540, %539 ], [ %499, %498 ], [ %554, %_ZN3gmx14LogEntryWriterD2Ev.exit242 ], [ %578, %_ZN3gmx14LogEntryWriterD2Ev.exit254 ]
+  %.pn193.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn, %1397 ], [ %578, %_ZN3gmx14LogEntryWriterD2Ev.exit254 ], [ %499, %498 ], [ %540, %539 ], [ %554, %_ZN3gmx14LogEntryWriterD2Ev.exit242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1399
 
 1399:                                             ; preds = %443, %1398, %380, %378
-  %.pn193.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %379, %378 ], [ %381, %380 ], [ %.pn193.pn.pn.pn.pn.pn, %1398 ], [ %444, %443 ]
+  %.pn193.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %381, %380 ], [ %379, %378 ], [ %.pn193.pn.pn.pn.pn.pn, %1398 ], [ %444, %443 ]
   call void @_ZN3gmx12EnergyOutputD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %21) #19
   br label %1400
 
@@ -2832,7 +2832,7 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %1401
 
 1401:                                             ; preds = %370, %372, %1400, %374, %229, %231, %241, %227
-  %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %242, %241 ], [ %228, %227 ], [ %232, %231 ], [ %230, %229 ], [ %373, %372 ], [ %371, %370 ], [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn, %1400 ], [ %375, %374 ]
+  %.pn193.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %230, %229 ], [ %242, %241 ], [ %228, %227 ], [ %232, %231 ], [ %371, %370 ], [ %373, %372 ], [ %.pn193.pn.pn.pn.pn.pn.pn.pn.pn, %1400 ], [ %375, %374 ]
   call void @_ZN3gmx18ObservablesReducerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
   br label %1402
 

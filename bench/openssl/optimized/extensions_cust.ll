@@ -68,7 +68,7 @@ define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %24, %12, %4, %.split.us, %23
-  %.016 = phi ptr [ %.us-phi24, %23 ], [ %.us-phi24, %.split.us ], [ null, %4 ], [ null, %12 ], [ null, %24 ]
+  %.016 = phi ptr [ %.us-phi24, %.split.us ], [ %.us-phi24, %23 ], [ null, %4 ], [ null, %12 ], [ null, %24 ]
   ret ptr %.016
 }
 
@@ -230,7 +230,7 @@ custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.u
   br label %custom_ext_find.exit.thread
 
 custom_ext_find.exit.thread:                      ; preds = %37, %26, %.thread, %13, %61, %57, %custom_ext_find.exit, %68, %50
-  %.026 = phi i32 [ 0, %50 ], [ 0, %68 ], [ 1, %custom_ext_find.exit ], [ 1, %57 ], [ 1, %61 ], [ 1, %13 ], [ 1, %.thread ], [ 1, %26 ], [ 1, %37 ]
+  %.026 = phi i32 [ 0, %50 ], [ 1, %custom_ext_find.exit ], [ 0, %68 ], [ 1, %57 ], [ 1, %61 ], [ 1, %13 ], [ 1, %.thread ], [ 1, %26 ], [ 1, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.026
 }
@@ -436,12 +436,12 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   call void %95(ptr noundef %97, i32 noundef %99, i32 noundef %1, ptr noundef %100, ptr noundef %102) #9
   br label %.thread88
 
-.thread85:                                        ; preds = %72, %71, %90, %89, %45, %44
+.thread85:                                        ; preds = %89, %71, %72, %90, %44, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.thread88:                                        ; preds = %47, %93, %96, %35, %27, %20
+.thread88:                                        ; preds = %47, %93, %96, %20, %35, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %103 = add nuw i64 %.06193, 1
@@ -670,7 +670,7 @@ custom_exts_free.exit:                            ; preds = %._crit_edge.thread4
   br label %.thread
 
 .thread:                                          ; preds = %10, %2, %._crit_edge, %5, %custom_exts_free.exit
-  %.0 = phi i32 [ 0, %custom_exts_free.exit ], [ 0, %5 ], [ 1, %._crit_edge ], [ 1, %2 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %custom_exts_free.exit ], [ 1, %._crit_edge ], [ 1, %2 ], [ 1, %10 ]
   ret i32 %.0
 }
 

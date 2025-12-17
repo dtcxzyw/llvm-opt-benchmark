@@ -2853,7 +2853,7 @@ define internal fastcc i32 @count_all_crossings(ptr noundef readonly captures(no
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph80, %45
-  %.3 = phi i32 [ %.277, %45 ], [ %.277, %.lr.ph80 ], [ %spec.select, %52 ]
+  %.3 = phi i32 [ %.277, %.lr.ph80 ], [ %spec.select, %52 ], [ %.277, %45 ]
   %59 = load ptr, ptr %3, align 8, !tbaa !132
   %60 = tail call ptr %59(ptr noundef nonnull %3, ptr noundef nonnull %.05578, i32 noundef 8) #22
   %.not65 = icmp eq ptr %60, null

@@ -396,7 +396,7 @@ define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferMode
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit: ; preds = %22, %24
-  %.sroa.23.2 = phi i64 [ %.sroa.23.40.insert.ext, %24 ], [ %.0.copyload.i.i.i, %22 ]
+  %.sroa.23.2 = phi i64 [ %.0.copyload.i.i.i, %22 ], [ %.sroa.23.40.insert.ext, %24 ]
   %25 = srem i64 %3, 8
   %26 = sdiv i64 %3, 8
   %27 = getelementptr inbounds i8, ptr %4, i64 %26
@@ -770,7 +770,7 @@ define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferMode
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit: ; preds = %22, %24
-  %.sroa.23.2 = phi i64 [ %.sroa.23.40.insert.ext, %24 ], [ %.0.copyload.i.i.i, %22 ]
+  %.sroa.23.2 = phi i64 [ %.0.copyload.i.i.i, %22 ], [ %.sroa.23.40.insert.ext, %24 ]
   %25 = srem i64 %3, 8
   %26 = sdiv i64 %3, 8
   %27 = getelementptr inbounds i8, ptr %4, i64 %26
@@ -2068,9 +2068,9 @@ define noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr nounde
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit46
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit46: ; preds = %.thread, %56, %59
-  %62 = phi ptr [ %61, %59 ], [ %58, %56 ], [ %55, %.thread ]
-  %.sroa.23.2127 = phi i64 [ %.sroa.23.40.insert.ext, %59 ], [ %.0.copyload.i.i.i, %56 ], [ undef, %.thread ]
-  %.sroa.21.2 = phi i64 [ %.sroa.21.40.insert.ext, %59 ], [ %.0.copyload.i.i.i43, %56 ], [ undef, %.thread ]
+  %62 = phi ptr [ %55, %.thread ], [ %61, %59 ], [ %58, %56 ]
+  %.sroa.23.2127 = phi i64 [ undef, %.thread ], [ %.sroa.23.40.insert.ext, %59 ], [ %.0.copyload.i.i.i, %56 ]
+  %.sroa.21.2 = phi i64 [ undef, %.thread ], [ %.sroa.21.40.insert.ext, %59 ], [ %.0.copyload.i.i.i43, %56 ]
   %63 = srem i64 %3, 8
   br label %64
 
@@ -2288,7 +2288,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit75: ; preds
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %75, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit75, %.loopexit.loopexit, %15, %8
-  %.2 = phi i1 [ false, %8 ], [ true, %15 ], [ %.2.ph, %.loopexit.loopexit ], [ %.not34, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit75 ], [ %.not34, %75 ], [ false, %69 ]
+  %.2 = phi i1 [ true, %15 ], [ false, %8 ], [ %.2.ph, %.loopexit.loopexit ], [ %.not34, %75 ], [ %.not34, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit75 ], [ false, %69 ]
   ret i1 %.2
 }
 
@@ -2323,7 +2323,7 @@ define noundef zeroext i1 @_ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll(pt
   br label %20
 
 20:                                               ; preds = %5, %17, %14, %11
-  %.0 = phi i1 [ %12, %11 ], [ %16, %14 ], [ %19, %17 ], [ true, %5 ]
+  %.0 = phi i1 [ %19, %17 ], [ %12, %11 ], [ %16, %14 ], [ true, %5 ]
   ret i1 %.0
 }
 
@@ -2388,7 +2388,7 @@ define noundef zeroext i1 @_ZN5arrow8internal20OptionalBitmapEqualsERKSt10shared
   br label %_ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit
 
 _ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit: ; preds = %24, %31, %34, %37
-  %.0.i = phi i1 [ %32, %31 ], [ %36, %34 ], [ %39, %37 ], [ true, %24 ]
+  %.0.i = phi i1 [ %39, %37 ], [ %32, %31 ], [ %36, %34 ], [ true, %24 ]
   ret i1 %.0.i
 }
 
@@ -2640,7 +2640,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit18.thread.i: ; preds = %
   br label %.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %76, %75
-  %.sroa.22.2.i = phi i64 [ %.0.copyload.i.i.i20.i, %75 ], [ undef, %76 ]
+  %.sroa.22.2.i = phi i64 [ undef, %76 ], [ %.0.copyload.i.i.i20.i, %75 ]
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
@@ -3252,7 +3252,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit18.thread.i: ; preds = %
   br label %.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %76, %75
-  %.sroa.22.2.i = phi i64 [ %.0.copyload.i.i.i20.i, %75 ], [ undef, %76 ]
+  %.sroa.22.2.i = phi i64 [ undef, %76 ], [ %.0.copyload.i.i.i20.i, %75 ]
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
@@ -3864,7 +3864,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit18.thread.i: ; preds = %
   br label %.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %76, %75
-  %.sroa.22.2.i = phi i64 [ %.0.copyload.i.i.i20.i, %75 ], [ undef, %76 ]
+  %.sroa.22.2.i = phi i64 [ undef, %76 ], [ %.0.copyload.i.i.i20.i, %75 ]
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
@@ -4477,7 +4477,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit18.thread.i: ; preds = %
   br label %.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %77, %76
-  %.sroa.22.2.i = phi i64 [ %.0.copyload.i.i.i20.i, %76 ], [ undef, %77 ]
+  %.sroa.22.2.i = phi i64 [ undef, %77 ], [ %.0.copyload.i.i.i20.i, %76 ]
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
@@ -5093,7 +5093,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit18.thread.i: ; preds = %
   br label %.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %77, %76
-  %.sroa.22.2.i = phi i64 [ %.0.copyload.i.i.i20.i, %76 ], [ undef, %77 ]
+  %.sroa.22.2.i = phi i64 [ undef, %77 ], [ %.0.copyload.i.i.i20.i, %76 ]
   br i1 %.not.i.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.preheader.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i

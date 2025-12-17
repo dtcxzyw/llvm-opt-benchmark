@@ -323,10 +323,10 @@ _ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llv
   br label %.critedge
 
 .thread315:                                       ; preds = %93, %88, %.thread, %108, %107, %103, %102, %98
-  %.ph.ph = phi ptr [ %86, %102 ], [ %86, %103 ], [ %54, %107 ], [ %54, %108 ], [ %54, %.thread ], [ %86, %98 ], [ %86, %88 ], [ %86, %93 ]
-  %.ph309.ph = phi ptr [ %85, %102 ], [ %85, %103 ], [ %53, %107 ], [ %53, %108 ], [ %53, %.thread ], [ %85, %98 ], [ %85, %88 ], [ %85, %93 ]
-  %.4.ph.ph = phi i32 [ 6, %102 ], [ 9, %103 ], [ 5, %107 ], [ 8, %108 ], [ 3, %.thread ], [ 4, %98 ], [ %spec.select, %88 ], [ %spec.select362, %93 ]
-  %.1.ph.ph = phi i32 [ 2, %102 ], [ 2, %103 ], [ 2, %107 ], [ 2, %108 ], [ 2, %.thread ], [ 2, %98 ], [ 2, %88 ], [ 3, %93 ]
+  %.ph.ph = phi ptr [ %86, %98 ], [ %54, %108 ], [ %86, %88 ], [ %86, %93 ], [ %54, %.thread ], [ %86, %102 ], [ %86, %103 ], [ %54, %107 ]
+  %.ph309.ph = phi ptr [ %85, %98 ], [ %53, %108 ], [ %85, %88 ], [ %85, %93 ], [ %53, %.thread ], [ %85, %102 ], [ %85, %103 ], [ %53, %107 ]
+  %.4.ph.ph = phi i32 [ 4, %98 ], [ 8, %108 ], [ %spec.select, %88 ], [ %spec.select362, %93 ], [ 3, %.thread ], [ 6, %102 ], [ 9, %103 ], [ 5, %107 ]
+  %.1.ph.ph = phi i32 [ 2, %98 ], [ 2, %108 ], [ 2, %88 ], [ 3, %93 ], [ 2, %.thread ], [ 2, %102 ], [ 2, %103 ], [ 2, %107 ]
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %115 = load i64, ptr %114, align 8, !tbaa !88
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -334,7 +334,7 @@ _ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llv
   %.not1.i321 = icmp eq ptr %117, null
   br i1 %.not1.i321, label %246, label %130
 
-118:                                              ; preds = %84, %87, %109
+118:                                              ; preds = %84, %109, %87
   %.4.ph = phi i32 [ 2, %109 ], [ 0, %87 ], [ 0, %84 ]
   %.1.ph = phi i32 [ 2, %109 ], [ 1, %87 ], [ 0, %84 ]
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -725,7 +725,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit
 
 _ZL21canUseLocalRelocationRKN4llvm14MCSectionMachOERKNS_8MCSymbolEj.exit: ; preds = %246, %255, %258, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit19.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i
-  %.0.i254 = phi i1 [ true, %246 ], [ false, %255 ], [ true, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i ], [ false, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit19.i ], [ true, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i ], [ true, %258 ]
+  %.0.i254 = phi i1 [ false, %255 ], [ true, %246 ], [ true, %_ZNK4llvm8MCSymbol11isInSectionEv.exit.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i ], [ false, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit28.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit19.i ], [ true, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i.i ], [ true, %258 ]
   %280 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %281 = load i64, ptr %280, align 8
   %282 = and i64 %281, 2
@@ -1301,7 +1301,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr no
   br label %15
 
 15:                                               ; preds = %2, %4, %8
-  %.0 = phi ptr [ %14, %8 ], [ null, %4 ], [ %3, %2 ]
+  %.0 = phi ptr [ %14, %8 ], [ %3, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 

@@ -103,7 +103,7 @@ DisableDeckLizardMode.exit.thread:                ; preds = %12, %16
   br label %32
 
 32:                                               ; preds = %DisableDeckLizardMode.exit.thread, %6, %1, %29
-  %.0 = phi i1 [ %31, %29 ], [ false, %1 ], [ false, %6 ], [ false, %DisableDeckLizardMode.exit.thread ]
+  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ %31, %29 ], [ false, %DisableDeckLizardMode.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -427,7 +427,7 @@ HIDAPI_DriverSteamDeck_HandleState.exit:          ; preds = %73, %78
   br i1 %.not, label %.loopexit, label %58, !llvm.loop !3
 
 .loopexit:                                        ; preds = %211, %FeedDeckLizardWatchdog.exit.thread, %1, %10, %62
-  %.0 = phi i1 [ false, %62 ], [ false, %10 ], [ false, %1 ], [ false, %FeedDeckLizardWatchdog.exit.thread ], [ true, %211 ]
+  %.0 = phi i1 [ false, %10 ], [ false, %62 ], [ false, %FeedDeckLizardWatchdog.exit.thread ], [ false, %1 ], [ true, %211 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

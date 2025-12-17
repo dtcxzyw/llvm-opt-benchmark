@@ -2472,7 +2472,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
 .thread:                                          ; preds = %41
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %25, %22
+.loopexit:                                        ; preds = %22, %25
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -10577,7 +10577,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i: ; preds = %.noexc61, %_ZN4ran
   br i1 %227, label %231, label %.invoke, !prof !1066
 
 .invoke:                                          ; preds = %.noexc63, %.noexc61, %.noexc59, %.noexc57, %.noexc55, %.noexc53, %.noexc51, %.noexc49, %.noexc47, %.noexc45, %.noexc43, %.noexc41, %.noexc39, %.noexc37, %.noexc35, %.noexc33, %.noexc31, %.noexc29, %.noexc27, %.noexc25, %.noexc23, %.noexc21, %.noexc19, %.noexc17, %.noexc15, %.noexc13, %.noexc11, %.noexc9, %.noexc7, %.noexc5, %.noexc3, %.noexc
-  %228 = phi i64 [ %.pr.i.i.i.i.i, %.noexc ], [ %.pr.i.i.i.i33.i, %.noexc3 ], [ %.pr.i.i.i.i35.i, %.noexc5 ], [ %.pr.i.i.i.i37.i, %.noexc7 ], [ %.pr.i.i.i.i39.i, %.noexc9 ], [ %.pr.i.i.i.i41.i, %.noexc11 ], [ %.pr.i.i.i.i43.i, %.noexc13 ], [ %.pr.i.i.i.i45.i, %.noexc15 ], [ %.pr.i.i.i.i47.i, %.noexc17 ], [ %.pr.i.i.i.i49.i, %.noexc19 ], [ %.pr.i.i.i.i51.i, %.noexc21 ], [ %.pr.i.i.i.i53.i, %.noexc23 ], [ %.pr.i.i.i.i55.i, %.noexc25 ], [ %.pr.i.i.i.i57.i, %.noexc27 ], [ %.pr.i.i.i.i59.i, %.noexc29 ], [ %.pr.i.i.i.i61.i, %.noexc31 ], [ %.pr.i.i.i.i63.i, %.noexc33 ], [ %.pr.i.i.i.i65.i, %.noexc35 ], [ %.pr.i.i.i.i67.i, %.noexc37 ], [ %.pr.i.i.i.i69.i, %.noexc39 ], [ %.pr.i.i.i.i71.i, %.noexc41 ], [ %.pr.i.i.i.i73.i, %.noexc43 ], [ %.pr.i.i.i.i75.i, %.noexc45 ], [ %.pr.i.i.i.i77.i, %.noexc47 ], [ %.pr.i.i.i.i79.i, %.noexc49 ], [ %.pr.i.i.i.i81.i, %.noexc51 ], [ %.pr.i.i.i.i83.i, %.noexc53 ], [ %.pr.i.i.i.i85.i, %.noexc55 ], [ %.pr.i.i.i.i87.i, %.noexc57 ], [ %.pr.i.i.i.i89.i, %.noexc59 ], [ %.pr.i.i.i.i91.i, %.noexc61 ], [ %.pr.i.i.i.i93.i, %.noexc63 ]
+  %228 = phi i64 [ %.pr.i.i.i.i91.i, %.noexc61 ], [ %.pr.i.i.i.i89.i, %.noexc59 ], [ %.pr.i.i.i.i87.i, %.noexc57 ], [ %.pr.i.i.i.i85.i, %.noexc55 ], [ %.pr.i.i.i.i83.i, %.noexc53 ], [ %.pr.i.i.i.i81.i, %.noexc51 ], [ %.pr.i.i.i.i79.i, %.noexc49 ], [ %.pr.i.i.i.i77.i, %.noexc47 ], [ %.pr.i.i.i.i75.i, %.noexc45 ], [ %.pr.i.i.i.i73.i, %.noexc43 ], [ %.pr.i.i.i.i71.i, %.noexc41 ], [ %.pr.i.i.i.i69.i, %.noexc39 ], [ %.pr.i.i.i.i67.i, %.noexc37 ], [ %.pr.i.i.i.i65.i, %.noexc35 ], [ %.pr.i.i.i.i63.i, %.noexc33 ], [ %.pr.i.i.i.i61.i, %.noexc31 ], [ %.pr.i.i.i.i59.i, %.noexc29 ], [ %.pr.i.i.i.i57.i, %.noexc27 ], [ %.pr.i.i.i.i55.i, %.noexc25 ], [ %.pr.i.i.i.i53.i, %.noexc23 ], [ %.pr.i.i.i.i51.i, %.noexc21 ], [ %.pr.i.i.i.i49.i, %.noexc19 ], [ %.pr.i.i.i.i47.i, %.noexc17 ], [ %.pr.i.i.i.i45.i, %.noexc15 ], [ %.pr.i.i.i.i43.i, %.noexc13 ], [ %.pr.i.i.i.i41.i, %.noexc11 ], [ %.pr.i.i.i.i39.i, %.noexc9 ], [ %.pr.i.i.i.i37.i, %.noexc7 ], [ %.pr.i.i.i.i35.i, %.noexc5 ], [ %.pr.i.i.i.i33.i, %.noexc3 ], [ %.pr.i.i.i.i.i, %.noexc ], [ %.pr.i.i.i.i93.i, %.noexc63 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %228, i64 noundef 64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6a8939ff2fac874f95e30fdedcd89b3e.142) #31
           to label %.cont unwind label %229
 

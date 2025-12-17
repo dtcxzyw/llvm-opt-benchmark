@@ -91,7 +91,7 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   br label %30
 
 30:                                               ; preds = %29, %25, %24, %24, %24, %24
-  %.2.us = phi i32 [ %.143.us.mux, %29 ], [ %.143.us, %24 ], [ %.143.us, %24 ], [ %.143.us, %24 ], [ %.143.us, %24 ], [ 0, %25 ]
+  %.2.us = phi i32 [ %.143.us.mux, %29 ], [ %.143.us, %24 ], [ %.143.us, %24 ], [ 0, %25 ], [ %.143.us, %24 ], [ %.143.us, %24 ]
   %31 = add nuw nsw i32 %.02142.us, 1
   %exitcond63.not = icmp eq i32 %31, %3
   br i1 %exitcond63.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
@@ -190,7 +190,7 @@ define range(i32 -1, 2) i32 @h5tools_canreadf(ptr noundef %0, i64 noundef %1) lo
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !12
 
 .loopexit:                                        ; preds = %72, %30, %60, %64, %.split45.us, %41, %45, %.split.us, %21, %13, %17, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %17 ], [ -1, %13 ], [ 1, %21 ], [ -1, %.split.us ], [ -1, %45 ], [ -1, %41 ], [ -1, %.split45.us ], [ -1, %64 ], [ -1, %60 ], [ %.2.us, %30 ], [ %.2, %72 ]
+  %.0 = phi i32 [ -1, %13 ], [ 1, %21 ], [ -1, %41 ], [ -1, %5 ], [ -1, %17 ], [ -1, %.split.us ], [ -1, %45 ], [ -1, %.split45.us ], [ -1, %64 ], [ -1, %60 ], [ %.2.us, %30 ], [ %.2, %72 ]
   ret i32 %.0
 }
 

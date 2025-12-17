@@ -2339,7 +2339,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hff7cf400d8c82169E.exit"
 
 "_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hff7cf400d8c82169E.exit": ; preds = %7, %11, %14, %21, %25, %28
-  %.sink.i.i = phi i8 [ 0, %28 ], [ 0, %14 ], [ 1, %11 ], [ 0, %7 ], [ 1, %25 ], [ 0, %21 ]
+  %.sink.i.i = phi i8 [ 0, %28 ], [ 0, %7 ], [ 0, %14 ], [ 1, %11 ], [ 1, %25 ], [ 0, %21 ]
   store i8 %.sink.i.i, ptr %0, align 8, !alias.scope !325, !noalias !324
   ret void
 }
@@ -2656,7 +2656,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   br label %"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h14af608198da985dE.exit"
 
 "_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h14af608198da985dE.exit": ; preds = %8, %13, %17, %23, %28, %32
-  %.sink.i.i = phi i32 [ 0, %32 ], [ 0, %17 ], [ 1, %13 ], [ 0, %8 ], [ 1, %28 ], [ 0, %23 ]
+  %.sink.i.i = phi i32 [ 0, %32 ], [ 0, %8 ], [ 0, %17 ], [ 1, %13 ], [ 1, %28 ], [ 0, %23 ]
   store i32 %.sink.i.i, ptr %0, align 8, !alias.scope !461, !noalias !460
   ret void
 }
@@ -5117,7 +5117,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1092, !noalias !1091
   ret void
 }
@@ -5217,7 +5217,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1145, !noalias !1144
   ret void
 }
@@ -5692,7 +5692,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1312, !noalias !1311
   ret void
 }
@@ -5819,7 +5819,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1382, !noalias !1381
   ret void
 }
@@ -6096,7 +6096,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1479, !noalias !1478
   ret void
 }
@@ -6421,7 +6421,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1570, !noalias !1569
   ret void
 }
@@ -6505,7 +6505,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1623, !noalias !1622
   ret void
 }
@@ -6622,7 +6622,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h25db94bcf418ae46E.llvm.7360853864331016088.exit": ; preds = %12, %16, %19, %26, %30, %33
-  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %19 ], [ 1, %16 ], [ 0, %12 ], [ 1, %30 ], [ 0, %26 ]
+  %.sink.i.i.i = phi i8 [ 0, %33 ], [ 0, %12 ], [ 0, %19 ], [ 1, %16 ], [ 1, %30 ], [ 0, %26 ]
   store i8 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1676, !noalias !1675
   ret void
 }
@@ -6737,7 +6737,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   br label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9935de3d3ff877e3E.llvm.7360853864331016088.exit"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h9935de3d3ff877e3E.llvm.7360853864331016088.exit": ; preds = %13, %18, %22, %28, %33, %37
-  %.sink.i.i.i = phi i32 [ 0, %37 ], [ 0, %22 ], [ 1, %18 ], [ 0, %13 ], [ 1, %33 ], [ 0, %28 ]
+  %.sink.i.i.i = phi i32 [ 0, %37 ], [ 0, %13 ], [ 0, %22 ], [ 1, %18 ], [ 1, %33 ], [ 0, %28 ]
   store i32 %.sink.i.i.i, ptr %0, align 8, !alias.scope !1729, !noalias !1728
   ret void
 }
@@ -8197,9 +8197,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2235
   br label %39
 
-36:                                               ; preds = %20, %30, %12, %12
-  %.sroa.5.0.ph = phi i32 [ 0, %12 ], [ 0, %12 ], [ 1, %30 ], [ 1, %20 ]
-  %.sroa.10.0.ph = phi i32 [ undef, %12 ], [ undef, %12 ], [ %32, %30 ], [ %22, %20 ]
+36:                                               ; preds = %12, %12, %20, %30
+  %.sroa.5.0.ph = phi i32 [ 0, %12 ], [ 1, %30 ], [ 0, %12 ], [ 1, %20 ]
+  %.sroa.10.0.ph = phi i32 [ undef, %12 ], [ %32, %30 ], [ undef, %12 ], [ %22, %20 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.5.0.ph, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8

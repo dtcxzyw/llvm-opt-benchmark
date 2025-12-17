@@ -946,7 +946,7 @@ _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %_ZN9grpc_core7ExecC
           to label %51 unwind label %57
 
 51:                                               ; preds = %48, %.noexc15, %49
-  %.0.i.i.i.i = phi i1 [ true, %.noexc15 ], [ false, %48 ], [ %50, %49 ]
+  %.0.i.i.i.i = phi i1 [ false, %48 ], [ true, %.noexc15 ], [ %50, %49 ]
   %.sroa.01.0.extract.trunc.i = trunc i16 %45 to i1
   %52 = and i16 %45, 256
   %.not.i14 = icmp eq i16 %52, 0
@@ -2237,7 +2237,7 @@ _ZN9grpc_core11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batc
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransportEED2Ev.exit: ; preds = %102, %97, %.body.i.i
-  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %98, %97 ], [ %98, %102 ]
+  %.pn6.pn = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %98, %102 ], [ %98, %97 ]
   call void @_ZN9grpc_core11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES6_XadL_ZNS0_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS0_10AddedStackEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #36
   resume { ptr, i32 } %.pn6.pn
 }
@@ -3278,7 +3278,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %243, %230, %149, %145, %142, %.body10.i.i.i, %.body.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %244, %243 ], [ %143, %149 ], [ %143, %145 ], [ %143, %142 ], [ %.pn.pn.i.i.i, %230 ], [ %105, %.body.i.i.i ], [ %116, %.body10.i.i.i ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %244, %243 ], [ %143, %142 ], [ %143, %149 ], [ %143, %145 ], [ %.pn.pn.i.i.i, %230 ], [ %105, %.body.i.i.i ], [ %116, %.body10.i.i.i ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #36, !noalias !200
   br label %.body.i
 
@@ -3991,8 +3991,8 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit66
 
 167:                                              ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit, %160
-  %.ph251 = phi i64 [ %159, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ], [ 0, %160 ]
-  %.ph252 = phi i8 [ %.pre219, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ], [ %129, %160 ]
+  %.ph251 = phi i64 [ 0, %160 ], [ %159, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ]
+  %.ph252 = phi i8 [ %129, %160 ], [ %.pre219, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ]
   %168 = load ptr, ptr %.sroa.gep179, align 8, !tbaa !174
   %.not.i.i58 = icmp ne ptr %168, null
   %169 = load i8, ptr %.sroa.gep177, align 8, !range !113
@@ -4042,7 +4042,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   unreachable
 
 .body29:                                          ; preds = %.body45, %164
-  %eh.lpad-body30 = phi { ptr, i32 } [ %141, %.body45 ], [ %165, %164 ]
+  %eh.lpad-body30 = phi { ptr, i32 } [ %165, %164 ], [ %141, %.body45 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #36
   br label %.body
 
@@ -4214,8 +4214,8 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit100.sink.split
 
 235:                                              ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit91, %228
-  %.ph257 = phi i64 [ %227, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit91 ], [ 0, %228 ]
-  %.ph258 = phi i8 [ %.pre, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit91 ], [ %197, %228 ]
+  %.ph257 = phi i64 [ 0, %228 ], [ %227, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit91 ]
+  %.ph258 = phi i8 [ %197, %228 ], [ %.pre, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit91 ]
   %236 = load ptr, ptr %.sroa.gep167, align 8, !tbaa !174
   %.not.i.i92 = icmp ne ptr %236, null
   %237 = load i8, ptr %.sroa.gep165, align 8, !range !113
@@ -4247,7 +4247,7 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br i1 %.not.i88, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit100.sink.split, label %.critedge.i12
 
 .body16:                                          ; preds = %.body70, %232
-  %eh.lpad-body17 = phi { ptr, i32 } [ %209, %.body70 ], [ %233, %232 ]
+  %eh.lpad-body17 = phi { ptr, i32 } [ %233, %232 ], [ %209, %.body70 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #36
   br label %.body
 
@@ -4334,7 +4334,7 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %.body
 
 .body:                                            ; preds = %270, %266, %264, %184, %180, %.body16, %.body29
-  %.pn = phi { ptr, i32 } [ %265, %264 ], [ %eh.lpad-body30, %.body29 ], [ %eh.lpad-body17, %.body16 ], [ %181, %180 ], [ %181, %184 ], [ %267, %266 ], [ %267, %270 ]
+  %.pn = phi { ptr, i32 } [ %181, %184 ], [ %265, %264 ], [ %eh.lpad-body17, %.body16 ], [ %eh.lpad-body30, %.body29 ], [ %181, %180 ], [ %267, %266 ], [ %267, %270 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #36
   br label %common.resume
 
@@ -4536,8 +4536,8 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZN9grpc_core14filters_detail17OperationExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE8InitStepES6_Pv.exit.i.thread
 
 344:                                              ; preds = %337, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit135
-  %.ph263 = phi i64 [ %336, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit135 ], [ 0, %337 ]
-  %.ph264 = phi i8 [ %.pre221, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit135 ], [ %306, %337 ]
+  %.ph263 = phi i64 [ 0, %337 ], [ %336, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit135 ]
+  %.ph264 = phi i8 [ %306, %337 ], [ %.pre221, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit135 ]
   %345 = load ptr, ptr %.sroa.gep200, align 8, !tbaa !174
   %.not.i.i136 = icmp ne ptr %345, null
   %346 = load i8, ptr %.sroa.gep198, align 8, !range !113
@@ -4569,7 +4569,7 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br i1 %.not.i132, label %_ZN9grpc_core14filters_detail17OperationExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE8InitStepES6_Pv.exit.i.thread, label %.critedge.i.i
 
 .body.i:                                          ; preds = %.body114, %341
-  %eh.lpad-body.i = phi { ptr, i32 } [ %318, %.body114 ], [ %342, %341 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %342, %341 ], [ %318, %.body114 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #36
   %353 = load i8, ptr %11, align 8, !tbaa !289, !range !113, !noalias !304, !noundef !114
   %354 = trunc nuw i8 %353 to i1
@@ -4584,7 +4584,7 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i35
 
 common.resume:                                    ; preds = %.body, %396, %400, %374, %378, %_ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i35
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i35 ], [ %375, %378 ], [ %375, %374 ], [ %.pn, %.body ], [ %397, %396 ], [ %397, %400 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %_ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i35 ], [ %375, %374 ], [ %375, %378 ], [ %397, %400 ], [ %.pn, %.body ], [ %397, %396 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit.i35: ; preds = %355, %.body.i
@@ -5129,8 +5129,8 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit61
 
 170:                                              ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit, %163
-  %.ph179 = phi i64 [ %162, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ], [ 0, %163 ]
-  %.ph180 = phi i8 [ %.pre159, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ], [ %132, %163 ]
+  %.ph179 = phi i64 [ 0, %163 ], [ %162, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ]
+  %.ph180 = phi i8 [ %132, %163 ], [ %.pre159, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit ]
   %171 = load ptr, ptr %.sroa.gep144, align 8, !tbaa !174
   %.not.i.i53 = icmp ne ptr %171, null
   %172 = load i8, ptr %.sroa.gep142, align 8, !range !113
@@ -5180,7 +5180,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
   unreachable
 
 .body33:                                          ; preds = %.body40, %167
-  %eh.lpad-body34 = phi { ptr, i32 } [ %144, %.body40 ], [ %168, %167 ]
+  %eh.lpad-body34 = phi { ptr, i32 } [ %168, %167 ], [ %144, %.body40 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #36
   br label %.body
 
@@ -5352,8 +5352,8 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit95.sink.split
 
 238:                                              ; preds = %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit86, %231
-  %.ph185 = phi i64 [ %230, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit86 ], [ 0, %231 ]
-  %.ph186 = phi i8 [ %.pre, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit86 ], [ %200, %231 ]
+  %.ph185 = phi i64 [ 0, %231 ], [ %230, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit86 ]
+  %.ph186 = phi i8 [ %200, %231 ], [ %.pre, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEaSEOS4_.exit86 ]
   %239 = load ptr, ptr %.sroa.gep132, align 8, !tbaa !174
   %.not.i.i87 = icmp ne ptr %239, null
   %240 = load i8, ptr %.sroa.gep130, align 8, !range !113
@@ -5385,7 +5385,7 @@ _ZN9grpc_core4PollINS_14filters_detail8ResultOrISt10unique_ptrI19grpc_metadata_b
   br i1 %.not.i83, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit95.sink.split, label %.critedge.i16
 
 .body20:                                          ; preds = %.body65, %235
-  %eh.lpad-body21 = phi { ptr, i32 } [ %212, %.body65 ], [ %236, %235 ]
+  %eh.lpad-body21 = phi { ptr, i32 } [ %236, %235 ], [ %212, %.body65 ]
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #36
   br label %.body
 
@@ -7322,8 +7322,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; pre
   br label %22
 
 22:                                               ; preds = %20, %14
-  %.sroa.0.0.i = phi i64 [ %19, %14 ], [ %spec.select.i, %20 ]
-  %.sroa.4.0.i = phi ptr [ %17, %14 ], [ %spec.select2.i, %20 ]
+  %.sroa.0.0.i = phi i64 [ %spec.select.i, %20 ], [ %19, %14 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %20 ], [ %17, %14 ]
   %23 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 %.sroa.0.0.i, ptr %.sroa.4.0.i)
           to label %24 unwind label %53
 
@@ -8339,7 +8339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %73,
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit43: ; preds = %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit4.i, %82, %.body
-  %eh.lpad-body67 = phi { ptr, i32 } [ %81, %.body ], [ %81, %82 ], [ %50, %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit4.i ]
+  %eh.lpad-body67 = phi { ptr, i32 } [ %81, %82 ], [ %81, %.body ], [ %50, %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit4.i ]
   %88 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %89 = atomicrmw sub ptr %88, i64 1 acq_rel, align 8
   %90 = icmp eq i64 %89, 1
@@ -8498,7 +8498,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %143, %146
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransport14ConnectedStateEED2Ev.exit45
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_121InprocServerTransport14ConnectedStateEED2Ev.exit45: ; preds = %133, %.body50, %91, %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit43, %151, %80
-  %.pn27 = phi { ptr, i32 } [ %152, %151 ], [ %.pn.pn, %80 ], [ %eh.lpad-body67, %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit43 ], [ %eh.lpad-body67, %91 ], [ %eh.lpad-body51, %.body50 ], [ %eh.lpad-body51, %133 ]
+  %.pn27 = phi { ptr, i32 } [ %152, %151 ], [ %eh.lpad-body67, %91 ], [ %.pn.pn, %80 ], [ %eh.lpad-body67, %_ZNSt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS0_16OrphanableDeleteEED2Ev.exit43 ], [ %eh.lpad-body51, %.body50 ], [ %eh.lpad-body51, %133 ]
   resume { ptr, i32 } %.pn27
 }
 

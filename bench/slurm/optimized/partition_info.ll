@@ -228,8 +228,8 @@ define dso_local ptr @slurm_sprint_partition_info(ptr noundef readonly captures(
   br label %.thread
 
 .thread:                                          ; preds = %29, %26
-  %.str.8.sink = phi ptr [ %spec.select180, %29 ], [ %spec.select178, %26 ]
-  %.0 = phi ptr [ @.str.7, %29 ], [ %spec.select179, %26 ]
+  %.str.8.sink = phi ptr [ %spec.select178, %26 ], [ %spec.select180, %29 ]
+  %.0 = phi ptr [ %spec.select179, %26 ], [ @.str.7, %29 ]
   store ptr %.str.8.sink, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef nonnull %.0, ptr noundef nonnull %.str.8.sink) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -252,8 +252,8 @@ define dso_local ptr @slurm_sprint_partition_info(ptr noundef readonly captures(
   br label %.thread158
 
 .thread158:                                       ; preds = %37, %34
-  %.str.8.sink177 = phi ptr [ %spec.select183, %37 ], [ %spec.select181, %34 ]
-  %.1 = phi ptr [ @.str.7, %37 ], [ %spec.select182, %34 ]
+  %.str.8.sink177 = phi ptr [ %spec.select181, %34 ], [ %spec.select183, %37 ]
+  %.1 = phi ptr [ %spec.select182, %34 ], [ @.str.7, %37 ]
   store ptr %.str.8.sink177, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %.1, ptr noundef nonnull %.str.8.sink177) #11
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %8) #11
@@ -1099,7 +1099,7 @@ _load_fed_parts.exit:                             ; preds = %131, %132
   br label %_load_cluster_parts.exit
 
 _load_cluster_parts.exit:                         ; preds = %134, %148, %150, %152
-  %.0.i = phi i32 [ -1, %150 ], [ 0, %152 ], [ -1, %148 ], [ -1, %134 ]
+  %.0.i = phi i32 [ -1, %148 ], [ -1, %150 ], [ 0, %152 ], [ -1, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %153
 
@@ -1188,7 +1188,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions2(i64 noundef %0, pt
   br label %_load_cluster_parts.exit
 
 _load_cluster_parts.exit:                         ; preds = %4, %24, %26, %28
-  %.0.i = phi i32 [ -1, %26 ], [ 0, %28 ], [ -1, %24 ], [ -1, %4 ]
+  %.0.i = phi i32 [ -1, %24 ], [ -1, %26 ], [ 0, %28 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

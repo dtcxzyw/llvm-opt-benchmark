@@ -702,8 +702,8 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %120, %122, %112, %114
-  %.sink175 = phi ptr [ %113, %112 ], [ %115, %114 ], [ %121, %120 ], [ %123, %122 ]
-  %.sink = phi i32 [ 16, %112 ], [ 16, %114 ], [ %117, %120 ], [ %117, %122 ]
+  %.sink175 = phi ptr [ %115, %114 ], [ %113, %112 ], [ %121, %120 ], [ %123, %122 ]
+  %.sink = phi i32 [ 16, %114 ], [ 16, %112 ], [ %117, %120 ], [ %117, %122 ]
   store ptr %.sink175, ptr %35, align 8, !tbaa !33
   store i32 %.sink, ptr %32, align 8, !tbaa !46
   br label %Vec_IntPush.exit

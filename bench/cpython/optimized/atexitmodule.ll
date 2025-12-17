@@ -366,7 +366,7 @@ Py_DECREF.exit:                                   ; preds = %34, %35, %38
   br label %Py_DECREF.exit19
 
 Py_DECREF.exit19:                                 ; preds = %41, %Py_DECREF.exit, %33, %30, %29, %12, %14, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %12 ], [ null, %14 ], [ null, %29 ], [ null, %30 ], [ null, %33 ], [ %10, %Py_DECREF.exit ], [ %10, %41 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %12 ], [ null, %14 ], [ null, %33 ], [ null, %29 ], [ null, %30 ], [ %10, %Py_DECREF.exit ], [ %10, %41 ]
   ret ptr %.0
 }
 

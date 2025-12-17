@@ -470,7 +470,7 @@ define dso_local void @crypto_alg_tested(ptr noundef %0, i32 noundef %1) #0 alig
   br i1 %59, label %60, label %42, !llvm.loop !19
 
 60:                                               ; preds = %57, %52
-  %61 = phi i1 [ true, %57 ], [ false, %52 ]
+  %61 = phi i1 [ false, %52 ], [ true, %57 ]
   call fastcc void @crypto_alg_finish_registration(ptr noundef %24, i1 noundef zeroext %61, ptr noundef nonnull %3)
   br label %62
 
@@ -2038,7 +2038,7 @@ define dso_local ptr @crypto_get_attr_type(ptr noundef readonly captures(none) %
   br label %13
 
 13:                                               ; preds = %8, %4, %1
-  %14 = phi ptr [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ], [ %spec.select, %8 ]
+  %14 = phi ptr [ %spec.select, %8 ], [ inttoptr (i64 -2 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %4 ]
   ret ptr %14
 }
 
@@ -2065,8 +2065,8 @@ define dso_local i32 @crypto_check_attr_type(ptr noundef readonly captures(none)
   %16 = icmp ugt ptr %14, inttoptr (i64 -4096 to ptr)
   br i1 %16, label %.thread, label %20
 
-.thread:                                          ; preds = %10, %6, %3, %15
-  %17 = phi ptr [ %14, %15 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ]
+.thread:                                          ; preds = %6, %3, %10, %15
+  %17 = phi ptr [ %14, %15 ], [ inttoptr (i64 -22 to ptr), %6 ], [ inttoptr (i64 -2 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %10 ]
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   br label %31

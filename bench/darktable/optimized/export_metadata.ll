@@ -306,8 +306,8 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %141, %.critedge, %60
-  %.0177 = phi i32 [ 0, %60 ], [ %144, %.critedge ], [ %144, %141 ], [ %144, %148 ]
-  %.0176 = phi ptr [ null, %60 ], [ %145, %.critedge ], [ null, %141 ], [ %145, %148 ]
+  %.0177 = phi i32 [ 0, %60 ], [ %144, %141 ], [ %144, %.critedge ], [ %144, %148 ]
+  %.0176 = phi ptr [ null, %60 ], [ null, %141 ], [ %145, %.critedge ], [ %145, %148 ]
   call void @g_list_free_full(ptr noundef %.0176, ptr noundef nonnull @g_free) #9
   %155 = tail call i64 @gtk_toggle_button_get_type() #10
   %156 = call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %155) #9

@@ -1021,7 +1021,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i: ; pre
   br label %35
 
 35:                                               ; preds = %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i, %27, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i
-  %36 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %17, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ], [ %22, %27 ]
+  %36 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %22, %27 ], [ %17, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ]
   %37 = zext i32 %14 to i64
   %38 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -1084,7 +1084,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i29: ; p
   br label %59
 
 59:                                               ; preds = %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i29, %51, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i17
-  %60 = phi ptr [ %.pre.i.i30, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i29 ], [ %36, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i17 ], [ %.pr.i.i.i.i19, %51 ]
+  %60 = phi ptr [ %.pre.i.i30, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i29 ], [ %.pr.i.i.i.i19, %51 ], [ %36, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i17 ]
   %61 = zext i32 %42 to i64
   %62 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -1236,7 +1236,7 @@ _ZN3euf11enode_class8iteratorppEv.exit:           ; preds = %109
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit, %114, %106
-  %.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %115, %114 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %107, %106 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit83, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp.loopexit.split-lp ]
   store i8 %11, ptr %10, align 8, !tbaa !118
   resume { ptr, i32 } %.pn.pn.pn
 }
@@ -2076,7 +2076,7 @@ _ZN3euf9bv_plugin9is_concatEPNS_5enodeERS2_S3_.exit66.thread: ; preds = %216, %2
   ret void
 
 333:                                              ; preds = %.body73, %125, %202
-  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %202 ], [ %126, %125 ], [ %.pn.pn, %.body73 ]
+  %.pn41.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %126, %125 ], [ %.pn41.pn, %202 ], [ %.pn.pn, %.body73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #20
@@ -2938,7 +2938,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i: ; preds
   br label %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i, %51, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i
-  %59 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %41, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ], [ %46, %51 ]
+  %59 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %46, %51 ], [ %41, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ]
   %60 = zext i32 %38 to i64
   %61 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -4156,8 +4156,8 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i: ; preds
   br label %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i, %83, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i
-  %91 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %23, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ], [ %32, %83 ]
-  %92 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %24, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ], [ %33, %83 ]
+  %91 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %32, %83 ], [ %23, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ]
+  %92 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %33, %83 ], [ %24, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ]
   %93 = zext i32 %26 to i64
   %94 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -4313,7 +4313,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i: ; preds
   br label %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i, %36, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i
-  %44 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %26, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ], [ %31, %36 ]
+  %44 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %31, %36 ], [ %26, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ]
   %45 = zext i32 %23 to i64
   %46 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -4452,7 +4452,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i: ; pre
   br label %_ZN3euf9bv_plugin7has_subEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin7has_subEPNS_5enodeE.exit:       ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i, %18, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i
-  %26 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %8, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ], [ %13, %18 ]
+  %26 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %13, %18 ], [ %8, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ]
   %27 = zext i32 %5 to i64
   %28 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -4517,7 +4517,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i20: ; p
   br label %_ZN3euf9bv_plugin6sub_hiEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin6sub_hiEPNS_5enodeE.exit:        ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i8, %46, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i20
-  %54 = phi ptr [ %.pre.i.i21, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i20 ], [ %26, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i8 ], [ %.pr.i.i.i.i10, %46 ]
+  %54 = phi ptr [ %.pre.i.i21, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i20 ], [ %.pr.i.i.i.i10, %46 ], [ %26, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i8 ]
   %55 = zext i32 %37 to i64
   %56 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -4617,7 +4617,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i38: ; p
   br label %_ZN3euf9bv_plugin6sub_loEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin6sub_loEPNS_5enodeE.exit:        ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i26, %87, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i38
-  %95 = phi ptr [ %.pre.i.i39, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i38 ], [ %68, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i26 ], [ %82, %87 ]
+  %95 = phi ptr [ %.pre.i.i39, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i38 ], [ %82, %87 ], [ %68, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i26 ]
   %96 = zext i32 %76 to i64
   %97 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -4798,7 +4798,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i: ; pre
   br label %_ZN3euf9bv_plugin6sub_hiEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin6sub_hiEPNS_5enodeE.exit:        ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i, %61, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i
-  %69 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %51, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ], [ %56, %61 ]
+  %69 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i ], [ %56, %61 ], [ %51, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i ]
   %70 = zext i32 %48 to i64
   %71 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -4898,7 +4898,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i27: ; p
   br label %_ZN3euf9bv_plugin6sub_loEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin6sub_loEPNS_5enodeE.exit:        ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i15, %102, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i27
-  %110 = phi ptr [ %.pre.i.i28, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i27 ], [ %83, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i15 ], [ %97, %102 ]
+  %110 = phi ptr [ %.pre.i.i28, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i.i27 ], [ %97, %102 ], [ %83, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i.i15 ]
   %111 = zext i32 %91 to i64
   %112 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %110, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
@@ -5078,7 +5078,7 @@ _ZNK6vectorI7svectorIjjELb1EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vec
   br label %_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit.i
 
 _ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit.i:   ; preds = %.lr.ph.preheader.i.i.i, %57, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i
-  %64 = phi ptr [ %41, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i ], [ %52, %57 ], [ %52, %.lr.ph.preheader.i.i.i ]
+  %64 = phi ptr [ %52, %.lr.ph.preheader.i.i.i ], [ %41, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i ], [ %52, %57 ]
   %65 = load ptr, ptr %.014.i, align 8, !tbaa !116
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !86
@@ -5522,7 +5522,7 @@ _ZNK6vectorI7svectorIjjELb1EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vecto
   br label %_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit
 
 _ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit:     ; preds = %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i, %30, %.lr.ph.preheader.i.i
-  %37 = phi ptr [ %14, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i ], [ %25, %30 ], [ %25, %.lr.ph.preheader.i.i ]
+  %37 = phi ptr [ %25, %.lr.ph.preheader.i.i ], [ %14, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i ], [ %25, %30 ]
   %38 = load ptr, ptr %.014, align 8, !tbaa !116
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !86
@@ -5685,7 +5685,7 @@ _ZNK6vectorI7svectorIjjELb1EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vec
   br label %_ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit.i
 
 _ZN6vectorI7svectorIjjELb1EjE7reserveEj.exit.i:   ; preds = %.lr.ph.preheader.i.i.i, %58, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i
-  %65 = phi ptr [ %42, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i ], [ %53, %58 ], [ %53, %.lr.ph.preheader.i.i.i ]
+  %65 = phi ptr [ %53, %.lr.ph.preheader.i.i.i ], [ %42, %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.thread.i.i ], [ %53, %58 ]
   %66 = load ptr, ptr %.014.i, align 8, !tbaa !116
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !86
@@ -7310,7 +7310,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit307: ; preds = %_ZN3
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %._crit_edge463.thread unwind label %402
 
-._crit_edge463.thread:                            ; preds = %._crit_edge, %._crit_edge463.thread544, %._crit_edge463, %542
+._crit_edge463.thread:                            ; preds = %._crit_edge, %._crit_edge463, %._crit_edge463.thread544, %542
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7335,7 +7335,7 @@ _ZN6vectorISt5tupleIJPN3euf5enodeES3_jEELb0EjED2Ev.exit: ; preds = %._crit_edge4
   ret void
 
 549:                                              ; preds = %.loopexit409, %.loopexit.split-lp410, %.loopexit408, %.loopexit.split-lp, %.loopexit415, %.loopexit.split-lp416, %538, %540, %492, %494, %450, %452, %404, %406, %110, %192, %351, %353, %349, %235, %275, %536, %448, %402
-  %.pn144.pn.pn = phi { ptr, i32 } [ %403, %402 ], [ %449, %448 ], [ %537, %536 ], [ %111, %110 ], [ %193, %192 ], [ %236, %235 ], [ %276, %275 ], [ %350, %349 ], [ %354, %353 ], [ %352, %351 ], [ %407, %406 ], [ %405, %404 ], [ %453, %452 ], [ %451, %450 ], [ %495, %494 ], [ %493, %492 ], [ %541, %540 ], [ %539, %538 ], [ %lpad.loopexit417, %.loopexit415 ], [ %lpad.loopexit.split-lp418, %.loopexit.split-lp416 ], [ %lpad.loopexit, %.loopexit408 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit411, %.loopexit409 ], [ %lpad.loopexit.split-lp412, %.loopexit.split-lp410 ]
+  %.pn144.pn.pn = phi { ptr, i32 } [ %537, %536 ], [ %403, %402 ], [ %352, %351 ], [ %449, %448 ], [ %451, %450 ], [ %405, %404 ], [ %493, %492 ], [ %111, %110 ], [ %lpad.loopexit.split-lp418, %.loopexit.split-lp416 ], [ %193, %192 ], [ %354, %353 ], [ %539, %538 ], [ %541, %540 ], [ %495, %494 ], [ %276, %275 ], [ %236, %235 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %453, %452 ], [ %407, %406 ], [ %350, %349 ], [ %lpad.loopexit417, %.loopexit415 ], [ %lpad.loopexit, %.loopexit408 ], [ %lpad.loopexit411, %.loopexit409 ], [ %lpad.loopexit.split-lp412, %.loopexit.split-lp410 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -8290,7 +8290,7 @@ _ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i: ; preds
   br label %_ZN3euf9bv_plugin4infoEPNS_5enodeE.exit
 
 _ZN3euf9bv_plugin4infoEPNS_5enodeE.exit:          ; preds = %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i, %20, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i
-  %28 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %10, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ], [ %15, %20 ]
+  %28 = phi ptr [ %.pre.i, %_ZN6vectorIN3euf9bv_plugin10slice_infoELb0EjE7reserveEj.exit.loopexit.i ], [ %15, %20 ], [ %10, %_ZNK6vectorIN3euf9bv_plugin10slice_infoELb0EjE4sizeEv.exit.thread.i.i ]
   %29 = zext i32 %7 to i64
   %30 = getelementptr inbounds nuw %"struct.euf::bv_plugin::slice_info", ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8

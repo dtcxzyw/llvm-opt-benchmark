@@ -922,7 +922,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr noundef readonly captur
   br i1 %.not19, label %12, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.lr.ph, %12, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 1, %.lr.ph ], [ 0, %12 ], [ 1, %7 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %12 ], [ 1, %.lr.ph ], [ 1, %7 ]
   ret i32 %.2
 }
 
@@ -998,7 +998,7 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr noundef readonly captu
   br i1 %.not66, label %37, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %26, %.lr.ph, %37, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 1, %.lr.ph ], [ 0, %37 ], [ 1, %26 ], [ 1, %7 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 1, %26 ], [ 0, %37 ], [ 1, %.lr.ph ], [ 1, %7 ]
   ret i32 %.2
 }
 

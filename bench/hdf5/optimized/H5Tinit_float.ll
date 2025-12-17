@@ -523,7 +523,7 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
   br label %235
 
 231:                                              ; preds = %168, %192, %136, %156, %.loopexit360, %111
-  %.str.6.sink = phi ptr [ @.str.3, %111 ], [ @.str.4, %.loopexit360 ], [ @.str.5, %156 ], [ @.str.5, %136 ], [ @.str.6, %192 ], [ @.str.6, %168 ]
+  %.str.6.sink = phi ptr [ @.str.5, %136 ], [ @.str.4, %.loopexit360 ], [ @.str.3, %111 ], [ @.str.5, %156 ], [ @.str.6, %192 ], [ @.str.6, %168 ]
   %232 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %233 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
   %234 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 483, i64 noundef %232, i64 noundef %233, ptr noundef nonnull %.str.6.sink) #9
@@ -967,7 +967,7 @@ H5T__bit_cmp.exit303:                             ; preds = %415, %386
   br label %454
 
 450:                                              ; preds = %H5T__bit_cmp.exit303, %399, %423, %.loopexit, %380
-  %.str.6.sink548 = phi ptr [ @.str.3, %380 ], [ @.str.4, %.loopexit ], [ @.str.5, %423 ], [ @.str.5, %399 ], [ @.str.6, %H5T__bit_cmp.exit303 ]
+  %.str.6.sink548 = phi ptr [ @.str.5, %399 ], [ @.str.4, %.loopexit ], [ @.str.3, %380 ], [ @.str.5, %423 ], [ @.str.6, %H5T__bit_cmp.exit303 ]
   %451 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %452 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
   %453 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 514, i64 noundef %451, i64 noundef %452, ptr noundef nonnull %.str.6.sink548) #9
@@ -1240,7 +1240,7 @@ H5T__byte_cmp.exit315.thread:                     ; preds = %552, %539, %H5T__by
   br label %595
 
 591:                                              ; preds = %567, %562, %559, %556
-  %.str.6.sink550 = phi ptr [ @.str.3, %556 ], [ @.str.4, %559 ], [ @.str.5, %562 ], [ @.str.6, %567 ]
+  %.str.6.sink550 = phi ptr [ @.str.5, %562 ], [ @.str.4, %559 ], [ @.str.3, %556 ], [ @.str.6, %567 ]
   %592 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %593 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
   %594 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 545, i64 noundef %592, i64 noundef %593, ptr noundef nonnull %.str.6.sink550) #9
@@ -1525,7 +1525,7 @@ H5T__byte_cmp.exit327.thread:                     ; preds = %693, %680, %H5T__by
   br label %735
 
 731:                                              ; preds = %707, %702, %699, %696
-  %.str.6.sink552 = phi ptr [ @.str.3, %696 ], [ @.str.4, %699 ], [ @.str.5, %702 ], [ @.str.6, %707 ]
+  %.str.6.sink552 = phi ptr [ @.str.5, %702 ], [ @.str.4, %699 ], [ @.str.3, %696 ], [ @.str.6, %707 ]
   %732 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %733 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
   %734 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 582, i64 noundef %732, i64 noundef %733, ptr noundef nonnull %.str.6.sink552) #9
@@ -1828,7 +1828,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   br i1 %65, label %57, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %57, %43, %31, %13, %50, %4
-  %.051 = phi i32 [ -1, %13 ], [ -1, %50 ], [ 0, %4 ], [ 0, %31 ], [ 0, %43 ], [ 0, %57 ]
+  %.051 = phi i32 [ -1, %13 ], [ 0, %4 ], [ -1, %50 ], [ 0, %43 ], [ 0, %31 ], [ 0, %57 ]
   ret i32 %.051
 }
 

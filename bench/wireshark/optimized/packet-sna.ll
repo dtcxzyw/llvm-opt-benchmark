@@ -1223,7 +1223,7 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread.i
 
 .thread.i:                                        ; preds = %70, %63, %49, %36
-  %.1166.i = phi i32 [ %69, %70 ], [ %69, %63 ], [ %47, %49 ], [ 2, %36 ]
+  %.1166.i = phi i32 [ %69, %70 ], [ %69, %63 ], [ 2, %36 ], [ %47, %49 ]
   %71 = add i32 %.1166.i, 8
   %72 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %71)
   %73 = add i32 %.1166.i, 9
@@ -1575,7 +1575,7 @@ dissect_optional_0e.exit.i.i:                     ; preds = %196, %180
   br i1 %.not.i80.i.i, label %dissect_optional_0d.exit.i.i, label %.lr.ph.i79.i.i, !llvm.loop !10
 
 .loopexit.sink.split.i.i.i:                       ; preds = %.lr.ph.i79.i.i, %257, %222
-  %.0103113.lcssa.sink.i.i.i = phi i32 [ 4, %222 ], [ %258, %257 ], [ %.0103113.i.i.i, %.lr.ph.i79.i.i ]
+  %.0103113.lcssa.sink.i.i.i = phi i32 [ %258, %257 ], [ 4, %222 ], [ %.0103113.i.i.i, %.lr.ph.i79.i.i ]
   %287 = tail call ptr @tvb_new_subset_remaining(ptr noundef %155, i32 noundef %.0103113.lcssa.sink.i.i.i)
   %288 = tail call i32 @call_data_dissector(ptr noundef %287, ptr noundef %1, ptr noundef %.174.i.i)
   br label %dissect_optional_0d.exit.i.i
@@ -2095,8 +2095,8 @@ default.unreachable:                              ; preds = %115
   unreachable
 
 118:                                              ; preds = %117, %116, %115
-  %.028.i.i = phi i32 [ 1, %116 ], [ 2, %117 ], [ 0, %115 ]
-  %.027.i.i = phi i1 [ true, %116 ], [ false, %117 ], [ true, %115 ]
+  %.028.i.i = phi i32 [ 2, %117 ], [ 1, %116 ], [ 0, %115 ]
+  %.027.i.i = phi i1 [ false, %117 ], [ true, %116 ], [ true, %115 ]
   %119 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6)
   %120 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 6, i32 noundef %119)
   br i1 %120, label %121, label %.thread
@@ -2303,9 +2303,9 @@ dissect_fid2.exit:                                ; preds = %112
   %.not49 = icmp eq ptr %262, null
   br i1 %.not49, label %.thread, label %265
 
-.thread:                                          ; preds = %dissect_fid0_1.exit, %114, %112, %127, %118, %115, %128, %129, %144, %145, %212, %213, %232, %233, %259
-  %.046.ph78 = phi i32 [ 6, %259 ], [ 10, %dissect_fid0_1.exit ], [ 6, %115 ], [ 6, %118 ], [ 6, %127 ], [ 6, %112 ], [ 6, %114 ], [ 2, %128 ], [ 2, %129 ], [ 26, %144 ], [ 26, %145 ], [ 12, %212 ], [ 12, %213 ], [ 26, %232 ], [ 26, %233 ]
-  %263 = phi i1 [ false, %259 ], [ false, %dissect_fid0_1.exit ], [ false, %115 ], [ false, %118 ], [ false, %127 ], [ true, %112 ], [ false, %114 ], [ false, %128 ], [ false, %129 ], [ false, %144 ], [ false, %145 ], [ false, %212 ], [ false, %213 ], [ false, %232 ], [ false, %233 ]
+.thread:                                          ; preds = %dissect_fid0_1.exit, %213, %115, %129, %145, %112, %114, %127, %118, %128, %144, %212, %232, %233, %259
+  %.046.ph78 = phi i32 [ 6, %259 ], [ 10, %dissect_fid0_1.exit ], [ 12, %213 ], [ 6, %114 ], [ 2, %129 ], [ 26, %145 ], [ 6, %115 ], [ 6, %118 ], [ 6, %127 ], [ 6, %112 ], [ 2, %128 ], [ 26, %144 ], [ 12, %212 ], [ 26, %232 ], [ 26, %233 ]
+  %263 = phi i1 [ false, %259 ], [ false, %dissect_fid0_1.exit ], [ false, %213 ], [ false, %114 ], [ false, %129 ], [ false, %145 ], [ false, %115 ], [ false, %118 ], [ false, %127 ], [ true, %112 ], [ false, %128 ], [ false, %144 ], [ false, %212 ], [ false, %232 ], [ false, %233 ]
   %264 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.046.ph78)
   br label %265
 

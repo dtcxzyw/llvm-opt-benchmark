@@ -315,7 +315,7 @@ fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %7
   %31 = sext i32 %29 to i64
   br label %33
 
-sunHashMapLinearProbeGet.exit.thread:             ; preds = %37, %33
+sunHashMapLinearProbeGet.exit.thread:             ; preds = %33, %37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %32 = icmp slt i64 %indvars.iv.next.i, %17
   br i1 %32, label %33, label %SUNHashMap_Iterate.exit

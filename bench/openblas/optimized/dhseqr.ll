@@ -128,7 +128,7 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not265, label %74, label %.thread
 
 .thread.sink.split:                               ; preds = %67, %63, %60, %56, %51, %54, %48, %44, %34
-  %.sink = phi i32 [ -1, %34 ], [ -2, %44 ], [ -3, %48 ], [ -4, %54 ], [ -4, %51 ], [ -5, %56 ], [ -7, %60 ], [ -11, %63 ], [ -13, %67 ]
+  %.sink = phi i32 [ -1, %34 ], [ -2, %44 ], [ -4, %51 ], [ -7, %60 ], [ -11, %63 ], [ -5, %56 ], [ -3, %48 ], [ -4, %54 ], [ -13, %67 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !3
   br label %.thread
 

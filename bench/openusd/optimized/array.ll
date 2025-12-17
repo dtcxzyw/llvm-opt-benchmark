@@ -9422,7 +9422,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !21
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split, label %71
@@ -9476,7 +9476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit
 
@@ -9814,7 +9814,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -9991,7 +9991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !21
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split, label %71
@@ -10045,7 +10045,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit
 
@@ -10374,7 +10374,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !22
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4ieqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -12140,7 +12140,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !40
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split, label %71
@@ -12194,7 +12194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit
 
@@ -12532,7 +12532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -12709,7 +12709,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !40
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split, label %71
@@ -12763,7 +12763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit
 
@@ -13084,7 +13084,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit
-  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i ]
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3ieqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %102
 }
 
@@ -14754,7 +14754,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !58
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split, label %74
@@ -14808,7 +14808,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit
 
@@ -15142,7 +15142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iES2_ET0_T_S4_S3_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -15322,7 +15322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !58
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split, label %74
@@ -15376,7 +15376,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit
 
@@ -15685,7 +15685,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit, !llvm.loop !59
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -17355,7 +17355,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !76
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split, label %74
@@ -17409,7 +17409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit
 
@@ -17743,7 +17743,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hES2_ET0_T_S4_S3_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -17923,7 +17923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !76
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split, label %74
@@ -17977,7 +17977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit
 
@@ -18330,7 +18330,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hES3_EbT_S4_T0_.exit: ; preds = %129, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i, %106, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit
-  %132 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %94 ], [ false, %106 ], [ true, %129 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i ]
+  %132 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %106 ], [ true, %129 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4heqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %132
 }
 
@@ -19993,7 +19993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !94
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split, label %71
@@ -20047,7 +20047,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit
 
@@ -20385,7 +20385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -20562,7 +20562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !94
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split, label %71
@@ -20616,7 +20616,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit
 
@@ -20955,7 +20955,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !95
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hES3_EbT_S4_T0_.exit: ; preds = %117, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit
-  %120 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %94 ], [ true, %117 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i ]
+  %120 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ true, %117 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3heqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %120
 }
 
@@ -22625,7 +22625,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !112
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split, label %74
@@ -22679,7 +22679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit
 
@@ -23013,7 +23013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hES2_ET0_T_S4_S3_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -23193,7 +23193,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !112
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split, label %74
@@ -23247,7 +23247,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit
 
@@ -23572,7 +23572,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !113
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec2heqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -25235,7 +25235,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !130
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split, label %71
@@ -25289,7 +25289,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit
 
@@ -25627,7 +25627,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -25804,7 +25804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !130
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split, label %71
@@ -25858,7 +25858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit
 
@@ -26187,7 +26187,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !131
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4feqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -27850,7 +27850,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !148
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split, label %71
@@ -27904,7 +27904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit
 
@@ -28242,7 +28242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -28419,7 +28419,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !148
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split, label %71
@@ -28473,7 +28473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit
 
@@ -28794,7 +28794,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !149
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit
-  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i ]
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %102
 }
 
@@ -30464,7 +30464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !166
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split, label %74
@@ -30518,7 +30518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit
 
@@ -30852,7 +30852,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_ET0_T_S4_S3_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -31032,7 +31032,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !166
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split, label %74
@@ -31086,7 +31086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit
 
@@ -31395,7 +31395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit, !llvm.loop !167
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -33058,7 +33058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !184
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split, label %71
@@ -33112,7 +33112,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit
 
@@ -33450,7 +33450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -33627,7 +33627,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !184
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split, label %71
@@ -33681,7 +33681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit
 
@@ -34010,7 +34010,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !185
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ false, %94 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec4deqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -35673,7 +35673,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !202
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split, label %71
@@ -35727,7 +35727,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit
 
@@ -36065,7 +36065,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -36242,7 +36242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !202
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split, label %71
@@ -36296,7 +36296,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit
 
@@ -36617,7 +36617,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !203
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dES3_EbT_S4_T0_.exit: ; preds = %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit
-  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i ]
+  %102 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ true, %99 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %102
 }
 
@@ -38280,7 +38280,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !220
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split, label %71
@@ -38334,7 +38334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit
 
@@ -38672,7 +38672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -38849,7 +38849,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !220
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split, label %71
@@ -38903,7 +38903,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit
 
@@ -39212,7 +39212,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit, !llvm.loop !221
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -40875,7 +40875,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !238
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split, label %71
@@ -40929,7 +40929,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit
 
@@ -41267,7 +41267,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -41444,7 +41444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !238
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split, label %71
@@ -41498,7 +41498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit
 
@@ -41799,7 +41799,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit, !llvm.loop !239
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -43462,7 +43462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !256
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split, label %71
@@ -43516,7 +43516,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit
 
@@ -43854,7 +43854,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -44031,7 +44031,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !256
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split, label %71
@@ -44085,7 +44085,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit
 
@@ -44386,7 +44386,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit, !llvm.loop !257
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -46049,7 +46049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !274
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split, label %71
@@ -46103,7 +46103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit
 
@@ -46441,7 +46441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -46618,7 +46618,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !274
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split, label %71
@@ -46672,7 +46672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit
 
@@ -46973,7 +46973,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit, !llvm.loop !275
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -48636,7 +48636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !292
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split, label %71
@@ -48690,7 +48690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit
 
@@ -49028,7 +49028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -49205,7 +49205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !292
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split, label %71
@@ -49259,7 +49259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit
 
@@ -49560,7 +49560,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit, !llvm.loop !293
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -51223,7 +51223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !310
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split, label %71
@@ -51277,7 +51277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit
 
@@ -51615,7 +51615,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES2_ET0_T_S4_S3_.exit ], [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -51792,7 +51792,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !310
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split, label %71
@@ -51846,7 +51846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit
 
@@ -52147,7 +52147,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit, !llvm.loop !311
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -53810,7 +53810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !328
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split, label %71
@@ -53864,7 +53864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit
 
@@ -54202,7 +54202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES2_ET0_T_S4_S3_.exit ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -54379,7 +54379,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !328
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53
-  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit53 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i55 ]
   %70 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %70
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split, label %71
@@ -54433,7 +54433,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit
 
@@ -54734,7 +54734,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit, !llvm.loop !329
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -56459,7 +56459,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !347
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split, label %75
@@ -56513,7 +56513,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit
 
@@ -56855,7 +56855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -57044,7 +57044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !347
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split, label %75
@@ -57098,7 +57098,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit
 
@@ -57443,7 +57443,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !348
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fES3_EbT_S4_T0_.exit: ; preds = %116, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i, %105, %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit
-  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i ]
+  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3feqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %119
 }
 
@@ -59168,7 +59168,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !366
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split, label %75
@@ -59222,7 +59222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit
 
@@ -59564,7 +59564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -59753,7 +59753,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !366
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split, label %75
@@ -59807,7 +59807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit
 
@@ -60152,7 +60152,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !367
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dES3_EbT_S4_T0_.exit: ; preds = %116, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i, %105, %99, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit
-  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i ]
+  %119 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %88 ], [ false, %99 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKS0_.exit.i.i.i.i.i ], [ true, %116 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3deqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %119
 }
 
@@ -61869,7 +61869,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !385
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split, label %75
@@ -61923,7 +61923,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit
 
@@ -62265,7 +62265,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -62454,7 +62454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !385
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split, label %75
@@ -62508,7 +62508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit
 
@@ -62833,7 +62833,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !386
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -64550,7 +64550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !404
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split, label %75
@@ -64604,7 +64604,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit
 
@@ -64946,7 +64946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -65135,7 +65135,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !404
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split, label %75
@@ -65189,7 +65189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit
 
@@ -65514,7 +65514,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i: ; preds =
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !405
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2deqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -67237,7 +67237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !423
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %68, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %68, %.lr.ph.i.i.i.i61 ]
   %79 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %79
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split, label %80
@@ -67291,7 +67291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit
 
@@ -67631,7 +67631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -67825,7 +67825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !423
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %68, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %68, %.lr.ph.i.i.i.i61 ]
   %79 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %79
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split, label %80
@@ -67879,7 +67879,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit
 
@@ -68188,7 +68188,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit, !llvm.loop !424
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -69897,7 +69897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !442
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split, label %75
@@ -69951,7 +69951,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit
 
@@ -70293,7 +70293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -70482,7 +70482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !442
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split, label %75
@@ -70536,7 +70536,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit
 
@@ -70845,7 +70845,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit, !llvm.loop !443
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -72562,7 +72562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !461
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split, label %75
@@ -72616,7 +72616,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit
 
@@ -72981,7 +72981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: 
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -73170,7 +73170,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !461
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split, label %75
@@ -73224,7 +73224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit
 
@@ -73557,7 +73557,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i: ; preds
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !463
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__10GfIntervalES3_EbT_S4_T0_.exit: ; preds = %108, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i, %95, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit
-  %111 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ false, %95 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i ], [ true, %108 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i ]
+  %111 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %95 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i.i.i.i.i ], [ true, %108 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %111
 }
 
@@ -75274,7 +75274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !481
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split, label %75
@@ -75328,7 +75328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit
 
@@ -75670,7 +75670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; p
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -75859,7 +75859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !481
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split, label %75
@@ -75913,7 +75913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit
 
@@ -76238,7 +76238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i: ; preds
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !482
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iES3_EbT_S4_T0_.exit: ; preds = %105, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ true, %105 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %108
 }
 
@@ -77955,7 +77955,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !500
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %68, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %68, %.lr.ph.i.i.i.i61 ]
   %79 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %79
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split, label %80
@@ -78009,7 +78009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit
 
@@ -78349,7 +78349,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuathES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuathES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuathES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -78543,7 +78543,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !500
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %68, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %68, %.lr.ph.i.i.i.i61 ]
   %79 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %79
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split, label %80
@@ -78597,7 +78597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit
 
@@ -78950,7 +78950,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !501
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathES3_EbT_S4_T0_.exit: ; preds = %127, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i, %104, %94, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit
-  %130 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread ], [ false, %94 ], [ false, %104 ], [ false, %.lr.ph.i.i.i.i ], [ true, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i ]
+  %130 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %104 ], [ false, %.lr.ph.i.i.i.i ], [ true, %127 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit.i.i.i.i ], [ false, %94 ]
   ret i1 %130
 }
 
@@ -80653,7 +80653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !519
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split, label %75
@@ -80707,7 +80707,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit
 
@@ -81049,7 +81049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -81238,7 +81238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !519
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split, label %75
@@ -81292,7 +81292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit
 
@@ -81621,7 +81621,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !520
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i ], [ false, %90 ]
   ret i1 %108
 }
 
@@ -83324,7 +83324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !538
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split, label %75
@@ -83378,7 +83378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit
 
@@ -83720,7 +83720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -83909,7 +83909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !538
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split, label %75
@@ -83963,7 +83963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit
 
@@ -84292,7 +84292,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !539
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i ], [ false, %90 ]
   ret i1 %108
 }
 
@@ -85995,7 +85995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !557
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split, label %75
@@ -86049,7 +86049,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit
 
@@ -86391,7 +86391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -86580,7 +86580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !557
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split, label %75
@@ -86634,7 +86634,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit
 
@@ -86963,7 +86963,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i: ; pre
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !558
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionES3_EbT_S4_T0_.exit: ; preds = %105, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i, %94, %88, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit
-  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread ], [ false, %88 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i ]
+  %108 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ true, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternioneqERKS0_.exit.i.i.i.i ], [ false, %88 ]
   ret i1 %108
 }
 
@@ -88666,7 +88666,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !576
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split, label %75
@@ -88720,7 +88720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit
 
@@ -89062,7 +89062,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit:
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -89251,7 +89251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !576
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split, label %75
@@ -89305,7 +89305,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit
 
@@ -89606,7 +89606,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit, !llvm.loop !577
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -91309,7 +91309,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !595
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split, label %75
@@ -91363,7 +91363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit
 
@@ -91705,7 +91705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit:
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -91894,7 +91894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !595
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split, label %75
@@ -91948,7 +91948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit
 
@@ -92309,7 +92309,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !596
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfES3_EbT_S4_T0_.exit: ; preds = %128, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i, %117, %111, %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit
-  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i ]
+  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatfeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatfeqERKS0_.exit.i.i.i.i ], [ false, %90 ]
   ret i1 %131
 }
 
@@ -94012,7 +94012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !614
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split, label %75
@@ -94066,7 +94066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit
 
@@ -94408,7 +94408,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit:
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES2_ET0_T_S4_S3_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit
-  %.0 = phi ptr [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES2_ET0_T_S4_S3_.exit ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %45, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit ], [ %49, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES2_ET0_T_S4_S3_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -94597,7 +94597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i61, !llvm.loop !614
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i61, %.lr.ph.i.i.i.i49, %.lr.ph.i.i.i.i, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %65, %.lr.ph.i.i.i.i61 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit59 ], [ %36, %48 ], [ %.1, %.lr.ph.i.i.i.i49 ], [ %38, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i61 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split, label %75
@@ -94651,7 +94651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit
 
@@ -95012,7 +95012,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i: ; pred
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !615
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdES3_EbT_S4_T0_.exit: ; preds = %128, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i, %117, %111, %105, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i, %94, %90, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit
-  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread ], [ false, %90 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i ]
+  %131 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ false, %94 ], [ false, %.lr.ph.i.i.i.i ], [ false, %111 ], [ false, %117 ], [ false, %105 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatdeqERKS0_.exit.i.i.i.i.i ], [ true, %128 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatdeqERKS0_.exit.i.i.i.i ], [ false, %90 ]
   ret i1 %131
 }
 
@@ -96761,7 +96761,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S4_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S4_.exit: ; preds = %47, %.lr.ph.preheader.i.i.i.i.i.i52, %.lr.ph.preheader.i.i.i.i.i.i47, %.lr.ph.preheader.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50
-  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %37, %.lr.ph.preheader.i.i.i.i.i.i ], [ %.1, %.lr.ph.preheader.i.i.i.i.i.i47 ], [ %61, %.lr.ph.preheader.i.i.i.i.i.i52 ], [ %36, %47 ]
+  %.0 = phi ptr [ %37, %.lr.ph.preheader.i.i.i.i.i.i ], [ %.1, %.lr.ph.preheader.i.i.i.i.i.i47 ], [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %61, %.lr.ph.preheader.i.i.i.i.i.i52 ], [ %36, %47 ]
   %68 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %68
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split, label %69
@@ -96815,7 +96815,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit: ; preds = %69, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6resizeEmRKbENKUlPbS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit
 
@@ -97304,7 +97304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_.exit: ; preds = %47, %.lr.ph.preheader.i.i.i.i.i.i52, %.lr.ph.preheader.i.i.i.i.i.i47, %.lr.ph.preheader.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50
-  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %37, %.lr.ph.preheader.i.i.i.i.i.i ], [ %.1, %.lr.ph.preheader.i.i.i.i.i.i47 ], [ %61, %.lr.ph.preheader.i.i.i.i.i.i52 ], [ %36, %47 ]
+  %.0 = phi ptr [ %37, %.lr.ph.preheader.i.i.i.i.i.i ], [ %.1, %.lr.ph.preheader.i.i.i.i.i.i47 ], [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %61, %.lr.ph.preheader.i.i.i.i.i.i52 ], [ %36, %47 ]
   %68 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %68
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split, label %69
@@ -97358,7 +97358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit: ; preds = %69, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignEmRKbENK7_FillerclEPbS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit
 
@@ -97652,7 +97652,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKbS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKbS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -99396,7 +99396,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S4_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S4_.exit: ; preds = %47, %63, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49
-  %.0 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %60, %63 ], [ %36, %47 ]
+  %.0 = phi ptr [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49 ], [ %60, %63 ], [ %36, %47 ]
   %67 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %67
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split, label %68
@@ -99450,7 +99450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit: ; preds = %68, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6resizeEmRKcENKUlPcS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit
 
@@ -99936,7 +99936,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_.exit: ; preds = %47, %63, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49
-  %.0 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %60, %63 ], [ %36, %47 ]
+  %.0 = phi ptr [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit49 ], [ %60, %63 ], [ %36, %47 ]
   %67 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %67
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split, label %68
@@ -99990,7 +99990,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit: ; preds = %68, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignEmRKcENK7_FillerclEPcS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit
 
@@ -100284,7 +100284,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKcS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -102028,7 +102028,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S4_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S4_.exit: ; preds = %47, %63, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49
-  %.0 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %60, %63 ], [ %36, %47 ]
+  %.0 = phi ptr [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49 ], [ %60, %63 ], [ %36, %47 ]
   %67 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %67
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split, label %68
@@ -102082,7 +102082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit: ; preds = %68, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6resizeEmRKhENKUlPhS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit
 
@@ -102568,7 +102568,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_.exit: ; preds = %47, %63, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49
-  %.0 = phi ptr [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %60, %63 ], [ %36, %47 ]
+  %.0 = phi ptr [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit49 ], [ %60, %63 ], [ %36, %47 ]
   %67 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %67
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split, label %68
@@ -102622,7 +102622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit: ; preds = %68, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignEmRKhENK7_FillerclEPhS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit
 
@@ -102916,7 +102916,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKhS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKhS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -104588,7 +104588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !680
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split, label %74
@@ -104642,7 +104642,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6resizeEmRKsENKUlPsS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit
 
@@ -104976,7 +104976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPsET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPsET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, %_ZSt4moveIPsS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit ], [ %48, %_ZSt4moveIPsS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit ], [ %48, %_ZSt4moveIPsS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -105156,7 +105156,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !680
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split, label %74
@@ -105210,7 +105210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignEmRKsENK7_FillerclEPsS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit
 
@@ -105505,7 +105505,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKsS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKsS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -107176,7 +107176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !697
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split, label %74
@@ -107230,7 +107230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6resizeEmRKtENKUlPtS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit
 
@@ -107564,7 +107564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPtET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPtET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, %_ZSt4moveIPtS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit ], [ %48, %_ZSt4moveIPtS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit ], [ %48, %_ZSt4moveIPtS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -107744,7 +107744,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !697
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split, label %74
@@ -107798,7 +107798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignEmRKtENK7_FillerclEPtS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit
 
@@ -108093,7 +108093,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKtS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKtS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -109764,7 +109764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !714
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split, label %74
@@ -109818,7 +109818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6resizeEmRKiENKUlPiS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit
 
@@ -110152,7 +110152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPiET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit ], [ %48, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit ], [ %48, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -110332,7 +110332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !714
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split, label %74
@@ -110386,7 +110386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignEmRKiENK7_FillerclEPiS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit
 
@@ -110681,7 +110681,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKiS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKiS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -112352,7 +112352,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !731
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split, label %74
@@ -112406,7 +112406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6resizeEmRKjENKUlPjS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit
 
@@ -112740,7 +112740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPjET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPjET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit ], [ %48, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit ], [ %48, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -112920,7 +112920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !731
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split, label %74
@@ -112974,7 +112974,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignEmRKjENK7_FillerclEPjS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit
 
@@ -113269,7 +113269,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKjS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKjS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -114940,7 +114940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !748
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split, label %74
@@ -114994,7 +114994,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6resizeEmRKlENKUlPlS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit
 
@@ -115328,7 +115328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPlET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPlET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit ], [ %48, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit ], [ %48, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -115508,7 +115508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !748
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split, label %74
@@ -115562,7 +115562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignEmRKlENK7_FillerclEPlS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit
 
@@ -115857,7 +115857,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKlS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKlS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -117528,7 +117528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !765
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split, label %74
@@ -117582,7 +117582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6resizeEmRKmENKUlPmS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit
 
@@ -117916,7 +117916,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPmET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPmET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit ], [ %48, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit ], [ %48, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -118096,7 +118096,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !765
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split, label %74
@@ -118150,7 +118150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignEmRKmENK7_FillerclEPmS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit
 
@@ -118445,7 +118445,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br label %_ZSt5equalIPKmS1_EbT_S2_T0_.exit
 
 _ZSt5equalIPKmS1_EbT_S2_T0_.exit:                 ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread, %84, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit
-  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ %.not7.i.i.i.i, %84 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread ]
+  %85 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ %.not7.i.i.i.i, %84 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE11IsIdenticalERKS1_.exit.thread ]
   ret i1 %85
 }
 
@@ -120116,7 +120116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !782
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split, label %74
@@ -120170,7 +120170,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6resizeEmRKdENKUlPdS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit
 
@@ -120504,7 +120504,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPdET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPdET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit ], [ %48, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit ], [ %48, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -120684,7 +120684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !782
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split, label %74
@@ -120738,7 +120738,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignEmRKdENK7_FillerclEPdS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit
 
@@ -121041,7 +121041,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKdS1_EbT_S2_T0_.exit, !llvm.loop !783
 
 _ZSt5equalIPKdS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
+  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE11IsIdenticalERKS1_.exit.thread ], [ true, %83 ], [ %87, %.lr.ph.i.i.i.i ]
   ret i1 %90
 }
 
@@ -122713,7 +122713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S4_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !800
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split, label %74
@@ -122767,7 +122767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S4_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6resizeEmRKfENKUlPfS4_E_clES4_S4_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit
 
@@ -123101,7 +123101,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %_ZSt
   br label %_ZSt4nextIPfET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit
 
 _ZSt4nextIPfET_S1_NSt15iterator_traitsIS1_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, %_ZSt4moveIPfS0_ET0_T_S2_S1_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit ], [ %48, %_ZSt4moveIPfS0_ET0_T_S2_S1_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit ], [ %48, %_ZSt4moveIPfS0_ET0_T_S2_S1_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -123281,7 +123281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53: ; p
   br i1 %.not.i.i.i.i.i.i57, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_.exit, label %.lr.ph.i.i.i.i.i.i55, !llvm.loop !800
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i55, %.lr.ph.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i, %49, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53
-  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53 ], [ %36, %49 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
+  %.0 = phi ptr [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit53 ], [ %36, %49 ], [ %.1, %.lr.ph.i.i.i.i.i.i47 ], [ %38, %.lr.ph.i.i.i.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i55 ]
   %73 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %73
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split, label %74
@@ -123335,7 +123335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %74, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignEmRKfENK7_FillerclEPfS5_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit
 
@@ -123638,7 +123638,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKfS1_EbT_S2_T0_.exit, !llvm.loop !801
 
 _ZSt5equalIPKfS1_EbT_S2_T0_.exit:                 ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
+  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE11IsIdenticalERKS1_.exit.thread ], [ true, %83 ], [ %87, %.lr.ph.i.i.i.i ]
   ret i1 %90
 }
 
@@ -125310,7 +125310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i.i.i.i.i61, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_ENKUlPS2_S6_E_clES6_S6_.exit, label %.lr.ph.i.i.i.i.i.i59, !llvm.loop !818
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_ENKUlPS2_S6_E_clES6_S6_.exit: ; preds = %.lr.ph.i.i.i.i.i.i59, %.lr.ph.i.i.i.i.i.i49, %.lr.ph.i.i.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55
-  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55 ], [ %36, %47 ], [ %37, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i49 ], [ %61, %.lr.ph.i.i.i.i.i.i59 ]
+  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55 ], [ %36, %47 ], [ %.1, %.lr.ph.i.i.i.i.i.i49 ], [ %37, %.lr.ph.i.i.i.i.i.i ], [ %61, %.lr.ph.i.i.i.i.i.i59 ]
   %68 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %68
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split, label %69
@@ -125364,7 +125364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_ENKUlPS2_S6_E_clES6_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_ENKUlPS2_S6_E_clES6_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6resizeEmRKS2_ENKUlPS2_S6_E_clES6_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit
 
@@ -125698,7 +125698,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit
-  %.0 = phi ptr [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit ], [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %71, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %44, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit ], [ %48, %_ZSt4moveIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES3_ET0_T_S5_S4_.exit ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -125878,7 +125878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br i1 %.not.i.i.i.i.i.i61, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_ENK7_FillerclEPS2_S7_.exit, label %.lr.ph.i.i.i.i.i.i59, !llvm.loop !818
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_ENK7_FillerclEPS2_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i.i59, %.lr.ph.i.i.i.i.i.i49, %.lr.ph.i.i.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55
-  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55 ], [ %36, %47 ], [ %37, %.lr.ph.i.i.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i.i.i49 ], [ %61, %.lr.ph.i.i.i.i.i.i59 ]
+  %.0 = phi ptr [ %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit55 ], [ %36, %47 ], [ %.1, %.lr.ph.i.i.i.i.i.i49 ], [ %37, %.lr.ph.i.i.i.i.i.i ], [ %61, %.lr.ph.i.i.i.i.i.i59 ]
   %68 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %68
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split, label %69
@@ -125932,7 +125932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_ENK7_FillerclEPS2_S7_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_ENK7_FillerclEPS2_S7_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignEmRKS2_ENK7_FillerclEPS2_S7_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit
 
@@ -126241,7 +126241,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit, !llvm.loop !819
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfES4_EbT_S5_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread ], [ %93, %.lr.ph.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE11IsIdenticalERKS3_.exit.thread ], [ true, %83 ], [ %93, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -127885,7 +127885,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %common.resume unwind label %25
 
 common.resume:                                    ; preds = %75, %53, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %54, %53 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %24, %23 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %23
@@ -128050,7 +128050,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   unreachable
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6resizeEmRKS6_ENKUlPS6_SA_E_clESA_SA_.exit: ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65, %.lr.ph, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread
-  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %12, %.lr.ph ], [ %64, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65 ]
+  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %12, %.lr.ph ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %64, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65 ]
   %81 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %81
   br i1 %.not45, label %105, label %82
@@ -128552,7 +128552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11cha
   br label %_ZSt4nextIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit
 
 _ZSt4nextIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit, %._crit_edge, %20
-  %.0 = phi ptr [ %23, %20 ], [ %27, %._crit_edge ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit ], [ %23, %20 ], [ %27, %._crit_edge ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -128620,7 +128620,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %common.resume unwind label %25
 
 common.resume:                                    ; preds = %75, %53, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %54, %53 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %24, %23 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %23
@@ -128785,7 +128785,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   unreachable
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEmRKS6_ENK7_FillerclEPS6_SB_.exit: ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65, %.lr.ph, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread
-  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %12, %.lr.ph ], [ %64, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65 ]
+  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %12, %.lr.ph ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %64, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i65 ]
   %81 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %81
   br i1 %.not45, label %105, label %82
@@ -129174,7 +129174,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i.i.i, label %_ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !845
 
 _ZSt5equalIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EbT_S8_T0_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit
-  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread ], [ false, %.lr.ph.i.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ]
+  %96 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11IsIdenticalERKS7_.exit.thread ], [ true, %83 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %96
 }
 
@@ -131335,7 +131335,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i74, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit, label %.lr.ph.i.i.i.i69, !llvm.loop !864
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6resizeEmRKS1_ENKUlPS1_S5_E_clES5_S5_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67
-  %.0 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67 ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %87, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73 ]
+  %.0 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %87, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73 ]
   %120 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %120
   br i1 %.not45, label %151, label %121
@@ -131879,7 +131879,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit: ; pr
   br label %_ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit
 
 _ZSt4nextIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEET_S3_NSt15iterator_traitsIS3_E15difference_typeE.exit: ; preds = %5, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit, %._crit_edge, %19
-  %.0 = phi ptr [ %22, %19 ], [ %26, %._crit_edge ], [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit ], [ %11, %5 ]
+  %.0 = phi ptr [ %.0.lcssa.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit ], [ %22, %19 ], [ %26, %._crit_edge ], [ %11, %5 ]
   ret ptr %.0
 }
 
@@ -132143,7 +132143,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i74, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i69, !llvm.loop !864
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67
-  %.0 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67 ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %87, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73 ]
+  %.0 = phi ptr [ %87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit67 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %87, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i73 ]
   %120 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %120
   br i1 %.not45, label %151, label %121
@@ -132533,7 +132533,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, !llvm.loop !870
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
-  %93 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ %90, %.lr.ph.i.i.i.i ]
+  %93 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %90, %.lr.ph.i.i.i.i ]
   ret i1 %93
 }
 
@@ -132839,7 +132839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split, label %89
@@ -132893,7 +132893,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE5clearEv.exit
 
@@ -133092,7 +133092,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split, label %89
@@ -133146,7 +133146,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE5clearEv.exit
 
@@ -133340,7 +133340,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split, label %89
@@ -133394,7 +133394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE5clearEv.exit
 
@@ -133588,7 +133588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split, label %89
@@ -133642,7 +133642,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE5clearEv.exit
 
@@ -133836,7 +133836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split, label %89
@@ -133890,7 +133890,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE5clearEv.exit
 
@@ -134084,7 +134084,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split, label %89
@@ -134138,7 +134138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE5clearEv.exit
 
@@ -134332,7 +134332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split, label %89
@@ -134386,7 +134386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE5clearEv.exit
 
@@ -134580,7 +134580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split, label %89
@@ -134634,7 +134634,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5clearEv.exit
 
@@ -134828,7 +134828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split, label %89
@@ -134882,7 +134882,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE5clearEv.exit
 
@@ -135076,7 +135076,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split, label %89
@@ -135130,7 +135130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE5clearEv.exit
 
@@ -135324,7 +135324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split, label %89
@@ -135378,7 +135378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE5clearEv.exit
 
@@ -135572,7 +135572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split, label %89
@@ -135626,7 +135626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE5clearEv.exit
 
@@ -135820,7 +135820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split, label %89
@@ -135874,7 +135874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE5clearEv.exit
 
@@ -136070,7 +136070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split, label %89
@@ -136124,7 +136124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE5clearEv.exit
 
@@ -136320,7 +136320,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split, label %89
@@ -136374,7 +136374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE5clearEv.exit
 
@@ -136570,7 +136570,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split, label %89
@@ -136624,7 +136624,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE5clearEv.exit
 
@@ -136820,7 +136820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split, label %89
@@ -136874,7 +136874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE5clearEv.exit
 
@@ -137070,7 +137070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split, label %89
@@ -137124,7 +137124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE5clearEv.exit
 
@@ -137344,7 +137344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !871
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split, label %87
@@ -137398,7 +137398,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE5clearEv.exit
 
@@ -137620,7 +137620,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !872
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split, label %87
@@ -137674,7 +137674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE5clearEv.exit
 
@@ -137892,7 +137892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !873
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split, label %87
@@ -137946,7 +137946,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE5clearEv.exit
 
@@ -138164,7 +138164,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !874
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split, label %87
@@ -138218,7 +138218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE5clearEv.exit
 
@@ -138441,7 +138441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !875
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %53, %81, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %76, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i65 ]
   %91 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %91
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split, label %92
@@ -138495,7 +138495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE5clearEv.exit
 
@@ -138713,7 +138713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !876
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split, label %87
@@ -138767,7 +138767,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE5clearEv.exit
 
@@ -138985,7 +138985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !877
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split, label %87
@@ -139039,7 +139039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE5clearEv.exit
 
@@ -139257,7 +139257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !878
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split, label %87
@@ -139311,7 +139311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE5clearEv.exit
 
@@ -139534,7 +139534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !879
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %53, %81, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %76, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %76, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit ], [ %76, %81 ], [ %36, %53 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i65 ]
   %91 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %91
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split, label %92
@@ -139588,7 +139588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE5clearEv.exit
 
@@ -139806,7 +139806,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !880
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split, label %87
@@ -139860,7 +139860,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE5clearEv.exit
 
@@ -140078,7 +140078,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !881
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split, label %87
@@ -140132,7 +140132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE5clearEv.exit
 
@@ -140350,7 +140350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !882
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split, label %87
@@ -140404,7 +140404,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE5clearEv.exit
 
@@ -140622,7 +140622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !883
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split, label %87
@@ -140676,7 +140676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE5clearEv.exit
 
@@ -140796,7 +140796,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit: ; preds = %22
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit5
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit5: ; preds = %12, %22, %2, %79, %67, %55, %45, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit
-  %91 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit ], [ false, %45 ], [ false, %67 ], [ false, %55 ], [ %90, %79 ], [ false, %2 ], [ false, %22 ], [ false, %12 ]
+  %91 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatheqERKS0_.exit ], [ %90, %79 ], [ false, %45 ], [ false, %67 ], [ false, %55 ], [ false, %2 ], [ false, %22 ], [ false, %12 ]
   ret i1 %91
 }
 
@@ -141010,7 +141010,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !884
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split, label %87
@@ -141064,7 +141064,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE5clearEv.exit
 
@@ -141282,7 +141282,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not.i.i.i.i68, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !885
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i52, %.lr.ph.i.i.i.i, %52, %77, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit63
-  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %38, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %73, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %73, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit63 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit ], [ %73, %77 ], [ %36, %52 ], [ %.1, %.lr.ph.i.i.i.i52 ], [ %38, %.lr.ph.i.i.i.i ], [ %73, %.lr.ph.i.i.i.i65 ]
   %86 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %86
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split, label %87
@@ -141336,7 +141336,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE5clearEv.exit
 
@@ -141528,7 +141528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPbSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPbSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit50 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split, label %89
@@ -141582,7 +141582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPbSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPbSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE6assignIPKbEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPbSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5clearEv.exit
 
@@ -141772,7 +141772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit50: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPcSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPcSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit50
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit50 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit50 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split, label %89
@@ -141826,7 +141826,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPcSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPcSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE6assignIPKcEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPcSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE5clearEv.exit
 
@@ -142016,7 +142016,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit50: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPhSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPhSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit50
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit50 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit50 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split, label %89
@@ -142070,7 +142070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPhSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPhSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE6assignIPKhEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPhSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE5clearEv.exit
 
@@ -142262,7 +142262,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPsSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPsSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split, label %89
@@ -142316,7 +142316,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPsSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPsSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6assignIPKsEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPsSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE5clearEv.exit
 
@@ -142510,7 +142510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPtSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPtSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split, label %89
@@ -142564,7 +142564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPtSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPtSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE6assignIPKtEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPtSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE5clearEv.exit
 
@@ -142758,7 +142758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPiSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPiSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split, label %89
@@ -142812,7 +142812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPiSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPiSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6assignIPKiEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPiSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5clearEv.exit
 
@@ -143006,7 +143006,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPjSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPjSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split, label %89
@@ -143060,7 +143060,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPjSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPjSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6assignIPKjEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPjSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE5clearEv.exit
 
@@ -143254,7 +143254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split, label %89
@@ -143308,7 +143308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6assignIPKlEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPlSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv.exit
 
@@ -143502,7 +143502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPmSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPmSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split, label %89
@@ -143556,7 +143556,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPmSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPmSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE6assignIPKmEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPmSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE5clearEv.exit
 
@@ -143750,7 +143750,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPdSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPdSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split, label %89
@@ -143804,7 +143804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPdSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPdSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6assignIPKdEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPdSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE5clearEv.exit
 
@@ -143996,7 +143996,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit51: ; p
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPfSA_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPfSA_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split, label %89
@@ -144050,7 +144050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %89, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPfSA_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPfSA_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6assignIPKfEENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES6_S6_ENK7_CopierclEPfSA_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE5clearEv.exit
 
@@ -144242,7 +144242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_ENK7_CopierclEPS2_SC_.exit
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_ENK7_CopierclEPS2_SC_.exit: ; preds = %54, %83, %77, %68, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit, %44, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit51
-  %.0 = phi ptr [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit51 ], [ %38, %37 ], [ %38, %44 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit ], [ %.1, %68 ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
+  %.0 = phi ptr [ %38, %44 ], [ %.1, %68 ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit51 ], [ %38, %37 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit ], [ %74, %77 ], [ %74, %83 ], [ %36, %54 ]
   %88 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %88
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split, label %89
@@ -144296,7 +144296,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_ENK7_CopierclEPS2_SC_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_ENK7_CopierclEPS2_SC_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6assignIPKS2_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES8_S8_ENK7_CopierclEPS2_SC_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE5clearEv.exit
 
@@ -144375,7 +144375,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
           to label %common.resume unwind label %29
 
 common.resume:                                    ; preds = %87, %61, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %62, %61 ], [ %88, %87 ]
+  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %28, %27 ], [ %88, %87 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %27
@@ -144552,7 +144552,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   unreachable
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignIPKS6_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeESC_SC_ENK7_CopierclEPS6_SG_.exit: ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i67, %.lr.ph, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i55, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i, %73, %47, %13, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread
-  %.0 = phi ptr [ %72, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %14, %13 ], [ %.1, %47 ], [ %72, %73 ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %12, %.lr.ph ], [ %72, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i67 ]
+  %.0 = phi ptr [ %72, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit.thread ], [ %14, %13 ], [ %.1, %47 ], [ %72, %73 ], [ %12, %.lr.ph ], [ %14, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i55 ], [ %72, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i67 ]
   %93 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %93
   br i1 %.not45, label %117, label %94
@@ -144931,7 +144931,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i79, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i73, !llvm.loop !888
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i78, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %111, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit, %13, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit71
-  %.0 = phi ptr [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit71 ], [ %14, %13 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit ], [ %95, %111 ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %95, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i78 ]
+  %.0 = phi ptr [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit71 ], [ %14, %13 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit ], [ %95, %111 ], [ %12, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59 ], [ %95, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i78 ]
   %132 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %132
   br i1 %.not45, label %163, label %133

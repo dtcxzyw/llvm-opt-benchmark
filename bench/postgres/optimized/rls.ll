@@ -82,7 +82,7 @@ define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 nound
   unreachable
 
 42:                                               ; preds = %31, %28, %29, %24, %12, %9, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ 0, %12 ], [ 1, %24 ], [ 1, %29 ], [ 1, %28 ], [ 2, %31 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 1, %24 ], [ 1, %28 ], [ 0, %9 ], [ 1, %29 ], [ 2, %31 ]
   ret i32 %.0
 }
 
@@ -161,7 +161,7 @@ define dso_local range(i64 0, 2) i64 @row_security_active(ptr noundef readonly c
   br label %check_enable_rls.exit
 
 check_enable_rls.exit:                            ; preds = %1, %7, %10, %22, %26, %27, %29
-  %30 = phi i64 [ 0, %1 ], [ 0, %7 ], [ 0, %10 ], [ 0, %22 ], [ 0, %27 ], [ 0, %26 ], [ 1, %29 ]
+  %30 = phi i64 [ 0, %1 ], [ 0, %10 ], [ 0, %22 ], [ 0, %26 ], [ 0, %7 ], [ 0, %27 ], [ 1, %29 ]
   ret i64 %30
 }
 
@@ -219,7 +219,7 @@ define dso_local range(i64 0, 2) i64 @row_security_active_name(ptr noundef reado
   br label %check_enable_rls.exit
 
 check_enable_rls.exit:                            ; preds = %1, %11, %14, %26, %30, %31, %33
-  %34 = phi i64 [ 0, %1 ], [ 0, %11 ], [ 0, %14 ], [ 0, %26 ], [ 0, %31 ], [ 0, %30 ], [ 1, %33 ]
+  %34 = phi i64 [ 0, %1 ], [ 0, %14 ], [ 0, %26 ], [ 0, %30 ], [ 0, %11 ], [ 0, %31 ], [ 1, %33 ]
   ret i64 %34
 }
 

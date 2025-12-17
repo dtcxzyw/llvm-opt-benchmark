@@ -1276,7 +1276,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr noundef readonly capture
   br label %421
 
 421:                                              ; preds = %408, %411, %5, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %5 ], [ 1, %411 ], [ 1, %408 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 1, %411 ], [ 1, %408 ]
   ret i32 %.0
 }
 

@@ -97,7 +97,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
   br i1 %38, label %.lr.ph.i.i, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, !llvm.loop !22
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %.lr.ph.i.i, %30, %2, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %.0 = phi i1 [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %2 ], [ true, %30 ], [ true, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ true, %30 ], [ true, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -198,7 +198,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !15
   br label %41
 

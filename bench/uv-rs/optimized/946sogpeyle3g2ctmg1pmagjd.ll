@@ -189,7 +189,7 @@ define void @_ZN7uv_dirs25user_executable_directory17h459760ebf96e2355E(ptr dead
   unreachable
 
 common.resume:                                    ; preds = %.body.i8, %.body.i3, %.body.i, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i4, %.body.i3 ], [ %eh.lpad-body.i9, %.body.i8 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i4, %.body.i3 ], [ %36, %35 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i9, %.body.i8 ]
   resume { ptr, i32 } %common.resume.op
 
 48:                                               ; preds = %37
@@ -1396,7 +1396,7 @@ _ZN3std4path4Path4join17h6eb683a49121a9d3E.exit.i: ; preds = %.noexc34
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %63, %70
-  %eh.lpad-body = phi { ptr, i32 } [ %71, %70 ], [ %64, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %64, %63 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0d343b288e11cd27E"(ptr noalias noundef align 8 dereferenceable(24) %18) #11
           to label %172 unwind label %170
 

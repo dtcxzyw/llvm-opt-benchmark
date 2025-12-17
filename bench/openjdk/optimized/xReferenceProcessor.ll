@@ -360,7 +360,7 @@ define hidden void @_ZN19XReferenceProcessor25set_soft_reference_policyEb(ptr no
   br label %12
 
 12:                                               ; preds = %8, %11, %9
-  %_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink = phi ptr [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %9 ], [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %11 ], [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy, %8 ]
+  %_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink = phi ptr [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %11 ], [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %9 ], [ @_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink, ptr %13, align 8
   %14 = load ptr, ptr %_ZZN19XReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink, align 8
@@ -677,7 +677,7 @@ _ZNK19XReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit: ; preds
   br label %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread11
 
 _ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread11: ; preds = %_ZNK19XReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread, %45, %38, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit, %_ZNK19XReferenceProcessor11is_inactiveEP7oopDescS1_13ReferenceType.exit
-  %.0 = phi i1 [ false, %_ZNK19XReferenceProcessor11is_inactiveEP7oopDescS1_13ReferenceType.exit ], [ false, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %38 ], [ false, %45 ], [ true, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ %99, %_ZNK19XReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ]
+  %.0 = phi i1 [ false, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit ], [ false, %_ZNK19XReferenceProcessor11is_inactiveEP7oopDescS1_13ReferenceType.exit ], [ false, %45 ], [ false, %38 ], [ true, %_ZNK19XReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ %99, %_ZNK19XReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit ]
   ret i1 %.0
 }
 
@@ -733,7 +733,7 @@ define hidden noundef zeroext i1 @_ZNK19XReferenceProcessor11should_dropEP7oopDe
   br label %_ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit
 
 _ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit: ; preds = %17, %20, %26, %32
-  %.0.i.i.i = phi ptr [ %22, %20 ], [ %9, %17 ], [ %31, %26 ], [ %34, %32 ]
+  %.0.i.i.i = phi ptr [ %9, %17 ], [ %22, %20 ], [ %31, %26 ], [ %34, %32 ]
   %35 = icmp ne ptr %.0.i.i.i, null
   br label %56
 
@@ -771,12 +771,12 @@ _ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit: ; preds = %17, %20
   br label %_ZN8XBarrier28is_alive_barrier_on_weak_oopEP7oopDesc.exit
 
 _ZN8XBarrier28is_alive_barrier_on_weak_oopEP7oopDesc.exit: ; preds = %37, %40, %46, %52
-  %.0.i.i.i6 = phi ptr [ %42, %40 ], [ %9, %37 ], [ %51, %46 ], [ %54, %52 ]
+  %.0.i.i.i6 = phi ptr [ %9, %37 ], [ %42, %40 ], [ %51, %46 ], [ %54, %52 ]
   %55 = icmp ne ptr %.0.i.i.i6, null
   br label %56
 
 56:                                               ; preds = %3, %_ZN8XBarrier28is_alive_barrier_on_weak_oopEP7oopDesc.exit, %_ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit
-  %.0 = phi i1 [ %35, %_ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit ], [ %55, %_ZN8XBarrier28is_alive_barrier_on_weak_oopEP7oopDesc.exit ], [ true, %3 ]
+  %.0 = phi i1 [ %55, %_ZN8XBarrier28is_alive_barrier_on_weak_oopEP7oopDesc.exit ], [ %35, %_ZN8XBarrier31is_alive_barrier_on_phantom_oopEP7oopDesc.exit ], [ true, %3 ]
   ret i1 %.0
 }
 

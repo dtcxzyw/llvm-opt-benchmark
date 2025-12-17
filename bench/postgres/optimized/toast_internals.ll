@@ -59,7 +59,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %24
 
 24:                                               ; preds = %6, %11, %16, %20
-  %25 = phi i32 [ %19, %16 ], [ %23, %20 ], [ 8, %6 ], [ %13, %11 ]
+  %25 = phi i32 [ %23, %20 ], [ %19, %16 ], [ 8, %6 ], [ %13, %11 ]
   %.not23 = icmp eq i8 %1, 0
   %26 = load i32, ptr @default_toast_compression, align 4
   %27 = trunc i32 %26 to i8
@@ -109,7 +109,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %48
 
 48:                                               ; preds = %37, %47, %44
-  %.020 = phi i64 [ %46, %44 ], [ 0, %47 ], [ 0, %37 ]
+  %.020 = phi i64 [ 0, %47 ], [ %46, %44 ], [ 0, %37 ]
   ret i64 %.020
 }
 

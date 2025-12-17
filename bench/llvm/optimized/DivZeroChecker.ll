@@ -734,30 +734,22 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
   %35 = icmp ne i8 %34, 13
   %.not.not24.i.i = icmp eq ptr %32, null
   %.not.not.i.i = or i1 %.not.not24.i.i, %35
-  br i1 %.not.not.i.i, label %36, label %_ZNK5clang4Type12isScalarTypeEv.exit.i
+  br i1 %.not.not.i.i, label %41, label %36
 
 36:                                               ; preds = %22
-  %37 = icmp ne i8 %34, 46
-  %.not12.not.i.i = or i1 %.not.not24.i.i, %37
-  br i1 %.not12.not.i.i, label %46, label %38
+  %37 = load i32, ptr %33, align 16
+  %38 = lshr i32 %37, 19
+  %39 = and i32 %38, 511
+  %40 = add nsw i32 %39, -435
+  %spec.select.i.i = icmp ult i32 %40, 53
+  br i1 %spec.select.i.i, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i, label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-38:                                               ; preds = %36
-  %39 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %32) #18
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 74
-  %41 = load i8, ptr %40, align 2
-  %42 = and i8 %41, 1
-  %43 = icmp ne i8 %42, 0
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
-  %.not.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
-  %45 = select i1 %43, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %45, label %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i, label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
+41:                                               ; preds = %22
+  %42 = icmp ne i8 %34, 46
+  %.not12.not.i.i = or i1 %.not.not24.i.i, %42
+  br i1 %.not12.not.i.i, label %43, label %_ZNK5clang4Type12isScalarTypeEv.exit.i
 
-._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i: ; preds = %38
-  %.pre.i = load ptr, ptr %23, align 8, !tbaa !47
-  br label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
-
-46:                                               ; preds = %36
+43:                                               ; preds = %41
   switch i8 %34, label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit [
     i8 41, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
     i8 11, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
@@ -767,16 +759,24 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
     i8 10, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
   ]
 
-_ZNK5clang4Type12isScalarTypeEv.exit.i:           ; preds = %22
-  %47 = load i32, ptr %33, align 16
-  %48 = lshr i32 %47, 19
-  %49 = and i32 %48, 511
-  %50 = add nsw i32 %49, -435
-  %spec.select.i.i = icmp ult i32 %50, 53
-  br i1 %spec.select.i.i, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i, label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
+_ZNK5clang4Type12isScalarTypeEv.exit.i:           ; preds = %41
+  %44 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %32) #18
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 74
+  %46 = load i8, ptr %45, align 2
+  %47 = and i8 %46, 1
+  %48 = icmp ne i8 %47, 0
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %49, align 8
+  %.not.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
+  %50 = select i1 %48, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %50, label %_ZNK5clang4Type12isScalarTypeEv.exit._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i, label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-_ZNK5clang4Type12isScalarTypeEv.exit.thread.i:    ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.i, %46, %46, %46, %46, %46, %46, %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i
-  %51 = phi ptr [ %.pre.i, %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i ], [ %24, %46 ], [ %24, %46 ], [ %24, %46 ], [ %24, %46 ], [ %24, %46 ], [ %24, %46 ], [ %24, %_ZNK5clang4Type12isScalarTypeEv.exit.i ]
+_ZNK5clang4Type12isScalarTypeEv.exit._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i: ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.i
+  %.pre.i = load ptr, ptr %23, align 8, !tbaa !47
+  br label %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
+
+_ZNK5clang4Type12isScalarTypeEv.exit.thread.i:    ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i, %43, %43, %43, %43, %43, %43, %36
+  %51 = phi ptr [ %.pre.i, %_ZNK5clang4Type12isScalarTypeEv.exit._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i ], [ %24, %43 ], [ %24, %43 ], [ %24, %43 ], [ %24, %43 ], [ %24, %43 ], [ %24, %43 ], [ %24, %36 ]
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
@@ -1268,7 +1268,7 @@ _ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit.sink.split.
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sink.i) #18
   br label %_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %3, %38, %46, %_ZNK5clang4Type12isScalarTypeEv.exit.i, %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i, %_ZNK12_GLOBAL__N_114DivZeroChecker9reportBugEN4llvm9StringRefENS1_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS5_14CheckerContextE.exit.i, %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit.sink.split.i
+_ZNK12_GLOBAL__N_114DivZeroChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %3, %36, %43, %_ZNK5clang4Type12isScalarTypeEv.exit.i, %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i, %_ZNK12_GLOBAL__N_114DivZeroChecker9reportBugEN4llvm9StringRefENS1_18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS5_14CheckerContextE.exit.i, %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void

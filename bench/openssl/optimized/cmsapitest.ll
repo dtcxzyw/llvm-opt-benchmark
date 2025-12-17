@@ -153,7 +153,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %35
 
 35:                                               ; preds = %15, %12, %3, %6, %9, %34, %32, %24, %2
-  %.0 = phi i32 [ 1, %34 ], [ 0, %32 ], [ 0, %24 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ 0, %15 ]
+  %.0 = phi i32 [ 1, %34 ], [ 0, %32 ], [ 0, %24 ], [ 0, %12 ], [ 0, %3 ], [ 0, %2 ], [ 0, %9 ], [ 0, %6 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -370,9 +370,9 @@ read_all.exit:                                    ; preds = %21, %24
   br label %33
 
 33:                                               ; preds = %29, %26, %read_all.exit, %7, %1
-  %.08 = phi ptr [ %8, %7 ], [ %27, %26 ], [ null, %read_all.exit ], [ null, %1 ], [ %.19, %29 ]
-  %.07 = phi ptr [ null, %7 ], [ %.0.i, %26 ], [ %.0.i, %read_all.exit ], [ null, %1 ], [ %.1, %29 ]
-  %.0 = phi i32 [ 0, %7 ], [ 0, %26 ], [ 0, %read_all.exit ], [ 0, %1 ], [ %spec.select, %29 ]
+  %.08 = phi ptr [ null, %1 ], [ %.19, %29 ], [ %8, %7 ], [ %27, %26 ], [ null, %read_all.exit ]
+  %.07 = phi ptr [ null, %1 ], [ %.1, %29 ], [ null, %7 ], [ %.0.i, %26 ], [ %.0.i, %read_all.exit ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %29 ], [ 0, %7 ], [ 0, %26 ], [ 0, %read_all.exit ]
   call void @CMS_ContentInfo_free(ptr noundef %.08) #5
   %34 = call i32 @BIO_free(ptr noundef %4) #5
   call void @CRYPTO_free(ptr noundef %.07, ptr noundef nonnull @.str.14, i32 noundef 383) #5
@@ -471,9 +471,9 @@ define internal fastcc range(i32 0, 2) i32 @test_encrypt_decrypt(ptr noundef %0)
   %47 = zext i1 %46 to i32
   br label %51
 
-.critedge:                                        ; preds = %1, %8, %10, %12, %16, %19, %26, %33
-  %.021.ph = phi ptr [ null, %1 ], [ null, %8 ], [ null, %10 ], [ null, %12 ], [ %17, %16 ], [ %17, %19 ], [ %17, %26 ], [ %17, %33 ]
-  %.0.ph = phi ptr [ null, %1 ], [ null, %8 ], [ null, %10 ], [ null, %12 ], [ null, %16 ], [ null, %19 ], [ %31, %26 ], [ %31, %33 ]
+.critedge:                                        ; preds = %8, %10, %12, %16, %19, %26, %33, %1
+  %.021.ph = phi ptr [ null, %8 ], [ null, %10 ], [ null, %12 ], [ %17, %16 ], [ %17, %19 ], [ %17, %26 ], [ %17, %33 ], [ null, %1 ]
+  %.0.ph = phi ptr [ null, %8 ], [ null, %10 ], [ null, %12 ], [ null, %16 ], [ null, %19 ], [ %31, %26 ], [ %31, %33 ], [ null, %1 ]
   %48 = call i32 @BIO_free(ptr noundef %.0.ph) #5
   call void @OPENSSL_sk_free(ptr noundef %3) #5
   %49 = call i32 @BIO_free(ptr noundef %4) #5

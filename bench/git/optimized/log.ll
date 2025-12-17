@@ -1057,8 +1057,8 @@ _.exit47:                                         ; preds = %195, %197
   br label %._crit_edge
 
 200:                                              ; preds = %171, %193, %181, %show_blob_object.exit
-  %.132 = phi i32 [ %.0.i, %show_blob_object.exit ], [ 0, %181 ], [ %194, %193 ], [ %.3, %171 ]
-  %.1 = phi i32 [ %.03059, %show_blob_object.exit ], [ %.03059, %181 ], [ %.03059, %193 ], [ %174, %171 ]
+  %.132 = phi i32 [ %.0.i, %show_blob_object.exit ], [ %194, %193 ], [ 0, %181 ], [ %.3, %171 ]
+  %.1 = phi i32 [ %.03059, %show_blob_object.exit ], [ %.03059, %193 ], [ %.03059, %181 ], [ %174, %171 ]
   %201 = add i32 %.1, 1
   %202 = load i32, ptr %53, align 8, !tbaa !102
   %203 = icmp ult i32 %201, %202
@@ -3718,7 +3718,7 @@ strbuf_addch.exit265:                             ; preds = %strbuf_avail.exit.i
   br label %set_outdir.exit
 
 set_outdir.exit:                                  ; preds = %.thread315, %731, %732, %733, %736
-  %.0.i = phi ptr [ %737, %736 ], [ @.str.239, %732 ], [ %726, %.thread315 ], [ %728, %731 ], [ %2, %733 ]
+  %.0.i = phi ptr [ @.str.239, %732 ], [ %737, %736 ], [ %728, %731 ], [ %726, %.thread315 ], [ %2, %733 ]
   store ptr %.0.i, ptr @output_directory, align 8, !tbaa !114
   %738 = getelementptr inbounds nuw i8, ptr %30, i64 1716
   %739 = load i32, ptr %738, align 4, !tbaa !117
@@ -4224,7 +4224,7 @@ _.exit280:                                        ; preds = %infer_range_diff_ra
   br label %960
 
 960:                                              ; preds = %958, %959, %956, %940
-  %.1138 = phi ptr [ %957, %956 ], [ null, %959 ], [ null, %958 ], [ null, %940 ]
+  %.1138 = phi ptr [ null, %940 ], [ %957, %956 ], [ null, %959 ], [ null, %958 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 56, i1 false)
   %961 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %962 = load i32, ptr %961, align 8, !tbaa !254
@@ -4737,7 +4737,7 @@ prepare_bases.exit:                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %get_base_commit.exit.thread
 
-get_base_commit.exit.thread:                      ; preds = %.critedge.critedge.i, %1002, %.critedge103.i, %963, %1053, %1062, %prepare_bases.exit, %get_base_commit.exit
+get_base_commit.exit.thread:                      ; preds = %1002, %963, %.critedge.critedge.i, %1053, %1062, %.critedge103.i, %prepare_bases.exit, %get_base_commit.exit
   %1168 = load ptr, ptr %39, align 8, !tbaa !114
   %1169 = icmp ne ptr %1168, null
   %1170 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -5978,7 +5978,7 @@ define internal range(i32 0, 2) i32 @thread_callback(ptr noundef readonly captur
   br i1 %.not11, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %9, %6, %7, %3
-  %.sink = phi i32 [ 0, %3 ], [ 1, %7 ], [ 1, %6 ], [ 2, %9 ]
+  %.sink = phi i32 [ 0, %3 ], [ 1, %6 ], [ 1, %7 ], [ 2, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %.sink, ptr %11, align 8, !tbaa !277
   br label %12
@@ -6435,7 +6435,7 @@ define internal i32 @git_format_config(ptr noundef %0, ptr noundef %1, ptr nound
   br label %171
 
 171:                                              ; preds = %57, %167, %147, %154, %153, %132, %135, %134, %61, %.critedge, %32, %34, %36, %38, %169, %166, %162, %157, %140, %121, %119, %110, %104, %102, %93, %87, %82, %.critedge178, %75, %71, %47, %45, %29, %27, %21, %19, %12, %9
-  %.0 = phi i32 [ %170, %169 ], [ 0, %166 ], [ 0, %162 ], [ 0, %157 ], [ 0, %140 ], [ 0, %121 ], [ 0, %119 ], [ %113, %110 ], [ 0, %104 ], [ 0, %102 ], [ %96, %93 ], [ %90, %87 ], [ 0, %82 ], [ 0, %.critedge178 ], [ 0, %75 ], [ 0, %71 ], [ 0, %47 ], [ 0, %45 ], [ 0, %29 ], [ -1, %27 ], [ 0, %21 ], [ -1, %19 ], [ %15, %12 ], [ 0, %9 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %32 ], [ 0, %.critedge ], [ 0, %61 ], [ 0, %134 ], [ 0, %135 ], [ 0, %132 ], [ 0, %153 ], [ 0, %154 ], [ 0, %147 ], [ 0, %167 ], [ 0, %57 ]
+  %.0 = phi i32 [ %170, %169 ], [ 0, %147 ], [ 0, %166 ], [ 0, %162 ], [ 0, %157 ], [ 0, %132 ], [ 0, %140 ], [ 0, %61 ], [ 0, %121 ], [ 0, %119 ], [ %113, %110 ], [ 0, %104 ], [ 0, %102 ], [ %96, %93 ], [ %90, %87 ], [ 0, %82 ], [ 0, %.critedge178 ], [ 0, %75 ], [ 0, %71 ], [ 0, %32 ], [ 0, %47 ], [ 0, %45 ], [ 0, %9 ], [ 0, %29 ], [ -1, %27 ], [ 0, %21 ], [ -1, %19 ], [ %15, %12 ], [ 0, %38 ], [ 0, %36 ], [ 0, %34 ], [ 0, %167 ], [ 0, %.critedge ], [ 0, %134 ], [ 0, %135 ], [ 0, %153 ], [ 0, %154 ], [ 0, %57 ]
   ret i32 %.0
 }
 
@@ -6482,7 +6482,7 @@ define internal fastcc range(i32 0, 4) i32 @parse_cover_from_description(ptr nou
   unreachable
 
 14:                                               ; preds = %10, %8, %6, %4, %1, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %1 ], [ 0, %4 ], [ 1, %6 ], [ 2, %8 ], [ 3, %10 ]
+  %.0 = phi i32 [ 2, %8 ], [ 1, %6 ], [ 0, %4 ], [ 1, %1 ], [ 1, %2 ], [ 3, %10 ]
   ret i32 %.0
 }
 
@@ -7253,7 +7253,7 @@ define internal fastcc range(i32 -1, 3) i32 @parse_decoration_style(ptr noundef 
   br label %auto_decoration_style.exit
 
 auto_decoration_style.exit:                       ; preds = %1, %11, %9, %7, %5, %3
-  %.0 = phi i32 [ 2, %3 ], [ 1, %5 ], [ -1, %7 ], [ 1, %9 ], [ %14, %11 ], [ %2, %1 ]
+  %.0 = phi i32 [ 1, %5 ], [ -1, %7 ], [ 2, %3 ], [ %2, %1 ], [ %14, %11 ], [ 1, %9 ]
   ret i32 %.0
 }
 

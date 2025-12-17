@@ -205,7 +205,7 @@ define dso_local nonnull ptr @get_sigframe(ptr noundef readonly captures(none) %
   br label %108
 
 108:                                              ; preds = %101, %96, %93, %90
-  %109 = phi ptr [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %93 ], [ inttoptr (i64 -1 to ptr), %90 ], [ %spec.select, %101 ]
+  %109 = phi ptr [ %spec.select, %101 ], [ inttoptr (i64 -1 to ptr), %96 ], [ inttoptr (i64 -1 to ptr), %93 ], [ inttoptr (i64 -1 to ptr), %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %109

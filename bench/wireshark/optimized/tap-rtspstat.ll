@@ -159,7 +159,7 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr readnon
   br label %26
 
 26:                                               ; preds = %24, %22, %20, %18
-  %.049 = phi i64 [ 199, %18 ], [ 299, %20 ], [ 399, %22 ], [ %., %24 ]
+  %.049 = phi i64 [ 399, %22 ], [ 199, %18 ], [ 299, %20 ], [ %., %24 ]
   %27 = load ptr, ptr %9, align 8
   %28 = inttoptr i64 %.049 to ptr
   %29 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %28)
@@ -207,7 +207,7 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr readnon
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge61, %48, %40, %32, %26, %15
-  %.3 = phi i32 [ 0, %15 ], [ 0, %26 ], [ 0, %32 ], [ 1, %40 ], [ 1, %48 ], [ 1, %.critedge61 ]
+  %.3 = phi i32 [ 0, %32 ], [ 0, %26 ], [ 0, %15 ], [ 1, %40 ], [ 1, %48 ], [ 1, %.critedge61 ]
   ret i32 %.3
 }
 

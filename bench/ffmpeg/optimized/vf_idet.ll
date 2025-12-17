@@ -454,7 +454,7 @@ thread-pre-split:                                 ; preds = %96
   br label %141
 
 141:                                              ; preds = %73, %71, %134, %._crit_edge85, %34, %16
-  %.0 = phi i32 [ %38, %34 ], [ %132, %._crit_edge85 ], [ %140, %134 ], [ %20, %16 ], [ -12, %71 ], [ 0, %73 ]
+  %.0 = phi i32 [ %38, %34 ], [ %132, %._crit_edge85 ], [ %140, %134 ], [ -12, %71 ], [ %20, %16 ], [ 0, %73 ]
   ret i32 %.0
 }
 
@@ -644,7 +644,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   br label %119
 
 119:                                              ; preds = %114, %111, %._crit_edge219
-  %.0169 = phi i32 [ 0, %._crit_edge219 ], [ 1, %111 ], [ %., %114 ]
+  %.0169 = phi i32 [ 1, %111 ], [ 0, %._crit_edge219 ], [ %., %114 ]
   %120 = load i64, ptr %14, align 16, !tbaa !36
   %121 = sitofp i64 %120 to float
   %122 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -751,8 +751,8 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   br label %.thread210
 
 .thread210:                                       ; preds = %152, %.thread, %.thread207, %162, %168, %157
-  %173 = phi ptr [ %156, %.thread207 ], [ %156, %162 ], [ %156, %168 ], [ %156, %157 ], [ %149, %.thread ], [ %146, %152 ]
-  %174 = phi i32 [ %155, %.thread207 ], [ 1, %162 ], [ 2, %168 ], [ 0, %157 ], [ 3, %.thread ], [ 3, %152 ]
+  %173 = phi ptr [ %156, %157 ], [ %156, %.thread207 ], [ %156, %162 ], [ %156, %168 ], [ %149, %.thread ], [ %146, %152 ]
+  %174 = phi i32 [ 0, %157 ], [ %155, %.thread207 ], [ 1, %162 ], [ 2, %168 ], [ 3, %.thread ], [ 3, %152 ]
   %175 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %176 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.pre245 = load i64, ptr %176, align 8, !tbaa !34
@@ -1022,7 +1022,7 @@ define internal i32 @request_frame(ptr noundef readonly captures(none) %0) #3 {
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %7, %13, %16, %1, %23
-  %.0 = phi i32 [ -541478725, %1 ], [ -541478725, %16 ], [ -541478725, %13 ], [ %11, %7 ], [ %28, %23 ], [ -12, %19 ]
+  %.0 = phi i32 [ -12, %19 ], [ %28, %23 ], [ -541478725, %1 ], [ -541478725, %16 ], [ -541478725, %13 ], [ %11, %7 ]
   ret i32 %.0
 }
 

@@ -1205,7 +1205,7 @@ specialize_module_load_attr.exit:                 ; preds = %31
   br label %73
 
 73:                                               ; preds = %72, %71, %69, %66, %64, %58, %48
-  %.0.i.ph.i = phi i32 [ %spec.select.i.i, %64 ], [ %63, %58 ], [ 8, %66 ], [ %..i.i, %72 ], [ 6, %71 ], [ 1, %69 ], [ 9, %48 ]
+  %.0.i.ph.i = phi i32 [ %63, %58 ], [ 6, %71 ], [ %..i.i, %72 ], [ 1, %69 ], [ %spec.select.i.i, %64 ], [ 8, %66 ], [ 9, %48 ]
   %74 = load i32, ptr %46, align 8, !tbaa !4
   %.not.i.i.i = icmp sgt i32 %74, -1
   br i1 %.not.i.i.i, label %75, label %Py_XDECREF.exit.i
@@ -1251,7 +1251,7 @@ Py_XDECREF.exit.thread.i:                         ; preds = %Py_XDECREF.exit.i, 
   %87 = add nsw i32 %85, -1
   store i32 %87, ptr %83, align 8, !tbaa !4
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %specialize_class_load_attr.exit.thread37, label %.critedge.sink.split.sink.split
+  br i1 %88, label %.thread36, label %.critedge.sink.split.sink.split
 
 89:                                               ; preds = %Py_XDECREF.exit.thread.i
   %.val.i = load ptr, ptr %11, align 8, !tbaa !9
@@ -1278,7 +1278,7 @@ Py_XDECREF.exit.thread.i:                         ; preds = %Py_XDECREF.exit.i, 
   %101 = add nsw i32 %99, -1
   store i32 %101, ptr %97, align 8, !tbaa !4
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %specialize_class_load_attr.exit.thread37, label %.critedge.sink.split.sink.split
+  br i1 %102, label %.thread36, label %.critedge.sink.split.sink.split
 
 103:                                              ; preds = %89
   switch i32 %79, label %117 [
@@ -1305,18 +1305,18 @@ Py_XDECREF.exit.thread.i:                         ; preds = %Py_XDECREF.exit.i, 
   %111 = getelementptr i8, ptr %1, i64 2
   store i16 832, ptr %111, align 2, !tbaa !24
   %.not.i29.i = icmp eq ptr %107, null
-  br i1 %.not.i29.i, label %specialize_class_load_attr.exit.thread34, label %112
+  br i1 %.not.i29.i, label %.thread33, label %112
 
 112:                                              ; preds = %110
   %113 = load i32, ptr %107, align 8, !tbaa !4
   %.not.i.i30.i = icmp sgt i32 %113, -1
-  br i1 %.not.i.i30.i, label %114, label %specialize_class_load_attr.exit.thread34
+  br i1 %.not.i.i30.i, label %114, label %.thread33
 
 114:                                              ; preds = %112
   %115 = add nsw i32 %113, -1
   store i32 %115, ptr %107, align 8, !tbaa !4
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %specialize_class_load_attr.exit, label %specialize_class_load_attr.exit.thread34
+  br i1 %116, label %282, label %.thread33
 
 117:                                              ; preds = %103
   %118 = load ptr, ptr %8, align 8, !tbaa !55
@@ -1332,25 +1332,7 @@ Py_XDECREF.exit.thread.i:                         ; preds = %Py_XDECREF.exit.i, 
   %122 = add nsw i32 %120, -1
   store i32 %122, ptr %118, align 8, !tbaa !4
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %specialize_class_load_attr.exit.thread37, label %.critedge.sink.split.sink.split
-
-specialize_class_load_attr.exit.thread34:         ; preds = %110, %112, %114
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %296
-
-specialize_class_load_attr.exit.thread37:         ; preds = %86, %100, %121
-  %.sink49.i.ph = phi ptr [ %118, %121 ], [ %97, %100 ], [ %83, %86 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink49.i.ph) #9
-  br label %.critedge.sink.split.sink.split
-
-specialize_class_load_attr.exit:                  ; preds = %114
-  call void @_Py_Dealloc(ptr noundef nonnull %107) #9
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %296
+  br i1 %123, label %.thread36, label %.critedge.sink.split.sink.split
 
 124:                                              ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1395,7 +1377,7 @@ specialize_class_load_attr.exit:                  ; preds = %114
   br label %instance_has_key.exit.i
 
 instance_has_key.exit.i:                          ; preds = %142, %139, %137, %134, %129, %124
-  %.015.i.i = phi i1 [ %133, %129 ], [ false, %124 ], [ false, %137 ], [ false, %134 ], [ %144, %142 ], [ false, %139 ]
+  %.015.i.i = phi i1 [ false, %124 ], [ %133, %129 ], [ false, %134 ], [ false, %137 ], [ %144, %142 ], [ false, %139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val.i21 = load ptr, ptr %11, align 8, !tbaa !9
@@ -1698,9 +1680,9 @@ specialize_dict_access.exit.i.i:                  ; preds = %272, %259
   br label %do_specialize_instance_load_attr.exit.i
 
 do_specialize_instance_load_attr.exit.i:          ; preds = %specialize_dict_access.exit.i.i, %272, %269, %267, %264, %259, %.thread.i.i.i, %254, %241, %240, %238, %236, %231, %202, %157, %155, %151, %151, %151, %151, %instance_has_key.exit.i
-  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %202 ], [ -1, %238 ], [ 0, %240 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ -1, %151 ], [ %sext.i.i, %157 ], [ -1, %155 ], [ -1, %231 ], [ 0, %236 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %254 ], [ -1, %267 ], [ -1, %264 ], [ -1, %.thread.i.i.i ], [ -1, %259 ], [ -1, %269 ], [ -1, %272 ]
+  %.0.i.i = phi i32 [ -1, %instance_has_key.exit.i ], [ 0, %240 ], [ -1, %259 ], [ 0, %236 ], [ %sext.i.i, %157 ], [ -1, %151 ], [ -1, %151 ], [ -1, %155 ], [ -1, %267 ], [ 0, %202 ], [ -1, %.thread.i.i.i ], [ -1, %269 ], [ -1, %272 ], [ 0, %specialize_dict_access.exit.i.i ], [ -1, %241 ], [ -1, %231 ], [ -1, %238 ], [ -1, %151 ], [ -1, %151 ], [ -1, %254 ], [ -1, %264 ]
   %.not.i12.i = icmp eq ptr %147, null
-  br i1 %.not.i12.i, label %282, label %do_specialize_instance_load_attr.exit.thread.i
+  br i1 %.not.i12.i, label %specialize_instance_load_attr.exit, label %do_specialize_instance_load_attr.exit.thread.i
 
 do_specialize_instance_load_attr.exit.thread.sink.split.i: ; preds = %227, %198, %184
   %.sink.i23 = phi i8 [ -57, %227 ], [ -48, %198 ], [ -49, %184 ]
@@ -1709,22 +1691,22 @@ do_specialize_instance_load_attr.exit.thread.sink.split.i: ; preds = %227, %198,
   br label %do_specialize_instance_load_attr.exit.thread.i
 
 do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_instance_load_attr.exit.thread.sink.split.i, %do_specialize_instance_load_attr.exit.i, %220, %217, %function_check_args.exit102.i.i, %210, %205, %PyObject_TypeCheck.exit.thread.i.i, %PyObject_TypeCheck.exit.i.i, %177, %function_check_args.exit.i.i, %170, %165, %163, %159
-  %.0.i16.i = phi i32 [ %.0.i.i, %do_specialize_instance_load_attr.exit.i ], [ -1, %205 ], [ -1, %210 ], [ -1, %165 ], [ -1, %170 ], [ -1, %220 ], [ -1, %217 ], [ -1, %function_check_args.exit102.i.i ], [ -1, %PyObject_TypeCheck.exit.thread.i.i ], [ -1, %PyObject_TypeCheck.exit.i.i ], [ -1, %177 ], [ -1, %function_check_args.exit.i.i ], [ -1, %163 ], [ -1, %159 ], [ 0, %do_specialize_instance_load_attr.exit.thread.sink.split.i ]
+  %.0.i16.i = phi i32 [ %.0.i.i, %do_specialize_instance_load_attr.exit.i ], [ -1, %205 ], [ -1, %210 ], [ -1, %170 ], [ -1, %function_check_args.exit102.i.i ], [ -1, %163 ], [ -1, %217 ], [ -1, %function_check_args.exit.i.i ], [ -1, %159 ], [ -1, %220 ], [ -1, %PyObject_TypeCheck.exit.i.i ], [ -1, %PyObject_TypeCheck.exit.thread.i.i ], [ -1, %177 ], [ -1, %165 ], [ 0, %do_specialize_instance_load_attr.exit.thread.sink.split.i ]
   %277 = load i32, ptr %147, align 8, !tbaa !4
   %.not.i.i13.i = icmp sgt i32 %277, -1
-  br i1 %.not.i.i13.i, label %278, label %282
+  br i1 %.not.i.i13.i, label %278, label %specialize_instance_load_attr.exit
 
 278:                                              ; preds = %do_specialize_instance_load_attr.exit.thread.i
   %279 = add nsw i32 %277, -1
   store i32 %279, ptr %147, align 8, !tbaa !4
   %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %282
+  br i1 %280, label %281, label %specialize_instance_load_attr.exit
 
 281:                                              ; preds = %278
   call void @_Py_Dealloc(ptr noundef nonnull %147) #9
-  br label %282
+  br label %specialize_instance_load_attr.exit
 
-282:                                              ; preds = %281, %278, %do_specialize_instance_load_attr.exit.thread.i, %do_specialize_instance_load_attr.exit.i
+specialize_instance_load_attr.exit:               ; preds = %do_specialize_instance_load_attr.exit.i, %do_specialize_instance_load_attr.exit.thread.i, %278, %281
   %.0.i17.i = phi i32 [ %.0.i.i, %do_specialize_instance_load_attr.exit.i ], [ %.0.i16.i, %do_specialize_instance_load_attr.exit.thread.i ], [ %.0.i16.i, %278 ], [ %.0.i16.i, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1732,7 +1714,25 @@ do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_insta
   %.not41 = icmp eq i32 %.0.i17.i, 0
   br i1 %.not41, label %296, label %.critedge
 
-.critedge.sink.split.sink.split:                  ; preds = %121, %119, %117, %100, %98, %96, %86, %84, %82, %specialize_class_load_attr.exit.thread37
+.thread33:                                        ; preds = %110, %112, %114
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %296
+
+.thread36:                                        ; preds = %100, %86, %121
+  %.sink49.i.ph = phi ptr [ %118, %121 ], [ %83, %86 ], [ %97, %100 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink49.i.ph) #9
+  br label %.critedge.sink.split.sink.split
+
+282:                                              ; preds = %114
+  call void @_Py_Dealloc(ptr noundef nonnull %107) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %296
+
+.critedge.sink.split.sink.split:                  ; preds = %100, %98, %96, %86, %84, %82, %121, %119, %117, %.thread36
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge.sink.split
@@ -1741,7 +1741,7 @@ do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_insta
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %44, %31, %28, %26, %21, %18, %3, %282
+.critedge:                                        ; preds = %.critedge.sink.split, %31, %26, %28, %21, %18, %44, %specialize_instance_load_attr.exit, %3
   %283 = load i8, ptr %1, align 2, !tbaa !4
   %284 = zext i8 %283 to i64
   %285 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %284
@@ -1768,7 +1768,7 @@ unspecialize.exit:                                ; preds = %.critedge, %290
   store i16 %.sroa.03.0.i.i.i, ptr %287, align 2, !tbaa !24
   br label %296
 
-296:                                              ; preds = %specialize_class_load_attr.exit, %specialize_class_load_attr.exit.thread34, %specialize_module_load_attr.exit, %unspecialize.exit, %282
+296:                                              ; preds = %specialize_module_load_attr.exit, %282, %.thread33, %specialize_instance_load_attr.exit, %unspecialize.exit
   ret void
 }
 
@@ -1865,7 +1865,7 @@ descriptor_is_class.exit.thread.i:                ; preds = %descriptor_is_class
   br label %analyze_descriptor_store.exit
 
 analyze_descriptor_store.exit:                    ; preds = %descriptor_is_class.exit.i, %descriptor_is_class.exit.thread.i, %19, %29, %35, %37, %40, %42, %43
-  %.0.i.ph = phi i32 [ %spec.select.i.i, %35 ], [ %34, %29 ], [ 8, %37 ], [ %..i.i, %43 ], [ 6, %42 ], [ 1, %40 ], [ 9, %19 ], [ 10, %descriptor_is_class.exit.thread.i ], [ 11, %descriptor_is_class.exit.i ]
+  %.0.i.ph = phi i32 [ 6, %42 ], [ %..i.i, %43 ], [ 1, %40 ], [ %spec.select.i.i, %35 ], [ 8, %37 ], [ 9, %19 ], [ 10, %descriptor_is_class.exit.thread.i ], [ 11, %descriptor_is_class.exit.i ], [ %34, %29 ]
   %.pr = load i32, ptr %4, align 4, !tbaa !47
   %44 = icmp eq i32 %.pr, 0
   br i1 %44, label %specialize_dict_access.exit.thread, label %45
@@ -1981,7 +1981,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %46, %PyObject_TypeC
   %.not12.i.i = icmp ult i64 %94, 65536
   br i1 %.not12.i.i, label %113, label %specialize_dict_access.exit.thread
 
-specialize_dict_access.exit.thread:               ; preds = %93, %90, %80, %.thread.i, %85, %88, %62, %45, %analyze_descriptor_store.exit
+specialize_dict_access.exit.thread:               ; preds = %93, %90, %.thread.i, %88, %80, %85, %62, %45, %analyze_descriptor_store.exit
   %.not.i39 = icmp eq ptr %13, null
   br i1 %.not.i39, label %Py_XDECREF.exit, label %.thread58
 
@@ -2302,7 +2302,7 @@ define hidden void @_Py_Specialize_BinarySubscr(i64 %0, i64 %1, ptr noundef capt
   %or.cond = or i1 %.not38.not, %.not4.i
   br i1 %or.cond, label %function_kind.exit.thread, label %61
 
-function_kind.exit.thread:                        ; preds = %47, %53
+function_kind.exit.thread:                        ; preds = %53, %47
   %57 = load i32, ptr %34, align 8, !tbaa !4
   %.not.i48 = icmp sgt i32 %57, -1
   br i1 %.not.i48, label %58, label %Py_DECREF.exit
@@ -2415,7 +2415,7 @@ unspecialize.exit:                                ; preds = %Py_DECREF.exit, %10
   br label %109
 
 Py_DECREF.exit49.thread73:                        ; preds = %89, %86, %84, %31, %27, %19, %11
-  %.033 = phi i8 [ -96, %11 ], [ -94, %19 ], [ -95, %27 ], [ -98, %31 ], [ -97, %84 ], [ -97, %86 ], [ -97, %89 ]
+  %.033 = phi i8 [ -98, %31 ], [ -96, %11 ], [ -94, %19 ], [ -95, %27 ], [ -97, %84 ], [ -97, %86 ], [ -97, %89 ]
   store i8 %.033, ptr %2, align 2, !tbaa !4
   %108 = getelementptr i8, ptr %2, i64 2
   store i16 832, ptr %108, align 2, !tbaa !24
@@ -2677,7 +2677,7 @@ define hidden void @_Py_Specialize_Call(i64 %0, ptr noundef captures(none) %1, i
   br label %function_kind.exit.i
 
 function_kind.exit.i:                             ; preds = %53, %50, %44
-  %.0.i.i = phi i32 [ 7, %50 ], [ 7, %44 ], [ %..i.i, %53 ]
+  %.0.i.i = phi i32 [ 7, %44 ], [ %..i.i, %53 ], [ 7, %50 ]
   %56 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %57 = load ptr, ptr %56, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -2859,7 +2859,7 @@ function_kind.exit.thread.i.i:                    ; preds = %128, %123
   br label %get_init_for_simple_managed_python_class.exit.i
 
 get_init_for_simple_managed_python_class.exit.i:  ; preds = %.split.sink.split.i.i, %133, %function_kind.exit.thread.i.i, %128, %120, %.split12.i.i, %114, %111
-  %.0.i.ph.i = phi ptr [ null, %.split.sink.split.i.i ], [ %115, %128 ], [ null, %133 ], [ null, %function_kind.exit.thread.i.i ], [ null, %120 ], [ null, %.split12.i.i ], [ null, %114 ], [ null, %111 ]
+  %.0.i.ph.i = phi ptr [ null, %.split.sink.split.i.i ], [ null, %133 ], [ null, %function_kind.exit.thread.i.i ], [ null, %120 ], [ null, %.split12.i.i ], [ null, %114 ], [ %115, %128 ], [ null, %111 ]
   %.pr.i = load i32, ptr %4, align 4, !tbaa !47
   %.not36.i = icmp eq i32 %.pr.i, 0
   %.not.i41.i = icmp eq ptr %.0.i.ph.i, null
@@ -2925,7 +2925,7 @@ Py_XDECREF.exit.thread.sink.split.i:              ; preds = %155, %139
   br label %Py_XDECREF.exit.thread.i
 
 Py_XDECREF.exit.thread.i:                         ; preds = %Py_XDECREF.exit.thread.sink.split.i, %155, %150, %139, %137, %136, %108
-  %.2.ph.i = phi i32 [ 0, %155 ], [ 0, %150 ], [ -1, %139 ], [ -1, %137 ], [ -1, %136 ], [ -1, %108 ], [ %.2.ph.ph.i, %Py_XDECREF.exit.thread.sink.split.i ]
+  %.2.ph.i = phi i32 [ -1, %108 ], [ 0, %155 ], [ 0, %150 ], [ -1, %139 ], [ -1, %137 ], [ -1, %136 ], [ %.2.ph.ph.i, %Py_XDECREF.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %specialize_c_call.exit
 
@@ -3044,7 +3044,7 @@ specialize_c_call.exit:                           ; preds = %Py_XDECREF.exit.thr
   %.not29 = icmp eq i32 %.0, 0
   br i1 %.not29, label %specialize_c_call.exit.thread, label %specialize_c_call.exit.thread47
 
-specialize_c_call.exit.thread47:                  ; preds = %170, %167, %66, %62, %function_kind.exit.i, %14, %7, %194, %specialize_c_call.exit
+specialize_c_call.exit.thread47:                  ; preds = %170, %167, %62, %function_kind.exit.i, %14, %7, %66, %194, %specialize_c_call.exit
   %202 = load i8, ptr %1, align 2, !tbaa !4
   %203 = zext i8 %202 to i64
   %204 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %203
@@ -3071,7 +3071,7 @@ unspecialize.exit:                                ; preds = %specialize_c_call.e
   store i16 %.sroa.03.0.i.i.i, ptr %206, align 2, !tbaa !24
   br label %specialize_c_call.exit.thread
 
-specialize_c_call.exit.thread:                    ; preds = %185, %186, %189, %187, %168, %191, %87, %91, %95, %100, %158, %69, %24, %25, %39, %36, %.thread.i, %41, %200, %unspecialize.exit, %specialize_c_call.exit
+specialize_c_call.exit.thread:                    ; preds = %185, %186, %187, %168, %189, %191, %91, %95, %100, %158, %69, %25, %36, %.thread.i, %41, %39, %200, %87, %24, %unspecialize.exit, %specialize_c_call.exit
   ret void
 }
 
@@ -3098,7 +3098,7 @@ define internal fastcc range(i32 -1, 1) i32 @specialize_py_call(ptr noundef %0, 
   br label %function_kind.exit
 
 function_kind.exit:                               ; preds = %4, %10, %13
-  %.0.i = phi i32 [ 7, %10 ], [ 7, %4 ], [ %..i, %13 ]
+  %.0.i = phi i32 [ 7, %4 ], [ %..i, %13 ], [ 7, %10 ]
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3173,7 +3173,7 @@ define hidden void @_Py_Specialize_CallKw(i64 %0, ptr noundef captures(none) %1,
   br label %function_kind.exit.i
 
 function_kind.exit.i:                             ; preds = %15, %12, %6
-  %.0.i.i = phi i1 [ false, %12 ], [ false, %6 ], [ %17, %15 ]
+  %.0.i.i = phi i1 [ false, %6 ], [ %17, %15 ], [ false, %12 ]
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3230,7 +3230,7 @@ function_kind.exit.i:                             ; preds = %15, %12, %6
   br label %function_kind.exit.i18
 
 function_kind.exit.i18:                           ; preds = %44, %41, %35
-  %.0.i.i19 = phi i1 [ false, %41 ], [ false, %35 ], [ %46, %44 ]
+  %.0.i.i19 = phi i1 [ false, %35 ], [ %46, %44 ], [ false, %41 ]
   %47 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %48 = load ptr, ptr %47, align 8, !tbaa !34
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -3260,7 +3260,7 @@ function_kind.exit.i18:                           ; preds = %44, %41, %35
   store i16 832, ptr %60, align 2, !tbaa !24
   br label %specialize_py_call_kw.exit
 
-61:                                               ; preds = %31, %function_kind.exit.i, %24, %function_kind.exit.i18, %53
+61:                                               ; preds = %31, %24, %function_kind.exit.i, %53, %function_kind.exit.i18
   %62 = load i8, ptr %1, align 2, !tbaa !4
   %63 = zext i8 %62 to i64
   %64 = getelementptr i8, ptr @_PyOpcode_Deopt, i64 %63
@@ -3787,7 +3787,7 @@ define hidden void @_Py_Specialize_ForIter(i64 %0, ptr noundef captures(none) in
   br label %adaptive_counter_backoff.exit
 
 adaptive_counter_backoff.exit:                    ; preds = %8, %11, %14, %25, %30, %26
-  %storemerge = phi i16 [ %35, %30 ], [ -4, %26 ], [ 832, %25 ], [ 832, %14 ], [ 832, %11 ], [ 832, %8 ]
+  %storemerge = phi i16 [ -4, %26 ], [ %35, %30 ], [ 832, %25 ], [ 832, %14 ], [ 832, %11 ], [ 832, %8 ]
   store i16 %storemerge, ptr %4, align 2, !tbaa !174
   ret void
 }
@@ -4143,8 +4143,8 @@ Py_DECREF.exit:                                   ; preds = %31, %33, %36
   store i32 %46, ptr %3, align 4, !tbaa !47
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit.thread:                           ; preds = %43, %40, %38, %.thread47, %4
-  %.039 = phi i1 [ false, %4 ], [ %24, %43 ], [ %24, %40 ], [ %24, %38 ], [ %15, %.thread47 ]
+Py_XDECREF.exit.thread:                           ; preds = %40, %38, %43, %.thread47, %4
+  %.039 = phi i1 [ false, %4 ], [ %24, %40 ], [ %24, %38 ], [ %24, %43 ], [ %15, %.thread47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = call ptr @_PyType_LookupRefAndVersion(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %6) #9
   store ptr %47, ptr %2, align 8, !tbaa !55
@@ -4222,7 +4222,7 @@ descriptor_is_class.exit.thread:                  ; preds = %Py_XDECREF.exit.thr
   br label %classify_descriptor.exit
 
 classify_descriptor.exit:                         ; preds = %81, %80, %78, %75, %72, %66, %56, %descriptor_is_class.exit.thread, %descriptor_is_class.exit
-  %.2 = phi i32 [ 11, %descriptor_is_class.exit ], [ 10, %descriptor_is_class.exit.thread ], [ 9, %56 ], [ 1, %78 ], [ 6, %80 ], [ %..i, %81 ], [ 8, %75 ], [ %71, %66 ], [ %spec.select.i, %72 ]
+  %.2 = phi i32 [ 11, %descriptor_is_class.exit ], [ 10, %descriptor_is_class.exit.thread ], [ 9, %56 ], [ 8, %75 ], [ %spec.select.i, %72 ], [ 1, %78 ], [ %..i, %81 ], [ 6, %80 ], [ %71, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Py_XDECREF.exit
 
@@ -4311,7 +4311,7 @@ define internal fastcc range(i32 0, 2) i32 @specialize_attr_loadclassattr(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %.thread, %24, %10, %.critedge39
-  %.0 = phi i32 [ 1, %.critedge39 ], [ 0, %10 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.critedge39 ], [ 0, %24 ], [ 0, %.thread ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -4637,7 +4637,7 @@ is_compactlong.exit:                              ; preds = %2
   br label %is_compactlong.exit5
 
 is_compactlong.exit5:                             ; preds = %2, %8, %6, %is_compactlong.exit
-  %12 = phi i32 [ 0, %is_compactlong.exit ], [ 0, %6 ], [ %11, %8 ], [ 0, %2 ]
+  %12 = phi i32 [ 0, %is_compactlong.exit ], [ %11, %8 ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %12
 }
 

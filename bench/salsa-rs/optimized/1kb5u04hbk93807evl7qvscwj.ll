@@ -732,7 +732,7 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime7Runtime8block_on17h6b2734523
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hbc95a268ce92065dE(ptr noundef nonnull align 1 %5, i1 noundef zeroext false)
   br label %"_ZN4core3ptr211drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$salsa..id..Id$C$salsa..function..sync..SyncState$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h5d44fd46d70a7ec2E.exit"
 
-51:                                               ; preds = %40, %23, %20, %18, %34
+51:                                               ; preds = %40, %34, %23, %20, %18
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %52 = cmpxchg ptr %11, i8 1, i8 0 release monotonic, align 1
@@ -802,7 +802,7 @@ define hidden void @"_ZN5salsa7storage17Storage$LT$Db$GT$3new17h75a6f4c10636250a
   unreachable
 
 common.resume:                                    ; preds = %32, %14, %19, %23
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %20, %19 ], [ %20, %23 ], [ %33, %32 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %23 ], [ %15, %14 ], [ %20, %19 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf0faacc3e202c4a9E.exit.i": ; preds = %3

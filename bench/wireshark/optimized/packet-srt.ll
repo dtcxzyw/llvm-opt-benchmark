@@ -870,7 +870,7 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %192, %.sink.split.i
   br label %241
 
 241:                                              ; preds = %239, %235, %.lr.ph.i
-  %.1.i = phi i32 [ 0, %235 ], [ 0, %239 ], [ %233, %.lr.ph.i ]
+  %.1.i = phi i32 [ 0, %239 ], [ 0, %235 ], [ %233, %.lr.ph.i ]
   %242 = add i32 %.0197212.i, 4
   %243 = icmp ult i32 %242, %231
   br i1 %243, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
@@ -1026,7 +1026,7 @@ define internal noundef zeroext i1 @dissect_srt_heur_udp(ptr noundef %0, ptr nou
   br label %20
 
 20:                                               ; preds = %16, %9, %14, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %16 ], [ false, %9 ], [ false, %14 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ true, %16 ], [ false, %9 ], [ false, %14 ]
   ret i1 %.0
 }
 

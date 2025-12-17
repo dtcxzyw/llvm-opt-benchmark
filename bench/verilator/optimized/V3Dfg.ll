@@ -2396,7 +2396,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %61, %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
-  %common.resume.op = phi { ptr, i32 } [ %.pn19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i26 ], [ %35, %34 ], [ %62, %61 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ %35, %34 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i26 ], [ %62, %61 ]
   resume { ptr, i32 } %common.resume.op
 
 40:                                               ; preds = %2
@@ -3226,7 +3226,7 @@ _ZNSt8__detail9_Map_baseISt4pairIPK9DfgVertexS4_ES1_IKS5_hESaIS7_ENS_10_Select1s
   br label %89
 
 89:                                               ; preds = %13, %8, %5, %3, %.loopexit
-  %.0 = phi i1 [ %88, %.loopexit ], [ true, %3 ], [ false, %5 ], [ false, %8 ], [ false, %13 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %3 ], [ false, %5 ], [ %88, %.loopexit ], [ false, %13 ]
   ret i1 %.0
 }
 
@@ -3718,7 +3718,7 @@ _ZNSt14_Function_baseD2Ev.exit15:                 ; preds = %_ZN9DfgVertex15forE
   br label %_ZN8DfgGraph12removeVertexER9DfgVertex.exit
 
 _ZN8DfgGraph12removeVertexER9DfgVertex.exit:      ; preds = %54, %58, %73, %77, %91, %95
-  %.sink.i = phi ptr [ %43, %54 ], [ %43, %58 ], [ %62, %73 ], [ %62, %77 ], [ %80, %91 ], [ %80, %95 ]
+  %.sink.i = phi ptr [ %43, %58 ], [ %62, %77 ], [ %43, %54 ], [ %62, %73 ], [ %80, %91 ], [ %80, %95 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i, i8 0, i64 16, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %96, align 4, !tbaa !37
@@ -3785,7 +3785,7 @@ _ZN8DfgGraph12removeVertexER9DfgVertex.exit:      ; preds = %54, %58, %73, %77, 
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit18:                 ; preds = %110, %108, %103, %101
-  %.pn = phi { ptr, i32 } [ %lpad.phi28, %101 ], [ %lpad.phi28, %103 ], [ %lpad.phi, %108 ], [ %lpad.phi, %110 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi28, %103 ], [ %lpad.phi28, %101 ], [ %lpad.phi, %108 ], [ %lpad.phi, %110 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -7118,7 +7118,7 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit223.thread.i: ; preds = %_ZNK9DfgVertex16
   br label %_ZL13dumpDotVertexRSoRK9DfgVertex.exit
 
 common.resume:                                    ; preds = %508, %506, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i
-  %common.resume.op = phi { ptr, i32 } [ %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i ], [ %474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i ], [ %402, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137.i ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i ], [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163.i ], [ %333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i ], [ %316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i ], [ %lpad.phi, %506 ], [ %lpad.phi, %508 ]
+  %common.resume.op = phi { ptr, i32 } [ %316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i ], [ %481, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229.i ], [ %474, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226.i ], [ %402, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i ], [ %219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit163.i ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i ], [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit137.i ], [ %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i ], [ %333, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i ], [ %lpad.phi, %506 ], [ %lpad.phi, %508 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL13dumpDotVertexRSoRK9DfgVertex.exit:           ; preds = %83, %98, %100, %106, %112, %118, %122, %124, %216, %231, %233, %239, %245, %251, %255, %257, %350, %399, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread.i, %471, %_ZNK9DfgVertex16hasMultipleSinksEv.exit223.thread.i
@@ -7931,7 +7931,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12DfgVertexVar4keepEv(ptr 
   br label %25
 
 25:                                               ; preds = %15, %._crit_edge, %10, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %10 ], [ true, %._crit_edge ], [ %.not.not, %15 ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ true, %1 ], [ true, %10 ], [ %.not.not, %15 ]
   ret i1 %.0
 }
 
@@ -9690,7 +9690,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRK12DfgVarPacked
   br label %"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
 "_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %2, %9
-  %13 = phi i1 [ true, %2 ], [ %12, %9 ]
+  %13 = phi i1 [ %12, %9 ], [ true, %2 ]
   ret i1 %13
 }
 

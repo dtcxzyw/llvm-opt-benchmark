@@ -1057,7 +1057,7 @@ define hidden void @_ZN4cvc58internal5proof18AlfPrintChannelOut14printTrustStepE
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %58
   br label %.loopexit36, !llvm.loop !83
 
-.loopexit36:                                      ; preds = %.lr.ph.i.i.i.i, %29, %34, %..loopexit_crit_edge21.i.i.i.i
+.loopexit36:                                      ; preds = %.lr.ph.i.i.i.i, %29, %..loopexit_crit_edge21.i.i.i.i, %34
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !35
   %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.12, i64 noundef 30)
@@ -1377,7 +1377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4c
   br label %.body
 
 .body:                                            ; preds = %.thread, %169, %207
-  %.pn = phi { ptr, i32 } [ %208, %207 ], [ %170, %169 ], [ %164, %.thread ]
+  %.pn = phi { ptr, i32 } [ %208, %207 ], [ %164, %.thread ], [ %170, %169 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
   br label %.loopexit
 
@@ -2315,7 +2315,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc59ProofRuleES1_Sa
   br label %.critedge, !llvm.loop !108
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %.thread..critedge_crit_edge, %..loopexit_crit_edge21.i.i, %19
-  %43 = phi i32 [ %.pre45, %.thread..critedge_crit_edge ], [ %.pre46, %..loopexit_crit_edge21.i.i ], [ %.pre46, %19 ], [ %.pre46, %.lr.ph.i.i ]
+  %43 = phi i32 [ %.pre45, %.thread..critedge_crit_edge ], [ %.pre46, %19 ], [ %.pre46, %..loopexit_crit_edge21.i.i ], [ %.pre46, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr null, ptr %44, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

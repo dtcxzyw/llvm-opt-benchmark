@@ -537,7 +537,7 @@ OSSL_STORE_LOADER_CTX_free.exit:                  ; preds = %113, %119, %122
   br label %126
 
 126:                                              ; preds = %61, %60, %OSSL_STORE_LOADER_CTX_free.exit, %111, %ERR_ATTIC_error.exit66, %ERR_ATTIC_error.exit
-  %.059 = phi ptr [ null, %ERR_ATTIC_error.exit66 ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ %62, %111 ], [ null, %ERR_ATTIC_error.exit ], [ null, %60 ], [ null, %61 ]
+  %.059 = phi ptr [ null, %ERR_ATTIC_error.exit66 ], [ null, %ERR_ATTIC_error.exit ], [ null, %60 ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ %62, %111 ], [ null, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.059
@@ -670,7 +670,7 @@ OSSL_STORE_LOADER_CTX_free.exit21:                ; preds = %44, %50, %53
   br label %.split
 
 .split:                                           ; preds = %file_find_type.exit.thread, %6, %OSSL_STORE_LOADER_CTX_free.exit, %OSSL_STORE_LOADER_CTX_free.exit21
-  %.0 = phi ptr [ null, %OSSL_STORE_LOADER_CTX_free.exit21 ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ null, %6 ], [ %8, %file_find_type.exit.thread ]
+  %.0 = phi ptr [ null, %OSSL_STORE_LOADER_CTX_free.exit21 ], [ %8, %file_find_type.exit.thread ], [ null, %OSSL_STORE_LOADER_CTX_free.exit ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -822,7 +822,7 @@ ERR_ATTIC_error.exit9:                            ; preds = %22, %25
   br label %28
 
 28:                                               ; preds = %21, %ERR_ATTIC_error.exit9, %ERR_ATTIC_error.exit, %16, %6
-  %.1 = phi i32 [ 0, %ERR_ATTIC_error.exit ], [ 1, %16 ], [ 1, %6 ], [ 0, %ERR_ATTIC_error.exit9 ], [ 0, %21 ]
+  %.1 = phi i32 [ 1, %6 ], [ 1, %16 ], [ 0, %ERR_ATTIC_error.exit ], [ 0, %ERR_ATTIC_error.exit9 ], [ 0, %21 ]
   ret i32 %.1
 }
 
@@ -955,7 +955,7 @@ define internal ptr @file_load(ptr noundef initializes((12, 16)) %0, ptr noundef
   br i1 %81, label %file_name_check.exit.thread, label %82
 
 82:                                               ; preds = %79, %76, %76
-  %.021.i = phi ptr [ %77, %76 ], [ %73, %79 ], [ %77, %76 ]
+  %.021.i = phi ptr [ %77, %76 ], [ %77, %76 ], [ %73, %79 ]
   %83 = tail call ptr @__ctype_b_loc() #12
   %84 = load ptr, ptr %83, align 8, !tbaa !39
   %85 = load i8, ptr %.021.i, align 1, !tbaa !19
@@ -1023,8 +1023,8 @@ file_name_to_uri.exit:                            ; preds = %ossl_ends_with_dirs
   %118 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %113, ptr noundef nonnull %96, i64 noundef %112) #10
   br label %file_name_check.exit.thread
 
-file_name_check.exit.thread:                      ; preds = %82, %79, %76, %67, %69, %65, %file_name_to_uri.exit, %file_name_check.exit, %59
-  %.0146 = phi ptr [ null, %59 ], [ null, %file_name_check.exit ], [ %113, %file_name_to_uri.exit ], [ null, %65 ], [ null, %69 ], [ null, %67 ], [ null, %76 ], [ null, %79 ], [ null, %82 ]
+file_name_check.exit.thread:                      ; preds = %82, %69, %79, %67, %65, %76, %file_name_to_uri.exit, %file_name_check.exit, %59
+  %.0146 = phi ptr [ null, %59 ], [ null, %file_name_check.exit ], [ %113, %file_name_to_uri.exit ], [ null, %76 ], [ null, %65 ], [ null, %67 ], [ null, %79 ], [ null, %69 ], [ null, %82 ]
   %119 = load ptr, ptr %0, align 8, !tbaa !22
   %120 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %43, ptr noundef %119) #10
   store ptr %120, ptr %44, align 8, !tbaa !19
@@ -1290,7 +1290,7 @@ file_try_read_msblob.exit:                        ; preds = %214
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %file_load_try_decode.exit
 
-218:                                              ; preds = %202, %.critedge.i, %217
+218:                                              ; preds = %.critedge.i, %202, %217
   %.2.ph = phi i32 [ -1, %202 ], [ 0, %217 ], [ -1, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %219 = load ptr, ptr %34, align 8, !tbaa !19
@@ -1348,7 +1348,7 @@ file_try_read_PVK.exit:                           ; preds = %229
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %file_load_try_decode.exit
 
-233:                                              ; preds = %223, %.critedge.i112, %232
+233:                                              ; preds = %.critedge.i112, %223, %232
   %.3.ph = phi i32 [ %226, %232 ], [ %.2.ph, %223 ], [ %.2.ph, %.critedge.i112 ]
   %234 = load ptr, ptr %34, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1670,8 +1670,8 @@ ERR_ATTIC_error.exit117:                          ; preds = %351, %354
   br label %file_load_try_decode.exit
 
 file_load_try_decode.exit:                        ; preds = %314, %346, %file_try_read_PVK.exit, %file_try_read_msblob.exit, %359, %335, %241, %file_read_pem.exit.thread
-  %.0 = phi i32 [ -1, %file_read_pem.exit.thread ], [ %.8, %359 ], [ %.8, %335 ], [ %.3.ph, %241 ], [ %226, %file_try_read_PVK.exit ], [ 0, %file_try_read_msblob.exit ], [ %.8, %346 ], [ %.8, %314 ]
-  %.6 = phi ptr [ %.5, %file_read_pem.exit.thread ], [ null, %359 ], [ null, %335 ], [ null, %241 ], [ %230, %file_try_read_PVK.exit ], [ %215, %file_try_read_msblob.exit ], [ null, %346 ], [ %.160.i, %314 ]
+  %.0 = phi i32 [ -1, %file_read_pem.exit.thread ], [ %.8, %359 ], [ %.8, %335 ], [ 0, %file_try_read_msblob.exit ], [ %.3.ph, %241 ], [ %226, %file_try_read_PVK.exit ], [ %.8, %346 ], [ %.8, %314 ]
+  %.6 = phi ptr [ %.5, %file_read_pem.exit.thread ], [ null, %359 ], [ null, %335 ], [ %215, %file_try_read_msblob.exit ], [ null, %241 ], [ %230, %file_try_read_PVK.exit ], [ null, %346 ], [ %.160.i, %314 ]
   %362 = load ptr, ptr %22, align 8, !tbaa !47
   %363 = load i32, ptr %38, align 8, !tbaa !34
   %364 = and i32 %363, 1
@@ -1821,8 +1821,8 @@ store_info_free.exit131:                          ; preds = %409, %411
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %.6) #10
   br label %152
 
-.critedge:                                        ; preds = %file_eof.exit108, %407, %405, %.critedge3.thread, %ossl_ends_with_dirsep.exit.i, %file_eof.exit, %53, %55, %ERR_ATTIC_error.exit, %file_load_try_repeat.exit, %store_info_free.exit, %127
-  %.267 = phi ptr [ %128, %127 ], [ null, %store_info_free.exit ], [ %162, %file_load_try_repeat.exit ], [ null, %ERR_ATTIC_error.exit ], [ null, %55 ], [ null, %53 ], [ null, %file_eof.exit ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %.critedge3.thread ], [ %.6, %405 ], [ %.6, %407 ], [ null, %file_eof.exit108 ]
+.critedge:                                        ; preds = %file_eof.exit108, %407, %405, %.critedge3.thread, %ossl_ends_with_dirsep.exit.i, %file_eof.exit, %55, %ERR_ATTIC_error.exit, %53, %file_load_try_repeat.exit, %store_info_free.exit, %127
+  %.267 = phi ptr [ %128, %127 ], [ null, %53 ], [ null, %store_info_free.exit ], [ null, %ERR_ATTIC_error.exit ], [ %162, %file_load_try_repeat.exit ], [ null, %55 ], [ null, %ossl_ends_with_dirsep.exit.i ], [ null, %file_eof.exit ], [ %.6, %405 ], [ %.6, %407 ], [ null, %file_eof.exit108 ], [ null, %.critedge3.thread ]
   ret ptr %.267
 }
 
@@ -2208,15 +2208,15 @@ ERR_ATTIC_error.exit:                             ; preds = %9, %12
   br i1 %40, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %38, %35, %30, %22
-  %.sink29.ph = phi i32 [ 524328, %22 ], [ 524328, %30 ], [ 107, %35 ], [ 524328, %38 ]
-  %.sink.ph = phi i32 [ 71, %22 ], [ 75, %30 ], [ 80, %35 ], [ 84, %38 ]
+  %.sink29.ph = phi i32 [ 107, %35 ], [ 524328, %22 ], [ 524328, %30 ], [ 524328, %38 ]
+  %.sink.ph = phi i32 [ 80, %35 ], [ 71, %22 ], [ 75, %30 ], [ 84, %38 ]
   %41 = tail call i32 @ERR_get_next_error_library() #10
   store i32 %41, ptr @lib_code, align 4, !tbaa !12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %38, %35, %30, %22
-  %.sink29 = phi i32 [ 524328, %22 ], [ 524328, %30 ], [ 107, %35 ], [ 524328, %38 ], [ %.sink29.ph, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 71, %22 ], [ 75, %30 ], [ 80, %35 ], [ 84, %38 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.sink29 = phi i32 [ 524328, %30 ], [ 107, %35 ], [ 524328, %38 ], [ 524328, %22 ], [ %.sink29.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 75, %30 ], [ 80, %35 ], [ 84, %38 ], [ 71, %22 ], [ %.sink.ph, %.sink.split.sink.split ]
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.52, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %42 = load i32, ptr @lib_code, align 4, !tbaa !12
@@ -2435,7 +2435,7 @@ define internal ptr @try_decode_PKCS12(ptr noundef readnone captures(address_is_
   call void @PKCS12_free(ptr noundef nonnull %21) #10
   br label %.thread94
 
-.thread101:                                       ; preds = %31, %36, %37
+.thread101:                                       ; preds = %36, %31, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2656,23 +2656,23 @@ store_info_free.exit.i:                           ; preds = %68, %66
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %54) #10
   br label %72
 
-72:                                               ; preds = %ERR_ATTIC_error.exit.i, %45, %store_info_free.exit.i
+72:                                               ; preds = %45, %ERR_ATTIC_error.exit.i, %store_info_free.exit.i
   %73 = load i32, ptr @lib_code, align 4, !tbaa !12
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %72, %33, %27
-  %.sink39.ph = phi i32 [ 524295, %27 ], [ 101, %33 ], [ 524332, %72 ]
-  %.sink.ph = phi i32 [ 461, %27 ], [ 468, %33 ], [ 484, %72 ]
-  %.0.ph.ph = phi ptr [ %22, %27 ], [ %22, %33 ], [ null, %72 ]
+  %.sink39.ph = phi i32 [ 101, %33 ], [ 524295, %27 ], [ 524332, %72 ]
+  %.sink.ph = phi i32 [ 468, %33 ], [ 461, %27 ], [ 484, %72 ]
+  %.0.ph.ph = phi ptr [ %22, %33 ], [ %22, %27 ], [ null, %72 ]
   %75 = call i32 @ERR_get_next_error_library() #10
   store i32 %75, ptr @lib_code, align 4, !tbaa !12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %72, %33, %27
-  %.sink39 = phi i32 [ 524295, %27 ], [ 101, %33 ], [ 524332, %72 ], [ %.sink39.ph, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 461, %27 ], [ 468, %33 ], [ 484, %72 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.0.ph = phi ptr [ %22, %27 ], [ %22, %33 ], [ null, %72 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  %.sink39 = phi i32 [ 101, %33 ], [ 524332, %72 ], [ 524295, %27 ], [ %.sink39.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 468, %33 ], [ 484, %72 ], [ 461, %27 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.0.ph = phi ptr [ %22, %33 ], [ null, %72 ], [ %22, %27 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.52, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
   %76 = load i32, ptr @lib_code, align 4, !tbaa !12
@@ -2687,7 +2687,7 @@ store_info_free.exit.i:                           ; preds = %68, %66
   br label %new_EMBEDDED.exit
 
 new_EMBEDDED.exit:                                ; preds = %62, %21, %18, %77
-  %.020 = phi ptr [ null, %77 ], [ null, %18 ], [ null, %21 ], [ %54, %62 ]
+  %.020 = phi ptr [ null, %21 ], [ null, %18 ], [ null, %77 ], [ %54, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2876,8 +2876,8 @@ define internal ptr @try_decode_params(ptr noundef %0, ptr readnone captures(non
   %36 = call ptr @d2i_KeyParams(i32 noundef %35, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3) #10
   br label %check_suffix.exit.thread
 
-check_suffix.exit.thread:                         ; preds = %26, %22, %19, %34, %32, %29
-  %.025 = phi ptr [ %36, %34 ], [ null, %32 ], [ null, %29 ], [ null, %19 ], [ null, %22 ], [ null, %26 ]
+check_suffix.exit.thread:                         ; preds = %26, %19, %22, %34, %32, %29
+  %.025 = phi ptr [ %36, %34 ], [ null, %32 ], [ null, %29 ], [ null, %26 ], [ null, %22 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %59
 
@@ -3083,8 +3083,8 @@ define internal ptr @try_decode_PrivateKey(ptr noundef %0, ptr readnone captures
   %47 = call ptr @d2i_PrivateKey_ex(i32 noundef %46, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
   br label %check_suffix.exit.thread
 
-check_suffix.exit.thread:                         ; preds = %37, %33, %30, %45, %43, %40
-  %.159 = phi ptr [ %47, %45 ], [ null, %43 ], [ null, %40 ], [ null, %30 ], [ null, %33 ], [ null, %37 ]
+check_suffix.exit.thread:                         ; preds = %37, %30, %33, %45, %43, %40
+  %.159 = phi ptr [ %47, %45 ], [ null, %43 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %102
 

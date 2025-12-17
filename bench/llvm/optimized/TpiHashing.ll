@@ -818,7 +818,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i: ; preds = %_ZNK4llvm9S
   br label %_ZL11isAnonymousN4llvm9StringRefE.exit
 
 _ZL11isAnonymousN4llvm9StringRefE.exit:           ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i, %_ZN4llvmeqENS_9StringRefES0_.exit6.i, %3
-  %18 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i ], [ %17, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit6.i ]
+  %18 = phi i1 [ false, %3 ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit6.i ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i ], [ %17, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i ]
   %19 = and i16 %5, 384
   %or.cond = icmp ne i16 %19, 0
   %or.cond3 = or i1 %or.cond, %18

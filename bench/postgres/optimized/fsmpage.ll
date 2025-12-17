@@ -344,7 +344,7 @@ select.unfold:                                    ; preds = %.lr.ph
   br i1 %.not31.i, label %.loopexit, label %71, !llvm.loop !6
 
 86:                                               ; preds = %57, %49
-  %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
+  %.245 = phi i32 [ %55, %57 ], [ %50, %49 ]
   %87 = icmp slt i32 %.245, 4095
   br i1 %87, label %.lr.ph68, label %._crit_edge._crit_edge
 

@@ -1008,7 +1008,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %65
 
 65:                                               ; preds = %63, %61, %54
-  %.01143 = phi i32 [ 3, %54 ], [ 2, %61 ], [ %., %63 ]
+  %.01143 = phi i32 [ 2, %61 ], [ %., %63 ], [ 3, %54 ]
   call fastcc void @conv_set_version(ptr noundef %1, i32 noundef %.01143)
   br label %66
 
@@ -1224,7 +1224,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %._crit_edge1186.thread
 
 ._crit_edge1186.thread:                           ; preds = %156, %192, %._crit_edge1186
-  %.3.lcssa1202 = phi i32 [ %.4, %192 ], [ %.4, %._crit_edge1186 ], [ 17, %156 ]
+  %.3.lcssa1202 = phi i32 [ %.4, %._crit_edge1186 ], [ %.4, %192 ], [ 17, %156 ]
   %194 = load ptr, ptr %147, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 57
   %196 = load i16, ptr %195, align 1
@@ -1270,7 +1270,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %203, %211, %._crit_edge
-  %.5.lcssa1205 = phi i32 [ %208, %211 ], [ %208, %._crit_edge ], [ 9, %203 ]
+  %.5.lcssa1205 = phi i32 [ %208, %._crit_edge ], [ %208, %211 ], [ 9, %203 ]
   call fastcc void @conv_free_tag(ptr noundef %1, i16 noundef zeroext %33)
   br label %conv_free_tag.exit
 
@@ -1940,7 +1940,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %conv_get_fid.exit
 
 conv_get_fid.exit:                                ; preds = %686, %691, %699
-  %.0.i = phi ptr [ %705, %699 ], [ @.str.543, %686 ], [ @.str.543, %691 ]
+  %.0.i = phi ptr [ @.str.543, %686 ], [ %705, %699 ], [ @.str.543, %691 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %689, ptr noundef nonnull @.str.404, ptr noundef %.0.i)
   call fastcc void @conv_set_tag(ptr noundef %1, i16 noundef zeroext %33, i32 noundef %26, i32 noundef -1, ptr noundef null)
   br label %conv_free_tag.exit
@@ -2034,7 +2034,7 @@ conv_get_fid.exit:                                ; preds = %686, %691, %699
   br label %conv_free_tag.exit
 
 conv_free_tag.exit:                               ; preds = %744, %736, %728, %720, %752, %717, %716, %conv_get_fid.exit, %681, %669, %651, %636, %623, %608, %605, %586, %571, %568, %556, %551, %546, %499, %483, %464, %445, %414, %407, %370, %337, %334, %318, %308, %299, %285, %266, %220, %213, %._crit_edge.thread, %202, %141, %103, %102, %71, %66
-  %.01147 = phi i32 [ 7, %752 ], [ %70, %66 ], [ %82, %71 ], [ %.11148, %102 ], [ 7, %103 ], [ %.21149, %141 ], [ %.3.lcssa1202, %202 ], [ %.5.lcssa1205, %._crit_edge.thread ], [ 15, %213 ], [ 12, %220 ], [ %.6, %266 ], [ %298, %285 ], [ 23, %299 ], [ %317, %308 ], [ %333, %318 ], [ 11, %334 ], [ %369, %337 ], [ %406, %370 ], [ 19, %407 ], [ 160, %414 ], [ 67, %445 ], [ 67, %464 ], [ %498, %483 ], [ %519, %499 ], [ %550, %546 ], [ %555, %551 ], [ %567, %556 ], [ 15, %568 ], [ %585, %571 ], [ %604, %586 ], [ 8, %605 ], [ %622, %608 ], [ %635, %623 ], [ %650, %636 ], [ %668, %651 ], [ %680, %669 ], [ 11, %681 ], [ 11, %conv_get_fid.exit ], [ 24, %716 ], [ 24, %717 ], [ 20, %720 ], [ 20, %728 ], [ 7, %736 ], [ 7, %744 ]
+  %.01147 = phi i32 [ 7, %752 ], [ %70, %66 ], [ %82, %71 ], [ %.11148, %102 ], [ 7, %103 ], [ %.21149, %141 ], [ %.3.lcssa1202, %202 ], [ %.5.lcssa1205, %._crit_edge.thread ], [ 15, %213 ], [ 12, %220 ], [ %.6, %266 ], [ %298, %285 ], [ 23, %299 ], [ %317, %308 ], [ %333, %318 ], [ 11, %334 ], [ %369, %337 ], [ %406, %370 ], [ 19, %407 ], [ 160, %414 ], [ 67, %445 ], [ 67, %464 ], [ %498, %483 ], [ %519, %499 ], [ %550, %546 ], [ %555, %551 ], [ %567, %556 ], [ 15, %568 ], [ %585, %571 ], [ %604, %586 ], [ 8, %605 ], [ %622, %608 ], [ %635, %623 ], [ %650, %636 ], [ %668, %651 ], [ %680, %669 ], [ 11, %681 ], [ 11, %conv_get_fid.exit ], [ 24, %716 ], [ 24, %717 ], [ 20, %728 ], [ 20, %720 ], [ 7, %736 ], [ 7, %744 ]
   %754 = call i32 @tvb_captured_length(ptr noundef %0)
   %.not1175 = icmp eq i32 %.01147, %754
   br i1 %.not1175, label %758, label %755
@@ -2427,7 +2427,7 @@ define internal fastcc ptr @conv_get_fid(ptr noundef %0, i32 noundef %1) unnamed
   br label %20
 
 20:                                               ; preds = %5, %2, %13
-  %.0 = phi ptr [ %19, %13 ], [ @.str.543, %2 ], [ @.str.543, %5 ]
+  %.0 = phi ptr [ @.str.543, %2 ], [ %19, %13 ], [ @.str.543, %5 ]
   ret ptr %.0
 }
 

@@ -85,7 +85,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %kelvin2rgb.exit
 
 kelvin2rgb.exit:                                  ; preds = %25, %31, %33
-  %.sink25.i = phi float [ %..i.i18.i, %33 ], [ 1.000000e+00, %25 ], [ 0.000000e+00, %31 ]
+  %.sink25.i = phi float [ 1.000000e+00, %25 ], [ %..i.i18.i, %33 ], [ 0.000000e+00, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store float %.sink25.i, ptr %40, align 4, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 48

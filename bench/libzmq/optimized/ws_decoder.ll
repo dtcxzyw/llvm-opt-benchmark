@@ -195,7 +195,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t12opcode_readyEPKh(ptr
   br label %16
 
 16:                                               ; preds = %5, %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ -1, %2 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %12 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -349,7 +349,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t21size_first_byte_read
   br label %37
 
 37:                                               ; preds = %24, %14, %36, %35, %22, %2, %28
-  %.0 = phi i32 [ %29, %28 ], [ -1, %2 ], [ -1, %22 ], [ 0, %35 ], [ 0, %36 ], [ 0, %14 ], [ 0, %24 ]
+  %.0 = phi i32 [ %29, %28 ], [ -1, %22 ], [ -1, %2 ], [ 0, %35 ], [ 0, %36 ], [ 0, %14 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -386,7 +386,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10mask_readyEPKh(ptr n
   br label %19
 
 19:                                               ; preds = %9, %13, %17
-  %.0 = phi i32 [ 0, %13 ], [ %18, %17 ], [ -1, %9 ]
+  %.0 = phi i32 [ %18, %17 ], [ 0, %13 ], [ -1, %9 ]
   ret i32 %.0
 }
 
@@ -618,7 +618,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t16short_size_readyEPKh
   br label %31
 
 31:                                               ; preds = %15, %25, %23, %29
-  %.0 = phi i32 [ %30, %29 ], [ -1, %23 ], [ 0, %25 ], [ 0, %15 ]
+  %.0 = phi i32 [ -1, %23 ], [ %30, %29 ], [ 0, %25 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -706,7 +706,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t15long_size_readyEPKh(
   br label %61
 
 61:                                               ; preds = %45, %55, %53, %59
-  %.0 = phi i32 [ %60, %59 ], [ -1, %53 ], [ 0, %55 ], [ 0, %45 ]
+  %.0 = phi i32 [ -1, %53 ], [ %60, %59 ], [ 0, %55 ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -969,7 +969,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12ws_decoder_tENS_31
   br i1 %.not44, label %57, label %.thread, !llvm.loop !45
 
 .thread:                                          ; preds = %.loopexit, %70, %36, %24, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %40, %36 ], [ %74, %70 ], [ 0, %.loopexit ]
+  %.2 = phi i32 [ 0, %.preheader ], [ %74, %70 ], [ %40, %36 ], [ 0, %24 ], [ 0, %.loopexit ]
   ret i32 %.2
 }
 

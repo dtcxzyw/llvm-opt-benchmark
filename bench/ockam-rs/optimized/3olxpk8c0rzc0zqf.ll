@@ -10609,9 +10609,9 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$3new17hacf797a9156fbd6aE
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %61, %54, %47, %40, %33, %26
-  %.sroa.28.0.i = phi i64 [ %.sroa.825.i.sroa.5.0.copyload.i, %26 ], [ %.sroa.842.i.sroa.5.0.copyload.i, %33 ], [ %.sroa.860.i.sroa.5.0.copyload.i, %40 ], [ %.sroa.878.i.sroa.5.0.copyload.i, %47 ], [ %.sroa.896.i.sroa.5.0.copyload.i, %54 ], [ %.sroa.8114.i.sroa.5.0.copyload.i, %61 ]
-  %.sroa.061.0.i = phi ptr [ %.sroa.020.0.copyload.i.i, %26 ], [ %.sroa.037.0.copyload.i.i, %33 ], [ %.sroa.055.0.copyload.i.i, %40 ], [ %.sroa.073.0.copyload.i.i, %47 ], [ %.sroa.091.0.copyload.i.i, %54 ], [ %.sroa.0109.0.copyload.i.i, %61 ]
-  %.sroa.12.0.in.i = phi i64 [ %.sroa.622.0.copyload.i.i, %26 ], [ %.sroa.639.0.copyload.i.i, %33 ], [ %.sroa.657.0.copyload.i.i, %40 ], [ %.sroa.675.0.copyload.i.i, %47 ], [ %.sroa.693.0.copyload.i.i, %54 ], [ %.sroa.6111.0.copyload.i.i, %61 ]
+  %.sroa.28.0.i = phi i64 [ %.sroa.896.i.sroa.5.0.copyload.i, %54 ], [ %.sroa.878.i.sroa.5.0.copyload.i, %47 ], [ %.sroa.860.i.sroa.5.0.copyload.i, %40 ], [ %.sroa.842.i.sroa.5.0.copyload.i, %33 ], [ %.sroa.825.i.sroa.5.0.copyload.i, %26 ], [ %.sroa.8114.i.sroa.5.0.copyload.i, %61 ]
+  %.sroa.061.0.i = phi ptr [ %.sroa.091.0.copyload.i.i, %54 ], [ %.sroa.073.0.copyload.i.i, %47 ], [ %.sroa.055.0.copyload.i.i, %40 ], [ %.sroa.037.0.copyload.i.i, %33 ], [ %.sroa.020.0.copyload.i.i, %26 ], [ %.sroa.0109.0.copyload.i.i, %61 ]
+  %.sroa.12.0.in.i = phi i64 [ %.sroa.693.0.copyload.i.i, %54 ], [ %.sroa.675.0.copyload.i.i, %47 ], [ %.sroa.657.0.copyload.i.i, %40 ], [ %.sroa.639.0.copyload.i.i, %33 ], [ %.sroa.622.0.copyload.i.i, %26 ], [ %.sroa.6111.0.copyload.i.i, %61 ]
   invoke void @"_ZN71_$LT$openssl..ssl..bio..BIO_METHOD$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6755f8369b212493E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc52.i unwind label %.thread131.i, !noalias !2329
 
@@ -10795,7 +10795,7 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$3new17hacf797a9156fbd6aE
           to label %.body unwind label %93, !noalias !2334
 
 .body:                                            ; preds = %109, %.thread127.i, %104, %.body.i, %115
-  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %110, %109 ], [ %.pn.i.i.i.i, %104 ], [ %eh.lpad-body54130.i, %.thread127.i ], [ %.pn.i, %.body.i ]
+  %.pn = phi { ptr, i32 } [ %116, %115 ], [ %110, %109 ], [ %.pn.i.i.i.i, %104 ], [ %.pn.i, %.body.i ], [ %eh.lpad-body54130.i, %.thread127.i ]
   invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$openssl..ssl..Ssl$GT$17hb4db8340e1111f90E"(ptr %1) #34
           to label %123 unwind label %121
 
@@ -11130,7 +11130,7 @@ define internal noundef i64 @_ZN7openssl3ssl3bio4ctrl17h898c454a355a7744E(ptr no
   br label %13
 
 13:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit", %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit", %14, %4, %10
-  %.0 = phi i64 [ %12, %10 ], [ 0, %4 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ], [ 1, %14 ]
+  %.0 = phi i64 [ %12, %10 ], [ 0, %4 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h62dcd620b656b2e2E.exit" ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h685c37d2c65ce5e9E.exit" ], [ 1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 
@@ -12645,7 +12645,7 @@ define hidden void @_ZN19ockam_transport_tcp7options18TcpListenerOptions21create
   unreachable
 
 .body:                                            ; preds = %27, %17, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %18, %17 ], [ %28, %27 ]
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %36, %35 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_core..access_control..IncomingAccessControl$GT$$GT$17h67e9b70bf97adf41E.llvm.7571994248639921325"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #34
           to label %39 unwind label %37
 

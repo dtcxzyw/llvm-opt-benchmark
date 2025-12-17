@@ -1917,7 +1917,7 @@ find_fid_info.exit.i:                             ; preds = %33
   br label %dissect_mswsp_smb.exit
 
 dissect_mswsp_smb.exit:                           ; preds = %37, %4, %10, %13, %21, %22, %find_fid_info.exit.i, %39, %42, %44, %46
-  %.0.i = phi i1 [ %50, %46 ], [ false, %42 ], [ false, %39 ], [ false, %find_fid_info.exit.i ], [ false, %44 ], [ false, %21 ], [ false, %4 ], [ false, %22 ], [ false, %13 ], [ false, %10 ], [ false, %37 ]
+  %.0.i = phi i1 [ false, %find_fid_info.exit.i ], [ %50, %46 ], [ false, %42 ], [ false, %39 ], [ false, %44 ], [ false, %21 ], [ false, %10 ], [ false, %4 ], [ false, %22 ], [ false, %13 ], [ false, %37 ]
   ret i1 %.0.i
 }
 
@@ -1968,7 +1968,7 @@ define internal zeroext i1 @dissect_mswsp_smb2_heur(ptr noundef %0, ptr noundef 
   br label %dissect_mswsp_smb2.exit
 
 dissect_mswsp_smb2.exit:                          ; preds = %4, %8, %11, %16, %18
-  %.0.i = phi i1 [ %25, %18 ], [ false, %4 ], [ false, %16 ], [ false, %11 ], [ false, %8 ]
+  %.0.i = phi i1 [ false, %4 ], [ %25, %18 ], [ false, %16 ], [ false, %11 ], [ false, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3558,8 +3558,8 @@ find_fid_info.exit:                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %47, %20, %23, %32, %17, %31, %find_fid_info.exit, %58, %4, %49
-  %.0 = phi i1 [ false, %4 ], [ %.not23, %58 ], [ true, %49 ], [ false, %find_fid_info.exit ], [ false, %31 ], [ false, %17 ], [ false, %32 ], [ false, %23 ], [ false, %20 ], [ false, %47 ]
+.critedge:                                        ; preds = %47, %23, %32, %17, %20, %31, %find_fid_info.exit, %58, %4, %49
+  %.0 = phi i1 [ true, %49 ], [ false, %find_fid_info.exit ], [ false, %4 ], [ %.not23, %58 ], [ false, %31 ], [ false, %20 ], [ false, %17 ], [ false, %32 ], [ false, %23 ], [ false, %47 ]
   ret i1 %.0
 }
 

@@ -2271,7 +2271,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -2346,7 +2346,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -2571,7 +2571,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -3033,8 +3033,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br label %.critedge566
 
 .critedge566:                                     ; preds = %125, %118, %123
-  %.0506 = phi i1 [ true, %123 ], [ false, %125 ], [ false, %118 ]
-  %.6 = phi ptr [ %124, %123 ], [ %spec.select, %125 ], [ %119, %118 ]
+  %.0506 = phi i1 [ true, %123 ], [ false, %118 ], [ false, %125 ]
+  %.6 = phi ptr [ %124, %123 ], [ %119, %118 ], [ %spec.select, %125 ]
   %.6751 = ptrtoint ptr %.6 to i64
   %128 = icmp eq ptr %.6, %1
   br i1 %128, label %134, label %129
@@ -3087,9 +3087,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br i1 %or.cond568.not.not, label %188, label %149
 
 149:                                              ; preds = %134, %147, %.critedge8
-  %.3510 = phi i64 [ %spec.select567, %.critedge8 ], [ 0, %147 ], [ 0, %134 ]
-  %.1504 = phi i64 [ %146, %.critedge8 ], [ %.0503, %147 ], [ %.0503, %134 ]
-  %.8 = phi ptr [ %.7.lcssa.ph, %.critedge8 ], [ %.3, %147 ], [ %.3, %134 ]
+  %.3510 = phi i64 [ 0, %147 ], [ %spec.select567, %.critedge8 ], [ 0, %134 ]
+  %.1504 = phi i64 [ %.0503, %147 ], [ %146, %.critedge8 ], [ %.0503, %134 ]
+  %.8 = phi ptr [ %.3, %147 ], [ %.7.lcssa.ph, %.critedge8 ], [ %.3, %134 ]
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.8, ptr %150, align 8, !alias.scope !29
   store i8 1, ptr %14, align 1, !alias.scope !29
@@ -3336,8 +3336,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br label %289
 
 289:                                              ; preds = %274, %263, %214, %211, %266
-  %.sroa.0256.0 = phi i64 [ %271, %266 ], [ 0, %211 ], [ 0, %214 ], [ 0, %263 ], [ %spec.select652, %274 ]
-  %.sroa.7261.0 = phi i32 [ %273, %266 ], [ 0, %211 ], [ 255, %214 ], [ 0, %263 ], [ %spec.select653, %274 ]
+  %.sroa.0256.0 = phi i64 [ %spec.select652, %274 ], [ 0, %211 ], [ 0, %214 ], [ %271, %266 ], [ 0, %263 ]
+  %.sroa.7261.0 = phi i32 [ %spec.select653, %274 ], [ 0, %211 ], [ 255, %214 ], [ %273, %266 ], [ 0, %263 ]
   br i1 %191, label %290, label %.thread628
 
 290:                                              ; preds = %289
@@ -3455,8 +3455,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   br label %369
 
 369:                                              ; preds = %354, %343, %293, %290, %346, %331
-  %.sroa.0206.0 = phi i64 [ %351, %346 ], [ %333, %331 ], [ 0, %290 ], [ 0, %293 ], [ 0, %343 ], [ %spec.select654, %354 ]
-  %.sroa.7211.0 = phi i32 [ %353, %346 ], [ %335, %331 ], [ 0, %290 ], [ 255, %293 ], [ 0, %343 ], [ %spec.select655, %354 ]
+  %.sroa.0206.0 = phi i64 [ %333, %331 ], [ 0, %290 ], [ 0, %293 ], [ %351, %346 ], [ 0, %343 ], [ %spec.select654, %354 ]
+  %.sroa.7211.0 = phi i32 [ %335, %331 ], [ 0, %290 ], [ 255, %293 ], [ %353, %346 ], [ 0, %343 ], [ %spec.select655, %354 ]
   %.not.i = icmp ne i64 %.sroa.0256.0, %.sroa.0206.0
   %370 = icmp ne i32 %.sroa.7261.0, %.sroa.7211.0
   %371 = select i1 %.not.i, i1 true, i1 %370
@@ -3810,7 +3810,7 @@ define linkonce_odr hidden void @_ZN10fast_float14parse_mantissaERNS_6bigintERNS
   br i1 %.not263, label %._crit_edge459, label %.lr.ph458, !llvm.loop !46
 
 ._crit_edge459:                                   ; preds = %21, %.lr.ph458
-  %.1253.lcssa = phi ptr [ %scevgep, %21 ], [ %.1253456, %.lr.ph458 ]
+  %.1253.lcssa = phi ptr [ %.1253456, %.lr.ph458 ], [ %scevgep, %21 ]
   %.not265488 = icmp eq ptr %.1253.lcssa, %10
   br i1 %.not265488, label %._crit_edge490, label %.preheader393.lr.ph
 
@@ -4277,7 +4277,7 @@ _ZN10fast_float6bigint3addEm.exit328:             ; preds = %184, %_ZN10fast_flo
   br i1 %.not268, label %.loopexit385, label %.lr.ph516, !llvm.loop !46
 
 .loopexit385:                                     ; preds = %.lr.ph516, %214, %198
-  %.5257 = phi ptr [ %196, %198 ], [ %.7514, %.lr.ph516 ], [ %scevgep622, %214 ]
+  %.5257 = phi ptr [ %196, %198 ], [ %scevgep622, %214 ], [ %.7514, %.lr.ph516 ]
   %.not270548 = icmp eq ptr %.5257, %201
   br i1 %.not270548, label %.loopexit, label %.preheader383.lr.ph
 
@@ -4735,7 +4735,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i:    ; preds = %27
   unreachable
 
 _ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i
-  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
+  %39 = phi i16 [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
   %40 = zext i16 %39 to i64
   switch i16 %39, label %47 [
     i16 0, label %_ZNK10fast_float6bigint10bit_lengthEv.exit
@@ -4855,8 +4855,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIfE
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.12.0 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.0 = phi i64 [ %storemerge.i, %6 ], [ %spec.select158, %13 ]
+  %.sroa.12.0 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.0 = phi i64 [ %spec.select158, %13 ], [ %storemerge.i, %6 ]
   %18 = zext nneg i32 %.sroa.12.0 to i64
   %19 = shl nuw nsw i64 %18, 23
   %20 = or i64 %19, %.sroa.0.0
@@ -5101,8 +5101,8 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6big
   br i1 %133, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !59
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %125, %132, %_ZN10fast_float6bigint4pow2Ej.exit, %122
-  %134 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %122 ], [ true, %125 ], [ false, %132 ], [ false, %.preheader.i ]
-  %.not.i.i116 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %122 ], [ %.not.i, %132 ], [ %.not.i, %125 ], [ %.not.i, %.preheader.i ]
+  %134 = phi i1 [ false, %122 ], [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %132 ], [ true, %125 ], [ false, %.preheader.i ]
+  %.not.i.i116 = phi i1 [ false, %122 ], [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ %.not.i, %132 ], [ %.not.i, %125 ], [ %.not.i, %.preheader.i ]
   br i1 %.not, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122, label %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
 _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit: ; preds = %_ZNK10fast_float6bigint7compareERKS0_.exit
@@ -5141,8 +5141,8 @@ _ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_i
   br label %151
 
 151:                                              ; preds = %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
-  %.sroa.12139.0 = phi i32 [ %143, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %149, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ]
-  %.sroa.0133.0 = phi i64 [ %141, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %spec.select162, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ]
+  %.sroa.12139.0 = phi i32 [ %149, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ], [ %143, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
+  %.sroa.0133.0 = phi i64 [ %spec.select162, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ], [ %141, %_ZZN10fast_float19negative_digit_compIfEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0133.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12139.0, 1
   ret { i64, i32 } %.fca.1.insert
@@ -5229,8 +5229,8 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i: ; preds = %._crit_edge
 _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_edge.i
   br i1 %.not.i, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread, label %_ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit
 
-_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread: ; preds = %.lr.ph37.split, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
-  %32 = phi i16 [ 0, %.lr.ph37.split ], [ %31, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i ], [ %25, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ]
+_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit.thread: ; preds = %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i, %.lr.ph37.split, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
+  %32 = phi i16 [ %31, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i ], [ 0, %.lr.ph37.split ], [ %25, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ]
   %33 = add nsw i32 %.136, -27
   %34 = icmp ugt i32 %33, 26
   br i1 %34, label %.lr.ph37.split, label %._crit_edge, !llvm.loop !61
@@ -5289,11 +5289,11 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i19: ; preds = %._crit_ed
 _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21: ; preds = %._crit_edge.i16
   br i1 %.not.i17, label %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread, label %_ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit
 
-_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread: ; preds = %35, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i19, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21, %._crit_edge
+_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread: ; preds = %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i19, %35, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21, %._crit_edge
   br label %_ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit
 
 _ZN10fast_float9large_mulILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEE.exit: ; preds = %.lr.ph, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread
-  %.0 = phi i1 [ true, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21 ], [ true, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit21.thread ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -5588,7 +5588,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
   br i1 %.not.i34, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %113, !llvm.loop !65
 
 _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %.critedge.i.i.us, %66, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, %119, %113, %.loopexit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
-  %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %.loopexit ], [ true, %113 ], [ true, %119 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.critedge.i.i.us ], [ false, %.lr.ph.split ]
+  %.0 = phi i1 [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %.loopexit ], [ false, %.critedge.i.i.us ], [ true, %119 ], [ true, %113 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.lr.ph.split ]
   ret i1 %.0
 }
 
@@ -5928,8 +5928,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br label %.critedge574
 
 .critedge574:                                     ; preds = %125, %118, %123
-  %.0514 = phi i1 [ true, %123 ], [ false, %125 ], [ false, %118 ]
-  %.6 = phi ptr [ %124, %123 ], [ %spec.select, %125 ], [ %119, %118 ]
+  %.0514 = phi i1 [ true, %123 ], [ false, %118 ], [ false, %125 ]
+  %.6 = phi ptr [ %124, %123 ], [ %119, %118 ], [ %spec.select, %125 ]
   %.6759 = ptrtoint ptr %.6 to i64
   %128 = icmp eq ptr %.6, %1
   br i1 %128, label %134, label %129
@@ -5982,9 +5982,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br i1 %or.cond576.not.not, label %188, label %149
 
 149:                                              ; preds = %134, %147, %.critedge8
-  %.3518 = phi i64 [ %spec.select575, %.critedge8 ], [ 0, %147 ], [ 0, %134 ]
-  %.1512 = phi i64 [ %146, %.critedge8 ], [ %.0511, %147 ], [ %.0511, %134 ]
-  %.8 = phi ptr [ %.7.lcssa.ph, %.critedge8 ], [ %.3, %147 ], [ %.3, %134 ]
+  %.3518 = phi i64 [ 0, %147 ], [ %spec.select575, %.critedge8 ], [ 0, %134 ]
+  %.1512 = phi i64 [ %.0511, %147 ], [ %146, %.critedge8 ], [ %.0511, %134 ]
+  %.8 = phi ptr [ %.3, %147 ], [ %.7.lcssa.ph, %.critedge8 ], [ %.3, %134 ]
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.8, ptr %150, align 8, !alias.scope !67
   store i8 1, ptr %14, align 1, !alias.scope !67
@@ -6231,8 +6231,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br label %289
 
 289:                                              ; preds = %274, %263, %214, %211, %266
-  %.sroa.0299.0 = phi i64 [ %271, %266 ], [ 0, %211 ], [ 0, %214 ], [ 0, %263 ], [ %spec.select660, %274 ]
-  %.sroa.7304.0 = phi i32 [ %273, %266 ], [ 0, %211 ], [ 2047, %214 ], [ 0, %263 ], [ %spec.select661, %274 ]
+  %.sroa.0299.0 = phi i64 [ %spec.select660, %274 ], [ 0, %211 ], [ 0, %214 ], [ %271, %266 ], [ 0, %263 ]
+  %.sroa.7304.0 = phi i32 [ %spec.select661, %274 ], [ 0, %211 ], [ 2047, %214 ], [ %273, %266 ], [ 0, %263 ]
   br i1 %191, label %290, label %.thread636
 
 290:                                              ; preds = %289
@@ -6350,8 +6350,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   br label %369
 
 369:                                              ; preds = %354, %343, %293, %290, %346, %331
-  %.sroa.0247.0 = phi i64 [ %351, %346 ], [ %333, %331 ], [ 0, %290 ], [ 0, %293 ], [ 0, %343 ], [ %spec.select662, %354 ]
-  %.sroa.7252.0 = phi i32 [ %353, %346 ], [ %335, %331 ], [ 0, %290 ], [ 2047, %293 ], [ 0, %343 ], [ %spec.select663, %354 ]
+  %.sroa.0247.0 = phi i64 [ %333, %331 ], [ 0, %290 ], [ 0, %293 ], [ %351, %346 ], [ 0, %343 ], [ %spec.select662, %354 ]
+  %.sroa.7252.0 = phi i32 [ %335, %331 ], [ 0, %290 ], [ 2047, %293 ], [ %353, %346 ], [ 0, %343 ], [ %spec.select663, %354 ]
   %.not.i = icmp ne i64 %.sroa.0299.0, %.sroa.0247.0
   %370 = icmp ne i32 %.sroa.7304.0, %.sroa.7252.0
   %371 = select i1 %.not.i, i1 true, i1 %370
@@ -6733,7 +6733,7 @@ _ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i:    ; preds = %27
   unreachable
 
 _ZN10fast_float6bigint5pow10Ej.exit:              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i
-  %39 = phi i16 [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
+  %39 = phi i16 [ %37, %_ZN10fast_float6bigint9shl_limbsEm.exit.thread.i.i.i ], [ %.pre, %_ZN10fast_float6bigint9shl_limbsEm.exit.i.i.i ], [ %.pre, %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i.i ]
   %40 = zext i16 %39 to i64
   switch i16 %39, label %47 [
     i16 0, label %_ZNK10fast_float6bigint10bit_lengthEv.exit
@@ -6853,8 +6853,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN10fast_float19negative_digit_compIdE
   br label %17
 
 17:                                               ; preds = %13, %6
-  %.sroa.12.0 = phi i32 [ %12, %6 ], [ %spec.select, %13 ]
-  %.sroa.0.0 = phi i64 [ %storemerge.i, %6 ], [ %spec.select158, %13 ]
+  %.sroa.12.0 = phi i32 [ %spec.select, %13 ], [ %12, %6 ]
+  %.sroa.0.0 = phi i64 [ %spec.select158, %13 ], [ %storemerge.i, %6 ]
   %18 = zext nneg i32 %.sroa.12.0 to i64
   %19 = shl nuw nsw i64 %18, 52
   %.sroa.0.0.masked = and i64 %.sroa.0.0, 9218868437227405312
@@ -7099,8 +7099,8 @@ _ZN10fast_float6bigint4pow2Ej.exit:               ; preds = %_ZN10fast_float6big
   br i1 %133, label %_ZNK10fast_float6bigint7compareERKS0_.exit, label %.preheader.i, !llvm.loop !59
 
 _ZNK10fast_float6bigint7compareERKS0_.exit:       ; preds = %.preheader.i, %125, %132, %_ZN10fast_float6bigint4pow2Ej.exit, %122
-  %134 = phi i1 [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %122 ], [ true, %125 ], [ false, %132 ], [ false, %.preheader.i ]
-  %.not.i.i116 = phi i1 [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %122 ], [ %.not.i, %132 ], [ %.not.i, %125 ], [ %.not.i, %.preheader.i ]
+  %134 = phi i1 [ false, %122 ], [ true, %_ZN10fast_float6bigint4pow2Ej.exit ], [ false, %132 ], [ true, %125 ], [ false, %.preheader.i ]
+  %.not.i.i116 = phi i1 [ false, %122 ], [ false, %_ZN10fast_float6bigint4pow2Ej.exit ], [ %.not.i, %132 ], [ %.not.i, %125 ], [ %.not.i, %.preheader.i ]
   br i1 %.not, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122, label %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
 
 _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit: ; preds = %_ZNK10fast_float6bigint7compareERKS0_.exit
@@ -7139,8 +7139,8 @@ _ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_i
   br label %151
 
 151:                                              ; preds = %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit
-  %.sroa.12139.0 = phi i32 [ %143, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %149, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ]
-  %.sroa.0133.0 = phi i64 [ %141, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ], [ %spec.select162, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ]
+  %.sroa.12139.0 = phi i32 [ %149, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ], [ %143, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
+  %.sroa.0133.0 = phi i64 [ %spec.select162, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit122 ], [ %141, %_ZZN10fast_float19negative_digit_compIdEENS_17adjusted_mantissaERNS_6bigintES1_iENKUlRS1_iE0_clES4_i.exit ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0133.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12139.0, 1
   ret { i64, i32 } %.fca.1.insert

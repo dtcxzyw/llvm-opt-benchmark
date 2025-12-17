@@ -195,7 +195,7 @@ switch.lookup:                                    ; preds = %3
   br label %8
 
 8:                                                ; preds = %switch.lookup, %0
-  %.0 = phi i32 [ 3, %0 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 3, %0 ]
   ret i32 %.0
 }
 
@@ -418,7 +418,7 @@ switch.lookup:                                    ; preds = %29
   br label %71
 
 71:                                               ; preds = %switch.lookup, %29, %59
-  %.020 = phi i32 [ 4, %29 ], [ 4, %59 ], [ %switch.load, %switch.lookup ]
+  %.020 = phi i32 [ 4, %29 ], [ %switch.load, %switch.lookup ], [ 4, %59 ]
   call fastcc void @linker_setup(ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef %0, i32 noundef %.020)
   %72 = load ptr, ptr %4, align 8
   %.not.i36 = icmp eq ptr %72, null
@@ -954,9 +954,9 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef
   br i1 %218, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %215, %172, %129, %118, %107
-  %.0.i177.sink232 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ]
-  %.sink231 = phi i32 [ %108, %107 ], [ %119, %118 ], [ %130, %129 ], [ %173, %172 ], [ %216, %215 ]
-  %.str.31.sink.ph = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ]
+  %.0.i177.sink232 = phi ptr [ %.0.i163, %172 ], [ %.0.i149, %129 ], [ %.0.i142, %118 ], [ %.0.i135, %107 ], [ %.0.i177, %215 ]
+  %.sink231 = phi i32 [ %173, %172 ], [ %130, %129 ], [ %119, %118 ], [ %108, %107 ], [ %216, %215 ]
+  %.str.31.sink.ph = phi ptr [ @.str.30, %172 ], [ @.str.31, %129 ], [ @.str.30, %118 ], [ @.str.17, %107 ], [ @.str.31, %215 ]
   %219 = getelementptr inbounds nuw i8, ptr %.0.i177.sink232, i64 4
   %220 = shl i32 %.sink231, 1
   %221 = zext i32 %220 to i64
@@ -977,9 +977,9 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %215, %172, %129, %118, %107
-  %.sink215 = phi i32 [ %109, %107 ], [ %120, %118 ], [ %131, %129 ], [ %174, %172 ], [ %217, %215 ], [ %.pre18.i179, %.sink.split.sink.split ]
-  %.1.i178.sink214 = phi ptr [ %.0.i135, %107 ], [ %.0.i142, %118 ], [ %.0.i149, %129 ], [ %.0.i163, %172 ], [ %.0.i177, %215 ], [ %224, %.sink.split.sink.split ]
-  %.str.31.sink = phi ptr [ @.str.17, %107 ], [ @.str.30, %118 ], [ @.str.31, %129 ], [ @.str.30, %172 ], [ @.str.31, %215 ], [ %.str.31.sink.ph, %.sink.split.sink.split ]
+  %.sink215 = phi i32 [ %174, %172 ], [ %131, %129 ], [ %120, %118 ], [ %109, %107 ], [ %217, %215 ], [ %.pre18.i179, %.sink.split.sink.split ]
+  %.1.i178.sink214 = phi ptr [ %.0.i163, %172 ], [ %.0.i149, %129 ], [ %.0.i142, %118 ], [ %.0.i135, %107 ], [ %.0.i177, %215 ], [ %224, %.sink.split.sink.split ]
+  %.str.31.sink = phi ptr [ @.str.30, %172 ], [ @.str.31, %129 ], [ @.str.30, %118 ], [ @.str.17, %107 ], [ @.str.31, %215 ], [ %.str.31.sink.ph, %.sink.split.sink.split ]
   %232 = add i32 %.sink215, 1
   store i32 %232, ptr %.1.i178.sink214, align 4
   %233 = getelementptr inbounds nuw i8, ptr %.1.i178.sink214, i64 8
@@ -1331,10 +1331,10 @@ default.unreachable656:                           ; preds = %68
   unreachable
 
 .sink.split.sink.split:                           ; preds = %170, %156, %110, %98, %86
-  %.0.i272.sink691 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ]
-  %.sink690 = phi i32 [ %87, %86 ], [ %99, %98 ], [ %111, %110 ], [ %157, %156 ], [ %171, %170 ]
-  %.str.37.sink.ph = phi ptr [ @.str.32, %86 ], [ @.str.33, %98 ], [ @.str.34, %110 ], [ @.str.36, %156 ], [ @.str.37, %170 ]
-  %.ph.ph = phi ptr [ @.str.39, %86 ], [ @.str.39, %98 ], [ @.str.39, %110 ], [ @.str.38, %156 ], [ @.str.38, %170 ]
+  %.0.i272.sink691 = phi ptr [ %.0.i265, %156 ], [ %.0.i251, %110 ], [ %.0.i244, %98 ], [ %.0.i237, %86 ], [ %.0.i272, %170 ]
+  %.sink690 = phi i32 [ %157, %156 ], [ %111, %110 ], [ %99, %98 ], [ %87, %86 ], [ %171, %170 ]
+  %.str.37.sink.ph = phi ptr [ @.str.36, %156 ], [ @.str.34, %110 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ]
+  %.ph.ph = phi ptr [ @.str.38, %156 ], [ @.str.39, %110 ], [ @.str.39, %98 ], [ @.str.39, %86 ], [ @.str.38, %170 ]
   %174 = getelementptr inbounds nuw i8, ptr %.0.i272.sink691, i64 4
   %175 = shl i32 %.sink690, 1
   %176 = zext i32 %175 to i64
@@ -1355,10 +1355,10 @@ default.unreachable656:                           ; preds = %68
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %170, %156, %110, %98, %86
-  %.sink674 = phi i32 [ %88, %86 ], [ %100, %98 ], [ %112, %110 ], [ %158, %156 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
-  %.1.i273.sink673 = phi ptr [ %.0.i237, %86 ], [ %.0.i244, %98 ], [ %.0.i251, %110 ], [ %.0.i265, %156 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
-  %.str.37.sink = phi ptr [ @.str.32, %86 ], [ @.str.33, %98 ], [ @.str.34, %110 ], [ @.str.36, %156 ], [ @.str.37, %170 ], [ %.str.37.sink.ph, %.sink.split.sink.split ]
-  %.ph = phi ptr [ @.str.39, %86 ], [ @.str.39, %98 ], [ @.str.39, %110 ], [ @.str.38, %156 ], [ @.str.38, %170 ], [ %.ph.ph, %.sink.split.sink.split ]
+  %.sink674 = phi i32 [ %158, %156 ], [ %112, %110 ], [ %100, %98 ], [ %88, %86 ], [ %172, %170 ], [ %.pre18.i274, %.sink.split.sink.split ]
+  %.1.i273.sink673 = phi ptr [ %.0.i265, %156 ], [ %.0.i251, %110 ], [ %.0.i244, %98 ], [ %.0.i237, %86 ], [ %.0.i272, %170 ], [ %179, %.sink.split.sink.split ]
+  %.str.37.sink = phi ptr [ @.str.36, %156 ], [ @.str.34, %110 ], [ @.str.33, %98 ], [ @.str.32, %86 ], [ @.str.37, %170 ], [ %.str.37.sink.ph, %.sink.split.sink.split ]
+  %.ph = phi ptr [ @.str.38, %156 ], [ @.str.39, %110 ], [ @.str.39, %98 ], [ @.str.39, %86 ], [ @.str.38, %170 ], [ %.ph.ph, %.sink.split.sink.split ]
   %187 = add i32 %.sink674, 1
   store i32 %187, ptr %.1.i273.sink673, align 4
   %188 = getelementptr inbounds nuw i8, ptr %.1.i273.sink673, i64 8
@@ -1371,7 +1371,7 @@ default.unreachable656:                           ; preds = %68
   br label %193
 
 193:                                              ; preds = %.sink.split, %68, %160, %102, %90, %76, %68
-  %194 = phi ptr [ @.str.39, %68 ], [ @.str.38, %160 ], [ @.str.39, %102 ], [ @.str.39, %90 ], [ @.str.39, %76 ], [ @.str.39, %68 ], [ %.ph, %.sink.split ]
+  %194 = phi ptr [ @.str.39, %68 ], [ @.str.38, %160 ], [ @.str.39, %90 ], [ @.str.39, %68 ], [ @.str.39, %102 ], [ @.str.39, %76 ], [ %.ph, %.sink.split ]
   %195 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   switch i32 %195, label %linker_setup_windows.exit [
     i32 21, label %196
@@ -4336,7 +4336,7 @@ expand_.exit367.i:                                ; preds = %1757, %1753
   unreachable
 
 1780:                                             ; preds = %1778, %1777, %1776, %1775, %expand_.exit367.i
-  %.0.i368.i = phi ptr [ @.str.114, %1775 ], [ @.str.115, %1776 ], [ @.str.116, %1777 ], [ @.str.117, %1778 ], [ @.str.113, %expand_.exit367.i ]
+  %.0.i368.i = phi ptr [ @.str.117, %1778 ], [ @.str.114, %1775 ], [ @.str.115, %1776 ], [ @.str.116, %1777 ], [ @.str.113, %expand_.exit367.i ]
   %1781 = load i32, ptr %.1.i365.i, align 4
   %1782 = add i32 %1781, -1
   %1783 = zext i32 %1782 to i64
@@ -4829,7 +4829,7 @@ expand_.exit367.i:                                ; preds = %1757, %1753
   br label %find_linux_crt_begin.exit.i
 
 find_linux_crt_begin.exit.i:                      ; preds = %2052, %2049, %2045, %2029
-  %.0.i372.i = phi ptr [ %2048, %2045 ], [ %2030, %2029 ], [ null, %2052 ], [ null, %2049 ]
+  %.0.i372.i = phi ptr [ %2030, %2029 ], [ %2048, %2045 ], [ null, %2052 ], [ null, %2049 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %2055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 400), align 8
@@ -4877,7 +4877,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2052, %2049, %2045,
   br label %find_linux_crt.exit.i
 
 find_linux_crt.exit.i:                            ; preds = %2077, %2074, %2070, %find_linux_crt_begin.exit.i
-  %.0.i374.i = phi ptr [ %2073, %2070 ], [ %2055, %find_linux_crt_begin.exit.i ], [ null, %2077 ], [ null, %2074 ]
+  %.0.i374.i = phi ptr [ %2055, %find_linux_crt_begin.exit.i ], [ %2073, %2070 ], [ null, %2077 ], [ null, %2074 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %2080 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 212), align 4
   %2081 = icmp ne i32 %2080, 0
@@ -6100,9 +6100,9 @@ expand_.exit511.i:                                ; preds = %2720, %2716
   unreachable
 
 .sink.split.i291:                                 ; preds = %2741, %2740, %2739, %2738, %expand_.exit511.i, %1879, %1814
-  %.1.i509.sink.i = phi ptr [ %.1.i340.i, %1879 ], [ %.1.i.i298, %1814 ], [ %.1.i509.i, %expand_.exit511.i ], [ %.1.i509.i, %2738 ], [ %.1.i509.i, %2739 ], [ %.1.i509.i, %2740 ], [ %.1.i509.i, %2741 ]
-  %.sink604.i = phi ptr [ %1882, %1879 ], [ %1817, %1814 ], [ %2736, %expand_.exit511.i ], [ %2736, %2738 ], [ %2736, %2739 ], [ %2736, %2740 ], [ %2736, %2741 ]
-  %.0.i512.sink.i = phi ptr [ @.str.122, %1879 ], [ @.str.120, %1814 ], [ @.str.113, %expand_.exit511.i ], [ @.str.114, %2738 ], [ @.str.115, %2739 ], [ @.str.116, %2740 ], [ @.str.117, %2741 ]
+  %.1.i509.sink.i = phi ptr [ %.1.i.i298, %1814 ], [ %.1.i340.i, %1879 ], [ %.1.i509.i, %expand_.exit511.i ], [ %.1.i509.i, %2738 ], [ %.1.i509.i, %2739 ], [ %.1.i509.i, %2740 ], [ %.1.i509.i, %2741 ]
+  %.sink604.i = phi ptr [ %1817, %1814 ], [ %1882, %1879 ], [ %2736, %expand_.exit511.i ], [ %2736, %2738 ], [ %2736, %2739 ], [ %2736, %2740 ], [ %2736, %2741 ]
+  %.0.i512.sink.i = phi ptr [ @.str.120, %1814 ], [ @.str.122, %1879 ], [ @.str.113, %expand_.exit511.i ], [ @.str.114, %2738 ], [ @.str.115, %2739 ], [ @.str.116, %2740 ], [ @.str.117, %2741 ]
   %2743 = load i32, ptr %.1.i509.sink.i, align 4
   %2744 = add i32 %2743, -1
   %2745 = zext i32 %2744 to i64
@@ -7139,8 +7139,8 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
   switch i32 %73, label %100 [
     i32 1, label %74
     i32 3, label %81
-    i32 4, label %88
-    i32 5, label %95
+    i32 4, label %86
+    i32 5, label %93
   ]
 
 74:                                               ; preds = %72
@@ -7161,58 +7161,58 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 81:                                               ; preds = %72
   %82 = load ptr, ptr %4, align 8
   %.not42 = icmp eq ptr %82, null
-  br i1 %.not42, label %86, label %83
+  br i1 %.not42, label %101, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %82, i64 -8
   %85 = load i32, ptr %84, align 4
-  br label %86
-
-86:                                               ; preds = %81, %83
-  %.031 = phi i32 [ %85, %83 ], [ 0, %81 ]
-  %87 = call zeroext i1 @llvm_link_elf(ptr noundef %82, i32 noundef %.031, ptr noundef nonnull %5) #11
-  br i1 %87, label %105, label %103
-
-88:                                               ; preds = %72
-  %89 = load ptr, ptr %4, align 8
-  %.not41 = icmp eq ptr %89, null
-  br i1 %.not41, label %93, label %90
-
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %89, i64 -8
-  %92 = load i32, ptr %91, align 4
-  br label %93
-
-93:                                               ; preds = %88, %90
-  %.032 = phi i32 [ %92, %90 ], [ 0, %88 ]
-  %94 = call zeroext i1 @llvm_link_macho(ptr noundef %89, i32 noundef %.032, ptr noundef nonnull %5) #11
-  br i1 %94, label %105, label %103
-
-95:                                               ; preds = %72
-  %96 = load ptr, ptr %4, align 8
-  %.not40 = icmp eq ptr %96, null
-  br i1 %.not40, label %101, label %97
-
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %96, i64 -8
-  %99 = load i32, ptr %98, align 4
   br label %101
+
+86:                                               ; preds = %72
+  %87 = load ptr, ptr %4, align 8
+  %.not41 = icmp eq ptr %87, null
+  br i1 %.not41, label %91, label %88
+
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %87, i64 -8
+  %90 = load i32, ptr %89, align 4
+  br label %91
+
+91:                                               ; preds = %86, %88
+  %.032 = phi i32 [ %90, %88 ], [ 0, %86 ]
+  %92 = call zeroext i1 @llvm_link_macho(ptr noundef %87, i32 noundef %.032, ptr noundef nonnull %5) #11
+  br i1 %92, label %105, label %103
+
+93:                                               ; preds = %72
+  %94 = load ptr, ptr %4, align 8
+  %.not40 = icmp eq ptr %94, null
+  br i1 %.not40, label %98, label %95
+
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds i8, ptr %94, i64 -8
+  %97 = load i32, ptr %96, align 4
+  br label %98
+
+98:                                               ; preds = %93, %95
+  %.033 = phi i32 [ %97, %95 ], [ 0, %93 ]
+  %99 = call zeroext i1 @llvm_link_wasm(ptr noundef %94, i32 noundef %.033, ptr noundef nonnull %5) #11
+  br i1 %99, label %105, label %103
 
 100:                                              ; preds = %72
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.dynamic_lib_linker, ptr noundef nonnull @.str.2, i32 noundef 847) #12
   unreachable
 
-101:                                              ; preds = %97, %95
-  %.033 = phi i32 [ %99, %97 ], [ 0, %95 ]
-  %102 = call zeroext i1 @llvm_link_wasm(ptr noundef %96, i32 noundef %.033, ptr noundef nonnull %5) #11
+101:                                              ; preds = %83, %81
+  %.031 = phi i32 [ %85, %83 ], [ 0, %81 ]
+  %102 = call zeroext i1 @llvm_link_elf(ptr noundef %82, i32 noundef %.031, ptr noundef nonnull %5) #11
   br i1 %102, label %105, label %103
 
-103:                                              ; preds = %93, %86, %79, %101
+103:                                              ; preds = %91, %98, %79, %101
   %104 = load ptr, ptr %5, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.26, ptr noundef %104) #12
   unreachable
 
-105:                                              ; preds = %93, %86, %79, %101
+105:                                              ; preds = %91, %98, %79, %101
   %106 = load i8, ptr @debug_log, align 1
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %111
@@ -7259,7 +7259,7 @@ define dso_local zeroext i1 @static_lib_linker(ptr noundef %0, ptr noundef %1, i
   br label %8
 
 8:                                                ; preds = %3, %3, %3, %3, %7, %6, %5
-  %.0 = phi i32 [ 0, %7 ], [ 5, %5 ], [ 3, %6 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %.0 = phi i32 [ 0, %7 ], [ 3, %6 ], [ 5, %5 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
   %9 = zext i32 %2 to i64
   %10 = tail call zeroext i1 @llvm_ar(ptr noundef %0, ptr noundef %1, i64 noundef %9, i32 noundef %.0) #11
   ret i1 %10
@@ -7341,8 +7341,8 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly
   switch i32 %34, label %61 [
     i32 1, label %35
     i32 3, label %42
-    i32 4, label %49
-    i32 5, label %56
+    i32 4, label %47
+    i32 5, label %54
   ]
 
 35:                                               ; preds = %33
@@ -7363,58 +7363,58 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly
 42:                                               ; preds = %33
   %43 = load ptr, ptr %4, align 8
   %.not47.i = icmp eq ptr %43, null
-  br i1 %.not47.i, label %47, label %44
+  br i1 %.not47.i, label %62, label %44
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %43, i64 -8
   %46 = load i32, ptr %45, align 4
-  br label %47
-
-47:                                               ; preds = %44, %42
-  %.036.i = phi i32 [ %46, %44 ], [ 0, %42 ]
-  %48 = call zeroext i1 @llvm_link_elf(ptr noundef %43, i32 noundef %.036.i, ptr noundef nonnull %5) #11
-  br i1 %48, label %66, label %64
-
-49:                                               ; preds = %33
-  %50 = load ptr, ptr %4, align 8
-  %.not46.i = icmp eq ptr %50, null
-  br i1 %.not46.i, label %54, label %51
-
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %50, i64 -8
-  %53 = load i32, ptr %52, align 4
-  br label %54
-
-54:                                               ; preds = %51, %49
-  %.037.i = phi i32 [ %53, %51 ], [ 0, %49 ]
-  %55 = call zeroext i1 @llvm_link_macho(ptr noundef %50, i32 noundef %.037.i, ptr noundef nonnull %5) #11
-  br i1 %55, label %66, label %64
-
-56:                                               ; preds = %33
-  %57 = load ptr, ptr %4, align 8
-  %.not45.i = icmp eq ptr %57, null
-  br i1 %.not45.i, label %62, label %58
-
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 -8
-  %60 = load i32, ptr %59, align 4
   br label %62
+
+47:                                               ; preds = %33
+  %48 = load ptr, ptr %4, align 8
+  %.not46.i = icmp eq ptr %48, null
+  br i1 %.not46.i, label %52, label %49
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds i8, ptr %48, i64 -8
+  %51 = load i32, ptr %50, align 4
+  br label %52
+
+52:                                               ; preds = %49, %47
+  %.037.i = phi i32 [ %51, %49 ], [ 0, %47 ]
+  %53 = call zeroext i1 @llvm_link_macho(ptr noundef %48, i32 noundef %.037.i, ptr noundef nonnull %5) #11
+  br i1 %53, label %66, label %64
+
+54:                                               ; preds = %33
+  %55 = load ptr, ptr %4, align 8
+  %.not45.i = icmp eq ptr %55, null
+  br i1 %.not45.i, label %59, label %56
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %55, i64 -8
+  %58 = load i32, ptr %57, align 4
+  br label %59
+
+59:                                               ; preds = %56, %54
+  %.038.i = phi i32 [ %58, %56 ], [ 0, %54 ]
+  %60 = call zeroext i1 @llvm_link_wasm(ptr noundef %55, i32 noundef %.038.i, ptr noundef nonnull %5) #11
+  br i1 %60, label %66, label %64
 
 61:                                               ; preds = %33
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.link_exe, ptr noundef nonnull @.str.2, i32 noundef 651) #12
   unreachable
 
-62:                                               ; preds = %58, %56
-  %.038.i = phi i32 [ %60, %58 ], [ 0, %56 ]
-  %63 = call zeroext i1 @llvm_link_wasm(ptr noundef %57, i32 noundef %.038.i, ptr noundef nonnull %5) #11
+62:                                               ; preds = %44, %42
+  %.036.i = phi i32 [ %46, %44 ], [ 0, %42 ]
+  %63 = call zeroext i1 @llvm_link_elf(ptr noundef %43, i32 noundef %.036.i, ptr noundef nonnull %5) #11
   br i1 %63, label %66, label %64
 
-64:                                               ; preds = %62, %54, %47, %40
+64:                                               ; preds = %62, %59, %52, %40
   %65 = load ptr, ptr %5, align 8
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.141, ptr noundef %65) #12
   unreachable
 
-66:                                               ; preds = %62, %54, %47, %40
+66:                                               ; preds = %62, %59, %52, %40
   %67 = load i8, ptr @debug_log, align 1
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %link_exe.exit

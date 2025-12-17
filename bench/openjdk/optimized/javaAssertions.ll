@@ -463,7 +463,7 @@ _ZNK6HandleclEv.exit56.thread:                    ; preds = %_ZNK15typeArrayHand
   br label %_ZNK6HandleclEv.exit57
 
 _ZNK6HandleclEv.exit57:                           ; preds = %108, %_ZNK6HandleclEv.exit56.thread, %71, %68, %_ZN14JavaAssertions10OptionList5countEPS0_.exit50, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, %_ZN14JavaAssertions10OptionList5countEPS0_.exit, %13, %8, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %13 ], [ null, %_ZN14JavaAssertions10OptionList5countEPS0_.exit ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ], [ null, %_ZN14JavaAssertions10OptionList5countEPS0_.exit50 ], [ null, %68 ], [ null, %71 ], [ %112, %108 ], [ null, %_ZNK6HandleclEv.exit56.thread ]
+  %.0 = phi ptr [ null, %71 ], [ null, %1 ], [ null, %8 ], [ null, %13 ], [ null, %_ZN14JavaAssertions10OptionList5countEPS0_.exit ], [ null, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN15typeArrayHandleC2EP6ThreadP16typeArrayOopDesc.exit ], [ null, %_ZN14JavaAssertions10OptionList5countEPS0_.exit50 ], [ null, %68 ], [ %112, %108 ], [ null, %_ZNK6HandleclEv.exit56.thread ]
   ret ptr %.0
 }
 

@@ -625,7 +625,7 @@ common.resume.sink.split.i:                       ; preds = %99, %85
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %89, %common.resume.sink.split.i, %73
-  %common.resume.op.i = phi { ptr, i32 } [ %74, %73 ], [ %90, %89 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %90, %89 ], [ %74, %73 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h42cfdd358f744aaaE.exit.i": ; preds = %68
@@ -787,8 +787,8 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h626917
   br i1 %or.cond58.not, label %50, label %.thread.i
 
 .thread.i:                                        ; preds = %48, %35, %34
-  %.sroa.0.054.i = phi i64 [ %3, %48 ], [ %3, %34 ], [ %23, %35 ]
-  %.sroa.04.053.i = phi i8 [ 1, %48 ], [ 0, %34 ], [ 0, %35 ]
+  %.sroa.0.054.i = phi i64 [ %3, %34 ], [ %3, %48 ], [ %23, %35 ]
+  %.sroa.04.053.i = phi i8 [ 0, %34 ], [ 1, %48 ], [ 0, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !53
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !53
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -823,8 +823,8 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h626917
   br label %.thread.i
 
 50:                                               ; preds = %35, %17, %29
-  %.sroa.9.0.ph = phi i64 [ undef, %29 ], [ %19, %17 ], [ undef, %35 ]
-  %.sroa.0.0.ph = phi i64 [ 14, %29 ], [ 12, %17 ], [ 14, %35 ]
+  %.sroa.9.0.ph = phi i64 [ undef, %29 ], [ undef, %35 ], [ %19, %17 ]
+  %.sroa.0.0.ph = phi i64 [ 14, %29 ], [ 14, %35 ], [ 12, %17 ]
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.ph, ptr %51, align 8
@@ -1143,7 +1143,7 @@ define { i64, ptr } @_ZN11quiche_apps6sendto7send_to17h522a9652d31a3983E(ptr noa
   br i1 %54, label %.loopexit, label %55
 
 .loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c022711328fe7a6E.exit", %17, %._crit_edge
-  %.merged = phi { i64, ptr } [ %43, %._crit_edge ], [ %41, %17 ], [ %52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c022711328fe7a6E.exit" ]
+  %.merged = phi { i64, ptr } [ %41, %17 ], [ %43, %._crit_edge ], [ %52, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c022711328fe7a6E.exit" ]
   ret { i64, ptr } %.merged
 
 55:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c022711328fe7a6E.exit"

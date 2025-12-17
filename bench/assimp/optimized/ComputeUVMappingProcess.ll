@@ -1410,7 +1410,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE5clear
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 4 dereferenceable(12) %92, i64 12, i1 false)
   br label %.loopexit
 
-93:                                               ; preds = %83, %78, %87
+93:                                               ; preds = %78, %83, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %78, !llvm.loop !20
@@ -2207,9 +2207,9 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(36) ptr @_ZN1
   br label %36
 
 36:                                               ; preds = %33, %30, %35, %32
-  %.sroa.20.0 = phi float [ 1.000000e+00, %32 ], [ 1.000000e+00, %35 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %33 ]
-  %.sroa.11.0 = phi float [ 0.000000e+00, %32 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %30 ], [ 1.000000e+00, %33 ]
-  %.sroa.0.0 = phi float [ 0.000000e+00, %32 ], [ 0.000000e+00, %35 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %33 ]
+  %.sroa.20.0 = phi float [ 1.000000e+00, %35 ], [ 1.000000e+00, %32 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %33 ]
+  %.sroa.11.0 = phi float [ 0.000000e+00, %35 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %30 ], [ 1.000000e+00, %33 ]
+  %.sroa.0.0 = phi float [ 0.000000e+00, %35 ], [ 0.000000e+00, %32 ], [ 1.000000e+00, %30 ], [ 0.000000e+00, %33 ]
   %37 = fsub float %.sroa.0.0, %4
   %38 = fsub float %.sroa.11.0, %7
   %39 = fsub float %.sroa.20.0, %13

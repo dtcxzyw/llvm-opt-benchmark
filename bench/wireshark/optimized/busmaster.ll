@@ -320,7 +320,7 @@ busmaster_find_priv_entry.exit:                   ; preds = %20, %24
   br i1 %.not.i78, label %busmaster_find_priv_entry.exit79, label %.lr.ph.i72, !llvm.loop !8
 
 busmaster_find_priv_entry.exit79:                 ; preds = %73, %77, %79, %66
-  %.2.i77 = phi ptr [ null, %66 ], [ null, %79 ], [ %69, %73 ], [ %69, %77 ]
+  %.2.i77 = phi ptr [ null, %66 ], [ null, %79 ], [ %69, %77 ], [ %69, %73 ]
   %82 = call fastcc zeroext i1 @busmaster_gen_packet(ptr noundef %1, ptr noundef %.2.i77, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
@@ -415,7 +415,7 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %19, %5, %busmaster_
   br label %39
 
 39:                                               ; preds = %28, %23, %36, %34, %busmaster_find_priv_entry.exit.thread
-  %.0 = phi i1 [ false, %34 ], [ %38, %36 ], [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %34 ], [ %38, %36 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

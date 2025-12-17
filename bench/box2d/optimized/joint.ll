@@ -2569,7 +2569,7 @@ b2GetJointSim.exit:                               ; preds = %14, %20
   br label %43
 
 43:                                               ; preds = %b2GetJointSim.exit, %41, %39, %37, %35, %33, %31, %29
-  %.sroa.018.0 = phi <2 x float> [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ zeroinitializer, %b2GetJointSim.exit ]
+  %.sroa.018.0 = phi <2 x float> [ %40, %39 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %42, %41 ], [ %36, %35 ], [ %38, %37 ], [ zeroinitializer, %b2GetJointSim.exit ]
   ret <2 x float> %.sroa.018.0
 }
 
@@ -2663,7 +2663,7 @@ b2GetJointSim.exit:                               ; preds = %14, %20
   br label %41
 
 41:                                               ; preds = %b2GetJointSim.exit, %39, %37, %35, %33, %31, %29
-  %.0 = phi float [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ 0.000000e+00, %b2GetJointSim.exit ]
+  %.0 = phi float [ %36, %35 ], [ %40, %39 ], [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %34, %33 ], [ 0.000000e+00, %b2GetJointSim.exit ]
   ret float %.0
 }
 

@@ -135,7 +135,7 @@ define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolv
   br label %.critedge26
 
 .critedge26:                                      ; preds = %.critedge, %7, %10, %9
-  %.1 = phi i32 [ 1, %9 ], [ 1, %10 ], [ 0, %7 ], [ 0, %.critedge ]
+  %.1 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 0, %7 ], [ 0, %.critedge ]
   ret i32 %.1
 }
 
@@ -437,9 +437,9 @@ define void @_Z23grpc_sockaddr_to_stringB5cxx11PK21grpc_resolved_addressb(ptr de
   store i32 16, ptr %.0.sroa.gep64, align 4, !tbaa !17
   br label %42
 
-42:                                               ; preds = %34, %32, %.critedge.i, %3
-  %.0.sroa.phi = phi ptr [ %1, %3 ], [ %8, %34 ], [ %1, %32 ], [ %1, %.critedge.i ]
-  %.0.sroa.phi63 = phi ptr [ %.0.sroa.gep65, %3 ], [ %.0.sroa.gep64, %34 ], [ %.0.sroa.gep65, %32 ], [ %.0.sroa.gep65, %.critedge.i ]
+42:                                               ; preds = %34, %.critedge.i, %32, %3
+  %.0.sroa.phi = phi ptr [ %1, %3 ], [ %8, %34 ], [ %1, %.critedge.i ], [ %1, %32 ]
+  %.0.sroa.phi63 = phi ptr [ %.0.sroa.gep65, %3 ], [ %.0.sroa.gep64, %34 ], [ %.0.sroa.gep65, %.critedge.i ], [ %.0.sroa.gep65, %32 ]
   %.0.sroa.phi.sroa.phi310 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi, i64 2
   %.0.sroa.phi.sroa.phi305 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi, i64 4
   %.0.sroa.phi.sroa.phi290 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi, i64 4
@@ -1553,7 +1553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %41
   ret void
 
 419:                                              ; preds = %250, %257, %413, %246, %108, %67, %167, %126
-  %.pn92.pn = phi { ptr, i32 } [ %.pn89, %67 ], [ %109, %108 ], [ %.pn85, %126 ], [ %168, %167 ], [ %.pn80.pn, %246 ], [ %.pn77, %413 ], [ %251, %250 ], [ %258, %257 ]
+  %.pn92.pn = phi { ptr, i32 } [ %.pn80.pn, %246 ], [ %168, %167 ], [ %258, %257 ], [ %109, %108 ], [ %.pn89, %67 ], [ %.pn85, %126 ], [ %251, %250 ], [ %.pn77, %413 ]
   %420 = load ptr, ptr %9, align 8, !tbaa !36
   %421 = icmp eq ptr %420, %43
   br i1 %421, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i180
@@ -1800,7 +1800,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit40:         ; preds = %_Z28grpc_sockaddr_g
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZL38grpc_sockaddr_to_uri_vsock_if_possibleB5cxx11PK21grpc_resolved_address.exit
 
-84:                                               ; preds = %72, %73, %69
+84:                                               ; preds = %73, %72, %69
   %.0.i.ph = phi ptr [ @.str.15, %69 ], [ @.str.13, %73 ], [ @.str.16, %72 ]
   %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.12, ptr noundef nonnull dereferenceable(1) %.0.i.ph) #28
   %86 = icmp eq i32 %85, 0
@@ -2475,7 +2475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i: ; preds = %_
   br label %common.resume
 
 common.resume:                                    ; preds = %.body, %541, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i ], [ %.pn26.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i ], [ %.pn21.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i ], [ %48, %.body ], [ %.pn32, %541 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn21.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i ], [ %.pn26.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31.i ], [ %48, %.body ], [ %.pn32, %541 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZL37grpc_sockaddr_to_uri_unix_if_possibleB5cxx11PK21grpc_resolved_address.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i
@@ -3145,7 +3145,7 @@ define noundef ptr @_Z28grpc_sockaddr_get_uri_schemePK21grpc_resolved_address(pt
   br label %7
 
 7:                                                ; preds = %1, %6, %5, %4, %3
-  %.0 = phi ptr [ null, %6 ], [ @.str.16, %3 ], [ @.str.12, %4 ], [ @.str.13, %5 ], [ @.str.15, %1 ]
+  %.0 = phi ptr [ null, %6 ], [ @.str.13, %5 ], [ @.str.16, %3 ], [ @.str.12, %4 ], [ @.str.15, %1 ]
   ret ptr %.0
 }
 

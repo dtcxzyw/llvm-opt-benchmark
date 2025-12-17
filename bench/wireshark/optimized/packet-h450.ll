@@ -1687,7 +1687,7 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %49, %56, %53, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %52, %49 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_op.exit ], [ %52, %49 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1807,7 +1807,7 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %53, %59, %56, %get_op.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_op.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_op.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -1927,7 +1927,7 @@ proto_item_set_hidden.exit:                       ; preds = %25, %28, %31
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %53, %59, %56, %get_err.exit, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %get_err.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 0, %9 ], [ 0, %get_err.exit ], [ %55, %53 ], [ %61, %59 ], [ 0, %56 ], [ 0, %18 ]
   ret i32 %.0
 }
 

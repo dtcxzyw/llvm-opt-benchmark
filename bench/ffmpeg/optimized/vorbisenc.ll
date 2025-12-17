@@ -4250,8 +4250,8 @@ put_main_header.exit:                             ; preds = %1832
   call void @ff_af_queue_init(ptr noundef nonnull %0, ptr noundef nonnull %1853) #13
   br label %create_vorbis_context.exit.thread
 
-create_vorbis_context.exit.thread:                ; preds = %cb_lookup_vals.exit.i, %.lr.ph313.i, %cb_lookup_vals.exit.i.i, %.lr.ph322.i, %331, %380, %382, %384, %327, %._crit_edge339.i, %._crit_edge336.i, %283, %279, %276, %268, %264, %._crit_edge332.i, %._crit_edge327.i, %202, %188, %._crit_edge.i, %11, %put_main_header.exit.thread, %put_main_header.exit, %create_vorbis_context.exit, %1846, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %331 ], [ -12, %380 ], [ -12, %382 ], [ -12, %384 ], [ -12, %327 ], [ -12, %._crit_edge339.i ], [ -12, %._crit_edge336.i ], [ -12, %283 ], [ -12, %279 ], [ %277, %276 ], [ -12, %268 ], [ -12, %264 ], [ -558323010, %._crit_edge332.i ], [ -12, %._crit_edge327.i ], [ -12, %202 ], [ -12, %188 ], [ -12, %._crit_edge.i ], [ -12, %11 ], [ -12, %.lr.ph322.i ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %.lr.ph313.i ], [ -12, %cb_lookup_vals.exit.i ]
+create_vorbis_context.exit.thread:                ; preds = %.lr.ph313.i, %cb_lookup_vals.exit.i, %cb_lookup_vals.exit.i.i, %.lr.ph322.i, %380, %382, %384, %11, %._crit_edge.i, %188, %202, %._crit_edge332.i, %264, %276, %279, %283, %._crit_edge336.i, %._crit_edge339.i, %327, %331, %268, %._crit_edge327.i, %put_main_header.exit.thread, %put_main_header.exit, %create_vorbis_context.exit, %1846, %10
+  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %380 ], [ -12, %382 ], [ -12, %384 ], [ -12, %11 ], [ -12, %._crit_edge.i ], [ -12, %188 ], [ -12, %202 ], [ -558323010, %._crit_edge332.i ], [ -12, %264 ], [ %277, %276 ], [ -12, %279 ], [ -12, %283 ], [ -12, %._crit_edge336.i ], [ -12, %._crit_edge339.i ], [ -12, %327 ], [ -12, %331 ], [ -12, %268 ], [ -12, %._crit_edge327.i ], [ -12, %.lr.ph322.i ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %cb_lookup_vals.exit.i ], [ -12, %.lr.ph313.i ]
   ret i32 %.0
 }
 
@@ -4517,7 +4517,7 @@ define internal range(i32 -2147483648, 1) i32 @vorbis_encode_frame(ptr noundef %
   br i1 %149, label %141, label %.loopexit.i, !llvm.loop !188
 
 .loopexit.i:                                      ; preds = %128, %141, %.preheader.i176, %.preheader51.i
-  %150 = phi i32 [ %119, %.preheader51.i ], [ %119, %.preheader.i176 ], [ %148, %141 ], [ %139, %128 ]
+  %150 = phi i32 [ %119, %.preheader.i176 ], [ %119, %.preheader51.i ], [ %148, %141 ], [ %139, %128 ]
   %151 = icmp sgt i32 %116, 0
   br i1 %151, label %.lr.ph60.i, label %move_audio.exit
 
@@ -5243,7 +5243,7 @@ put_bits.exit175.i:                               ; preds = %484, %put_bits.exit
   br label %552
 
 552:                                              ; preds = %549, %547, %540, %496
-  %.sink.i = phi i32 [ %551, %549 ], [ %548, %547 ], [ 0, %496 ], [ %spec.select.i210, %540 ]
+  %.sink.i = phi i32 [ %spec.select.i210, %540 ], [ 0, %496 ], [ %551, %549 ], [ %548, %547 ]
   %553 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i207
   store i32 %.sink.i, ptr %553, align 4, !tbaa !44
   %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i207, 1
@@ -6428,7 +6428,7 @@ put_vector.exit.us.us.i:                          ; preds = %1031, %1019
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge.us368.i, %put_vector.exit.us.us.i, %._crit_edge46.i.us.us.i, %.thread.i
+.loopexit:                                        ; preds = %._crit_edge.us368.i, %._crit_edge46.i.us.us.i, %put_vector.exit.us.us.i, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.13) #13
   br label %.thread
@@ -6496,7 +6496,7 @@ flush_put_bits.exit:                              ; preds = %1064, %.loopexit331
   br label %.thread
 
 .thread:                                          ; preds = %1080, %22, %18, %.loopexit333, %.thread293, %apply_window_and_mdct.exit, %40, %37, %1087, %.loopexit
-  %.1 = phi i32 [ -22, %.loopexit333 ], [ -22, %.loopexit ], [ 0, %1087 ], [ 0, %37 ], [ 0, %40 ], [ %244, %apply_window_and_mdct.exit ], [ -12, %.thread293 ], [ -12, %22 ], [ %20, %18 ], [ -12, %1080 ]
+  %.1 = phi i32 [ 0, %37 ], [ 0, %40 ], [ -22, %.loopexit333 ], [ -22, %.loopexit ], [ 0, %1087 ], [ %20, %18 ], [ %244, %apply_window_and_mdct.exit ], [ -12, %.thread293 ], [ -12, %22 ], [ -12, %1080 ]
   ret i32 %.1
 }
 
@@ -6591,7 +6591,7 @@ define internal noundef i32 @vorbis_encode_close(ptr noundef readonly captures(n
   br i1 %51, label %.lr.ph85, label %.loopexit78, !llvm.loop !238
 
 .loopexit78:                                      ; preds = %.lr.ph85, %.preheader77, %.lr.ph87
-  %52 = phi ptr [ %33, %.preheader77 ], [ %33, %.lr.ph87 ], [ %46, %.lr.ph85 ]
+  %52 = phi ptr [ %33, %.lr.ph87 ], [ %33, %.preheader77 ], [ %46, %.lr.ph85 ]
   %53 = getelementptr inbounds nuw %struct.vorbis_enc_floor, ptr %52, i64 %indvars.iv96
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   tail call void @av_freep(ptr noundef nonnull %54) #13
@@ -6964,7 +6964,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dsp_init(i32 %.64.val, ptr
   br label %34
 
 34:                                               ; preds = %27, %6, %1
-  %.0 = phi i32 [ -12, %1 ], [ %25, %6 ], [ %., %27 ]
+  %.0 = phi i32 [ -12, %1 ], [ %., %27 ], [ %25, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

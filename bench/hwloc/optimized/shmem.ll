@@ -157,7 +157,7 @@ define range(i32 -2147483648, 1) i32 @hwloc_shmem_topology_write(ptr noundef %0,
   br label %41
 
 41:                                               ; preds = %32, %25, %21, %19, %12, %38, %29, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %29 ], [ 0, %38 ], [ -1, %12 ], [ -1, %19 ], [ -1, %21 ], [ -1, %25 ], [ %36, %32 ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %38 ], [ -1, %12 ], [ -1, %19 ], [ -1, %21 ], [ -1, %29 ], [ -1, %25 ], [ %36, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -354,7 +354,7 @@ define range(i32 -1, 1) i32 @hwloc_shmem_topology_adopt(ptr noundef writeonly ca
   br label %73
 
 73:                                               ; preds = %26, %13, %10, %71, %68, %24, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %24 ], [ -1, %71 ], [ 0, %68 ], [ -1, %10 ], [ -1, %13 ], [ -1, %26 ]
+  %.0 = phi i32 [ -1, %8 ], [ 0, %68 ], [ -1, %10 ], [ -1, %24 ], [ -1, %13 ], [ -1, %71 ], [ -1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

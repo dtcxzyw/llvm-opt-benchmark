@@ -503,7 +503,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captu
   br i1 %158, label %.sink.split.i, label %LDL_factor.exit
 
 .sink.split.i:                                    ; preds = %157, %133, %132, %129
-  %.str.5.sink.i = phi ptr [ @.str.6, %132 ], [ @.str.5, %129 ], [ @.str.7, %133 ], [ @.str.8, %157 ]
+  %.str.5.sink.i = phi ptr [ @.str.5, %129 ], [ @.str.6, %132 ], [ @.str.7, %133 ], [ @.str.8, %157 ]
   %159 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @__func__.LDL_factor)
   %160 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.5.sink.i)
   %putchar39.i = tail call i32 @putchar(i32 10)
@@ -1736,7 +1736,7 @@ _adj_perturb.exit:                                ; preds = %405, %.preheader.i
   br label %513
 
 513:                                              ; preds = %435, %_adj_perturb.exit, %512
-  %.1 = phi i64 [ %.2, %512 ], [ 5, %_adj_perturb.exit ], [ %439, %435 ]
+  %.1 = phi i64 [ 5, %_adj_perturb.exit ], [ %.2, %512 ], [ %439, %435 ]
   tail call void @free(ptr noundef %416) #12
   tail call void @free(ptr noundef %417) #12
   tail call void @free(ptr noundef %418) #12

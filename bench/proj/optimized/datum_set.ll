@@ -231,7 +231,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   br label %.critedge111.thread
 
 .critedge111.thread:                              ; preds = %.preheader, %.thread114, %.thread, %.critedge112, %36, %37, %84, %70
-  %.6 = phi i32 [ 0, %70 ], [ 0, %84 ], [ 0, %37 ], [ 0, %36 ], [ 1, %.thread114 ], [ 1, %.thread ], [ 1, %.critedge112 ], [ -1, %.preheader ]
+  %.6 = phi i32 [ 0, %36 ], [ 0, %70 ], [ 0, %84 ], [ 0, %37 ], [ 1, %.thread114 ], [ 1, %.thread ], [ 1, %.critedge112 ], [ -1, %.preheader ]
   ret i32 %.6
 }
 

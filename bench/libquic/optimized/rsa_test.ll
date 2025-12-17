@@ -295,7 +295,7 @@ _ZL14TestOnlyDGivenv.exit.thread:                 ; preds = %21
           to label %102 unwind label %78
 
 102:                                              ; preds = %.invoke34.i, %97, %85, %75, %71
-  %.27.ph.i = phi i1 [ true, %97 ], [ false, %85 ], [ false, %71 ], [ false, %75 ], [ false, %.invoke34.i ]
+  %.27.ph.i = phi i1 [ true, %97 ], [ false, %71 ], [ false, %75 ], [ false, %85 ], [ false, %.invoke34.i ]
   invoke void @RSA_free(ptr noundef nonnull %66)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i unwind label %103
 
@@ -683,7 +683,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5: ; 
   br i1 %.not.i45.i, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i, label %.critedge38.thread.i
 
 .critedge38.thread.i:                             ; preds = %.critedge38.i, %170, %164
-  %.pr104.i = phi ptr [ %.pr.pre.i, %.critedge38.i ], [ %165, %164 ], [ %165, %170 ]
+  %.pr104.i = phi ptr [ %.pr.pre.i, %.critedge38.i ], [ %165, %170 ], [ %165, %164 ]
   invoke void @RSA_free(ptr noundef nonnull %.pr104.i)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i unwind label %229
 
@@ -759,7 +759,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i: ;
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %243, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i, %233, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i, %220, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5
-  %.019.ph.ph.i = phi i1 [ true, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5 ], [ true, %220 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i ], [ false, %233 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i ], [ false, %243 ], [ false, %.sink.split.sink.split.i ]
+  %.019.ph.ph.i = phi i1 [ true, %220 ], [ false, %233 ], [ true, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i5 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit46.i ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit50.i ], [ false, %243 ], [ false, %.sink.split.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %247
 
@@ -888,7 +888,7 @@ _ZL10TestBadKeyv.exit.thread:                     ; preds = %thread-pre-split.i
   br label %309
 
 thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i, %287, %284, %.invoke.i11, %259
-  %.0322.i = phi i1 [ false, %thread-pre-split.i ], [ false, %284 ], [ false, %259 ], [ true, %287 ], [ false, %.invoke.i11 ]
+  %.0322.i = phi i1 [ false, %thread-pre-split.i ], [ false, %284 ], [ false, %.invoke.i11 ], [ true, %287 ], [ false, %259 ]
   invoke void @BN_free(ptr noundef nonnull %254)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %288
 
@@ -1679,7 +1679,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit
   br label %76
 
 76:                                               ; preds = %62, %45, %49, %75, %55
-  %.4 = phi i1 [ false, %55 ], [ %.5, %75 ], [ false, %49 ], [ false, %45 ], [ false, %62 ]
+  %.4 = phi i1 [ %.5, %75 ], [ false, %55 ], [ false, %45 ], [ false, %49 ], [ false, %62 ]
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %77
 
@@ -1758,7 +1758,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit33:  ; preds = %82, %81, %11
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; preds = %0, %83, %84
-  %.0649 = phi i1 [ %.17, %83 ], [ %.17, %84 ], [ false, %0 ]
+  %.0649 = phi i1 [ %.17, %84 ], [ %.17, %83 ], [ false, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0649
 }

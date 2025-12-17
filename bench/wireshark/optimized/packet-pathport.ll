@@ -295,7 +295,7 @@ packet_is_pathport.exit:                          ; preds = %4
   br label %packet_is_pathport.exit.thread
 
 packet_is_pathport.exit.thread:                   ; preds = %4, %packet_is_pathport.exit, %8
-  %.0.i6 = phi i1 [ false, %packet_is_pathport.exit ], [ true, %8 ], [ false, %4 ]
+  %.0.i6 = phi i1 [ true, %8 ], [ false, %packet_is_pathport.exit ], [ false, %4 ]
   ret i1 %.0.i6
 }
 

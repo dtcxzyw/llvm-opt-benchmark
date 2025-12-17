@@ -276,7 +276,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   br i1 %.not81, label %.critedge133, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %43, %27, %18, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]
+  %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %28, %27 ], [ %19, %18 ], [ %44, %43 ]
   %45 = add nsw i32 %.lcssa43, -1
   store i32 %45, ptr %11, align 4, !tbaa !9
   br label %.thread
@@ -308,7 +308,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ;
   ret i1 %46
 
 .split:                                           ; preds = %.split71, %.split71.us, %.split.us, %.split.split.us, %.split.split, %41, %.split61.us, %34
-  %.pn23.pn = phi { ptr, i32 } [ %35, %34 ], [ %21, %.split61.us ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %29, %.split.split.us ], [ %39, %.split71 ], [ %30, %.split71.us ]
+  %.pn23.pn = phi { ptr, i32 } [ %21, %.split61.us ], [ %29, %.split.split.us ], [ %35, %34 ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %39, %.split71 ], [ %30, %.split71.us ]
   call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %0) #7
   resume { ptr, i32 } %.pn23.pn
 }

@@ -210,7 +210,7 @@ valid_svg_data.exit75.thread84:                   ; preds = %70, %.thread80, %va
   br label %valid_svg_data.exit75.thread
 
 valid_svg_data.exit75.thread:                     ; preds = %58, %73, %3, %valid_svg_data.exit75.thread84, %valid_svg_data.exit75, %12, %.critedge
-  %.3 = phi i32 [ 1, %valid_svg_data.exit75.thread84 ], [ 0, %valid_svg_data.exit75 ], [ 0, %12 ], [ 0, %.critedge ], [ 0, %3 ], [ 0, %73 ], [ 0, %58 ]
+  %.3 = phi i32 [ 0, %12 ], [ 0, %valid_svg_data.exit75 ], [ 1, %valid_svg_data.exit75.thread84 ], [ 0, %.critedge ], [ 0, %3 ], [ 0, %73 ], [ 0, %58 ]
   ret i32 %.3
 }
 
@@ -384,7 +384,7 @@ alloc_file.exit:                                  ; preds = %32
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %67, %80, %.thread, %alloc_file.exit.thread53, %alloc_file.exit.thread, %9, %2
-  %.1 = phi i32 [ 0, %2 ], [ 0, %9 ], [ 0, %alloc_file.exit.thread ], [ 0, %alloc_file.exit.thread53 ], [ 0, %.thread ], [ 1, %80 ], [ 1, %67 ], [ 1, %52 ]
+  %.1 = phi i32 [ 0, %2 ], [ 0, %alloc_file.exit.thread53 ], [ 0, %.thread ], [ 0, %alloc_file.exit.thread ], [ 0, %9 ], [ 1, %80 ], [ 1, %67 ], [ 1, %52 ]
   ret i32 %.1
 }
 

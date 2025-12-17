@@ -4309,7 +4309,7 @@ _ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit:    ; preds = %_ZN20btAlignedObjec
   br i1 %exitcond709.not, label %.loopexit, label %371, !llvm.loop !132
 
 .loopexit:                                        ; preds = %385, %357, %356
-  %.1 = phi i1 [ false, %357 ], [ %.0283671, %356 ], [ true, %385 ]
+  %.1 = phi i1 [ %.0283671, %356 ], [ false, %357 ], [ true, %385 ]
   %387 = load ptr, ptr %344, align 8, !tbaa !43
   %388 = getelementptr inbounds ptr, ptr %387, i64 %indvars.iv704
   %389 = load ptr, ptr %388, align 8, !tbaa !58

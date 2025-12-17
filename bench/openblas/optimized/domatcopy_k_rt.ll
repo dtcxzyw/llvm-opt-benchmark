@@ -328,8 +328,8 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   br i1 %211, label %.preheader327, label %.loopexit330, !llvm.loop !7
 
 .loopexit330:                                     ; preds = %209, %86, %.preheader329.split.us.split.us.split, %.preheader329.split.us.split.us.split.us.preheader, %10
-  %.0295 = phi ptr [ %3, %10 ], [ %scevgep, %.preheader329.split.us.split.us.split.us.preheader ], [ %22, %.preheader329.split.us.split.us.split ], [ %40, %86 ], [ %162, %209 ]
-  %.0271 = phi ptr [ %5, %10 ], [ %scevgep373, %.preheader329.split.us.split.us.split.us.preheader ], [ %23, %.preheader329.split.us.split.us.split ], [ %42, %86 ], [ %163, %209 ]
+  %.0295 = phi ptr [ %3, %10 ], [ %scevgep, %.preheader329.split.us.split.us.split.us.preheader ], [ %40, %86 ], [ %22, %.preheader329.split.us.split.us.split ], [ %162, %209 ]
+  %.0271 = phi ptr [ %5, %10 ], [ %scevgep373, %.preheader329.split.us.split.us.split.us.preheader ], [ %42, %86 ], [ %23, %.preheader329.split.us.split.us.split ], [ %163, %209 ]
   %212 = and i64 %0, 2
   %.not314 = icmp eq i64 %212, 0
   br i1 %.not314, label %282, label %213

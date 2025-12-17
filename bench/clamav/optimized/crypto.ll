@@ -170,7 +170,7 @@ define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.thread80
 
 .thread80:                                        ; preds = %.thread78, %.thread81, %50, %51, %16, %10, %5, %49, %25
-  %.0 = phi ptr [ null, %49 ], [ null, %25 ], [ null, %5 ], [ null, %10 ], [ null, %16 ], [ %19, %51 ], [ %19, %50 ], [ null, %.thread81 ], [ null, %.thread78 ]
+  %.0 = phi ptr [ null, %.thread81 ], [ %19, %50 ], [ null, %49 ], [ null, %25 ], [ null, %10 ], [ null, %5 ], [ null, %16 ], [ %19, %51 ], [ null, %.thread78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -299,7 +299,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
   br label %31
 
 31:                                               ; preds = %10, %3, %30, %26, %23, %18
-  %.0 = phi ptr [ null, %23 ], [ %17, %30 ], [ null, %26 ], [ null, %18 ], [ null, %3 ], [ null, %10 ]
+  %.0 = phi ptr [ null, %18 ], [ null, %3 ], [ null, %23 ], [ %17, %30 ], [ null, %26 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -412,7 +412,7 @@ define range(i32 -1, 1) i32 @cl_verify_signature_hash(ptr noundef %0, ptr nounde
   br label %20
 
 20:                                               ; preds = %17, %7, %5, %16, %12
-  %.0 = phi i32 [ -1, %16 ], [ -1, %12 ], [ -1, %5 ], [ -1, %7 ], [ %., %17 ]
+  %.0 = phi i32 [ %., %17 ], [ -1, %7 ], [ -1, %16 ], [ -1, %12 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -495,7 +495,7 @@ cl_hash_file_fd.exit:                             ; preds = %9
   br label %cl_hash_file_fd.exit.thread
 
 cl_hash_file_fd.exit.thread:                      ; preds = %7, %5, %cl_hash_file_fd.exit.thread36, %26, %cl_hash_file_fd.exit, %25, %22, %19, %14
-  %.0 = phi i32 [ -1, %25 ], [ -1, %22 ], [ -1, %19 ], [ -1, %14 ], [ -1, %cl_hash_file_fd.exit ], [ %., %26 ], [ -1, %cl_hash_file_fd.exit.thread36 ], [ -1, %5 ], [ -1, %7 ]
+  %.0 = phi i32 [ %., %26 ], [ -1, %cl_hash_file_fd.exit ], [ -1, %25 ], [ -1, %22 ], [ -1, %19 ], [ -1, %14 ], [ -1, %cl_hash_file_fd.exit.thread36 ], [ -1, %5 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -625,7 +625,7 @@ define range(i32 -1, 1) i32 @cl_verify_signature(ptr noundef %0, ptr noundef %1,
   br label %48
 
 48:                                               ; preds = %13, %27, %28, %21, %22, %17, %9, %47, %44, %38, %33
-  %.1 = phi i32 [ -1, %44 ], [ 0, %47 ], [ -1, %38 ], [ -1, %33 ], [ -1, %9 ], [ -1, %17 ], [ -1, %22 ], [ -1, %21 ], [ -1, %28 ], [ -1, %27 ], [ -1, %13 ]
+  %.1 = phi i32 [ -1, %44 ], [ 0, %47 ], [ -1, %38 ], [ -1, %33 ], [ -1, %21 ], [ -1, %27 ], [ -1, %9 ], [ -1, %17 ], [ -1, %22 ], [ -1, %28 ], [ -1, %13 ]
   ret i32 %.1
 }
 
@@ -900,7 +900,7 @@ define ptr @cl_sign_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %35
 
 35:                                               ; preds = %.thread, %8, %5, %33, %25, %22, %17, %14
-  %.0 = phi ptr [ %.034, %33 ], [ null, %25 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %5 ], [ null, %8 ], [ null, %.thread ]
+  %.0 = phi ptr [ %.034, %33 ], [ null, %.thread ], [ null, %25 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %5 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -1414,7 +1414,7 @@ cl_load_cert.exit.thread:                         ; preds = %53, %cl_load_cert.e
   br label %80
 
 80:                                               ; preds = %63, %64, %51, %52, %44, %45, %38, %39, %3, %77, %71, %27, %21, %9
-  %.0 = phi i32 [ %79, %77 ], [ -1, %71 ], [ -1, %27 ], [ -1, %21 ], [ -1, %9 ], [ -1, %3 ], [ -1, %39 ], [ -1, %38 ], [ -1, %45 ], [ -1, %44 ], [ -1, %52 ], [ -1, %51 ], [ -1, %64 ], [ -1, %63 ]
+  %.0 = phi i32 [ -1, %3 ], [ %79, %77 ], [ -1, %71 ], [ -1, %51 ], [ -1, %44 ], [ -1, %38 ], [ -1, %27 ], [ -1, %21 ], [ -1, %9 ], [ -1, %39 ], [ -1, %45 ], [ -1, %52 ], [ -1, %64 ], [ -1, %63 ]
   ret i32 %.0
 }
 
@@ -1459,7 +1459,7 @@ define ptr @cl_load_crl(ptr noundef readonly captures(address_is_null) %0) local
   br label %12
 
 12:                                               ; preds = %4, %9, %.critedge, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ null, %.critedge ], [ %5, %9 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %.critedge ], [ null, %1 ], [ %5, %9 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1614,7 +1614,7 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
   br label %40
 
 40:                                               ; preds = %10, %7, %1, %4, %34, %33, %.critedge
-  %.024 = phi ptr [ %11, %34 ], [ null, %33 ], [ null, %.critedge ], [ null, %4 ], [ null, %1 ], [ null, %7 ], [ null, %10 ]
+  %.024 = phi ptr [ null, %1 ], [ %11, %34 ], [ null, %33 ], [ null, %.critedge ], [ null, %7 ], [ null, %4 ], [ null, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.024
@@ -1657,7 +1657,7 @@ define ptr @cl_hash_init(ptr noundef %0) local_unnamed_addr #1 {
   br label %8
 
 8:                                                ; preds = %5, %3, %1, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ null, %3 ], [ %4, %5 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ null, %1 ], [ %4, %5 ]
   ret ptr %.0
 }
 

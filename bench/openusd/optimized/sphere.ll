@@ -2880,7 +2880,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArra
   br label %97
 
 97:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %23
-  %.0 = phi i1 [ false, %23 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit ]
+  %.0 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdRKNS_10GfMatrix4dEPNS_7VtArrayINS_7GfVec3fEEE.exit ], [ false, %23 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphere13ComputeExtentEdPNS_7VtArrayINS_7GfVec3fEEE.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSphereD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   ret i1 %.0
 

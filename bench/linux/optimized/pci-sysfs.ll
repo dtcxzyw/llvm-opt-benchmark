@@ -375,7 +375,7 @@ pci_create_attr.exit:                             ; preds = %15, %26, %52
   %70 = icmp eq i64 %69, 6
   br i1 %70, label %.loopexit, label %57, !llvm.loop !6
 
-pci_create_attr.exit.thread:                      ; preds = %53, %19, %21, %11, %5
+pci_create_attr.exit.thread:                      ; preds = %53, %21, %19, %11, %5
   %71 = add nuw nsw i64 %6, 1
   %72 = icmp eq i64 %71, 6
   br i1 %72, label %.loopexit, label %5, !llvm.loop !9
@@ -1352,7 +1352,7 @@ define internal noundef i64 @enable_store(ptr noundef %0, ptr readnone captures(
   br label %27
 
 27:                                               ; preds = %23, %.thread2, %.thread, %8, %4
-  %28 = phi i64 [ -1, %4 ], [ -22, %8 ], [ %3, %.thread2 ], [ %.ph, %.thread ], [ %spec.select, %23 ]
+  %28 = phi i64 [ -22, %8 ], [ -1, %4 ], [ %3, %.thread2 ], [ %spec.select, %23 ], [ %.ph, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %28
 }

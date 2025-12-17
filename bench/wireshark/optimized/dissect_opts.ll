@@ -95,7 +95,7 @@ define hidden noundef zeroext i1 @dissect_opts_handle_opt(i32 noundef %0, ptr no
   br label %93
 
 22:                                               ; preds = %.thread, %14
-  %.1 = phi i32 [ -1, %14 ], [ %19, %.thread ]
+  %.1 = phi i32 [ %19, %.thread ], [ -1, %14 ]
   store i8 0, ptr %13, align 1
   br label %sub_0
 
@@ -209,7 +209,7 @@ sub_184:                                          ; preds = %.tail78
   br label %93
 
 .sink.split:                                      ; preds = %.tail82.thread, %.tail82, %.tail78, %.tail74, %.tail69, %.tail65, %.tail61.thread, %.thread117, %.tail61, %.tail57, %.tail
-  %.sink = phi i32 [ 0, %.tail ], [ 1, %.tail57 ], [ 2, %.tail61 ], [ 3, %.thread117 ], [ 3, %.tail61.thread ], [ 4, %.tail65 ], [ 5, %.tail69 ], [ 6, %.tail74 ], [ 7, %.tail78 ], [ 8, %.tail82 ], [ 9, %.tail82.thread ]
+  %.sink = phi i32 [ 0, %.tail ], [ 2, %.tail61 ], [ 4, %.tail65 ], [ 6, %.tail74 ], [ 8, %.tail82 ], [ 7, %.tail78 ], [ 5, %.tail69 ], [ 3, %.tail61.thread ], [ 1, %.tail57 ], [ 3, %.thread117 ], [ 9, %.tail82.thread ]
   store i32 %.sink, ptr @global_dissect_options, align 8
   br label %63
 
@@ -301,7 +301,7 @@ sub_088:                                          ; preds = %2
   br label %93
 
 93:                                               ; preds = %21, %61, %62, %4, %.loopexit, %73, %10
-  %.044 = phi i1 [ true, %.loopexit ], [ false, %10 ], [ false, %21 ], [ false, %73 ], [ false, %4 ], [ false, %62 ], [ false, %61 ]
+  %.044 = phi i1 [ true, %.loopexit ], [ false, %73 ], [ false, %10 ], [ false, %4 ], [ false, %21 ], [ false, %62 ], [ false, %61 ]
   ret i1 %.044
 }
 
@@ -638,7 +638,7 @@ process_enable_disable_list.exit45.thread:        ; preds = %.critedge, %process
   br i1 %.not.i63, label %.critedge5, label %.lr.ph.i47, !llvm.loop !9
 
 .critedge5:                                       ; preds = %.loopexit.i.thread, %.loopexit.i20.thread, %.loopexit.i40.thread, %.loopexit.i60, %process_enable_disable_list.exit45.thread, %process_enable_disable_list.exit25, %process_enable_disable_list.exit, %process_enable_disable_list.exit45
-  %80 = phi i1 [ false, %process_enable_disable_list.exit45 ], [ false, %process_enable_disable_list.exit ], [ false, %process_enable_disable_list.exit25 ], [ true, %process_enable_disable_list.exit45.thread ], [ %.330.i61, %.loopexit.i60 ], [ false, %.loopexit.i40.thread ], [ false, %.loopexit.i20.thread ], [ false, %.loopexit.i.thread ]
+  %80 = phi i1 [ false, %process_enable_disable_list.exit45 ], [ false, %process_enable_disable_list.exit25 ], [ false, %process_enable_disable_list.exit ], [ true, %process_enable_disable_list.exit45.thread ], [ false, %.loopexit.i20.thread ], [ %.330.i61, %.loopexit.i60 ], [ false, %.loopexit.i40.thread ], [ false, %.loopexit.i.thread ]
   ret i1 %80
 }
 

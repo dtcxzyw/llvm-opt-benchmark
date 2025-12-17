@@ -535,7 +535,7 @@ define hidden range(i32 0, 16777216) i32 @get_aircraft_24_bit_address_from_nsap(
   br label %83
 
 83:                                               ; preds = %69, %49, %9, %12, %1, %5
-  %.030 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 0, %12 ], [ 0, %9 ], [ %82, %69 ], [ %.0, %49 ]
+  %.030 = phi i32 [ 0, %9 ], [ 0, %1 ], [ 0, %5 ], [ 0, %12 ], [ %82, %69 ], [ %.0, %49 ]
   ret i32 %.030
 }
 
@@ -617,7 +617,7 @@ define hidden range(i32 0, 3) i32 @check_heur_msg_type(ptr noundef readonly capt
   br label %54
 
 54:                                               ; preds = %9, %12, %1, %5, %15
-  %.024 = phi i32 [ %.1, %15 ], [ 2, %5 ], [ 2, %1 ], [ 2, %12 ], [ 2, %9 ]
+  %.024 = phi i32 [ %.1, %15 ], [ 2, %1 ], [ 2, %5 ], [ 2, %12 ], [ 2, %9 ]
   ret i32 %.024
 }
 

@@ -279,9 +279,9 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %3 = alloca [4 x i8], align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %4 = icmp samesign ult i32 %1, 128
-  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.0.1.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %.sroa.0.1.i.sroa.gep2.i = getelementptr inbounds nuw i8, ptr %3, i64 3
   br i1 %4, label %44, label %5
 
 5:                                                ; preds = %2
@@ -309,11 +309,11 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %19 = trunc i32 %18 to i8
   %20 = and i8 %19, 63
   %21 = or disjoint i8 %20, -128
-  store i8 %21, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !20, !noalias !17
+  store i8 %21, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !20, !noalias !17
   %22 = trunc i32 %1 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  store i8 %24, ptr %.sroa.0.1.i.sroa.gep1.i, align 1, !alias.scope !20, !noalias !17
+  store i8 %24, ptr %.sroa.0.1.i.sroa.gep2.i, align 1, !alias.scope !20, !noalias !17
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 25:                                               ; preds = %7
@@ -329,7 +329,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %33 = trunc i32 %1 to i8
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
-  store i8 %35, ptr %.sroa.0.1.i.sroa.gep.i, align 2, !alias.scope !20, !noalias !17
+  store i8 %35, ptr %.sroa.0.1.i.sroa.gep1.i, align 2, !alias.scope !20, !noalias !17
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 36:                                               ; preds = %5
@@ -345,7 +345,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i: ; preds = %36, %25, %10
-  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %36 ], [ %.sroa.0.1.i.sroa.gep1.i, %25 ], [ %.sroa.0.1.i.sroa.gep2.i, %10 ]
+  %.sroa.0.1.i.sroa.phi.i = phi ptr [ %.sroa.0.1.i.sroa.gep.i, %10 ], [ %.sroa.0.1.i.sroa.gep1.i, %36 ], [ %.sroa.0.1.i.sroa.gep2.i, %25 ]
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h0e0753653c235076E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fc28e486149e932ea71a070040c162f.48)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !17
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit
@@ -945,7 +945,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 .noexc65:                                         ; preds = %52
   unreachable
 
-.thread90:                                        ; preds = %43, %52
+.thread90:                                        ; preds = %52, %43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -984,8 +984,8 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
           to label %66 unwind label %.loopexit.split-lp122
 
 .body73.thread:                                   ; preds = %.loopexit121, %.loopexit.split-lp122, %197, %.body73, %207, %"_ZN4core3ptr94drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17h17df173cda62bf6cE.exit", %.body
-  %.sroa.024.4 = phi i1 [ true, %207 ], [ true, %.body73 ], [ true, %.body ], [ false, %"_ZN4core3ptr94drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17h17df173cda62bf6cE.exit" ], [ true, %197 ], [ true, %.loopexit.split-lp122 ], [ true, %.loopexit121 ]
-  %.pn60 = phi { ptr, i32 } [ %lpad.phi129, %207 ], [ %lpad.thr_comm.split-lp100, %.body73 ], [ %.pn58, %.body ], [ %eh.lpad-body70, %"_ZN4core3ptr94drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17h17df173cda62bf6cE.exit" ], [ %198, %197 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp122 ], [ %lpad.loopexit123, %.loopexit121 ]
+  %.sroa.024.4 = phi i1 [ true, %207 ], [ true, %.body73 ], [ true, %197 ], [ true, %.body ], [ false, %"_ZN4core3ptr94drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17h17df173cda62bf6cE.exit" ], [ true, %.loopexit.split-lp122 ], [ true, %.loopexit121 ]
+  %.pn60 = phi { ptr, i32 } [ %lpad.phi129, %207 ], [ %lpad.thr_comm.split-lp100, %.body73 ], [ %198, %197 ], [ %.pn58, %.body ], [ %eh.lpad-body70, %"_ZN4core3ptr94drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17h17df173cda62bf6cE.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp122 ], [ %lpad.loopexit123, %.loopexit121 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$ruff_notebook..cell..CellOffsets$GT$17ha958022251563e13E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #21
           to label %60 unwind label %147
 
@@ -1172,7 +1172,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   br i1 %exitcond.not.i.i, label %123, label %112
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %134, %129, %145
-  %.pn58 = phi { ptr, i32 } [ %146, %145 ], [ %135, %134 ], [ %lpad.phi115, %129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn58 = phi { ptr, i32 } [ %135, %134 ], [ %146, %145 ], [ %lpad.phi115, %129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr86drop_in_place$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$GT$$GT$17hc9c7f16ed2939cd0E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %21) #21
           to label %.body73.thread unwind label %147
 
@@ -1498,7 +1498,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   %.sroa.031.1 = getelementptr inbounds nuw i8, ptr %.sroa.031.1150, i64 %.sroa.031.1.idx
   br i1 %206, label %._crit_edge, label %73
 
-.loopexit125:                                     ; preds = %.split2.i, %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit"
+.loopexit125:                                     ; preds = %"_ZN77_$LT$$RF$alloc..string..String$u20$as$u20$ruff_text_size..traits..TextLen$GT$8text_len17hc2a32688cadce5f7E.exit", %.split2.i
   %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %207
@@ -2014,7 +2014,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
   br label %84
 
 84:                                               ; preds = %80, %77, %76, %70
-  %.sroa.3.0.i.ph.i.i.i = phi i8 [ %spec.select.i.i.i.i, %80 ], [ 1, %77 ], [ 1, %70 ], [ 0, %76 ]
+  %.sroa.3.0.i.ph.i.i.i = phi i8 [ 1, %77 ], [ 0, %76 ], [ 1, %70 ], [ %spec.select.i.i.i.i, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !164
   store i8 %.sroa.3.0.i.ph.i.i.i, ptr %5, align 1, !noalias !164
   %85 = invoke noundef i64 @_ZN16ruff_source_file8newlines10LineEnding3len17ha337f21575292d8cE(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %5)
@@ -2143,8 +2143,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h47bf2fe908103dcaE.exit: ; preds = 
   br label %127
 
 127:                                              ; preds = %.invoke, %125
-  %.sroa.08.1 = phi i64 [ %.sroa.08.2, %125 ], [ 1, %.invoke ]
-  %.sroa.3.0 = phi i64 [ %spec.select19, %125 ], [ %110, %.invoke ]
+  %.sroa.08.1 = phi i64 [ 1, %.invoke ], [ %.sroa.08.2, %125 ]
+  %.sroa.3.0 = phi i64 [ %110, %.invoke ], [ %spec.select19, %125 ]
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hbbc79a4eb317c79cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.sroa.08.1, i64 %.sroa.3.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3fc28e486149e932ea71a070040c162f.75)
           to label %128 unwind label %.loopexit.split-lp.loopexit
 
@@ -3045,7 +3045,7 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit": ; preds = %232, %226, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i", %217, %216, %215, %203, %202, %201, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i", %187, %186, %185, %173, %167, %166, %165, %153, %152, %151, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i", %139, %133, %127, %123, %119, %111, %105, %102, %101, %100, %93, %92, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i", %77, %76, %75, %72, %71, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i", %59, %53, %47, %43, %39, %31, %25, %22, %21, %20, %8, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ %237, %232 ], [ false, %226 ], [ false, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i" ], [ false, %8 ], [ false, %215 ], [ false, %201 ], [ false, %92 ], [ false, %71 ], [ false, %20 ], [ false, %216 ], [ false, %202 ], [ false, %93 ], [ false, %72 ], [ false, %21 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i" ], [ false, %25 ], [ false, %47 ], [ false, %53 ], [ false, %59 ], [ false, %39 ], [ false, %43 ], [ false, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i" ], [ false, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i" ], [ false, %203 ], [ false, %217 ], [ false, %22 ], [ false, %31 ], [ false, %75 ], [ false, %76 ], [ false, %77 ], [ false, %185 ], [ false, %165 ], [ false, %151 ], [ false, %100 ], [ false, %186 ], [ false, %173 ], [ false, %166 ], [ false, %152 ], [ false, %101 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i" ], [ false, %105 ], [ false, %127 ], [ false, %133 ], [ false, %139 ], [ false, %119 ], [ false, %123 ], [ false, %153 ], [ false, %167 ], [ false, %187 ], [ false, %102 ], [ false, %111 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ %237, %232 ], [ false, %226 ], [ false, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i" ], [ false, %8 ], [ false, %215 ], [ false, %201 ], [ false, %92 ], [ false, %71 ], [ false, %20 ], [ false, %216 ], [ false, %202 ], [ false, %93 ], [ false, %72 ], [ false, %21 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i" ], [ false, %217 ], [ false, %25 ], [ false, %39 ], [ false, %43 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i" ], [ false, %31 ], [ false, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i" ], [ false, %77 ], [ false, %203 ], [ false, %22 ], [ false, %75 ], [ false, %76 ], [ false, %185 ], [ false, %165 ], [ false, %151 ], [ false, %100 ], [ false, %186 ], [ false, %173 ], [ false, %166 ], [ false, %152 ], [ false, %101 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i" ], [ false, %187 ], [ false, %105 ], [ false, %119 ], [ false, %123 ], [ false, %139 ], [ false, %133 ], [ false, %127 ], [ false, %153 ], [ false, %167 ], [ false, %102 ], [ false, %111 ]
   ret i1 %.sroa.0.0
 }
 

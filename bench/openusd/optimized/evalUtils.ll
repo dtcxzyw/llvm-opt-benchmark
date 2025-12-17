@@ -259,7 +259,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrap
   br label %16
 
 16:                                               ; preds = %11, %9, %4, %13
-  %.0 = phi i32 [ %15, %13 ], [ 0, %4 ], [ 0, %9 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ %15, %13 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -305,7 +305,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrap
   br label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKSt4pairINS_19TsExtrapolationTypeES4_EbNS_6TsSideE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKSt4pairINS_19TsExtrapolationTypeES4_EbNS_6TsSideE.exit: ; preds = %3, %17, %19, %21
-  %.0.i = phi i32 [ %.sroa.speculated, %21 ], [ 0, %3 ], [ 0, %17 ], [ 0, %19 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %17 ], [ %.sroa.speculated, %21 ], [ 0, %19 ]
   ret i32 %.0.i
 }
 
@@ -1227,7 +1227,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit53.thread66: 
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread: ; preds = %78, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49.thread65, %65, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread64, %52, %42, %36, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit53, %83, %146, %142, %133, %121, %125, %21
-  %.0 = phi i1 [ false, %21 ], [ true, %133 ], [ false, %146 ], [ true, %142 ], [ true, %121 ], [ false, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit ], [ false, %40 ], [ false, %36 ], [ false, %125 ], [ false, %42 ], [ false, %52 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread64 ], [ false, %65 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49.thread65 ], [ false, %78 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %36 ], [ true, %133 ], [ false, %146 ], [ false, %125 ], [ true, %142 ], [ true, %121 ], [ false, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit53 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit ], [ false, %40 ], [ false, %65 ], [ false, %52 ], [ false, %42 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread64 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit49.thread65 ], [ false, %78 ]
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = ptrtoint ptr %148 to i64
@@ -2059,7 +2059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i: ; preds = %207, %201
   br i1 %241, label %.thread66.i, label %.thread72.i
 
 .thread66.i:                                      ; preds = %238, %233, %.thread.i
-  %.sroa.039.06569.i = phi ptr [ %222, %238 ], [ %227, %.thread.i ], [ %222, %233 ]
+  %.sroa.039.06569.i = phi ptr [ %222, %238 ], [ %222, %233 ], [ %227, %.thread.i ]
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.039.06569.i), !noalias !37
   %242 = invoke noundef double @_ZNO32pxrInternal_v0_24__pxrReserved__7VtValue3GetIdEET_v(ptr noundef nonnull align 8 dereferenceable(16) %15)
           to label %243 unwind label %261, !noalias !37
@@ -2103,9 +2103,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i: ; preds = %249, %243
   br label %common.resume
 
 .thread72.i:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i, %238, %235, %228
-  %.sroa.039.06570.i = phi ptr [ %.sroa.039.06569.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %222, %238 ], [ %222, %235 ], [ %222, %228 ]
-  %.160.i = phi double [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.059.i, %238 ], [ %.059.i, %235 ], [ %.059.i, %228 ]
-  %.1.i = phi double [ %258, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.0.i, %238 ], [ %.0.i, %235 ], [ %.0.i, %228 ]
+  %.sroa.039.06570.i = phi ptr [ %.sroa.039.06569.i, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %222, %238 ], [ %222, %228 ], [ %222, %235 ]
+  %.160.i = phi double [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.059.i, %238 ], [ %.059.i, %228 ], [ %.059.i, %235 ]
+  %.1.i = phi double [ %258, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i ], [ %.0.i, %238 ], [ %.0.i, %228 ], [ %.0.i, %235 ]
   %.not7578.i = icmp eq ptr %.sroa.047.0.i, %.sroa.039.06570.i
   br i1 %.not7578.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2213,8 +2213,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit27.i: ; preds = %292, %._c
   unreachable
 
 common.resume:                                    ; preds = %180, %165, %159, %144, %127, %112, %343, %387, %217, %261
-  %.sink = phi ptr [ %15, %261 ], [ %14, %217 ], [ %8, %387 ], [ %7, %343 ], [ %24, %112 ], [ %24, %127 ], [ %25, %144 ], [ %25, %159 ], [ %26, %165 ], [ %26, %180 ]
-  %common.resume.op = phi { ptr, i32 } [ %262, %261 ], [ %218, %217 ], [ %388, %387 ], [ %344, %343 ], [ %113, %112 ], [ %128, %127 ], [ %145, %144 ], [ %160, %159 ], [ %166, %165 ], [ %181, %180 ]
+  %.sink = phi ptr [ %7, %343 ], [ %24, %127 ], [ %25, %159 ], [ %14, %217 ], [ %15, %261 ], [ %8, %387 ], [ %24, %112 ], [ %25, %144 ], [ %26, %165 ], [ %26, %180 ]
+  %common.resume.op = phi { ptr, i32 } [ %344, %343 ], [ %128, %127 ], [ %160, %159 ], [ %218, %217 ], [ %262, %261 ], [ %388, %387 ], [ %113, %112 ], [ %145, %144 ], [ %166, %165 ], [ %181, %180 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %common.resume.op
 
@@ -2348,7 +2348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i96: ; preds = %333, %327
   br i1 %367, label %.thread66.i86, label %.thread72.i63
 
 .thread66.i86:                                    ; preds = %364, %359, %.thread.i93
-  %.sroa.039.06569.i87 = phi ptr [ %348, %364 ], [ %353, %.thread.i93 ], [ %348, %359 ]
+  %.sroa.039.06569.i87 = phi ptr [ %348, %364 ], [ %348, %359 ], [ %353, %.thread.i93 ]
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.039.06569.i87), !noalias !45
   %368 = invoke noundef float @_ZNO32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEET_v(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %369 unwind label %387, !noalias !45
@@ -2392,9 +2392,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92: ; preds = %375, %3
   br label %common.resume
 
 .thread72.i63:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92, %364, %361, %354
-  %.sroa.039.06570.i64 = phi ptr [ %.sroa.039.06569.i87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %348, %364 ], [ %348, %361 ], [ %348, %354 ]
-  %.160.i65 = phi float [ %386, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.059.i61, %364 ], [ %.059.i61, %361 ], [ %.059.i61, %354 ]
-  %.1.i66 = phi float [ %384, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.0.i62, %364 ], [ %.0.i62, %361 ], [ %.0.i62, %354 ]
+  %.sroa.039.06570.i64 = phi ptr [ %.sroa.039.06569.i87, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %348, %364 ], [ %348, %354 ], [ %348, %361 ]
+  %.160.i65 = phi float [ %386, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.059.i61, %364 ], [ %.059.i61, %354 ], [ %.059.i61, %361 ]
+  %.1.i66 = phi float [ %384, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24.i92 ], [ %.0.i62, %364 ], [ %.0.i62, %354 ], [ %.0.i62, %361 ]
   %.not7578.i67 = icmp eq ptr %.sroa.047.0.i60, %.sroa.039.06570.i64
   br i1 %.not7578.i67, label %._crit_edge.i77, label %.lr.ph.i68
 
@@ -6718,7 +6718,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %50
-  %.0.i22 = phi double [ %55, %50 ], [ %49, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi double [ %49, %43 ], [ %55, %50 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.0.i22, ptr %56, align 8
   %57 = load i32, ptr %7, align 8
@@ -6800,7 +6800,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %96, %98
-  %.0.in.i = phi ptr [ %97, %96 ], [ %99, %98 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
+  %.0.in.i = phi ptr [ %99, %98 ], [ %97, %96 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
   %.0.i26 = load double, ptr %.0.in.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %.0.i26, ptr %100, align 8
@@ -7588,7 +7588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit, %43, %53
-  %.0.i22 = phi float [ %61, %53 ], [ %52, %43 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
+  %.0.i22 = phi float [ %52, %43 ], [ %61, %53 ], [ %41, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIfEEdPKNS_12Ts_TypedDataIT_EES6_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.0.i22, ptr %62, align 4
   %63 = load i32, ptr %7, align 8
@@ -7676,7 +7676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %108, %110
-  %.0.in.i = phi ptr [ %109, %108 ], [ %111, %110 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
+  %.0.in.i = phi ptr [ %111, %110 ], [ %109, %108 ], [ %40, %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit ]
   %.0.i26 = load float, ptr %.0.in.i, align 4
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %.0.i26, ptr %112, align 4
@@ -8571,9 +8571,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit68: ; preds = %253, %_ZN32
   ret void
 
 .body:                                            ; preds = %263, %199, %261, %144, %80, %142
-  %.sink95 = phi ptr [ %11, %142 ], [ %11, %80 ], [ %11, %144 ], [ %15, %261 ], [ %15, %199 ], [ %15, %263 ]
-  %.sink = phi ptr [ %10, %142 ], [ %10, %80 ], [ %10, %144 ], [ %14, %261 ], [ %14, %199 ], [ %14, %263 ]
-  %.pn59.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %81, %80 ], [ %145, %144 ], [ %262, %261 ], [ %200, %199 ], [ %264, %263 ]
+  %.sink95 = phi ptr [ %11, %144 ], [ %11, %142 ], [ %11, %80 ], [ %15, %261 ], [ %15, %199 ], [ %15, %263 ]
+  %.sink = phi ptr [ %10, %144 ], [ %10, %142 ], [ %10, %80 ], [ %14, %261 ], [ %14, %199 ], [ %14, %263 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %145, %144 ], [ %143, %142 ], [ %81, %80 ], [ %262, %261 ], [ %200, %199 ], [ %264, %263 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink95) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %.pn59.pn.pn
@@ -9155,9 +9155,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit68: ; preds = %276, %_ZN32
   ret void
 
 .body:                                            ; preds = %286, %222, %284, %158, %94, %156
-  %.sink95 = phi ptr [ %11, %156 ], [ %11, %94 ], [ %11, %158 ], [ %15, %284 ], [ %15, %222 ], [ %15, %286 ]
-  %.sink = phi ptr [ %10, %156 ], [ %10, %94 ], [ %10, %158 ], [ %14, %284 ], [ %14, %222 ], [ %14, %286 ]
-  %.pn59.pn.pn = phi { ptr, i32 } [ %157, %156 ], [ %95, %94 ], [ %159, %158 ], [ %285, %284 ], [ %223, %222 ], [ %287, %286 ]
+  %.sink95 = phi ptr [ %11, %158 ], [ %11, %156 ], [ %11, %94 ], [ %15, %284 ], [ %15, %222 ], [ %15, %286 ]
+  %.sink = phi ptr [ %10, %158 ], [ %10, %156 ], [ %10, %94 ], [ %14, %284 ], [ %14, %222 ], [ %14, %286 ]
+  %.pn59.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ], [ %95, %94 ], [ %285, %284 ], [ %223, %222 ], [ %287, %286 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink95) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %.pn59.pn.pn

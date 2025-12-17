@@ -713,7 +713,7 @@ memieq.exit120.i:                                 ; preds = %314, %260, %246, %3
   br label %http_request_on_header.exit
 
 http_request_on_header.exit:                      ; preds = %316, %152, %153, %157, %157, %157, %157, %157, %159, %163, %170, %174, %195, %206, %210, %229, %233, %270, %271, %275, %282, %286, %293, %296, %305, %357, %memieq.exit120.i, %362
-  %.0.i65 = phi i32 [ -531, %153 ], [ -531, %152 ], [ -531, %195 ], [ -531, %270 ], [ -531, %293 ], [ -531, %296 ], [ -531, %157 ], [ -531, %157 ], [ -531, %157 ], [ -531, %157 ], [ -531, %157 ], [ -531, %305 ], [ -531, %357 ], [ 0, %362 ], [ 0, %memieq.exit120.i ], [ -531, %163 ], [ -531, %159 ], [ -531, %174 ], [ -531, %170 ], [ -531, %210 ], [ -531, %206 ], [ -531, %233 ], [ -531, %229 ], [ -531, %275 ], [ -531, %271 ], [ -531, %286 ], [ -531, %282 ], [ -531, %316 ]
+  %.0.i65 = phi i32 [ -531, %157 ], [ -531, %305 ], [ -531, %357 ], [ -531, %152 ], [ -531, %159 ], [ 0, %memieq.exit120.i ], [ -531, %195 ], [ -531, %170 ], [ -531, %270 ], [ -531, %206 ], [ -531, %229 ], [ -531, %271 ], [ -531, %293 ], [ -531, %296 ], [ -531, %153 ], [ -531, %157 ], [ -531, %157 ], [ -531, %157 ], [ -531, %157 ], [ -531, %282 ], [ 0, %362 ], [ -531, %163 ], [ -531, %174 ], [ -531, %210 ], [ -531, %233 ], [ -531, %275 ], [ -531, %286 ], [ -531, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %http_response_on_header.exit
 
@@ -935,7 +935,7 @@ memieq.exit59.i:                                  ; preds = %458, %469, %440, %p
   br label %http_response_on_header.exit
 
 http_response_on_header.exit:                     ; preds = %460, %26, %471, %memieq.exit59.i, %469, %449, %440, %437, %433, %429, %memieq.exit.i70, %423, %417, %414, %parse_uint.exit.i, %parse_uint.exit.i, %parse_uint.exit.thread.i, %389, %383, %379, %377, %377, %377, %377, %377, %373, %372, %check_scheme.exit.thread, %._crit_edge, %17, %http_request_on_header.exit, %134
-  %.3 = phi i32 [ -105, %134 ], [ %.0.i65, %http_request_on_header.exit ], [ -105, %._crit_edge ], [ -531, %17 ], [ -531, %check_scheme.exit.thread ], [ -106, %memieq.exit.i70 ], [ -531, %373 ], [ -531, %372 ], [ -531, %389 ], [ -531, %parse_uint.exit.i ], [ -531, %parse_uint.exit.i ], [ -531, %414 ], [ -531, %417 ], [ -531, %429 ], [ -106, %433 ], [ -531, %437 ], [ -531, %440 ], [ -531, %377 ], [ -531, %377 ], [ -531, %377 ], [ -531, %377 ], [ -531, %377 ], [ -531, %449 ], [ -531, %469 ], [ 0, %471 ], [ 0, %memieq.exit59.i ], [ -531, %parse_uint.exit.thread.i ], [ -531, %383 ], [ -531, %379 ], [ -531, %423 ], [ -531, %26 ], [ -531, %460 ]
+  %.3 = phi i32 [ -531, %17 ], [ -105, %134 ], [ %.0.i65, %http_request_on_header.exit ], [ -531, %check_scheme.exit.thread ], [ -105, %._crit_edge ], [ -531, %377 ], [ -531, %449 ], [ -531, %469 ], [ -531, %parse_uint.exit.thread.i ], [ -531, %389 ], [ -531, %372 ], [ -531, %parse_uint.exit.i ], [ -106, %memieq.exit.i70 ], [ -531, %414 ], [ -531, %417 ], [ -531, %429 ], [ -106, %433 ], [ -531, %437 ], [ -531, %440 ], [ -531, %373 ], [ -531, %parse_uint.exit.i ], [ -531, %379 ], [ -531, %377 ], [ -531, %377 ], [ -531, %377 ], [ -531, %377 ], [ 0, %471 ], [ 0, %memieq.exit59.i ], [ -531, %383 ], [ -531, %423 ], [ -531, %26 ], [ -531, %460 ]
   ret i32 %.3
 }
 
@@ -1007,7 +1007,7 @@ check_path.exit.thread26:                         ; preds = %17, %9
   br label %check_path.exit.thread
 
 check_path.exit.thread:                           ; preds = %17, %15, %check_path.exit.thread26, %23, %11, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ 0, %23 ], [ 0, %check_path.exit.thread26 ], [ -1, %15 ], [ -1, %17 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %17 ], [ -1, %15 ], [ 0, %23 ], [ 0, %check_path.exit.thread26 ]
   ret i32 %.0
 }
 
@@ -1071,7 +1071,7 @@ expect_response_body.exit.thread:                 ; preds = %switch.early.test, 
   br label %25
 
 25:                                               ; preds = %expect_response_body.exit.thread, %23, %21, %1, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %1 ], [ 0, %21 ], [ 0, %23 ], [ 0, %expect_response_body.exit.thread ]
+  %.0 = phi i32 [ -1, %1 ], [ 0, %10 ], [ 0, %21 ], [ 0, %23 ], [ 0, %expect_response_body.exit.thread ]
   ret i32 %.0
 }
 
@@ -1499,7 +1499,7 @@ sf_parse_params.exit:                             ; preds = %14, %45, %11
   ]
 
 sf_parse_params.exit.thread:                      ; preds = %58, %61, %55, %8, %20, %40, %37, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit, %3, %52
-  %.026 = phi i64 [ %54, %52 ], [ -1, %3 ], [ -1, %sf_parse_params.exit ], [ -1, %.preheader.i ], [ -1, %sf_parse_key.exit.i ], [ -1, %37 ], [ -1, %40 ], [ -1, %20 ], [ -1, %8 ], [ -1, %55 ], [ -1, %61 ], [ -1, %58 ]
+  %.026 = phi i64 [ -1, %3 ], [ %54, %52 ], [ -1, %sf_parse_params.exit ], [ -1, %20 ], [ -1, %.preheader.i ], [ -1, %sf_parse_key.exit.i ], [ -1, %37 ], [ -1, %40 ], [ -1, %8 ], [ -1, %55 ], [ -1, %61 ], [ -1, %58 ]
   ret i64 %.026
 }
 
@@ -1786,14 +1786,14 @@ sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
   br i1 %101, label %sf_parse_key.exit.thread, label %.lr.ph116
 
 .loopexit78:                                      ; preds = %8, %.loopexit, %92, %96, %.critedge
-  %.sroa.5.2 = phi i32 [ %.sroa.5.0.copyload, %.critedge ], [ %.sroa.5.1, %96 ], [ %.sroa.5.1, %92 ], [ %.sroa.5.1, %.loopexit ], [ %.sroa.5.0.copyload, %8 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload, %.critedge ], [ %.sroa.0.1, %96 ], [ %.sroa.0.1, %92 ], [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.0.copyload, %8 ]
+  %.sroa.5.2 = phi i32 [ %.sroa.5.0.copyload, %.critedge ], [ %.sroa.5.1, %.loopexit ], [ %.sroa.5.1, %96 ], [ %.sroa.5.1, %92 ], [ %.sroa.5.0.copyload, %8 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0.copyload, %.critedge ], [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.1, %96 ], [ %.sroa.0.1, %92 ], [ %.sroa.0.0.copyload, %8 ]
   store i32 %.sroa.0.2, ptr %0, align 4, !tbaa !66
   store i32 %.sroa.5.2, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !66
   br label %sf_parse_key.exit.thread
 
 sf_parse_key.exit.thread:                         ; preds = %12, %85, %81, %sf_parse_item_or_inner_list.exit, %65, %sf_parse_params.exit, %sf_parse_key.exit, %.preheader, %36, %56, %53, %sf_parse_key.exit.i, %.lr.ph108, %100, %.preheader.i73, %.loopexit78
-  %.0 = phi i32 [ 0, %.loopexit78 ], [ -501, %.preheader.i73 ], [ -501, %100 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %36 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %65 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %81 ], [ -501, %85 ], [ -501, %12 ]
+  %.0 = phi i32 [ 0, %.loopexit78 ], [ -501, %36 ], [ -501, %.preheader.i73 ], [ -501, %100 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %65 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %81 ], [ -501, %85 ], [ -501, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1829,7 +1829,7 @@ define internal fastcc i64 @parse_uint(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
 .loopexit:                                        ; preds = %14, %.preheader, %8, %2
-  %.018 = phi i64 [ -1, %2 ], [ %15, %14 ], [ -1, %.preheader ], [ -1, %8 ]
+  %.018 = phi i64 [ -1, %2 ], [ -1, %8 ], [ %15, %14 ], [ -1, %.preheader ]
   ret i64 %.018
 }
 
@@ -2235,7 +2235,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   br label %sf_parse_integer_or_decimal.exit
 
 sf_parse_integer_or_decimal.exit:                 ; preds = %112, %80, %76, %62, %59, %25, %16, %126, %139, %.critedge._crit_edge.i59, %124, %123, %120, %117, %107, %97, %92, %.critedge._crit_edge.i, %71, %56, %52, %39, %.loopexit.i, %34, %11, %8
-  %.0 = phi i64 [ %37, %34 ], [ %55, %52 ], [ -1, %8 ], [ -1, %11 ], [ -1, %39 ], [ -1, %.loopexit.i ], [ %75, %71 ], [ -1, %56 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ %95, %92 ], [ %111, %107 ], [ -1, %97 ], [ -1, %117 ], [ -1, %120 ], [ 2, %124 ], [ 2, %123 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ %142, %139 ], [ -1, %126 ], [ -1, %16 ], [ -1, %25 ], [ -1, %59 ], [ -1, %62 ], [ -1, %76 ], [ -1, %80 ], [ -1, %112 ]
+  %.0 = phi i64 [ 2, %124 ], [ -1, %126 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ -1, %8 ], [ %37, %34 ], [ %55, %52 ], [ -1, %11 ], [ -1, %39 ], [ -1, %.loopexit.i ], [ -1, %56 ], [ %75, %71 ], [ %95, %92 ], [ %111, %107 ], [ -1, %97 ], [ -1, %120 ], [ -1, %117 ], [ 2, %123 ], [ %142, %139 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ -1, %80 ], [ -1, %25 ], [ -1, %16 ], [ -1, %59 ], [ -1, %62 ], [ -1, %76 ], [ -1, %112 ]
   ret i64 %.0
 }
 

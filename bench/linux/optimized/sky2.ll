@@ -2897,7 +2897,7 @@ define internal i32 @sky2_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   br label %select.unfold
 
 select.unfold:                                    ; preds = %498, %653, %650, %615, %573, %523, %501, %.loopexit, %539, %552, %618, %623, %647
-  %.ph = phi i32 [ %68, %647 ], [ %68, %623 ], [ %68, %618 ], [ %68, %552 ], [ %68, %539 ], [ %68, %.loopexit ], [ %68, %501 ], [ %68, %523 ], [ %68, %573 ], [ %68, %615 ], [ %68, %650 ], [ %68, %653 ], [ %499, %498 ]
+  %.ph = phi i32 [ %68, %653 ], [ %68, %647 ], [ %68, %623 ], [ %68, %618 ], [ %68, %552 ], [ %68, %539 ], [ %68, %.loopexit ], [ %68, %501 ], [ %68, %523 ], [ %68, %573 ], [ %68, %615 ], [ %68, %650 ], [ %499, %498 ]
   %655 = load i32, ptr %45, align 4
   %656 = icmp eq i32 %655, %59
   br i1 %656, label %.thread15, label %66, !llvm.loop !34
@@ -5462,7 +5462,7 @@ __gm_phy_read.exit6:                              ; preds = %.thread.i5, %154, %
   br label %gm_phy_write.exit8
 
 gm_phy_write.exit8:                               ; preds = %176, %188, %182, %206, %203, %194, %131, %126
-  %208 = phi i16 [ %205, %203 ], [ %196, %194 ], [ %127, %131 ], [ %127, %126 ], [ %207, %206 ], [ %127, %182 ], [ %127, %188 ], [ %127, %176 ]
+  %208 = phi i16 [ %205, %203 ], [ %196, %194 ], [ %207, %206 ], [ %127, %131 ], [ %127, %126 ], [ %127, %182 ], [ %127, %188 ], [ %127, %176 ]
   %209 = load ptr, ptr %0, align 8
   %210 = getelementptr i8, ptr %209, i64 %91
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %208, ptr elementtype(i16) %210) #23, !srcloc !13
@@ -5975,10 +5975,10 @@ gm_phy_write.exit26:                              ; preds = %460, %472, %466, %2
   br label %.thread137
 
 .thread137:                                       ; preds = %.thread, %508, %.thread138, %.thread139, %509, %496, %487
-  %514 = phi i16 [ %511, %.thread139 ], [ -32768, %509 ], [ -28160, %496 ], [ -28160, %487 ], [ -32512, %508 ], [ -24320, %.thread138 ], [ %spec.select, %.thread ]
-  %515 = phi i16 [ 4096, %.thread139 ], [ 4096, %509 ], [ 0, %496 ], [ %489, %487 ], [ 4096, %508 ], [ 4096, %.thread138 ], [ 4096, %.thread ]
-  %516 = phi i16 [ 1, %.thread139 ], [ 1, %509 ], [ %501, %496 ], [ %495, %487 ], [ 1, %508 ], [ 1, %.thread138 ], [ 1, %.thread ]
-  %517 = phi i16 [ %512, %.thread139 ], [ 5, %509 ], [ 0, %496 ], [ 0, %487 ], [ 37, %508 ], [ 45, %.thread138 ], [ %spec.select145, %.thread ]
+  %514 = phi i16 [ %spec.select, %.thread ], [ %511, %.thread139 ], [ -32768, %509 ], [ -28160, %496 ], [ -28160, %487 ], [ -32512, %508 ], [ -24320, %.thread138 ]
+  %515 = phi i16 [ 4096, %.thread ], [ 4096, %.thread139 ], [ 4096, %509 ], [ 0, %496 ], [ %489, %487 ], [ 4096, %508 ], [ 4096, %.thread138 ]
+  %516 = phi i16 [ 1, %.thread ], [ 1, %.thread139 ], [ 1, %509 ], [ %501, %496 ], [ %495, %487 ], [ 1, %508 ], [ 1, %.thread138 ]
+  %517 = phi i16 [ %spec.select145, %.thread ], [ %512, %.thread139 ], [ 5, %509 ], [ 0, %496 ], [ 0, %487 ], [ 37, %508 ], [ 45, %.thread138 ]
   %518 = and i16 %478, 4
   %519 = icmp eq i16 %518, 0
   br i1 %519, label %535, label %520
@@ -6717,8 +6717,8 @@ gm_phy_write.exit52:                              ; preds = %922, %928, %934
   br label %gm_phy_write.exit38
 
 gm_phy_write.exit38:                              ; preds = %950, %836, %722, %674, %668, %.thread.i33, %962, %956, %848, %842, %734, %728
-  %968 = phi i16 [ 2900, %728 ], [ 2900, %734 ], [ %.0134, %842 ], [ %.0134, %848 ], [ %.0135, %956 ], [ %.0135, %962 ], [ 176, %674 ], [ 176, %668 ], [ %664, %.thread.i33 ], [ 2900, %722 ], [ %.0134, %836 ], [ %.0135, %950 ]
-  %969 = phi i16 [ 16384, %728 ], [ 16384, %734 ], [ 16384, %842 ], [ 16384, %848 ], [ 16384, %956 ], [ 16384, %962 ], [ 16896, %674 ], [ 16896, %668 ], [ 16896, %.thread.i33 ], [ 16384, %722 ], [ 16384, %836 ], [ 16384, %950 ]
+  %968 = phi i16 [ %.0134, %848 ], [ 2900, %734 ], [ %.0135, %962 ], [ 2900, %728 ], [ %.0134, %842 ], [ %.0135, %956 ], [ 176, %674 ], [ 176, %668 ], [ %664, %.thread.i33 ], [ %.0134, %836 ], [ 2900, %722 ], [ %.0135, %950 ]
+  %969 = phi i16 [ 16384, %848 ], [ 16384, %734 ], [ 16384, %962 ], [ 16384, %728 ], [ 16384, %842 ], [ 16384, %956 ], [ 16896, %674 ], [ 16896, %668 ], [ 16896, %.thread.i33 ], [ 16384, %836 ], [ 16384, %722 ], [ 16384, %950 ]
   %970 = load ptr, ptr %0, align 8
   %971 = getelementptr i8, ptr %970, i64 %91
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %968, ptr elementtype(i16) %971) #23, !srcloc !13
@@ -8956,8 +8956,8 @@ gm_phy_write.exit11:                              ; preds = %336, %342, %350
   br label %gm_phy_write.exit13
 
 gm_phy_write.exit13:                              ; preds = %368, %gm_phy_write.exit5.gm_phy_write.exit13_crit_edge, %382, %374
-  %.pre-phi23 = phi i64 [ %.pre22, %gm_phy_write.exit5.gm_phy_write.exit13_crit_edge ], [ %262, %382 ], [ %262, %374 ], [ %262, %368 ]
-  %.pre-phi19 = phi i64 [ %.pre18, %gm_phy_write.exit5.gm_phy_write.exit13_crit_edge ], [ %258, %382 ], [ %258, %374 ], [ %258, %368 ]
+  %.pre-phi23 = phi i64 [ %.pre22, %gm_phy_write.exit5.gm_phy_write.exit13_crit_edge ], [ %262, %374 ], [ %262, %382 ], [ %262, %368 ]
+  %.pre-phi19 = phi i64 [ %.pre18, %gm_phy_write.exit5.gm_phy_write.exit13_crit_edge ], [ %258, %374 ], [ %258, %382 ], [ %258, %368 ]
   %390 = load ptr, ptr %2, align 8
   %391 = getelementptr i8, ptr %390, i64 %.pre-phi19
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 2048, ptr elementtype(i16) %391) #23, !srcloc !13

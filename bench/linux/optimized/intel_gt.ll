@@ -1989,7 +1989,7 @@ define dso_local i32 @intel_gt_probe_all(ptr noundef %0) local_unnamed_addr #0 a
   br label %.thread
 
 83:                                               ; preds = %76, %73
-  %84 = phi i32 [ %80, %76 ], [ %75, %73 ]
+  %84 = phi i32 [ %75, %73 ], [ %80, %76 ]
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %.thread
 

@@ -217,7 +217,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %38
 
 38:                                               ; preds = %33, %28, %13, %36
-  %.0 = phi i32 [ 0, %36 ], [ -12, %13 ], [ %29, %28 ], [ %34, %33 ]
+  %.0 = phi i32 [ -12, %13 ], [ %29, %28 ], [ 0, %36 ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -408,7 +408,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br label %22
 
 22:                                               ; preds = %18, %13, %8
-  %.012 = phi i32 [ %11, %8 ], [ %16, %13 ], [ %spec.select, %18 ]
+  %.012 = phi i32 [ %spec.select, %18 ], [ %11, %8 ], [ %16, %13 ]
   ret i32 %.012
 }
 
@@ -1693,7 +1693,7 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph620.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread791.i, %687, %294
-  %743 = phi ptr [ %688, %.thread791.i ], [ %168, %294 ], [ %688, %687 ]
+  %743 = phi ptr [ %168, %294 ], [ %688, %687 ], [ %688, %.thread791.i ]
   %indvars.iv.next750.i = add nsw i64 %indvars.iv749.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next750.i to i32
   %exitcond752.not.i = icmp eq i32 %55, %lftr.wideiv.i
@@ -1715,7 +1715,7 @@ get_graph_color.exit548.i:                        ; preds = %581, %.lr.ph620.i
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %625, %64, %.thread552.i, %633, %._crit_edge651.i
-  %.2.i = phi i32 [ %753, %._crit_edge651.i ], [ %69, %64 ], [ %503, %.thread552.i ], [ %636, %633 ], [ -12, %625 ]
+  %.2.i = phi i32 [ %753, %._crit_edge651.i ], [ %636, %633 ], [ %69, %64 ], [ %503, %.thread552.i ], [ -12, %625 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1780,7 +1780,7 @@ filter_frame.exit:                                ; preds = %625, %64, %.thread5
   br label %773
 
 773:                                              ; preds = %._crit_edge, %45, %29, %25, %768, %770, %772, %767
-  %.1 = phi i32 [ 0, %767 ], [ 0, %772 ], [ 0, %._crit_edge ], [ %.152, %45 ], [ 0, %29 ], [ 0, %25 ], [ %.253, %770 ], [ %.253, %768 ]
+  %.1 = phi i32 [ 0, %767 ], [ 0, %772 ], [ 0, %25 ], [ 0, %._crit_edge ], [ %.152, %45 ], [ 0, %29 ], [ %.253, %770 ], [ %.253, %768 ]
   ret i32 %.1
 }
 
@@ -2448,7 +2448,7 @@ drawline.exit204:                                 ; preds = %288
   br i1 %exitcond.not.i208, label %drawline.exit209, label %304, !llvm.loop !164
 
 drawline.exit209:                                 ; preds = %304, %drawline.exit199, %drawline.exit204, %36, %9, %._crit_edge239
-  %.0 = phi i32 [ -22, %._crit_edge239 ], [ -12, %9 ], [ -12, %36 ], [ 0, %drawline.exit204 ], [ 0, %drawline.exit199 ], [ 0, %304 ]
+  %.0 = phi i32 [ -22, %._crit_edge239 ], [ -12, %36 ], [ -12, %9 ], [ 0, %drawline.exit204 ], [ 0, %drawline.exit199 ], [ 0, %304 ]
   ret i32 %.0
 }
 
@@ -2680,8 +2680,8 @@ define internal range(i32 -2147483648, 1) i32 @config_audio_output(ptr noundef %
 120:                                              ; preds = %117, %114
   br label %.thread
 
-.thread:                                          ; preds = %56, %79, %89, %91, %117, %24, %34, %36, %1, %18, %20, %22, %93, %120
-  %.0 = phi i32 [ 0, %120 ], [ %112, %93 ], [ -12, %22 ], [ -12, %20 ], [ -12, %18 ], [ -12, %1 ], [ -12, %36 ], [ -12, %34 ], [ -12, %24 ], [ -12, %117 ], [ -12, %91 ], [ -12, %89 ], [ -12, %79 ], [ -12, %56 ]
+.thread:                                          ; preds = %56, %89, %91, %79, %117, %24, %34, %36, %1, %18, %20, %22, %93, %120
+  %.0 = phi i32 [ -12, %89 ], [ 0, %120 ], [ -12, %24 ], [ %112, %93 ], [ -12, %1 ], [ -12, %22 ], [ -12, %20 ], [ -12, %18 ], [ -12, %36 ], [ -12, %34 ], [ -12, %117 ], [ -12, %79 ], [ -12, %91 ], [ -12, %56 ]
   ret i32 %.0
 }
 

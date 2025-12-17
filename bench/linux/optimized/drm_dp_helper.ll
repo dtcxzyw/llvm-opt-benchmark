@@ -2339,7 +2339,7 @@ default.unreachable20:                            ; preds = %148, %16
   br i1 %94, label %.thread7, label %.thread9
 
 .thread9:                                         ; preds = %.thread.thread.thread, %89, %85, %92
-  %95 = phi i32 [ %93, %92 ], [ 165000, %89 ], [ 300000, %85 ], [ 165000, %.thread.thread.thread ]
+  %95 = phi i32 [ %93, %92 ], [ 300000, %85 ], [ 165000, %89 ], [ 165000, %.thread.thread.thread ]
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %95) #18
   br label %.thread7
 
@@ -4734,7 +4734,7 @@ define dso_local range(i32 2, 1) i32 @drm_edp_backlight_enable(ptr noundef %0, p
   br label %94
 
 94:                                               ; preds = %88, %.thread, %60
-  %95 = phi i32 [ %64, %60 ], [ %93, %.thread ], [ %., %88 ]
+  %95 = phi i32 [ %64, %60 ], [ %., %88 ], [ %93, %.thread ]
   ret i32 %95
 }
 

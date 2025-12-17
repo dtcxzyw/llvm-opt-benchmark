@@ -251,16 +251,16 @@ copy_fh.exit:                                     ; preds = %92, %.loopexit
   %.not124 = icmp eq i32 %118, 0
   br i1 %.not124, label %.thread.thread173, label %51
 
-.thread.thread173:                                ; preds = %copy_fh.exit, %51, %87, %54, %91, %92, %101, %.loopexit, %106, %.lr.ph.split.us.i, %35, %28
-  %.094149180 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.us.i ], [ 0, %copy_fh.exit ], [ 3, %51 ], [ 8, %87 ], [ 8, %54 ], [ 8, %91 ], [ %95, %92 ], [ 6, %101 ], [ 9, %.loopexit ], [ %107, %106 ]
+.thread.thread173:                                ; preds = %copy_fh.exit, %91, %51, %92, %54, %87, %101, %.loopexit, %106, %.lr.ph.split.us.i, %35, %28
+  %.094149180 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 3, %.lr.ph.split.us.i ], [ 8, %91 ], [ 3, %51 ], [ %95, %92 ], [ 8, %54 ], [ 0, %copy_fh.exit ], [ 6, %101 ], [ 8, %87 ], [ 9, %.loopexit ], [ %107, %106 ]
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !30
   call void %120(ptr noundef nonnull %27) #6
   br label %.thread.thread.thread
 
-.thread.thread.thread:                            ; preds = %.thread.thread173, %21, %17, %13
-  %.092150171185 = phi ptr [ %34, %.thread.thread173 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
-  %.094149172183 = phi i32 [ %.094149180, %.thread.thread173 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
+.thread.thread.thread:                            ; preds = %.thread.thread173, %17, %21, %13
+  %.092150171185 = phi ptr [ %34, %.thread.thread173 ], [ null, %13 ], [ null, %21 ], [ null, %17 ]
+  %.094149172183 = phi i32 [ %.094149180, %.thread.thread173 ], [ 3, %13 ], [ 2, %21 ], [ 7, %17 ]
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !30
   call void %122(ptr noundef nonnull %12) #6
@@ -484,8 +484,8 @@ copy_fh.exit:                                     ; preds = %108, %102
   call void @lzxd_free(ptr noundef nonnull %97) #6
   br label %.thread.thread174
 
-.thread.thread174:                                ; preds = %55, %58, %95, %copy_fh.exit, %53, %.lr.ph.split.us.i, %39, %112, %32
-  %.099158182 = phi i32 [ 6, %32 ], [ %.2.ph, %112 ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 8, %58 ], [ 3, %55 ]
+.thread.thread174:                                ; preds = %58, %55, %95, %copy_fh.exit, %53, %.lr.ph.split.us.i, %39, %112, %32
+  %.099158182 = phi i32 [ 6, %32 ], [ %.2.ph, %112 ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 3, %55 ], [ 8, %58 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !30
   call void %114(ptr noundef nonnull %31) #6
@@ -499,9 +499,9 @@ copy_fh.exit:                                     ; preds = %108, %102
   call void %116(ptr noundef nonnull %28) #6
   br label %.thread.thread.thread.thread
 
-.thread.thread.thread.thread:                     ; preds = %.thread.thread.thread190, %14, %18, %22
-  %.0106157173188202 = phi ptr [ %.0106157173195, %.thread.thread.thread190 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
-  %.099158172189200 = phi i32 [ %.099158172196, %.thread.thread.thread190 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
+.thread.thread.thread.thread:                     ; preds = %.thread.thread.thread190, %14, %22, %18
+  %.0106157173188202 = phi ptr [ %.0106157173195, %.thread.thread.thread190 ], [ null, %14 ], [ null, %18 ], [ null, %22 ]
+  %.099158172189200 = phi i32 [ %.099158172196, %.thread.thread.thread190 ], [ 3, %14 ], [ 7, %18 ], [ 2, %22 ]
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !30
   call void %118(ptr noundef nonnull %13) #6
@@ -682,7 +682,7 @@ define internal fastcc range(i32 0, 5) i32 @copy_fh(ptr noundef readonly capture
   br i1 %.not, label %.thread, label %.lr.ph.split
 
 .thread:                                          ; preds = %20, %.lr.ph.split, %17, %12, %.lr.ph.split.us, %6
-  %.2 = phi i32 [ 0, %6 ], [ 3, %.lr.ph.split.us ], [ 0, %12 ], [ 4, %17 ], [ 3, %.lr.ph.split ], [ 0, %20 ]
+  %.2 = phi i32 [ 3, %.lr.ph.split.us ], [ 0, %6 ], [ 0, %12 ], [ 0, %20 ], [ 3, %.lr.ph.split ], [ 4, %17 ]
   ret i32 %.2
 }
 

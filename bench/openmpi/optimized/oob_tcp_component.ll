@@ -160,7 +160,7 @@ define void @prte_mca_oob_tcp_component_lost_connection(i32 noundef %0, i16 noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %65, %59, %49, %27, %44, %38, %28
-  %.sink = phi i32 [ 65, %28 ], [ 65, %38 ], [ 65, %44 ], [ 65, %27 ], [ 56, %49 ], [ 56, %59 ], [ 56, %65 ], [ 56, %48 ]
+  %.sink = phi i32 [ 65, %27 ], [ 65, %28 ], [ 65, %38 ], [ 65, %44 ], [ 56, %49 ], [ 56, %59 ], [ 56, %65 ], [ 56, %48 ]
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 48), align 8, !tbaa !42
   tail call void %69(ptr noundef nonnull %21, i32 noundef %.sink) #11
   br label %70

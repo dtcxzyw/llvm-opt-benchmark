@@ -32,10 +32,10 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   br label %9
 
 7:                                                ; preds = %140, %65
-  %.1215 = phi ptr [ %119, %140 ], [ %.2216, %65 ]
-  %.1203 = phi ptr [ %120, %140 ], [ %68, %65 ]
-  %.1183.in = phi i8 [ %.in, %140 ], [ %67, %65 ]
-  %.1 = phi i32 [ %.3, %140 ], [ -2, %65 ]
+  %.1215 = phi ptr [ %.2216, %65 ], [ %119, %140 ]
+  %.1203 = phi ptr [ %68, %65 ], [ %120, %140 ]
+  %.1183.in = phi i8 [ %67, %65 ], [ %.in, %140 ]
+  %.1 = phi i32 [ -2, %65 ], [ %.3, %140 ]
   %.1183 = sext i8 %.1183.in to i32
   %8 = getelementptr inbounds nuw i8, ptr %.1215, i64 1
   br label %9
@@ -294,8 +294,8 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   br label %.thread286
 
 .thread286:                                       ; preds = %.thread263, %30, %49, %.thread286.sink.split
-  %.5196284 = phi ptr [ %.5196284.ph, %.thread286.sink.split ], [ %23, %30 ], [ %.1192, %.thread263 ], [ %.1192, %49 ]
-  %.0200282 = phi i32 [ %.0200282.ph, %.thread286.sink.split ], [ 1, %30 ], [ 0, %.thread263 ], [ 1, %49 ]
+  %.5196284 = phi ptr [ %.5196284.ph, %.thread286.sink.split ], [ %.1192, %.thread263 ], [ %.1192, %49 ], [ %23, %30 ]
+  %.0200282 = phi i32 [ %.0200282.ph, %.thread286.sink.split ], [ 0, %.thread263 ], [ 1, %49 ], [ 1, %30 ]
   %.not246 = icmp eq ptr %.5196284, %5
   br i1 %.not246, label %142, label %141
 

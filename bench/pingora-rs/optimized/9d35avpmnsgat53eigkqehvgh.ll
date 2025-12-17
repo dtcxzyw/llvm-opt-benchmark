@@ -110,7 +110,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17hbdf7da222
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17he844ae3bf9b709ddE.exit": ; preds = %36, %41, %21, %26
-  %.pn = phi { ptr, i32 } [ %22, %26 ], [ %22, %21 ], [ %5, %41 ], [ %5, %36 ]
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %22, %26 ], [ %5, %41 ], [ %5, %36 ]
   resume { ptr, i32 } %.pn
 
 36:                                               ; preds = %4
@@ -226,8 +226,8 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf18edfa2a51bf425E(
   ]
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %56, %52, %49
-  %.sroa.01.153.i.i.i.i.ph = phi ptr [ %53, %52 ], [ %46, %49 ], [ %46, %56 ]
-  %.sroa.14.152.i.i.i.i.ph = phi i64 [ %54, %52 ], [ 1, %49 ], [ %48, %56 ]
+  %.sroa.01.153.i.i.i.i.ph = phi ptr [ %53, %52 ], [ %46, %56 ], [ %46, %49 ]
+  %.sroa.14.152.i.i.i.i.ph = phi i64 [ %54, %52 ], [ %48, %56 ], [ 1, %49 ]
   br label %.lr.ph.i.i.i.i
 
 51:                                               ; preds = %44
@@ -305,7 +305,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf18edfa2a51bf425E(
   unreachable
 
 "_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b16060c33c23af9E.exit.i.i": ; preds = %69, %67, %58, %.preheader44.i.i.i.i, %78, %.lr.ph.i.i.i.i, %49, %49, %44, %43
-  %.sroa.0.0.i.i.i = phi i64 [ 2097152, %43 ], [ 2097152, %49 ], [ 2097152, %49 ], [ 2097152, %44 ], [ %83, %78 ], [ 2097152, %.lr.ph.i.i.i.i ], [ %.sroa.013.0.i.i.i.i, %.preheader44.i.i.i.i ], [ 2097152, %58 ], [ 2097152, %67 ], [ 2097152, %69 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 2097152, %43 ], [ 2097152, %44 ], [ %83, %78 ], [ 2097152, %49 ], [ 2097152, %49 ], [ 2097152, %.lr.ph.i.i.i.i ], [ 2097152, %67 ], [ 2097152, %69 ], [ %.sroa.013.0.i.i.i.i, %.preheader44.i.i.i.i ], [ 2097152, %58 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h8c21663d49e1b865E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %.noexc36.i unwind label %.thread14.i, !noalias !34
 
@@ -368,9 +368,9 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf18edfa2a51bf425E(
   br label %98
 
 .thread18.i:                                      ; preds = %158, %152, %.body32.thread.i, %.thread22.i, %96
-  %.sroa.017.2.i = phi i8 [ 0, %158 ], [ 1, %96 ], [ 0, %.thread22.i ], [ 0, %.body32.thread.i ], [ 0, %152 ]
-  %.sroa.018.2.i = phi i8 [ 1, %158 ], [ 1, %96 ], [ 0, %.thread22.i ], [ 0, %.body32.thread.i ], [ 0, %152 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %111, %158 ], [ %97, %96 ], [ %115, %.thread22.i ], [ %eh.lpad-body3328.i, %.body32.thread.i ], [ %eh.lpad-body3328.i, %152 ]
+  %.sroa.017.2.i = phi i8 [ 0, %158 ], [ 0, %152 ], [ 1, %96 ], [ 0, %.thread22.i ], [ 0, %.body32.thread.i ]
+  %.sroa.018.2.i = phi i8 [ 1, %158 ], [ 0, %152 ], [ 1, %96 ], [ 0, %.thread22.i ], [ 0, %.body32.thread.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %111, %158 ], [ %eh.lpad-body3328.i, %152 ], [ %97, %96 ], [ %115, %.thread22.i ], [ %eh.lpad-body3328.i, %.body32.thread.i ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hf52bf4614160ead9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #16
           to label %.thread.i unwind label %155, !noalias !34
 
@@ -526,7 +526,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf18edfa2a51bf425E(
           to label %170 unwind label %88, !noalias !34
 
 .body32.thread.i:                                 ; preds = %153, %.body32.i, %133
-  %eh.lpad-body3328.i = phi { ptr, i32 } [ %154, %153 ], [ %137, %.body32.i ], [ %134, %133 ]
+  %eh.lpad-body3328.i = phi { ptr, i32 } [ %137, %.body32.i ], [ %154, %153 ], [ %134, %133 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %149 = load ptr, ptr %10, align 8, !alias.scope !73, !noalias !34, !nonnull !3, !noundef !3
@@ -683,7 +683,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %94 unwind label %33
 
 18:                                               ; preds = %93, %39, %35, %14
-  %.sroa.013.0.i = phi i1 [ true, %39 ], [ true, %35 ], [ true, %14 ], [ false, %93 ]
+  %.sroa.013.0.i = phi i1 [ false, %93 ], [ true, %39 ], [ true, %35 ], [ true, %14 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %17

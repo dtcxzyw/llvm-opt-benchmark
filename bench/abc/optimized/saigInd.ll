@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @Saig_ManStatesAreEqual(ptr noundef readonly captures
   br i1 %exitcond42.not, label %.loopexit, label %23, !llvm.loop !27
 
 .loopexit:                                        ; preds = %18, %27, %38, %5
-  %.024 = phi i32 [ 1, %5 ], [ 0, %27 ], [ 1, %38 ], [ 0, %18 ]
+  %.024 = phi i32 [ 1, %5 ], [ 1, %38 ], [ 0, %27 ], [ 0, %18 ]
   ret i32 %.024
 }
 
@@ -226,13 +226,13 @@ define range(i32 0, 2) i32 @Saig_ManAddUniqueness(ptr noundef %0, ptr noundef re
   br i1 %.not50, label %65, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %41, %25
-  %str.sink = phi ptr [ @str.2, %25 ], [ @str.1, %41 ], [ @str.1, %64 ]
-  %.0.ph = phi i32 [ 0, %25 ], [ 1, %41 ], [ 1, %64 ]
+  %str.sink = phi ptr [ @str.1, %41 ], [ @str.2, %25 ], [ @str.1, %64 ]
+  %.0.ph = phi i32 [ 1, %41 ], [ 0, %25 ], [ 1, %64 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   br label %65
 
 65:                                               ; preds = %.sink.split, %61, %64, %41, %25
-  %.0 = phi i32 [ 0, %25 ], [ 1, %41 ], [ 1, %64 ], [ 0, %61 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 1, %64 ], [ 0, %25 ], [ 1, %41 ], [ 0, %61 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -723,8 +723,8 @@ Vec_PtrPush.exit348:                              ; preds = %194, %Vec_PtrGrow.e
   br label %Vec_IntGrow.exit.sink.split.i
 
 Vec_IntGrow.exit.sink.split.i:                    ; preds = %227, %229, %219, %221
-  %storemerge427 = phi ptr [ %220, %219 ], [ %222, %221 ], [ %228, %227 ], [ %230, %229 ]
-  %.sink.i = phi i32 [ %210, %219 ], [ %210, %221 ], [ %213, %227 ], [ %213, %229 ]
+  %storemerge427 = phi ptr [ %222, %221 ], [ %220, %219 ], [ %228, %227 ], [ %230, %229 ]
+  %.sink.i = phi i32 [ %210, %221 ], [ %210, %219 ], [ %213, %227 ], [ %213, %229 ]
   store ptr %storemerge427, ptr %42, align 8, !tbaa !3
   store i32 %.sink.i, ptr %39, align 8, !tbaa !39
   br label %._crit_edge.i
@@ -1073,8 +1073,8 @@ Abc_Clock.exit370:                                ; preds = %348, %357
   br label %._crit_edge663
 
 ._crit_edge663:                                   ; preds = %369, %376, %372
-  %.pre-phi665 = phi i32 [ %373, %376 ], [ %373, %372 ], [ 0, %369 ]
-  %.val327 = phi i32 [ %.val327.pre, %376 ], [ %.val327.pre650, %372 ], [ %.val327.pre650, %369 ]
+  %.pre-phi665 = phi i32 [ %373, %372 ], [ %373, %376 ], [ 0, %369 ]
+  %.val327 = phi i32 [ %.val327.pre650, %372 ], [ %.val327.pre, %376 ], [ %.val327.pre650, %369 ]
   %377 = srem i32 %.pre-phi665, %.val327
   %378 = sdiv i32 %.pre-phi665, %.val327
   %379 = icmp eq i32 %377, 0
@@ -1437,9 +1437,9 @@ Saig_ManAddUniqueness.exit.thread410:             ; preds = %Saig_ManStatesAreEq
   %511 = add nuw nsw i32 %.0252, 1
   br label %70
 
-.thread403.loopexit:                              ; preds = %Saig_ManAddUniqueness.exit.thread414, %487, %508
-  %.lcssa528547.ph = phi i32 [ %491, %508 ], [ %481, %487 ], [ %.lcssa528546, %Saig_ManAddUniqueness.exit.thread414 ]
-  %.lcssa517520.lcssa543.ph = phi i32 [ %.lcssa517520, %508 ], [ %484, %487 ], [ %.lcssa517520.lcssa542, %Saig_ManAddUniqueness.exit.thread414 ]
+.thread403.loopexit:                              ; preds = %Saig_ManAddUniqueness.exit.thread414, %508, %487
+  %.lcssa528547.ph = phi i32 [ %481, %487 ], [ %491, %508 ], [ %.lcssa528546, %Saig_ManAddUniqueness.exit.thread414 ]
+  %.lcssa517520.lcssa543.ph = phi i32 [ %484, %487 ], [ %.lcssa517520, %508 ], [ %.lcssa517520.lcssa542, %Saig_ManAddUniqueness.exit.thread414 ]
   store i32 %.lcssa517520.lcssa543.ph, ptr %15, align 4
   store i32 %.lcssa528547.ph, ptr %16, align 4
   br label %.thread403

@@ -735,7 +735,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.not = icmp eq i32 %bcmp.i10.i.i.i, 0
   br i1 %.not, label %6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc86713fe651104afE.exit.thread"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc86713fe651104afE.exit.thread": ; preds = %6, %9, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit.i.i.i", %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc86713fe651104afE.exit"
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc86713fe651104afE.exit.thread": ; preds = %6, %9, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit.i.i.i", %16, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hc86713fe651104afE.exit"
   ret i1 %8
 }
 
@@ -864,9 +864,9 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit: ; preds = %
   br i1 %41, label %.loopexit, label %.lr.ph.i.preheader
 
 .loopexit:                                        ; preds = %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us
-  %.2101 = phi i64 [ %27, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %40, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %.099140, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %.099140, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
-  %.3 = phi ptr [ %26, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %39, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %21, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %44, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
-  %.2 = phi i64 [ %.0142, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %.0142, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %22, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %50, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
+  %.2101 = phi i64 [ %.099140, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %27, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %40, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %.099140, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
+  %.3 = phi ptr [ %21, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %26, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %39, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %44, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
+  %.2 = phi i64 [ %22, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.us ], [ %.0142, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.us ], [ %.0142, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit.loopexit ], [ %50, %_ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit ]
   %42 = icmp eq i64 %.2101, 0
   %43 = icmp eq i64 %.2, 0
   %or.cond = or i1 %42, %43
@@ -1574,9 +1574,9 @@ define { i64, i64 } @_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a2
   br i1 %19, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %.lr.ph, %4, %12
-  %.lcssa.sink = phi i64 [ %8, %12 ], [ %1, %4 ], [ %8, %.lr.ph ]
-  %.sroa.4.0.ph = phi i64 [ %18, %12 ], [ undef, %4 ], [ undef, %.lr.ph ]
-  %.sroa.0.1.ph = phi i64 [ 1, %12 ], [ 0, %4 ], [ 0, %.lr.ph ]
+  %.lcssa.sink = phi i64 [ %1, %4 ], [ %8, %12 ], [ %8, %.lr.ph ]
+  %.sroa.4.0.ph = phi i64 [ undef, %4 ], [ %18, %12 ], [ undef, %.lr.ph ]
+  %.sroa.0.1.ph = phi i64 [ 0, %4 ], [ 1, %12 ], [ 0, %.lr.ph ]
   store i64 %.lcssa.sink, ptr %2, align 8
   br label %20
 
@@ -2011,7 +2011,7 @@ define noundef zeroext i1 @"_ZN10ockam_core5error5inner10formatting82_$LT$impl$u
   br label %87
 
 .loopexit137:                                     ; preds = %120, %45, %2, %.loopexit108, %.loopexit, %36, %.loopexit105
-  %.0 = phi i1 [ true, %.loopexit105 ], [ true, %36 ], [ %110, %.loopexit ], [ true, %.loopexit108 ], [ true, %2 ], [ true, %45 ], [ true, %120 ]
+  %.0 = phi i1 [ true, %36 ], [ %110, %.loopexit ], [ true, %.loopexit105 ], [ true, %.loopexit108 ], [ true, %2 ], [ true, %45 ], [ true, %120 ]
   ret i1 %.0
 
 ._crit_edge:                                      ; preds = %201, %52
@@ -2539,8 +2539,8 @@ _ZN10ockam_core5error5inner12trace_config11TraceConfig3get17h1fbbb7a2607cc0b3E.e
           to label %100 unwind label %98
 
 .thread:                                          ; preds = %95, %84, %98, %96, %64
-  %.1 = phi i1 [ false, %98 ], [ true, %96 ], [ true, %64 ], [ true, %84 ], [ true, %95 ]
-  %.pn17 = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %65, %64 ], [ %85, %84 ], [ %73, %95 ]
+  %.1 = phi i1 [ false, %98 ], [ true, %96 ], [ true, %84 ], [ true, %64 ], [ true, %95 ]
+  %.pn17 = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %85, %84 ], [ %65, %64 ], [ %73, %95 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..error..inner..PayloadEntry$GT$$GT$17hd859609d07f332d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #31
           to label %.body unwind label %93
 

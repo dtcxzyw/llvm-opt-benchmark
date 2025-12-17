@@ -999,7 +999,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %.preheader75, %.loopexit76.loopexit108, %66, %57
-  %87 = phi i32 [ %.pre131, %.loopexit76.loopexit108 ], [ %58, %66 ], [ %58, %57 ], [ %58, %.preheader75 ]
+  %87 = phi i32 [ %.pre131, %.loopexit76.loopexit108 ], [ %58, %57 ], [ %58, %66 ], [ %58, %.preheader75 ]
   %88 = add nuw i32 %59, 1
   %89 = icmp ult i32 %88, %87
   br i1 %89, label %57, label %.loopexit77, !llvm.loop !24
@@ -1139,7 +1139,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %173, label %.thread51, label %.preheader69.split, !llvm.loop !26
 
 .loopexit70:                                      ; preds = %139, %.preheader69.split.us, %.preheader69.split, %147
-  %174 = phi ptr [ %115, %147 ], [ %167, %.preheader69.split ], [ %159, %.preheader69.split.us ], [ %135, %139 ]
+  %174 = phi ptr [ %115, %147 ], [ %159, %.preheader69.split.us ], [ %167, %.preheader69.split ], [ %135, %139 ]
   %175 = icmp eq ptr %174, null
   br i1 %175, label %.thread51, label %.thread198
 
@@ -1406,7 +1406,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hidinput_connect(ptr noundef %0, 
   br i1 %319, label %.preheader231, label %.thread53, !llvm.loop !31
 
 .thread53:                                        ; preds = %.loopexit64, %215, %249
-  %320 = phi ptr [ %177, %215 ], [ %247, %249 ], [ %247, %.loopexit64 ]
+  %320 = phi ptr [ %247, %249 ], [ %177, %215 ], [ %247, %.loopexit64 ]
   %321 = load i32, ptr %90, align 4
   %322 = and i32 %321, 64
   %323 = icmp eq i32 %322, 0

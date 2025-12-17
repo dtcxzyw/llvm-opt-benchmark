@@ -255,7 +255,7 @@ define internal i32 @CVSpgmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %26, %21, %8
-  %31 = phi i1 [ true, %21 ], [ true, %8 ], [ %spec.select, %26 ]
+  %31 = phi i1 [ %spec.select, %26 ], [ true, %21 ], [ true, %8 ]
   %32 = zext i1 %31 to i32
   store i32 %32, ptr %4, align 4, !tbaa !51
   %33 = xor i1 %31, true
@@ -422,7 +422,7 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   br label %69
 
 69:                                               ; preds = %55, %55, %55, %55, %61, %22, %26, %68, %67, %66, %65
-  %.0 = phi i32 [ 0, %68 ], [ -1, %65 ], [ -1, %66 ], [ -1, %67 ], [ 0, %26 ], [ 0, %22 ], [ %., %61 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ]
+  %.0 = phi i32 [ -1, %67 ], [ 0, %68 ], [ 0, %22 ], [ %., %61 ], [ 0, %26 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ -1, %65 ], [ -1, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -68,9 +68,9 @@ define internal i32 @avs2_parse(ptr noundef captures(none) %0, ptr noundef %1, p
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !20
 
 .thread.i:                                        ; preds = %26, %12
-  %.054.i = phi i32 [ %28, %26 ], [ 0, %12 ]
-  %.03753.i = phi i32 [ %23, %26 ], [ %17, %12 ]
-  %.04051.i = phi i32 [ 1, %26 ], [ %15, %12 ]
+  %.054.i = phi i32 [ 0, %12 ], [ %28, %26 ]
+  %.03753.i = phi i32 [ %17, %12 ], [ %23, %26 ]
+  %.04051.i = phi i32 [ %15, %12 ], [ 1, %26 ]
   %.not46.i = icmp eq i32 %5, 0
   br i1 %.not46.i, label %avs2_find_frame_end.exit, label %.preheader.i
 

@@ -1356,7 +1356,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
           to label %._crit_edge224.thread unwind label %69
 
 ._crit_edge224.thread:                            ; preds = %.invoke, %.preheader201, %._crit_edge224, %231
-  %.0 = phi i1 [ true, %231 ], [ true, %._crit_edge224 ], [ true, %.preheader201 ], [ false, %.invoke ]
+  %.0 = phi i1 [ false, %.invoke ], [ true, %._crit_edge224 ], [ true, %.preheader201 ], [ true, %231 ]
   %232 = load i8, ptr %11, align 1
   %233 = trunc i8 %232 to i1
   br i1 %233, label %234, label %_ZN13rcScopedTimerD2Ev.exit195

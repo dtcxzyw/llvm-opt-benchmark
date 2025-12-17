@@ -1254,7 +1254,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   br label %.thread21
 
 .thread21:                                        ; preds = %75, %77, %.loopexit, %.loopexit25, %78
-  %161 = phi i32 [ -12, %78 ], [ 0, %.loopexit25 ], [ 0, %.loopexit ], [ -12, %77 ], [ -12, %75 ]
+  %161 = phi i32 [ -12, %75 ], [ 0, %.loopexit ], [ -12, %78 ], [ 0, %.loopexit25 ], [ -12, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %161
 }
@@ -1472,7 +1472,7 @@ thread-pre-split:                                 ; preds = %49, %51, %52
   br i1 %111, label %.thread16, label %.preheader17, !llvm.loop !35
 
 .thread16:                                        ; preds = %109, %27, %70, %72, %73
-  %112 = phi i32 [ -12, %73 ], [ -12, %72 ], [ -12, %70 ], [ 0, %27 ], [ 0, %109 ]
+  %112 = phi i32 [ -12, %70 ], [ -12, %73 ], [ 0, %27 ], [ -12, %72 ], [ 0, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %112
 }
@@ -1694,7 +1694,7 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
   br label %.thread
 
 .thread:                                          ; preds = %63, %27, %41, %43, %66
-  %67 = phi i64 [ %35, %66 ], [ %35, %43 ], [ %35, %41 ], [ %28, %27 ], [ %35, %63 ]
+  %67 = phi i64 [ %28, %27 ], [ %35, %66 ], [ %35, %41 ], [ %35, %43 ], [ %35, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %67
 }
@@ -1940,10 +1940,10 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %.preheader36, !llvm.loop !28
 
 dma_resv_iter_walk_unlocked.exit:                 ; preds = %110, %42, %56
-  %.promoted828 = phi i32 [ %.promoted829, %42 ], [ %.ph67, %56 ], [ %.ph67, %110 ]
-  %.promoted722 = phi i32 [ %.promoted723, %42 ], [ %.promoted721, %56 ], [ %58, %110 ]
-  %.promoted18 = phi ptr [ %.promoted19, %42 ], [ null, %56 ], [ %64, %110 ]
-  %.promoted913 = phi ptr [ null, %42 ], [ %.ph66, %56 ], [ %.ph66, %110 ]
+  %.promoted828 = phi i32 [ %.ph67, %56 ], [ %.promoted829, %42 ], [ %.ph67, %110 ]
+  %.promoted722 = phi i32 [ %.promoted721, %56 ], [ %.promoted723, %42 ], [ %58, %110 ]
+  %.promoted18 = phi ptr [ null, %56 ], [ %.promoted19, %42 ], [ %64, %110 ]
+  %.promoted913 = phi ptr [ %.ph66, %56 ], [ null, %42 ], [ %.ph66, %110 ]
   %112 = load volatile ptr, ptr %27, align 8
   %113 = icmp eq ptr %112, %.promoted913
   br i1 %113, label %114, label %35, !llvm.loop !29

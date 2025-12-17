@@ -632,7 +632,7 @@ define ptr @dt_interpolation_new(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond61.not, label %.thread, label %16
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph41.split, %20, %16
-  %.3 = phi ptr [ %17, %16 ], [ %spec.select, %20 ], [ %5, %.lr.ph41.split ], [ %12, %.lr.ph.split ]
+  %.3 = phi ptr [ %5, %.lr.ph41.split ], [ %17, %16 ], [ %spec.select, %20 ], [ %12, %.lr.ph.split ]
   ret ptr %.3
 }
 

@@ -184,7 +184,7 @@ Py_DECREF.exit21.i:                               ; preds = %53, %50, %47
   br i1 %57, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
-  %.0.ph.i = phi ptr [ null, %35 ], [ null, %44 ], [ %48, %55 ]
+  %.0.ph.i = phi ptr [ null, %44 ], [ null, %35 ], [ %48, %55 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %22) #7
   br label %.thread
 
@@ -194,7 +194,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %55, %44, %35
   br label %.thread
 
 .thread:                                          ; preds = %Py_DECREF.exit.sink.split.i, %55, %Py_DECREF.exit21.i, %44, %42, %35, %32, %21, %8, %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %8 ], [ null, %._crit_edge ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ null, %44 ], [ null, %42 ], [ null, %35 ], [ null, %32 ], [ %48, %55 ], [ %48, %Py_DECREF.exit21.i ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -363,7 +363,7 @@ add_codecs.exit.i:                                ; preds = %19, %13
   br i1 %39, label %29, label %register_maps.exit
 
 register_maps.exit:                               ; preds = %29, %32, %1, %7, %add_codecs.exit.i
-  %.0.i = phi i32 [ -1, %1 ], [ -1, %7 ], [ 0, %add_codecs.exit.i ], [ -1, %32 ], [ 0, %29 ]
+  %.0.i = phi i32 [ -1, %7 ], [ -1, %1 ], [ 0, %add_codecs.exit.i ], [ -1, %32 ], [ 0, %29 ]
   ret i32 %.0.i
 }
 
@@ -486,8 +486,8 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %66 = icmp slt i64 %62, %5
   br i1 %66, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %60, %25, %30, %32, %48, %44, %39, %34, %9
-  %.2 = phi i64 [ 0, %9 ], [ 1, %34 ], [ 1, %39 ], [ 1, %44 ], [ 1, %48 ], [ -1, %32 ], [ 1, %30 ], [ -1, %25 ], [ 0, %60 ]
+.thread:                                          ; preds = %60, %32, %25, %30, %48, %44, %39, %34, %9
+  %.2 = phi i64 [ 0, %9 ], [ -1, %32 ], [ 1, %34 ], [ 1, %39 ], [ 1, %44 ], [ 1, %48 ], [ 1, %30 ], [ -1, %25 ], [ 0, %60 ]
   ret i64 %.2
 }
 
@@ -563,8 +563,8 @@ define internal range(i64 -4, 2) i64 @big5_decode(ptr readnone captures(none) %0
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %38, %10, %14, %34, %30, %27, %20, %16, %5
-  %.2 = phi i64 [ 0, %5 ], [ 1, %16 ], [ 1, %20 ], [ 1, %27 ], [ 1, %30 ], [ -4, %34 ], [ -2, %14 ], [ -4, %10 ], [ 0, %38 ]
+.thread:                                          ; preds = %38, %34, %10, %14, %30, %27, %20, %16, %5
+  %.2 = phi i64 [ 0, %5 ], [ -4, %34 ], [ 1, %16 ], [ 1, %20 ], [ 1, %27 ], [ 1, %30 ], [ -2, %14 ], [ -4, %10 ], [ 0, %38 ]
   ret i64 %.2
 }
 
@@ -707,8 +707,8 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %83 = icmp slt i64 %79, %5
   br i1 %83, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %77, %25, %30, %32, %65, %61, %56, %53, %9
-  %.2 = phi i64 [ 0, %9 ], [ 1, %53 ], [ 1, %56 ], [ 1, %61 ], [ 1, %65 ], [ -1, %32 ], [ 1, %30 ], [ -1, %25 ], [ 0, %77 ]
+.thread:                                          ; preds = %77, %32, %25, %30, %65, %61, %56, %53, %9
+  %.2 = phi i64 [ 0, %9 ], [ -1, %32 ], [ 1, %53 ], [ 1, %56 ], [ 1, %61 ], [ 1, %65 ], [ 1, %30 ], [ -1, %25 ], [ 0, %77 ]
   ret i64 %.2
 }
 
@@ -819,8 +819,8 @@ define internal range(i64 -4, 2) i64 @cp950_decode(ptr readnone captures(none) %
   %63 = icmp sgt i64 %62, 0
   br i1 %63, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %59, %10, %14, %34, %55, %51, %48, %41, %38, %5
-  %.2 = phi i64 [ 0, %5 ], [ 1, %38 ], [ 1, %41 ], [ 1, %48 ], [ 1, %51 ], [ -4, %55 ], [ -4, %34 ], [ -2, %14 ], [ -4, %10 ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %55, %10, %14, %34, %51, %48, %41, %38, %5
+  %.2 = phi i64 [ 0, %5 ], [ -4, %55 ], [ 1, %38 ], [ 1, %41 ], [ 1, %48 ], [ 1, %51 ], [ -4, %34 ], [ -2, %14 ], [ -4, %10 ], [ 0, %59 ]
   ret i64 %.2
 }
 

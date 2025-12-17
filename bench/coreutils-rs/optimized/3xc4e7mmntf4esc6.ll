@@ -198,8 +198,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   unreachable
 
 .outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
-  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %.068.ph.be = phi ptr [ %33, %43 ], [ %33, %41 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %43 ], [ %.0110.lcssa, %41 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
   %61 = load atomic i64, ptr %3 acquire, align 128
   %62 = load atomic i64, ptr %5 acquire, align 8
   %63 = and i64 %61, 1
@@ -424,8 +424,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   unreachable
 
 .outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
-  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %.068.ph.be = phi ptr [ %33, %43 ], [ %33, %41 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %43 ], [ %.0110.lcssa, %41 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
   %62 = load atomic i64, ptr %3 acquire, align 128
   %63 = load atomic i64, ptr %5 acquire, align 8
   %64 = and i64 %62, 1
@@ -650,8 +650,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   unreachable
 
 .outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
-  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %.068.ph.be = phi ptr [ %33, %43 ], [ %33, %41 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %43 ], [ %.0110.lcssa, %41 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
   %62 = load atomic i64, ptr %3 acquire, align 128
   %63 = load atomic i64, ptr %5 acquire, align 8
   %64 = and i64 %62, 1

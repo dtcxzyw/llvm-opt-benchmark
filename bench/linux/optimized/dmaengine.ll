@@ -228,7 +228,7 @@ define internal noundef range(i32 -12, 1) i32 @dma_channel_table_init() #0 secti
   br i1 %40, label %23, label %.thread5, !prof !11, !llvm.loop !12
 
 .thread5:                                         ; preds = %5, %1, %11, %23, %34, %30
-  %41 = phi i32 [ -12, %30 ], [ -12, %34 ], [ -12, %23 ], [ 0, %11 ], [ 0, %1 ], [ 0, %5 ]
+  %41 = phi i32 [ -12, %23 ], [ -12, %30 ], [ -12, %34 ], [ 0, %11 ], [ 0, %1 ], [ 0, %5 ]
   ret i32 %41
 }
 
@@ -613,7 +613,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dma_chan_get(ptr noundef %
   br label %.thread6
 
 .thread6:                                         ; preds = %62, %64, %74, %65, %30
-  %75 = phi i32 [ -19, %30 ], [ %38, %65 ], [ %38, %74 ], [ %38, %64 ], [ %38, %62 ]
+  %75 = phi i32 [ -19, %30 ], [ %38, %74 ], [ %38, %65 ], [ %38, %64 ], [ %38, %62 ]
   tail call void @module_put(ptr noundef %4) #12
   br label %.loopexit
 
@@ -777,7 +777,7 @@ define internal fastcc nonnull ptr @find_candidate(ptr noundef %0, ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %29, %53, %43, %.loopexit, %6, %74, %57, %.split10
-  %77 = phi ptr [ %76, %74 ], [ %.us-phi, %57 ], [ null, %.split10 ], [ null, %6 ], [ null, %.loopexit ], [ null, %43 ], [ null, %53 ], [ null, %29 ]
+  %77 = phi ptr [ %76, %74 ], [ %.us-phi, %57 ], [ null, %.split10 ], [ null, %6 ], [ null, %.loopexit ], [ null, %53 ], [ null, %43 ], [ null, %29 ]
   %78 = icmp eq ptr %77, null
   %79 = select i1 %78, ptr inttoptr (i64 -517 to ptr), ptr %77
   ret ptr %79
@@ -829,7 +829,7 @@ define dso_local ptr @__dma_request_channel(ptr noundef readonly captures(addres
   br i1 %30, label %.loopexit, label %.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %25, %29, %14, %.split.us, %4
-  %31 = phi ptr [ null, %4 ], [ %12, %.split.us ], [ null, %14 ], [ %27, %25 ], [ null, %29 ]
+  %31 = phi ptr [ null, %4 ], [ null, %14 ], [ %12, %.split.us ], [ %27, %25 ], [ null, %29 ]
   tail call void @mutex_unlock(ptr noundef nonnull @dma_list_mutex) #12
   ret ptr %31
 }
@@ -2583,7 +2583,7 @@ define dso_local i32 @dmaengine_desc_attach_metadata(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %5, %8, %12, %26, %23, %19, %3
-  %28 = phi i32 [ %27, %26 ], [ -22, %3 ], [ -524, %23 ], [ -524, %19 ], [ -22, %5 ], [ -524, %8 ], [ -524, %12 ]
+  %28 = phi i32 [ %27, %26 ], [ -22, %3 ], [ -524, %19 ], [ -524, %23 ], [ -22, %5 ], [ -524, %8 ], [ -524, %12 ]
   ret i32 %28
 }
 
@@ -2692,7 +2692,7 @@ define dso_local i32 @dmaengine_desc_set_metadata_len(ptr noundef %0, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %11, %26, %22, %18, %2
-  %28 = phi i32 [ %27, %26 ], [ -22, %2 ], [ -524, %22 ], [ -524, %18 ], [ -22, %4 ], [ -524, %7 ], [ -524, %11 ]
+  %28 = phi i32 [ %27, %26 ], [ -22, %2 ], [ -524, %18 ], [ -524, %22 ], [ -22, %4 ], [ -524, %7 ], [ -524, %11 ]
   ret i32 %28
 }
 

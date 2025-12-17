@@ -806,7 +806,7 @@ if.end22:                                         ; preds = %if.end11
   br label %return
 
 return:                                           ; preds = %if.then5, %if.then7, %if.end22, %if.then16, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end22 ], [ false, %if.then16 ], [ false, %if.then7 ], [ false, %if.then5 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then16 ], [ true, %if.end22 ], [ false, %if.then7 ], [ false, %if.then5 ]
   ret i1 %retval.0
 }
 
@@ -977,7 +977,7 @@ if.else40:                                        ; preds = %do.body.i
   br label %return
 
 return:                                           ; preds = %if.then, %if.then11, %if.else40, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit
-  %retval.0 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit ], [ false, %if.else40 ], [ false, %if.then11 ], [ false, %if.then ]
+  %retval.0 = phi i1 [ false, %if.else40 ], [ true, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit ], [ false, %if.then11 ], [ false, %if.then ]
   ret i1 %retval.0
 }
 
@@ -1288,7 +1288,7 @@ if.end31:                                         ; preds = %if.end22
   br label %return
 
 return:                                           ; preds = %if.end15, %lor.lhs.false18, %if.then4, %if.end31, %if.then27, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then27 ], [ %call37, %if.end31 ], [ true, %if.then4 ], [ false, %lor.lhs.false18 ], [ false, %if.end15 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ %call37, %if.end31 ], [ true, %if.then4 ], [ false, %if.then27 ], [ false, %lor.lhs.false18 ], [ false, %if.end15 ]
   ret i1 %retval.0
 }
 
@@ -1677,8 +1677,8 @@ for.body.i142:                                    ; preds = %for.body.i142, %if.
   br i1 %exitcond.not.i153, label %if.end, label %for.body.i142, !llvm.loop !16
 
 if.end:                                           ; preds = %for.body.i142, %for.body.i126, %for.body.i110, %for.body.i94, %for.body.i78, %for.body.i62, %for.body.i48, %for.body.i, %if.then.i
-  %.sink = phi i64 [ 2, %if.then.i ], [ 3, %for.body.i ], [ 4, %for.body.i48 ], [ 5, %for.body.i62 ], [ 6, %for.body.i78 ], [ 7, %for.body.i94 ], [ 8, %for.body.i110 ], [ 9, %for.body.i126 ], [ 10, %for.body.i142 ]
-  %temp.1.ph = phi i64 [ %add.i, %if.then.i ], [ %add.i43, %for.body.i ], [ %add.i56, %for.body.i48 ], [ %add.i70, %for.body.i62 ], [ %add.i86, %for.body.i78 ], [ %add.i102, %for.body.i94 ], [ %add.i118, %for.body.i110 ], [ %add.i134, %for.body.i126 ], [ %add.i150, %for.body.i142 ]
+  %.sink = phi i64 [ 2, %if.then.i ], [ 9, %for.body.i126 ], [ 3, %for.body.i ], [ 4, %for.body.i48 ], [ 5, %for.body.i62 ], [ 6, %for.body.i78 ], [ 7, %for.body.i94 ], [ 8, %for.body.i110 ], [ 10, %for.body.i142 ]
+  %temp.1.ph = phi i64 [ %add.i, %if.then.i ], [ %add.i134, %for.body.i126 ], [ %add.i43, %for.body.i ], [ %add.i56, %for.body.i48 ], [ %add.i70, %for.body.i62 ], [ %add.i86, %for.body.i78 ], [ %add.i102, %for.body.i94 ], [ %add.i118, %for.body.i110 ], [ %add.i150, %for.body.i142 ]
   %add.ptr.i36 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   store ptr %add.ptr.i36, ptr %this, align 8
   br label %return
@@ -2078,8 +2078,8 @@ for.body.i136:                                    ; preds = %for.body.i136, %if.
   br i1 %exitcond.not.i147, label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit, label %for.body.i136, !llvm.loop !16
 
 _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds = %for.body.i136, %for.body.i120, %for.body.i104, %for.body.i88, %for.body.i72, %for.body.i56, %for.body.i42, %for.body.i, %if.then.i
-  %.sink = phi i64 [ 2, %if.then.i ], [ 3, %for.body.i ], [ 4, %for.body.i42 ], [ 5, %for.body.i56 ], [ 6, %for.body.i72 ], [ 7, %for.body.i88 ], [ 8, %for.body.i104 ], [ 9, %for.body.i120 ], [ 10, %for.body.i136 ]
-  %temp.0 = phi i64 [ %add.i, %if.then.i ], [ %add.i37, %for.body.i ], [ %add.i50, %for.body.i42 ], [ %add.i64, %for.body.i56 ], [ %add.i80, %for.body.i72 ], [ %add.i96, %for.body.i88 ], [ %add.i112, %for.body.i104 ], [ %add.i128, %for.body.i120 ], [ %add.i144, %for.body.i136 ]
+  %.sink = phi i64 [ 2, %if.then.i ], [ 9, %for.body.i120 ], [ 3, %for.body.i ], [ 4, %for.body.i42 ], [ 5, %for.body.i56 ], [ 6, %for.body.i72 ], [ 7, %for.body.i88 ], [ 8, %for.body.i104 ], [ 10, %for.body.i136 ]
+  %temp.0 = phi i64 [ %add.i, %if.then.i ], [ %add.i128, %for.body.i120 ], [ %add.i37, %for.body.i ], [ %add.i50, %for.body.i42 ], [ %add.i64, %for.body.i56 ], [ %add.i80, %for.body.i72 ], [ %add.i96, %for.body.i88 ], [ %add.i112, %for.body.i104 ], [ %add.i144, %for.body.i136 ]
   %cmp8 = icmp ult i64 %temp.0, 2147483648
   br i1 %cmp8, label %if.end, label %return
 
@@ -2101,7 +2101,7 @@ if.else:                                          ; preds = %land.lhs.true, %lor
   br label %return
 
 return:                                           ; preds = %if.else43.i, %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit, %if.else, %if.end
-  %retval.0 = phi i32 [ %conv11, %if.end ], [ %retval.0.i, %if.else ], [ -1, %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit ], [ -1, %if.else43.i ]
+  %retval.0 = phi i32 [ %retval.0.i, %if.else ], [ %conv11, %if.end ], [ -1, %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit ], [ -1, %if.else43.i ]
   ret i32 %retval.0
 }
 
@@ -2178,7 +2178,7 @@ if.end12:                                         ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit, %if.then4, %if.else, %if.end12
-  %retval.0 = phi i32 [ %conv, %if.end12 ], [ 0, %if.else ], [ 0, %if.then4 ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
+  %retval.0 = phi i32 [ %conv, %if.end12 ], [ 0, %if.then4 ], [ 0, %if.else ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
   ret i32 %retval.0
 }
 
@@ -2268,9 +2268,9 @@ for.body.i:                                       ; preds = %if.end25.i, %for.co
   %tobool38.i.not = icmp sgt i8 %7, -1
   br i1 %tobool38.i.not, label %if.end10, label %for.cond.i
 
-if.end10:                                         ; preds = %for.body.i, %if.end, %if.end.i, %if.end16.i, %if.end25.i
-  %tag.0.ph = phi i32 [ %add30.i, %if.end25.i ], [ %add21.i, %if.end16.i ], [ %add12.i, %if.end.i ], [ %add.i, %if.end ], [ %add30.i, %for.body.i ]
-  %ptr.i.0.pn.ph = phi ptr [ %incdec.ptr27.i, %if.end25.i ], [ %incdec.ptr18.i, %if.end16.i ], [ %incdec.ptr9.i, %if.end.i ], [ %incdec.ptr7.i, %if.end ], [ %incdec.ptr35.i, %for.body.i ]
+if.end10:                                         ; preds = %for.body.i, %if.end25.i, %if.end, %if.end.i, %if.end16.i
+  %tag.0.ph = phi i32 [ %add21.i, %if.end16.i ], [ %add12.i, %if.end.i ], [ %add.i, %if.end ], [ %add30.i, %if.end25.i ], [ %add30.i, %for.body.i ]
+  %ptr.i.0.pn.ph = phi ptr [ %incdec.ptr18.i, %if.end16.i ], [ %incdec.ptr9.i, %if.end.i ], [ %incdec.ptr7.i, %if.end ], [ %incdec.ptr27.i, %if.end25.i ], [ %incdec.ptr35.i, %for.body.i ]
   store ptr %ptr.i.0.pn.ph, ptr %this, align 8
   br label %return
 
@@ -2370,7 +2370,7 @@ if.end12.i:                                       ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %for.cond.i, %if.end12.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i, %if.else.i, %if.then4.i, %if.then21, %if.end10, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ %tag.0.ph, %if.end10 ], [ 0, %if.then21 ], [ %conv.i27, %if.end12.i ], [ 0, %if.else.i ], [ 0, %if.then4.i ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i ], [ 0, %for.cond.i ]
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ %tag.0.ph, %if.end10 ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i ], [ 0, %if.then21 ], [ %conv.i27, %if.end12.i ], [ 0, %if.then4.i ], [ 0, %if.else.i ], [ 0, %for.cond.i ]
   ret i32 %retval.0
 }
 

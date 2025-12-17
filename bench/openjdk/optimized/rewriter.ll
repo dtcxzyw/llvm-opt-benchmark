@@ -1063,7 +1063,7 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %250, %249
   br label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
 
 _ZN8Rewriter23rewrite_field_referenceEPhib.exit:  ; preds = %.thread, %.sink.split42.i.i, %253, %_ZN5Bytes11put_Java_u2EPht.exit.i, %238, %_ZN5Bytes13put_native_u2EPht.exit.i, %216, %213, %203, %200, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit, %66, %67, %256, %258, %260, %262
-  %.1 = phi i32 [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %66 ], [ %.0104.ph, %67 ], [ %.0104.ph, %256 ], [ %.0104.ph, %258 ], [ %.0104.ph, %260 ], [ %263, %262 ], [ %.0104.ph, %200 ], [ %.0104.ph, %203 ], [ %.0104.ph, %213 ], [ %.0104.ph, %216 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %238 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %253 ], [ %.0104.ph, %.sink.split42.i.i ], [ %.0104.ph, %.thread ]
+  %.1 = phi i32 [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %66 ], [ %.0104.ph, %67 ], [ %.0104.ph, %.sink.split42.i.i ], [ %.0104.ph, %216 ], [ %.0104.ph, %256 ], [ %.0104.ph, %258 ], [ %.0104.ph, %260 ], [ %263, %262 ], [ %.0104.ph, %200 ], [ %.0104.ph, %203 ], [ %.0104.ph, %213 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %238 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %253 ], [ %.0104.ph, %.thread ]
   %264 = add nuw nsw i32 %.06485, %.065102
   %265 = icmp samesign ult i32 %264, %13
   br i1 %265, label %.outer, label %._crit_edge, !llvm.loop !13

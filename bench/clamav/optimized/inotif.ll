@@ -115,7 +115,7 @@ define dso_local i32 @onas_ddd_init(i64 %0, i64 noundef %1) local_unnamed_addr #
   br label %onas_ddd_init_wdlt.exit.thread
 
 onas_ddd_init_wdlt.exit.thread:                   ; preds = %14, %11, %17, %7, %2
-  %.0 = phi i32 [ 8, %2 ], [ 12, %7 ], [ %21, %17 ], [ 20, %14 ], [ 3, %11 ]
+  %.0 = phi i32 [ %21, %17 ], [ 8, %2 ], [ 12, %7 ], [ 20, %14 ], [ 3, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -1697,7 +1697,7 @@ define internal fastcc noundef range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(
   br i1 %.not52, label %.critedge, label %38
 
 .critedge:                                        ; preds = %38, %56, %29, %24, %17, %4
-  %.1 = phi i32 [ 3, %4 ], [ 3, %17 ], [ 3, %24 ], [ 0, %29 ], [ 20, %38 ], [ 0, %56 ]
+  %.1 = phi i32 [ 3, %17 ], [ 3, %24 ], [ 3, %4 ], [ 0, %29 ], [ 20, %38 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

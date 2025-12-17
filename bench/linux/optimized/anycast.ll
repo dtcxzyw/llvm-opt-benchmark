@@ -160,8 +160,8 @@ define dso_local i32 @ipv6_sock_ac_join(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %43, ptr %75, align 8
   br label %78
 
-77:                                               ; preds = %63, %71, %.thread, %61, %52
-  %.ph9 = phi i32 [ -99, %52 ], [ %62, %61 ], [ -19, %.thread ], [ %72, %71 ], [ -99, %63 ]
+77:                                               ; preds = %63, %61, %71, %.thread, %52
+  %.ph9 = phi i32 [ -99, %52 ], [ -19, %.thread ], [ -99, %63 ], [ %72, %71 ], [ %62, %61 ]
   tail call void @sock_kfree_s(ptr noundef %0, ptr noundef nonnull %43, i32 noundef 32) #6
   br label %78
 

@@ -236,7 +236,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   br label %116
 
 116:                                              ; preds = %111, %107
-  %.1.i = phi i32 [ -1, %107 ], [ %spec.select.i, %111 ]
+  %.1.i = phi i32 [ %spec.select.i, %111 ], [ -1, %107 ]
   br i1 %.not107.i, label %.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %116
@@ -790,7 +790,7 @@ BufferGetPage.exit58.i.i:                         ; preds = %317, %311
   br label %gistdeletepage.exit.thread.i
 
 gistdeletepage.exit.thread.i:                     ; preds = %405, %356, %347, %339, %336, %330, %BufferGetPage.exit58.i.i
-  %414 = phi i16 [ %413, %405 ], [ %.06281.i, %BufferGetPage.exit58.i.i ], [ %.06281.i, %330 ], [ %.06281.i, %339 ], [ %.06281.i, %336 ], [ %.06281.i, %347 ], [ %.06281.i, %356 ]
+  %414 = phi i16 [ %413, %405 ], [ %.06281.i, %BufferGetPage.exit58.i.i ], [ %.06281.i, %356 ], [ %.06281.i, %330 ], [ %.06281.i, %336 ], [ %.06281.i, %347 ], [ %.06281.i, %339 ]
   call void @LockBuffer(i32 noundef %225, i32 noundef 0) #4
   call void @UnlockReleaseBuffer(i32 noundef %299) #4
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1

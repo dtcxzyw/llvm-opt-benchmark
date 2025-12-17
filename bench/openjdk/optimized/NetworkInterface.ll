@@ -365,7 +365,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
   br label %56
 
 56:                                               ; preds = %12, %17, %.thread56, %21, %11
-  %.0 = phi ptr [ null, %21 ], [ %.045, %.thread56 ], [ null, %11 ], [ null, %17 ], [ null, %12 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %21 ], [ %.045, %.thread56 ], [ null, %17 ], [ null, %12 ]
   ret ptr %.0
 }
 
@@ -391,7 +391,7 @@ define internal fastcc ptr @enumInterfaces(ptr noundef %0) unnamed_addr #0 {
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #16
   br label %8
 
-8:                                                ; preds = %4, %4, %7
+8:                                                ; preds = %7, %4, %4
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
@@ -442,8 +442,8 @@ openSocket.exit30:                                ; preds = %21
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %34, label %.sink.split
 
-.sink.split:                                      ; preds = %openSocket.exit30, %27, %24, %24, %13
-  %.sink = phi ptr [ %14, %13 ], [ %.0, %24 ], [ %.0, %24 ], [ %.0, %27 ], [ %28, %openSocket.exit30 ]
+.sink.split:                                      ; preds = %openSocket.exit30, %24, %24, %27, %13
+  %.sink = phi ptr [ %.0, %24 ], [ %14, %13 ], [ %.0, %27 ], [ %.0, %24 ], [ %28, %openSocket.exit30 ]
   tail call fastcc void @freeif(ptr noundef %.sink)
   br label %34
 
@@ -944,7 +944,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddres
   tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #16
   br label %16
 
-16:                                               ; preds = %12, %12, %15
+16:                                               ; preds = %15, %12, %12
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %19 = load ptr, ptr %18, align 8
@@ -1048,13 +1048,13 @@ openSocket.exit51:                                ; preds = %50
   br label %find_bound_interface.exit
 
 find_bound_interface.exit:                        ; preds = %._crit_edge51.split.us.us.i, %43, %34, %openSocket.exit, %16, %63, %48, %openSocket.exit51, %21
-  %.1 = phi ptr [ %22, %21 ], [ %57, %openSocket.exit51 ], [ null, %48 ], [ %57, %63 ], [ null, %openSocket.exit ], [ null, %16 ], [ %22, %34 ], [ %22, %43 ], [ %22, %._crit_edge51.split.us.us.i ]
-  %.036 = phi i8 [ 0, %21 ], [ 0, %openSocket.exit51 ], [ 0, %48 ], [ %spec.select48, %63 ], [ 0, %openSocket.exit ], [ 0, %16 ], [ 1, %43 ], [ 0, %34 ], [ 0, %._crit_edge51.split.us.us.i ]
+  %.1 = phi ptr [ %22, %21 ], [ null, %48 ], [ %57, %63 ], [ %57, %openSocket.exit51 ], [ null, %openSocket.exit ], [ null, %16 ], [ %22, %43 ], [ %22, %34 ], [ %22, %._crit_edge51.split.us.us.i ]
+  %.036 = phi i8 [ 0, %21 ], [ 0, %48 ], [ %spec.select48, %63 ], [ 0, %openSocket.exit51 ], [ 0, %openSocket.exit ], [ 0, %16 ], [ 1, %43 ], [ 0, %34 ], [ 0, %._crit_edge51.split.us.us.i ]
   tail call fastcc void @freeif(ptr noundef %.1)
   br label %openSocket.exit51.thread
 
-openSocket.exit51.thread:                         ; preds = %56, %53, %53, %9, %16, %3, %find_bound_interface.exit
-  %.038 = phi i8 [ %.036, %find_bound_interface.exit ], [ 0, %3 ], [ 0, %16 ], [ 0, %9 ], [ 0, %53 ], [ 0, %53 ], [ 0, %56 ]
+openSocket.exit51.thread:                         ; preds = %53, %53, %56, %9, %16, %3, %find_bound_interface.exit
+  %.038 = phi i8 [ 0, %3 ], [ 0, %9 ], [ %.036, %find_bound_interface.exit ], [ 0, %16 ], [ 0, %56 ], [ 0, %53 ], [ 0, %53 ]
   ret i8 %.038
 }
 
@@ -1159,7 +1159,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
   br label %translateIPv4AddressToPrefix.exit
 
 translateIPv4AddressToPrefix.exit:                ; preds = %.lr.ph.preheader.i, %39, %36
-  %.0 = phi i16 [ 0, %36 ], [ 0, %39 ], [ %45, %.lr.ph.preheader.i ]
+  %.0 = phi i16 [ 0, %36 ], [ %45, %.lr.ph.preheader.i ], [ 0, %39 ]
   %46 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0413, ptr noundef %.0422, ptr noundef %4, ptr noundef %.039, i32 noundef 2, i16 noundef signext %.0)
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
@@ -1314,7 +1314,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   br i1 %.not38.us55.us, label %._crit_edge.split.us.us, label %.lr.ph.us69, !llvm.loop !17
 
 .thread:                                          ; preds = %._crit_edge.split.us.us, %41, %._crit_edge51.split.us.us, %12, %21, %.lr.ph61, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.lr.ph61 ], [ %.03458.us, %21 ], [ null, %12 ], [ null, %._crit_edge51.split.us.us ], [ %.03458.us64, %41 ], [ null, %._crit_edge.split.us.us ]
+  %.0 = phi ptr [ null, %4 ], [ null, %.lr.ph61 ], [ %.03458.us64, %41 ], [ null, %12 ], [ null, %._crit_edge51.split.us.us ], [ %.03458.us, %21 ], [ null, %._crit_edge.split.us.us ]
   ret ptr %.0
 }
 
@@ -1418,7 +1418,7 @@ define ptr @Java_java_net_NetworkInterface_getByInetAddress0(ptr noundef %0, ptr
   br label %19
 
 19:                                               ; preds = %11, %9, %3, %18
-  %.018 = phi ptr [ %.017, %18 ], [ null, %3 ], [ null, %9 ], [ null, %11 ]
+  %.018 = phi ptr [ null, %3 ], [ null, %9 ], [ %.017, %18 ], [ null, %11 ]
   ret ptr %.018
 }
 
@@ -1569,7 +1569,7 @@ getFlags.exit:                                    ; preds = %24, %18
   br label %43
 
 43:                                               ; preds = %getFlags.exit, %12, %17, %42, %27, %11
-  %.0 = phi i32 [ -1, %27 ], [ -1, %42 ], [ -1, %11 ], [ -1, %17 ], [ -1, %12 ], [ %37, %getFlags.exit ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %27 ], [ -1, %42 ], [ -1, %12 ], [ -1, %17 ], [ %37, %getFlags.exit ]
   ret i32 %.0
 }
 
@@ -1672,7 +1672,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %16, %21, %41, %15
-  %.0 = phi ptr [ %.036, %41 ], [ null, %15 ], [ null, %21 ], [ null, %16 ]
+  %.0 = phi ptr [ null, %15 ], [ %.036, %41 ], [ null, %21 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -1737,7 +1737,7 @@ openSocketWithFallback.exit:                      ; preds = %7, %10
   br i1 %.not, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %23, %24, %openSocketWithFallback.exit, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %openSocketWithFallback.exit ], [ -1, %23 ], [ 6, %24 ]
+  %.0 = phi i32 [ -1, %openSocketWithFallback.exit ], [ -1, %18 ], [ -1, %23 ], [ 6, %24 ]
   ret i32 %.0
 }
 
@@ -1829,7 +1829,7 @@ getMTU.exit:                                      ; preds = %38, %39
   br label %46
 
 46:                                               ; preds = %14, %19, %getMTU.exit, %29, %13
-  %.0 = phi i32 [ 0, %29 ], [ %.0.i, %getMTU.exit ], [ -1, %13 ], [ -1, %19 ], [ -1, %14 ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %29 ], [ %.0.i, %getMTU.exit ], [ -1, %19 ], [ -1, %14 ]
   ret i32 %.0
 }
 

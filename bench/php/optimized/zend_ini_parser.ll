@@ -165,10 +165,10 @@ define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
   br label %16
 
 14:                                               ; preds = %531, %78
-  %.1261 = phi ptr [ %510, %531 ], [ %.2262, %78 ]
-  %.1248 = phi ptr [ %511, %531 ], [ %79, %78 ]
-  %.1234 = phi i32 [ %532, %531 ], [ %74, %78 ]
-  %.1 = phi i32 [ %.8, %531 ], [ -2, %78 ]
+  %.1261 = phi ptr [ %.2262, %78 ], [ %510, %531 ]
+  %.1248 = phi ptr [ %79, %78 ], [ %511, %531 ]
+  %.1234 = phi i32 [ %74, %78 ], [ %532, %531 ]
+  %.1 = phi i32 [ -2, %78 ], [ %.8, %531 ]
   %15 = getelementptr inbounds nuw i8, ptr %.1261, i64 1
   br label %16
 
@@ -1938,7 +1938,7 @@ get_int_val.exit27:                               ; preds = %47, %46, %36, %33, 
   br label %60
 
 60:                                               ; preds = %get_int_val.exit27, %58, %56, %54, %52, %50
-  %.0 = phi i32 [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %59, %58 ], [ 0, %get_int_val.exit27 ]
+  %.0 = phi i32 [ %59, %58 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ 0, %get_int_val.exit27 ]
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !41
   %.not23 = icmp eq i32 %61, 2
   br i1 %.not23, label %80, label %62
@@ -2272,8 +2272,8 @@ yy_syntax_error_arguments.exit:                   ; preds = %.critedge.i.i
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %24, %.critedge.thread.i.i, %1, %yy_syntax_error_arguments.exit, %35, %34, %33, %32
-  %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
-  %.046 = phi ptr [ @.str.12, %35 ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.11, %34 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %24 ]
+  %.1.i5 = phi i32 [ 4, %34 ], [ 5, %35 ], [ 1, %.critedge.thread.i.i ], [ 2, %32 ], [ 3, %33 ], [ %31, %yy_syntax_error_arguments.exit ], [ 0, %1 ], [ 1, %24 ]
+  %.046 = phi ptr [ @.str.11, %34 ], [ @.str.12, %35 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str, %yy_syntax_error_arguments.exit ], [ @.str, %1 ], [ @.str.8, %24 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #19
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
@@ -2418,15 +2418,15 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %62, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink30 = phi i64 [ %89, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
-  %.1 = phi i32 [ %68, %.thread.thread.i ], [ %68, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
+  %.sink30 = phi i64 [ %.020.i, %.split.us.thread.i ], [ %89, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.sink = phi i64 [ 2, %.split.us.thread.i ], [ 2, %.thread.thread.i ], [ 1, %.preheader ], [ 1, %62 ]
+  %.1 = phi i32 [ %68, %.split.us.thread.i ], [ %68, %.thread.thread.i ], [ %.0, %.preheader ], [ %.0, %62 ]
   %90 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %91 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %.critedge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.041 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.i, %.critedge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.041 = phi i32 [ %.2.i.i, %.critedge.i.i ], [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.041
 }

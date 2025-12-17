@@ -972,7 +972,7 @@ thread-pre-split.thread:                          ; preds = %298
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %308, %.thread50
-  %313 = phi i32 [ %312, %308 ], [ %295, %.thread50 ]
+  %313 = phi i32 [ %295, %.thread50 ], [ %312, %308 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, i8 0, i64 9, i1 false), !annotation !28
   %314 = icmp eq i32 %313, 0
@@ -2787,7 +2787,7 @@ define dso_local i32 @intel_engines_init(ptr noundef captures(none) initializes(
   br i1 %425, label %.thread62, label %30, !llvm.loop !83
 
 .thread62:                                        ; preds = %124, %267, %423, %419, %73, %90, %.thread54, %.thread59, %339
-  %426 = phi i32 [ %337, %339 ], [ %258, %.thread54 ], [ %335, %.thread59 ], [ -19, %90 ], [ -19, %73 ], [ %272, %267 ], [ -34, %124 ], [ 0, %423 ], [ %420, %419 ]
+  %426 = phi i32 [ %337, %339 ], [ %335, %.thread59 ], [ -19, %73 ], [ %258, %.thread54 ], [ -19, %90 ], [ %272, %267 ], [ -34, %124 ], [ %420, %419 ], [ 0, %423 ]
   ret i32 %426
 }
 
@@ -3180,8 +3180,8 @@ define internal fastcc i64 @intel_uncore_read64_2x32(ptr noundef %0, i32 %1, i32
   br i1 %91, label %79, label %.split6.us, !llvm.loop !85
 
 .split6.us:                                       ; preds = %79, %45, %.split.split.us, %.split.us.split.us
-  %.us-phi = phi i32 [ %39, %.split.us.split.us ], [ %72, %.split.split.us ], [ %56, %45 ], [ %87, %79 ]
-  %.us-phi7 = phi i32 [ %33, %.split.us.split.us ], [ %66, %.split.split.us ], [ %53, %45 ], [ %84, %79 ]
+  %.us-phi = phi i32 [ %56, %45 ], [ %39, %.split.us.split.us ], [ %72, %.split.split.us ], [ %87, %79 ]
+  %.us-phi7 = phi i32 [ %53, %45 ], [ %33, %.split.us.split.us ], [ %66, %.split.split.us ], [ %84, %79 ]
   tail call void @intel_uncore_forcewake_put__locked(ptr noundef %0, i32 noundef %6) #18
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %8) #18
   %92 = zext i32 %.us-phi to i64

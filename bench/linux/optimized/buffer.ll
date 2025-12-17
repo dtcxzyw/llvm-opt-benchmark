@@ -2357,7 +2357,7 @@ define dso_local ptr @bdev_getblk(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %100, label %.split, label %.thread9
 
 .thread9:                                         ; preds = %.split, %55, %99, %.split.us, %.split12.us, %50, %10
-  %101 = phi ptr [ %5, %10 ], [ null, %50 ], [ null, %.split12.us ], [ %39, %.split.us ], [ null, %99 ], [ null, %55 ], [ %53, %.split ]
+  %101 = phi ptr [ %5, %10 ], [ null, %50 ], [ null, %.split12.us ], [ %39, %.split.us ], [ %53, %.split ], [ null, %99 ], [ null, %55 ]
   ret ptr %101
 }
 
@@ -5594,7 +5594,7 @@ define dso_local i32 @cont_write_begin(ptr noundef %0, ptr noundef %1, i64 nound
   unreachable
 
 .thread:                                          ; preds = %36, %77, %92, %111, %157
-  %.ph = phi i32 [ %161, %157 ], [ %114, %111 ], [ %39, %36 ], [ %81, %77 ], [ -4, %92 ]
+  %.ph = phi i32 [ %114, %111 ], [ %161, %157 ], [ %39, %36 ], [ %81, %77 ], [ -4, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %block_write_begin.exit

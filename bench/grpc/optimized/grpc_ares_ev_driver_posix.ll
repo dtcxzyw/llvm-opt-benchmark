@@ -251,7 +251,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix5CloseEi
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %29
   br label %.loopexit, !llvm.loop !38
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %12, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %7, %..loopexit_crit_edge21.i.i.i.i, %12
   %34 = tail call i32 @close(i32 noundef %0)
   br label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE4findERKi.exit
 
@@ -1130,7 +1130,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
   br label %31
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
-  %24 = phi i64 [ %9, %8 ], [ %14, %13 ], [ %21, %20 ]
+  %24 = phi i64 [ %14, %13 ], [ %9, %8 ], [ %21, %20 ]
   %25 = and i64 %24, 1
   %.not.i.i20 = icmp eq i64 %25, 0
   br i1 %.not.i.i20, label %26, label %_ZN4absl12lts_202407226StatusD2Ev.exit21
@@ -1148,7 +1148,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit21:         ; preds = %20, %17, %_ZN4absl12lts_202407226StatusD2Ev.exit, %26
-  %.0730 = phi i32 [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ -1, %26 ], [ 0, %17 ], [ 0, %20 ]
+  %.0730 = phi i32 [ -1, %26 ], [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %17 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0730
 

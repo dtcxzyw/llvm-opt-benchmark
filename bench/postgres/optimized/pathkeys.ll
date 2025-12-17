@@ -266,7 +266,7 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly capt
   br i1 %exitcond.not, label %.critedge.thread, label %27
 
 .critedge.thread:                                 ; preds = %24, %.preheader.split.split.us, %10, %7, %.preheader.split.us
-  %.us-phi = phi ptr [ %11, %10 ], [ null, %7 ], [ null, %.preheader.split.us ], [ null, %.preheader.split.split.us ], [ %25, %24 ]
+  %.us-phi = phi ptr [ null, %.preheader.split.us ], [ %11, %10 ], [ null, %7 ], [ null, %.preheader.split.split.us ], [ %25, %24 ]
   %26 = icmp eq ptr %.us-phi, null
   br label %35
 
@@ -293,13 +293,13 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly capt
   br label %35
 
 35:                                               ; preds = %.critedge, %.critedge.thread
-  %36 = phi i1 [ %26, %.critedge.thread ], [ %.us-phi46, %.critedge ]
-  %37 = phi i32 [ 0, %.critedge.thread ], [ %spec.select36, %.critedge ]
+  %36 = phi i1 [ %.us-phi46, %.critedge ], [ %26, %.critedge.thread ]
+  %37 = phi i32 [ %spec.select36, %.critedge ], [ 0, %.critedge.thread ]
   %spec.select = select i1 %36, i32 %37, i32 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %35, %2
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %35 ], [ 3, %31 ]
+  %.0 = phi i32 [ %spec.select, %35 ], [ 0, %2 ], [ 3, %31 ]
   ret i32 %.0
 }
 
@@ -360,7 +360,7 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly captures
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %25
 
 .critedge.thread.i:                               ; preds = %22, %.preheader.split.split.us.i, %10, %7, %.preheader.split.us.i
-  %.us-phi.i = phi ptr [ %11, %10 ], [ null, %7 ], [ null, %.preheader.split.us.i ], [ null, %.preheader.split.split.us.i ], [ %23, %22 ]
+  %.us-phi.i = phi ptr [ null, %.preheader.split.us.i ], [ %11, %10 ], [ null, %7 ], [ null, %.preheader.split.split.us.i ], [ %23, %22 ]
   %24 = icmp eq ptr %.us-phi.i, null
   br label %compare_pathkeys.exit
 
@@ -381,7 +381,7 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly captures
   br i1 %.not30.i, label %17, label %compare_pathkeys.exit, !llvm.loop !8
 
 compare_pathkeys.exit:                            ; preds = %25, %29, %.critedge.thread.i, %.preheader.split.split.us.i, %2
-  %.0.i = phi i1 [ true, %2 ], [ %24, %.critedge.thread.i ], [ true, %.preheader.split.split.us.i ], [ %27, %25 ], [ false, %29 ]
+  %.0.i = phi i1 [ true, %.preheader.split.split.us.i ], [ true, %2 ], [ %24, %.critedge.thread.i ], [ %27, %25 ], [ false, %29 ]
   ret i1 %.0.i
 }
 
@@ -539,8 +539,8 @@ pathkeys_contained_in.exit.thread49:              ; preds = %47, %pathkeys_conta
   br i1 %.not.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %70, %68, %62, %60, %.lr.ph.i
-  %.033.lcssa.i = phi ptr [ %72, %70 ], [ %.03349.i, %62 ], [ %.03349.i, %60 ], [ %.03349.i, %.lr.ph.i ], [ %.03349.i, %68 ]
-  %.032.lcssa.i = phi ptr [ %71, %70 ], [ %.03250.i, %62 ], [ %.03250.i, %60 ], [ %.03250.i, %.lr.ph.i ], [ %.03250.i, %68 ]
+  %.033.lcssa.i = phi ptr [ %.03349.i, %68 ], [ %72, %70 ], [ %.03349.i, %.lr.ph.i ], [ %.03349.i, %62 ], [ %.03349.i, %60 ]
+  %.032.lcssa.i = phi ptr [ %.03250.i, %68 ], [ %71, %70 ], [ %.03250.i, %.lr.ph.i ], [ %.03250.i, %62 ], [ %.03250.i, %60 ]
   %.not.i.i29 = icmp eq ptr %.032.lcssa.i, null
   br i1 %.not.i.i29, label %group_keys_reorder_by_pathkeys.exit, label %75
 
@@ -666,8 +666,8 @@ compare_pathkeys.exit.thread:                     ; preds = %117, %.thread62, %.
   %126 = tail call ptr @lappend(ptr noundef %12, ptr noundef nonnull %123) #9
   br label %pathkeys_contained_in.exit.thread
 
-pathkeys_contained_in.exit.thread:                ; preds = %121, %.thread62, %.preheader.split.split.us.i, %.preheader.split.us.i, %94, %.preheader.split.us.i.i, %.thread, %88, %pathkeys_contained_in.exit.thread49, %21, %.critedge.thread.i.i, %18, %pathkeys_contained_in.exit, %compare_pathkeys.exit.thread, %85, %group_keys_reorder_by_pathkeys.exit, %15, %2
-  %.0 = phi ptr [ %12, %2 ], [ %12, %15 ], [ %12, %pathkeys_contained_in.exit ], [ %12, %18 ], [ %126, %compare_pathkeys.exit.thread ], [ %12, %85 ], [ %12, %group_keys_reorder_by_pathkeys.exit ], [ %12, %.critedge.thread.i.i ], [ %12, %21 ], [ %12, %pathkeys_contained_in.exit.thread49 ], [ %12, %88 ], [ %12, %.thread ], [ %12, %.preheader.split.us.i.i ], [ %12, %94 ], [ %12, %.preheader.split.us.i ], [ %12, %.preheader.split.split.us.i ], [ %12, %.thread62 ], [ %12, %121 ]
+pathkeys_contained_in.exit.thread:                ; preds = %121, %.thread62, %.preheader.split.split.us.i, %94, %.preheader.split.us.i, %.preheader.split.us.i.i, %.thread, %88, %pathkeys_contained_in.exit.thread49, %21, %.critedge.thread.i.i, %18, %pathkeys_contained_in.exit, %compare_pathkeys.exit.thread, %85, %group_keys_reorder_by_pathkeys.exit, %15, %2
+  %.0 = phi ptr [ %12, %2 ], [ %12, %15 ], [ %12, %pathkeys_contained_in.exit ], [ %12, %18 ], [ %126, %compare_pathkeys.exit.thread ], [ %12, %121 ], [ %12, %85 ], [ %12, %group_keys_reorder_by_pathkeys.exit ], [ %12, %88 ], [ %12, %.critedge.thread.i.i ], [ %12, %.preheader.split.split.us.i ], [ %12, %pathkeys_contained_in.exit.thread49 ], [ %12, %21 ], [ %12, %.preheader.split.us.i.i ], [ %12, %.thread ], [ %12, %.preheader.split.us.i ], [ %12, %94 ], [ %12, %.thread62 ]
   ret ptr %.0
 }
 
@@ -750,8 +750,8 @@ define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly ca
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %.thread, %.loopexit.loopexit, %10, %9, %6, %5, %36
-  %indvars71.le.sink = phi i32 [ %indvars71.le, %36 ], [ %8, %6 ], [ 0, %5 ], [ 0, %9 ], [ 0, %10 ], [ %smax, %.thread ], [ %indvars71.le82, %.loopexit.loopexit ]
-  %.0 = phi i1 [ false, %36 ], [ true, %6 ], [ true, %5 ], [ true, %9 ], [ false, %10 ], [ %26, %.thread ], [ %29, %.loopexit.loopexit ]
+  %indvars71.le.sink = phi i32 [ %indvars71.le, %36 ], [ 0, %10 ], [ 0, %9 ], [ 0, %5 ], [ %8, %6 ], [ %smax, %.thread ], [ %indvars71.le82, %.loopexit.loopexit ]
+  %.0 = phi i1 [ false, %36 ], [ false, %10 ], [ true, %9 ], [ true, %5 ], [ true, %6 ], [ %26, %.thread ], [ %29, %.loopexit.loopexit ]
   store i32 %indvars71.le.sink, ptr %2, align 4
   ret i1 %.0
 }
@@ -860,7 +860,7 @@ pathkeys_contained_in.exit.thread.us:             ; preds = %36, %.lr.ph57
   br label %pathkeys_contained_in.exit.thread25.us
 
 pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
-  %.1.us = phi ptr [ %.033.us55, %36 ], [ %spec.select.us, %44 ]
+  %.1.us = phi ptr [ %spec.select.us, %44 ], [ %.033.us55, %36 ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %47 = load i32, ptr %6, align 4
   %48 = sext i32 %47 to i64
@@ -876,7 +876,7 @@ pathkeys_contained_in.exit.thread25.us:           ; preds = %44, %36
   br i1 %4, label %53, label %57
 
 .critedge:                                        ; preds = %pathkeys_contained_in.exit.thread25, %pathkeys_contained_in.exit.thread25.us, %pathkeys_contained_in.exit.thread25.us.us, %.lr.ph.split.preheader, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split, %5
-  %.0.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split.us.split ], [ null, %.lr.ph.split.us.split.split ], [ null, %.lr.ph.split.preheader ], [ %.1.us.us, %pathkeys_contained_in.exit.thread25.us.us ], [ %.1.us, %pathkeys_contained_in.exit.thread25.us ], [ %.1, %pathkeys_contained_in.exit.thread25 ]
+  %.0.lcssa = phi ptr [ null, %5 ], [ null, %.lr.ph.split.us.split.us.split ], [ null, %.lr.ph.split.us.split.split ], [ null, %.lr.ph.split.preheader ], [ %.1.us, %pathkeys_contained_in.exit.thread25.us ], [ %.1.us.us, %pathkeys_contained_in.exit.thread25.us.us ], [ %.1, %pathkeys_contained_in.exit.thread25 ]
   ret ptr %.0.lcssa
 
 53:                                               ; preds = %.lr.ph99
@@ -1343,7 +1343,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %77, label %.loopexit, label %.critedge
 
 .loopexit:                                        ; preds = %69, %58, %75, %.loopexit57
-  %.3 = phi ptr [ %74, %.loopexit57 ], [ %.0436074, %75 ], [ %.0436074, %58 ], [ %.0436074, %69 ]
+  %.3 = phi ptr [ %.0436074, %75 ], [ %74, %.loopexit57 ], [ %.0436074, %58 ], [ %.0436074, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv73, 1
   %78 = load i32, ptr %10, align 4
   %79 = sext i32 %78 to i64
@@ -1556,7 +1556,7 @@ is_notclause.exit.i.i:                            ; preds = %77
   br i1 %90, label %.lr.ph45.i, label %pathkey_is_redundant.exit
 
 .loopexit:                                        ; preds = %45, %69, %83, %.loopexit51, %34
-  %.232.ph = phi ptr [ %.03056, %34 ], [ %50, %.loopexit51 ], [ %.03056, %83 ], [ %.03056, %69 ], [ %.03056, %45 ]
+  %.232.ph = phi ptr [ %.03056, %34 ], [ %50, %.loopexit51 ], [ %.03056, %69 ], [ %.03056, %83 ], [ %.03056, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i16, ptr %7, align 2
   %92 = sext i16 %91 to i64
@@ -1994,8 +1994,8 @@ list_length.exit148:                              ; preds = %make_canonical_path
   br label %find_var_for_subquery_tle.exit140.thread
 
 find_var_for_subquery_tle.exit140.thread:         ; preds = %139, %119, %.lr.ph.i132, %.lr.ph, %146, %141, %find_var_for_subquery_tle.exit140, %209
-  %.3101 = phi i32 [ %spec.select127, %209 ], [ %.2100189288, %find_var_for_subquery_tle.exit140 ], [ %.2100189288, %141 ], [ %.2100189288, %146 ], [ %.2100189288, %.lr.ph ], [ %.2100189288, %.lr.ph.i132 ], [ %.2100189288, %119 ], [ %.2100189288, %139 ]
-  %.6 = phi ptr [ %spec.select128, %209 ], [ %.5191287, %find_var_for_subquery_tle.exit140 ], [ %.5191287, %141 ], [ %.5191287, %146 ], [ %.5191287, %.lr.ph ], [ %.5191287, %.lr.ph.i132 ], [ %.5191287, %119 ], [ %.5191287, %139 ]
+  %.3101 = phi i32 [ %spec.select127, %209 ], [ %.2100189288, %141 ], [ %.2100189288, %find_var_for_subquery_tle.exit140 ], [ %.2100189288, %146 ], [ %.2100189288, %.lr.ph ], [ %.2100189288, %.lr.ph.i132 ], [ %.2100189288, %119 ], [ %.2100189288, %139 ]
+  %.6 = phi ptr [ %spec.select128, %209 ], [ %.5191287, %141 ], [ %.5191287, %find_var_for_subquery_tle.exit140 ], [ %.5191287, %146 ], [ %.5191287, %.lr.ph ], [ %.5191287, %.lr.ph.i132 ], [ %.5191287, %119 ], [ %.5191287, %139 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv286, 1
   %211 = load i32, ptr %13, align 4
   %212 = sext i32 %211 to i64
@@ -2068,8 +2068,8 @@ pathkey_is_redundant.exit.thread170:              ; preds = %228, %.loopexit, %2
   %237 = icmp slt i64 %indvars.iv.next241, %236
   br i1 %237, label %.lr.ph298, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph199, %42, %.lr.ph.i, %37, %64, %find_var_for_subquery_tle.exit, %.critedge124, %pathkey_is_redundant.exit.thread170, %86, %62, %.lr.ph211, %list_length.exit
-  %.088188 = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph211 ], [ %.088210296, %62 ], [ %.088210296, %86 ], [ %.2175, %pathkey_is_redundant.exit.thread170 ], [ %.088210296, %.critedge124 ], [ %.088210296, %find_var_for_subquery_tle.exit ], [ %.088210296, %64 ], [ %.088210296, %37 ], [ %.088210296, %.lr.ph.i ], [ %.088210296, %42 ], [ %.088210296, %.lr.ph199 ]
+.critedge:                                        ; preds = %.lr.ph199, %42, %.lr.ph.i, %37, %find_var_for_subquery_tle.exit, %64, %.critedge124, %pathkey_is_redundant.exit.thread170, %86, %62, %.lr.ph211, %list_length.exit
+  %.088188 = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph211 ], [ %.088210296, %62 ], [ %.088210296, %86 ], [ %.2175, %pathkey_is_redundant.exit.thread170 ], [ %.088210296, %.critedge124 ], [ %.088210296, %64 ], [ %.088210296, %find_var_for_subquery_tle.exit ], [ %.088210296, %37 ], [ %.088210296, %.lr.ph.i ], [ %.088210296, %42 ], [ %.088210296, %.lr.ph199 ]
   ret ptr %.088188
 }
 
@@ -2349,7 +2349,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph84.i, %.crite
   br label %pathkeys_useful_for_ordering.exit
 
 pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95, %119, %.loopexit.loopexit.i.i
-  %indvars71.le.sink.i.i = phi i32 [ %indvars71.le.i.i, %119 ], [ %94, %92 ], [ 0, %91 ], [ 0, %95 ], [ %indvars71.le82.i.i, %.loopexit.loopexit.i.i ], [ %smax.i.i, %108 ]
+  %indvars71.le.sink.i.i = phi i32 [ %indvars71.le.i.i, %119 ], [ 0, %95 ], [ 0, %91 ], [ %94, %92 ], [ %indvars71.le82.i.i, %.loopexit.loopexit.i.i ], [ %smax.i.i, %108 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %indvars71.le.sink.i.i, i32 %.063.i)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %121 = load ptr, ptr %120, align 8
@@ -2434,8 +2434,8 @@ pathkeys_useful_for_grouping.exit.thread:         ; preds = %.lr.ph.i44
   br label %pathkeys_useful_for_distinct.exit
 
 pathkeys_useful_for_distinct.exit:                ; preds = %pathkeys_useful_for_grouping.exit.thread, %pathkeys_useful_for_grouping.exit, %pathkeys_useful_for_grouping.exit.thread74, %.lr.ph.split.i, %.loopexit.loopexit.i
-  %.171 = phi i32 [ %.1, %pathkeys_useful_for_grouping.exit ], [ %.1, %.lr.ph.split.i ], [ %.1, %.loopexit.loopexit.i ], [ %.176, %pathkeys_useful_for_grouping.exit.thread74 ], [ %.169, %pathkeys_useful_for_grouping.exit.thread ]
-  %.0.i48 = phi i32 [ 0, %pathkeys_useful_for_grouping.exit ], [ 0, %.lr.ph.split.i ], [ %.0.ph.i51, %.loopexit.loopexit.i ], [ 0, %pathkeys_useful_for_grouping.exit.thread74 ], [ 0, %pathkeys_useful_for_grouping.exit.thread ]
+  %.171 = phi i32 [ %.1, %pathkeys_useful_for_grouping.exit ], [ %.176, %pathkeys_useful_for_grouping.exit.thread74 ], [ %.1, %.lr.ph.split.i ], [ %.1, %.loopexit.loopexit.i ], [ %.169, %pathkeys_useful_for_grouping.exit.thread ]
+  %.0.i48 = phi i32 [ 0, %pathkeys_useful_for_grouping.exit ], [ 0, %pathkeys_useful_for_grouping.exit.thread74 ], [ 0, %.lr.ph.split.i ], [ %.0.ph.i51, %.loopexit.loopexit.i ], [ 0, %pathkeys_useful_for_grouping.exit.thread ]
   %.2 = tail call i32 @llvm.smax.i32(i32 %.0.i48, i32 %.171)
   %151 = getelementptr i8, ptr %0, i64 360
   %.val35 = load ptr, ptr %151, align 8
@@ -2509,7 +2509,7 @@ pathkeys_useful_for_distinct.exit:                ; preds = %pathkeys_useful_for
   br label %pathkeys_useful_for_setop.exit
 
 pathkeys_useful_for_setop.exit:                   ; preds = %170, %153, %154, %157, %181, %.loopexit.loopexit.i.i65
-  %indvars71.le.sink.i.i63 = phi i32 [ %indvars71.le.i.i62, %181 ], [ %156, %154 ], [ 0, %153 ], [ 0, %157 ], [ %indvars71.le82.i.i66, %.loopexit.loopexit.i.i65 ], [ %smax.i.i56, %170 ]
+  %indvars71.le.sink.i.i63 = phi i32 [ %indvars71.le.i.i62, %181 ], [ 0, %157 ], [ 0, %153 ], [ %156, %154 ], [ %indvars71.le82.i.i66, %.loopexit.loopexit.i.i65 ], [ %smax.i.i56, %170 ]
   %.3 = tail call i32 @llvm.smax.i32(i32 %indvars71.le.sink.i.i63, i32 %.2)
   %182 = icmp eq i32 %.3, 0
   br i1 %182, label %188, label %183
@@ -2935,7 +2935,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br i1 %57, label %.lr.ph65, label %.critedge53
 
 .critedge53:                                      ; preds = %.lr.ph65, %53, %..critedge55_crit_edge67.split, %3, %.critedge.thread, %.lr.ph77.split.split, %.critedge
-  %.0.lcssa = phi ptr [ null, %.critedge ], [ null, %.lr.ph77.split.split ], [ null, %.critedge.thread ], [ null, %3 ], [ %.07694, %.lr.ph65 ], [ %.07694, %..critedge55_crit_edge67.split ], [ %54, %53 ]
+  %.0.lcssa = phi ptr [ null, %.critedge ], [ null, %3 ], [ null, %.critedge.thread ], [ null, %.lr.ph77.split.split ], [ %.07694, %.lr.ph65 ], [ %.07694, %..critedge55_crit_edge67.split ], [ %54, %53 ]
   ret ptr %.0.lcssa
 }
 
@@ -3536,7 +3536,7 @@ list_head.exit:                                   ; preds = %3
   br i1 %38, label %.lr.ph74, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %24, %26, %list_head.exit, %.lr.ph, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %list_head.exit ], [ null, %.lr.ph ], [ %35, %.thread ], [ %.0295969, %24 ], [ %.0295969, %26 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %list_head.exit ], [ null, %.lr.ph ], [ %.0295969, %24 ], [ %35, %.thread ], [ %.0295969, %26 ]
   ret ptr %.0
 }
 
@@ -3566,7 +3566,7 @@ define dso_local zeroext i1 @has_useful_pathkeys(ptr noundef readonly captures(n
   br label %15
 
 15:                                               ; preds = %12, %9, %2, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %2 ], [ true, %9 ], [ %.not6, %12 ]
+  %.0 = phi i1 [ true, %9 ], [ true, %2 ], [ %.not6, %12 ], [ true, %5 ]
   ret i1 %.0
 }
 

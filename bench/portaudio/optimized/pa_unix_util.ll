@@ -416,7 +416,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   br label %.thread62
 
 .thread62:                                        ; preds = %29, %26, %23, %95, %41, %96
-  %.2 = phi i32 [ %.037, %96 ], [ 0, %95 ], [ 0, %41 ], [ -9986, %23 ], [ -9986, %26 ], [ -9986, %29 ]
+  %.2 = phi i32 [ %.037, %96 ], [ 0, %41 ], [ 0, %95 ], [ -9986, %23 ], [ -9986, %26 ], [ -9986, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2

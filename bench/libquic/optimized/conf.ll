@@ -33,7 +33,7 @@ define hidden noalias noundef ptr @NCONF_new(ptr noundef readnone captures(addre
   br label %9
 
 9:                                                ; preds = %5, %2, %1, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %1 ], [ null, %2 ], [ %3, %5 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %1 ], [ null, %8 ], [ %3, %5 ]
   ret ptr %.0
 }
 
@@ -88,7 +88,7 @@ define internal i32 @conf_value_cmp(ptr noundef readonly captures(none) %0, ptr 
   br label %15
 
 15:                                               ; preds = %12, %._crit_edge, %5, %13
-  %.0 = phi i32 [ %14, %13 ], [ %6, %5 ], [ 1, %12 ], [ %11, %._crit_edge ]
+  %.0 = phi i32 [ %6, %5 ], [ %14, %13 ], [ 1, %12 ], [ %11, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -490,7 +490,7 @@ scan_dquote.exit.i:                               ; preds = %93, %89, %85
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %114, %134, %127, %.critedge.i.i, %scan_dquote.exit.i
-  %.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %131, %127 ], [ %135, %134 ], [ %spec.select.i28.i, %.critedge.i.i ], [ %115, %114 ]
+  %.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %135, %134 ], [ %131, %127 ], [ %spec.select.i28.i, %.critedge.i.i ], [ %115, %114 ]
   %97 = load i8, ptr %.1.be.i, align 1, !tbaa !21
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw i16, ptr @CONF_type_default, i64 %98
@@ -794,9 +794,9 @@ eat_alpha_numeric.exit207:                        ; preds = %193
   br label %.backedge.i211
 
 eat_alpha_numeric.exit214:                        ; preds = %215, %198, %eat_alpha_numeric.exit207
-  %.0139 = phi ptr [ %.0.i201, %198 ], [ %.0.i201, %eat_alpha_numeric.exit207 ], [ %.0.i208, %215 ]
-  %.0125 = phi ptr [ null, %198 ], [ null, %eat_alpha_numeric.exit207 ], [ %.0.i, %215 ]
-  %.0124 = phi ptr [ %.0.i, %198 ], [ %.0.i, %eat_alpha_numeric.exit207 ], [ %203, %215 ]
+  %.0139 = phi ptr [ %.0.i201, %eat_alpha_numeric.exit207 ], [ %.0.i201, %198 ], [ %.0.i208, %215 ]
+  %.0125 = phi ptr [ null, %eat_alpha_numeric.exit207 ], [ null, %198 ], [ %.0.i, %215 ]
+  %.0124 = phi ptr [ %.0.i, %eat_alpha_numeric.exit207 ], [ %.0.i, %198 ], [ %203, %215 ]
   %scevgep352 = getelementptr i8, ptr %.0139, i64 2
   br label %219
 
@@ -983,7 +983,7 @@ add_string.exit:                                  ; preds = %266, %value_free.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
-284:                                              ; preds = %.thread228, %263
+284:                                              ; preds = %263, %.thread228
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ERR_put_error(i32 noundef 13, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 677) #12
   br label %.thread232
@@ -995,8 +995,8 @@ add_string.exit:                                  ; preds = %266, %value_free.ex
   br i1 %.not164, label %300, label %.sink.split
 
 .thread232:                                       ; preds = %173, %247, %226, %246, %259, %284, %CONF_VALUE_new.exit.thread, %172, %182, %21, %.outer._crit_edge
-  %.0131237.ph = phi ptr [ null, %182 ], [ null, %172 ], [ null, %CONF_VALUE_new.exit.thread ], [ %calloc.i, %284 ], [ %calloc.i, %259 ], [ %calloc.i, %246 ], [ null, %226 ], [ null, %21 ], [ null, %.outer._crit_edge ], [ %calloc.i, %247 ], [ null, %173 ]
-  %.0133235.ph = phi i64 [ %.2135, %182 ], [ %.2135, %172 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ %.2135, %284 ], [ %.2135, %259 ], [ %.2135, %246 ], [ %.2135, %226 ], [ 0, %21 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %247 ], [ %.2135, %173 ]
+  %.0131237.ph = phi ptr [ null, %172 ], [ %calloc.i, %284 ], [ %calloc.i, %259 ], [ %calloc.i, %246 ], [ null, %226 ], [ null, %182 ], [ null, %CONF_VALUE_new.exit.thread ], [ null, %21 ], [ null, %.outer._crit_edge ], [ %calloc.i, %247 ], [ null, %173 ]
+  %.0133235.ph = phi i64 [ %.2135, %172 ], [ %.2135, %284 ], [ %.2135, %259 ], [ %.2135, %246 ], [ %.2135, %226 ], [ %.2135, %182 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ 0, %21 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %247 ], [ %.2135, %173 ]
   %.pr.pr = load ptr, ptr %8, align 8, !tbaa !17
   call void @BUF_MEM_free(ptr noundef nonnull %9) #12
   %.not183 = icmp eq ptr %.pr.pr, null
@@ -1161,7 +1161,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.loopexit, %.critedge.loopexit.thread
-  %46 = phi ptr [ %43, %.critedge.loopexit ], [ %45, %.critedge.loopexit.thread ]
+  %46 = phi ptr [ %45, %.critedge.loopexit.thread ], [ %43, %.critedge.loopexit ]
   %47 = tail call i32 %3(ptr noundef null, i32 noundef 0, ptr noundef %4) #12
   br label %66
 
@@ -1212,7 +1212,7 @@ define hidden range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i8 
   br i1 %70, label %.loopexit44, label %.preheader42
 
 .loopexit44:                                      ; preds = %66, %69, %27, %25, %30
-  %.0 = phi i32 [ 0, %30 ], [ 1, %27 ], [ %.033.us, %25 ], [ 1, %69 ], [ %.033, %66 ]
+  %.0 = phi i32 [ 0, %30 ], [ %.033.us, %25 ], [ 1, %27 ], [ 1, %69 ], [ %.033, %66 ]
   ret i32 %.0
 }
 
@@ -1341,7 +1341,7 @@ value_free.exit:                                  ; preds = %22, %25, %26, %29
   br label %.thread
 
 .thread:                                          ; preds = %CONF_VALUE_new.exit.thread, %.thread27, %.thread26, %value_free.exit, %14
-  %.0 = phi ptr [ %calloc.i, %14 ], [ %calloc.i, %value_free.exit ], [ null, %.thread26 ], [ null, %.thread27 ], [ null, %CONF_VALUE_new.exit.thread ]
+  %.0 = phi ptr [ %calloc.i, %value_free.exit ], [ %calloc.i, %14 ], [ null, %.thread26 ], [ null, %.thread27 ], [ null, %CONF_VALUE_new.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -1516,8 +1516,8 @@ define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef readonly captur
   br label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %.critedge, %147, %77
-  %.0122.be = phi i32 [ %79, %77 ], [ %149, %147 ], [ %.1123.lcssa, %.critedge ], [ %.3125.lcssa, %._crit_edge ]
-  %.0114.be = phi ptr [ %72, %77 ], [ %86, %147 ], [ %spec.select, %.critedge ], [ %spec.select157, %._crit_edge ]
+  %.0122.be = phi i32 [ %.3125.lcssa, %._crit_edge ], [ %149, %147 ], [ %79, %77 ], [ %.1123.lcssa, %.critedge ]
+  %.0114.be = phi ptr [ %spec.select157, %._crit_edge ], [ %86, %147 ], [ %72, %77 ], [ %spec.select, %.critedge ]
   br label %16
 
 68:                                               ; preds = %49
@@ -1550,7 +1550,7 @@ switch.edge:                                      ; preds = %70
   br label %77
 
 77:                                               ; preds = %switch.edge, %70, %75, %76, %74
-  %.0110 = phi i8 [ 10, %74 ], [ 8, %75 ], [ %73, %76 ], [ 13, %70 ], [ 9, %switch.edge ]
+  %.0110 = phi i8 [ %73, %76 ], [ 10, %74 ], [ 8, %75 ], [ 13, %70 ], [ 9, %switch.edge ]
   %78 = load ptr, ptr %13, align 8, !tbaa !18
   %79 = add nsw i32 %.0122, 1
   %80 = sext i32 %.0122 to i64
@@ -1754,7 +1754,7 @@ NCONF_get_string.exit:                            ; preds = %120, %124
   br label %161
 
 161:                                              ; preds = %4, %160, %158
-  %.0 = phi i32 [ 1, %158 ], [ 0, %160 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %160 ], [ 1, %158 ], [ 0, %4 ]
   ret i32 %.0
 }
 

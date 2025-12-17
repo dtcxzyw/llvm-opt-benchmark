@@ -828,7 +828,7 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %call7, %if.then4.i.i ]
+  %phi.call.i = phi ptr [ %call7, %if.then4.i.i ], [ %call3.i.i, %if.then.i.i ]
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 152)) #18
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %call.i, i64 noundef %call2.i) #18
@@ -1570,8 +1570,8 @@ if.end81.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i108,
   br label %if.end81.sink.split
 
 if.end81.sink.split:                              ; preds = %if.end81.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100
-  %.sink224 = phi ptr [ %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %.sink227, %if.end81.sink.split.sink.split ]
-  %success.0.ph = phi i1 [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %success.0.ph.ph, %if.end81.sink.split.sink.split ]
+  %.sink224 = phi ptr [ %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %.sink227, %if.end81.sink.split.sink.split ]
+  %success.0.ph = phi i1 [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %success.0.ph.ph, %if.end81.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i175 = load ptr, ptr %.sink224, align 8
   %vfn3.i.i.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i175, i64 24
   %109 = load ptr, ptr %vfn3.i.i.i.i.i.i176, align 8
@@ -1579,7 +1579,7 @@ if.end81.sink.split:                              ; preds = %if.end81.sink.split
   br label %if.end81
 
 if.end81:                                         ; preds = %if.end81.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i161, %for.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i90, %if.then70
-  %success.0 = phi i1 [ %call72, %if.then70 ], [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i90 ], [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %success.1.lcssa, %for.end ], [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i161 ], [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %success.0.ph, %if.end81.sink.split ]
+  %success.0 = phi i1 [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171 ], [ %call72, %if.then70 ], [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i90 ], [ %call72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i100 ], [ %success.1.lcssa, %for.end ], [ %success.1.lcssa, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i161 ], [ %success.0.ph, %if.end81.sink.split ]
   %not.success.0 = xor i1 %success.0, true
   %cond83 = zext i1 %not.success.0 to i32
   call void @_ZN6hermes2vm13RuntimeConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(387) %options) #18

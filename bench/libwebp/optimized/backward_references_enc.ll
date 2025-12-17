@@ -411,7 +411,7 @@ GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !33
 
 .critedge:                                        ; preds = %.lr.ph, %68
-  %.0220.lcssa = phi i32 [ %.0220283, %.lr.ph ], [ %62, %68 ]
+  %.0220.lcssa = phi i32 [ %62, %68 ], [ %.0220283, %.lr.ph ]
   %71 = icmp ugt i32 %.0220.lcssa, 4095
   br i1 %71, label %72, label %78
 
@@ -727,7 +727,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %225, label %._crit_edge, label %.lr.ph310.split.split
 
 ._crit_edge:                                      ; preds = %219, %.lr.ph310.split.split, %215, %200, %.lr.ph310.split.us.split, %.critedge4
-  %.lcssa = phi i32 [ %188, %.critedge4 ], [ %192, %.lr.ph310.split.us.split ], [ 0, %200 ], [ %207, %215 ], [ %207, %.lr.ph310.split.split ], [ %224, %219 ]
+  %.lcssa = phi i32 [ %188, %.critedge4 ], [ %192, %.lr.ph310.split.us.split ], [ 0, %200 ], [ %224, %219 ], [ %207, %215 ], [ %207, %.lr.ph310.split.split ]
   %226 = sub nsw i32 %44, %.lcssa
   %227 = mul i32 %226, %38
   %228 = udiv i32 %227, %44
@@ -1298,7 +1298,7 @@ BackwardRefsNewBlock.exit.i.i81.i.i:              ; preds = %269, %266
   br label %VP8LBackwardRefsCursorAdd.exit.i.i
 
 VP8LBackwardRefsCursorAdd.exit.i.i:               ; preds = %273, %BackwardRefsNewBlock.exit.thread.i.i84.i.i, %240, %BackwardRefsNewBlock.exit.thread.i75.i.i, %203, %BackwardRefsNewBlock.exit.thread.i.i.i
-  %.pn.i.i = phi i32 [ %.0.i.i.i52, %BackwardRefsNewBlock.exit.thread.i.i.i ], [ %.0.i.i.i52, %203 ], [ %173, %BackwardRefsNewBlock.exit.thread.i75.i.i ], [ %173, %240 ], [ 1, %BackwardRefsNewBlock.exit.thread.i.i84.i.i ], [ 1, %273 ]
+  %.pn.i.i = phi i32 [ %173, %240 ], [ %.0.i.i.i52, %203 ], [ %.0.i.i.i52, %BackwardRefsNewBlock.exit.thread.i.i.i ], [ %173, %BackwardRefsNewBlock.exit.thread.i75.i.i ], [ 1, %BackwardRefsNewBlock.exit.thread.i.i84.i.i ], [ 1, %273 ]
   %.1.i.i = add nuw nsw i32 %.pn.i.i, %.05586.i.i
   %281 = icmp slt i32 %.1.i.i, %90
   br i1 %281, label %.lr.ph.i.i51, label %BackwardReferencesRle.exit.i, !llvm.loop !50
@@ -1609,8 +1609,8 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %328, %VP8LDistanceT
   br i1 %411, label %.loopexit.thread.i.i, label %412
 
 412:                                              ; preds = %410, %.critedge.i.i, %382, %379
-  %.3158.ph.i.i = phi i32 [ %.1146203.i.i, %410 ], [ %.1156239.i.i, %.critedge.i.i ], [ %.1156239.i.i, %379 ], [ %.1156239.i.i, %382 ]
-  %.5.ph.i.i = phi i32 [ %.pn.i132.i, %410 ], [ %.3154240.i.i, %.critedge.i.i ], [ %.3154240.i.i, %379 ], [ %.3154240.i.i, %382 ]
+  %.3158.ph.i.i = phi i32 [ %.1156239.i.i, %.critedge.i.i ], [ %.1156239.i.i, %382 ], [ %.1156239.i.i, %379 ], [ %.1146203.i.i, %410 ]
+  %.5.ph.i.i = phi i32 [ %.3154240.i.i, %.critedge.i.i ], [ %.3154240.i.i, %382 ], [ %.3154240.i.i, %379 ], [ %.pn.i132.i, %410 ]
   %indvars.iv.next278.i.i = add nuw nsw i64 %indvars.iv277.i.i, 1
   %exitcond281.not.i.i = icmp eq i64 %indvars.iv.next278.i.i, %wide.trip.count280.i.i
   br i1 %exitcond281.not.i.i, label %.loopexit.i.i, label %379, !llvm.loop !60
@@ -1651,7 +1651,7 @@ BackwardReferencesLz77Box.exit.i:                 ; preds = %._crit_edge.i.i, %2
   br label %419
 
 419:                                              ; preds = %BackwardReferencesLz77Box.exit.i, %284, %BackwardReferencesRle.exit.i
-  %.0112.i = phi i32 [ %283, %BackwardReferencesRle.exit.i ], [ %285, %284 ], [ %.0.i131.i, %BackwardReferencesLz77Box.exit.i ]
+  %.0112.i = phi i32 [ %.0.i131.i, %BackwardReferencesLz77Box.exit.i ], [ %283, %BackwardReferencesRle.exit.i ], [ %285, %284 ]
   %.not123.i = icmp eq i32 %.0112.i, 0
   br i1 %.not123.i, label %.critedge, label %.preheader242.i
 
@@ -2303,7 +2303,7 @@ BackwardRefsClone.exit.thread.i:                  ; preds = %659, %BackwardRefsS
   br label %.loopexit.i
 
 685:                                              ; preds = %BackwardRefsClone.exit.thread.i, %BackwardRefsClone.exit.thread.thread.i, %636, %.preheader242.i
-  %.1110.ph.i = phi i64 [ %.2111.i, %636 ], [ %.2111.i, %BackwardRefsClone.exit.thread.i ], [ %.0109254.i, %.preheader242.i ], [ %.2111.i, %BackwardRefsClone.exit.thread.thread.i ]
+  %.1110.ph.i = phi i64 [ %.2111.i, %636 ], [ %.2111.i, %BackwardRefsClone.exit.thread.thread.i ], [ %.2111.i, %BackwardRefsClone.exit.thread.i ], [ %.0109254.i, %.preheader242.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not342.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not342.i, label %.loopexit.i, label %.preheader242.i, !llvm.loop !92
@@ -2606,7 +2606,7 @@ GetBackwardReferences.exit:                       ; preds = %821, %806, %VP8LCle
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %GetBackwardReferencesLowEffort.exit.thread
 
-.critedge:                                        ; preds = %286, %129, %419, %CalculateBestCacheSize.exit.i, %703, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit199.i, %84
+.critedge:                                        ; preds = %129, %419, %286, %CalculateBestCacheSize.exit.i, %703, %BackwardRefsWithLocalCache.exit.thread.i, %BackwardRefsClone.exit.i, %BackwardRefsClone.exit199.i, %84
   %824 = load ptr, ptr %25, align 8, !tbaa !28
   call void @WebPSafeFree(ptr noundef %824) #11
   %825 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -2626,7 +2626,7 @@ GetBackwardReferencesLowEffort.exit.thread:       ; preds = %GetBackwardReferenc
   br label %830
 
 830:                                              ; preds = %.thread, %GetBackwardReferencesLowEffort.exit.thread, %.critedge
-  %.1 = phi i32 [ %829, %GetBackwardReferencesLowEffort.exit.thread ], [ %826, %.critedge ], [ %83, %.thread ]
+  %.1 = phi i32 [ %829, %GetBackwardReferencesLowEffort.exit.thread ], [ %83, %.thread ], [ %826, %.critedge ]
   ret i32 %.1
 }
 
@@ -2723,7 +2723,7 @@ select.unfold:                                    ; preds = %41, %.lr.ph
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !101
 
 .thread:                                          ; preds = %select.unfold, %41
-  %.279 = phi i32 [ %.178, %select.unfold ], [ %43, %41 ]
+  %.279 = phi i32 [ %43, %41 ], [ %.178, %select.unfold ]
   %44 = icmp eq i32 %.279, 1
   %.pre102 = load ptr, ptr %15, align 8, !tbaa !15
   br i1 %44, label %.thread83, label %80
@@ -2876,8 +2876,8 @@ BackwardRefsNewBlock.exit.i:                      ; preds = %102, %99
   br label %AddSingleLiteral.exit
 
 AddSingleLiteral.exit:                            ; preds = %106, %BackwardRefsNewBlock.exit.thread.i, %72, %BackwardRefsNewBlock.exit.thread.i.i
-  %.188 = phi i32 [ %.189, %BackwardRefsNewBlock.exit.thread.i.i ], [ %.189, %72 ], [ %29, %BackwardRefsNewBlock.exit.thread.i ], [ %29, %106 ]
-  %.27986 = phi i32 [ 1, %BackwardRefsNewBlock.exit.thread.i.i ], [ 1, %72 ], [ %.279118, %BackwardRefsNewBlock.exit.thread.i ], [ %.279118, %106 ]
+  %.188 = phi i32 [ %.189, %72 ], [ %.189, %BackwardRefsNewBlock.exit.thread.i.i ], [ %29, %BackwardRefsNewBlock.exit.thread.i ], [ %29, %106 ]
+  %.27986 = phi i32 [ 1, %72 ], [ 1, %BackwardRefsNewBlock.exit.thread.i.i ], [ %.279118, %BackwardRefsNewBlock.exit.thread.i ], [ %.279118, %106 ]
   %114 = add nsw i32 %.27986, %.098
   %115 = icmp slt i32 %114, %6
   br i1 %115, label %19, label %._crit_edge, !llvm.loop !102

@@ -489,7 +489,7 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %147
 
 147:                                              ; preds = %143, %145, %141, %139
-  %.pn27.pn = phi { ptr, i32 } [ %140, %139 ], [ %142, %141 ], [ %144, %143 ], [ %146, %145 ]
+  %.pn27.pn = phi { ptr, i32 } [ %142, %141 ], [ %140, %139 ], [ %144, %143 ], [ %146, %145 ]
   call void @_ZN9QtPrivate17QForeachContainerI5QListISt4pairI7QStringS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(44) %13) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZNSt4pairI7QStringS0_ED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(48) %12) #21
@@ -497,7 +497,7 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %148
 
 148:                                              ; preds = %112, %147, %_ZN7QStringD2Ev.exit49, %94
-  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7QStringD2Ev.exit49 ], [ %95, %94 ], [ %.pn27.pn, %147 ], [ %.pn25, %112 ]
+  %.pn27.pn.pn.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %.pn, %_ZN7QStringD2Ev.exit49 ], [ %.pn27.pn, %147 ], [ %.pn25, %112 ]
   call void @_ZN5QListIP9QLineEditED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %21) #21
   br label %149
 

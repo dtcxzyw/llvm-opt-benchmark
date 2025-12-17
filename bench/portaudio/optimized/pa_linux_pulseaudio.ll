@@ -51,7 +51,7 @@ define range(i32 -1, 2) i32 @PaPulseAudio_CheckConnection(ptr noundef readonly c
   br label %9
 
 9:                                                ; preds = %8, %3, %1
-  %.0 = phi i32 [ -1, %1 ], [ %spec.select, %8 ], [ 1, %3 ]
+  %.0 = phi i32 [ -1, %1 ], [ 1, %3 ], [ %spec.select, %8 ]
   ret i32 %.0
 }
 
@@ -362,7 +362,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   br label %59
 
 59:                                               ; preds = %41, %43, %40
-  %.0 = phi i32 [ 0, %43 ], [ -9992, %40 ], [ -9985, %41 ]
+  %.0 = phi i32 [ -9992, %40 ], [ 0, %43 ], [ -9985, %41 ]
   ret i32 %.0
 }
 
@@ -652,7 +652,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %51
-  %76 = phi ptr [ %70, %.preheader ], [ %62, %51 ], [ %70, %.lr.ph ]
+  %76 = phi ptr [ %62, %51 ], [ %70, %.preheader ], [ %70, %.lr.ph ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store ptr @Terminate, ptr %77, align 8, !tbaa !94
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
@@ -987,7 +987,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   br label %160
 
 157:                                              ; preds = %109, %99, %90, %83, %58, %48, %39, %32, %16, %132, %102, %72, %51
-  %.0161.ph = phi i32 [ -9999, %109 ], [ -9984, %99 ], [ -9998, %90 ], [ -9996, %83 ], [ -9999, %58 ], [ -9984, %48 ], [ -9998, %39 ], [ -9996, %32 ], [ -9992, %16 ], [ %142, %132 ], [ %108, %102 ], [ %81, %72 ], [ %57, %51 ]
+  %.0161.ph = phi i32 [ -9999, %109 ], [ -9984, %48 ], [ -9984, %99 ], [ %142, %132 ], [ %108, %102 ], [ -9998, %90 ], [ -9996, %83 ], [ -9999, %58 ], [ %81, %72 ], [ %57, %51 ], [ -9998, %39 ], [ -9996, %32 ], [ -9992, %16 ]
   %158 = load ptr, ptr %19, align 8, !tbaa !98
   tail call void @PaUtil_FreeMemory(ptr noundef %158) #14
   %159 = load ptr, ptr %21, align 8, !tbaa !99
@@ -1196,7 +1196,7 @@ define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudi
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %3, %4, %5, %6
-  %.sink = phi i32 [ 0, %6 ], [ 3, %5 ], [ 9, %4 ], [ 7, %3 ], [ 5, %2 ]
+  %.sink = phi i32 [ 5, %2 ], [ 0, %6 ], [ 3, %5 ], [ 9, %4 ], [ 7, %3 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !133
   br label %7
 

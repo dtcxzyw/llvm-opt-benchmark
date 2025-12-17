@@ -156,9 +156,9 @@ define internal range(i32 0, 2) i32 @client_setup_sni_before_state() #0 {
   br label %28
 
 28:                                               ; preds = %26, %23, %20, %5, %0, %17
-  %29 = phi ptr [ %.pre, %23 ], [ null, %20 ], [ null, %17 ], [ null, %5 ], [ null, %0 ], [ %.pre, %26 ]
-  %.016 = phi ptr [ %6, %23 ], [ %6, %20 ], [ %6, %17 ], [ %6, %5 ], [ null, %0 ], [ %6, %26 ]
-  %.0 = phi i32 [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %29 = phi ptr [ null, %0 ], [ %.pre, %26 ], [ %.pre, %23 ], [ null, %20 ], [ null, %17 ], [ null, %5 ]
+  %.016 = phi ptr [ null, %0 ], [ %6, %26 ], [ %6, %23 ], [ %6, %20 ], [ %6, %17 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %5 ]
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 143) #5
   tail call void @SSL_free(ptr noundef %.016) #5
   tail call void @SSL_CTX_free(ptr noundef %3) #5
@@ -225,9 +225,9 @@ define internal range(i32 0, 2) i32 @client_setup_sni_after_state() #0 {
   br label %28
 
 28:                                               ; preds = %26, %23, %19, %5, %0, %16
-  %29 = phi ptr [ %.pre, %23 ], [ null, %19 ], [ null, %16 ], [ null, %5 ], [ null, %0 ], [ %.pre, %26 ]
-  %.017 = phi ptr [ %6, %23 ], [ %6, %19 ], [ %6, %16 ], [ %6, %5 ], [ null, %0 ], [ %6, %26 ]
-  %.0 = phi i32 [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %26 ]
+  %29 = phi ptr [ null, %0 ], [ %.pre, %26 ], [ %.pre, %23 ], [ null, %19 ], [ null, %16 ], [ null, %5 ]
+  %.017 = phi ptr [ null, %0 ], [ %6, %26 ], [ %6, %23 ], [ %6, %19 ], [ %6, %16 ], [ %6, %5 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %26 ], [ 0, %23 ], [ 0, %19 ], [ 0, %16 ], [ 0, %5 ]
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 196) #5
   tail call void @SSL_free(ptr noundef %.017) #5
   tail call void @SSL_CTX_free(ptr noundef %3) #5
@@ -292,8 +292,8 @@ define internal range(i32 0, 2) i32 @server_setup_sni() #0 {
   br label %31
 
 31:                                               ; preds = %28, %20, %0, %13
-  %32 = phi ptr [ %.pre4, %20 ], [ %.pre5, %13 ], [ null, %0 ], [ %.pre, %28 ]
-  %.0 = phi i32 [ 0, %20 ], [ 0, %13 ], [ 0, %0 ], [ %spec.select, %28 ]
+  %32 = phi ptr [ null, %0 ], [ %.pre, %28 ], [ %.pre4, %20 ], [ %.pre5, %13 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %28 ], [ 0, %20 ], [ 0, %13 ]
   call void @SSL_free(ptr noundef %32) #5
   %33 = load ptr, ptr %3, align 8, !tbaa !12
   call void @SSL_free(ptr noundef %33) #5
@@ -395,11 +395,11 @@ PACKET_forward.exit34:                            ; preds = %PACKET_forward.exit
   br label %PACKET_get_length_prefixed_1.exit
 
 PACKET_get_length_prefixed_1.exit:                ; preds = %18, %23
-  %.sroa.079.4 = phi ptr [ %.sroa.079.3, %18 ], [ %25, %23 ]
-  %.sroa.18.4 = phi i64 [ %.sroa.18.3, %18 ], [ %26, %23 ]
-  %.sroa.076.1 = phi ptr [ null, %18 ], [ %24, %23 ]
-  %.sroa.11.1 = phi i64 [ 0, %18 ], [ %21, %23 ]
-  %.0.i35 = phi i32 [ 0, %18 ], [ 1, %23 ]
+  %.sroa.079.4 = phi ptr [ %25, %23 ], [ %.sroa.079.3, %18 ]
+  %.sroa.18.4 = phi i64 [ %26, %23 ], [ %.sroa.18.3, %18 ]
+  %.sroa.076.1 = phi ptr [ %24, %23 ], [ null, %18 ]
+  %.sroa.11.1 = phi i64 [ %21, %23 ], [ 0, %18 ]
+  %.0.i35 = phi i32 [ 1, %23 ], [ 0, %18 ]
   %27 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef %.0.i35) #5
   %.not7 = icmp eq i32 %27, 0
   br i1 %.not7, label %PACKET_forward.exit.thread, label %29
@@ -677,7 +677,7 @@ PACKET_get_length_prefixed_2.exit67:              ; preds = %129, %131, %141
   br label %PACKET_forward.exit.thread
 
 PACKET_forward.exit.thread:                       ; preds = %.preheader, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit55, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %152, %PACKET_get_length_prefixed_2.exit60, %117, %PACKET_get_1.exit, %127, %PACKET_get_length_prefixed_2.exit67, %144, %147, %2, %PACKET_buf_init.exit, %PACKET_forward.exit31, %PACKET_forward.exit34, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit45, %PACKET_as_length_prefixed_2.exit
-  %.0 = phi i32 [ 0, %147 ], [ 0, %144 ], [ 0, %PACKET_get_length_prefixed_2.exit67 ], [ 0, %127 ], [ 0, %PACKET_get_1.exit ], [ 0, %117 ], [ 0, %PACKET_get_length_prefixed_2.exit60 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit45 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit34 ], [ 0, %PACKET_forward.exit31 ], [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ %spec.select, %152 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit55 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %.preheader ]
+  %.0 = phi i32 [ 0, %2 ], [ %spec.select, %152 ], [ 0, %147 ], [ 0, %144 ], [ 0, %PACKET_get_length_prefixed_2.exit67 ], [ 0, %127 ], [ 0, %PACKET_get_1.exit ], [ 0, %117 ], [ 0, %PACKET_get_length_prefixed_2.exit60 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit45 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit34 ], [ 0, %PACKET_forward.exit31 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_buf_init.exit ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit55 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

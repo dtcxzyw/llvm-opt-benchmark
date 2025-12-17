@@ -681,7 +681,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
   br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %117, %39, %114, %105, %37, %25, %22, %11, %5
-  %.0 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %114 ], [ false, %105 ], [ false, %37 ], [ false, %11 ], [ false, %5 ], [ true, %39 ], [ true, %117 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %25 ], [ false, %114 ], [ false, %105 ], [ false, %5 ], [ false, %37 ], [ false, %11 ], [ true, %39 ], [ true, %117 ]
   ret i1 %.0
 }
 
@@ -885,7 +885,7 @@ define noundef zeroext i1 @_Z24duDumpCompactHeightfieldR20rcCompactHeightfieldP8
   br label %143
 
 143:                                              ; preds = %134, %136, %10, %4
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %136 ], [ true, %134 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %10 ], [ true, %136 ], [ true, %134 ]
   ret i1 %.0
 }
 
@@ -1134,7 +1134,7 @@ define noundef zeroext i1 @_Z24duReadCompactHeightfieldR20rcCompactHeightfieldP8
   br label %172
 
 172:                                              ; preds = %155, %166, %164, %146, %127, %103, %26, %23, %12, %6
-  %.0 = phi i1 [ false, %23 ], [ false, %26 ], [ false, %164 ], [ false, %146 ], [ false, %127 ], [ false, %103 ], [ false, %12 ], [ false, %6 ], [ true, %166 ], [ true, %155 ]
+  %.0 = phi i1 [ false, %23 ], [ false, %26 ], [ false, %6 ], [ false, %164 ], [ false, %146 ], [ false, %127 ], [ false, %103 ], [ false, %12 ], [ true, %166 ], [ true, %155 ]
   ret i1 %.0
 }
 

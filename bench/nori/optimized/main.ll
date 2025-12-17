@@ -570,8 +570,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.loopexit115
 
 _ZN10filesystem4pathD2Ev.exit:                    ; preds = %99, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %108, %133, %125
-  %cond = phi i1 [ false, %125 ], [ true, %133 ], [ true, %108 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ true, %99 ]
-  %.3 = phi i32 [ -1, %125 ], [ %.1120, %133 ], [ %.1120, %108 ], [ %.1120, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.1120, %99 ]
+  %cond = phi i1 [ false, %125 ], [ true, %108 ], [ true, %133 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ true, %99 ]
+  %.3 = phi i32 [ -1, %125 ], [ %.1120, %108 ], [ %.1120, %133 ], [ %.1120, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.1120, %99 ]
   %139 = load ptr, ptr %41, align 8
   %140 = load ptr, ptr %42, align 8
   %.not4.i.i.i.i.i77 = icmp eq ptr %139, %140
@@ -601,8 +601,8 @@ _ZN10filesystem4pathD2Ev.exit85.thread:           ; preds = %.invoke
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   br label %.loopexit116
 
-_ZN10filesystem4pathD2Ev.exit85.thread101:        ; preds = %79, %70
-  %.149.ph = phi i32 [ %61, %70 ], [ %.048119, %79 ]
+_ZN10filesystem4pathD2Ev.exit85.thread101:        ; preds = %70, %79
+  %.149.ph = phi i32 [ %.048119, %79 ], [ %61, %70 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   br label %144
 
@@ -1046,7 +1046,7 @@ _ZNSt10unique_ptrIN4nori6BitmapESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %
   unreachable
 
 .body.i:                                          ; preds = %298, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i, %263, %253, %251
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %254, %253 ], [ %252, %251 ], [ %264, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i ], [ %264, %263 ], [ %.pn.pn.i, %298 ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %264, %263 ], [ %254, %253 ], [ %252, %251 ], [ %264, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i ], [ %.pn.pn.i, %298 ]
   call void @_ZN4nori10ImageBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #24
   br label %300
 
@@ -1129,7 +1129,7 @@ _ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93: ; pred
           to label %329 unwind label %333
 
 .loopexit116:                                     ; preds = %_ZN10filesystem4pathD2Ev.exit85, %.invoke141, %.invoke140, %_ZN10filesystem4pathD2Ev.exit85.thread, %184, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93
-  %.4 = phi i32 [ 0, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93 ], [ 0, %184 ], [ -1, %_ZN10filesystem4pathD2Ev.exit85.thread ], [ -1, %.invoke140 ], [ -1, %.invoke141 ], [ %.3, %_ZN10filesystem4pathD2Ev.exit85 ]
+  %.4 = phi i32 [ -1, %.invoke140 ], [ 0, %184 ], [ -1, %.invoke141 ], [ 0, %_ZNSt10unique_ptrIN4nori10NoriObjectESt14default_deleteIS1_EED2Ev.exit93 ], [ -1, %_ZN10filesystem4pathD2Ev.exit85.thread ], [ %.3, %_ZN10filesystem4pathD2Ev.exit85 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
   br label %331
@@ -4356,8 +4356,8 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i.backed
   br label %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %79, %78, %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i, %34, %33, %_ZN3tbb10interface98internal22dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenERNS_4taskE.exit
-  %.pre-phi35.i = phi i64 [ %28, %33 ], [ %28, %34 ], [ %28, %_ZN3tbb10interface98internal22dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenERNS_4taskE.exit ], [ %73, %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i ], [ %73, %78 ], [ %73, %79 ]
-  %83 = phi i64 [ %23, %33 ], [ %23, %34 ], [ %23, %_ZN3tbb10interface98internal22dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenERNS_4taskE.exit ], [ %69, %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i ], [ %69, %78 ], [ %69, %79 ]
+  %.pre-phi35.i = phi i64 [ %28, %_ZN3tbb10interface98internal22dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenERNS_4taskE.exit ], [ %28, %33 ], [ %28, %34 ], [ %73, %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i ], [ %73, %78 ], [ %73, %79 ]
+  %83 = phi i64 [ %23, %_ZN3tbb10interface98internal22dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenERNS_4taskE.exit ], [ %23, %33 ], [ %23, %34 ], [ %69, %_ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i ], [ %69, %78 ], [ %69, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %84 = icmp ult i64 %83, %.pre-phi35.i
   br i1 %84, label %85, label %88
@@ -4453,8 +4453,8 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divis
   br label %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !28
 
 _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit.i.i: ; preds = %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i.i, %104, %._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit_crit_edge28.i.i, %.lr.ph.i.i.i
-  %136 = phi i8 [ 8, %._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit_crit_edge28.i.i ], [ %99, %.lr.ph.i.i.i ], [ %135, %104 ], [ %107, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i.i ]
-  %137 = phi i8 [ %121, %._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit_crit_edge28.i.i ], [ %100, %.lr.ph.i.i.i ], [ %121, %104 ], [ %106, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i.i ]
+  %136 = phi i8 [ %99, %.lr.ph.i.i.i ], [ 8, %._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit_crit_edge28.i.i ], [ %135, %104 ], [ %107, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i.i ]
+  %137 = phi i8 [ %100, %.lr.ph.i.i.i ], [ %121, %._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.loopexit_crit_edge28.i.i ], [ %121, %104 ], [ %106, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i.i ]
   store i8 %137, ptr %2, align 8
   store i8 %136, ptr %91, align 2
   br label %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit.i.i

@@ -353,7 +353,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
   br label %145
 
 .thread9:                                         ; preds = %.thread11, %.thread10, %.thread10.us, %.thread11.us
-  %.us-phi = phi i32 [ %71, %.thread11.us ], [ %71, %.thread10.us ], [ %106, %.thread10 ], [ %106, %.thread11 ]
+  %.us-phi = phi i32 [ %71, %.thread10.us ], [ %71, %.thread11.us ], [ %106, %.thread10 ], [ %106, %.thread11 ]
   br i1 %54, label %143, label %141
 
 141:                                              ; preds = %.thread9

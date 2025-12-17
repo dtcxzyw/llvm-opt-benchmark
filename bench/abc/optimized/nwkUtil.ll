@@ -84,7 +84,7 @@ define void @Nwk_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !26
 
 .critedge:                                        ; preds = %17, %5, %1
-  %18 = phi i32 [ 0, %5 ], [ %3, %1 ], [ 0, %17 ]
+  %18 = phi i32 [ %3, %1 ], [ 0, %5 ], [ 0, %17 ]
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %2, align 8, !tbaa !3
   ret void
@@ -1752,7 +1752,7 @@ define i32 @Nwk_ManMinimumBaseInt(ptr noundef readonly captures(none) %0, i32 no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %29, %.critedge
-  %.0.lcssa27 = phi i32 [ %.1, %29 ], [ %.1, %.critedge ], [ 0, %2 ]
+  %.0.lcssa27 = phi i32 [ %.1, %.critedge ], [ %.1, %29 ], [ 0, %2 ]
   %31 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %32

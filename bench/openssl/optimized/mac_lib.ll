@@ -181,38 +181,38 @@ define i64 @EVP_MAC_CTX_get_mac_size(ptr noundef readonly captures(none) %0) loc
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %.not11.i = icmp eq ptr %10, null
-  br i1 %.not11.i, label %15, label %11
+  br i1 %.not11.i, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !16
-  %13 = call i32 %10(ptr noundef %12, ptr noundef nonnull %3) #6
-  %.not14.i = icmp eq i32 %13, 0
-  %14 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %.not12.i = icmp eq ptr %13, null
+  br i1 %.not12.i, label %.thread.i, label %14
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %.not12.i = icmp eq ptr %17, null
-  br i1 %.not12.i, label %.thread.i, label %18
-
-.thread.i:                                        ; preds = %15
+.thread.i:                                        ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
-18:                                               ; preds = %15
-  %19 = call i32 %17(ptr noundef nonnull %3) #6
-  %.not13.i = icmp eq i32 %19, 0
-  %20 = load i64, ptr %2, align 8
+14:                                               ; preds = %11
+  %15 = call i32 %13(ptr noundef nonnull %3) #6
+  %.not13.i = icmp eq i32 %15, 0
+  %16 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not13.i, label %21, label %get_size_t_ctx_param.exit
 
-21:                                               ; preds = %18, %.thread.i, %11, %1
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %4, align 8, !tbaa !16
+  %19 = call i32 %10(ptr noundef %18, ptr noundef nonnull %3) #6
+  %.not14.i = icmp eq i32 %19, 0
+  %20 = load i64, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
+
+21:                                               ; preds = %17, %14, %.thread.i, %1
   br label %get_size_t_ctx_param.exit
 
-get_size_t_ctx_param.exit:                        ; preds = %11, %18, %21
-  %.1.i = phi i64 [ 0, %21 ], [ %20, %18 ], [ %14, %11 ]
+get_size_t_ctx_param.exit:                        ; preds = %14, %17, %21
+  %.1.i = phi i64 [ 0, %21 ], [ %20, %17 ], [ %16, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.1.i
 }
@@ -237,38 +237,38 @@ define i64 @EVP_MAC_CTX_get_block_size(ptr noundef readonly captures(none) %0) l
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %.not11.i = icmp eq ptr %10, null
-  br i1 %.not11.i, label %15, label %11
+  br i1 %.not11.i, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !16
-  %13 = call i32 %10(ptr noundef %12, ptr noundef nonnull %3) #6
-  %.not14.i = icmp eq i32 %13, 0
-  %14 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %.not12.i = icmp eq ptr %13, null
+  br i1 %.not12.i, label %.thread.i, label %14
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %.not12.i = icmp eq ptr %17, null
-  br i1 %.not12.i, label %.thread.i, label %18
-
-.thread.i:                                        ; preds = %15
+.thread.i:                                        ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
-18:                                               ; preds = %15
-  %19 = call i32 %17(ptr noundef nonnull %3) #6
-  %.not13.i = icmp eq i32 %19, 0
-  %20 = load i64, ptr %2, align 8
+14:                                               ; preds = %11
+  %15 = call i32 %13(ptr noundef nonnull %3) #6
+  %.not13.i = icmp eq i32 %15, 0
+  %16 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not13.i, label %21, label %get_size_t_ctx_param.exit
 
-21:                                               ; preds = %18, %.thread.i, %11, %1
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %4, align 8, !tbaa !16
+  %19 = call i32 %10(ptr noundef %18, ptr noundef nonnull %3) #6
+  %.not14.i = icmp eq i32 %19, 0
+  %20 = load i64, ptr %2, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %.not14.i, label %21, label %get_size_t_ctx_param.exit
+
+21:                                               ; preds = %17, %14, %.thread.i, %1
   br label %get_size_t_ctx_param.exit
 
-get_size_t_ctx_param.exit:                        ; preds = %11, %18, %21
-  %.1.i = phi i64 [ 0, %21 ], [ %20, %18 ], [ %14, %11 ]
+get_size_t_ctx_param.exit:                        ; preds = %14, %17, %21
+  %.1.i = phi i64 [ 0, %21 ], [ %20, %17 ], [ %16, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.1.i
 }
@@ -405,38 +405,38 @@ define internal fastcc i32 @evp_mac_final(ptr noundef readonly captures(address_
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %.not11.i.i = icmp eq ptr %29, null
-  br i1 %.not11.i.i, label %34, label %30
+  br i1 %.not11.i.i, label %30, label %36
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %23, align 8, !tbaa !16
-  %32 = call i32 %29(ptr noundef %31, ptr noundef nonnull %7) #6
-  %.not14.i.i = icmp eq i32 %32, 0
-  %33 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not14.i.i, label %40, label %EVP_MAC_CTX_get_mac_size.exit
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %.not12.i.i = icmp eq ptr %32, null
+  br i1 %.not12.i.i, label %.thread.i.i, label %33
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
-  %.not12.i.i = icmp eq ptr %36, null
-  br i1 %.not12.i.i, label %.thread.i.i, label %37
-
-.thread.i.i:                                      ; preds = %34
+.thread.i.i:                                      ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %40
 
-37:                                               ; preds = %34
-  %38 = call i32 %36(ptr noundef nonnull %7) #6
-  %.not13.i.i = icmp eq i32 %38, 0
-  %39 = load i64, ptr %6, align 8
+33:                                               ; preds = %30
+  %34 = call i32 %32(ptr noundef nonnull %7) #6
+  %.not13.i.i = icmp eq i32 %34, 0
+  %35 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not13.i.i, label %40, label %EVP_MAC_CTX_get_mac_size.exit
 
-40:                                               ; preds = %37, %.thread.i.i, %30, %22
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %23, align 8, !tbaa !16
+  %38 = call i32 %29(ptr noundef %37, ptr noundef nonnull %7) #6
+  %.not14.i.i = icmp eq i32 %38, 0
+  %39 = load i64, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br i1 %.not14.i.i, label %40, label %EVP_MAC_CTX_get_mac_size.exit
+
+40:                                               ; preds = %36, %33, %.thread.i.i, %22
   br label %EVP_MAC_CTX_get_mac_size.exit
 
-EVP_MAC_CTX_get_mac_size.exit:                    ; preds = %30, %37, %40
-  %.1.i.i = phi i64 [ 0, %40 ], [ %39, %37 ], [ %33, %30 ]
+EVP_MAC_CTX_get_mac_size.exit:                    ; preds = %33, %36, %40
+  %.1.i.i = phi i64 [ 0, %40 ], [ %39, %36 ], [ %35, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %41 = icmp eq ptr %2, null
   br i1 %41, label %42, label %46
@@ -786,7 +786,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br label %.thread81
 
 .thread81:                                        ; preds = %59, %64, %66, %65, %55, %49, %EVP_MAC_init.exit, %EVP_MAC_CTX_set_params.exit72, %EVP_MAC_CTX_set_params.exit, %EVP_MAC_init.exit.thread
-  %.049.ph = phi ptr [ null, %EVP_MAC_init.exit.thread ], [ null, %EVP_MAC_CTX_set_params.exit ], [ null, %EVP_MAC_CTX_set_params.exit72 ], [ null, %EVP_MAC_init.exit ], [ null, %49 ], [ null, %55 ], [ %.052, %65 ], [ %.052, %66 ], [ null, %64 ], [ null, %59 ]
+  %.049.ph = phi ptr [ %.052, %66 ], [ null, %EVP_MAC_init.exit.thread ], [ null, %EVP_MAC_CTX_set_params.exit ], [ null, %EVP_MAC_CTX_set_params.exit72 ], [ null, %EVP_MAC_init.exit ], [ null, %49 ], [ null, %55 ], [ %.052, %65 ], [ null, %64 ], [ null, %59 ]
   %68 = load ptr, ptr %31, align 8, !tbaa !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %70 = load ptr, ptr %69, align 8, !tbaa !17
@@ -800,7 +800,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br label %EVP_MAC_CTX_free.exit
 
 EVP_MAC_CTX_free.exit:                            ; preds = %28, %27, %.thread81
-  %.04990 = phi ptr [ %.049.ph, %.thread81 ], [ null, %28 ], [ null, %27 ]
+  %.04990 = phi ptr [ %.049.ph, %.thread81 ], [ null, %27 ], [ null, %28 ]
   call void @EVP_MAC_free(ptr noundef nonnull %15) #6
   br label %74
 

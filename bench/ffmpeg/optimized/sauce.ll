@@ -265,7 +265,7 @@ define range(i32 -1094995529, 1) i32 @ff_sauce_read(ptr noundef %0, ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %124, %111, %123, %115, %14, %10, %4
-  %.0 = phi i32 [ -1094995529, %4 ], [ -1, %10 ], [ -1, %14 ], [ 0, %115 ], [ 0, %123 ], [ 0, %._crit_edge ], [ 0, %111 ], [ 0, %124 ]
+  %.0 = phi i32 [ 0, %124 ], [ -1094995529, %4 ], [ -1, %10 ], [ 0, %111 ], [ -1, %14 ], [ 0, %115 ], [ 0, %123 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

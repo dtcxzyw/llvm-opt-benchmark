@@ -9141,7 +9141,7 @@ _ZN8proxygen2hq10isGreaseIdEm.exit:               ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %_ZN8proxygen2hq10isGreaseIdEm.exit, %sw.default, %entry, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ @.str.6, %sw.bb1 ], [ @.str.7, %sw.bb2 ], [ @.str.8, %sw.bb3 ], [ @.str.9, %sw.bb4 ], [ @.str.10, %sw.bb5 ], [ @.str.11, %sw.bb6 ], [ @.str.12, %sw.bb7 ], [ @.str.13, %sw.bb8 ], [ @.str.5, %entry ], [ @.str.15, %sw.default ], [ %spec.select, %_ZN8proxygen2hq10isGreaseIdEm.exit ]
+  %retval.0 = phi ptr [ @.str.12, %sw.bb7 ], [ @.str.5, %entry ], [ @.str.13, %sw.bb8 ], [ @.str.6, %sw.bb1 ], [ @.str.7, %sw.bb2 ], [ @.str.8, %sw.bb3 ], [ @.str.9, %sw.bb4 ], [ @.str.10, %sw.bb5 ], [ @.str.11, %sw.bb6 ], [ @.str.15, %sw.default ], [ %spec.select, %_ZN8proxygen2hq10isGreaseIdEm.exit ]
   ret ptr %retval.0
 }
 
@@ -9199,7 +9199,7 @@ _ZN8proxygen2hq10isGreaseIdEm.exit.i:             ; preds = %sw.default.i
   br label %_ZN8proxygen2hq18getFrameTypeStringENS0_9FrameTypeE.exit
 
 _ZN8proxygen2hq18getFrameTypeStringENS0_9FrameTypeE.exit: ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.default.i, %_ZN8proxygen2hq10isGreaseIdEm.exit.i
-  %retval.0.i = phi ptr [ @.str.6, %sw.bb1.i ], [ @.str.7, %sw.bb2.i ], [ @.str.8, %sw.bb3.i ], [ @.str.9, %sw.bb4.i ], [ @.str.10, %sw.bb5.i ], [ @.str.11, %sw.bb6.i ], [ @.str.12, %sw.bb7.i ], [ @.str.13, %sw.bb8.i ], [ @.str.5, %entry ], [ @.str.15, %sw.default.i ], [ %spec.select.i, %_ZN8proxygen2hq10isGreaseIdEm.exit.i ]
+  %retval.0.i = phi ptr [ @.str.12, %sw.bb7.i ], [ @.str.5, %entry ], [ @.str.13, %sw.bb8.i ], [ @.str.6, %sw.bb1.i ], [ @.str.7, %sw.bb2.i ], [ @.str.8, %sw.bb3.i ], [ @.str.9, %sw.bb4.i ], [ @.str.10, %sw.bb5.i ], [ @.str.11, %sw.bb6.i ], [ @.str.15, %sw.default.i ], [ %spec.select.i, %_ZN8proxygen2hq10isGreaseIdEm.exit.i ]
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %retval.0.i)
   ret ptr %os
 }
@@ -10604,7 +10604,7 @@ _ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30: ; preds = 
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIN8proxygen2hq9SettingIdEmES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

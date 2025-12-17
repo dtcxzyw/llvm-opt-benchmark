@@ -4634,7 +4634,7 @@ _ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.exit.i: ; pr
   unreachable
 
 common.resume:                                    ; preds = %.thread107.i, %.thread.i, %284, %54, %58
-  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %58 ], [ %lpad.phi.i, %54 ], [ %254, %.thread107.i ], [ %.pn106.i, %284 ], [ %.pn106.i, %.thread.i ]
+  %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %254, %.thread107.i ], [ %.pn106.i, %.thread.i ], [ %.pn106.i, %284 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit: ; preds = %"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17ha7671b08b2c91846E.exit.i", %._crit_edge.i, %60
@@ -4676,8 +4676,8 @@ _ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit: ; p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %103, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit, %294, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit
-  %.sink = phi i8 [ 2, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit ], [ 2, %294 ], [ 1, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit ], [ 1, %103 ]
-  %.0.ph = phi i1 [ true, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit ], [ true, %294 ], [ false, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit ], [ false, %103 ]
+  %.sink = phi i8 [ 2, %294 ], [ 2, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit ], [ 1, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit ], [ 1, %103 ]
+  %.0.ph = phi i1 [ true, %294 ], [ true, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE.exit ], [ false, %_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5trace17hbfd2561b3444ceabE.exit ], [ false, %103 ]
   store i8 %.sink, ptr %25, align 8
   br label %108
 

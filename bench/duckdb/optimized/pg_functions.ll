@@ -764,7 +764,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr
   br label %_ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit
 
 _ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit:   ; preds = %5, %8, %11, %14
-  %.0.i = phi i32 [ 1, %5 ], [ 2, %8 ], [ 3, %11 ], [ %..i, %14 ]
+  %.0.i = phi i32 [ 3, %11 ], [ 1, %5 ], [ 2, %8 ], [ %..i, %14 ]
   %17 = sub nsw i32 %.0910, %.0.i
   %18 = zext nneg i32 %.0.i to i64
   %19 = getelementptr inbounds nuw i8, ptr %.012, i64 %18

@@ -2007,7 +2007,7 @@ cond.false.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i
   unreachable
 
 _ZN4absl7debian218container_internalneERKNS1_12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE8iteratorESH_.exit: ; preds = %for.end.i.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit, %lor.lhs.false.i.i.i
-  %call20.pn.i.i19 = phi i1 [ false, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit ], [ true, %lor.lhs.false.i.i.i ], [ false, %for.end.i.i ]
+  %call20.pn.i.i19 = phi i1 [ true, %lor.lhs.false.i.i.i ], [ false, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit ], [ false, %for.end.i.i ]
   ret i1 %call20.pn.i.i19
 }
 
@@ -2050,7 +2050,7 @@ if.end18:                                         ; preds = %if.end12
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end12, %if.end, %if.then7, %if.end18
-  %call13.sink = phi i32 [ %call13, %if.end18 ], [ %call, %if.then7 ], [ %id, %if.end ], [ 0, %if.end12 ]
+  %call13.sink = phi i32 [ %call13, %if.end18 ], [ %id, %if.end ], [ %call, %if.then7 ], [ 0, %if.end12 ]
   store i32 %call13.sink, ptr %rune_range_, align 8
   br label %return
 
@@ -2112,8 +2112,8 @@ if.else15:                                        ; preds = %if.else
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end6.if.end21_crit_edge, %if.then11, %if.else15
-  %8 = phi ptr [ %3, %if.then11 ], [ %3, %if.else15 ], [ %.pre, %if.end6.if.end21_crit_edge ]
-  %br.0 = phi i32 [ %6, %if.then11 ], [ %shr.i, %if.else15 ], [ %root, %if.end6.if.end21_crit_edge ]
+  %8 = phi ptr [ %3, %if.else15 ], [ %3, %if.then11 ], [ %.pre, %if.end6.if.end21_crit_edge ]
+  %br.0 = phi i32 [ %shr.i, %if.else15 ], [ %6, %if.then11 ], [ %root, %if.end6.if.end21_crit_edge ]
   %conv.i.i = sext i32 %br.0 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %8, i64 %conv.i.i
@@ -2263,8 +2263,8 @@ if.else55:                                        ; preds = %if.else46
   br label %if.end61
 
 if.end61:                                         ; preds = %for.end.i.i.i, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i, %if.end27, %if.else55, %if.then51
-  %root.addr.0 = phi i32 [ %root, %if.then51 ], [ %root, %if.else55 ], [ %call24, %if.end27 ], [ %root, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %root, %for.end.i.i.i ]
-  %br.1 = phi i32 [ %call24, %if.then51 ], [ %call24, %if.else55 ], [ %call24, %if.end27 ], [ %br.0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %br.0, %for.end.i.i.i ]
+  %root.addr.0 = phi i32 [ %call24, %if.end27 ], [ %root, %if.then51 ], [ %root, %if.else55 ], [ %root, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %root, %for.end.i.i.i ]
+  %br.1 = phi i32 [ %call24, %if.end27 ], [ %call24, %if.then51 ], [ %call24, %if.else55 ], [ %br.0, %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmiEEE4findImEENSE_8iteratorERSB_.exit.i ], [ %br.0, %for.end.i.i.i ]
   %conv.i61 = sext i32 %id to i64
   %39 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %arrayidx.i.i63 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %39, i64 %conv.i61
@@ -2397,7 +2397,7 @@ if.end78:                                         ; preds = %if.end71
   br label %return
 
 return:                                           ; preds = %if.end71, %if.then23, %if.then, %if.end78, %if.end
-  %retval.0 = phi i32 [ %call3, %if.end ], [ %root.addr.0, %if.end78 ], [ 0, %if.then ], [ 0, %if.then23 ], [ 0, %if.end71 ]
+  %retval.0 = phi i32 [ %root.addr.0, %if.end78 ], [ %call3, %if.end ], [ 0, %if.then ], [ 0, %if.then23 ], [ 0, %if.end71 ]
   ret i32 %retval.0
 }
 
@@ -2886,7 +2886,7 @@ if.end18.i.i:                                     ; preds = %if.end12.i.i
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end18.i.i, %if.end12.i.i, %if.then7.i.i, %if.end.i.i
-  %call13.sink.i.i = phi i32 [ %call13.i.i, %if.end18.i.i ], [ %call.i.i, %if.then7.i.i ], [ %call.i, %if.end.i.i ], [ 0, %if.end12.i.i ]
+  %call13.sink.i.i = phi i32 [ %call13.i.i, %if.end18.i.i ], [ %call.i, %if.end.i.i ], [ %call.i.i, %if.then7.i.i ], [ 0, %if.end12.i.i ]
   store i32 %call13.sink.i.i, ptr %rune_range_.i.i, align 8
   br label %sw.epilog
 
@@ -2989,7 +2989,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end18.i, %if.end12.i, %if.then7.i, %if.end.i
-  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call.i, %if.then7.i ], [ %call17, %if.end.i ], [ 0, %if.end12.i ]
+  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call17, %if.end.i ], [ %call.i, %if.then7.i ], [ 0, %if.end12.i ]
   store i32 %call13.sink.i, ptr %rune_range_.i, align 8
   br label %return
 
@@ -3171,7 +3171,7 @@ if.end18.i64:                                     ; preds = %if.end12.i61
   br label %return.sink.split.i68
 
 return.sink.split.i68:                            ; preds = %if.end18.i64, %if.end12.i61, %if.then7.i70, %if.end.i55
-  %call13.sink.i69 = phi i32 [ %call13.i62, %if.end18.i64 ], [ %call.i71, %if.then7.i70 ], [ %id.2, %if.end.i55 ], [ 0, %if.end12.i61 ]
+  %call13.sink.i69 = phi i32 [ %call13.i62, %if.end18.i64 ], [ %id.2, %if.end.i55 ], [ %call.i71, %if.then7.i70 ], [ 0, %if.end12.i61 ]
   store i32 %call13.sink.i69, ptr %rune_range_.i56, align 8
   br label %return
 
@@ -3228,7 +3228,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end18.i, %if.end12.i, %if.then7.i, %if.end.i
-  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call.i, %if.then7.i ], [ %call, %if.end.i ], [ 0, %if.end12.i ]
+  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call, %if.end.i ], [ %call.i, %if.then7.i ], [ 0, %if.end12.i ]
   store i32 %call13.sink.i, ptr %rune_range_.i, align 8
   br label %return
 
@@ -3283,7 +3283,7 @@ if.end18.i:                                       ; preds = %if.end12.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end18.i, %if.end12.i, %if.then7.i, %if.end.i
-  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call.i, %if.then7.i ], [ %call2, %if.end.i ], [ 0, %if.end12.i ]
+  %call13.sink.i = phi i32 [ %call13.i, %if.end18.i ], [ %call2, %if.end.i ], [ %call.i, %if.then7.i ], [ 0, %if.end12.i ]
   store i32 %call13.sink.i, ptr %rune_range_.i, align 8
   br label %_ZN3re28Compiler9AddSuffixEi.exit
 
@@ -3326,7 +3326,7 @@ if.end18.i25:                                     ; preds = %if.end12.i22
   br label %return.sink.split.i29
 
 return.sink.split.i29:                            ; preds = %if.end18.i25, %if.end12.i22, %if.then7.i31, %if.end.i16
-  %call13.sink.i30 = phi i32 [ %call13.i23, %if.end18.i25 ], [ %call.i32, %if.then7.i31 ], [ %call5, %if.end.i16 ], [ 0, %if.end12.i22 ]
+  %call13.sink.i30 = phi i32 [ %call13.i23, %if.end18.i25 ], [ %call5, %if.end.i16 ], [ %call.i32, %if.then7.i31 ], [ 0, %if.end12.i22 ]
   store i32 %call13.sink.i30, ptr %rune_range_.i17, align 8
   br label %_ZN3re28Compiler9AddSuffixEi.exit33
 
@@ -3370,7 +3370,7 @@ if.end18.i45:                                     ; preds = %if.end12.i42
   br label %return.sink.split.i49
 
 return.sink.split.i49:                            ; preds = %if.end18.i45, %if.end12.i42, %if.then7.i51, %if.end.i36
-  %call13.sink.i50 = phi i32 [ %call13.i43, %if.end18.i45 ], [ %call.i52, %if.then7.i51 ], [ %call9, %if.end.i36 ], [ 0, %if.end12.i42 ]
+  %call13.sink.i50 = phi i32 [ %call13.i43, %if.end18.i45 ], [ %call9, %if.end.i36 ], [ %call.i52, %if.then7.i51 ], [ 0, %if.end12.i42 ]
   store i32 %call13.sink.i50, ptr %rune_range_.i37, align 8
   br label %if.end
 
@@ -3412,7 +3412,7 @@ if.end18.i65:                                     ; preds = %if.end12.i62
   br label %return.sink.split.i69
 
 return.sink.split.i69:                            ; preds = %if.end18.i65, %if.end12.i62, %if.then7.i71, %if.end.i56
-  %call13.sink.i70 = phi i32 [ %call13.i63, %if.end18.i65 ], [ %call.i72, %if.then7.i71 ], [ %call11, %if.end.i56 ], [ 0, %if.end12.i62 ]
+  %call13.sink.i70 = phi i32 [ %call13.i63, %if.end18.i65 ], [ %call11, %if.end.i56 ], [ %call.i72, %if.then7.i71 ], [ 0, %if.end12.i62 ]
   store i32 %call13.sink.i70, ptr %rune_range_.i57, align 8
   br label %_ZN3re28Compiler9AddSuffixEi.exit73
 
@@ -3454,7 +3454,7 @@ if.end18.i85:                                     ; preds = %if.end12.i82
   br label %return.sink.split.i89
 
 return.sink.split.i89:                            ; preds = %if.end18.i85, %if.end12.i82, %if.then7.i91, %if.end.i76
-  %call13.sink.i90 = phi i32 [ %call13.i83, %if.end18.i85 ], [ %call.i92, %if.then7.i91 ], [ %call13, %if.end.i76 ], [ 0, %if.end12.i82 ]
+  %call13.sink.i90 = phi i32 [ %call13.i83, %if.end18.i85 ], [ %call13, %if.end.i76 ], [ %call.i92, %if.then7.i91 ], [ 0, %if.end12.i82 ]
   store i32 %call13.sink.i90, ptr %rune_range_.i77, align 8
   br label %_ZN3re28Compiler9AddSuffixEi.exit93
 
@@ -3496,7 +3496,7 @@ if.end18.i105:                                    ; preds = %if.end12.i102
   br label %return.sink.split.i109
 
 return.sink.split.i109:                           ; preds = %if.end18.i105, %if.end12.i102, %if.then7.i111, %if.end.i96
-  %call13.sink.i110 = phi i32 [ %call13.i103, %if.end18.i105 ], [ %call.i112, %if.then7.i111 ], [ %call15, %if.end.i96 ], [ 0, %if.end12.i102 ]
+  %call13.sink.i110 = phi i32 [ %call13.i103, %if.end18.i105 ], [ %call15, %if.end.i96 ], [ %call.i112, %if.then7.i111 ], [ 0, %if.end12.i102 ]
   store i32 %call13.sink.i110, ptr %rune_range_.i97, align 8
   br label %if.end
 
@@ -3859,7 +3859,7 @@ _ZN3re28Compiler9ByteRangeEiib.exit86:            ; preds = %if.then.i80, %if.en
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !20
 
 return:                                           ; preds = %_ZN3re28Compiler9ByteRangeEiib.exit86, %_ZN3re28Compiler9ByteRangeEiib.exit59, %_ZN3re28Compiler9ByteRangeEiib.exit32, %_ZN3re28Compiler9ByteRangeEiib.exit, %sw.default
-  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0..fca.0.load.i23, %_ZN3re28Compiler9ByteRangeEiib.exit32 ], [ %retval.0.retval.0..fca.0.load.i, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.0.retval.0.retval.0..fca.0.load.pre, %sw.default ], [ %retval.0.retval.0..fca.0.load.i50, %_ZN3re28Compiler9ByteRangeEiib.exit59 ], [ %8, %_ZN3re28Compiler9ByteRangeEiib.exit86 ]
+  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0.retval.0..fca.0.load.pre, %sw.default ], [ %retval.0.retval.0..fca.0.load.i23, %_ZN3re28Compiler9ByteRangeEiib.exit32 ], [ %retval.0.retval.0..fca.0.load.i, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.0.retval.0..fca.0.load.i50, %_ZN3re28Compiler9ByteRangeEiib.exit59 ], [ %8, %_ZN3re28Compiler9ByteRangeEiib.exit86 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.0.retval.0..fca.0.load, 0
   %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %retval.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
@@ -4437,8 +4437,8 @@ lor.lhs.false134:                                 ; preds = %lor.lhs.false
   br label %if.end141
 
 if.end141:                                        ; preds = %lor.lhs.false134, %land.lhs.true126, %lor.lhs.false
-  %72 = phi i32 [ %71, %lor.lhs.false ], [ %70, %land.lhs.true126 ], [ %71, %lor.lhs.false134 ]
-  %fold.0.shrunk = phi i1 [ false, %lor.lhs.false ], [ false, %land.lhs.true126 ], [ %spec.select, %lor.lhs.false134 ]
+  %72 = phi i32 [ %71, %lor.lhs.false134 ], [ %70, %land.lhs.true126 ], [ %71, %lor.lhs.false ]
+  %fold.0.shrunk = phi i1 [ %spec.select, %lor.lhs.false134 ], [ false, %land.lhs.true126 ], [ false, %lor.lhs.false ]
   tail call void @_ZN3re28Compiler12AddRuneRangeEiib(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef %.pr.pre, i32 noundef %72, i1 noundef zeroext %fold.0.shrunk)
   %.pre409 = load ptr, ptr %ranges_.i, align 8
   %.pre410 = load i32, ptr %nranges_.i, align 8
@@ -4839,7 +4839,7 @@ lpad182:                                          ; preds = %invoke.cont185, %_Z
   br label %common.resume
 
 return:                                           ; preds = %for.inc91, %for.body29, %for.body, %if.end71, %sw.bb24, %sw.bb17, %_ZN3re28Compiler5MatchEi.exit, %if.then12, %invoke.cont189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit, %if.end153, %if.then151, %for.end146, %invoke.cont105, %_ZN3re28Compiler9ByteRangeEiib.exit, %_ZN3re28Compiler10BeginRangeEv.exit, %if.then69, %sw.bb60, %sw.bb53, %sw.bb46, %sw.bb39, %_ZN3re28Compiler3NopEv.exit, %sw.bb5, %if.then
-  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0.agg.tmp14.sroa.0.0.copyload, %_ZN3re28Compiler5MatchEi.exit ], [ %9, %if.then12 ], [ %retval.i310.0.retval.i310.0.retval.i310.0.retval.0.retval.0..fca.0.load.i313, %invoke.cont189 ], [ %retval.0.retval.0..fca.0.load.i297, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306 ], [ %retval.0.retval.0..fca.0.load.i270, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279 ], [ %retval.0.retval.0..fca.0.load.i243, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252 ], [ %retval.0.retval.0..fca.0.load.i216, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225 ], [ %retval.0.retval.0..fca.0.load.i189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198 ], [ %retval.0.retval.0..fca.0.load.i163, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %77, %if.end153 ], [ %retval.0.retval.0.retval.0..fca.0.load.pre, %if.then151 ], [ %retval.sroa.0.0.copyload.i141, %for.end146 ], [ %retval.i131.0.retval.i131.0.retval.i131.0.retval.0.retval.0..fca.0.load.i134, %invoke.cont105 ], [ %retval.0.retval.0..fca.0.load.i121, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.sroa.0.0.copyload.i, %_ZN3re28Compiler10BeginRangeEv.exit ], [ %37, %if.then69 ], [ %33, %sw.bb60 ], [ %27, %sw.bb53 ], [ %23, %sw.bb46 ], [ %19, %sw.bb39 ], [ %retval.0.retval.0..fca.0.load.i60, %_ZN3re28Compiler3NopEv.exit ], [ %retval.i50.0.retval.i50.0.retval.i50.0.retval.0.retval.0..fca.0.load.i53, %sw.bb5 ], [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, %if.then ], [ %retval.0.retval.0.retval.promoted365, %sw.bb17 ], [ %retval.0.retval.0.retval.promoted360, %sw.bb24 ], [ %retval.0.retval.0.retval.promoted, %if.end71 ], [ %12, %for.body ], [ %15, %for.body29 ], [ %48, %for.inc91 ]
+  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, %if.then ], [ %retval.0.retval.0.agg.tmp14.sroa.0.0.copyload, %_ZN3re28Compiler5MatchEi.exit ], [ %9, %if.then12 ], [ %retval.i310.0.retval.i310.0.retval.i310.0.retval.0.retval.0..fca.0.load.i313, %invoke.cont189 ], [ %retval.0.retval.0..fca.0.load.i297, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306 ], [ %retval.0.retval.0..fca.0.load.i270, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279 ], [ %retval.0.retval.0..fca.0.load.i243, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252 ], [ %retval.0.retval.0..fca.0.load.i216, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225 ], [ %retval.0.retval.0..fca.0.load.i189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198 ], [ %retval.0.retval.0..fca.0.load.i163, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %77, %if.end153 ], [ %retval.0.retval.0.retval.0..fca.0.load.pre, %if.then151 ], [ %retval.sroa.0.0.copyload.i141, %for.end146 ], [ %retval.i131.0.retval.i131.0.retval.i131.0.retval.0.retval.0..fca.0.load.i134, %invoke.cont105 ], [ %retval.0.retval.0..fca.0.load.i121, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.sroa.0.0.copyload.i, %_ZN3re28Compiler10BeginRangeEv.exit ], [ %37, %if.then69 ], [ %33, %sw.bb60 ], [ %27, %sw.bb53 ], [ %23, %sw.bb46 ], [ %19, %sw.bb39 ], [ %retval.0.retval.0..fca.0.load.i60, %_ZN3re28Compiler3NopEv.exit ], [ %retval.i50.0.retval.i50.0.retval.i50.0.retval.0.retval.0..fca.0.load.i53, %sw.bb5 ], [ %retval.0.retval.0.retval.promoted365, %sw.bb17 ], [ %retval.0.retval.0.retval.promoted360, %sw.bb24 ], [ %retval.0.retval.0.retval.promoted, %if.end71 ], [ %15, %for.body29 ], [ %12, %for.body ], [ %48, %for.inc91 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.0.retval.0..fca.0.load, 0
   %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %retval.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
@@ -4879,7 +4879,7 @@ if.else6:                                         ; preds = %if.else
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end, %if.else6
-  %.sink = phi i32 [ %conv, %if.else6 ], [ 100000, %if.end ], [ 0, %if.else ]
+  %.sink = phi i32 [ 100000, %if.end ], [ %conv, %if.else6 ], [ 0, %if.else ]
   %max_ninst_5 = getelementptr inbounds nuw i8, ptr %this, i64 140
   store i32 %.sink, ptr %max_ninst_5, align 4
   %anchor_ = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -4927,7 +4927,7 @@ if.else6.i:                                       ; preds = %if.else.i
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %if.else6.i, %if.else.i, %if.end.i
-  %.sink.i = phi i32 [ %conv.i29, %if.else6.i ], [ 100000, %if.end.i ], [ 0, %if.else.i ]
+  %.sink.i = phi i32 [ 100000, %if.end.i ], [ %conv.i29, %if.else6.i ], [ 0, %if.else.i ]
   %max_ninst_5.i = getelementptr inbounds nuw i8, ptr %c, i64 140
   store i32 %.sink.i, ptr %max_ninst_5.i, align 4
   %anchor_.i = getelementptr inbounds nuw i8, ptr %c, i64 208
@@ -5291,7 +5291,7 @@ if.end57:                                         ; preds = %invoke.cont52, %inv
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end57, %invoke.cont14, %invoke.cont3
-  %retval.0 = phi ptr [ null, %invoke.cont3 ], [ null, %invoke.cont14 ], [ %call62, %if.end57 ]
+  %retval.0 = phi ptr [ null, %invoke.cont14 ], [ null, %invoke.cont3 ], [ %call62, %if.end57 ]
   call void @_ZN3re28CompilerD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %c) #27
   ret ptr %retval.0
 }
@@ -5442,7 +5442,7 @@ sw.bb42:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end41, %if.end, %if.end29, %sw.bb, %entry, %sw.bb42, %if.then37, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43
-  %retval.0 = phi i1 [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43 ], [ true, %if.then37 ], [ true, %sw.bb42 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end29 ], [ false, %if.end ], [ false, %if.end41 ]
+  %retval.0 = phi i1 [ true, %sw.bb42 ], [ false, %entry ], [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit43 ], [ true, %if.then37 ], [ false, %sw.bb ], [ false, %if.end29 ], [ false, %if.end ], [ false, %if.end41 ]
   ret i1 %retval.0
 }
 
@@ -5597,7 +5597,7 @@ sw.bb44:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end43, %if.end, %if.end31, %sw.bb, %entry, %sw.bb44, %if.then39, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51
-  %retval.0 = phi i1 [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51 ], [ true, %if.then39 ], [ true, %sw.bb44 ], [ false, %entry ], [ false, %sw.bb ], [ false, %if.end31 ], [ false, %if.end ], [ false, %if.end43 ]
+  %retval.0 = phi i1 [ true, %sw.bb44 ], [ false, %entry ], [ true, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit51 ], [ true, %if.then39 ], [ false, %sw.bb ], [ false, %if.end31 ], [ false, %if.end ], [ false, %if.end43 ]
   ret i1 %retval.0
 }
 
@@ -5847,7 +5847,7 @@ if.else6.i:                                       ; preds = %if.else.i
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %if.else6.i, %if.else.i, %if.end.i
-  %.sink.i = phi i32 [ %conv.i14, %if.else6.i ], [ 100000, %if.end.i ], [ 0, %if.else.i ]
+  %.sink.i = phi i32 [ 100000, %if.end.i ], [ %conv.i14, %if.else6.i ], [ 0, %if.else.i ]
   %max_ninst_5.i = getelementptr inbounds nuw i8, ptr %c, i64 140
   store i32 %.sink.i, ptr %max_ninst_5.i, align 4
   %anchor_.i = getelementptr inbounds nuw i8, ptr %c, i64 208
@@ -6079,7 +6079,7 @@ delete.notnull:                                   ; preds = %invoke.cont35
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont35, %invoke.cont27, %invoke.cont7, %invoke.cont2, %delete.notnull
-  %retval.0 = phi ptr [ null, %delete.notnull ], [ null, %invoke.cont2 ], [ null, %invoke.cont7 ], [ null, %invoke.cont27 ], [ %call28, %invoke.cont35 ]
+  %retval.0 = phi ptr [ null, %invoke.cont27 ], [ null, %invoke.cont2 ], [ null, %invoke.cont7 ], [ null, %delete.notnull ], [ %call28, %invoke.cont35 ]
   call void @_ZN3re28CompilerD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %c) #27
   ret ptr %retval.0
 }
@@ -7549,7 +7549,7 @@ _ZSt4copyIPPN3re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit30: ; preds = %_ZNSt
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN3re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
+  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24

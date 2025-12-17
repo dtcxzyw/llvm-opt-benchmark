@@ -634,19 +634,19 @@ nextRectBox.exit:                                 ; preds = %196, %197
   %219 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %210, i64 %indvars.iv193
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 6
   %221 = load i16, ptr %220, align 2
-  switch i16 %221, label %387 [
+  switch i16 %221, label %386 [
     i16 3, label %222
     i16 7, label %246
     i16 6, label %270
     i16 8, label %270
     i16 1, label %308
-    i16 2, label %318
-    i16 5, label %328
-    i16 4, label %338
-    i16 11, label %348
-    i16 12, label %358
-    i16 10, label %369
-    i16 9, label %380
+    i16 2, label %314
+    i16 5, label %324
+    i16 4, label %334
+    i16 11, label %344
+    i16 12, label %354
+    i16 10, label %365
+    i16 9, label %376
   ]
 
 222:                                              ; preds = %218
@@ -777,129 +777,129 @@ contained2D.exit.i:                               ; preds = %283
   %311 = load double, ptr %193, align 8
   %312 = fadd double %311, 0x3EB0C6F7A0B5ED8D
   %313 = fcmp olt double %312, %.val
-  br i1 %313, label %314, label %overlap4D.exit.thread
+  br i1 %313, label %overlap4D.exit, label %overlap4D.exit.thread
 
-314:                                              ; preds = %308
-  %315 = load double, ptr %217, align 8
-  %316 = fadd double %315, 0x3EB0C6F7A0B5ED8D
-  %317 = fcmp olt double %316, %.val
-  br i1 %317, label %393, label %overlap4D.exit.thread
+314:                                              ; preds = %218
+  %315 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr i8, ptr %316, i64 8
+  %.val145 = load double, ptr %317, align 8
+  %318 = load double, ptr %193, align 8
+  %319 = fadd double %.val145, 0x3EB0C6F7A0B5ED8D
+  %320 = fcmp ugt double %318, %319
+  br i1 %320, label %overlap4D.exit.thread, label %321
 
-318:                                              ; preds = %218
-  %319 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr i8, ptr %320, i64 8
-  %.val145 = load double, ptr %321, align 8
-  %322 = load double, ptr %193, align 8
-  %323 = fadd double %.val145, 0x3EB0C6F7A0B5ED8D
-  %324 = fcmp ugt double %322, %323
-  br i1 %324, label %overlap4D.exit.thread, label %325
+321:                                              ; preds = %314
+  %322 = load double, ptr %217, align 8
+  %323 = fcmp ugt double %322, %319
+  br i1 %323, label %overlap4D.exit.thread, label %393
 
-325:                                              ; preds = %318
-  %326 = load double, ptr %217, align 8
-  %327 = fcmp ugt double %326, %323
-  br i1 %327, label %overlap4D.exit.thread, label %393
+324:                                              ; preds = %218
+  %325 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr i8, ptr %326, i64 8
+  %.val146 = load double, ptr %327, align 8
+  %328 = load double, ptr %215, align 8
+  %329 = fadd double %.val146, 0x3EB0C6F7A0B5ED8D
+  %330 = fcmp ogt double %328, %329
+  br i1 %330, label %331, label %overlap4D.exit.thread
 
-328:                                              ; preds = %218
-  %329 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr i8, ptr %330, i64 8
-  %.val146 = load double, ptr %331, align 8
-  %332 = load double, ptr %215, align 8
-  %333 = fadd double %.val146, 0x3EB0C6F7A0B5ED8D
-  %334 = fcmp ogt double %332, %333
-  br i1 %334, label %335, label %overlap4D.exit.thread
+331:                                              ; preds = %324
+  %332 = load double, ptr %216, align 8
+  %333 = fcmp ogt double %332, %329
+  br i1 %333, label %393, label %overlap4D.exit.thread
 
-335:                                              ; preds = %328
-  %336 = load double, ptr %216, align 8
-  %337 = fcmp ogt double %336, %333
-  br i1 %337, label %393, label %overlap4D.exit.thread
+334:                                              ; preds = %218
+  %335 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %336 = load ptr, ptr %335, align 8
+  %.val147 = load double, ptr %336, align 8
+  %337 = load double, ptr %215, align 8
+  %338 = fadd double %337, 0x3EB0C6F7A0B5ED8D
+  %339 = fcmp ult double %338, %.val147
+  br i1 %339, label %overlap4D.exit.thread, label %340
 
-338:                                              ; preds = %218
-  %339 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %340 = load ptr, ptr %339, align 8
-  %.val147 = load double, ptr %340, align 8
-  %341 = load double, ptr %215, align 8
+340:                                              ; preds = %334
+  %341 = load double, ptr %216, align 8
   %342 = fadd double %341, 0x3EB0C6F7A0B5ED8D
   %343 = fcmp ult double %342, %.val147
-  br i1 %343, label %overlap4D.exit.thread, label %344
+  br i1 %343, label %overlap4D.exit.thread, label %393
 
-344:                                              ; preds = %338
-  %345 = load double, ptr %216, align 8
-  %346 = fadd double %345, 0x3EB0C6F7A0B5ED8D
-  %347 = fcmp ult double %346, %.val147
-  br i1 %347, label %overlap4D.exit.thread, label %393
+344:                                              ; preds = %218
+  %345 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr i8, ptr %346, i64 24
+  %.val148 = load double, ptr %347, align 8
+  %348 = load double, ptr %213, align 8
+  %349 = fadd double %.val148, 0x3EB0C6F7A0B5ED8D
+  %350 = fcmp ogt double %348, %349
+  br i1 %350, label %351, label %overlap4D.exit.thread
 
-348:                                              ; preds = %218
-  %349 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr i8, ptr %350, i64 24
-  %.val148 = load double, ptr %351, align 8
-  %352 = load double, ptr %213, align 8
-  %353 = fadd double %.val148, 0x3EB0C6F7A0B5ED8D
-  %354 = fcmp ogt double %352, %353
-  br i1 %354, label %355, label %overlap4D.exit.thread
+351:                                              ; preds = %344
+  %352 = load double, ptr %214, align 8
+  %353 = fcmp ogt double %352, %349
+  br i1 %353, label %393, label %overlap4D.exit.thread
 
-355:                                              ; preds = %348
-  %356 = load double, ptr %214, align 8
-  %357 = fcmp ogt double %356, %353
-  br i1 %357, label %393, label %overlap4D.exit.thread
+354:                                              ; preds = %218
+  %355 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr i8, ptr %356, i64 16
+  %.val149 = load double, ptr %357, align 8
+  %358 = load double, ptr %213, align 8
+  %359 = fadd double %358, 0x3EB0C6F7A0B5ED8D
+  %360 = fcmp ult double %359, %.val149
+  br i1 %360, label %overlap4D.exit.thread, label %361
 
-358:                                              ; preds = %218
-  %359 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr i8, ptr %360, i64 16
-  %.val149 = load double, ptr %361, align 8
-  %362 = load double, ptr %213, align 8
+361:                                              ; preds = %354
+  %362 = load double, ptr %214, align 8
   %363 = fadd double %362, 0x3EB0C6F7A0B5ED8D
   %364 = fcmp ult double %363, %.val149
-  br i1 %364, label %overlap4D.exit.thread, label %365
+  br i1 %364, label %overlap4D.exit.thread, label %393
 
-365:                                              ; preds = %358
-  %366 = load double, ptr %214, align 8
-  %367 = fadd double %366, 0x3EB0C6F7A0B5ED8D
-  %368 = fcmp ult double %367, %.val149
-  br i1 %368, label %overlap4D.exit.thread, label %393
+365:                                              ; preds = %218
+  %366 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %367 = load ptr, ptr %366, align 8
+  %368 = getelementptr i8, ptr %367, i64 16
+  %.val150 = load double, ptr %368, align 8
+  %369 = load double, ptr %211, align 8
+  %370 = fadd double %369, 0x3EB0C6F7A0B5ED8D
+  %371 = fcmp olt double %370, %.val150
+  br i1 %371, label %372, label %overlap4D.exit.thread
 
-369:                                              ; preds = %218
-  %370 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr i8, ptr %371, i64 16
-  %.val150 = load double, ptr %372, align 8
-  %373 = load double, ptr %211, align 8
+372:                                              ; preds = %365
+  %373 = load double, ptr %212, align 8
   %374 = fadd double %373, 0x3EB0C6F7A0B5ED8D
   %375 = fcmp olt double %374, %.val150
-  br i1 %375, label %376, label %overlap4D.exit.thread
+  br i1 %375, label %393, label %overlap4D.exit.thread
 
-376:                                              ; preds = %369
-  %377 = load double, ptr %212, align 8
-  %378 = fadd double %377, 0x3EB0C6F7A0B5ED8D
-  %379 = fcmp olt double %378, %.val150
-  br i1 %379, label %393, label %overlap4D.exit.thread
+376:                                              ; preds = %218
+  %377 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %378 = load ptr, ptr %377, align 8
+  %379 = getelementptr i8, ptr %378, i64 24
+  %.val151 = load double, ptr %379, align 8
+  %380 = load double, ptr %211, align 8
+  %381 = fadd double %.val151, 0x3EB0C6F7A0B5ED8D
+  %382 = fcmp ugt double %380, %381
+  br i1 %382, label %overlap4D.exit.thread, label %383
 
-380:                                              ; preds = %218
-  %381 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr i8, ptr %382, i64 24
-  %.val151 = load double, ptr %383, align 8
-  %384 = load double, ptr %211, align 8
-  %385 = fadd double %.val151, 0x3EB0C6F7A0B5ED8D
-  %386 = fcmp ugt double %384, %385
-  br i1 %386, label %overlap4D.exit.thread, label %overlap4D.exit
+383:                                              ; preds = %376
+  %384 = load double, ptr %212, align 8
+  %385 = fcmp ugt double %384, %381
+  br i1 %385, label %overlap4D.exit.thread, label %393
 
-387:                                              ; preds = %218
-  %388 = zext i16 %221 to i32
-  %389 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  %390 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %388) #7
+386:                                              ; preds = %218
+  %387 = zext i16 %221 to i32
+  %388 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %389 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %387) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_box_quad_inner_consistent) #7
   unreachable
 
-overlap4D.exit:                                   ; preds = %380
-  %391 = load double, ptr %212, align 8
-  %392 = fcmp ugt double %391, %385
-  br i1 %392, label %overlap4D.exit.thread, label %393
+overlap4D.exit:                                   ; preds = %308
+  %390 = load double, ptr %217, align 8
+  %391 = fadd double %390, 0x3EB0C6F7A0B5ED8D
+  %392 = fcmp olt double %391, %.val
+  br i1 %392, label %393, label %overlap4D.exit.thread
 
-393:                                              ; preds = %376, %365, %355, %344, %335, %325, %314, %304, %264, %240, %overlap4D.exit
+393:                                              ; preds = %321, %331, %340, %351, %361, %240, %264, %304, %383, %372, %overlap4D.exit
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge167, label %218, !llvm.loop !13
@@ -1001,7 +1001,7 @@ pointToRectBoxDistance.exit155:                   ; preds = %438, %440, %443
   store i32 %451, ptr %7, align 8
   br label %452
 
-overlap4D.exit.thread:                            ; preds = %380, %369, %358, %348, %338, %328, %318, %308, %270, %278, %283, %289, %295, %301, %contained2D.exit.i, %246, %258, %contain2D.exit.i, %222, %234, %overlap2D.exit.i, %overlap4D.exit, %240, %264, %304, %314, %325, %335, %344, %355, %365, %376
+overlap4D.exit.thread:                            ; preds = %376, %365, %354, %344, %334, %324, %314, %308, %278, %283, %289, %295, %301, %contained2D.exit.i, %258, %contain2D.exit.i, %234, %overlap2D.exit.i, %270, %246, %222, %overlap4D.exit, %372, %383, %304, %264, %240, %361, %351, %340, %331, %321
   tail call void @pfree(ptr noundef nonnull %193) #7
   br label %452
 
@@ -1114,17 +1114,17 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   %.0.i = phi i64 [ %27, %25 ], [ %34, %is_bounding_box_test_exact.exit.thread.i ]
   switch i16 %22, label %62 [
     i16 3, label %40
-    i16 7, label %42
-    i16 8, label %44
-    i16 6, label %46
-    i16 1, label %48
-    i16 2, label %50
-    i16 5, label %52
-    i16 4, label %54
-    i16 11, label %56
-    i16 12, label %58
-    i16 10, label %60
-    i16 9, label %66
+    i16 7, label %66
+    i16 8, label %42
+    i16 6, label %44
+    i16 1, label %46
+    i16 2, label %48
+    i16 5, label %50
+    i16 4, label %52
+    i16 11, label %54
+    i16 12, label %56
+    i16 10, label %58
+    i16 9, label %60
   ]
 
 40:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
@@ -1133,54 +1133,54 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   br i1 %.not69, label %.thread, label %68
 
 42:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not68 = icmp eq i64 %43, 0
-  br i1 %.not68, label %.thread, label %68
-
-44:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not67 = icmp eq i64 %45, 0
+  %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not67 = icmp eq i64 %43, 0
   br i1 %.not67, label %.thread, label %68
 
-46:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not66 = icmp eq i64 %47, 0
+44:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not66 = icmp eq i64 %45, 0
   br i1 %.not66, label %.thread, label %68
 
-48:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not65 = icmp eq i64 %49, 0
+46:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not65 = icmp eq i64 %47, 0
   br i1 %.not65, label %.thread, label %68
 
-50:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not64 = icmp eq i64 %51, 0
+48:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not64 = icmp eq i64 %49, 0
   br i1 %.not64, label %.thread, label %68
 
-52:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not63 = icmp eq i64 %53, 0
+50:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not63 = icmp eq i64 %51, 0
   br i1 %.not63, label %.thread, label %68
 
-54:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not62 = icmp eq i64 %55, 0
+52:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not62 = icmp eq i64 %53, 0
   br i1 %.not62, label %.thread, label %68
 
-56:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not61 = icmp eq i64 %57, 0
+54:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not61 = icmp eq i64 %55, 0
   br i1 %.not61, label %.thread, label %68
 
-58:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not60 = icmp eq i64 %59, 0
+56:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not60 = icmp eq i64 %57, 0
   br i1 %.not60, label %.thread, label %68
 
-60:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not59 = icmp eq i64 %61, 0
+58:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not59 = icmp eq i64 %59, 0
   br i1 %.not59, label %.thread, label %68
+
+60:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not = icmp eq i64 %61, 0
+  br i1 %.not, label %.thread, label %68
 
 62:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %63 = zext i16 %22 to i32
@@ -1190,11 +1190,11 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   unreachable
 
 66:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
-  %.not = icmp eq i64 %67, 0
-  br i1 %.not, label %.thread, label %68
+  %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
+  %.not68 = icmp eq i64 %67, 0
+  br i1 %.not68, label %.thread, label %68
 
-68:                                               ; preds = %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %66
+68:                                               ; preds = %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %40, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %16, align 8
   %70 = sext i32 %69 to i64
@@ -1221,8 +1221,8 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   store i8 %83, ptr %82, align 1
   br label %.thread
 
-.thread:                                          ; preds = %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %66, %74, %._crit_edge
-  %84 = phi i64 [ 1, %74 ], [ 1, %._crit_edge ], [ 0, %66 ], [ 0, %40 ], [ 0, %42 ], [ 0, %44 ], [ 0, %46 ], [ 0, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %54 ], [ 0, %56 ], [ 0, %58 ], [ 0, %60 ]
+.thread:                                          ; preds = %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %40, %66, %74, %._crit_edge
+  %84 = phi i64 [ 1, %._crit_edge ], [ 1, %74 ], [ 0, %66 ], [ 0, %40 ], [ 0, %60 ], [ 0, %58 ], [ 0, %56 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %42 ]
   ret i64 %84
 }
 

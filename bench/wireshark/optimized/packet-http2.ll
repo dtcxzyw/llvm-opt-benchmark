@@ -487,7 +487,7 @@ get_http2_stream_count.exit:                      ; preds = %.lr.ph.i
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3, %get_http2_stream_count.exit.thread26, %get_http2_stream_count.exit
-  %.012.i25 = phi i32 [ %13, %get_http2_stream_count.exit ], [ 0, %get_http2_stream_count.exit.thread26 ], [ 0, %3 ]
+  %.012.i25 = phi i32 [ 0, %get_http2_stream_count.exit.thread26 ], [ %13, %get_http2_stream_count.exit ], [ 0, %3 ]
   %17 = and i32 %1, 2147483647
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.012.i25)
   %19 = zext nneg i32 %18 to i64
@@ -1539,7 +1539,7 @@ define internal noalias ptr @http2_follow_conv_filter(ptr readnone captures(none
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %11, %15, %19, %28, %33
-  %.0 = phi ptr [ %39, %33 ], [ null, %28 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %7 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %28 ], [ %39, %33 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %7 ]
   ret ptr %.0
 }
 

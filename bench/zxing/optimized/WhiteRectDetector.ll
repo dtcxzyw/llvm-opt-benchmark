@@ -474,7 +474,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i258:            ; preds = %92
   br label %135
 
 135:                                              ; preds = %.critedge432, %103, %8
-  %.0155 = phi i1 [ false, %8 ], [ %.2157, %.critedge432 ], [ false, %103 ]
+  %.0155 = phi i1 [ false, %8 ], [ false, %103 ], [ %.2157, %.critedge432 ]
   ret i1 %.0155
 }
 

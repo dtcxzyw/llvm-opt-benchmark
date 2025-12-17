@@ -944,7 +944,7 @@ define internal fastcc ptr @ip_rcv_core(ptr noundef %0, ptr noundef readonly cap
   br label %skb_orphan.exit
 
 skb_orphan.exit:                                  ; preds = %171, %169, %183, %150, %26
-  %186 = phi ptr [ %30, %150 ], [ null, %183 ], [ null, %26 ], [ %30, %169 ], [ %30, %171 ]
+  %186 = phi ptr [ null, %26 ], [ %30, %150 ], [ null, %183 ], [ %30, %169 ], [ %30, %171 ]
   ret ptr %186
 }
 
@@ -1688,7 +1688,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   br i1 %249, label %258, label %.thread
 
 .thread:                                          ; preds = %237, %246, %254, %251, %202, %198, %195, %191, %161, %140
-  %250 = phi i32 [ 12, %254 ], [ 2, %251 ], [ 2, %202 ], [ 2, %198 ], [ 2, %195 ], [ 2, %191 ], [ 2, %161 ], [ 2, %140 ], [ 13, %246 ], [ 13, %237 ]
+  %250 = phi i32 [ 12, %254 ], [ 2, %251 ], [ 2, %140 ], [ 2, %202 ], [ 2, %198 ], [ 2, %195 ], [ 2, %191 ], [ 2, %161 ], [ 13, %246 ], [ 13, %237 ]
   tail call void @kfree_skb_reason(ptr noundef nonnull %1, i32 noundef %250) #6
   br label %258
 

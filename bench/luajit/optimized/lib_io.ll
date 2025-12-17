@@ -1209,7 +1209,7 @@ lj_state_checkstack.exit:                         ; preds = %22, %29
   br label %io_file_close.exit
 
 io_file_close.exit:                               ; preds = %66, %63, %47, %51
-  %.0 = phi i32 [ %37, %51 ], [ %37, %47 ], [ 0, %63 ], [ 0, %66 ]
+  %.0 = phi i32 [ %37, %47 ], [ %37, %51 ], [ 0, %63 ], [ 0, %66 ]
   ret i32 %.0
 }
 

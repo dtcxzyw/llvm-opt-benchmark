@@ -190,7 +190,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   br label %._crit_edge64
 
 ._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %Vec_PtrDup.exit
-  %61 = phi ptr [ %.pre, %._crit_edge64.loopexit ], [ %40, %Vec_PtrDup.exit ]
+  %61 = phi ptr [ %40, %Vec_PtrDup.exit ], [ %.pre, %._crit_edge64.loopexit ]
   %.not.i54 = icmp eq ptr %61, null
   br i1 %.not.i54, label %.lr.ph66.preheader, label %62
 

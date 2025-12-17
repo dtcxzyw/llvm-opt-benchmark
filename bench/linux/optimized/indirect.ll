@@ -726,8 +726,8 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit38
 
 .loopexit38:                                      ; preds = %122, %117, %418, %413
-  %.pre-phi = phi i64 [ %233, %418 ], [ %233, %413 ], [ %110, %117 ], [ %110, %122 ]
-  %419 = phi i32 [ %417, %418 ], [ %417, %413 ], [ %131, %122 ], [ %118, %117 ]
+  %.pre-phi = phi i64 [ %233, %413 ], [ %233, %418 ], [ %110, %117 ], [ %110, %122 ]
+  %419 = phi i32 [ %417, %413 ], [ %417, %418 ], [ %131, %122 ], [ %118, %117 ]
   %420 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %421 = load i32, ptr %420, align 8
   %422 = or i32 %421, 16
@@ -1744,11 +1744,11 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   br i1 %120, label %.preheader.i, label %121, !llvm.loop !41
 
 121:                                              ; preds = %115, %112
-  %122 = phi i64 [ %116, %115 ], [ %101, %112 ]
-  %123 = phi i64 [ %117, %115 ], [ %100, %112 ]
-  %124 = phi ptr [ %118, %115 ], [ %99, %112 ]
-  %125 = phi ptr [ %119, %115 ], [ %98, %112 ]
-  %126 = phi i32 [ 0, %115 ], [ %113, %112 ]
+  %122 = phi i64 [ %101, %112 ], [ %116, %115 ]
+  %123 = phi i64 [ %100, %112 ], [ %117, %115 ]
+  %124 = phi ptr [ %99, %112 ], [ %118, %115 ]
+  %125 = phi ptr [ %98, %112 ], [ %119, %115 ]
+  %126 = phi i32 [ %113, %112 ], [ 0, %115 ]
   %127 = icmp eq i32 %126, 0
   %128 = icmp ne i64 %123, 0
   %129 = select i1 %127, i1 %128, i1 false
@@ -1998,7 +1998,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %117
 
 117:                                              ; preds = %110, %102, %92, %87
-  %118 = phi i32 [ 2, %87 ], [ 3, %92 ], [ 4, %102 ], [ 0, %110 ]
+  %118 = phi i32 [ 0, %110 ], [ 2, %87 ], [ 3, %92 ], [ 4, %102 ]
   %119 = icmp samesign ugt i32 %81, %118
   br i1 %119, label %120, label %151, !prof !18
 
@@ -2394,7 +2394,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   br label %379
 
 379:                                              ; preds = %372, %368
-  %380 = phi ptr [ %378, %372 ], [ %332, %368 ]
+  %380 = phi ptr [ %332, %368 ], [ %378, %372 ]
   %381 = icmp ugt ptr %369, %7
   %382 = icmp ugt ptr %380, %8
   %383 = select i1 %381, i1 true, i1 %382
@@ -2764,7 +2764,7 @@ define internal fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr
   br label %63
 
 60:                                               ; preds = %48, %45
-  %61 = phi i32 [ %49, %48 ], [ %46, %45 ]
+  %61 = phi i32 [ %46, %45 ], [ %49, %48 ]
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.thread10, label %63
 

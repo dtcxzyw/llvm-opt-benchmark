@@ -712,7 +712,7 @@ _reboot_from_ctld.exit:                           ; preds = %88, %94, %120
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.loopexit.loopexit.i, %213, %209, %204, %203, %190, %185, %182, %179
-  %.083110.sink.i = phi i32 [ 1, %190 ], [ 1, %203 ], [ 1, %179 ], [ 1, %185 ], [ 1, %182 ], [ %210, %209 ], [ %210, %213 ], [ 0, %204 ], [ %234, %.loopexit.loopexit.i ]
+  %.083110.sink.i = phi i32 [ 1, %182 ], [ 1, %190 ], [ 1, %203 ], [ 1, %179 ], [ 1, %185 ], [ %210, %213 ], [ %210, %209 ], [ 0, %204 ], [ %234, %.loopexit.loopexit.i ]
   store i32 %.083110.sink.i, ptr %133, align 8
   %.pre = load ptr, ptr %140, align 8
   br label %_make_agent_info.exit
@@ -1131,7 +1131,7 @@ _valid_agent_arg.exit.thread.thread260:           ; preds = %419
   call void @purge_agent_args(ptr noundef nonnull %0) #15
   br label %440
 
-_valid_agent_arg.exit.thread.thread:              ; preds = %63, %78, %72, %61, %_reboot_from_ctld.exit
+_valid_agent_arg.exit.thread.thread:              ; preds = %63, %72, %78, %61, %_reboot_from_ctld.exit
   call void @purge_agent_args(ptr noundef nonnull %0) #15
   br label %443
 
@@ -1478,10 +1478,10 @@ define internal noalias noundef ptr @_wdog(ptr noundef %0) #0 {
   br label %_update_wdog_state.exit80
 
 _update_wdog_state.exit80:                        ; preds = %77, %56, %59, %69, %76, %80
-  %.sroa.19.4 = phi i32 [ %.sroa.19.1109, %59 ], [ %.sroa.19.1109, %69 ], [ %.sroa.19.1109, %76 ], [ %82, %80 ], [ %.sroa.19.1109, %77 ], [ %.sroa.19.1109, %56 ]
-  %.sroa.13.4 = phi i32 [ %.sroa.13.1110, %59 ], [ %.sroa.13.1110, %69 ], [ %.sroa.13.1110, %76 ], [ %81, %80 ], [ %.sroa.13.1110, %77 ], [ %.sroa.13.1110, %56 ]
-  %.sroa.25.5 = phi i32 [ %.sroa.25.2112, %59 ], [ %.sroa.25.2112, %69 ], [ %.sroa.25.2112, %76 ], [ %.sroa.25.2112, %80 ], [ %spec.select95, %77 ], [ %.sroa.25.2112, %56 ]
-  %.sroa.0.4 = phi i1 [ false, %59 ], [ false, %69 ], [ false, %76 ], [ %.sroa.0.1113, %80 ], [ %.sroa.0.1113, %77 ], [ %.sroa.0.1113, %56 ]
+  %.sroa.19.4 = phi i32 [ %.sroa.19.1109, %56 ], [ %.sroa.19.1109, %59 ], [ %.sroa.19.1109, %69 ], [ %.sroa.19.1109, %76 ], [ %82, %80 ], [ %.sroa.19.1109, %77 ]
+  %.sroa.13.4 = phi i32 [ %.sroa.13.1110, %56 ], [ %.sroa.13.1110, %59 ], [ %.sroa.13.1110, %69 ], [ %.sroa.13.1110, %76 ], [ %81, %80 ], [ %.sroa.13.1110, %77 ]
+  %.sroa.25.5 = phi i32 [ %.sroa.25.2112, %56 ], [ %.sroa.25.2112, %59 ], [ %.sroa.25.2112, %69 ], [ %.sroa.25.2112, %76 ], [ %.sroa.25.2112, %80 ], [ %spec.select95, %77 ]
+  %.sroa.0.4 = phi i1 [ %.sroa.0.1113, %56 ], [ false, %59 ], [ false, %69 ], [ false, %76 ], [ %.sroa.0.1113, %80 ], [ %.sroa.0.1113, %77 ]
   %83 = tail call ptr @list_next(ptr noundef %53) #15
   %.not76 = icmp eq ptr %83, null
   br i1 %.not76, label %._crit_edge, label %56, !llvm.loop !18
@@ -1495,10 +1495,10 @@ _update_wdog_state.exit80:                        ; preds = %77, %56, %59, %69, 
   br label %_update_wdog_state.exit
 
 _update_wdog_state.exit:                          ; preds = %45, %49, %44, %37, %26, %24, %._crit_edge
-  %.sroa.19.2 = phi i32 [ %.sroa.19.1.lcssa, %._crit_edge ], [ %.sroa.19.0118, %26 ], [ %.sroa.19.0118, %37 ], [ %.sroa.19.0118, %44 ], [ %51, %49 ], [ %.sroa.19.0118, %45 ], [ %.sroa.19.0118, %24 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1.lcssa, %._crit_edge ], [ %.sroa.13.0119, %26 ], [ %.sroa.13.0119, %37 ], [ %.sroa.13.0119, %44 ], [ %50, %49 ], [ %.sroa.13.0119, %45 ], [ %.sroa.13.0119, %24 ]
-  %.sroa.25.3 = phi i32 [ %.sroa.25.2.lcssa, %._crit_edge ], [ %.sroa.25.1121, %26 ], [ %.sroa.25.1121, %37 ], [ %.sroa.25.1121, %44 ], [ %.sroa.25.1121, %49 ], [ %spec.select, %45 ], [ %.sroa.25.1121, %24 ]
-  %.sroa.0.2 = phi i1 [ %.sroa.0.1.lcssa, %._crit_edge ], [ false, %26 ], [ false, %37 ], [ false, %44 ], [ %.sroa.0.0122, %49 ], [ %.sroa.0.0122, %45 ], [ %.sroa.0.0122, %24 ]
+  %.sroa.19.2 = phi i32 [ %.sroa.19.1.lcssa, %._crit_edge ], [ %.sroa.19.0118, %24 ], [ %.sroa.19.0118, %26 ], [ %.sroa.19.0118, %37 ], [ %.sroa.19.0118, %44 ], [ %51, %49 ], [ %.sroa.19.0118, %45 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1.lcssa, %._crit_edge ], [ %.sroa.13.0119, %24 ], [ %.sroa.13.0119, %26 ], [ %.sroa.13.0119, %37 ], [ %.sroa.13.0119, %44 ], [ %50, %49 ], [ %.sroa.13.0119, %45 ]
+  %.sroa.25.3 = phi i32 [ %.sroa.25.2.lcssa, %._crit_edge ], [ %.sroa.25.1121, %24 ], [ %.sroa.25.1121, %26 ], [ %.sroa.25.1121, %37 ], [ %.sroa.25.1121, %44 ], [ %.sroa.25.1121, %49 ], [ %spec.select, %45 ]
+  %.sroa.0.2 = phi i1 [ %.sroa.0.1.lcssa, %._crit_edge ], [ %.sroa.0.0122, %24 ], [ false, %26 ], [ false, %37 ], [ false, %44 ], [ %.sroa.0.0122, %49 ], [ %.sroa.0.0122, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load i32, ptr %10, align 8
   %85 = zext i32 %84 to i64
@@ -1866,8 +1866,8 @@ _setup_requeue.exit.i.i:                          ; preds = %241
   br i1 %246, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %243, %201, %_setup_requeue.exit.i.i
-  %.164.i.i = phi i32 [ %.669.i.i, %_setup_requeue.exit.i.i ], [ %.265.i.i, %243 ], [ %.366.i.i, %201 ]
-  %.1.i.i = phi i32 [ %.669.i.i, %_setup_requeue.exit.i.i ], [ %.2.i.i, %243 ], [ %.366.i.i, %201 ]
+  %.164.i.i = phi i32 [ %.669.i.i, %_setup_requeue.exit.i.i ], [ %.366.i.i, %201 ], [ %.265.i.i, %243 ]
+  %.1.i.i = phi i32 [ %.669.i.i, %_setup_requeue.exit.i.i ], [ %.366.i.i, %201 ], [ %.2.i.i, %243 ]
   %247 = icmp eq i32 %.164.i.i, 0
   br i1 %247, label %248, label %252
 
@@ -2762,7 +2762,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   br label %.thread269
 
 .thread269:                                       ; preds = %177, %switch.early.test, %switch.early.test, %switch.early.test, %226, %248, %225
-  %249 = phi i1 [ true, %226 ], [ true, %248 ], [ false, %225 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %177 ]
+  %249 = phi i1 [ false, %225 ], [ true, %226 ], [ true, %248 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ false, %177 ]
   %or.cond29 = or i1 %141, %249
   %250 = icmp eq i32 %.0, 3
   %or.cond31 = select i1 %or.cond29, i1 %250, i1 false
@@ -2850,7 +2850,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread273, %283, %270, %261, %267, %264, %.thread269, %260, %259, %255, %251
-  %.3 = phi i32 [ 3, %251 ], [ 4, %255 ], [ 4, %259 ], [ 5, %260 ], [ 2, %.thread269 ], [ 2, %264 ], [ 2, %267 ], [ 2, %261 ], [ 4, %270 ], [ %spec.select, %283 ], [ 3, %.thread273 ]
+  %.3 = phi i32 [ 2, %261 ], [ %spec.select, %283 ], [ 4, %270 ], [ 2, %.thread269 ], [ 3, %251 ], [ 4, %255 ], [ 4, %259 ], [ 5, %260 ], [ 2, %264 ], [ 2, %267 ], [ 3, %.thread273 ]
   %286 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %.3, ptr %286, align 4
   br label %.backedge
@@ -2861,7 +2861,7 @@ _wif_status.exit264:                              ; preds = %221, %.loopexit.loo
   br label %_send_msg_maybe.exit.thread
 
 _send_msg_maybe.exit:                             ; preds = %123, %126, %_comm_err.exit, %106, %97, %92, %85
-  %.0197 = phi i32 [ 3, %85 ], [ 3, %92 ], [ 3, %97 ], [ 3, %126 ], [ 3, %_comm_err.exit ], [ 3, %106 ], [ 2, %123 ]
+  %.0197 = phi i32 [ 3, %_comm_err.exit ], [ 3, %85 ], [ 3, %92 ], [ 3, %97 ], [ 2, %123 ], [ 3, %106 ], [ 3, %126 ]
   %287 = icmp eq i32 %12, 6004
   br i1 %287, label %288, label %_send_msg_maybe.exit.thread
 
@@ -2890,8 +2890,8 @@ _send_msg_maybe.exit:                             ; preds = %123, %126, %_comm_e
   br label %_send_msg_maybe.exit.thread
 
 _send_msg_maybe.exit.thread:                      ; preds = %113, %116, %119, %120, %._crit_edge, %288, %298, %_send_msg_maybe.exit
-  %.0197279 = phi i32 [ %.0197, %288 ], [ %.0197, %298 ], [ %.0197, %_send_msg_maybe.exit ], [ 2, %120 ], [ 2, %119 ], [ 2, %116 ], [ 2, %113 ], [ %.1198.lcssa, %._crit_edge ]
-  %.0199278 = phi ptr [ null, %288 ], [ null, %298 ], [ null, %_send_msg_maybe.exit ], [ null, %120 ], [ null, %119 ], [ null, %116 ], [ null, %113 ], [ %.1200, %._crit_edge ]
+  %.0197279 = phi i32 [ %.0197, %_send_msg_maybe.exit ], [ %.0197, %288 ], [ %.0197, %298 ], [ 2, %120 ], [ 2, %119 ], [ 2, %116 ], [ 2, %113 ], [ %.1198.lcssa, %._crit_edge ]
+  %.0199278 = phi ptr [ null, %_send_msg_maybe.exit ], [ null, %288 ], [ null, %298 ], [ null, %120 ], [ null, %119 ], [ null, %116 ], [ null, %113 ], [ %.1200, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %1) #15
   %299 = getelementptr inbounds nuw i8, ptr %2, i64 216
   call void @destroy_forward(ptr noundef nonnull %299) #15
@@ -3497,7 +3497,7 @@ _signal_defer.exit:                               ; preds = %.lr.ph.i
     i32 0, label %_signal_defer.exit.thread43
   ]
 
-_signal_defer.exit.thread:                        ; preds = %90, %93, %110, %_signal_defer.exit
+_signal_defer.exit.thread:                        ; preds = %93, %90, %110, %_signal_defer.exit
   %118 = load ptr, ptr %10, align 8
   %119 = load ptr, ptr %118, align 8
   call void @purge_agent_args(ptr noundef %119) #15
@@ -4772,7 +4772,7 @@ thread-pre-split:                                 ; preds = %47
   %84 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.114, i32 noundef %83) #15
   br label %_signal_defer.exit.thread
 
-_signal_defer.exit.thread:                        ; preds = %73, %74, %61, %64, %81, %47
+_signal_defer.exit.thread:                        ; preds = %73, %74, %64, %61, %81, %47
   %85 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @defer_mutex) #15
   %.not42 = icmp eq i32 %85, 0
   br i1 %.not42, label %88, label %86
@@ -5057,7 +5057,7 @@ define internal fastcc range(i32 -1, 2) i32 @_batch_launch_defer(ptr noundef cap
   br label %111
 
 111:                                              ; preds = %.thread, %82, %86, %83, %33, %36, %22, %25, %1, %110, %106, %94
-  %.0 = phi i32 [ 0, %94 ], [ 1, %110 ], [ -1, %106 ], [ 1, %1 ], [ -1, %25 ], [ -1, %22 ], [ 1, %36 ], [ 1, %33 ], [ 1, %83 ], [ 1, %86 ], [ 1, %82 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %.thread ], [ 1, %1 ], [ -1, %22 ], [ 1, %33 ], [ 0, %94 ], [ 1, %110 ], [ -1, %106 ], [ -1, %25 ], [ 1, %36 ], [ 1, %83 ], [ 1, %86 ], [ 1, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -1489,13 +1489,13 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br label %271
 
 271:                                              ; preds = %.critedge.i, %268
-  %.1340.i = phi i1 [ %244, %268 ], [ false, %.critedge.i ]
-  %.1336.i = phi i32 [ %251, %268 ], [ %.0335462.i, %.critedge.i ]
-  %.2333.i = phi i64 [ %.3334.lcssa.i, %268 ], [ %.0331463.i, %.critedge.i ]
-  %.1322.i = phi i64 [ %243, %268 ], [ %.0321466.i, %.critedge.i ]
-  %.2313.i = phi i32 [ %.3314.i, %268 ], [ %.1312469.i, %.critedge.i ]
-  %.2302.i = phi i64 [ %.4304.i, %268 ], [ %.0300473.i, %.critedge.i ]
-  %.2.i = phi i32 [ %.3.lcssa.i, %268 ], [ %.0280474.i, %.critedge.i ]
+  %.1340.i = phi i1 [ false, %.critedge.i ], [ %244, %268 ]
+  %.1336.i = phi i32 [ %.0335462.i, %.critedge.i ], [ %251, %268 ]
+  %.2333.i = phi i64 [ %.0331463.i, %.critedge.i ], [ %.3334.lcssa.i, %268 ]
+  %.1322.i = phi i64 [ %.0321466.i, %.critedge.i ], [ %243, %268 ]
+  %.2313.i = phi i32 [ %.1312469.i, %.critedge.i ], [ %.3314.i, %268 ]
+  %.2302.i = phi i64 [ %.0300473.i, %.critedge.i ], [ %.4304.i, %268 ]
+  %.2.i = phi i32 [ %.0280474.i, %.critedge.i ], [ %.3.lcssa.i, %268 ]
   br i1 %.not360476.i, label %272, label %.critedge378.i
 
 272:                                              ; preds = %271
@@ -1612,11 +1612,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br label %325
 
 325:                                              ; preds = %.critedge378.i, %321
-  %.1338.i = phi i1 [ %323, %321 ], [ false, %.critedge378.i ]
-  %.1325.i = phi i64 [ %322, %321 ], [ %.0324465.i, %.critedge378.i ]
-  %.2317.i = phi i32 [ %.3318.i, %321 ], [ %.1316467.i, %.critedge378.i ]
-  %.2307.i = phi i64 [ %.4309.i, %321 ], [ %.0305472.i, %.critedge378.i ]
-  %.6.i = phi i32 [ %.7.lcssa.i, %321 ], [ %.2.i, %.critedge378.i ]
+  %.1338.i = phi i1 [ false, %.critedge378.i ], [ %323, %321 ]
+  %.1325.i = phi i64 [ %.0324465.i, %.critedge378.i ], [ %322, %321 ]
+  %.2317.i = phi i32 [ %.1316467.i, %.critedge378.i ], [ %.3318.i, %321 ]
+  %.2307.i = phi i64 [ %.0305472.i, %.critedge378.i ], [ %.4309.i, %321 ]
+  %.6.i = phi i32 [ %.2.i, %.critedge378.i ], [ %.7.lcssa.i, %321 ]
   %326 = load i32, ptr @g_decodeOnly, align 4, !tbaa !4
   %.not366.i = icmp eq i32 %326, 0
   %brmerge.i = or i1 %.not492.i, %.not366.i

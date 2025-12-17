@@ -109,7 +109,7 @@ phn_merge_ordered.exit16:                         ; preds = %38, %41
   br label %phn_merge.exit7
 
 phn_merge.exit7:                                  ; preds = %phn_merge_ordered.exit14, %phn_merge_ordered.exit16
-  %.0.i6 = phi ptr [ %10, %phn_merge_ordered.exit14 ], [ %16, %phn_merge_ordered.exit16 ]
+  %.0.i6 = phi ptr [ %16, %phn_merge_ordered.exit16 ], [ %10, %phn_merge_ordered.exit14 ]
   br i1 %.not85.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit7, %82
@@ -196,7 +196,7 @@ phn_merge_ordered.exit20:                         ; preds = %71, %74
   br label %._crit_edge
 
 82:                                               ; preds = %phn_merge_ordered.exit20, %phn_merge_ordered.exit18
-  %.0.i4 = phi ptr [ %.1.i32, %phn_merge_ordered.exit18 ], [ %49, %phn_merge_ordered.exit20 ]
+  %.0.i4 = phi ptr [ %49, %phn_merge_ordered.exit20 ], [ %.1.i32, %phn_merge_ordered.exit18 ]
   %83 = ptrtoint ptr %.076.i31 to i64
   %84 = add i64 %83, 40
   %85 = inttoptr i64 %84 to ptr
@@ -280,7 +280,7 @@ phn_merge_ordered.exit24:                         ; preds = %113, %116
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %.preheader, %phn_merge_ordered.exit22, %phn_merge_ordered.exit24
-  %.0.i3 = phi ptr [ %.4.i, %phn_merge_ordered.exit22 ], [ %.0.i2, %phn_merge_ordered.exit24 ], [ %.4.i, %.preheader ]
+  %.0.i3 = phi ptr [ %.0.i2, %phn_merge_ordered.exit24 ], [ %.4.i, %.preheader ], [ %.4.i, %phn_merge_ordered.exit22 ]
   %120 = icmp eq ptr %96, null
   br i1 %120, label %phn_merge_siblings.exit.thread, label %121
 
@@ -352,7 +352,7 @@ phn_merge_ordered.exit12:                         ; preds = %145, %151
   br label %phn_merge.exit9
 
 phn_merge.exit9:                                  ; preds = %phn_merge_ordered.exit, %phn_merge_ordered.exit12
-  %.0.i8 = phi ptr [ %2, %phn_merge_ordered.exit ], [ %.075.i29, %phn_merge_ordered.exit12 ]
+  %.0.i8 = phi ptr [ %.075.i29, %phn_merge_ordered.exit12 ], [ %2, %phn_merge_ordered.exit ]
   store ptr %.0.i8, ptr %0, align 8, !tbaa !4
   br label %ph_first.exit
 
@@ -652,7 +652,7 @@ phn_merge_ordered.exit16:                         ; preds = %38, %41
   br label %phn_merge.exit7
 
 phn_merge.exit7:                                  ; preds = %phn_merge_ordered.exit14, %phn_merge_ordered.exit16
-  %.0.i6 = phi ptr [ %10, %phn_merge_ordered.exit14 ], [ %16, %phn_merge_ordered.exit16 ]
+  %.0.i6 = phi ptr [ %16, %phn_merge_ordered.exit16 ], [ %10, %phn_merge_ordered.exit14 ]
   br i1 %.not85.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit7, %82
@@ -739,7 +739,7 @@ phn_merge_ordered.exit20:                         ; preds = %71, %74
   br label %._crit_edge
 
 82:                                               ; preds = %phn_merge_ordered.exit20, %phn_merge_ordered.exit18
-  %.0.i4 = phi ptr [ %.1.i37, %phn_merge_ordered.exit18 ], [ %49, %phn_merge_ordered.exit20 ]
+  %.0.i4 = phi ptr [ %49, %phn_merge_ordered.exit20 ], [ %.1.i37, %phn_merge_ordered.exit18 ]
   %83 = ptrtoint ptr %.076.i36 to i64
   %84 = add i64 %83, 40
   %85 = inttoptr i64 %84 to ptr
@@ -823,7 +823,7 @@ phn_merge_ordered.exit24:                         ; preds = %113, %116
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %.preheader34, %phn_merge_ordered.exit22, %phn_merge_ordered.exit24
-  %.0.i3 = phi ptr [ %.4.i, %phn_merge_ordered.exit22 ], [ %.0.i2, %phn_merge_ordered.exit24 ], [ %.4.i, %.preheader34 ]
+  %.0.i3 = phi ptr [ %.0.i2, %phn_merge_ordered.exit24 ], [ %.4.i, %.preheader34 ], [ %.4.i, %phn_merge_ordered.exit22 ]
   %120 = icmp eq ptr %96, null
   br i1 %120, label %phn_merge_siblings.exit.thread, label %121
 
@@ -976,7 +976,7 @@ phn_merge_ordered.exit14.i:                       ; preds = %189, %186
   br label %phn_merge.exit11.i
 
 phn_merge.exit11.i:                               ; preds = %phn_merge_ordered.exit14.i, %phn_merge_ordered.exit.i
-  %.0.i10.i = phi ptr [ %157, %phn_merge_ordered.exit.i ], [ %164, %phn_merge_ordered.exit14.i ]
+  %.0.i10.i = phi ptr [ %164, %phn_merge_ordered.exit14.i ], [ %157, %phn_merge_ordered.exit.i ]
   br i1 %.not85.i.i, label %._crit_edge42, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %phn_merge.exit11.i, %230
@@ -1063,7 +1063,7 @@ phn_merge_ordered.exit18.i:                       ; preds = %222, %219
   br label %._crit_edge42
 
 230:                                              ; preds = %phn_merge_ordered.exit16.i, %phn_merge_ordered.exit18.i
-  %.0.i8.i = phi ptr [ %.1.i.i40, %phn_merge_ordered.exit16.i ], [ %197, %phn_merge_ordered.exit18.i ]
+  %.0.i8.i = phi ptr [ %197, %phn_merge_ordered.exit18.i ], [ %.1.i.i40, %phn_merge_ordered.exit16.i ]
   %231 = ptrtoint ptr %.076.i.i39 to i64
   %232 = add i64 %231, 40
   %233 = inttoptr i64 %232 to ptr
@@ -1147,7 +1147,7 @@ phn_merge_ordered.exit22.i:                       ; preds = %264, %261
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit22.i, %phn_merge_ordered.exit20.i, %.preheader
-  %.0.i7.i = phi ptr [ %.4.i.i, %phn_merge_ordered.exit20.i ], [ %.0.i.i, %phn_merge_ordered.exit22.i ], [ %.4.i.i, %.preheader ]
+  %.0.i7.i = phi ptr [ %.0.i.i, %phn_merge_ordered.exit22.i ], [ %.4.i.i, %.preheader ], [ %.4.i.i, %phn_merge_ordered.exit20.i ]
   %268 = icmp eq ptr %244, null
   br i1 %268, label %ph_merge_children.exit, label %269
 
@@ -1287,7 +1287,7 @@ phn_merge_ordered.exit23:                         ; preds = %50, %53
   br label %phn_merge.exit14
 
 phn_merge.exit14:                                 ; preds = %phn_merge_ordered.exit21, %phn_merge_ordered.exit23
-  %.0.i13 = phi ptr [ %22, %phn_merge_ordered.exit21 ], [ %28, %phn_merge_ordered.exit23 ]
+  %.0.i13 = phi ptr [ %28, %phn_merge_ordered.exit23 ], [ %22, %phn_merge_ordered.exit21 ]
   br i1 %.not85.i4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %phn_merge.exit14, %94
@@ -1374,7 +1374,7 @@ phn_merge_ordered.exit27:                         ; preds = %83, %86
   br label %._crit_edge
 
 94:                                               ; preds = %phn_merge_ordered.exit27, %phn_merge_ordered.exit25
-  %.0.i11 = phi ptr [ %.1.i87, %phn_merge_ordered.exit25 ], [ %61, %phn_merge_ordered.exit27 ]
+  %.0.i11 = phi ptr [ %61, %phn_merge_ordered.exit27 ], [ %.1.i87, %phn_merge_ordered.exit25 ]
   %95 = ptrtoint ptr %.076.i86 to i64
   %96 = add i64 %95, 40
   %97 = inttoptr i64 %96 to ptr
@@ -1458,7 +1458,7 @@ phn_merge_ordered.exit31:                         ; preds = %125, %128
   br label %phn_merge.exit
 
 phn_merge.exit:                                   ; preds = %.preheader84, %phn_merge_ordered.exit29, %phn_merge_ordered.exit31
-  %.0.i10 = phi ptr [ %.4.i, %phn_merge_ordered.exit29 ], [ %.0.i9, %phn_merge_ordered.exit31 ], [ %.4.i, %.preheader84 ]
+  %.0.i10 = phi ptr [ %.0.i9, %phn_merge_ordered.exit31 ], [ %.4.i, %.preheader84 ], [ %.4.i, %phn_merge_ordered.exit29 ]
   %132 = icmp eq ptr %108, null
   br i1 %132, label %phn_merge_siblings.exit, label %133
 
@@ -1533,7 +1533,7 @@ phn_merge_ordered.exit19:                         ; preds = %158, %164
   br label %ph_merge_aux.exit
 
 ph_merge_aux.exit:                                ; preds = %phn_merge_ordered.exit19, %phn_merge_ordered.exit, %phn_merge_siblings.exit
-  %.0.i15 = phi ptr [ %3, %phn_merge_ordered.exit ], [ %.075.i, %phn_merge_ordered.exit19 ], [ %.075.i, %phn_merge_siblings.exit ]
+  %.0.i15 = phi ptr [ %.075.i, %phn_merge_ordered.exit19 ], [ %.075.i, %phn_merge_siblings.exit ], [ %3, %phn_merge_ordered.exit ]
   store ptr %.0.i15, ptr %0, align 8, !tbaa !4
   %168 = icmp eq ptr %.0.i15, %1
   br i1 %168, label %ph_merge_aux.exit.thread, label %._crit_edge102
@@ -1617,7 +1617,7 @@ phn_merge_ordered.exit14.i:                       ; preds = %201, %198
   br label %phn_merge.exit11.i
 
 phn_merge.exit11.i:                               ; preds = %phn_merge_ordered.exit14.i, %phn_merge_ordered.exit.i
-  %.0.i10.i = phi ptr [ %169, %phn_merge_ordered.exit.i ], [ %176, %phn_merge_ordered.exit14.i ]
+  %.0.i10.i = phi ptr [ %176, %phn_merge_ordered.exit14.i ], [ %169, %phn_merge_ordered.exit.i ]
   br i1 %.not85.i.i, label %._crit_edge98, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %phn_merge.exit11.i, %242
@@ -1704,7 +1704,7 @@ phn_merge_ordered.exit18.i:                       ; preds = %234, %231
   br label %._crit_edge98
 
 242:                                              ; preds = %phn_merge_ordered.exit16.i, %phn_merge_ordered.exit18.i
-  %.0.i8.i = phi ptr [ %.1.i.i96, %phn_merge_ordered.exit16.i ], [ %209, %phn_merge_ordered.exit18.i ]
+  %.0.i8.i = phi ptr [ %209, %phn_merge_ordered.exit18.i ], [ %.1.i.i96, %phn_merge_ordered.exit16.i ]
   %243 = ptrtoint ptr %.076.i.i95 to i64
   %244 = add i64 %243, 40
   %245 = inttoptr i64 %244 to ptr
@@ -1788,7 +1788,7 @@ phn_merge_ordered.exit22.i:                       ; preds = %276, %273
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit22.i, %phn_merge_ordered.exit20.i, %.preheader
-  %.0.i7.i = phi ptr [ %.4.i.i, %phn_merge_ordered.exit20.i ], [ %.0.i.i, %phn_merge_ordered.exit22.i ], [ %.4.i.i, %.preheader ]
+  %.0.i7.i = phi ptr [ %.0.i.i, %phn_merge_ordered.exit22.i ], [ %.4.i.i, %.preheader ], [ %.4.i.i, %phn_merge_ordered.exit20.i ]
   %280 = icmp eq ptr %256, null
   br i1 %280, label %ph_merge_children.exit, label %281
 
@@ -1910,7 +1910,7 @@ phn_merge_ordered.exit14.i36:                     ; preds = %335, %332
   br label %phn_merge.exit11.i37
 
 phn_merge.exit11.i37:                             ; preds = %phn_merge_ordered.exit14.i36, %phn_merge_ordered.exit.i66
-  %.0.i10.i38 = phi ptr [ %305, %phn_merge_ordered.exit.i66 ], [ %310, %phn_merge_ordered.exit14.i36 ]
+  %.0.i10.i38 = phi ptr [ %310, %phn_merge_ordered.exit14.i36 ], [ %305, %phn_merge_ordered.exit.i66 ]
   br i1 %.not85.i.i34, label %._crit_edge92, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %phn_merge.exit11.i37, %376
@@ -1997,7 +1997,7 @@ phn_merge_ordered.exit18.i45:                     ; preds = %368, %365
   br label %._crit_edge92
 
 376:                                              ; preds = %phn_merge_ordered.exit16.i51, %phn_merge_ordered.exit18.i45
-  %.0.i8.i47 = phi ptr [ %.1.i.i4090, %phn_merge_ordered.exit16.i51 ], [ %343, %phn_merge_ordered.exit18.i45 ]
+  %.0.i8.i47 = phi ptr [ %343, %phn_merge_ordered.exit18.i45 ], [ %.1.i.i4090, %phn_merge_ordered.exit16.i51 ]
   %377 = ptrtoint ptr %.076.i.i3989 to i64
   %378 = add i64 %377, 40
   %379 = inttoptr i64 %378 to ptr
@@ -2081,7 +2081,7 @@ phn_merge_ordered.exit22.i57:                     ; preds = %410, %407
   br label %phn_merge.exit.i58
 
 phn_merge.exit.i58:                               ; preds = %phn_merge_ordered.exit22.i57, %phn_merge_ordered.exit20.i64, %.preheader83
-  %.0.i7.i59 = phi ptr [ %.4.i.i54, %phn_merge_ordered.exit20.i64 ], [ %.0.i.i55, %phn_merge_ordered.exit22.i57 ], [ %.4.i.i54, %.preheader83 ]
+  %.0.i7.i59 = phi ptr [ %.0.i.i55, %phn_merge_ordered.exit22.i57 ], [ %.4.i.i54, %.preheader83 ], [ %.4.i.i54, %phn_merge_ordered.exit20.i64 ]
   %414 = icmp eq ptr %390, null
   br i1 %414, label %ph_merge_children.exit67.thread79, label %415
 
@@ -2561,7 +2561,7 @@ fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %f
   br i1 %154, label %.lr.ph136, label %.thread108
 
 .thread108:                                       ; preds = %153, %.loopexit, %.lr.ph.i72, %.loopexit.thread, %.thread, %117
-  %.4 = phi i64 [ %.032, %117 ], [ %.292, %.loopexit.thread ], [ %spec.select40179, %.thread ], [ %.335133, %.lr.ph.i72 ], [ %spec.select40, %153 ], [ %.292, %.loopexit ]
+  %.4 = phi i64 [ %.032, %117 ], [ %spec.select40179, %.thread ], [ %.292, %.loopexit.thread ], [ %.335133, %.lr.ph.i72 ], [ %spec.select40, %153 ], [ %.292, %.loopexit ]
   store i64 %.4, ptr %115, align 8, !tbaa !32
   br label %155
 

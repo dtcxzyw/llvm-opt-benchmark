@@ -190,8 +190,8 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   ]
 
 .lr.ph.i.i.preheader:                             ; preds = %27, %23, %20
-  %.sroa.01.153.i.i.ph = phi ptr [ %24, %23 ], [ %17, %20 ], [ %17, %27 ]
-  %.sroa.14.152.i.i.ph = phi i64 [ %25, %23 ], [ 1, %20 ], [ %19, %27 ]
+  %.sroa.01.153.i.i.ph = phi ptr [ %24, %23 ], [ %17, %27 ], [ %17, %20 ]
+  %.sroa.14.152.i.i.ph = phi i64 [ %25, %23 ], [ %19, %27 ], [ 1, %20 ]
   br label %.lr.ph.i.i
 
 22:                                               ; preds = %16
@@ -262,7 +262,7 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   %.not42.i.i = icmp eq i64 %51, 0
   br i1 %.not42.i.i, label %.loopexit, label %.lr.ph.i.i
 
-"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17hf31da8fa98ddc8fbE.exit.thread": ; preds = %40, %38, %29, %.lr.ph.i.i, %20, %20, %16
+"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17hf31da8fa98ddc8fbE.exit.thread": ; preds = %40, %38, %29, %.lr.ph.i.i, %16, %20, %20
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb44d68f7f349af3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
@@ -325,7 +325,7 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   br label %73
 
 73:                                               ; preds = %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit54", %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit", %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit", %.loopexit, %1
-  %.sroa.0.1 = phi i64 [ %9, %1 ], [ %.sroa.0.03.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit" ], [ %58, %.loopexit ], [ %.sroa.0.03.i52, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit54" ], [ %114, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit" ]
+  %.sroa.0.1 = phi i64 [ %9, %1 ], [ %58, %.loopexit ], [ %.sroa.0.03.i, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit" ], [ %.sroa.0.03.i52, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h5aae9201113cf4d9E.exit54" ], [ %114, %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit" ]
   ret i64 %.sroa.0.1
 
 74:                                               ; preds = %59
@@ -357,8 +357,8 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   ]
 
 .lr.ph.i.i37.preheader:                           ; preds = %86, %82, %79
-  %.sroa.01.153.i.i38.ph = phi ptr [ %83, %82 ], [ %76, %79 ], [ %76, %86 ]
-  %.sroa.14.152.i.i39.ph = phi i64 [ %84, %82 ], [ 1, %79 ], [ %78, %86 ]
+  %.sroa.01.153.i.i38.ph = phi ptr [ %83, %82 ], [ %76, %86 ], [ %76, %79 ]
+  %.sroa.14.152.i.i39.ph = phi i64 [ %84, %82 ], [ %78, %86 ], [ 1, %79 ]
   br label %.lr.ph.i.i37
 
 81:                                               ; preds = %75
@@ -429,7 +429,7 @@ define hidden noundef i64 @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num
   %.not42.i.i41 = icmp eq i64 %110, 0
   br i1 %.not42.i.i41, label %"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit", label %.lr.ph.i.i37
 
-"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit.thread": ; preds = %99, %97, %88, %.lr.ph.i.i37, %79, %79, %75
+"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$15get_num_threads28_$u7b$$u7b$closure$u7d$$u7d$17h335625d10879c707E.exit.thread": ; preds = %99, %97, %88, %.lr.ph.i.i37, %75, %79, %79
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb44d68f7f349af3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
@@ -1054,8 +1054,8 @@ define hidden { i64, i64 } @_ZN12polars_utils11regex_cache14get_size_limit17h2f5
   ]
 
 .lr.ph.i.preheader:                               ; preds = %22, %26, %19
-  %.sroa.01.153.i.ph = phi ptr [ %23, %22 ], [ %16, %19 ], [ %16, %26 ]
-  %.sroa.14.152.i.ph = phi i64 [ %24, %22 ], [ 1, %19 ], [ %18, %26 ]
+  %.sroa.01.153.i.ph = phi ptr [ %23, %22 ], [ %16, %26 ], [ %16, %19 ]
+  %.sroa.14.152.i.ph = phi i64 [ %24, %22 ], [ %18, %26 ], [ 1, %19 ]
   br label %.lr.ph.i
 
 21:                                               ; preds = %15
@@ -1144,8 +1144,8 @@ define hidden { i64, i64 } @_ZN12polars_utils11regex_cache14get_size_limit17h2f5
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb44d68f7f349af3fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #24
           to label %62 unwind label %60
 
-.loopexit:                                        ; preds = %28, %37, %39, %.lr.ph.i, %15, %19, %19
-  %.sroa.5.0.ph = phi i8 [ 1, %19 ], [ 1, %19 ], [ 0, %15 ], [ 1, %.lr.ph.i ], [ 1, %28 ], [ 2, %37 ], [ 2, %39 ]
+.loopexit:                                        ; preds = %39, %37, %28, %.lr.ph.i, %19, %19, %15
+  %.sroa.5.0.ph = phi i8 [ 1, %19 ], [ 0, %15 ], [ 1, %19 ], [ 1, %.lr.ph.i ], [ 2, %39 ], [ 1, %28 ], [ 2, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !97
   store i8 %.sroa.5.0.ph, ptr %1, align 1, !noalias !97
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.489cc5946abd7dcc38e9b524d6bbd35e.43, i64 noundef 31, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.489cc5946abd7dcc38e9b524d6bbd35e.20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.489cc5946abd7dcc38e9b524d6bbd35e.45) #22

@@ -1374,8 +1374,8 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   br label %36
 
 36:                                               ; preds = %28, %17, %32, %12, %9
-  %.sroa.033.0 = phi ptr [ %3, %12 ], [ %23, %32 ], [ %3, %17 ], [ %3, %9 ], [ %23, %28 ]
-  %.sroa.15.0 = phi i64 [ %4, %12 ], [ %35, %32 ], [ %4, %17 ], [ %4, %9 ], [ 0, %28 ]
+  %.sroa.033.0 = phi ptr [ %3, %12 ], [ %23, %28 ], [ %23, %32 ], [ %3, %9 ], [ %3, %17 ]
+  %.sroa.15.0 = phi i64 [ %4, %12 ], [ 0, %28 ], [ %35, %32 ], [ %4, %9 ], [ %4, %17 ]
   %37 = ptrtoint ptr %.sroa.033.0 to i64
   %38 = ptrtoint ptr %1 to i64
   %39 = sub i64 %37, %38
@@ -1437,8 +1437,8 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   br label %69
 
 69:                                               ; preds = %62, %54, %65, %49, %46
-  %.sroa.033.2 = phi ptr [ %.sroa.033.1, %49 ], [ %.sroa.033.1, %65 ], [ %.sroa.033.1, %54 ], [ %.sroa.033.1, %46 ], [ %58, %62 ]
-  %.sroa.15.2 = phi i64 [ %.sroa.15.1, %49 ], [ %68, %65 ], [ %.sroa.15.1, %54 ], [ %.sroa.15.1, %46 ], [ 0, %62 ]
+  %.sroa.033.2 = phi ptr [ %.sroa.033.1, %49 ], [ %58, %62 ], [ %.sroa.033.1, %65 ], [ %.sroa.033.1, %46 ], [ %.sroa.033.1, %54 ]
+  %.sroa.15.2 = phi i64 [ %.sroa.15.1, %49 ], [ 0, %62 ], [ %68, %65 ], [ %.sroa.15.1, %46 ], [ %.sroa.15.1, %54 ]
   %70 = getelementptr inbounds ptr, ptr %.sroa.033.2, i64 %.sroa.15.2
   %71 = ptrtoint ptr %44 to i64
   %72 = ptrtoint ptr %70 to i64
@@ -1640,8 +1640,8 @@ _ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %75
   br label %114
 
 114:                                              ; preds = %110, %106, %95, %93, %90
-  %.sroa.033.0.i = phi ptr [ %spec.select, %93 ], [ %101, %110 ], [ %spec.select, %95 ], [ %spec.select, %90 ], [ %101, %106 ]
-  %.sroa.15.0.i = phi i64 [ %spec.select176, %93 ], [ %113, %110 ], [ %spec.select176, %95 ], [ %spec.select176, %90 ], [ 0, %106 ]
+  %.sroa.033.0.i = phi ptr [ %spec.select, %93 ], [ %101, %106 ], [ %101, %110 ], [ %spec.select, %90 ], [ %spec.select, %95 ]
+  %.sroa.15.0.i = phi i64 [ %spec.select176, %93 ], [ 0, %106 ], [ %113, %110 ], [ %spec.select176, %90 ], [ %spec.select176, %95 ]
   %115 = ptrtoint ptr %.sroa.033.0.i to i64
   %116 = ptrtoint ptr %88 to i64
   %117 = sub i64 %115, %116
@@ -1695,8 +1695,8 @@ _ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %75
   br label %143
 
 143:                                              ; preds = %139, %136, %128, %126, %123
-  %.sroa.033.2.i = phi ptr [ %.sroa.033.1.i, %126 ], [ %.sroa.033.1.i, %139 ], [ %.sroa.033.1.i, %128 ], [ %.sroa.033.1.i, %123 ], [ %132, %136 ]
-  %.sroa.15.2.i = phi i64 [ %.sroa.15.1.i, %126 ], [ %142, %139 ], [ %.sroa.15.1.i, %128 ], [ %.sroa.15.1.i, %123 ], [ 0, %136 ]
+  %.sroa.033.2.i = phi ptr [ %.sroa.033.1.i, %126 ], [ %132, %136 ], [ %.sroa.033.1.i, %139 ], [ %.sroa.033.1.i, %123 ], [ %.sroa.033.1.i, %128 ]
+  %.sroa.15.2.i = phi i64 [ %.sroa.15.1.i, %126 ], [ 0, %136 ], [ %142, %139 ], [ %.sroa.15.1.i, %123 ], [ %.sroa.15.1.i, %128 ]
   %144 = getelementptr inbounds ptr, ptr %.sroa.033.2.i, i64 %.sroa.15.2.i
   %145 = ptrtoint ptr %121 to i64
   %146 = ptrtoint ptr %144 to i64
@@ -1839,7 +1839,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   br label %233
 
 233:                                              ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit.thread, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit85, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77
-  %.not = phi i1 [ true, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77 ], [ %232, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit85 ], [ true, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit.thread ]
+  %.not = phi i1 [ true, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit.thread ], [ true, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77 ], [ %232, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit85 ]
   %234 = icmp sgt i32 %.pre187, 0
   br i1 %234, label %.lr.ph, label %._crit_edge
 
@@ -2055,8 +2055,8 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   br label %371
 
 371:                                              ; preds = %367, %363, %352, %349, %346
-  %.sroa.033.0.i102 = phi ptr [ %.sroa.0118.0, %349 ], [ %358, %367 ], [ %.sroa.0118.0, %352 ], [ %.sroa.0118.0, %346 ], [ %358, %363 ]
-  %.sroa.15.0.i103 = phi i64 [ %.sroa.5.0, %349 ], [ %370, %367 ], [ %.sroa.5.0, %352 ], [ %.sroa.5.0, %346 ], [ 0, %363 ]
+  %.sroa.033.0.i102 = phi ptr [ %.sroa.0118.0, %349 ], [ %358, %363 ], [ %358, %367 ], [ %.sroa.0118.0, %346 ], [ %.sroa.0118.0, %352 ]
+  %.sroa.15.0.i103 = phi i64 [ %.sroa.5.0, %349 ], [ 0, %363 ], [ %370, %367 ], [ %.sroa.5.0, %346 ], [ %.sroa.5.0, %352 ]
   %372 = ptrtoint ptr %.sroa.033.0.i102 to i64
   %373 = ptrtoint ptr %343 to i64
   %374 = sub i64 %372, %373
@@ -2111,8 +2111,8 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   br label %401
 
 401:                                              ; preds = %397, %394, %386, %383, %380
-  %.sroa.033.2.i93 = phi ptr [ %.sroa.033.1.i91, %383 ], [ %.sroa.033.1.i91, %397 ], [ %.sroa.033.1.i91, %386 ], [ %.sroa.033.1.i91, %380 ], [ %390, %394 ]
-  %.sroa.15.2.i94 = phi i64 [ %.sroa.15.1.i92, %383 ], [ %400, %397 ], [ %.sroa.15.1.i92, %386 ], [ %.sroa.15.1.i92, %380 ], [ 0, %394 ]
+  %.sroa.033.2.i93 = phi ptr [ %.sroa.033.1.i91, %383 ], [ %390, %394 ], [ %.sroa.033.1.i91, %397 ], [ %.sroa.033.1.i91, %380 ], [ %.sroa.033.1.i91, %386 ]
+  %.sroa.15.2.i94 = phi i64 [ %.sroa.15.1.i92, %383 ], [ 0, %394 ], [ %400, %397 ], [ %.sroa.15.1.i92, %380 ], [ %.sroa.15.1.i92, %386 ]
   %402 = getelementptr inbounds ptr, ptr %.sroa.033.2.i93, i64 %.sroa.15.2.i94
   %403 = ptrtoint ptr %378 to i64
   %404 = ptrtoint ptr %402 to i64

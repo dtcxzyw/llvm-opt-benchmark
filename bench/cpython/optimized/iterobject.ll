@@ -1015,7 +1015,7 @@ _Py_NewRef.exit:                                  ; preds = %7, %11
   br label %37
 
 37:                                               ; preds = %4, %_Py_NewRef.exit, %3
-  %.0 = phi ptr [ %5, %_Py_NewRef.exit ], [ null, %3 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %3 ], [ %5, %_Py_NewRef.exit ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -1156,7 +1156,7 @@ define internal ptr @iter_iternext(ptr noundef captures(none) %0) #0 {
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %27, %24, %22, %19, %1, %13, %9
-  %.0 = phi ptr [ null, %9 ], [ %12, %13 ], [ null, %1 ], [ null, %19 ], [ null, %22 ], [ null, %24 ], [ null, %27 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %9 ], [ %12, %13 ], [ null, %19 ], [ null, %22 ], [ null, %24 ], [ null, %27 ]
   ret ptr %.0
 }
 
@@ -1490,7 +1490,7 @@ Py_DECREF.exit48.thread:                          ; preds = %40, %37, %35, %24, 
   br label %.critedge
 
 .critedge:                                        ; preds = %64, %61, %Py_DECREF.exit48.thread, %Py_DECREF.exit48, %22, %1
-  %.0 = phi ptr [ null, %1 ], [ %.0.i.i, %22 ], [ null, %Py_DECREF.exit48 ], [ null, %Py_DECREF.exit48.thread ], [ null, %61 ], [ null, %64 ]
+  %.0 = phi ptr [ %.0.i.i, %22 ], [ null, %1 ], [ null, %Py_DECREF.exit48 ], [ null, %Py_DECREF.exit48.thread ], [ null, %61 ], [ null, %64 ]
   ret ptr %.0
 }
 
@@ -1757,7 +1757,7 @@ define internal ptr @iter_len(ptr noundef readonly captures(none) %0, ptr readno
   br label %20
 
 20:                                               ; preds = %5, %7, %18, %16
-  %.0 = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %7 ], [ @_Py_NotImplementedStruct, %5 ]
+  %.0 = phi ptr [ null, %7 ], [ %17, %16 ], [ %19, %18 ], [ @_Py_NotImplementedStruct, %5 ]
   ret ptr %.0
 }
 
@@ -1931,7 +1931,7 @@ Py_DECREF.exit21:                                 ; preds = %19, %20, %23
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %28, %25, %16, %15, %3, %Py_DECREF.exit21, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %3 ], [ %12, %Py_DECREF.exit21 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %28 ], [ null, %.critedge.sink.split ]
+  %.0 = phi ptr [ %12, %Py_DECREF.exit21 ], [ null, %0 ], [ %1, %3 ], [ null, %15 ], [ null, %16 ], [ null, %25 ], [ null, %28 ], [ null, %.critedge.sink.split ]
   ret ptr %.0
 }
 

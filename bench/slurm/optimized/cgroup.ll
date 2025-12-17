@@ -562,8 +562,8 @@ define dso_local noundef ptr @autodetect_cgroup_version() #0 {
   br label %31
 
 24:                                               ; preds = %6, %12, %14
-  %.str.10..str.11 = phi ptr [ @.str.11, %6 ], [ @.str.11, %14 ], [ @.str.10, %12 ]
-  %.0 = phi i32 [ 2, %6 ], [ 2, %14 ], [ 1, %12 ]
+  %.str.10..str.11 = phi ptr [ @.str.11, %14 ], [ @.str.11, %6 ], [ @.str.10, %12 ]
+  %.0 = phi i32 [ 2, %14 ], [ 2, %6 ], [ 1, %12 ]
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %26 = and i64 %25, 36028797018963968
   %.not7 = icmp eq i64 %26, 0
@@ -579,7 +579,7 @@ define dso_local noundef ptr @autodetect_cgroup_version() #0 {
   br label %31
 
 31:                                               ; preds = %24, %30, %27, %22, %20, %18, %16, %10, %4
-  %.03 = phi ptr [ null, %4 ], [ null, %10 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %22 ], [ %.str.10..str.11, %27 ], [ %.str.10..str.11, %30 ], [ %.str.10..str.11, %24 ]
+  %.03 = phi ptr [ null, %4 ], [ null, %22 ], [ null, %18 ], [ null, %20 ], [ null, %10 ], [ null, %16 ], [ %.str.10..str.11, %27 ], [ %.str.10..str.11, %30 ], [ %.str.10..str.11, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.03
 }
@@ -905,8 +905,8 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_state(i32 noundef %0) local_
 .lr.ph77.split.backedge:                          ; preds = %50, %47
   br label %.lr.ph77.split, !llvm.loop !13
 
-.thread:                                          ; preds = %.split79.us, %.split82.us, %43, %.split65.us, %24, %.outer58._crit_edge
-  %.0 = phi i32 [ 0, %.outer58._crit_edge ], [ -1, %24 ], [ -1, %.split65.us ], [ -1, %43 ], [ -1, %.split82.us ], [ 0, %.split79.us ]
+.thread:                                          ; preds = %.split79.us, %43, %.split82.us, %24, %.split65.us, %.outer58._crit_edge
+  %.0 = phi i32 [ 0, %.outer58._crit_edge ], [ -1, %24 ], [ -1, %.split65.us ], [ -1, %.split82.us ], [ -1, %43 ], [ 0, %.split79.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1185,8 +1185,8 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_state(i32 noundef %0) local_u
 .lr.ph119.backedge:                               ; preds = %91, %88
   br label %.lr.ph119, !llvm.loop !15
 
-.thread:                                          ; preds = %.split124.us, %.split127.us, %84, %74, %69, %.split78.us, %38, %28, %23, %.outer61._crit_edge
-  %.0 = phi i32 [ 0, %.outer61._crit_edge ], [ -1, %23 ], [ -1, %28 ], [ -1, %38 ], [ -1, %.split78.us ], [ -1, %69 ], [ -1, %74 ], [ -1, %84 ], [ -1, %.split127.us ], [ 0, %.split124.us ]
+.thread:                                          ; preds = %.split124.us, %84, %.split127.us, %74, %69, %38, %.split78.us, %28, %23, %.outer61._crit_edge
+  %.0 = phi i32 [ 0, %.outer61._crit_edge ], [ -1, %38 ], [ -1, %23 ], [ -1, %28 ], [ -1, %.split78.us ], [ -1, %69 ], [ -1, %74 ], [ -1, %.split127.us ], [ -1, %84 ], [ 0, %.split124.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1345,7 +1345,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_u
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.cgroup_write_conf) #14
   unreachable
 
-.thread:                                          ; preds = %.split86.us, %42, %.split68.us, %20
+.thread:                                          ; preds = %42, %.split86.us, %20, %.split68.us
   %53 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not52 = icmp eq i32 %53, 0
   br i1 %.not52, label %56, label %54
@@ -1769,7 +1769,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__.cgroup_read_conf) #14
   unreachable
 
-143:                                              ; preds = %105, %140
+143:                                              ; preds = %140, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not70 = icmp eq ptr %54, null
   br i1 %.not70, label %145, label %144
@@ -1790,12 +1790,12 @@ define dso_local range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_un
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.cgroup_read_conf) #14
   unreachable
 
-.thread80:                                        ; preds = %.split157.us, %93, %83, %78
+.thread80:                                        ; preds = %93, %.split157.us, %83, %78
   %149 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not68 = icmp eq i32 %149, 0
   br i1 %.not68, label %154, label %151
 
-.thread83:                                        ; preds = %.split107, %28, %18, %13
+.thread83:                                        ; preds = %28, %.split107, %18, %13
   %150 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not6885 = icmp eq i32 %150, 0
   br i1 %.not6885, label %.thread87, label %151
@@ -1859,7 +1859,7 @@ define dso_local zeroext i1 @cgroup_memcg_job_confinement() local_unnamed_addr #
   br label %15
 
 15:                                               ; preds = %12, %4, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ %.not9, %12 ]
+  %.0 = phi i1 [ false, %4 ], [ %.not9, %12 ], [ false, %7 ]
   %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
   %.not10 = icmp eq i32 %16, 0
   br i1 %.not10, label %19, label %17

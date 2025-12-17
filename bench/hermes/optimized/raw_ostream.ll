@@ -2564,7 +2564,7 @@ if.else11:                                        ; preds = %if.else
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else11, %if.else, %if.then
-  %Style.0 = phi i32 [ 2, %if.then ], [ 0, %if.else ], [ %spec.select, %if.else11 ]
+  %Style.0 = phi i32 [ 2, %if.then ], [ %spec.select, %if.else11 ], [ 0, %if.else ]
   %3 = load i64, ptr %FN, align 8
   %Width = getelementptr inbounds nuw i8, ptr %FN, i64 16
   %4 = load i32, ptr %Width, align 8
@@ -2714,7 +2714,7 @@ if.then11:                                        ; preds = %if.then6
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end, %if.then6, %if.then11
-  %OffsetWidth.0 = phi i64 [ 4, %if.then6 ], [ %11, %if.then11 ], [ 0, %if.end ]
+  %OffsetWidth.0 = phi i64 [ %11, %if.then11 ], [ 4, %if.then6 ], [ 0, %if.end ]
   %NumPerLine20 = getelementptr inbounds nuw i8, ptr %FB, i64 36
   %ByteGroupSize = getelementptr inbounds nuw i8, ptr %FB, i64 40
   %12 = load i8, ptr %ByteGroupSize, align 8
@@ -2823,7 +2823,7 @@ if.then4.i.i56:                                   ; preds = %if.then50
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then4.i.i56, %if.then.i.i58, %land.lhs.true, %for.body
-  %CharsPrinted.1 = phi i32 [ %CharsPrinted.0259, %land.lhs.true ], [ %CharsPrinted.0259, %for.body ], [ %inc, %if.then.i.i58 ], [ %inc, %if.then4.i.i56 ]
+  %CharsPrinted.1 = phi i32 [ %CharsPrinted.0259, %for.body ], [ %CharsPrinted.0259, %land.lhs.true ], [ %inc, %if.then.i.i58 ], [ %inc, %if.then4.i.i56 ]
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %Bytes2.sroa.0.0262, i64 %I.0258
   %25 = load i8, ptr %arrayidx.i, align 1
   %conv54 = zext i8 %25 to i64
@@ -3430,8 +3430,8 @@ if.end14.i:                                       ; preds = %if.else.i, %if.then
   br label %_ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit
 
 _ZL5getFDN4llvh9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit: ; preds = %if.end14.i, %if.then.i, %if.then2.i
-  %call.i.i2.pre-phi = phi ptr [ %call.i.i, %if.then.i ], [ %call.i.i, %if.then2.i ], [ %.pre, %if.end14.i ]
-  %retval.0.i = phi i32 [ 1, %if.then.i ], [ 1, %if.then2.i ], [ %spec.select, %if.end14.i ]
+  %call.i.i2.pre-phi = phi ptr [ %.pre, %if.end14.i ], [ %call.i.i, %if.then.i ], [ %call.i.i, %if.then2.i ]
+  %retval.0.i = phi i32 [ %spec.select, %if.end14.i ], [ 1, %if.then.i ], [ 1, %if.then2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %Filename.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %FD.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)

@@ -189,7 +189,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
   %55 = icmp ugt i64 %36, %54
   br i1 %55, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread19, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread: ; preds = %50, %41, %45, %._crit_edge, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread: ; preds = %45, %50, %41, %._crit_edge, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -258,7 +258,7 @@ _ZN4core3ops8function6FnOnce9call_once17h559ed13574d9f19aE.exit.i: ; preds = %_Z
   invoke void %89(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %81, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %90 unwind label %105
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread19: ; preds = %33, %27, %12, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread19: ; preds = %12, %33, %27, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit
   store i64 0, ptr %0, align 8
   br label %103
 
@@ -389,7 +389,7 @@ define internal fastcc void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h401163b9714bea33E.exit" unwind label %20
 
 common.resume:                                    ; preds = %67, %.body, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %lpad.phi, %67 ], [ %44, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %44, %.body ], [ %lpad.phi, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %19
@@ -515,7 +515,7 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i: ; preds = %59, %.noe
           cleanup
   br label %67
 
-.loopexit.split-lp:                               ; preds = %17, %29, %8, %5
+.loopexit.split-lp:                               ; preds = %17, %29, %5, %8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %67
@@ -1858,7 +1858,7 @@ _ZN3std4sync6poison4once4Once9call_once17h373ea915725e1c6dE.exit93: ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %.body, %.loopexit.split-lp, %.loopexit.split-lp280, %219, %228, %165, %174
-  %common.resume.op = phi { ptr, i32 } [ %175, %174 ], [ %166, %165 ], [ %229, %228 ], [ %220, %219 ], [ %.pn4.i, %.body ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi282, %.loopexit.split-lp280 ]
+  %common.resume.op = phi { ptr, i32 } [ %220, %219 ], [ %166, %165 ], [ %175, %174 ], [ %229, %228 ], [ %.pn4.i, %.body ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi282, %.loopexit.split-lp280 ]
   resume { ptr, i32 } %common.resume.op
 
 186:                                              ; preds = %165
@@ -2524,11 +2524,11 @@ _ZN14regex_automata4util6search5Input8set_span17h75ab7698ea1b69feE.exit183: ; pr
   br label %362
 
 362:                                              ; preds = %353, %346, %341, %338, %329, %327
-  %.sroa.07.0.i.i = phi i64 [ 5, %329 ], [ 1, %338 ], [ 2, %341 ], [ 3, %346 ], [ 4, %353 ], [ 0, %327 ]
-  %.sroa.7.0.i.i = phi i64 [ %335, %329 ], [ %340, %338 ], [ %343, %341 ], [ %348, %346 ], [ %355, %353 ], [ undef, %327 ]
-  %.sroa.12.0.i.i = phi i64 [ %334, %329 ], [ undef, %338 ], [ %345, %341 ], [ %350, %346 ], [ %357, %353 ], [ undef, %327 ]
-  %.sroa.16.0.i.i = phi i64 [ undef, %329 ], [ undef, %338 ], [ undef, %341 ], [ %352, %346 ], [ %359, %353 ], [ undef, %327 ]
-  %.sroa.18.0.i.i = phi i64 [ undef, %329 ], [ undef, %338 ], [ undef, %341 ], [ undef, %346 ], [ %361, %353 ], [ undef, %327 ]
+  %.sroa.07.0.i.i = phi i64 [ 5, %329 ], [ 4, %353 ], [ 1, %338 ], [ 2, %341 ], [ 3, %346 ], [ 0, %327 ]
+  %.sroa.7.0.i.i = phi i64 [ %335, %329 ], [ %355, %353 ], [ %340, %338 ], [ %343, %341 ], [ %348, %346 ], [ undef, %327 ]
+  %.sroa.12.0.i.i = phi i64 [ %334, %329 ], [ %357, %353 ], [ undef, %338 ], [ %345, %341 ], [ %350, %346 ], [ undef, %327 ]
+  %.sroa.16.0.i.i = phi i64 [ undef, %329 ], [ %359, %353 ], [ undef, %338 ], [ undef, %341 ], [ %352, %346 ], [ undef, %327 ]
+  %.sroa.18.0.i.i = phi i64 [ undef, %329 ], [ %361, %353 ], [ undef, %338 ], [ undef, %341 ], [ undef, %346 ], [ undef, %327 ]
   store i64 %.sroa.07.0.i.i, ptr %7, align 8, !alias.scope !496, !noalias !505
   %.sroa.7.0..sroa_idx.i.i189 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i189, align 8, !alias.scope !496, !noalias !505
@@ -2635,7 +2635,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
   unreachable
 
 .body.i:                                          ; preds = %368, %319
-  %.pn4.i = phi { ptr, i32 } [ %320, %319 ], [ %369, %368 ]
+  %.pn4.i = phi { ptr, i32 } [ %369, %368 ], [ %320, %319 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !512)
   call void @llvm.experimental.noalias.scope.decl(metadata !515)
   %404 = load i8, ptr %.sroa.543.0..sroa_idx, align 1, !alias.scope !518, !noalias !492, !noundef !3

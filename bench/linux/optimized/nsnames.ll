@@ -928,9 +928,9 @@ define dso_local void @acpi_ns_normalize_pathname(ptr noundef %0) local_unnamed_
   br label %55
 
 55:                                               ; preds = %52, %50
-  %56 = phi i8 [ %.pr9, %52 ], [ %.pr8, %50 ]
-  %57 = phi ptr [ %54, %52 ], [ %42, %50 ]
-  %58 = phi ptr [ %53, %52 ], [ %41, %50 ]
+  %56 = phi i8 [ %.pr8, %50 ], [ %.pr9, %52 ]
+  %57 = phi ptr [ %42, %50 ], [ %54, %52 ]
+  %58 = phi ptr [ %41, %50 ], [ %53, %52 ]
   %59 = icmp eq i8 %56, 0
   br i1 %59, label %.thread10, label %._crit_edge
 

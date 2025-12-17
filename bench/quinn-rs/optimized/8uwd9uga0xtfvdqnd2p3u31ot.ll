@@ -228,7 +228,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit: ; preds = %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %51, %48, %44
-  %.sroa.0.0 = phi i8 [ %spec.select.i.i, %44 ], [ %50, %48 ], [ %53, %51 ], [ 41, %42 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 1, %41 ], [ 13, %43 ], [ 34, %4 ]
+  %.sroa.0.0 = phi i8 [ %53, %51 ], [ %spec.select.i.i, %44 ], [ %50, %48 ], [ 41, %42 ], [ 13, %43 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 39, %40 ], [ 34, %4 ], [ 1, %41 ]
   ret i8 %.sroa.0.0
 }
 
@@ -575,7 +575,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   br label %132
 
 132:                                              ; preds = %36, %25, %2, %149, %133, %125, %154, %129, %116
-  %.sink = phi ptr [ %156, %154 ], [ %131, %129 ], [ %118, %116 ], [ %128, %125 ], [ %138, %133 ], [ %150, %149 ], [ %24, %2 ], [ %29, %25 ], [ %40, %36 ]
+  %.sink = phi ptr [ %156, %154 ], [ %138, %133 ], [ %128, %125 ], [ %150, %149 ], [ %131, %129 ], [ %118, %116 ], [ %29, %25 ], [ %24, %2 ], [ %40, %36 ]
   store ptr %.sink, ptr %0, align 8
   br label %163
 
@@ -667,7 +667,7 @@ define noundef ptr @_ZN9quinn_udp3imp14UdpSocketState4send17h20ccb369d15e3a5dE(p
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit, %6, %3, %17
-  %.sroa.0.0 = phi ptr [ null, %17 ], [ null, %3 ], [ null, %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit ], [ %5, %6 ]
+  %.sroa.0.0 = phi ptr [ null, %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit ], [ null, %17 ], [ null, %3 ], [ %5, %6 ]
   ret ptr %.sroa.0.0
 
 10:                                               ; preds = %6
@@ -1468,7 +1468,7 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
   %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 1
   %34 = or i8 %.sroa.413.0.copyload, %.sroa.012.0.copyload
   %or.cond.i = icmp eq i8 %34, 0
-  br i1 %or.cond.i, label %35, label %.critedge.invoke
+  br i1 %or.cond.i, label %35, label %.invoke
 
 35:                                               ; preds = %32
   %.sroa.1422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
@@ -1508,18 +1508,18 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
   %brmerge.not = and i1 %or.cond32.i.not29.not33, %5
   %.mux = select i1 %or.cond32.i.not29.not33, i32 0, i32 41
   %.mux28 = select i1 %or.cond32.i.not29.not33, i32 1, i32 67
-  br i1 %brmerge.not, label %44, label %.critedge.invoke
+  br i1 %brmerge.not, label %44, label %.invoke
 
 41:                                               ; preds = %6
-  br i1 %5, label %44, label %.critedge.invoke
+  br i1 %5, label %44, label %.invoke
 
-.critedge.invoke:                                 ; preds = %35, %41, %32
-  %42 = phi i32 [ 41, %32 ], [ %.mux, %35 ], [ 0, %41 ]
-  %43 = phi i32 [ 67, %32 ], [ %.mux28, %35 ], [ 1, %41 ]
+.invoke:                                          ; preds = %35, %41, %32
+  %42 = phi i32 [ %.mux, %35 ], [ 41, %32 ], [ 0, %41 ]
+  %43 = phi i32 [ %.mux28, %35 ], [ 67, %32 ], [ 1, %41 ]
   invoke void @"_ZN9quinn_udp4cmsg16Encoder$LT$M$GT$4push17h9900840aba8d8df4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %42, i32 noundef %43, i32 noundef %28)
           to label %44 unwind label %64
 
-44:                                               ; preds = %35, %.critedge.invoke, %41
+44:                                               ; preds = %35, %.invoke, %41
   %45 = load i64, ptr %0, align 8, !range !7, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8
@@ -1571,7 +1571,7 @@ define internal fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(
 63:                                               ; preds = %64
   resume { ptr, i32 } %lpad.thr_comm
 
-64:                                               ; preds = %.critedge.invoke, %50, %59, %56
+64:                                               ; preds = %.invoke, %50, %59, %56
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr95drop_in_place$LT$quinn_udp..cmsg..Encoder$LT$libc..unix..linux_like..linux..gnu..msghdr$GT$$GT$17h76d8cd69f9d7b6b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #18

@@ -2689,7 +2689,7 @@ job_notify_hf_index.exit.i:                       ; preds = %129, %127, %125, %1
   br label %job_notify_hf_index.exit80.i
 
 job_notify_hf_index.exit80.i:                     ; preds = %164, %162, %160, %158, %156, %154, %148
-  %.0.i79.i = phi i32 [ -1, %148 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ]
+  %.0.i79.i = phi i32 [ -1, %148 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ]
   %166 = load i32, ptr %9, align 4
   %167 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %.0.i79.i, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef %166)
   %.not.i.i = icmp eq ptr %167, null
@@ -6422,7 +6422,7 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
   br label %31
 
 31:                                               ; preds = %28, %26, %23, %21
-  %.0.i = phi i32 [ %.02627, %21 ], [ %25, %23 ], [ %.02627, %26 ], [ %30, %28 ]
+  %.0.i = phi i32 [ %.02627, %21 ], [ %25, %23 ], [ %30, %28 ], [ %.02627, %26 ]
   %32 = load i32, ptr @ett_CORE_PRINTER_DRIVER, align 4
   %33 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.0.i, i32 noundef 0, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.1282)
   %34 = load i32, ptr @hf_core_driver_guid, align 4
@@ -6568,7 +6568,7 @@ define internal i32 @dissect_spoolss_buffer_data(ptr noundef %0, i32 noundef %1,
   br label %37
 
 37:                                               ; preds = %22, %29, %6, %20
-  %.0 = phi i32 [ %16, %20 ], [ %1, %6 ], [ %24, %29 ], [ %24, %22 ]
+  %.0 = phi i32 [ %1, %6 ], [ %16, %20 ], [ %24, %29 ], [ %24, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -7293,7 +7293,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %26, %29
   br label %proto_item_set_hidden.exit36
 
 proto_item_set_hidden.exit36:                     ; preds = %52, %49, %38, %proto_item_set_hidden.exit, %56, %16, %7
-  %.0 = phi i32 [ %18, %16 ], [ %18, %proto_item_set_hidden.exit ], [ %18, %56 ], [ %14, %7 ], [ %18, %38 ], [ %18, %49 ], [ %18, %52 ]
+  %.0 = phi i32 [ %18, %16 ], [ %18, %proto_item_set_hidden.exit ], [ %14, %7 ], [ %18, %56 ], [ %18, %38 ], [ %18, %49 ], [ %18, %52 ]
   %59 = load ptr, ptr %8, align 8
   %60 = load i32, ptr %9, align 4
   %61 = add i32 %60, 4

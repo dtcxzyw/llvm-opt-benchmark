@@ -778,7 +778,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit: ; p
   br label %_ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit91
 
 _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit91: ; preds = %190, %188, %186, %184
-  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %185, %184 ], [ %lpad.phi166, %188 ], [ %lpad.phi166, %190 ]
+  %.pn = phi { ptr, i32 } [ %185, %184 ], [ %187, %186 ], [ %lpad.phi166, %188 ], [ %lpad.phi166, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %191
 
@@ -1029,7 +1029,7 @@ _ZNSt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS1_EED2Ev.exit91: ;
   br label %262
 
 262:                                              ; preds = %207, %258, %251, %244, %237, %230, %223, %214, %261
-  %.6 = phi i1 [ true, %261 ], [ false, %214 ], [ false, %223 ], [ false, %230 ], [ false, %237 ], [ false, %244 ], [ false, %251 ], [ false, %258 ], [ false, %207 ]
+  %.6 = phi i1 [ false, %258 ], [ true, %261 ], [ false, %251 ], [ false, %214 ], [ false, %223 ], [ false, %230 ], [ false, %237 ], [ false, %244 ], [ false, %207 ]
   %263 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %264 = load ptr, ptr %263, align 8, !tbaa !48
   %.not.i.i.i.i124 = icmp eq ptr %264, null
@@ -1199,7 +1199,7 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit.thread, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %28, %._crit_edge.loopexit ], [ 0, %.loopexit.thread ]
+  %.0.lcssa = phi i64 [ 0, %.loopexit.thread ], [ %28, %._crit_edge.loopexit ]
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.0.lcssa)
           to label %36 unwind label %39
 
@@ -1473,9 +1473,9 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %94, %_ZNSt6v
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %100, %98, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %80
-  %.sroa.16.5 = phi ptr [ %.sroa.16.0, %98 ], [ %97, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %.sroa.16.0, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.16.0, %80 ], [ %.sroa.16.0, %100 ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.0, %98 ], [ %96, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %84, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %81, %80 ], [ %spec.select355, %100 ]
-  %.sroa.0314.5 = phi ptr [ %.sroa.0314.0, %98 ], [ %87, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ], [ %.sroa.0314.0, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.0314.0, %80 ], [ %.sroa.0314.0, %100 ]
+  %.sroa.16.5 = phi ptr [ %.sroa.16.0, %98 ], [ %.sroa.16.0, %100 ], [ %.sroa.16.0, %80 ], [ %.sroa.16.0, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %97, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.0, %98 ], [ %spec.select355, %100 ], [ %81, %80 ], [ %84, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %96, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ]
+  %.sroa.0314.5 = phi ptr [ %.sroa.0314.0, %98 ], [ %.sroa.0314.0, %100 ], [ %.sroa.0314.0, %80 ], [ %.sroa.0314.0, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %87, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i ]
   %102 = shl nuw nsw i64 %67, 2
   %103 = load i64, ptr %19, align 8, !tbaa !15
   %104 = load i64, ptr %20, align 8, !tbaa !16
@@ -1756,9 +1756,9 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit260: ; preds = %.critedge.crit
   br label %.critedge
 
 .critedge:                                        ; preds = %119, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %112, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, %.critedge228, %.critedge228.preheader, %.critedge230, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260
-  %.sroa.16.2 = phi ptr [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.16.0, %.critedge230 ], [ %.sroa.16.0, %.critedge228.preheader ], [ %.sroa.16.0, %.critedge228 ], [ %.sroa.16.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.16.5, %112 ], [ %.sroa.16.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16.5, %119 ]
-  %.sroa.0314.2 = phi ptr [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.0314.0, %.critedge230 ], [ %.sroa.0314.0, %.critedge228.preheader ], [ %.sroa.0314.0, %.critedge228 ], [ %.sroa.0314.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.0314.5, %112 ], [ %.sroa.0314.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0314.5, %119 ]
-  %.9 = phi i1 [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ false, %.critedge230 ], [ true, %.critedge228.preheader ], [ true, %.critedge228 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %112 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %119 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.16.0, %.critedge230 ], [ %.sroa.16.0, %.critedge228.preheader ], [ %.sroa.16.0, %.critedge228 ], [ %.sroa.16.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.16.5, %112 ], [ %.sroa.16.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.16.5, %119 ]
+  %.sroa.0314.2 = phi ptr [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ %.sroa.0314.0, %.critedge230 ], [ %.sroa.0314.0, %.critedge228.preheader ], [ %.sroa.0314.0, %.critedge228 ], [ %.sroa.0314.5, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ %.sroa.0314.5, %112 ], [ %.sroa.0314.5, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ %.sroa.0314.5, %119 ]
+  %.9 = phi i1 [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit258 ], [ false, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit260 ], [ false, %.critedge230 ], [ true, %.critedge228.preheader ], [ true, %.critedge228 ], [ false, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ], [ false, %112 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %119 ]
   %.not.i.i.i = icmp eq ptr %.sroa.0314.2, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %214
 
@@ -1770,9 +1770,9 @@ _ZN5draco30AttributeQuantizationTransformD2Ev.exit260: ; preds = %.critedge.crit
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 218:                                              ; preds = %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256, %40, %108, %110, %106
-  %.sroa.16.4 = phi ptr [ %.sroa.16.0, %110 ], [ %.sroa.16.0, %108 ], [ %.sroa.16.0, %106 ], [ %.sroa.16.0, %40 ], [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ]
-  %.sroa.0314.4 = phi ptr [ %.sroa.0314.0, %110 ], [ %.sroa.0314.0, %108 ], [ %.sroa.0314.0, %106 ], [ %.sroa.0314.0, %40 ], [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ]
-  %.pn223 = phi { ptr, i32 } [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %41, %40 ], [ %.pn215, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ]
+  %.sroa.16.4 = phi ptr [ %.sroa.16.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ], [ %.sroa.16.0, %110 ], [ %.sroa.16.0, %108 ], [ %.sroa.16.0, %106 ], [ %.sroa.16.0, %40 ]
+  %.sroa.0314.4 = phi ptr [ %.sroa.0314.5, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ], [ %.sroa.0314.0, %110 ], [ %.sroa.0314.0, %108 ], [ %.sroa.0314.0, %106 ], [ %.sroa.0314.0, %40 ]
+  %.pn223 = phi { ptr, i32 } [ %.pn215, %_ZN5draco30AttributeQuantizationTransformD2Ev.exit256 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %41, %40 ]
   %.not.i.i.i261 = icmp eq ptr %.sroa.0314.4, null
   br i1 %.not.i.i.i261, label %_ZNSt6vectorIfSaIfEED2Ev.exit262, label %.thread339
 
@@ -2174,7 +2174,7 @@ _ZN5draco14PointAttribute18SetIdentityMappingEv.exit271: ; preds = %387, %381
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %397
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %398, label %.critedge247, label %452
+  br i1 %398, label %452, label %.critedge247
 
 403:                                              ; preds = %401, %399
   %.pn194 = phi { ptr, i32 } [ %402, %401 ], [ %400, %399 ]
@@ -2204,7 +2204,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %405
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %10) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %406, label %.critedge247, label %452
+  br i1 %406, label %452, label %.critedge247
 
 411:                                              ; preds = %409, %407
   %.pn192 = phi { ptr, i32 } [ %410, %409 ], [ %408, %407 ]
@@ -2234,7 +2234,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %413
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %11) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %414, label %.critedge247, label %452
+  br i1 %414, label %452, label %.critedge247
 
 419:                                              ; preds = %417, %415
   %.pn190 = phi { ptr, i32 } [ %418, %417 ], [ %416, %415 ]
@@ -2264,7 +2264,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %421
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %12) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %422, label %.critedge247, label %452
+  br i1 %422, label %452, label %.critedge247
 
 427:                                              ; preds = %425, %423
   %.pn188 = phi { ptr, i32 } [ %426, %425 ], [ %424, %423 ]
@@ -2294,7 +2294,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %429
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %13) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %430, label %.critedge247, label %452
+  br i1 %430, label %452, label %.critedge247
 
 435:                                              ; preds = %433, %431
   %.pn186 = phi { ptr, i32 } [ %434, %433 ], [ %432, %431 ]
@@ -2324,7 +2324,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %437
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EED2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %14) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %438, label %.critedge247, label %452
+  br i1 %438, label %452, label %.critedge247
 
 443:                                              ; preds = %441, %439
   %.pn184 = phi { ptr, i32 } [ %442, %441 ], [ %440, %439 ]
@@ -2354,25 +2354,17 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodePointsINS_34PointAttri
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit: ; preds = %445
   call void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EED2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %15) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %446, label %.critedge247, label %452
+  br i1 %446, label %452, label %.critedge247
 
 451:                                              ; preds = %449, %447
   %.pn182 = phi { ptr, i32 } [ %450, %449 ], [ %448, %447 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %453
 
-.critedge247:                                     ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit
-  call void @_ZN5draco34PointAttributeVectorOutputIteratorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %455
-
-default.unreachable:                              ; preds = %393
-  unreachable
-
 452:                                              ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit
   call void @_ZN5draco34PointAttributeVectorOutputIteratorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge232thread-pre-split
+  br label %455
 
 453:                                              ; preds = %451, %443, %435, %427, %419, %411, %403
   %.pn194.pn = phi { ptr, i32 } [ %.pn194, %403 ], [ %.pn192, %411 ], [ %.pn190, %419 ], [ %.pn188, %427 ], [ %.pn186, %435 ], [ %.pn184, %443 ], [ %.pn182, %451 ]
@@ -2384,12 +2376,20 @@ default.unreachable:                              ; preds = %393
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %463
 
-455:                                              ; preds = %.critedge247, %345
+455:                                              ; preds = %452, %345
   br label %.critedge232thread-pre-split
 
-.critedge232thread-pre-split:                     ; preds = %258, %357, %325, %354, %348, %323, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit, %452, %311, %321, %345, %455
-  %.ph = phi ptr [ %277, %357 ], [ %277, %325 ], [ %277, %354 ], [ %277, %348 ], [ %277, %323 ], [ %277, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit ], [ %277, %311 ], [ %277, %321 ], [ %277, %452 ], [ %277, %345 ], [ %277, %455 ], [ %234, %258 ]
-  %.17.ph = phi i1 [ false, %357 ], [ false, %325 ], [ false, %354 ], [ false, %348 ], [ false, %323 ], [ false, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit ], [ false, %311 ], [ false, %321 ], [ false, %452 ], [ false, %345 ], [ true, %455 ], [ false, %258 ]
+default.unreachable:                              ; preds = %393
+  unreachable
+
+.critedge247:                                     ; preds = %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodePointsINS_34PointAttributeVectorOutputIteratorIjEEEEbPNS_13DecoderBufferERT_.exit
+  call void @_ZN5draco34PointAttributeVectorOutputIteratorIjED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.critedge232thread-pre-split
+
+.critedge232thread-pre-split:                     ; preds = %258, %357, %325, %354, %348, %323, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit, %.critedge247, %311, %321, %345, %455
+  %.ph = phi ptr [ %277, %357 ], [ %277, %348 ], [ %277, %354 ], [ %277, %311 ], [ %277, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit ], [ %277, %321 ], [ %277, %323 ], [ %277, %.critedge247 ], [ %277, %345 ], [ %277, %455 ], [ %277, %325 ], [ %234, %258 ]
+  %.17.ph = phi i1 [ false, %357 ], [ false, %348 ], [ false, %354 ], [ false, %311 ], [ false, %_ZN5draco14PointAttribute18SetIdentityMappingEv.exit ], [ false, %321 ], [ false, %323 ], [ false, %.critedge247 ], [ false, %345 ], [ true, %455 ], [ false, %325 ], [ false, %258 ]
   %.pr = load ptr, ptr %5, align 8, !tbaa !48
   br label %.critedge232
 
@@ -2413,8 +2413,8 @@ _ZNSt6vectorISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjEESaIS5_EED2Ev.
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 463:                                              ; preds = %327, %347, %454, %391, %389, %262, %264, %307, %309, %260
-  %464 = phi ptr [ %234, %260 ], [ %277, %307 ], [ %277, %309 ], [ %234, %264 ], [ %234, %262 ], [ %277, %347 ], [ %277, %327 ], [ %277, %454 ], [ %277, %391 ], [ %277, %389 ]
-  %.pn204.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %261, %260 ], [ %308, %307 ], [ %310, %309 ], [ %265, %264 ], [ %263, %262 ], [ %.pn204.pn, %347 ], [ %328, %327 ], [ %.pn194.pn.pn, %454 ], [ %392, %391 ], [ %390, %389 ]
+  %464 = phi ptr [ %234, %260 ], [ %277, %309 ], [ %277, %307 ], [ %234, %262 ], [ %234, %264 ], [ %277, %389 ], [ %277, %327 ], [ %277, %391 ], [ %277, %347 ], [ %277, %454 ]
+  %.pn204.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %261, %260 ], [ %310, %309 ], [ %308, %307 ], [ %263, %262 ], [ %265, %264 ], [ %390, %389 ], [ %328, %327 ], [ %392, %391 ], [ %.pn204.pn, %347 ], [ %.pn194.pn.pn, %454 ]
   %465 = load ptr, ptr %5, align 8, !tbaa !48
   %.not.i.i.i280 = icmp eq ptr %465, null
   br i1 %.not.i.i.i280, label %_ZNSt6vectorISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjEESaIS5_EED2Ev.exit281, label %466
@@ -2520,7 +2520,7 @@ _ZNSt16allocator_traitsISaISt5tupleIJPN5draco14PointAttributeEjNS1_8DataTypeEjjE
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit.thread, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %28, %._crit_edge.loopexit ], [ 0, %.loopexit.thread ]
+  %.0.lcssa = phi i64 [ 0, %.loopexit.thread ], [ %28, %._crit_edge.loopexit ]
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.0.lcssa)
           to label %36 unwind label %39
 
@@ -2679,7 +2679,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco22FloatPointsTreeDecoder16Decod
   br label %53
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %30, %18, %3, %35, %29, %43, %36
-  %.011 = phi i1 [ true, %43 ], [ false, %29 ], [ false, %36 ], [ false, %35 ], [ false, %3 ], [ false, %18 ], [ false, %30 ]
+  %.011 = phi i1 [ true, %43 ], [ false, %29 ], [ false, %3 ], [ false, %36 ], [ false, %35 ], [ false, %18 ], [ false, %30 ]
   %46 = load ptr, ptr %4, align 8, !tbaa !155
   %.not.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5draco7VectorDIjLi3EEESaIS2_EED2Ev.exit, label %47
@@ -4960,10 +4960,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc102
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %43, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc102, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
-  %.sroa.0128.3210 = phi ptr [ %48, %.noexc102 ], [ %48, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %48, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
-  %.sroa.9131.3208 = phi ptr [ %49, %.noexc102 ], [ %49, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %49, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
-  %.sroa.0121.3 = phi ptr [ %56, %.noexc102 ], [ %56, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
-  %.sroa.9.3 = phi ptr [ %57, %.noexc102 ], [ %57, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
+  %.sroa.0128.3210 = phi ptr [ %48, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %48, %.noexc102 ], [ %48, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
+  %.sroa.9131.3208 = phi ptr [ %49, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %49, %.noexc102 ], [ %49, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
+  %.sroa.0121.3 = phi ptr [ %56, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %56, %.noexc102 ], [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
+  %.sroa.9.3 = phi ptr [ %57, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %57, %.noexc102 ], [ null, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ], [ null, %43 ]
   %61 = load i32, ptr %41, align 4, !tbaa !84
   switch i32 %61, label %78 [
     i32 5, label %62
@@ -5017,8 +5017,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %54
   br label %82
 
 82:                                               ; preds = %77, %74, %64, %78
-  %cond2 = phi i1 [ true, %78 ], [ false, %64 ], [ false, %74 ], [ false, %77 ]
-  %.170 = phi i32 [ %81, %78 ], [ %.069178, %64 ], [ %.069178, %74 ], [ %.069178, %77 ]
+  %cond2 = phi i1 [ true, %78 ], [ false, %74 ], [ false, %64 ], [ false, %77 ]
+  %.170 = phi i32 [ %81, %78 ], [ %.069178, %74 ], [ %.069178, %64 ], [ %.069178, %77 ]
   %.not.i.i.i103 = icmp eq ptr %.sroa.0121.3, null
   br i1 %.not.i.i.i103, label %_ZNSt6vectorIiSaIiEED2Ev.exit104, label %83
 
@@ -5251,8 +5251,8 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit114: ; preds = %138, %128
   br label %.critedge
 
 179:                                              ; preds = %25, %_ZNSt6vectorIjSaIjEED2Ev.exit, %.thread, %.thread138
-  %.271.ph = phi i32 [ %.069178, %.thread138 ], [ %.069178, %.thread ], [ %.170, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %.069178, %25 ]
-  %.164.ph = phi i32 [ %101, %.thread138 ], [ %101, %.thread ], [ %.063179, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %.063179, %25 ]
+  %.271.ph = phi i32 [ %.069178, %.thread ], [ %.069178, %25 ], [ %.069178, %.thread138 ], [ %.170, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
+  %.164.ph = phi i32 [ %101, %.thread ], [ %.063179, %25 ], [ %101, %.thread138 ], [ %.063179, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %180 = add nuw nsw i32 %.073177, 1
   %181 = load ptr, ptr %0, align 8, !tbaa !3
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
@@ -5262,7 +5262,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit114: ; preds = %138, %128
   br i1 %.not.not, label %25, label %.critedge, !llvm.loop !214
 
 _ZNSt6vectorIjSaIjEED2Ev.exit107:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit114
-  %.pn95.pn.pn = phi { ptr, i32 } [ %144, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit114 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %67, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.pn95218, %91 ]
+  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111 ], [ %144, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit114 ], [ %.pn95218, %91 ], [ %67, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   resume { ptr, i32 } %.pn95.pn.pn
 
 .critedge:                                        ; preds = %179, %_ZNSt6vectorIjSaIjEED2Ev.exit, %17, %178, %11
@@ -5309,10 +5309,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc34
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc34, %3
-  %.sroa.053.068 = phi ptr [ %8, %.noexc34 ], [ %8, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.12.065 = phi ptr [ %9, %.noexc34 ], [ %9, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.044.0 = phi ptr [ %14, %.noexc34 ], [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.11.0 = phi ptr [ %15, %.noexc34 ], [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
+  %.sroa.053.068 = phi ptr [ %8, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %8, %.noexc34 ], [ null, %3 ]
+  %.sroa.12.065 = phi ptr [ %9, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc34 ], [ null, %3 ]
+  %.sroa.044.0 = phi ptr [ %14, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %14, %.noexc34 ], [ null, %3 ]
+  %.sroa.11.0 = phi ptr [ %15, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %15, %.noexc34 ], [ null, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i32, ptr %17, align 8, !tbaa !208
   %19 = icmp eq i32 %18, 0
@@ -5444,10 +5444,10 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc34
   br label %_ZNSt6vectorIsSaIsEEC2EmRKS0_.exit
 
 _ZNSt6vectorIsSaIsEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc34, %3
-  %.sroa.053.068 = phi ptr [ %8, %.noexc34 ], [ %8, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.12.065 = phi ptr [ %9, %.noexc34 ], [ %9, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.044.0 = phi ptr [ %14, %.noexc34 ], [ %14, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
-  %.sroa.11.0 = phi ptr [ %15, %.noexc34 ], [ %15, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %3 ]
+  %.sroa.053.068 = phi ptr [ %8, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %8, %.noexc34 ], [ null, %3 ]
+  %.sroa.12.065 = phi ptr [ %9, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc34 ], [ null, %3 ]
+  %.sroa.044.0 = phi ptr [ %14, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %14, %.noexc34 ], [ null, %3 ]
+  %.sroa.11.0 = phi ptr [ %15, %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %15, %.noexc34 ], [ null, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i32, ptr %17, align 8, !tbaa !208
   %.not88 = icmp eq i32 %18, 0
@@ -5572,10 +5572,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco23KdTreeAttributesDecoder34Tran
   br label %_ZNSt6vectorIaSaIaEEC2EmRKS0_.exit
 
 _ZNSt6vectorIaSaIaEEC2EmRKS0_.exit:               ; preds = %16, %.noexc33, %3
-  %.sroa.052.067 = phi ptr [ %7, %.noexc33 ], [ %7, %16 ], [ null, %3 ]
-  %.sroa.12.064 = phi ptr [ %8, %.noexc33 ], [ %8, %16 ], [ null, %3 ]
-  %.sroa.043.0 = phi ptr [ %14, %.noexc33 ], [ %14, %16 ], [ null, %3 ]
-  %.sroa.11.0 = phi ptr [ %15, %.noexc33 ], [ %15, %16 ], [ null, %3 ]
+  %.sroa.052.067 = phi ptr [ %7, %16 ], [ %7, %.noexc33 ], [ null, %3 ]
+  %.sroa.12.064 = phi ptr [ %8, %16 ], [ %8, %.noexc33 ], [ null, %3 ]
+  %.sroa.043.0 = phi ptr [ %14, %16 ], [ %14, %.noexc33 ], [ null, %3 ]
+  %.sroa.11.0 = phi ptr [ %15, %16 ], [ %15, %.noexc33 ], [ null, %3 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %19 = load i32, ptr %18, align 8, !tbaa !208
   %.not87 = icmp eq i32 %19, 0
@@ -5776,7 +5776,7 @@ _ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %42 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   br i1 %42, label %43, label %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread
 
-_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread: ; preds = %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i, %4, %_ZNKSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit, %_ZNKSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i, %4, %_ZNKSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br label %43
 
 43:                                               ; preds = %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread
@@ -5957,7 +5957,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17AttributesDecoder16DecodeAttr
   br label %17
 
 17:                                               ; preds = %12, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ %16, %12 ]
+  %.0 = phi i1 [ false, %7 ], [ %16, %12 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -6248,7 +6248,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !239
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -6393,7 +6393,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %43, %4, %17, %40, %37, %34, %30, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %17 ], [ false, %4 ], [ %45, %43 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %17 ], [ true, %21 ], [ false, %4 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %30 ], [ false, %28 ], [ %45, %43 ]
   ret i1 %.0
 }
 
@@ -7202,7 +7202,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5
   %418 = icmp eq ptr %416, %417
   br i1 %418, label %.thread202, label %79
 
-.thread202:                                       ; preds = %.loopexit207, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %105, %309, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit, %217, %229, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread202:                                       ; preds = %.loopexit207, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %105, %309, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit, %229, %217, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %419 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %229 ], [ false, %217 ], [ true, %.loopexit207 ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %105 ], [ false, %309 ], [ false, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit ]
   %420 = load ptr, ptr %5, align 8, !tbaa !277
   %.not.i.i.i150 = icmp eq ptr %420, null
@@ -7243,7 +7243,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5
   ret i1 %419
 
 435:                                              ; preds = %383, %403, %414, %107, %364, %101
-  %.pn105.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %108, %107 ], [ %365, %364 ], [ %415, %414 ], [ %404, %403 ], [ %384, %383 ]
+  %.pn105.pn.pn = phi { ptr, i32 } [ %102, %101 ], [ %108, %107 ], [ %384, %383 ], [ %404, %403 ], [ %365, %364 ], [ %415, %414 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7696,7 +7696,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !260
   %58 = load ptr, ptr %.0, align 8, !tbaa !261
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7977,7 +7977,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %43, %4, %17, %40, %37, %34, %30, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %17 ], [ false, %4 ], [ %45, %43 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %17 ], [ true, %21 ], [ false, %4 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %30 ], [ false, %28 ], [ %45, %43 ]
   ret i1 %.0
 }
 
@@ -8778,7 +8778,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
   %417 = icmp eq ptr %415, %416
   br i1 %417, label %.thread199, label %79
 
-.thread199:                                       ; preds = %.loopexit204, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %309, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit, %217, %229, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread199:                                       ; preds = %.loopexit204, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %309, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit, %229, %217, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %418 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %229 ], [ false, %217 ], [ true, %.loopexit204 ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %103 ], [ false, %309 ], [ false, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit ]
   %419 = load ptr, ptr %5, align 8, !tbaa !308
   %.not.i.i.i147 = icmp eq ptr %419, null
@@ -8819,7 +8819,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
   ret i1 %418
 
 434:                                              ; preds = %400, %402, %413, %363, %101
-  %.pn103.pn = phi { ptr, i32 } [ %102, %101 ], [ %364, %363 ], [ %414, %413 ], [ %403, %402 ], [ %401, %400 ]
+  %.pn103.pn = phi { ptr, i32 } [ %102, %101 ], [ %401, %400 ], [ %403, %402 ], [ %364, %363 ], [ %414, %413 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9160,7 +9160,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !299
   %58 = load ptr, ptr %.0, align 8, !tbaa !300
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9326,7 +9326,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %43, %4, %17, %40, %37, %34, %30, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %17 ], [ false, %4 ], [ %45, %43 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %17 ], [ true, %21 ], [ false, %4 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %30 ], [ false, %28 ], [ %45, %43 ]
   ret i1 %.0
 }
 
@@ -10092,7 +10092,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread201
 
-.backedge:                                        ; preds = %.loopexit204, %.preheader207, %.preheader205, %..loopexit206_crit_edge, %.loopexit206.thread286
+.backedge:                                        ; preds = %.loopexit204, %.preheader207, %..loopexit206_crit_edge, %.preheader205, %.loopexit206.thread286
   %386 = load ptr, ptr %44, align 8, !tbaa !328
   %387 = load ptr, ptr %54, align 8, !tbaa !328
   %388 = icmp eq ptr %386, %387
@@ -10103,7 +10103,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %406
 
-.thread201:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %104, %308, %216, %228, %.loopexit206, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread201:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %104, %308, %228, %216, %.loopexit206, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %390 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit206 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %104 ], [ false, %308 ]
   %391 = load ptr, ptr %5, align 8, !tbaa !343
   %.not.i.i.i153 = icmp eq ptr %391, null
@@ -10144,7 +10144,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   ret i1 %390
 
 406:                                              ; preds = %106, %333, %389, %100
-  %.pn108.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %107, %106 ], [ %.pn.pn, %389 ], [ %334, %333 ]
+  %.pn108.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %107, %106 ], [ %334, %333 ], [ %.pn.pn, %389 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10487,7 +10487,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !333
   %58 = load ptr, ptr %.0, align 8, !tbaa !334
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10657,7 +10657,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %4
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %43, %4, %17, %40, %37, %34, %30, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ false, %40 ], [ false, %17 ], [ false, %4 ], [ %45, %43 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %17 ], [ true, %21 ], [ false, %4 ], [ false, %40 ], [ false, %37 ], [ false, %34 ], [ false, %30 ], [ false, %28 ], [ %45, %43 ]
   ret i1 %.0
 }
 
@@ -11415,7 +11415,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread198
 
-.backedge:                                        ; preds = %.loopexit201, %.preheader204, %.preheader202, %..loopexit203_crit_edge, %.loopexit203.thread282
+.backedge:                                        ; preds = %.loopexit201, %.preheader204, %..loopexit203_crit_edge, %.preheader202, %.loopexit203.thread282
   %385 = load ptr, ptr %44, align 8, !tbaa !359
   %386 = load ptr, ptr %54, align 8, !tbaa !359
   %387 = icmp eq ptr %385, %386
@@ -11426,7 +11426,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %405
 
-.thread198:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %102, %308, %216, %228, %.loopexit203, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread198:                                       ; preds = %.backedge, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %102, %308, %228, %216, %.loopexit203, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %389 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %.loopexit203 ], [ false, %228 ], [ false, %216 ], [ true, %.backedge ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %102 ], [ false, %308 ]
   %390 = load ptr, ptr %5, align 8, !tbaa !373
   %.not.i.i.i150 = icmp eq ptr %390, null
@@ -11467,7 +11467,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   ret i1 %389
 
 405:                                              ; preds = %388, %332, %100
-  %.pn106.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn.pn, %388 ], [ %333, %332 ]
+  %.pn106.pn = phi { ptr, i32 } [ %101, %100 ], [ %333, %332 ], [ %.pn.pn, %388 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -11808,7 +11808,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !364
   %58 = load ptr, ptr %.0, align 8, !tbaa !365
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11989,7 +11989,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %17 ], [ false, %4 ], [ %50, %48 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -12752,7 +12752,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5
   %386 = icmp eq ptr %384, %385
   br i1 %386, label %.thread204, label %77
 
-.thread204:                                       ; preds = %.loopexit209, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodeNumberEiPj.exit, %211, %223, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread204:                                       ; preds = %.loopexit209, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodeNumberEiPj.exit, %223, %211, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %387 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %223 ], [ false, %211 ], [ true, %.loopexit209 ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %103 ], [ false, %303 ], [ false, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12DecodeNumberEiPj.exit ]
   %388 = load ptr, ptr %5, align 8, !tbaa !410
   %.not.i.i.i153 = icmp eq ptr %388, null
@@ -12793,7 +12793,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5
   ret i1 %387
 
 403:                                              ; preds = %333, %382, %371, %369, %105, %331, %99
-  %.pn108.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %332, %331 ], [ %334, %333 ], [ %383, %382 ], [ %372, %371 ], [ %370, %369 ]
+  %.pn108.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %370, %369 ], [ %372, %371 ], [ %332, %331 ], [ %334, %333 ], [ %383, %382 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -13136,7 +13136,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !399
   %58 = load ptr, ptr %.0, align 8, !tbaa !400
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13319,7 +13319,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %17 ], [ false, %4 ], [ %50, %48 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -14076,7 +14076,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
   %385 = icmp eq ptr %383, %384
   br i1 %385, label %.thread201, label %77
 
-.thread201:                                       ; preds = %.loopexit206, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %101, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodeNumberEiPj.exit, %211, %223, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread201:                                       ; preds = %.loopexit206, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %101, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodeNumberEiPj.exit, %223, %211, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %386 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %223 ], [ false, %211 ], [ true, %.loopexit206 ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %101 ], [ false, %303 ], [ false, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE12DecodeNumberEiPj.exit ]
   %387 = load ptr, ptr %5, align 8, !tbaa !440
   %.not.i.i.i150 = icmp eq ptr %387, null
@@ -14117,7 +14117,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
   ret i1 %386
 
 402:                                              ; preds = %332, %381, %370, %368, %330, %99
-  %.pn106.pn = phi { ptr, i32 } [ %100, %99 ], [ %331, %330 ], [ %333, %332 ], [ %382, %381 ], [ %371, %370 ], [ %369, %368 ]
+  %.pn106.pn = phi { ptr, i32 } [ %100, %99 ], [ %369, %368 ], [ %371, %370 ], [ %331, %330 ], [ %333, %332 ], [ %382, %381 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -14458,7 +14458,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !431
   %58 = load ptr, ptr %.0, align 8, !tbaa !432
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14639,7 +14639,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13Decoder
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit11:   ; preds = %34, %48, %4, %17, %45, %42, %39, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit, %28, %21, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
-  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ true, %21 ], [ false, %28 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %17 ], [ false, %4 ], [ %50, %48 ], [ false, %34 ]
+  %.0 = phi i1 [ false, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit ], [ false, %4 ], [ true, %21 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %_ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEE13StartDecodingEPNS_13DecoderBufferE.exit ], [ false, %28 ], [ %50, %48 ], [ false, %17 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -15402,7 +15402,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5
   %386 = icmp eq ptr %384, %385
   br i1 %386, label %.thread204, label %77
 
-.thread204:                                       ; preds = %.loopexit209, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodeNumberEiPj.exit, %211, %223, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
+.thread204:                                       ; preds = %.loopexit209, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit, %103, %303, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodeNumberEiPj.exit, %223, %211, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit
   %387 = phi i1 [ true, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE4pushERKS3_.exit ], [ false, %223 ], [ false, %211 ], [ true, %.loopexit209 ], [ false, %_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEE3popEv.exit ], [ false, %103 ], [ false, %303 ], [ false, %_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12DecodeNumberEiPj.exit ]
   %388 = load ptr, ptr %5, align 8, !tbaa !475
   %.not.i.i.i153 = icmp eq ptr %388, null
@@ -15443,7 +15443,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5
   ret i1 %387
 
 403:                                              ; preds = %333, %382, %371, %369, %105, %331, %99
-  %.pn108.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %332, %331 ], [ %334, %333 ], [ %383, %382 ], [ %372, %371 ], [ %370, %369 ]
+  %.pn108.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %106, %105 ], [ %370, %369 ], [ %372, %371 ], [ %332, %331 ], [ %334, %333 ], [ %383, %382 ]
   call void @_ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -15786,7 +15786,7 @@ _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_
   br label %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_ET0_T_S7_S6_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusES5_ET0_T_S7_S6_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !465
   %58 = load ptr, ptr %.0, align 8, !tbaa !466
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

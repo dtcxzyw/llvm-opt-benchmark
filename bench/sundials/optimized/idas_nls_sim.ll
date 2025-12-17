@@ -396,7 +396,7 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensSim(ptr noundef readon
   br label %82
 
 82:                                               ; preds = %81, %39, %38, %6, %5
-  %.0 = phi i32 [ -20, %5 ], [ -8, %6 ], [ 1, %38 ], [ -41, %39 ], [ %., %81 ]
+  %.0 = phi i32 [ -20, %5 ], [ -41, %39 ], [ -8, %6 ], [ 1, %38 ], [ %., %81 ]
   ret i32 %.0
 }
 
@@ -462,7 +462,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensSim(ptr noundef %0, p
   br label %37
 
 37:                                               ; preds = %33, %22, %17, %10, %9
-  %.0 = phi i32 [ -20, %9 ], [ -20, %10 ], [ 0, %17 ], [ 902, %22 ], [ %., %33 ]
+  %.0 = phi i32 [ -20, %9 ], [ 0, %17 ], [ -20, %10 ], [ %., %33 ], [ 902, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -688,7 +688,7 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensSim(ptr noundef readonly 
   br i1 %.not31, label %30, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %46, %30, %22, %21, %5, %4
-  %.0 = phi i32 [ -20, %4 ], [ -7, %5 ], [ 3, %21 ], [ 0, %22 ], [ -7, %34 ], [ 3, %46 ], [ 0, %30 ]
+  %.0 = phi i32 [ -20, %4 ], [ 3, %21 ], [ -7, %5 ], [ 0, %22 ], [ 3, %46 ], [ -7, %34 ], [ 0, %30 ]
   ret i32 %.0
 }
 

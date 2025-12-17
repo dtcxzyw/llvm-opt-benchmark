@@ -496,7 +496,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94:    ; preds = %136
   br label %_ZN7QStringD2Ev.exit96
 
 _ZN7QStringD2Ev.exit96:                           ; preds = %140, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94, %136, %_ZN7QStringD2Ev.exit84, %_ZN7QStringD2Ev.exit92, %126, %_ZN7QStringD2Ev.exit88, %117, %103
-  %.pn37 = phi { ptr, i32 } [ %104, %103 ], [ %.pn35, %_ZN7QStringD2Ev.exit92 ], [ %127, %126 ], [ %.pn33, %_ZN7QStringD2Ev.exit88 ], [ %.pn31, %117 ], [ %.pn, %_ZN7QStringD2Ev.exit84 ], [ %137, %136 ], [ %137, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94 ], [ %137, %140 ]
+  %.pn37 = phi { ptr, i32 } [ %104, %103 ], [ %.pn, %_ZN7QStringD2Ev.exit84 ], [ %.pn35, %_ZN7QStringD2Ev.exit92 ], [ %127, %126 ], [ %.pn33, %_ZN7QStringD2Ev.exit88 ], [ %.pn31, %117 ], [ %137, %136 ], [ %137, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94 ], [ %137, %140 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %24) #14
   call void @_ZN9QLineEditD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %0) #14
   resume { ptr, i32 } %.pn37
@@ -1317,7 +1317,7 @@ select.unfold:                                    ; preds = %24
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.critedge, %10, %11, %select.unfold, %31
-  %.010 = phi i1 [ true, %31 ], [ false, %select.unfold ], [ false, %11 ], [ true, %10 ], [ false, %.critedge.critedge ]
+  %.010 = phi i1 [ false, %11 ], [ true, %31 ], [ false, %select.unfold ], [ true, %10 ], [ false, %.critedge.critedge ]
   ret i1 %.010
 }
 

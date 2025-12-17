@@ -948,114 +948,114 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   store i16 2, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %19 = load i8, ptr %18, align 8, !range !6, !noundef !7
-  br label %23
+  br label %26
 
 20:                                               ; preds = %16, %6
   %.pr = load i16, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %.not104 = icmp eq i16 %.pr, 0
-  br i1 %.not104, label %87, label %23
+  br i1 %.not104, label %23, label %26
 
-23:                                               ; preds = %.thread, %20
-  %24 = phi i8 [ %19, %.thread ], [ %22, %20 ]
-  %25 = phi ptr [ %18, %.thread ], [ %21, %20 ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 57
-  %29 = load i16, ptr %28, align 1
-  %30 = and i16 %29, 8
-  %.not105 = icmp eq i16 %30, 0
-  br i1 %.not105, label %31, label %60
+23:                                               ; preds = %20
+  %24 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %25 = call zeroext i1 @dissector_try_heuristic(ptr noundef %24, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+  store i16 0, ptr %10, align 8
+  store i32 0, ptr %11, align 4
+  store i32 0, ptr %12, align 8
+  br i1 %25, label %94, label %90
 
-31:                                               ; preds = %23
-  %32 = tail call ptr @fragment_get(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %1, i32 noundef %4, ptr noundef null)
-  %.not106 = icmp eq ptr %32, null
-  br i1 %.not106, label %33, label %42
+26:                                               ; preds = %.thread, %20
+  %27 = phi i8 [ %19, %.thread ], [ %22, %20 ]
+  %28 = phi ptr [ %18, %.thread ], [ %21, %20 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 57
+  %32 = load i16, ptr %31, align 1
+  %33 = and i16 %32, 8
+  %.not105 = icmp eq i16 %33, 0
+  br i1 %.not105, label %34, label %63
 
-33:                                               ; preds = %31
-  %34 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %35 = call zeroext i1 @dissector_try_heuristic(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
-  br i1 %35, label %36, label %.thread114
+34:                                               ; preds = %26
+  %35 = tail call ptr @fragment_get(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %1, i32 noundef %4, ptr noundef null)
+  %.not106 = icmp eq ptr %35, null
+  br i1 %.not106, label %36, label %45
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %12, align 8
-  %.not107 = icmp eq i32 %37, 0
-  br i1 %.not107, label %.thread119, label %38
+36:                                               ; preds = %34
+  %37 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %38 = call zeroext i1 @dissector_try_heuristic(ptr noundef %37, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+  br i1 %38, label %39, label %.thread114
 
-38:                                               ; preds = %36
-  %39 = call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %13, i1 noundef zeroext true)
+39:                                               ; preds = %36
   %40 = load i32, ptr %12, align 8
-  %41 = add i32 %40, %13
-  call void @fragment_set_tot_len(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %41)
+  %.not107 = icmp eq i32 %40, 0
+  br i1 %.not107, label %.thread119, label %41
+
+41:                                               ; preds = %39
+  %42 = call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef %13, i1 noundef zeroext true)
+  %43 = load i32, ptr %12, align 8
+  %44 = add i32 %43, %13
+  call void @fragment_set_tot_len(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %44)
   br label %.thread119
 
-42:                                               ; preds = %31
-  %43 = load ptr, ptr %32, align 8
-  br label %44
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %35, align 8
+  br label %47
 
-44:                                               ; preds = %44, %42
-  %.0 = phi ptr [ %43, %42 ], [ %45, %44 ]
-  %45 = load ptr, ptr %.0, align 8
-  %.not108 = icmp eq ptr %45, null
-  br i1 %.not108, label %46, label %44, !llvm.loop !8
+47:                                               ; preds = %47, %45
+  %.0 = phi ptr [ %46, %45 ], [ %48, %47 ]
+  %48 = load ptr, ptr %.0, align 8
+  %.not108 = icmp eq ptr %48, null
+  br i1 %.not108, label %49, label %47, !llvm.loop !8
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %50 = load i32, ptr %49, align 8
-  %51 = add i32 %50, %48
-  %52 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %51, i32 noundef %13, i1 noundef zeroext true)
-  %.not109 = icmp eq ptr %52, null
-  br i1 %.not109, label %.thread114, label %53
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %.0, i64 12
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = add i32 %53, %51
+  %55 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef %54, i32 noundef %13, i1 noundef zeroext true)
+  %.not109 = icmp eq ptr %55, null
+  br i1 %.not109, label %.thread114, label %56
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %55)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %56, ptr noundef nonnull @.str.254)
-  store i8 0, ptr %25, align 8
-  %57 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %52, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %56, ptr noundef nonnull %7)
-  %58 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %59 = call zeroext i1 @dissector_try_heuristic(ptr noundef %58, ptr noundef %56, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %58)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %59, ptr noundef nonnull @.str.254)
+  store i8 0, ptr %28, align 8
+  %60 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %55, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %59, ptr noundef nonnull %7)
+  %61 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %62 = call zeroext i1 @dissector_try_heuristic(ptr noundef %61, ptr noundef %59, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  br i1 %59, label %94, label %90
+  br i1 %62, label %94, label %90
 
-60:                                               ; preds = %23
-  %61 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true)
-  %.not110 = icmp eq ptr %61, null
-  br i1 %.not110, label %62, label %65
+63:                                               ; preds = %26
+  %64 = tail call ptr @fragment_add_check(ptr noundef nonnull @dcerpc_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %4, ptr noundef null, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true)
+  %.not110 = icmp eq ptr %64, null
+  br i1 %.not110, label %65, label %68
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %64 = call zeroext i1 @dissector_try_heuristic(ptr noundef %63, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
+65:                                               ; preds = %63
+  %66 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
+  %67 = call zeroext i1 @dissector_try_heuristic(ptr noundef %66, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
-  br i1 %64, label %94, label %90
+  br i1 %67, label %94, label %90
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %67 = load i32, ptr %66, align 8
-  %68 = and i32 %67, 1
-  %.not111 = icmp eq i32 %68, 0
-  br i1 %.not111, label %69, label %72
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %70 = load i32, ptr %69, align 8
+  %71 = and i32 %70, 1
+  %.not111 = icmp eq i32 %71, 0
+  br i1 %.not111, label %87, label %72
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
-  %71 = call zeroext i1 @dissector_try_heuristic(ptr noundef %70, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
-  store i16 0, ptr %10, align 8
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 8
-  br i1 %71, label %94, label %90
-
-72:                                               ; preds = %65
+72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %76 = load i32, ptr %75, align 8
   %.not112 = icmp eq i32 %74, %76
   br i1 %.not112, label %80, label %77
@@ -1066,12 +1066,12 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   br label %.thread114
 
 80:                                               ; preds = %72
-  %81 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %82 = load ptr, ptr %81, align 8
   %83 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %82)
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %83, ptr noundef nonnull @.str.254)
-  store i8 0, ptr %25, align 8
-  %84 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %61, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %83, ptr noundef nonnull %7)
+  store i8 0, ptr %28, align 8
+  %84 = call zeroext i1 @show_fragment_tree(ptr noundef nonnull %64, ptr noundef nonnull @smb_pipe_frag_items, ptr noundef %3, ptr noundef %1, ptr noundef %83, ptr noundef nonnull %7)
   %85 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
   %86 = call zeroext i1 @dissector_try_heuristic(ptr noundef %85, ptr noundef %83, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
@@ -1079,19 +1079,19 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   store i32 0, ptr %12, align 8
   br i1 %86, label %94, label %90
 
-.thread114:                                       ; preds = %77, %46, %33
+.thread114:                                       ; preds = %77, %49, %36
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
   br label %90
 
-.thread119:                                       ; preds = %38, %36
+.thread119:                                       ; preds = %39, %41
   store i16 0, ptr %10, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 8
   br label %94
 
-87:                                               ; preds = %20
+87:                                               ; preds = %68
   %88 = load ptr, ptr @smb_transact_heur_subdissector_list, align 8
   %89 = call zeroext i1 @dissector_try_heuristic(ptr noundef %88, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %5)
   store i16 0, ptr %10, align 8
@@ -1099,16 +1099,16 @@ define hidden noundef zeroext i1 @dissect_pipe_dcerpc(ptr noundef %0, ptr nounde
   store i32 0, ptr %12, align 8
   br i1 %89, label %94, label %90
 
-90:                                               ; preds = %53, %62, %69, %80, %.thread114, %87
-  %.097117 = phi ptr [ %0, %.thread114 ], [ %0, %87 ], [ %83, %80 ], [ %0, %69 ], [ %0, %62 ], [ %56, %53 ]
-  %91 = phi ptr [ %25, %.thread114 ], [ %21, %87 ], [ %25, %80 ], [ %25, %69 ], [ %25, %62 ], [ %25, %53 ]
-  %92 = phi i8 [ %24, %.thread114 ], [ %22, %87 ], [ %24, %80 ], [ %24, %69 ], [ %24, %62 ], [ %24, %53 ]
+90:                                               ; preds = %65, %56, %23, %80, %.thread114, %87
+  %.097117 = phi ptr [ %0, %.thread114 ], [ %0, %87 ], [ %83, %80 ], [ %0, %23 ], [ %59, %56 ], [ %0, %65 ]
+  %91 = phi ptr [ %28, %.thread114 ], [ %28, %87 ], [ %28, %80 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ]
+  %92 = phi i8 [ %27, %.thread114 ], [ %27, %87 ], [ %27, %80 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ]
   %93 = call i32 @call_data_dissector(ptr noundef %.097117, ptr noundef %1, ptr noundef %2)
   br label %94
 
-94:                                               ; preds = %53, %62, %69, %80, %.thread119, %90, %87
-  %95 = phi ptr [ %91, %90 ], [ %21, %87 ], [ %25, %.thread119 ], [ %25, %80 ], [ %25, %69 ], [ %25, %62 ], [ %25, %53 ]
-  %96 = phi i8 [ %92, %90 ], [ %22, %87 ], [ %24, %.thread119 ], [ %24, %80 ], [ %24, %69 ], [ %24, %62 ], [ %24, %53 ]
+94:                                               ; preds = %65, %56, %23, %80, %.thread119, %90, %87
+  %95 = phi ptr [ %91, %90 ], [ %28, %87 ], [ %28, %.thread119 ], [ %28, %80 ], [ %21, %23 ], [ %28, %56 ], [ %28, %65 ]
+  %96 = phi i8 [ %92, %90 ], [ %27, %87 ], [ %27, %.thread119 ], [ %27, %80 ], [ %22, %23 ], [ %27, %56 ], [ %27, %65 ]
   store i8 %96, ptr %95, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1515,7 +1515,7 @@ define hidden noundef zeroext i1 @dissect_pipe_smb(ptr noundef %0, ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %104, %101, %109, %117, %112, %129, %124, %136, %131, %143, %153, %179, %174, %198, %190, %159, %156, %155, %196, %188, %177, %141, %134, %127, %115, %105, %100, %95, %92, %9, %110, %107, %102
-  %.0 = phi i1 [ %103, %102 ], [ true, %107 ], [ %111, %110 ], [ false, %9 ], [ false, %92 ], [ false, %95 ], [ false, %100 ], [ false, %105 ], [ false, %115 ], [ false, %127 ], [ false, %134 ], [ false, %141 ], [ false, %177 ], [ false, %188 ], [ false, %196 ], [ false, %155 ], [ true, %156 ], [ true, %159 ], [ true, %190 ], [ true, %198 ], [ true, %174 ], [ true, %179 ], [ true, %153 ], [ true, %143 ], [ true, %131 ], [ true, %136 ], [ true, %124 ], [ true, %129 ], [ true, %112 ], [ true, %117 ], [ true, %109 ], [ true, %101 ], [ true, %104 ], [ true, %.thread ]
+  %.0 = phi i1 [ false, %95 ], [ false, %141 ], [ %103, %102 ], [ false, %100 ], [ true, %107 ], [ %111, %110 ], [ false, %177 ], [ false, %188 ], [ false, %105 ], [ false, %115 ], [ false, %127 ], [ false, %134 ], [ false, %155 ], [ false, %196 ], [ false, %9 ], [ false, %92 ], [ true, %156 ], [ true, %159 ], [ true, %190 ], [ true, %198 ], [ true, %174 ], [ true, %179 ], [ true, %153 ], [ true, %143 ], [ true, %131 ], [ true, %136 ], [ true, %124 ], [ true, %129 ], [ true, %112 ], [ true, %117 ], [ true, %109 ], [ true, %101 ], [ true, %104 ], [ true, %.thread ]
   ret i1 %.0
 }
 
@@ -2473,7 +2473,7 @@ dissect_response_parameters.exit:                 ; preds = %394
   br label %519
 
 519:                                              ; preds = %.loopexit, %334, %309, %307, %dissect_response_parameters.exit, %512, %516, %515, %381, %384, %386, %335, %34, %17, %343
-  %.0160 = phi i1 [ true, %343 ], [ false, %17 ], [ false, %34 ], [ false, %335 ], [ true, %386 ], [ true, %384 ], [ true, %381 ], [ true, %515 ], [ true, %516 ], [ true, %512 ], [ true, %dissect_response_parameters.exit ], [ true, %307 ], [ true, %309 ], [ true, %334 ], [ true, %.loopexit ]
+  %.0160 = phi i1 [ false, %17 ], [ false, %335 ], [ true, %.loopexit ], [ false, %34 ], [ true, %343 ], [ true, %386 ], [ true, %384 ], [ true, %381 ], [ true, %515 ], [ true, %516 ], [ true, %512 ], [ true, %dissect_response_parameters.exit ], [ true, %307 ], [ true, %309 ], [ true, %334 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0160
@@ -2607,7 +2607,7 @@ define internal fastcc i32 @dissect_transact_data(ptr noundef nonnull %0, i32 no
   br i1 %.not14.i, label %get_count.exit, label %.lr.ph.i, !llvm.loop !11
 
 get_count.exit:                                   ; preds = %.lr.ph.i, %28, %17
-  %.0.i = phi ptr [ %15, %17 ], [ %.01217.i, %.lr.ph.i ], [ %29, %28 ]
+  %.0.i = phi ptr [ %15, %17 ], [ %29, %28 ], [ %.01217.i, %.lr.ph.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.0182, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
@@ -2674,7 +2674,7 @@ get_count.exit:                                   ; preds = %.lr.ph.i, %28, %17
   br i1 %.not14.i212, label %get_count.exit215, label %.lr.ph.i208, !llvm.loop !11
 
 get_count.exit215:                                ; preds = %.lr.ph.i208, %69, %58
-  %.0.i214 = phi ptr [ %15, %58 ], [ %.01217.i210, %.lr.ph.i208 ], [ %70, %69 ]
+  %.0.i214 = phi ptr [ %15, %58 ], [ %70, %69 ], [ %.01217.i210, %.lr.ph.i208 ]
   %72 = getelementptr inbounds nuw i8, ptr %.0182, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null

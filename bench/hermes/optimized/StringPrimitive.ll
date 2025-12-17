@@ -2739,8 +2739,8 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %if.then.i17, %if.th
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, %if.then18, %if.then5, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then5 ], [ 1, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit ], [ %2, %if.then18 ], [ 0, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
-  %retval.sroa.6.0 = phi i64 [ %or.i.i.i, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.then5 ], [ %retval.sroa.0.0.copyload.i19, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit ], [ %3, %if.then18 ], [ undef, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then5 ], [ %2, %if.then18 ], [ 1, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit ], [ 0, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
+  %retval.sroa.6.0 = phi i64 [ %or.i.i.i, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.then5 ], [ %3, %if.then18 ], [ %retval.sroa.0.0.copyload.i19, %_ZSt4copyIPKcPcET0_T_S4_S3_.exit ], [ undef, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3107,8 +3107,8 @@ if.end47:                                         ; preds = %while.body.i
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit, %if.end47, %_ZSt4copyIPKDsPcET0_T_S4_S3_.exit, %if.then18, %if.then5, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then5 ], [ 1, %_ZSt4copyIPKDsPcET0_T_S4_S3_.exit ], [ %16, %if.end47 ], [ %2, %if.then18 ], [ 0, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
-  %retval.sroa.7.0 = phi i64 [ %or.i.i.i, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.then5 ], [ %retval.sroa.0.0.copyload.i22, %_ZSt4copyIPKDsPcET0_T_S4_S3_.exit ], [ %17, %if.end47 ], [ %3, %if.then18 ], [ undef, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then5 ], [ %2, %if.then18 ], [ 1, %_ZSt4copyIPKDsPcET0_T_S4_S3_.exit ], [ %16, %if.end47 ], [ 0, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
+  %retval.sroa.7.0 = phi i64 [ %or.i.i.i, %if.then ], [ %retval.sroa.0.0.copyload.i, %if.then5 ], [ %3, %if.then18 ], [ %retval.sroa.0.0.copyload.i22, %_ZSt4copyIPKDsPcET0_T_S4_S3_.exit ], [ %17, %if.end47 ], [ undef, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3647,7 +3647,7 @@ if.then.i.i.i.i.i174:                             ; preds = %if.end.i172
   br label %return
 
 return:                                           ; preds = %for.body.i.i.i.i.i116, %for.body.i.i.i.i.i, %if.then.i.i.i.i.i174, %if.end.i172, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit169, %if.end.i113, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit110, %if.end.i63, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit, %if.then.i.i.i.i.i, %if.end.i, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit
-  %retval.0 = phi i1 [ false, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ true, %if.end.i ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ true, %if.end.i63 ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit110 ], [ true, %if.end.i113 ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit169 ], [ %tobool1.not.i.i.i.i.i177, %if.then.i.i.i.i.i174 ], [ true, %if.end.i172 ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cmp2.i.i.i.i.i121, %for.body.i.i.i.i.i116 ]
+  %retval.0 = phi i1 [ false, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit169 ], [ true, %if.end.i ], [ %tobool1.not.i.i.i.i.i177, %if.then.i.i.i.i.i174 ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit ], [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToUTF16RefEv.exit ], [ true, %if.end.i63 ], [ true, %if.end.i172 ], [ false, %_ZNK6hermes2vm15StringPrimitive14castToASCIIRefEv.exit110 ], [ true, %if.end.i113 ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cmp2.i.i.i.i.i121, %for.body.i.i.i.i.i116 ]
   ret i1 %retval.0
 }
 
@@ -3917,8 +3917,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.end.i34
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.preheader
-  %__first2.addr.06.i.i.i.i.i = phi ptr [ %agg.tmp9.sroa.0.0.copyload, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr3.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i = phi ptr [ %add.ptr10.i19, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %__first2.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %agg.tmp9.sroa.0.0.copyload, %for.body.i.i.i.i.i.preheader ]
+  %__first1.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr10.i19, %for.body.i.i.i.i.i.preheader ]
   %11 = load i16, ptr %__first1.addr.05.i.i.i.i.i, align 2
   %conv.i.i.i.i.i = zext i16 %11 to i32
   %12 = load i8, ptr %__first2.addr.06.i.i.i.i.i, align 1
@@ -3931,7 +3931,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   br i1 %or.cond.not, label %for.body.i.i.i.i.i, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.body.i.i.i.i.i, %if.end.i34, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %if.then.i.i.i.i.i, %if.end.i3, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
-  %retval.0 = phi i1 [ false, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ true, %if.end.i3 ], [ false, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ true, %if.end.i34 ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.end.i3 ], [ false, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ false, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ true, %if.end.i34 ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -4015,8 +4015,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.end.i3
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.preheader
-  %__first2.addr.06.i.i.i.i.i = phi ptr [ %agg.tmp4.sroa.0.0.copyload, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr3.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %__first1.addr.05.i.i.i.i.i = phi ptr [ %add.ptr10.i, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %__first2.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %agg.tmp4.sroa.0.0.copyload, %for.body.i.i.i.i.i.preheader ]
+  %__first1.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr10.i, %for.body.i.i.i.i.i.preheader ]
   %5 = load i8, ptr %__first1.addr.05.i.i.i.i.i, align 1
   %conv.i.i.i.i.i = sext i8 %5 to i32
   %6 = load i16, ptr %__first2.addr.06.i.i.i.i.i, align 2
@@ -4095,7 +4095,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i34
   br label %return
 
 return:                                           ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i34, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %if.end.i3, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
-  %retval.0 = phi i1 [ false, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ true, %if.end.i3 ], [ false, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ true, %if.end.i34 ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %retval.0 = phi i1 [ %tobool1.not.i.i.i.i.i, %if.then.i.i.i.i.i ], [ false, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ true, %if.end.i3 ], [ true, %if.end.i34 ], [ false, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %cmp2.i.i.i.i.i, %for.body.i.i.i.i.i ]
   ret i1 %retval.0
 }
 
@@ -4754,7 +4754,7 @@ if.end27.i286:                                    ; preds = %_ZSt8mismatchIPKDsS
   br label %return
 
 return:                                           ; preds = %while.body.i.i22.i, %while.body.i.i24.i204, %while.body.i.i24.i, %while.body.i.i27.i, %if.end27.i286, %_ZSt8mismatchIPKDsS1_ESt4pairIT_T0_ES3_S3_S4_.exit26.i, %if.end12.i266, %if.then8.i270, %if.end27.i199, %_ZSt8mismatchIPKDsPKcESt4pairIT_T0_ES5_S5_S6_.exit.i195, %if.end12.i172, %if.then8.i178, %if.end27.i105, %_ZSt8mismatchIPKcPKDsESt4pairIT_T0_ES5_S5_S6_.exit.i, %if.end12.i89, %if.then8.i93, %if.end27.i, %_ZSt8mismatchIPKcS1_ESt4pairIT_T0_ES3_S3_S4_.exit31.i, %if.end12.i, %if.then8.i
-  %retval.0 = phi i32 [ %cond.i, %if.end12.i ], [ %cond33.i, %if.end27.i ], [ %..i, %if.then8.i ], [ -1, %_ZSt8mismatchIPKcS1_ESt4pairIT_T0_ES3_S3_S4_.exit31.i ], [ %cond.i91, %if.end12.i89 ], [ %cond33.i107, %if.end27.i105 ], [ %..i96, %if.then8.i93 ], [ -1, %_ZSt8mismatchIPKcPKDsESt4pairIT_T0_ES5_S5_S6_.exit.i ], [ %cond.i176, %if.end12.i172 ], [ %cond33.i203, %if.end27.i199 ], [ %..i181, %if.then8.i178 ], [ -1, %_ZSt8mismatchIPKDsPKcESt4pairIT_T0_ES5_S5_S6_.exit.i195 ], [ %cond.i268, %if.end12.i266 ], [ %cond33.i288, %if.end27.i286 ], [ %..i273, %if.then8.i270 ], [ -1, %_ZSt8mismatchIPKDsS1_ESt4pairIT_T0_ES3_S3_S4_.exit26.i ], [ -1, %while.body.i.i27.i ], [ -1, %while.body.i.i24.i ], [ -1, %while.body.i.i24.i204 ], [ -1, %while.body.i.i22.i ]
+  %retval.0 = phi i32 [ %..i, %if.then8.i ], [ %cond33.i, %if.end27.i ], [ %cond.i, %if.end12.i ], [ -1, %_ZSt8mismatchIPKcS1_ESt4pairIT_T0_ES3_S3_S4_.exit31.i ], [ %..i96, %if.then8.i93 ], [ %cond33.i107, %if.end27.i105 ], [ %cond.i91, %if.end12.i89 ], [ -1, %_ZSt8mismatchIPKcPKDsESt4pairIT_T0_ES5_S5_S6_.exit.i ], [ %..i181, %if.then8.i178 ], [ %cond33.i203, %if.end27.i199 ], [ %cond.i176, %if.end12.i172 ], [ -1, %_ZSt8mismatchIPKDsPKcESt4pairIT_T0_ES5_S5_S6_.exit.i195 ], [ %..i273, %if.then8.i270 ], [ %cond33.i288, %if.end27.i286 ], [ %cond.i268, %if.end12.i266 ], [ -1, %_ZSt8mismatchIPKDsS1_ESt4pairIT_T0_ES3_S3_S4_.exit26.i ], [ -1, %while.body.i.i24.i204 ], [ -1, %while.body.i.i27.i ], [ -1, %while.body.i.i24.i ], [ -1, %while.body.i.i22.i ]
   ret i32 %retval.0
 }
 
@@ -4910,8 +4910,8 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %return
 
 return:                                           ; preds = %cleanup, %if.end.i, %if.end, %entry, %if.end33, %if.then30, %if.then19
-  %retval.sroa.0.0 = phi i32 [ %call20, %if.then19 ], [ 1, %if.end33 ], [ %call32, %if.then30 ], [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end.i ], [ 1, %cleanup ]
-  %retval.sroa.8.0 = phi i64 [ undef, %if.then19 ], [ %or.i.i.i.i, %if.end33 ], [ undef, %if.then30 ], [ %retval.sroa.0.0.copyload.i.i10, %entry ], [ %retval.sroa.0.0.copyload.i.i, %if.end ], [ undef, %if.end.i ], [ %or.i.i.i, %cleanup ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end ], [ 1, %entry ], [ %call20, %if.then19 ], [ 1, %if.end33 ], [ %call32, %if.then30 ], [ 1, %cleanup ], [ 0, %if.end.i ]
+  %retval.sroa.8.0 = phi i64 [ %retval.sroa.0.0.copyload.i.i, %if.end ], [ %retval.sroa.0.0.copyload.i.i10, %entry ], [ undef, %if.then19 ], [ %or.i.i.i.i, %if.end33 ], [ undef, %if.then30 ], [ %or.i.i.i, %cleanup ], [ undef, %if.end.i ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -5280,7 +5280,7 @@ if.else4.i:                                       ; preds = %if.then
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit: ; preds = %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i, %if.else4.i
-  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
+  %call2.pn.i = phi { i32, i64 } [ %call9.i, %if.else4.i ], [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ]
   %8 = extractvalue { i32, i64 } %call2.pn.i, 0
   %9 = extractvalue { i32, i64 } %call2.pn.i, 1
   %cmp.i.i2 = icmp eq i32 %8, 0
@@ -6414,7 +6414,7 @@ if.else4.i:                                       ; preds = %if.else13
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEjb.exit: ; preds = %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i, %if.else4.i
-  %call2.pn.i = phi { i32, i64 } [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ], [ %call9.i, %if.else4.i ]
+  %call2.pn.i = phi { i32, i64 } [ %call9.i, %if.else4.i ], [ %.fca.1.insert.i22.i, %_ZN6hermes2vm22DynamicStringPrimitiveIDsLb0EE6createERNS0_7RuntimeEj.exit.i ]
   %22 = extractvalue { i32, i64 } %call2.pn.i, 0
   %23 = extractvalue { i32, i64 } %call2.pn.i, 1
   %cmp.i.i41 = icmp eq i32 %22, 0

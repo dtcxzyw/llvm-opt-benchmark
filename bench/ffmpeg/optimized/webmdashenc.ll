@@ -183,8 +183,8 @@ define internal range(i32 -2147483648, 1) i32 @webm_dash_manifest_write_header(p
   br i1 %or.cond82.i, label %.backedge.thread.i, label %36
 
 .backedge.i:                                      ; preds = %.thread98.i, %78, %._crit_edge.i
-  %.060.be.i = phi i32 [ 2, %78 ], [ 1, %._crit_edge.i ], [ %.363.i, %.thread98.i ]
-  %.055.be.i = phi ptr [ %79, %78 ], [ %73, %._crit_edge.i ], [ %117, %.thread98.i ]
+  %.060.be.i = phi i32 [ 1, %._crit_edge.i ], [ %.363.i, %.thread98.i ], [ 2, %78 ]
+  %.055.be.i = phi ptr [ %73, %._crit_edge.i ], [ %117, %.thread98.i ], [ %79, %78 ]
   %31 = load i8, ptr %.055.be.i, align 1, !tbaa !44
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %._crit_edge113.i, label %.backedge131.i.backedge
@@ -367,8 +367,8 @@ parse_adaptation_sets.exit.thread.sink.split:     ; preds = %92, %101, %104, %10
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %.str.26.sink) #9
   br label %parse_adaptation_sets.exit.thread
 
-parse_adaptation_sets.exit.thread:                ; preds = %sub_1.i, %sub_0.i, %80, %42, %.tail.i, %76, %parse_adaptation_sets.exit.thread.sink.split, %._crit_edge113.i
-  %.0.i.ph = phi i32 [ -22, %._crit_edge113.i ], [ -22, %parse_adaptation_sets.exit.thread.sink.split ], [ -1, %sub_1.i ], [ -1, %sub_0.i ], [ %90, %80 ], [ -12, %42 ], [ -1, %.tail.i ], [ -1, %76 ]
+parse_adaptation_sets.exit.thread:                ; preds = %sub_1.i, %sub_0.i, %80, %42, %76, %.tail.i, %parse_adaptation_sets.exit.thread.sink.split, %._crit_edge113.i
+  %.0.i.ph = phi i32 [ -22, %._crit_edge113.i ], [ -22, %parse_adaptation_sets.exit.thread.sink.split ], [ -1, %sub_1.i ], [ -1, %sub_0.i ], [ %90, %80 ], [ -12, %42 ], [ -1, %76 ], [ -1, %.tail.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %write_adaptation_set.exit.thread
 
@@ -492,7 +492,7 @@ get_duration.exit.i:                              ; preds = %148, %131
   %186 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %120, ptr noundef nonnull @.str.53, ptr noundef %185) #9
   br label %write_header.exit.thread85
 
-write_header.exit.thread85:                       ; preds = %171, %182
+write_header.exit.thread85:                       ; preds = %182, %171
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -684,9 +684,9 @@ get_duration.exit:                                ; preds = %211, %193
   br i1 %or.cond139.not, label %281, label %.thread.i, !llvm.loop !71
 
 .thread.i:                                        ; preds = %281, %263, %274, %273, %244, %243
-  %.0121.i = phi i1 [ false, %273 ], [ true, %243 ], [ true, %274 ], [ true, %244 ], [ true, %263 ], [ %.not.i152.i, %281 ]
-  %.0120.i = phi i1 [ true, %273 ], [ false, %243 ], [ true, %274 ], [ true, %244 ], [ %.not.i146.i, %263 ], [ true, %281 ]
-  %.0119.i = phi i1 [ true, %273 ], [ false, %243 ], [ true, %274 ], [ true, %244 ], [ %.not.i.i76, %263 ], [ true, %281 ]
+  %.0121.i = phi i1 [ true, %243 ], [ false, %273 ], [ true, %244 ], [ true, %274 ], [ true, %263 ], [ %.not.i152.i, %281 ]
+  %.0120.i = phi i1 [ false, %243 ], [ true, %273 ], [ true, %244 ], [ true, %274 ], [ %.not.i146.i, %263 ], [ true, %281 ]
+  %.0119.i = phi i1 [ false, %243 ], [ true, %273 ], [ true, %244 ], [ true, %274 ], [ %.not.i.i76, %263 ], [ true, %281 ]
   %291 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %238, ptr noundef nonnull @.str.55, ptr noundef %228) #9
   %292 = load i32, ptr %237, align 8, !tbaa !65
   %293 = icmp eq i32 %292, 0
@@ -836,7 +836,7 @@ get_duration.exit:                                ; preds = %211, %193
   br i1 %384, label %349, label %bitstream_switching.exit.i, !llvm.loop !78
 
 bitstream_switching.exit.i:                       ; preds = %.critedge.i.i, %377, %371, %367, %362, %349, %.preheader.i.i, %330
-  %.0.i.i = phi i64 [ 0, %330 ], [ 1, %.preheader.i.i ], [ 0, %349 ], [ 0, %362 ], [ 0, %367 ], [ 0, %371 ], [ 0, %377 ], [ 1, %.critedge.i.i ]
+  %.0.i.i = phi i64 [ 0, %330 ], [ 1, %.preheader.i.i ], [ 0, %377 ], [ 0, %367 ], [ 0, %362 ], [ 0, %349 ], [ 0, %371 ], [ 1, %.critedge.i.i ]
   %385 = getelementptr inbounds nuw [6 x i8], ptr @write_adaptation_set.boolean, i64 %.0.i.i
   %386 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %238, ptr noundef nonnull @.str.65, ptr noundef nonnull %385) #9
   %387 = load i32, ptr %241, align 8, !tbaa !55
@@ -897,7 +897,7 @@ bitstream_switching.exit.i:                       ; preds = %.critedge.i.i, %377
   br i1 %.not18.i.i, label %subsegment_alignment.exit.i, label %402
 
 subsegment_alignment.exit.i:                      ; preds = %.critedge.i164.i, %406, %402, %.preheader.i160.i, %388, %bitstream_switching.exit.i
-  %421 = phi i64 [ 1, %bitstream_switching.exit.i ], [ 0, %388 ], [ 1, %.preheader.i160.i ], [ 0, %406 ], [ 0, %.critedge.i164.i ], [ 1, %402 ]
+  %421 = phi i64 [ 1, %bitstream_switching.exit.i ], [ 0, %388 ], [ 1, %.preheader.i160.i ], [ 0, %.critedge.i164.i ], [ 0, %406 ], [ 1, %402 ]
   %422 = getelementptr inbounds nuw [6 x i8], ptr @write_adaptation_set.boolean, i64 %421
   %423 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %238, ptr noundef nonnull @.str.66, ptr noundef nonnull %422) #9
   %424 = getelementptr inbounds nuw i8, ptr %228, i64 24
@@ -1214,7 +1214,7 @@ subsegment_alignment.exit.i:                      ; preds = %.critedge.i164.i, %
   br label %write_adaptation_set.exit.thread
 
 write_adaptation_set.exit.thread:                 ; preds = %457, %453, %450, %.thread196.i, %write_header.exit, %parse_adaptation_sets.exit.thread, %._crit_edge
-  %.047 = phi i32 [ -1313558101, %write_header.exit ], [ 0, %._crit_edge ], [ %.0.i.ph, %parse_adaptation_sets.exit.thread ], [ -22, %.thread196.i ], [ -22, %450 ], [ -22, %453 ], [ -22, %457 ]
+  %.047 = phi i32 [ %.0.i.ph, %parse_adaptation_sets.exit.thread ], [ -1313558101, %write_header.exit ], [ 0, %._crit_edge ], [ -22, %.thread196.i ], [ -22, %450 ], [ -22, %453 ], [ -22, %457 ]
   %.val62 = load ptr, ptr %7, align 8, !tbaa !4
   %605 = getelementptr inbounds nuw i8, ptr %.val62, i64 24
   %606 = load i32, ptr %605, align 8, !tbaa !46

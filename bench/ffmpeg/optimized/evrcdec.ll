@@ -269,7 +269,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %49
 
 49:                                               ; preds = %48, %47, %46, %45, %22
-  %.0.i20.ph.i = phi i32 [ 0, %48 ], [ 1, %47 ], [ 2, %46 ], [ 3, %45 ], [ 4, %22 ]
+  %.0.i20.ph.i = phi i32 [ 4, %22 ], [ 1, %47 ], [ 2, %46 ], [ 3, %45 ], [ 0, %48 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.10) #9
   br label %54
 
@@ -1574,7 +1574,7 @@ synthesis_filter.exit:                            ; preds = %913
   br i1 %exitcond296.not, label %.loopexit, label %708, !llvm.loop !95
 
 decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %54, %54, %601, %592, %535, %60, %50
-  %921 = phi ptr [ %55, %601 ], [ %55, %592 ], [ %55, %535 ], [ %55, %60 ], [ %55, %54 ], [ %51, %50 ], [ %55, %54 ], [ %55, %579 ], [ %55, %572 ], [ %55, %526 ]
+  %921 = phi ptr [ %55, %601 ], [ %55, %592 ], [ %51, %50 ], [ %55, %535 ], [ %55, %60 ], [ %55, %54 ], [ %55, %54 ], [ %55, %572 ], [ %55, %579 ], [ %55, %526 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.7) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1990,7 +1990,7 @@ frame_erasure.exit:                               ; preds = %synthesis_filter.ex
   br label %1126
 
 1126:                                             ; preds = %63, %4, %1124
-  %.0 = phi i32 [ %1125, %1124 ], [ %20, %4 ], [ -1094995529, %63 ]
+  %.0 = phi i32 [ -1094995529, %63 ], [ %1125, %1124 ], [ %20, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

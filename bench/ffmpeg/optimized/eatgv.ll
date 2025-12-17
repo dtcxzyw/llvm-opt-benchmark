@@ -788,7 +788,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
   %470 = icmp slt i64 %indvars.iv.next243.i, %469
   br i1 %470, label %.preheader189.i, label %tgv_decode_inter.exit, !llvm.loop !65
 
-471:                                              ; preds = %277, %268, %262, %240, %283, %._crit_edge203.i
+471:                                              ; preds = %262, %240, %283, %._crit_edge203.i, %277, %268
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.5) #6
   br label %.thread
 
@@ -804,7 +804,7 @@ tgv_decode_inter.exit:                            ; preds = %._crit_edge210.i, %
   br label %.thread
 
 .thread:                                          ; preds = %88, %219, %37, %22, %tgv_decode_inter.exit, %74, %4, %._crit_edge, %476, %471, %239
-  %.091 = phi i32 [ %9, %476 ], [ -1094995529, %471 ], [ %9, %239 ], [ -1094995529, %._crit_edge ], [ -1094995529, %4 ], [ %75, %74 ], [ %474, %tgv_decode_inter.exit ], [ %44, %37 ], [ -1094995529, %22 ], [ -12, %88 ], [ -1094995529, %219 ]
+  %.091 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %4 ], [ %75, %74 ], [ %9, %476 ], [ -1094995529, %22 ], [ -1094995529, %471 ], [ %9, %239 ], [ %474, %tgv_decode_inter.exit ], [ %44, %37 ], [ -12, %88 ], [ -1094995529, %219 ]
   ret i32 %.091
 }
 

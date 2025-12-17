@@ -750,7 +750,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54: ; preds = %_ZNSt6vectorIN4cvc5
   br label %.loopexit64
 
 .body:                                            ; preds = %185, %176, %252, %254, %256, %97, %95
-  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ], [ %257, %256 ], [ %255, %254 ], [ %186, %185 ], [ %253, %252 ], [ %177, %176 ]
+  %.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %98, %97 ], [ %257, %256 ], [ %255, %254 ], [ %186, %185 ], [ %253, %252 ], [ %177, %176 ]
   call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
   br label %295
 

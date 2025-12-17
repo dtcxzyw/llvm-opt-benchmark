@@ -166,7 +166,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -634,7 +634,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712SelectForma
   br label %15
 
 15:                                               ; preds = %5, %14, %11
-  %.0 = phi ptr [ %13, %11 ], [ %2, %14 ], [ %2, %5 ]
+  %.0 = phi ptr [ %2, %14 ], [ %13, %11 ], [ %2, %5 ]
   ret ptr %.0
 }
 
@@ -668,7 +668,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712SelectForma
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
-  %.0.i = phi ptr [ %15, %14 ], [ %18, %16 ], [ null, %8 ]
+  %.0.i = phi ptr [ %18, %16 ], [ %15, %14 ], [ null, %8 ]
   %19 = icmp slt i16 %10, 0
   %20 = ashr i16 %10, 5
   %21 = sext i16 %20 to i32
@@ -729,7 +729,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
   br label %59
 
 59:                                               ; preds = %37, %57, %5, %32
-  %.0 = phi ptr [ %2, %32 ], [ %2, %5 ], [ %58, %57 ], [ %2, %37 ]
+  %.0 = phi ptr [ %2, %5 ], [ %2, %32 ], [ %58, %57 ], [ %2, %37 ]
   ret ptr %.0
 }
 
@@ -888,7 +888,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   br i1 %92, label %25, label %.thread, !llvm.loop !41
 
 .thread:                                          ; preds = %59, %85, %25
-  %.3 = phi i32 [ %.227, %85 ], [ %.025, %25 ], [ %27, %59 ]
+  %.3 = phi i32 [ %.025, %25 ], [ %.227, %85 ], [ %27, %59 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
@@ -996,7 +996,7 @@ define noundef zeroext i1 @_ZNK6icu_7712SelectFormateqERKNS_6FormatE(ptr noundef
   br label %10
 
 10:                                               ; preds = %4, %2, %6
-  %.0 = phi i1 [ %9, %6 ], [ true, %2 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %2 ], [ %9, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 

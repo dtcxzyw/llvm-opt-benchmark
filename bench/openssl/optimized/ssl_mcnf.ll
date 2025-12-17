@@ -145,11 +145,11 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   br label %60
 
 60:                                               ; preds = %._crit_edge, %22, %20, %21, %12
-  %.048 = phi i1 [ false, %12 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ %59, %._crit_edge ]
-  %.046 = phi i1 [ true, %12 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ %.not58, %._crit_edge ]
-  %.044 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %21 ], [ null, %22 ], [ %25, %._crit_edge ]
-  %.043 = phi ptr [ null, %12 ], [ null, %20 ], [ null, %21 ], [ null, %22 ], [ %46, %._crit_edge ]
-  %.0 = phi i32 [ %3, %12 ], [ 1, %20 ], [ 0, %21 ], [ 0, %22 ], [ %3, %._crit_edge ]
+  %.048 = phi i1 [ false, %12 ], [ false, %21 ], [ %59, %._crit_edge ], [ false, %22 ], [ false, %20 ]
+  %.046 = phi i1 [ true, %12 ], [ true, %21 ], [ %.not58, %._crit_edge ], [ true, %22 ], [ true, %20 ]
+  %.044 = phi ptr [ null, %12 ], [ null, %21 ], [ %25, %._crit_edge ], [ null, %22 ], [ null, %20 ]
+  %.043 = phi ptr [ null, %12 ], [ null, %21 ], [ %46, %._crit_edge ], [ null, %22 ], [ null, %20 ]
+  %.0 = phi i32 [ %3, %12 ], [ 0, %21 ], [ %3, %._crit_edge ], [ 0, %22 ], [ 1, %20 ]
   %61 = call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %.043) #4
   call void @SSL_CONF_CTX_free(ptr noundef %.044) #4
   %62 = icmp ne i32 %.0, 0

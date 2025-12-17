@@ -217,12 +217,12 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   br i1 %.not185208, label %._crit_edge212, label %.lr.ph211
 
 .preheader:                                       ; preds = %._crit_edge212, %._crit_edge195.thread, %._crit_edge195, %.preheader190
-  %113 = phi ptr [ %33, %.preheader190 ], [ %33, %._crit_edge195 ], [ %23, %._crit_edge195.thread ], [ %33, %._crit_edge212 ]
-  %114 = phi ptr [ %31, %.preheader190 ], [ %31, %._crit_edge195 ], [ %21, %._crit_edge195.thread ], [ %31, %._crit_edge212 ]
-  %115 = phi ptr [ %30, %.preheader190 ], [ %30, %._crit_edge195 ], [ %20, %._crit_edge195.thread ], [ %30, %._crit_edge212 ]
-  %116 = phi ptr [ %29, %.preheader190 ], [ %29, %._crit_edge195 ], [ %19, %._crit_edge195.thread ], [ %29, %._crit_edge212 ]
-  %117 = phi i32 [ 1, %.preheader190 ], [ 0, %._crit_edge195 ], [ %24, %._crit_edge195.thread ], [ %46, %._crit_edge212 ]
-  %118 = phi i1 [ true, %.preheader190 ], [ false, %._crit_edge195 ], [ false, %._crit_edge195.thread ], [ true, %._crit_edge212 ]
+  %113 = phi ptr [ %23, %._crit_edge195.thread ], [ %33, %.preheader190 ], [ %33, %._crit_edge195 ], [ %33, %._crit_edge212 ]
+  %114 = phi ptr [ %21, %._crit_edge195.thread ], [ %31, %.preheader190 ], [ %31, %._crit_edge195 ], [ %31, %._crit_edge212 ]
+  %115 = phi ptr [ %20, %._crit_edge195.thread ], [ %30, %.preheader190 ], [ %30, %._crit_edge195 ], [ %30, %._crit_edge212 ]
+  %116 = phi ptr [ %19, %._crit_edge195.thread ], [ %29, %.preheader190 ], [ %29, %._crit_edge195 ], [ %29, %._crit_edge212 ]
+  %117 = phi i32 [ %24, %._crit_edge195.thread ], [ 1, %.preheader190 ], [ 0, %._crit_edge195 ], [ %46, %._crit_edge212 ]
+  %118 = phi i1 [ false, %._crit_edge195.thread ], [ true, %.preheader190 ], [ false, %._crit_edge195 ], [ true, %._crit_edge212 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %wide.trip.count257 = zext i32 %117 to i64
   br label %135
@@ -318,7 +318,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   br label %.lr.ph218._crit_edge
 
 .lr.ph218._crit_edge:                             ; preds = %.lr.ph218, %143, %147
-  %.1170 = phi nsz float [ %.0169216, %143 ], [ %181, %147 ], [ %.0169216, %.lr.ph218 ]
+  %.1170 = phi nsz float [ %181, %147 ], [ %.0169216, %143 ], [ %.0169216, %.lr.ph218 ]
   %exitcond258.not = icmp eq i64 %.pre265, %wide.trip.count257
   br i1 %exitcond258.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !24
 
@@ -519,7 +519,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   br label %84
 
 84:                                               ; preds = %82, %78
-  %85 = phi reassoc nsz arcp contract afn double [ %83, %82 ], [ %81, %78 ]
+  %85 = phi reassoc nsz arcp contract afn double [ %81, %78 ], [ %83, %82 ]
   %86 = fmul reassoc nsz arcp contract afn double %85, 6.553600e+04
   %87 = fptoui double %86 to i16
   store i16 %87, ptr %71, align 2, !tbaa !25
@@ -555,7 +555,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   br label %102
 
 102:                                              ; preds = %100, %96
-  %103 = phi reassoc nsz arcp contract afn double [ %101, %100 ], [ %99, %96 ]
+  %103 = phi reassoc nsz arcp contract afn double [ %99, %96 ], [ %101, %100 ]
   %104 = fmul reassoc nsz arcp contract afn double %103, 6.553600e+04
   %105 = fptoui double %104 to i16
   store i16 %105, ptr %89, align 2, !tbaa !25
@@ -594,7 +594,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   br label %120
 
 120:                                              ; preds = %118, %114
-  %121 = phi reassoc nsz arcp contract afn double [ %119, %118 ], [ %117, %114 ]
+  %121 = phi reassoc nsz arcp contract afn double [ %117, %114 ], [ %119, %118 ]
   %122 = fmul reassoc nsz arcp contract afn double %121, 6.553600e+04
   %123 = fptoui double %122 to i16
   store i16 %123, ptr %107, align 2, !tbaa !25
@@ -647,7 +647,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   br label %140
 
 140:                                              ; preds = %134, %136
-  %141 = phi reassoc nsz arcp contract afn double [ %135, %134 ], [ %139, %136 ]
+  %141 = phi reassoc nsz arcp contract afn double [ %139, %136 ], [ %135, %134 ]
   %142 = fmul reassoc nsz arcp contract afn double %141, 6.553600e+04
   %143 = fptoui double %142 to i16
   store i16 %143, ptr %127, align 2, !tbaa !25

@@ -775,9 +775,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %30
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.thread63, %._crit_edge.thread62, %._crit_edge
-  %36 = phi i64 [ %35, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %29, %._crit_edge.thread63 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %37 = phi ptr [ %33, %._crit_edge ], [ null, %._crit_edge.thread62 ], [ null, %._crit_edge.thread63 ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi61 = phi i64 [ 1, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %25, %._crit_edge.thread63 ], [ %25, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %36 = phi i64 [ %29, %._crit_edge.thread63 ], [ %35, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %37 = phi ptr [ null, %._crit_edge.thread63 ], [ %33, %._crit_edge ], [ null, %._crit_edge.thread62 ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi61 = phi i64 [ %25, %._crit_edge.thread63 ], [ 1, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %25, %.lr.ph.i.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %36, %.pre-phi61
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSIS1_EERS1_RKNS_9DenseBaseIT_EE.exit
 
@@ -1501,9 +1501,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %30
   br i1 %.not, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %._crit_edge.thread63, %._crit_edge.thread62, %._crit_edge
-  %36 = phi i64 [ %35, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %29, %._crit_edge.thread63 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %37 = phi ptr [ %33, %._crit_edge ], [ null, %._crit_edge.thread62 ], [ null, %._crit_edge.thread63 ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre-phi61 = phi i64 [ 1, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %25, %._crit_edge.thread63 ], [ %25, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %36 = phi i64 [ %29, %._crit_edge.thread63 ], [ %35, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %37 = phi ptr [ null, %._crit_edge.thread63 ], [ %33, %._crit_edge ], [ null, %._crit_edge.thread62 ], [ %33, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre-phi61 = phi i64 [ %25, %._crit_edge.thread63 ], [ 1, %._crit_edge ], [ 0, %._crit_edge.thread62 ], [ %25, %.lr.ph.i.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %36, %.pre-phi61
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSIS1_EERS1_RKNS_9DenseBaseIT_EE.exit
 

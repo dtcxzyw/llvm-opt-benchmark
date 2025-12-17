@@ -192,9 +192,9 @@ define internal range(i32 0, 2) i32 @def_load_bio(ptr noundef %0, ptr noundef %1
   br label %.thread445
 
 .outer476._crit_edge:                             ; preds = %.thread442, %.outer476, %.backedge, %.preheader473
-  %.1242.ph479.lcssa584 = phi ptr [ null, %.preheader473 ], [ %.1242.ph479619, %.backedge ], [ %.2243, %.outer476 ], [ %.1242.ph479619, %.thread442 ]
-  %.1258.lcssa = phi i64 [ 0, %.preheader473 ], [ %.1258.be, %.backedge ], [ %89, %.outer476 ], [ %89, %.thread442 ]
-  %.1.lcssa = phi ptr [ %1, %.preheader473 ], [ %.us-phi599833, %.backedge ], [ %.6, %.outer476 ], [ %.us-phi599833, %.thread442 ]
+  %.1242.ph479.lcssa584 = phi ptr [ null, %.preheader473 ], [ %.2243, %.outer476 ], [ %.1242.ph479619, %.backedge ], [ %.1242.ph479619, %.thread442 ]
+  %.1258.lcssa = phi i64 [ 0, %.preheader473 ], [ %89, %.outer476 ], [ %.1258.be, %.backedge ], [ %89, %.thread442 ]
+  %.1.lcssa = phi ptr [ %1, %.preheader473 ], [ %.6, %.outer476 ], [ %.us-phi599833, %.backedge ], [ %.us-phi599833, %.thread442 ]
   call void @ERR_new() #16
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.def_load_bio) #16
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef 524295, ptr noundef null) #16
@@ -499,7 +499,7 @@ scan_dquote.exit.i:                               ; preds = %143, %is_keytype.ex
   br label %.critedge.backedge.i
 
 .critedge.backedge.i:                             ; preds = %is_keytype.exit26.i.i, %is_keytype.exit62.thread.i, %is_keytype.exit59.i, %is_keytype.exit59.thread.i, %.critedge.i.i, %scan_dquote.exit.i
-  %.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %178, %is_keytype.exit62.thread.i ], [ %spec.select.i52.i, %.critedge.i.i ], [ %171, %is_keytype.exit59.thread.i ], [ %spec.select.i, %is_keytype.exit59.i ], [ %158, %is_keytype.exit26.i.i ]
+  %.1.be.i = phi ptr [ %spec.select.i.i, %scan_dquote.exit.i ], [ %178, %is_keytype.exit62.thread.i ], [ %spec.select.i52.i, %.critedge.i.i ], [ %spec.select.i, %is_keytype.exit59.i ], [ %171, %is_keytype.exit59.thread.i ], [ %158, %is_keytype.exit26.i.i ]
   %.pre.i = load i8, ptr %.1.be.i, align 1, !tbaa !23
   br label %.critedge.i
 
@@ -625,9 +625,9 @@ is_keytype.exit348:                               ; preds = %is_keytype.exit.i34
   br i1 %.not305, label %194, label %.backedge
 
 .backedge:                                        ; preds = %330, %335, %332, %325, %is_keytype.exit340.thread, %.thread412, %is_keytype.exit348, %.thread466
-  %.be = phi i1 [ false, %is_keytype.exit348 ], [ false, %.thread466 ], [ true, %.thread412 ], [ true, %is_keytype.exit340.thread ], [ false, %325 ], [ false, %332 ], [ false, %335 ], [ false, %330 ]
-  %.1258.be = phi i64 [ %89, %is_keytype.exit348 ], [ %89, %.thread466 ], [ %.1258604, %.thread412 ], [ %89, %is_keytype.exit340.thread ], [ %89, %325 ], [ %89, %332 ], [ %89, %335 ], [ %89, %330 ]
-  %.0227.be = phi i32 [ 0, %is_keytype.exit348 ], [ 0, %.thread466 ], [ %85, %.thread412 ], [ %113, %is_keytype.exit340.thread ], [ 0, %325 ], [ 0, %332 ], [ 0, %335 ], [ 0, %330 ]
+  %.be = phi i1 [ false, %.thread466 ], [ false, %is_keytype.exit348 ], [ true, %is_keytype.exit340.thread ], [ true, %.thread412 ], [ false, %325 ], [ false, %332 ], [ false, %335 ], [ false, %330 ]
+  %.1258.be = phi i64 [ %89, %.thread466 ], [ %89, %is_keytype.exit348 ], [ %89, %is_keytype.exit340.thread ], [ %.1258604, %.thread412 ], [ %89, %325 ], [ %89, %332 ], [ %89, %335 ], [ %89, %330 ]
+  %.0227.be = phi i32 [ 0, %.thread466 ], [ 0, %is_keytype.exit348 ], [ %113, %is_keytype.exit340.thread ], [ %85, %.thread412 ], [ 0, %325 ], [ 0, %332 ], [ 0, %335 ], [ 0, %330 ]
   %191 = add nsw i32 %.0227.be, 512
   %192 = sext i32 %191 to i64
   %193 = call i64 @BUF_MEM_grow(ptr noundef nonnull %11, i64 noundef %192) #16
@@ -705,7 +705,7 @@ is_keytype.exit19.i:                              ; preds = %215
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %230, %is_keytype.exit19.i, %is_keytype.exit19.thread.i
-  %.0.be.i = phi ptr [ %231, %230 ], [ %219, %is_keytype.exit19.thread.i ], [ %spec.select.i360, %is_keytype.exit19.i ]
+  %.0.be.i = phi ptr [ %231, %230 ], [ %spec.select.i360, %is_keytype.exit19.i ], [ %219, %is_keytype.exit19.thread.i ]
   %225 = load i8, ptr %.0.be.i, align 1, !tbaa !23
   %226 = icmp slt i8 %225, 0
   br i1 %226, label %eat_ws.exit369, label %is_keytype.exit.i357
@@ -754,10 +754,10 @@ is_keytype.exit.i364:                             ; preds = %.lr.ph1119
   br label %eat_ws.exit369, !llvm.loop !30
 
 eat_ws.exit369:                                   ; preds = %.backedge.i, %is_keytype.exit.i364, %is_keytype.exit.lr.ph.i363, %.eat_ws.exit369.loopexit_crit_edge, %209
-  %.pr441762 = phi i8 [ %.pr441761, %209 ], [ %241, %.eat_ws.exit369.loopexit_crit_edge ], [ %.pr441759, %is_keytype.exit.lr.ph.i363 ], [ %241, %is_keytype.exit.i364 ], [ %225, %.backedge.i ]
-  %.pr438756 = phi i8 [ %.pr438755, %209 ], [ %241, %.eat_ws.exit369.loopexit_crit_edge ], [ %.pr441759, %is_keytype.exit.lr.ph.i363 ], [ %241, %is_keytype.exit.i364 ], [ %225, %.backedge.i ]
-  %.0.lcssa.i361440 = phi ptr [ %.0229, %209 ], [ %.038.i, %.eat_ws.exit369.loopexit_crit_edge ], [ %.038.i, %is_keytype.exit.lr.ph.i363 ], [ %.038.i, %is_keytype.exit.i364 ], [ %.0.be.i, %.backedge.i ]
-  %.0.lcssa.i368 = phi ptr [ %.0229, %209 ], [ %240, %.eat_ws.exit369.loopexit_crit_edge ], [ %.038.i, %is_keytype.exit.lr.ph.i363 ], [ %240, %is_keytype.exit.i364 ], [ %.0.be.i, %.backedge.i ]
+  %.pr441762 = phi i8 [ %.pr441761, %209 ], [ %.pr441759, %is_keytype.exit.lr.ph.i363 ], [ %241, %.eat_ws.exit369.loopexit_crit_edge ], [ %241, %is_keytype.exit.i364 ], [ %225, %.backedge.i ]
+  %.pr438756 = phi i8 [ %.pr438755, %209 ], [ %.pr441759, %is_keytype.exit.lr.ph.i363 ], [ %241, %.eat_ws.exit369.loopexit_crit_edge ], [ %241, %is_keytype.exit.i364 ], [ %225, %.backedge.i ]
+  %.0.lcssa.i361440 = phi ptr [ %.0229, %209 ], [ %.038.i, %is_keytype.exit.lr.ph.i363 ], [ %.038.i, %.eat_ws.exit369.loopexit_crit_edge ], [ %.038.i, %is_keytype.exit.i364 ], [ %.0.be.i, %.backedge.i ]
+  %.0.lcssa.i368 = phi ptr [ %.0229, %209 ], [ %.038.i, %is_keytype.exit.lr.ph.i363 ], [ %240, %.eat_ws.exit369.loopexit_crit_edge ], [ %240, %is_keytype.exit.i364 ], [ %.0.be.i, %.backedge.i ]
   switch i8 %.pr438756, label %243 [
     i8 93, label %245
     i8 0, label %244
@@ -1176,8 +1176,8 @@ ossl_ends_with_dirsep.exit.thread:                ; preds = %378, %ossl_ends_wit
   br label %.thread445
 
 .outer476:                                        ; preds = %395, %403
-  %.2243 = phi ptr [ %.1242.ph479619, %395 ], [ %.4245, %403 ]
-  %.6 = phi ptr [ %.us-phi599833, %395 ], [ %392, %403 ]
+  %.2243 = phi ptr [ %.4245, %403 ], [ %.1242.ph479619, %395 ]
+  %.6 = phi ptr [ %392, %403 ], [ %.us-phi599833, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %407 = call i64 @BUF_MEM_grow(ptr noundef nonnull %11, i64 noundef 512) #16
   %.not603 = icmp eq i64 %407, 0
@@ -1288,11 +1288,11 @@ eat_ws.exit406:                                   ; preds = %is_keytype.exit.i40
   call void @OPENSSL_sk_free(ptr noundef %.1242.ph479619) #16
   br label %469
 
-.thread445:                                       ; preds = %245, %335, %330, %325, %430, %425, %eat_ws.exit406, %39, %53, %309, %254, %244, %.thread457, %14, %444, %441, %.thread463, %.outer476._crit_edge, %30, %20, %13
-  %.0257 = phi i64 [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %30 ], [ %89, %.thread463 ], [ %89, %441 ], [ %89, %444 ], [ %.1258.lcssa, %.outer476._crit_edge ], [ %89, %.thread457 ], [ %89, %244 ], [ %89, %254 ], [ %89, %309 ], [ %.1258604, %53 ], [ %.1258604, %39 ], [ %89, %335 ], [ %89, %330 ], [ %89, %325 ], [ %89, %430 ], [ %89, %425 ], [ %89, %eat_ws.exit406 ], [ %89, %245 ]
-  %.0255 = phi ptr [ null, %13 ], [ null, %14 ], [ null, %20 ], [ null, %30 ], [ null, %.thread463 ], [ %423, %441 ], [ %423, %444 ], [ null, %.outer476._crit_edge ], [ null, %.thread457 ], [ null, %244 ], [ null, %254 ], [ null, %309 ], [ null, %53 ], [ null, %39 ], [ null, %335 ], [ null, %330 ], [ null, %325 ], [ %423, %430 ], [ %423, %425 ], [ null, %eat_ws.exit406 ], [ null, %245 ]
-  %.0241 = phi ptr [ null, %13 ], [ null, %14 ], [ null, %20 ], [ null, %30 ], [ %.1242.ph479619, %.thread463 ], [ %.1242.ph479619, %441 ], [ %.1242.ph479619, %444 ], [ %.1242.ph479.lcssa584, %.outer476._crit_edge ], [ %.2243.ph, %.thread457 ], [ %.1242.ph479619, %244 ], [ %.1242.ph479619, %254 ], [ %.1242.ph479619, %309 ], [ %.1242.ph479619, %53 ], [ %.1242.ph479619, %39 ], [ %.1242.ph479619, %eat_ws.exit406 ], [ %.1242.ph479619, %425 ], [ %.1242.ph479619, %430 ], [ %.1242.ph479619, %325 ], [ %.1242.ph479619, %330 ], [ %.1242.ph479619, %335 ], [ %.1242.ph479619, %245 ]
-  %.0224 = phi ptr [ %1, %13 ], [ %1, %14 ], [ %1, %20 ], [ %1, %30 ], [ %.us-phi599833, %.thread463 ], [ %.us-phi599833, %441 ], [ %.us-phi599833, %444 ], [ %.1.lcssa, %.outer476._crit_edge ], [ %.us-phi599833, %.thread457 ], [ %.us-phi599833, %244 ], [ %.us-phi599833, %254 ], [ %.us-phi599833, %309 ], [ %.2, %53 ], [ %.1607, %39 ], [ %.us-phi599833, %335 ], [ %.us-phi599833, %330 ], [ %.us-phi599833, %325 ], [ %.us-phi599833, %430 ], [ %.us-phi599833, %425 ], [ %.us-phi599833, %eat_ws.exit406 ], [ %.us-phi599833, %245 ]
+.thread445:                                       ; preds = %245, %335, %325, %330, %430, %425, %eat_ws.exit406, %39, %53, %309, %254, %244, %.thread457, %14, %444, %441, %.thread463, %.outer476._crit_edge, %30, %20, %13
+  %.0257 = phi i64 [ 0, %13 ], [ 0, %14 ], [ 0, %20 ], [ 0, %30 ], [ %.1258.lcssa, %.outer476._crit_edge ], [ %89, %.thread457 ], [ %89, %.thread463 ], [ %89, %441 ], [ %89, %444 ], [ %89, %244 ], [ %89, %254 ], [ %89, %309 ], [ %.1258604, %39 ], [ %.1258604, %53 ], [ %89, %eat_ws.exit406 ], [ %89, %335 ], [ %89, %325 ], [ %89, %330 ], [ %89, %430 ], [ %89, %425 ], [ %89, %245 ]
+  %.0255 = phi ptr [ null, %13 ], [ null, %14 ], [ null, %20 ], [ null, %30 ], [ null, %.outer476._crit_edge ], [ null, %.thread457 ], [ null, %.thread463 ], [ %423, %441 ], [ %423, %444 ], [ null, %244 ], [ null, %254 ], [ null, %309 ], [ null, %39 ], [ null, %53 ], [ null, %eat_ws.exit406 ], [ null, %335 ], [ null, %325 ], [ null, %330 ], [ %423, %430 ], [ %423, %425 ], [ null, %245 ]
+  %.0241 = phi ptr [ null, %13 ], [ null, %14 ], [ null, %20 ], [ null, %30 ], [ %.1242.ph479.lcssa584, %.outer476._crit_edge ], [ %.2243.ph, %.thread457 ], [ %.1242.ph479619, %.thread463 ], [ %.1242.ph479619, %441 ], [ %.1242.ph479619, %444 ], [ %.1242.ph479619, %244 ], [ %.1242.ph479619, %254 ], [ %.1242.ph479619, %309 ], [ %.1242.ph479619, %335 ], [ %.1242.ph479619, %53 ], [ %.1242.ph479619, %39 ], [ %.1242.ph479619, %eat_ws.exit406 ], [ %.1242.ph479619, %425 ], [ %.1242.ph479619, %430 ], [ %.1242.ph479619, %330 ], [ %.1242.ph479619, %325 ], [ %.1242.ph479619, %245 ]
+  %.0224 = phi ptr [ %1, %13 ], [ %1, %14 ], [ %1, %20 ], [ %1, %30 ], [ %.1.lcssa, %.outer476._crit_edge ], [ %.us-phi599833, %.thread457 ], [ %.us-phi599833, %.thread463 ], [ %.us-phi599833, %441 ], [ %.us-phi599833, %444 ], [ %.us-phi599833, %244 ], [ %.us-phi599833, %254 ], [ %.us-phi599833, %309 ], [ %.1607, %39 ], [ %.2, %53 ], [ %.us-phi599833, %eat_ws.exit406 ], [ %.us-phi599833, %335 ], [ %.us-phi599833, %325 ], [ %.us-phi599833, %330 ], [ %.us-phi599833, %430 ], [ %.us-phi599833, %425 ], [ %.us-phi599833, %245 ]
   call void @BUF_MEM_free(ptr noundef %11) #16
   %447 = load ptr, ptr %5, align 8, !tbaa !16
   call void @CRYPTO_free(ptr noundef %447, ptr noundef nonnull @.str.1, i32 noundef 572) #16
@@ -1355,7 +1355,7 @@ eat_ws.exit406:                                   ; preds = %is_keytype.exit.i40
   br label %469
 
 469:                                              ; preds = %463, %464, %445
-  %.0 = phi i32 [ 1, %445 ], [ 0, %464 ], [ 0, %463 ]
+  %.0 = phi i32 [ 0, %463 ], [ 1, %445 ], [ 0, %464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1587,7 +1587,7 @@ is_keytype.exit19:                                ; preds = %13
   br label %.backedge
 
 .backedge:                                        ; preds = %is_keytype.exit19.thread, %is_keytype.exit19, %30
-  %.0.be = phi ptr [ %31, %30 ], [ %17, %is_keytype.exit19.thread ], [ %spec.select, %is_keytype.exit19 ]
+  %.0.be = phi ptr [ %31, %30 ], [ %spec.select, %is_keytype.exit19 ], [ %17, %is_keytype.exit19.thread ]
   %23 = load i8, ptr %.0.be, align 1, !tbaa !23
   %24 = icmp slt i8 %23, 0
   br i1 %24, label %is_keytype.exit25.thread, label %is_keytype.exit
@@ -1774,8 +1774,8 @@ is_keytype.exit211.thread:                        ; preds = %.preheader283, %is_
   br label %.backedge
 
 .backedge:                                        ; preds = %66, %.critedge, %.thread256, %84
-  %.0153.be = phi i32 [ %86, %84 ], [ %167, %.thread256 ], [ %45, %.critedge ], [ %67, %66 ]
-  %.0138.be = phi ptr [ %73, %84 ], [ %165, %.thread256 ], [ %spec.select, %.critedge ], [ %spec.select194, %66 ]
+  %.0153.be = phi i32 [ %67, %66 ], [ %167, %.thread256 ], [ %86, %84 ], [ %45, %.critedge ]
+  %.0138.be = phi ptr [ %spec.select194, %66 ], [ %165, %.thread256 ], [ %73, %84 ], [ %spec.select, %.critedge ]
   br label %15
 
 is_keytype.exit214:                               ; preds = %is_keytype.exit208
@@ -1954,12 +1954,12 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
   br i1 %136, label %.critedge8, label %is_keytype.exit229, !llvm.loop !42
 
 .critedge8:                                       ; preds = %.critedge2, %.critedge2.us, %.thread270, %.critedge6, %98, %122, %118, %.critedge4
-  %137 = phi i8 [ 58, %118 ], [ %.us-phi294, %.critedge4 ], [ %124, %122 ], [ %99, %98 ], [ %135, %.critedge6 ], [ %127, %.thread270 ], [ %108, %.critedge2.us ], [ %116, %.critedge2 ]
-  %.2161 = phi i8 [ %.0159.ph, %118 ], [ %.0159.ph, %.critedge4 ], [ 58, %122 ], [ %.0159.ph, %98 ], [ 58, %.critedge6 ], [ 58, %.thread270 ], [ %.0159.ph, %.critedge2.us ], [ %.0159.ph, %.critedge2 ]
-  %.1146 = phi ptr [ %.us-phi, %118 ], [ %.us-phi, %.critedge4 ], [ %123, %122 ], [ %100, %98 ], [ %134, %.critedge6 ], [ %.2147299, %.thread270 ], [ %107, %.critedge2.us ], [ %115, %.critedge2 ]
-  %.0142 = phi ptr [ null, %118 ], [ null, %.critedge4 ], [ %.us-phi, %122 ], [ null, %98 ], [ %.us-phi, %.critedge6 ], [ %.us-phi, %.thread270 ], [ null, %.critedge2.us ], [ null, %.critedge2 ]
-  %.0141 = phi ptr [ %100, %118 ], [ %100, %.critedge4 ], [ %123, %122 ], [ %100, %98 ], [ %123, %.critedge6 ], [ %123, %.thread270 ], [ %100, %.critedge2.us ], [ %100, %.critedge2 ]
-  %.0140 = phi ptr [ %1, %118 ], [ %1, %.critedge4 ], [ %100, %122 ], [ %1, %98 ], [ %100, %.critedge6 ], [ %100, %.thread270 ], [ %1, %.critedge2.us ], [ %1, %.critedge2 ]
+  %137 = phi i8 [ 58, %118 ], [ %.us-phi294, %.critedge4 ], [ %124, %122 ], [ %99, %98 ], [ %108, %.critedge2.us ], [ %135, %.critedge6 ], [ %127, %.thread270 ], [ %116, %.critedge2 ]
+  %.2161 = phi i8 [ %.0159.ph, %118 ], [ %.0159.ph, %.critedge4 ], [ 58, %122 ], [ %.0159.ph, %98 ], [ %.0159.ph, %.critedge2.us ], [ 58, %.thread270 ], [ 58, %.critedge6 ], [ %.0159.ph, %.critedge2 ]
+  %.1146 = phi ptr [ %.us-phi, %118 ], [ %.us-phi, %.critedge4 ], [ %123, %122 ], [ %100, %98 ], [ %107, %.critedge2.us ], [ %134, %.critedge6 ], [ %.2147299, %.thread270 ], [ %115, %.critedge2 ]
+  %.0142 = phi ptr [ null, %118 ], [ null, %.critedge4 ], [ %.us-phi, %122 ], [ null, %98 ], [ null, %.critedge2.us ], [ %.us-phi, %.thread270 ], [ %.us-phi, %.critedge6 ], [ null, %.critedge2 ]
+  %.0141 = phi ptr [ %100, %118 ], [ %100, %.critedge4 ], [ %123, %122 ], [ %100, %98 ], [ %100, %.critedge2.us ], [ %123, %.thread270 ], [ %123, %.critedge6 ], [ %100, %.critedge2 ]
+  %.0140 = phi ptr [ %1, %118 ], [ %1, %.critedge4 ], [ %100, %122 ], [ %1, %98 ], [ %1, %.critedge2.us ], [ %100, %.thread270 ], [ %100, %.critedge6 ], [ %1, %.critedge2 ]
   store i8 0, ptr %.1146, align 1, !tbaa !23
   br i1 %.not176260, label %142, label %138
 
@@ -2056,8 +2056,8 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
   br label %176
 
 .thread276.sink.split:                            ; preds = %155, %147, %145, %138
-  %.sink376 = phi i32 [ 739, %138 ], [ 759, %145 ], [ 764, %147 ], [ 768, %155 ]
-  %.sink = phi i32 [ 102, %138 ], [ 104, %145 ], [ 116, %147 ], [ 524295, %155 ]
+  %.sink376 = phi i32 [ 764, %147 ], [ 759, %145 ], [ 739, %138 ], [ 768, %155 ]
+  %.sink = phi i32 [ 116, %147 ], [ 104, %145 ], [ 102, %138 ], [ 524295, %155 ]
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink376, ptr noundef nonnull @__func__.str_copy) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %.sink, ptr noundef null) #16
@@ -2068,7 +2068,7 @@ is_keytype.exit229:                               ; preds = %is_keytype.exit229.
   br label %176
 
 176:                                              ; preds = %4, %.thread276, %170
-  %.0 = phi i32 [ 1, %170 ], [ 0, %.thread276 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %.thread276 ], [ 1, %170 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2159,7 +2159,7 @@ define internal fastcc range(i32 0, 2) i32 @parsebool(ptr noundef %0, ptr nounde
   br label %16
 
 15:                                               ; preds = %8, %11, %2, %5
-  %storemerge = phi i32 [ 1, %5 ], [ 1, %2 ], [ 0, %11 ], [ 0, %8 ]
+  %storemerge = phi i32 [ 1, %2 ], [ 1, %5 ], [ 0, %11 ], [ 0, %8 ]
   store i32 %storemerge, ptr %1, align 4, !tbaa !47
   br label %16
 

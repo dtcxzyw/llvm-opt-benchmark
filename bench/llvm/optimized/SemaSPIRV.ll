@@ -2066,7 +2066,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit76.thread308: ; preds = %611, 
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit68, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit42, %3, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit49.thread304, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit76.thread308, %.thread311, %608, %22
-  %.0 = phi i1 [ true, %22 ], [ true, %608 ], [ true, %.thread311 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit76.thread308 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit49.thread304 ], [ false, %3 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit42 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit68 ]
+  %.0 = phi i1 [ true, %608 ], [ true, %.thread311 ], [ false, %3 ], [ true, %22 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit76.thread308 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit49.thread304 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit42 ], [ true, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit68 ]
   ret i1 %.0
 }
 

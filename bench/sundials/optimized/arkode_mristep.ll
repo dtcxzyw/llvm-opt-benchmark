@@ -219,7 +219,7 @@ mriStep_CheckNVector.exit:                        ; preds = %37
   %.not92 = icmp eq ptr %42, null
   br i1 %.not92, label %mriStep_CheckNVector.exit.thread, label %43
 
-mriStep_CheckNVector.exit.thread:                 ; preds = %19, %25, %29, %33, %37, %mriStep_CheckNVector.exit
+mriStep_CheckNVector.exit.thread:                 ; preds = %25, %29, %33, %37, %19, %mriStep_CheckNVector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 81, ptr noundef nonnull @__func__.MRIStepCreate, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #14
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
@@ -481,7 +481,7 @@ select.unfold:                                    ; preds = %157, %152
   br label %mriStepInnerStepper_HasRequiredOps.exit
 
 mriStepInnerStepper_HasRequiredOps.exit:          ; preds = %157, %select.unfold, %151, %138, %131, %120, %117, %97, %50, %46, %mriStep_CheckNVector.exit.thread, %18, %16, %13, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %16 ], [ null, %46 ], [ null, %50 ], [ null, %97 ], [ null, %120 ], [ null, %131 ], [ null, %138 ], [ null, %151 ], [ null, %select.unfold ], [ null, %117 ], [ null, %mriStep_CheckNVector.exit.thread ], [ null, %18 ], [ %44, %157 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %16 ], [ null, %46 ], [ null, %50 ], [ null, %97 ], [ null, %120 ], [ null, %131 ], [ null, %138 ], [ null, %151 ], [ null, %select.unfold ], [ null, %18 ], [ null, %117 ], [ null, %mriStep_CheckNVector.exit.thread ], [ %44, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -529,7 +529,7 @@ define range(i32 0, 2) i32 @mriStep_CheckNVector(ptr noundef readonly captures(n
   br label %27
 
 27:                                               ; preds = %23, %1, %7, %11, %15, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %1 ], [ %spec.select, %23 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %23 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -646,7 +646,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %1
   br label %11
 
 11:                                               ; preds = %mriStep_AccessStepMem.exit, %5, %8
-  %.0 = phi ptr [ %10, %8 ], [ null, %mriStep_AccessStepMem.exit ], [ null, %5 ]
+  %.0 = phi ptr [ null, %mriStep_AccessStepMem.exit ], [ %10, %8 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1483,7 +1483,7 @@ mriStepInnerStepper_SupportsRTolAdaptivity.exit:  ; preds = %394
   br label %399
 
 399:                                              ; preds = %mriStep_AccessStepMem.exit, %378, %mriStepInnerStepper_SupportsRTolAdaptivity.exit, %278, %274, %269, %.thread260, %.thread317, %.thread308, %7, %397, %376, %371, %358, %351, %348, %335, %329, %323, %301, %178, %172, %139, %123, %94, %77, %70, %54, %33, %27, %24
-  %.0 = phi i32 [ -22, %24 ], [ -22, %27 ], [ -22, %33 ], [ -22, %54 ], [ -20, %70 ], [ -22, %77 ], [ -20, %94 ], [ -20, %123 ], [ -20, %139 ], [ -20, %172 ], [ -20, %178 ], [ -20, %301 ], [ -22, %323 ], [ -5, %329 ], [ -29, %335 ], [ -22, %348 ], [ -22, %397 ], [ -22, %351 ], [ -22, %358 ], [ -8, %371 ], [ %377, %376 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %7 ], [ -20, %.thread308 ], [ -20, %.thread317 ], [ -20, %.thread260 ], [ -20, %269 ], [ -20, %274 ], [ -20, %278 ], [ 0, %mriStepInnerStepper_SupportsRTolAdaptivity.exit ], [ 0, %378 ]
+  %.0 = phi i32 [ 0, %7 ], [ -21, %mriStep_AccessStepMem.exit ], [ -22, %24 ], [ -22, %27 ], [ -22, %33 ], [ -22, %54 ], [ -20, %70 ], [ -22, %77 ], [ -20, %94 ], [ -20, %123 ], [ -20, %139 ], [ -20, %172 ], [ -20, %178 ], [ -20, %301 ], [ -22, %323 ], [ -5, %329 ], [ -29, %335 ], [ -22, %348 ], [ -20, %278 ], [ -22, %397 ], [ -22, %351 ], [ -22, %358 ], [ -8, %371 ], [ %377, %376 ], [ -20, %274 ], [ -20, %269 ], [ -20, %.thread260 ], [ -20, %.thread317 ], [ -20, %.thread308 ], [ 0, %mriStepInnerStepper_SupportsRTolAdaptivity.exit ], [ 0, %378 ]
   ret i32 %.0
 }
 
@@ -1739,7 +1739,7 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
   br label %133
 
 133:                                              ; preds = %mriStep_AccessStepMem.exit, %127, %57, %.thread, %40, %132, %108, %84, %66, %mriStepInnerStepper_FullRhs.exit.thread, %21, %17
-  %.0 = phi i32 [ -8, %132 ], [ -8, %21 ], [ -8, %mriStepInnerStepper_FullRhs.exit.thread ], [ -8, %66 ], [ -8, %84 ], [ -8, %108 ], [ -8, %17 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %.thread ], [ 0, %57 ], [ 0, %127 ]
+  %.0 = phi i32 [ -8, %17 ], [ -8, %132 ], [ -8, %21 ], [ -8, %mriStepInnerStepper_FullRhs.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %66 ], [ -8, %84 ], [ -8, %108 ], [ 0, %40 ], [ 0, %.thread ], [ 0, %57 ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1816,7 +1816,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %31
   %.not250 = icmp eq i32 %41, 0
   br i1 %.not250, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread365, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
-mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %27, %22, %mriStepInnerStepper_ResetAccumulatedError.exit
+mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %22, %27, %mriStepInnerStepper_ResetAccumulatedError.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 1795, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.73) #14
   br label %.loopexit
 
@@ -1851,7 +1851,7 @@ mriStepInnerStepper_SetRTol.exit:                 ; preds = %55
   %.not251 = icmp eq i32 %58, 0
   br i1 %.not251, label %mriStepInnerStepper_SetRTol.exit.thread370, label %mriStepInnerStepper_SetRTol.exit.thread
 
-mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %49, %mriStepInnerStepper_ResetAccumulatedError.exit.thread365, %mriStepInnerStepper_SetRTol.exit
+mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %mriStepInnerStepper_ResetAccumulatedError.exit.thread365, %49, %mriStepInnerStepper_SetRTol.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 1804, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.74) #14
   br label %.loopexit
 
@@ -1890,7 +1890,7 @@ mriStepInnerStepper_Reset.exit:                   ; preds = %73
   %.not253 = icmp eq i32 %76, 0
   br i1 %.not253, label %mriStepInnerStepper_Reset.exit.thread375, label %mriStepInnerStepper_Reset.exit.thread
 
-mriStepInnerStepper_Reset.exit.thread:            ; preds = %69, %61, %mriStepInnerStepper_Reset.exit
+mriStepInnerStepper_Reset.exit.thread:            ; preds = %61, %69, %mriStepInnerStepper_Reset.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 1817, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -2098,7 +2098,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %.not279 = icmp eq i32 %.5, 0
   br i1 %.not279, label %.thread379, label %.loopexit
 
-.thread379:                                       ; preds = %171, %189, %199
+.thread379:                                       ; preds = %189, %171, %199
   %200 = load ptr, ptr %149, align 8, !tbaa !187
   %.not280 = icmp eq ptr %200, null
   %.pre440 = load ptr, ptr %147, align 8, !tbaa !142
@@ -2161,7 +2161,7 @@ mriStepInnerStepper_Reset.exit304:                ; preds = %223
   %.not286 = icmp eq i32 %226, 0
   br i1 %.not286, label %mriStepInnerStepper_Reset.exit304.thread387, label %mriStepInnerStepper_Reset.exit304.thread
 
-mriStepInnerStepper_Reset.exit304.thread:         ; preds = %219, %215, %mriStepInnerStepper_Reset.exit304
+mriStepInnerStepper_Reset.exit304.thread:         ; preds = %215, %219, %mriStepInnerStepper_Reset.exit304
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -34, i32 noundef 1971, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -2495,7 +2495,7 @@ mriStepInnerStepper_Reset.exit312:                ; preds = %402
   %.not266 = icmp eq i32 %405, 0
   br i1 %.not266, label %mriStepInnerStepper_Reset.exit312.thread402, label %mriStepInnerStepper_Reset.exit312.thread
 
-mriStepInnerStepper_Reset.exit312.thread:         ; preds = %398, %.thread394, %mriStepInnerStepper_Reset.exit312
+mriStepInnerStepper_Reset.exit312.thread:         ; preds = %.thread394, %398, %mriStepInnerStepper_Reset.exit312
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2142, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -2563,7 +2563,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   %.not269 = icmp eq i32 %.12, 0
   br i1 %.not269, label %.thread406, label %.loopexit
 
-.thread406:                                       ; preds = %mriStepInnerStepper_Reset.exit312.thread402, %431, %440
+.thread406:                                       ; preds = %431, %mriStepInnerStepper_Reset.exit312.thread402, %440
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %442 = load ptr, ptr %441, align 8, !tbaa !187
   %.not270 = icmp eq ptr %442, null
@@ -2631,7 +2631,7 @@ mriStepInnerStepper_Reset.exit315:                ; preds = %469
   %.not276 = icmp eq i32 %472, 0
   br i1 %.not276, label %mriStepInnerStepper_Reset.exit315.thread414, label %mriStepInnerStepper_Reset.exit315.thread
 
-mriStepInnerStepper_Reset.exit315.thread:         ; preds = %465, %459, %mriStepInnerStepper_Reset.exit315
+mriStepInnerStepper_Reset.exit315.thread:         ; preds = %459, %465, %mriStepInnerStepper_Reset.exit315
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2230, ptr noundef nonnull @__func__.mriStep_TakeStepMRIGARK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -2654,7 +2654,7 @@ mriStepInnerStepper_Reset.exit315.thread414:      ; preds = %469, %453, %457, %m
   br label %.loopexit
 
 .loopexit:                                        ; preds = %309, %293, %254, %241, %204, %199, %186, %.thread409, %.thread397, %.thread382, %mriStep_AccessStepMem.exit, %mriStepInnerStepper_Reset.exit315.thread414, %474, %446, %440, %429, %392, %382, %132, %104, %92, %85, %mriStepInnerStepper_Reset.exit315.thread, %mriStepInnerStepper_Reset.exit312.thread, %mriStepInnerStepper_Reset.exit304.thread, %mriStepInnerStepper_Reset.exit.thread, %mriStepInnerStepper_SetRTol.exit.thread, %mriStepInnerStepper_ResetAccumulatedError.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -34, %mriStepInnerStepper_Reset.exit304.thread ], [ -34, %mriStepInnerStepper_Reset.exit312.thread ], [ -34, %mriStepInnerStepper_Reset.exit315.thread ], [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -30, %85 ], [ -31, %92 ], [ -8, %104 ], [ -8, %132 ], [ %383, %382 ], [ %.11, %392 ], [ %430, %429 ], [ %.12, %440 ], [ -38, %446 ], [ 0, %474 ], [ 0, %mriStepInnerStepper_Reset.exit315.thread414 ], [ -41, %.thread382 ], [ -41, %.thread397 ], [ -41, %.thread409 ], [ -11, %309 ], [ -8, %293 ], [ -11, %254 ], [ -8, %241 ], [ -38, %204 ], [ %.5, %199 ], [ %188, %186 ]
+  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -30, %85 ], [ -31, %92 ], [ -41, %.thread409 ], [ -8, %104 ], [ -34, %mriStepInnerStepper_Reset.exit304.thread ], [ 0, %474 ], [ 0, %mriStepInnerStepper_Reset.exit315.thread414 ], [ -41, %.thread382 ], [ -41, %.thread397 ], [ -8, %132 ], [ %383, %382 ], [ -34, %mriStepInnerStepper_Reset.exit312.thread ], [ %430, %429 ], [ %.12, %440 ], [ -34, %mriStepInnerStepper_Reset.exit315.thread ], [ -38, %446 ], [ %.11, %392 ], [ -11, %309 ], [ -8, %293 ], [ -11, %254 ], [ -8, %241 ], [ -38, %204 ], [ %.5, %199 ], [ %188, %186 ]
   ret i32 %.0
 }
 
@@ -2879,7 +2879,7 @@ mriStepInnerStepper_Resize.exit:                  ; preds = %94
   br label %105
 
 105:                                              ; preds = %mriStep_AccessStepMem.exit, %mriStepInnerStepper_Resize.exit, %103, %79, %101, %88, %85, %72, %66, %60, %54, %35
-  %.0 = phi i32 [ -20, %85 ], [ -20, %88 ], [ -20, %101 ], [ -20, %72 ], [ -20, %66 ], [ -20, %60 ], [ -20, %54 ], [ -20, %35 ], [ -21, %mriStep_AccessStepMem.exit ], [ %80, %79 ], [ 0, %103 ], [ 0, %mriStepInnerStepper_Resize.exit ]
+  %.0 = phi i32 [ -20, %35 ], [ -21, %mriStep_AccessStepMem.exit ], [ -20, %85 ], [ -20, %88 ], [ -20, %101 ], [ %80, %79 ], [ -20, %72 ], [ -20, %66 ], [ -20, %60 ], [ -20, %54 ], [ 0, %103 ], [ 0, %mriStepInnerStepper_Resize.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -2921,12 +2921,12 @@ mriStepInnerStepper_Reset.exit:                   ; preds = %15
   %.not8 = icmp eq i32 %18, 0
   br i1 %.not8, label %mriStepInnerStepper_Reset.exit.thread15, label %mriStepInnerStepper_Reset.exit.thread
 
-mriStepInnerStepper_Reset.exit.thread:            ; preds = %11, %7, %mriStepInnerStepper_Reset.exit
+mriStepInnerStepper_Reset.exit.thread:            ; preds = %7, %11, %mriStepInnerStepper_Reset.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 548, ptr noundef nonnull @__func__.mriStep_Reset, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %mriStepInnerStepper_Reset.exit.thread15
 
 mriStepInnerStepper_Reset.exit.thread15:          ; preds = %15, %mriStep_AccessStepMem.exit, %mriStepInnerStepper_Reset.exit, %mriStepInnerStepper_Reset.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %mriStepInnerStepper_Reset.exit ], [ 0, %15 ]
+  %.0 = phi i32 [ -21, %mriStep_AccessStepMem.exit ], [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ 0, %mriStepInnerStepper_Reset.exit ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -3596,7 +3596,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   br label %81
 
 81:                                               ; preds = %mriStep_AccessStepMem.exit, %74, %31, %70, %28, %18, %65, %55
-  %.0 = phi i32 [ -21, %mriStep_AccessStepMem.exit ], [ -20, %55 ], [ -20, %65 ], [ 0, %18 ], [ 0, %28 ], [ 0, %70 ], [ 0, %31 ], [ 0, %74 ]
+  %.0 = phi i32 [ -20, %65 ], [ -21, %mriStep_AccessStepMem.exit ], [ -20, %55 ], [ 0, %18 ], [ 0, %28 ], [ 0, %70 ], [ 0, %31 ], [ 0, %74 ]
   ret i32 %.0
 }
 
@@ -3624,7 +3624,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef rea
   br label %9
 
 9:                                                ; preds = %7, %3, %1
-  %.0 = phi i32 [ -22, %1 ], [ -22, %3 ], [ %., %7 ]
+  %.0 = phi i32 [ -22, %3 ], [ -22, %1 ], [ %., %7 ]
   ret i32 %.0
 }
 
@@ -3745,7 +3745,7 @@ mriStep_AccessARKODEStepMem.exit:                 ; preds = %9
   br label %mriStep_AccessARKODEStepMem.exit.thread
 
 mriStep_AccessARKODEStepMem.exit.thread:          ; preds = %13, %8, %45, %44, %39, %36, %24, %21, %17
-  %.0 = phi i32 [ -23, %17 ], [ -22, %21 ], [ -22, %24 ], [ %43, %44 ], [ 0, %45 ], [ -20, %39 ], [ -20, %36 ], [ -21, %8 ], [ -21, %13 ]
+  %.0 = phi i32 [ -20, %36 ], [ -23, %17 ], [ -22, %21 ], [ -22, %24 ], [ %43, %44 ], [ 0, %45 ], [ -20, %39 ], [ -21, %8 ], [ -21, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -3852,7 +3852,7 @@ define i32 @mriStepInnerStepper_Reset(ptr noundef %0, double noundef %1, ptr nou
   br label %15
 
 15:                                               ; preds = %9, %5, %3, %12
-  %.0 = phi i32 [ %13, %12 ], [ -22, %3 ], [ -22, %5 ], [ 0, %9 ]
+  %.0 = phi i32 [ -22, %5 ], [ -22, %3 ], [ %13, %12 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -4014,7 +4014,7 @@ switch.lookup58:                                  ; preds = %38
   br label %46
 
 46:                                               ; preds = %switch.lookup58, %switch.lookup54, %switch.lookup50, %switch.lookup48, %switch.lookup46, %switch.lookup
-  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load, %switch.lookup48 ], [ %switch.load52, %switch.lookup50 ], [ %switch.load56, %switch.lookup54 ], [ %switch.load60, %switch.lookup58 ]
+  %.0 = phi i32 [ %switch.load60, %switch.lookup58 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load52, %switch.lookup50 ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup48 ], [ %switch.load56, %switch.lookup54 ]
   %47 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0) #14
   store ptr %47, ptr %9, align 8, !tbaa !125
   %48 = icmp eq ptr %47, null
@@ -4052,7 +4052,7 @@ switch.lookup58:                                  ; preds = %38
   br label %69
 
 69:                                               ; preds = %8, %50, %49, %.critedge, %7
-  %.032 = phi i32 [ -21, %7 ], [ -22, %.critedge ], [ -41, %49 ], [ 0, %50 ], [ 0, %8 ]
+  %.032 = phi i32 [ -21, %7 ], [ 0, %50 ], [ -22, %.critedge ], [ -41, %49 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.032
@@ -4610,7 +4610,7 @@ thread-pre-split:                                 ; preds = %34, %37
   br i1 %exitcond363.not, label %._crit_edge271, label %.preheader.us
 
 ._crit_edge271:                                   ; preds = %._crit_edge260.split.split.us275, %._crit_edge260.split.split.us.us.us, %._crit_edge260.split.us.split.us279.us, %.preheader.lr.ph.split.us.split.us, %._crit_edge255.thread
-  %.3156.lcssa = phi double [ %149, %._crit_edge255.thread ], [ %149, %.preheader.lr.ph.split.us.split.us ], [ %165, %._crit_edge260.split.us.split.us279.us ], [ %173, %._crit_edge260.split.split.us.us.us ], [ %188, %._crit_edge260.split.split.us275 ]
+  %.3156.lcssa = phi double [ %149, %._crit_edge255.thread ], [ %149, %.preheader.lr.ph.split.us.split.us ], [ %173, %._crit_edge260.split.split.us.us.us ], [ %165, %._crit_edge260.split.us.split.us279.us ], [ %188, %._crit_edge260.split.split.us275 ]
   %189 = fcmp ogt double %.3156.lcssa, 0x3D19000000000000
   br i1 %189, label %190, label %191
 
@@ -4633,7 +4633,7 @@ thread-pre-split:                                 ; preds = %34, %37
   br label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %122, %191, %199, %190, %145, %131, %93, %74, %56, %51, %46, %39, %36, %33, %25, %17, %12, %5
-  %.0 = phi i32 [ -21, %5 ], [ -41, %12 ], [ -41, %17 ], [ -22, %33 ], [ -22, %36 ], [ -22, %39 ], [ -41, %74 ], [ -41, %93 ], [ -41, %190 ], [ -41, %199 ], [ -41, %145 ], [ -41, %131 ], [ -22, %46 ], [ -22, %51 ], [ -22, %56 ], [ -41, %25 ], [ 0, %191 ], [ -41, %122 ], [ -41, %.split.us ]
+  %.0 = phi i32 [ -21, %5 ], [ -41, %12 ], [ -41, %17 ], [ -22, %33 ], [ -22, %36 ], [ -22, %39 ], [ -41, %74 ], [ -41, %93 ], [ -41, %190 ], [ -41, %199 ], [ -41, %25 ], [ -41, %145 ], [ -41, %131 ], [ 0, %191 ], [ -22, %46 ], [ -22, %51 ], [ -22, %56 ], [ -41, %122 ], [ -41, %.split.us ]
   ret i32 %.0
 }
 
@@ -4700,7 +4700,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %27
   %.not145 = icmp eq i32 %37, 0
   br i1 %.not145, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread203, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
-mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %23, %18, %mriStepInnerStepper_ResetAccumulatedError.exit
+mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %18, %23, %mriStepInnerStepper_ResetAccumulatedError.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2798, ptr noundef nonnull @__func__.mriStep_TakeStepMERK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.73) #14
   br label %.loopexit
 
@@ -4735,7 +4735,7 @@ mriStepInnerStepper_SetRTol.exit:                 ; preds = %51
   %.not146 = icmp eq i32 %54, 0
   br i1 %.not146, label %mriStepInnerStepper_SetRTol.exit.thread208, label %mriStepInnerStepper_SetRTol.exit.thread
 
-mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %45, %mriStepInnerStepper_ResetAccumulatedError.exit.thread203, %mriStepInnerStepper_SetRTol.exit
+mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %mriStepInnerStepper_ResetAccumulatedError.exit.thread203, %45, %mriStepInnerStepper_SetRTol.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2807, ptr noundef nonnull @__func__.mriStep_TakeStepMERK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.74) #14
   br label %.loopexit
 
@@ -4772,7 +4772,7 @@ mriStepInnerStepper_Reset.exit:                   ; preds = %68
   %.not148 = icmp eq i32 %71, 0
   br i1 %.not148, label %mriStepInnerStepper_Reset.exit.thread213, label %mriStepInnerStepper_Reset.exit.thread
 
-mriStepInnerStepper_Reset.exit.thread:            ; preds = %64, %58, %mriStepInnerStepper_Reset.exit
+mriStepInnerStepper_Reset.exit.thread:            ; preds = %58, %64, %mriStepInnerStepper_Reset.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2819, ptr noundef nonnull @__func__.mriStep_TakeStepMERK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -4967,7 +4967,7 @@ mriStepInnerStepper_Reset.exit174.mriStepInnerStepper_Reset.exit174.thread219_cr
   %.pre261 = load ptr, ptr %103, align 8, !tbaa !186
   br label %mriStepInnerStepper_Reset.exit174.thread219
 
-mriStepInnerStepper_Reset.exit174.thread:         ; preds = %181, %178, %mriStepInnerStepper_Reset.exit174
+mriStepInnerStepper_Reset.exit174.thread:         ; preds = %178, %181, %mriStepInnerStepper_Reset.exit174
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2940, ptr noundef nonnull @__func__.mriStep_TakeStepMERK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -5023,7 +5023,7 @@ mriStepInnerStepper_Reset.exit177:                ; preds = %211
   %.not161 = icmp eq i32 %214, 0
   br i1 %.not161, label %mriStepInnerStepper_Reset.exit177.thread224, label %mriStepInnerStepper_Reset.exit177.thread
 
-mriStepInnerStepper_Reset.exit177.thread:         ; preds = %207, %202, %mriStepInnerStepper_Reset.exit177
+mriStepInnerStepper_Reset.exit177.thread:         ; preds = %202, %207, %mriStepInnerStepper_Reset.exit177
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2992, ptr noundef nonnull @__func__.mriStep_TakeStepMERK, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -5154,7 +5154,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %232
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %229, %216, %198, %mriStep_AccessStepMem.exit, %270, %273, %89, %.thread, %mriStepInnerStepper_Reset.exit177.thread, %195, %mriStepInnerStepper_Reset.exit174.thread, %mriStepInnerStepper_Reset.exit.thread, %mriStepInnerStepper_SetRTol.exit.thread, %mriStepInnerStepper_ResetAccumulatedError.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -34, %mriStepInnerStepper_Reset.exit174.thread ], [ %194, %195 ], [ -34, %mriStepInnerStepper_Reset.exit177.thread ], [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %.thread ], [ -8, %89 ], [ 0, %273 ], [ 0, %270 ], [ -11, %229 ], [ -8, %216 ], [ -38, %198 ], [ %128, %118 ]
+  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %89 ], [ -34, %mriStepInnerStepper_Reset.exit174.thread ], [ %194, %195 ], [ -34, %mriStepInnerStepper_Reset.exit177.thread ], [ -8, %.thread ], [ 0, %273 ], [ 0, %270 ], [ -38, %198 ], [ -11, %229 ], [ -8, %216 ], [ %128, %118 ]
   ret i32 %.0
 }
 
@@ -5219,7 +5219,7 @@ mriStepInnerStepper_ResetAccumulatedError.exit:   ; preds = %25
   %.not194 = icmp eq i32 %35, 0
   br i1 %.not194, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread303, label %mriStepInnerStepper_ResetAccumulatedError.exit.thread
 
-mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %21, %16, %mriStepInnerStepper_ResetAccumulatedError.exit
+mriStepInnerStepper_ResetAccumulatedError.exit.thread: ; preds = %16, %21, %mriStepInnerStepper_ResetAccumulatedError.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2332, ptr noundef nonnull @__func__.mriStep_TakeStepMRISR, ptr noundef nonnull @.str, ptr noundef nonnull @.str.73) #14
   br label %.loopexit
 
@@ -5254,7 +5254,7 @@ mriStepInnerStepper_SetRTol.exit:                 ; preds = %49
   %.not195 = icmp eq i32 %52, 0
   br i1 %.not195, label %mriStepInnerStepper_SetRTol.exit.thread308, label %mriStepInnerStepper_SetRTol.exit.thread
 
-mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %43, %mriStepInnerStepper_ResetAccumulatedError.exit.thread303, %mriStepInnerStepper_SetRTol.exit
+mriStepInnerStepper_SetRTol.exit.thread:          ; preds = %mriStepInnerStepper_ResetAccumulatedError.exit.thread303, %43, %mriStepInnerStepper_SetRTol.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2341, ptr noundef nonnull @__func__.mriStep_TakeStepMRISR, ptr noundef nonnull @.str, ptr noundef nonnull @.str.74) #14
   br label %.loopexit
 
@@ -5293,7 +5293,7 @@ mriStepInnerStepper_Reset.exit:                   ; preds = %68
   %.not197 = icmp eq i32 %71, 0
   br i1 %.not197, label %mriStepInnerStepper_Reset.exit.thread313, label %mriStepInnerStepper_Reset.exit.thread
 
-mriStepInnerStepper_Reset.exit.thread:            ; preds = %64, %56, %mriStepInnerStepper_Reset.exit
+mriStepInnerStepper_Reset.exit.thread:            ; preds = %56, %64, %mriStepInnerStepper_Reset.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2354, ptr noundef nonnull @__func__.mriStep_TakeStepMRISR, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -5539,7 +5539,7 @@ mriStepInnerStepper_Reset.exit240.mriStepInnerStepper_Reset.exit240.thread321_cr
   %.pre365 = load ptr, ptr %151, align 8, !tbaa !186
   br label %mriStepInnerStepper_Reset.exit240.thread321
 
-mriStepInnerStepper_Reset.exit240.thread:         ; preds = %209, %206, %mriStepInnerStepper_Reset.exit240
+mriStepInnerStepper_Reset.exit240.thread:         ; preds = %206, %209, %mriStepInnerStepper_Reset.exit240
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2467, ptr noundef nonnull @__func__.mriStep_TakeStepMRISR, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -5762,7 +5762,7 @@ mriStepInnerStepper_Reset.exit243:                ; preds = %344
   %.not224 = icmp eq i32 %347, 0
   br i1 %.not224, label %mriStepInnerStepper_Reset.exit243.thread327, label %mriStepInnerStepper_Reset.exit243.thread
 
-mriStepInnerStepper_Reset.exit243.thread:         ; preds = %340, %335, %mriStepInnerStepper_Reset.exit243
+mriStepInnerStepper_Reset.exit243.thread:         ; preds = %335, %340, %mriStepInnerStepper_Reset.exit243
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -34, i32 noundef 2610, ptr noundef nonnull @__func__.mriStep_TakeStepMRISR, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17) #14
   br label %.loopexit
 
@@ -6010,7 +6010,7 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   br label %.loopexit
 
 .loopexit:                                        ; preds = %408, %396, %363, %351, %330, %323, %305, %284, %259, %253, %243, %197, %mriStep_AccessStepMem.exit, %459, %462, %113, %83, %mriStepInnerStepper_Reset.exit243.thread, %226, %mriStepInnerStepper_Reset.exit240.thread, %mriStepInnerStepper_Reset.exit.thread, %mriStepInnerStepper_SetRTol.exit.thread, %mriStepInnerStepper_ResetAccumulatedError.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -34, %mriStepInnerStepper_Reset.exit240.thread ], [ %225, %226 ], [ -34, %mriStepInnerStepper_Reset.exit243.thread ], [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %83 ], [ -8, %113 ], [ 0, %462 ], [ 0, %459 ], [ -11, %408 ], [ -8, %396 ], [ -11, %363 ], [ -8, %351 ], [ -38, %330 ], [ -28, %323 ], [ 5, %305 ], [ -28, %284 ], [ 5, %259 ], [ -39, %253 ], [ %250, %243 ], [ %203, %197 ]
+  %.0 = phi i32 [ -34, %mriStepInnerStepper_Reset.exit.thread ], [ -34, %mriStepInnerStepper_ResetAccumulatedError.exit.thread ], [ -34, %mriStepInnerStepper_SetRTol.exit.thread ], [ -21, %mriStep_AccessStepMem.exit ], [ -8, %113 ], [ -34, %mriStepInnerStepper_Reset.exit240.thread ], [ %225, %226 ], [ 0, %462 ], [ 0, %459 ], [ -34, %mriStepInnerStepper_Reset.exit243.thread ], [ -8, %83 ], [ -11, %408 ], [ 5, %305 ], [ -8, %396 ], [ -11, %363 ], [ -8, %351 ], [ -38, %330 ], [ -28, %323 ], [ -28, %284 ], [ 5, %259 ], [ -39, %253 ], [ %250, %243 ], [ %203, %197 ]
   ret i32 %.0
 }
 
@@ -6203,7 +6203,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
   br label %mriStepInnerStepper_FreeVecs.exit
 
 mriStepInnerStepper_FreeVecs.exit:                ; preds = %90, %88, %70, %67, %46, %43, %71, %75, %3
-  %.0 = phi i32 [ -22, %3 ], [ 0, %75 ], [ 0, %71 ], [ -20, %43 ], [ -20, %46 ], [ -20, %67 ], [ -20, %70 ], [ -20, %88 ], [ -20, %90 ]
+  %.0 = phi i32 [ 0, %71 ], [ -20, %46 ], [ -20, %70 ], [ -22, %3 ], [ 0, %75 ], [ -20, %43 ], [ -20, %67 ], [ -20, %88 ], [ -20, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -6437,7 +6437,7 @@ mriStep_ApplyForcing.exit34:                      ; preds = %.lr.ph.i30, %77
   br label %124
 
 124:                                              ; preds = %mriStep_AccessStepMem.exit, %109, %.thread, %117, %73, %24
-  %.0 = phi i32 [ -8, %24 ], [ -8, %73 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %117 ], [ 0, %.thread ], [ 0, %109 ]
+  %.0 = phi i32 [ -21, %mriStep_AccessStepMem.exit ], [ -8, %24 ], [ -8, %73 ], [ 0, %117 ], [ 0, %.thread ], [ 0, %109 ]
   ret i32 %.0
 }
 
@@ -6840,7 +6840,7 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
   br label %185
 
 185:                                              ; preds = %67, %mriStep_ApplyForcing.exit107, %83, %61, %151, %171, %167, %116, %184, %166, %133, %82, %27
-  %.0 = phi i32 [ -8, %184 ], [ -8, %82 ], [ -8, %27 ], [ -8, %133 ], [ -8, %166 ], [ 0, %116 ], [ 0, %167 ], [ 0, %171 ], [ 0, %151 ], [ 0, %61 ], [ 0, %83 ], [ 0, %mriStep_ApplyForcing.exit107 ], [ 0, %67 ]
+  %.0 = phi i32 [ -8, %184 ], [ -8, %166 ], [ -8, %82 ], [ -8, %27 ], [ -8, %133 ], [ 0, %116 ], [ 0, %167 ], [ 0, %171 ], [ 0, %151 ], [ 0, %61 ], [ 0, %83 ], [ 0, %mriStep_ApplyForcing.exit107 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -6954,7 +6954,7 @@ define i32 @mriStepInnerStepper_ResetAccumulatedError(ptr noundef %0) local_unna
   br label %15
 
 15:                                               ; preds = %7, %3, %1, %10
-  %.0 = phi i32 [ %13, %10 ], [ -22, %1 ], [ -22, %3 ], [ 0, %7 ]
+  %.0 = phi i32 [ -22, %3 ], [ -22, %1 ], [ %13, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -6982,7 +6982,7 @@ define i32 @mriStepInnerStepper_SetRTol(ptr noundef %0, double noundef %1) local
   br label %14
 
 14:                                               ; preds = %8, %4, %2, %11
-  %.0 = phi i32 [ %12, %11 ], [ -22, %2 ], [ -22, %4 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %4 ], [ -22, %2 ], [ %12, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -7262,7 +7262,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br label %145
 
 145:                                              ; preds = %131, %.lr.ph115.split.split.us
-  %.4.us119 = phi i32 [ %144, %131 ], [ %.3113.us118, %.lr.ph115.split.split.us ]
+  %.4.us119 = phi i32 [ %.3113.us118, %.lr.ph115.split.split.us ], [ %144, %131 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
   br i1 %exitcond158.not, label %._crit_edge116.split, label %.lr.ph115.split.split.us
@@ -7293,7 +7293,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br label %163
 
 163:                                              ; preds = %.lr.ph115.split.split, %149
-  %.4 = phi i32 [ %162, %149 ], [ %.3113, %.lr.ph115.split.split ]
+  %.4 = phi i32 [ %.3113, %.lr.ph115.split.split ], [ %162, %149 ]
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count157
   br i1 %exitcond153.not, label %._crit_edge116.split, label %.lr.ph115.split.split
@@ -7310,7 +7310,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   br i1 %.not, label %124, label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %._crit_edge116.split, %124, %._crit_edge116.split.us.us, %93, %._crit_edge
-  %.092 = phi i32 [ 0, %._crit_edge ], [ 0, %93 ], [ -28, %._crit_edge116.split.us.us ], [ 0, %124 ], [ -28, %._crit_edge116.split ]
+  %.092 = phi i32 [ 0, %93 ], [ 0, %._crit_edge ], [ -28, %._crit_edge116.split.us.us ], [ 0, %124 ], [ -28, %._crit_edge116.split ]
   ret i32 %.092
 }
 
@@ -7419,7 +7419,7 @@ mriStepInnerStepper_GetAccumulatedError.exit:     ; preds = %59
   %.not37 = icmp eq i32 %62, 0
   br i1 %.not37, label %64, label %mriStepInnerStepper_GetAccumulatedError.exit.thread
 
-mriStepInnerStepper_GetAccumulatedError.exit.thread: ; preds = %59, %55, %51, %mriStepInnerStepper_GetAccumulatedError.exit
+mriStepInnerStepper_GetAccumulatedError.exit.thread: ; preds = %59, %51, %55, %mriStepInnerStepper_GetAccumulatedError.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %0, i32 noundef -34, i32 noundef 3571, ptr noundef nonnull @__func__.mriStep_StageERKFast, ptr noundef nonnull @.str, ptr noundef nonnull @.str.93) #14
   br label %72
 
@@ -7440,7 +7440,7 @@ mriStepInnerStepper_GetAccumulatedError.exit.thread: ; preds = %59, %55, %51, %m
   br label %72
 
 72:                                               ; preds = %67, %10, %71, %mriStepInnerStepper_GetAccumulatedError.exit.thread, %43, %mriStepInnerStepper_Evolve.exit.thread
-  %.0 = phi i32 [ -34, %mriStepInnerStepper_Evolve.exit.thread ], [ 5, %43 ], [ -34, %mriStepInnerStepper_GetAccumulatedError.exit.thread ], [ 0, %71 ], [ -35, %10 ], [ -36, %67 ]
+  %.0 = phi i32 [ 0, %71 ], [ -34, %mriStepInnerStepper_Evolve.exit.thread ], [ 5, %43 ], [ -34, %mriStepInnerStepper_GetAccumulatedError.exit.thread ], [ -35, %10 ], [ -36, %67 ]
   ret i32 %.0
 }
 
@@ -7610,7 +7610,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %99, %68, %49, %.lr.ph.split.us, %13
-  %.0.lcssa = phi i32 [ 1, %13 ], [ 1, %.lr.ph.split.us ], [ %.2.us, %49 ], [ %.1.us66, %68 ], [ %.2, %99 ]
+  %.0.lcssa = phi i32 [ 1, %13 ], [ 1, %.lr.ph.split.us ], [ %.1.us66, %68 ], [ %.2.us, %49 ], [ %.2, %99 ]
   %100 = load ptr, ptr %16, align 8, !tbaa !186
   %101 = tail call i32 @N_VLinearCombination(i32 noundef %.0.lcssa, ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef %100) #14
   %.not58 = icmp eq i32 %101, 0
@@ -7684,7 +7684,7 @@ define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr noundef captures(none) i
   br label %41
 
 41:                                               ; preds = %38, %36, %26, %25, %17, %4
-  %.0 = phi i32 [ %13, %4 ], [ -39, %17 ], [ 5, %25 ], [ %35, %26 ], [ %37, %36 ], [ %., %38 ]
+  %.0 = phi i32 [ %37, %36 ], [ %13, %4 ], [ -39, %17 ], [ 5, %25 ], [ %35, %26 ], [ %., %38 ]
   ret i32 %.0
 }
 
@@ -7896,7 +7896,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   br label %109
 
 109:                                              ; preds = %105, %48, %46, %44, %._crit_edge.thread, %24, %16, %7
-  %.0 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %106, %105 ]
+  %.0 = phi i32 [ -21, %7 ], [ -21, %16 ], [ 0, %24 ], [ 0, %._crit_edge.thread ], [ %49, %48 ], [ %45, %44 ], [ %47, %46 ], [ %106, %105 ]
   ret i32 %.0
 }
 
@@ -7955,7 +7955,7 @@ define i32 @mriStepInnerStepper_GetAccumulatedError(ptr noundef %0, ptr noundef 
   br label %14
 
 14:                                               ; preds = %8, %4, %2, %11
-  %.0 = phi i32 [ %12, %11 ], [ -22, %2 ], [ -22, %4 ], [ -34, %8 ]
+  %.0 = phi i32 [ -22, %4 ], [ -22, %2 ], [ %12, %11 ], [ -34, %8 ]
   ret i32 %.0
 }
 
@@ -8229,7 +8229,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %exitcond116.not, label %.loopexit72, label %.preheader69
 
 .loopexit72:                                      ; preds = %..loopexit_crit_edge, %.loopexit.us89, %..loopexit70_crit_edge.us.us, %..loopexit_crit_edge.us, %.lr.ph82.split.split.us, %.lr.ph82.split.us, %.preheader71, %5, %7
-  %.0 = phi i32 [ -41, %7 ], [ -41, %5 ], [ 0, %.preheader71 ], [ 0, %.lr.ph82.split.us ], [ 0, %.lr.ph82.split.split.us ], [ 0, %..loopexit_crit_edge.us ], [ 0, %..loopexit70_crit_edge.us.us ], [ 0, %.loopexit.us89 ], [ 0, %..loopexit_crit_edge ]
+  %.0 = phi i32 [ -41, %5 ], [ -41, %7 ], [ 0, %.preheader71 ], [ 0, %.lr.ph82.split.split.us ], [ 0, %.lr.ph82.split.us ], [ 0, %.loopexit.us89 ], [ 0, %..loopexit_crit_edge.us ], [ 0, %..loopexit70_crit_edge.us.us ], [ 0, %..loopexit_crit_edge ]
   ret i32 %.0
 }
 
@@ -8431,7 +8431,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %115, %85, %67, %.lr.ph.split.us, %34
-  %.062.lcssa = phi i32 [ 2, %34 ], [ 2, %.lr.ph.split.us ], [ %.2.us, %67 ], [ %.1.us74, %85 ], [ %.2, %115 ]
+  %.062.lcssa = phi i32 [ 2, %34 ], [ 2, %.lr.ph.split.us ], [ %.1.us74, %85 ], [ %.2.us, %67 ], [ %.2, %115 ]
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %117 = load ptr, ptr %116, align 8, !tbaa !171
   %118 = tail call i32 @N_VLinearCombination(i32 noundef %.062.lcssa, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %117) #14
@@ -8531,7 +8531,7 @@ MRIStepInnerStepper_SetContent.exit:              ; preds = %6
   br label %MRIStepInnerStepper_SetEvolveFn.exit.thread
 
 MRIStepInnerStepper_SetEvolveFn.exit.thread:      ; preds = %13, %MRIStepInnerStepper_SetContent.exit, %14, %2
-  %.0 = phi i32 [ %5, %2 ], [ -22, %MRIStepInnerStepper_SetContent.exit ], [ %16, %14 ], [ -22, %13 ]
+  %.0 = phi i32 [ -22, %13 ], [ %5, %2 ], [ -22, %MRIStepInnerStepper_SetContent.exit ], [ %16, %14 ]
   ret i32 %.0
 }
 
@@ -8625,7 +8625,7 @@ define range(i32 -51, 1) i32 @mriStepInnerStepper_EvolveSUNStepper(ptr noundef c
   br label %28
 
 28:                                               ; preds = %25, %22, %19, %4
-  %.0 = phi i32 [ -51, %4 ], [ -51, %19 ], [ -51, %22 ], [ %., %25 ]
+  %.0 = phi i32 [ -51, %22 ], [ -51, %4 ], [ -51, %19 ], [ %., %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

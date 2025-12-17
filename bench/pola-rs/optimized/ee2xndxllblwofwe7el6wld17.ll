@@ -251,7 +251,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   unreachable
 
 .body.i:                                          ; preds = %54, %51
-  %eh.lpad-body.i = phi { ptr, i32 } [ %52, %51 ], [ %55, %54 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %55, %54 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..fixed_size_list..FixedSizeListArray$GT$17hfe77c99ff0c945dfE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7) #24
           to label %.body unwind label %58, !noalias !7
 
@@ -298,7 +298,7 @@ define internal { ptr, ptr } @"_ZN103_$LT$polars_arrow..array..fixed_size_list..
   ret { ptr, ptr } %71
 
 .body:                                            ; preds = %72, %75, %65, %.body.i
-  %eh.lpad-body12 = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %66, %65 ], [ %eh.lpad-body.ph, %75 ], [ %eh.lpad-body.ph, %72 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %66, %65 ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.ph, %75 ], [ %eh.lpad-body.ph, %72 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 72:                                               ; preds = %15, %30
@@ -1404,9 +1404,9 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h52ad6b
   br label %66
 
 .body:                                            ; preds = %.loopexit.split-lp, %136, %140, %.thread122, %134
-  %.pn36 = phi { ptr, i32 } [ %.pn.ph, %134 ], [ %120, %.thread122 ], [ %.pn.ph, %140 ], [ %.pn.ph, %136 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.sroa.020.3 = phi i1 [ false, %134 ], [ false, %.thread122 ], [ false, %140 ], [ false, %136 ], [ true, %.loopexit.split-lp ]
-  %.sroa.014.1 = phi i8 [ %.sroa.014.2, %134 ], [ %.sroa.014.2, %.thread122 ], [ %.sroa.014.2, %140 ], [ %.sroa.014.2, %136 ], [ %.sroa.014.0.ph, %.loopexit.split-lp ]
+  %.pn36 = phi { ptr, i32 } [ %120, %.thread122 ], [ %.pn.ph, %134 ], [ %.pn.ph, %136 ], [ %.pn.ph, %140 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.020.3 = phi i1 [ false, %.thread122 ], [ false, %134 ], [ false, %136 ], [ false, %140 ], [ true, %.loopexit.split-lp ]
+  %.sroa.014.1 = phi i8 [ %.sroa.014.2, %.thread122 ], [ %.sroa.014.2, %134 ], [ %.sroa.014.2, %136 ], [ %.sroa.014.2, %140 ], [ %.sroa.014.0.ph, %.loopexit.split-lp ]
   %65 = trunc nuw i8 %.sroa.014.1 to i1
   br i1 %65, label %.body.thread, label %39
 
@@ -1416,7 +1416,7 @@ define hidden void @_ZN14polars_compute4cast7utf8_to17binary_to_binview17h52ad6b
   br label %.body.thread
 
 .loopexit.split-lp:                               ; preds = %182, %81, %86, %87, %101, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i" ], [ 0, %101 ], [ 0, %87 ], [ 1, %86 ], [ 1, %81 ], [ 1, %182 ]
+  %.sroa.014.0.ph = phi i8 [ 0, %101 ], [ 1, %182 ], [ 0, %"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17hb1ee494bd2b2f7d9E.exit.i" ], [ 0, %87 ], [ 1, %86 ], [ 1, %81 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4720,14 +4720,14 @@ default.unreachable:                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %48
 
-165:                                              ; preds = %153, %82
+165:                                              ; preds = %82, %153
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %24) #24
           to label %.thread unwind label %149
 
 .thread:                                          ; preds = %141, %.body46.thread, %159, %165, %166, %49
-  %.pn4452 = phi { ptr, i32 } [ %.pn4456, %166 ], [ %.pn4262, %49 ], [ %lpad.thr_comm, %165 ], [ %160, %159 ], [ %.pn.ph, %.body46.thread ], [ %142, %141 ]
+  %.pn4452 = phi { ptr, i32 } [ %.pn4262, %49 ], [ %.pn4456, %166 ], [ %lpad.thr_comm, %165 ], [ %142, %141 ], [ %160, %159 ], [ %.pn.ph, %.body46.thread ]
   resume { ptr, i32 } %.pn4452
 
 166:                                              ; preds = %.thread53, %49

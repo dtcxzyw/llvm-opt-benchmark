@@ -154,7 +154,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_default_get_encode_buffer(ptr noun
   br label %23
 
 23:                                               ; preds = %3, %19, %17, %11
-  %.0 = phi i32 [ -22, %11 ], [ %15, %17 ], [ 0, %19 ], [ -22, %3 ]
+  %.0 = phi i32 [ 0, %19 ], [ -22, %11 ], [ %15, %17 ], [ -22, %3 ]
   ret i32 %.0
 }
 
@@ -278,7 +278,7 @@ define range(i32 -541478725, 1) i32 @ff_encode_get_frame(ptr noundef readonly ca
   br label %13
 
 13:                                               ; preds = %7, %2, %12
-  %.0 = phi i32 [ 0, %12 ], [ -541478725, %2 ], [ -11, %7 ]
+  %.0 = phi i32 [ -541478725, %2 ], [ 0, %12 ], [ -11, %7 ]
   ret i32 %.0
 }
 
@@ -692,7 +692,7 @@ switch.early.test:                                ; preds = %86
   br label %encode_send_frame_internal.exit.thread
 
 encode_send_frame_internal.exit.thread:           ; preds = %56, %47, %.thread.i, %68, %switch.early.test, %13, %10, %2, %6, %89
-  %.0 = phi i32 [ 0, %89 ], [ -22, %6 ], [ -22, %2 ], [ -541478725, %10 ], [ -11, %13 ], [ %.fr, %switch.early.test ], [ -22, %56 ], [ -22, %47 ], [ %71, %.thread.i ], [ %69, %68 ]
+  %.0 = phi i32 [ -22, %2 ], [ -541478725, %10 ], [ -11, %13 ], [ 0, %89 ], [ %.fr, %switch.early.test ], [ -22, %6 ], [ -22, %56 ], [ -22, %47 ], [ %71, %.thread.i ], [ %69, %68 ]
   ret i32 %.0
 }
 
@@ -945,7 +945,7 @@ encode_simple_receive_packet.exit:                ; preds = %encode_simple_inter
   br label %113
 
 113:                                              ; preds = %encode_simple_receive_packet.exit.thread41, %encode_simple_receive_packet.exit, %112, %29, %2
-  %.028 = phi i32 [ -541478725, %2 ], [ -22, %29 ], [ -541478725, %112 ], [ %.039, %encode_simple_receive_packet.exit ], [ %.0.ph, %encode_simple_receive_packet.exit.thread41 ]
+  %.028 = phi i32 [ -22, %29 ], [ -541478725, %2 ], [ -541478725, %112 ], [ %.039, %encode_simple_receive_packet.exit ], [ %.0.ph, %encode_simple_receive_packet.exit.thread41 ]
   ret i32 %.028
 }
 
@@ -992,7 +992,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_receive_packet(ptr noundef %0, ptr
   br label %23
 
 23:                                               ; preds = %19, %2, %6, %22
-  %.0 = phi i32 [ 0, %22 ], [ -22, %6 ], [ -22, %2 ], [ %20, %19 ]
+  %.0 = phi i32 [ 0, %22 ], [ -22, %2 ], [ -22, %6 ], [ %20, %19 ]
   ret i32 %.0
 }
 
@@ -1256,7 +1256,7 @@ define range(i32 -2147483648, 1) i32 @ff_encode_preinit(ptr noundef %0) local_un
   br label %encode_preinit_video.exit
 
 encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %50, %._crit_edge.thread.i, %103, %104, %113, %118, %._crit_edge81.i
-  %.0.i = phi i32 [ -22, %103 ], [ -22, %48 ], [ %51, %50 ], [ 0, %._crit_edge81.i ], [ 0, %104 ], [ -22, %118 ], [ -22, %113 ], [ -22, %._crit_edge.thread.i ], [ -22, %.lr.ph75.i ]
+  %.0.i = phi i32 [ -22, %48 ], [ %51, %50 ], [ -22, %103 ], [ 0, %104 ], [ 0, %._crit_edge81.i ], [ -22, %118 ], [ -22, %113 ], [ -22, %._crit_edge.thread.i ], [ -22, %.lr.ph75.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %249
@@ -1552,7 +1552,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   br label %encode_preinit_audio.exit
 
 encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.ph111.i, %129, %135, %136, %172, %183, %._crit_edge.thread.i82, %206, %._crit_edge122.i, %238, %241, %245
-  %.071.i = phi i32 [ -22, %135 ], [ -22, %._crit_edge122.i ], [ -22, %129 ], [ %137, %136 ], [ %184, %183 ], [ %207, %206 ], [ 0, %245 ], [ 0, %241 ], [ 0, %238 ], [ -22, %._crit_edge.thread.i82 ], [ -22, %172 ], [ -22, %.lr.ph111.i ], [ -22, %.lr.ph100.i ]
+  %.071.i = phi i32 [ -22, %135 ], [ -22, %129 ], [ %137, %136 ], [ %184, %183 ], [ -22, %._crit_edge122.i ], [ %207, %206 ], [ 0, %245 ], [ 0, %241 ], [ 0, %238 ], [ -22, %._crit_edge.thread.i82 ], [ -22, %172 ], [ -22, %.lr.ph111.i ], [ -22, %.lr.ph100.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1562,7 +1562,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   br label %249
 
 249:                                              ; preds = %encode_preinit_audio.exit, %encode_preinit_video.exit
-  %.059 = phi i32 [ %.0.i, %encode_preinit_video.exit ], [ %.071.i, %encode_preinit_audio.exit ]
+  %.059 = phi i32 [ %.071.i, %encode_preinit_audio.exit ], [ %.0.i, %encode_preinit_video.exit ]
   %250 = icmp slt i32 %.059, 0
   br i1 %250, label %.loopexit, label %251
 
@@ -1698,7 +1698,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %318, ptr align 1 %320, i64 %321, i1 false)
   br label %322
 
-322:                                              ; preds = %317, %309, %301
+322:                                              ; preds = %301, %317, %309
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %323 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv.next
   %324 = load i32, ptr %323, align 4, !tbaa !133
@@ -1711,7 +1711,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %313, %.critedge, %291, %279, %249, %290, %36, %25, %20
-  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -38, %290 ], [ -22, %36 ], [ %.059, %249 ], [ -12, %279 ], [ -12, %291 ], [ %., %.critedge ], [ -12, %313 ]
+  %.0 = phi i32 [ -22, %20 ], [ -22, %25 ], [ -22, %36 ], [ %., %.critedge ], [ -12, %291 ], [ %.059, %249 ], [ -12, %279 ], [ -38, %290 ], [ -12, %313 ]
   ret i32 %.0
 }
 

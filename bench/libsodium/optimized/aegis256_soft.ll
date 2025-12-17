@@ -494,7 +494,7 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   br label %150
 
 150:                                              ; preds = %145, %146, %148, %142
-  %.0 = phi i32 [ %147, %146 ], [ %149, %148 ], [ -1, %142 ], [ -1, %145 ]
+  %.0 = phi i32 [ %147, %146 ], [ %149, %148 ], [ -1, %145 ], [ -1, %142 ]
   %151 = icmp ne i32 %.0, 0
   %or.cond = and i1 %129, %151
   br i1 %or.cond, label %152, label %153

@@ -1318,7 +1318,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %._crit_edge131, %41
   br label %433
 
 433:                                              ; preds = %112, %._crit_edge, %104, %108, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit.thread, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit, %4, %._crit_edge135, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit98
-  %.0 = phi i1 [ true, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit98 ], [ true, %._crit_edge135 ], [ false, %4 ], [ false, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit ], [ false, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit.thread ], [ true, %108 ], [ true, %104 ], [ true, %._crit_edge ], [ true, %112 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit ], [ false, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit.thread ], [ true, %104 ], [ true, %._crit_edge ], [ true, %_ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit98 ], [ true, %._crit_edge135 ], [ true, %108 ], [ true, %112 ]
   ret i1 %.0
 }
 
@@ -3475,7 +3475,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit177: ; preds = %_ZN9VectorSet
   br label %563
 
 563:                                              ; preds = %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit135, %._crit_edge216, %197, %144
-  %.1 = phi i32 [ %.098217, %144 ], [ %562, %._crit_edge216 ], [ %.098217, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit135 ], [ %.098217, %197 ]
+  %.1 = phi i32 [ %.098217, %144 ], [ %.098217, %197 ], [ %562, %._crit_edge216 ], [ %.098217, %_ZN14PhaseIdealLoop16at_relevant_ctrlEP4NodePKS0_S3_.exit135 ]
   %564 = add i32 %.1, 1
   %565 = load i32, ptr %10, align 8
   %566 = icmp ult i32 %564, %565
@@ -4721,7 +4721,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %94, %101, %112
   br label %130
 
 130:                                              ; preds = %82, %129, %126, %_ZN4Node7set_reqEjPS_.exit
-  %.054 = phi ptr [ %45, %_ZN4Node7set_reqEjPS_.exit ], [ %125, %126 ], [ %88, %129 ], [ %.055.lcssa, %82 ]
+  %.054 = phi ptr [ %45, %_ZN4Node7set_reqEjPS_.exit ], [ %88, %129 ], [ %125, %126 ], [ %.055.lcssa, %82 ]
   br i1 %.not79, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %130
@@ -4961,7 +4961,7 @@ _ZN14PhaseIdealLoop8set_ctrlEP4NodeS1_.exit31:    ; preds = %85, %88
   br label %108
 
 108:                                              ; preds = %96, %98, %7, %._crit_edge
-  %.027 = phi ptr [ %33, %._crit_edge ], [ %1, %7 ], [ null, %98 ], [ %.1, %96 ]
+  %.027 = phi ptr [ %1, %7 ], [ %33, %._crit_edge ], [ null, %98 ], [ %.1, %96 ]
   ret ptr %.027
 }
 

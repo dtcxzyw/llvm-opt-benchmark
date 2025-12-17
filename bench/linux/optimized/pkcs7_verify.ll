@@ -216,7 +216,7 @@ define internal fastcc i32 @pkcs7_digest(ptr noundef readonly captures(none) %0,
   br label %98
 
 98:                                               ; preds = %.thread, %45, %36
-  %99 = phi i32 [ %43, %36 ], [ %97, %.thread ], [ %43, %45 ]
+  %99 = phi i32 [ %43, %36 ], [ %43, %45 ], [ %97, %.thread ]
   call void @kfree(ptr noundef nonnull %34) #7
   br label %100
 
@@ -227,7 +227,7 @@ define internal fastcc i32 @pkcs7_digest(ptr noundef readonly captures(none) %0,
   br label %103
 
 103:                                              ; preds = %100, %16, %9, %2
-  %104 = phi i32 [ %101, %100 ], [ 0, %2 ], [ -65, %9 ], [ %20, %16 ]
+  %104 = phi i32 [ %101, %100 ], [ %20, %16 ], [ 0, %2 ], [ -65, %9 ]
   ret i32 %104
 }
 
@@ -516,7 +516,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   br i1 %169, label %.preheader23, label %.loopexit25, !llvm.loop !14
 
 .loopexit18:                                      ; preds = %162, %156, %121, %119, %.preheader21, %.preheader19, %130, %152, %140, %108, %104, %.loopexit25, %68, %66, %.loopexit28, %.preheader29
-  %170 = phi i32 [ -129, %66 ], [ %33, %.preheader29 ], [ 0, %.loopexit28 ], [ %72, %68 ], [ 0, %108 ], [ 0, %152 ], [ -129, %140 ], [ 0, %104 ], [ 0, %.loopexit25 ], [ 0, %130 ], [ 0, %.preheader19 ], [ 0, %.preheader21 ], [ 0, %121 ], [ 0, %162 ], [ %160, %156 ], [ 0, %119 ]
+  %170 = phi i32 [ -129, %66 ], [ %33, %.preheader29 ], [ 0, %.loopexit28 ], [ %72, %68 ], [ 0, %108 ], [ 0, %152 ], [ -129, %140 ], [ 0, %104 ], [ 0, %.loopexit25 ], [ 0, %.preheader19 ], [ 0, %.preheader21 ], [ 0, %130 ], [ 0, %121 ], [ 0, %162 ], [ %160, %156 ], [ 0, %119 ]
   %171 = getelementptr inbounds nuw i8, ptr %31, i64 21
   %172 = load i8, ptr %171, align 1, !range !5, !noundef !6
   %173 = icmp eq i8 %172, 0

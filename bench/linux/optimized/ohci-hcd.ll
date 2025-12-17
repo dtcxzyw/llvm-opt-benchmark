@@ -502,7 +502,7 @@ default.unreachable:                              ; preds = %.loopexit9
   unreachable
 
 204:                                              ; preds = %199, %139, %141, %148, %179
-  %.in.in = phi i32 [ %134, %179 ], [ %134, %148 ], [ %134, %141 ], [ %134, %139 ], [ %120, %199 ]
+  %.in.in = phi i32 [ %134, %139 ], [ %134, %179 ], [ %134, %148 ], [ %134, %141 ], [ %120, %199 ]
   %205 = icmp eq i32 %.in.in, 64
   br i1 %205, label %.thread5, label %.thread4
 
@@ -878,7 +878,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nound
   br i1 %38, label %11, label %.thread2, !llvm.loop !18
 
 .thread2:                                         ; preds = %22, %29, %20, %13
-  %39 = phi i32 [ 0, %20 ], [ -108, %13 ], [ 0, %29 ], [ 0, %22 ]
+  %39 = phi i32 [ -108, %13 ], [ 0, %20 ], [ 0, %29 ], [ 0, %22 ]
   ret i32 %39
 }
 
@@ -2368,7 +2368,7 @@ finish_urb.exit15:                                ; preds = %545, %542, %td_done
   br i1 %562, label %.thread, label %337
 
 .thread:                                          ; preds = %337, %560, %558
-  %563 = phi i32 [ %555, %560 ], [ %555, %558 ], [ %339, %337 ]
+  %563 = phi i32 [ %555, %558 ], [ %555, %560 ], [ %339, %337 ]
   %564 = load volatile ptr, ptr %316, align 8
   %565 = icmp eq ptr %564, %316
   br i1 %565, label %566, label %573
@@ -5531,10 +5531,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
   br i1 %148, label %170, label %184
 
 170:                                              ; preds = %166, %169
-  %171 = phi i1 [ %147, %169 ], [ %163, %166 ]
-  %172 = phi ptr [ %146, %169 ], [ %162, %166 ]
-  %173 = phi ptr [ %145, %169 ], [ %168, %166 ]
-  %174 = phi ptr [ %143, %169 ], [ %167, %166 ]
+  %171 = phi i1 [ %163, %166 ], [ %147, %169 ]
+  %172 = phi ptr [ %162, %166 ], [ %146, %169 ]
+  %173 = phi ptr [ %168, %166 ], [ %145, %169 ]
+  %174 = phi ptr [ %167, %166 ], [ %143, %169 ]
   store ptr %172, ptr %4, align 16
   br i1 %171, label %175, label %179
 
@@ -6587,7 +6587,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %375
 
 375:                                              ; preds = %.thread, %373, %242, %.thread20, %125
-  %376 = phi i32 [ -12, %242 ], [ %374, %373 ], [ -90, %125 ], [ -12, %.thread20 ], [ -12, %.thread ]
+  %376 = phi i32 [ -12, %242 ], [ %374, %373 ], [ -12, %.thread ], [ -90, %125 ], [ -12, %.thread20 ]
   ret i32 %376
 }
 

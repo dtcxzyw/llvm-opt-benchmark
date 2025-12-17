@@ -171,7 +171,7 @@ define internal i32 @alone_encode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %15, %21, %9, %24
-  %.0 = phi i32 [ %28, %24 ], [ 0, %9 ], [ 0, %17 ], [ 11, %15 ], [ 0, %21 ]
+  %.0 = phi i32 [ %28, %24 ], [ 0, %9 ], [ 11, %15 ], [ 0, %17 ], [ 0, %21 ]
   ret i32 %.0
 }
 

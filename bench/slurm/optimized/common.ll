@@ -1090,7 +1090,7 @@ define internal void @_selected_page(ptr readnone captures(none) %0, ptr noundef
   br label %.thread
 
 53:                                               ; preds = %2, %15, %16, %17, %18, %19
-  %popup_all_part.sink = phi ptr [ @popup_all_job, %15 ], [ @popup_all_node, %16 ], [ @popup_all_resv, %17 ], [ @popup_all_bb, %18 ], [ @popup_all_front_end, %19 ], [ @popup_all_part, %2 ]
+  %popup_all_part.sink = phi ptr [ @popup_all_front_end, %19 ], [ @popup_all_job, %15 ], [ @popup_all_node, %16 ], [ @popup_all_resv, %17 ], [ @popup_all_bb, %18 ], [ @popup_all_part, %2 ]
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %popup_all_part.sink, ptr %54, align 8
   %55 = load ptr, ptr %8, align 8
@@ -1469,7 +1469,7 @@ define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1
   br label %80
 
 80:                                               ; preds = %77, %69, %74, %44, %57
-  %.0 = phi i32 [ %59, %57 ], [ 0, %44 ], [ 1, %74 ], [ 1, %69 ], [ %not., %77 ]
+  %.0 = phi i32 [ 1, %69 ], [ %59, %57 ], [ 0, %44 ], [ %not., %77 ], [ 1, %74 ]
   %81 = load ptr, ptr %4, align 8
   call void @gtk_tree_path_free(ptr noundef %81) #16
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1479,12 +1479,12 @@ define dso_local range(i32 0, 2) i32 @row_clicked(ptr noundef %0, ptr noundef %1
   br i1 %.not58, label %85, label %.sink.split
 
 .sink.split:                                      ; preds = %80, %16, %20
-  %.039.ph = phi i32 [ 1, %20 ], [ 1, %16 ], [ 0, %80 ]
+  %.039.ph = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %80 ]
   call void @refresh_main(ptr noundef null, ptr noundef null) #16
   br label %85
 
 85:                                               ; preds = %.sink.split, %80, %15
-  %.039 = phi i32 [ 0, %15 ], [ %.0, %80 ], [ %.039.ph, %.sink.split ]
+  %.039 = phi i32 [ %.0, %80 ], [ 0, %15 ], [ %.039.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.039
@@ -2254,7 +2254,7 @@ define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1
   br label %46
 
 46:                                               ; preds = %35, %33, %.critedge26, %37, %41, %14, %4
-  %.0 = phi i32 [ %44, %41 ], [ %40, %37 ], [ %45, %.critedge26 ], [ %16, %14 ], [ 0, %4 ], [ 1, %33 ], [ -1, %35 ]
+  %.0 = phi i32 [ %44, %41 ], [ 0, %4 ], [ 1, %33 ], [ %40, %37 ], [ %45, %.critedge26 ], [ %16, %14 ], [ -1, %35 ]
   %47 = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %47) #16
   %48 = load ptr, ptr %6, align 8

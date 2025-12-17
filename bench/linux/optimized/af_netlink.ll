@@ -1465,7 +1465,7 @@ define dso_local i32 @netlink_unicast(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread10
 
 .thread10:                                        ; preds = %138, %134, %136, %122, %124, %140, %137, %125, %.thread8
-  %142 = phi i32 [ %59, %.thread8 ], [ %141, %140 ], [ %119, %125 ], [ %131, %137 ], [ %119, %124 ], [ %119, %122 ], [ %131, %136 ], [ %131, %134 ], [ %139, %138 ]
+  %142 = phi i32 [ %59, %.thread8 ], [ %141, %140 ], [ %119, %125 ], [ %119, %122 ], [ %131, %137 ], [ %119, %124 ], [ %131, %136 ], [ %131, %134 ], [ %139, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %142
 }
@@ -1525,7 +1525,7 @@ define internal fastcc noundef ptr @netlink_trim(ptr noundef %0, i32 noundef %1)
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %29, %16, %7
-  %35 = phi ptr [ %30, %29 ], [ %0, %16 ], [ %0, %7 ], [ %0, %25 ]
+  %35 = phi ptr [ %30, %29 ], [ %0, %25 ], [ %0, %16 ], [ %0, %7 ]
   ret ptr %35
 }
 
@@ -1773,7 +1773,7 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast_filtered(ptr 
   unreachable
 
 120:                                              ; preds = %116, %115, %101
-  %121 = phi ptr [ %102, %101 ], [ %10, %115 ], [ %10, %116 ]
+  %121 = phi ptr [ %102, %101 ], [ %10, %116 ], [ %10, %115 ]
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %.thread
 
@@ -1979,11 +1979,11 @@ define dso_local noundef range(i32 -105, 1) i32 @netlink_broadcast_filtered(ptr 
   br label %.thread18
 
 .thread18:                                        ; preds = %233, %235, %236, %84, %63, %61, %56, %46, %42, %38, %30
-  %237 = phi i32 [ %36, %30 ], [ %36, %38 ], [ %226, %236 ], [ 1, %84 ], [ %36, %56 ], [ %36, %63 ], [ %36, %61 ], [ %36, %46 ], [ %36, %42 ], [ %226, %235 ], [ %226, %233 ]
-  %238 = phi i32 [ %35, %30 ], [ %35, %38 ], [ %227, %236 ], [ %35, %84 ], [ %35, %56 ], [ %35, %63 ], [ %35, %61 ], [ %35, %46 ], [ %35, %42 ], [ %227, %235 ], [ %227, %233 ]
-  %239 = phi i32 [ %34, %30 ], [ %34, %38 ], [ %228, %236 ], [ %34, %84 ], [ %34, %56 ], [ %34, %63 ], [ %34, %61 ], [ %34, %46 ], [ %34, %42 ], [ %228, %235 ], [ %228, %233 ]
-  %240 = phi i32 [ %33, %30 ], [ %33, %38 ], [ %229, %236 ], [ %33, %84 ], [ %33, %56 ], [ %33, %63 ], [ %33, %61 ], [ %33, %46 ], [ %33, %42 ], [ %229, %235 ], [ %229, %233 ]
-  %241 = phi ptr [ %32, %30 ], [ %32, %38 ], [ %230, %236 ], [ %32, %84 ], [ %32, %56 ], [ %32, %63 ], [ %32, %61 ], [ %32, %46 ], [ %32, %42 ], [ %230, %235 ], [ %230, %233 ]
+  %237 = phi i32 [ %36, %30 ], [ %36, %38 ], [ %226, %236 ], [ %36, %42 ], [ 1, %84 ], [ %36, %56 ], [ %36, %63 ], [ %36, %61 ], [ %36, %46 ], [ %226, %235 ], [ %226, %233 ]
+  %238 = phi i32 [ %35, %30 ], [ %35, %38 ], [ %227, %236 ], [ %35, %42 ], [ %35, %84 ], [ %35, %56 ], [ %35, %63 ], [ %35, %61 ], [ %35, %46 ], [ %227, %235 ], [ %227, %233 ]
+  %239 = phi i32 [ %34, %30 ], [ %34, %38 ], [ %228, %236 ], [ %34, %42 ], [ %34, %84 ], [ %34, %56 ], [ %34, %63 ], [ %34, %61 ], [ %34, %46 ], [ %228, %235 ], [ %228, %233 ]
+  %240 = phi i32 [ %33, %30 ], [ %33, %38 ], [ %229, %236 ], [ %33, %42 ], [ %33, %84 ], [ %33, %56 ], [ %33, %63 ], [ %33, %61 ], [ %33, %46 ], [ %229, %235 ], [ %229, %233 ]
+  %241 = phi ptr [ %32, %30 ], [ %32, %38 ], [ %230, %236 ], [ %32, %42 ], [ %32, %84 ], [ %32, %56 ], [ %32, %63 ], [ %32, %61 ], [ %32, %46 ], [ %230, %235 ], [ %230, %233 ]
   %242 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
@@ -5562,7 +5562,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   br i1 %107, label %.loopexit21, label %.preheader16, !llvm.loop !140
 
 .loopexit21:                                      ; preds = %104, %102, %85
-  %108 = phi i32 [ 0, %85 ], [ %100, %102 ], [ 0, %104 ]
+  %108 = phi i32 [ %100, %102 ], [ 0, %85 ], [ 0, %104 ]
   %109 = call i64 @_raw_read_lock_irqsave(ptr noundef nonnull @nl_table_lock) #23
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @nl_table_users, ptr nonnull elementtype(i32) @nl_table_users) #23, !srcloc !29
   call void @_raw_read_unlock_irqrestore(ptr noundef nonnull @nl_table_lock, i64 noundef %109) #23
@@ -5781,7 +5781,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
   br label %247
 
 247:                                              ; preds = %102, %244, %239, %79, %netlink_realloc_groups.exit, %27, %10, %3
-  %248 = phi i32 [ -22, %3 ], [ -22, %10 ], [ -1, %27 ], [ %63, %netlink_realloc_groups.exit ], [ -22, %79 ], [ %240, %239 ], [ %245, %244 ], [ %100, %102 ]
+  %248 = phi i32 [ %100, %102 ], [ -22, %3 ], [ -22, %10 ], [ -1, %27 ], [ %63, %netlink_realloc_groups.exit ], [ -22, %79 ], [ %240, %239 ], [ %245, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %248
 }
@@ -6188,7 +6188,7 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %75, %78, %netlink_realloc_groups.exit, %33, %116, %113, %102, %98, %94, %135, %134, %120, %22, %16, %6
-  %136 = phi i32 [ -92, %6 ], [ -14, %16 ], [ -1, %120 ], [ -92, %22 ], [ 0, %135 ], [ 0, %134 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %113 ], [ 0, %116 ], [ %92, %89 ], [ -22, %75 ], [ -22, %78 ], [ %73, %netlink_realloc_groups.exit ], [ -1, %33 ]
+  %136 = phi i32 [ 0, %116 ], [ -92, %6 ], [ -14, %16 ], [ -1, %120 ], [ -92, %22 ], [ 0, %134 ], [ 0, %135 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %113 ], [ %92, %89 ], [ -22, %75 ], [ -22, %78 ], [ %73, %netlink_realloc_groups.exit ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %136
 }
@@ -7728,7 +7728,7 @@ __netlink_seq_next.exit:                          ; preds = %31
   br i1 %38, label %__netlink_seq_next.exit.thread, label %.preheader, !llvm.loop !163
 
 __netlink_seq_next.exit.thread:                   ; preds = %__netlink_seq_next.exit, %18, %22, %2
-  %39 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %16, %18 ], [ null, %22 ], [ %16, %__netlink_seq_next.exit ]
+  %39 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ null, %22 ], [ %16, %18 ], [ %16, %__netlink_seq_next.exit ]
   ret ptr %39
 }
 

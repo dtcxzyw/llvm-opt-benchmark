@@ -244,7 +244,7 @@ _ZNK4LIEF2PE6Symbol12is_undefinedEv.exit.thread:  ; preds = %_ZNK4LIEF2PE6Symbol
   br label %27
 
 27:                                               ; preds = %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit.thread, %.fold.split, %21, %.thread, %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit, %1
-  %.0 = phi i32 [ 6, %1 ], [ 4, %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit.thread ], [ 4, %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit ], [ %., %.thread ], [ 2, %21 ], [ 3, %.fold.split ]
+  %.0 = phi i32 [ 4, %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit ], [ 6, %1 ], [ 2, %21 ], [ %., %.thread ], [ 4, %_ZNK4LIEF2PE6Symbol12is_undefinedEv.exit.thread ], [ 3, %.fold.split ]
   ret i32 %.0
 }
 

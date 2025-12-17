@@ -148,7 +148,7 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, %74
-  %.0.i = phi i32 [ -1, %71 ], [ 0, %72 ], [ 1, %73 ], [ 2, %74 ], [ -2, %70 ]
+  %.0.i = phi i32 [ 2, %74 ], [ -1, %71 ], [ 0, %72 ], [ 1, %73 ], [ -2, %70 ]
   %78 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %79 = trunc nuw i8 %78 to i1
   %80 = sub nsw i32 0, %.0.i
@@ -183,7 +183,7 @@ inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, 
   br label %98
 
 98:                                               ; preds = %89, %97, %95
-  %.025 = phi double [ 1.000000e+00, %97 ], [ %93, %95 ], [ 0.000000e+00, %89 ]
+  %.025 = phi double [ %93, %95 ], [ 1.000000e+00, %97 ], [ 0.000000e+00, %89 ]
   %99 = load ptr, ptr %50, align 8
   %.not33 = icmp eq ptr %99, null
   br i1 %.not33, label %103, label %100
@@ -199,7 +199,7 @@ inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, 
   br label %105
 
 105:                                              ; preds = %41, %44, %103, %52, %34, %21
-  %.024 = phi i64 [ %104, %103 ], [ %54, %52 ], [ %36, %34 ], [ %23, %21 ], [ 0, %44 ], [ 0, %41 ]
+  %.024 = phi i64 [ %23, %21 ], [ %104, %103 ], [ %54, %52 ], [ %36, %34 ], [ 0, %44 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -305,7 +305,7 @@ define internal fastcc double @inet_hist_value_sel(ptr noundef readonly captures
   br label %inet_inclusion_cmp.exit
 
 inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, %56
-  %.1.i = phi i32 [ %59, %56 ], [ %32, %24 ], [ 0, %49 ], [ 0, %33 ], [ %spec.select.i.i, %53 ]
+  %.1.i = phi i32 [ %59, %56 ], [ %32, %24 ], [ 0, %33 ], [ %spec.select.i.i, %53 ], [ 0, %49 ]
   %60 = icmp samesign ult i32 %9, %1
   br i1 %60, label %.lr.ph, label %._crit_edge
 
@@ -395,7 +395,7 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   br label %inet_inclusion_cmp.exit70
 
 inet_inclusion_cmp.exit70:                        ; preds = %91, %107, %109
-  %.1.i59 = phi i32 [ %112, %109 ], [ 0, %91 ], [ %spec.select.i.i69, %107 ]
+  %.1.i59 = phi i32 [ %112, %109 ], [ %spec.select.i.i69, %107 ], [ 0, %91 ]
   %113 = icmp eq i32 %.051107, 0
   %114 = icmp eq i32 %.1.i59, 0
   %or.cond = select i1 %113, i1 %114, i1 false
@@ -474,9 +474,9 @@ inet_masklen_inclusion_cmp.exit.thread.i:         ; preds = %144, %142
   br label %149
 
 149:                                              ; preds = %147, %inet_masklen_inclusion_cmp.exit.thread.i
-  %150 = phi i32 [ %146, %inet_masklen_inclusion_cmp.exit.thread.i ], [ %148, %147 ]
-  %.56.i = phi i8 [ %..i77, %inet_masklen_inclusion_cmp.exit.thread.i ], [ %.57.i, %147 ]
-  %.0.i = phi i32 [ %135, %inet_masklen_inclusion_cmp.exit.thread.i ], [ %spec.select.i, %147 ]
+  %150 = phi i32 [ %148, %147 ], [ %146, %inet_masklen_inclusion_cmp.exit.thread.i ]
+  %.56.i = phi i8 [ %.57.i, %147 ], [ %..i77, %inet_masklen_inclusion_cmp.exit.thread.i ]
+  %.0.i = phi i32 [ %spec.select.i, %147 ], [ %135, %inet_masklen_inclusion_cmp.exit.thread.i ]
   %.not51.i = icmp eq i8 %.56.i, 0
   br i1 %.not51.i, label %inet_hist_match_divider.exit, label %151
 
@@ -545,9 +545,9 @@ inet_masklen_inclusion_cmp.exit.thread.i87:       ; preds = %175, %173
   br label %180
 
 180:                                              ; preds = %178, %inet_masklen_inclusion_cmp.exit.thread.i87
-  %181 = phi i32 [ %177, %inet_masklen_inclusion_cmp.exit.thread.i87 ], [ %179, %178 ]
-  %.56.i92 = phi i8 [ %..i88, %inet_masklen_inclusion_cmp.exit.thread.i87 ], [ %.57.i89, %178 ]
-  %.0.i93 = phi i32 [ %166, %inet_masklen_inclusion_cmp.exit.thread.i87 ], [ %spec.select.i91, %178 ]
+  %181 = phi i32 [ %179, %178 ], [ %177, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
+  %.56.i92 = phi i8 [ %.57.i89, %178 ], [ %..i88, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
+  %.0.i93 = phi i32 [ %spec.select.i91, %178 ], [ %166, %inet_masklen_inclusion_cmp.exit.thread.i87 ]
   %.not51.i94 = icmp eq i8 %.56.i92, 0
   br i1 %.not51.i94, label %inet_hist_match_divider.exit97.thread, label %182
 
@@ -559,7 +559,7 @@ inet_masklen_inclusion_cmp.exit.thread.i87:       ; preds = %175, %173
   br label %inet_hist_match_divider.exit97
 
 inet_hist_match_divider.exit97:                   ; preds = %inet_hist_match_divider.exit, %175, %182
-  %.1.i82 = phi i32 [ %186, %182 ], [ -1, %inet_hist_match_divider.exit ], [ -1, %175 ]
+  %.1.i82 = phi i32 [ -1, %inet_hist_match_divider.exit ], [ %186, %182 ], [ -1, %175 ]
   %187 = icmp sgt i32 %.1.i73, -1
   %188 = icmp sgt i32 %.1.i82, -1
   %or.cond7 = select i1 %187, i1 true, i1 %188
@@ -687,11 +687,11 @@ define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) loc
   br label %mcv_population.exit.i
 
 mcv_population.exit.i:                            ; preds = %.lr.ph.i.i, %50, %42, %27
-  %.070.i = phi double [ %35, %27 ], [ 0.000000e+00, %50 ], [ %35, %42 ], [ %35, %.lr.ph.i.i ]
-  %.067.i = phi double [ 0.000000e+00, %27 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %42 ], [ %49, %.lr.ph.i.i ]
-  %.065.shrunk.i = phi i1 [ false, %27 ], [ false, %50 ], [ true, %42 ], [ true, %.lr.ph.i.i ]
-  %.063.shrunk.i = phi i1 [ %38, %27 ], [ false, %50 ], [ %38, %42 ], [ %38, %.lr.ph.i.i ]
-  %.061.i = phi i32 [ %41, %27 ], [ 0, %50 ], [ %41, %42 ], [ %41, %.lr.ph.i.i ]
+  %.070.i = phi double [ 0.000000e+00, %50 ], [ %35, %27 ], [ %35, %42 ], [ %35, %.lr.ph.i.i ]
+  %.067.i = phi double [ 0.000000e+00, %50 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %42 ], [ %49, %.lr.ph.i.i ]
+  %.065.shrunk.i = phi i1 [ false, %50 ], [ false, %27 ], [ true, %42 ], [ true, %.lr.ph.i.i ]
+  %.063.shrunk.i = phi i1 [ false, %50 ], [ %38, %27 ], [ %38, %42 ], [ %38, %.lr.ph.i.i ]
+  %.061.i = phi i32 [ 0, %50 ], [ %41, %27 ], [ %41, %42 ], [ %41, %.lr.ph.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not73.i = icmp eq ptr %52, null
@@ -742,11 +742,11 @@ mcv_population.exit.i:                            ; preds = %.lr.ph.i.i, %50, %4
   br label %mcv_population.exit84.i
 
 mcv_population.exit84.i:                          ; preds = %.lr.ph.i79.i, %76, %68, %53
-  %.069.i = phi double [ %61, %53 ], [ 0.000000e+00, %76 ], [ %61, %68 ], [ %61, %.lr.ph.i79.i ]
-  %.066.i = phi double [ 0.000000e+00, %53 ], [ 0.000000e+00, %76 ], [ 0.000000e+00, %68 ], [ %75, %.lr.ph.i79.i ]
-  %.064.shrunk.i = phi i1 [ false, %53 ], [ false, %76 ], [ true, %68 ], [ true, %.lr.ph.i79.i ]
-  %.062.shrunk.i = phi i1 [ %64, %53 ], [ false, %76 ], [ %64, %68 ], [ %64, %.lr.ph.i79.i ]
-  %.0.i = phi i32 [ %67, %53 ], [ 0, %76 ], [ %67, %68 ], [ %67, %.lr.ph.i79.i ]
+  %.069.i = phi double [ 0.000000e+00, %76 ], [ %61, %53 ], [ %61, %68 ], [ %61, %.lr.ph.i79.i ]
+  %.066.i = phi double [ 0.000000e+00, %76 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %68 ], [ %75, %.lr.ph.i79.i ]
+  %.064.shrunk.i = phi i1 [ false, %76 ], [ false, %53 ], [ true, %68 ], [ true, %.lr.ph.i79.i ]
+  %.062.shrunk.i = phi i1 [ false, %76 ], [ %64, %53 ], [ %64, %68 ], [ %64, %.lr.ph.i79.i ]
+  %.0.i = phi i32 [ 0, %76 ], [ %67, %53 ], [ %67, %68 ], [ %67, %.lr.ph.i79.i ]
   switch i32 %15, label %81 [
     i32 933, label %inet_opr_codenum.exit.i
     i32 934, label %77
@@ -774,7 +774,7 @@ mcv_population.exit84.i:                          ; preds = %.lr.ph.i79.i, %76, 
   unreachable
 
 inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, %mcv_population.exit84.i
-  %.0.i.i = phi i32 [ -1, %77 ], [ 0, %78 ], [ 1, %79 ], [ 2, %80 ], [ -2, %mcv_population.exit84.i ]
+  %.0.i.i = phi i32 [ 2, %80 ], [ -1, %77 ], [ 0, %78 ], [ 1, %79 ], [ -2, %mcv_population.exit84.i ]
   %or.cond.i = and i1 %.065.shrunk.i, %.064.shrunk.i
   br i1 %or.cond.i, label %84, label %112
 
@@ -1001,7 +1001,7 @@ inet_hist_inclusion_join_sel.exit.i:              ; preds = %._crit_edge.i.i, %1
   br label %networkjoinsel_inner.exit
 
 networkjoinsel_inner.exit:                        ; preds = %186, %187
-  %.4.i = phi double [ %193, %187 ], [ %.3.i, %186 ]
+  %.4.i = phi double [ %.3.i, %186 ], [ %193, %187 ]
   call void @free_attstatsslot(ptr noundef nonnull %3) #8
   call void @free_attstatsslot(ptr noundef nonnull %4) #8
   call void @free_attstatsslot(ptr noundef nonnull %5) #8
@@ -1070,7 +1070,7 @@ networkjoinsel_inner.exit:                        ; preds = %186, %187
   br label %223
 
 223:                                              ; preds = %218, %220, %222
-  %.1 = phi double [ 1.000000e+00, %222 ], [ %.0, %220 ], [ 0.000000e+00, %218 ]
+  %.1 = phi double [ %.0, %220 ], [ 1.000000e+00, %222 ], [ 0.000000e+00, %218 ]
   %224 = bitcast double %.1 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1142,11 +1142,11 @@ define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr noundef n
   br label %mcv_population.exit
 
 mcv_population.exit:                              ; preds = %.lr.ph.i, %26, %11, %34
-  %.085 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %26 ], [ %33, %.lr.ph.i ]
-  %.083 = phi double [ %19, %11 ], [ 0.000000e+00, %34 ], [ %19, %26 ], [ %19, %.lr.ph.i ]
-  %.080.shrunk = phi i1 [ false, %11 ], [ false, %34 ], [ true, %26 ], [ true, %.lr.ph.i ]
-  %.078.shrunk = phi i1 [ %22, %11 ], [ false, %34 ], [ %22, %26 ], [ %22, %.lr.ph.i ]
-  %.073 = phi i32 [ %25, %11 ], [ 0, %34 ], [ %25, %26 ], [ %25, %.lr.ph.i ]
+  %.085 = phi double [ 0.000000e+00, %34 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %26 ], [ %33, %.lr.ph.i ]
+  %.083 = phi double [ 0.000000e+00, %34 ], [ %19, %11 ], [ %19, %26 ], [ %19, %.lr.ph.i ]
+  %.080.shrunk = phi i1 [ false, %34 ], [ false, %11 ], [ true, %26 ], [ true, %.lr.ph.i ]
+  %.078.shrunk = phi i1 [ false, %34 ], [ %22, %11 ], [ %22, %26 ], [ %22, %.lr.ph.i ]
+  %.073 = phi i32 [ 0, %34 ], [ %25, %11 ], [ %25, %26 ], [ %25, %.lr.ph.i ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not90 = icmp eq ptr %36, null
@@ -1197,11 +1197,11 @@ mcv_population.exit:                              ; preds = %.lr.ph.i, %26, %11,
   br label %mcv_population.exit104
 
 mcv_population.exit104:                           ; preds = %.lr.ph.i99, %52, %37, %60
-  %.084 = phi double [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %52 ], [ %59, %.lr.ph.i99 ]
-  %.082 = phi double [ %45, %37 ], [ 0.000000e+00, %60 ], [ %45, %52 ], [ %45, %.lr.ph.i99 ]
-  %.079.shrunk = phi i1 [ false, %37 ], [ false, %60 ], [ true, %52 ], [ true, %.lr.ph.i99 ]
-  %.077.shrunk = phi i1 [ %48, %37 ], [ false, %60 ], [ %48, %52 ], [ %48, %.lr.ph.i99 ]
-  %.072 = phi i32 [ %51, %37 ], [ 0, %60 ], [ %51, %52 ], [ %51, %.lr.ph.i99 ]
+  %.084 = phi double [ 0.000000e+00, %60 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %52 ], [ %59, %.lr.ph.i99 ]
+  %.082 = phi double [ 0.000000e+00, %60 ], [ %45, %37 ], [ %45, %52 ], [ %45, %.lr.ph.i99 ]
+  %.079.shrunk = phi i1 [ false, %60 ], [ false, %37 ], [ true, %52 ], [ true, %.lr.ph.i99 ]
+  %.077.shrunk = phi i1 [ false, %60 ], [ %48, %37 ], [ %48, %52 ], [ %48, %.lr.ph.i99 ]
+  %.072 = phi i32 [ 0, %60 ], [ %51, %37 ], [ %51, %52 ], [ %51, %.lr.ph.i99 ]
   switch i32 %0, label %65 [
     i32 933, label %inet_opr_codenum.exit
     i32 934, label %61
@@ -1229,7 +1229,7 @@ mcv_population.exit104:                           ; preds = %.lr.ph.i99, %52, %3
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %mcv_population.exit104, %61, %62, %63, %64
-  %.0.i = phi i32 [ -1, %61 ], [ 0, %62 ], [ 1, %63 ], [ 2, %64 ], [ -2, %mcv_population.exit104 ]
+  %.0.i = phi i32 [ 2, %64 ], [ -1, %61 ], [ 0, %62 ], [ 1, %63 ], [ -2, %mcv_population.exit104 ]
   %68 = call i32 @get_opcode(i32 noundef %0) #8
   call void @fmgr_info(i32 noundef %68, ptr noundef nonnull %4) #8
   br i1 %.077.shrunk, label %69, label %78
@@ -1420,7 +1420,7 @@ inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thre
   br label %163
 
 163:                                              ; preds = %155, %156
-  %.3 = phi double [ %162, %156 ], [ %.2, %155 ]
+  %.3 = phi double [ %.2, %155 ], [ %162, %156 ]
   call void @free_attstatsslot(ptr noundef nonnull %5) #8
   call void @free_attstatsslot(ptr noundef nonnull %6) #8
   call void @free_attstatsslot(ptr noundef nonnull %7) #8

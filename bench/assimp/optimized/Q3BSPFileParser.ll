@@ -566,8 +566,8 @@ _ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit: ; preds = %182, %_ZN6Assimp15Q
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %218, ptr nonnull align 1 %220, i64 %208, i1 false)
   br label %_ZN6Assimp15Q3BSPFileParser11getEntitiesEv.exit
 
-_ZN6Assimp15Q3BSPFileParser11getEntitiesEv.exit:  ; preds = %7, %11, %14, %210, %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit, %_ZN6Assimp15Q3BSPFileParser14validateFormatEv.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZN6Assimp15Q3BSPFileParser14validateFormatEv.exit ], [ true, %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit ], [ true, %210 ], [ false, %14 ], [ false, %11 ], [ false, %7 ]
+_ZN6Assimp15Q3BSPFileParser11getEntitiesEv.exit:  ; preds = %11, %14, %7, %210, %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit, %_ZN6Assimp15Q3BSPFileParser14validateFormatEv.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %210 ], [ false, %_ZN6Assimp15Q3BSPFileParser14validateFormatEv.exit ], [ true, %_ZN6Assimp15Q3BSPFileParser12getLightMapsEv.exit ], [ false, %7 ], [ false, %14 ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -1015,7 +1015,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -1115,7 +1115,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp15Q3BSPFileParser14validateFormatEv(
   br label %16
 
 16:                                               ; preds = %13, %1, %7, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %7 ], [ false, %1 ], [ %.not8, %13 ]
+  %.0 = phi i1 [ false, %1 ], [ %.not8, %13 ], [ false, %10 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -1722,7 +1722,7 @@ _ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i:
   br label %_ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPLumpEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -1821,7 +1821,7 @@ _ZSt6fill_nIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.
   br label %_ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP12sQ3BSPVertexEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -1920,7 +1920,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -2019,7 +2019,7 @@ _ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i:
   br label %_ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP10sQ3BSPFaceEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -2118,7 +2118,7 @@ _ZSt6fill_nIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP13sQ3BSPTextureEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -2217,7 +2217,7 @@ _ZSt6fill_nIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.
   br label %_ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPPN6Assimp5Q3BSP14sQ3BSPLightmapEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 

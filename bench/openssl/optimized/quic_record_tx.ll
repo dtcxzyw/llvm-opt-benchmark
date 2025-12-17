@@ -220,8 +220,8 @@ define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef
   br label %13
 
 13:                                               ; preds = %8, %4
-  %.sink = phi i64 [ 0, %4 ], [ %spec.select, %8 ]
-  %.0 = phi i32 [ 0, %4 ], [ %spec.select17, %8 ]
+  %.sink = phi i64 [ %spec.select, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ %spec.select17, %8 ], [ 0, %4 ]
   store i64 %.sink, ptr %3, align 8, !tbaa !46
   ret i32 %.0
 }
@@ -512,9 +512,9 @@ ossl_list_txe_insert_tail.exit.i65:               ; preds = %qtx_add_to_pending.
   br label %ossl_qtx_finish_dgram.exit69
 
 ossl_qtx_finish_dgram.exit69:                     ; preds = %ossl_qtx_finish_dgram.exit.thread, %90, %91, %ossl_qtx_finish_dgram.exit, %ossl_list_txe_insert_tail.exit.i65, %addr_eq.exit.thread102, %addr_eq.exit62, %68
-  %133 = phi ptr [ %67, %addr_eq.exit62 ], [ %67, %68 ], [ %67, %addr_eq.exit.thread102 ], [ %67, %ossl_list_txe_insert_tail.exit.i65 ], [ %67, %ossl_qtx_finish_dgram.exit ], [ %67, %91 ], [ %67, %90 ], [ %66, %ossl_qtx_finish_dgram.exit.thread ]
-  %.0.i96207 = phi i32 [ %switch.load, %addr_eq.exit62 ], [ %switch.load, %68 ], [ %switch.load, %addr_eq.exit.thread102 ], [ %switch.load, %ossl_list_txe_insert_tail.exit.i65 ], [ %switch.load, %ossl_qtx_finish_dgram.exit ], [ %switch.load, %91 ], [ %switch.load, %90 ], [ %.0.i97, %ossl_qtx_finish_dgram.exit.thread ]
-  %134 = phi i1 [ false, %addr_eq.exit62 ], [ true, %68 ], [ true, %addr_eq.exit.thread102 ], [ true, %ossl_list_txe_insert_tail.exit.i65 ], [ true, %ossl_qtx_finish_dgram.exit ], [ false, %91 ], [ false, %90 ], [ true, %ossl_qtx_finish_dgram.exit.thread ]
+  %133 = phi ptr [ %67, %addr_eq.exit62 ], [ %67, %ossl_qtx_finish_dgram.exit ], [ %67, %68 ], [ %67, %ossl_list_txe_insert_tail.exit.i65 ], [ %67, %addr_eq.exit.thread102 ], [ %67, %91 ], [ %67, %90 ], [ %66, %ossl_qtx_finish_dgram.exit.thread ]
+  %.0.i96207 = phi i32 [ %switch.load, %addr_eq.exit62 ], [ %switch.load, %ossl_qtx_finish_dgram.exit ], [ %switch.load, %68 ], [ %switch.load, %ossl_list_txe_insert_tail.exit.i65 ], [ %switch.load, %addr_eq.exit.thread102 ], [ %switch.load, %91 ], [ %switch.load, %90 ], [ %.0.i97, %ossl_qtx_finish_dgram.exit.thread ]
+  %134 = phi i1 [ false, %addr_eq.exit62 ], [ true, %ossl_qtx_finish_dgram.exit ], [ true, %68 ], [ true, %ossl_list_txe_insert_tail.exit.i65 ], [ true, %addr_eq.exit.thread102 ], [ false, %91 ], [ false, %90 ], [ true, %ossl_qtx_finish_dgram.exit.thread ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -604,9 +604,9 @@ ossl_qtx_finish_dgram.exit84:                     ; preds = %ossl_qtx_finish_dgr
   br i1 %180, label %.thread, label %._crit_edge.i.i
 
 .thread:                                          ; preds = %172, %.thread214, %179
-  %.0.i26.i213 = phi ptr [ %.val.i.i, %179 ], [ %165, %.thread214 ], [ %165, %172 ]
-  %181 = phi ptr [ %.pre154.pre, %179 ], [ %170, %.thread214 ], [ %170, %172 ]
-  %.pre19.i.i211 = phi ptr [ %.pre151, %179 ], [ null, %.thread214 ], [ null, %172 ]
+  %.0.i26.i213 = phi ptr [ %165, %.thread214 ], [ %.val.i.i, %179 ], [ %165, %172 ]
+  %181 = phi ptr [ %170, %.thread214 ], [ %.pre154.pre, %179 ], [ %170, %172 ]
+  %.pre19.i.i211 = phi ptr [ null, %.thread214 ], [ %.pre151, %179 ], [ null, %172 ]
   store ptr %181, ptr %137, align 8, !tbaa !54
   br label %._crit_edge.i.i
 
@@ -796,7 +796,7 @@ iovec_cur_init.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i
   br label %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i
 
 ossl_qtx_calculate_ciphertext_payload_len.exit.i.i: ; preds = %252, %249, %248
-  %.084.i.i = phi i64 [ %257, %252 ], [ 0, %249 ], [ %245, %248 ]
+  %.084.i.i = phi i64 [ 0, %249 ], [ %257, %252 ], [ %245, %248 ]
   %258 = getelementptr inbounds nuw i8, ptr %217, i64 80
   store ptr null, ptr %258, align 8, !tbaa !74
   %259 = getelementptr inbounds nuw i8, ptr %217, i64 72
@@ -1041,8 +1041,8 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %292, %279
   br i1 %.not53.i.i.i, label %qtx_encrypt_into_txe.exit.thread.i.i, label %qtx_encrypt_into_txe.exit.i.i
 
 qtx_encrypt_into_txe.exit.thread.sink.split.i.i:  ; preds = %355, %367, %.loopexit.i.i.i, %346, %344, %330, %327, %321, %318
-  %.sink162.i.i = phi i32 [ 502, %318 ], [ 511, %321 ], [ 522, %327 ], [ 529, %330 ], [ 539, %344 ], [ 545, %346 ], [ 575, %.loopexit.i.i.i ], [ 581, %367 ], [ 560, %355 ]
-  %.sink.i.i = phi i32 [ 786691, %318 ], [ 395, %321 ], [ 786691, %327 ], [ 786691, %330 ], [ 524294, %344 ], [ 524294, %346 ], [ 524294, %.loopexit.i.i.i ], [ 524294, %367 ], [ 524294, %355 ]
+  %.sink162.i.i = phi i32 [ 502, %318 ], [ 529, %330 ], [ 539, %344 ], [ 545, %346 ], [ 575, %.loopexit.i.i.i ], [ 511, %321 ], [ 522, %327 ], [ 581, %367 ], [ 560, %355 ]
+  %.sink.i.i = phi i32 [ 786691, %318 ], [ 786691, %330 ], [ 524294, %344 ], [ 524294, %346 ], [ 524294, %.loopexit.i.i.i ], [ 395, %321 ], [ 786691, %327 ], [ 524294, %367 ], [ 524294, %355 ]
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink162.i.i, ptr noundef nonnull @__func__.qtx_encrypt_into_txe) #11
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink.i.i, ptr noundef null) #11
@@ -1064,7 +1064,7 @@ qtx_encrypt_into_txe.exit.i.i:                    ; preds = %373
   br label %.loopexit.i
 
 iovec_cur_init.exit.thread.i.i:                   ; preds = %qtx_encrypt_into_txe.exit.thread.i.i, %qtx_write_hdr.exit.thread.i.i, %272, %265, %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i, %iovec_cur_init.exit.i.i, %241, %223
-  %.054.i.i = phi i32 [ -2, %223 ], [ -1, %iovec_cur_init.exit.i.i ], [ -1, %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i ], [ -2, %265 ], [ -1, %272 ], [ -1, %qtx_write_hdr.exit.thread.i.i ], [ -1, %qtx_encrypt_into_txe.exit.thread.i.i ], [ -1, %241 ]
+  %.054.i.i = phi i32 [ -2, %265 ], [ -2, %223 ], [ -1, %iovec_cur_init.exit.i.i ], [ -1, %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i ], [ -1, %qtx_write_hdr.exit.thread.i.i ], [ -1, %272 ], [ -1, %qtx_encrypt_into_txe.exit.thread.i.i ], [ -1, %241 ]
   store i64 %225, ptr %224, align 8, !tbaa !53
   br label %qtx_write.exit.i
 
@@ -1290,7 +1290,7 @@ ossl_list_txe_insert_tail.exit.i87:               ; preds = %qtx_add_to_pending.
   br label %ossl_qtx_finish_dgram.exit91
 
 ossl_qtx_finish_dgram.exit91:                     ; preds = %163, %161, %qtx_mutate_write.exit, %395, %qtx_ensure_cons.exit, %ossl_quic_pkt_type_to_enc_level.exit.thread, %ossl_list_txe_insert_tail.exit.i87, %436, %qtx_mutate_write.exit.thread, %428, %63, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %63 ], [ 1, %428 ], [ 0, %qtx_mutate_write.exit.thread ], [ 1, %436 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
+  %.0 = phi i32 [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %2 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 0, %63 ], [ 0, %qtx_mutate_write.exit.thread ], [ 1, %428 ], [ 1, %436 ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -1592,13 +1592,13 @@ qtx_pending_to_free.exit:                         ; preds = %87, %90
   br i1 %.not46, label %.loopexit, label %.lr.ph.preheader
 
 .loopexit:                                        ; preds = %._crit_edge44, %51, %44
-  %.02771 = phi i64 [ %.02773, %51 ], [ %.02773, %44 ], [ %96, %._crit_edge44 ]
+  %.02771 = phi i64 [ %.02773, %44 ], [ %.02773, %51 ], [ %96, %._crit_edge44 ]
   %.not33 = icmp eq i64 %.02771, 0
   %97 = select i1 %.not33, i32 -1, i32 1
   br label %98
 
 98:                                               ; preds = %6, %1, %.loopexit, %53
-  %.0 = phi i32 [ %97, %.loopexit ], [ -2, %53 ], [ 1, %1 ], [ -2, %6 ]
+  %.0 = phi i32 [ -2, %53 ], [ 1, %1 ], [ %97, %.loopexit ], [ -2, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

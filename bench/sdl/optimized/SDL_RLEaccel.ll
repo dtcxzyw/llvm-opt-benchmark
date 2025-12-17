@@ -194,7 +194,7 @@ define hidden noundef zeroext i1 @SDL_RLESurface(ptr noundef %0) local_unnamed_a
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %38, %24, %27, %6, %63, %61, %.thread155, %31, %.thread152, %19, %28, %11, %65
-  %.0 = phi i1 [ true, %65 ], [ false, %11 ], [ false, %28 ], [ false, %27 ], [ false, %19 ], [ false, %.thread152 ], [ false, %31 ], [ false, %.thread155 ], [ false, %61 ], [ false, %63 ], [ false, %6 ], [ false, %24 ], [ false, %38 ], [ false, %43 ]
+  %.0 = phi i1 [ false, %.thread152 ], [ false, %19 ], [ true, %65 ], [ false, %.thread155 ], [ false, %31 ], [ false, %61 ], [ false, %11 ], [ false, %63 ], [ false, %28 ], [ false, %27 ], [ false, %6 ], [ false, %38 ], [ false, %24 ], [ false, %43 ]
   ret i1 %.0
 }
 
@@ -861,7 +861,7 @@ define internal fastcc noundef zeroext i1 @RLEColorkeySurface(ptr noundef captur
   br label %177
 
 177:                                              ; preds = %43, %9, %1, %171
-  %.0154 = phi i1 [ true, %171 ], [ false, %1 ], [ false, %9 ], [ false, %43 ]
+  %.0154 = phi i1 [ false, %1 ], [ true, %171 ], [ false, %9 ], [ false, %43 ]
   ret i1 %.0154
 }
 
@@ -1073,7 +1073,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   br label %.preheader1291
 
 .thread1106:                                      ; preds = %101, %84, %67, %50, %35, %11
-  %.4691.ph = phi ptr [ %32, %11 ], [ %32, %35 ], [ %.2689, %50 ], [ %.6693, %67 ], [ %.9696, %84 ], [ %.12699, %101 ]
+  %.4691.ph = phi ptr [ %32, %11 ], [ %32, %35 ], [ %.9696, %84 ], [ %.2689, %50 ], [ %.6693, %67 ], [ %.12699, %101 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 267
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
@@ -4364,7 +4364,7 @@ RLEClipBlit.exit:                                 ; preds = %98, %81, %64, %47, 
   br label %2191
 
 2191:                                             ; preds = %RLEClipBlit.exit, %2190, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %2190 ], [ true, %RLEClipBlit.exit ]
+  %.0 = phi i1 [ true, %RLEClipBlit.exit ], [ false, %9 ], [ true, %2190 ]
   ret i1 %.0
 }
 
@@ -4878,7 +4878,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   br label %242
 
 242:                                              ; preds = %50, %11, %40, %22, %27, %23, %4, %1, %236
-  %.0243 = phi i1 [ true, %236 ], [ false, %1 ], [ false, %4 ], [ false, %23 ], [ false, %27 ], [ false, %22 ], [ false, %40 ], [ false, %11 ], [ false, %50 ]
+  %.0243 = phi i1 [ false, %1 ], [ false, %40 ], [ false, %27 ], [ true, %236 ], [ false, %11 ], [ false, %4 ], [ false, %23 ], [ false, %22 ], [ false, %50 ]
   ret i1 %.0243
 }
 

@@ -288,7 +288,7 @@ define i32 @wc_d2i_PKCS12(ptr noundef %0, i32 noundef %1, ptr noundef writeonly 
   br label %35
 
 35:                                               ; preds = %32, %29, %21, %18, %15, %12, %9, %3
-  %.023 = phi i32 [ -173, %3 ], [ -140, %9 ], [ %13, %12 ], [ -141, %15 ], [ %19, %18 ], [ %25, %21 ], [ %30, %29 ], [ %spec.select, %32 ]
+  %.023 = phi i32 [ %25, %21 ], [ -173, %3 ], [ -140, %9 ], [ %13, %12 ], [ -141, %15 ], [ %19, %18 ], [ %spec.select, %32 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -658,13 +658,13 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br i1 %.not.i121, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %._crit_edge.i120, %._crit_edge.i115, %._crit_edge.i110, %._crit_edge.i105
-  %.sink = phi ptr [ %126, %._crit_edge.i105 ], [ %139, %._crit_edge.i110 ], [ %153, %._crit_edge.i115 ], [ %165, %._crit_edge.i120 ]
-  %.3.ph.ph = phi i32 [ %116, %._crit_edge.i105 ], [ -140, %._crit_edge.i110 ], [ %143, %._crit_edge.i115 ], [ -125, %._crit_edge.i120 ]
+  %.sink = phi ptr [ %153, %._crit_edge.i115 ], [ %139, %._crit_edge.i110 ], [ %126, %._crit_edge.i105 ], [ %165, %._crit_edge.i120 ]
+  %.3.ph.ph = phi i32 [ %143, %._crit_edge.i115 ], [ -140, %._crit_edge.i110 ], [ %116, %._crit_edge.i105 ], [ -125, %._crit_edge.i120 ]
   call void @wolfSSL_Free(ptr noundef nonnull %.sink) #9
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %._crit_edge.i120, %._crit_edge.i115, %._crit_edge.i110, %._crit_edge.i105
-  %.3.ph = phi i32 [ %116, %._crit_edge.i105 ], [ -140, %._crit_edge.i110 ], [ %143, %._crit_edge.i115 ], [ -125, %._crit_edge.i120 ], [ %.3.ph.ph, %.thread.sink.split ]
+  %.3.ph = phi i32 [ -140, %._crit_edge.i110 ], [ %143, %._crit_edge.i115 ], [ -125, %._crit_edge.i120 ], [ %116, %._crit_edge.i105 ], [ %.3.ph.ph, %.thread.sink.split ]
   call void @wolfSSL_Free(ptr noundef nonnull %12) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread129
@@ -712,7 +712,7 @@ freeSafe.exit104:                                 ; preds = %._crit_edge.i100, %
   br label %185
 
 185:                                              ; preds = %.thread129, %4, %._crit_edge, %95, %87, %83, %80, %freeSafe.exit104, %freeSafe.exit99, %freeSafe.exit94, %freeSafe.exit
-  %.0 = phi i32 [ -140, %freeSafe.exit ], [ -140, %freeSafe.exit94 ], [ -140, %freeSafe.exit99 ], [ -140, %freeSafe.exit104 ], [ -140, %80 ], [ -140, %83 ], [ -140, %87 ], [ -125, %95 ], [ %.178.lcssa, %._crit_edge ], [ -125, %4 ], [ %.1.ph, %.thread129 ]
+  %.0 = phi i32 [ %.1.ph, %.thread129 ], [ -140, %freeSafe.exit ], [ -140, %freeSafe.exit94 ], [ -140, %freeSafe.exit99 ], [ -140, %freeSafe.exit104 ], [ -140, %80 ], [ -140, %83 ], [ -140, %87 ], [ -125, %95 ], [ %.178.lcssa, %._crit_edge ], [ -125, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -877,8 +877,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   store ptr %14, ptr %86, align 8, !tbaa !22
   br label %89
 
-87:                                               ; preds = %54, %39, %44, %64, %57
-  %.067.ph.ph = phi i32 [ %55, %54 ], [ -125, %39 ], [ -140, %44 ], [ -125, %64 ], [ -125, %57 ]
+87:                                               ; preds = %44, %54, %57, %39, %64
+  %.067.ph.ph = phi i32 [ -140, %44 ], [ %55, %54 ], [ -125, %57 ], [ -125, %39 ], [ -125, %64 ]
   %.pr = load ptr, ptr %14, align 8, !tbaa !23
   %.not77 = icmp eq ptr %.pr, null
   br i1 %.not77, label %.thread81, label %88
@@ -888,12 +888,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @GetSignData(ptr noundef no
   br label %.thread81
 
 .thread81:                                        ; preds = %33, %87, %88
-  %.067.ph84 = phi i32 [ %.067.ph.ph, %87 ], [ %.067.ph.ph, %88 ], [ -125, %33 ]
+  %.067.ph84 = phi i32 [ %.067.ph.ph, %88 ], [ %.067.ph.ph, %87 ], [ -125, %33 ]
   call void @wolfSSL_Free(ptr noundef nonnull %14) #9
   br label %89
 
 89:                                               ; preds = %84, %.thread81, %13, %4, %32, %28, %25, %19
-  %.0 = phi i32 [ %17, %19 ], [ -140, %25 ], [ -140, %28 ], [ -140, %32 ], [ -140, %4 ], [ -125, %13 ], [ %.067.ph84, %.thread81 ], [ 0, %84 ]
+  %.0 = phi i32 [ -125, %13 ], [ -140, %4 ], [ %17, %19 ], [ -140, %25 ], [ -140, %28 ], [ -140, %32 ], [ %.067.ph84, %.thread81 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -953,7 +953,7 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
   br label %.thread27
 
 .thread27:                                        ; preds = %11, %5, %15, %22, %24
-  %.330.ph = phi i32 [ -125, %11 ], [ %6, %5 ], [ %20, %24 ], [ %20, %22 ], [ %20, %15 ]
+  %.330.ph = phi i32 [ -125, %11 ], [ %6, %5 ], [ %20, %22 ], [ %20, %15 ], [ %20, %24 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !39
   %.not24 = icmp eq ptr %.pr, null
   br i1 %.not24, label %.thread27.thread, label %25
@@ -963,7 +963,7 @@ define i32 @wc_d2i_PKCS12_fp(ptr noundef %0, ptr noundef captures(address_is_nul
   br label %.thread27.thread
 
 .thread27.thread:                                 ; preds = %2, %25, %.thread27
-  %.33038 = phi i32 [ %.330.ph, %25 ], [ %.330.ph, %.thread27 ], [ -173, %2 ]
+  %.33038 = phi i32 [ %.330.ph, %.thread27 ], [ %.330.ph, %25 ], [ -173, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.33038
@@ -1162,8 +1162,8 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %122
 
 122:                                              ; preds = %119, %118, %115
-  %.0182 = phi ptr [ %117, %115 ], [ %113, %118 ], [ %113, %119 ]
-  %.8 = phi i32 [ 0, %115 ], [ 0, %118 ], [ %spec.select203, %119 ]
+  %.0182 = phi ptr [ %117, %115 ], [ %113, %119 ], [ %113, %118 ]
+  %.8 = phi i32 [ 0, %115 ], [ %spec.select203, %119 ], [ 0, %118 ]
   %123 = icmp eq ptr %.0182, null
   %spec.select204 = select i1 %123, i32 -125, i32 %.8
   %124 = icmp eq i32 %spec.select204, 0
@@ -1261,7 +1261,7 @@ define i32 @wc_i2d_PKCS12(ptr noundef readonly captures(address_is_null) %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %42, %.critedge.critedge, %.thread227, %.thread227.thread, %110, %111, %3, %13, %17
-  %.0 = phi i32 [ -173, %17 ], [ -173, %13 ], [ -173, %3 ], [ -202, %111 ], [ -202, %110 ], [ %.10254, %.thread227.thread ], [ %.10, %.thread227 ], [ %40, %.critedge.critedge ], [ -125, %42 ]
+  %.0 = phi i32 [ %40, %.critedge.critedge ], [ %.10, %.thread227 ], [ -202, %110 ], [ -173, %17 ], [ -173, %13 ], [ -173, %3 ], [ -202, %111 ], [ %.10254, %.thread227.thread ], [ -125, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1488,9 +1488,9 @@ wc_PKCS12_verify.exit:                            ; preds = %43
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.thread, label %105
 
-.thread:                                          ; preds = %61, %67, %71, %75, %79, %83, %89, %96
-  %.0194.ph = phi i32 [ %103, %96 ], [ -125, %89 ], [ -140, %83 ], [ %81, %79 ], [ %77, %75 ], [ %73, %71 ], [ %69, %67 ], [ -140, %61 ]
-  %.1189.ph = phi ptr [ %94, %96 ], [ null, %89 ], [ null, %83 ], [ null, %79 ], [ null, %75 ], [ null, %71 ], [ null, %67 ], [ null, %61 ]
+.thread:                                          ; preds = %61, %96, %67, %71, %75, %79, %83, %89
+  %.0194.ph = phi i32 [ -125, %89 ], [ -140, %83 ], [ %81, %79 ], [ %77, %75 ], [ %73, %71 ], [ %69, %67 ], [ %103, %96 ], [ -140, %61 ]
+  %.1189.ph = phi ptr [ null, %89 ], [ null, %83 ], [ null, %79 ], [ null, %75 ], [ null, %71 ], [ null, %67 ], [ %94, %96 ], [ null, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %wc_FreeCertList.exit.thread340
 
@@ -1979,15 +1979,15 @@ freeDecCertList.exit:                             ; preds = %328, %.thread477, %
   %.not.i277 = icmp eq ptr %336, null
   br i1 %.not.i277, label %wc_FreeCertList.exit282, label %.preheader.i, !llvm.loop !48
 
-wc_FreeCertList.exit:                             ; preds = %264, %258, %254, %249, %238, %232, %228, %224, %219, %188, %184, %179, %.lr.ph, %138, %147, %161, %156, %272, %247, %.thread304, %202
-  %.3197.ph = phi i32 [ -125, %.thread304 ], [ %200, %202 ], [ -125, %272 ], [ %spec.store.select17, %247 ], [ %spec.select, %156 ], [ -140, %219 ], [ %226, %224 ], [ %230, %228 ], [ %234, %232 ], [ -140, %238 ], [ -140, %249 ], [ %256, %254 ], [ -140, %258 ], [ -125, %264 ], [ -140, %179 ], [ %186, %184 ], [ -125, %188 ], [ %136, %.lr.ph ], [ %143, %138 ], [ -140, %147 ], [ -125, %161 ]
+wc_FreeCertList.exit:                             ; preds = %254, %258, %249, %238, %232, %228, %224, %264, %219, %184, %188, %179, %.lr.ph, %161, %138, %147, %156, %272, %247, %202, %.thread304
+  %.3197.ph = phi i32 [ %spec.store.select17, %247 ], [ %spec.select, %156 ], [ -125, %.thread304 ], [ %200, %202 ], [ -125, %272 ], [ -125, %264 ], [ %226, %224 ], [ %230, %228 ], [ %234, %232 ], [ -140, %238 ], [ -140, %249 ], [ -140, %258 ], [ %256, %254 ], [ -140, %179 ], [ -125, %188 ], [ %186, %184 ], [ %136, %.lr.ph ], [ -125, %161 ], [ %143, %138 ], [ -140, %147 ], [ -140, %219 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %wc_FreeCertList.exit.thread340
 
-wc_FreeCertList.exit.thread340:                   ; preds = %106, %112, %116, %121, %125, %.thread, %wc_FreeCertList.exit
-  %.2190.ph347 = phi ptr [ %.3191, %wc_FreeCertList.exit ], [ %.1189.ph, %.thread ], [ %.3191, %125 ], [ null, %121 ], [ null, %116 ], [ null, %112 ], [ null, %106 ]
-  %.1195.ph346 = phi i32 [ %.3197.ph, %wc_FreeCertList.exit ], [ %.0194.ph, %.thread ], [ %128, %125 ], [ %123, %121 ], [ -140, %116 ], [ -140, %112 ], [ -140, %106 ]
-  %.1288.ph345 = phi ptr [ %.2289387, %wc_FreeCertList.exit ], [ %.0287390, %.thread ], [ %.0287390, %125 ], [ %.0287390, %121 ], [ %.0287390, %116 ], [ %.0287390, %112 ], [ %.0287390, %106 ]
+wc_FreeCertList.exit.thread340:                   ; preds = %121, %116, %106, %125, %112, %.thread, %wc_FreeCertList.exit
+  %.2190.ph347 = phi ptr [ %.3191, %wc_FreeCertList.exit ], [ %.1189.ph, %.thread ], [ null, %112 ], [ %.3191, %125 ], [ null, %106 ], [ null, %116 ], [ null, %121 ]
+  %.1195.ph346 = phi i32 [ %.3197.ph, %wc_FreeCertList.exit ], [ %.0194.ph, %.thread ], [ -140, %112 ], [ %128, %125 ], [ -140, %106 ], [ -140, %116 ], [ %123, %121 ]
+  %.1288.ph345 = phi ptr [ %.2289387, %wc_FreeCertList.exit ], [ %.0287390, %.thread ], [ %.0287390, %112 ], [ %.0287390, %125 ], [ %.0287390, %106 ], [ %.0287390, %116 ], [ %.0287390, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2031,7 +2031,7 @@ wc_FreeCertList.exit.thread340:                   ; preds = %106, %112, %116, %1
   br i1 %.not.i281, label %wc_FreeCertList.exit282, label %.preheader.i278, !llvm.loop !48
 
 wc_FreeCertList.exit282:                          ; preds = %350, %339, %.thread480, %333, %332, %344, %wc_PKCS12_verify.exit.thread, %49, %wc_PKCS12_verify.exit, %7
-  %.0 = phi i32 [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -173, %49 ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph346, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread480 ], [ 0, %339 ], [ %.1195.ph346, %350 ]
+  %.0 = phi i32 [ -173, %49 ], [ -173, %7 ], [ -213, %wc_PKCS12_verify.exit ], [ -213, %wc_PKCS12_verify.exit.thread ], [ %.1195.ph346, %344 ], [ 0, %332 ], [ 0, %333 ], [ 0, %.thread480 ], [ 0, %339 ], [ %.1195.ph346, %350 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -2248,7 +2248,7 @@ wc_PKCS12_create_key_bag.exit77.i:                ; preds = %71
   call void @wolfSSL_Free(ptr noundef nonnull %102) #9
   br label %109
 
-109:                                              ; preds = %85, %104, %108, %34, %wc_PKCS12_create_key_bag.exit.i, %wc_PKCS12_create_key_bag.exit.thread.i
+109:                                              ; preds = %34, %wc_PKCS12_create_key_bag.exit.i, %85, %wc_PKCS12_create_key_bag.exit.thread.i, %104, %108
   call void @wc_PKCS12_free(ptr noundef nonnull %30)
   %110 = call i32 @wc_FreeRng(ptr noundef nonnull %24) #9
   br label %234
@@ -2358,7 +2358,7 @@ switch.lookup:                                    ; preds = %111
   br i1 %157, label %.sink.split, label %160
 
 .sink.split:                                      ; preds = %.preheader.i84, %155, %150, %.critedge110.i, %125
-  %.sink = phi ptr [ %123, %125 ], [ %123, %.critedge110.i ], [ %123, %150 ], [ %153, %155 ], [ %123, %.preheader.i84 ]
+  %.sink = phi ptr [ %123, %125 ], [ %123, %150 ], [ %123, %.critedge110.i ], [ %153, %155 ], [ %123, %.preheader.i84 ]
   call void @wolfSSL_Free(ptr noundef nonnull %.sink) #9
   br label %158
 
@@ -2527,7 +2527,7 @@ PKCS12_create_safe.exit:                          ; preds = %189
   br label %234
 
 234:                                              ; preds = %.critedge, %14, %231, %195, %158, %109, %32
-  %.0 = phi ptr [ null, %32 ], [ null, %109 ], [ null, %158 ], [ null, %195 ], [ %30, %231 ], [ null, %14 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %.critedge ], [ null, %32 ], [ null, %109 ], [ null, %158 ], [ null, %195 ], [ %30, %231 ], [ null, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -2676,7 +2676,7 @@ ForceZero.exit93:                                 ; preds = %.lr.ph29.i84
   br label %ForceZero.exit
 
 ForceZero.exit:                                   ; preds = %.lr.ph29.i67, %.lr.ph29.i, %.thread, %49, %ForceZero.exit93, %14, %6
-  %.046 = phi i32 [ -173, %6 ], [ -175, %14 ], [ %45, %ForceZero.exit93 ], [ %51, %49 ], [ %..1, %.thread ], [ -173, %.lr.ph29.i ], [ -173, %.lr.ph29.i67 ]
+  %.046 = phi i32 [ %51, %49 ], [ -173, %6 ], [ %..1, %.thread ], [ -175, %14 ], [ %45, %ForceZero.exit93 ], [ -173, %.lr.ph29.i ], [ -173, %.lr.ph29.i67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2948,7 +2948,7 @@ define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %.0.val, ptr noundef n
   br label %164
 
 164:                                              ; preds = %10, %145, %140, %129, %124, %34, %81, %97, %105, %106, %13, %37, %42, %53, %58, %160, %121
-  %.1 = phi i32 [ -202, %121 ], [ %157, %160 ], [ -202, %34 ], [ %79, %81 ], [ -132, %97 ], [ -132, %105 ], [ %111, %106 ], [ %14, %13 ], [ -132, %37 ], [ -132, %42 ], [ -132, %53 ], [ -125, %58 ], [ -132, %124 ], [ -132, %129 ], [ -132, %140 ], [ -132, %145 ], [ -173, %10 ]
+  %.1 = phi i32 [ -132, %145 ], [ -202, %121 ], [ -125, %58 ], [ -132, %124 ], [ -132, %129 ], [ -132, %140 ], [ %157, %160 ], [ %111, %106 ], [ -202, %34 ], [ %14, %13 ], [ -132, %37 ], [ -132, %42 ], [ -132, %53 ], [ %79, %81 ], [ -132, %97 ], [ -132, %105 ], [ -173, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.1
@@ -3048,7 +3048,7 @@ define internal fastcc i32 @wc_PKCS12_shroud_key(ptr noundef nonnull readonly ca
   br label %53
 
 53:                                               ; preds = %41, %.critedge, %10, %43, %38
-  %.061 = phi i32 [ -202, %38 ], [ %48, %43 ], [ -173, %10 ], [ %26, %.critedge ], [ %.1.mux, %41 ]
+  %.061 = phi i32 [ -173, %10 ], [ -202, %38 ], [ %26, %.critedge ], [ %.1.mux, %41 ], [ %48, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.061
 }

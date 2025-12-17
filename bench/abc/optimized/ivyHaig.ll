@@ -103,8 +103,8 @@ define void @Ivy_ManHaigStart(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink31 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
-  %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
+  %.sink31 = phi ptr [ %40, %39 ], [ %38, %37 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink = phi i32 [ 16, %39 ], [ 16, %37 ], [ %42, %45 ], [ %42, %47 ]
   store ptr %.sink31, ptr %13, align 8, !tbaa !19
   store i32 %.sink, ptr %10, align 8, !tbaa !18
   br label %Vec_IntPush.exit
@@ -551,7 +551,7 @@ define range(i32 0, 2) i32 @Ivy_ObjIsInTfi_rec(ptr noundef readonly captures(add
   br label %27
 
 27:                                               ; preds = %7, %7, %20, %11, %5, %10, %3, %26
-  %.0 = phi i32 [ 0, %26 ], [ 1, %3 ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ 1, %11 ], [ 1, %20 ], [ 0, %7 ]
+  %.0 = phi i32 [ 0, %26 ], [ 1, %3 ], [ 0, %5 ], [ 1, %11 ], [ 0, %10 ], [ 0, %7 ], [ 1, %20 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1307,7 +1307,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   br label %.critedge14, !llvm.loop !49
 
 .critedge14:                                      ; preds = %168, %..critedge14_crit_edge271, %.lr.ph203
-  %.val147209 = phi i32 [ %.val146, %..critedge14_crit_edge271 ], [ %.val146201, %.lr.ph203 ], [ %.val146, %168 ]
+  %.val147209 = phi i32 [ %.val146201, %.lr.ph203 ], [ %.val146, %..critedge14_crit_edge271 ], [ %.val146, %168 ]
   %190 = getelementptr i8, ptr %159, i64 8
   %191 = icmp sgt i32 %.val147209, 0
   br i1 %191, label %.lr.ph211.preheader, label %.critedge16
@@ -1357,7 +1357,7 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   br label %.critedge16, !llvm.loop !50
 
 .critedge16:                                      ; preds = %.lr.ph211, %.lr.ph211.preheader, %..critedge16.loopexit_crit_edge, %.critedge12, %.critedge14
-  %.val144235 = phi i32 [ %.val147209, %.critedge14 ], [ %.val146201, %.critedge12 ], [ %.val147, %..critedge16.loopexit_crit_edge ], [ %.val147209, %.lr.ph211.preheader ], [ %.val147, %.lr.ph211 ]
+  %.val144235 = phi i32 [ %.val146201, %.critedge12 ], [ %.val147209, %.critedge14 ], [ %.val147, %..critedge16.loopexit_crit_edge ], [ %.val147209, %.lr.ph211.preheader ], [ %.val147, %.lr.ph211 ]
   %212 = add nuw nsw i32 %.0116213, 1
   %exitcond233.not = icmp eq i32 %212, 10
   br i1 %exitcond233.not, label %213, label %.preheader, !llvm.loop !51

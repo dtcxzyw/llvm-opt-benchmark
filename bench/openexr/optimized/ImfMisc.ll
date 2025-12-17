@@ -149,7 +149,7 @@ define noundef i32 @_ZN7Imf_3_410numSamplesEiii(i32 noundef %0, i32 noundef %1, 
   br label %_ZN9Imath_3_24divpEii.exit
 
 _ZN9Imath_3_24divpEii.exit:                       ; preds = %7, %9, %14, %19
-  %24 = phi i32 [ %8, %7 ], [ %12, %9 ], [ %18, %14 ], [ %23, %19 ]
+  %24 = phi i32 [ %12, %9 ], [ %8, %7 ], [ %18, %14 ], [ %23, %19 ]
   %25 = icmp sgt i32 %2, -1
   br i1 %25, label %26, label %33
 
@@ -184,7 +184,7 @@ _ZN9Imath_3_24divpEii.exit:                       ; preds = %7, %9, %14, %19
   br label %_ZN9Imath_3_24divpEii.exit9
 
 _ZN9Imath_3_24divpEii.exit9:                      ; preds = %27, %29, %34, %39
-  %44 = phi i32 [ %28, %27 ], [ %32, %29 ], [ %38, %34 ], [ %43, %39 ]
+  %44 = phi i32 [ %32, %29 ], [ %28, %27 ], [ %38, %34 ], [ %43, %39 ]
   %45 = mul nsw i32 %24, %0
   %46 = icmp sge i32 %45, %1
   %47 = zext i1 %46 to i32
@@ -324,7 +324,7 @@ switch.lookup:                                    ; preds = %.lr.ph45
   br label %_ZN9Imath_3_24modpEii.exit.us
 
 _ZN9Imath_3_24modpEii.exit.us:                    ; preds = %70, %65
-  %72 = phi i32 [ %71, %70 ], [ %69, %65 ]
+  %72 = phi i32 [ %69, %65 ], [ %71, %70 ]
   %73 = mul nsw i32 %72, %.fr54
   %74 = icmp eq i32 %.03141.us, %73
   br i1 %74, label %75, label %79
@@ -874,7 +874,7 @@ define void @_ZN7Imf_3_419copyIntoFrameBufferERPKcPcS3_mbdNS_10Compressor6Format
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %34, %37, %47, %49, %58, %72, %75
-  %.0.i.i = phi i16 [ %44, %37 ], [ %48, %47 ], [ %57, %49 ], [ %35, %34 ], [ %30, %58 ], [ %76, %75 ], [ %70, %72 ]
+  %.0.i.i = phi i16 [ %30, %58 ], [ %44, %37 ], [ %48, %47 ], [ %57, %49 ], [ %35, %34 ], [ %76, %75 ], [ %70, %72 ]
   %.not215380 = icmp ugt ptr %1, %2
   br i1 %.not215380, label %.loopexit, label %.lr.ph382
 
@@ -1797,7 +1797,7 @@ define void @_ZN7Imf_3_423copyIntoDeepFrameBufferERPKcPcS1_lliiiiiiilllbdNS_10Co
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %80, %83, %93, %95, %104, %118, %121
-  %.0.i.i = phi i16 [ %90, %83 ], [ %94, %93 ], [ %103, %95 ], [ %81, %80 ], [ %76, %104 ], [ %122, %121 ], [ %116, %118 ]
+  %.0.i.i = phi i16 [ %76, %104 ], [ %90, %83 ], [ %94, %93 ], [ %103, %95 ], [ %81, %80 ], [ %122, %121 ], [ %116, %118 ]
   %.not7631226 = icmp sgt i32 %6, %7
   br i1 %.not7631226, label %.loopexit998, label %.lr.ph1228
 
@@ -4499,8 +4499,8 @@ _ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit: ; preds = %.lr.ph.i.i.i59
   br label %59
 
 .loopexit:                                        ; preds = %47, %.lr.ph, %37, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, %.preheader86, %.preheader83, %.preheader81, %.preheader78, %.preheader76, %.preheader
-  %.372 = phi ptr [ %10, %.preheader ], [ %10, %.preheader76 ], [ %10, %.preheader78 ], [ %10, %.preheader81 ], [ %10, %.preheader83 ], [ %10, %.preheader86 ], [ %18, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %23, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %29, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %42, %37 ], [ %45, %.lr.ph ], [ %52, %47 ]
-  %.3 = phi ptr [ %11, %.preheader ], [ %11, %.preheader76 ], [ %11, %.preheader78 ], [ %11, %.preheader81 ], [ %11, %.preheader83 ], [ %11, %.preheader86 ], [ %19, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %24, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %30, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %38, %37 ], [ %46, %.lr.ph ], [ %48, %47 ]
+  %.372 = phi ptr [ %10, %.preheader ], [ %10, %.preheader76 ], [ %10, %.preheader78 ], [ %10, %.preheader81 ], [ %10, %.preheader83 ], [ %10, %.preheader86 ], [ %45, %.lr.ph ], [ %18, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %23, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %29, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %42, %37 ], [ %52, %47 ]
+  %.3 = phi ptr [ %11, %.preheader ], [ %11, %.preheader76 ], [ %11, %.preheader78 ], [ %11, %.preheader81 ], [ %11, %.preheader83 ], [ %11, %.preheader86 ], [ %46, %.lr.ph ], [ %19, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %24, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %30, %_ZN7Imf_3_43Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %38, %37 ], [ %48, %47 ]
   store ptr %.372, ptr %0, align 8, !tbaa !45
   store ptr %.3, ptr %1, align 8, !tbaa !45
   ret void
@@ -5248,7 +5248,7 @@ define noundef zeroext i1 @_ZN7Imf_3_413usesLongNamesERKNS_6HeaderE(ptr noundef 
   br i1 %.not18, label %.critedge, label %.lr.ph25, !llvm.loop !156
 
 .critedge:                                        ; preds = %.lr.ph, %7, %.lr.ph25, %25, %._crit_edge
-  %.1 = phi i1 [ false, %._crit_edge ], [ %24, %25 ], [ %24, %.lr.ph25 ], [ true, %7 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ false, %._crit_edge ], [ %24, %.lr.ph25 ], [ %24, %25 ], [ true, %7 ], [ true, %.lr.ph ]
   ret i1 %.1
 }
 
@@ -5549,7 +5549,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !10
   br label %41
 

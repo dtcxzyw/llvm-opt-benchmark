@@ -422,7 +422,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br label %200
 
 200:                                              ; preds = %4, %199, %194
-  %.0 = phi i32 [ -1, %199 ], [ 0, %194 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %194 ], [ -1, %199 ], [ -1, %4 ]
   ret i32 %.0
 }
 

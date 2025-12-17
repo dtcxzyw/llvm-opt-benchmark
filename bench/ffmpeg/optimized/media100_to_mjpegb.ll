@@ -578,7 +578,7 @@ bytestream2_put_byte.exit142:                     ; preds = %bytestream2_get_be3
   br label %.critedge
 
 .critedge:                                        ; preds = %266, %.critedge.loopexit.split.loop.exit, %.lr.ph, %245
-  %.1 = phi i32 [ %.072, %245 ], [ 0, %.lr.ph ], [ %281, %.critedge.loopexit.split.loop.exit ], [ 0, %266 ]
+  %.1 = phi i32 [ 0, %.lr.ph ], [ %.072, %245 ], [ %281, %.critedge.loopexit.split.loop.exit ], [ 0, %266 ]
   %282 = sub i64 %33, %249
   %..i143 = call i64 @llvm.smin.i64(i64 %282, i64 8)
   %283 = getelementptr inbounds i8, ptr %.sroa.0310.4, i64 %..i143
@@ -624,9 +624,9 @@ bytestream2_copy_buffer.exit:                     ; preds = %284
   br label %bytestream2_put_be64.exit
 
 bytestream2_put_be64.exit:                        ; preds = %.critedge, %298, %bytestream2_copy_buffer.exit, %305
-  %.sroa.0310.5466 = phi ptr [ %301, %305 ], [ %301, %298 ], [ %297, %bytestream2_copy_buffer.exit ], [ %283, %.critedge ]
-  %.sroa.170.41 = phi i32 [ 0, %305 ], [ 1, %298 ], [ 1, %bytestream2_copy_buffer.exit ], [ 1, %.critedge ]
-  %.sroa.0.40 = phi ptr [ %306, %305 ], [ %300, %298 ], [ %296, %bytestream2_copy_buffer.exit ], [ %.sroa.0.38, %.critedge ]
+  %.sroa.0310.5466 = phi ptr [ %301, %305 ], [ %297, %bytestream2_copy_buffer.exit ], [ %301, %298 ], [ %283, %.critedge ]
+  %.sroa.170.41 = phi i32 [ 0, %305 ], [ 1, %bytestream2_copy_buffer.exit ], [ 1, %298 ], [ 1, %.critedge ]
+  %.sroa.0.40 = phi ptr [ %306, %305 ], [ %296, %bytestream2_copy_buffer.exit ], [ %300, %298 ], [ %.sroa.0.38, %.critedge ]
   br i1 %37, label %307, label %314
 
 307:                                              ; preds = %bytestream2_put_be64.exit

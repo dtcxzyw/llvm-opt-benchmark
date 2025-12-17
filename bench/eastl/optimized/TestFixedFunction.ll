@@ -671,7 +671,7 @@ terminate.lpad.i.i.i70:                           ; preds = %if.then.i.i.i68
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i68, %lpad22, %if.then.i.i.i62, %lpad11
-  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %7, %if.then.i.i.i62 ], [ %11, %lpad22 ], [ %11, %if.then.i.i.i68 ]
+  %.pn = phi { ptr, i32 } [ %7, %if.then.i.i.i62 ], [ %11, %lpad22 ], [ %7, %lpad11 ], [ %11, %if.then.i.i.i68 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -981,7 +981,7 @@ terminate.lpad.i.i.i89:                           ; preds = %if.then.i.i.i87
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i87, %lpad46, %if.then.i.i.i81, %lpad33, %if.then.i.i.i75, %lpad20, %if.then.i.i.i69, %lpad12, %if.then.i.i.i63, %lpad4, %if.then.i.i.i57, %lpad
-  %.pn = phi { ptr, i32 } [ %13, %lpad ], [ %13, %if.then.i.i.i57 ], [ %16, %lpad4 ], [ %16, %if.then.i.i.i63 ], [ %19, %lpad12 ], [ %19, %if.then.i.i.i69 ], [ %22, %lpad20 ], [ %22, %if.then.i.i.i75 ], [ %25, %lpad33 ], [ %25, %if.then.i.i.i81 ], [ %28, %lpad46 ], [ %28, %if.then.i.i.i87 ]
+  %.pn = phi { ptr, i32 } [ %25, %if.then.i.i.i81 ], [ %22, %if.then.i.i.i75 ], [ %19, %if.then.i.i.i69 ], [ %16, %if.then.i.i.i63 ], [ %13, %if.then.i.i.i57 ], [ %13, %lpad ], [ %16, %lpad4 ], [ %19, %lpad12 ], [ %22, %lpad20 ], [ %25, %lpad33 ], [ %28, %lpad46 ], [ %28, %if.then.i.i.i87 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -1165,7 +1165,7 @@ lpad71:                                           ; preds = %_ZN10TestObject7IsC
   br label %_ZN10TestObjectD2Ev.exit427
 
 _ZN10TestObjectD2Ev.exit427:                      ; preds = %if.then.i.i.i359, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554", %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537", %lpad71
-  %.pn6 = phi { ptr, i32 } [ %3, %if.then.i.i.i359 ], [ %6, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554" ], [ %9, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537" ], [ %12, %lpad71 ]
+  %.pn6 = phi { ptr, i32 } [ %9, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537" ], [ %12, %lpad71 ], [ %6, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554" ], [ %3, %if.then.i.i.i359 ]
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i425 = add nsw i64 %13, -1
   store i64 %dec.i425, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -3136,7 +3136,7 @@ terminate.lpad.i.i.i665:                          ; preds = %if.then.i.i.i663
   unreachable
 
 ehcleanup338:                                     ; preds = %if.then.i.i.i663, %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit660, %if.then.i.i.i651, %ehcleanup323, %if.then.i.i.i639, %ehcleanup309, %if.then.i.i.i627, %lpad288, %if.then.i.i.i621, %lpad280, %if.then.i.i.i615, %lpad271, %lpad269
-  %.pn25 = phi { ptr, i32 } [ %268, %lpad269 ], [ %269, %lpad271 ], [ %269, %if.then.i.i.i615 ], [ %273, %lpad280 ], [ %273, %if.then.i.i.i621 ], [ %277, %lpad288 ], [ %277, %if.then.i.i.i627 ], [ %.pn21, %ehcleanup309 ], [ %.pn21, %if.then.i.i.i639 ], [ %.pn23, %ehcleanup323 ], [ %.pn23, %if.then.i.i.i651 ], [ %297, %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit660 ], [ %297, %if.then.i.i.i663 ]
+  %.pn25 = phi { ptr, i32 } [ %.pn23, %if.then.i.i.i651 ], [ %268, %lpad269 ], [ %.pn21, %if.then.i.i.i639 ], [ %277, %if.then.i.i.i627 ], [ %273, %if.then.i.i.i621 ], [ %269, %if.then.i.i.i615 ], [ %269, %lpad271 ], [ %273, %lpad280 ], [ %277, %lpad288 ], [ %.pn21, %ehcleanup309 ], [ %.pn23, %ehcleanup323 ], [ %297, %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit660 ], [ %297, %if.then.i.i.i663 ]
   %304 = load ptr, ptr %mMgrFuncPtr.i.i358, align 8
   %cmp.i.not.i.i.i668 = icmp eq ptr %304, null
   br i1 %cmp.i.not.i.i.i668, label %eh.resume, label %if.then.i.i.i669
@@ -3153,7 +3153,7 @@ terminate.lpad.i.i.i671:                          ; preds = %if.then.i.i.i669
   unreachable
 
 eh.resume:                                        ; preds = %if.then.i.i.i669, %ehcleanup338, %if.then.i.i.i609, %lpad246, %if.then.i.i.i603, %lpad236, %if.then.i.i.i597, %ehcleanup233, %if.then.i.i.i585, %ehcleanup221, %if.then.i.i.i573, %ehcleanup193, %if.then.i.i.i561, %ehcleanup, %if.then.i.i.i549, %lpad137, %if.then.i.i.i543, %lpad130, %if.then.i.i.i537, %lpad117, %if.then.i.i.i531, %lpad108, %if.then.i.i.i525, %lpad100, %if.then.i.i.i519, %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit516, %if.then.i.i.i507, %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit504
-  %.pn25.pn = phi { ptr, i32 } [ %197, %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit504 ], [ %197, %if.then.i.i.i507 ], [ %204, %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit516 ], [ %204, %if.then.i.i.i519 ], [ %211, %lpad100 ], [ %211, %if.then.i.i.i525 ], [ %215, %lpad108 ], [ %215, %if.then.i.i.i531 ], [ %219, %lpad117 ], [ %219, %if.then.i.i.i537 ], [ %223, %lpad130 ], [ %223, %if.then.i.i.i543 ], [ %227, %lpad137 ], [ %227, %if.then.i.i.i549 ], [ %231, %ehcleanup ], [ %231, %if.then.i.i.i561 ], [ %238, %ehcleanup193 ], [ %238, %if.then.i.i.i573 ], [ %245, %ehcleanup221 ], [ %245, %if.then.i.i.i585 ], [ %.pn19, %ehcleanup233 ], [ %.pn19, %if.then.i.i.i597 ], [ %260, %lpad236 ], [ %260, %if.then.i.i.i603 ], [ %264, %lpad246 ], [ %264, %if.then.i.i.i609 ], [ %.pn25, %ehcleanup338 ], [ %.pn25, %if.then.i.i.i669 ]
+  %.pn25.pn = phi { ptr, i32 } [ %264, %if.then.i.i.i609 ], [ %260, %if.then.i.i.i603 ], [ %.pn19, %if.then.i.i.i597 ], [ %245, %if.then.i.i.i585 ], [ %238, %if.then.i.i.i573 ], [ %231, %if.then.i.i.i561 ], [ %227, %if.then.i.i.i549 ], [ %223, %if.then.i.i.i543 ], [ %219, %if.then.i.i.i537 ], [ %215, %if.then.i.i.i531 ], [ %211, %if.then.i.i.i525 ], [ %204, %if.then.i.i.i519 ], [ %197, %if.then.i.i.i507 ], [ %197, %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit504 ], [ %204, %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit516 ], [ %211, %lpad100 ], [ %215, %lpad108 ], [ %219, %lpad117 ], [ %223, %lpad130 ], [ %227, %lpad137 ], [ %231, %ehcleanup ], [ %238, %ehcleanup193 ], [ %245, %ehcleanup221 ], [ %.pn19, %ehcleanup233 ], [ %260, %lpad236 ], [ %264, %lpad246 ], [ %.pn25, %ehcleanup338 ], [ %.pn25, %if.then.i.i.i669 ]
   resume { ptr, i32 } %.pn25.pn
 }
 
@@ -4021,7 +4021,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIPFiPiE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIPFiPiE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4059,7 +4059,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4117,7 +4117,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4175,7 +4175,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4233,7 +4233,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4374,7 +4374,7 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i", %sw.bb1.i, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i", %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @"_ZTIZ32TestFixedFunctionExistingClosurevE3$_0", %entry ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i" ], [ null, %sw.bb1.i ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i" ], [ null, %return.fold.split ]
+  %retval.0 = phi ptr [ @"_ZTIZ32TestFixedFunctionExistingClosurevE3$_0", %entry ], [ %to, %sw.bb1 ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i" ], [ null, %sw.bb1.i ], [ null, %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit22.i" ], [ null, %return.fold.split ]
   ret ptr %retval.0
 }
 
@@ -4570,7 +4570,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIPFiiE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIPFiiE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4604,7 +4604,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @_ZTIPFivE, %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @_ZTIPFivE, %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4637,7 +4637,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @"_ZTIZ22TestFixedFunctionBasicvE3$_2", %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @"_ZTIZ22TestFixedFunctionBasicvE3$_2", %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 
@@ -4909,7 +4909,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %sw.default, %entry, %sw.bb1
-  %retval.0 = phi ptr [ %to, %sw.bb1 ], [ @"_ZTIZ22TestFixedFunctionBasicvE3$_3", %entry ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
+  %retval.0 = phi ptr [ @"_ZTIZ22TestFixedFunctionBasicvE3$_3", %entry ], [ %to, %sw.bb1 ], [ null, %sw.default ], [ null, %sw.epilog.sink.split.i ]
   ret ptr %retval.0
 }
 

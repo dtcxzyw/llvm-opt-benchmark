@@ -2283,10 +2283,10 @@ _ZN7testing15AssertionResultD2Ev.exit377:         ; preds = %643, %_ZNKSt14defau
   br label %679
 
 679:                                              ; preds = %675, %669, %664
-  %.sroa.0997.0 = phi i64 [ %.sroa.0.0.extract.trunc.i29.i, %669 ], [ %.sroa.0.0.extract.trunc.i47.i, %675 ], [ 0, %664 ]
-  %.sroa.4999.0 = phi i64 [ %.sroa.2.0.extract.trunc.i31.i, %669 ], [ %.sroa.2.0.extract.trunc.i49.i, %675 ], [ 0, %664 ]
-  %.sroa.81005.1 = phi i64 [ %.sroa.2.0.extract.trunc.i40.i, %669 ], [ 0, %675 ], [ -1, %664 ]
-  %.sroa.61002.1 = phi i64 [ %.sroa.0.0.extract.trunc.i38.i, %669 ], [ 0, %675 ], [ -1, %664 ]
+  %.sroa.0997.0 = phi i64 [ %.sroa.0.0.extract.trunc.i47.i, %675 ], [ %.sroa.0.0.extract.trunc.i29.i, %669 ], [ 0, %664 ]
+  %.sroa.4999.0 = phi i64 [ %.sroa.2.0.extract.trunc.i49.i, %675 ], [ %.sroa.2.0.extract.trunc.i31.i, %669 ], [ 0, %664 ]
+  %.sroa.81005.1 = phi i64 [ 0, %675 ], [ %.sroa.2.0.extract.trunc.i40.i, %669 ], [ -1, %664 ]
+  %.sroa.61002.1 = phi i64 [ 0, %675 ], [ %.sroa.0.0.extract.trunc.i38.i, %669 ], [ -1, %664 ]
   store i64 %.sroa.0997.0, ptr %43, align 16
   store i64 %.sroa.4999.0, ptr %.sroa.41058.0..sroa_idx, align 8
   store i64 %.sroa.61002.1, ptr %.sroa.51059.0..sroa_idx, align 16
@@ -2472,10 +2472,10 @@ _ZN7testing15AssertionResultD2Ev.exit412:         ; preds = %714, %_ZNKSt14defau
   br label %736
 
 736:                                              ; preds = %732, %726, %_ZN7testing15AssertionResultD2Ev.exit412
-  %.sroa.0981.0 = phi i64 [ %.sroa.0.0.extract.trunc.i29.i437, %726 ], [ %.sroa.0.0.extract.trunc.i47.i420, %732 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
-  %.sroa.4983.0 = phi i64 [ %.sroa.2.0.extract.trunc.i31.i439, %726 ], [ %.sroa.2.0.extract.trunc.i49.i422, %732 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
-  %.sroa.8989.1 = phi i64 [ %.sroa.2.0.extract.trunc.i40.i442, %726 ], [ 0, %732 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
-  %.sroa.6986.1 = phi i64 [ %.sroa.0.0.extract.trunc.i38.i440, %726 ], [ 0, %732 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.0981.0 = phi i64 [ %.sroa.0.0.extract.trunc.i47.i420, %732 ], [ %.sroa.0.0.extract.trunc.i29.i437, %726 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.4983.0 = phi i64 [ %.sroa.2.0.extract.trunc.i49.i422, %732 ], [ %.sroa.2.0.extract.trunc.i31.i439, %726 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.8989.1 = phi i64 [ 0, %732 ], [ %.sroa.2.0.extract.trunc.i40.i442, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
+  %.sroa.6986.1 = phi i64 [ 0, %732 ], [ %.sroa.0.0.extract.trunc.i38.i440, %726 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit412 ]
   store i64 %.sroa.0981.0, ptr %48, align 16
   store i64 %.sroa.4983.0, ptr %.sroa.41076.0..sroa_idx, align 8
   store i64 %.sroa.6986.1, ptr %.sroa.51077.0..sroa_idx, align 16
@@ -6364,7 +6364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %122
   br label %.body
 
 .body:                                            ; preds = %51, %33, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %54, %53 ], [ %52, %51 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %52, %51 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume

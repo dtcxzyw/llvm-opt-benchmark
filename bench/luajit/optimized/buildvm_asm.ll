@@ -253,8 +253,8 @@ emit_asm_label.exit68:                            ; preds = %42, %52, %56, %63
   unreachable
 
 114:                                              ; preds = %105, %93, %89
-  %.028.i = phi i32 [ %87, %93 ], [ %110, %105 ], [ %87, %89 ]
-  %.0.i = phi ptr [ @.str.17, %93 ], [ %109, %105 ], [ @.str.16, %89 ]
+  %.028.i = phi i32 [ %110, %105 ], [ %87, %93 ], [ %87, %89 ]
+  %.0.i = phi ptr [ %109, %105 ], [ @.str.17, %93 ], [ @.str.16, %89 ]
   %.not32.i = icmp eq i32 %.028.i, 0
   br i1 %.not32.i, label %emit_asm_bytes.exit.i, label %.lr.ph.i.i
 

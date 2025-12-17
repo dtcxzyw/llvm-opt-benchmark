@@ -667,7 +667,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   br label %112
 
 112:                                              ; preds = %110, %80, %73, %79
-  %.0 = phi ptr [ %10, %79 ], [ %10, %73 ], [ null, %110 ], [ inttoptr (i64 1 to ptr), %80 ]
+  %.0 = phi ptr [ %10, %73 ], [ %10, %79 ], [ null, %110 ], [ inttoptr (i64 1 to ptr), %80 ]
   ret ptr %.0
 }
 
@@ -1893,8 +1893,8 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   br label %82
 
 82:                                               ; preds = %.critedge, %72, %76, %81, %54, %61
-  %.169 = phi i32 [ -1, %61 ], [ %.06876, %54 ], [ %.06876, %81 ], [ %.06876, %76 ], [ %.06876, %72 ], [ %.06876, %.critedge ]
-  %.1 = phi ptr [ %66, %61 ], [ %.077, %54 ], [ %.077, %81 ], [ %.077, %76 ], [ %.077, %72 ], [ %.077, %.critedge ]
+  %.169 = phi i32 [ %.06876, %54 ], [ -1, %61 ], [ %.06876, %81 ], [ %.06876, %76 ], [ %.06876, %72 ], [ %.06876, %.critedge ]
+  %.1 = phi ptr [ %.077, %54 ], [ %66, %61 ], [ %.077, %81 ], [ %.077, %76 ], [ %.077, %72 ], [ %.077, %.critedge ]
   %83 = add nsw i32 %.169, 1
   %84 = load i8, ptr %36, align 4, !tbaa !94
   %85 = zext i8 %84 to i32

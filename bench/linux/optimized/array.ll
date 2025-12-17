@@ -1403,15 +1403,15 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %273, label %293, label %283
 
 283:                                              ; preds = %.critedge12.loopexit55, %.critedge11
-  %284 = phi i64 [ %282, %.critedge11 ], [ %245, %.critedge12.loopexit55 ]
-  %285 = phi i64 [ %281, %.critedge11 ], [ %244, %.critedge12.loopexit55 ]
-  %286 = phi i64 [ %280, %.critedge11 ], [ %243, %.critedge12.loopexit55 ]
-  %287 = phi i64 [ %279, %.critedge11 ], [ %242, %.critedge12.loopexit55 ]
-  %288 = phi i64 [ %278, %.critedge11 ], [ %241, %.critedge12.loopexit55 ]
-  %289 = phi i64 [ %277, %.critedge11 ], [ %268, %.critedge12.loopexit55 ]
-  %290 = phi i64 [ %276, %.critedge11 ], [ %267, %.critedge12.loopexit55 ]
-  %291 = phi i64 [ %275, %.critedge11 ], [ %266, %.critedge12.loopexit55 ]
-  %292 = phi i64 [ %274, %.critedge11 ], [ %193, %.critedge12.loopexit55 ]
+  %284 = phi i64 [ %245, %.critedge12.loopexit55 ], [ %282, %.critedge11 ]
+  %285 = phi i64 [ %244, %.critedge12.loopexit55 ], [ %281, %.critedge11 ]
+  %286 = phi i64 [ %243, %.critedge12.loopexit55 ], [ %280, %.critedge11 ]
+  %287 = phi i64 [ %242, %.critedge12.loopexit55 ], [ %279, %.critedge11 ]
+  %288 = phi i64 [ %241, %.critedge12.loopexit55 ], [ %278, %.critedge11 ]
+  %289 = phi i64 [ %268, %.critedge12.loopexit55 ], [ %277, %.critedge11 ]
+  %290 = phi i64 [ %267, %.critedge12.loopexit55 ], [ %276, %.critedge11 ]
+  %291 = phi i64 [ %266, %.critedge12.loopexit55 ], [ %275, %.critedge11 ]
+  %292 = phi i64 [ %193, %.critedge12.loopexit55 ], [ %274, %.critedge11 ]
   call void @thread_group_cputime_adjusted(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   br label %306
 

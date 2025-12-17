@@ -863,7 +863,7 @@ define dso_local i32 @drm_mode_object_get_properties(ptr noundef %0, i1 noundef 
   br label %93
 
 .thread8:                                         ; preds = %66, %69, %81, %50, %55
-  %.ph = phi i32 [ -22, %55 ], [ -22, %50 ], [ %67, %66 ], [ -14, %69 ], [ -14, %81 ]
+  %.ph = phi i32 [ -22, %55 ], [ -22, %50 ], [ -14, %69 ], [ -14, %81 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %101
 
@@ -1000,7 +1000,7 @@ define dso_local i32 @drm_mode_obj_get_properties_ioctl(ptr noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %65, %67, %68, %53, %33
-  %69 = phi i32 [ %34, %33 ], [ %54, %53 ], [ %54, %68 ], [ %54, %67 ], [ %54, %65 ]
+  %69 = phi i32 [ %34, %33 ], [ %54, %68 ], [ %54, %53 ], [ %54, %67 ], [ %54, %65 ]
   %70 = icmp eq i32 %69, -35
   br i1 %70, label %71, label %.thread7
 

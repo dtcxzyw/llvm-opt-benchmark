@@ -230,7 +230,7 @@ define hidden ptr @_glfwParseUriList(ptr noundef %0, ptr noundef captures(none) 
   br label %_glfw_calloc.exit
 
 _glfw_calloc.exit:                                ; preds = %.loopexit43, %27, %28
-  %.1.i = phi ptr [ %26, %27 ], [ null, %28 ], [ null, %.loopexit43 ]
+  %.1.i = phi ptr [ null, %28 ], [ null, %.loopexit43 ], [ %26, %27 ]
   %29 = load i32, ptr %1, align 4, !tbaa !6
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
@@ -379,7 +379,7 @@ define hidden ptr @_glfw_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_ad
   br label %14
 
 14:                                               ; preds = %2, %6, %12, %13
-  %.1 = phi ptr [ null, %6 ], [ %11, %12 ], [ null, %13 ], [ null, %2 ]
+  %.1 = phi ptr [ null, %13 ], [ null, %6 ], [ %11, %12 ], [ null, %2 ]
   ret ptr %.1
 }
 
@@ -429,7 +429,7 @@ _glfw_free.exit:                                  ; preds = %10
   br label %_glfw_calloc.exit
 
 _glfw_calloc.exit:                                ; preds = %19, %18, %13, %9, %5, %_glfw_free.exit
-  %.1 = phi ptr [ null, %_glfw_free.exit ], [ null, %9 ], [ %8, %5 ], [ %17, %18 ], [ null, %19 ], [ null, %13 ]
+  %.1 = phi ptr [ %8, %5 ], [ null, %_glfw_free.exit ], [ null, %9 ], [ null, %19 ], [ null, %13 ], [ %17, %18 ]
   ret ptr %.1
 }
 
@@ -459,7 +459,7 @@ define hidden noundef ptr @_glfw_strdup(ptr noundef readonly captures(none) %0) 
   br label %_glfw_calloc.exit
 
 _glfw_calloc.exit:                                ; preds = %1, %8, %9
-  %.1.i = phi ptr [ %7, %8 ], [ null, %9 ], [ null, %1 ]
+  %.1.i = phi ptr [ null, %9 ], [ null, %1 ], [ %7, %8 ]
   %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %0) #21
   ret ptr %.1.i
 }
@@ -729,7 +729,7 @@ define range(i32 0, 2) i32 @glfwInit() local_unnamed_addr #1 {
   br label %21
 
 21:                                               ; preds = %5, %0, %19, %18, %11
-  %.0 = phi i32 [ 1, %19 ], [ 0, %18 ], [ 0, %11 ], [ 1, %0 ], [ 0, %5 ]
+  %.0 = phi i32 [ 1, %0 ], [ 1, %19 ], [ 0, %18 ], [ 0, %11 ], [ 0, %5 ]
   ret i32 %.0
 }
 

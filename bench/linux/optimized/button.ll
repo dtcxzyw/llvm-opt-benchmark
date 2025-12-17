@@ -808,7 +808,7 @@ define internal fastcc void @acpi_lid_notify_state(ptr captures(none) %.608.val,
   br label %37
 
 34:                                               ; preds = %26, %15, %._crit_edge
-  %35 = phi i8 [ %30, %26 ], [ %8, %15 ], [ %8, %._crit_edge ]
+  %35 = phi i8 [ %8, %._crit_edge ], [ %30, %26 ], [ %8, %15 ]
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %43, label %37
 

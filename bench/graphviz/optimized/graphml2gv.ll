@@ -719,7 +719,7 @@ get_xml_attr.exit73.thread:                       ; preds = %43, %get_xml_attr.e
   br label %62
 
 62:                                               ; preds = %58, %59, %55, %52
-  %.sroa.0.0.in = phi ptr [ @Agdirected, %52 ], [ @Agundirected, %55 ], [ @Agdirected, %59 ], [ @Agdirected, %58 ]
+  %.sroa.0.0.in = phi ptr [ @Agundirected, %55 ], [ @Agdirected, %52 ], [ @Agdirected, %59 ], [ @Agdirected, %58 ]
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
   %63 = tail call ptr @agopen(ptr noundef %.060114, i32 %.sroa.0.0, ptr noundef nonnull @AgDefaultDisc) #24
   tail call fastcc void @push_subg(ptr noundef %63)

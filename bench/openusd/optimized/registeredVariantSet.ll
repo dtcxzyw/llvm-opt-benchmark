@@ -33,7 +33,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtilsRegist
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %5 ], [ 2, %9 ]
+  %.0 = phi i32 [ 1, %5 ], [ 0, %2 ], [ 2, %9 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %14
 

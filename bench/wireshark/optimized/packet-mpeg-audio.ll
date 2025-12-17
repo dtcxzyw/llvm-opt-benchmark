@@ -503,7 +503,7 @@ mpeg_resync.exit:                                 ; preds = %101, %.critedge.i
   br label %107
 
 107:                                              ; preds = %dissect_mpeg_audio_frame.exit, %mpeg_resync.exit, %25, %19
-  %.025.pn = phi i32 [ %24, %19 ], [ %27, %25 ], [ %.0.i27, %mpeg_resync.exit ], [ %85, %dissect_mpeg_audio_frame.exit ]
+  %.025.pn = phi i32 [ %27, %25 ], [ %24, %19 ], [ %.0.i27, %mpeg_resync.exit ], [ %85, %dissect_mpeg_audio_frame.exit ]
   %.1 = add i32 %.025.pn, %.031
   %108 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %109 = icmp sgt i32 %108, 3

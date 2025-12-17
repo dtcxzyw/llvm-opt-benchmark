@@ -1264,7 +1264,7 @@ _ZN7datalog7context9get_rulesEv.exit111:          ; preds = %316
           to label %332 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %247, %275, %304
-  %.pn58.pn = phi { ptr, i32 } [ %276, %275 ], [ %305, %304 ], [ %248, %247 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn58.pn = phi { ptr, i32 } [ %248, %247 ], [ %305, %304 ], [ %276, %275 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.1545 = extractvalue { ptr, i32 } %.pn58.pn, 1
   %322 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI19out_of_memory_error) #21
   %323 = icmp eq i32 %.1545, %322
@@ -1308,7 +1308,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113: ; preds = %324
   br label %336
 
 333:                                              ; preds = %330, %328, %.body, %227
-  %.merged73 = phi { ptr, i32 } [ %.pn58.pn, %.body ], [ %228, %227 ], [ %331, %330 ], [ %329, %328 ]
+  %.merged73 = phi { ptr, i32 } [ %228, %227 ], [ %.pn58.pn, %.body ], [ %331, %330 ], [ %329, %328 ]
   call void @_ZN7datalog17execution_contextD1Ev(ptr noundef nonnull align 8 dereferenceable(108) %17) #21
   br label %334
 
@@ -1366,7 +1366,7 @@ _ZN10smt_paramsD2Ev.exit:                         ; preds = %_ZNSt7__cxx1112basi
   ret i32 %.1
 
 349:                                              ; preds = %108, %110, %335, %183, %149, %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %106
-  %.merged68 = phi { ptr, i32 } [ %107, %106 ], [ %111, %110 ], [ %109, %108 ], [ %.merged71, %335 ], [ %184, %183 ], [ %.pn53, %129 ], [ %.pn51, %149 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ]
+  %.merged68 = phi { ptr, i32 } [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %.merged71, %335 ], [ %184, %183 ], [ %.pn53, %129 ], [ %.pn51, %149 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ]
   call void @_ZN7datalog7contextD1Ev(ptr noundef nonnull align 8 dereferenceable(3028) %9) #21
   br label %350
 
@@ -2540,7 +2540,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit99: ; preds = %_ZNSo
   ret void
 
 157:                                              ; preds = %66, %.body
-  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %67, %66 ]
   %158 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #21
   resume { ptr, i32 } %.pn.pn
 }

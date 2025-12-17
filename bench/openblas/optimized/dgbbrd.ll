@@ -143,7 +143,7 @@ define void @dgbbrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not595, label %96, label %.thread
 
 .thread.sink.split:                               ; preds = %88, %84, %80, %78, %75, %72, %69, %66, %63, %61
-  %.sink = phi i32 [ -1, %61 ], [ -2, %63 ], [ -3, %66 ], [ -4, %69 ], [ -5, %72 ], [ -6, %75 ], [ -8, %78 ], [ -12, %80 ], [ -14, %84 ], [ -16, %88 ]
+  %.sink = phi i32 [ -1, %61 ], [ -2, %63 ], [ -4, %69 ], [ -6, %75 ], [ -12, %80 ], [ -14, %84 ], [ -8, %78 ], [ -5, %72 ], [ -3, %66 ], [ -16, %88 ]
   store i32 %.sink, ptr %17, align 4, !tbaa !3
   br label %.thread
 

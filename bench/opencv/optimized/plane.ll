@@ -1723,7 +1723,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i191: ; preds = %596, %5
   br label %.body
 
 .body:                                            ; preds = %369, %420, %268, %319, %602
-  %.pn115.pn.pn = phi { ptr, i32 } [ %.pn115.pn, %602 ], [ %320, %319 ], [ %269, %268 ], [ %421, %420 ], [ %370, %369 ]
+  %.pn115.pn.pn = phi { ptr, i32 } [ %.pn115.pn, %602 ], [ %269, %268 ], [ %370, %369 ], [ %320, %319 ], [ %421, %420 ]
   call void @_ZNSt12__shared_ptrIN2cv4rgbd9PlaneBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -3594,7 +3594,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %._crit_edge375, %._
   br label %_ZNSt8_Rb_treeIN2cv4rgbd9TileQueue9PlaneTileES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN2cv4rgbd9TileQueue9PlaneTileES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i: ; preds = %435, %433
-  %439 = phi i1 [ true, %433 ], [ %438, %435 ]
+  %439 = phi i1 [ %438, %435 ], [ true, %433 ]
   %440 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
           to label %.noexc188 unwind label %.thread326
 
@@ -3623,8 +3623,8 @@ _ZNSt8_Rb_treeIN2cv4rgbd9TileQueue9PlaneTileES3_St9_IdentityIS3_ESt4lessIS3_ESaI
   br i1 %448, label %400, label %._crit_edge375.thread, !llvm.loop !218
 
 449:                                              ; preds = %391, %339, %287
-  %.sroa.0239.1 = phi ptr [ %.sroa.0239.3, %391 ], [ %.sroa.0239.2, %339 ], [ %.sroa.0239.0, %287 ]
-  %.pn = phi { ptr, i32 } [ %392, %391 ], [ %340, %339 ], [ %288, %287 ]
+  %.sroa.0239.1 = phi ptr [ %.sroa.0239.0, %287 ], [ %.sroa.0239.3, %391 ], [ %.sroa.0239.2, %339 ]
+  %.pn = phi { ptr, i32 } [ %288, %287 ], [ %392, %391 ], [ %340, %339 ]
   %.not.i.i.i189 = icmp eq ptr %.sroa.0239.1, null
   br i1 %.not.i.i.i189, label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit190, label %450
 
@@ -3635,7 +3635,7 @@ _ZNSt8_Rb_treeIN2cv4rgbd9TileQueue9PlaneTileES3_St9_IdentityIS3_ESt4lessIS3_ESaI
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit190
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit190:     ; preds = %449, %450
-  %.pn325 = phi { ptr, i32 } [ %.pn, %449 ], [ %.pn331, %450 ]
+  %.pn325 = phi { ptr, i32 } [ %.pn331, %450 ], [ %.pn, %449 ]
   resume { ptr, i32 } %.pn325
 }
 
@@ -4075,7 +4075,7 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit:           ; preds = %4
   br label %41
 
 41:                                               ; preds = %32, %_ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit, %35
-  %.0 = phi float [ %.sroa.speculated, %35 ], [ 0.000000e+00, %_ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit ], [ 0.000000e+00, %32 ]
+  %.0 = phi float [ %.sroa.speculated, %35 ], [ 0.000000e+00, %32 ], [ 0.000000e+00, %_ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit ]
   ret float %.0
 }
 

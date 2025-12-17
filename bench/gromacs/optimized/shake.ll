@@ -572,7 +572,7 @@ _ZN3gmx11ListOfListsIiED2Ev.exit:                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %213
 
 213:                                              ; preds = %211, %81
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %212, %211 ]
+  %.pn = phi { ptr, i32 } [ %212, %211 ], [ %82, %81 ]
   %.not.i.i.i85 = icmp eq ptr %.sroa.095.0186, null
   br i1 %.not.i.i.i85, label %_ZNSt6vectorIN3gmx11t_sortblockESaIS1_EED2Ev.exit86, label %.thread
 
@@ -652,7 +652,7 @@ define internal noundef i32 @_ZN3gmxL5pcompEPKvS1_(ptr noundef readonly captures
   br label %26
 
 26:                                               ; preds = %2, %24, %20
-  %.0 = phi i32 [ %23, %20 ], [ %25, %24 ], [ %7, %2 ]
+  %.0 = phi i32 [ %25, %24 ], [ %23, %20 ], [ %7, %2 ]
   ret i32 %.0
 }
 
@@ -748,7 +748,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !28
   br label %41
 

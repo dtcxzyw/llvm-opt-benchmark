@@ -235,7 +235,7 @@ define dso_local noundef ptr @pci_match_id(ptr noundef readonly captures(address
   br label %10, !llvm.loop !5
 
 .loopexit:                                        ; preds = %49, %17, %2
-  %60 = phi ptr [ null, %2 ], [ %11, %49 ], [ null, %17 ]
+  %60 = phi ptr [ null, %2 ], [ null, %17 ], [ %11, %49 ]
   ret ptr %60
 }
 
@@ -1406,8 +1406,8 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr noundef readonl
   br i1 %113, label %.thread, label %117
 
 .thread:                                          ; preds = %108, %82, %60, %38
-  %.us-phi = phi ptr [ %30, %38 ], [ %48, %60 ], [ %70, %82 ], [ %92, %108 ]
-  %.us-phi6 = phi ptr [ %29, %38 ], [ %47, %60 ], [ %69, %82 ], [ %91, %108 ]
+  %.us-phi = phi ptr [ %70, %82 ], [ %30, %38 ], [ %48, %60 ], [ %92, %108 ]
+  %.us-phi6 = phi ptr [ %69, %82 ], [ %29, %38 ], [ %47, %60 ], [ %91, %108 ]
   %114 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.us-phi6, i64 8
@@ -1424,7 +1424,7 @@ define internal noundef i64 @remove_id_store(ptr noundef %0, ptr noundef readonl
   br i1 %119, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %117, %88, %66, %44, %12, %.thread
-  %120 = phi i64 [ %2, %.thread ], [ -19, %12 ], [ -19, %44 ], [ -19, %66 ], [ -19, %88 ], [ -19, %117 ]
+  %120 = phi i64 [ %2, %.thread ], [ -19, %12 ], [ -19, %88 ], [ -19, %44 ], [ -19, %66 ], [ -19, %117 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %16) #14
   br label %121
 
@@ -2776,7 +2776,7 @@ define internal noundef i32 @pci_pm_suspend_noirq(ptr noundef %0) #0 align 16 {
   br label %153
 
 153:                                              ; preds = %61, %149, %145, %.thread12, %53, %9
-  %154 = phi i32 [ 0, %53 ], [ 0, %9 ], [ 0, %149 ], [ 0, %145 ], [ 0, %.thread12 ], [ %64, %61 ]
+  %154 = phi i32 [ 0, %53 ], [ 0, %.thread12 ], [ 0, %9 ], [ 0, %149 ], [ 0, %145 ], [ %64, %61 ]
   ret i32 %154
 }
 

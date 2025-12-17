@@ -1632,7 +1632,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit:            ; preds = %_ZN4lean10object_re
   br label %_ZN4lean4exprC2ERKS0_.exit.thread
 
 440:                                              ; preds = %417, %339, %280, %222, %183, %143, %114, %112
-  %.pn72 = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ], [ %144, %143 ], [ %.pn69.pn, %183 ], [ %.pn66.pn, %222 ], [ %.pn62.pn.pn, %280 ], [ %.pn58.pn.pn, %339 ], [ %.pn.pn.pn.pn, %417 ]
+  %.pn72 = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ], [ %.pn.pn.pn.pn, %417 ], [ %144, %143 ], [ %.pn69.pn, %183 ], [ %.pn66.pn, %222 ], [ %.pn62.pn.pn, %280 ], [ %.pn58.pn.pn, %339 ]
   call void @_ZN4lean8optionalINS_4exprEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn72
@@ -2448,7 +2448,7 @@ _ZNSt13unordered_mapIP11lean_objectN4lean4exprESt4hashIS1_ESt8equal_toIS1_E16mi_
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %52)
   br label %_ZN4lean4exprC2ERKS0_.exit.thread
 
-_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %.lr.ph.i.i.i.i, %25, %..loopexit_crit_edge21.i.i.i.i, %30
+_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %.lr.ph.i.i.i.i, %25, %30, %..loopexit_crit_edge21.i.i.i.i
   %61 = ptrtoint ptr %19 to i64
   %62 = and i64 %61, 1
   %.not125 = icmp eq i64 %62, 0
@@ -3337,7 +3337,7 @@ _ZN4lean10object_refD2Ev.exit119:                 ; preds = %_ZN4lean10object_re
   unreachable
 
 375:                                              ; preds = %369, %296, %242, %188, %153, %112
-  %.pn66 = phi { ptr, i32 } [ %.pn64, %153 ], [ %.pn62, %188 ], [ %.pn59.pn, %242 ], [ %.pn56.pn, %296 ], [ %.pn.pn.pn, %369 ], [ %113, %112 ]
+  %.pn66 = phi { ptr, i32 } [ %113, %112 ], [ %.pn64, %153 ], [ %.pn62, %188 ], [ %.pn59.pn, %242 ], [ %.pn56.pn, %296 ], [ %.pn.pn.pn, %369 ]
   resume { ptr, i32 } %.pn66
 
 _ZN4lean4exprC2ERKS0_.exit.thread:                ; preds = %60, %59, %57, %_ZNSt13unordered_mapIP11lean_objectN4lean4exprESt4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S3_EEE4findERSA_.exit, %_ZN4lean10object_refD2Ev.exit, %118, %_ZN4lean10object_refD2Ev.exit83, %_ZN4lean10object_refD2Ev.exit89, %_ZN4lean10object_refD2Ev.exit98, %_ZN4lean10object_refD2Ev.exit107, %_ZN4lean10object_refD2Ev.exit119

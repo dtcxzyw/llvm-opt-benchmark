@@ -2126,7 +2126,7 @@ Vec_PtrPush.exit99:                               ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Intp_ManEnqueue.exit, %Vec_PtrPush.exit82, %Intp_ManEnqueue.exit92, %._crit_edge, %276, %._crit_edge130, %187, %Vec_PtrPush.exit
-  %.068 = phi i32 [ 1, %Vec_PtrPush.exit ], [ 1, %187 ], [ 0, %._crit_edge130 ], [ 1, %276 ], [ 1, %Vec_PtrPush.exit82 ], [ 0, %._crit_edge ], [ 0, %Intp_ManEnqueue.exit92 ], [ 0, %Intp_ManEnqueue.exit ]
+  %.068 = phi i32 [ 1, %Vec_PtrPush.exit ], [ 1, %Vec_PtrPush.exit82 ], [ 1, %187 ], [ 0, %._crit_edge130 ], [ 1, %276 ], [ 0, %._crit_edge ], [ 0, %Intp_ManEnqueue.exit92 ], [ 0, %Intp_ManEnqueue.exit ]
   ret i32 %.068
 }
 
@@ -2264,7 +2264,7 @@ Intp_ManEnqueue.exit:                             ; preds = %35
   br label %70
 
 70:                                               ; preds = %59, %66, %50, %56, %67
-  %.033 = phi i32 [ 1, %67 ], [ 0, %56 ], [ 0, %50 ], [ 0, %66 ], [ 0, %59 ]
+  %.033 = phi i32 [ 1, %67 ], [ 0, %50 ], [ 0, %56 ], [ 0, %66 ], [ 0, %59 ]
   ret i32 %.033
 }
 

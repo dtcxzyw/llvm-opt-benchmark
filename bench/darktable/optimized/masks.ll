@@ -577,7 +577,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   br i1 %.not105, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %29, %27, %25, %23, %18
-  %.sink132 = phi i64 [ 224, %18 ], [ 232, %23 ], [ 240, %25 ], [ 248, %27 ], [ 256, %29 ]
+  %.sink132 = phi i64 [ 224, %18 ], [ 240, %25 ], [ 248, %27 ], [ 232, %23 ], [ 256, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink132
   %32 = load ptr, ptr %31, align 8, !tbaa !99
   br label %33
@@ -2377,7 +2377,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   br i1 %.not255, label %.loopexit278, label %90
 
 .loopexit278:                                     ; preds = %98, %.preheader277, %85, %81
-  %.3208 = phi i32 [ %.1206284, %85 ], [ %.1206284, %81 ], [ %.1206284, %.preheader277 ], [ %.5210, %98 ]
+  %.3208 = phi i32 [ %.1206284, %81 ], [ %.1206284, %85 ], [ %.1206284, %.preheader277 ], [ %.5210, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %100
@@ -2551,7 +2551,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   br i1 %.not251, label %.loopexit, label %.lr.ph289
 
 .loopexit:                                        ; preds = %175, %163, %.preheader, %155, %.lr.ph297
-  %.1200 = phi i32 [ %.0199295, %155 ], [ %.0199295, %.lr.ph297 ], [ %.0199295, %.preheader ], [ %.5.ph, %175 ], [ -1, %163 ]
+  %.1200 = phi i32 [ %.0199295, %.lr.ph297 ], [ %.0199295, %155 ], [ %.0199295, %.preheader ], [ %.5.ph, %175 ], [ -1, %163 ]
   %177 = getelementptr inbounds nuw i8, ptr %.0198296, i64 8
   %.0198 = load ptr, ptr %177, align 8, !tbaa !89
   %.not247 = icmp eq ptr %.0198, null
@@ -2642,7 +2642,7 @@ define internal range(i32 0, 2) i32 @_tree_button_pressed(ptr noundef %0, ptr no
   br i1 %or.cond3, label %.sink.split, label %220
 
 .sink.split:                                      ; preds = %215, %205, %209, %211
-  %.str.47.sink = phi ptr [ @.str.47, %211 ], [ @.str.47, %209 ], [ @.str.48, %205 ], [ @.str.49, %215 ]
+  %.str.47.sink = phi ptr [ @.str.48, %205 ], [ @.str.47, %209 ], [ @.str.47, %211 ], [ @.str.49, %215 ]
   %217 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.47.sink, i32 noundef 5) #12
   %218 = call ptr @gtk_menu_item_new_with_label(ptr noundef %217) #12
   %219 = call i64 @g_signal_connect_data(ptr noundef %218, ptr noundef nonnull @.str.40, ptr noundef nonnull @_tree_delete_shape, ptr noundef %2, ptr noundef null, i32 noundef 0) #12
@@ -2802,7 +2802,7 @@ _add_tree_operation.exit267:                      ; preds = %_add_tree_operation
   br label %287
 
 287:                                              ; preds = %32, %29, %36, %35, %.thread390
-  %.0 = phi i32 [ 1, %.thread390 ], [ 0, %35 ], [ 0, %36 ], [ 0, %29 ], [ 0, %32 ]
+  %.0 = phi i32 [ 1, %.thread390 ], [ 0, %36 ], [ 0, %32 ], [ 0, %35 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3632,7 +3632,7 @@ define internal fastcc void @_set_iter_name(ptr noundef readonly captures(none) 
   br i1 %.not30, label %31, label %.sink.split
 
 .sink.split:                                      ; preds = %27, %25, %23, %21, %18
-  %.sink34 = phi i64 [ 224, %18 ], [ 232, %21 ], [ 240, %23 ], [ 248, %25 ], [ 256, %27 ]
+  %.sink34 = phi i64 [ 224, %18 ], [ 240, %23 ], [ 248, %25 ], [ 232, %21 ], [ 256, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
   %30 = load ptr, ptr %29, align 8, !tbaa !99
   br label %31
@@ -4547,7 +4547,7 @@ define internal void @_tree_operation(ptr readnone captures(none) %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %35, %.preheader, %._crit_edge60, %41, %30, %26
-  %.2 = phi i32 [ %.057, %30 ], [ %.057, %26 ], [ %.057, %41 ], [ 1, %._crit_edge60 ], [ %.057, %.preheader ], [ %.057, %35 ]
+  %.2 = phi i32 [ %.057, %26 ], [ %.057, %30 ], [ 1, %._crit_edge60 ], [ %.057, %41 ], [ %.057, %.preheader ], [ %.057, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
@@ -4679,8 +4679,8 @@ define internal noundef i32 @_update_foreach(ptr noundef %0, ptr readnone captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.preheader, %.thread, %15, %11
-  %.024 = phi i32 [ 0, %15 ], [ 0, %11 ], [ %26, %.thread ], [ 0, %.preheader ], [ 0, %20 ]
-  %.022 = phi nsz float [ 1.000000e+00, %15 ], [ 1.000000e+00, %11 ], [ %28, %.thread ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %20 ]
+  %.024 = phi i32 [ 0, %11 ], [ 0, %15 ], [ %26, %.thread ], [ 0, %.preheader ], [ 0, %20 ]
+  %.022 = phi nsz float [ 1.000000e+00, %11 ], [ 1.000000e+00, %15 ], [ %28, %.thread ], [ 1.000000e+00, %.preheader ], [ 1.000000e+00, %20 ]
   call fastcc void @_set_iter_name(ptr noundef %3, ptr noundef nonnull %10, i32 noundef %.024, float noundef %.022, ptr noundef %0, ptr noundef %2)
   br label %29
 

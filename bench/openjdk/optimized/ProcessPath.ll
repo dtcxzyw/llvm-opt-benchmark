@@ -276,8 +276,8 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   br label %172
 
 172:                                              ; preds = %159, %135
-  %.1318 = phi i32 [ %170, %159 ], [ %131, %135 ]
-  %.1315 = phi i32 [ %171, %159 ], [ %132, %135 ]
+  %.1318 = phi i32 [ %131, %135 ], [ %170, %159 ]
+  %.1315 = phi i32 [ %132, %135 ], [ %171, %159 ]
   %173 = sitofp i32 %134 to float
   %174 = fcmp ogt float %143, %173
   %175 = fcmp olt float %149, %173
@@ -314,8 +314,8 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   br label %195
 
 195:                                              ; preds = %182, %172
-  %.1312 = phi i32 [ %193, %182 ], [ %133, %172 ]
-  %.1309 = phi i32 [ %194, %182 ], [ %134, %172 ]
+  %.1312 = phi i32 [ %133, %172 ], [ %193, %182 ]
+  %.1309 = phi i32 [ %134, %172 ], [ %194, %182 ]
   %196 = sitofp i32 %.1318 to float
   %197 = fcmp ogt float %140, %196
   %198 = fcmp olt float %146, %196
@@ -352,8 +352,8 @@ define hidden void @ProcessFixedLine(ptr noundef readonly captures(none) %0, i32
   br label %218
 
 218:                                              ; preds = %205, %195
-  %.2319 = phi i32 [ %217, %205 ], [ %.1318, %195 ]
-  %.2316 = phi i32 [ %216, %205 ], [ %.1315, %195 ]
+  %.2319 = phi i32 [ %.1318, %195 ], [ %217, %205 ]
+  %.2316 = phi i32 [ %.1315, %195 ], [ %216, %205 ]
   %219 = sitofp i32 %.1312 to float
   %220 = fcmp ogt float %140, %219
   %221 = fcmp olt float %146, %219
@@ -981,8 +981,8 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   br label %ProcessQuad.exit
 
 .thread.i:                                        ; preds = %224, %222
-  %.sroa.0.181.i = phi double [ %218, %222 ], [ %.sroa.0.0.i, %224 ]
-  %.sroa.6.080.i = phi double [ %.sroa.0.0.i, %222 ], [ %218, %224 ]
+  %.sroa.0.181.i = phi double [ %.sroa.0.0.i, %224 ], [ %218, %222 ]
+  %.sroa.6.080.i = phi double [ %218, %224 ], [ %.sroa.0.0.i, %222 ]
   %240 = fptrunc double %.sroa.0.181.i to float
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %185, ptr %12, align 16
@@ -1221,7 +1221,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br label %370
 
 370:                                              ; preds = %319, %314, %369, %364, %362, %358, %354, %351, %335
-  %.0.i = phi i32 [ 0, %335 ], [ %.1.i, %351 ], [ %359, %358 ], [ %.1.i, %354 ], [ 0, %362 ], [ 1, %369 ], [ 0, %364 ], [ 0, %314 ], [ 0, %319 ]
+  %.0.i = phi i32 [ 0, %335 ], [ %.1.i, %351 ], [ %359, %358 ], [ %.1.i, %354 ], [ 0, %362 ], [ 1, %369 ], [ 0, %364 ], [ 0, %319 ], [ 0, %314 ]
   %371 = load float, ptr %77, align 4
   %372 = fcmp ogt float %371, %288
   %373 = fcmp ogt float %288, %294
@@ -1308,7 +1308,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %or.cond15.i, label %.preheader.sink.split.i, label %424
 
 424:                                              ; preds = %375, %370, %419, %417, %413, %410, %391
-  %.2.i = phi i32 [ %.0.i, %391 ], [ %.3.i, %410 ], [ %.3.i, %413 ], [ %.0.i, %417 ], [ %.0.i, %419 ], [ %.0.i, %370 ], [ %.0.i, %375 ]
+  %.2.i = phi i32 [ %.0.i, %391 ], [ %.3.i, %410 ], [ %.0.i, %375 ], [ %.3.i, %413 ], [ %.0.i, %417 ], [ %.0.i, %370 ], [ %.0.i, %419 ]
   %.not.i = icmp eq i32 %.2.i, 0
   br i1 %.not.i, label %ProcessCubic.exit, label %.preheader.i
 
@@ -1627,8 +1627,8 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   br label %32
 
 32:                                               ; preds = %20, %2
-  %.0232 = phi float [ %31, %20 ], [ %.0.val, %2 ]
-  %.0229 = phi float [ %.0222.in, %20 ], [ %.4.val, %2 ]
+  %.0232 = phi float [ %.0.val, %2 ], [ %31, %20 ]
+  %.0229 = phi float [ %.4.val, %2 ], [ %.0222.in, %20 ]
   %33 = fcmp olt float %.4.val3, %8
   %34 = fcmp ogt float %.4.val3, %12
   %or.cond259 = select i1 %33, i1 true, i1 %34
@@ -1662,8 +1662,8 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   br label %52
 
 52:                                               ; preds = %40, %32
-  %.0226 = phi float [ %51, %40 ], [ %.0.val1, %32 ]
-  %.0224 = phi float [ %.0221.in, %40 ], [ %.4.val3, %32 ]
+  %.0226 = phi float [ %.0.val1, %32 ], [ %51, %40 ]
+  %.0224 = phi float [ %.4.val3, %32 ], [ %.0221.in, %40 ]
   %53 = zext i1 %or.cond259 to i8
   %54 = or i1 %or.cond, %or.cond259
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1705,8 +1705,8 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   br label %78
 
 78:                                               ; preds = %66, %60
-  %.1233 = phi float [ %.0220.in, %66 ], [ %.0232, %60 ]
-  %.1230 = phi float [ %77, %66 ], [ %.0229, %60 ]
+  %.1233 = phi float [ %.0232, %60 ], [ %.0220.in, %66 ]
+  %.1230 = phi float [ %.0229, %60 ], [ %77, %66 ]
   %spec.select = or i1 %54, %or.cond260
   %79 = fcmp olt float %.0226, %6
   %80 = fcmp ogt float %.0226, %10
@@ -1741,8 +1741,8 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   br label %98
 
 98:                                               ; preds = %86, %78
-  %.1227 = phi float [ %.0219.in, %86 ], [ %.0226, %78 ]
-  %.1225 = phi float [ %97, %86 ], [ %.0224, %78 ]
+  %.1227 = phi float [ %.0226, %78 ], [ %.0219.in, %86 ]
+  %.1225 = phi float [ %.0224, %78 ], [ %97, %86 ]
   %narrow = or i1 %or.cond259, %or.cond261
   %99 = zext i1 %narrow to i8
   %100 = or i1 %spec.select, %or.cond261
@@ -2341,10 +2341,10 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br label %223
 
 223:                                              ; preds = %213, %218, %220
-  %.9 = phi ptr [ %.8372, %218 ], [ %.8372, %220 ], [ %.0278374, %213 ]
-  %.1280 = phi ptr [ %.0279373, %218 ], [ %222, %220 ], [ %.0279373, %213 ]
-  %.1277 = phi ptr [ %.0278374, %218 ], [ %.0279373, %220 ], [ %.0278374, %213 ]
-  %.2 = phi i32 [ 1, %218 ], [ %.1377, %220 ], [ 1, %213 ]
+  %.9 = phi ptr [ %.8372, %220 ], [ %.8372, %218 ], [ %.0278374, %213 ]
+  %.1280 = phi ptr [ %222, %220 ], [ %.0279373, %218 ], [ %.0279373, %213 ]
+  %.1277 = phi ptr [ %.0279373, %220 ], [ %.0278374, %218 ], [ %.0278374, %213 ]
+  %.2 = phi i32 [ %.1377, %220 ], [ 1, %218 ], [ 1, %213 ]
   %224 = getelementptr inbounds nuw i8, ptr %.1280, i64 32
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, %.1274376
@@ -2436,7 +2436,7 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
   br label %._crit_edge397.thread
 
 ._crit_edge397.thread:                            ; preds = %._crit_edge397, %260, %._crit_edge369
-  %.6 = phi ptr [ %.7.lcssa448, %260 ], [ %.7.lcssa448, %._crit_edge397 ], [ null, %._crit_edge369 ]
+  %.6 = phi ptr [ %.7.lcssa448, %260 ], [ null, %._crit_edge369 ], [ %.7.lcssa448, %._crit_edge397 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0284 = add nsw i32 %.0284404, 1024
   %265 = icmp sle i32 %.0284, %13
@@ -2516,8 +2516,8 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %46
 
 46:                                               ; preds = %34, %.lr.ph
-  %.0223 = phi i32 [ %.0236.in, %34 ], [ %2, %.lr.ph ]
-  %.0 = phi i32 [ %45, %34 ], [ %1, %.lr.ph ]
+  %.0223 = phi i32 [ %2, %.lr.ph ], [ %.0236.in, %34 ]
+  %.0 = phi i32 [ %1, %.lr.ph ], [ %45, %34 ]
   %47 = icmp slt i32 %4, %22
   %48 = icmp sgt i32 %4, %26
   %or.cond277 = select i1 %47, i1 true, i1 %48
@@ -2551,8 +2551,8 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   br label %66
 
 66:                                               ; preds = %54, %46
-  %.0230 = phi i32 [ %.0235.in, %54 ], [ %4, %46 ]
-  %.0226 = phi i32 [ %65, %54 ], [ %3, %46 ]
+  %.0230 = phi i32 [ %4, %46 ], [ %.0235.in, %54 ]
+  %.0226 = phi i32 [ %3, %46 ], [ %65, %54 ]
   %67 = zext i1 %or.cond277 to i8
   %68 = icmp slt i32 %.0, %14
   %69 = icmp sgt i32 %.0, %18
@@ -2880,7 +2880,7 @@ define zeroext range(i8 0, 2) i8 @doFillPath(ptr noundef %0, i32 noundef %1, i32
   br label %25
 
 25:                                               ; preds = %.sink.split, %23, %21
-  %.0 = phi i8 [ 0, %21 ], [ 1, %23 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i8 [ 1, %23 ], [ 0, %21 ], [ %.0.ph, %.sink.split ]
   ret i8 %.0
 }
 

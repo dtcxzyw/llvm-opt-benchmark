@@ -594,7 +594,7 @@ rt_get_mask_point_group.exit:                     ; preds = %.lr.ph.i
   tail call void @dt_bauhaus_slider_set(ptr noundef %36, float noundef %38) #26
   br label %rt_get_mask_point_group.exit.thread
 
-rt_get_mask_point_group.exit.thread:              ; preds = %31, %.preheader.i, %21, %27, %14, %rt_get_mask_point_group.exit
+rt_get_mask_point_group.exit.thread:              ; preds = %31, %.preheader.i, %27, %21, %14, %rt_get_mask_point_group.exit
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !131
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8, !tbaa !132
@@ -898,7 +898,7 @@ rt_get_shape_opacity.exit.i:                      ; preds = %.lr.ph.i.i.i
   br i1 %44, label %48, label %rt_get_shape_opacity.exit.thread.i
 
 rt_get_shape_opacity.exit.thread.i:               ; preds = %38, %rt_get_shape_opacity.exit.i, %.preheader.i.i78.i, %34, %28, %rt_get_selected_shape_index.exit.i
-  %45 = phi float [ %43, %rt_get_shape_opacity.exit.i ], [ 0.000000e+00, %rt_get_selected_shape_index.exit.i ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %.preheader.i.i78.i ], [ 0.000000e+00, %38 ]
+  %45 = phi float [ %43, %rt_get_shape_opacity.exit.i ], [ 0.000000e+00, %rt_get_selected_shape_index.exit.i ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %.preheader.i.i78.i ], [ 0.000000e+00, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 328
   %47 = load ptr, ptr %46, align 8, !tbaa !149
   tail call void @dt_bauhaus_slider_set(ptr noundef %47, float noundef %45) #26
@@ -1033,8 +1033,8 @@ rt_get_shape_opacity.exit.thread.i:               ; preds = %38, %rt_get_shape_o
   br label %rt_get_selected_shape_index.exit.thread.i
 
 rt_get_selected_shape_index.exit.thread.i:        ; preds = %129, %.thread96.i, %.loopexit.loopexit.i.i.i, %6
-  %.08.i.i80.i = phi i32 [ %25, %129 ], [ -1, %6 ], [ -1, %.loopexit.loopexit.i.i.i ], [ %25, %.thread96.i ]
-  %.0.i = phi i1 [ false, %129 ], [ true, %6 ], [ true, %.loopexit.loopexit.i.i.i ], [ true, %.thread96.i ]
+  %.08.i.i80.i = phi i32 [ -1, %.loopexit.loopexit.i.i.i ], [ %25, %129 ], [ -1, %6 ], [ %25, %.thread96.i ]
+  %.0.i = phi i1 [ true, %.loopexit.loopexit.i.i.i ], [ false, %129 ], [ true, %6 ], [ true, %.thread96.i ]
   %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2800
   %132 = load i32, ptr %131, align 16, !tbaa !95
@@ -1915,7 +1915,7 @@ rt_display_selected_shapes_lbl.exit:              ; preds = %126, %128
   br label %rt_shape_is_being_added.exit
 
 rt_shape_is_being_added.exit:                     ; preds = %rt_display_selected_shapes_lbl.exit, %162, %172, %175, %183, %185, %187, %191, %195
-  %.0.i89 = phi i32 [ %196, %195 ], [ 0, %175 ], [ 0, %172 ], [ 0, %162 ], [ 0, %rt_display_selected_shapes_lbl.exit ], [ 0, %183 ], [ 0, %185 ], [ %194, %191 ], [ 0, %187 ]
+  %.0.i89 = phi i32 [ 0, %rt_display_selected_shapes_lbl.exit ], [ %196, %195 ], [ 0, %175 ], [ 0, %172 ], [ 0, %162 ], [ 0, %183 ], [ 0, %185 ], [ %194, %191 ], [ 0, %187 ]
   call void @gtk_toggle_button_set_active(ptr noundef %158, i32 noundef %.0.i89) #26
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %198 = load ptr, ptr %197, align 8, !tbaa !203
@@ -1991,7 +1991,7 @@ rt_shape_is_being_added.exit:                     ; preds = %rt_display_selected
   br label %rt_shape_is_being_added.exit99
 
 rt_shape_is_being_added.exit99:                   ; preds = %rt_shape_is_being_added.exit, %203, %213, %216, %224, %226, %228, %232, %236
-  %.0.i94 = phi i32 [ %237, %236 ], [ 0, %216 ], [ 0, %213 ], [ 0, %203 ], [ 0, %rt_shape_is_being_added.exit ], [ 0, %224 ], [ 0, %226 ], [ %235, %232 ], [ 0, %228 ]
+  %.0.i94 = phi i32 [ 0, %rt_shape_is_being_added.exit ], [ %237, %236 ], [ 0, %216 ], [ 0, %213 ], [ 0, %203 ], [ 0, %224 ], [ 0, %226 ], [ %235, %232 ], [ 0, %228 ]
   call void @gtk_toggle_button_set_active(ptr noundef %199, i32 noundef %.0.i94) #26
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %239 = load ptr, ptr %238, align 8, !tbaa !205
@@ -2067,7 +2067,7 @@ rt_shape_is_being_added.exit99:                   ; preds = %rt_shape_is_being_a
   br label %rt_shape_is_being_added.exit109
 
 rt_shape_is_being_added.exit109:                  ; preds = %rt_shape_is_being_added.exit99, %244, %254, %257, %265, %267, %269, %273, %277
-  %.0.i104 = phi i32 [ %278, %277 ], [ 0, %257 ], [ 0, %254 ], [ 0, %244 ], [ 0, %rt_shape_is_being_added.exit99 ], [ 0, %265 ], [ 0, %267 ], [ %276, %273 ], [ 0, %269 ]
+  %.0.i104 = phi i32 [ 0, %rt_shape_is_being_added.exit99 ], [ %278, %277 ], [ 0, %257 ], [ 0, %254 ], [ 0, %244 ], [ 0, %265 ], [ 0, %267 ], [ %276, %273 ], [ 0, %269 ]
   call void @gtk_toggle_button_set_active(ptr noundef %240, i32 noundef %.0.i104) #26
   %279 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %280 = load ptr, ptr %279, align 8, !tbaa !206
@@ -2143,7 +2143,7 @@ rt_shape_is_being_added.exit109:                  ; preds = %rt_shape_is_being_a
   br label %rt_shape_is_being_added.exit119
 
 rt_shape_is_being_added.exit119:                  ; preds = %rt_shape_is_being_added.exit109, %285, %295, %298, %306, %308, %310, %314, %318
-  %.0.i114 = phi i32 [ %319, %318 ], [ 0, %298 ], [ 0, %295 ], [ 0, %285 ], [ 0, %rt_shape_is_being_added.exit109 ], [ 0, %306 ], [ 0, %308 ], [ %317, %314 ], [ 0, %310 ]
+  %.0.i114 = phi i32 [ 0, %rt_shape_is_being_added.exit109 ], [ %319, %318 ], [ 0, %298 ], [ 0, %295 ], [ 0, %285 ], [ 0, %306 ], [ 0, %308 ], [ %317, %314 ], [ 0, %310 ]
   call void @gtk_toggle_button_set_active(ptr noundef %281, i32 noundef %.0.i114) #26
   %320 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %321 = load ptr, ptr %320, align 8, !tbaa !236
@@ -3056,7 +3056,7 @@ define internal range(i32 0, 2) i32 @rt_edit_masks_callback(ptr readnone capture
   br label %103
 
 103:                                              ; preds = %97, %33, %3, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %3 ], [ 1, %33 ], [ 1, %97 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 1, %33 ], [ 1, %97 ]
   ret i32 %.0
 }
 
@@ -3251,7 +3251,7 @@ rt_reset_form_creation.exit.i:                    ; preds = %72, %69
   br label %107
 
 107:                                              ; preds = %103, %99, %95, %89
-  %.031.i = phi i32 [ 2, %89 ], [ 1, %95 ], [ 32, %99 ], [ %spec.select.i, %103 ]
+  %.031.i = phi i32 [ %spec.select.i, %103 ], [ 2, %89 ], [ 1, %95 ], [ 32, %99 ]
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 13200
   %109 = load i32, ptr %108, align 4, !tbaa !162
   %.off.i = add i32 %109, -1
@@ -3354,7 +3354,7 @@ rt_add_shape.exit:                                ; preds = %88, %107, %118
   br label %rt_shape_is_being_added.exit
 
 rt_shape_is_being_added.exit:                     ; preds = %rt_add_shape.exit, %127, %137, %140, %148, %150, %152, %156, %160
-  %.0.i = phi i32 [ %161, %160 ], [ 0, %140 ], [ 0, %137 ], [ 0, %127 ], [ 0, %rt_add_shape.exit ], [ 0, %148 ], [ 0, %150 ], [ %159, %156 ], [ 0, %152 ]
+  %.0.i = phi i32 [ 0, %rt_add_shape.exit ], [ %161, %160 ], [ 0, %140 ], [ 0, %137 ], [ 0, %127 ], [ 0, %148 ], [ 0, %150 ], [ %159, %156 ], [ 0, %152 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %122, i32 noundef %.0.i) #26
   %162 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %163 = load ptr, ptr %162, align 8, !tbaa !203
@@ -3430,7 +3430,7 @@ rt_shape_is_being_added.exit:                     ; preds = %rt_add_shape.exit, 
   br label %rt_shape_is_being_added.exit24
 
 rt_shape_is_being_added.exit24:                   ; preds = %rt_shape_is_being_added.exit, %168, %178, %181, %189, %191, %193, %197, %201
-  %.0.i19 = phi i32 [ %202, %201 ], [ 0, %181 ], [ 0, %178 ], [ 0, %168 ], [ 0, %rt_shape_is_being_added.exit ], [ 0, %189 ], [ 0, %191 ], [ %200, %197 ], [ 0, %193 ]
+  %.0.i19 = phi i32 [ 0, %rt_shape_is_being_added.exit ], [ %202, %201 ], [ 0, %181 ], [ 0, %178 ], [ 0, %168 ], [ 0, %189 ], [ 0, %191 ], [ %200, %197 ], [ 0, %193 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %164, i32 noundef %.0.i19) #26
   %203 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %204 = load ptr, ptr %203, align 8, !tbaa !205
@@ -3506,7 +3506,7 @@ rt_shape_is_being_added.exit24:                   ; preds = %rt_shape_is_being_a
   br label %rt_shape_is_being_added.exit34
 
 rt_shape_is_being_added.exit34:                   ; preds = %rt_shape_is_being_added.exit24, %209, %219, %222, %230, %232, %234, %238, %242
-  %.0.i29 = phi i32 [ %243, %242 ], [ 0, %222 ], [ 0, %219 ], [ 0, %209 ], [ 0, %rt_shape_is_being_added.exit24 ], [ 0, %230 ], [ 0, %232 ], [ %241, %238 ], [ 0, %234 ]
+  %.0.i29 = phi i32 [ 0, %rt_shape_is_being_added.exit24 ], [ %243, %242 ], [ 0, %222 ], [ 0, %219 ], [ 0, %209 ], [ 0, %230 ], [ 0, %232 ], [ %241, %238 ], [ 0, %234 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %205, i32 noundef %.0.i29) #26
   %244 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %245 = load ptr, ptr %244, align 8, !tbaa !206
@@ -3582,7 +3582,7 @@ rt_shape_is_being_added.exit34:                   ; preds = %rt_shape_is_being_a
   br label %rt_shape_is_being_added.exit44
 
 rt_shape_is_being_added.exit44:                   ; preds = %rt_shape_is_being_added.exit34, %250, %260, %263, %271, %273, %275, %279, %283
-  %.0.i39 = phi i32 [ %284, %283 ], [ 0, %263 ], [ 0, %260 ], [ 0, %250 ], [ 0, %rt_shape_is_being_added.exit34 ], [ 0, %271 ], [ 0, %273 ], [ %282, %279 ], [ 0, %275 ]
+  %.0.i39 = phi i32 [ 0, %rt_shape_is_being_added.exit34 ], [ %284, %283 ], [ 0, %263 ], [ 0, %260 ], [ 0, %250 ], [ 0, %271 ], [ 0, %273 ], [ %282, %279 ], [ 0, %275 ]
   tail call void @gtk_toggle_button_set_active(ptr noundef %246, i32 noundef %.0.i39) #26
   br label %285
 
@@ -3640,10 +3640,10 @@ define internal range(i32 0, 2) i32 @rt_select_algorithm_callback(ptr noundef re
   br label %28
 
 28:                                               ; preds = %19, %15, %7, %23, %27
-  %.not96 = phi i1 [ true, %27 ], [ true, %23 ], [ true, %7 ], [ false, %15 ], [ true, %19 ]
-  %29 = phi i1 [ false, %27 ], [ true, %23 ], [ false, %7 ], [ false, %15 ], [ true, %19 ]
-  %.not110 = phi i1 [ false, %27 ], [ true, %23 ], [ true, %7 ], [ true, %15 ], [ true, %19 ]
-  %.071 = phi i32 [ 4, %27 ], [ 2, %23 ], [ 3, %7 ], [ 1, %15 ], [ 2, %19 ]
+  %.not96 = phi i1 [ true, %23 ], [ true, %7 ], [ false, %15 ], [ true, %27 ], [ true, %19 ]
+  %29 = phi i1 [ true, %23 ], [ false, %7 ], [ false, %15 ], [ false, %27 ], [ true, %19 ]
+  %.not110 = phi i1 [ true, %23 ], [ true, %7 ], [ true, %15 ], [ false, %27 ], [ true, %19 ]
+  %.071 = phi i32 [ 2, %23 ], [ 3, %7 ], [ 1, %15 ], [ 4, %27 ], [ 2, %19 ]
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2800
   %32 = load i32, ptr %31, align 16, !tbaa !95
@@ -3704,16 +3704,16 @@ rt_get_selected_shape_index.exit:                 ; preds = %.loopexit.loopexit.
   br i1 %or.cond111, label %rt_get_selected_shape_index.exit.thread, label %.thread99
 
 rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.i.i, %28, %53, %45, %rt_get_selected_shape_index.exit
-  %.ph = phi i1 [ true, %rt_get_selected_shape_index.exit ], [ true, %45 ], [ true, %53 ], [ false, %28 ], [ false, %.loopexit.loopexit.i.i ]
-  %.08.i.i98.ph = phi i64 [ %indvars.iv.i.i, %rt_get_selected_shape_index.exit ], [ %indvars.iv.i.i, %45 ], [ %indvars.iv.i.i, %53 ], [ 4294967295, %28 ], [ 4294967295, %.loopexit.loopexit.i.i ]
+  %.ph = phi i1 [ false, %.loopexit.loopexit.i.i ], [ true, %rt_get_selected_shape_index.exit ], [ true, %45 ], [ true, %53 ], [ false, %28 ]
+  %.08.i.i98.ph = phi i64 [ 4294967295, %.loopexit.loopexit.i.i ], [ %indvars.iv.i.i, %rt_get_selected_shape_index.exit ], [ %indvars.iv.i.i, %45 ], [ %indvars.iv.i.i, %53 ], [ 4294967295, %28 ]
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 13200
   store i32 %.071, ptr %54, align 4, !tbaa !162
   br label %.thread99
 
 .thread99:                                        ; preds = %53, %52, %51, %49, %rt_get_selected_shape_index.exit.thread
-  %.not87107 = phi i1 [ false, %rt_get_selected_shape_index.exit.thread ], [ true, %51 ], [ true, %49 ], [ true, %52 ], [ true, %53 ]
-  %.08.i.i98105 = phi i64 [ %.08.i.i98.ph, %rt_get_selected_shape_index.exit.thread ], [ %indvars.iv.i.i, %51 ], [ %indvars.iv.i.i, %49 ], [ %indvars.iv.i.i, %52 ], [ %indvars.iv.i.i, %53 ]
-  %55 = phi i1 [ %.ph, %rt_get_selected_shape_index.exit.thread ], [ true, %51 ], [ true, %49 ], [ true, %52 ], [ true, %53 ]
+  %.not87107 = phi i1 [ false, %rt_get_selected_shape_index.exit.thread ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %49 ]
+  %.08.i.i98105 = phi i64 [ %.08.i.i98.ph, %rt_get_selected_shape_index.exit.thread ], [ %indvars.iv.i.i, %51 ], [ %indvars.iv.i.i, %52 ], [ %indvars.iv.i.i, %53 ], [ %indvars.iv.i.i, %49 ]
+  %55 = phi i1 [ %.ph, %rt_get_selected_shape_index.exit.thread ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %57 = load ptr, ptr %56, align 8, !tbaa !171
   %58 = tail call i64 @gtk_toggle_button_get_type() #28
@@ -3829,7 +3829,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
   br label %130
 
 130:                                              ; preds = %125, %120, %115, %110
-  %.068 = phi i32 [ 2, %110 ], [ 1, %115 ], [ 32, %120 ], [ %spec.select, %125 ]
+  %.068 = phi i32 [ %spec.select, %125 ], [ 2, %110 ], [ 1, %115 ], [ 32, %120 ]
   %131 = load i32, ptr %60, align 4, !tbaa !162
   %.off = add i32 %131, -1
   %switch = icmp ult i32 %.off, 2
@@ -4366,7 +4366,7 @@ define internal noundef i32 @rt_wdbar_motion_notify(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %3, %37, %35
-  %40 = phi float [ %38, %37 ], [ 0.000000e+00, %35 ], [ %32, %3 ]
+  %40 = phi float [ 0.000000e+00, %35 ], [ %38, %37 ], [ %32, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store float %40, ptr %41, align 8, !tbaa !249
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5065,7 +5065,7 @@ define internal noundef float @rt_gslider_scale_callback(ptr readnone captures(n
   br label %10
 
 10:                                               ; preds = %3, %7, %4
-  %.0 = phi nsz float [ %6, %4 ], [ %9, %7 ], [ %1, %3 ]
+  %.0 = phi nsz float [ %9, %7 ], [ %6, %4 ], [ %1, %3 ]
   ret float %.0
 }
 
@@ -5744,10 +5744,10 @@ rt_masks_get_delta_to_destination.exit.thread.i:  ; preds = %151, %rt_masks_get_
   br label %180
 
 180:                                              ; preds = %rt_masks_get_delta_to_destination.exit.thread.i, %139, %.thread179.i, %97, %93, %91, %70, %68
-  %.5126.i = phi i32 [ %.1122190.i, %68 ], [ %.1122190.i, %97 ], [ %.1122190.i, %93 ], [ %.1122190.i, %91 ], [ %.1122190.i, %70 ], [ %.10131.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1122190.i, %139 ], [ %.8129.i, %.thread179.i ]
-  %.5113.i = phi i32 [ %.1109191.i, %68 ], [ %.1109191.i, %97 ], [ %.1109191.i, %93 ], [ %.1109191.i, %91 ], [ %.1109191.i, %70 ], [ %.10118.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1109191.i, %139 ], [ %.8116.i, %.thread179.i ]
-  %.5100.i = phi i32 [ %.196192.i, %68 ], [ %.196192.i, %97 ], [ %.196192.i, %93 ], [ %.196192.i, %91 ], [ %.196192.i, %70 ], [ %.10105.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.196192.i, %139 ], [ %.8103.i, %.thread179.i ]
-  %.5.i = phi i32 [ %.1193.i, %68 ], [ %.1193.i, %97 ], [ %.1193.i, %93 ], [ %.1193.i, %91 ], [ %.1193.i, %70 ], [ %.10.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1193.i, %139 ], [ %.8.i, %.thread179.i ]
+  %.5126.i = phi i32 [ %.1122190.i, %68 ], [ %.1122190.i, %70 ], [ %.1122190.i, %97 ], [ %.1122190.i, %93 ], [ %.1122190.i, %91 ], [ %.10131.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1122190.i, %139 ], [ %.8129.i, %.thread179.i ]
+  %.5113.i = phi i32 [ %.1109191.i, %68 ], [ %.1109191.i, %70 ], [ %.1109191.i, %97 ], [ %.1109191.i, %93 ], [ %.1109191.i, %91 ], [ %.10118.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1109191.i, %139 ], [ %.8116.i, %.thread179.i ]
+  %.5100.i = phi i32 [ %.196192.i, %68 ], [ %.196192.i, %70 ], [ %.196192.i, %97 ], [ %.196192.i, %93 ], [ %.196192.i, %91 ], [ %.10105.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.196192.i, %139 ], [ %.8103.i, %.thread179.i ]
+  %.5.i = phi i32 [ %.1193.i, %68 ], [ %.1193.i, %70 ], [ %.1193.i, %97 ], [ %.1193.i, %93 ], [ %.1193.i, %91 ], [ %.10.i, %rt_masks_get_delta_to_destination.exit.thread.i ], [ %.1193.i, %139 ], [ %.8.i, %.thread179.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5755,20 +5755,20 @@ rt_masks_get_delta_to_destination.exit.thread.i:  ; preds = %151, %rt_masks_get_
   br label %181
 
 181:                                              ; preds = %180, %63, %rt_get_index_from_formid.exit.i, %47
-  %.12133.i = phi i32 [ %.1122190.i, %47 ], [ %.1122190.i, %rt_get_index_from_formid.exit.i ], [ %.1122190.i, %63 ], [ %.5126.i, %180 ]
-  %.12120.i = phi i32 [ %.1109191.i, %47 ], [ %.1109191.i, %rt_get_index_from_formid.exit.i ], [ %.1109191.i, %63 ], [ %.5113.i, %180 ]
-  %.12107.i = phi i32 [ %.196192.i, %47 ], [ %.196192.i, %rt_get_index_from_formid.exit.i ], [ %.196192.i, %63 ], [ %.5100.i, %180 ]
-  %.12.i = phi i32 [ %.1193.i, %47 ], [ %.1193.i, %rt_get_index_from_formid.exit.i ], [ %.1193.i, %63 ], [ %.5.i, %180 ]
+  %.12133.i = phi i32 [ %.1122190.i, %47 ], [ %.1122190.i, %rt_get_index_from_formid.exit.i ], [ %.5126.i, %180 ], [ %.1122190.i, %63 ]
+  %.12120.i = phi i32 [ %.1109191.i, %47 ], [ %.1109191.i, %rt_get_index_from_formid.exit.i ], [ %.5113.i, %180 ], [ %.1109191.i, %63 ]
+  %.12107.i = phi i32 [ %.196192.i, %47 ], [ %.196192.i, %rt_get_index_from_formid.exit.i ], [ %.5100.i, %180 ], [ %.196192.i, %63 ]
+  %.12.i = phi i32 [ %.1193.i, %47 ], [ %.1193.i, %rt_get_index_from_formid.exit.i ], [ %.5.i, %180 ], [ %.1193.i, %63 ]
   %182 = getelementptr inbounds nuw i8, ptr %.0134194.i, i64 8
   %.0134.i = load ptr, ptr %182, align 8, !tbaa !144
   %.not153.i = icmp eq ptr %.0134.i, null
   br i1 %.not153.i, label %rt_compute_roi_in.exit, label %47
 
 rt_compute_roi_in.exit:                           ; preds = %181, %4, %41, %.preheader.i
-  %.0121.i = phi i32 [ %28, %41 ], [ %28, %4 ], [ %28, %.preheader.i ], [ %.12133.i, %181 ]
-  %.0108.i = phi i32 [ %23, %41 ], [ %23, %4 ], [ %23, %.preheader.i ], [ %.12120.i, %181 ]
-  %.095.i = phi i32 [ %29, %41 ], [ %29, %4 ], [ %29, %.preheader.i ], [ %.12107.i, %181 ]
-  %.0.i = phi i32 [ %24, %41 ], [ %24, %4 ], [ %24, %.preheader.i ], [ %.12.i, %181 ]
+  %.0121.i = phi i32 [ %28, %4 ], [ %28, %41 ], [ %28, %.preheader.i ], [ %.12133.i, %181 ]
+  %.0108.i = phi i32 [ %23, %4 ], [ %23, %41 ], [ %23, %.preheader.i ], [ %.12120.i, %181 ]
+  %.095.i = phi i32 [ %29, %4 ], [ %29, %41 ], [ %29, %.preheader.i ], [ %.12107.i, %181 ]
+  %.0.i = phi i32 [ %24, %4 ], [ %24, %41 ], [ %24, %.preheader.i ], [ %.12.i, %181 ]
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %rt_extend_roi_in_for_clone.exit.outer
 
@@ -6101,10 +6101,10 @@ rt_masks_get_delta_to_destination.exit.i.i:       ; preds = %283
   br label %rt_masks_get_delta_to_destination.exit.thread.i.i
 
 rt_masks_get_delta_to_destination.exit.thread.i.i: ; preds = %330, %324, %310, %rt_masks_get_delta_to_destination.exit.i.i, %283
-  %.8103.i.i = phi i32 [ %.196168.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %349, %330 ], [ %.196168.i.i, %310 ], [ %.196168.i.i, %324 ], [ %.196168.i.i, %283 ]
-  %.891.i.i = phi i32 [ %.184169.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %352, %330 ], [ %.184169.i.i, %310 ], [ %.184169.i.i, %324 ], [ %.184169.i.i, %283 ]
-  %.879.i.i = phi i32 [ %.172170.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %360, %330 ], [ %.172170.i.i, %310 ], [ %.172170.i.i, %324 ], [ %.172170.i.i, %283 ]
-  %.8.i.i = phi i32 [ %.1171.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %356, %330 ], [ %.1171.i.i, %310 ], [ %.1171.i.i, %324 ], [ %.1171.i.i, %283 ]
+  %.8103.i.i = phi i32 [ %.196168.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %349, %330 ], [ %.196168.i.i, %324 ], [ %.196168.i.i, %310 ], [ %.196168.i.i, %283 ]
+  %.891.i.i = phi i32 [ %.184169.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %352, %330 ], [ %.184169.i.i, %324 ], [ %.184169.i.i, %310 ], [ %.184169.i.i, %283 ]
+  %.879.i.i = phi i32 [ %.172170.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %360, %330 ], [ %.172170.i.i, %324 ], [ %.172170.i.i, %310 ], [ %.172170.i.i, %283 ]
+  %.8.i.i = phi i32 [ %.1171.i.i, %rt_masks_get_delta_to_destination.exit.i.i ], [ %356, %330 ], [ %.1171.i.i, %324 ], [ %.1171.i.i, %310 ], [ %.1171.i.i, %283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread.sink.split.i.i
@@ -6131,10 +6131,10 @@ rt_masks_get_delta_to_destination.exit.thread.i.i: ; preds = %330, %324, %310, %
   br i1 %.not122.i.i, label %.critedge.i, label %.lr.ph.i.i
 
 .critedge.i:                                      ; preds = %.thread.i.i, %262, %.preheader.i57.i, %257, %248, %246, %242, %223, %221
-  %.280.i = phi i32 [ %.17986.i, %223 ], [ %.17986.i, %242 ], [ %.17986.i, %246 ], [ %.17986.i, %221 ], [ %.17986.i, %257 ], [ %.17986.i, %248 ], [ %.17986.i, %.preheader.i57.i ], [ %.11143.i.i, %.thread.i.i ], [ %.1171.i.i, %262 ]
-  %.276.i = phi i32 [ %.17587.i, %223 ], [ %.17587.i, %242 ], [ %.17587.i, %246 ], [ %.17587.i, %221 ], [ %.17587.i, %257 ], [ %.17587.i, %248 ], [ %.17587.i, %.preheader.i57.i ], [ %.1182142.i.i, %.thread.i.i ], [ %.172170.i.i, %262 ]
-  %.272.i = phi i32 [ %.17188.i, %223 ], [ %.17188.i, %242 ], [ %.17188.i, %246 ], [ %.17188.i, %221 ], [ %.17188.i, %257 ], [ %.17188.i, %248 ], [ %.17188.i, %.preheader.i57.i ], [ %.1194141.i.i, %.thread.i.i ], [ %.184169.i.i, %262 ]
-  %.2.i = phi i32 [ %.189.i, %223 ], [ %.189.i, %242 ], [ %.189.i, %246 ], [ %.189.i, %221 ], [ %.189.i, %257 ], [ %.189.i, %248 ], [ %.189.i, %.preheader.i57.i ], [ %.11106140.i.i, %.thread.i.i ], [ %.196168.i.i, %262 ]
+  %.280.i = phi i32 [ %.17986.i, %223 ], [ %.17986.i, %242 ], [ %.17986.i, %.preheader.i57.i ], [ %.17986.i, %221 ], [ %.17986.i, %246 ], [ %.17986.i, %248 ], [ %.17986.i, %257 ], [ %.1171.i.i, %262 ], [ %.11143.i.i, %.thread.i.i ]
+  %.276.i = phi i32 [ %.17587.i, %223 ], [ %.17587.i, %242 ], [ %.17587.i, %.preheader.i57.i ], [ %.17587.i, %221 ], [ %.17587.i, %246 ], [ %.17587.i, %248 ], [ %.17587.i, %257 ], [ %.172170.i.i, %262 ], [ %.1182142.i.i, %.thread.i.i ]
+  %.272.i = phi i32 [ %.17188.i, %223 ], [ %.17188.i, %242 ], [ %.17188.i, %.preheader.i57.i ], [ %.17188.i, %221 ], [ %.17188.i, %246 ], [ %.17188.i, %248 ], [ %.17188.i, %257 ], [ %.184169.i.i, %262 ], [ %.1194141.i.i, %.thread.i.i ]
+  %.2.i = phi i32 [ %.189.i, %223 ], [ %.189.i, %242 ], [ %.189.i, %.preheader.i57.i ], [ %.189.i, %221 ], [ %.189.i, %246 ], [ %.189.i, %248 ], [ %.189.i, %257 ], [ %.196168.i.i, %262 ], [ %.11106140.i.i, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -6872,7 +6872,7 @@ dt_apply_transposed_color_matrix.exit.i.i:        ; preds = %350
   br label %405
 
 405:                                              ; preds = %395, %377, %368
-  %406 = phi reassoc nsz arcp contract afn float [ %394, %377 ], [ %404, %395 ], [ %374, %368 ]
+  %406 = phi reassoc nsz arcp contract afn float [ %404, %395 ], [ %394, %377 ], [ %374, %368 ]
   %407 = getelementptr inbounds nuw float, ptr %292, i64 %indvars.iv.i.i.i
   store float %406, ptr %407, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -7087,7 +7087,7 @@ dt_iop_alpha_copy.exit:                           ; preds = %.lr.ph.i136, %492, 
   br i1 %exitcond.not.i, label %rt_copy_in_to_out.exit, label %515
 
 rt_copy_in_to_out.exit:                           ; preds = %515, %dt_iop_alpha_copy.exit, %79, %46
-  %.0113 = phi ptr [ null, %46 ], [ null, %79 ], [ %87, %dt_iop_alpha_copy.exit ], [ %87, %515 ]
+  %.0113 = phi ptr [ null, %79 ], [ null, %46 ], [ %87, %dt_iop_alpha_copy.exit ], [ %87, %515 ]
   call void @free(ptr noundef %44) #26
   call void @dt_dwt_free(ptr noundef %.0113) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -7190,7 +7190,7 @@ define internal void @rt_process_forms(ptr noundef captures(none) %0, ptr nounde
   br label %57
 
 57:                                               ; preds = %51, %46
-  %.0 = phi i32 [ %2, %46 ], [ %spec.select, %51 ]
+  %.0 = phi i32 [ %spec.select, %51 ], [ %2, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %59 = load i32, ptr %58, align 4, !tbaa !309
   %.not142 = icmp eq i32 %59, 0
@@ -7338,7 +7338,7 @@ rt_get_index_from_formid.exit:                    ; preds = %.preheader.i
   %.not17.i = icmp sgt i32 %142, %130
   br i1 %.not17.i, label %rt_masks_form_is_in_roi.exit, label %rt_masks_form_is_in_roi.exit.thread
 
-rt_masks_form_is_in_roi.exit.thread:              ; preds = %115, %139, %117
+rt_masks_form_is_in_roi.exit.thread:              ; preds = %115, %117, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8322,7 +8322,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %95
 
 95:                                               ; preds = %92, %42, %40, %2, %90, %86, %82, %78, %74, %70, %66, %62, %58, %54, %50, %46, %38, %34, %30, %26, %22, %18, %14, %10, %6
-  %.0 = phi ptr [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ], [ %0, %2 ], [ %0, %40 ], [ %0, %42 ], [ %spec.select, %92 ]
+  %.0 = phi ptr [ %0, %42 ], [ %spec.select, %92 ], [ %91, %90 ], [ %87, %86 ], [ %83, %82 ], [ %79, %78 ], [ %75, %74 ], [ %71, %70 ], [ %67, %66 ], [ %63, %62 ], [ %59, %58 ], [ %55, %54 ], [ %51, %50 ], [ %47, %46 ], [ %0, %40 ], [ %0, %2 ], [ %39, %38 ], [ %35, %34 ], [ %31, %30 ], [ %27, %26 ], [ %23, %22 ], [ %19, %18 ], [ %15, %14 ], [ %11, %10 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -8457,7 +8457,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %51
 
 51:                                               ; preds = %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ %., %49 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 2024), %47 ], [ %., %49 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1936), %45 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1848), %43 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1760), %41 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1672), %39 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1584), %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 
@@ -10015,7 +10015,7 @@ define internal fastcc void @dt_ioppr_rgb_matrix_to_lab(ptr noundef nonnull read
   br label %55
 
 55:                                               ; preds = %45, %27, %18
-  %56 = phi reassoc nsz arcp contract afn float [ %44, %27 ], [ %54, %45 ], [ %24, %18 ]
+  %56 = phi reassoc nsz arcp contract afn float [ %54, %45 ], [ %44, %27 ], [ %24, %18 ]
   %57 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.i
   store float %56, ptr %57, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

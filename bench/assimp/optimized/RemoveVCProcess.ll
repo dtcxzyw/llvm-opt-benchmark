@@ -440,7 +440,7 @@ _Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit:            ; preds = %._crit_edge.i69, %1
   br i1 %.not44, label %.loopexit.thread, label %162
 
 .loopexit.thread:                                 ; preds = %.preheader, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit, %151, %.loopexit
-  %.5105 = phi i1 [ %spec.select, %151 ], [ %spec.select, %.loopexit ], [ %.4, %.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
+  %.5105 = phi i1 [ %spec.select, %.loopexit ], [ %spec.select, %151 ], [ %.4, %.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %155 = load i32, ptr %1, align 8
   %156 = or i32 %155, 1
@@ -643,7 +643,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   br i1 %exitcond126.not, label %.split85.us, label %.split, !llvm.loop !11
 
 .split85.us:                                      ; preds = %33, %55, %.split, %.split.us, %..split85.us_crit_edge
-  %.us-phi = phi i1 [ true, %..split85.us_crit_edge ], [ %.163, %.split.us ], [ %.281, %.split ], [ %.4, %55 ], [ true, %33 ]
+  %.us-phi = phi i1 [ %.163, %.split.us ], [ true, %..split85.us_crit_edge ], [ %.281, %.split ], [ %.4, %55 ], [ true, %33 ]
   %57 = load i32, ptr %3, align 8
   %.fr = freeze i32 %57
   %58 = and i32 %.fr, 8
@@ -735,7 +735,7 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   br i1 %exitcond138.not, label %.split102.us, label %.split100, !llvm.loop !13
 
 .split102.us:                                     ; preds = %62, %85, %.split100, %.split100.us, %..split102.us_crit_edge
-  %.us-phi103 = phi i1 [ true, %..split102.us_crit_edge ], [ %.us-phi, %.split100.us ], [ %.597, %.split100 ], [ %.7, %85 ], [ true, %62 ]
+  %.us-phi103 = phi i1 [ %.us-phi, %.split100.us ], [ true, %..split102.us_crit_edge ], [ %.597, %.split100 ], [ %.7, %85 ], [ true, %62 ]
   %87 = load i32, ptr %3, align 8
   %88 = and i32 %87, 32
   %.not75 = icmp eq i32 %88, 0

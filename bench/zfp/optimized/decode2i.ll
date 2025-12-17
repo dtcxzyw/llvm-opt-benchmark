@@ -375,10 +375,10 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias noundef captures(none
   br label %stream_read_bits.exit.i
 
 stream_read_bits.exit.i:                          ; preds = %30, %22, %16
-  %.sroa.11.5.i = phi i64 [ %25, %22 ], [ %32, %30 ], [ 0, %16 ]
-  %.sroa.19.5.i = phi ptr [ %17, %22 ], [ %.sroa.19.0119.i, %30 ], [ %17, %16 ]
-  %.sroa.0.5.i = phi i64 [ %23, %22 ], [ %31, %30 ], [ 0, %16 ]
-  %.0.i.i = phi i64 [ %29, %22 ], [ %34, %30 ], [ %20, %16 ]
+  %.sroa.11.5.i = phi i64 [ %32, %30 ], [ %25, %22 ], [ 0, %16 ]
+  %.sroa.19.5.i = phi ptr [ %.sroa.19.0119.i, %30 ], [ %17, %22 ], [ %17, %16 ]
+  %.sroa.0.5.i = phi i64 [ %31, %30 ], [ %23, %22 ], [ 0, %16 ]
+  %.0.i.i = phi i64 [ %34, %30 ], [ %29, %22 ], [ %20, %16 ]
   %35 = icmp ne i32 %13, 0
   %36 = icmp ult i32 %.045123.i, 16
   %37 = select i1 %35, i1 %36, i1 false
@@ -558,10 +558,10 @@ decode_few_ints_uint32.exit:                      ; preds = %.loopexit.i, %.lr.p
   br label %stream_read_bits.exit.i27
 
 stream_read_bits.exit.i27:                        ; preds = %96, %88, %82
-  %.sroa.13.5.i = phi i64 [ %91, %88 ], [ %98, %96 ], [ 0, %82 ]
-  %.sroa.21.5.i = phi ptr [ %83, %88 ], [ %.sroa.21.0103.i, %96 ], [ %83, %82 ]
-  %.sroa.0.5.i28 = phi i64 [ %89, %88 ], [ %97, %96 ], [ 0, %82 ]
-  %.0.i.i29 = phi i64 [ %95, %88 ], [ %100, %96 ], [ %86, %82 ]
+  %.sroa.13.5.i = phi i64 [ %98, %96 ], [ %91, %88 ], [ 0, %82 ]
+  %.sroa.21.5.i = phi ptr [ %.sroa.21.0103.i, %96 ], [ %83, %88 ], [ %83, %82 ]
+  %.sroa.0.5.i28 = phi i64 [ %97, %96 ], [ %89, %88 ], [ 0, %82 ]
+  %.0.i.i29 = phi i64 [ %100, %96 ], [ %95, %88 ], [ %86, %82 ]
   %101 = icmp ult i32 %.032105.i, 16
   br i1 %101, label %.lr.ph87.i, label %.critedge.i
 

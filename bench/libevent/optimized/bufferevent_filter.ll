@@ -255,7 +255,7 @@ define internal i32 @be_filter_ctrl(ptr noundef readonly captures(none) %0, i32 
   br label %18
 
 18:                                               ; preds = %3, %7, %10, %13, %16, %4
-  %.0 = phi i32 [ 0, %4 ], [ %17, %16 ], [ -1, %13 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ]
+  %.0 = phi i32 [ %17, %16 ], [ 0, %4 ], [ -1, %13 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -668,7 +668,7 @@ be_underlying_writebuf_full.exit67.us:            ; preds = %50
   br i1 %.not79.us, label %.split.us.us.backedge, label %.critedge61
 
 .split.us.us.backedge:                            ; preds = %be_underlying_writebuf_full.exit67.us, %50, %80, %be_underlying_writebuf_full.exit65.us.us
-  %.not52.us.us.be = phi i1 [ true, %be_underlying_writebuf_full.exit67.us ], [ true, %50 ], [ false, %80 ], [ false, %be_underlying_writebuf_full.exit65.us.us ]
+  %.not52.us.us.be = phi i1 [ true, %50 ], [ true, %be_underlying_writebuf_full.exit67.us ], [ false, %80 ], [ false, %be_underlying_writebuf_full.exit65.us.us ]
   br label %.split.us.us, !llvm.loop !3
 
 .split.us.us:                                     ; preds = %.split.us.us.backedge, %.split.us.us.preheader
@@ -793,8 +793,8 @@ be_underlying_writebuf_full.exit67.thread:        ; preds = %112
   br i1 %.not54, label %.critedge61, label %.split, !llvm.loop !5
 
 .critedge61:                                      ; preds = %.split, %bufferevent_trigger_nolock_.exit, %112, %be_underlying_writebuf_full.exit67.thread, %bufferevent_trigger_nolock_.exit.us, %44, %47, %be_underlying_writebuf_full.exit67.us, %.critedge.split.us.us
-  %117 = phi ptr [ %32, %.critedge.split.us.us ], [ %32, %be_underlying_writebuf_full.exit67.us ], [ %32, %47 ], [ %32, %44 ], [ %32, %bufferevent_trigger_nolock_.exit.us ], [ %22, %be_underlying_writebuf_full.exit67.thread ], [ %22, %112 ], [ %22, %bufferevent_trigger_nolock_.exit ], [ %22, %.split ]
-  %118 = phi ptr [ %30, %.critedge.split.us.us ], [ %30, %be_underlying_writebuf_full.exit67.us ], [ %30, %47 ], [ %30, %44 ], [ %30, %bufferevent_trigger_nolock_.exit.us ], [ %20, %be_underlying_writebuf_full.exit67.thread ], [ %20, %112 ], [ %20, %bufferevent_trigger_nolock_.exit ], [ %20, %.split ]
+  %117 = phi ptr [ %32, %bufferevent_trigger_nolock_.exit.us ], [ %32, %.critedge.split.us.us ], [ %32, %be_underlying_writebuf_full.exit67.us ], [ %32, %47 ], [ %32, %44 ], [ %22, %be_underlying_writebuf_full.exit67.thread ], [ %22, %112 ], [ %22, %bufferevent_trigger_nolock_.exit ], [ %22, %.split ]
+  %118 = phi ptr [ %30, %bufferevent_trigger_nolock_.exit.us ], [ %30, %.critedge.split.us.us ], [ %30, %be_underlying_writebuf_full.exit67.us ], [ %30, %47 ], [ %30, %44 ], [ %20, %be_underlying_writebuf_full.exit67.thread ], [ %20, %112 ], [ %20, %bufferevent_trigger_nolock_.exit ], [ %20, %.split ]
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
   %121 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %119, ptr noundef %120, i32 noundef 1) #3

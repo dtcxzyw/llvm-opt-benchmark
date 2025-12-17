@@ -78,7 +78,7 @@ define hidden range(i32 -1, 2) i32 @autosar_dlt_open(ptr noundef captures(none) 
   br label %27
 
 27:                                               ; preds = %11, %7, %12, %9
-  %.0 = phi i32 [ 1, %12 ], [ 0, %9 ], [ -1, %7 ], [ 0, %11 ]
+  %.0 = phi i32 [ -1, %7 ], [ 1, %12 ], [ 0, %9 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -149,7 +149,7 @@ define internal noundef zeroext i1 @autosar_dlt_seek_read(ptr noundef %0, i64 no
   br label %18
 
 18:                                               ; preds = %16, %5
-  %.0 = phi i1 [ false, %5 ], [ %17, %16 ]
+  %.0 = phi i1 [ %17, %16 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -362,7 +362,7 @@ define internal fastcc noundef zeroext i1 @autosar_dlt_read_block(ptr noundef re
   br label %103
 
 103:                                              ; preds = %29, %32, %67, %64, %58, %48, %15, %18, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %18 ], [ false, %15 ], [ false, %29 ], [ false, %32 ], [ false, %58 ], [ true, %67 ], [ false, %64 ], [ false, %48 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %15 ], [ false, %18 ], [ false, %29 ], [ false, %32 ], [ false, %58 ], [ true, %67 ], [ false, %64 ], [ false, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

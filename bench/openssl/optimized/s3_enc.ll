@@ -86,7 +86,7 @@ define range(i32 0, 2) i32 @ssl3_change_cipher_state(ptr noundef %0, i32 noundef
   br i1 %.not65, label %40, label %41
 
 .sink.split:                                      ; preds = %34, %9, %2
-  %.sink = phi i32 [ 108, %2 ], [ 118, %9 ], [ 144, %34 ]
+  %.sink = phi i32 [ 118, %9 ], [ 108, %2 ], [ 144, %34 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ssl3_change_cipher_state) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
@@ -357,7 +357,7 @@ ssl3_generate_key_block.exit:                     ; preds = %63, %65, %93, %98, 
   br label %108
 
 108:                                              ; preds = %16, %1, %ssl3_generate_key_block.exit, %41, %15
-  %.0 = phi i32 [ 0, %41 ], [ %.058.i, %ssl3_generate_key_block.exit ], [ 0, %15 ], [ 1, %1 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %15 ], [ 1, %1 ], [ 0, %41 ], [ %.058.i, %ssl3_generate_key_block.exit ], [ 0, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -468,8 +468,8 @@ define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %15, %9, %7
-  %.sink21 = phi i32 [ 255, %7 ], [ 260, %9 ], [ 266, %15 ]
-  %.sink = phi i32 [ 237, %7 ], [ 786691, %9 ], [ 786691, %15 ]
+  %.sink21 = phi i32 [ 260, %9 ], [ 255, %7 ], [ 266, %15 ]
+  %.sink = phi i32 [ 786691, %9 ], [ 237, %7 ], [ 786691, %15 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ssl3_finish_mac) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
@@ -894,7 +894,7 @@ define range(i32 -1, 121) i32 @ssl3_alert_code(i32 noundef %0) local_unnamed_add
   br label %6
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %5, %4, %3, %2
-  %.0 = phi i32 [ -1, %5 ], [ 20, %2 ], [ 40, %3 ], [ 42, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
+  %.0 = phi i32 [ -1, %5 ], [ %0, %1 ], [ %0, %1 ], [ 20, %2 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ 40, %3 ], [ %0, %1 ], [ 42, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ]
   ret i32 %.0
 }
 

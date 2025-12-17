@@ -83,7 +83,7 @@ define hidden void @luaK_nil(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %49 = tail call fastcc i32 @luaK_code(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %48)
   br label %.critedge
 
-.critedge:                                        ; preds = %34, %30, %11, %38
+.critedge:                                        ; preds = %30, %34, %11, %38
   ret void
 }
 
@@ -1452,8 +1452,8 @@ fixjump.exit.i.i65:                               ; preds = %159, %154
   br label %luaK_patchtohere.exit
 
 luaK_patchtohere.exit:                            ; preds = %select.unfold.i51, %.loopexit, %fixjump.exit.i.i65, %144, %luaK_jump.exit
-  %.036 = phi i32 [ %136, %luaK_jump.exit ], [ %136, %144 ], [ %136, %fixjump.exit.i.i65 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
-  %.0 = phi i32 [ %130, %luaK_jump.exit ], [ %130, %144 ], [ %130, %fixjump.exit.i.i65 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
+  %.036 = phi i32 [ %136, %fixjump.exit.i.i65 ], [ %136, %luaK_jump.exit ], [ %136, %144 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
+  %.0 = phi i32 [ %130, %fixjump.exit.i.i65 ], [ %130, %luaK_jump.exit ], [ %130, %144 ], [ -1, %.loopexit ], [ -1, %select.unfold.i51 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %167 = load i32, ptr %166, align 8, !tbaa !4
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -2511,7 +2511,7 @@ patchtestreg.exit.i37.i:                          ; preds = %126, %getjumpcontro
   br i1 %.not.i39.i, label %codenot.exit, label %112
 
 codenot.exit.sink.split.sink.split:               ; preds = %3, %isnumeral.exit, %11, %8
-  %.sink.ph = phi i32 [ 18, %8 ], [ 18, %11 ], [ 18, %isnumeral.exit ], [ 20, %3 ]
+  %.sink.ph = phi i32 [ 18, %isnumeral.exit ], [ 18, %8 ], [ 18, %11 ], [ 20, %3 ]
   %137 = tail call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %2)
   br label %codenot.exit.sink.split
 
@@ -2616,7 +2616,7 @@ isnumeral.exit29.i:                               ; preds = %16
   br label %48
 
 48:                                               ; preds = %46, %44, %39, %35, %31, %29, %27
-  %.0.i = phi double [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %36, %35 ], [ %43, %39 ], [ %45, %44 ], [ %47, %46 ]
+  %.0.i = phi double [ %47, %46 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %36, %35 ], [ %43, %39 ], [ %45, %44 ]
   %49 = fcmp ord double %.0.i, 0.000000e+00
   br i1 %49, label %constfolding.exit, label %50
 
@@ -2625,7 +2625,7 @@ constfolding.exit:                                ; preds = %22, %48
   store double %.033.i, ptr %23, align 8, !tbaa !39
   br label %118
 
-50:                                               ; preds = %isnumeral.exit29.i, %isnumeral.exit.i, %48, %7, %4, %16, %13
+50:                                               ; preds = %isnumeral.exit.i, %isnumeral.exit29.i, %48, %4, %7, %16, %13
   switch i32 %1, label %.thread [
     i32 20, label %.thread36
     i32 18, label %.thread36

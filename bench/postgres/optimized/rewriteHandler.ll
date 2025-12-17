@@ -174,7 +174,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   br label %29
 
 29:                                               ; preds = %24, %28, %23
-  %.067 = phi i32 [ 1, %23 ], [ 2, %28 ], [ %26, %24 ]
+  %.067 = phi i32 [ 1, %23 ], [ %26, %24 ], [ 2, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @table_open(i32 noundef %31, i32 noundef %.067) #9
@@ -258,9 +258,9 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   br label %69
 
 69:                                               ; preds = %65, %49, %.lr.ph108
-  %.172 = phi i32 [ %.07196106, %49 ], [ %.07196106, %.lr.ph108 ], [ %.273, %65 ]
-  %.170 = phi ptr [ %.06997105, %49 ], [ %.06997105, %.lr.ph108 ], [ %.2, %65 ]
-  %.066 = phi ptr [ %47, %49 ], [ %47, %.lr.ph108 ], [ %spec.select, %65 ]
+  %.172 = phi i32 [ %.07196106, %.lr.ph108 ], [ %.273, %65 ], [ %.07196106, %49 ]
+  %.170 = phi ptr [ %.06997105, %.lr.ph108 ], [ %.2, %65 ], [ %.06997105, %49 ]
+  %.066 = phi ptr [ %47, %.lr.ph108 ], [ %spec.select, %65 ], [ %47, %49 ]
   %70 = tail call ptr @lappend(ptr noundef %.07495107, ptr noundef %.066) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %41, align 4
@@ -674,7 +674,7 @@ define dso_local noundef zeroext i1 @view_has_instead_trigger(ptr noundef readon
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %46, %43, %40, %34, %29, %29, %29, %.preheader42, %.lr.ph.split.split, %.lr.ph.split.us.split, %24, %19, %14, %57
-  %.0 = phi i1 [ false, %57 ], [ true, %14 ], [ true, %19 ], [ true, %24 ], [ true, %.lr.ph.split.us.split ], [ true, %.lr.ph.split.split ], [ true, %.preheader42 ], [ false, %29 ], [ false, %29 ], [ false, %29 ], [ true, %34 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ true, %53 ]
+  %.0 = phi i1 [ true, %24 ], [ false, %57 ], [ true, %14 ], [ true, %19 ], [ true, %.lr.ph.split.split ], [ false, %29 ], [ true, %.lr.ph.split.us.split ], [ true, %.preheader42 ], [ false, %29 ], [ false, %29 ], [ true, %34 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ true, %53 ]
   ret i1 %.0
 }
 
@@ -855,13 +855,13 @@ list_length.exit:                                 ; preds = %38
   %or.cond = icmp slt i16 %95, 1
   br i1 %or.cond, label %select.unfold, label %list_length.exit.thread
 
-select.unfold:                                    ; preds = %78, %90, %87, %84, %93
+select.unfold:                                    ; preds = %93, %78, %84, %90, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %list_length.exit.thread, label %78
 
 list_length.exit.thread:                          ; preds = %93, %select.unfold, %70, %.lr.ph, %67, %38, %50, %62, %45, %list_length.exit, %34, %30, %26, %20, %23, %17, %14, %11, %5, %8, %2
-  %.0 = phi ptr [ @.str.9, %2 ], [ @.str.10, %8 ], [ @.str.10, %5 ], [ @.str.11, %11 ], [ @.str.12, %14 ], [ @.str.13, %17 ], [ @.str.14, %23 ], [ @.str.14, %20 ], [ @.str.15, %26 ], [ @.str.16, %30 ], [ @.str.17, %34 ], [ @.str.18, %list_length.exit ], [ @.str.18, %45 ], [ @.str.18, %62 ], [ @.str.18, %50 ], [ %.str.19.mux, %67 ], [ @.str.18, %38 ], [ @.str.20, %70 ], [ @.str.20, %.lr.ph ], [ null, %93 ], [ @.str.20, %select.unfold ]
+  %.0 = phi ptr [ @.str.18, %list_length.exit ], [ @.str.9, %2 ], [ @.str.10, %5 ], [ @.str.11, %11 ], [ @.str.12, %14 ], [ @.str.13, %17 ], [ @.str.14, %20 ], [ @.str.15, %26 ], [ @.str.16, %30 ], [ @.str.17, %34 ], [ @.str.18, %45 ], [ @.str.18, %50 ], [ @.str.18, %38 ], [ %.str.19.mux, %67 ], [ @.str.10, %8 ], [ @.str.14, %23 ], [ @.str.18, %62 ], [ @.str.20, %.lr.ph ], [ @.str.20, %70 ], [ null, %93 ], [ @.str.20, %select.unfold ]
   ret ptr %.0
 }
 
@@ -1095,7 +1095,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   br label %121
 
 121:                                              ; preds = %61, %43, %4, %120, %79, %18, %12
-  %.0 = phi i32 [ 0, %12 ], [ 28, %18 ], [ %.9, %79 ], [ %.12, %120 ], [ 28, %61 ], [ 28, %43 ], [ 0, %4 ]
+  %.0 = phi i32 [ 28, %43 ], [ 0, %12 ], [ 28, %18 ], [ %.9, %79 ], [ %.12, %120 ], [ 28, %61 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1377,7 +1377,7 @@ view_col_is_auto_updatable.exit:                  ; preds = %119
   store ptr %124, ptr %2, align 8
   br label %.thread50
 
-select.unfold:                                    ; preds = %.lr.ph110, %116, %112, %109, %119
+select.unfold:                                    ; preds = %119, %.lr.ph110, %109, %116, %112
   %125 = sext i16 %105 to i32
   %126 = tail call zeroext i1 @bms_is_member(i32 noundef %125, ptr noundef %1) #9
   br i1 %126, label %.thread54, label %.thread50
@@ -1527,7 +1527,7 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   br label %.critedge
 
 .split.us:                                        ; preds = %55, %57, %61, %11, %13, %17
-  %.us-phi43 = phi i16 [ %9, %17 ], [ %9, %13 ], [ %9, %11 ], [ %32, %61 ], [ %32, %57 ], [ %32, %55 ]
+  %.us-phi43 = phi i16 [ %9, %11 ], [ %9, %17 ], [ %9, %13 ], [ %32, %61 ], [ %32, %57 ], [ %32, %55 ]
   %72 = sext i16 %.us-phi43 to i32
   %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %72) #9
@@ -1995,7 +1995,7 @@ define dso_local ptr @QueryRewrite(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge50.thread
 
 .critedge50.thread:                               ; preds = %25, %.lr.ph, %1, %.lr.ph66, %.critedge, %36, %.critedge50
-  %.0.lcssa84 = phi ptr [ %14, %36 ], [ %14, %.critedge50 ], [ %14, %.lr.ph66 ], [ null, %.critedge ], [ null, %1 ], [ null, %.lr.ph ], [ %14, %25 ]
+  %.0.lcssa84 = phi ptr [ %14, %36 ], [ %14, %.critedge50 ], [ null, %.critedge ], [ %14, %.lr.ph66 ], [ null, %1 ], [ null, %.lr.ph ], [ %14, %25 ]
   ret ptr %.0.lcssa84
 }
 
@@ -2222,8 +2222,8 @@ list_length.exit:                                 ; preds = %28
   unreachable
 
 113:                                              ; preds = %110, %100, %96, %91
-  %.1263 = phi ptr [ %.0262510524, %96 ], [ %.0262510524, %91 ], [ %.0262510524, %100 ], [ %106, %110 ]
-  %.1252 = phi i32 [ %.0251511523, %96 ], [ %.0251511523, %91 ], [ %.0251511523, %100 ], [ %98, %110 ]
+  %.1263 = phi ptr [ %.0262510524, %91 ], [ %.0262510524, %96 ], [ %.0262510524, %100 ], [ %106, %110 ]
+  %.1252 = phi i32 [ %.0251511523, %91 ], [ %.0251511523, %96 ], [ %.0251511523, %100 ], [ %98, %110 ]
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
   br i1 %exitcond634.not, label %.critedge311, label %91
@@ -2423,7 +2423,7 @@ view_has_instead_trigger.exit.i:                  ; preds = %187, %184
   br label %view_has_instead_trigger.exit.thread.i
 
 view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %187, %.critedge.i
-  %.095.i = phi i1 [ %.196.i, %.critedge125.i ], [ false, %.critedge.i ], [ false, %187 ]
+  %.095.i = phi i1 [ false, %.critedge.i ], [ %.196.i, %.critedge125.i ], [ false, %187 ]
   %209 = load ptr, ptr %122, align 8
   %.not119.i = icmp eq ptr %209, null
   br i1 %.not119.i, label %.critedge127.i, label %.lr.ph173.i
@@ -2556,8 +2556,8 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   br label %279
 
 279:                                              ; preds = %265, %.thread138.i, %263, %237, %.lr.ph531
-  %.sink.i = phi ptr [ %244, %237 ], [ %225, %.thread138.i ], [ %.mux.i, %263 ], [ %278, %265 ], [ %225, %.lr.ph531 ]
-  %.3.i = phi i1 [ %.198163.i529, %237 ], [ false, %.thread138.i ], [ %.198163.mux.i, %263 ], [ %.198163.i529, %265 ], [ %.198163.i529, %.lr.ph531 ]
+  %.sink.i = phi ptr [ %244, %237 ], [ %278, %265 ], [ %225, %.thread138.i ], [ %.mux.i, %263 ], [ %225, %.lr.ph531 ]
+  %.3.i = phi i1 [ %.198163.i529, %237 ], [ %.198163.i529, %265 ], [ false, %.thread138.i ], [ %.198163.mux.i, %263 ], [ %.198163.i529, %.lr.ph531 ]
   %280 = call ptr @lappend(ptr noundef %.0103160.i530, ptr noundef %.sink.i) #9
   %281 = load i32, ptr %218, align 4
   %282 = sext i32 %281 to i64
@@ -2565,7 +2565,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   br i1 %283, label %.lr.ph531, label %.critedge129.i
 
 rewriteValuesRTE.exit:                            ; preds = %.critedge.i.i, %114, %.lr.ph10.i.i, %.critedge127.i
-  %.0.i = phi i1 [ %.097.lcssa.i, %.critedge127.i ], [ false, %.lr.ph10.i.i ], [ false, %114 ], [ false, %.critedge.i.i ]
+  %.0.i = phi i1 [ %.097.lcssa.i, %.critedge127.i ], [ false, %114 ], [ false, %.lr.ph10.i.i ], [ false, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %290
 
@@ -2801,9 +2801,9 @@ CopyAndAddInvertedQual.exit.i:                    ; preds = %397, %acquireLocksO
   br label %.thread.i
 
 .thread.i:                                        ; preds = %378, %CopyAndAddInvertedQual.exit.i, %379, %.lr.ph552
-  %.3387 = phi i8 [ 1, %379 ], [ 0, %CopyAndAddInvertedQual.exit.i ], [ %.2386547, %.lr.ph552 ], [ 1, %378 ]
-  %.2378 = phi ptr [ %.1377549, %379 ], [ %386, %CopyAndAddInvertedQual.exit.i ], [ %.1377549, %.lr.ph552 ], [ %.1377549, %378 ]
-  %.04458.i = phi i32 [ 3, %379 ], [ 3, %CopyAndAddInvertedQual.exit.i ], [ 4, %.lr.ph552 ], [ 2, %378 ]
+  %.3387 = phi i8 [ %.2386547, %.lr.ph552 ], [ 1, %379 ], [ 0, %CopyAndAddInvertedQual.exit.i ], [ 1, %378 ]
+  %.2378 = phi ptr [ %.1377549, %.lr.ph552 ], [ %.1377549, %379 ], [ %386, %CopyAndAddInvertedQual.exit.i ], [ %.1377549, %378 ]
+  %.04458.i = phi i32 [ 4, %.lr.ph552 ], [ 3, %379 ], [ 3, %CopyAndAddInvertedQual.exit.i ], [ 2, %378 ]
   %.not49.i = icmp eq ptr %374, null
   br i1 %.not49.i, label %.critedge52.i, label %.lr.ph.i332
 
@@ -3274,7 +3274,7 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   br label %636
 
 636:                                              ; preds = %635, %624, %622, %618
-  %.0.i55.i = phi ptr [ %424, %635 ], [ %424, %622 ], [ %424, %618 ], [ %633, %624 ]
+  %.0.i55.i = phi ptr [ %424, %635 ], [ %424, %618 ], [ %424, %622 ], [ %633, %624 ]
   %637 = load ptr, ptr %363, align 8
   %.not179.i.i = icmp eq ptr %637, null
   %638 = getelementptr inbounds nuw i8, ptr %.0.i55.i, i64 152
@@ -3448,7 +3448,7 @@ list_length.exit343:                              ; preds = %697
   br label %list_length.exit343.thread
 
 list_length.exit343.thread:                       ; preds = %697, %727, %703, %724, %721, %708, %list_length.exit343, %694, %691, %684
-  %.0258 = phi ptr [ %687, %list_length.exit343 ], [ %687, %694 ], [ %687, %691 ], [ %687, %684 ], [ %687, %703 ], [ %687, %724 ], [ %687, %721 ], [ %687, %708 ], [ %spec.select, %727 ], [ %687, %697 ]
+  %.0258 = phi ptr [ %687, %684 ], [ %687, %list_length.exit343 ], [ %687, %694 ], [ %687, %691 ], [ %687, %703 ], [ %687, %708 ], [ %spec.select, %727 ], [ %687, %724 ], [ %687, %721 ], [ %687, %697 ]
   %731 = getelementptr inbounds nuw i8, ptr %.0258, i64 64
   %732 = load ptr, ptr %731, align 8
   %733 = getelementptr i8, ptr %732, i64 16
@@ -3827,7 +3827,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   br i1 %930, label %select.unfold.us.i.i, label %.thread50.us.i.i
 
 select.unfold.us.i.i:                             ; preds = %929, %925, %922, %918, %915, %.lr.ph141.i.i
-  %.0.i.ph.us.i.i = phi ptr [ @.str.33, %925 ], [ @.str.32, %915 ], [ @.str.32, %918 ], [ @.str.32, %922 ], [ @.str.31, %.lr.ph141.i.i ], [ @.str.34, %929 ]
+  %.0.i.ph.us.i.i = phi ptr [ @.str.33, %925 ], [ @.str.32, %918 ], [ @.str.32, %922 ], [ @.str.32, %915 ], [ @.str.31, %.lr.ph141.i.i ], [ @.str.34, %929 ]
   %931 = sext i16 %911 to i32
   %932 = call zeroext i1 @bms_is_member(i32 noundef %931, ptr noundef %.us-phi493.i) #9
   br i1 %932, label %974, label %select.unfold.us..thread50.us_crit_edge.i.i
@@ -5362,7 +5362,7 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
   br label %243
 
 243:                                              ; preds = %78, %74, %66, %60, %46, %._crit_edge.thread, %52
-  %.1123 = phi ptr [ %.0122213, %52 ], [ %.2124, %._crit_edge.thread ], [ %.0122213, %46 ], [ %.0122213, %60 ], [ %.0122213, %66 ], [ %.0122213, %74 ], [ %.0122213, %78 ]
+  %.1123 = phi ptr [ %.0122213, %52 ], [ %.0122213, %66 ], [ %.0122213, %46 ], [ %.0122213, %60 ], [ %.0122213, %74 ], [ %.2124, %._crit_edge.thread ], [ %.0122213, %78 ]
   %244 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %244, null
   br i1 %.not.i, label %.critedge181, label %list_length.exit
@@ -5777,10 +5777,10 @@ define internal fastcc ptr @rewriteTargetListIU(ptr noundef readonly captures(ad
   br label %get_assignment_input.exit.i
 
 get_assignment_input.exit.i:                      ; preds = %.sink.split.i.i, %88, %.thread.i, %81, %63
-  %.06295.i = phi ptr [ %65, %81 ], [ %.06294.i, %88 ], [ %.06294.i, %.thread.i ], [ %.06294.i, %.sink.split.i.i ], [ null, %63 ]
-  %.06393.i = phi ptr [ null, %81 ], [ %.06392.i, %88 ], [ %.06392.i, %.thread.i ], [ %.06392.i, %.sink.split.i.i ], [ null, %63 ]
-  %.06491.i = phi ptr [ %85, %81 ], [ %.06490.i, %88 ], [ %.06490.i, %.thread.i ], [ %.06490.i, %.sink.split.i.i ], [ %67, %63 ]
-  %.0.i.i = phi ptr [ null, %81 ], [ null, %88 ], [ null, %.thread.i ], [ %93, %.sink.split.i.i ], [ null, %63 ]
+  %.06295.i = phi ptr [ %.06294.i, %88 ], [ %.06294.i, %.thread.i ], [ %65, %81 ], [ %.06294.i, %.sink.split.i.i ], [ null, %63 ]
+  %.06393.i = phi ptr [ %.06392.i, %88 ], [ %.06392.i, %.thread.i ], [ null, %81 ], [ %.06392.i, %.sink.split.i.i ], [ null, %63 ]
+  %.06491.i = phi ptr [ %.06490.i, %88 ], [ %.06490.i, %.thread.i ], [ %85, %81 ], [ %.06490.i, %.sink.split.i.i ], [ %67, %63 ]
+  %.0.i.i = phi ptr [ null, %88 ], [ null, %.thread.i ], [ null, %81 ], [ %93, %.sink.split.i.i ], [ null, %63 ]
   %94 = icmp eq ptr %.06491.i, null
   br i1 %94, label %get_assignment_input.exit82.thread.i, label %get_assignment_input.exit.i.get_assignment_input.exit.threadthread-pre-split.i_crit_edge
 
@@ -6007,7 +6007,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br label %195
 
 195:                                              ; preds = %188, %189, %192
-  %196 = phi i1 [ false, %189 ], [ false, %188 ], [ %194, %192 ]
+  %196 = phi i1 [ %194, %192 ], [ false, %189 ], [ false, %188 ]
   br i1 %33, label %197, label %254
 
 197:                                              ; preds = %195
@@ -6035,7 +6035,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br label %212
 
 212:                                              ; preds = %204, %208, %199, %197
-  %.0136 = phi i32 [ 0, %199 ], [ 0, %197 ], [ %211, %208 ], [ 0, %204 ]
+  %.0136 = phi i32 [ 0, %197 ], [ 0, %199 ], [ %211, %208 ], [ 0, %204 ]
   %213 = getelementptr inbounds nuw i8, ptr %181, i64 89
   %214 = load i8, ptr %213, align 1
   %215 = icmp ne i8 %214, 97
@@ -6176,8 +6176,8 @@ process_matched_tle.exit:                         ; preds = %59, %156
   unreachable
 
 .thread196:                                       ; preds = %251, %249, %266, %254
-  %.0138200 = phi i1 [ %196, %266 ], [ %196, %254 ], [ %.4, %249 ], [ true, %251 ]
-  %.2150199 = phi ptr [ %.0148228, %266 ], [ %.0148228, %254 ], [ %.6, %249 ], [ %.6, %251 ]
+  %.0138200 = phi i1 [ %196, %254 ], [ %196, %266 ], [ %.4, %249 ], [ true, %251 ]
+  %.2150199 = phi ptr [ %.0148228, %254 ], [ %.0148228, %266 ], [ %.6, %249 ], [ %.6, %251 ]
   %276 = getelementptr inbounds nuw i8, ptr %181, i64 90
   %277 = load i8, ptr %276, align 2
   %.not175 = icmp eq i8 %277, 0
@@ -6348,13 +6348,13 @@ define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nound
   br label %55
 
 55:                                               ; preds = %47, %53, %51, %35, %35, %34, %34
-  %.1 = phi ptr [ %.02937, %34 ], [ %.02937, %34 ], [ %.02937, %35 ], [ %.02937, %35 ], [ %54, %53 ], [ %.02937, %51 ], [ %.02937, %47 ]
+  %.1 = phi ptr [ %.02937, %34 ], [ %.02937, %35 ], [ %.02937, %34 ], [ %.02937, %35 ], [ %54, %53 ], [ %.02937, %51 ], [ %.02937, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !21
 
 .loopexit:                                        ; preds = %55, %15, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %15 ], [ %.1, %55 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %5 ], [ null, %15 ], [ %.1, %55 ]
   ret ptr %.0
 }
 

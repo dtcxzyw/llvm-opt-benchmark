@@ -135,7 +135,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_hash_append(ptr noundef %0, i6
   br label %52
 
 52:                                               ; preds = %48, %12, %35, %38, %3, %6
-  %.0 = phi i32 [ 11, %6 ], [ 11, %3 ], [ 9, %38 ], [ 9, %35 ], [ 9, %12 ], [ %spec.select, %48 ]
+  %.0 = phi i32 [ 9, %12 ], [ 11, %3 ], [ 11, %6 ], [ %spec.select, %48 ], [ 9, %38 ], [ 9, %35 ]
   ret i32 %.0
 }
 
@@ -374,7 +374,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br i1 %130, label %115, label %.thread, !llvm.loop !31
 
 .sink.split:                                      ; preds = %44, %73, %24, %33
-  %storemerge.sink = phi i32 [ %35, %33 ], [ 1, %24 ], [ %77, %73 ], [ 3, %44 ]
+  %storemerge.sink = phi i32 [ 1, %24 ], [ %35, %33 ], [ %77, %73 ], [ 3, %44 ]
   store i32 %storemerge.sink, ptr %0, align 8, !tbaa !4
   br label %131
 
@@ -385,7 +385,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br i1 %134, label %21, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %28, %131, %36
-  %.289.ph = phi i32 [ %29, %28 ], [ 0, %131 ], [ %39, %36 ]
+  %.289.ph = phi i32 [ %29, %28 ], [ %39, %36 ], [ 0, %131 ]
   %.pre129 = load i64, ptr %2, align 8, !tbaa !18
   %.not111 = icmp eq i64 %.pre129, %6
   br i1 %.not111, label %.thread, label %135
@@ -400,7 +400,7 @@ define dso_local i32 @lzma_index_hash_decode(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %46, %65, %69, %44, %24, %30, %88, %21, %115, %118, %127, %100, %97, %94, %103, %135, %._crit_edge, %4
-  %.0 = phi i32 [ 10, %4 ], [ 9, %100 ], [ 9, %97 ], [ 9, %94 ], [ 9, %103 ], [ %.289.ph, %135 ], [ %.289.ph, %._crit_edge ], [ 1, %127 ], [ 9, %118 ], [ 0, %115 ], [ 9, %46 ], [ 9, %65 ], [ 9, %69 ], [ 9, %44 ], [ 11, %21 ], [ 9, %88 ], [ 9, %30 ], [ 9, %24 ]
+  %.0 = phi i32 [ 10, %4 ], [ 9, %94 ], [ 9, %103 ], [ 1, %127 ], [ 9, %100 ], [ %.289.ph, %._crit_edge ], [ 9, %97 ], [ %.289.ph, %135 ], [ 0, %115 ], [ 9, %118 ], [ 9, %44 ], [ 9, %46 ], [ 9, %88 ], [ 9, %30 ], [ 9, %24 ], [ 11, %21 ], [ 9, %65 ], [ 9, %69 ]
   ret i32 %.0
 }
 

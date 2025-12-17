@@ -2265,8 +2265,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %55
   br label %98
 
 .sink.split.sink.split:                           ; preds = %27, %25, %23, %21, %19, %17, %11
-  %.sink86 = phi i32 [ %16, %11 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
-  %.sink85 = phi i32 [ 164, %11 ], [ 171, %17 ], [ 178, %19 ], [ 185, %21 ], [ 192, %23 ], [ 199, %25 ], [ 206, %27 ]
+  %.sink86 = phi i32 [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %11 ], [ %28, %27 ]
+  %.sink85 = phi i32 [ 199, %25 ], [ 192, %23 ], [ 185, %21 ], [ 178, %19 ], [ 171, %17 ], [ 164, %11 ], [ 206, %27 ]
   %70 = call ptr @PMIx_Error_string(i32 noundef %.sink86) #13
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %70, ptr noundef nonnull @.str.3, i32 noundef %.sink85) #13
   br label %.sink.split
@@ -2424,7 +2424,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %._crit_edge, %32, %._crit_edge, %23, %10, %2
-  %.0 = phi i32 [ %5, %2 ], [ %5, %10 ], [ %22, %23 ], [ %31, %._crit_edge ], [ %31, %32 ], [ %31, %._crit_edge ], [ %22, %21 ]
+  %.0 = phi i32 [ %31, %._crit_edge ], [ %5, %10 ], [ %22, %23 ], [ %5, %2 ], [ %31, %._crit_edge ], [ %31, %32 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2579,14 +2579,14 @@ define internal fastcc noundef i32 @pack_state_for_proc(ptr noundef %0, ptr noun
   ]
 
 .sink.split:                                      ; preds = %11, %8, %5, %2
-  %.sink36 = phi i32 [ %4, %2 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ]
-  %.sink35 = phi i32 [ 729, %2 ], [ 735, %5 ], [ 741, %8 ], [ 747, %11 ]
+  %.sink36 = phi i32 [ %10, %8 ], [ %7, %5 ], [ %4, %2 ], [ %13, %11 ]
+  %.sink35 = phi i32 [ 741, %8 ], [ 735, %5 ], [ 729, %2 ], [ 747, %11 ]
   %14 = tail call ptr @PMIx_Error_string(i32 noundef %.sink36) #13
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %.sink35) #13
   br label %15
 
 15:                                               ; preds = %.sink.split, %11, %11, %8, %5, %2
-  %.0 = phi i32 [ %4, %2 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %13, %11 ], [ %.sink36, %.sink.split ]
+  %.0 = phi i32 [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %13, %11 ], [ %4, %2 ], [ %.sink36, %.sink.split ]
   ret i32 %.0
 }
 

@@ -78,7 +78,7 @@ define hidden i64 @_mi_os_good_alloc_size(i64 noundef %0) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %9, %7, %5, %3
-  %.0 = phi i64 [ %4, %3 ], [ 65536, %5 ], [ 262144, %7 ], [ %., %9 ]
+  %.0 = phi i64 [ %4, %3 ], [ 262144, %7 ], [ 65536, %5 ], [ %., %9 ]
   %12 = xor i64 %.0, -1
   %.not = icmp ult i64 %0, %12
   br i1 %.not, label %13, label %_mi_align_up.exit, !prof !11
@@ -175,7 +175,7 @@ define hidden ptr @_mi_os_alloc(i64 noundef %0, ptr noundef readnone captures(no
   br label %14
 
 14:                                               ; preds = %12, %10, %8, %6
-  %.0.i = phi i64 [ %7, %6 ], [ 65536, %8 ], [ 262144, %10 ], [ %..i, %12 ]
+  %.0.i = phi i64 [ %7, %6 ], [ 262144, %10 ], [ 65536, %8 ], [ %..i, %12 ]
   %15 = xor i64 %.0.i, -1
   %.not.i = icmp ult i64 %0, %15
   br i1 %.not.i, label %16, label %_mi_os_good_alloc_size.exit.thread, !prof !11
@@ -198,7 +198,7 @@ define hidden ptr @_mi_os_alloc(i64 noundef %0, ptr noundef readnone captures(no
   br label %_mi_os_good_alloc_size.exit
 
 _mi_os_good_alloc_size.exit:                      ; preds = %21, %24
-  %.010.i = phi i64 [ %23, %21 ], [ %26, %24 ]
+  %.010.i = phi i64 [ %26, %24 ], [ %23, %21 ]
   %27 = icmp eq i64 %.010.i, 0
   br i1 %27, label %mi_os_mem_alloc.exit, label %_mi_os_good_alloc_size.exit.thread
 
@@ -233,7 +233,7 @@ mi_unix_mmap.exit:                                ; preds = %.thread131.i
   br label %mi_os_mem_alloc.exit
 
 mi_os_mem_alloc.exit:                             ; preds = %mi_unix_mmap.exit, %_mi_os_good_alloc_size.exit, %mi_unix_mmap.exit.thread, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_mi_os_good_alloc_size.exit ], [ %32, %mi_unix_mmap.exit ], [ null, %mi_unix_mmap.exit.thread ]
+  %.0 = phi ptr [ null, %2 ], [ null, %_mi_os_good_alloc_size.exit ], [ null, %mi_unix_mmap.exit.thread ], [ %32, %mi_unix_mmap.exit ]
   ret ptr %.0
 }
 
@@ -266,7 +266,7 @@ define hidden void @_mi_os_free_ex(ptr noundef %0, i64 noundef %1, i1 noundef ze
   br label %17
 
 17:                                               ; preds = %15, %13, %11, %9
-  %.0.i = phi i64 [ %10, %9 ], [ 65536, %11 ], [ 262144, %13 ], [ %..i, %15 ]
+  %.0.i = phi i64 [ %10, %9 ], [ 262144, %13 ], [ 65536, %11 ], [ %..i, %15 ]
   %18 = xor i64 %.0.i, -1
   %.not.i = icmp ult i64 %1, %18
   br i1 %.not.i, label %19, label %_mi_os_good_alloc_size.exit.thread, !prof !11
@@ -289,7 +289,7 @@ define hidden void @_mi_os_free_ex(ptr noundef %0, i64 noundef %1, i1 noundef ze
   br label %_mi_os_good_alloc_size.exit
 
 _mi_os_good_alloc_size.exit:                      ; preds = %24, %27
-  %.010.i = phi i64 [ %26, %24 ], [ %29, %27 ]
+  %.010.i = phi i64 [ %29, %27 ], [ %26, %24 ]
   %30 = icmp eq i64 %.010.i, 0
   br i1 %30, label %mi_os_mem_free.exit, label %_mi_os_good_alloc_size.exit.thread
 
@@ -355,7 +355,7 @@ define hidden ptr @_mi_os_alloc_aligned(i64 noundef %0, i64 noundef %1, i1 nound
   br label %18
 
 18:                                               ; preds = %16, %14, %12, %10
-  %.0.i = phi i64 [ %11, %10 ], [ 65536, %12 ], [ 262144, %14 ], [ %..i, %16 ]
+  %.0.i = phi i64 [ %11, %10 ], [ 262144, %14 ], [ 65536, %12 ], [ %..i, %16 ]
   %19 = xor i64 %.0.i, -1
   %.not.i = icmp ult i64 %0, %19
   br i1 %.not.i, label %20, label %_mi_os_good_alloc_size.exit, !prof !11
@@ -611,7 +611,7 @@ mi_os_mem_free.exit81.i:                          ; preds = %116, %_mi_align_up.
   br label %mi_os_mem_alloc_aligned.exit
 
 mi_os_mem_alloc_aligned.exit:                     ; preds = %45, %_mi_align_up.exit.i, %60, %mi_os_mem_alloc.exit.i, %mi_os_mem_free.exit.i, %77, %mi_unix_mmap.exit.thread.i, %mi_os_mem_free.exit81.i, %117, %128
-  %.0.i15 = phi ptr [ null, %45 ], [ null, %mi_os_mem_free.exit.i ], [ %61, %mi_os_mem_alloc.exit.i ], [ %92, %128 ], [ %92, %117 ], [ %92, %mi_os_mem_free.exit81.i ], [ null, %_mi_align_up.exit.i ], [ null, %60 ], [ null, %77 ], [ null, %mi_unix_mmap.exit.thread.i ]
+  %.0.i15 = phi ptr [ null, %45 ], [ %61, %mi_os_mem_alloc.exit.i ], [ %92, %mi_os_mem_free.exit81.i ], [ null, %60 ], [ null, %mi_os_mem_free.exit.i ], [ %92, %128 ], [ %92, %117 ], [ null, %_mi_align_up.exit.i ], [ null, %77 ], [ null, %mi_unix_mmap.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
@@ -689,8 +689,8 @@ define internal fastcc noundef zeroext i1 @mi_os_commitx(ptr noundef %0, i64 nou
   br label %mi_align_down_ptr.exit27.i
 
 mi_align_down_ptr.exit27.i:                       ; preds = %38, %34, %29, %25
-  %.in.i = phi i64 [ %27, %25 ], [ %31, %29 ], [ %36, %34 ], [ %40, %38 ]
-  %.in30.i = phi i64 [ %28, %25 ], [ %33, %29 ], [ %37, %34 ], [ %42, %38 ]
+  %.in.i = phi i64 [ %31, %29 ], [ %27, %25 ], [ %36, %34 ], [ %40, %38 ]
+  %.in30.i = phi i64 [ %33, %29 ], [ %28, %25 ], [ %37, %34 ], [ %42, %38 ]
   %43 = sub i64 %.in30.i, %.in.i
   %44 = icmp slt i64 %43, 1
   br i1 %44, label %mi_os_page_align_areax.exit.thread, label %45
@@ -727,7 +727,7 @@ mi_align_down_ptr.exit27.i:                       ; preds = %38, %34, %29, %25
   br label %mi_os_page_align_areax.exit.thread
 
 mi_os_page_align_areax.exit.thread:               ; preds = %47, %mi_align_down_ptr.exit27.i, %7, %54, %55
-  %.021 = phi i1 [ false, %55 ], [ true, %54 ], [ true, %7 ], [ true, %mi_align_down_ptr.exit27.i ], [ true, %47 ]
+  %.021 = phi i1 [ true, %54 ], [ true, %mi_align_down_ptr.exit27.i ], [ false, %55 ], [ true, %7 ], [ true, %47 ]
   ret i1 %.021
 }
 
@@ -763,8 +763,8 @@ define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %0, i64 noundef %1
   br label %mi_align_down_ptr.exit27.i.i
 
 mi_align_down_ptr.exit27.i.i:                     ; preds = %19, %15
-  %.in.i.i = phi i64 [ %17, %15 ], [ %21, %19 ]
-  %.in30.i.i = phi i64 [ %18, %15 ], [ %23, %19 ]
+  %.in.i.i = phi i64 [ %21, %19 ], [ %17, %15 ]
+  %.in30.i.i = phi i64 [ %23, %19 ], [ %18, %15 ]
   %24 = sub i64 %.in30.i.i, %.in.i.i
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %mi_os_commitx.exit, label %26
@@ -781,7 +781,7 @@ mi_align_down_ptr.exit27.i.i:                     ; preds = %19, %15
   br label %mi_os_commitx.exit
 
 mi_os_commitx.exit:                               ; preds = %3, %mi_align_down_ptr.exit27.i.i, %26, %29
-  %.021.i = phi i1 [ false, %29 ], [ true, %26 ], [ true, %3 ], [ true, %mi_align_down_ptr.exit27.i.i ]
+  %.021.i = phi i1 [ true, %26 ], [ true, %mi_align_down_ptr.exit27.i.i ], [ false, %29 ], [ true, %3 ]
   ret i1 %.021.i
 }
 
@@ -817,8 +817,8 @@ define hidden noundef zeroext i1 @_mi_os_reset(ptr noundef %0, i64 noundef %1, p
   br label %mi_align_down_ptr.exit27.i.i.i
 
 mi_align_down_ptr.exit27.i.i.i:                   ; preds = %19, %15
-  %.in.i.i.i = phi i64 [ %17, %15 ], [ %21, %19 ]
-  %.in30.i.i.i = phi i64 [ %18, %15 ], [ %23, %19 ]
+  %.in.i.i.i = phi i64 [ %21, %19 ], [ %17, %15 ]
+  %.in30.i.i.i = phi i64 [ %23, %19 ], [ %18, %15 ]
   %24 = sub i64 %.in30.i.i.i, %.in.i.i.i
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %mi_os_resetx.exit, label %26
@@ -869,7 +869,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %19, %15
   br label %mi_os_resetx.exit
 
 mi_os_resetx.exit:                                ; preds = %35, %3, %mi_align_down_ptr.exit27.i.i.i, %26, %.critedge22.i, %.critedge22.thread8.i
-  %.0.i = phi i1 [ true, %.critedge22.i ], [ false, %.critedge22.thread8.i ], [ true, %3 ], [ true, %mi_align_down_ptr.exit27.i.i.i ], [ true, %26 ], [ true, %35 ]
+  %.0.i = phi i1 [ true, %mi_align_down_ptr.exit27.i.i.i ], [ true, %.critedge22.i ], [ false, %.critedge22.thread8.i ], [ true, %3 ], [ true, %26 ], [ true, %35 ]
   ret i1 %.0.i
 }
 
@@ -905,8 +905,8 @@ define hidden noundef zeroext i1 @_mi_os_protect(ptr noundef %0, i64 noundef %1)
   br label %mi_align_down_ptr.exit27.i.i.i
 
 mi_align_down_ptr.exit27.i.i.i:                   ; preds = %18, %14
-  %.in.i.i.i = phi i64 [ %16, %14 ], [ %20, %18 ]
-  %.in30.i.i.i = phi i64 [ %17, %14 ], [ %22, %18 ]
+  %.in.i.i.i = phi i64 [ %20, %18 ], [ %16, %14 ]
+  %.in30.i.i.i = phi i64 [ %22, %18 ], [ %17, %14 ]
   %23 = sub i64 %.in30.i.i.i, %.in.i.i.i
   %24 = icmp slt i64 %23, 1
   br i1 %24, label %mi_os_protectx.exit, label %25
@@ -928,7 +928,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %18, %14
   br label %mi_os_protectx.exit
 
 mi_os_protectx.exit:                              ; preds = %2, %mi_align_down_ptr.exit27.i.i.i, %25, %28, %31
-  %.010.i = phi i1 [ false, %31 ], [ true, %28 ], [ false, %2 ], [ false, %mi_align_down_ptr.exit27.i.i.i ], [ true, %25 ]
+  %.010.i = phi i1 [ true, %28 ], [ false, %mi_align_down_ptr.exit27.i.i.i ], [ false, %31 ], [ false, %2 ], [ true, %25 ]
   ret i1 %.010.i
 }
 
@@ -964,8 +964,8 @@ define hidden noundef zeroext i1 @_mi_os_unprotect(ptr noundef %0, i64 noundef %
   br label %mi_align_down_ptr.exit27.i.i.i
 
 mi_align_down_ptr.exit27.i.i.i:                   ; preds = %18, %14
-  %.in.i.i.i = phi i64 [ %16, %14 ], [ %20, %18 ]
-  %.in30.i.i.i = phi i64 [ %17, %14 ], [ %22, %18 ]
+  %.in.i.i.i = phi i64 [ %20, %18 ], [ %16, %14 ]
+  %.in30.i.i.i = phi i64 [ %22, %18 ], [ %17, %14 ]
   %23 = sub i64 %.in30.i.i.i, %.in.i.i.i
   %24 = icmp slt i64 %23, 1
   br i1 %24, label %mi_os_protectx.exit, label %25
@@ -987,7 +987,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %18, %14
   br label %mi_os_protectx.exit
 
 mi_os_protectx.exit:                              ; preds = %2, %mi_align_down_ptr.exit27.i.i.i, %25, %28, %31
-  %.010.i = phi i1 [ false, %31 ], [ true, %28 ], [ false, %2 ], [ false, %mi_align_down_ptr.exit27.i.i.i ], [ true, %25 ]
+  %.010.i = phi i1 [ true, %28 ], [ false, %mi_align_down_ptr.exit27.i.i.i ], [ false, %31 ], [ false, %2 ], [ true, %25 ]
   ret i1 %.010.i
 }
 
@@ -1028,8 +1028,8 @@ define hidden noundef zeroext i1 @_mi_os_shrink(ptr noundef %0, i64 noundef %1, 
   br label %mi_align_down_ptr.exit27.i.i
 
 mi_align_down_ptr.exit27.i.i:                     ; preds = %23, %19
-  %.in.i.i = phi i64 [ %21, %19 ], [ %25, %23 ]
-  %.in30.i.i = phi i64 [ %22, %19 ], [ %27, %23 ]
+  %.in.i.i = phi i64 [ %25, %23 ], [ %21, %19 ]
+  %.in30.i.i = phi i64 [ %27, %23 ], [ %22, %19 ]
   %28 = sub i64 %.in30.i.i, %.in.i.i
   %29 = icmp slt i64 %28, 1
   br i1 %29, label %mi_os_mem_free.exit, label %mi_os_page_align_area_conservative.exit
@@ -1063,7 +1063,7 @@ mi_os_page_align_area_conservative.exit:          ; preds = %mi_align_down_ptr.e
   br label %mi_os_mem_free.exit
 
 mi_os_mem_free.exit:                              ; preds = %mi_align_down_ptr.exit27.i.i, %mi_os_page_align_area_conservative.exit, %31, %40, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %7 ], [ false, %mi_os_page_align_area_conservative.exit ], [ %35, %40 ], [ true, %31 ], [ false, %mi_align_down_ptr.exit27.i.i ]
+  %.0 = phi i1 [ true, %7 ], [ false, %4 ], [ true, %31 ], [ false, %mi_os_page_align_area_conservative.exit ], [ %35, %40 ], [ false, %mi_align_down_ptr.exit27.i.i ]
   ret i1 %.0
 }
 
@@ -1152,7 +1152,7 @@ mi_unix_mmapx.exit.thread.i.i:                    ; preds = %35
   br i1 %switch19.i, label %mi_unix_mmap.exit.thread15.i, label %.thread68
 
 mi_unix_mmap.exit.thread15.i:                     ; preds = %mi_unix_mmapx.exit.thread.i.i, %35
-  %.3.i17.i = phi ptr [ %39, %35 ], [ %42, %mi_unix_mmapx.exit.thread.i.i ]
+  %.3.i17.i = phi ptr [ %42, %mi_unix_mmapx.exit.thread.i.i ], [ %39, %35 ]
   br i1 %or.cond.i, label %43, label %mi_os_alloc_huge_os_pagesx.exit
 
 43:                                               ; preds = %mi_unix_mmap.exit.thread15.i
@@ -1231,7 +1231,7 @@ _mi_os_free_ex.exit:                              ; preds = %51, %53
   %exitcond.not = icmp eq i64 %67, %0
   br i1 %exitcond.not, label %.thread68, label %35, !llvm.loop !21
 
-.thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %27, %.thread66, %50, %_mi_os_free_ex.exit
+.thread68:                                        ; preds = %66, %mi_unix_mmapx.exit.thread.i.i, %27, %50, %_mi_os_free_ex.exit, %.thread66
   %.04372 = phi i64 [ %.04375, %.thread66 ], [ %.04375, %50 ], [ %.04375, %_mi_os_free_ex.exit ], [ 0, %27 ], [ %0, %66 ], [ %.04375, %mi_unix_mmapx.exit.thread.i.i ]
   br i1 %.not53, label %69, label %68
 
@@ -1551,7 +1551,7 @@ mi_unix_mmapx.exit.thread:                        ; preds = %.thread.i, %mi_unix
   br label %mi_unix_mmapx.exit101
 
 mi_unix_mmapx.exit101:                            ; preds = %.thread.i98, %73
-  %.380 = phi ptr [ %..i100, %.thread.i98 ], [ %75, %73 ]
+  %.380 = phi ptr [ %75, %73 ], [ %..i100, %.thread.i98 ]
   %77 = icmp ne ptr %.380, null
   %or.cond139.not = select i1 %4, i1 true, i1 %77
   br i1 %or.cond139.not, label %.thread137, label %.thread133
@@ -1654,7 +1654,7 @@ use_large_os_page.exit117:                        ; preds = %105
   br label %.thread137
 
 .thread137:                                       ; preds = %mi_unix_mmapx.exit, %104, %105, %use_large_os_page.exit117, %110, %113, %mi_unix_mmapx.exit101, %114, %116
-  %.3 = phi ptr [ null, %116 ], [ %.3.i110, %114 ], [ %.380, %mi_unix_mmapx.exit101 ], [ %.3.i110, %use_large_os_page.exit117 ], [ %.3.i110, %110 ], [ %.3.i110, %113 ], [ %.3.i110, %105 ], [ %.3.i110, %104 ], [ %.3.i, %mi_unix_mmapx.exit ]
+  %.3 = phi ptr [ %.3.i110, %114 ], [ null, %116 ], [ %.380, %mi_unix_mmapx.exit101 ], [ %.3.i110, %113 ], [ %.3.i110, %104 ], [ %.3.i110, %use_large_os_page.exit117 ], [ %.3.i110, %110 ], [ %.3.i110, %105 ], [ %.3.i, %mi_unix_mmapx.exit ]
   ret ptr %.3
 }
 

@@ -663,7 +663,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
   br label %getRGBA.exit
 
 getRGBA.exit:                                     ; preds = %97, %101
-  %.070.i = phi i32 [ %100, %97 ], [ %134, %101 ]
+  %.070.i = phi i32 [ %134, %101 ], [ %100, %97 ]
   %135 = icmp sgt i32 %.070.i, -1
   br i1 %135, label %getRGBA.exit.thread, label %.critedge.preheader
 
@@ -858,7 +858,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %getRGBA.exit100
 
 getRGBA.exit100:                                  ; preds = %202, %206
-  %.070.i83 = phi i32 [ %205, %202 ], [ %239, %206 ]
+  %.070.i83 = phi i32 [ %239, %206 ], [ %205, %202 ]
   %240 = icmp slt i32 %.070.i83, 0
   br i1 %240, label %.critedge, label %.critedge2
 

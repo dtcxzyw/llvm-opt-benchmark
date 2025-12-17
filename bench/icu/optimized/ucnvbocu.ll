@@ -107,19 +107,19 @@ define internal void @_ZL15_Bocu1ToUnicodeP23UConverterToUnicodeArgsP10UErrorCod
   br i1 %55, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !27
 
 .preheader.loopexit:                              ; preds = %52, %39, %48
-  %.4171.ph.ph = phi ptr [ %.2169346, %48 ], [ %.2169346, %39 ], [ %.3170, %52 ]
-  %.5164.ph.ph = phi i32 [ %.2161347, %48 ], [ %.2161347, %39 ], [ %.3162, %52 ]
-  %.3154.ph.ph = phi i32 [ %.2153348, %48 ], [ %.2153348, %39 ], [ 0, %52 ]
-  %.3.ph.ph = phi ptr [ %.2349, %48 ], [ %.2349, %39 ], [ %53, %52 ]
+  %.4171.ph.ph = phi ptr [ %.2169346, %39 ], [ %.3170, %52 ], [ %.2169346, %48 ]
+  %.5164.ph.ph = phi i32 [ %.2161347, %39 ], [ %.3162, %52 ], [ %.2161347, %48 ]
+  %.3154.ph.ph = phi i32 [ %.2153348, %39 ], [ 0, %52 ], [ %.2153348, %48 ]
+  %.3.ph.ph = phi ptr [ %.2349, %39 ], [ %53, %52 ], [ %.2349, %48 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZL9bocu1Previ.exit.thread, %180, %25
-  %.4171.ph = phi ptr [ %.1168, %25 ], [ %170, %_ZL9bocu1Previ.exit.thread ], [ %181, %180 ], [ %.4171.ph.ph, %.preheader.loopexit ]
-  %.5164.ph = phi i32 [ %.1160, %25 ], [ %168, %_ZL9bocu1Previ.exit.thread ], [ %166, %180 ], [ %.5164.ph.ph, %.preheader.loopexit ]
-  %.3154.ph = phi i32 [ %spec.select, %25 ], [ %.4155, %_ZL9bocu1Previ.exit.thread ], [ %.4155, %180 ], [ %.3154.ph.ph, %.preheader.loopexit ]
-  %.1145.ph = phi i32 [ %30, %25 ], [ %.2146, %_ZL9bocu1Previ.exit.thread ], [ %.2146, %180 ], [ %30, %.preheader.loopexit ]
-  %.2137.ph = phi i8 [ %.1136, %25 ], [ %.3138, %_ZL9bocu1Previ.exit.thread ], [ %.3138, %180 ], [ %.1136, %.preheader.loopexit ]
-  %.3.ph = phi ptr [ %.1, %25 ], [ %.4, %_ZL9bocu1Previ.exit.thread ], [ %.4, %180 ], [ %.3.ph.ph, %.preheader.loopexit ]
+  %.4171.ph = phi ptr [ %181, %180 ], [ %.1168, %25 ], [ %170, %_ZL9bocu1Previ.exit.thread ], [ %.4171.ph.ph, %.preheader.loopexit ]
+  %.5164.ph = phi i32 [ %166, %180 ], [ %.1160, %25 ], [ %168, %_ZL9bocu1Previ.exit.thread ], [ %.5164.ph.ph, %.preheader.loopexit ]
+  %.3154.ph = phi i32 [ %.4155, %180 ], [ %spec.select, %25 ], [ %.4155, %_ZL9bocu1Previ.exit.thread ], [ %.3154.ph.ph, %.preheader.loopexit ]
+  %.1145.ph = phi i32 [ %.2146, %180 ], [ %30, %25 ], [ %.2146, %_ZL9bocu1Previ.exit.thread ], [ %30, %.preheader.loopexit ]
+  %.2137.ph = phi i8 [ %.3138, %180 ], [ %.1136, %25 ], [ %.3138, %_ZL9bocu1Previ.exit.thread ], [ %.1136, %.preheader.loopexit ]
+  %.3.ph = phi ptr [ %.4, %180 ], [ %.1, %25 ], [ %.4, %_ZL9bocu1Previ.exit.thread ], [ %.3.ph.ph, %.preheader.loopexit ]
   %.4171.ph.fr = freeze ptr %.4171.ph
   %.not198339 = icmp ult ptr %.4171.ph.fr, %.fr
   br i1 %.not198339, label %.outer.split.us, label %.outer.split
@@ -273,19 +273,19 @@ _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %.split312.us
   br label %_ZL19decodeBocu1LeadBytei.exit
 
 _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %106, %109, %110, %115, %118, %119
-  %.011.i = phi i32 [ %108, %106 ], [ %112, %110 ], [ %117, %115 ], [ %121, %119 ], [ 187660, %109 ], [ -14536567, %118 ]
-  %.0.i205 = phi i32 [ 1, %106 ], [ 2, %110 ], [ 1, %115 ], [ 2, %119 ], [ 3, %109 ], [ 3, %118 ]
+  %.011.i = phi i32 [ %108, %106 ], [ %112, %110 ], [ 187660, %109 ], [ %117, %115 ], [ %121, %119 ], [ -14536567, %118 ]
+  %.0.i205 = phi i32 [ 1, %106 ], [ 2, %110 ], [ 3, %109 ], [ 1, %115 ], [ 2, %119 ], [ 3, %118 ]
   %122 = shl nsw i32 %.011.i, 2
   %123 = or disjoint i32 %122, %.0.i205
   br label %124
 
 124:                                              ; preds = %2, %_ZL19decodeBocu1LeadBytei.exit
-  %.0167 = phi ptr [ %.4171.ph252341, %_ZL19decodeBocu1LeadBytei.exit ], [ %10, %2 ]
-  %.0159 = phi i32 [ %.5164.us, %_ZL19decodeBocu1LeadBytei.exit ], [ %spec.store.select, %2 ]
-  %.0151 = phi i32 [ %.0.i205, %_ZL19decodeBocu1LeadBytei.exit ], [ %18, %2 ]
-  %.0144.in = phi i32 [ %123, %_ZL19decodeBocu1LeadBytei.exit ], [ %17, %2 ]
-  %.0135 = phi i8 [ 1, %_ZL19decodeBocu1LeadBytei.exit ], [ %20, %2 ]
-  %.0 = phi ptr [ %59, %_ZL19decodeBocu1LeadBytei.exit ], [ %6, %2 ]
+  %.0167 = phi ptr [ %10, %2 ], [ %.4171.ph252341, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0159 = phi i32 [ %spec.store.select, %2 ], [ %.5164.us, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0151 = phi i32 [ %18, %2 ], [ %.0.i205, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0144.in = phi i32 [ %17, %2 ], [ %123, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0135 = phi i8 [ %20, %2 ], [ 1, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0 = phi ptr [ %6, %2 ], [ %59, %_ZL19decodeBocu1LeadBytei.exit ]
   %.0144 = ashr i32 %.0144.in, 2
   br label %125
 
@@ -335,7 +335,7 @@ _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %106, %109, %110, %1
   br label %_ZL20decodeBocu1TrailByteii.exit207
 
 _ZL20decodeBocu1TrailByteii.exit207:              ; preds = %141, %142, %144
-  %.09.i = phi i32 [ %143, %142 ], [ %145, %144 ], [ %.0.i206, %141 ]
+  %.09.i = phi i32 [ %145, %144 ], [ %143, %142 ], [ %.0.i206, %141 ]
   %146 = icmp slt i32 %.09.i, 0
   br i1 %146, label %.thread.sink.split, label %147
 
@@ -578,23 +578,23 @@ define internal void @_ZL26_Bocu1ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %57, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !36
 
 .preheader.loopexit:                              ; preds = %54, %41, %50
-  %.4219.ph.ph = phi ptr [ %.2217393, %50 ], [ %.2217393, %41 ], [ %.3218, %54 ]
-  %.4211.ph.ph = phi ptr [ %.2209394, %50 ], [ %.2209394, %41 ], [ %.3210, %54 ]
-  %.5204.ph.ph = phi i32 [ %.2201395, %50 ], [ %.2201395, %41 ], [ %.3202, %54 ]
-  %.3194.ph.ph = phi i32 [ %.2193396, %50 ], [ %.2193396, %41 ], [ 0, %54 ]
-  %.3170.ph.ph = phi ptr [ %.2169397, %50 ], [ %.2169397, %41 ], [ %55, %54 ]
-  %.4.ph.ph = phi i32 [ %.2398, %50 ], [ %.2398, %41 ], [ %.3, %54 ]
+  %.4219.ph.ph = phi ptr [ %.2217393, %41 ], [ %.3218, %54 ], [ %.2217393, %50 ]
+  %.4211.ph.ph = phi ptr [ %.2209394, %41 ], [ %.3210, %54 ], [ %.2209394, %50 ]
+  %.5204.ph.ph = phi i32 [ %.2201395, %41 ], [ %.3202, %54 ], [ %.2201395, %50 ]
+  %.3194.ph.ph = phi i32 [ %.2193396, %41 ], [ 0, %54 ], [ %.2193396, %50 ]
+  %.3170.ph.ph = phi ptr [ %.2169397, %41 ], [ %55, %54 ], [ %.2169397, %50 ]
+  %.4.ph.ph = phi i32 [ %.2398, %41 ], [ %.3, %54 ], [ %.2398, %50 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZL9bocu1Previ.exit.thread, %184, %27
-  %.4219.ph = phi ptr [ %.1216, %27 ], [ %176, %_ZL9bocu1Previ.exit.thread ], [ %188, %184 ], [ %.4219.ph.ph, %.preheader.loopexit ]
-  %.4211.ph = phi ptr [ %.1208, %27 ], [ %177, %_ZL9bocu1Previ.exit.thread ], [ %190, %184 ], [ %.4211.ph.ph, %.preheader.loopexit ]
-  %.5204.ph = phi i32 [ %.1200, %27 ], [ %174, %_ZL9bocu1Previ.exit.thread ], [ %172, %184 ], [ %.5204.ph.ph, %.preheader.loopexit ]
-  %.3194.ph = phi i32 [ %spec.select, %27 ], [ %.4195, %_ZL9bocu1Previ.exit.thread ], [ %.4195, %184 ], [ %.3194.ph.ph, %.preheader.loopexit ]
-  %.1185.ph = phi i32 [ %32, %27 ], [ %.2186, %_ZL9bocu1Previ.exit.thread ], [ %.2186, %184 ], [ %32, %.preheader.loopexit ]
-  %.2177.ph = phi i8 [ %.1176, %27 ], [ %.3178, %_ZL9bocu1Previ.exit.thread ], [ %.3178, %184 ], [ %.1176, %.preheader.loopexit ]
-  %.3170.ph = phi ptr [ %.1168, %27 ], [ %.4171, %_ZL9bocu1Previ.exit.thread ], [ %.4171, %184 ], [ %.3170.ph.ph, %.preheader.loopexit ]
-  %.4.ph = phi i32 [ %.1, %27 ], [ %.5, %_ZL9bocu1Previ.exit.thread ], [ %.5, %184 ], [ %.4.ph.ph, %.preheader.loopexit ]
+  %.4219.ph = phi ptr [ %188, %184 ], [ %.1216, %27 ], [ %176, %_ZL9bocu1Previ.exit.thread ], [ %.4219.ph.ph, %.preheader.loopexit ]
+  %.4211.ph = phi ptr [ %190, %184 ], [ %.1208, %27 ], [ %177, %_ZL9bocu1Previ.exit.thread ], [ %.4211.ph.ph, %.preheader.loopexit ]
+  %.5204.ph = phi i32 [ %172, %184 ], [ %.1200, %27 ], [ %174, %_ZL9bocu1Previ.exit.thread ], [ %.5204.ph.ph, %.preheader.loopexit ]
+  %.3194.ph = phi i32 [ %.4195, %184 ], [ %spec.select, %27 ], [ %.4195, %_ZL9bocu1Previ.exit.thread ], [ %.3194.ph.ph, %.preheader.loopexit ]
+  %.1185.ph = phi i32 [ %.2186, %184 ], [ %32, %27 ], [ %.2186, %_ZL9bocu1Previ.exit.thread ], [ %32, %.preheader.loopexit ]
+  %.2177.ph = phi i8 [ %.3178, %184 ], [ %.1176, %27 ], [ %.3178, %_ZL9bocu1Previ.exit.thread ], [ %.1176, %.preheader.loopexit ]
+  %.3170.ph = phi ptr [ %.4171, %184 ], [ %.1168, %27 ], [ %.4171, %_ZL9bocu1Previ.exit.thread ], [ %.3170.ph.ph, %.preheader.loopexit ]
+  %.4.ph = phi i32 [ %.5, %184 ], [ %.1, %27 ], [ %.5, %_ZL9bocu1Previ.exit.thread ], [ %.4.ph.ph, %.preheader.loopexit ]
   %.4219.ph.fr = freeze ptr %.4219.ph
   %.not247383 = icmp ult ptr %.4219.ph.fr, %.fr
   br i1 %.not247383, label %.outer.split.us, label %.outer.split
@@ -756,22 +756,22 @@ _ZL20decodeBocu1TrailByteii.exit:                 ; preds = %.split346.us
   br label %_ZL19decodeBocu1LeadBytei.exit
 
 _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %111, %114, %115, %120, %123, %124
-  %.011.i = phi i32 [ %113, %111 ], [ %117, %115 ], [ %122, %120 ], [ %126, %124 ], [ 187660, %114 ], [ -14536567, %123 ]
-  %.0.i253 = phi i32 [ 1, %111 ], [ 2, %115 ], [ 1, %120 ], [ 2, %124 ], [ 3, %114 ], [ 3, %123 ]
+  %.011.i = phi i32 [ %113, %111 ], [ %117, %115 ], [ 187660, %114 ], [ %122, %120 ], [ %126, %124 ], [ -14536567, %123 ]
+  %.0.i253 = phi i32 [ 1, %111 ], [ 2, %115 ], [ 3, %114 ], [ 1, %120 ], [ 2, %124 ], [ 3, %123 ]
   %127 = shl nsw i32 %.011.i, 2
   %128 = or disjoint i32 %127, %.0.i253
   br label %129
 
 129:                                              ; preds = %2, %_ZL19decodeBocu1LeadBytei.exit
-  %.0215 = phi ptr [ %.4219.ph263385, %_ZL19decodeBocu1LeadBytei.exit ], [ %10, %2 ]
-  %.0207 = phi ptr [ %.4211.ph264386, %_ZL19decodeBocu1LeadBytei.exit ], [ %14, %2 ]
-  %.0199 = phi i32 [ %.5204.us, %_ZL19decodeBocu1LeadBytei.exit ], [ %spec.store.select, %2 ]
-  %.0191 = phi i32 [ %.0.i253, %_ZL19decodeBocu1LeadBytei.exit ], [ %20, %2 ]
-  %.0184.in = phi i32 [ %128, %_ZL19decodeBocu1LeadBytei.exit ], [ %19, %2 ]
-  %.0175 = phi i8 [ 1, %_ZL19decodeBocu1LeadBytei.exit ], [ %22, %2 ]
-  %.0167 = phi ptr [ %62, %_ZL19decodeBocu1LeadBytei.exit ], [ %6, %2 ]
-  %.0163 = phi i32 [ %.4.us, %_ZL19decodeBocu1LeadBytei.exit ], [ -1, %2 ]
-  %.0 = phi i32 [ %61, %_ZL19decodeBocu1LeadBytei.exit ], [ 0, %2 ]
+  %.0215 = phi ptr [ %10, %2 ], [ %.4219.ph263385, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0207 = phi ptr [ %14, %2 ], [ %.4211.ph264386, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0199 = phi i32 [ %spec.store.select, %2 ], [ %.5204.us, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0191 = phi i32 [ %20, %2 ], [ %.0.i253, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0184.in = phi i32 [ %19, %2 ], [ %128, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0175 = phi i8 [ %22, %2 ], [ 1, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0167 = phi ptr [ %6, %2 ], [ %62, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0163 = phi i32 [ -1, %2 ], [ %.4.us, %_ZL19decodeBocu1LeadBytei.exit ]
+  %.0 = phi i32 [ 0, %2 ], [ %61, %_ZL19decodeBocu1LeadBytei.exit ]
   %.0184 = ashr i32 %.0184.in, 2
   %130 = add i32 %.0191, %.0
   br label %131
@@ -822,7 +822,7 @@ _ZL19decodeBocu1LeadBytei.exit:                   ; preds = %111, %114, %115, %1
   br label %_ZL20decodeBocu1TrailByteii.exit255
 
 _ZL20decodeBocu1TrailByteii.exit255:              ; preds = %147, %148, %150
-  %.09.i = phi i32 [ %149, %148 ], [ %151, %150 ], [ %.0.i254, %147 ]
+  %.09.i = phi i32 [ %151, %150 ], [ %149, %148 ], [ %.0.i254, %147 ]
   %152 = icmp slt i32 %.09.i, 0
   br i1 %152, label %.loopexit.sink.split, label %153
 

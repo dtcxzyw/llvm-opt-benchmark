@@ -350,8 +350,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %60, %58
   br label %100
 
 _.exit.i.i.i:                                     ; preds = %87, %85, %75, %73
-  %.sink97.i.i = phi i32 [ %.pre20.i.i.i, %75 ], [ %68, %73 ], [ %.pre.i.i.i, %87 ], [ %80, %85 ]
-  %.0.i.i.sink.i.i = phi ptr [ %77, %75 ], [ @.str.59, %73 ], [ %88, %87 ], [ @.str.60, %85 ]
+  %.sink97.i.i = phi i32 [ %68, %73 ], [ %.pre20.i.i.i, %75 ], [ %.pre.i.i.i, %87 ], [ %80, %85 ]
+  %.0.i.i.sink.i.i = phi ptr [ @.str.59, %73 ], [ %77, %75 ], [ %88, %87 ], [ @.str.60, %85 ]
   %96 = zext i32 %.sink97.i.i to i64
   call void (ptr, ...) @warning(ptr noundef %.0.i.i.sink.i.i, i64 noundef %96) #22
   call void @close_midx(ptr noundef nonnull %64)
@@ -393,7 +393,7 @@ load_midx_chain_fd_st.exit.i:                     ; preds = %100, %.thread7.i.i,
   br label %load_multi_pack_index_chain.exit
 
 load_multi_pack_index_chain.exit:                 ; preds = %13, %21, %31, %_.exit.i.i, %load_midx_chain_fd_st.exit.i
-  %.0.i = phi ptr [ %.02317.i.i, %load_midx_chain_fd_st.exit.i ], [ null, %21 ], [ null, %13 ], [ null, %_.exit.i.i ], [ null, %31 ]
+  %.0.i = phi ptr [ %.02317.i.i, %load_midx_chain_fd_st.exit.i ], [ null, %31 ], [ null, %21 ], [ null, %13 ], [ null, %_.exit.i.i ]
   call void @strbuf_release(ptr noundef nonnull %6) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1014,7 +1014,7 @@ strbuf_strip_suffix.exit:                         ; preds = %27, %38, %45, %46
   br label %77
 
 77:                                               ; preds = %70, %midx_for_pack.exit, %71
-  %.015 = phi i32 [ 0, %71 ], [ 0, %midx_for_pack.exit ], [ 1, %70 ]
+  %.015 = phi i32 [ 0, %midx_for_pack.exit ], [ 0, %71 ], [ 1, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.015
@@ -1325,7 +1325,7 @@ bsearch_one_midx.exit:                            ; preds = %.lr.ph, %33
   br i1 %.not, label %._crit_edge, label %bsearch_one_midx.exit, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %bsearch_one_midx.exit, %33, %bsearch_one_midx.exit.us, %15, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 1, %bsearch_one_midx.exit.us ], [ 0, %33 ], [ 1, %bsearch_one_midx.exit ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %3 ], [ 1, %bsearch_one_midx.exit.us ], [ 0, %33 ], [ 1, %bsearch_one_midx.exit ]
   ret i32 %.0
 }
 
@@ -1811,7 +1811,7 @@ nth_midxed_pack_int_id.exit:                      ; preds = %.critedge.i.i
   br label %bsearch_midx.exit.thread
 
 bsearch_midx.exit.thread:                         ; preds = %21, %4, %83, %71, %nth_midxed_pack_int_id.exit, %86
-  %.0 = phi i32 [ 1, %86 ], [ 0, %nth_midxed_pack_int_id.exit ], [ 0, %71 ], [ 0, %83 ], [ 0, %4 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %83 ], [ 0, %71 ], [ 1, %86 ], [ 0, %nth_midxed_pack_int_id.exit ], [ 0, %4 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1942,7 +1942,7 @@ cmp_idx_or_pack_name.exit.i:                      ; preds = %23, %.critedge.i.i
   br i1 %.not, label %midx_contains_pack_1.exit, label %.lr.ph, !llvm.loop !87
 
 midx_contains_pack_1.exit:                        ; preds = %.loopexit, %cmp_idx_or_pack_name.exit.i, %23, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %23 ], [ 1, %cmp_idx_or_pack_name.exit.i ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %cmp_idx_or_pack_name.exit.i ], [ 1, %23 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -2035,7 +2035,7 @@ define dso_local range(i32 -1, 1) i32 @midx_preferred_pack(ptr noundef %0, ptr n
   br label %51
 
 51:                                               ; preds = %.thread, %2, %49
-  %.1 = phi i32 [ 0, %49 ], [ -1, %2 ], [ -1, %.thread ]
+  %.1 = phi i32 [ 0, %49 ], [ -1, %.thread ], [ -1, %2 ]
   ret i32 %.1
 }
 
@@ -2092,7 +2092,7 @@ define dso_local range(i32 0, 2) i32 @prepare_multi_pack_index_one(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %14, %20, %22, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %22 ], [ 1, %20 ], [ 0, %14 ], [ 1, %11 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %20 ], [ 1, %22 ], [ 0, %14 ], [ 1, %11 ]
   ret i32 %.0
 }
 

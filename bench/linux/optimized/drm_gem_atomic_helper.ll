@@ -162,7 +162,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   br label %.thread19
 
 73:                                               ; preds = %.preheader, %34
-  %.ph = phi i32 [ %37, %34 ], [ -22, %.preheader ]
+  %.ph = phi i32 [ -22, %.preheader ], [ %37, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %74 = icmp eq ptr %30, null
   br i1 %74, label %.thread19, label %75

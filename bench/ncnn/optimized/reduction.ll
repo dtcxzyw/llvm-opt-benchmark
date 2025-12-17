@@ -576,10 +576,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br label %72
 
 72:                                               ; preds = %60, %51, %45, %.fold.split, %._crit_edge, %4
-  %.029 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ false, %45 ], [ false, %51 ], [ %65, %60 ]
-  %.025 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ false, %45 ], [ %53, %51 ], [ %62, %60 ]
-  %.023 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ %47, %45 ], [ %56, %51 ], [ %68, %60 ]
-  %.022 = phi i1 [ true, %4 ], [ true, %._crit_edge ], [ false, %.fold.split ], [ %50, %45 ], [ %59, %51 ], [ %71, %60 ]
+  %.029 = phi i1 [ true, %4 ], [ false, %.fold.split ], [ %65, %60 ], [ false, %45 ], [ false, %._crit_edge ], [ false, %51 ]
+  %.025 = phi i1 [ true, %4 ], [ false, %.fold.split ], [ %62, %60 ], [ false, %45 ], [ false, %._crit_edge ], [ %53, %51 ]
+  %.023 = phi i1 [ true, %4 ], [ false, %.fold.split ], [ %68, %60 ], [ %47, %45 ], [ false, %._crit_edge ], [ %56, %51 ]
+  %.022 = phi i1 [ true, %4 ], [ false, %.fold.split ], [ %71, %60 ], [ %50, %45 ], [ true, %._crit_edge ], [ %59, %51 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %74 = load i32, ptr %73, align 8, !tbaa !44
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1889,9 +1889,9 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %611, %610, %606, %6
   br label %.thread688.i
 
 .thread688.i:                                     ; preds = %615, %326, %188, %100, %.thread.i
-  %616 = phi i1 [ true, %615 ], [ false, %188 ], [ false, %.thread.i ], [ false, %326 ], [ false, %100 ]
-  %617 = phi i1 [ false, %615 ], [ true, %188 ], [ false, %.thread.i ], [ false, %326 ], [ false, %100 ]
-  %618 = phi i1 [ false, %615 ], [ false, %188 ], [ false, %.thread.i ], [ true, %326 ], [ false, %100 ]
+  %616 = phi i1 [ false, %100 ], [ true, %615 ], [ false, %188 ], [ false, %.thread.i ], [ false, %326 ]
+  %617 = phi i1 [ false, %100 ], [ false, %615 ], [ true, %188 ], [ false, %.thread.i ], [ false, %326 ]
+  %618 = phi i1 [ false, %100 ], [ false, %615 ], [ false, %188 ], [ false, %.thread.i ], [ true, %326 ]
   %619 = add i32 %76, -9
   %or.cond144.i = icmp ult i32 %619, 2
   br i1 %or.cond144.i, label %620, label %629
@@ -2049,7 +2049,7 @@ thread-pre-split.i:                               ; preds = %630, %629
   br label %_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit
 
 _ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit: ; preds = %675, %678, %.critedge592.i, %.critedge596.i, %.critedge602.i
-  %.4558.i = phi i32 [ -100, %.critedge592.i ], [ -100, %.critedge596.i ], [ -100, %.critedge602.i ], [ 0, %678 ], [ 0, %675 ]
+  %.4558.i = phi i32 [ -100, %.critedge592.i ], [ -100, %.critedge602.i ], [ -100, %.critedge596.i ], [ 0, %678 ], [ 0, %675 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2257,7 +2257,7 @@ define internal fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL9reductionEfPK
   br i1 %exitcond.not.i77, label %_ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfi.exit, label %.lr.ph.i73, !llvm.loop !64
 
 _ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfi.exit: ; preds = %.lr.ph.i73, %.lr.ph.i65, %.lr.ph.i57, %.lr.ph.i49, %.lr.ph.i41, %.lr.ph.i33, %.lr.ph.i, %39, %33, %27, %22, %16, %10, %5, %4
-  %.0 = phi nsz float [ %0, %4 ], [ %0, %5 ], [ %0, %10 ], [ %0, %16 ], [ %0, %22 ], [ %0, %27 ], [ %0, %33 ], [ %0, %39 ], [ %9, %.lr.ph.i ], [ %15, %.lr.ph.i33 ], [ %21, %.lr.ph.i41 ], [ %26, %.lr.ph.i49 ], [ %32, %.lr.ph.i57 ], [ %38, %.lr.ph.i65 ], [ %44, %.lr.ph.i73 ]
+  %.0 = phi nsz float [ %0, %4 ], [ %0, %5 ], [ %0, %10 ], [ %0, %16 ], [ %0, %22 ], [ %0, %27 ], [ %0, %33 ], [ %0, %39 ], [ %38, %.lr.ph.i65 ], [ %9, %.lr.ph.i ], [ %15, %.lr.ph.i33 ], [ %21, %.lr.ph.i41 ], [ %26, %.lr.ph.i49 ], [ %32, %.lr.ph.i57 ], [ %44, %.lr.ph.i73 ]
   ret float %.0
 }
 
@@ -2631,7 +2631,7 @@ define internal fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL9reductionEfPK
   br i1 %exitcond.not.i72, label %_ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfii.exit, label %61, !llvm.loop !73
 
 _ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfii.exit: ; preds = %61, %52, %43, %35, %26, %17, %9, %58, %49, %40, %32, %23, %14, %6, %5
-  %.0 = phi nsz float [ %0, %5 ], [ %0, %6 ], [ %0, %14 ], [ %0, %23 ], [ %0, %32 ], [ %0, %40 ], [ %0, %49 ], [ %0, %58 ], [ %11, %9 ], [ %20, %17 ], [ %29, %26 ], [ %37, %35 ], [ %46, %43 ], [ %55, %52 ], [ %64, %61 ]
+  %.0 = phi nsz float [ %0, %5 ], [ %0, %6 ], [ %0, %14 ], [ %0, %23 ], [ %0, %32 ], [ %0, %40 ], [ %0, %49 ], [ %0, %58 ], [ %55, %52 ], [ %11, %9 ], [ %20, %17 ], [ %29, %26 ], [ %37, %35 ], [ %46, %43 ], [ %64, %61 ]
   ret float %.0
 }
 
@@ -3130,7 +3130,7 @@ define internal fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL9reductionEfPK
   br i1 %exitcond23.not.i127, label %_ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfiii.exit, label %.preheader.us.i118, !llvm.loop !93
 
 _ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfiii.exit: ; preds = %._crit_edge.us.i126, %._crit_edge.us.i112, %._crit_edge.us.i98, %._crit_edge.us.i84, %._crit_edge.us.i70, %._crit_edge.us.i56, %._crit_edge.us.i, %.preheader.lr.ph.i115, %71, %.preheader.lr.ph.i101, %60, %.preheader.lr.ph.i87, %49, %.preheader.lr.ph.i73, %39, %.preheader.lr.ph.i59, %28, %.preheader.lr.ph.i45, %17, %.preheader.lr.ph.i, %7, %6
-  %.0 = phi nsz float [ %0, %6 ], [ %0, %7 ], [ %0, %.preheader.lr.ph.i ], [ %0, %17 ], [ %0, %.preheader.lr.ph.i45 ], [ %0, %28 ], [ %0, %.preheader.lr.ph.i59 ], [ %0, %39 ], [ %0, %.preheader.lr.ph.i73 ], [ %0, %49 ], [ %0, %.preheader.lr.ph.i87 ], [ %0, %60 ], [ %0, %.preheader.lr.ph.i101 ], [ %0, %71 ], [ %0, %.preheader.lr.ph.i115 ], [ %14, %._crit_edge.us.i ], [ %25, %._crit_edge.us.i56 ], [ %36, %._crit_edge.us.i70 ], [ %46, %._crit_edge.us.i84 ], [ %57, %._crit_edge.us.i98 ], [ %68, %._crit_edge.us.i112 ], [ %79, %._crit_edge.us.i126 ]
+  %.0 = phi nsz float [ %0, %6 ], [ %0, %7 ], [ %0, %.preheader.lr.ph.i ], [ %0, %17 ], [ %0, %.preheader.lr.ph.i45 ], [ %0, %28 ], [ %0, %.preheader.lr.ph.i59 ], [ %0, %39 ], [ %0, %.preheader.lr.ph.i73 ], [ %0, %49 ], [ %0, %.preheader.lr.ph.i87 ], [ %0, %60 ], [ %0, %.preheader.lr.ph.i101 ], [ %0, %71 ], [ %0, %.preheader.lr.ph.i115 ], [ %68, %._crit_edge.us.i112 ], [ %14, %._crit_edge.us.i ], [ %25, %._crit_edge.us.i56 ], [ %36, %._crit_edge.us.i70 ], [ %46, %._crit_edge.us.i84 ], [ %57, %._crit_edge.us.i98 ], [ %79, %._crit_edge.us.i126 ]
   ret float %.0
 }
 
@@ -3450,7 +3450,7 @@ define internal fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL9reductionEfPK
   br i1 %exitcond26.not.i122, label %_ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfiiii.exit, label %.preheader.us.i113, !llvm.loop !107
 
 _ZN4ncnnL9reductionINS_16reduction_op_addEEEffPKfiiii.exit: ; preds = %._crit_edge.us.i121, %._crit_edge.us.i109, %._crit_edge.us.i97, %._crit_edge.us.i85, %._crit_edge.us.i73, %._crit_edge.us.i61, %._crit_edge.us.i, %.preheader.lr.ph.i112, %84, %.preheader.lr.ph.i100, %71, %.preheader.lr.ph.i88, %58, %.preheader.lr.ph.i76, %46, %.preheader.lr.ph.i64, %33, %.preheader.lr.ph.i52, %20, %.preheader.lr.ph.i, %8, %7
-  %.0 = phi nsz float [ %0, %7 ], [ %0, %8 ], [ %0, %.preheader.lr.ph.i ], [ %0, %20 ], [ %0, %.preheader.lr.ph.i52 ], [ %0, %33 ], [ %0, %.preheader.lr.ph.i64 ], [ %0, %46 ], [ %0, %.preheader.lr.ph.i76 ], [ %0, %58 ], [ %0, %.preheader.lr.ph.i88 ], [ %0, %71 ], [ %0, %.preheader.lr.ph.i100 ], [ %0, %84 ], [ %0, %.preheader.lr.ph.i112 ], [ %15, %._crit_edge.us.i ], [ %28, %._crit_edge.us.i61 ], [ %41, %._crit_edge.us.i73 ], [ %53, %._crit_edge.us.i85 ], [ %66, %._crit_edge.us.i97 ], [ %79, %._crit_edge.us.i109 ], [ %92, %._crit_edge.us.i121 ]
+  %.0 = phi nsz float [ %0, %7 ], [ %0, %8 ], [ %0, %.preheader.lr.ph.i ], [ %0, %20 ], [ %0, %.preheader.lr.ph.i52 ], [ %0, %33 ], [ %0, %.preheader.lr.ph.i64 ], [ %0, %46 ], [ %0, %.preheader.lr.ph.i76 ], [ %0, %58 ], [ %0, %.preheader.lr.ph.i88 ], [ %0, %71 ], [ %0, %.preheader.lr.ph.i100 ], [ %0, %84 ], [ %0, %.preheader.lr.ph.i112 ], [ %79, %._crit_edge.us.i109 ], [ %15, %._crit_edge.us.i ], [ %28, %._crit_edge.us.i61 ], [ %41, %._crit_edge.us.i73 ], [ %53, %._crit_edge.us.i85 ], [ %66, %._crit_edge.us.i97 ], [ %92, %._crit_edge.us.i121 ]
   ret float %.0
 }
 
@@ -3636,7 +3636,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !58
 
 _ZN4ncnnL9reductionEfPKfii.exit.us:               ; preds = %.lr.ph.i73.i.us, %.lr.ph.i65.i.us, %.lr.ph.i57.i.us, %.lr.ph.i49.i.us, %.lr.ph.i41.i.us, %.lr.ph.i33.i.us, %.lr.ph.i.i.us, %78, %73, %68, %64, %59, %54, %49, %47
-  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %78 ], [ %48, %73 ], [ %48, %68 ], [ %48, %64 ], [ %48, %59 ], [ %48, %54 ], [ %48, %49 ], [ %81, %.lr.ph.i.i.us ], [ %77, %.lr.ph.i33.i.us ], [ %72, %.lr.ph.i41.i.us ], [ %67, %.lr.ph.i49.i.us ], [ %63, %.lr.ph.i57.i.us ], [ %58, %.lr.ph.i65.i.us ], [ %53, %.lr.ph.i73.i.us ]
+  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %78 ], [ %48, %73 ], [ %48, %68 ], [ %48, %64 ], [ %48, %59 ], [ %48, %54 ], [ %48, %49 ], [ %58, %.lr.ph.i65.i.us ], [ %81, %.lr.ph.i.i.us ], [ %77, %.lr.ph.i33.i.us ], [ %72, %.lr.ph.i41.i.us ], [ %67, %.lr.ph.i49.i.us ], [ %63, %.lr.ph.i57.i.us ], [ %53, %.lr.ph.i73.i.us ]
   %82 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   store float %.0.i.us, ptr %82, align 4, !tbaa !51
   %83 = getelementptr inbounds float, ptr %.03483.us, i64 %34
@@ -3915,7 +3915,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfiii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !67
 
 _ZN4ncnnL9reductionEfPKfiii.exit.us:              ; preds = %.lr.ph.i68.i.us, %.lr.ph.i62.i.us, %.lr.ph.i56.i.us, %.lr.ph.i50.i.us, %.lr.ph.i44.i.us, %.lr.ph.i38.i.us, %.lr.ph.i.i.us, %85, %79, %73, %68, %62, %56, %50, %47
-  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %85 ], [ %48, %79 ], [ %48, %73 ], [ %48, %68 ], [ %48, %62 ], [ %48, %56 ], [ %48, %50 ], [ %87, %.lr.ph.i.i.us ], [ %82, %.lr.ph.i38.i.us ], [ %76, %.lr.ph.i44.i.us ], [ %70, %.lr.ph.i50.i.us ], [ %65, %.lr.ph.i56.i.us ], [ %59, %.lr.ph.i62.i.us ], [ %53, %.lr.ph.i68.i.us ]
+  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %85 ], [ %48, %79 ], [ %48, %73 ], [ %48, %68 ], [ %48, %62 ], [ %48, %56 ], [ %48, %50 ], [ %59, %.lr.ph.i62.i.us ], [ %87, %.lr.ph.i.i.us ], [ %82, %.lr.ph.i38.i.us ], [ %76, %.lr.ph.i44.i.us ], [ %70, %.lr.ph.i50.i.us ], [ %65, %.lr.ph.i56.i.us ], [ %53, %.lr.ph.i68.i.us ]
   %90 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   store float %.0.i.us, ptr %90, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4449,7 +4449,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond23.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfiiii.exit.us, label %.preheader.us.i.i.us, !llvm.loop !81
 
 _ZN4ncnnL9reductionEfPKfiiii.exit.us:             ; preds = %._crit_edge.us.i126.i.us, %._crit_edge.us.i112.i.us, %._crit_edge.us.i98.i.us, %._crit_edge.us.i84.i.us, %._crit_edge.us.i70.i.us, %._crit_edge.us.i56.i.us, %._crit_edge.us.i.i.us, %96, %88, %80, %73, %65, %57, %49, %47
-  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %96 ], [ %48, %88 ], [ %48, %80 ], [ %48, %73 ], [ %48, %65 ], [ %48, %57 ], [ %48, %49 ], [ %100, %._crit_edge.us.i.i.us ], [ %93, %._crit_edge.us.i56.i.us ], [ %85, %._crit_edge.us.i70.i.us ], [ %77, %._crit_edge.us.i84.i.us ], [ %70, %._crit_edge.us.i98.i.us ], [ %62, %._crit_edge.us.i112.i.us ], [ %54, %._crit_edge.us.i126.i.us ]
+  %.0.i.us = phi nsz float [ %48, %47 ], [ %48, %96 ], [ %48, %88 ], [ %48, %80 ], [ %48, %73 ], [ %48, %65 ], [ %48, %57 ], [ %48, %49 ], [ %62, %._crit_edge.us.i112.i.us ], [ %100, %._crit_edge.us.i.i.us ], [ %93, %._crit_edge.us.i56.i.us ], [ %85, %._crit_edge.us.i70.i.us ], [ %77, %._crit_edge.us.i84.i.us ], [ %70, %._crit_edge.us.i98.i.us ], [ %54, %._crit_edge.us.i126.i.us ]
   %103 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   store float %.0.i.us, ptr %103, align 4, !tbaa !51
   %104 = getelementptr inbounds float, ptr %.02772.us, i64 %40
@@ -4793,7 +4793,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !58
 
 _ZN4ncnnL9reductionEfPKfii.exit.us:               ; preds = %.lr.ph.i73.i.us, %.lr.ph.i65.i.us, %.lr.ph.i57.i.us, %.lr.ph.i49.i.us, %.lr.ph.i41.i.us, %.lr.ph.i33.i.us, %.lr.ph.i.i.us, %81, %76, %71, %67, %62, %57, %52, %50
-  %.0.i.us = phi nsz float [ %51, %50 ], [ %51, %81 ], [ %51, %76 ], [ %51, %71 ], [ %51, %67 ], [ %51, %62 ], [ %51, %57 ], [ %51, %52 ], [ %84, %.lr.ph.i.i.us ], [ %80, %.lr.ph.i33.i.us ], [ %75, %.lr.ph.i41.i.us ], [ %70, %.lr.ph.i49.i.us ], [ %66, %.lr.ph.i57.i.us ], [ %61, %.lr.ph.i65.i.us ], [ %56, %.lr.ph.i73.i.us ]
+  %.0.i.us = phi nsz float [ %51, %50 ], [ %51, %81 ], [ %51, %76 ], [ %51, %71 ], [ %51, %67 ], [ %51, %62 ], [ %51, %57 ], [ %51, %52 ], [ %61, %.lr.ph.i65.i.us ], [ %84, %.lr.ph.i.i.us ], [ %80, %.lr.ph.i33.i.us ], [ %75, %.lr.ph.i41.i.us ], [ %70, %.lr.ph.i49.i.us ], [ %66, %.lr.ph.i57.i.us ], [ %56, %.lr.ph.i73.i.us ]
   %85 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   store float %.0.i.us, ptr %85, align 4, !tbaa !51
   %86 = getelementptr inbounds float, ptr %.03584.us, i64 %37
@@ -4903,8 +4903,8 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
 
 .lr.ph84.split.us:                                ; preds = %.lr.ph84.split.us.preheader, %._crit_edge.us
   %indvars.iv129 = phi i64 [ %53, %.lr.ph84.split.us.preheader ], [ %indvars.iv.next130, %._crit_edge.us ]
-  %.reass.reass.us.pn = mul i64 %spec.select, %indvars.iv129
-  %55 = getelementptr inbounds nuw i8, ptr %29, i64 %.reass.reass.us.pn
+  %.reass.us.pn = mul i64 %spec.select, %indvars.iv129
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 %.reass.us.pn
   %.reass89.us = mul i64 %factor.op.mul88, %indvars.iv129
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 %.reass89.us
   br label %57
@@ -5105,7 +5105,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond23.not.i.i.us, label %_ZN4ncnn3MatD2Ev.exit.us, label %.preheader.us.i.i.us, !llvm.loop !81
 
 _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %._crit_edge.us.i126.i.us, %._crit_edge.us.i112.i.us, %._crit_edge.us.i98.i.us, %._crit_edge.us.i84.i.us, %._crit_edge.us.i70.i.us, %._crit_edge.us.i56.i.us, %._crit_edge.us.i.i.us, %108, %100, %92, %85, %77, %69, %61, %57
-  %.0.i.us = phi nsz float [ %58, %57 ], [ %58, %108 ], [ %58, %100 ], [ %58, %92 ], [ %58, %85 ], [ %58, %77 ], [ %58, %69 ], [ %58, %61 ], [ %112, %._crit_edge.us.i.i.us ], [ %105, %._crit_edge.us.i56.i.us ], [ %97, %._crit_edge.us.i70.i.us ], [ %89, %._crit_edge.us.i84.i.us ], [ %82, %._crit_edge.us.i98.i.us ], [ %74, %._crit_edge.us.i112.i.us ], [ %66, %._crit_edge.us.i126.i.us ]
+  %.0.i.us = phi nsz float [ %58, %57 ], [ %58, %108 ], [ %58, %100 ], [ %58, %92 ], [ %58, %85 ], [ %58, %77 ], [ %58, %69 ], [ %58, %61 ], [ %74, %._crit_edge.us.i112.i.us ], [ %112, %._crit_edge.us.i.i.us ], [ %105, %._crit_edge.us.i56.i.us ], [ %97, %._crit_edge.us.i70.i.us ], [ %89, %._crit_edge.us.i84.i.us ], [ %82, %._crit_edge.us.i98.i.us ], [ %66, %._crit_edge.us.i126.i.us ]
   %115 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   store float %.0.i.us, ptr %115, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5506,7 +5506,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond23.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfiiii.exit.us, label %.preheader.us.i.i.us, !llvm.loop !81
 
 _ZN4ncnnL9reductionEfPKfiiii.exit.us:             ; preds = %._crit_edge.us.i126.i.us, %._crit_edge.us.i112.i.us, %._crit_edge.us.i98.i.us, %._crit_edge.us.i84.i.us, %._crit_edge.us.i70.i.us, %._crit_edge.us.i56.i.us, %._crit_edge.us.i.i.us, %101, %93, %85, %78, %70, %62, %54, %52
-  %.0.i.us = phi nsz float [ %53, %52 ], [ %53, %101 ], [ %53, %93 ], [ %53, %85 ], [ %53, %78 ], [ %53, %70 ], [ %53, %62 ], [ %53, %54 ], [ %105, %._crit_edge.us.i.i.us ], [ %98, %._crit_edge.us.i56.i.us ], [ %90, %._crit_edge.us.i70.i.us ], [ %82, %._crit_edge.us.i84.i.us ], [ %75, %._crit_edge.us.i98.i.us ], [ %67, %._crit_edge.us.i112.i.us ], [ %59, %._crit_edge.us.i126.i.us ]
+  %.0.i.us = phi nsz float [ %53, %52 ], [ %53, %101 ], [ %53, %93 ], [ %53, %85 ], [ %53, %78 ], [ %53, %70 ], [ %53, %62 ], [ %53, %54 ], [ %67, %._crit_edge.us.i112.i.us ], [ %105, %._crit_edge.us.i.i.us ], [ %98, %._crit_edge.us.i56.i.us ], [ %90, %._crit_edge.us.i70.i.us ], [ %82, %._crit_edge.us.i84.i.us ], [ %75, %._crit_edge.us.i98.i.us ], [ %59, %._crit_edge.us.i126.i.us ]
   %108 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
   store float %.0.i.us, ptr %108, align 4, !tbaa !51
   %109 = getelementptr inbounds float, ptr %.03585.us, i64 %37
@@ -5823,7 +5823,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfiii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !67
 
 _ZN4ncnnL9reductionEfPKfiii.exit.us:              ; preds = %.lr.ph.i68.i.us, %.lr.ph.i62.i.us, %.lr.ph.i56.i.us, %.lr.ph.i50.i.us, %.lr.ph.i44.i.us, %.lr.ph.i38.i.us, %.lr.ph.i.i.us, %88, %82, %76, %71, %65, %59, %53, %50
-  %.0.i.us = phi nsz float [ %51, %50 ], [ %51, %88 ], [ %51, %82 ], [ %51, %76 ], [ %51, %71 ], [ %51, %65 ], [ %51, %59 ], [ %51, %53 ], [ %90, %.lr.ph.i.i.us ], [ %85, %.lr.ph.i38.i.us ], [ %79, %.lr.ph.i44.i.us ], [ %73, %.lr.ph.i50.i.us ], [ %68, %.lr.ph.i56.i.us ], [ %62, %.lr.ph.i62.i.us ], [ %56, %.lr.ph.i68.i.us ]
+  %.0.i.us = phi nsz float [ %51, %50 ], [ %51, %88 ], [ %51, %82 ], [ %51, %76 ], [ %51, %71 ], [ %51, %65 ], [ %51, %59 ], [ %51, %53 ], [ %62, %.lr.ph.i62.i.us ], [ %90, %.lr.ph.i.i.us ], [ %85, %.lr.ph.i38.i.us ], [ %79, %.lr.ph.i44.i.us ], [ %73, %.lr.ph.i50.i.us ], [ %68, %.lr.ph.i56.i.us ], [ %56, %.lr.ph.i68.i.us ]
   %93 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
   store float %.0.i.us, ptr %93, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6026,7 +6026,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !58
 
 _ZN4ncnnL9reductionEfPKfii.exit.us:               ; preds = %.lr.ph.i73.i.us, %.lr.ph.i65.i.us, %.lr.ph.i57.i.us, %.lr.ph.i49.i.us, %.lr.ph.i41.i.us, %.lr.ph.i33.i.us, %.lr.ph.i.i.us, %76, %71, %66, %62, %57, %52, %47, %45
-  %.0.i.us = phi nsz float [ %46, %45 ], [ %46, %76 ], [ %46, %71 ], [ %46, %66 ], [ %46, %62 ], [ %46, %57 ], [ %46, %52 ], [ %46, %47 ], [ %79, %.lr.ph.i.i.us ], [ %75, %.lr.ph.i33.i.us ], [ %70, %.lr.ph.i41.i.us ], [ %65, %.lr.ph.i49.i.us ], [ %61, %.lr.ph.i57.i.us ], [ %56, %.lr.ph.i65.i.us ], [ %51, %.lr.ph.i73.i.us ]
+  %.0.i.us = phi nsz float [ %46, %45 ], [ %46, %76 ], [ %46, %71 ], [ %46, %66 ], [ %46, %62 ], [ %46, %57 ], [ %46, %52 ], [ %46, %47 ], [ %56, %.lr.ph.i65.i.us ], [ %79, %.lr.ph.i.i.us ], [ %75, %.lr.ph.i33.i.us ], [ %70, %.lr.ph.i41.i.us ], [ %65, %.lr.ph.i49.i.us ], [ %61, %.lr.ph.i57.i.us ], [ %51, %.lr.ph.i73.i.us ]
   %80 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
   store float %.0.i.us, ptr %80, align 4, !tbaa !51
   %81 = getelementptr inbounds float, ptr %.02872.us, i64 %40
@@ -6254,7 +6254,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnn3MatD2Ev.exit.us, label %.lr.ph.i.i.us, !llvm.loop !67
 
 _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %.lr.ph.i68.i.us, %.lr.ph.i62.i.us, %.lr.ph.i56.i.us, %.lr.ph.i50.i.us, %.lr.ph.i44.i.us, %.lr.ph.i38.i.us, %.lr.ph.i.i.us, %96, %90, %84, %79, %73, %67, %61, %58
-  %.0.i.us = phi nsz float [ %59, %58 ], [ %59, %96 ], [ %59, %90 ], [ %59, %84 ], [ %59, %79 ], [ %59, %73 ], [ %59, %67 ], [ %59, %61 ], [ %98, %.lr.ph.i.i.us ], [ %93, %.lr.ph.i38.i.us ], [ %87, %.lr.ph.i44.i.us ], [ %81, %.lr.ph.i50.i.us ], [ %76, %.lr.ph.i56.i.us ], [ %70, %.lr.ph.i62.i.us ], [ %64, %.lr.ph.i68.i.us ]
+  %.0.i.us = phi nsz float [ %59, %58 ], [ %59, %96 ], [ %59, %90 ], [ %59, %84 ], [ %59, %79 ], [ %59, %73 ], [ %59, %67 ], [ %59, %61 ], [ %70, %.lr.ph.i62.i.us ], [ %98, %.lr.ph.i.i.us ], [ %93, %.lr.ph.i38.i.us ], [ %87, %.lr.ph.i44.i.us ], [ %81, %.lr.ph.i50.i.us ], [ %76, %.lr.ph.i56.i.us ], [ %64, %.lr.ph.i68.i.us ]
   %101 = getelementptr inbounds nuw float, ptr %.sroa.045.0.us, i64 %indvars.iv
   store float %.0.i.us, ptr %101, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6485,7 +6485,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us.us.us, label %_ZN4ncnnL9reductionEfPKfiii.exit.us.us.us, label %.lr.ph.i.i.us.us.us, !llvm.loop !67
 
 _ZN4ncnnL9reductionEfPKfiii.exit.us.us.us:        ; preds = %.lr.ph.i68.i.us.us.us, %.lr.ph.i62.i.us.us.us, %.lr.ph.i56.i.us.us.us, %.lr.ph.i50.i.us.us.us, %.lr.ph.i44.i.us.us.us, %.lr.ph.i38.i.us.us.us, %.lr.ph.i.i.us.us.us, %96, %90, %84, %79, %73, %67, %61, %58
-  %.0.i.us.us.us = phi nsz float [ %59, %58 ], [ %59, %96 ], [ %59, %90 ], [ %59, %84 ], [ %59, %79 ], [ %59, %73 ], [ %59, %67 ], [ %59, %61 ], [ %98, %.lr.ph.i.i.us.us.us ], [ %93, %.lr.ph.i38.i.us.us.us ], [ %87, %.lr.ph.i44.i.us.us.us ], [ %81, %.lr.ph.i50.i.us.us.us ], [ %76, %.lr.ph.i56.i.us.us.us ], [ %70, %.lr.ph.i62.i.us.us.us ], [ %64, %.lr.ph.i68.i.us.us.us ]
+  %.0.i.us.us.us = phi nsz float [ %59, %58 ], [ %59, %96 ], [ %59, %90 ], [ %59, %84 ], [ %59, %79 ], [ %59, %73 ], [ %59, %67 ], [ %59, %61 ], [ %70, %.lr.ph.i62.i.us.us.us ], [ %98, %.lr.ph.i.i.us.us.us ], [ %93, %.lr.ph.i38.i.us.us.us ], [ %87, %.lr.ph.i44.i.us.us.us ], [ %81, %.lr.ph.i50.i.us.us.us ], [ %76, %.lr.ph.i56.i.us.us.us ], [ %64, %.lr.ph.i68.i.us.us.us ]
   %101 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
   store float %.0.i.us.us.us, ptr %101, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6699,7 +6699,7 @@ define internal void @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE
   br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL9reductionEfPKfiii.exit.us, label %.lr.ph.i.i.us, !llvm.loop !67
 
 _ZN4ncnnL9reductionEfPKfiii.exit.us:              ; preds = %.lr.ph.i68.i.us, %.lr.ph.i62.i.us, %.lr.ph.i56.i.us, %.lr.ph.i50.i.us, %.lr.ph.i44.i.us, %.lr.ph.i38.i.us, %.lr.ph.i.i.us, %83, %77, %71, %66, %60, %54, %48, %45
-  %.0.i.us = phi nsz float [ %46, %45 ], [ %46, %83 ], [ %46, %77 ], [ %46, %71 ], [ %46, %66 ], [ %46, %60 ], [ %46, %54 ], [ %46, %48 ], [ %85, %.lr.ph.i.i.us ], [ %80, %.lr.ph.i38.i.us ], [ %74, %.lr.ph.i44.i.us ], [ %68, %.lr.ph.i50.i.us ], [ %63, %.lr.ph.i56.i.us ], [ %57, %.lr.ph.i62.i.us ], [ %51, %.lr.ph.i68.i.us ]
+  %.0.i.us = phi nsz float [ %46, %45 ], [ %46, %83 ], [ %46, %77 ], [ %46, %71 ], [ %46, %66 ], [ %46, %60 ], [ %46, %54 ], [ %46, %48 ], [ %57, %.lr.ph.i62.i.us ], [ %85, %.lr.ph.i.i.us ], [ %80, %.lr.ph.i38.i.us ], [ %74, %.lr.ph.i44.i.us ], [ %68, %.lr.ph.i50.i.us ], [ %63, %.lr.ph.i56.i.us ], [ %51, %.lr.ph.i68.i.us ]
   %88 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
   store float %.0.i.us, ptr %88, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

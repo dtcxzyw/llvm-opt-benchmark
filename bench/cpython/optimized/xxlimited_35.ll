@@ -248,12 +248,12 @@ Py_INCREF.exit:                                   ; preds = %7, %11
   br i1 %54, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 Py_DECREF.exit.sink.split:                        ; preds = %52, %41, %30, %18
-  %.sink = phi ptr [ %16, %18 ], [ %28, %30 ], [ %34, %41 ], [ %45, %52 ]
+  %.sink = phi ptr [ %34, %41 ], [ %28, %30 ], [ %16, %18 ], [ %45, %52 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %.sink) #4
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %52, %50, %41, %39, %30, %27, %18, %15, %47, %44, %33, %21, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %21 ], [ -1, %33 ], [ -1, %44 ], [ 0, %47 ], [ -1, %15 ], [ -1, %18 ], [ -1, %27 ], [ -1, %30 ], [ -1, %39 ], [ -1, %41 ], [ -1, %50 ], [ -1, %52 ], [ -1, %Py_DECREF.exit.sink.split ]
+  %.0 = phi i32 [ -1, %44 ], [ 0, %47 ], [ -1, %4 ], [ -1, %21 ], [ -1, %33 ], [ -1, %15 ], [ -1, %18 ], [ -1, %27 ], [ -1, %30 ], [ -1, %39 ], [ -1, %41 ], [ -1, %50 ], [ -1, %52 ], [ -1, %Py_DECREF.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -493,7 +493,7 @@ _Py_NewRef.exit.sink.split:                       ; preds = %15, %11
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %15, %11, %2
-  %.0 = phi ptr [ null, %2 ], [ %12, %11 ], [ @_Py_NoneStruct, %15 ], [ %_Py_NoneStruct.sink, %_Py_NewRef.exit.sink.split ]
+  %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %15 ], [ %12, %11 ], [ %_Py_NoneStruct.sink, %_Py_NewRef.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

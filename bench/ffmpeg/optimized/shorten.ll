@@ -2137,7 +2137,7 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %998, %1033, %1022, 
   br label %1055
 
 1055:                                             ; preds = %1053, %.loopexit130.i
-  %1056 = phi i32 [ %1054, %1053 ], [ %.0281, %.loopexit130.i ]
+  %1056 = phi i32 [ %.0281, %.loopexit130.i ], [ %1054, %1053 ]
   %1057 = load i32, ptr %493, align 8, !tbaa !50
   %1058 = icmp sgt i32 %1057, 0
   br i1 %1058, label %.preheader129.lr.ph.i, label %decode_subframe_lpc.exit.thread
@@ -2222,14 +2222,14 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %998, %1033, %1022, 
   br i1 %1095, label %.lr.ph157.i, label %decode_subframe_lpc.exit.thread, !llvm.loop !82
 
 decode_subframe_lpc.exit:                         ; preds = %get_ur_golomb_jpegls.exit.i372, %get_ur_golomb_jpegls.exit.thread.i390, %1040
-  %.sink233.i = phi i32 [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i.i374, %get_ur_golomb_jpegls.exit.i372 ], [ %.0106.i518551561, %1040 ]
-  %.066.ph.i = phi i32 [ -22, %get_ur_golomb_jpegls.exit.thread.i390 ], [ -22, %get_ur_golomb_jpegls.exit.i372 ], [ -1094995529, %1040 ]
+  %.sink233.i = phi i32 [ %.0106.i.i374, %get_ur_golomb_jpegls.exit.i372 ], [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i518551561, %1040 ]
+  %.066.ph.i = phi i32 [ -22, %get_ur_golomb_jpegls.exit.i372 ], [ -22, %get_ur_golomb_jpegls.exit.thread.i390 ], [ -1094995529, %1040 ]
   %1096 = load ptr, ptr %10, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1096, i32 noundef 16, ptr noundef nonnull @.str.38, i32 noundef %.sink233.i) #8
   br label %read_header.exit.thread
 
-decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %892, %.preheader612, %1055, %.thread.i, %._crit_edge155.i
-  %1097 = phi i32 [ %887, %.preheader612 ], [ %1057, %1055 ], [ %1060, %.thread.i ], [ %1086, %._crit_edge155.i ], [ %894, %892 ], [ %1093, %.lr.ph157.i ]
+decode_subframe_lpc.exit.thread:                  ; preds = %.lr.ph157.i, %892, %.preheader612, %1055, %._crit_edge155.i, %.thread.i
+  %1097 = phi i32 [ %1060, %.thread.i ], [ %887, %.preheader612 ], [ %1057, %1055 ], [ %1086, %._crit_edge155.i ], [ %894, %892 ], [ %1093, %.lr.ph157.i ]
   %1098 = load i32, ptr %496, align 4, !tbaa !51
   %1099 = icmp sgt i32 %1098, 0
   br i1 %1099, label %1100, label %1150
@@ -2560,8 +2560,8 @@ fix_bitshift.exit:                                ; preds = %.lr.ph.i392, %.lr.p
   store i32 %1249, ptr %24, align 8, !tbaa !38
   br label %read_header.exit.thread
 
-read_header.exit.thread:                          ; preds = %419, %423, %1187, %decode_subframe_lpc.exit, %853, %781, %778, %.loopexit618, %.loopexit620, %408, %417, %150, %155, %160, %168, %init_offset.exit.i, %allocate_buffers.exit.i, %397, %394, %125, %400, %324, %253, %130, %104, %.thread510, %.thread, %1244, %63, %1246, %1241, %487, %62
-  %.2 = phi i32 [ %., %62 ], [ %488, %487 ], [ -1094995529, %1241 ], [ %., %1246 ], [ -1094995529, %63 ], [ %1239, %1244 ], [ -12, %.thread ], [ -12, %.thread510 ], [ -1094995529, %408 ], [ -1094995529, %417 ], [ -22, %150 ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %168 ], [ -1163346256, %init_offset.exit.i ], [ %443, %allocate_buffers.exit.i ], [ %398, %397 ], [ %395, %394 ], [ -1094995529, %125 ], [ -1163346256, %400 ], [ -1094995529, %324 ], [ -1094995529, %253 ], [ -1094995529, %130 ], [ -1094995529, %104 ], [ -1094995529, %.loopexit618 ], [ -1094995529, %.loopexit620 ], [ -22, %781 ], [ -1163346256, %778 ], [ %.066.ph.i, %decode_subframe_lpc.exit ], [ -1094995529, %853 ], [ %1189, %1187 ], [ %429, %423 ], [ %421, %419 ]
+read_header.exit.thread:                          ; preds = %423, %419, %1187, %decode_subframe_lpc.exit, %853, %781, %778, %.loopexit618, %.loopexit620, %408, %417, %155, %160, %168, %init_offset.exit.i, %150, %400, %394, %125, %324, %253, %allocate_buffers.exit.i, %397, %130, %104, %.thread510, %.thread, %1244, %63, %1246, %1241, %487, %62
+  %.2 = phi i32 [ %., %62 ], [ -12, %.thread ], [ %488, %487 ], [ -1094995529, %104 ], [ -1094995529, %1241 ], [ %., %1246 ], [ %1239, %1244 ], [ -1094995529, %63 ], [ -12, %.thread510 ], [ %.066.ph.i, %decode_subframe_lpc.exit ], [ -1094995529, %408 ], [ -1094995529, %417 ], [ -1094995529, %155 ], [ -1094995529, %160 ], [ -1094995529, %168 ], [ -1163346256, %init_offset.exit.i ], [ -22, %150 ], [ -1163346256, %400 ], [ %395, %394 ], [ -1094995529, %125 ], [ -1094995529, %324 ], [ -1094995529, %253 ], [ %443, %allocate_buffers.exit.i ], [ %398, %397 ], [ -1094995529, %130 ], [ -1163346256, %778 ], [ -1094995529, %.loopexit618 ], [ -1094995529, %.loopexit620 ], [ -1094995529, %853 ], [ -22, %781 ], [ %1189, %1187 ], [ %421, %419 ], [ %429, %423 ]
   ret i32 %.2
 }
 

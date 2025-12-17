@@ -937,7 +937,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit139:                 ; preds = %306, %305, %212
   br label %.body110
 
 .body110:                                         ; preds = %310, %309, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i109
-  %.pn88.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i109 ], [ %.pn88.pn.pn.pn.pn.pn.pn, %309 ], [ %.pn88.pn.pn.pn.pn.pn.pn, %310 ]
+  %.pn88.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i109 ], [ %.pn88.pn.pn.pn.pn.pn.pn, %310 ], [ %.pn88.pn.pn.pn.pn.pn.pn, %309 ]
   %.not.i.i.i142 = icmp eq ptr %.sroa.0195.0, null
   br i1 %.not.i.i.i142, label %.body, label %311
 
@@ -946,7 +946,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit139:                 ; preds = %306, %305, %212
   br label %.body
 
 .body:                                            ; preds = %311, %.body110, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn88.pn.pn.pn.pn.pn.pn.pn, %.body110 ], [ %.pn88.pn.pn.pn.pn.pn.pn.pn, %311 ]
+  %.pn88.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %69, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn88.pn.pn.pn.pn.pn.pn.pn, %311 ], [ %.pn88.pn.pn.pn.pn.pn.pn.pn, %.body110 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #20
   br label %312
 
@@ -1059,14 +1059,14 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv2DEPKfiiiiiiiiS2_S2_S2_iiPfiii
   br label %73
 
 73:                                               ; preds = %63, %71, %72
-  %.0208 = phi ptr [ %67, %72 ], [ %67, %71 ], [ %68, %63 ]
-  %.0207 = phi ptr [ %68, %72 ], [ %69, %71 ], [ %69, %63 ]
-  %.0203 = phi float [ %20, %72 ], [ %20, %71 ], [ 0.000000e+00, %63 ]
-  %.0202 = phi float [ %22, %72 ], [ %22, %71 ], [ 0.000000e+00, %63 ]
-  %.0201 = phi float [ %24, %72 ], [ %24, %71 ], [ 0.000000e+00, %63 ]
-  %.0200 = phi float [ 0.000000e+00, %72 ], [ %32, %71 ], [ %32, %63 ]
-  %.0199 = phi float [ 0.000000e+00, %72 ], [ %34, %71 ], [ %34, %63 ]
-  %.0198 = phi float [ 0.000000e+00, %72 ], [ %36, %71 ], [ %36, %63 ]
+  %.0208 = phi ptr [ %67, %71 ], [ %67, %72 ], [ %68, %63 ]
+  %.0207 = phi ptr [ %69, %71 ], [ %68, %72 ], [ %69, %63 ]
+  %.0203 = phi float [ %20, %71 ], [ %20, %72 ], [ 0.000000e+00, %63 ]
+  %.0202 = phi float [ %22, %71 ], [ %22, %72 ], [ 0.000000e+00, %63 ]
+  %.0201 = phi float [ %24, %71 ], [ %24, %72 ], [ 0.000000e+00, %63 ]
+  %.0200 = phi float [ %32, %71 ], [ 0.000000e+00, %72 ], [ %32, %63 ]
+  %.0199 = phi float [ %34, %71 ], [ 0.000000e+00, %72 ], [ %34, %63 ]
+  %.0198 = phi float [ %36, %71 ], [ 0.000000e+00, %72 ], [ %36, %63 ]
   %74 = mul nsw i64 %indvars.iv238, %62
   %75 = getelementptr inbounds float, ptr %14, i64 %74
   br i1 %51, label %76, label %102
@@ -1446,7 +1446,7 @@ define hidden void @_ZN2cv3dnn20depthWiseBlockConv1DEPKfiiiiS2_S2_S2_iPfiib(ptr 
   br i1 %exitcond145.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !95
 
 .preheader:                                       ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %46
-  %.1.lcssa = phi i32 [ %.0109, %46 ], [ %.sroa.speculated, %.lr.ph.split.us.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split ], [ %.sroa.speculated, %.lr.ph.split.split.us ], [ %.sroa.speculated, %.lr.ph.split.split ]
+  %.1.lcssa = phi i32 [ %.0109, %46 ], [ %.sroa.speculated, %.lr.ph.split.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split.us ], [ %.sroa.speculated, %.lr.ph.split.us.split ], [ %.sroa.speculated, %.lr.ph.split.split ]
   %98 = icmp slt i32 %.1.lcssa, %11
   br i1 %98, label %.lr.ph131, label %._crit_edge
 

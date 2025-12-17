@@ -72,8 +72,8 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   br label %46
 
 46:                                               ; preds = %34, %38, %41, %44
-  %.0118 = phi i32 [ %45, %44 ], [ 0, %41 ], [ %32, %38 ], [ %32, %34 ]
-  %.0 = phi i32 [ 0, %44 ], [ 0, %41 ], [ %40, %38 ], [ %37, %34 ]
+  %.0118 = phi i32 [ 0, %41 ], [ %45, %44 ], [ %32, %38 ], [ %32, %34 ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %44 ], [ %40, %38 ], [ %37, %34 ]
   tail call void @ScalePlaneVertical(i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef 0, i32 noundef %.0, i32 noundef %.0118, i32 noundef 1, i32 noundef %14) #9
   br label %ScalePlaneUp2_Linear.exit
 
@@ -287,7 +287,7 @@ ScalePlaneBox.exit:                               ; preds = %51, %._crit_edge.i
   br label %ScalePlaneUp2_Linear.exit
 
 ScalePlaneUp2_Linear.exit:                        ; preds = %109, %135, %._crit_edge.i145, %103, %97, %143, %141, %138, %ScalePlaneBox.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ %139, %138 ], [ %142, %141 ], [ 0, %143 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %135 ], [ 0, %109 ]
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ 0, %143 ], [ %139, %138 ], [ %142, %141 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %135 ], [ 0, %109 ]
   ret i32 %.0119
 }
 
@@ -410,10 +410,10 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   br label %68
 
 68:                                               ; preds = %59, %58, %.split.us
-  %.3.us = phi ptr [ %.4.us, %58 ], [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ]
-  %.184.us = phi ptr [ %.083103.us, %58 ], [ %.083103.us, %.split.us ], [ %63, %59 ]
-  %.182.us = phi i32 [ %.081104.us, %58 ], [ %.081104.us, %.split.us ], [ %64, %59 ]
-  %.1.us = phi i32 [ %.080105.us, %58 ], [ %.080105.us, %.split.us ], [ %.088.us, %59 ]
+  %.3.us = phi ptr [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ], [ %.4.us, %58 ]
+  %.184.us = phi ptr [ %.083103.us, %.split.us ], [ %63, %59 ], [ %.083103.us, %58 ]
+  %.182.us = phi i32 [ %.081104.us, %.split.us ], [ %64, %59 ], [ %.081104.us, %58 ]
+  %.1.us = phi i32 [ %.080105.us, %.split.us ], [ %.088.us, %59 ], [ %.080105.us, %58 ]
   call void @InterpolateRow_C(ptr noundef %.085102.us, ptr noundef %.184.us, i64 noundef 0, i32 noundef %2, i32 noundef 0) #9
   %69 = getelementptr inbounds i8, ptr %.085102.us, i64 %52
   %70 = load i32, ptr %13, align 4
@@ -466,11 +466,11 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp(i32 noundef %0,
   br label %90
 
 90:                                               ; preds = %81, %79, %.split
-  %91 = phi i32 [ %80, %79 ], [ %74, %.split ], [ %87, %81 ]
-  %.3 = phi ptr [ %.4, %79 ], [ %.2101, %.split ], [ %spec.select99, %81 ]
-  %.184 = phi ptr [ %.083103, %79 ], [ %.083103, %.split ], [ %85, %81 ]
-  %.182 = phi i32 [ %.081104, %79 ], [ %.081104, %.split ], [ %86, %81 ]
-  %.1 = phi i32 [ %.080105, %79 ], [ %.080105, %.split ], [ %.088, %81 ]
+  %91 = phi i32 [ %74, %.split ], [ %87, %81 ], [ %80, %79 ]
+  %.3 = phi ptr [ %.2101, %.split ], [ %spec.select99, %81 ], [ %.4, %79 ]
+  %.184 = phi ptr [ %.083103, %.split ], [ %85, %81 ], [ %.083103, %79 ]
+  %.182 = phi i32 [ %.081104, %.split ], [ %86, %81 ], [ %.081104, %79 ]
+  %.1 = phi i32 [ %.080105, %.split ], [ %.088, %81 ], [ %.080105, %79 ]
   %92 = lshr i32 %91, 8
   %93 = and i32 %92, 255
   %94 = sext i32 %.182 to i64
@@ -713,8 +713,8 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   br label %46
 
 46:                                               ; preds = %34, %38, %41, %44
-  %.0118 = phi i32 [ %45, %44 ], [ 0, %41 ], [ %32, %38 ], [ %32, %34 ]
-  %.0 = phi i32 [ 0, %44 ], [ 0, %41 ], [ %40, %38 ], [ %37, %34 ]
+  %.0118 = phi i32 [ 0, %41 ], [ %45, %44 ], [ %32, %38 ], [ %32, %34 ]
+  %.0 = phi i32 [ 0, %41 ], [ 0, %44 ], [ %40, %38 ], [ %37, %34 ]
   tail call void @ScalePlaneVertical_16(i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef 0, i32 noundef %.0, i32 noundef %.0118, i32 noundef 1, i32 noundef %14) #9
   br label %ScalePlaneUp2_16_Linear.exit
 
@@ -926,7 +926,7 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   br label %ScalePlaneUp2_16_Linear.exit
 
 ScalePlaneUp2_16_Linear.exit:                     ; preds = %108, %134, %._crit_edge.i145, %102, %96, %142, %140, %137, %ScalePlaneBox_16.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ %138, %137 ], [ %141, %140 ], [ 0, %142 ], [ 0, %96 ], [ 0, %102 ], [ 0, %._crit_edge.i145 ], [ 0, %134 ], [ 0, %108 ]
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ 0, %142 ], [ %138, %137 ], [ %141, %140 ], [ 0, %96 ], [ 0, %102 ], [ 0, %._crit_edge.i145 ], [ 0, %134 ], [ 0, %108 ]
   ret i32 %.0119
 }
 
@@ -1043,10 +1043,10 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   br label %68
 
 68:                                               ; preds = %59, %58, %.split.us
-  %.3.us = phi ptr [ %.4.us, %58 ], [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ]
-  %.184.us = phi ptr [ %.083103.us, %58 ], [ %.083103.us, %.split.us ], [ %63, %59 ]
-  %.182.us = phi i32 [ %.081104.us, %58 ], [ %.081104.us, %.split.us ], [ %64, %59 ]
-  %.1.us = phi i32 [ %.080105.us, %58 ], [ %.080105.us, %.split.us ], [ %.088.us, %59 ]
+  %.3.us = phi ptr [ %.2101.us, %.split.us ], [ %spec.select99.us, %59 ], [ %.4.us, %58 ]
+  %.184.us = phi ptr [ %.083103.us, %.split.us ], [ %63, %59 ], [ %.083103.us, %58 ]
+  %.182.us = phi i32 [ %.081104.us, %.split.us ], [ %64, %59 ], [ %.081104.us, %58 ]
+  %.1.us = phi i32 [ %.080105.us, %.split.us ], [ %.088.us, %59 ], [ %.080105.us, %58 ]
   call void @InterpolateRow_16_C(ptr noundef %.085102.us, ptr noundef %.184.us, i64 noundef 0, i32 noundef %2, i32 noundef 0) #9
   %69 = getelementptr inbounds i16, ptr %.085102.us, i64 %52
   %70 = load i32, ptr %13, align 4
@@ -1099,11 +1099,11 @@ define internal fastcc range(i32 0, 2) i32 @ScalePlaneBilinearUp_16(i32 noundef 
   br label %90
 
 90:                                               ; preds = %81, %79, %.split
-  %91 = phi i32 [ %80, %79 ], [ %74, %.split ], [ %87, %81 ]
-  %.3 = phi ptr [ %.4, %79 ], [ %.2101, %.split ], [ %spec.select99, %81 ]
-  %.184 = phi ptr [ %.083103, %79 ], [ %.083103, %.split ], [ %85, %81 ]
-  %.182 = phi i32 [ %.081104, %79 ], [ %.081104, %.split ], [ %86, %81 ]
-  %.1 = phi i32 [ %.080105, %79 ], [ %.080105, %.split ], [ %.088, %81 ]
+  %91 = phi i32 [ %74, %.split ], [ %87, %81 ], [ %80, %79 ]
+  %.3 = phi ptr [ %.2101, %.split ], [ %spec.select99, %81 ], [ %.4, %79 ]
+  %.184 = phi ptr [ %.083103, %.split ], [ %85, %81 ], [ %.083103, %79 ]
+  %.182 = phi i32 [ %.081104, %.split ], [ %86, %81 ], [ %.081104, %79 ]
+  %.1 = phi i32 [ %.080105, %.split ], [ %.088, %81 ], [ %.080105, %79 ]
   %92 = lshr i32 %91, 8
   %93 = and i32 %92, 255
   %94 = sext i32 %.182 to i64

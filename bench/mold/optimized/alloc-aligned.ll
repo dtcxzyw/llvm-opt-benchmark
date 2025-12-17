@@ -48,7 +48,7 @@ define hidden noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %0, i64 noundef
   br label %mi_heap_malloc_zero_aligned_at.exit
 
 mi_heap_malloc_zero_aligned_at.exit:              ; preds = %4, %23, %.thread.i
-  %.030.i = phi ptr [ %25, %.thread.i ], [ null, %4 ], [ %24, %23 ]
+  %.030.i = phi ptr [ null, %4 ], [ %25, %.thread.i ], [ %24, %23 ]
   ret ptr %.030.i
 }
 
@@ -91,7 +91,7 @@ define hidden noalias ptr @mi_heap_malloc_aligned(ptr noundef %0, i64 noundef %1
   br label %mi_heap_malloc_aligned_at.exit
 
 mi_heap_malloc_aligned_at.exit:                   ; preds = %3, %21, %.thread.i.i
-  %.030.i.i = phi ptr [ %23, %.thread.i.i ], [ null, %3 ], [ %22, %21 ]
+  %.030.i.i = phi ptr [ null, %3 ], [ %23, %.thread.i.i ], [ %22, %21 ]
   ret ptr %.030.i.i
 }
 
@@ -135,7 +135,7 @@ define hidden noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %0, i64 noundef
   br label %mi_heap_malloc_zero_aligned_at.exit
 
 mi_heap_malloc_zero_aligned_at.exit:              ; preds = %4, %23, %.thread.i
-  %.030.i = phi ptr [ %25, %.thread.i ], [ null, %4 ], [ %24, %23 ]
+  %.030.i = phi ptr [ null, %4 ], [ %25, %.thread.i ], [ %24, %23 ]
   ret ptr %.030.i
 }
 
@@ -178,7 +178,7 @@ define hidden noalias ptr @mi_heap_zalloc_aligned(ptr noundef %0, i64 noundef %1
   br label %mi_heap_zalloc_aligned_at.exit
 
 mi_heap_zalloc_aligned_at.exit:                   ; preds = %3, %21, %.thread.i.i
-  %.030.i.i = phi ptr [ %23, %.thread.i.i ], [ null, %3 ], [ %22, %21 ]
+  %.030.i.i = phi ptr [ null, %3 ], [ %23, %.thread.i.i ], [ %22, %21 ]
   ret ptr %.030.i.i
 }
 
@@ -233,7 +233,7 @@ define hidden noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %0, i64 noundef
   br label %mi_count_size_overflow.exit
 
 mi_count_size_overflow.exit:                      ; preds = %.thread.i.i, %29, %10, %6
-  %.0 = phi ptr [ null, %6 ], [ %31, %.thread.i.i ], [ null, %10 ], [ %30, %29 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %10 ], [ %31, %.thread.i.i ], [ %30, %29 ]
   ret ptr %.0
 }
 
@@ -287,7 +287,7 @@ define hidden noalias ptr @mi_heap_calloc_aligned(ptr noundef %0, i64 noundef %1
   br label %mi_heap_calloc_aligned_at.exit
 
 mi_heap_calloc_aligned_at.exit:                   ; preds = %5, %9, %27, %.thread.i.i.i
-  %.0.i = phi ptr [ null, %5 ], [ %29, %.thread.i.i.i ], [ null, %9 ], [ %28, %27 ]
+  %.0.i = phi ptr [ null, %5 ], [ null, %9 ], [ %29, %.thread.i.i.i ], [ %28, %27 ]
   ret ptr %.0.i
 }
 
@@ -333,7 +333,7 @@ define hidden noalias ptr @mi_malloc_aligned_at(i64 noundef %0, i64 noundef %1, 
   br label %mi_heap_malloc_aligned_at.exit
 
 mi_heap_malloc_aligned_at.exit:                   ; preds = %3, %24, %.thread.i.i
-  %.030.i.i = phi ptr [ %26, %.thread.i.i ], [ null, %3 ], [ %25, %24 ]
+  %.030.i.i = phi ptr [ null, %3 ], [ %26, %.thread.i.i ], [ %25, %24 ]
   ret ptr %.030.i.i
 }
 
@@ -378,7 +378,7 @@ define hidden noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) loc
   br label %mi_heap_malloc_aligned.exit
 
 mi_heap_malloc_aligned.exit:                      ; preds = %2, %22, %.thread.i.i.i
-  %.030.i.i.i = phi ptr [ %24, %.thread.i.i.i ], [ null, %2 ], [ %23, %22 ]
+  %.030.i.i.i = phi ptr [ null, %2 ], [ %24, %.thread.i.i.i ], [ %23, %22 ]
   ret ptr %.030.i.i.i
 }
 
@@ -424,7 +424,7 @@ define hidden noalias ptr @mi_zalloc_aligned_at(i64 noundef %0, i64 noundef %1, 
   br label %mi_heap_zalloc_aligned_at.exit
 
 mi_heap_zalloc_aligned_at.exit:                   ; preds = %3, %24, %.thread.i.i
-  %.030.i.i = phi ptr [ %26, %.thread.i.i ], [ null, %3 ], [ %25, %24 ]
+  %.030.i.i = phi ptr [ null, %3 ], [ %26, %.thread.i.i ], [ %25, %24 ]
   ret ptr %.030.i.i
 }
 
@@ -469,7 +469,7 @@ define hidden noalias ptr @mi_zalloc_aligned(i64 noundef %0, i64 noundef %1) loc
   br label %mi_heap_zalloc_aligned.exit
 
 mi_heap_zalloc_aligned.exit:                      ; preds = %2, %22, %.thread.i.i.i
-  %.030.i.i.i = phi ptr [ %24, %.thread.i.i.i ], [ null, %2 ], [ %23, %22 ]
+  %.030.i.i.i = phi ptr [ null, %2 ], [ %24, %.thread.i.i.i ], [ %23, %22 ]
   ret ptr %.030.i.i.i
 }
 
@@ -526,7 +526,7 @@ define hidden noalias ptr @mi_calloc_aligned_at(i64 noundef %0, i64 noundef %1, 
   br label %mi_heap_calloc_aligned_at.exit
 
 mi_heap_calloc_aligned_at.exit:                   ; preds = %7, %11, %30, %.thread.i.i.i
-  %.0.i = phi ptr [ null, %7 ], [ %32, %.thread.i.i.i ], [ null, %11 ], [ %31, %30 ]
+  %.0.i = phi ptr [ null, %7 ], [ null, %11 ], [ %32, %.thread.i.i.i ], [ %31, %30 ]
   ret ptr %.0.i
 }
 
@@ -582,7 +582,7 @@ define hidden noalias ptr @mi_calloc_aligned(i64 noundef %0, i64 noundef %1, i64
   br label %mi_heap_calloc_aligned.exit
 
 mi_heap_calloc_aligned.exit:                      ; preds = %6, %10, %28, %.thread.i.i.i.i
-  %.0.i.i = phi ptr [ null, %6 ], [ %30, %.thread.i.i.i.i ], [ null, %10 ], [ %29, %28 ]
+  %.0.i.i = phi ptr [ null, %6 ], [ null, %10 ], [ %30, %.thread.i.i.i.i ], [ %29, %28 ]
   ret ptr %.0.i.i
 }
 
@@ -707,7 +707,7 @@ define internal fastcc ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr 
   br label %mi_heap_malloc_aligned_at.exit
 
 mi_heap_malloc_aligned_at.exit:                   ; preds = %66, %.thread.i.i
-  %.030.i.i = phi ptr [ %68, %.thread.i.i ], [ %67, %66 ]
+  %.030.i.i = phi ptr [ %67, %66 ], [ %68, %.thread.i.i ]
   %.not51 = icmp eq ptr %.030.i.i, null
   br i1 %.not51, label %mi_heap_malloc_zero_aligned_at.exit, label %69
 
@@ -731,7 +731,7 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %66, %.thread.i.i
   br label %mi_heap_malloc_zero_aligned_at.exit
 
 mi_heap_malloc_zero_aligned_at.exit:              ; preds = %47, %.thread.i, %34, %32, %12, %42, %74, %mi_heap_malloc_aligned_at.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ %1, %42 ], [ %.030.i.i, %74 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %36, %.thread.i ], [ null, %12 ], [ %33, %32 ], [ %35, %34 ], [ null, %47 ]
+  %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %42 ], [ %.030.i.i, %74 ], [ null, %12 ], [ %36, %.thread.i ], [ %33, %32 ], [ %35, %34 ], [ null, %47 ]
   ret ptr %.0
 }
 
@@ -998,7 +998,7 @@ mi_malloc_is_naturally_aligned.exit.thread21:     ; preds = %.thread, %mi_malloc
   br label %23
 
 23:                                               ; preds = %mi_malloc_is_naturally_aligned.exit.thread, %5, %mi_malloc_is_naturally_aligned.exit.thread21
-  %.018 = phi ptr [ %22, %mi_malloc_is_naturally_aligned.exit.thread21 ], [ null, %5 ], [ %18, %mi_malloc_is_naturally_aligned.exit.thread ]
+  %.018 = phi ptr [ null, %5 ], [ %22, %mi_malloc_is_naturally_aligned.exit.thread21 ], [ %18, %mi_malloc_is_naturally_aligned.exit.thread ]
   ret ptr %.018
 }
 
@@ -1080,7 +1080,7 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
   br label %50
 
 50:                                               ; preds = %47, %48, %12, %8, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %8 ], [ null, %12 ], [ %26, %48 ], [ %26, %47 ]
+  %.0 = phi ptr [ null, %8 ], [ null, %7 ], [ null, %12 ], [ %26, %48 ], [ %26, %47 ]
   ret ptr %.0
 }
 

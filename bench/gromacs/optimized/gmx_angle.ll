@@ -1701,7 +1701,7 @@ _ZL14gmx_sfree_implI7t_pargsEvPKcS2_iPT_.exit:    ; preds = %84, %649, %653
   br label %656
 
 .body:                                            ; preds = %.loopexit377, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %325, %477, %521, %502, %492, %592, %536, %389, %264, %160, %130, %106, %90
-  %.pn270.pn = phi { ptr, i32 } [ %.pn270, %106 ], [ %.pn268, %130 ], [ %.pn266, %160 ], [ %.pn252.pn.pn, %389 ], [ %.pn.pn.pn, %264 ], [ %91, %90 ], [ %522, %521 ], [ %478, %477 ], [ %503, %502 ], [ %493, %492 ], [ %537, %536 ], [ %.pn256.pn.pn, %592 ], [ %326, %325 ], [ %lpad.loopexit, %.loopexit377 ], [ %lpad.loopexit378, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp379, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn270.pn = phi { ptr, i32 } [ %.pn270, %106 ], [ %.pn268, %130 ], [ %.pn266, %160 ], [ %91, %90 ], [ %.pn256.pn.pn, %592 ], [ %.pn252.pn.pn, %389 ], [ %.pn.pn.pn, %264 ], [ %478, %477 ], [ %493, %492 ], [ %522, %521 ], [ %503, %502 ], [ %537, %536 ], [ %326, %325 ], [ %lpad.loopexit, %.loopexit377 ], [ %lpad.loopexit378, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp379, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %655 = getelementptr inbounds nuw i8, ptr %17, i64 504

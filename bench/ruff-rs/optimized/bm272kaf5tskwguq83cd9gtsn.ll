@@ -1608,7 +1608,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %42 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subscriber8registry10extensions15ExtensionsInner7get_mut17hae8f8b54bd5804ccE(ptr noalias noundef nonnull align 8 dereferenceable(32) %41)
           to label %43 unwind label %.thread48
 
-.thread48:                                        ; preds = %77, %76, %71, %69, %36
+.thread48:                                        ; preds = %36, %77, %76, %71, %69
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread41
@@ -1926,7 +1926,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   %42 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subscriber8registry10extensions15ExtensionsInner7get_mut17hae8f8b54bd5804ccE(ptr noalias noundef nonnull align 8 dereferenceable(32) %41)
           to label %43 unwind label %.thread48
 
-.thread48:                                        ; preds = %77, %76, %71, %69, %36
+.thread48:                                        ; preds = %36, %77, %76, %71, %69
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread41
@@ -2192,8 +2192,8 @@ define hidden { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Laye
   br label %18
 
 18:                                               ; preds = %12, %6, %3, %16
-  %.sroa.6.0 = phi ptr [ %17, %16 ], [ %0, %3 ], [ %0, %6 ], [ %spec.select, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 1, %3 ], [ 1, %6 ], [ %spec.select8, %12 ]
+  %.sroa.6.0 = phi ptr [ %0, %6 ], [ %0, %3 ], [ %17, %16 ], [ %spec.select, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %6 ], [ 1, %3 ], [ 1, %16 ], [ %spec.select8, %12 ]
   %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, ptr } %19, ptr %.sroa.6.0, 1
   ret { i64, ptr } %20
@@ -2232,8 +2232,8 @@ define hidden { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Laye
   br label %18
 
 18:                                               ; preds = %12, %6, %3, %16
-  %.sroa.6.0 = phi ptr [ %17, %16 ], [ %0, %3 ], [ %0, %6 ], [ %spec.select, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 1, %3 ], [ 1, %6 ], [ %spec.select8, %12 ]
+  %.sroa.6.0 = phi ptr [ %0, %6 ], [ %0, %3 ], [ %17, %16 ], [ %spec.select, %12 ]
+  %.sroa.0.0 = phi i64 [ 1, %6 ], [ 1, %3 ], [ 1, %16 ], [ %spec.select8, %12 ]
   %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, ptr } %19, ptr %.sroa.6.0, 1
   ret { i64, ptr } %20
@@ -2462,7 +2462,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
   br label %91
 
-93:                                               ; preds = %50, %47, %39
+93:                                               ; preds = %39, %50, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h6b3ba34aca3d4302E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #27
@@ -2706,7 +2706,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
   br label %91
 
-93:                                               ; preds = %50, %47, %39
+93:                                               ; preds = %39, %50, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h6b3ba34aca3d4302E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #27
@@ -3617,7 +3617,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
   br label %90
 
-92:                                               ; preds = %50, %47, %39
+92:                                               ; preds = %39, %50, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h6b3ba34aca3d4302E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #27
@@ -3860,7 +3860,7 @@ define hidden void @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C
   call void @"_ZN4core3ptr530drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$core..option..Option$LT$tracing_flame..FlameLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$C$std..io..buffered..bufwriter..BufWriter$LT$std..fs..File$GT$$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17hdd2243290d5cab45E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
   br label %90
 
-92:                                               ; preds = %50, %47, %39
+92:                                               ; preds = %39, %50, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h6b3ba34aca3d4302E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #27
@@ -5107,10 +5107,10 @@ default.unreachable:                              ; preds = %138, %"_ZN4jiff3fmt
   br label %_ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i
 
 _ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i: ; preds = %57, %59, %58, %56, %55, %54, %52, %50, %48
-  %.sroa.17.0.i.i = phi i64 [ 1, %56 ], [ 1, %58 ], [ 1, %50 ], [ 4, %59 ], [ undef, %54 ], [ undef, %55 ], [ 4, %57 ], [ undef, %48 ], [ undef, %52 ]
-  %.sroa.11.0.i.i = phi ptr [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64, %56 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64, %58 ], [ %anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64.anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.63.i.i.i, %50 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.67, %59 ], [ undef, %54 ], [ undef, %55 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.67, %57 ], [ undef, %48 ], [ undef, %52 ]
-  %.not.i.i = phi i1 [ true, %56 ], [ true, %58 ], [ true, %50 ], [ false, %59 ], [ false, %54 ], [ false, %55 ], [ false, %57 ], [ false, %48 ], [ false, %52 ]
-  %.sroa.0.0.i.i = phi i64 [ 0, %56 ], [ 0, %58 ], [ 0, %50 ], [ 1, %59 ], [ 2, %54 ], [ 2, %55 ], [ 1, %57 ], [ 2, %48 ], [ 2, %52 ]
+  %.sroa.17.0.i.i = phi i64 [ 1, %56 ], [ undef, %48 ], [ undef, %52 ], [ undef, %55 ], [ undef, %54 ], [ 1, %58 ], [ 4, %57 ], [ 1, %50 ], [ 4, %59 ]
+  %.sroa.11.0.i.i = phi ptr [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64, %56 ], [ undef, %48 ], [ undef, %52 ], [ undef, %55 ], [ undef, %54 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64, %58 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.67, %57 ], [ %anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.64.anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.63.i.i.i, %50 ], [ @anon.0b5e1fe7ca630c8b6319b97fcdaf7e80.67, %59 ]
+  %.not.i.i = phi i1 [ true, %56 ], [ false, %48 ], [ false, %52 ], [ false, %55 ], [ false, %54 ], [ true, %58 ], [ false, %57 ], [ true, %50 ], [ false, %59 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %56 ], [ 2, %48 ], [ 2, %52 ], [ 2, %55 ], [ 2, %54 ], [ 0, %58 ], [ 1, %57 ], [ 0, %50 ], [ 1, %59 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %61 = load i8, ptr %60, align 1, !range !184, !alias.scope !532, !noalias !533, !noundef !15
   %62 = trunc nuw i8 %61 to i1
@@ -5286,7 +5286,7 @@ _ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i: ; pre
   br label %146
 
 146:                                              ; preds = %184, %183, %182, %181, %142, %138
-  %.sroa.022.0.i.i = phi i64 [ %145, %142 ], [ 4, %181 ], [ 3, %182 ], [ 2, %183 ], [ 1, %184 ], [ 5, %138 ]
+  %.sroa.022.0.i.i = phi i64 [ %145, %142 ], [ 1, %184 ], [ 4, %181 ], [ 3, %182 ], [ 2, %183 ], [ 5, %138 ]
   %147 = load ptr, ptr %73, align 8, !alias.scope !545, !noalias !523, !nonnull !15, !align !18, !noundef !15
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !549
   call void @llvm.experimental.noalias.scope.decl(metadata !550)
@@ -5337,7 +5337,7 @@ _ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i: ; pre
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit.i.i: ; preds = %162, %151, %150
-  %168 = phi i8 [ 19, %151 ], [ %.pre.i.i, %150 ], [ %164, %162 ]
+  %168 = phi i8 [ %.pre.i.i, %150 ], [ 19, %151 ], [ %164, %162 ]
   %169 = zext i8 %168 to i64
   %170 = getelementptr inbounds nuw i8, ptr %20, i64 21
   %171 = load i8, ptr %170, align 1, !noalias !549, !noundef !15
@@ -5767,8 +5767,8 @@ _ZN4jiff15signed_duration14SignedDuration3new17h9ec745f67bdd6d28E.exit251.i: ; p
   br label %_ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17habb453c63fe65c36E.exit
 
 _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17habb453c63fe65c36E.exit: ; preds = %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17hfb585f0b6fa12e24E.exit.thread258.i", %88, %96, %106, %112, %120, %130, %185, %198, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread266.i", %216, %221, %229, %237, %245, %274, %277, %306, %309, %319, %333, %336, %345, %351, %368, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread263.i", %373, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h9874b486caa6a3d5E.exit.thread271.i"
-  %.sroa.26.1.i = phi ptr [ %275, %274 ], [ %307, %306 ], [ %334, %333 ], [ %369, %368 ], [ %95, %88 ], [ %105, %96 ], [ %111, %106 ], [ %119, %112 ], [ %129, %120 ], [ %134, %130 ], [ %220, %216 ], [ %228, %221 ], [ %236, %229 ], [ %286, %277 ], [ %244, %237 ], [ %318, %309 ], [ %324, %319 ], [ %253, %245 ], [ %344, %336 ], [ %350, %345 ], [ %359, %351 ], [ %85, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17hfb585f0b6fa12e24E.exit.thread258.i" ], [ %215, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread266.i" ], [ %382, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h9874b486caa6a3d5E.exit.thread271.i" ], [ %203, %198 ], [ %190, %185 ], [ undef, %373 ], [ undef, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread263.i" ]
-  %.sroa.0.1.i = phi i64 [ 1, %274 ], [ 1, %306 ], [ 1, %333 ], [ 1, %368 ], [ 1, %88 ], [ 1, %96 ], [ 1, %106 ], [ 1, %112 ], [ 1, %120 ], [ 1, %130 ], [ 1, %216 ], [ 1, %221 ], [ 1, %229 ], [ 1, %277 ], [ 1, %237 ], [ 1, %309 ], [ 1, %319 ], [ 1, %245 ], [ 1, %336 ], [ 1, %345 ], [ 1, %351 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17hfb585f0b6fa12e24E.exit.thread258.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread266.i" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h9874b486caa6a3d5E.exit.thread271.i" ], [ 1, %198 ], [ 1, %185 ], [ 0, %373 ], [ 0, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread263.i" ]
+  %.sroa.26.1.i = phi ptr [ %190, %185 ], [ %129, %120 ], [ %134, %130 ], [ %359, %351 ], [ %215, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread266.i" ], [ %220, %216 ], [ %275, %274 ], [ %228, %221 ], [ %236, %229 ], [ %307, %306 ], [ %286, %277 ], [ %244, %237 ], [ %318, %309 ], [ %334, %333 ], [ %324, %319 ], [ %253, %245 ], [ %344, %336 ], [ %350, %345 ], [ %369, %368 ], [ %85, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17hfb585f0b6fa12e24E.exit.thread258.i" ], [ %95, %88 ], [ %105, %96 ], [ %111, %106 ], [ %119, %112 ], [ %382, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h9874b486caa6a3d5E.exit.thread271.i" ], [ %203, %198 ], [ undef, %373 ], [ undef, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread263.i" ]
+  %.sroa.0.1.i = phi i64 [ 1, %185 ], [ 1, %120 ], [ 1, %130 ], [ 1, %351 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread266.i" ], [ 1, %216 ], [ 1, %274 ], [ 1, %221 ], [ 1, %229 ], [ 1, %306 ], [ 1, %277 ], [ 1, %237 ], [ 1, %309 ], [ 1, %333 ], [ 1, %319 ], [ 1, %245 ], [ 1, %336 ], [ 1, %345 ], [ 1, %368 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_prefix_sign17hfb585f0b6fa12e24E.exit.thread258.i" ], [ 1, %88 ], [ 1, %96 ], [ 1, %106 ], [ 1, %112 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$23maybe_write_suffix_sign17h9874b486caa6a3d5E.exit.thread271.i" ], [ 1, %198 ], [ 0, %373 ], [ 0, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16maybe_write_zero17hd815be9550eb5a24E.exit.thread263.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !523
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %578
@@ -5932,7 +5932,7 @@ _ZN4jiff3fmt8friendly7printer11SpanPrinter26print_duration_designators17habb453c
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit.i: ; preds = %453, %.preheader15.i, %427
-  %459 = phi i8 [ %443, %.preheader15.i ], [ %.pre.i, %427 ], [ %455, %453 ]
+  %459 = phi i8 [ %.pre.i, %427 ], [ %443, %.preheader15.i ], [ %455, %453 ]
   %460 = zext i8 %459 to i64
   %461 = getelementptr inbounds nuw i8, ptr %11, i64 21
   %462 = load i8, ptr %461, align 1, !noalias !589, !noundef !15
@@ -6091,7 +6091,7 @@ _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit.i: ; preds = %453, %.preh
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit89.i: ; preds = %521, %.preheader.i, %495
-  %527 = phi i8 [ %511, %.preheader.i ], [ %.pre30.i, %495 ], [ %523, %521 ]
+  %527 = phi i8 [ %.pre30.i, %495 ], [ %511, %.preheader.i ], [ %523, %521 ]
   %528 = zext i8 %527 to i64
   %529 = getelementptr inbounds nuw i8, ptr %10, i64 21
   %530 = load i8, ptr %529, align 1, !noalias !589, !noundef !15
@@ -6224,8 +6224,8 @@ _ZN4jiff15signed_duration14SignedDuration3new17h9ec745f67bdd6d28E.exit.i16: ; pr
   br label %_ZN4jiff3fmt8friendly7printer11SpanPrinter18print_duration_hms17h4668dc684c79853dE.exit
 
 _ZN4jiff3fmt8friendly7printer11SpanPrinter18print_duration_hms17h4668dc684c79853dE.exit: ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit.thread.i", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit93.thread.i", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit96.thread.i", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit99.thread.i", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit102.thread.i", %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit105.thread.i", %572, %577
-  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %577 ], [ undef, %572 ], [ %414, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit.thread.i" ], [ %476, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit93.thread.i" ], [ %483, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit96.thread.i" ], [ %490, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit99.thread.i" ], [ %544, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit102.thread.i" ], [ %551, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit105.thread.i" ]
-  %.sroa.0.1.i18 = phi i64 [ 1, %577 ], [ 0, %572 ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit93.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit96.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit99.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit102.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit105.thread.i" ]
+  %.sroa.10.1.i = phi ptr [ %483, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit96.thread.i" ], [ %476, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit93.thread.i" ], [ %490, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit99.thread.i" ], [ %544, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit102.thread.i" ], [ %.sroa.10.0.i, %577 ], [ undef, %572 ], [ %414, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit.thread.i" ], [ %551, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit105.thread.i" ]
+  %.sroa.0.1.i18 = phi i64 [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit96.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit93.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit99.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit102.thread.i" ], [ 1, %577 ], [ 0, %572 ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit.thread.i" ], [ 1, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit105.thread.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %578
@@ -6326,7 +6326,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt8friendly7printer17FractionalPr
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit: ; preds = %41, %.preheader, %13
-  %47 = phi i8 [ %30, %.preheader ], [ %.pre, %13 ], [ %43, %41 ]
+  %47 = phi i8 [ %.pre, %13 ], [ %30, %.preheader ], [ %43, %41 ]
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %50 = load i8, ptr %49, align 1, !noundef !15
@@ -6430,8 +6430,8 @@ _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit: ; preds = %41, %.prehead
   br label %94
 
 94:                                               ; preds = %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hb0e69aeed462d576E.exit28", %66, %60, %77
-  %.sroa.5.0 = phi ptr [ %65, %60 ], [ %82, %77 ], [ undef, %66 ], [ %.sroa.3.0.i.i26, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hb0e69aeed462d576E.exit28" ]
-  %.sroa.0.0 = phi i64 [ 1, %60 ], [ 1, %77 ], [ 0, %66 ], [ %spec.select20, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hb0e69aeed462d576E.exit28" ]
+  %.sroa.5.0 = phi ptr [ %65, %60 ], [ %82, %77 ], [ %.sroa.3.0.i.i26, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hb0e69aeed462d576E.exit28" ], [ undef, %66 ]
+  %.sroa.0.0 = phi i64 [ 1, %60 ], [ 1, %77 ], [ %spec.select20, %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$jiff..fmt..Write$GT$9write_str17hb0e69aeed462d576E.exit28" ], [ 0, %66 ]
   %95 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %96 = insertvalue { i64, ptr } %95, ptr %.sroa.5.0, 1
   ret { i64, ptr } %96
@@ -6504,8 +6504,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   br label %32
 
 32:                                               ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit", %1, %26
-  %.sroa.4.0 = phi ptr [ %31, %26 ], [ undef, %1 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %26 ], [ 0, %1 ], [ %spec.select14, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit" ]
+  %.sroa.4.0 = phi ptr [ %31, %26 ], [ %.sroa.3.0.i, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit" ], [ undef, %1 ]
+  %.sroa.0.0 = phi i64 [ 1, %26 ], [ %spec.select14, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit" ], [ 0, %1 ]
   %33 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %34 = insertvalue { i64, ptr } %33, ptr %.sroa.4.0, 1
   ret { i64, ptr } %34
@@ -6636,8 +6636,8 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit:
   br label %66
 
 66:                                               ; preds = %_ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit, %18, %27, %36, %60, %3
-  %.sroa.7.1 = phi ptr [ %19, %18 ], [ %28, %27 ], [ %41, %36 ], [ %65, %60 ], [ undef, %3 ], [ undef, %_ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit ]
-  %.sroa.0.1 = phi i64 [ 1, %18 ], [ 1, %27 ], [ 1, %36 ], [ 1, %60 ], [ 0, %3 ], [ 0, %_ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit ]
+  %.sroa.7.1 = phi ptr [ undef, %3 ], [ %19, %18 ], [ %28, %27 ], [ %41, %36 ], [ %65, %60 ], [ undef, %_ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit ]
+  %.sroa.0.1 = phi i64 [ 0, %3 ], [ 1, %18 ], [ 1, %27 ], [ 1, %36 ], [ 1, %60 ], [ 0, %_ZN4jiff3fmt8friendly7printer11Designators10designator17hb7b5834208b0d965E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %67 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %68 = insertvalue { i64, ptr } %67, ptr %.sroa.7.1, 1
@@ -6660,8 +6660,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   br i1 %12, label %16, label %18
 
 13:                                               ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34", %3, %86, %72, %16
-  %.sroa.7.0 = phi ptr [ %17, %16 ], [ %77, %72 ], [ %91, %86 ], [ undef, %3 ], [ %.sroa.3.0.i32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
-  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 1, %72 ], [ 1, %86 ], [ 0, %3 ], [ %spec.select25, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
+  %.sroa.7.0 = phi ptr [ undef, %3 ], [ %17, %16 ], [ %77, %72 ], [ %91, %86 ], [ %.sroa.3.0.i32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %16 ], [ 1, %72 ], [ 1, %86 ], [ %spec.select25, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.7.0, 1
   ret { i64, ptr } %15
@@ -6753,7 +6753,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit: ; preds = %53, %.preheader, %25
-  %59 = phi i8 [ %42, %.preheader ], [ %.pre, %25 ], [ %55, %53 ]
+  %59 = phi i8 [ %.pre, %25 ], [ %42, %.preheader ], [ %55, %53 ]
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %62 = load i8, ptr %61, align 1, !noundef !15
@@ -6903,8 +6903,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   br i1 %13, label %17, label %19
 
 14:                                               ; preds = %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34", %3, %87, %73, %17
-  %.sroa.7.0 = phi ptr [ %18, %17 ], [ %78, %73 ], [ %92, %87 ], [ undef, %3 ], [ %.sroa.3.0.i32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 1, %73 ], [ 1, %87 ], [ 0, %3 ], [ %spec.select25, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
+  %.sroa.7.0 = phi ptr [ undef, %3 ], [ %18, %17 ], [ %78, %73 ], [ %92, %87 ], [ %.sroa.3.0.i32, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %17 ], [ 1, %73 ], [ 1, %87 ], [ %spec.select25, %"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17h656365f83c4ed40fE.exit34" ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.7.0, 1
   ret { i64, ptr } %16
@@ -6996,7 +6996,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt8friendly7printer25DesignatorW
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17ha2f3e7dd60258e05E.exit: ; preds = %54, %.preheader, %26
-  %60 = phi i8 [ %43, %.preheader ], [ %.pre, %26 ], [ %56, %54 ]
+  %60 = phi i8 [ %.pre, %26 ], [ %43, %.preheader ], [ %56, %54 ]
   %61 = zext i8 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 21
   %63 = load i8, ptr %62, align 1, !noundef !15

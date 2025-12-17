@@ -740,7 +740,7 @@ define noundef zeroext i1 @"_ZN79_$LT$polars_utils..error..TruncateErrorDetail$u
   unreachable
 
 19:                                               ; preds = %2, %13, %14
-  %.sroa.3.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %14 ], [ %.sroa.0.0.sroa.speculated.i, %13 ], [ %12, %2 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %13 ], [ %.sroa.0.0.sroa.speculated.i, %14 ], [ %12, %2 ]
   %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb19d235e7353de9eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %.sroa.3.0)
   br i1 %20, label %50, label %21
 
@@ -827,7 +827,7 @@ define noundef zeroext i1 @"_ZN79_$LT$polars_utils..error..TruncateErrorDetail$u
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %22, %47
-  %.sroa.0.0.ph = phi i1 [ true, %47 ], [ true, %22 ], [ %49, %48 ]
+  %.sroa.0.0.ph = phi i1 [ true, %22 ], [ true, %47 ], [ %49, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %50
 

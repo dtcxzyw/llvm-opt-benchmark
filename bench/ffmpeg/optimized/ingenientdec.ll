@@ -34,7 +34,7 @@ define internal range(i32 0, 76) i32 @ingenient_probe(ptr noundef readonly captu
   br label %12
 
 12:                                               ; preds = %9, %1, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %spec.select, %9 ]
+  %.0 = phi i32 [ 0, %1 ], [ %spec.select, %9 ], [ 0, %5 ]
   ret i32 %.0
 }
 

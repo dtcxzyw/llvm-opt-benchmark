@@ -394,7 +394,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i411:       ; preds = %72
   br label %_ZNK11ast_manager6is_notEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %72, %_ZNK11ast_manager6is_notEPK4expr.exit.i411, %80, %57, %54, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %68, %43, %38, %96, %_Z9get_depthPK4expr.exit, %_ZNK11ast_manager6is_notEPK4expr.exit, %91, %84
-  %.3247 = phi ptr [ %spec.select381, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ %spec.select381, %_Z9get_depthPK4expr.exit ], [ %27, %91 ], [ %27, %84 ], [ %spec.select407, %96 ], [ %spec.select381, %38 ], [ %spec.select381, %43 ], [ %27, %68 ], [ %27, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %27, %54 ], [ %27, %57 ], [ %27, %80 ], [ %27, %_ZNK11ast_manager6is_notEPK4expr.exit.i411 ], [ %27, %72 ]
+  %.3247 = phi ptr [ %spec.select407, %96 ], [ %spec.select381, %_Z9get_depthPK4expr.exit ], [ %spec.select381, %_ZNK11ast_manager6is_notEPK4expr.exit ], [ %27, %91 ], [ %27, %84 ], [ %27, %57 ], [ %spec.select381, %43 ], [ %spec.select381, %38 ], [ %27, %68 ], [ %27, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %27, %54 ], [ %27, %80 ], [ %27, %_ZNK11ast_manager6is_notEPK4expr.exit.i411 ], [ %27, %72 ]
   %102 = getelementptr inbounds nuw i8, ptr %.0253645, i64 8
   %.not = icmp eq ptr %102, %26
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1813,7 +1813,7 @@ _ZN7tseitin14theory_checker5equivEP4exprS2_.exit: ; preds = %784
   %792 = icmp eq ptr %790, %791
   br i1 %792, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit520.thread, label %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit.thread
 
-_ZN7tseitin14theory_checker5equivEP4exprS2_.exit.thread: ; preds = %776, %784, %782, %_ZNK9func_decl14is_commutativeEv.exit.i, %772, %763, %767, %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit
+_ZN7tseitin14theory_checker5equivEP4exprS2_.exit.thread: ; preds = %776, %784, %767, %772, %782, %_ZNK9func_decl14is_commutativeEv.exit.i, %763, %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit
   %793 = getelementptr inbounds nuw i8, ptr %.0323707, i64 8
   %.not339 = icmp eq ptr %793, %755
   br i1 %.not339, label %.critedge396, label %760
@@ -2631,7 +2631,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit565: ; preds = %1126
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %1154
 
-.critedge391:                                     ; preds = %522, %515, %480
+.critedge391:                                     ; preds = %515, %480, %522
   call void @_ZN7tseitin14theory_checker11scoped_markD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit520.thread
@@ -2687,7 +2687,7 @@ _ZN7tseitin14theory_checker11scoped_markD2Ev.exit579: ; preds = %.lr.ph.i3.i576,
   br label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit520.thread
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit520.thread: ; preds = %760, %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit, %2, %735, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread, %_ZNK11ast_manager6is_notEPK4expr.exit.i519, %746, %854, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit563, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit565, %1043, %1020, %957, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit579, %.critedge391, %441, %350, %._crit_edge, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit496, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit511, %._crit_edge758, %._crit_edge729, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit434, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit
-  %.0 = phi i1 [ %.not377.lcssa, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit ], [ %.not373.lcssa, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit434 ], [ %.not357.lcssa, %._crit_edge729 ], [ true, %._crit_edge758 ], [ true, %1043 ], [ true, %1020 ], [ true, %957 ], [ true, %854 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit511 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit496 ], [ true, %441 ], [ true, %350 ], [ false, %._crit_edge ], [ true, %.critedge391 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit579 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit565 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit563 ], [ false, %746 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i519 ], [ false, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread ], [ false, %735 ], [ false, %2 ], [ true, %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit ], [ true, %760 ]
+  %.0 = phi i1 [ %.not377.lcssa, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit ], [ %.not373.lcssa, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit434 ], [ %.not357.lcssa, %._crit_edge729 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit579 ], [ true, %._crit_edge758 ], [ true, %1043 ], [ true, %1020 ], [ true, %957 ], [ true, %854 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit511 ], [ true, %_ZN7tseitin14theory_checker11scoped_markD2Ev.exit496 ], [ true, %.critedge391 ], [ true, %441 ], [ true, %350 ], [ false, %._crit_edge ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit565 ], [ false, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit563 ], [ false, %735 ], [ false, %746 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i519 ], [ false, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread ], [ false, %2 ], [ true, %_ZN7tseitin14theory_checker5equivEP4exprS2_.exit ], [ true, %760 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
@@ -3100,7 +3100,7 @@ _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %20
   br label %_ZNK9func_decl14is_commutativeEv.exit.thread
 
 _ZNK9func_decl14is_commutativeEv.exit.thread:     ; preds = %20, %29, %35, %26, %_ZNK9func_decl14is_commutativeEv.exit, %15, %5, %10, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %10 ], [ false, %5 ], [ false, %15 ], [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %26 ], [ false, %29 ], [ %40, %35 ], [ false, %20 ]
+  %.0 = phi i1 [ true, %3 ], [ false, %5 ], [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %26 ], [ false, %15 ], [ false, %10 ], [ false, %29 ], [ %40, %35 ], [ false, %20 ]
   ret i1 %.0
 }
 

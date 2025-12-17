@@ -381,7 +381,7 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %5, %18, %.thread
-  %.2 = phi i32 [ 0, %.thread ], [ 1, %18 ], [ 1, %.preheader ], [ 0, %5 ]
+  %.2 = phi i32 [ 1, %18 ], [ 0, %.thread ], [ 1, %.preheader ], [ 0, %5 ]
   ret i32 %.2
 }
 
@@ -574,7 +574,7 @@ define internal fastcc range(i32 0, 7) i32 @utf8len_(ptr noundef readonly captur
   br label %115
 
 115:                                              ; preds = %36, %111, %82, %57, %86, %89, %95, %99, %103, %107, %33, %28, %12, %1, %.thread
-  %.0 = phi i32 [ 3, %.thread ], [ 1, %1 ], [ %., %12 ], [ 0, %28 ], [ 0, %33 ], [ 0, %107 ], [ 0, %103 ], [ 0, %99 ], [ 0, %95 ], [ 0, %89 ], [ 0, %86 ], [ %spec.select, %57 ], [ %spec.select42, %82 ], [ %spec.select43, %111 ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %95 ], [ %., %12 ], [ 1, %1 ], [ 0, %89 ], [ 0, %28 ], [ 0, %33 ], [ 3, %.thread ], [ 0, %36 ], [ 0, %86 ], [ %spec.select43, %111 ], [ %spec.select, %57 ], [ %spec.select42, %82 ], [ 0, %107 ], [ 0, %103 ], [ 0, %99 ]
   ret i32 %.0
 }
 
@@ -871,12 +871,12 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br i1 %exitcond128.not, label %.loopexit, label %.split102, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %.split.us, %92, %.split112.us, %.split110.us, %71, %.split106, %.split104.us, %28, %19, %11, %8
-  %.str.53.sink = phi ptr [ @.str.42, %8 ], [ @.str.43, %11 ], [ @.str.44, %19 ], [ @.str.45, %28 ], [ @.str.46, %.split104.us ], [ @.str.47, %.split106 ], [ %.str.48..str.49, %71 ], [ @.str.50, %.split110.us ], [ @.str.51, %.split112.us ], [ @.str.52, %92 ], [ @.str.53, %.split.us ]
+  %.str.53.sink = phi ptr [ @.str.52, %92 ], [ @.str.51, %.split112.us ], [ @.str.50, %.split110.us ], [ @.str.42, %8 ], [ @.str.47, %.split106 ], [ %.str.48..str.49, %71 ], [ @.str.46, %.split104.us ], [ @.str.45, %28 ], [ @.str.44, %19 ], [ @.str.43, %11 ], [ @.str.53, %.split.us ]
   store ptr %.str.53.sink, ptr %2, align 8, !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.sink.split, %.split.us, %92, %.split112.us, %.split110.us, %.split108, %.split106, %.split104.us, %28, %19, %11, %8
-  %.069 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %28 ], [ 0, %.split104.us ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
+  %.069 = phi i32 [ 0, %.split.us ], [ 0, %8 ], [ 0, %11 ], [ 0, %19 ], [ 0, %28 ], [ 0, %.split106 ], [ 0, %.split108 ], [ 0, %.split110.us ], [ 0, %.split112.us ], [ 0, %92 ], [ 0, %.split104.us ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge.split.us.us ], [ 1, %._crit_edge.split ]
   ret i32 %.069
 }
 
@@ -1063,7 +1063,7 @@ safe_realloc_.exit15.thread:                      ; preds = %17
   br label %23
 
 23:                                               ; preds = %safe_realloc_.exit15.thread, %safe_realloc_.exit.thread, %7, %22
-  %.0 = phi i32 [ 1, %22 ], [ 1, %7 ], [ 0, %safe_realloc_.exit.thread ], [ 0, %safe_realloc_.exit15.thread ]
+  %.0 = phi i32 [ 0, %safe_realloc_.exit15.thread ], [ 0, %safe_realloc_.exit.thread ], [ 1, %22 ], [ 1, %7 ]
   ret i32 %.0
 }
 

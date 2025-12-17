@@ -35,7 +35,7 @@ define internal range(i32 0, 51) i32 @avr_probe(ptr noundef readonly captures(no
   br label %15
 
 15:                                               ; preds = %10, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 25, %5 ], [ %., %10 ]
+  %.0 = phi i32 [ 25, %5 ], [ 0, %1 ], [ %., %10 ]
   ret i32 %.0
 }
 
@@ -119,7 +119,7 @@ define internal range(i32 -1163346256, 1) i32 @avr_read_header(ptr noundef %0) #
   br label %48
 
 48:                                               ; preds = %14, %1, %40, %39, %12
-  %.0 = phi i32 [ -1163346256, %39 ], [ 0, %40 ], [ -1163346256, %12 ], [ -12, %1 ], [ -1094995529, %14 ]
+  %.0 = phi i32 [ -12, %1 ], [ -1163346256, %39 ], [ 0, %40 ], [ -1163346256, %12 ], [ -1094995529, %14 ]
   ret i32 %.0
 }
 

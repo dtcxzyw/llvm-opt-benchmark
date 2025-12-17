@@ -1856,10 +1856,10 @@ BufferGetPage.exit160:                            ; preds = %136, %130, %75
   br label %146
 
 146:                                              ; preds = %BufferGetPage.exit160, %.thread, %69, %60
-  %.2150 = phi i64 [ %.1149181, %60 ], [ %.1149181, %69 ], [ %145, %BufferGetPage.exit160 ], [ %.1149181, %.thread ]
-  %.2143 = phi i16 [ %.1142182, %60 ], [ %.1142182, %69 ], [ %142, %BufferGetPage.exit160 ], [ %.1142182, %.thread ]
-  %.2135 = phi ptr [ %.1134184, %60 ], [ %.1134184, %69 ], [ %.3136, %BufferGetPage.exit160 ], [ %.1134184, %.thread ]
-  %.2 = phi i32 [ %.1129185, %60 ], [ %.1129185, %69 ], [ %.3, %BufferGetPage.exit160 ], [ %.1129185, %.thread ]
+  %.2150 = phi i64 [ %.1149181, %69 ], [ %.1149181, %60 ], [ %145, %BufferGetPage.exit160 ], [ %.1149181, %.thread ]
+  %.2143 = phi i16 [ %.1142182, %69 ], [ %.1142182, %60 ], [ %142, %BufferGetPage.exit160 ], [ %.1142182, %.thread ]
+  %.2135 = phi ptr [ %.1134184, %69 ], [ %.1134184, %60 ], [ %.3136, %BufferGetPage.exit160 ], [ %.1134184, %.thread ]
+  %.2 = phi i32 [ %.1129185, %69 ], [ %.1129185, %60 ], [ %.3, %BufferGetPage.exit160 ], [ %.1129185, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond205 = icmp eq i64 %indvars.iv.next202, %wide.trip.count204

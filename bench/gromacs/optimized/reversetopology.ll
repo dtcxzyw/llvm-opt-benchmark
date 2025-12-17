@@ -137,7 +137,7 @@ define noundef zeroext i1 @_Z14dd_check_ftypeiRK17ReverseTopOptions(i32 noundef 
   br label %24
 
 24:                                               ; preds = %13, %18, %8
-  %25 = phi i1 [ true, %8 ], [ %23, %18 ], [ true, %13 ]
+  %25 = phi i1 [ %23, %18 ], [ true, %13 ], [ true, %8 ]
   ret i1 %25
 }
 
@@ -231,8 +231,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc37, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.13.0 = phi ptr [ %11, %.noexc37 ], [ %11, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.066.0 = phi ptr [ %10, %.noexc37 ], [ %10, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.13.0 = phi ptr [ %11, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %11, %.noexc37 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.066.0 = phi ptr [ %10, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc37 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.val = load i8, ptr %15, align 1, !tbaa !18, !range !16, !noundef !17
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -733,7 +733,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZL22low_make_rever
   ret void
 
 248:                                              ; preds = %109, %107
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ]
+  %.pn = phi { ptr, i32 } [ %110, %109 ], [ %108, %107 ]
   %.not.i.i.i54 = icmp eq ptr %.sroa.066.0, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIiSaIiEED2Ev.exit55, label %.thread
 
@@ -746,7 +746,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZL22low_make_rever
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit55
 
 _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %.thread, %248
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %248 ], [ %.pn78, %.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn78, %.thread ], [ %.pn, %248 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -816,7 +816,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !36
   br label %41
 
@@ -1554,7 +1554,7 @@ _ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit: ; preds = %25
   br i1 %30, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %45, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit
-  %31 = phi i32 [ 0, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit ], [ 0, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread ], [ %54, %45 ]
+  %31 = phi i32 [ 0, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit.thread ], [ 0, %_ZNSt6vectorI15reverse_ilist_tSaIS0_EE6resizeEm.exit ], [ %54, %45 ]
   %32 = load ptr, ptr @debug, align 8, !tbaa !159
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %67, label %65
@@ -1887,7 +1887,7 @@ _ZNSt6vectorI13thread_work_tSaIS0_EE12emplace_backIJRK14gmx_ffparams_tEEERS0_DpO
   br label %148, !llvm.loop !192
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %153, %163, %83, %63, %33
-  %.pn53 = phi { ptr, i32 } [ %64, %63 ], [ %34, %33 ], [ %.pn, %83 ], [ %154, %153 ], [ %164, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn53 = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %83 ], [ %34, %33 ], [ %164, %163 ], [ %154, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   tail call void @_ZNSt6vectorI13thread_work_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #23
   tail call void @_ZN15reverse_ilist_tD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %18) #23
   %174 = load ptr, ptr %16, align 8, !tbaa !68

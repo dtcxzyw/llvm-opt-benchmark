@@ -101,7 +101,7 @@ define hidden void @_ZN2cv8tracking4impl3tld8myassertERKNS_3MatE(ptr noundef non
   br i1 %exitcond32.not, label %._crit_edge22, label %.preheader.us, !llvm.loop !22
 
 ._crit_edge22:                                    ; preds = %._crit_edge.us, %1, %.preheader.lr.ph
-  %.016.lcssa = phi i32 [ 0, %.preheader.lr.ph ], [ 0, %1 ], [ %spec.select.us, %._crit_edge.us ]
+  %.016.lcssa = phi i32 [ 0, %1 ], [ 0, %.preheader.lr.ph ], [ %spec.select.us, %._crit_edge.us ]
   %20 = mul nsw i32 %6, %3
   %21 = sitofp i32 %.016.lcssa to double
   %22 = sitofp i32 %3 to double
@@ -497,8 +497,8 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEvEEvT_SA_.exit: ; preds = %.sink.split.i.i.i, %66, %63, %58, %.lr.ph.split
-  %.sroa.12.0.i.i = phi double [ %.sroa.speculated55.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.sink.split.i.i.i ]
-  %.sroa.17.0.i.i = phi double [ %.sroa.speculated.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.sink.split.i.i.i ]
+  %.sroa.12.0.i.i = phi double [ %.sroa.speculated55.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %.sink.split.i.i.i ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ]
+  %.sroa.17.0.i.i = phi double [ %.sroa.speculated.i.i.i, %66 ], [ 0.000000e+00, %.lr.ph.split ], [ 0.000000e+00, %.sink.split.i.i.i ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %58 ]
   %77 = fmul double %46, %48
   %78 = fmul double %.sroa.12.0.i.i, %.sroa.17.0.i.i
   %79 = fadd double %77, %33
@@ -648,8 +648,8 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPS2_S4
   br label %152
 
 152:                                              ; preds = %115, %.sink.split.i.i.i95, %141, %138, %133
-  %.sroa.12.0.i.i93 = phi double [ %.sroa.speculated55.i.i.i90, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
-  %.sroa.17.0.i.i94 = phi double [ %.sroa.speculated.i.i.i92, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ], [ 0.000000e+00, %.sink.split.i.i.i95 ]
+  %.sroa.12.0.i.i93 = phi double [ %.sroa.speculated55.i.i.i90, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %.sink.split.i.i.i95 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ]
+  %.sroa.17.0.i.i94 = phi double [ %.sroa.speculated.i.i.i92, %141 ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %.sink.split.i.i.i95 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %133 ]
   %153 = fmul double %120, %122
   %154 = fmul double %.sroa.12.0.i.i93, %.sroa.17.0.i.i94
   %155 = fadd double %153, %100

@@ -1695,7 +1695,7 @@ If_Dec10CofCount2.exit.thread:                    ; preds = %514, %532
   br i1 %exitcond453.not, label %.loopexit, label %541, !llvm.loop !30
 
 .loopexit301:                                     ; preds = %.loopexit.us347, %77, %73, %.loopexit.us, %53, %.loopexit, %550, %557, %3, %.preheader
-  %.095 = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ 1, %557 ], [ 1, %550 ], [ 0, %.loopexit ], [ 1, %53 ], [ 0, %.loopexit.us ], [ 1, %73 ], [ 1, %77 ], [ 0, %.loopexit.us347 ]
+  %.095 = phi i32 [ 0, %.preheader ], [ 0, %3 ], [ 1, %77 ], [ 1, %550 ], [ 0, %.loopexit ], [ 1, %53 ], [ 0, %.loopexit.us ], [ 1, %557 ], [ 1, %73 ], [ 0, %.loopexit.us347 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1826,7 +1826,7 @@ If_Dec10HasVar.exit.i:                            ; preds = %.preheader.lr.ph.i.
   br label %If_Dec10HasVar.exit.thread.i
 
 If_Dec10HasVar.exit.thread.i:                     ; preds = %._crit_edge.us.i.i, %24, %If_Dec10HasVar.exit.i, %If_Dec10HasVar.exit.thread14.i
-  %50 = phi i32 [ %49, %If_Dec10HasVar.exit.i ], [ %46, %If_Dec10HasVar.exit.thread14.i ], [ %.021.i, %24 ], [ %.021.i, %._crit_edge.us.i.i ]
+  %50 = phi i32 [ %46, %If_Dec10HasVar.exit.thread14.i ], [ %49, %If_Dec10HasVar.exit.i ], [ %.021.i, %24 ], [ %.021.i, %._crit_edge.us.i.i ]
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i12
   br i1 %exitcond.not.i15, label %If_Dec10Support.exit, label %.split.split.i, !llvm.loop !49
@@ -1846,7 +1846,7 @@ If_Dec10Support.exit:                             ; preds = %If_Dec10HasVar.exit
   br label %If_Dec10Support.exit.thread
 
 If_Dec10Support.exit.thread:                      ; preds = %If_Dec10Copy.exit, %54, %If_Dec10Support.exit, %51, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %51 ], [ 0, %If_Dec10Support.exit ], [ %55, %54 ], [ 0, %If_Dec10Copy.exit ]
+  %.0 = phi i32 [ 1, %5 ], [ %55, %54 ], [ 0, %If_Dec10Support.exit ], [ 0, %51 ], [ 0, %If_Dec10Copy.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

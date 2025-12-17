@@ -113,7 +113,7 @@ define hidden range(i32 -1, 2) i32 @ber_open(ptr noundef %0, ptr noundef %1, ptr
   br label %50
 
 50:                                               ; preds = %38, %.loopexit, %9, %12, %7, %42
-  %.053 = phi i32 [ 1, %42 ], [ %., %7 ], [ 0, %12 ], [ 0, %9 ], [ 0, %.loopexit ], [ -1, %38 ]
+  %.053 = phi i32 [ 0, %9 ], [ 0, %.loopexit ], [ 1, %42 ], [ %., %7 ], [ 0, %12 ], [ -1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.053
 }

@@ -440,8 +440,8 @@ put_bits.exit84:                                  ; preds = %202, %222
   br i1 %226, label %196, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %put_bits.exit84, %put_bits.exit80, %put_bits.exit72
-  %227 = phi i32 [ %192, %put_bits.exit80 ], [ %.0.i.i71, %put_bits.exit72 ], [ %.0.i.i83, %put_bits.exit84 ]
-  %228 = phi i32 [ %.026.i.i78, %put_bits.exit80 ], [ %.026.i.i70, %put_bits.exit72 ], [ %.026.i.i82, %put_bits.exit84 ]
+  %227 = phi i32 [ %.0.i.i71, %put_bits.exit72 ], [ %192, %put_bits.exit80 ], [ %.0.i.i83, %put_bits.exit84 ]
+  %228 = phi i32 [ %.026.i.i70, %put_bits.exit72 ], [ %.026.i.i78, %put_bits.exit80 ], [ %.026.i.i82, %put_bits.exit84 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %229 = load i32, ptr %27, align 4, !tbaa !4
   %230 = sext i32 %229 to i64
@@ -449,8 +449,8 @@ put_bits.exit84:                                  ; preds = %202, %222
   br i1 %231, label %81, label %.loopexit89, !llvm.loop !28
 
 .loopexit89:                                      ; preds = %.loopexit, %put_bits.exit64, %put_bits.exit
-  %232 = phi i32 [ %74, %put_bits.exit64 ], [ %.0.i.i, %put_bits.exit ], [ %227, %.loopexit ]
-  %233 = phi i32 [ %.026.i.i62, %put_bits.exit64 ], [ %.026.i.i, %put_bits.exit ], [ %228, %.loopexit ]
+  %232 = phi i32 [ %.0.i.i, %put_bits.exit ], [ %74, %put_bits.exit64 ], [ %227, %.loopexit ]
+  %233 = phi i32 [ %.026.i.i, %put_bits.exit ], [ %.026.i.i62, %put_bits.exit64 ], [ %228, %.loopexit ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %234 = load i32, ptr %8, align 4, !tbaa !17
   %235 = sext i32 %234 to i64

@@ -174,7 +174,7 @@ define internal noundef zeroext i1 @dissect_iwarp_mpa_heur(ptr noundef %0, ptr n
   br label %13
 
 13:                                               ; preds = %11, %9
-  %.0 = phi i1 [ true, %9 ], [ %12, %11 ]
+  %.0 = phi i1 [ %12, %11 ], [ true, %9 ]
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %15 = icmp ugt i32 %14, 7
   br i1 %15, label %18, label %36
@@ -229,7 +229,7 @@ is_mpa_fpdu.exit:                                 ; preds = %18, %get_mpa_state.
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread, %31, %is_mpa_fpdu.exit, %36, %4, %37
-  %.015 = phi i1 [ true, %37 ], [ false, %4 ], [ false, %36 ], [ false, %is_mpa_fpdu.exit ], [ false, %31 ], [ false, %.thread ]
+  %.015 = phi i1 [ false, %4 ], [ true, %37 ], [ false, %36 ], [ false, %is_mpa_fpdu.exit ], [ false, %31 ], [ false, %.thread ]
   ret i1 %.015
 }
 
@@ -311,7 +311,7 @@ get_mpa_state.exit.thread:                        ; preds = %6, %get_mpa_state.e
   br label %38
 
 38:                                               ; preds = %get_mpa_state.exit, %36, %34, %2, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %34 ], [ true, %36 ], [ true, %get_mpa_state.exit ]
+  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %34 ], [ true, %36 ], [ true, %get_mpa_state.exit ]
   ret i1 %.0
 }
 
@@ -373,7 +373,7 @@ get_mpa_state.exit:                               ; preds = %6
   br label %31
 
 31:                                               ; preds = %10, %29, %28, %get_mpa_state.exit, %6, %2, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ false, %6 ], [ false, %get_mpa_state.exit ], [ true, %28 ], [ true, %29 ], [ true, %10 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %get_mpa_state.exit ], [ false, %6 ], [ false, %4 ], [ true, %28 ], [ true, %29 ], [ true, %10 ]
   ret i1 %.0
 }
 
@@ -824,31 +824,31 @@ dissect_iwarp_mpa.exit.thread10:                  ; preds = %203
 
 212:                                              ; preds = %209
   %213 = tail call fastcc zeroext i1 @is_mpa_req(ptr noundef %0, ptr noundef %1)
-  br i1 %213, label %214, label %216
+  br i1 %213, label %dissect_iwarp_mpa.exit, label %214
 
 214:                                              ; preds = %212
-  %215 = tail call fastcc zeroext i1 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+  %215 = tail call fastcc zeroext i1 @is_mpa_rep(ptr noundef %0, ptr noundef %1)
+  br i1 %215, label %216, label %dissect_iwarp_mpa.exit.thread
+
+216:                                              ; preds = %214
+  %217 = tail call fastcc zeroext i1 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %215, label %219, label %220
+  br i1 %217, label %219, label %220
 
-216:                                              ; preds = %212
-  %217 = tail call fastcc zeroext i1 @is_mpa_rep(ptr noundef %0, ptr noundef %1)
-  br i1 %217, label %dissect_iwarp_mpa.exit, label %dissect_iwarp_mpa.exit.thread
-
-dissect_iwarp_mpa.exit.thread:                    ; preds = %4, %dissect_mpa_fpdu.exit.i, %216, %209, %70, %expected_ulpdu_length.exit.i.i, %50, %56, %60, %65
+dissect_iwarp_mpa.exit.thread:                    ; preds = %dissect_mpa_fpdu.exit.i, %4, %214, %209, %expected_ulpdu_length.exit.i.i, %70, %50, %56, %60, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %220
 
-dissect_iwarp_mpa.exit:                           ; preds = %216
-  %218 = tail call fastcc zeroext i1 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 2)
+dissect_iwarp_mpa.exit:                           ; preds = %212
+  %218 = tail call fastcc zeroext i1 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %218, label %219, label %220
 
-219:                                              ; preds = %214, %dissect_iwarp_mpa.exit.thread10, %dissect_iwarp_mpa.exit
+219:                                              ; preds = %216, %dissect_iwarp_mpa.exit.thread10, %dissect_iwarp_mpa.exit
   br label %220
 
-220:                                              ; preds = %214, %dissect_iwarp_mpa.exit.thread, %dissect_iwarp_mpa.exit, %219
-  %221 = phi i32 [ %6, %219 ], [ -1, %dissect_iwarp_mpa.exit ], [ -1, %dissect_iwarp_mpa.exit.thread ], [ -1, %214 ]
+220:                                              ; preds = %216, %dissect_iwarp_mpa.exit.thread, %dissect_iwarp_mpa.exit, %219
+  %221 = phi i32 [ %6, %219 ], [ -1, %dissect_iwarp_mpa.exit ], [ -1, %dissect_iwarp_mpa.exit.thread ], [ -1, %216 ]
   ret i32 %221
 }
 
@@ -982,8 +982,8 @@ get_mpa_state.exit:                               ; preds = %22, %24
   store i8 1, ptr %59, align 4
   br label %is_mpa_fpdu.exit.thread
 
-is_mpa_fpdu.exit.thread:                          ; preds = %14, %11, %get_mpa_state.exit.i, %7, %43, %53, %47, %is_mpa_fpdu.exit, %4
-  %.0 = phi ptr [ %.0.i23, %47 ], [ %.0.i23, %53 ], [ %.0.i23, %43 ], [ null, %is_mpa_fpdu.exit ], [ null, %4 ], [ null, %7 ], [ null, %get_mpa_state.exit.i ], [ null, %11 ], [ null, %14 ]
+is_mpa_fpdu.exit.thread:                          ; preds = %7, %get_mpa_state.exit.i, %14, %11, %43, %53, %47, %is_mpa_fpdu.exit, %4
+  %.0 = phi ptr [ %.0.i23, %47 ], [ %.0.i23, %53 ], [ null, %4 ], [ %.0.i23, %43 ], [ null, %is_mpa_fpdu.exit ], [ null, %11 ], [ null, %14 ], [ null, %get_mpa_state.exit.i ], [ null, %7 ]
   ret ptr %.0
 }
 

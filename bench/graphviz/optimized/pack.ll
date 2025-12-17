@@ -1745,7 +1745,7 @@ gv_calloc.exit71.i:                               ; preds = %41, %gv_calloc.exit
   br label %polyRects.exit
 
 polyRects.exit:                                   ; preds = %.preheader.i, %60, %16, %5, %3, %75
-  %.0 = phi ptr [ %76, %75 ], [ null, %3 ], [ null, %5 ], [ null, %16 ], [ %43, %60 ], [ %43, %.preheader.i ]
+  %.0 = phi ptr [ null, %5 ], [ null, %3 ], [ %76, %75 ], [ null, %16 ], [ %43, %60 ], [ %43, %.preheader.i ]
   ret ptr %.0
 }
 
@@ -2613,7 +2613,7 @@ define i32 @getPack(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unname
   br label %14
 
 14:                                               ; preds = %11, %6, %13, %3
-  %.0 = phi i32 [ %2, %13 ], [ %1, %3 ], [ %9, %6 ], [ %1, %11 ]
+  %.0 = phi i32 [ %1, %3 ], [ %2, %13 ], [ %1, %11 ], [ %9, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

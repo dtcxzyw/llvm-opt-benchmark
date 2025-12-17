@@ -484,8 +484,8 @@ bcwrite_bytecode.exit:                            ; preds = %120, %90, %93
   br label %154
 
 154:                                              ; preds = %153, %152, %151, %148, %144, %139
-  %.043.i = phi i32 [ %147, %144 ], [ 1, %153 ], [ 0, %139 ], [ 3, %151 ], [ 4, %152 ], [ 2, %148 ]
-  %.042.i = phi i32 [ %147, %144 ], [ 11, %153 ], [ 1, %139 ], [ 21, %151 ], [ 21, %152 ], [ 21, %148 ]
+  %.043.i = phi i32 [ %147, %144 ], [ 1, %153 ], [ 0, %139 ], [ 4, %152 ], [ 3, %151 ], [ 2, %148 ]
+  %.042.i = phi i32 [ %147, %144 ], [ 11, %153 ], [ 1, %139 ], [ 21, %152 ], [ 21, %151 ], [ 21, %148 ]
   %155 = load ptr, ptr %30, align 8, !tbaa !29
   %156 = load ptr, ptr %0, align 8, !tbaa !80
   %157 = ptrtoint ptr %155 to i64
@@ -1186,9 +1186,13 @@ bcwrite_ktabk_lt.exit:                            ; preds = %23, %27, %34
 
 42:                                               ; preds = %36
   %43 = icmp eq i64 %38, -5
-  br i1 %43, label %44, label %bcwrite_ktabk_lt.exit34
+  br i1 %43, label %bcwrite_ktabk_lt.exit34, label %44
 
 44:                                               ; preds = %42
+  %.not47 = icmp ult i64 %37, %39
+  br i1 %.not47, label %.thread, label %51
+
+bcwrite_ktabk_lt.exit34:                          ; preds = %42
   %45 = and i64 %37, 140737488355327
   %46 = inttoptr i64 %45 to ptr
   %47 = and i64 %39, 140737488355327
@@ -1196,10 +1200,6 @@ bcwrite_ktabk_lt.exit:                            ; preds = %23, %27, %34
   %49 = tail call i32 @lj_str_cmp(ptr noundef %46, ptr noundef %48) #7
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %51, label %.thread
-
-bcwrite_ktabk_lt.exit34:                          ; preds = %42
-  %.not47 = icmp ult i64 %37, %39
-  br i1 %.not47, label %.thread, label %51
 
 51:                                               ; preds = %44, %41, %bcwrite_ktabk_lt.exit34
   %52 = zext i32 %.02137 to i64

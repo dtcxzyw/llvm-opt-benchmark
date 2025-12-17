@@ -754,7 +754,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12initAn
           to label %common.resume unwind label %57
 
 common.resume:                                    ; preds = %129, %252, %375, %301, %178, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %179, %178 ], [ %302, %301 ], [ %.pn34.pn, %375 ], [ %.pn31.pn, %252 ], [ %.pn.pn, %129 ]
+  %common.resume.op = phi { ptr, i32 } [ %302, %301 ], [ %56, %55 ], [ %179, %178 ], [ %.pn34.pn, %375 ], [ %.pn31.pn, %252 ], [ %.pn.pn, %129 ]
   resume { ptr, i32 } %common.resume.op
 
 57:                                               ; preds = %55

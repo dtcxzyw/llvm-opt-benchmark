@@ -117,7 +117,7 @@ av_cmp_q.exit.thread.i.i:                         ; preds = %42, %16
   br label %filter_frame.exit
 
 filter_frame.exit:                                ; preds = %39, %42, %av_cmp_q.exit.thread.i.i
-  %.0.i.i = phi i64 [ %45, %av_cmp_q.exit.thread.i.i ], [ %24, %39 ], [ %24, %42 ]
+  %.0.i.i = phi i64 [ %45, %av_cmp_q.exit.thread.i.i ], [ %24, %42 ], [ %24, %39 ]
   store i64 %.0.i.i, ptr %23, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %47 = load i64, ptr %46, align 8, !tbaa !40
@@ -180,7 +180,7 @@ av_cmp_q.exit.thread.i:                           ; preds = %76, %54
   br label %rescale_pts.exit
 
 rescale_pts.exit:                                 ; preds = %73, %76, %av_cmp_q.exit.thread.i
-  %.0.i = phi i64 [ %79, %av_cmp_q.exit.thread.i ], [ %56, %73 ], [ %56, %76 ]
+  %.0.i = phi i64 [ %79, %av_cmp_q.exit.thread.i ], [ %56, %76 ], [ %56, %73 ]
   call void @ff_avfilter_link_set_in_status(ptr noundef nonnull %10, i32 noundef %55, i64 noundef %.0.i) #4
   br label %83
 
@@ -194,7 +194,7 @@ rescale_pts.exit:                                 ; preds = %73, %76, %av_cmp_q.
   br label %83
 
 83:                                               ; preds = %12, %80, %.critedge, %82, %rescale_pts.exit, %filter_frame.exit
-  %.1 = phi i32 [ %51, %filter_frame.exit ], [ 0, %rescale_pts.exit ], [ 0, %82 ], [ 0, %12 ], [ %13, %.critedge ], [ -1497649742, %80 ]
+  %.1 = phi i32 [ 0, %12 ], [ %51, %filter_frame.exit ], [ 0, %rescale_pts.exit ], [ 0, %82 ], [ %13, %.critedge ], [ -1497649742, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

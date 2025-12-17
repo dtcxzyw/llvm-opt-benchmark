@@ -1059,7 +1059,7 @@ define internal i32 @dissect_mpls_echo(ptr noundef %0, ptr noundef %1, ptr nound
   br label %72
 
 72:                                               ; preds = %7, %4, %._crit_edge, %16
-  %.0 = phi i32 [ 0, %16 ], [ %71, %._crit_edge ], [ 0, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ %71, %._crit_edge ], [ 0, %4 ], [ 0, %16 ], [ 0, %7 ]
   ret i32 %.0
 }
 

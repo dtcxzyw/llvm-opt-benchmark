@@ -2276,7 +2276,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit65: ; preds = %_ZSt8
   ret void
 
 264:                                              ; preds = %28, %77, %75, %.body
-  %.pn23 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %29, %28 ], [ %78, %77 ], [ %76, %75 ]
+  %.pn23 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %29, %28 ], [ %76, %75 ], [ %78, %77 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn23
@@ -5308,7 +5308,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26: ; p
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26, %36, %.preheader, %22, %18, %4, %13
-  %.018 = phi i1 [ false, %13 ], [ false, %4 ], [ false, %18 ], [ false, %22 ], [ true, %.preheader ], [ %49, %36 ], [ %49, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26 ]
+  %.018 = phi i1 [ false, %4 ], [ false, %18 ], [ false, %22 ], [ false, %13 ], [ true, %.preheader ], [ %49, %36 ], [ %49, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit26 ]
   ret i1 %.018
 }
 
@@ -14037,7 +14037,7 @@ _ZNKRSt8optionalISt7variantIJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   unreachable
 
 _ZN5arrow15ArrayStatistics12MinArrowTypeERKSt10shared_ptrINS_8DataTypeEE.exit: ; preds = %287, %287, %287, %287, %287, %279, %281, %283, %285, %293
-  %.0.i.i = phi ptr [ %289, %287 ], [ %289, %287 ], [ %289, %287 ], [ %289, %287 ], [ %289, %287 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %294, %293 ]
+  %.0.i.i = phi ptr [ %289, %287 ], [ %294, %293 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %289, %287 ], [ %289, %287 ], [ %289, %287 ], [ %289, %287 ]
   %296 = load ptr, ptr %.0.i.i, align 8, !tbaa !48
   store ptr %296, ptr %21, align 8, !tbaa !48
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
@@ -14246,7 +14246,7 @@ _ZNKRSt8optionalISt7variantIJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   unreachable
 
 _ZN5arrow15ArrayStatistics12MaxArrowTypeERKSt10shared_ptrINS_8DataTypeEE.exit: ; preds = %364, %364, %364, %364, %364, %356, %358, %360, %362, %370
-  %.0.i.i141 = phi ptr [ %366, %364 ], [ %366, %364 ], [ %366, %364 ], [ %366, %364 ], [ %366, %364 ], [ %357, %356 ], [ %359, %358 ], [ %361, %360 ], [ %363, %362 ], [ %371, %370 ]
+  %.0.i.i141 = phi ptr [ %366, %364 ], [ %371, %370 ], [ %357, %356 ], [ %359, %358 ], [ %361, %360 ], [ %363, %362 ], [ %366, %364 ], [ %366, %364 ], [ %366, %364 ], [ %366, %364 ]
   %373 = load ptr, ptr %.0.i.i141, align 8, !tbaa !48
   store ptr %373, ptr %21, align 8, !tbaa !48
   %374 = getelementptr inbounds nuw i8, ptr %.0.i.i141, i64 8
@@ -14391,7 +14391,7 @@ _ZN5arrow6StatusD2Ev.exit171:                     ; preds = %_ZN5arrow6StatusD2E
   br label %.critedge49
 
 .critedge49:                                      ; preds = %_ZN5arrow6StatusD2Ev.exit169, %_ZN5arrow6StatusD2Ev.exit138, %_ZN5arrow6StatusD2Ev.exit111, %_ZN5arrow6StatusD2Ev.exit85, %344, %_ZN5arrow6StatusD2Ev.exit171, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.238 = phi i32 [ 8, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %_ZN5arrow6StatusD2Ev.exit171 ], [ 0, %344 ], [ 1, %_ZN5arrow6StatusD2Ev.exit85 ], [ 1, %_ZN5arrow6StatusD2Ev.exit111 ], [ 1, %_ZN5arrow6StatusD2Ev.exit138 ], [ 1, %_ZN5arrow6StatusD2Ev.exit169 ]
+  %.238 = phi i32 [ 1, %_ZN5arrow6StatusD2Ev.exit138 ], [ 1, %_ZN5arrow6StatusD2Ev.exit85 ], [ 1, %_ZN5arrow6StatusD2Ev.exit111 ], [ 0, %_ZN5arrow6StatusD2Ev.exit171 ], [ 1, %_ZN5arrow6StatusD2Ev.exit169 ], [ 8, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %344 ]
   %421 = load ptr, ptr %83, align 8, !tbaa !51
   %.not.i.i172 = icmp eq ptr %421, null
   br i1 %.not.i.i172, label %_ZNSt12__shared_ptrIN5arrow15ArrayStatisticsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %422
@@ -14453,7 +14453,7 @@ _ZNSt12__shared_ptrIN5arrow15ArrayStatisticsELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   br i1 %exitcond.not, label %.critedge57, label %88, !llvm.loop !487
 
 444:                                              ; preds = %.loopexit, %.loopexit.split-lp, %420, %343, %266, %201
-  %.pn = phi { ptr, i32 } [ %lpad.phi205, %420 ], [ %lpad.phi200, %343 ], [ %lpad.phi195, %266 ], [ %lpad.phi190, %201 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi205, %420 ], [ %lpad.phi190, %201 ], [ %lpad.phi200, %343 ], [ %lpad.phi195, %266 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN5arrow15ArrayStatisticsELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
   br label %445
 
@@ -14538,7 +14538,7 @@ _ZN5arrow12_GLOBAL__N_120EnumeratedStatisticsD2Ev.exit: ; preds = %_ZNSt8__detai
   ret void
 
 476:                                              ; preds = %135, %445, %86, %78, %76
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ], [ %87, %86 ], [ %.pn.pn, %445 ], [ %136, %135 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %87, %86 ], [ %.pn.pn, %445 ], [ %136, %135 ]
   call fastcc void @_ZN5arrow12_GLOBAL__N_120EnumeratedStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
@@ -15618,7 +15618,7 @@ _ZN5arrow6StatusD2Ev.exit10:                      ; preds = %_ZN5arrow6StatusD2E
           to label %_ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit unwind label %56
 
 _ZNSt6vectorISt10shared_ptrIN5arrow11RecordBatchEESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit: ; preds = %33, %29, %_ZN5arrow6StatusD2Ev.exit8, %_ZN5arrow6StatusD2Ev.exit10
-  %.1 = phi i32 [ 1, %_ZN5arrow6StatusD2Ev.exit8 ], [ 3, %_ZN5arrow6StatusD2Ev.exit10 ], [ 0, %29 ], [ 0, %33 ]
+  %.1 = phi i32 [ 3, %_ZN5arrow6StatusD2Ev.exit10 ], [ 1, %_ZN5arrow6StatusD2Ev.exit8 ], [ 0, %29 ], [ 0, %33 ]
   %34 = load ptr, ptr %9, align 8, !tbaa !51
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5arrow11RecordBatchELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %35
@@ -17617,7 +17617,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %370
 
 370:                                              ; preds = %.loopexit, %.loopexit.split-lp, %271, %368, %266
-  %.pn64.pn = phi { ptr, i32 } [ %.pn64, %266 ], [ %369, %368 ], [ %272, %271 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn64.pn = phi { ptr, i32 } [ %.pn64, %266 ], [ %272, %271 ], [ %369, %368 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %498
@@ -24040,8 +24040,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   br label %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit18
 
 _ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit18:  ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit23, %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16, %24, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit
-  %.sroa.5.0 = phi ptr [ %13, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit ], [ %13, %24 ], [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16 ], [ %13, %39 ], [ %40, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit23 ], [ %40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %.0 = phi i1 [ true, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit ], [ true, %24 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16 ], [ true, %39 ], [ false, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit23 ], [ false, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %.sroa.5.0 = phi ptr [ %13, %39 ], [ %13, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit ], [ %13, %24 ], [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16 ], [ %40, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit23 ], [ %40, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %.0 = phi i1 [ true, %39 ], [ true, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit ], [ true, %24 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i16 ], [ false, %_ZNSt10shared_ptrIN5arrow5ArrayEEaSEOS2_.exit23 ], [ false, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
   call void @_ZNSt10_Sp_lockerD1Ev(ptr noundef nonnull align 1 dereferenceable(2) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i = icmp eq ptr %.sroa.5.0, null
@@ -32109,7 +32109,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   br label %137
 
 .critedge:                                        ; preds = %.noexc11, %.noexc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %storemerge = phi ptr [ null, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ], [ %13, %.noexc11 ], [ %9, %.noexc ]
+  %storemerge = phi ptr [ null, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ], [ null, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %13, %.noexc11 ], [ %9, %.noexc ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !85
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !51
@@ -32481,34 +32481,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds nuw i32, ptr %48, i64 %14
@@ -32538,7 +32538,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1099
@@ -32601,7 +32601,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -32648,34 +32648,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds i32, ptr %48, i64 %14
@@ -32705,7 +32705,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1119)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1119
@@ -32768,7 +32768,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -32815,34 +32815,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds nuw i32, ptr %48, i64 %14
@@ -32872,7 +32872,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1139
@@ -32935,7 +32935,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -32982,34 +32982,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds i32, ptr %48, i64 %14
@@ -33039,7 +33039,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1159)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1159
@@ -33102,7 +33102,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -33149,34 +33149,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds nuw i32, ptr %48, i64 %14
@@ -33206,7 +33206,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1179)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1179
@@ -33269,7 +33269,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -33316,34 +33316,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %32 = load ptr, ptr %18, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8, !tbaa !114
-  switch i32 %34, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %35
-    i32 28, label %37
-    i32 38, label %39
+  switch i32 %34, label %39 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %35
+    i32 38, label %37
   ]
 
 35:                                               ; preds = %31
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %36, label %63, label %46
 
 37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
   br i1 %38, label %63, label %46
 
 39:                                               ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
-  br i1 %40, label %63, label %46
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load atomic i64, ptr %41 seq_cst, align 8
-  %43 = load ptr, ptr %17, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %42, %45
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = load atomic i64, ptr %40 seq_cst, align 8
+  %42 = load ptr, ptr %17, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i64, ptr %43, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %41, %44
   br i1 %.not22, label %63, label %46
 
-46:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %31
+  %45 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %18, i64 noundef %14)
+  br i1 %45, label %63, label %46
+
+46:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
   %49 = getelementptr inbounds i32, ptr %48, i64 %14
@@ -33373,7 +33373,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %46, %59
   %62 = icmp eq ptr %61, null
   br i1 %62, label %59, label %.critedge.sink.split
 
-63:                                               ; preds = %39, %37, %35, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
+63:                                               ; preds = %35, %37, %39, %19, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1199)
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %65 = load i64, ptr %64, align 8, !tbaa !767, !noalias !1199
@@ -33436,7 +33436,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %59, %46, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %46 ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
+  %.sink = phi ptr [ null, %46 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit ], [ null, %59 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -33482,34 +33482,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
   br i1 %35, label %62, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
   br i1 %37, label %62, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
-  br i1 %39, label %62, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %40, %43
   br i1 %.not22, label %62, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  br i1 %44, label %62, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !1091
   %48 = getelementptr inbounds i32, ptr %47, i64 %9
@@ -33539,7 +33539,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %45, %58
   %61 = icmp eq ptr %60, null
   br i1 %61, label %58, label %.critedge.sink.split
 
-62:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit, %5
+62:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1219)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %64 = load i64, ptr %63, align 8, !tbaa !767, !noalias !1219
@@ -33602,7 +33602,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %58, %45, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %45 ], [ %60, %_ZN5arrow6StatusD2Ev.exit ], [ null, %58 ]
+  %.sink = phi ptr [ null, %45 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %60, %_ZN5arrow6StatusD2Ev.exit ], [ null, %58 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -33648,34 +33648,34 @@ define linkonce_odr void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14Numeric
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
   br i1 %35, label %62, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
   br i1 %37, label %62, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
-  br i1 %39, label %62, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not22 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not22 = icmp eq i64 %40, %43
   br i1 %.not22, label %62, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %9)
+  br i1 %44, label %62, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !1091
   %48 = getelementptr inbounds i32, ptr %47, i64 %9
@@ -33705,7 +33705,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %45, %58
   %61 = icmp eq ptr %60, null
   br i1 %61, label %58, label %.critedge.sink.split
 
-62:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit, %5
+62:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit, %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1239)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %64 = load i64, ptr %63, align 8, !tbaa !767, !noalias !1239
@@ -33768,7 +33768,7 @@ _ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i: ; preds = %.lr.ph.i
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit, %58, %45, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i
-  %.sink = phi ptr [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ null, %45 ], [ %60, %_ZN5arrow6StatusD2Ev.exit ], [ null, %58 ]
+  %.sink = phi ptr [ null, %45 ], [ null, %_ZN5arrow18TypedBufferBuilderIivE12UnsafeAppendEli.exit.i.i ], [ %60, %_ZN5arrow6StatusD2Ev.exit ], [ null, %58 ]
   store ptr %.sink, ptr %0, align 8
   br label %.critedge
 
@@ -34248,12 +34248,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1321
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIhEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IhEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1322
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIhEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IhEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1282
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -34522,12 +34522,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1364
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIaEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IaEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1365
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIaEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IaEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1325
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -34796,12 +34796,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1411
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplItEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ItEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1412
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplItEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ItEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1372
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35070,12 +35070,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1454
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIsEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IsEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1455
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIsEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IsEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1415
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35344,12 +35344,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1500
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIjEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IjEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1501
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIjEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IjEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1461
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35618,12 +35618,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1543
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIiEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IiEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1544
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIiEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IiEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1504
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -35892,12 +35892,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1590
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplImEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ImEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1591
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplImEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_ImEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1551
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -36166,12 +36166,12 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %exitcond.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !1633
 
 .critedge56.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit76.i, %_ZN5arrow6StatusD2Ev.exit72.i, %_ZN5arrow6StatusD2Ev.exit68.i, %.preheader11.i, %.preheader13.i, %.preheader.i
-  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
+  %.351.i = phi i64 [ %.04832.i, %.preheader.i ], [ %.04832.i, %.preheader11.i ], [ %.04832.i, %.preheader13.i ], [ %50, %_ZN5arrow6StatusD2Ev.exit72.i ], [ %44, %_ZN5arrow6StatusD2Ev.exit68.i ], [ %48, %_ZN5arrow6StatusD2Ev.exit76.i ]
   %141 = icmp slt i64 %.351.i, %5
   br i1 %141, label %37, label %_ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIlEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IlEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit, !llvm.loop !1634
 
 _ZN5arrow8internalL14VisitBitBlocksIZNS0_21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE20AppendArraySliceImplIlEENS_6StatusERKNS_11StringArrayERKNS_9ArraySpanEllEUllE_ZNS8_IlEES9_SC_SF_llEUlvE_EES9_PKhllOT_OT0_.exit: ; preds = %.critedge56.i, %_ZN5arrow6StatusD2Ev.exit74.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i, %6
-  %.sink = phi ptr [ null, %6 ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ null, %.critedge56.i ]
+  %.sink = phi ptr [ null, %6 ], [ %.pr.i.i.i80.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i78.i ], [ %41, %_ZN5arrow6StatusD2Ev.exit.i ], [ %.pr.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i.i.i ], [ %99, %_ZN5arrow6StatusD2Ev.exit74.i ], [ null, %.critedge56.i ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1594
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -36325,34 +36325,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1644
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -36369,7 +36369,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1645)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1645
@@ -36499,34 +36499,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1663
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -36543,7 +36543,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1664)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1664
@@ -36667,34 +36667,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1683
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -36711,7 +36711,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1684)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1684
@@ -36835,34 +36835,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1702
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -36879,7 +36879,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1703)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1703
@@ -37003,34 +37003,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1721
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -37047,7 +37047,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1722)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1722
@@ -37171,34 +37171,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %31 = load ptr, ptr %17, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !114
-  switch i32 %33, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %34
-    i32 28, label %36
-    i32 38, label %38
+  switch i32 %33, label %38 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %34
+    i32 38, label %36
   ]
 
 34:                                               ; preds = %30
-  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %35 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %35, label %59, label %45
 
 36:                                               ; preds = %30
-  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  %37 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
   br i1 %37, label %59, label %45
 
 38:                                               ; preds = %30
-  %39 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
-  br i1 %39, label %59, label %45
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %41 = load atomic i64, ptr %40 seq_cst, align 8
-  %42 = load ptr, ptr %16, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %41, %44
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %40 = load atomic i64, ptr %39 seq_cst, align 8
+  %41 = load ptr, ptr %16, align 8, !tbaa !45
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %40, %43
   br i1 %.not3, label %59, label %45
 
-45:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
+  %44 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %17, i64 noundef %11)
+  br i1 %44, label %59, label %45
+
+45:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   %46 = load ptr, ptr %12, align 8, !tbaa !1740
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !1091
@@ -37215,7 +37215,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %30
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %58, ptr %54)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-59:                                               ; preds = %38, %36, %34, %18, %_ZNK5arrow5Array7IsValidEl.exit
+59:                                               ; preds = %34, %36, %38, %18, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1741)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %61 = load i64, ptr %60, align 8, !tbaa !767, !noalias !1741
@@ -37338,34 +37338,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %30 = load ptr, ptr %16, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !114
-  switch i32 %32, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %33
-    i32 28, label %35
-    i32 38, label %37
+  switch i32 %32, label %37 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %33
+    i32 38, label %35
   ]
 
 33:                                               ; preds = %29
-  %34 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  %34 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
   br i1 %34, label %58, label %44
 
 35:                                               ; preds = %29
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
   br i1 %36, label %58, label %44
 
 37:                                               ; preds = %29
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
-  br i1 %38, label %58, label %44
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %40 = load atomic i64, ptr %39 seq_cst, align 8
-  %41 = load ptr, ptr %15, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %40, %43
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %39 = load atomic i64, ptr %38 seq_cst, align 8
+  %40 = load ptr, ptr %15, align 8, !tbaa !45
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %39, %42
   br i1 %.not3, label %58, label %44
 
-44:                                               ; preds = %37, %35, %33, %17, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
+  %43 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  br i1 %43, label %58, label %44
+
+44:                                               ; preds = %33, %35, %37, %17, %_ZNK5arrow5Array7IsValidEl.exit
   %45 = load ptr, ptr %11, align 8, !tbaa !1759
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !1091
@@ -37382,7 +37382,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %57, ptr %53)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-58:                                               ; preds = %37, %35, %33, %17, %_ZNK5arrow5Array7IsValidEl.exit
+58:                                               ; preds = %33, %35, %37, %17, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1760)
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %60 = load i64, ptr %59, align 8, !tbaa !767, !noalias !1760
@@ -37505,34 +37505,34 @@ define linkonce_odr void @_ZZN5arrow8internal21DictionaryBuilderBaseINS_14Numeri
   %30 = load ptr, ptr %16, align 8, !tbaa !48
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !114
-  switch i32 %32, label %_ZNK5arrow5Array7IsValidEl.exit [
-    i32 27, label %33
-    i32 28, label %35
-    i32 38, label %37
+  switch i32 %32, label %37 [
+    i32 27, label %_ZNK5arrow5Array7IsValidEl.exit
+    i32 28, label %33
+    i32 38, label %35
   ]
 
 33:                                               ; preds = %29
-  %34 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  %34 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
   br i1 %34, label %58, label %44
 
 35:                                               ; preds = %29
-  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  %36 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
   br i1 %36, label %58, label %44
 
 37:                                               ; preds = %29
-  %38 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
-  br i1 %38, label %58, label %44
-
-_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %40 = load atomic i64, ptr %39 seq_cst, align 8
-  %41 = load ptr, ptr %15, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !174
-  %.not3 = icmp eq i64 %40, %43
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %39 = load atomic i64, ptr %38 seq_cst, align 8
+  %40 = load ptr, ptr %15, align 8, !tbaa !45
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !174
+  %.not3 = icmp eq i64 %39, %42
   br i1 %.not3, label %58, label %44
 
-44:                                               ; preds = %37, %35, %33, %17, %_ZNK5arrow5Array7IsValidEl.exit
+_ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
+  %43 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %16, i64 noundef %10)
+  br i1 %43, label %58, label %44
+
+44:                                               ; preds = %33, %35, %37, %17, %_ZNK5arrow5Array7IsValidEl.exit
   %45 = load ptr, ptr %11, align 8, !tbaa !1778
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !1091
@@ -37549,7 +37549,7 @@ _ZNK5arrow5Array7IsValidEl.exit:                  ; preds = %29
   tail call void @_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %6, i64 %57, ptr %53)
   br label %_ZN5arrow8internal21DictionaryBuilderBaseINS_14NumericBuilderINS_9Int32TypeEEENS_10StringTypeEE10AppendNullEv.exit
 
-58:                                               ; preds = %37, %35, %33, %17, %_ZNK5arrow5Array7IsValidEl.exit
+58:                                               ; preds = %33, %35, %37, %17, %_ZNK5arrow5Array7IsValidEl.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1779)
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %60 = load i64, ptr %59, align 8, !tbaa !767, !noalias !1779

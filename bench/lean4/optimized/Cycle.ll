@@ -2087,11 +2087,6 @@ lean_alloc_ctor.exit212:                          ; preds = %182
   store ptr %88, ptr %188, align 8, !tbaa !10
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %lean_alloc_ctor.exit212, %lean_alloc_ctor.exit213, %316, %331
-  %.0135.ph.be = phi ptr [ %.0, %331 ], [ %.0133, %316 ], [ %190, %lean_alloc_ctor.exit213 ], [ %183, %lean_alloc_ctor.exit212 ]
-  %.0134.ph.be = phi ptr [ %200, %331 ], [ %200, %316 ], [ %86, %lean_alloc_ctor.exit213 ], [ %86, %lean_alloc_ctor.exit212 ]
-  br label %.outer
-
 189:                                              ; preds = %lean_dec.exit142
   store ptr %88, ptr %85, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #3
@@ -2112,6 +2107,11 @@ lean_alloc_ctor.exit213:                          ; preds = %189
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store ptr %.0134, ptr %195, align 8, !tbaa !10
   br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %lean_alloc_ctor.exit213, %lean_alloc_ctor.exit212, %316, %331
+  %.0135.ph.be = phi ptr [ %.0, %331 ], [ %.0133, %316 ], [ %183, %lean_alloc_ctor.exit212 ], [ %190, %lean_alloc_ctor.exit213 ]
+  %.0134.ph.be = phi ptr [ %200, %331 ], [ %200, %316 ], [ %86, %lean_alloc_ctor.exit212 ], [ %86, %lean_alloc_ctor.exit213 ]
+  br label %.outer
 
 196:                                              ; preds = %79
   %197 = getelementptr inbounds nuw i8, ptr %.0134, i64 8
@@ -3287,7 +3287,7 @@ _init_l_Lake_guardCycle___rarg___lambda__1___closed__1.exit: ; preds = %_init_l_
   br label %60
 
 60:                                               ; preds = %.sink.split, %lean_dec_ref.exit13, %lean_dec_ref.exit15, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit15 ], [ %28, %lean_dec_ref.exit13 ], [ %8, %7 ], [ %.sink33, %.sink.split ]
   ret ptr %.0
 }
 

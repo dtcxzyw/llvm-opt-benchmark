@@ -774,7 +774,7 @@ define void @"_ZN93_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core.
   br label %"_ZN4core3ptr128drop_in_place$LT$std..collections..hash..map..HashMap$LT$deltalake_mount..config..MountConfigKey$C$alloc..string..String$GT$$GT$17h0a198dfe4c0a47f8E.exit"
 
 .body146:                                         ; preds = %254, %258, %247, %217, %221, %210, %133, %.body, %281, %139
-  %.pn139 = phi { ptr, i32 } [ %.pn, %.body ], [ %282, %281 ], [ %140, %139 ], [ %134, %133 ], [ %211, %210 ], [ %218, %221 ], [ %218, %217 ], [ %248, %247 ], [ %255, %258 ], [ %255, %254 ]
+  %.pn139 = phi { ptr, i32 } [ %140, %139 ], [ %.pn, %.body ], [ %282, %281 ], [ %248, %247 ], [ %211, %210 ], [ %218, %217 ], [ %134, %133 ], [ %218, %221 ], [ %255, %258 ], [ %255, %254 ]
   invoke void @"_ZN4core3ptr128drop_in_place$LT$std..collections..hash..map..HashMap$LT$deltalake_mount..config..MountConfigKey$C$alloc..string..String$GT$$GT$17h0a198dfe4c0a47f8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %59) #19
           to label %360 unwind label %224
 
@@ -840,16 +840,16 @@ define void @"_ZN93_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core.
 
 155:                                              ; preds = %148
   %.not.i.i.i.i161 = icmp ugt i64 %.val151, %153
-  br i1 %.not.i.i.i.i161, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", label %156
+  br i1 %.not.i.i.i.i161, label %156, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i"
 
 156:                                              ; preds = %155
-  %157 = icmp eq i64 %.val151, %153
-  br i1 %157, label %162, label %161
+  %157 = getelementptr inbounds nuw i8, ptr %.val, i64 %153
+  %158 = load i8, ptr %157, align 1, !alias.scope !101, !noundef !7
+  %159 = icmp sgt i8 %158, -65
+  br i1 %159, label %162, label %161
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i": ; preds = %155
-  %158 = getelementptr inbounds nuw i8, ptr %.val, i64 %153
-  %159 = load i8, ptr %158, align 1, !alias.scope !101, !noundef !7
-  %160 = icmp sgt i8 %159, -65
+  %160 = icmp eq i64 %.val151, %153
   br i1 %160, label %162, label %161
 
 161:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i.i", %156
@@ -1019,7 +1019,7 @@ define void @"_ZN93_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core.
   br label %.invoke
 
 .invoke:                                          ; preds = %232, %.sink.split364, %197, %.sink.split
-  %199 = phi ptr [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %.sink.split ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %197 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %.sink.split364 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %232 ]
+  %199 = phi ptr [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %197 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.53, %.sink.split ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %.sink.split364 ], [ @anon.e9aa4addaae35843cc997daa61b3cb56.58, %232 ]
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.e9aa4addaae35843cc997daa61b3cb56.27, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9aa4addaae35843cc997daa61b3cb56.28, ptr noalias noundef readonly align 8 dereferenceable(24) %199) #18
           to label %.cont unwind label %133
 
@@ -1366,7 +1366,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %270
           to label %298 unwind label %296
 
 .body:                                            ; preds = %336, %340, %329, %296
-  %.pn = phi { ptr, i32 } [ %297, %296 ], [ %330, %329 ], [ %337, %340 ], [ %337, %336 ]
+  %.pn = phi { ptr, i32 } [ %330, %329 ], [ %297, %296 ], [ %337, %340 ], [ %337, %336 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17ha60b79a6269f4ea3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %53) #19
           to label %.body146 unwind label %224
 
@@ -1875,7 +1875,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %100
           to label %117 unwind label %115
 
 "_ZN4core3ptr155drop_in_place$LT$alloc..sync..Arc$LT$dashmap..DashMap$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17h495390a0ebcf638fE.exit": ; preds = %161, %165, %121, %125, %115
-  %.pn18 = phi { ptr, i32 } [ %116, %115 ], [ %.pn, %125 ], [ %.pn, %121 ], [ %.pn16, %165 ], [ %.pn16, %161 ]
+  %.pn18 = phi { ptr, i32 } [ %116, %115 ], [ %.pn, %121 ], [ %.pn, %125 ], [ %.pn16, %165 ], [ %.pn16, %161 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17ha60b79a6269f4ea3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %20) #19
           to label %78 unwind label %204
 

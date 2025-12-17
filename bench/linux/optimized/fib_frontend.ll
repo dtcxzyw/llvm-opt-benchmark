@@ -179,7 +179,7 @@ define dso_local ptr @fib_new_table(ptr noundef %0, i32 noundef %1) #0 align 16 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %41, %35, %26
-  %43 = phi ptr [ null, %26 ], [ %28, %35 ], [ %28, %41 ], [ %12, %14 ]
+  %43 = phi ptr [ %28, %41 ], [ null, %26 ], [ %28, %35 ], [ %12, %14 ]
   ret ptr %43
 }
 
@@ -463,7 +463,7 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_table(ptr noundef readonl
   br label %59
 
 59:                                               ; preds = %3, %.thread, %7
-  %60 = phi i32 [ %58, %.thread ], [ 5, %7 ], [ 3, %3 ]
+  %60 = phi i32 [ %58, %.thread ], [ 3, %3 ], [ 5, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %60
@@ -564,7 +564,7 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type(ptr noundef readonly capt
   br label %54
 
 54:                                               ; preds = %2, %.thread, %6
-  %55 = phi i32 [ %53, %.thread ], [ 5, %6 ], [ 3, %2 ]
+  %55 = phi i32 [ %53, %.thread ], [ 3, %2 ], [ 5, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %55
@@ -675,12 +675,12 @@ define dso_local range(i32 0, 256) i32 @inet_dev_addr_type(ptr noundef readonly 
   br label %.thread
 
 .thread:                                          ; preds = %14, %59, %56, %22
-  %63 = phi i32 [ 1, %22 ], [ %62, %59 ], [ 1, %56 ], [ 3, %14 ]
+  %63 = phi i32 [ 1, %22 ], [ 1, %56 ], [ %62, %59 ], [ 3, %14 ]
   call void @__rcu_read_unlock() #13
   br label %64
 
 64:                                               ; preds = %3, %.thread, %7
-  %65 = phi i32 [ %63, %.thread ], [ 5, %7 ], [ 3, %3 ]
+  %65 = phi i32 [ %63, %.thread ], [ 3, %3 ], [ 5, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %65
@@ -781,7 +781,7 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_dev_table(ptr noundef rea
   br label %55
 
 55:                                               ; preds = %3, %.thread, %7
-  %56 = phi i32 [ %54, %.thread ], [ 5, %7 ], [ 3, %3 ]
+  %56 = phi i32 [ %54, %.thread ], [ 3, %3 ], [ 5, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
@@ -1021,7 +1021,7 @@ define dso_local noundef zeroext i1 @fib_info_nh_uses_dev(ptr noundef readonly c
   br i1 %22, label %.thread2, label %13
 
 .thread2:                                         ; preds = %20, %.lr.ph, %13, %6, %11
-  %23 = phi i1 [ %12, %11 ], [ false, %6 ], [ true, %20 ], [ true, %.lr.ph ], [ false, %13 ]
+  %23 = phi i1 [ %12, %11 ], [ false, %6 ], [ true, %.lr.ph ], [ true, %20 ], [ false, %13 ]
   ret i1 %23
 }
 
@@ -1871,8 +1871,8 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef re
   call void @kfree(ptr noundef %221) #13
   br label %.thread19
 
-.thread19:                                        ; preds = %151, %.thread15, %34, %30, %136, %12, %.thread23
-  %222 = phi i32 [ %219, %.thread23 ], [ %.ph14, %.thread15 ], [ -22, %34 ], [ -97, %30 ], [ -22, %136 ], [ -97, %12 ], [ -12, %151 ]
+.thread19:                                        ; preds = %151, %30, %12, %136, %.thread15, %34, %.thread23
+  %222 = phi i32 [ %219, %.thread23 ], [ -97, %30 ], [ -97, %12 ], [ -22, %136 ], [ %.ph14, %.thread15 ], [ -22, %34 ], [ -12, %151 ]
   call void @rtnl_unlock() #13
   br label %223
 
@@ -2981,8 +2981,8 @@ define dso_local void @fib_del_ifaddr(ptr noundef readonly captures(address) %0,
   br i1 %232, label %.thread19, label %262
 
 .thread19:                                        ; preds = %80, %.thread20, %229
-  %233 = phi i32 [ %224, %229 ], [ 0, %.thread20 ], [ 0, %80 ]
-  %234 = phi i1 [ %230, %229 ], [ true, %.thread20 ], [ true, %80 ]
+  %233 = phi i32 [ 0, %.thread20 ], [ %224, %229 ], [ 0, %80 ]
+  %234 = phi i1 [ true, %.thread20 ], [ %230, %229 ], [ true, %80 ]
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %236 = load i32, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %82, i64 24
@@ -3712,7 +3712,7 @@ define internal i32 @fib_net_init(ptr noundef %0) #0 align 16 {
   br label %32
 
 32:                                               ; preds = %.thread6, %30
-  %33 = phi i32 [ %26, %30 ], [ -97, %.thread6 ]
+  %33 = phi i32 [ -97, %.thread6 ], [ %26, %30 ]
   call void @rtnl_lock() #13
   call fastcc void @ip_fib_net_exit(ptr noundef %0)
   call void @rtnl_unlock() #13

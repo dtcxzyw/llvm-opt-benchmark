@@ -457,7 +457,7 @@ ff_bufqueue_add.exit97:                           ; preds = %ff_bufqueue_get.exi
   br label %183
 
 183:                                              ; preds = %.thread, %.loopexit, %ff_bufqueue_add.exit91, %ff_bufqueue_add.exit97, %148, %26
-  %.0 = phi i32 [ -12, %26 ], [ %182, %ff_bufqueue_add.exit97 ], [ -12, %148 ], [ 0, %ff_bufqueue_add.exit91 ], [ 0, %.loopexit ], [ -12, %.thread ]
+  %.0 = phi i32 [ -12, %26 ], [ -12, %.thread ], [ %182, %ff_bufqueue_add.exit97 ], [ -12, %148 ], [ 0, %ff_bufqueue_add.exit91 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -993,9 +993,9 @@ define internal void @filter_row8(ptr noundef readonly captures(none) %0, ptr no
   br i1 %48, label %19, label %._crit_edge.us, !llvm.loop !81
 
 ._crit_edge.us:                                   ; preds = %43, %19, %30
-  %.060.lcssa.us = phi i32 [ %.06081.us, %30 ], [ %.06081.us, %19 ], [ %31, %43 ]
-  %.163.us = phi i32 [ %32, %30 ], [ %.06279.us, %19 ], [ %44, %43 ]
-  %.1.us = phi i32 [ %31, %30 ], [ %.06081.us, %19 ], [ %31, %43 ]
+  %.060.lcssa.us = phi i32 [ %.06081.us, %19 ], [ %.06081.us, %30 ], [ %31, %43 ]
+  %.163.us = phi i32 [ %.06279.us, %19 ], [ %32, %30 ], [ %44, %43 ]
+  %.1.us = phi i32 [ %.06081.us, %19 ], [ %31, %30 ], [ %31, %43 ]
   %49 = add i32 %.060.lcssa.us, 1
   %50 = add i32 %49, %.1.us
   %51 = ashr i32 %50, 1
@@ -1316,9 +1316,9 @@ define internal void @filter_row16(ptr noundef readonly captures(none) %0, ptr n
   br i1 %48, label %19, label %._crit_edge.us, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %43, %19, %30
-  %.060.lcssa.us = phi i32 [ %.06081.us, %30 ], [ %.06081.us, %19 ], [ %31, %43 ]
-  %.163.us = phi i32 [ %32, %30 ], [ %.06279.us, %19 ], [ %44, %43 ]
-  %.1.us = phi i32 [ %31, %30 ], [ %.06081.us, %19 ], [ %31, %43 ]
+  %.060.lcssa.us = phi i32 [ %.06081.us, %19 ], [ %.06081.us, %30 ], [ %31, %43 ]
+  %.163.us = phi i32 [ %.06279.us, %19 ], [ %32, %30 ], [ %44, %43 ]
+  %.1.us = phi i32 [ %.06081.us, %19 ], [ %31, %30 ], [ %31, %43 ]
   %49 = add i32 %.060.lcssa.us, 1
   %50 = add i32 %49, %.1.us
   %51 = ashr i32 %50, 1
@@ -1647,8 +1647,8 @@ define internal void @fweight_row8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %56, label %20, label %._crit_edge.us, !llvm.loop !94
 
 ._crit_edge.us:                                   ; preds = %47, %20, %31
-  %.167.us = phi nsz float [ %35, %31 ], [ %.06683.us, %20 ], [ %51, %47 ]
-  %.1.us = phi nsz float [ %36, %31 ], [ %.06584.us, %20 ], [ %52, %47 ]
+  %.167.us = phi nsz float [ %.06683.us, %20 ], [ %35, %31 ], [ %51, %47 ]
+  %.1.us = phi nsz float [ %.06584.us, %20 ], [ %36, %31 ], [ %52, %47 ]
   %57 = fdiv nsz float %.167.us, %.1.us
   %58 = tail call i64 @llvm.lrint.i64.f32(float %57)
   %59 = trunc i64 %58 to i8
@@ -1986,8 +1986,8 @@ define internal void @fweight_row16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %56, label %20, label %._crit_edge.us, !llvm.loop !99
 
 ._crit_edge.us:                                   ; preds = %47, %20, %31
-  %.167.us = phi nsz float [ %35, %31 ], [ %.06683.us, %20 ], [ %51, %47 ]
-  %.1.us = phi nsz float [ %36, %31 ], [ %.06584.us, %20 ], [ %52, %47 ]
+  %.167.us = phi nsz float [ %.06683.us, %20 ], [ %35, %31 ], [ %51, %47 ]
+  %.1.us = phi nsz float [ %.06584.us, %20 ], [ %36, %31 ], [ %52, %47 ]
   %57 = fdiv nsz float %.167.us, %.1.us
   %58 = tail call i64 @llvm.lrint.i64.f32(float %57)
   %59 = trunc i64 %58 to i16
@@ -2311,7 +2311,7 @@ ff_bufqueue_peek.exit:                            ; preds = %16, %21
   br label %.critedge
 
 .critedge:                                        ; preds = %ff_bufqueue_peek.exit, %1, %10, %13, %33
-  %.1 = phi i32 [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ], [ %36, %33 ], [ -12, %ff_bufqueue_peek.exit ]
+  %.1 = phi i32 [ %36, %33 ], [ -12, %ff_bufqueue_peek.exit ], [ -541478725, %10 ], [ -541478725, %13 ], [ %8, %1 ]
   ret i32 %.1
 }
 

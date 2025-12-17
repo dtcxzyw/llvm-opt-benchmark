@@ -113,7 +113,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit:            ; preds = %23
   br i1 %or.cond, label %._crit_edge.loopexit, label %_ZNK11ast_manager6is_iteEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %23, %16, %37, %_ZNK11ast_manager6is_iteEPK4expr.exit, %34
-  %.1 = phi i8 [ %.01319, %34 ], [ %.01319, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ 1, %37 ], [ %.01319, %16 ], [ %.01319, %23 ]
+  %.1 = phi i8 [ %.01319, %34 ], [ %.01319, %23 ], [ %.01319, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ 1, %37 ], [ %.01319, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !30
@@ -500,7 +500,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %23
   br i1 %or.cond.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.thread.i:   ; preds = %37, %34, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %23, %16
-  %.1.i = phi i8 [ %.01319.i, %34 ], [ %.01319.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 1, %37 ], [ %.01319.i, %16 ], [ %.01319.i, %23 ]
+  %.1.i = phi i8 [ %.01319.i, %34 ], [ %.01319.i, %23 ], [ %.01319.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 1, %37 ], [ %.01319.i, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, label %16, !llvm.loop !30
@@ -534,7 +534,7 @@ _Z9is_groundPK4expr.exit:                         ; preds = %.lr.ph
   br i1 %.not17, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %42
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14: ; preds = %37, %_Z9is_groundPK4expr.exit, %42, %.lr.ph, %.preheader.i, %11, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit
-  %.012 = phi i1 [ false, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ], [ false, %11 ], [ false, %.preheader.i ], [ true, %_Z9is_groundPK4expr.exit ], [ false, %42 ], [ true, %.lr.ph ], [ false, %37 ]
+  %.012 = phi i1 [ false, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ], [ false, %11 ], [ false, %.preheader.i ], [ true, %.lr.ph ], [ false, %42 ], [ true, %_Z9is_groundPK4expr.exit ], [ false, %37 ]
   ret i1 %.012
 }
 

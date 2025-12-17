@@ -232,15 +232,15 @@ setup_unix_socket.exit:                           ; preds = %67, %70
   br label %82
 
 glib_auto_cleanup_GStrv.exit19:                   ; preds = %19, %15
-  %.str.4.sink = phi ptr [ @.str.2, %15 ], [ @.str.4, %19 ]
+  %.str.2.sink = phi ptr [ @.str.2, %15 ], [ @.str.4, %19 ]
   %80 = load ptr, ptr @stderr, align 8
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull %.str.4.sink, ptr noundef %9) #14
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull %.str.2.sink, ptr noundef %9) #14
   tail call void @g_strfreev(ptr noundef nonnull %10) #11
   br label %82
 
 82:                                               ; preds = %glib_auto_cleanup_GStrv.exit19, %79, %76, %._crit_edge.thread
-  %.027 = phi ptr [ null, %._crit_edge.thread ], [ %.1, %79 ], [ %.1, %76 ], [ %.033, %glib_auto_cleanup_GStrv.exit19 ]
-  %.2 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %79 ], [ -1, %76 ], [ -1, %glib_auto_cleanup_GStrv.exit19 ]
+  %.027 = phi ptr [ %.033, %glib_auto_cleanup_GStrv.exit19 ], [ null, %._crit_edge.thread ], [ %.1, %79 ], [ %.1, %76 ]
+  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit19 ], [ -1, %._crit_edge.thread ], [ 0, %79 ], [ -1, %76 ]
   call void @g_free(ptr noundef %.027) #11
   ret i32 %.2
 }

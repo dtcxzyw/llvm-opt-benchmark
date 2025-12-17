@@ -193,7 +193,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -597,7 +597,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %13
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %12, %21, %6, %3
-  %.012 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ %20, %21 ]
+  %.012 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %12 ], [ %20, %21 ]
   ret i32 %.012
 }
 
@@ -763,7 +763,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %13
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %12, %21, %6, %3
-  %.012 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ %20, %21 ]
+  %.012 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %12 ], [ %20, %21 ]
   ret i32 %.012
 }
 
@@ -1598,7 +1598,7 @@ define noundef i32 @ucal_getAttribute_77(ptr noundef %0, i32 noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %8, %6, %3
-  %.0 = phi i32 [ %5, %3 ], [ %7, %6 ], [ %10, %8 ], [ %12, %11 ], [ %14, %13 ], [ -1, %2 ]
+  %.0 = phi i32 [ %14, %13 ], [ %5, %3 ], [ %7, %6 ], [ %10, %8 ], [ %12, %11 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -1813,7 +1813,7 @@ define noundef i32 @ucal_get_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %10
 
 10:                                               ; preds = %3, %8, %7
-  %.0 = phi i32 [ -1, %7 ], [ %9, %8 ], [ -1, %3 ]
+  %.0 = phi i32 [ %9, %8 ], [ -1, %7 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1944,7 +1944,7 @@ define noundef i32 @ucal_getLimit_77(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %42
 
 42:                                               ; preds = %11, %4, %6, %37, %32, %27, %22, %17, %12, %10
-  %.0 = phi i32 [ -1, %10 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ %41, %37 ], [ -1, %6 ], [ -1, %4 ], [ -1, %11 ]
+  %.0 = phi i32 [ %41, %37 ], [ -1, %10 ], [ -1, %4 ], [ %16, %12 ], [ %21, %17 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ -1, %6 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -2095,7 +2095,7 @@ define noundef i32 @ucal_getCanonicalTimeZoneID_77(ptr noundef %0, i32 noundef %
   resume { ptr, i32 } %.pn40
 
 47:                                               ; preds = %6, %12, %45, %22
-  %.029 = phi i32 [ 0, %22 ], [ %.028, %45 ], [ 0, %12 ], [ 0, %6 ]
+  %.029 = phi i32 [ %.028, %45 ], [ 0, %22 ], [ 0, %12 ], [ 0, %6 ]
   ret i32 %.029
 }
 
@@ -2451,7 +2451,7 @@ define noalias noundef ptr @ucal_getKeywordValuesForLocale_77(ptr noundef readno
           to label %81 unwind label %34
 
 81:                                               ; preds = %.loopexit.thread, %28, %.loopexit, %23
-  %.074 = phi ptr [ %27, %.loopexit ], [ %27, %28 ], [ null, %23 ], [ null, %.loopexit.thread ]
+  %.074 = phi ptr [ null, %23 ], [ %27, %.loopexit ], [ %27, %28 ], [ null, %.loopexit.thread ]
   invoke void @ures_close_77(ptr noundef %.075)
           to label %82 unwind label %34
 

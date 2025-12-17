@@ -468,7 +468,7 @@ define hidden void @"_ZN247_$LT$diesel..query_builder..select_statement..SelectS
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h5cbe3d7dc11a931cE.exit119"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h5cbe3d7dc11a931cE.exit119": ; preds = %20, %.thread209, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread", %.thread206
-  %.sroa.11.0.i113 = phi ptr [ %15, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread" ], [ %19, %.thread206 ], [ undef, %20 ], [ undef, %.thread209 ]
+  %.sroa.11.0.i113 = phi ptr [ %15, %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h049524c4947878d7E.exit.thread" ], [ %19, %.thread206 ], [ undef, %.thread209 ], [ undef, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.in.i204 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -555,7 +555,7 @@ default.unreachable:                              ; preds = %40, %27
   br label %53
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h5cbe3d7dc11a931cE.exit154": ; preds = %35, %.thread228, %.thread217, %.thread219
-  %.sroa.11.0.i148 = phi ptr [ %33, %.thread217 ], [ %31, %.thread219 ], [ undef, %35 ], [ undef, %.thread228 ]
+  %.sroa.11.0.i148 = phi ptr [ %33, %.thread217 ], [ %31, %.thread219 ], [ undef, %.thread228 ], [ undef, %35 ]
   store i64 %11, ptr %7, align 8, !alias.scope !151, !noalias !148
   %.sroa.6.0..sroa_idx.i151 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.6.0.i115, ptr %.sroa.6.0..sroa_idx.i151, align 8, !alias.scope !151, !noalias !148

@@ -246,7 +246,7 @@ define noundef zeroext i1 @_ZNK6icu_7712ChoiceFormateqERKNS_6FormatE(ptr noundef
   br label %10
 
 10:                                               ; preds = %4, %2, %6
-  %.0 = phi i1 [ %9, %6 ], [ true, %2 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %2 ], [ %9, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -1049,7 +1049,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %.lr.ph43, %_ZNK6icu
   br i1 %.not, label %22, label %.thread
 
 .thread:                                          ; preds = %49, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %22, %52, %.lr.ph, %3
-  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %52 ], [ %29, %22 ], [ %.03142, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %.03142, %49 ]
+  %.0.lcssa = phi i32 [ %6, %3 ], [ %6, %.lr.ph ], [ %29, %52 ], [ %.03142, %49 ], [ %.03142, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ %29, %22 ]
   ret i32 %.0.lcssa
 }
 

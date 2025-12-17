@@ -421,7 +421,7 @@ default.unreachable290:                           ; preds = %.split
   unreachable
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge220, %._crit_edge231, %._crit_edge242, %.preheader202, %.preheader199, %.preheader196, %.preheader194, %33, %38, %18, %24, %2
-  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ null, %33 ], [ %1, %38 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader199 ], [ %1, %.preheader202 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge ]
+  %.0 = phi ptr [ null, %2 ], [ %23, %18 ], [ null, %24 ], [ %1, %38 ], [ null, %33 ], [ %1, %.preheader199 ], [ %1, %.preheader194 ], [ %1, %.preheader196 ], [ %1, %.preheader202 ], [ %1, %._crit_edge220 ], [ %1, %._crit_edge242 ], [ %1, %._crit_edge231 ], [ %1, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -558,7 +558,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   br label %get_kern_value.exit
 
 get_kern_value.exit:                              ; preds = %23, %42, %58, %59, %72
-  %.3.i = phi i8 [ %.0.i, %42 ], [ %.2.i, %58 ], [ 0, %23 ], [ %85, %72 ], [ 0, %59 ]
+  %.3.i = phi i8 [ 0, %23 ], [ %.0.i, %42 ], [ %.2.i, %58 ], [ %85, %72 ], [ 0, %59 ]
   %86 = sext i8 %.3.i to i32
   br label %87
 
@@ -782,7 +782,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread96, label %14, !llvm.loop !67
 
-.thread96:                                        ; preds = %.thread92, %21, %6, %36, %24, %64, %90, %2
+.thread96:                                        ; preds = %.thread92, %21, %6, %36, %64, %90, %24, %2
   %.0 = phi i32 [ 0, %2 ], [ %41, %36 ], [ %.371, %90 ], [ %.270, %64 ], [ %28, %24 ], [ 0, %6 ], [ 0, %21 ], [ 0, %.thread92 ]
   ret i32 %.0
 }

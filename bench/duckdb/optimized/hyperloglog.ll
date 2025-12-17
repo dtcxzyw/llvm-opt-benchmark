@@ -382,7 +382,7 @@ define noundef range(i32 -1, 1) i32 @_ZN10duckdb_hll16hllSparseToDenseEPNS_4robj
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %1, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ 0, %1 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !26
@@ -494,7 +494,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %1, %7, %10, %14, %1
   br label %89
 
 89:                                               ; preds = %_ZN10duckdb_hllL6sdslenEPc.exit, %87, %._crit_edge.thread
-  %.0 = phi i32 [ -1, %._crit_edge.thread ], [ 0, %87 ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit ]
+  %.0 = phi i32 [ 0, %87 ], [ -1, %._crit_edge.thread ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit ]
   ret i32 %.0
 }
 
@@ -558,7 +558,7 @@ define noundef range(i32 -1, 2) i32 @_ZN10duckdb_hll12hllSparseSetEPNS_4robjElh(
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
+  %.0.i = phi i64 [ %31, %29 ], [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ]
   %32 = getelementptr i8, ptr %8, i64 %.0.i
   %33 = icmp sgt i64 %.0.i, 17
   br i1 %33, label %.lr.ph, label %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit
@@ -590,8 +590,8 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
   br label %47
 
 47:                                               ; preds = %.lr.ph, %38, %40
-  %.2184.in.in = phi i32 [ %39, %38 ], [ %46, %40 ], [ %35, %.lr.ph ]
-  %.0181 = phi i64 [ 1, %38 ], [ 2, %40 ], [ 1, %.lr.ph ]
+  %.2184.in.in = phi i32 [ %46, %40 ], [ %39, %38 ], [ %35, %.lr.ph ]
+  %.0181 = phi i64 [ 2, %40 ], [ 1, %38 ], [ 1, %.lr.ph ]
   %.2184.in = add nuw nsw i32 %.2184.in.in, 1
   %.2184 = zext nneg i32 %.2184.in to i64
   %48 = add nuw nsw i64 %.0175273, %.2184
@@ -840,7 +840,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
   br label %_ZN10duckdb_hllL6sdslenEPc.exit222
 
 _ZN10duckdb_hllL6sdslenEPc.exit222:               ; preds = %165, %169, %172, %176, %180, %184
-  %.0.i221 = phi i64 [ %171, %169 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ %186, %184 ], [ 0, %165 ]
+  %.0.i221 = phi i64 [ %186, %184 ], [ %171, %169 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ 0, %165 ]
   %187 = zext nneg i32 %163 to i64
   %188 = add i64 %.0.i221, %187
   %189 = icmp ugt i64 %188, 3000
@@ -1005,7 +1005,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit222:               ; preds = %165, %169, %172, %1
   br label %_ZN10duckdb_hllL11hllDenseSetEPhlh.exit
 
 _ZN10duckdb_hllL11hllDenseSetEPhlh.exit:          ; preds = %6, %_ZN10duckdb_hllL6sdslenEPc.exit, %266, %246, %243, %57, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %57 ], [ -1, %243 ], [ 1, %266 ], [ 0, %246 ], [ -1, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ -1, %6 ]
+  %.0 = phi i32 [ 0, %57 ], [ -1, %243 ], [ 1, %.critedge ], [ 0, %246 ], [ 1, %266 ], [ -1, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ -1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1335,7 +1335,7 @@ define noundef i64 @_ZN10duckdb_hll8hllCountEPNS_6hllhdrEPi(ptr noundef readonly
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %35, %38, %42, %46, %50
-  %.0.i = phi i64 [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ], [ %52, %50 ]
+  %.0.i = phi i64 [ %52, %50 ], [ %37, %35 ], [ %41, %38 ], [ %45, %42 ], [ %49, %46 ]
   %53 = trunc i64 %.0.i to i32
   %54 = add i32 %53, -17
   %55 = sext i32 %54 to i64
@@ -1643,7 +1643,7 @@ _ZN10duckdb_hll11hllDenseAddEPhS0_m.exit:         ; preds = %9, %30
   br label %51
 
 51:                                               ; preds = %3, %46, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit
-  %.0 = phi i32 [ %.0.i.i, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit ], [ %50, %46 ], [ -1, %3 ]
+  %.0 = phi i32 [ %50, %46 ], [ %.0.i.i, %_ZN10duckdb_hll11hllDenseAddEPhS0_m.exit ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -1728,7 +1728,7 @@ define noundef range(i32 -1, 1) i32 @_ZN10duckdb_hll8hllMergeEPhPNS_4robjE(ptr n
   br label %_ZN10duckdb_hllL6sdslenEPc.exit
 
 _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %30, %33, %37, %41, %45
-  %.0.i = phi i64 [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %47, %45 ]
+  %.0.i = phi i64 [ %47, %45 ], [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %49 = icmp samesign ugt i64 %.0.i, 17
   br i1 %49, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1906,8 +1906,8 @@ define noalias noundef ptr @_ZN10duckdb_hll9hll_mergeEPPNS_4robjEm(ptr noundef r
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph, %7
-  %.128.ph = phi i32 [ %spec.select, %7 ], [ %.02742, %.lr.ph ]
+14:                                               ; preds = %7, %.lr.ph
+  %.128.ph = phi i32 [ %.02742, %.lr.ph ], [ %spec.select, %7 ]
   %15 = add nuw i64 %.03041, 1
   %exitcond.not = icmp eq i64 %15, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !42

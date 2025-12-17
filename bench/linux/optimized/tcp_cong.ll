@@ -1179,7 +1179,7 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
   br i1 %53, label %.critedge, label %.preheader8, !llvm.loop !36
 
 .critedge:                                        ; preds = %20, %.preheader10, %51, %.preheader8, %.loopexit
-  %54 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader8 ], [ 0, %51 ], [ -2, %.preheader10 ], [ -2, %20 ]
+  %54 = phi i32 [ 0, %.loopexit ], [ -2, %.preheader10 ], [ 0, %51 ], [ 0, %.preheader8 ], [ -2, %20 ]
   call void @_raw_spin_unlock(ptr noundef nonnull @tcp_cong_list_lock) #15
   call void @kfree(ptr noundef nonnull %4) #15
   br label %55
@@ -1440,7 +1440,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br label %.thread5.sink.split
 
 .thread5.sink.split:                              ; preds = %153, %149, %142, %132, %128, %121, %20, %.thread
-  %.sink17 = phi i8 [ 64, %.thread ], [ 64, %20 ], [ 32, %121 ], [ 32, %128 ], [ 32, %132 ], [ 32, %142 ], [ 32, %149 ], [ 32, %153 ]
+  %.sink17 = phi i8 [ 64, %20 ], [ 64, %.thread ], [ 32, %121 ], [ 32, %128 ], [ 32, %132 ], [ 32, %142 ], [ 32, %149 ], [ 32, %153 ]
   %163 = load i8, ptr %5, align 8
   %164 = or i8 %163, %.sink17
   store i8 %164, ptr %5, align 8

@@ -1139,7 +1139,7 @@ Ssw_ObjSatNum.exit:                               ; preds = %Ssw_ObjFrame_.exit,
   br label %.critedge
 
 .critedge:                                        ; preds = %158, %.critedge.sink.split, %Abc_Clock.exit, %164, %161
-  %.3 = phi i32 [ 0, %161 ], [ -1, %164 ], [ %.0113, %Abc_Clock.exit ], [ %.3.ph, %.critedge.sink.split ], [ 1, %158 ]
+  %.3 = phi i32 [ 0, %161 ], [ %.0113, %Abc_Clock.exit ], [ -1, %164 ], [ %.3.ph, %.critedge.sink.split ], [ 1, %158 ]
   br i1 %.not, label %189, label %165
 
 165:                                              ; preds = %.critedge

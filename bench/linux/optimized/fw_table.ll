@@ -41,7 +41,7 @@ default.unreachable25:                            ; preds = %6
   unreachable
 
 18:                                               ; preds = %17, %16, %6
-  %19 = phi i64 [ 4, %17 ], [ 8, %16 ], [ 2, %6 ]
+  %19 = phi i64 [ 8, %16 ], [ 2, %6 ], [ 4, %17 ]
   %20 = add i64 %19, %15
   %21 = icmp ult i64 %20, %14
   br i1 %21, label %22, label %.thread12

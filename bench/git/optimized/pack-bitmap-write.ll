@@ -450,7 +450,7 @@ define dso_local range(i32 0, 2) i32 @bitmap_writer_has_bitmapped_object_id(ptr 
   br label %kh_get_oid_map.exit
 
 kh_get_oid_map.exit:                              ; preds = %.critedge2.i, %2, %.critedge.i
-  %.1.i = phi i32 [ 0, %2 ], [ %37, %.critedge.i ], [ 0, %.critedge2.i ]
+  %.1.i = phi i32 [ %37, %.critedge.i ], [ 0, %2 ], [ 0, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1.i
 }
@@ -1320,7 +1320,7 @@ kh_get_oid_map.exit.thread.i:                     ; preds = %.critedge2.i.i
   br label %kh_get_oid_map.exit.i
 
 kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %159
-  %.1.i.i = phi i32 [ 0, %159 ], [ %spec.select.i.i, %.critedge.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i ], [ 0, %159 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %190 = icmp eq i32 %.1.i.i, %162
   br i1 %190, label %.loopexit99, label %193
@@ -2130,14 +2130,14 @@ bb_data_at.exit148:                               ; preds = %164, %169
   br label %.loopexit
 
 .loopexit:                                        ; preds = %215, %.loopexit.sink.split, %.preheader162, %147
-  %.2 = phi i32 [ %.3, %147 ], [ %.3, %.preheader162 ], [ %.2.ph, %.loopexit.sink.split ], [ %.3, %215 ]
+  %.2 = phi i32 [ %.3, %.preheader162 ], [ %.3, %147 ], [ %.2.ph, %.loopexit.sink.split ], [ %.3, %215 ]
   %218 = load ptr, ptr %120, align 8, !tbaa !108
   call void @bitmap_free(ptr noundef %218) #19
   store ptr null, ptr %120, align 8, !tbaa !108
   br label %.critedge
 
 .critedge:                                        ; preds = %186, %bb_data_at.exit136, %.loopexit
-  %.1 = phi i32 [ %.2, %.loopexit ], [ %.097171, %bb_data_at.exit136 ], [ %.3, %186 ]
+  %.1 = phi i32 [ %.2, %.loopexit ], [ %.3, %186 ], [ %.097171, %bb_data_at.exit136 ]
   %219 = call ptr @get_revision(ptr noundef nonnull %4) #19
   %.not108 = icmp eq ptr %219, null
   br i1 %.not108, label %.preheader.loopexit, label %83
@@ -2288,7 +2288,7 @@ sane_qsort.exit:                                  ; preds = %3
   br label %next_commit_index.exit
 
 next_commit_index.exit:                           ; preds = %22, %25
-  %.0.i = phi i32 [ %24, %22 ], [ %28, %25 ]
+  %.0.i = phi i32 [ %28, %25 ], [ %24, %22 ]
   %29 = add i32 %.0.i, %.1
   %.not53 = icmp ult i32 %29, %2
   br i1 %.not53, label %33, label %57
@@ -2337,7 +2337,7 @@ next_commit_index.exit.thread:                    ; preds = %18
   %spec.select = select i1 %.not57, ptr %.14374, ptr %43
   br label %52
 
-52:                                               ; preds = %49, %46
+52:                                               ; preds = %46, %49
   %.244.ph = phi ptr [ %spec.select, %49 ], [ %.14374, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2959,7 +2959,7 @@ kh_get_oid_map.exit.thread.i:                     ; preds = %.critedge2.i.i
   br label %kh_get_oid_map.exit.i
 
 kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %258
-  %.1.i.i = phi i32 [ 0, %258 ], [ %spec.select.i.i, %.critedge.i.i ]
+  %.1.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %290 = icmp eq i32 %.1.i.i, %262
   br i1 %290, label %.loopexit188.i, label %292
@@ -3153,7 +3153,7 @@ kh_get_oid_map.exit168.thread.i:                  ; preds = %.critedge2.i165.i
   br label %kh_get_oid_map.exit168.i
 
 kh_get_oid_map.exit168.i:                         ; preds = %.critedge.i160.i, %.lr.ph247.i
-  %.1.i163.i = phi i32 [ 0, %.lr.ph247.i ], [ %spec.select.i162.i, %.critedge.i160.i ]
+  %.1.i163.i = phi i32 [ %spec.select.i162.i, %.critedge.i160.i ], [ 0, %.lr.ph247.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %374 = icmp eq i32 %.1.i163.i, %346
   br i1 %374, label %.loopexit187.i, label %376
@@ -3687,7 +3687,7 @@ find_object_pos.exit24.thread:                    ; preds = %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %find_object_pos.exit24.thread, %find_object_pos.exit.thread, %11, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %11 ], [ -1, %find_object_pos.exit.thread ], [ -1, %find_object_pos.exit24.thread ], [ -1, %42 ]
+  %.0 = phi i32 [ -1, %find_object_pos.exit.thread ], [ 0, %11 ], [ 0, %._crit_edge ], [ -1, %find_object_pos.exit24.thread ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

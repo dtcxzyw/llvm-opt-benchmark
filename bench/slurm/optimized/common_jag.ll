@@ -968,7 +968,7 @@ _get_freq.exit.i:                                 ; preds = %391, %389, %387
   br i1 %.not21.i, label %.sink.split.i, label %.lr.ph.i209, !llvm.loop !13
 
 .sink.split.i:                                    ; preds = %_get_freq.exit.i, %_get_freq.exit.thread.i, %.preheader.i, %373, %370, %365, %361
-  %.sink.i = phi ptr [ %354, %365 ], [ %354, %373 ], [ %354, %370 ], [ %354, %361 ], [ %384, %.preheader.i ], [ %384, %_get_freq.exit.thread.i ], [ %384, %_get_freq.exit.i ]
+  %.sink.i = phi ptr [ %354, %361 ], [ %354, %365 ], [ %354, %373 ], [ %354, %370 ], [ %384, %.preheader.i ], [ %384, %_get_freq.exit.thread.i ], [ %384, %_get_freq.exit.i ]
   %407 = call i32 @fclose(ptr noundef nonnull %.sink.i)
   br label %_get_sys_interface_freq_line.exit
 
@@ -1269,10 +1269,10 @@ _record_profile.exit:                             ; preds = %493, %496, %569
   br label %589
 
 589:                                              ; preds = %474, %475, %_record_profile.exit, %111, %115, %112, %72
-  %.1170 = phi i32 [ %.0169218, %72 ], [ %.0169218, %112 ], [ %.0169218, %115 ], [ %.0169218, %111 ], [ 1, %_record_profile.exit ], [ 1, %475 ], [ 1, %474 ]
-  %.1168 = phi i32 [ %.0167219, %72 ], [ %.0167219, %112 ], [ %.0167219, %115 ], [ %.0167219, %111 ], [ %.2, %_record_profile.exit ], [ %.2, %475 ], [ %.2, %474 ]
-  %.1165 = phi i64 [ %.0164220, %72 ], [ %.0164220, %112 ], [ %.0164220, %115 ], [ %.0164220, %111 ], [ %330, %_record_profile.exit ], [ %330, %475 ], [ %330, %474 ]
-  %.1 = phi i64 [ %.0221, %72 ], [ %.0221, %112 ], [ %.0221, %115 ], [ %.0221, %111 ], [ %327, %_record_profile.exit ], [ %327, %475 ], [ %327, %474 ]
+  %.1170 = phi i32 [ %.0169218, %72 ], [ %.0169218, %111 ], [ %.0169218, %112 ], [ %.0169218, %115 ], [ 1, %_record_profile.exit ], [ 1, %475 ], [ 1, %474 ]
+  %.1168 = phi i32 [ %.0167219, %72 ], [ %.0167219, %111 ], [ %.0167219, %112 ], [ %.0167219, %115 ], [ %.2, %_record_profile.exit ], [ %.2, %475 ], [ %.2, %474 ]
+  %.1165 = phi i64 [ %.0164220, %72 ], [ %.0164220, %111 ], [ %.0164220, %112 ], [ %.0164220, %115 ], [ %330, %_record_profile.exit ], [ %330, %475 ], [ %330, %474 ]
+  %.1 = phi i64 [ %.0221, %72 ], [ %.0221, %111 ], [ %.0221, %112 ], [ %.0221, %115 ], [ %327, %_record_profile.exit ], [ %327, %475 ], [ %327, %474 ]
   %590 = call ptr @slurm_list_next(ptr noundef %53) #17
   %.not186 = icmp eq ptr %590, null
   br i1 %.not186, label %._crit_edge224, label %72
@@ -2745,7 +2745,7 @@ define internal fastcc range(i32 -1, 2) i32 @_is_a_lwp(i32 noundef %0) unnamed_a
   br label %47
 
 47:                                               ; preds = %42, %46, %43, %37, %41, %38, %.thread, %10
-  %.022 = phi i32 [ -1, %10 ], [ -1, %.thread ], [ 1, %38 ], [ 1, %41 ], [ 1, %37 ], [ 0, %43 ], [ 0, %46 ], [ 0, %42 ]
+  %.022 = phi i32 [ -1, %10 ], [ -1, %.thread ], [ 1, %37 ], [ 1, %38 ], [ 1, %41 ], [ 0, %43 ], [ 0, %46 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.022

@@ -412,8 +412,8 @@ define void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr no
   br label %162
 
 162:                                              ; preds = %146, %148, %.loopexit330
-  %.1290 = phi i32 [ %112, %148 ], [ %160, %.loopexit330 ], [ %.0284336, %146 ]
-  %.1285 = phi i32 [ %114, %148 ], [ %161, %.loopexit330 ], [ %112, %146 ]
+  %.1290 = phi i32 [ %160, %.loopexit330 ], [ %112, %148 ], [ %.0284336, %146 ]
+  %.1285 = phi i32 [ %161, %.loopexit330 ], [ %114, %148 ], [ %112, %146 ]
   %.not325 = icmp ult i64 %63, %14
   br i1 %.not325, label %.loopexit328, label %62, !llvm.loop !12
 
@@ -564,8 +564,8 @@ define void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0, ptr no
   br label %226
 
 226:                                              ; preds = %210, %212, %.loopexit
-  %.4293 = phi i32 [ %.4314, %212 ], [ %224, %.loopexit ], [ %.3287344, %210 ]
-  %.4288 = phi i32 [ %.8302, %212 ], [ %225, %.loopexit ], [ %.4314, %210 ]
+  %.4293 = phi i32 [ %224, %.loopexit ], [ %.4314, %212 ], [ %.3287344, %210 ]
+  %.4288 = phi i32 [ %225, %.loopexit ], [ %.8302, %212 ], [ %.4314, %210 ]
   %227 = load i32, ptr %10, align 4, !tbaa !3
   %228 = xor i32 %227, %.4314
   %229 = load i32, ptr %52, align 4, !tbaa !3

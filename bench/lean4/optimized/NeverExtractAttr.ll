@@ -346,8 +346,8 @@ lean_dec.exit24:                                  ; preds = %48, %55, %57, %58
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %.lr.ph, label %.split45.us
 
-78:                                               ; preds = %47, %46, %44, %lean_dec.exit25, %74, %73, %71, %lean_dec.exit22
-  %.2.ph = phi i8 [ 1, %lean_dec.exit22 ], [ 1, %71 ], [ 1, %73 ], [ 1, %74 ], [ 0, %lean_dec.exit25 ], [ 0, %44 ], [ 0, %46 ], [ 0, %47 ]
+78:                                               ; preds = %lean_dec.exit25, %47, %46, %44, %74, %73, %71, %lean_dec.exit22
+  %.2.ph = phi i8 [ 1, %lean_dec.exit22 ], [ 1, %71 ], [ 1, %73 ], [ 1, %74 ], [ 0, %44 ], [ 0, %46 ], [ 0, %47 ], [ 0, %lean_dec.exit25 ]
   ret i8 %.2.ph
 }
 
@@ -556,7 +556,7 @@ lean_dec_ref.exit16:                              ; preds = %59, %58, %56, %_ini
   br label %67
 
 67:                                               ; preds = %.sink.split, %44, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %49, %44 ], [ %.sink34, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %49, %44 ], [ %8, %7 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

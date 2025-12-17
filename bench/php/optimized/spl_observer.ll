@@ -306,8 +306,8 @@ define internal fastcc ptr @spl_object_storage_attach(ptr noundef %0, ptr nounde
   br label %46
 
 46:                                               ; preds = %35, %38, %43
-  %.sroa.6.0 = phi i32 [ %41, %38 ], [ %41, %43 ], [ 1, %35 ]
-  %.sroa.5.0 = phi ptr [ %39, %38 ], [ %39, %43 ], [ undef, %35 ]
+  %.sroa.6.0 = phi i32 [ %41, %43 ], [ %41, %38 ], [ 1, %35 ]
+  %.sroa.5.0 = phi ptr [ %39, %43 ], [ %39, %38 ], [ undef, %35 ]
   %.not53 = icmp eq ptr %.val57, null
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !4
@@ -375,7 +375,7 @@ zend_hash_index_update_mem.exit:                  ; preds = %60, %62
   br label %69
 
 69:                                               ; preds = %13, %68, %34
-  %.1 = phi ptr [ %18, %34 ], [ %.045, %68 ], [ null, %13 ]
+  %.1 = phi ptr [ %.045, %68 ], [ %18, %34 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
 
@@ -672,7 +672,7 @@ spl_object_storage_free_hash.exit.thread:         ; preds = %.thread, %spl_objec
   br label %73
 
 73:                                               ; preds = %.sink.split, %55, %63
-  %.053 = phi ptr [ %65, %63 ], [ %56, %55 ], [ %.sink.in, %.sink.split ]
+  %.053 = phi ptr [ %56, %55 ], [ %65, %63 ], [ %.sink.in, %.sink.split ]
   %74 = load ptr, ptr %.053, align 8, !tbaa !4
   %75 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !4
@@ -728,7 +728,7 @@ define internal fastcc range(i32 -1, 1) i32 @spl_object_storage_get_hash(ptr nou
   br label %25
 
 25:                                               ; preds = %8, %22, %16
-  %.0 = phi i32 [ -1, %16 ], [ 0, %22 ], [ -1, %8 ]
+  %.0 = phi i32 [ 0, %22 ], [ -1, %16 ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
@@ -1792,8 +1792,8 @@ zend_string_release_ex.exit.i:                    ; preds = %44, %39, %35
   br label %smart_str_appendc_ex.exit48
 
 smart_str_appendc_ex.exit48:                      ; preds = %60, %65
-  %66 = phi ptr [ %.pre63, %65 ], [ %59, %60 ]
-  %.1.i.i47 = phi i64 [ %.0.i.i46, %65 ], [ %63, %60 ]
+  %66 = phi ptr [ %59, %60 ], [ %.pre63, %65 ]
+  %.1.i.i47 = phi i64 [ %63, %60 ], [ %.0.i.i46, %65 ]
   %67 = getelementptr i8, ptr %66, i64 23
   %68 = getelementptr i8, ptr %67, i64 %.1.i.i47
   store i8 44, ptr %68, align 1, !tbaa !4
@@ -1820,8 +1820,8 @@ smart_str_appendc_ex.exit48:                      ; preds = %60, %65
   br label %78
 
 78:                                               ; preds = %77, %72
-  %79 = phi ptr [ %.pre64, %77 ], [ %71, %72 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %77 ], [ %75, %72 ]
+  %79 = phi ptr [ %71, %72 ], [ %.pre64, %77 ]
+  %.1.i.i = phi i64 [ %75, %72 ], [ %.0.i.i, %77 ]
   %80 = getelementptr i8, ptr %79, i64 23
   %81 = getelementptr i8, ptr %80, i64 %.1.i.i
   store i8 59, ptr %81, align 1, !tbaa !4
@@ -1859,9 +1859,9 @@ smart_str_appendc_ex.exit48:                      ; preds = %60, %65
   br label %smart_str_alloc.exit41
 
 smart_str_alloc.exit41:                           ; preds = %87, %93
-  %94 = phi i64 [ %.pre66, %93 ], [ %89, %87 ]
-  %95 = phi ptr [ %.pre65, %93 ], [ %86, %87 ]
-  %.1.i40 = phi i64 [ %.0.i39, %93 ], [ %90, %87 ]
+  %94 = phi i64 [ %89, %87 ], [ %.pre66, %93 ]
+  %95 = phi ptr [ %86, %87 ], [ %.pre65, %93 ]
+  %.1.i40 = phi i64 [ %90, %87 ], [ %.0.i39, %93 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %94
   store i16 14957, ptr %97, align 1
@@ -2212,7 +2212,7 @@ spl_object_storage_get_hash.exit:                 ; preds = %75
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #10
   br label %.thread
 
-.thread:                                          ; preds = %48, %53, %56, %.thread.sink.split
+.thread:                                          ; preds = %53, %48, %56, %.thread.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %126
 
@@ -2807,12 +2807,12 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %31
   %cond.fr = freeze i1 %39
   br i1 %cond.fr, label %.critedge, label %.thread107, !prof !76
 
-.thread107:                                       ; preds = %zend_parse_arg_str_or_long.exit, %23, %25, %10
-  %.0120 = phi i32 [ 1, %23 ], [ 1, %25 ], [ 0, %10 ], [ 2, %zend_parse_arg_str_or_long.exit ]
-  %.062119 = phi ptr [ %12, %23 ], [ %12, %25 ], [ null, %10 ], [ %32, %zend_parse_arg_str_or_long.exit ]
-  %.063118 = phi i32 [ 18, %23 ], [ 0, %25 ], [ 0, %10 ], [ 29, %zend_parse_arg_str_or_long.exit ]
-  %.065117 = phi i32 [ 9, %23 ], [ 3, %25 ], [ 1, %10 ], [ 9, %zend_parse_arg_str_or_long.exit ]
-  %.066116 = phi ptr [ null, %23 ], [ %28, %25 ], [ null, %10 ], [ null, %zend_parse_arg_str_or_long.exit ]
+.thread107:                                       ; preds = %zend_parse_arg_str_or_long.exit, %25, %23, %10
+  %.0120 = phi i32 [ 0, %10 ], [ 1, %23 ], [ 1, %25 ], [ 2, %zend_parse_arg_str_or_long.exit ]
+  %.062119 = phi ptr [ null, %10 ], [ %12, %23 ], [ %12, %25 ], [ %32, %zend_parse_arg_str_or_long.exit ]
+  %.063118 = phi i32 [ 0, %10 ], [ 18, %23 ], [ 0, %25 ], [ 29, %zend_parse_arg_str_or_long.exit ]
+  %.065117 = phi i32 [ 1, %10 ], [ 9, %23 ], [ 3, %25 ], [ 9, %zend_parse_arg_str_or_long.exit ]
+  %.066116 = phi ptr [ null, %10 ], [ null, %23 ], [ %28, %25 ], [ null, %zend_parse_arg_str_or_long.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.065117, i32 noundef %.0120, ptr noundef %.066116, i32 noundef %.063118, ptr noundef %.062119) #10
   br label %71
 
@@ -4028,7 +4028,7 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
   br label %45
 
 45:                                               ; preds = %.sink.split, %26, %35
-  %.028 = phi ptr [ %37, %35 ], [ %28, %26 ], [ %.sink.in, %.sink.split ]
+  %.028 = phi ptr [ %28, %26 ], [ %37, %35 ], [ %.sink.in, %.sink.split ]
   %46 = load ptr, ptr %.028, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !4
@@ -4191,7 +4191,7 @@ i_zend_is_true.exit.loopexit:                     ; preds = %.preheader
   br label %i_zend_is_true.exit
 
 i_zend_is_true.exit:                              ; preds = %.preheader, %i_zend_is_true.exit.loopexit, %23, %25, %28, %34, %35, %38, %39, %43, %50, %52
-  %.0.i17 = phi i1 [ true, %28 ], [ false, %25 ], [ true, %38 ], [ false, %35 ], [ false, %34 ], [ %51, %50 ], [ %.not16.i, %23 ], [ %.not13.i, %39 ], [ true, %43 ], [ %.not.i16, %52 ], [ false, %i_zend_is_true.exit.loopexit ], [ true, %.preheader ]
+  %.0.i17 = phi i1 [ false, %i_zend_is_true.exit.loopexit ], [ %51, %50 ], [ %.not.i16, %52 ], [ true, %28 ], [ false, %25 ], [ true, %38 ], [ false, %35 ], [ false, %34 ], [ %.not16.i, %23 ], [ true, %43 ], [ %.not13.i, %39 ], [ true, %.preheader ]
   %56 = zext i1 %.0.i17 to i32
   br label %zend_hash_index_find_ptr.exit.thread
 
@@ -4759,7 +4759,7 @@ attributes #12 = { nounwind allocsize(1) }
 !71 = !{!12, !16, i64 48}
 !72 = !{!18, !19, i64 16}
 !73 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!74 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!74 = !{!"branch_weights", i32 1073205, i32 2146410443}
 !75 = !{!"branch_weights", i32 0, i32 -290966296, i32 2001000, i32 1000}
 !76 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
 !77 = !{!35, !40, i64 368}

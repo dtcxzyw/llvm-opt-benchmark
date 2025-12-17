@@ -484,7 +484,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %88, %96
   br i1 %.not95.not, label %.thread, label %.thread139
 
 .thread:                                          ; preds = %114, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %.lr.ph157
-  %.286138 = phi ptr [ %105, %114 ], [ %.084156, %.lr.ph157 ], [ %.084156, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
+  %.286138 = phi ptr [ %.084156, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ %105, %114 ], [ %.084156, %.lr.ph157 ]
   %115 = getelementptr inbounds nuw i8, ptr %.088155, i64 24
   %.not94 = icmp eq ptr %115, %84
   br i1 %.not94, label %._crit_edge, label %.lr.ph157
@@ -706,12 +706,12 @@ _ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115: ; preds = %1
   br label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread
 
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %197, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit, %186, %214, %187, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit, %167, %165
-  %.13 = phi i1 [ false, %165 ], [ false, %167 ], [ false, %214 ], [ false, %186 ], [ true, %187 ], [ true, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ true, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit ], [ true, %197 ]
+  %.13 = phi i1 [ false, %165 ], [ false, %167 ], [ false, %186 ], [ true, %187 ], [ true, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ false, %214 ], [ true, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit ], [ true, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread139
 
 .thread139:                                       ; preds = %.lr.ph, %114, %.critedge, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102, %56, %116, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114, %._crit_edge, %42, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %15, %10, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %10 ], [ true, %15 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %42 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102 ], [ true, %56 ], [ true, %._crit_edge ], [ true, %116 ], [ true, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114 ], [ %.13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit ], [ true, %.critedge ], [ true, %114 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ true, %2 ], [ true, %10 ], [ true, %42 ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ true, %15 ], [ true, %_ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit ], [ true, %_ZNK5clang13CXXMethodDecl9getParentEv.exit102 ], [ true, %56 ], [ true, %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit114 ], [ true, %._crit_edge ], [ true, %116 ], [ %.13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %.critedge ], [ true, %114 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -859,7 +859,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_16Alwa
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !451
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_16AlwaysInlineAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -995,7 +995,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %20, %28
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %14, %7
-  %.sroa.027.0 = phi i64 [ %1, %7 ], [ %1, %14 ], [ %spec.select, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
+  %.sroa.027.0 = phi i64 [ %1, %14 ], [ %spec.select, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ %1, %7 ]
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %40, label %49
 
@@ -2464,9 +2464,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !424
   %magicptr.i = ptrtoint ptr %.sroa.03.0.copyload to i64
-  switch i64 %magicptr.i, label %17 [
+  switch i64 %magicptr.i, label %15 [
     i64 -1, label %13
-    i64 -2, label %15
+    i64 -2, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   ]
 
 13:                                               ; preds = %10
@@ -2474,23 +2474,23 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9
   br i1 %14, label %.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !800
 
 15:                                               ; preds = %10
-  %16 = icmp eq ptr %.sroa.05.0.copyload, inttoptr (i64 -2 to ptr)
-  br i1 %16, label %.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !800
-
-17:                                               ; preds = %10
   %.not.i.i = icmp eq i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
-  br i1 %.not.i.i, label %18, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !801
+  br i1 %.not.i.i, label %16, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !801
 
-18:                                               ; preds = %17
-  %19 = icmp eq i64 %.sroa.26.0.copyload, 0
-  br i1 %19, label %.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+16:                                               ; preds = %15
+  %17 = icmp eq i64 %.sroa.26.0.copyload, 0
+  br i1 %17, label %.thread, label %18
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %18
+18:                                               ; preds = %16
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.05.0.copyload, ptr %.sroa.03.0.copyload, i64 %.sroa.26.0.copyload)
-  %20 = icmp eq i32 %bcmp.i.i, 0
+  %19 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %19, label %.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !800
+
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit: ; preds = %10
+  %20 = icmp eq ptr %.sroa.05.0.copyload, inttoptr (i64 -2 to ptr)
   br i1 %20, label %.thread, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, !prof !800
 
-_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29: ; preds = %17, %15, %13, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
+_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29: ; preds = %15, %18, %13, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit
   %21 = tail call noundef zeroext i1 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_(ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, ptr nonnull inttoptr (i64 -1 to ptr), i64 0)
   br i1 %21, label %.thread, label %22, !prof !716
 
@@ -2499,8 +2499,8 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29: ; preds = 
   %24 = add i32 %.023, %.025
   br label %10, !llvm.loop !802
 
-.thread:                                          ; preds = %18, %15, %13, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ %12, %18 ], [ %12, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29 ], [ %12, %13 ], [ %12, %15 ]
+.thread:                                          ; preds = %16, %18, %13, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit, %2
+  %.0 = phi ptr [ null, %2 ], [ %12, %16 ], [ null, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29 ], [ %12, %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit ], [ %12, %13 ], [ %12, %18 ]
   ret ptr %.0
 }
 

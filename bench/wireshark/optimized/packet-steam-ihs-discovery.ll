@@ -589,7 +589,7 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   br i1 %150, label %steamdiscover_dissect_header.exit, label %43, !llvm.loop !8
 
 steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.exit.i, %147
-  %.0.lcssa.i = phi i64 [ %.1.i, %147 ], [ %.055.i, %protobuf_iter_next.exit.i ]
+  %.0.lcssa.i = phi i64 [ %.055.i, %protobuf_iter_next.exit.i ], [ %.1.i, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %or.cond = icmp ult i64 %.0.lcssa.i, 11

@@ -218,7 +218,7 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   br label %85
 
 85:                                               ; preds = %80, %76, %.thread95, %61, %._crit_edge119, %84, %73
-  %.0 = phi i32 [ %75, %73 ], [ 0, %84 ], [ 51, %._crit_edge119 ], [ 50, %61 ], [ 25, %.thread95 ], [ 5, %76 ], [ 1, %80 ]
+  %.0 = phi i32 [ 0, %84 ], [ 51, %._crit_edge119 ], [ 50, %61 ], [ %75, %73 ], [ 25, %.thread95 ], [ 5, %76 ], [ 1, %80 ]
   ret i32 %.0
 }
 
@@ -916,7 +916,7 @@ check.exit87:                                     ; preds = %350
   br i1 %exitcond126.not, label %.loopexit, label %380, !llvm.loop !99
 
 .loopexit:                                        ; preds = %380, %.preheader, %.thread106, %299, %295, %1, %378
-  %.065 = phi i32 [ %379, %378 ], [ -12, %1 ], [ %297, %295 ], [ %301, %299 ], [ -1094995529, %.thread106 ], [ 0, %.preheader ], [ 0, %380 ]
+  %.065 = phi i32 [ -12, %1 ], [ %297, %295 ], [ -1094995529, %.thread106 ], [ %379, %378 ], [ %301, %299 ], [ 0, %.preheader ], [ 0, %380 ]
   ret i32 %.065
 }
 
@@ -956,7 +956,7 @@ define internal range(i32 1, 0) i32 @mp3_read_packet(ptr noundef readonly captur
   br label %24
 
 24:                                               ; preds = %18, %19
-  %.0 = phi i32 [ %16, %19 ], [ %., %18 ]
+  %.0 = phi i32 [ %., %18 ], [ %16, %19 ]
   ret i32 %.0
 }
 
@@ -1196,8 +1196,8 @@ check.exit.i:                                     ; preds = %99
   br i1 %123, label %mp3_sync.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %106, %122, %120, %.preheader87.i
-  %.258.ph.i = phi i64 [ %.149.i, %122 ], [ %.056100.i, %120 ], [ %.056100.i, %.preheader87.i ], [ %.056100.i, %106 ]
-  %.155.ph.i = phi i32 [ %.1.i, %122 ], [ %.054101.i, %120 ], [ %.054101.i, %.preheader87.i ], [ %.054101.i, %106 ]
+  %.258.ph.i = phi i64 [ %.056100.i, %.preheader87.i ], [ %.056100.i, %120 ], [ %.149.i, %122 ], [ %.056100.i, %106 ]
+  %.155.ph.i = phi i32 [ %.054101.i, %.preheader87.i ], [ %.054101.i, %120 ], [ %.1.i, %122 ], [ %.054101.i, %106 ]
   %124 = add nuw nsw i32 %.053102.i, 1
   %exitcond105.not.i = icmp eq i32 %124, 4096
   br i1 %exitcond105.not.i, label %mp3_sync.exit, label %.preheader87.i, !llvm.loop !105
@@ -1209,8 +1209,8 @@ mp3_sync.exit:                                    ; preds = %122, %.thread.i
   %127 = icmp slt i64 %126, 0
   br i1 %127, label %mp3_sync.exit.thread, label %129
 
-mp3_sync.exit.thread:                             ; preds = %.thread83.i, %65, %mp3_sync.exit
-  %.059.i85 = phi i64 [ %126, %mp3_sync.exit ], [ -22, %.thread83.i ], [ %74, %65 ]
+mp3_sync.exit.thread:                             ; preds = %65, %.thread83.i, %mp3_sync.exit
+  %.059.i85 = phi i64 [ %126, %mp3_sync.exit ], [ %74, %65 ], [ -22, %.thread83.i ]
   %128 = trunc i64 %.059.i85 to i32
   br label %.critedge
 
@@ -1255,7 +1255,7 @@ mp3_sync.exit.thread:                             ; preds = %.thread83.i, %65, %
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %40, %48, %.thread, %151, %mp3_sync.exit.thread
-  %.1 = phi i32 [ %128, %mp3_sync.exit.thread ], [ 0, %151 ], [ -1, %36 ], [ -1, %.thread ], [ -1, %48 ], [ %41, %40 ]
+  %.1 = phi i32 [ %128, %mp3_sync.exit.thread ], [ 0, %151 ], [ %41, %40 ], [ -1, %48 ], [ -1, %36 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }

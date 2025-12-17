@@ -512,10 +512,10 @@ define internal fastcc void @rm_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   br i1 %114, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %110, %105, %74, %63
-  %.pre-phi = phi i64 [ %80, %74 ], [ %.pre, %63 ], [ %80, %105 ], [ %80, %110 ]
-  %115 = phi ptr [ %70, %74 ], [ %21, %63 ], [ %70, %105 ], [ %70, %110 ]
-  %116 = phi ptr [ %69, %74 ], [ %21, %63 ], [ %69, %105 ], [ %69, %110 ]
-  %117 = phi ptr [ %76, %74 ], [ %65, %63 ], [ %76, %105 ], [ %76, %110 ]
+  %.pre-phi = phi i64 [ %.pre, %63 ], [ %80, %74 ], [ %80, %105 ], [ %80, %110 ]
+  %115 = phi ptr [ %21, %63 ], [ %70, %74 ], [ %70, %105 ], [ %70, %110 ]
+  %116 = phi ptr [ %21, %63 ], [ %69, %74 ], [ %69, %105 ], [ %69, %110 ]
+  %117 = phi ptr [ %65, %63 ], [ %76, %74 ], [ %76, %105 ], [ %76, %110 ]
   %118 = load ptr, ptr %22, align 8
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store volatile ptr %118, ptr %119, align 8
@@ -911,7 +911,7 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   br label %.thread22
 
 .thread22:                                        ; preds = %37, %.thread22.loopexit240, %.thread22.loopexit238, %.lr.ph.preheader, %.lr.ph79.preheader, %103
-  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %108, %.thread22.loopexit238 ], [ %109, %.thread22.loopexit240 ], [ %44, %37 ]
+  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %109, %.thread22.loopexit240 ], [ %108, %.thread22.loopexit238 ], [ %44, %37 ]
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread26, label %112
 
@@ -1006,7 +1006,7 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   br i1 %or.cond, label %.thread27, label %.thread32
 
 .thread27:                                        ; preds = %164, %161, %153
-  %171 = phi i64 [ %155, %153 ], [ %155, %161 ], [ %166, %164 ]
+  %171 = phi i64 [ %166, %164 ], [ %155, %153 ], [ %155, %161 ]
   store ptr %0, ptr %117, align 8
   store i64 %2, ptr %118, align 8
   store i64 %171, ptr %119, align 8
@@ -1288,8 +1288,8 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread26
 
-.thread26:                                        ; preds = %324, %.thread32, %249, %284, %244, %319, %307, %272, %.thread26.sink.split, %76, %49, %103, %.thread22, %21, %8
-  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ -28, %103 ], [ -28, %49 ], [ -28, %76 ], [ %.ph, %.thread26.sink.split ], [ -28, %272 ], [ -28, %307 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
+.thread26:                                        ; preds = %324, %.thread32, %249, %284, %244, %319, %307, %272, %.thread26.sink.split, %49, %76, %103, %.thread22, %21, %8
+  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ -28, %103 ], [ -28, %76 ], [ -28, %49 ], [ %.ph, %.thread26.sink.split ], [ -28, %307 ], [ -28, %272 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
   ret i32 %327
 }
 
@@ -1483,10 +1483,10 @@ define dso_local void @drm_mm_remove_node(ptr noundef %0) #1 align 16 {
   br i1 %119, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %115, %110, %75, %64
-  %.pre-phi = phi i64 [ %81, %75 ], [ %.pre, %64 ], [ %81, %110 ], [ %81, %115 ]
-  %120 = phi ptr [ %71, %75 ], [ %22, %64 ], [ %71, %110 ], [ %71, %115 ]
-  %121 = phi ptr [ %70, %75 ], [ %22, %64 ], [ %70, %110 ], [ %70, %115 ]
-  %122 = phi ptr [ %77, %75 ], [ %66, %64 ], [ %77, %110 ], [ %77, %115 ]
+  %.pre-phi = phi i64 [ %.pre, %64 ], [ %81, %75 ], [ %81, %110 ], [ %81, %115 ]
+  %120 = phi ptr [ %22, %64 ], [ %71, %75 ], [ %71, %110 ], [ %71, %115 ]
+  %121 = phi ptr [ %22, %64 ], [ %70, %75 ], [ %70, %110 ], [ %70, %115 ]
+  %122 = phi ptr [ %66, %64 ], [ %77, %75 ], [ %77, %110 ], [ %77, %115 ]
   %123 = load ptr, ptr %23, align 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store volatile ptr %123, ptr %124, align 8

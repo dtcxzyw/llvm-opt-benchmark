@@ -1779,8 +1779,8 @@ default.unreachable:                              ; preds = %48
   unreachable
 
 _ZNK7LIR_Opr4typeEv.exit7:                        ; preds = %.thread, %48, %51, %52, %53, %54, %55, %56
-  %57 = phi ptr [ %43, %.thread ], [ %50, %51 ], [ %50, %52 ], [ %50, %53 ], [ %50, %54 ], [ %50, %55 ], [ %50, %56 ], [ %50, %48 ]
-  %.0.i6 = phi i8 [ %47, %.thread ], [ 11, %51 ], [ 6, %52 ], [ 7, %53 ], [ 12, %54 ], [ 15, %55 ], [ 17, %56 ], [ 10, %48 ]
+  %57 = phi ptr [ %43, %.thread ], [ %50, %56 ], [ %50, %51 ], [ %50, %52 ], [ %50, %53 ], [ %50, %54 ], [ %50, %55 ], [ %50, %48 ]
+  %.0.i6 = phi i8 [ %47, %.thread ], [ 17, %56 ], [ 11, %51 ], [ 6, %52 ], [ 7, %53 ], [ 12, %54 ], [ 15, %55 ], [ 10, %48 ]
   %58 = tail call i64 @_ZN12LIRGenerator14force_to_spillE7LIR_Opr9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %57, i64 %3, i8 noundef zeroext %.0.i6)
   br label %59
 
@@ -5454,7 +5454,7 @@ _ZL17phi_declared_typeP3Phi.exit.thread:          ; preds = %.lr.ph.i, %55, %_ZN
   br label %_ZL14as_array_klassP6ciType.exit208
 
 _ZL14as_array_klassP6ciType.exit208:              ; preds = %44, %_ZNK10ciMetadata9is_loadedEv.exit.i201, %_ZL17phi_declared_typeP3Phi.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit.i207, %77, %_ZL14as_array_klassP6ciType.exit202
-  %.0134 = phi ptr [ null, %_ZL14as_array_klassP6ciType.exit202 ], [ null, %_ZL17phi_declared_typeP3Phi.exit.thread ], [ %60, %_ZNK10ciMetadata9is_loadedEv.exit.i207 ], [ %60, %77 ], [ %38, %_ZNK10ciMetadata9is_loadedEv.exit.i201 ], [ %38, %44 ]
+  %.0134 = phi ptr [ %60, %77 ], [ null, %_ZL14as_array_klassP6ciType.exit202 ], [ null, %_ZL17phi_declared_typeP3Phi.exit.thread ], [ %60, %_ZNK10ciMetadata9is_loadedEv.exit.i207 ], [ %38, %_ZNK10ciMetadata9is_loadedEv.exit.i201 ], [ %38, %44 ]
   %84 = load ptr, ptr %13, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 456
   %86 = load ptr, ptr %85, align 8
@@ -5576,7 +5576,7 @@ _ZL17phi_declared_typeP3Phi.exit224.thread:       ; preds = %.lr.ph.i221, %121, 
   br label %_ZL14as_array_klassP6ciType.exit229
 
 _ZL14as_array_klassP6ciType.exit229:              ; preds = %110, %_ZNK10ciMetadata9is_loadedEv.exit.i217, %_ZL17phi_declared_typeP3Phi.exit224.thread, %_ZNK10ciMetadata9is_loadedEv.exit.i228, %143, %_ZL14as_array_klassP6ciType.exit218
-  %.0135 = phi ptr [ null, %_ZL14as_array_klassP6ciType.exit218 ], [ null, %_ZL17phi_declared_typeP3Phi.exit224.thread ], [ %126, %_ZNK10ciMetadata9is_loadedEv.exit.i228 ], [ %126, %143 ], [ %104, %_ZNK10ciMetadata9is_loadedEv.exit.i217 ], [ %104, %110 ]
+  %.0135 = phi ptr [ %126, %143 ], [ null, %_ZL14as_array_klassP6ciType.exit218 ], [ null, %_ZL17phi_declared_typeP3Phi.exit224.thread ], [ %126, %_ZNK10ciMetadata9is_loadedEv.exit.i228 ], [ %104, %_ZNK10ciMetadata9is_loadedEv.exit.i217 ], [ %104, %110 ]
   %.not161 = icmp ne ptr %.0.i, null
   %150 = icmp eq ptr %.0.i, %.0.i210
   %or.cond177 = and i1 %.not161, %150
@@ -5623,8 +5623,8 @@ select.unfold:                                    ; preds = %164, %158
   br label %.thread
 
 .thread:                                          ; preds = %164, %163, %select.unfold, %151, %152
-  %.0133 = phi i1 [ false, %152 ], [ false, %151 ], [ %171, %select.unfold ], [ false, %163 ], [ false, %164 ]
-  %.0 = phi ptr [ null, %152 ], [ null, %151 ], [ %spec.select179, %select.unfold ], [ null, %163 ], [ null, %164 ]
+  %.0133 = phi i1 [ false, %151 ], [ false, %152 ], [ %171, %select.unfold ], [ false, %163 ], [ false, %164 ]
+  %.0 = phi ptr [ null, %151 ], [ null, %152 ], [ %spec.select179, %select.unfold ], [ null, %163 ], [ null, %164 ]
   %172 = icmp eq ptr %.0, null
   %spec.select180 = select i1 %172, ptr %.0.i210, ptr %.0
   %173 = icmp eq ptr %spec.select180, null
@@ -5735,7 +5735,7 @@ select.unfold:                                    ; preds = %164, %158
   br label %228
 
 228:                                              ; preds = %222, %212, %216, %207
-  %.0141 = phi ptr [ null, %216 ], [ null, %207 ], [ null, %212 ], [ %spec.select316, %222 ]
+  %.0141 = phi ptr [ null, %207 ], [ %spec.select316, %222 ], [ null, %216 ], [ null, %212 ]
   %229 = load ptr, ptr %9, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 208
   %231 = load ptr, ptr %230, align 8
@@ -5774,7 +5774,7 @@ _ZL16is_constant_zeroP11Instruction.exit:         ; preds = %239
   br label %_ZL16is_constant_zeroP11Instruction.exit.thread
 
 _ZL16is_constant_zeroP11Instruction.exit.thread:  ; preds = %_ZL16is_constant_zeroP11Instruction.exit, %239, %233, %235, %228
-  %.5 = phi i32 [ %234, %235 ], [ %234, %233 ], [ %.3140, %228 ], [ %234, %239 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.exit ]
+  %.5 = phi i32 [ %.3140, %228 ], [ %234, %233 ], [ %234, %235 ], [ %234, %239 ], [ %spec.select317, %_ZL16is_constant_zeroP11Instruction.exit ]
   %249 = load ptr, ptr %13, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 208
   %251 = load ptr, ptr %250, align 8
@@ -5813,7 +5813,7 @@ _ZL16is_constant_zeroP11Instruction.exit234:      ; preds = %259
   br label %_ZL16is_constant_zeroP11Instruction.exit234.thread
 
 _ZL16is_constant_zeroP11Instruction.exit234.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit234, %259, %253, %255, %_ZL16is_constant_zeroP11Instruction.exit.thread
-  %.6 = phi i32 [ %254, %255 ], [ %254, %253 ], [ %.5, %_ZL16is_constant_zeroP11Instruction.exit.thread ], [ %254, %259 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.exit234 ]
+  %.6 = phi i32 [ %.5, %_ZL16is_constant_zeroP11Instruction.exit.thread ], [ %254, %253 ], [ %254, %255 ], [ %254, %259 ], [ %spec.select318, %_ZL16is_constant_zeroP11Instruction.exit234 ]
   %269 = getelementptr i8, ptr %11, i64 24
   %.val195 = load ptr, ptr %269, align 8
   %270 = load ptr, ptr %.val195, align 8
@@ -5932,7 +5932,7 @@ _ZL16is_constant_zeroP11Instruction.exit248:      ; preds = %319
   br label %_ZL16is_constant_zeroP11Instruction.exit248.thread
 
 _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_zeroP11Instruction.exit248, %319, %_ZL16is_constant_zeroP11Instruction.exit245.thread, %_ZL17positive_constantP11Instruction.exit242.thread
-  %.10 = phi i32 [ %.11, %_ZL16is_constant_zeroP11Instruction.exit245.thread ], [ %298, %_ZL17positive_constantP11Instruction.exit242.thread ], [ %320, %319 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.exit248 ]
+  %.10 = phi i32 [ %298, %_ZL17positive_constantP11Instruction.exit242.thread ], [ %.11, %_ZL16is_constant_zeroP11Instruction.exit245.thread ], [ %320, %319 ], [ %spec.select323, %_ZL16is_constant_zeroP11Instruction.exit248 ]
   %329 = and i32 %.10, -129
   %spec.select187 = select i1 %.0133278, i32 %329, i32 %.10
   br label %330
@@ -6058,7 +6058,7 @@ _ZL16is_constant_zeroP11Instruction.exit255:      ; preds = %385
   br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
 _ZL16is_constant_zeroP11Instruction.exit255.thread: ; preds = %385, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.exit255, %393, %345, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %345 ], [ %394, %393 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %385 ]
+  %.13 = phi i32 [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %345 ], [ %394, %393 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %385 ]
   %.not332 = icmp eq ptr %9, %13
   %395 = and i32 %.13, -129
   %.14 = select i1 %.not332, i32 %395, i32 %.13
@@ -12303,7 +12303,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   br i1 %83, label %.split.us, label %88
 
 .split.us:                                        ; preds = %68, %45, %20, %.lr.ph.split
-  %.us-phi = phi i64 [ %indvars.iv67, %.lr.ph.split ], [ %indvars.iv64, %20 ], [ %indvars.iv61, %45 ], [ %indvars.iv, %68 ]
+  %.us-phi = phi i64 [ %indvars.iv61, %45 ], [ %indvars.iv67, %.lr.ph.split ], [ %indvars.iv64, %20 ], [ %indvars.iv, %68 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw %class.LIR_Opr, ptr %85, i64 %.us-phi
@@ -13169,7 +13169,7 @@ _ZN22CompilationResourceObjnwEm.exit56:           ; preds = %197, %199
   br label %203
 
 203:                                              ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %_ZN22CompilationResourceObjnwEm.exit56, %202
-  %204 = phi ptr [ %.0.i.i.i55, %202 ], [ null, %_ZN22CompilationResourceObjnwEm.exit56 ], [ null, %_ZN11LIR_OprFact8intConstEi.exit ]
+  %204 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit56 ], [ %.0.i.i.i55, %202 ], [ null, %_ZN11LIR_OprFact8intConstEi.exit ]
   %205 = ptrtoint ptr %.0.i.i.i.i to i64
   %spec.select = select i1 %13, i64 263168, i64 262144
   %206 = or disjoint i64 %spec.select, 2147483648
@@ -13332,7 +13332,7 @@ _ZN12LIRGenerator20get_jobject_constantEP11Instruction.exit: ; preds = %15
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %2, %15, %_ZN12LIRGenerator20get_jobject_constantEP11Instruction.exit, %38
-  %43 = phi i1 [ true, %_ZN12LIRGenerator20get_jobject_constantEP11Instruction.exit ], [ true, %15 ], [ %42, %38 ], [ false, %2 ]
+  %43 = phi i1 [ %42, %38 ], [ true, %_ZN12LIRGenerator20get_jobject_constantEP11Instruction.exit ], [ true, %15 ], [ false, %2 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14316,7 +14316,7 @@ _ZN22CompilationResourceObjnwEm.exit47:           ; preds = %141, %143
   br label %147
 
 147:                                              ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %_ZN22CompilationResourceObjnwEm.exit47, %146
-  %148 = phi ptr [ %.0.i.i.i46, %146 ], [ null, %_ZN22CompilationResourceObjnwEm.exit47 ], [ null, %_ZN11LIR_OprFact8intConstEi.exit ]
+  %148 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit47 ], [ %.0.i.i.i46, %146 ], [ null, %_ZN11LIR_OprFact8intConstEi.exit ]
   %149 = ptrtoint ptr %.0.i.i.i.i to i64
   %150 = and i64 %.sroa.0.0.copyload.i.i, 64
   %.not48 = icmp eq i64 %150, 0
@@ -16196,7 +16196,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   br label %64
 
 64:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %50, %.thread, %60
-  %.0.not = phi i1 [ %63, %60 ], [ true, %.thread ], [ true, %50 ], [ false, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
+  %.0.not = phi i1 [ true, %50 ], [ %63, %60 ], [ true, %.thread ], [ false, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
   %65 = load ptr, ptr %4, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 200
@@ -20170,7 +20170,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
   br label %72
 
 72:                                               ; preds = %70, %58
-  %.3 = phi ptr [ %.2, %58 ], [ %spec.select111, %70 ]
+  %.3 = phi ptr [ %spec.select111, %70 ], [ %.2, %58 ]
   %73 = icmp eq ptr %.3, null
   br i1 %73, label %.thread141, label %74
 
@@ -20450,7 +20450,7 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit126: ; preds = %195, %200
   br label %208
 
 208:                                              ; preds = %.thread166, %81, %40, %10, %_ZN12LIRGenerator20new_pointer_registerEv.exit126
-  %.0 = phi ptr [ %.089150, %_ZN12LIRGenerator20new_pointer_registerEv.exit126 ], [ null, %10 ], [ null, %40 ], [ %.089, %81 ], [ null, %.thread166 ]
+  %.0 = phi ptr [ %.089150, %_ZN12LIRGenerator20new_pointer_registerEv.exit126 ], [ null, %40 ], [ null, %10 ], [ %.089, %81 ], [ null, %.thread166 ]
   ret ptr %.0
 }
 
@@ -20726,9 +20726,9 @@ _ZNK7LIR_Opr4typeEv.exit.thread36:                ; preds = %45, %_ZNK7LIR_Opr4t
   %95 = add nsw i32 %.02842, 1
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv.exit, %45, %56, %55, %54, %53, %52, %94
-  %.0.i3540 = phi i8 [ %.0.i35.ph, %94 ], [ 10, %45 ], [ 17, %56 ], [ 15, %55 ], [ 7, %54 ], [ 6, %53 ], [ 11, %52 ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
-  %.1 = phi i32 [ %95, %94 ], [ %.02842, %45 ], [ %.02842, %56 ], [ %.02842, %55 ], [ %.02842, %54 ], [ %.02842, %53 ], [ %.02842, %52 ], [ %.02842, %_ZNK7LIR_Opr4typeEv.exit ]
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv.exit, %45, %55, %54, %53, %52, %56, %94
+  %.0.i3540 = phi i8 [ %.0.i35.ph, %94 ], [ 17, %56 ], [ 10, %45 ], [ 15, %55 ], [ 7, %54 ], [ 6, %53 ], [ 11, %52 ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
+  %.1 = phi i32 [ %95, %94 ], [ %.02842, %56 ], [ %.02842, %45 ], [ %.02842, %55 ], [ %.02842, %54 ], [ %.02842, %53 ], [ %.02842, %52 ], [ %.02842, %_ZNK7LIR_Opr4typeEv.exit ]
   %96 = zext i8 %.0.i3540 to i64
   %97 = getelementptr inbounds nuw i32, ptr @type2size, i64 %96
   %98 = load i32, ptr %97, align 4
@@ -20824,7 +20824,7 @@ switch.lookup:                                    ; preds = %24
   br label %_ZNK7LIR_Opr4typeEv.exit.thread
 
 _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv.exit, %switch.lookup
-  %.044 = phi i8 [ %switch.masked, %switch.lookup ], [ %spec.select, %_ZNK7LIR_Opr4typeEv.exit ]
+  %.044 = phi i8 [ %spec.select, %_ZNK7LIR_Opr4typeEv.exit ], [ %switch.masked, %switch.lookup ]
   %41 = load i32, ptr %15, align 8
   %42 = icmp sgt i32 %41, 9979
   br i1 %42, label %43, label %._crit_edge.i
@@ -24924,8 +24924,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZNK10ciMetadata9is
   br label %124
 
 124:                                              ; preds = %120, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit
-  %125 = phi ptr [ %117, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %.pre110, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %117, %120 ]
-  %.0 = phi i64 [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %123, %120 ]
+  %125 = phi ptr [ %.pre110, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %117, %120 ], [ %117, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.0 = phi i64 [ 0, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %123, %120 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -25130,8 +25130,8 @@ _ZN17ciSignatureStream4typeEv.exit5.i82:          ; preds = %217, %219
   br label %_ZN17ciSignatureStream10next_klassEv.exit86
 
 _ZN17ciSignatureStream10next_klassEv.exit86:      ; preds = %_ZN17ciSignatureStream4typeEv.exit5.i82, %_ZN17ciSignatureStream4typeEv.exit5.i
-  %.sroa.389.3 = phi i32 [ %.sroa.389.0103, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %spec.select97, %_ZN17ciSignatureStream4typeEv.exit5.i82 ]
-  %.0.i73 = phi ptr [ %.sroa.891.0105, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %.0.i4.i84, %_ZN17ciSignatureStream4typeEv.exit5.i82 ]
+  %.sroa.389.3 = phi i32 [ %spec.select97, %_ZN17ciSignatureStream4typeEv.exit5.i82 ], [ %.sroa.389.0103, %_ZN17ciSignatureStream4typeEv.exit5.i ]
+  %.0.i73 = phi ptr [ %.0.i4.i84, %_ZN17ciSignatureStream4typeEv.exit5.i82 ], [ %.sroa.891.0105, %_ZN17ciSignatureStream4typeEv.exit5.i ]
   %224 = call noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %20, i32 noundef %69, i32 noundef %194, i64 noundef %173, ptr noundef %177, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %.0.i.i.not, ptr noundef %.0.i4.i, ptr noundef %.0.i73)
   %.not60 = icmp eq ptr %224, null
   br i1 %.not60, label %226, label %225
@@ -25352,8 +25352,8 @@ _ZN17ciSignatureStream4typeEv.exit5.i:            ; preds = %102, %104
   br label %_ZN17ciSignatureStream10next_klassEv.exit
 
 _ZN17ciSignatureStream10next_klassEv.exit:        ; preds = %_ZN17ciSignatureStream4typeEv.exit5.i, %76
-  %.sroa.3.3 = phi i32 [ %.sroa.3.0, %76 ], [ %spec.select57, %_ZN17ciSignatureStream4typeEv.exit5.i ]
-  %.0.i = phi ptr [ %.sroa.8.0, %76 ], [ %.0.i4.i, %_ZN17ciSignatureStream4typeEv.exit5.i ]
+  %.sroa.3.3 = phi i32 [ %spec.select57, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %.sroa.3.0, %76 ]
+  %.0.i = phi ptr [ %.0.i4.i, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %.sroa.8.0, %76 ]
   %109 = call noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %20, i32 noundef %88, i32 noundef %89, i64 noundef %87, ptr noundef %.141, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %.144, ptr noundef %.0.i, ptr noundef null)
   %.not51 = icmp eq ptr %109, null
   br i1 %.not51, label %111, label %110
@@ -27084,13 +27084,13 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %66 = load i32, ptr %65, align 8
   switch i32 %66, label %77 [
     i32 0, label %67
-    i32 1, label %69
-    i32 2, label %70
-    i32 3, label %72
-    i32 4, label %73
-    i32 5, label %75
-    i32 6, label %76
-    i32 7, label %79
+    i32 1, label %79
+    i32 2, label %69
+    i32 3, label %71
+    i32 4, label %72
+    i32 5, label %74
+    i32 6, label %75
+    i32 7, label %76
   ]
 
 67:                                               ; preds = %50
@@ -27098,28 +27098,28 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   br i1 %68, label %80, label %196
 
 69:                                               ; preds = %50
-  %.not91 = icmp eq i32 %57, %64
-  br i1 %.not91, label %196, label %80
+  %70 = icmp slt i32 %57, %64
+  br i1 %70, label %80, label %196
 
-70:                                               ; preds = %50
-  %71 = icmp slt i32 %57, %64
-  br i1 %71, label %80, label %196
-
-72:                                               ; preds = %50
+71:                                               ; preds = %50
   %.not90 = icmp sgt i32 %57, %64
   br i1 %.not90, label %196, label %80
 
-73:                                               ; preds = %50
-  %74 = icmp sgt i32 %57, %64
-  br i1 %74, label %80, label %196
+72:                                               ; preds = %50
+  %73 = icmp sgt i32 %57, %64
+  br i1 %73, label %80, label %196
 
-75:                                               ; preds = %50
+74:                                               ; preds = %50
   %.not89 = icmp slt i32 %57, %64
   br i1 %.not89, label %196, label %80
 
-76:                                               ; preds = %50
+75:                                               ; preds = %50
   %.not88 = icmp ult i32 %57, %64
   br i1 %.not88, label %196, label %80
+
+76:                                               ; preds = %50
+  %.not87 = icmp ugt i32 %57, %64
+  br i1 %.not87, label %196, label %80
 
 77:                                               ; preds = %50
   %78 = load ptr, ptr @g_assert_poison, align 8
@@ -27128,10 +27128,10 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   unreachable
 
 79:                                               ; preds = %50
-  %.not87 = icmp ugt i32 %57, %64
-  br i1 %.not87, label %196, label %80
+  %.not91 = icmp eq i32 %57, %64
+  br i1 %.not91, label %196, label %80
 
-80:                                               ; preds = %76, %75, %73, %72, %70, %69, %67, %79
+80:                                               ; preds = %69, %71, %72, %74, %75, %76, %67, %79
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef ptr @_ZN12LIRGenerator9state_forEP11InstructionP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1, ptr noundef %82, i1 noundef zeroext false)
@@ -27346,7 +27346,7 @@ switch.lookup:                                    ; preds = %188
   call void @_ZN8LIR_List6branchE13LIR_ConditionP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32) %195, i32 noundef %switch.load, ptr noundef %.0.i.i.i70)
   br label %196
 
-196:                                              ; preds = %76, %75, %73, %72, %70, %69, %67, %switch.lookup, %104, %79, %33
+196:                                              ; preds = %69, %71, %72, %74, %75, %76, %67, %switch.lookup, %104, %79, %33
   ret void
 }
 

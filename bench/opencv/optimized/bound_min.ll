@@ -801,12 +801,12 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304: ; preds = %_ZNKSt6vectorIfSaI
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit306
 
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304.thread: ; preds = %312, %.thread
-  %.pn.pn.pn.pn520 = phi { ptr, i32 } [ %276, %312 ], [ %265, %.thread ]
+  %.pn.pn.pn.pn520 = phi { ptr, i32 } [ %265, %.thread ], [ %276, %312 ]
   call void @_ZdlPv(ptr noundef nonnull %224) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit306
 
 _ZNSt6vectorIfSaIfEED2Ev.exit306:                 ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304.thread, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304 ], [ %.pn.pn.pn.pn520, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304.thread ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn520, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304.thread ], [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit304 ]
   call void @_ZdlPv(ptr noundef nonnull %159) #19
   br label %314
 
@@ -823,7 +823,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread641: ; preds = %_ZNKSt6v
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit312
 
 _ZNSt6vectorIiSaIiEED2Ev.exit312:                 ; preds = %314, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread641
-  %.pn.pn.pn.pn.pn.pn.pn633640 = phi { ptr, i32 } [ %116, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %314 ], [ %313, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread641 ]
+  %.pn.pn.pn.pn.pn.pn.pn633640 = phi { ptr, i32 } [ %116, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread ], [ %313, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread641 ], [ %.pn.pn.pn.pn.pn.pn.pn.ph, %314 ]
   call void @_ZdlPv(ptr noundef nonnull %67) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit314.thread541
 

@@ -466,8 +466,8 @@ _ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds
   %spec.select = select i1 %.not25, ptr %14, ptr %.040
   br label %32
 
-32:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %13
-  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.040, %13 ]
+32:                                               ; preds = %13, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
+  %.3.ph = phi ptr [ %.040, %13 ], [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ]
   %33 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
   %.not = icmp eq ptr %33, %11
   br i1 %.not, label %._crit_edge, label %13
@@ -614,8 +614,8 @@ _ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread: ; preds
   %spec.select = select i1 %.not26, ptr %26, ptr %.041
   br label %44
 
-44:                                               ; preds = %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread, %25
-  %.3.ph = phi ptr [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ], [ %.041, %25 ]
+44:                                               ; preds = %25, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread
+  %.3.ph = phi ptr [ %.041, %25 ], [ %spec.select, %_ZNK3smt24relevancy_propagator_imp16is_relevant_coreEP4expr.exit.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
   %.not = icmp eq ptr %45, %23
   br i1 %.not, label %._crit_edge, label %25
@@ -1400,7 +1400,7 @@ _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; pred
   br label %_ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehEE.exit
 
 _ZN3smt24relevancy_propagator_imp12set_handlersEP4exprP4listIPNS_12relevancy_ehEE.exit: ; preds = %68, %82, %79, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %84, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %79 ], [ null, %82 ], [ null, %68 ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %84, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %82 ], [ null, %79 ], [ null, %68 ]
   store ptr %2, ptr %48, align 8, !tbaa !571
   %85 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %.0.i, ptr %85, align 8, !tbaa !574
@@ -1521,7 +1521,7 @@ _ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i: ; pred
   br label %_ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehEE.exit
 
 _ZN3smt24relevancy_propagator_imp11set_watchesEP4exprbP4listIPNS_12relevancy_ehEE.exit: ; preds = %38, %52, %49, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i
-  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %54, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %49 ], [ null, %52 ], [ null, %38 ]
+  %.0.i = phi ptr [ null, %.preheader.i.i.i.i ], [ %54, %_ZNK7obj_mapI4exprP4listIPN3smt12relevancy_ehEEE9find_coreEPS0_.exit.i.i ], [ null, %52 ], [ null, %49 ], [ null, %38 ]
   store ptr %3, ptr %16, align 8, !tbaa !571
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.0.i, ptr %55, align 8, !tbaa !574
@@ -1802,7 +1802,7 @@ _ZN3smt24relevancy_propagator_imp11get_watchesEP4exprb.exit: ; preds = %62, %73
   %.not = icmp eq ptr %89, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !586
 
-.loopexit:                                        ; preds = %67, %78, %81, %.lr.ph, %.preheader.i.i.i.i, %_ZN3smt24relevancy_propagator_imp11get_watchesEP4exprb.exit, %3
+.loopexit:                                        ; preds = %67, %81, %78, %.lr.ph, %.preheader.i.i.i.i, %_ZN3smt24relevancy_propagator_imp11get_watchesEP4exprb.exit, %3
   ret void
 }
 
@@ -1960,7 +1960,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
-.loopexit:                                        ; preds = %97, %108, %111, %118, %.preheader.i.i.i.i, %_ZN3smt24relevancy_propagator_imp12get_handlersEP4expr.exit
+.loopexit:                                        ; preds = %97, %111, %108, %118, %.preheader.i.i.i.i, %_ZN3smt24relevancy_propagator_imp12get_handlersEP4expr.exit
   %13 = load ptr, ptr %8, align 8, !tbaa !553
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !604
@@ -3080,7 +3080,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3sm
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !625
@@ -3127,7 +3127,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprP4listIPN3sm
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !626

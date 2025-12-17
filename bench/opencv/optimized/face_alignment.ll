@@ -1756,7 +1756,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %288, %124, %116
-  %.170 = phi i64 [ %.069205, %116 ], [ %.069205, %124 ], [ %.271.lcssa, %288 ], [ %.271.lcssa, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %.170 = phi i64 [ %.069205, %116 ], [ %.069205, %124 ], [ %.271.lcssa, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.271.lcssa, %288 ]
   %311 = add nuw i64 %.068206, 1
   %312 = load ptr, ptr %30, align 8, !tbaa !78
   %313 = load ptr, ptr %2, align 8, !tbaa !80
@@ -2099,7 +2099,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   ret i1 true
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit176, %.loopexit.split-lp177, %140, %121, %122, %251, %246, %100
-  %.pn83.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %123, %122 ], [ %.pn, %121 ], [ %.pn83, %251 ], [ %.pn80.pn, %246 ], [ %141, %140 ], [ %lpad.loopexit178, %.loopexit176 ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp177 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn83.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp177 ], [ %.pn, %121 ], [ %.pn80.pn, %246 ], [ %123, %122 ], [ %.pn83, %251 ], [ %141, %140 ], [ %lpad.loopexit178, %.loopexit176 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %412 = load ptr, ptr %21, align 8, !tbaa !81
   %.not.i.i.i146 = icmp eq ptr %412, null
   br i1 %.not.i.i.i146, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit147, label %413

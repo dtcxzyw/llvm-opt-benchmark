@@ -388,7 +388,7 @@ vpx_rac_get_prob_branchy.exit.i:                  ; preds = %vpx_rac_renorm.exit
   br label %._crit_edge1610.i
 
 ._crit_edge1610.i:                                ; preds = %._crit_edge1610.loopexit.i, %201, %192, %189
-  %storemerge.i = phi i8 [ 0, %192 ], [ 0, %189 ], [ 8, %201 ], [ %211, %._crit_edge1610.loopexit.i ]
+  %storemerge.i = phi i8 [ 0, %189 ], [ 0, %192 ], [ 8, %201 ], [ %211, %._crit_edge1610.loopexit.i ]
   store i8 %storemerge.i, ptr %11, align 4, !tbaa !62
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 18384
   %213 = load ptr, ptr %212, align 8, !tbaa !76
@@ -953,7 +953,7 @@ vpx_rac_renorm.exit1482.i:                        ; preds = %371, %365, %333
   br label %565
 
 565:                                              ; preds = %558, %553, %552, %544, %543, %539
-  %.01202.shrunk.i = phi i1 [ %542, %539 ], [ %551, %544 ], [ true, %543 ], [ %564, %558 ], [ true, %553 ], [ true, %552 ]
+  %.01202.shrunk.i = phi i1 [ %542, %539 ], [ true, %553 ], [ true, %543 ], [ %551, %544 ], [ %564, %558 ], [ true, %552 ]
   switch i8 %60, label %849 [
     i8 3, label %566
     i8 2, label %697
@@ -2671,7 +2671,7 @@ vp89_rac_get_tree.exit1434.i:                     ; preds = %vpx_rac_renorm.exit
   br label %1714
 
 1714:                                             ; preds = %1706, %1702, %1697, %1696, %1687, %1682, %1681, %1672, %1667, %1648, %1647, %1634, %1630, %1629
-  %.01203.i = phi i64 [ 4, %1629 ], [ 3, %1630 ], [ %1641, %1634 ], [ 3, %1647 ], [ %1656, %1648 ], [ 3, %1681 ], [ 0, %1682 ], [ %1695, %1687 ], [ 3, %1697 ], [ 0, %1702 ], [ %1713, %1706 ], [ 1, %1696 ], [ %1668, %1667 ], [ %1680, %1672 ]
+  %.01203.i = phi i64 [ %1713, %1706 ], [ 4, %1629 ], [ %1641, %1634 ], [ 1, %1696 ], [ %1656, %1648 ], [ %1695, %1687 ], [ 3, %1630 ], [ 3, %1647 ], [ 3, %1681 ], [ 0, %1682 ], [ 3, %1697 ], [ 0, %1702 ], [ %1668, %1667 ], [ %1680, %1672 ]
   %1715 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1716 = load ptr, ptr %1715, align 16, !tbaa !66
   %1717 = getelementptr inbounds nuw i8, ptr %9, i64 11835
@@ -2954,7 +2954,7 @@ vpx_rac_renorm.exit1458.i:                        ; preds = %1739, %1733, %1714
   br label %1894
 
 1894:                                             ; preds = %1892, %1890, %1876, %1875, %1873, %1871, %1859, %1857, %1854, %1850, %1846, %1842, %1840, %1836, %1830, %1815, %1798, %1790, %1789
-  %.11205.i = phi i64 [ %1796, %1790 ], [ %1805, %1798 ], [ %1872, %1871 ], [ %1874, %1873 ], [ %1891, %1890 ], [ %1893, %1892 ], [ 2, %1789 ], [ 2, %1859 ], [ 2, %1876 ], [ 2, %1875 ], [ %1858, %1857 ], [ %1856, %1854 ], [ %1848, %1846 ], [ %1841, %1840 ], [ 0, %1815 ], [ 4, %1836 ], [ 4, %1830 ], [ 1, %1842 ], [ 1, %1850 ]
+  %.11205.i = phi i64 [ 2, %1876 ], [ %1796, %1790 ], [ %1805, %1798 ], [ 2, %1875 ], [ 2, %1789 ], [ %1872, %1871 ], [ %1874, %1873 ], [ 2, %1859 ], [ %1891, %1890 ], [ %1893, %1892 ], [ %1841, %1840 ], [ %1858, %1857 ], [ 1, %1842 ], [ %1856, %1854 ], [ 4, %1830 ], [ %1848, %1846 ], [ 0, %1815 ], [ 4, %1836 ], [ 1, %1850 ]
   %1895 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1896 = load ptr, ptr %1895, align 16, !tbaa !66
   %1897 = getelementptr inbounds nuw i8, ptr %9, i64 11850
@@ -3224,7 +3224,7 @@ vpx_rac_renorm.exit1455.i:                        ; preds = %1919, %1913, %1894
   br label %2068
 
 2068:                                             ; preds = %2063, %2058, %2055, %2046, %2045, %2039, %2033, %2030, %2017, %2014, %1997, %1978, %1974, %1971
-  %.01206.i = phi i64 [ %2067, %2063 ], [ %2044, %2039 ], [ %1999, %1997 ], [ %2016, %2014 ], [ %2024, %2017 ], [ 2, %1974 ], [ 2, %1971 ], [ %1983, %1978 ], [ 2, %2030 ], [ %2038, %2033 ], [ 2, %2055 ], [ %2062, %2058 ], [ 2, %2046 ], [ 2, %2045 ]
+  %.01206.i = phi i64 [ %2062, %2058 ], [ %2024, %2017 ], [ %2038, %2033 ], [ %2067, %2063 ], [ %1983, %1978 ], [ 2, %2045 ], [ %2044, %2039 ], [ %2016, %2014 ], [ %1999, %1997 ], [ 2, %1974 ], [ 2, %1971 ], [ 2, %2030 ], [ 2, %2055 ], [ 2, %2046 ]
   %2069 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2070 = load ptr, ptr %2069, align 16, !tbaa !66
   %2071 = getelementptr inbounds nuw i8, ptr %9, i64 11840
@@ -3634,7 +3634,7 @@ vpx_rac_renorm.exit1452.i:                        ; preds = %2093, %2087, %2068
   br label %2338
 
 2338:                                             ; preds = %2335, %2329, %2325, %2321, %2312, %2311, %2308, %2301, %2297, %2292, %2281, %2275, %2272, %2268, %2267, %2260, %2242, %2238, %2229, %2209, %2205, %2197, %2191, %2176, %2172, %2166, %2162, %2154, %2149, %2142, %2138, %2132
-  %.11207.i = phi i64 [ %2156, %2154 ], [ %2178, %2176 ], [ %2203, %2197 ], [ %2231, %2229 ], [ %2262, %2260 ], [ %2280, %2275 ], [ %2274, %2272 ], [ %2270, %2268 ], [ %2310, %2308 ], [ %2337, %2335 ], [ 2, %2132 ], [ 3, %2138 ], [ %2148, %2142 ], [ 3, %2149 ], [ 3, %2162 ], [ %2171, %2166 ], [ 3, %2172 ], [ 2, %2191 ], [ 3, %2205 ], [ %2215, %2209 ], [ 3, %2238 ], [ %2247, %2242 ], [ 3, %2267 ], [ 2, %2292 ], [ 2, %2281 ], [ 3, %2297 ], [ %2307, %2301 ], [ 2, %2321 ], [ 2, %2312 ], [ 3, %2325 ], [ %2334, %2329 ], [ 2, %2311 ]
+  %.11207.i = phi i64 [ %2337, %2335 ], [ 2, %2132 ], [ %2156, %2154 ], [ %2148, %2142 ], [ %2334, %2329 ], [ 3, %2149 ], [ %2178, %2176 ], [ %2171, %2166 ], [ %2203, %2197 ], [ 3, %2172 ], [ %2231, %2229 ], [ 2, %2191 ], [ %2262, %2260 ], [ %2215, %2209 ], [ %2280, %2275 ], [ %2274, %2272 ], [ %2270, %2268 ], [ %2247, %2242 ], [ 3, %2267 ], [ 2, %2281 ], [ %2310, %2308 ], [ %2307, %2301 ], [ 2, %2312 ], [ 3, %2138 ], [ 3, %2162 ], [ 3, %2205 ], [ 3, %2238 ], [ 2, %2292 ], [ 3, %2297 ], [ 2, %2321 ], [ 3, %2325 ], [ 2, %2311 ]
   %2339 = getelementptr inbounds nuw [2 x i8], ptr %2071, i64 %.11207.i
   %2340 = getelementptr inbounds nuw i8, ptr %2339, i64 1
   %2341 = load i8, ptr %2340, align 1, !tbaa !38
@@ -6192,7 +6192,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %3902, label %.lr.ph97.i, label %.loopexit45.i, !llvm.loop !152
 
 .loopexit45.i:                                    ; preds = %.lr.ph95.i, %.lr.ph97.i, %.lr.ph120.i, %.lr.ph122.i, %.lr.ph142.i, %._crit_edge.us152.i, %.preheader51.i, %.preheader65.i, %.preheader67.i, %.preheader53.i, %.preheader55.i, %.preheader46.i, %.preheader43.lr.ph.i, %.preheader44.i, %3651
-  %.0645.i.i = phi i32 [ 0, %3651 ], [ 0, %.preheader44.i ], [ %.3648.i.lcssa515.i, %.preheader46.i ], [ %.5650.i.lcssa519.i, %.preheader53.i ], [ %.5650.i.lcssa519.i, %.preheader55.i ], [ %.7652.i.lcssa526.i, %.preheader65.i ], [ %.7652.i.lcssa526.i, %.preheader67.i ], [ 0, %.preheader43.lr.ph.i ], [ 0, %.preheader51.i ], [ %3689, %._crit_edge.us152.i ], [ %.3648.i.lcssa516556.i, %.lr.ph142.i ], [ %.5650.i.lcssa519.i, %.lr.ph122.i ], [ %.5650.i.lcssa519.i, %.lr.ph120.i ], [ %.7652.i.lcssa526.i, %.lr.ph97.i ], [ %.7652.i.lcssa526.i, %.lr.ph95.i ]
+  %.0645.i.i = phi i32 [ 0, %3651 ], [ %.7652.i.lcssa526.i, %.preheader65.i ], [ %.3648.i.lcssa515.i, %.preheader46.i ], [ %.5650.i.lcssa519.i, %.preheader53.i ], [ %.5650.i.lcssa519.i, %.preheader55.i ], [ 0, %.preheader44.i ], [ %.7652.i.lcssa526.i, %.preheader67.i ], [ 0, %.preheader43.lr.ph.i ], [ 0, %.preheader51.i ], [ %.7652.i.lcssa526.i, %.lr.ph97.i ], [ %3689, %._crit_edge.us152.i ], [ %.3648.i.lcssa516556.i, %.lr.ph142.i ], [ %.5650.i.lcssa519.i, %.lr.ph122.i ], [ %.5650.i.lcssa519.i, %.lr.ph120.i ], [ %.7652.i.lcssa526.i, %.lr.ph95.i ]
   %3903 = load i32, ptr %3632, align 4, !tbaa !121
   %3904 = zext i32 %3903 to i64
   %3905 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [11 x i8]]]]], ptr %3585, i64 %3904
@@ -6758,7 +6758,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4143, label %.lr.ph174.i, label %.loopexit.i500, !llvm.loop !176
 
 .loopexit.i500:                                   ; preds = %.lr.ph174.i, %.lr.ph176.i, %.lr.ph198.i, %.lr.ph200.i, %.lr.ph219.i, %._crit_edge224.i, %.preheader32.i, %.preheader34.i, %.preheader21.i, %.preheader23.i, %.preheader15.i, %.preheader14.i, %3938
-  %.18663.i.i = phi i32 [ %.9654.i232.i, %3938 ], [ %.9654.i232.i, %.preheader14.i ], [ %.12657.i.lcssa.i, %.preheader15.i ], [ %.14659.i.lcssa.i, %.preheader21.i ], [ %.14659.i.lcssa.i, %.preheader23.i ], [ %.16661.i.lcssa.i, %.preheader32.i ], [ %.16661.i.lcssa.i, %.preheader34.i ], [ %.11656.i.lcssa.i, %._crit_edge224.i ], [ %.12657.i.lcssa.i, %.lr.ph219.i ], [ %.14659.i.lcssa.i, %.lr.ph200.i ], [ %.14659.i.lcssa.i, %.lr.ph198.i ], [ %.16661.i.lcssa.i, %.lr.ph176.i ], [ %.16661.i.lcssa.i, %.lr.ph174.i ]
+  %.18663.i.i = phi i32 [ %.9654.i232.i, %3938 ], [ %.16661.i.lcssa.i, %.preheader32.i ], [ %.12657.i.lcssa.i, %.preheader15.i ], [ %.14659.i.lcssa.i, %.preheader21.i ], [ %.14659.i.lcssa.i, %.preheader23.i ], [ %.9654.i232.i, %.preheader14.i ], [ %.16661.i.lcssa.i, %.preheader34.i ], [ %.16661.i.lcssa.i, %.lr.ph176.i ], [ %.11656.i.lcssa.i, %._crit_edge224.i ], [ %.12657.i.lcssa.i, %.lr.ph219.i ], [ %.14659.i.lcssa.i, %.lr.ph200.i ], [ %.14659.i.lcssa.i, %.lr.ph198.i ], [ %.16661.i.lcssa.i, %.lr.ph174.i ]
   br i1 %3939, label %3938, label %decode_coeffs_8bpp.exit, !llvm.loop !177
 
 4144:                                             ; preds = %3579
@@ -7418,7 +7418,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4411, label %.lr.ph105.i, label %.loopexit53.i, !llvm.loop !152
 
 .loopexit53.i:                                    ; preds = %.lr.ph103.i, %.lr.ph105.i, %.lr.ph128.i, %.lr.ph130.i, %.lr.ph150.i, %._crit_edge.us160.i, %.preheader59.i607, %.preheader73.i, %.preheader75.i519, %.preheader61.i, %.preheader63.i591, %.preheader54.i, %.preheader51.lr.ph.i, %.preheader52.i609, %4144
-  %.0645.i.i520 = phi i32 [ 0, %4144 ], [ 0, %.preheader52.i609 ], [ %.3648.i.lcssa516.i604, %.preheader54.i ], [ %.5650.i.lcssa520.i, %.preheader61.i ], [ %.5650.i.lcssa520.i, %.preheader63.i591 ], [ %.7652.i.lcssa527.i, %.preheader73.i ], [ %.7652.i.lcssa527.i, %.preheader75.i519 ], [ 0, %.preheader51.lr.ph.i ], [ 0, %.preheader59.i607 ], [ %4186, %._crit_edge.us160.i ], [ %.3648.i.lcssa517557.i, %.lr.ph150.i ], [ %.5650.i.lcssa520.i, %.lr.ph130.i ], [ %.5650.i.lcssa520.i, %.lr.ph128.i ], [ %.7652.i.lcssa527.i, %.lr.ph105.i ], [ %.7652.i.lcssa527.i, %.lr.ph103.i ]
+  %.0645.i.i520 = phi i32 [ 0, %4144 ], [ %.7652.i.lcssa527.i, %.preheader73.i ], [ %.3648.i.lcssa516.i604, %.preheader54.i ], [ %.5650.i.lcssa520.i, %.preheader61.i ], [ %.5650.i.lcssa520.i, %.preheader63.i591 ], [ 0, %.preheader52.i609 ], [ %.7652.i.lcssa527.i, %.preheader75.i519 ], [ 0, %.preheader51.lr.ph.i ], [ 0, %.preheader59.i607 ], [ %.7652.i.lcssa527.i, %.lr.ph105.i ], [ %4186, %._crit_edge.us160.i ], [ %.3648.i.lcssa517557.i, %.lr.ph150.i ], [ %.5650.i.lcssa520.i, %.lr.ph130.i ], [ %.5650.i.lcssa520.i, %.lr.ph128.i ], [ %.7652.i.lcssa527.i, %.lr.ph103.i ]
   %4412 = load i32, ptr %3632, align 4, !tbaa !121
   %4413 = zext i32 %4412 to i64
   %4414 = getelementptr inbounds nuw [2 x [2 x [6 x [6 x [11 x i8]]]]], ptr %3585, i64 %4413
@@ -8004,7 +8004,7 @@ decode_mode.exit:                                 ; preds = %.loopexit.i, %.preh
   br i1 %4668, label %.lr.ph182.i, label %.loopexit.i539, !llvm.loop !176
 
 .loopexit.i539:                                   ; preds = %.lr.ph182.i, %.lr.ph184.i542, %.lr.ph206.i, %.lr.ph208.i557, %.lr.ph227.i, %._crit_edge232.i, %.preheader40.i541, %.preheader42.i538, %.preheader29.i556, %.preheader31.i555, %.preheader23.i569, %.preheader22.i, %4447
-  %.18663.i.i540 = phi i32 [ %.9654.i240.i, %4447 ], [ %.9654.i240.i, %.preheader22.i ], [ %.12657.i.lcssa.i568, %.preheader23.i569 ], [ %.14659.i.lcssa.i553, %.preheader29.i556 ], [ %.14659.i.lcssa.i553, %.preheader31.i555 ], [ %.16661.i.lcssa.i534, %.preheader40.i541 ], [ %.16661.i.lcssa.i534, %.preheader42.i538 ], [ %.11656.i.lcssa.i575, %._crit_edge232.i ], [ %.12657.i.lcssa.i568, %.lr.ph227.i ], [ %.14659.i.lcssa.i553, %.lr.ph208.i557 ], [ %.14659.i.lcssa.i553, %.lr.ph206.i ], [ %.16661.i.lcssa.i534, %.lr.ph184.i542 ], [ %.16661.i.lcssa.i534, %.lr.ph182.i ]
+  %.18663.i.i540 = phi i32 [ %.9654.i240.i, %4447 ], [ %.16661.i.lcssa.i534, %.preheader40.i541 ], [ %.12657.i.lcssa.i568, %.preheader23.i569 ], [ %.14659.i.lcssa.i553, %.preheader29.i556 ], [ %.14659.i.lcssa.i553, %.preheader31.i555 ], [ %.9654.i240.i, %.preheader22.i ], [ %.16661.i.lcssa.i534, %.preheader42.i538 ], [ %.16661.i.lcssa.i534, %.lr.ph184.i542 ], [ %.11656.i.lcssa.i575, %._crit_edge232.i ], [ %.12657.i.lcssa.i568, %.lr.ph227.i ], [ %.14659.i.lcssa.i553, %.lr.ph208.i557 ], [ %.14659.i.lcssa.i553, %.lr.ph206.i ], [ %.16661.i.lcssa.i534, %.lr.ph182.i ]
   br i1 %4448, label %4447, label %decode_coeffs_8bpp.exit, !llvm.loop !177
 
 decode_coeffs_8bpp.exit:                          ; preds = %.loopexit.i539, %.loopexit.i500
@@ -8948,7 +8948,7 @@ mask_edges.exit._crit_edge:                       ; preds = %mask_edges.exit
   br label %5205
 
 5205:                                             ; preds = %5202, %5198
-  %.1.i475 = phi i32 [ %5033, %5198 ], [ %spec.select.i, %5202 ]
+  %.1.i475 = phi i32 [ %spec.select.i, %5202 ], [ %5033, %5198 ]
   %5206 = icmp eq i32 %.468, %5185
   br i1 %5206, label %5207, label %5211
 
@@ -8964,8 +8964,8 @@ mask_edges.exit._crit_edge:                       ; preds = %mask_edges.exit
   br label %5211
 
 5211:                                             ; preds = %5209, %5205, %mask_edges.exit._crit_edge
-  %.0181.i = phi i32 [ %.1.i475, %5205 ], [ %5033, %mask_edges.exit._crit_edge ], [ %.1.i475, %5209 ]
-  %.0.i476 = phi i32 [ %.468, %5205 ], [ %.468, %mask_edges.exit._crit_edge ], [ %spec.select204.i, %5209 ]
+  %.0181.i = phi i32 [ %.1.i475, %5209 ], [ %5033, %mask_edges.exit._crit_edge ], [ %.1.i475, %5205 ]
+  %.0.i476 = phi i32 [ %spec.select204.i, %5209 ], [ %.468, %mask_edges.exit._crit_edge ], [ %.468, %5205 ]
   %.not194.i477 = icmp eq i32 %5195, 0
   %5212 = or i32 %5195, %5040
   %or.cond.not.i478 = icmp eq i32 %5212, 0

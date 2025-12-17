@@ -350,7 +350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %88,
           cleanup
   br label %143
 
-100:                                              ; preds = %79, %76, %.critedge
+100:                                              ; preds = %76, %79, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %101 unwind label %109

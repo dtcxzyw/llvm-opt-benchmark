@@ -398,9 +398,9 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit44: ; preds 
   ret void
 
 86:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit51, %.loopexit.split-lp52, %.loopexit56, %.loopexit.split-lp57
-  %87 = phi ptr [ %5, %.loopexit56 ], [ %5, %.loopexit.split-lp57 ], [ %32, %.loopexit51 ], [ %32, %.loopexit.split-lp52 ], [ %59, %.loopexit ], [ %59, %.loopexit.split-lp ]
-  %88 = phi ptr [ %7, %.loopexit56 ], [ %7, %.loopexit.split-lp57 ], [ %34, %.loopexit51 ], [ %34, %.loopexit.split-lp52 ], [ %61, %.loopexit ], [ %61, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ], [ %lpad.loopexit53, %.loopexit51 ], [ %lpad.loopexit.split-lp54, %.loopexit.split-lp52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %87 = phi ptr [ %32, %.loopexit.split-lp52 ], [ %5, %.loopexit.split-lp57 ], [ %5, %.loopexit56 ], [ %32, %.loopexit51 ], [ %59, %.loopexit ], [ %59, %.loopexit.split-lp ]
+  %88 = phi ptr [ %34, %.loopexit.split-lp52 ], [ %7, %.loopexit.split-lp57 ], [ %7, %.loopexit56 ], [ %34, %.loopexit51 ], [ %61, %.loopexit ], [ %61, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp54, %.loopexit.split-lp52 ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp57 ], [ %lpad.loopexit58, %.loopexit56 ], [ %lpad.loopexit53, %.loopexit51 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EED2Ev.exit, label %89
 

@@ -401,7 +401,7 @@ InternalRead.exit47:                              ; preds = %88, %90
   br label %.loopexit
 
 .loopexit:                                        ; preds = %99, %80, %DGifGetWord.exit44.thread, %DGifGetWord.exit.thread, %121, %96, %78, %53, %9
-  %.034 = phi i32 [ 0, %53 ], [ 0, %78 ], [ 0, %96 ], [ 0, %9 ], [ 1, %121 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit44.thread ], [ 1, %80 ], [ 1, %99 ]
+  %.034 = phi i32 [ 0, %9 ], [ 0, %53 ], [ 0, %78 ], [ 0, %96 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit44.thread ], [ 1, %121 ], [ 1, %80 ], [ 1, %99 ]
   ret i32 %.034
 }
 
@@ -522,7 +522,7 @@ InternalRead.exit:                                ; preds = %17, %19
   br label %43
 
 43:                                               ; preds = %34, %35, %6, %7, %36, %30, %25, %12
-  %.0 = phi ptr [ null, %25 ], [ null, %30 ], [ %calloc, %36 ], [ null, %12 ], [ null, %7 ], [ null, %6 ], [ null, %35 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %12 ], [ null, %25 ], [ null, %30 ], [ null, %6 ], [ %calloc, %36 ], [ null, %7 ], [ null, %35 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -999,7 +999,7 @@ DGifSetupDecompress.exit:                         ; preds = %190, %.loopexit.sin
   br label %193
 
 193:                                              ; preds = %DGifGetWord.exit60.thread, %DGifGetWord.exit55.thread, %DGifGetWord.exit50.thread, %DGifGetWord.exit.thread, %DGifSetupDecompress.exit, %125, %111, %89, %12
-  %.040 = phi i32 [ 0, %89 ], [ 0, %111 ], [ 0, %125 ], [ %.0.i66, %DGifSetupDecompress.exit ], [ 0, %12 ], [ 0, %DGifGetWord.exit.thread ], [ 0, %DGifGetWord.exit50.thread ], [ 0, %DGifGetWord.exit55.thread ], [ 0, %DGifGetWord.exit60.thread ]
+  %.040 = phi i32 [ 0, %12 ], [ 0, %89 ], [ 0, %111 ], [ 0, %125 ], [ %.0.i66, %DGifSetupDecompress.exit ], [ 0, %DGifGetWord.exit60.thread ], [ 0, %DGifGetWord.exit55.thread ], [ 0, %DGifGetWord.exit50.thread ], [ 0, %DGifGetWord.exit.thread ]
   ret i32 %.040
 }
 
@@ -1098,7 +1098,7 @@ define hidden range(i32 0, 2) i32 @DGifGetImageDesc(ptr noundef %0) local_unname
   br label %53
 
 53:                                               ; preds = %8, %47, %45, %27, %21, %6
-  %.0 = phi i32 [ 0, %21 ], [ 0, %45 ], [ 1, %47 ], [ 0, %27 ], [ 0, %6 ], [ 0, %8 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %21 ], [ 0, %45 ], [ 1, %47 ], [ 0, %27 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1233,7 +1233,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
   br label %.preheader, !llvm.loop !10
 
 62:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %23, %25, %21, %9
-  %.0 = phi i32 [ 0, %21 ], [ 0, %9 ], [ 1, %25 ], [ 0, %23 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %.thread ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %9 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %25 ], [ 1, %.thread ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -1415,7 +1415,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br i1 %87, label %.lr.ph.i120, label %.sink.split, !llvm.loop !13
 
 .sink.split:                                      ; preds = %83, %81, %.lr.ph.i120, %73, %71, %.lr.ph.i, %78, %68
-  %.07.i.sink = phi i32 [ %.0110165, %68 ], [ %39, %78 ], [ 4098, %71 ], [ %76, %73 ], [ %.089.i, %.lr.ph.i ], [ 4098, %81 ], [ %86, %83 ], [ %.089.i122, %.lr.ph.i120 ]
+  %.07.i.sink = phi i32 [ %76, %73 ], [ %.0110165, %68 ], [ %39, %78 ], [ 4098, %71 ], [ %.089.i, %.lr.ph.i ], [ 4098, %81 ], [ %.089.i122, %.lr.ph.i120 ], [ %86, %83 ]
   %88 = trunc i32 %.07.i.sink to i8
   %89 = add nsw i32 %.2106168, 1
   %90 = sext i32 %.2106168 to i64
@@ -1556,7 +1556,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br i1 %152, label %.lr.ph.i126, label %DGifGetPrefixChar.exit130, !llvm.loop !13
 
 DGifGetPrefixChar.exit130:                        ; preds = %.lr.ph.i126, %146, %148, %143
-  %.07.i125 = phi i32 [ %.0110165, %143 ], [ 4098, %146 ], [ %151, %148 ], [ %.089.i128, %.lr.ph.i126 ]
+  %.07.i125 = phi i32 [ %.0110165, %143 ], [ 4098, %146 ], [ %.089.i128, %.lr.ph.i126 ], [ %151, %148 ]
   %153 = trunc i32 %.07.i125 to i8
   %154 = sext i32 %140 to i64
   %155 = getelementptr i8, ptr %10, i64 %154
@@ -1587,7 +1587,7 @@ DGifGetPrefixChar.exit130:                        ; preds = %.lr.ph.i126, %146, 
   br i1 %166, label %.lr.ph.i132, label %DGifGetPrefixChar.exit136, !llvm.loop !13
 
 DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %160, %162, %157
-  %.07.i131 = phi i32 [ %39, %157 ], [ 4098, %160 ], [ %165, %162 ], [ %.089.i134, %.lr.ph.i132 ]
+  %.07.i131 = phi i32 [ %39, %157 ], [ 4098, %160 ], [ %.089.i134, %.lr.ph.i132 ], [ %165, %162 ]
   %167 = trunc i32 %.07.i131 to i8
   %168 = sext i32 %140 to i64
   %169 = getelementptr i8, ptr %10, i64 %168
@@ -1610,7 +1610,7 @@ DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %160, 
   br label %.loopexit138
 
 .loopexit138:                                     ; preds = %35, %3, %._crit_edge, %.critedge.thread, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %.critedge.thread ], [ 1, %._crit_edge ], [ 0, %3 ], [ 0, %35 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %3 ], [ 0, %41 ], [ 0, %.critedge.thread ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -1816,7 +1816,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
   br label %.preheader, !llvm.loop !17
 
 57:                                               ; preds = %.thread, %DGifGetCodeNext.exit.thread, %18, %20, %16, %9
-  %.0 = phi i32 [ 0, %16 ], [ 0, %9 ], [ 1, %20 ], [ 0, %18 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %.thread ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %9 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %20 ], [ 1, %.thread ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -2161,7 +2161,7 @@ define hidden range(i32 0, 2) i32 @DGifSavedExtensionToGCB(ptr noundef readonly 
   br label %DGifExtensionToGCB.exit
 
 DGifExtensionToGCB.exit:                          ; preds = %21, %8, %.sink.split.i, %27, %3, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %3 ], [ 0, %27 ], [ 1, %.sink.split.i ], [ 0, %8 ], [ 0, %21 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ 0, %27 ], [ 1, %.sink.split.i ], [ 0, %8 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -2275,7 +2275,7 @@ define hidden range(i32 0, 2) i32 @DGifCloseFile(ptr noundef %0, ptr noundef wri
   br label %42
 
 42:                                               ; preds = %39, %41, %2, %4, %37, %28
-  %.0 = phi i32 [ 0, %37 ], [ 0, %28 ], [ 0, %4 ], [ 0, %2 ], [ 1, %41 ], [ 1, %39 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %37 ], [ 0, %2 ], [ 0, %4 ], [ 1, %41 ], [ 1, %39 ]
   ret i32 %.0
 }
 
@@ -2515,7 +2515,7 @@ DGifGetCodeNext.exit.thread:                      ; preds = %InternalRead.exit15
   br label %66
 
 66:                                               ; preds = %DGifGetCodeNext.exit.thread, %51, %57, %53, %10, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 1, %53 ], [ 1, %57 ], [ 1, %51 ], [ 0, %DGifGetCodeNext.exit.thread ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %10 ], [ 0, %DGifGetCodeNext.exit.thread ], [ 1, %53 ], [ 1, %57 ], [ 1, %51 ]
   ret i32 %.0
 }
 
@@ -2704,7 +2704,7 @@ InternalRead.exit22.i:                            ; preds = %47, %44
   br label %DGifBufferedInput.exit.thread
 
 DGifBufferedInput.exit.thread:                    ; preds = %56, %38, %33, %._crit_edge, %93, %98, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %98 ], [ 1, %93 ], [ 1, %._crit_edge ], [ 0, %33 ], [ 0, %38 ], [ 0, %56 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %._crit_edge ], [ 1, %98 ], [ 0, %56 ], [ 1, %93 ], [ 0, %33 ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -2800,7 +2800,7 @@ InternalRead.exit.i:                              ; preds = %20, %18
   ]
 
 DGifGetRecordType.exit.thread:                    ; preds = %26, %InternalRead.exit.i, %160, %1
-  %.sink = phi i32 [ 111, %1 ], [ 111, %160 ], [ 102, %InternalRead.exit.i ], [ 107, %26 ]
+  %.sink = phi i32 [ 111, %1 ], [ 102, %InternalRead.exit.i ], [ 111, %160 ], [ 107, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sink, ptr %28, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3095,7 +3095,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   br label %DGifDecreaseImageCounter.exit
 
 DGifDecreaseImageCounter.exit:                    ; preds = %115, %110, %29, %155, %DGifGetExtensionNext.exit.thread, %94, %91, %57, %54, %DGifGetRecordType.exit.thread, %164, %167, %104, %64
-  %.053 = phi i32 [ 0, %167 ], [ 0, %64 ], [ 0, %104 ], [ 1, %164 ], [ 0, %DGifGetRecordType.exit.thread ], [ 0, %54 ], [ 0, %57 ], [ 0, %91 ], [ 0, %94 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %155 ], [ 0, %29 ], [ 0, %110 ], [ 0, %115 ]
+  %.053 = phi i32 [ 0, %167 ], [ 0, %DGifGetRecordType.exit.thread ], [ 1, %164 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %64 ], [ 0, %57 ], [ 0, %104 ], [ 0, %54 ], [ 0, %91 ], [ 0, %94 ], [ 0, %155 ], [ 0, %29 ], [ 0, %110 ], [ 0, %115 ]
   ret i32 %.053
 }
 

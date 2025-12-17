@@ -95,7 +95,7 @@ define i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 n
   br i1 %17, label %18, label %26
 
 common.ret114:                                    ; preds = %53, %49, %12, %4, %7, %83, %37, %18
-  %common.ret114.op = phi i64 [ %25, %18 ], [ %40, %37 ], [ %..088, %83 ], [ -9223372036854775808, %7 ], [ -9223372036854775808, %4 ], [ %0, %12 ], [ %55, %53 ], [ -9223372036854775808, %49 ]
+  %common.ret114.op = phi i64 [ %25, %18 ], [ %55, %53 ], [ %..088, %83 ], [ -9223372036854775808, %4 ], [ -9223372036854775808, %49 ], [ %40, %37 ], [ %0, %12 ], [ -9223372036854775808, %7 ]
   ret i64 %common.ret114.op
 
 18:                                               ; preds = %16
@@ -545,7 +545,7 @@ eval_poly.exit34:                                 ; preds = %.lr.ph.i29
   br label %33
 
 33:                                               ; preds = %1, %eval_poly.exit34, %eval_poly.exit22
-  %.0 = phi nsz double [ %16, %eval_poly.exit22 ], [ %32, %eval_poly.exit34 ], [ 1.000000e+00, %1 ]
+  %.0 = phi nsz double [ %32, %eval_poly.exit34 ], [ %16, %eval_poly.exit22 ], [ 1.000000e+00, %1 ]
   ret double %.0
 }
 

@@ -172,7 +172,7 @@ switch.edge.thread202:                            ; preds = %55, %65, %switch.ed
   br label %.critedge182
 
 .critedge182:                                     ; preds = %62, %72, %74, %68
-  %.1 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %69, %68 ], [ %63, %62 ]
+  %.1 = phi ptr [ %63, %62 ], [ %73, %72 ], [ %75, %74 ], [ %69, %68 ]
   %.not162 = icmp eq ptr %.1, null
   br i1 %.not162, label %76, label %.critedge182.thread204
 
@@ -331,12 +331,12 @@ SDL_ChooseBlitFunc.exit:                          ; preds = %121, %103
   br label %147
 
 .critedge182.thread204:                           ; preds = %117, %52, %.critedge179, %39, %38, %49, %.critedge182
-  %.2.ph = phi ptr [ %.1, %.critedge182 ], [ @SDL_Blit_Slow_Float, %38 ], [ @SDL_BlitCopy, %49 ], [ @SDL_Blit_Slow_Float, %39 ], [ @SDL_Blit_Slow_Float, %.critedge179 ], [ @SDL_Blit_Slow, %52 ], [ %107, %117 ]
+  %.2.ph = phi ptr [ %.1, %.critedge182 ], [ @SDL_Blit_Slow_Float, %.critedge179 ], [ @SDL_Blit_Slow_Float, %39 ], [ @SDL_Blit_Slow_Float, %38 ], [ @SDL_Blit_Slow, %52 ], [ @SDL_BlitCopy, %49 ], [ %107, %117 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.2.ph, ptr %143, align 8
   br label %147
 
-144:                                              ; preds = %134, %140, %138, %132, %130, %SDL_ChooseBlitFunc.exit
+144:                                              ; preds = %134, %132, %130, %140, %138, %SDL_ChooseBlitFunc.exit
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %145, align 8
   tail call void @SDL_InvalidateMap(ptr noundef nonnull %3) #2

@@ -1256,7 +1256,7 @@ _ZeqRK8QVariantS1_.exit:                          ; preds = %18
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4, %28, %25, %_ZeqRK8QVariantS1_.exit, %15
-  %.0 = phi i1 [ false, %15 ], [ true, %_ZeqRK8QVariantS1_.exit ], [ false, %25 ], [ true, %28 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %15 ], [ true, %_ZeqRK8QVariantS1_.exit ], [ false, %25 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -1458,7 +1458,7 @@ define void @_ZN21EnabledProtocolsModel12applyChangesEb(ptr noundef readonly ali
           to label %_ZNK5QListI8QVariantE5valueEx.exit.i unwind label %29
 
 common.resume:                                    ; preds = %62, %102, %29, %32
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %33, %32 ], [ %63, %62 ], [ %103, %102 ]
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %30, %29 ], [ %63, %62 ], [ %103, %102 ]
   resume { ptr, i32 } %common.resume.op
 
 29:                                               ; preds = %27
@@ -2524,7 +2524,7 @@ _ZN7QStringD2Ev.exit85:                           ; preds = %154, %_ZN17QArrayDa
   br label %163
 
 163:                                              ; preds = %159, %142, %46, %_ZN7QStringD2Ev.exit57, %_ZN7QStringD2Ev.exit, %29, %.thread92
-  %.2 = phi i1 [ false, %.thread92 ], [ false, %29 ], [ true, %_ZN7QStringD2Ev.exit ], [ true, %_ZN7QStringD2Ev.exit57 ], [ true, %46 ], [ true, %142 ], [ true, %159 ]
+  %.2 = phi i1 [ true, %_ZN7QStringD2Ev.exit57 ], [ false, %29 ], [ true, %_ZN7QStringD2Ev.exit ], [ false, %.thread92 ], [ true, %46 ], [ true, %142 ], [ true, %159 ]
   call void @_ZN18QRegularExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -2537,7 +2537,7 @@ _ZN7QStringD2Ev.exit85:                           ; preds = %154, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn38
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %3, %163, %22
-  %.029 = phi i1 [ %.2, %163 ], [ false, %22 ], [ false, %3 ]
+  %.029 = phi i1 [ false, %3 ], [ %.2, %163 ], [ false, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.029
 }
@@ -2587,7 +2587,7 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel16filterAcceptsRowEiR
   br i1 %or.cond, label %_ZNK26EnabledProtocolsProxyModel18filterAcceptsChildEiRK11QModelIndex.exit, label %.lr.ph.i, !llvm.loop !79
 
 _ZNK26EnabledProtocolsProxyModel18filterAcceptsChildEiRK11QModelIndex.exit: ; preds = %.lr.ph.i, %6, %19
-  %.09.i = phi i1 [ false, %19 ], [ false, %6 ], [ %24, %.lr.ph.i ]
+  %.09.i = phi i1 [ false, %6 ], [ false, %19 ], [ %24, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
@@ -2634,7 +2634,7 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel18filterAcceptsChildE
   br i1 %or.cond24, label %_ZNK11QModelIndex7isValidEv.exit.thread, label %.lr.ph, !llvm.loop !79
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %.lr.ph, %3, %17
-  %.09 = phi i1 [ false, %17 ], [ false, %3 ], [ %22, %.lr.ph ]
+  %.09 = phi i1 [ false, %3 ], [ false, %17 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.09
 }
@@ -3177,7 +3177,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN7QStringC2ERKS_.
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %.thread, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %43
-  %44 = phi ptr [ %37, %.thread ], [ %41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %41, %43 ]
+  %44 = phi ptr [ %37, %.thread ], [ %41, %43 ], [ %41, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ]
   br i1 %.not.i.i.i.i, label %_ZN7QStringD2Ev.exit17, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i15:    ; preds = %_ZN7QStringD2Ev.exit

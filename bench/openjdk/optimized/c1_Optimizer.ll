@@ -1360,7 +1360,7 @@ _ZN11InstructionnwEm.exit91:                      ; preds = %160, %162
   br label %194
 
 194:                                              ; preds = %_ZN11InstructionnwEm.exit91, %165, %_ZN11InstructionnwEm.exit, %96, %67, %139, %14
-  %.0 = phi ptr [ %.tr.i, %14 ], [ %144, %139 ], [ %69, %67 ], [ %.0.i.i.i, %96 ], [ null, %_ZN11InstructionnwEm.exit ], [ %.0.i.i.i90, %165 ], [ null, %_ZN11InstructionnwEm.exit91 ]
+  %.0 = phi ptr [ %.tr.i, %14 ], [ %144, %139 ], [ %69, %67 ], [ null, %_ZN11InstructionnwEm.exit ], [ %.0.i.i.i, %96 ], [ %.0.i.i.i90, %165 ], [ null, %_ZN11InstructionnwEm.exit91 ]
   ret ptr %.0
 }
 
@@ -6364,7 +6364,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %122, %.loopexit
   br label %.critedge104
 
 .critedge104:                                     ; preds = %.preheader, %._crit_edge, %166, %196, %199, %218, %163, %_ZNK8BlockEnd11default_suxEv.exit, %24, %28, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %28 ], [ false, %24 ], [ false, %_ZNK8BlockEnd11default_suxEv.exit ], [ true, %163 ], [ true, %218 ], [ true, %199 ], [ true, %196 ], [ true, %166 ], [ true, %._crit_edge ], [ true, %.preheader ]
+  %.0 = phi i1 [ false, %_ZNK8BlockEnd11default_suxEv.exit ], [ false, %2 ], [ false, %28 ], [ false, %24 ], [ true, %163 ], [ true, %._crit_edge ], [ true, %218 ], [ true, %199 ], [ true, %196 ], [ true, %166 ], [ true, %.preheader ]
   ret i1 %.0
 }
 
@@ -6395,7 +6395,7 @@ define linkonce_odr hidden noundef ptr @_ZNK8Constant7compareEN11Instruction9Con
   unreachable
 
 14:                                               ; preds = %5, %11, %10
-  %.0 = phi ptr [ %4, %10 ], [ %3, %11 ], [ null, %5 ]
+  %.0 = phi ptr [ %3, %11 ], [ %4, %10 ], [ null, %5 ]
   ret ptr %.0
 }
 

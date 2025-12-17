@@ -1383,7 +1383,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %130, %127, %_ZNK4ll
   br label %181
 
 181:                                              ; preds = %178, %175, %164, %162, %159, %146, %143, %140, %137, %134, %180
-  %.0 = phi i32 [ 0, %180 ], [ 1, %134 ], [ -1, %137 ], [ 1, %140 ], [ -1, %143 ], [ -1, %146 ], [ 1, %159 ], [ -1, %162 ], [ 1, %164 ], [ 1, %175 ], [ -1, %178 ]
+  %.0 = phi i32 [ 1, %140 ], [ 1, %134 ], [ 0, %180 ], [ -1, %162 ], [ 1, %164 ], [ 1, %175 ], [ -1, %143 ], [ -1, %146 ], [ 1, %159 ], [ -1, %137 ], [ -1, %178 ]
   %182 = icmp ult i32 %132, 65
   %183 = icmp eq i64 %131, 0
   %or.cond82 = select i1 %182, i1 true, i1 %183
@@ -2284,8 +2284,8 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit19:        ; preds = %_ZNK4llvm12APFixedP
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %82, %81, %77, %76
-  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %76 ], [ %.sink48.sroa.gep49, %77 ], [ %.sink48.sroa.gep50, %81 ], [ %.sink48.sroa.gep51, %82 ]
-  %.sink48 = phi ptr [ %15, %76 ], [ %15, %77 ], [ %16, %81 ], [ %16, %82 ]
+  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %77 ], [ %.sink48.sroa.gep49, %76 ], [ %.sink48.sroa.gep50, %81 ], [ %.sink48.sroa.gep51, %82 ]
+  %.sink48 = phi ptr [ %15, %77 ], [ %15, %76 ], [ %16, %81 ], [ %16, %82 ]
   %83 = load i64, ptr %.sink48, align 8
   store i64 %83, ptr %14, align 8
   %84 = load i32, ptr %.sink48.sroa.phi, align 8, !tbaa !14
@@ -2594,8 +2594,8 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit19:        ; preds = %_ZNK4llvm12APFixedP
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %82, %81, %77, %76
-  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %76 ], [ %.sink48.sroa.gep49, %77 ], [ %.sink48.sroa.gep50, %81 ], [ %.sink48.sroa.gep51, %82 ]
-  %.sink48 = phi ptr [ %15, %76 ], [ %15, %77 ], [ %16, %81 ], [ %16, %82 ]
+  %.sink48.sroa.phi = phi ptr [ %.sink48.sroa.gep, %77 ], [ %.sink48.sroa.gep49, %76 ], [ %.sink48.sroa.gep50, %81 ], [ %.sink48.sroa.gep51, %82 ]
+  %.sink48 = phi ptr [ %15, %77 ], [ %15, %76 ], [ %16, %81 ], [ %16, %82 ]
   %83 = load i64, ptr %.sink48, align 8
   store i64 %83, ptr %14, align 8
   %84 = load i32, ptr %.sink48.sroa.phi, align 8, !tbaa !14
@@ -5872,9 +5872,9 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i:       ; preds = %_ZN4llvm5APIntC2ERK
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %19, %23, %16, %42, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i
-  %.sink16 = phi i32 [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre, %42 ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
-  %.sink15 = phi i64 [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre8, %42 ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
-  %.sink = phi i8 [ 0, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ 0, %42 ], [ 1, %23 ], [ 1, %19 ], [ 1, %16 ]
+  %.sink16 = phi i32 [ %.pre, %42 ], [ %29, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre9, %23 ], [ %17, %19 ], [ %2, %16 ]
+  %.sink15 = phi i64 [ %.pre8, %42 ], [ %41, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ %.pre10, %23 ], [ %22, %19 ], [ 0, %16 ]
+  %.sink = phi i8 [ 0, %42 ], [ 0, %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i ], [ 1, %23 ], [ 1, %19 ], [ 1, %16 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink16, ptr %43, align 8, !tbaa !14
   store i64 %.sink15, ptr %0, align 8
@@ -6830,7 +6830,7 @@ _ZNK4llvm6APSIntgtERKS0_.exit:                    ; preds = %175, %.thread64
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK4llvm6APSIntltERKS0_.exit, %_ZNK4llvm6APSIntgtERKS0_.exit, %_ZNK4llvm6APSIntltERKS0_.exit.thread, %_ZNK4llvm6APSInt10isNegativeEv.exit, %163, %167
-  %.sink.shrunk = phi i1 [ %169, %167 ], [ true, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %165, %163 ], [ true, %_ZNK4llvm6APSIntltERKS0_.exit ], [ %178, %_ZNK4llvm6APSIntgtERKS0_.exit ], [ true, %_ZNK4llvm6APSIntltERKS0_.exit.thread ]
+  %.sink.shrunk = phi i1 [ %169, %167 ], [ %165, %163 ], [ true, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ true, %_ZNK4llvm6APSIntltERKS0_.exit ], [ %178, %_ZNK4llvm6APSIntgtERKS0_.exit ], [ true, %_ZNK4llvm6APSIntltERKS0_.exit.thread ]
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %4, align 1, !tbaa !21
   br label %179
@@ -8640,7 +8640,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30.thread:     ; preds = %76, %_ZNK4llvm6APSI
   br label %92
 
 92:                                               ; preds = %_ZNK4llvm6APSInt10isNegativeEv.exit30, %_ZNK4llvm6APSInt10isNegativeEv.exit, %21, %23, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread, %_ZN4llvm5APIntD2Ev.exit28, %_ZN4llvm5APIntD2Ev.exit
-  %.0 = phi i32 [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ %24, %23 ], [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
+  %.0 = phi i32 [ -1, %_ZNK4llvm6APSInt10isNegativeEv.exit ], [ %36, %_ZN4llvm5APIntD2Ev.exit ], [ %54, %_ZN4llvm5APIntD2Ev.exit28 ], [ %24, %23 ], [ %91, %_ZNK4llvm6APSInt10isNegativeEv.exit30.thread ], [ %22, %21 ], [ 1, %_ZNK4llvm6APSInt10isNegativeEv.exit30 ]
   ret i32 %.0
 }
 

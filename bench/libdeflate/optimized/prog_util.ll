@@ -212,7 +212,7 @@ quote_path.exit.thread:                           ; preds = %17
   br label %34
 
 34:                                               ; preds = %quote_path.exit.thread, %32, %29, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %29 ], [ 0, %32 ], [ -1, %quote_path.exit.thread ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %32 ], [ -1, %29 ], [ -1, %quote_path.exit.thread ]
   ret i32 %.0
 }
 
@@ -352,8 +352,8 @@ quote_path.exit.split:                            ; preds = %quote_path.exit, %5
   br label %55
 
 55:                                               ; preds = %quote_path.exit.thread, %.split28.us, %51, %42, %.split.us
-  %56 = phi ptr [ %24, %.split.us ], [ %24, %.split28.us ], [ %24, %51 ], [ %24, %42 ], [ %19, %quote_path.exit.thread ]
-  %.0 = phi i32 [ -1, %.split.us ], [ -1, %.split28.us ], [ -1, %51 ], [ -2, %42 ], [ -1, %quote_path.exit.thread ]
+  %56 = phi ptr [ %19, %quote_path.exit.thread ], [ %24, %.split.us ], [ %24, %.split28.us ], [ %24, %51 ], [ %24, %42 ]
+  %.0 = phi i32 [ -1, %quote_path.exit.thread ], [ -1, %.split.us ], [ -1, %.split28.us ], [ -1, %51 ], [ -2, %42 ]
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   tail call void @free(ptr noundef %57) #20
   br label %.loopexit
@@ -427,7 +427,7 @@ define dso_local range(i32 -2147483648, 1) i32 @map_file_contents(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %16, %19, %22, %14, %4
-  %.0 = phi i32 [ %5, %4 ], [ %15, %14 ], [ 0, %22 ], [ -1, %19 ], [ -1, %16 ]
+  %.0 = phi i32 [ %5, %4 ], [ 0, %22 ], [ %15, %14 ], [ -1, %19 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -540,7 +540,7 @@ select.unfold:                                    ; preds = %7, %5
   br label %.loopexit
 
 40:                                               ; preds = %xmalloc.exit.thread, %.loopexit, %35
-  %.0 = phi i32 [ %.032, %.loopexit ], [ 0, %35 ], [ -1, %xmalloc.exit.thread ]
+  %.0 = phi i32 [ 0, %35 ], [ -1, %xmalloc.exit.thread ], [ %.032, %.loopexit ]
   ret i32 %.0
 }
 
@@ -599,7 +599,7 @@ define dso_local i64 @xread(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %20
 
 20:                                               ; preds = %.thread28, %.thread
-  %.2 = phi i64 [ %19, %.thread ], [ -1, %.thread28 ]
+  %.2 = phi i64 [ -1, %.thread28 ], [ %19, %.thread ]
   ret i64 %.2
 }
 

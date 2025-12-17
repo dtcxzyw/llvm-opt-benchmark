@@ -169,7 +169,7 @@ switch.lookup:                                    ; preds = %19
   br label %file_get_compression_type.exit
 
 file_get_compression_type.exit:                   ; preds = %switch.lookup, %7
-  %.0.i = phi i32 [ 0, %7 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %7 ]
   ret i32 %.0.i
 }
 
@@ -440,7 +440,7 @@ define hidden noundef ptr @file_fdopen(i32 noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %63, %4, %1, %67
-  %.0 = phi ptr [ null, %67 ], [ null, %1 ], [ null, %4 ], [ %5, %63 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %1 ], [ null, %67 ], [ %5, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -521,7 +521,7 @@ define hidden noundef ptr @file_open(ptr noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %9, %14, %11, %1, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ %5, %11 ], [ %5, %14 ], [ %5, %9 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %5, %11 ], [ %5, %14 ], [ %5, %9 ]
   ret ptr %.0
 }
 
@@ -657,7 +657,7 @@ gz_skip.exit:                                     ; preds = %39, %33
   br label %57
 
 57:                                               ; preds = %45, %53, %49
-  %.0194 = phi i64 [ %48, %45 ], [ %56, %53 ], [ %1, %49 ]
+  %.0194 = phi i64 [ %1, %49 ], [ %48, %45 ], [ %56, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %58, align 8
   %59 = icmp eq i64 %.0194, 0
@@ -1008,7 +1008,7 @@ fast_seek_reset.exit:                             ; preds = %156, %156, %156, %1
   br label %326
 
 .thread240:                                       ; preds = %fast_seek_reset.exit, %230, %.critedge, %228, %213
-  %.sink = phi i32 [ 2, %.critedge ], [ 5, %228 ], [ 2, %213 ], [ 4, %230 ], [ %177, %fast_seek_reset.exit ]
+  %.sink = phi i32 [ 2, %213 ], [ 2, %.critedge ], [ 4, %230 ], [ 5, %228 ], [ %177, %fast_seek_reset.exit ]
   store i32 %.sink, ptr %157, align 8
   %237 = load i64, ptr %100, align 8
   %238 = add i64 %237, %.0194230
@@ -1181,7 +1181,7 @@ fast_seek_find.exit.thread:                       ; preds = %104, %99, %123, %fa
   br label %326
 
 326:                                              ; preds = %.thread240, %239, %235, %.thread238, %153, %226, %324, %294, %287, %265, %262, %90, %74, %60, %43, %split
-  %.0 = phi i64 [ -1, %split ], [ %44, %43 ], [ %62, %60 ], [ %84, %74 ], [ -1, %262 ], [ %283, %265 ], [ -1, %287 ], [ -1, %294 ], [ %325, %324 ], [ %98, %90 ], [ -1, %153 ], [ -1, %226 ], [ -1, %235 ], [ -1, %.thread238 ], [ %238, %239 ], [ %.0200, %.thread240 ]
+  %.0 = phi i64 [ -1, %split ], [ %44, %43 ], [ %62, %60 ], [ %84, %74 ], [ %98, %90 ], [ -1, %262 ], [ %283, %265 ], [ -1, %287 ], [ -1, %294 ], [ %325, %324 ], [ -1, %153 ], [ -1, %.thread238 ], [ -1, %235 ], [ -1, %226 ], [ %238, %239 ], [ %.0200, %.thread240 ]
   ret i64 %.0
 }
 
@@ -1377,7 +1377,7 @@ define hidden range(i32 -1, 1) i32 @file_fstat(ptr noundef readonly captures(non
   br label %11
 
 11:                                               ; preds = %3, %7, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %7 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %8 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1463,7 +1463,7 @@ define i32 @file_read(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %18, !llvm.loop !17
 
-gz_skip.exit.thread:                              ; preds = %36, %42, %9, %5
+gz_skip.exit.thread:                              ; preds = %42, %36, %9, %5
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1537,7 +1537,7 @@ gz_skip.exit.thread:                              ; preds = %36, %42, %9, %5
   br i1 %.not42, label %gz_skip.exit, label %49, !llvm.loop !19
 
 gz_skip.exit:                                     ; preds = %39, %31, %73, %67, %70, %62, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.032, %67 ], [ %.2, %73 ], [ -1, %70 ], [ -1, %62 ], [ -1, %31 ], [ -1, %39 ]
+  %.0 = phi i32 [ 0, %3 ], [ -1, %62 ], [ %.2, %73 ], [ %.032, %67 ], [ -1, %70 ], [ -1, %31 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -1736,7 +1736,7 @@ fast_seek_header.exit.i:                          ; preds = %.thread.i.i, %84, %
   store i32 1, ptr %8, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %104, %fill_in_buffer.exit.i, %30
+.loopexit:                                        ; preds = %60, %fill_in_buffer.exit.i, %104, %30
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %106 = load i32, ptr %105, align 8
   %.not = icmp eq i32 %106, 0
@@ -2652,7 +2652,7 @@ lz4_fill_out_buffer.exit:                         ; preds = %.thread.i30, %.loop
   br label %check_for_compression.exit
 
 check_for_compression.exit:                       ; preds = %60, %buf_read.exit.thread.i.i26, %351, %zlib_fill_out_buffer.exit, %lz4_fill_out_buffer.exit, %107, %uncompressed_fill_out_buffer.exit.thread, %zstd_fill_out_buffer.exit.thread44, %zstd_fill_out_buffer.exit, %uncompressed_fill_out_buffer.exit, %buf_read.exit.thread.i.i, %27, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %uncompressed_fill_out_buffer.exit ], [ -1, %zstd_fill_out_buffer.exit ], [ -1, %27 ], [ -1, %buf_read.exit.thread.i.i ], [ 0, %zstd_fill_out_buffer.exit.thread44 ], [ 0, %uncompressed_fill_out_buffer.exit.thread ], [ 0, %107 ], [ 0, %lz4_fill_out_buffer.exit ], [ 0, %zlib_fill_out_buffer.exit ], [ -1, %351 ], [ -1, %buf_read.exit.thread.i.i26 ], [ %63, %60 ]
+  %.0 = phi i32 [ -1, %uncompressed_fill_out_buffer.exit ], [ -1, %zstd_fill_out_buffer.exit ], [ 0, %.loopexit ], [ -1, %27 ], [ -1, %buf_read.exit.thread.i.i ], [ 0, %zlib_fill_out_buffer.exit ], [ 0, %zstd_fill_out_buffer.exit.thread44 ], [ 0, %uncompressed_fill_out_buffer.exit.thread ], [ 0, %107 ], [ 0, %lz4_fill_out_buffer.exit ], [ -1, %351 ], [ -1, %buf_read.exit.thread.i.i26 ], [ %63, %60 ]
   ret i32 %.0
 }
 
@@ -2736,7 +2736,7 @@ define range(i32 -1, 256) i32 @file_peekc(ptr noundef %0) local_unnamed_addr #0 
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %18, !llvm.loop !17
 
-gz_skip.exit.thread:                              ; preds = %36, %42, %11, %7
+gz_skip.exit.thread:                              ; preds = %42, %36, %11, %7
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %45
@@ -2774,7 +2774,7 @@ gz_skip.exit.sink.split:                          ; preds = %45, %4
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %39, %31, %55, %52, %47, %gz_skip.exit.sink.split, %1
-  %.0 = phi i32 [ -1, %1 ], [ %61, %gz_skip.exit.sink.split ], [ -1, %47 ], [ -1, %52 ], [ -1, %55 ], [ -1, %31 ], [ -1, %39 ]
+  %.0 = phi i32 [ -1, %1 ], [ %61, %gz_skip.exit.sink.split ], [ -1, %55 ], [ -1, %47 ], [ -1, %52 ], [ -1, %31 ], [ -1, %39 ]
   ret i32 %.0
 }
 
@@ -2817,7 +2817,7 @@ define range(i32 -1, 256) i32 @file_getc(ptr noundef %0) local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %1, %18, %8
-  %.0 = phi i32 [ %17, %8 ], [ %23, %18 ], [ -1, %1 ]
+  %.0 = phi i32 [ %23, %18 ], [ %17, %8 ], [ -1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2903,7 +2903,7 @@ define noundef ptr @file_getsp(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %gz_skip.exit.thread, label %21, !llvm.loop !17
 
-gz_skip.exit.thread:                              ; preds = %39, %45, %13, %9
+gz_skip.exit.thread:                              ; preds = %45, %39, %13, %9
   %46 = add nsw i32 %1, -1
   %.not52 = icmp eq i32 %46, 0
   br i1 %.not52, label %.loopexit, label %.preheader
@@ -2977,7 +2977,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %13, %9
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %42, %34, %55, %53, %61, %6, %3, %.loopexit
-  %.0 = phi ptr [ %.043, %.loopexit ], [ null, %3 ], [ null, %6 ], [ null, %61 ], [ null, %53 ], [ null, %55 ], [ null, %34 ], [ null, %42 ]
+  %.0 = phi ptr [ %.043, %.loopexit ], [ null, %3 ], [ null, %6 ], [ null, %61 ], [ null, %55 ], [ null, %53 ], [ null, %34 ], [ null, %42 ]
   ret ptr %.0
 }
 
@@ -3303,7 +3303,7 @@ define hidden noundef i32 @gzwfile_write(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %47, %44, %12, %3, %.critedge
-  %.0 = phi i32 [ %2, %.critedge ], [ 0, %3 ], [ 0, %12 ], [ 0, %44 ], [ 0, %47 ], [ 0, %38 ]
+  %.0 = phi i32 [ 0, %44 ], [ 0, %3 ], [ 0, %47 ], [ 0, %12 ], [ %2, %.critedge ], [ 0, %38 ]
   ret i32 %.0
 }
 
@@ -3614,7 +3614,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef %0, i32 noundef
   br label %105
 
 105:                                              ; preds = %.split52.us, %103, %7, %.split50.us, %.split48.us, %.split46.us
-  %.0 = phi i32 [ -1, %.split46.us ], [ -1, %.split48.us ], [ -1, %.split50.us ], [ -1, %7 ], [ 0, %103 ], [ 0, %.split52.us ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %.split46.us ], [ -1, %.split48.us ], [ -1, %.split50.us ], [ 0, %103 ], [ 0, %.split52.us ]
   ret i32 %.0
 }
 
@@ -3938,7 +3938,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   store i64 %85, ptr %58, align 8
   br label %86
 
-86:                                               ; preds = %83, %70
+86:                                               ; preds = %70, %83
   %87 = load i64, ptr %59, align 8
   %88 = add i64 %87, %.028.
   store i64 %88, ptr %59, align 8
@@ -3947,7 +3947,7 @@ lz4_init.exit:                                    ; preds = %36, %49
   br i1 %.not33, label %.critedge, label %60, !llvm.loop !42
 
 .critedge:                                        ; preds = %86, %48, %43, %33, %24, %15, %82, %77, %67, %3
-  %.0 = phi i64 [ 0, %3 ], [ 0, %67 ], [ 0, %77 ], [ 0, %82 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ %2, %86 ]
+  %.0 = phi i64 [ 0, %3 ], [ 0, %67 ], [ 0, %82 ], [ 0, %77 ], [ 0, %15 ], [ 0, %24 ], [ 0, %33 ], [ 0, %43 ], [ 0, %48 ], [ %2, %86 ]
   ret i64 %.0
 }
 
@@ -4011,8 +4011,8 @@ define hidden range(i32 -1, 1) i32 @lz4wfile_flush(ptr noundef captures(none) %0
   store i64 %30, ptr %28, align 8
   br label %lz4_write_out.exit
 
-lz4_write_out.exit:                               ; preds = %21, %26, %27, %14, %1, %13
-  %.0 = phi i32 [ -1, %13 ], [ -1, %1 ], [ -1, %21 ], [ -1, %26 ], [ 0, %27 ], [ 0, %14 ]
+lz4_write_out.exit:                               ; preds = %21, %26, %14, %27, %1, %13
+  %.0 = phi i32 [ -1, %1 ], [ -1, %13 ], [ -1, %26 ], [ -1, %21 ], [ 0, %14 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -4066,7 +4066,7 @@ define hidden i32 @lz4wfile_close(ptr noundef %0) local_unnamed_addr #0 {
   store i64 %27, ptr %25, align 8
   br label %lz4_write_out.exit.thread
 
-lz4_write_out.exit.thread:                        ; preds = %16, %22, %1, %24
+lz4_write_out.exit.thread:                        ; preds = %16, %22, %24, %1
   %.1 = phi i32 [ %spec.select, %24 ], [ %spec.select, %1 ], [ -14, %22 ], [ %18, %16 ]
   %28 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %28)
@@ -4403,7 +4403,7 @@ fill_in_buffer.exit.thread61:                     ; preds = %fill_in_buffer.exit
   br label %127
 
 127:                                              ; preds = %105, %114, %102, %97, %93, %86, %83, %78, %75, %72, %64, %54, %69, %61
-  %.1 = phi i32 [ -1, %61 ], [ -1, %69 ], [ -1, %54 ], [ -1, %64 ], [ -1, %72 ], [ -1, %75 ], [ -1, %78 ], [ -1, %83 ], [ -1, %86 ], [ -1, %93 ], [ -1, %97 ], [ -1, %102 ], [ 1, %114 ], [ 1, %105 ]
+  %.1 = phi i32 [ -1, %102 ], [ -1, %61 ], [ -1, %54 ], [ -1, %69 ], [ -1, %64 ], [ -1, %72 ], [ -1, %75 ], [ -1, %78 ], [ -1, %83 ], [ -1, %86 ], [ -1, %93 ], [ -1, %97 ], [ 1, %114 ], [ 1, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4418,7 +4418,7 @@ fill_in_buffer.exit.thread61:                     ; preds = %fill_in_buffer.exit
   br label %fill_in_buffer.exit.thread
 
 fill_in_buffer.exit.thread:                       ; preds = %19, %buf_read.exit.thread.i, %16, %1, %128, %fill_in_buffer.exit, %127
-  %.0 = phi i32 [ %.1, %127 ], [ 0, %fill_in_buffer.exit ], [ 0, %128 ], [ 0, %1 ], [ -1, %16 ], [ -1, %buf_read.exit.thread.i ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %127 ], [ 0, %fill_in_buffer.exit ], [ 0, %128 ], [ -1, %16 ], [ -1, %buf_read.exit.thread.i ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -4486,7 +4486,7 @@ define internal range(i32 -1, 2) i32 @check_for_zstd_compression(ptr noundef cap
   br label %41
 
 41:                                               ; preds = %1, %5, %10, %14, %18, %27, %31
-  %.1 = phi i32 [ -1, %27 ], [ 1, %31 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %5 ], [ 0, %1 ]
+  %.1 = phi i32 [ 1, %31 ], [ -1, %27 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %5 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -4756,7 +4756,7 @@ fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer
   br label %fill_in_buffer.exit.thread
 
 fill_in_buffer.exit.thread:                       ; preds = %34, %79, %buf_read.exit.thread.i52, %buf_read.exit.thread.i, %1, %6, %11, %15, %19, %fill_in_buffer.exit.thread91, %72, %fill_in_buffer.exit53.thread, %136
-  %.2 = phi i32 [ 0, %fill_in_buffer.exit.thread91 ], [ -1, %72 ], [ 0, %fill_in_buffer.exit53.thread ], [ %.1, %136 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ -1, %buf_read.exit.thread.i ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %79 ], [ -1, %34 ]
+  %.2 = phi i32 [ -1, %buf_read.exit.thread.i ], [ %.1, %136 ], [ 0, %fill_in_buffer.exit.thread91 ], [ -1, %72 ], [ 0, %1 ], [ 0, %fill_in_buffer.exit53.thread ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %79 ], [ -1, %34 ]
   ret i32 %.2
 }
 
@@ -4980,7 +4980,7 @@ fill_in_buffer.exit.thread13:                     ; preds = %10, %fill_in_buffer
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %fill_in_buffer.exit.thread13, %2, %.critedge, %50
-  %.010 = phi i32 [ -1, %50 ], [ -1, %.critedge ], [ 0, %2 ], [ -1, %12 ], [ 0, %fill_in_buffer.exit.thread13 ]
+  %.010 = phi i32 [ -1, %.critedge ], [ -1, %50 ], [ 0, %2 ], [ -1, %12 ], [ 0, %fill_in_buffer.exit.thread13 ]
   ret i32 %.010
 }
 
@@ -5292,7 +5292,7 @@ fill_in_buffer.exit.thread:                       ; preds = %fill_in_buffer.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %fill_in_buffer.exit.thread12, %fill_in_buffer.exit.thread, %49
-  %.0 = phi i32 [ -1, %49 ], [ -1, %fill_in_buffer.exit.thread ], [ -1, %11 ], [ 0, %fill_in_buffer.exit.thread12 ]
+  %.0 = phi i32 [ -1, %fill_in_buffer.exit.thread ], [ -1, %49 ], [ -1, %11 ], [ 0, %fill_in_buffer.exit.thread12 ]
   ret i32 %.0
 }
 

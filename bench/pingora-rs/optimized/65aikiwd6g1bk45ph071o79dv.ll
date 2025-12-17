@@ -238,8 +238,8 @@ default.unreachable1:                             ; preds = %1
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3
-  %.sroa.5.0 = phi i64 [ 10, %3 ], [ 8, %4 ], [ 0, %5 ], [ 8, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %3 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %4 ], [ inttoptr (i64 1 to ptr), %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %1 ]
+  %.sroa.5.0 = phi i64 [ 0, %5 ], [ 10, %3 ], [ 8, %4 ], [ 8, %1 ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %3 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %1 ]
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %8
@@ -410,8 +410,8 @@ default.unreachable1:                             ; preds = %1
   br label %42
 
 42:                                               ; preds = %1, %37, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.33.0 = phi i64 [ 14, %3 ], [ 14, %4 ], [ 17, %5 ], [ 19, %6 ], [ 20, %7 ], [ 11, %8 ], [ 14, %9 ], [ 12, %10 ], [ 9, %11 ], [ 11, %12 ], [ 11, %13 ], [ 19, %14 ], [ 17, %15 ], [ 7, %16 ], [ 7, %17 ], [ 11, %18 ], [ 9, %19 ], [ 9, %20 ], [ 10, %21 ], [ 12, %22 ], [ 13, %23 ], [ 16, %24 ], [ 10, %25 ], [ 13, %26 ], [ 15, %27 ], [ 13, %28 ], [ 14, %29 ], [ 13, %30 ], [ 12, %31 ], [ %36, %32 ], [ %41, %37 ], [ 15, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %3 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %7 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %8 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %9 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %10 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %11 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %12 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %13 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %14 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %15 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %16 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %17 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %18 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %19 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %20 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %21 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %23 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %25 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %26 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %27 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %28 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %29 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %30 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %31 ], [ %34, %32 ], [ %39, %37 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %1 ]
+  %.sroa.33.0 = phi i64 [ %41, %37 ], [ 14, %3 ], [ 14, %4 ], [ 17, %5 ], [ 19, %6 ], [ 20, %7 ], [ 11, %8 ], [ 14, %9 ], [ 12, %10 ], [ 9, %11 ], [ 11, %12 ], [ 11, %13 ], [ 19, %14 ], [ 17, %15 ], [ 7, %16 ], [ 7, %17 ], [ 11, %18 ], [ 9, %19 ], [ 9, %20 ], [ 10, %21 ], [ 12, %22 ], [ 13, %23 ], [ 16, %24 ], [ 10, %25 ], [ 13, %26 ], [ 15, %27 ], [ 13, %28 ], [ 14, %29 ], [ 13, %30 ], [ 12, %31 ], [ %36, %32 ], [ 15, %1 ]
+  %.sroa.0.0 = phi ptr [ %39, %37 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %3 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %7 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %8 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %9 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %10 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %11 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %12 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %13 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %14 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %15 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %16 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %17 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %18 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %19 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %20 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %21 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %23 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %25 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %26 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %27 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %28 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %29 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %30 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %31 ], [ %34, %32 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %1 ]
   %43 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %44 = insertvalue { ptr, i64 } %43, i64 %.sroa.33.0, 1
   ret { ptr, i64 } %44
@@ -609,8 +609,8 @@ default.unreachable:                              ; preds = %1
   br label %_ZN13pingora_error9ErrorType6as_str17h048457f55332e945E.exit
 
 _ZN13pingora_error9ErrorType6as_str17h048457f55332e945E.exit: ; preds = %1, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %38
-  %.sroa.33.0.i = phi i64 [ 14, %4 ], [ 14, %5 ], [ 17, %6 ], [ 19, %7 ], [ 20, %8 ], [ 11, %9 ], [ 14, %10 ], [ 12, %11 ], [ 9, %12 ], [ 11, %13 ], [ 11, %14 ], [ 19, %15 ], [ 17, %16 ], [ 7, %17 ], [ 7, %18 ], [ 11, %19 ], [ 9, %20 ], [ 9, %21 ], [ 10, %22 ], [ 12, %23 ], [ 13, %24 ], [ 16, %25 ], [ 10, %26 ], [ 13, %27 ], [ 15, %28 ], [ 13, %29 ], [ 14, %30 ], [ 13, %31 ], [ 12, %32 ], [ %37, %33 ], [ %42, %38 ], [ 15, %1 ]
-  %.sroa.0.0.i = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %7 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %8 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %9 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %10 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %11 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %12 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %13 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %14 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %15 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %16 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %17 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %18 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %19 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %20 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %21 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %23 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %25 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %26 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %27 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %28 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %29 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %30 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %31 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %32 ], [ %35, %33 ], [ %40, %38 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %1 ]
+  %.sroa.33.0.i = phi i64 [ %42, %38 ], [ 14, %4 ], [ 14, %5 ], [ 17, %6 ], [ 19, %7 ], [ 20, %8 ], [ 11, %9 ], [ 14, %10 ], [ 12, %11 ], [ 9, %12 ], [ 11, %13 ], [ 11, %14 ], [ 19, %15 ], [ 17, %16 ], [ 7, %17 ], [ 7, %18 ], [ 11, %19 ], [ 9, %20 ], [ 9, %21 ], [ 10, %22 ], [ 12, %23 ], [ 13, %24 ], [ 16, %25 ], [ 10, %26 ], [ 13, %27 ], [ 15, %28 ], [ 13, %29 ], [ 14, %30 ], [ 13, %31 ], [ 12, %32 ], [ %37, %33 ], [ 15, %1 ]
+  %.sroa.0.0.i = phi ptr [ %40, %38 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %7 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %8 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %9 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %10 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %11 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %12 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %13 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %14 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %15 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %16 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %17 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %18 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %19 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %20 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %21 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %23 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %25 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %26 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %27 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %28 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %29 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %30 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %31 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %32 ], [ %35, %33 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %1 ]
   %43 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %44 = insertvalue { ptr, i64 } %43, i64 %.sroa.33.0.i, 1
   ret { ptr, i64 } %44
@@ -640,8 +640,8 @@ default.unreachable:                              ; preds = %1
   br label %_ZN13pingora_error11ErrorSource6as_str17hfb8631917decceedE.exit
 
 _ZN13pingora_error11ErrorSource6as_str17hfb8631917decceedE.exit: ; preds = %1, %4, %5, %6
-  %.sroa.5.0.i = phi i64 [ 10, %4 ], [ 8, %5 ], [ 0, %6 ], [ 8, %1 ]
-  %.sroa.0.0.i = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %5 ], [ inttoptr (i64 1 to ptr), %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %1 ]
+  %.sroa.5.0.i = phi i64 [ 0, %6 ], [ 10, %4 ], [ 8, %5 ], [ 8, %1 ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %4 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %5 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %1 ]
   %7 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %.sroa.5.0.i, 1
   ret { ptr, i64 } %8
@@ -743,8 +743,8 @@ default.unreachable:                              ; preds = %.thread106, %.threa
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %22, %.thread
-  %.sroa.5.0.i = phi i64 [ 10, %22 ], [ 8, %23 ], [ 0, %24 ], [ 8, %.thread ]
-  %.sroa.0.0.i = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %23 ], [ inttoptr (i64 1 to ptr), %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %.thread ]
+  %.sroa.5.0.i = phi i64 [ 0, %24 ], [ 10, %22 ], [ 8, %23 ], [ 8, %.thread ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %24 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.10, %22 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.11, %23 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.9, %.thread ]
   store ptr %.sroa.0.0.i, ptr %14, align 8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.5.0.i, ptr %25, align 8
@@ -791,8 +791,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
 34:                                               ; preds = %.thread105
   switch i16 %31, label %.thread110 [
     i16 23, label %35
-    i16 30, label %41
-    i16 31, label %47
+    i16 30, label %53
+    i16 31, label %41
   ]
 
 35:                                               ; preds = %34
@@ -811,41 +811,41 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val5.i = load ptr, ptr %42, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
+  %.val.i = load ptr, ptr %42, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val6.i = load i64, ptr %44, align 8, !alias.scope !39, !noalias !42, !noundef !4
-  %.val7.i = load ptr, ptr %43, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
+  %.val2.i = load i64, ptr %44, align 8, !alias.scope !39, !noalias !42, !noundef !4
+  %.val3.i = load ptr, ptr %43, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val8.i = load i64, ptr %45, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %46 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 1 %.val7.i, i64 noundef %.val8.i), !noalias !44
-  br i1 %46, label %.thread110, label %.thread106.thread120
+  %.val4.i = load i64, ptr %45, align 8, !alias.scope !42, !noalias !39, !noundef !4
+  %46 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val2.i, ptr noalias noundef nonnull readonly align 1 %.val3.i, i64 noundef %.val4.i), !noalias !44
+  br i1 %46, label %47, label %.thread106.thread
 
-.thread106.thread120:                             ; preds = %41
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %49 = load i16, ptr %48, align 2, !alias.scope !39, !noalias !42, !noundef !4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %51 = load i16, ptr %50, align 2, !alias.scope !42, !noalias !39, !noundef !4
+  %52 = icmp eq i16 %49, %51
+  br i1 %52, label %.thread110, label %.thread106.thread
+
+53:                                               ; preds = %34
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val5.i = load ptr, ptr %54, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val6.i = load i64, ptr %56, align 8, !alias.scope !39, !noalias !42, !noundef !4
+  %.val7.i = load ptr, ptr %55, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val8.i = load i64, ptr %57, align 8, !alias.scope !42, !noalias !39, !noundef !4
+  %58 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 1 %.val7.i, i64 noundef %.val8.i), !noalias !44
+  br i1 %58, label %.thread110, label %.thread106.thread120
+
+.thread106.thread120:                             ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %89
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %48, align 8, !alias.scope !39, !noalias !42, !nonnull !4, !align !3, !noundef !4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val2.i = load i64, ptr %50, align 8, !alias.scope !39, !noalias !42, !noundef !4
-  %.val3.i = load ptr, ptr %49, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !3, !noundef !4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val4.i = load i64, ptr %51, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %52 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val2.i, ptr noalias noundef nonnull readonly align 1 %.val3.i, i64 noundef %.val4.i), !noalias !44
-  br i1 %52, label %53, label %.thread106.thread
-
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %55 = load i16, ptr %54, align 2, !alias.scope !39, !noalias !42, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %57 = load i16, ptr %56, align 2, !alias.scope !42, !noalias !39, !noundef !4
-  %58 = icmp eq i16 %55, %57
-  br i1 %58, label %.thread110, label %.thread106.thread
-
-.thread106.thread:                                ; preds = %47, %53
+.thread106.thread:                                ; preds = %41, %47
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %94
@@ -991,8 +991,8 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63
 
 _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63: ; preds = %94, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %.thread106
-  %.sroa.33.0.i = phi i64 [ 14, %60 ], [ 14, %61 ], [ 17, %62 ], [ 19, %63 ], [ 20, %64 ], [ 11, %65 ], [ 14, %66 ], [ 12, %67 ], [ 9, %68 ], [ 11, %69 ], [ 11, %70 ], [ 19, %71 ], [ 17, %72 ], [ 7, %73 ], [ 7, %74 ], [ 11, %75 ], [ 9, %76 ], [ 9, %77 ], [ 10, %78 ], [ 12, %79 ], [ 13, %80 ], [ 16, %81 ], [ 10, %82 ], [ 13, %83 ], [ 15, %84 ], [ 13, %85 ], [ 14, %86 ], [ 13, %87 ], [ 12, %88 ], [ %93, %89 ], [ %98, %94 ], [ 15, %.thread106 ]
-  %.sroa.0.0.i57 = phi ptr [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %60 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %61 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %62 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %63 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %64 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %65 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %66 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %67 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %68 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %69 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %70 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %71 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %72 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %73 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %74 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %75 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %76 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %77 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %78 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %79 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %80 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %81 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %82 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %83 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %84 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %85 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %86 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %87 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %88 ], [ %91, %89 ], [ %96, %94 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %.thread106 ]
+  %.sroa.33.0.i = phi i64 [ %98, %94 ], [ 14, %60 ], [ 14, %61 ], [ 17, %62 ], [ 19, %63 ], [ 20, %64 ], [ 11, %65 ], [ 14, %66 ], [ 12, %67 ], [ 9, %68 ], [ 11, %69 ], [ 11, %70 ], [ 19, %71 ], [ 17, %72 ], [ 7, %73 ], [ 7, %74 ], [ 11, %75 ], [ 9, %76 ], [ 9, %77 ], [ 10, %78 ], [ 12, %79 ], [ 13, %80 ], [ 16, %81 ], [ 10, %82 ], [ 13, %83 ], [ 15, %84 ], [ 13, %85 ], [ 14, %86 ], [ 13, %87 ], [ 12, %88 ], [ %93, %89 ], [ 15, %.thread106 ]
+  %.sroa.0.0.i57 = phi ptr [ %96, %94 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.13, %60 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.14, %61 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.15, %62 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.16, %63 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.17, %64 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.18, %65 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.19, %66 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.20, %67 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.21, %68 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.22, %69 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.23, %70 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.24, %71 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.25, %72 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.26, %73 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.27, %74 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.28, %75 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.29, %76 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.30, %77 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.31, %78 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.32, %79 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.33, %80 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.34, %81 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.35, %82 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.36, %83 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.37, %84 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.38, %85 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.39, %86 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.40, %87 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.41, %88 ], [ %91, %89 ], [ @anon.a99296e2dd0582ef488a8e726aa7441c.12, %.thread106 ]
   store ptr %.sroa.0.0.i57, ptr %12, align 8
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sroa.33.0.i, ptr %99, align 8
@@ -1018,7 +1018,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63: ; preds = %94, %89,
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %101, label %108, label %.thread110
 
-.thread110:                                       ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63, %41, %35, %34, %53
+.thread110:                                       ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63, %47, %35, %34, %53
   %102 = load i64, ptr %0, align 8, !range !48, !noundef !4
   %.not40 = icmp eq i64 %102, 2
   br i1 %.not40, label %105, label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit68

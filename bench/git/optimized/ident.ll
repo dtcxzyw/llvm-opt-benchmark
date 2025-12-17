@@ -698,7 +698,7 @@ skip_prefix.exit:                                 ; preds = %24
   br i1 %.not30, label %.thread, label %.preheader, !llvm.loop !45
 
 68:                                               ; preds = %49, %37, %29
-  %.0.i = phi i64 [ %64, %49 ], [ 0, %29 ], [ 0, %37 ]
+  %.0.i = phi i64 [ 0, %29 ], [ %64, %49 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -931,7 +931,7 @@ crud.exit.thread.i:                               ; preds = %switch.early.test.i
   unreachable
 
 has_non_crud.exit:                                ; preds = %switch.early.test.i.i, %65, %..thread117_crit_edge, %66
-  %.3120 = phi ptr [ %.2, %66 ], [ %.pre, %..thread117_crit_edge ], [ @.str.17, %65 ], [ %.2, %switch.early.test.i.i ]
+  %.3120 = phi ptr [ @.str.17, %65 ], [ %.2, %66 ], [ %.pre, %..thread117_crit_edge ], [ %.2, %switch.early.test.i.i ]
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %72, align 8, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1563,7 +1563,7 @@ strbuf_setlen.exit45.i:                           ; preds = %82, %80
   br label %set_ident.exit
 
 set_ident.exit:                                   ; preds = %strbuf_setlen.exit45.i, %78, %75, %strbuf_setlen.exit43.i, %63, %strbuf_setlen.exit41.i, %50, %strbuf_setlen.exit39.i, %37, %strbuf_setlen.exit37.i, %24, %strbuf_setlen.exit.i, %11, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %strbuf_setlen.exit45.i ], [ -1, %78 ], [ 0, %strbuf_setlen.exit43.i ], [ -1, %63 ], [ 0, %strbuf_setlen.exit41.i ], [ -1, %50 ], [ 0, %strbuf_setlen.exit39.i ], [ -1, %37 ], [ 0, %strbuf_setlen.exit37.i ], [ -1, %24 ], [ 0, %strbuf_setlen.exit.i ], [ -1, %11 ], [ 0, %75 ]
+  %.0 = phi i32 [ 0, %6 ], [ -1, %11 ], [ 0, %strbuf_setlen.exit45.i ], [ -1, %78 ], [ 0, %strbuf_setlen.exit43.i ], [ -1, %63 ], [ 0, %strbuf_setlen.exit41.i ], [ -1, %50 ], [ 0, %strbuf_setlen.exit39.i ], [ -1, %37 ], [ 0, %strbuf_setlen.exit37.i ], [ -1, %24 ], [ 0, %strbuf_setlen.exit.i ], [ 0, %75 ]
   ret i32 %.0
 }
 

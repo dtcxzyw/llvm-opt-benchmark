@@ -114,7 +114,7 @@ define hidden noundef i64 @writeFully(i32 noundef %0, ptr noundef readonly captu
   br i1 %17, label %4, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %12, %14
-  %.0 = phi i64 [ -1, %14 ], [ -1, %12 ], [ %2, %7 ]
+  %.0 = phi i64 [ -1, %12 ], [ -1, %14 ], [ %2, %7 ]
   ret i64 %.0
 }
 
@@ -389,7 +389,7 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
   br label %writeFully.exit.thread
 
 writeFully.exit.thread:                           ; preds = %18, %20, %101, %111, %108, %89, %85, %closeSafely.exit50, %closeSafely.exit50.thread, %57, %67, %closeSafely.exit, %closeSafely.exit45, %closeSafely.exit46, %closeSafely.exit47, %closeSafely.exit48, %closeSafely.exit49, %114
-  %.033 = phi i32 [ %6, %closeSafely.exit ], [ %6, %closeSafely.exit45 ], [ %6, %closeSafely.exit46 ], [ %6, %closeSafely.exit47 ], [ %6, %closeSafely.exit48 ], [ %6, %closeSafely.exit49 ], [ %6, %57 ], [ %6, %67 ], [ %6, %closeSafely.exit50 ], [ %6, %closeSafely.exit50.thread ], [ %6, %89 ], [ 3, %108 ], [ 3, %111 ], [ 3, %114 ], [ %6, %85 ], [ 3, %101 ], [ %6, %20 ], [ %6, %18 ]
+  %.033 = phi i32 [ %6, %85 ], [ %6, %closeSafely.exit ], [ %6, %closeSafely.exit45 ], [ %6, %closeSafely.exit46 ], [ %6, %closeSafely.exit47 ], [ %6, %closeSafely.exit48 ], [ %6, %closeSafely.exit49 ], [ %6, %57 ], [ %6, %67 ], [ %6, %closeSafely.exit50 ], [ %6, %closeSafely.exit50.thread ], [ %6, %89 ], [ 3, %108 ], [ 3, %111 ], [ 3, %114 ], [ 3, %101 ], [ %6, %20 ], [ %6, %18 ]
   %122 = tail call ptr @__errno_location() #15
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %3, align 4

@@ -582,7 +582,7 @@ define internal i32 @eeepc_acpi_add(ptr noundef %0) #2 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread21, %111, %42, %52, %69, %59, %204
-  %209 = phi i32 [ %205, %204 ], [ %44, %42 ], [ -19, %52 ], [ -19, %69 ], [ -19, %59 ], [ -12, %.thread21 ], [ %112, %111 ]
+  %209 = phi i32 [ %205, %204 ], [ -19, %59 ], [ %44, %42 ], [ -19, %52 ], [ -19, %69 ], [ -12, %.thread21 ], [ %112, %111 ]
   call void @kfree(ptr noundef nonnull %8) #13
   br label %210
 
@@ -879,7 +879,7 @@ define internal fastcc noundef i32 @eeepc_rfkill_init(ptr noundef nonnull %0) un
   br label %.thread
 
 .thread:                                          ; preds = %30, %26, %24
-  %33 = phi i32 [ 0, %26 ], [ -19, %24 ], [ %spec.select, %30 ]
+  %33 = phi i32 [ -19, %24 ], [ %spec.select, %30 ], [ 0, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !annotation !7
   %34 = call i32 @acpi_get_handle(ptr noundef null, ptr noundef nonnull @EEEPC_RFKILL_NODE_1, ptr noundef nonnull %4) #13
@@ -1943,7 +1943,7 @@ define internal fastcc i32 @eeepc_new_rfkill(ptr noundef nonnull readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %14, %5, %24, %56, %50, %26
-  %58 = phi i32 [ %54, %56 ], [ -22, %26 ], [ 0, %50 ], [ -19, %24 ], [ -19, %5 ], [ -19, %14 ]
+  %58 = phi i32 [ %54, %56 ], [ 0, %50 ], [ -22, %26 ], [ -19, %24 ], [ -19, %5 ], [ -19, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %58
 }

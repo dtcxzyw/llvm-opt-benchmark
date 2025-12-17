@@ -2558,9 +2558,9 @@ _ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds =
   br label %_ZNSolsEPFRSoS_E.exit
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %694, %811, %.noexc574, %681, %816
-  %.sroa.0637.2 = phi i32 [ %.sroa.0637.0, %681 ], [ %.sroa.0637.0, %.noexc574 ], [ %814, %811 ], [ %.sroa.0637.0, %694 ], [ %.sroa.0637.0, %816 ]
-  %.sroa.7641.2 = phi i32 [ %.sroa.7641.0, %681 ], [ %.sroa.7641.0, %.noexc574 ], [ %815, %811 ], [ %.sroa.7641.0, %694 ], [ %.sroa.7641.0, %816 ]
-  %817 = phi i1 [ true, %681 ], [ false, %.noexc574 ], [ false, %811 ], [ false, %694 ], [ false, %816 ]
+  %.sroa.0637.2 = phi i32 [ %.sroa.0637.0, %.noexc574 ], [ %.sroa.0637.0, %681 ], [ %814, %811 ], [ %.sroa.0637.0, %694 ], [ %.sroa.0637.0, %816 ]
+  %.sroa.7641.2 = phi i32 [ %.sroa.7641.0, %.noexc574 ], [ %.sroa.7641.0, %681 ], [ %815, %811 ], [ %.sroa.7641.0, %694 ], [ %.sroa.7641.0, %816 ]
+  %817 = phi i1 [ false, %.noexc574 ], [ true, %681 ], [ false, %811 ], [ false, %694 ], [ false, %816 ]
   %818 = load ptr, ptr %102, align 8, !tbaa !130
   %.not.i.i.i = icmp eq ptr %818, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %819
@@ -2593,7 +2593,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv6P
   br i1 %817, label %828, label %640
 
 822:                                              ; preds = %.loopexit661, %.loopexit.split-lp662, %725, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit425, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422, %669, %667, %659, %657
-  %.pn174.pn = phi { ptr, i32 } [ %689, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit425 ], [ %.pn163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %670, %669 ], [ %668, %667 ], [ %660, %659 ], [ %658, %657 ], [ %726, %725 ], [ %lpad.loopexit663, %.loopexit661 ], [ %lpad.loopexit.split-lp664, %.loopexit.split-lp662 ]
+  %.pn174.pn = phi { ptr, i32 } [ %658, %657 ], [ %689, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit425 ], [ %.pn163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422 ], [ %670, %669 ], [ %668, %667 ], [ %726, %725 ], [ %660, %659 ], [ %lpad.loopexit663, %.loopexit661 ], [ %lpad.loopexit.split-lp664, %.loopexit.split-lp662 ]
   %823 = load ptr, ptr %102, align 8, !tbaa !130
   %.not.i.i.i464 = icmp eq ptr %823, null
   br i1 %.not.i.i.i464, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit465, label %824
@@ -4350,7 +4350,7 @@ _ZN2cv5aruco5BoardD2Ev.exit:                      ; preds = %_ZN2cv5aruco15Charu
   br label %1390
 
 1385:                                             ; preds = %.loopexit, %.loopexit.split-lp, %.body484, %827
-  %.pn201 = phi { ptr, i32 } [ %.pn193.pn.pn.pn.pn, %.body484 ], [ %.pn174.pn.pn, %827 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn201 = phi { ptr, i32 } [ %.pn174.pn.pn, %827 ], [ %.pn193.pn.pn.pn.pn, %.body484 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %94) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @_ZNSt6vectorIS_IN2cv7Point3_IfEESaIS2_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %93) #24
@@ -4439,7 +4439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit566: ; preds = %13
   br label %.body339
 
 .body339:                                         ; preds = %357, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i, %.body352
-  %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn, %.body352 ], [ %.pn14.pn.i, %357 ], [ %338, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i ]
+  %.pn201.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn201.pn.pn.pn.pn.pn.pn.pn.pn, %.body352 ], [ %338, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i ], [ %.pn14.pn.i, %357 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %1399
 

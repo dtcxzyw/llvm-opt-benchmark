@@ -1742,7 +1742,7 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %20, %._crit_edge, %46, %32
-  %.060 = phi i32 [ -268435455, %32 ], [ %50, %46 ], [ %99, %._crit_edge ], [ 0, %20 ], [ 0, %22 ]
+  %.060 = phi i32 [ %99, %._crit_edge ], [ -268435455, %32 ], [ %50, %46 ], [ 0, %20 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3764,8 +3764,8 @@ define internal fastcc void @dissect_tlv_common_hello_parms(ptr noundef %0, ptr 
   %16 = and i16 %15, 8192
   %.not = icmp eq i16 %16, 0
   %.not28 = icmp sgt i16 %15, -1
-  %ei_ldp_gtsm_supported.ei_ldp_dtsm_and_target = select i1 %.not28, ptr @ei_ldp_gtsm_supported, ptr @ei_ldp_dtsm_and_target
   %ei_ldp_gtsm_not_supported.ei_ldp_gtsm_not_supported_basic_discovery = select i1 %.not28, ptr @ei_ldp_gtsm_not_supported, ptr @ei_ldp_gtsm_not_supported_basic_discovery
+  %ei_ldp_gtsm_supported.ei_ldp_dtsm_and_target = select i1 %.not28, ptr @ei_ldp_gtsm_supported, ptr @ei_ldp_dtsm_and_target
   %ei_ldp_gtsm_not_supported_basic_discovery.sink = select i1 %.not, ptr %ei_ldp_gtsm_not_supported.ei_ldp_gtsm_not_supported_basic_discovery, ptr %ei_ldp_gtsm_supported.ei_ldp_dtsm_and_target
   %17 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %13, ptr noundef nonnull %ei_ldp_gtsm_not_supported_basic_discovery.sink)
   %18 = load i32, ptr @hf_ldp_tlv_val_res, align 4

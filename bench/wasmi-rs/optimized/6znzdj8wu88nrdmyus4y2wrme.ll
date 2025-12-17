@@ -297,8 +297,8 @@ define { i64, i64 } @"_ZN119_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$co
   br label %14
 
 14:                                               ; preds = %2, %2, %13, %12
-  %.sroa.03.0 = phi i64 [ 2, %12 ], [ 3, %13 ], [ %0, %2 ], [ %0, %2 ]
-  %.sroa.5.0 = phi i64 [ undef, %12 ], [ %1, %13 ], [ undef, %2 ], [ undef, %2 ]
+  %.sroa.03.0 = phi i64 [ 3, %13 ], [ %0, %2 ], [ 2, %12 ], [ %0, %2 ]
+  %.sroa.5.0 = phi i64 [ %1, %13 ], [ undef, %2 ], [ undef, %12 ], [ undef, %2 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.5.0, 1
   ret { i64, i64 } %16
@@ -351,8 +351,8 @@ define { i64, i64 } @"_ZN117_$LT$wasmi_core..limiter..LimiterError$u20$as$u20$co
   br label %15
 
 15:                                               ; preds = %2, %14, %13, %12
-  %.sroa.03.0 = phi i64 [ 2, %12 ], [ 1, %13 ], [ 3, %14 ], [ %0, %2 ]
-  %.sroa.5.0 = phi i64 [ undef, %12 ], [ undef, %13 ], [ %1, %14 ], [ undef, %2 ]
+  %.sroa.03.0 = phi i64 [ 3, %14 ], [ 2, %12 ], [ 1, %13 ], [ %0, %2 ]
+  %.sroa.5.0 = phi i64 [ %1, %14 ], [ undef, %12 ], [ undef, %13 ], [ undef, %2 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.5.0, 1
   ret { i64, i64 } %17

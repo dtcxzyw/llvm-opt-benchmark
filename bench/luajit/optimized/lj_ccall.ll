@@ -77,7 +77,7 @@ define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %0, ptr noundef readonly cap
   br label %38
 
 38:                                               ; preds = %6, %19, %25, %35, %31, %2, %37, %36
-  %.0 = phi i32 [ 3, %36 ], [ 17, %37 ], [ 14, %2 ], [ %22, %19 ], [ %27, %25 ], [ %12, %35 ], [ 14, %31 ], [ 19, %6 ]
+  %.0 = phi i32 [ 17, %37 ], [ 14, %2 ], [ 14, %31 ], [ 3, %36 ], [ %22, %19 ], [ %27, %25 ], [ %12, %35 ], [ 19, %6 ]
   ret i32 %.0
 }
 
@@ -500,10 +500,10 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
   br i1 %200, label %._crit_edge269.i, label %.thread233.i
 
 ._crit_edge269.i:                                 ; preds = %198, %.thread230.i, %137
-  %.pre-phi271.i = phi i32 [ 1, %.thread230.i ], [ %202, %198 ], [ %140, %137 ]
-  %203 = phi i32 [ %197, %.thread230.i ], [ %202, %198 ], [ %140, %137 ]
-  %204 = phi i32 [ %196, %.thread230.i ], [ %201, %198 ], [ %139, %137 ]
-  %205 = phi i1 [ false, %.thread230.i ], [ true, %198 ], [ false, %137 ]
+  %.pre-phi271.i = phi i32 [ %202, %198 ], [ 1, %.thread230.i ], [ %140, %137 ]
+  %203 = phi i32 [ %202, %198 ], [ %197, %.thread230.i ], [ %140, %137 ]
+  %204 = phi i32 [ %201, %198 ], [ %196, %.thread230.i ], [ %139, %137 ]
+  %205 = phi i1 [ true, %198 ], [ false, %.thread230.i ], [ false, %137 ]
   %206 = add nuw nsw i32 %.pre-phi271.i, %.0179248.i
   %207 = icmp ult i32 %206, 9
   %208 = zext nneg i32 %.0179248.i to i64
@@ -606,7 +606,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %261, %258, %254, %251
-  %.sink287.i = phi i32 [ %253, %251 ], [ %256, %254 ], [ %260, %258 ], [ %263, %261 ]
+  %.sink287.i = phi i32 [ %256, %254 ], [ %253, %251 ], [ %260, %258 ], [ %263, %261 ]
   store i32 %.sink287.i, ptr %.3160.i, align 4, !tbaa !45
   br label %264
 
@@ -835,8 +835,8 @@ ccall_get_results.exit:                           ; preds = %362, %365
   %369 = icmp sgt i32 %368, 0
   br i1 %369, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %358, %347, %316, %ccall_struct_ret.exit.i, %ccall_get_results.exit
-  %.in.ph = phi i32 [ 1, %358 ], [ 1, %347 ], [ 1, %316 ], [ 1, %ccall_struct_ret.exit.i ], [ %368, %ccall_get_results.exit ]
+.lr.ph.preheader:                                 ; preds = %347, %316, %ccall_struct_ret.exit.i, %358, %ccall_get_results.exit
+  %.in.ph = phi i32 [ 1, %347 ], [ 1, %316 ], [ 1, %ccall_struct_ret.exit.i ], [ 1, %358 ], [ %368, %ccall_get_results.exit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %379

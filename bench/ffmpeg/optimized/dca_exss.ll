@@ -1167,7 +1167,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
   br label %parse_descriptor.exit.thread
 
 .critedge208.i:                                   ; preds = %.preheader.i, %._crit_edge260.us.i, %.loopexit.i, %673, %670
-  %777 = phi i32 [ %.promoted261.us303.i, %.loopexit.i ], [ %spec.select.i221.i, %673 ], [ %671, %670 ], [ %770, %._crit_edge260.us.i ], [ %.promoted261.us303.i, %.preheader.i ]
+  %777 = phi i32 [ %671, %670 ], [ %.promoted261.us303.i, %.loopexit.i ], [ %spec.select.i221.i, %673 ], [ %770, %._crit_edge260.us.i ], [ %.promoted261.us303.i, %.preheader.i ]
   %778 = lshr i32 %777, 3
   %779 = zext nneg i32 %778 to i64
   %780 = getelementptr inbounds nuw i8, ptr %281, i64 %779
@@ -1465,8 +1465,8 @@ default.unreachable:                              ; preds = %.critedge208.i
   unreachable
 
 967:                                              ; preds = %920, %916, %914
-  %.val.i.pre.i = phi i32 [ %.val.i.pre.pre306.i, %914 ], [ %919, %916 ], [ %.val.i.pre.pre.i, %920 ]
-  %968 = phi i32 [ %908, %914 ], [ %908, %916 ], [ %.pre304.i, %920 ]
+  %.val.i.pre.i = phi i32 [ %919, %916 ], [ %.val.i.pre.pre.i, %920 ], [ %.val.i.pre.pre306.i, %914 ]
+  %968 = phi i32 [ %908, %916 ], [ %.pre304.i, %920 ], [ %908, %914 ]
   %969 = and i32 %968, 512
   %.not204.i = icmp eq i32 %969, 0
   br i1 %.not204.i, label %.thread324.i, label %970
@@ -1678,8 +1678,8 @@ ff_dca_seek_bits.exit:                            ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1075, i32 noundef 16, ptr noundef nonnull @.str.6) #8
   br label %parse_descriptor.exit.thread
 
-parse_descriptor.exit.thread:                     ; preds = %338, %134, %133, %149, %148, %776, %.split.us.i, %.thread235.i, %993, %995, %ff_dca_seek_bits.exit, %1074, %1076, %1062, %1064, %276, %277, %87, %88, %3, %ff_dca_check_crc.exit.thread
-  %.0 = phi i32 [ -1094995529, %ff_dca_check_crc.exit.thread ], [ -1094995529, %3 ], [ -1094995529, %88 ], [ -1094995529, %87 ], [ -1094995529, %277 ], [ -1094995529, %276 ], [ -1094995529, %1064 ], [ -1094995529, %1062 ], [ -1094995529, %1076 ], [ -1094995529, %1074 ], [ 0, %ff_dca_seek_bits.exit ], [ -1094995529, %995 ], [ -1094995529, %993 ], [ -1094995529, %.thread235.i ], [ -1094995529, %.split.us.i ], [ -1094995529, %776 ], [ -1163346256, %148 ], [ -1163346256, %149 ], [ -1163346256, %133 ], [ -1163346256, %134 ], [ -1094995529, %338 ]
+parse_descriptor.exit.thread:                     ; preds = %338, %148, %133, %134, %149, %.split.us.i, %995, %776, %.thread235.i, %993, %ff_dca_seek_bits.exit, %1074, %1076, %1062, %1064, %276, %277, %87, %88, %3, %ff_dca_check_crc.exit.thread
+  %.0 = phi i32 [ -1163346256, %148 ], [ -1094995529, %ff_dca_check_crc.exit.thread ], [ -1094995529, %3 ], [ -1094995529, %87 ], [ -1094995529, %276 ], [ 0, %ff_dca_seek_bits.exit ], [ -1094995529, %1062 ], [ -1094995529, %1074 ], [ -1094995529, %88 ], [ -1094995529, %277 ], [ -1094995529, %1064 ], [ -1094995529, %1076 ], [ -1094995529, %993 ], [ -1094995529, %.thread235.i ], [ -1094995529, %776 ], [ -1094995529, %995 ], [ -1094995529, %.split.us.i ], [ -1163346256, %149 ], [ -1163346256, %134 ], [ -1163346256, %133 ], [ -1094995529, %338 ]
   ret i32 %.0
 }
 

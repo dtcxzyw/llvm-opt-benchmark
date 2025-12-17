@@ -253,14 +253,14 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   br i1 %92, label %.lr.ph189.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %86, %64
-  %.2160.lcssa.i = phi ptr [ %87, %86 ], [ %.2160178.i, %64 ]
-  %.3114.in.lcssa.i = phi i8 [ %88, %86 ], [ %.3114.in179.i, %64 ]
-  %.1106.lcssa.i = phi i32 [ %.2107.i, %86 ], [ 1, %64 ]
-  %.3103.lcssa.i = phi i32 [ %.4104.i, %86 ], [ %.3103182.i, %64 ]
-  %.094.lcssa.i = phi i32 [ %.296.i, %86 ], [ %.094183.i, %64 ]
-  %.089.lcssa.i = phi x86_fp80 [ %.291.i, %86 ], [ %.089184.i, %64 ]
-  %.284.lcssa.i = phi i64 [ %.3.i, %86 ], [ %.284186.i, %64 ]
-  %.080.lcssa.i = phi i64 [ %.181.i, %86 ], [ %.080187.i, %64 ]
+  %.2160.lcssa.i = phi ptr [ %.2160178.i, %64 ], [ %87, %86 ]
+  %.3114.in.lcssa.i = phi i8 [ %.3114.in179.i, %64 ], [ %88, %86 ]
+  %.1106.lcssa.i = phi i32 [ 1, %64 ], [ %.2107.i, %86 ]
+  %.3103.lcssa.i = phi i32 [ %.3103182.i, %64 ], [ %.4104.i, %86 ]
+  %.094.lcssa.i = phi i32 [ %.094183.i, %64 ], [ %.296.i, %86 ]
+  %.089.lcssa.i = phi x86_fp80 [ %.089184.i, %64 ], [ %.291.i, %86 ]
+  %.284.lcssa.i = phi i64 [ %.284186.i, %64 ], [ %.3.i, %86 ]
+  %.080.lcssa.i = phi i64 [ %.080187.i, %64 ], [ %.181.i, %86 ]
   %.not122.i = icmp eq i32 %.3103.lcssa.i, 0
   br i1 %.not122.i, label %93, label %95
 
@@ -616,10 +616,10 @@ ifallzero.exit69.i:                               ; preds = %.preheader111.i
   br i1 %isdigit55.i, label %.lr.ph.i101, label %.loopexit.i71, !llvm.loop !19
 
 .loopexit.i71:                                    ; preds = %.lr.ph.i101, %.preheader110.i, %ifallzero.exit69.i, %190
-  %.1102.i = phi ptr [ %storemerge63.i.lcssa, %190 ], [ %storemerge116.i, %.preheader110.i ], [ %.08.i66.i, %ifallzero.exit69.i ], [ %storemerge.i, %.lr.ph.i101 ]
-  %.145.i = phi i32 [ %.044.i.lcssa, %190 ], [ %.246118.i, %.preheader110.i ], [ %.0.i67.i, %ifallzero.exit69.i ], [ %.246.i, %.lr.ph.i101 ]
-  %.136.i = phi i64 [ %.035.i.lcssa, %190 ], [ %.035.i.lcssa, %.preheader110.i ], [ %.lcssa126, %ifallzero.exit69.i ], [ %194, %.lr.ph.i101 ]
-  %.034.i = phi i64 [ 0, %190 ], [ 0, %.preheader110.i ], [ 0, %ifallzero.exit69.i ], [ %195, %.lr.ph.i101 ]
+  %.1102.i = phi ptr [ %.08.i66.i, %ifallzero.exit69.i ], [ %storemerge63.i.lcssa, %190 ], [ %storemerge116.i, %.preheader110.i ], [ %storemerge.i, %.lr.ph.i101 ]
+  %.145.i = phi i32 [ %.0.i67.i, %ifallzero.exit69.i ], [ %.044.i.lcssa, %190 ], [ %.246118.i, %.preheader110.i ], [ %.246.i, %.lr.ph.i101 ]
+  %.136.i = phi i64 [ %.lcssa126, %ifallzero.exit69.i ], [ %.035.i.lcssa, %190 ], [ %.035.i.lcssa, %.preheader110.i ], [ %194, %.lr.ph.i101 ]
+  %.034.i = phi i64 [ 0, %ifallzero.exit69.i ], [ 0, %190 ], [ 0, %.preheader110.i ], [ %195, %.lr.ph.i101 ]
   %196 = and i32 %.145.i, -33
   %197 = icmp eq i32 %196, 69
   br i1 %197, label %198, label %228
@@ -868,13 +868,13 @@ ifallzero.exit79.i:                               ; preds = %243
   br label %285
 
 hexfloat.exit:                                    ; preds = %.lr.ph.split.i.i75, %.lr.ph.split.us.i.i83, %.lr.ph.split.i140.i, %.lr.ph.split.us.i.i, %271, %255, %232, %227, %226, %169, %139, %132, %126, %94, %93
-  %.056 = phi x86_fp80 [ 0xK7FFF8000000000000000, %132 ], [ 0xK00000000000000000000, %139 ], [ 0xK00000000000000000000, %93 ], [ 0xK00000000000000000000, %94 ], [ 0xK00000000000000000000, %126 ], [ %165, %169 ], [ %256, %255 ], [ 0xK00000000000000000000, %226 ], [ 0xK00000000000000000000, %227 ], [ 0xK00000000000000000000, %232 ], [ %.240.i, %271 ], [ %.1.us.i.i, %.lr.ph.split.us.i.i ], [ %spec.select23.i145.i, %.lr.ph.split.i140.i ], [ %.1.us.i.i88, %.lr.ph.split.us.i.i83 ], [ %spec.select23.i.i79, %.lr.ph.split.i.i75 ]
+  %.056 = phi x86_fp80 [ 0xK7FFF8000000000000000, %132 ], [ 0xK00000000000000000000, %139 ], [ 0xK00000000000000000000, %126 ], [ 0xK00000000000000000000, %94 ], [ 0xK00000000000000000000, %93 ], [ %165, %169 ], [ 0xK00000000000000000000, %232 ], [ 0xK00000000000000000000, %227 ], [ %256, %255 ], [ 0xK00000000000000000000, %226 ], [ %.240.i, %271 ], [ %.1.us.i.i88, %.lr.ph.split.us.i.i83 ], [ %.1.us.i.i, %.lr.ph.split.us.i.i ], [ %spec.select23.i145.i, %.lr.ph.split.i140.i ], [ %spec.select23.i.i79, %.lr.ph.split.i.i75 ]
   %283 = fneg x86_fp80 %.056
   %284 = select i1 %.158, x86_fp80 %283, x86_fp80 %.056
   br label %285
 
 285:                                              ; preds = %282, %281, %39, %.critedge3, %hexfloat.exit, %24
-  %.061 = phi x86_fp80 [ %25, %24 ], [ %284, %hexfloat.exit ], [ 0xK7FFFC000000000000000, %.critedge3 ], [ 0xK7FFFC000000000000000, %39 ], [ 0xK00000000000000000000, %281 ], [ 0xK00000000000000000000, %282 ]
+  %.061 = phi x86_fp80 [ 0xK7FFFC000000000000000, %39 ], [ %25, %24 ], [ %284, %hexfloat.exit ], [ 0xK7FFFC000000000000000, %.critedge3 ], [ 0xK00000000000000000000, %281 ], [ 0xK00000000000000000000, %282 ]
   ret x86_fp80 %.061
 }
 

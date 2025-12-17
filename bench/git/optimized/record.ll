@@ -66,7 +66,7 @@ define dso_local i32 @get_var_int(ptr noundef writeonly captures(none) %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %2, %._crit_edge
-  %.020 = phi i32 [ %22, %._crit_edge ], [ -1, %2 ], [ -1, %11 ]
+  %.020 = phi i32 [ -1, %2 ], [ %22, %._crit_edge ], [ -1, %11 ]
   ret i32 %.020
 }
 
@@ -159,7 +159,7 @@ define dso_local ptr @reftable_ref_record_val1(ptr noundef readonly captures(ret
   br label %8
 
 8:                                                ; preds = %1, %6, %4
-  %.0 = phi ptr [ %5, %4 ], [ %7, %6 ], [ null, %1 ]
+  %.0 = phi ptr [ %7, %6 ], [ %5, %4 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -541,7 +541,7 @@ reftable_decode_keylen.exit:                      ; preds = %get_var_int.exit27.
   br label %reftable_decode_keylen.exit.thread
 
 reftable_decode_keylen.exit.thread:               ; preds = %10, %30, %22, %4, %get_var_int.exit27.i, %get_var_int.exit.i, %61, %58, %49, %54, %reftable_decode_keylen.exit, %64
-  %.0 = phi i32 [ %66, %64 ], [ -1, %reftable_decode_keylen.exit ], [ -1, %54 ], [ -1, %49 ], [ %59, %58 ], [ %62, %61 ], [ -1, %get_var_int.exit.i ], [ -1, %get_var_int.exit27.i ], [ -1, %4 ], [ -1, %22 ], [ -1, %30 ], [ -1, %10 ]
+  %.0 = phi i32 [ %66, %64 ], [ -1, %reftable_decode_keylen.exit ], [ -1, %49 ], [ %59, %58 ], [ -1, %54 ], [ %62, %61 ], [ -1, %get_var_int.exit.i ], [ -1, %get_var_int.exit27.i ], [ -1, %4 ], [ -1, %22 ], [ -1, %30 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -721,7 +721,7 @@ define dso_local range(i32 0, 2) i32 @reftable_log_record_equal(ptr noundef read
   unreachable
 
 59:                                               ; preds = %20, %28, %34, %40, %46, %52, %56, %19, %3, %7, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %7 ], [ 0, %3 ], [ 1, %19 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %20 ], [ %57, %56 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %19 ], [ 0, %13 ], [ 0, %7 ], [ 0, %52 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %20 ], [ %57, %56 ]
   ret i32 %.0
 }
 
@@ -752,7 +752,7 @@ define dso_local i32 @reftable_record_key(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 reftable_record_data.exit:                        ; preds = %5, %4, %3, %2
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %3 ], [ @reftable_index_record_vtable, %4 ], [ @reftable_obj_record_vtable, %5 ], [ @reftable_ref_record_vtable, %2 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %5 ], [ @reftable_log_record_vtable, %3 ], [ @reftable_index_record_vtable, %4 ], [ @reftable_ref_record_vtable, %2 ]
   %7 = load ptr, ptr %.0.i, align 8, !tbaa !31
   %.0.i3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 %7(ptr noundef nonnull %.0.i3, ptr noundef %1) #17
@@ -783,7 +783,7 @@ define dso_local i32 @reftable_record_encode(ptr noundef %0, ptr %1, i64 %2, i32
   unreachable
 
 reftable_record_data.exit:                        ; preds = %7, %6, %5, %4
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %5 ], [ @reftable_index_record_vtable, %6 ], [ @reftable_obj_record_vtable, %7 ], [ @reftable_ref_record_vtable, %4 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %7 ], [ @reftable_log_record_vtable, %5 ], [ @reftable_index_record_vtable, %6 ], [ @reftable_ref_record_vtable, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -815,7 +815,7 @@ define dso_local i32 @reftable_record_copy_from(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 reftable_record_data.exit:                        ; preds = %6, %5, %4, %3
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %4 ], [ @reftable_index_record_vtable, %5 ], [ @reftable_obj_record_vtable, %6 ], [ @reftable_ref_record_vtable, %3 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %6 ], [ @reftable_log_record_vtable, %4 ], [ @reftable_index_record_vtable, %5 ], [ @reftable_ref_record_vtable, %3 ]
   %8 = load i8, ptr %1, align 8, !tbaa !29
   switch i8 %8, label %9 [
     i8 114, label %reftable_record_data.exit5
@@ -861,7 +861,7 @@ define dso_local zeroext i8 @reftable_record_val_type(ptr noundef %0) local_unna
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -893,7 +893,7 @@ define dso_local i32 @reftable_record_decode(ptr noundef %0, ptr noundef readonl
   unreachable
 
 reftable_record_data.exit:                        ; preds = %10, %9, %8, %7
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %8 ], [ @reftable_index_record_vtable, %9 ], [ @reftable_obj_record_vtable, %10 ], [ @reftable_ref_record_vtable, %7 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %10 ], [ @reftable_log_record_vtable, %8 ], [ @reftable_index_record_vtable, %9 ], [ @reftable_ref_record_vtable, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %.0.i4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -925,7 +925,7 @@ define dso_local void @reftable_record_release(ptr noundef %0) local_unnamed_add
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -957,7 +957,7 @@ define dso_local i32 @reftable_record_is_deletion(ptr noundef %0) local_unnamed_
   unreachable
 
 reftable_record_data.exit:                        ; preds = %4, %3, %2, %1
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_obj_record_vtable, %4 ], [ @reftable_ref_record_vtable, %1 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %4 ], [ @reftable_log_record_vtable, %2 ], [ @reftable_index_record_vtable, %3 ], [ @reftable_ref_record_vtable, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   %.0.i2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -998,7 +998,7 @@ define dso_local i32 @reftable_record_cmp(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 reftable_record_data.exit7:                       ; preds = %6, %7, %8, %9
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_obj_record_vtable, %9 ], [ @reftable_ref_record_vtable, %6 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %9 ], [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_ref_record_vtable, %6 ]
   %.0.i5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !39
@@ -1039,7 +1039,7 @@ define dso_local i32 @reftable_record_equal(ptr noundef %0, ptr noundef %1, i32 
   unreachable
 
 reftable_record_data.exit8:                       ; preds = %6, %7, %8, %9
-  %.0.i = phi ptr [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_obj_record_vtable, %9 ], [ @reftable_ref_record_vtable, %6 ]
+  %.0.i = phi ptr [ @reftable_obj_record_vtable, %9 ], [ @reftable_log_record_vtable, %7 ], [ @reftable_index_record_vtable, %8 ], [ @reftable_ref_record_vtable, %6 ]
   %.0.i6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !40
@@ -1125,7 +1125,7 @@ define dso_local range(i32 0, 2) i32 @reftable_ref_record_equal(ptr noundef read
   unreachable
 
 36:                                               ; preds = %17, %24, %28, %7, %12, %3, %31, %18
-  %.0.shrunk = phi i1 [ %.not22, %18 ], [ %.not.i29, %31 ], [ false, %3 ], [ false, %12 ], [ false, %7 ], [ false, %24 ], [ %.not.i26, %28 ], [ true, %17 ]
+  %.0.shrunk = phi i1 [ false, %3 ], [ %.not22, %18 ], [ false, %7 ], [ %.not.i29, %31 ], [ %.not.i26, %28 ], [ false, %12 ], [ false, %24 ], [ true, %17 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1519,7 +1519,7 @@ encode_string.exit:                               ; preds = %51
   br label %encode_string.exit.thread
 
 encode_string.exit.thread:                        ; preds = %put_var_int.exit.thread.i, %51, %put_var_int.exit.i, %put_var_int.exit.thread, %73, %61, %encode_string.exit, %put_var_int.exit, %81
-  %.0 = phi i32 [ %83, %81 ], [ -1, %put_var_int.exit ], [ -1, %encode_string.exit ], [ -1, %61 ], [ -1, %73 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit.i ], [ -1, %51 ], [ -1, %put_var_int.exit.thread.i ]
+  %.0 = phi i32 [ -1, %61 ], [ -1, %put_var_int.exit ], [ %83, %81 ], [ -1, %encode_string.exit ], [ -1, %73 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit.i ], [ -1, %51 ], [ -1, %put_var_int.exit.thread.i ]
   ret i32 %.0
 }
 
@@ -1768,7 +1768,7 @@ decode_string.exit:                               ; preds = %97
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %13, %80, %74, %97, %93, %get_var_int.exit.i, %decode_string.exit, %7, %reftable_alloc_grow.exit, %thread-pre-split, %55, %62, %get_var_int.exit, %109
-  %.0 = phi i32 [ %111, %109 ], [ %24, %get_var_int.exit ], [ -13, %thread-pre-split ], [ -3, %55 ], [ -3, %62 ], [ -13, %reftable_alloc_grow.exit ], [ -1, %7 ], [ -3, %decode_string.exit ], [ -3, %get_var_int.exit.i ], [ -3, %93 ], [ -3, %97 ], [ -3, %74 ], [ -3, %80 ], [ -1, %13 ]
+  %.0 = phi i32 [ %24, %get_var_int.exit ], [ %111, %109 ], [ -13, %thread-pre-split ], [ -3, %55 ], [ -3, %62 ], [ -13, %reftable_alloc_grow.exit ], [ -1, %7 ], [ -3, %decode_string.exit ], [ -3, %get_var_int.exit.i ], [ -3, %93 ], [ -3, %97 ], [ -3, %74 ], [ -3, %80 ], [ -1, %13 ]
   ret i32 %.0
 }
 
@@ -2064,7 +2064,7 @@ reftable_log_record_release.exit:                 ; preds = %3, %7
   br label %45
 
 45:                                               ; preds = %38, %40, %17, %36, %15
-  %.0 = phi i32 [ -13, %15 ], [ -13, %38 ], [ -13, %36 ], [ 0, %17 ], [ 0, %40 ]
+  %.0 = phi i32 [ -13, %36 ], [ -13, %15 ], [ 0, %40 ], [ -13, %38 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2359,7 +2359,7 @@ encode_string.exit61:                             ; preds = %130
   br label %encode_string.exit.thread
 
 encode_string.exit.thread:                        ; preds = %put_var_int.exit.thread.i60, %130, %put_var_int.exit.i56, %put_var_int.exit.thread.i47, %72, %put_var_int.exit.i43, %put_var_int.exit.thread.i, %42, %put_var_int.exit.i, %put_var_int.exit.thread, %encode_string.exit61, %101, %put_var_int.exit, %encode_string.exit48, %encode_string.exit, %11, %4, %137
-  %.0 = phi i32 [ %139, %137 ], [ 0, %4 ], [ -1, %11 ], [ -1, %encode_string.exit ], [ -1, %encode_string.exit48 ], [ -1, %put_var_int.exit ], [ -1, %101 ], [ -1, %encode_string.exit61 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit.i ], [ -1, %42 ], [ -1, %put_var_int.exit.thread.i ], [ -1, %put_var_int.exit.i43 ], [ -1, %72 ], [ -1, %put_var_int.exit.thread.i47 ], [ -1, %put_var_int.exit.i56 ], [ -1, %130 ], [ -1, %put_var_int.exit.thread.i60 ]
+  %.0 = phi i32 [ %139, %137 ], [ 0, %4 ], [ -1, %11 ], [ -1, %encode_string.exit ], [ -1, %encode_string.exit48 ], [ -1, %put_var_int.exit ], [ -1, %101 ], [ -1, %encode_string.exit61 ], [ -1, %put_var_int.exit.thread.i47 ], [ -1, %put_var_int.exit.thread.i ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit.i ], [ -1, %42 ], [ -1, %put_var_int.exit.i43 ], [ -1, %72 ], [ -1, %put_var_int.exit.i56 ], [ -1, %130 ], [ -1, %put_var_int.exit.thread.i60 ]
   ret i32 %.0
 }
 
@@ -2734,7 +2734,7 @@ reftable_alloc_grow.exit124:                      ; preds = %191
   br label %decode_string.exit.thread
 
 decode_string.exit.thread:                        ; preds = %102, %.thread, %89, %119, %115, %get_var_int.exit.i, %159, %135, %reftable_alloc_grow.exit, %thread-pre-split, %85, %decode_string.exit, %146, %170, %173, %179, %._crit_edge, %83, %7, %14, %208
-  %.0 = phi i32 [ %217, %208 ], [ -3, %14 ], [ -3, %7 ], [ 0, %83 ], [ -13, %thread-pre-split ], [ -3, %85 ], [ -3, %decode_string.exit ], [ -3, %146 ], [ -3, %170 ], [ -3, %173 ], [ -3, %179 ], [ -13, %._crit_edge ], [ -13, %reftable_alloc_grow.exit ], [ -13, %135 ], [ -13, %159 ], [ -3, %get_var_int.exit.i ], [ -3, %115 ], [ -3, %119 ], [ -3, %89 ], [ -13, %.thread ], [ -3, %102 ]
+  %.0 = phi i32 [ %217, %208 ], [ -3, %7 ], [ -3, %14 ], [ 0, %83 ], [ -13, %thread-pre-split ], [ -3, %85 ], [ -3, %decode_string.exit ], [ -3, %146 ], [ -3, %170 ], [ -3, %173 ], [ -3, %179 ], [ -13, %135 ], [ -13, %159 ], [ -13, %._crit_edge ], [ -13, %reftable_alloc_grow.exit ], [ -3, %get_var_int.exit.i ], [ -3, %115 ], [ -3, %119 ], [ -3, %89 ], [ -13, %.thread ], [ -3, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2945,7 +2945,7 @@ get_var_int.exit:                                 ; preds = %22, %16
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %21, %get_var_int.exit, %15, %7
-  %.0 = phi i32 [ %13, %7 ], [ -1, %15 ], [ %32, %get_var_int.exit ], [ -1, %21 ]
+  %.0 = phi i32 [ %13, %7 ], [ %32, %get_var_int.exit ], [ -1, %15 ], [ -1, %21 ]
   ret i32 %.0
 }
 
@@ -3076,7 +3076,7 @@ st_mult.exit.i:                                   ; preds = %30
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %st_mult.exit.i, %24, %st_mult.exit, %3
-  %.0 = phi i32 [ -13, %3 ], [ -13, %st_mult.exit ], [ 0, %24 ], [ 0, %st_mult.exit.i ]
+  %.0 = phi i32 [ -13, %st_mult.exit ], [ -13, %3 ], [ 0, %24 ], [ 0, %st_mult.exit.i ]
   ret i32 %.0
 }
 
@@ -3290,7 +3290,7 @@ put_var_int.exit48:                               ; preds = %._crit_edge.i45
   br label %.critedge
 
 .critedge:                                        ; preds = %put_var_int.exit48, %put_var_int.exit48.thread, %put_var_int.exit39.thread, %put_var_int.exit.thread, %put_var_int.exit39, %put_var_int.exit, %._crit_edge, %35
-  %.0 = phi i32 [ %36, %35 ], [ %95, %._crit_edge ], [ -1, %put_var_int.exit ], [ -1, %put_var_int.exit39 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit39.thread ], [ -1, %put_var_int.exit48.thread ], [ -1, %put_var_int.exit48 ]
+  %.0 = phi i32 [ %95, %._crit_edge ], [ %36, %35 ], [ -1, %put_var_int.exit ], [ -1, %put_var_int.exit39 ], [ -1, %put_var_int.exit.thread ], [ -1, %put_var_int.exit39.thread ], [ -1, %put_var_int.exit48.thread ], [ -1, %put_var_int.exit48 ]
   ret i32 %.0
 }
 
@@ -3526,7 +3526,7 @@ get_var_int.exit80:                               ; preds = %83, %77
   br label %get_var_int.exit.thread
 
 get_var_int.exit.thread:                          ; preds = %28, %59, %get_var_int.exit80, %.lr.ph, %82, %41, %52, %22, %get_var_int.exit64, %st_mult.exit, %get_var_int.exit, %7, %.thread117
-  %.0 = phi i32 [ %103, %.thread117 ], [ -13, %7 ], [ %39, %get_var_int.exit ], [ -13, %st_mult.exit ], [ %71, %get_var_int.exit64 ], [ -1, %22 ], [ -1, %52 ], [ %39, %41 ], [ -1, %82 ], [ %93, %get_var_int.exit80 ], [ -1, %.lr.ph ], [ -1, %59 ], [ -1, %28 ]
+  %.0 = phi i32 [ -13, %7 ], [ -13, %st_mult.exit ], [ %103, %.thread117 ], [ %39, %get_var_int.exit ], [ %71, %get_var_int.exit64 ], [ -1, %22 ], [ -1, %52 ], [ %39, %41 ], [ -1, %59 ], [ -1, %82 ], [ -1, %.lr.ph ], [ %93, %get_var_int.exit80 ], [ -1, %28 ]
   ret i32 %.0
 }
 
@@ -3590,7 +3590,7 @@ define internal range(i32 0, 2) i32 @reftable_obj_record_equal_void(ptr noundef 
   br label %27
 
 27:                                               ; preds = %19, %14, %3, %8, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %8 ], [ 0, %3 ], [ 0, %14 ], [ 0, %19 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %3 ], [ 0, %14 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -3626,10 +3626,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -391,7 +391,7 @@ GetToplevelForWindow.exit23:                      ; preds = %26, %23
   br label %GetToplevelForWindow.exit.thread
 
 GetToplevelForWindow.exit:                        ; preds = %33, %30
-  %phi.call = phi ptr [ null, %33 ], [ %32, %30 ]
+  %phi.call = phi ptr [ %32, %30 ], [ null, %33 ]
   %.not18 = icmp eq ptr %.0.i21, null
   br i1 %.not18, label %GetToplevelForWindow.exit.thread, label %GetToplevelForWindow.exit.thread31
 
@@ -737,7 +737,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %143, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %176 = phi i32 [ %175, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %143 ]
+  %176 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %175, %GetWindowScale.exit6.i ], [ 0, %143 ]
   %.not.i167 = icmp eq i32 %.2, 0
   br i1 %.not.i167, label %PixelToPoint.exit174, label %177
 
@@ -1045,7 +1045,7 @@ GetToplevelForWindow.exit23.i:                    ; preds = %357, %354
   br label %Wayland_SetWindowParent.exit
 
 GetToplevelForWindow.exit.i:                      ; preds = %364, %361
-  %phi.call.i = phi ptr [ null, %364 ], [ %363, %361 ]
+  %phi.call.i = phi ptr [ %363, %361 ], [ null, %364 ]
   %.not18.i = icmp eq ptr %.0.i21.i, null
   br i1 %.not18.i, label %Wayland_SetWindowParent.exit, label %GetToplevelForWindow.exit.thread31.i
 
@@ -1761,7 +1761,7 @@ FlushPendingEvents.exit:                          ; preds = %43
   br label %.thread32
 
 .thread32:                                        ; preds = %55, %55, %.thread, %65, %30, %14, %4, %67
-  %.0 = phi i32 [ 1, %67 ], [ 0, %4 ], [ 1, %14 ], [ 1, %30 ], [ %.mux, %55 ], [ 2, %65 ], [ 2, %.thread ], [ %.mux, %55 ]
+  %.0 = phi i32 [ %.mux, %55 ], [ 0, %4 ], [ 1, %14 ], [ 2, %.thread ], [ 1, %67 ], [ 1, %30 ], [ %.mux, %55 ], [ 2, %65 ]
   ret i32 %.0
 }
 
@@ -1964,7 +1964,7 @@ GetWindowScale.exit6.i.i:                         ; preds = %._crit_edge.i5.i.i,
   br label %PointToPixel.exit.i
 
 PointToPixel.exit.i:                              ; preds = %GetWindowScale.exit6.i.i, %GetWindowScale.exit.i.i, %45
-  %73 = phi i32 [ %72, %GetWindowScale.exit6.i.i ], [ 1, %GetWindowScale.exit.i.i ], [ 0, %45 ]
+  %73 = phi i32 [ 1, %GetWindowScale.exit.i.i ], [ %72, %GetWindowScale.exit6.i.i ], [ 0, %45 ]
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 300
   %75 = load i32, ptr %74, align 4
   %.not.i21.i = icmp eq i32 %75, 0
@@ -2281,7 +2281,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   store double %13, ptr %246, align 8
   br i1 %216, label %249, label %.loopexit
 
-249:                                              ; preds = %195, %247, %248
+249:                                              ; preds = %247, %195, %248
   %250 = phi i32 [ %240, %248 ], [ %240, %247 ], [ %.0155.sink, %195 ]
   %251 = phi i32 [ %., %248 ], [ %., %247 ], [ %196, %195 ]
   %.0153197 = phi i32 [ %208, %248 ], [ %208, %247 ], [ %127, %195 ]
@@ -2338,10 +2338,10 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %.not184 = icmp eq ptr %.0, null
   br i1 %.not184, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph, %212, %172, %273, %195, %247, %248
-  %.0153196 = phi i32 [ %208, %248 ], [ %208, %247 ], [ %127, %195 ], [ %.0153197, %273 ], [ %208, %212 ], [ %127, %172 ], [ %.0153197, %.lr.ph ]
-  %.0154194 = phi i32 [ %210, %248 ], [ %210, %247 ], [ %129, %195 ], [ %.0154195, %273 ], [ %210, %212 ], [ %129, %172 ], [ %.0154195, %.lr.ph ]
-  %.0158.in192 = phi i1 [ false, %248 ], [ false, %247 ], [ false, %195 ], [ true, %273 ], [ false, %212 ], [ false, %172 ], [ true, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %212, %172, %273, %247, %195, %248
+  %.0153196 = phi i32 [ %208, %248 ], [ %127, %172 ], [ %127, %195 ], [ %208, %247 ], [ %.0153197, %273 ], [ %208, %212 ], [ %.0153197, %.lr.ph ]
+  %.0154194 = phi i32 [ %210, %248 ], [ %129, %172 ], [ %129, %195 ], [ %210, %247 ], [ %.0154195, %273 ], [ %210, %212 ], [ %.0154195, %.lr.ph ]
+  %.0158.in192 = phi i1 [ false, %248 ], [ false, %172 ], [ false, %195 ], [ false, %247 ], [ true, %273 ], [ false, %212 ], [ true, %.lr.ph ]
   tail call fastcc void @SetMinMaxDimensions(ptr noundef nonnull %0)
   %277 = getelementptr inbounds nuw i8, ptr %3, i64 403
   %278 = load i8, ptr %277, align 1, !range !5, !noundef !6
@@ -2579,7 +2579,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %25, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %47 = phi i32 [ %46, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %25 ]
+  %47 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %46, %GetWindowScale.exit6.i ], [ 0, %25 ]
   %.not.i68 = icmp eq i32 %21, 0
   br i1 %.not.i68, label %PixelToPoint.exit75, label %48
 
@@ -2723,7 +2723,7 @@ GetWindowScale.exit6.i82:                         ; preds = %._crit_edge.i5.i81,
   br label %PixelToPoint.exit83
 
 PixelToPoint.exit83:                              ; preds = %92, %GetWindowScale.exit.i79, %GetWindowScale.exit6.i82
-  %123 = phi i32 [ %122, %GetWindowScale.exit6.i82 ], [ 1, %GetWindowScale.exit.i79 ], [ 0, %92 ]
+  %123 = phi i32 [ 1, %GetWindowScale.exit.i79 ], [ %122, %GetWindowScale.exit6.i82 ], [ 0, %92 ]
   %.not.i84 = icmp eq i32 %89, 0
   br i1 %.not.i84, label %PixelToPoint.exit91, label %124
 
@@ -2787,10 +2787,10 @@ GetWindowScale.exit6.i90:                         ; preds = %._crit_edge.i5.i89,
   br label %PixelToPoint.exit91
 
 PixelToPoint.exit91:                              ; preds = %GetWindowScale.exit6.i90, %GetWindowScale.exit.i87, %PixelToPoint.exit83, %88, %1, %7, %154
-  %.052 = phi i32 [ %156, %154 ], [ 0, %7 ], [ 0, %1 ], [ %.047, %88 ], [ %.047, %PixelToPoint.exit83 ], [ %.047, %GetWindowScale.exit.i87 ], [ %.047, %GetWindowScale.exit6.i90 ]
-  %.051 = phi i32 [ %158, %154 ], [ 0, %7 ], [ 0, %1 ], [ %.0, %88 ], [ %.0, %PixelToPoint.exit83 ], [ %.0, %GetWindowScale.exit.i87 ], [ %.0, %GetWindowScale.exit6.i90 ]
-  %.050 = phi i32 [ %156, %154 ], [ 0, %7 ], [ 0, %1 ], [ %83, %88 ], [ %123, %PixelToPoint.exit83 ], [ %123, %GetWindowScale.exit.i87 ], [ %123, %GetWindowScale.exit6.i90 ]
-  %.049 = phi i32 [ %158, %154 ], [ 0, %7 ], [ 0, %1 ], [ %89, %88 ], [ 0, %PixelToPoint.exit83 ], [ 1, %GetWindowScale.exit.i87 ], [ %153, %GetWindowScale.exit6.i90 ]
+  %.052 = phi i32 [ %156, %154 ], [ 0, %1 ], [ 0, %7 ], [ %.047, %88 ], [ %.047, %PixelToPoint.exit83 ], [ %.047, %GetWindowScale.exit.i87 ], [ %.047, %GetWindowScale.exit6.i90 ]
+  %.051 = phi i32 [ %158, %154 ], [ 0, %1 ], [ 0, %7 ], [ %.0, %88 ], [ %.0, %PixelToPoint.exit83 ], [ %.0, %GetWindowScale.exit.i87 ], [ %.0, %GetWindowScale.exit6.i90 ]
+  %.050 = phi i32 [ %156, %154 ], [ 0, %1 ], [ 0, %7 ], [ %83, %88 ], [ %123, %PixelToPoint.exit83 ], [ %123, %GetWindowScale.exit.i87 ], [ %123, %GetWindowScale.exit6.i90 ]
+  %.049 = phi i32 [ %158, %154 ], [ 0, %1 ], [ 0, %7 ], [ %89, %88 ], [ 0, %PixelToPoint.exit83 ], [ 1, %GetWindowScale.exit.i87 ], [ %153, %GetWindowScale.exit6.i90 ]
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %160 = load i32, ptr %159, align 8
   %161 = icmp eq i32 %160, 1
@@ -3267,7 +3267,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %111, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %142 = phi i32 [ %141, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %111 ]
+  %142 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %141, %GetWindowScale.exit6.i ], [ 0, %111 ]
   %143 = getelementptr inbounds nuw i8, ptr %19, i64 296
   store i32 %142, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 132
@@ -3328,7 +3328,7 @@ GetWindowScale.exit6.i182:                        ; preds = %._crit_edge.i5.i181
   br label %PixelToPoint.exit183
 
 PixelToPoint.exit183:                             ; preds = %PixelToPoint.exit, %GetWindowScale.exit.i179, %GetWindowScale.exit6.i182
-  %176 = phi i32 [ %175, %GetWindowScale.exit6.i182 ], [ 1, %GetWindowScale.exit.i179 ], [ 0, %PixelToPoint.exit ]
+  %176 = phi i32 [ 1, %GetWindowScale.exit.i179 ], [ %175, %GetWindowScale.exit6.i182 ], [ 0, %PixelToPoint.exit ]
   %177 = getelementptr inbounds nuw i8, ptr %19, i64 300
   store i32 %176, ptr %177, align 4
   %178 = load i32, ptr %106, align 8
@@ -3708,7 +3708,7 @@ Wayland_SuspendScreenSaver.exit:                  ; preds = %.thread.i, %339, %3
   br label %404
 
 404:                                              ; preds = %332, %17, %388
-  %.0 = phi i1 [ true, %388 ], [ false, %17 ], [ false, %332 ]
+  %.0 = phi i1 [ false, %17 ], [ true, %388 ], [ false, %332 ]
   ret i1 %.0
 }
 
@@ -4043,7 +4043,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %45, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %78 = phi i32 [ %77, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %45 ]
+  %78 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %77, %GetWindowScale.exit6.i ], [ 0, %45 ]
   %.not.i24 = icmp eq i32 %.2, 0
   br i1 %.not.i24, label %PixelToPoint.exit31, label %79
 
@@ -4262,7 +4262,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %38, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %67 = phi i32 [ %66, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %38 ]
+  %67 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %66, %GetWindowScale.exit6.i ], [ 0, %38 ]
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i32 %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 148
@@ -4323,7 +4323,7 @@ GetWindowScale.exit6.i29:                         ; preds = %._crit_edge.i5.i28,
   br label %PixelToPoint.exit30
 
 PixelToPoint.exit30:                              ; preds = %PixelToPoint.exit, %GetWindowScale.exit.i26, %GetWindowScale.exit6.i29
-  %101 = phi i32 [ %100, %GetWindowScale.exit6.i29 ], [ 1, %GetWindowScale.exit.i26 ], [ 0, %PixelToPoint.exit ]
+  %101 = phi i32 [ 1, %GetWindowScale.exit.i26 ], [ %100, %GetWindowScale.exit6.i29 ], [ 0, %PixelToPoint.exit ]
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 300
   store i32 %101, ptr %102, align 4
   %103 = load i32, ptr %33, align 8
@@ -4724,7 +4724,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
   br i1 %141, label %.lr.ph116, label %._crit_edge117, !llvm.loop !17
 
 .thread107:                                       ; preds = %._crit_edge113, %114, %117, %20, %._crit_edge117
-  %.1 = phi i1 [ false, %._crit_edge117 ], [ false, %20 ], [ true, %117 ], [ true, %114 ], [ true, %._crit_edge113 ]
+  %.1 = phi i1 [ true, %114 ], [ false, %20 ], [ false, %._crit_edge117 ], [ true, %117 ], [ true, %._crit_edge113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %142
 
@@ -4942,7 +4942,7 @@ Wayland_SetKeyboardFocus.exit:                    ; preds = %._crit_edge.i, %24,
   br label %Wayland_SetKeyboardFocus.exit17
 
 Wayland_SetKeyboardFocus.exit17:                  ; preds = %53, %49, %._crit_edge.i15, %8, %34, %35, %Wayland_SetKeyboardFocus.exit, %55
-  %.0 = phi i1 [ %56, %55 ], [ true, %Wayland_SetKeyboardFocus.exit ], [ true, %35 ], [ true, %34 ], [ true, %8 ], [ true, %._crit_edge.i15 ], [ true, %49 ], [ true, %53 ]
+  %.0 = phi i1 [ %56, %55 ], [ true, %Wayland_SetKeyboardFocus.exit ], [ true, %35 ], [ true, %8 ], [ true, %34 ], [ true, %._crit_edge.i15 ], [ true, %49 ], [ true, %53 ]
   ret i1 %.0
 }
 
@@ -5008,7 +5008,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %14, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %37 = phi i32 [ %36, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %14 ]
+  %37 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %36, %GetWindowScale.exit6.i ], [ 0, %14 ]
   %.not.i18 = icmp eq i32 %2, 0
   br i1 %.not.i18, label %PixelToPoint.exit25, label %38
 
@@ -5066,8 +5066,8 @@ GetWindowScale.exit6.i24:                         ; preds = %._crit_edge.i5.i23,
   br label %PixelToPoint.exit25
 
 PixelToPoint.exit25:                              ; preds = %GetWindowScale.exit6.i24, %GetWindowScale.exit.i21, %PixelToPoint.exit, %10
-  %.014 = phi i32 [ %2, %10 ], [ %68, %GetWindowScale.exit6.i24 ], [ 1, %GetWindowScale.exit.i21 ], [ 0, %PixelToPoint.exit ]
-  %.0 = phi i32 [ %1, %10 ], [ %37, %GetWindowScale.exit6.i24 ], [ %37, %GetWindowScale.exit.i21 ], [ %37, %PixelToPoint.exit ]
+  %.014 = phi i32 [ %2, %10 ], [ 1, %GetWindowScale.exit.i21 ], [ %68, %GetWindowScale.exit6.i24 ], [ 0, %PixelToPoint.exit ]
+  %.0 = phi i32 [ %1, %10 ], [ %37, %GetWindowScale.exit.i21 ], [ %37, %GetWindowScale.exit6.i24 ], [ %37, %PixelToPoint.exit ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 1
@@ -5450,7 +5450,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %20, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %56 = phi i32 [ %55, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %20 ]
+  %56 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %55, %GetWindowScale.exit6.i ], [ 0, %20 ]
   store i32 %56, ptr %19, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %58 = load i32, ptr %57, align 4
@@ -5571,7 +5571,7 @@ GetWindowScale.exit6.i40:                         ; preds = %._crit_edge.i5.i39,
   br label %PointToPixel.exit
 
 PointToPixel.exit:                                ; preds = %90, %GetWindowScale.exit.i37, %GetWindowScale.exit6.i40
-  %125 = phi i32 [ %124, %GetWindowScale.exit6.i40 ], [ 1, %GetWindowScale.exit.i37 ], [ 0, %90 ]
+  %125 = phi i32 [ 1, %GetWindowScale.exit.i37 ], [ %124, %GetWindowScale.exit6.i40 ], [ 0, %90 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %125, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 300
@@ -5640,8 +5640,8 @@ GetWindowScale.exit6.i47:                         ; preds = %._crit_edge.i5.i46,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %GetWindowScale.exit.i44, %PointToPixel.exit, %GetWindowScale.exit.i29, %PixelToPoint.exit
-  %.sink54 = phi i64 [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i29 ], [ 308, %PointToPixel.exit ], [ 308, %GetWindowScale.exit.i44 ], [ %.sink54.ph, %.sink.split.sink.split ]
-  %.sink = phi i32 [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i29 ], [ 0, %PointToPixel.exit ], [ 1, %GetWindowScale.exit.i44 ], [ %161, %.sink.split.sink.split ]
+  %.sink54 = phi i64 [ 308, %GetWindowScale.exit.i44 ], [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i29 ], [ 308, %PointToPixel.exit ], [ %.sink54.ph, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 1, %GetWindowScale.exit.i44 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i29 ], [ 0, %PointToPixel.exit ], [ %161, %.sink.split.sink.split ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
   store i32 %.sink, ptr %162, align 4
   br label %163
@@ -5790,7 +5790,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PointToPixel.exit
 
 PointToPixel.exit:                                ; preds = %27, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %61 = phi i32 [ %60, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %27 ]
+  %61 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %60, %GetWindowScale.exit6.i ], [ 0, %27 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %61, ptr %62, align 8
   %.not.i43 = icmp eq i32 %.037, 0
@@ -5852,7 +5852,7 @@ GetWindowScale.exit6.i49:                         ; preds = %._crit_edge.i5.i48,
   br label %PointToPixel.exit50
 
 PointToPixel.exit50:                              ; preds = %PointToPixel.exit, %GetWindowScale.exit.i46, %GetWindowScale.exit6.i49
-  %96 = phi i32 [ %95, %GetWindowScale.exit6.i49 ], [ 1, %GetWindowScale.exit.i46 ], [ 0, %PointToPixel.exit ]
+  %96 = phi i32 [ 1, %GetWindowScale.exit.i46 ], [ %95, %GetWindowScale.exit6.i49 ], [ 0, %PointToPixel.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %96, ptr %97, align 4
   br label %98
@@ -5925,7 +5925,7 @@ GetWindowScale.exit6.i57:                         ; preds = %._crit_edge.i5.i56,
   br label %PointToPixel.exit58
 
 PointToPixel.exit58:                              ; preds = %102, %GetWindowScale.exit.i54, %GetWindowScale.exit6.i57
-  %138 = phi i32 [ %137, %GetWindowScale.exit6.i57 ], [ 1, %GetWindowScale.exit.i54 ], [ 0, %102 ]
+  %138 = phi i32 [ 1, %GetWindowScale.exit.i54 ], [ %137, %GetWindowScale.exit6.i57 ], [ 0, %102 ]
   %.not.i59 = icmp eq i32 %3, 0
   br i1 %.not.i59, label %PointToPixel.exit66, label %139
 
@@ -5987,8 +5987,8 @@ GetWindowScale.exit6.i65:                         ; preds = %._crit_edge.i5.i64,
   br label %PointToPixel.exit66
 
 PointToPixel.exit66:                              ; preds = %GetWindowScale.exit6.i65, %GetWindowScale.exit.i62, %PointToPixel.exit58, %98
-  %.039 = phi i32 [ %3, %98 ], [ %173, %GetWindowScale.exit6.i65 ], [ 1, %GetWindowScale.exit.i62 ], [ 0, %PointToPixel.exit58 ]
-  %.0 = phi i32 [ %2, %98 ], [ %138, %GetWindowScale.exit6.i65 ], [ %138, %GetWindowScale.exit.i62 ], [ %138, %PointToPixel.exit58 ]
+  %.039 = phi i32 [ %3, %98 ], [ 1, %GetWindowScale.exit.i62 ], [ %173, %GetWindowScale.exit6.i65 ], [ 0, %PointToPixel.exit58 ]
+  %.0 = phi i32 [ %2, %98 ], [ %138, %GetWindowScale.exit.i62 ], [ %138, %GetWindowScale.exit6.i65 ], [ %138, %PointToPixel.exit58 ]
   %174 = load ptr, ptr %0, align 8
   %175 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef %174, i32 noundef 517, i32 noundef %.0, i32 noundef %.039) #15
   store i32 %.038, ptr %16, align 8
@@ -6254,15 +6254,15 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
   br label %.thread
 
 .thread:                                          ; preds = %92, %99, %97
-  %101 = phi ptr [ %88, %99 ], [ %88, %97 ], [ %95, %92 ]
-  %102 = phi ptr [ %89, %99 ], [ %89, %97 ], [ %94, %92 ]
-  %103 = phi i1 [ %90, %99 ], [ %90, %97 ], [ %93, %92 ]
-  %.0204.lcssa404421451 = phi i8 [ %.0204.lcssa404, %99 ], [ %.0204.lcssa404, %97 ], [ %.0204.lcssa404422, %92 ]
-  %.0206.lcssa402424450 = phi i8 [ %.0206.lcssa402, %99 ], [ %.0206.lcssa402, %97 ], [ %.0206.lcssa402425, %92 ]
-  %.0208.lcssa400427449 = phi i8 [ 1, %99 ], [ 1, %97 ], [ 0, %92 ]
-  %.0210.lcssa398430448 = phi i8 [ %.0210.lcssa398, %99 ], [ %.0210.lcssa398, %97 ], [ %.0210.lcssa398431, %92 ]
-  %.0212.lcssa395433447 = phi i8 [ %.0212.lcssa395, %99 ], [ %.0212.lcssa395, %97 ], [ %.0212.lcssa395434, %92 ]
-  %.0214.lcssa393436446 = phi i1 [ %.0214.lcssa393, %99 ], [ %.0214.lcssa393, %97 ], [ %.0214.lcssa393437, %92 ]
+  %101 = phi ptr [ %88, %97 ], [ %88, %99 ], [ %95, %92 ]
+  %102 = phi ptr [ %89, %97 ], [ %89, %99 ], [ %94, %92 ]
+  %103 = phi i1 [ %90, %97 ], [ %90, %99 ], [ %93, %92 ]
+  %.0204.lcssa404421451 = phi i8 [ %.0204.lcssa404, %97 ], [ %.0204.lcssa404, %99 ], [ %.0204.lcssa404422, %92 ]
+  %.0206.lcssa402424450 = phi i8 [ %.0206.lcssa402, %97 ], [ %.0206.lcssa402, %99 ], [ %.0206.lcssa402425, %92 ]
+  %.0208.lcssa400427449 = phi i8 [ 1, %97 ], [ 1, %99 ], [ 0, %92 ]
+  %.0210.lcssa398430448 = phi i8 [ %.0210.lcssa398, %97 ], [ %.0210.lcssa398, %99 ], [ %.0210.lcssa398431, %92 ]
+  %.0212.lcssa395433447 = phi i8 [ %.0212.lcssa395, %97 ], [ %.0212.lcssa395, %99 ], [ %.0212.lcssa395434, %92 ]
+  %.0214.lcssa393436446 = phi i1 [ %.0214.lcssa393, %97 ], [ %.0214.lcssa393, %99 ], [ %.0214.lcssa393437, %92 ]
   %104 = xor i1 %103, true
   %105 = and i1 %.0214.lcssa393436446, %104
   %106 = select i1 %105, i32 522, i32 523
@@ -6404,7 +6404,7 @@ GetWindowScale.exit6.i:                           ; preds = %._crit_edge.i5.i, %
   br label %PixelToPoint.exit
 
 PixelToPoint.exit:                                ; preds = %146, %GetWindowScale.exit.i, %GetWindowScale.exit6.i
-  %179 = phi i32 [ %178, %GetWindowScale.exit6.i ], [ 1, %GetWindowScale.exit.i ], [ 0, %146 ]
+  %179 = phi i32 [ 1, %GetWindowScale.exit.i ], [ %178, %GetWindowScale.exit6.i ], [ 0, %146 ]
   store i32 %179, ptr %144, align 8
   %.not.i265 = icmp eq i32 %.0200, 0
   br i1 %.not.i265, label %.sink.split, label %180
@@ -6536,7 +6536,7 @@ GetWindowScale.exit6.i279:                        ; preds = %._crit_edge.i5.i278
   br label %252
 
 252:                                              ; preds = %GetWindowScale.exit6.i279, %GetWindowScale.exit.i276
-  %253 = phi i32 [ %251, %GetWindowScale.exit6.i279 ], [ 1, %GetWindowScale.exit.i276 ]
+  %253 = phi i32 [ 1, %GetWindowScale.exit.i276 ], [ %251, %GetWindowScale.exit6.i279 ]
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %253, ptr %254, align 8
   %255 = sitofp i32 %3 to double
@@ -6669,7 +6669,7 @@ GetWindowScale.exit6.i294:                        ; preds = %._crit_edge.i5.i293
   br label %PixelToPoint.exit295
 
 PixelToPoint.exit295:                             ; preds = %294, %GetWindowScale.exit.i291, %GetWindowScale.exit6.i294
-  %330 = phi i32 [ %329, %GetWindowScale.exit6.i294 ], [ 1, %GetWindowScale.exit.i291 ], [ 0, %294 ]
+  %330 = phi i32 [ 1, %GetWindowScale.exit.i291 ], [ %329, %GetWindowScale.exit6.i294 ], [ 0, %294 ]
   store i32 %330, ptr %290, align 8
   %331 = load i32, ptr %296, align 4
   %.not.i296 = icmp eq i32 %331, 0
@@ -6728,17 +6728,17 @@ GetWindowScale.exit6.i302:                        ; preds = %._crit_edge.i5.i301
   br label %.sink.split
 
 .sink.split:                                      ; preds = %GetWindowScale.exit6.i302, %GetWindowScale.exit.i299, %PixelToPoint.exit295, %GetWindowScale.exit6.i286, %GetWindowScale.exit.i283, %GetWindowScale.exit6.i271, %GetWindowScale.exit.i268, %PixelToPoint.exit, %145, %291
-  %.sink468 = phi i64 [ 300, %291 ], [ 300, %145 ], [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i268 ], [ 300, %GetWindowScale.exit6.i271 ], [ 308, %GetWindowScale.exit.i283 ], [ 308, %GetWindowScale.exit6.i286 ], [ 300, %PixelToPoint.exit295 ], [ 300, %GetWindowScale.exit.i299 ], [ 300, %GetWindowScale.exit6.i302 ]
-  %.sink = phi i32 [ %293, %291 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ %209, %GetWindowScale.exit6.i271 ], [ 1, %GetWindowScale.exit.i283 ], [ %283, %GetWindowScale.exit6.i286 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
-  %.1201.ph = phi i32 [ %293, %291 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ %209, %GetWindowScale.exit6.i271 ], [ %3, %GetWindowScale.exit.i283 ], [ %3, %GetWindowScale.exit6.i286 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
-  %.1.ph = phi i32 [ %289, %291 ], [ %.0, %145 ], [ %179, %PixelToPoint.exit ], [ %179, %GetWindowScale.exit.i268 ], [ %179, %GetWindowScale.exit6.i271 ], [ %2, %GetWindowScale.exit.i283 ], [ %2, %GetWindowScale.exit6.i286 ], [ %330, %PixelToPoint.exit295 ], [ %330, %GetWindowScale.exit.i299 ], [ %330, %GetWindowScale.exit6.i302 ]
+  %.sink468 = phi i64 [ 300, %291 ], [ 308, %GetWindowScale.exit6.i286 ], [ 300, %GetWindowScale.exit6.i271 ], [ 300, %145 ], [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i268 ], [ 308, %GetWindowScale.exit.i283 ], [ 300, %PixelToPoint.exit295 ], [ 300, %GetWindowScale.exit.i299 ], [ 300, %GetWindowScale.exit6.i302 ]
+  %.sink = phi i32 [ %293, %291 ], [ %283, %GetWindowScale.exit6.i286 ], [ %209, %GetWindowScale.exit6.i271 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ 1, %GetWindowScale.exit.i283 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
+  %.1201.ph = phi i32 [ %293, %291 ], [ %3, %GetWindowScale.exit6.i286 ], [ %209, %GetWindowScale.exit6.i271 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ %3, %GetWindowScale.exit.i283 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
+  %.1.ph = phi i32 [ %289, %291 ], [ %2, %GetWindowScale.exit6.i286 ], [ %179, %GetWindowScale.exit6.i271 ], [ %.0, %145 ], [ %179, %PixelToPoint.exit ], [ %179, %GetWindowScale.exit.i268 ], [ %2, %GetWindowScale.exit.i283 ], [ %330, %PixelToPoint.exit295 ], [ %330, %GetWindowScale.exit.i299 ], [ %330, %GetWindowScale.exit6.i302 ]
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink468
   store i32 %.sink, ptr %362, align 4
   br label %363
 
 363:                                              ; preds = %.sink.split, %216, %213
-  %.1201 = phi i32 [ %3, %216 ], [ %3, %213 ], [ %.1201.ph, %.sink.split ]
-  %.1 = phi i32 [ %2, %216 ], [ %2, %213 ], [ %.1.ph, %.sink.split ]
+  %.1201 = phi i32 [ %3, %213 ], [ %3, %216 ], [ %.1201.ph, %.sink.split ]
+  %.1 = phi i32 [ %2, %213 ], [ %2, %216 ], [ %.1.ph, %.sink.split ]
   br i1 %.0214.lcssa393435452, label %593, label %364
 
 364:                                              ; preds = %363
@@ -6946,7 +6946,7 @@ GetWindowScale.exit6.i310:                        ; preds = %._crit_edge.i5.i309
   br label %PixelToPoint.exit311
 
 PixelToPoint.exit311:                             ; preds = %thread-pre-split, %GetWindowScale.exit.i307, %GetWindowScale.exit6.i310
-  %479 = phi i32 [ %478, %GetWindowScale.exit6.i310 ], [ 1, %GetWindowScale.exit.i307 ], [ 0, %thread-pre-split ]
+  %479 = phi i32 [ 1, %GetWindowScale.exit.i307 ], [ %478, %GetWindowScale.exit6.i310 ], [ 0, %thread-pre-split ]
   store i32 %479, ptr %414, align 8
   %480 = load i32, ptr %425, align 4
   %.not.i312 = icmp eq i32 %480, 0
@@ -7005,7 +7005,7 @@ GetWindowScale.exit6.i318:                        ; preds = %._crit_edge.i5.i317
   br label %PixelToPoint.exit319
 
 PixelToPoint.exit319:                             ; preds = %PixelToPoint.exit311, %GetWindowScale.exit.i315, %GetWindowScale.exit6.i318
-  %511 = phi i32 [ %510, %GetWindowScale.exit6.i318 ], [ 1, %GetWindowScale.exit.i315 ], [ 0, %PixelToPoint.exit311 ]
+  %511 = phi i32 [ 1, %GetWindowScale.exit.i315 ], [ %510, %GetWindowScale.exit6.i318 ], [ 0, %PixelToPoint.exit311 ]
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %511, ptr %512, align 4
   br label %593
@@ -7100,7 +7100,7 @@ GetWindowScale.exit6.i326:                        ; preds = %._crit_edge.i5.i325
   br label %PointToPixel.exit327
 
 PointToPixel.exit327:                             ; preds = %528, %GetWindowScale.exit.i323, %GetWindowScale.exit6.i326
-  %559 = phi i32 [ %558, %GetWindowScale.exit6.i326 ], [ 1, %GetWindowScale.exit.i323 ], [ 0, %528 ]
+  %559 = phi i32 [ 1, %GetWindowScale.exit.i323 ], [ %558, %GetWindowScale.exit6.i326 ], [ 0, %528 ]
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %559, ptr %560, align 8
   %.not.i328 = icmp eq i32 %.3203, 0
@@ -7159,7 +7159,7 @@ GetWindowScale.exit6.i334:                        ; preds = %._crit_edge.i5.i333
   br label %PointToPixel.exit335
 
 PointToPixel.exit335:                             ; preds = %PointToPixel.exit327, %GetWindowScale.exit.i331, %GetWindowScale.exit6.i334
-  %591 = phi i32 [ %590, %GetWindowScale.exit6.i334 ], [ 1, %GetWindowScale.exit.i331 ], [ 0, %PointToPixel.exit327 ]
+  %591 = phi i32 [ 1, %GetWindowScale.exit.i331 ], [ %590, %GetWindowScale.exit6.i334 ], [ 0, %PointToPixel.exit327 ]
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %591, ptr %592, align 4
   br label %593
@@ -7614,7 +7614,7 @@ define internal void @frog_preferred_metadata_handler(ptr noundef readonly captu
   br label %22
 
 22:                                               ; preds = %14, %19, %16
-  %.sink = phi float [ %21, %19 ], [ %18, %16 ], [ 1.000000e+00, %14 ]
+  %.sink = phi float [ %18, %16 ], [ %21, %19 ], [ 1.000000e+00, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %.sink, ptr %23, align 4
   store float 1.000000e+00, ptr %15, align 8
@@ -7780,7 +7780,7 @@ GetToplevelForWindow.exit23.i:                    ; preds = %63, %60
   br label %Wayland_SetWindowParent.exit
 
 GetToplevelForWindow.exit.i:                      ; preds = %70, %67
-  %phi.call.i = phi ptr [ null, %70 ], [ %69, %67 ]
+  %phi.call.i = phi ptr [ %69, %67 ], [ null, %70 ]
   %.not18.i = icmp eq ptr %.0.i21.i, null
   br i1 %.not18.i, label %Wayland_SetWindowParent.exit, label %GetToplevelForWindow.exit.thread31.i
 

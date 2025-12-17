@@ -38,7 +38,7 @@ define dso_local range(i32 -1, 1) i32 @zend_add_system_entropy(ptr noundef %0, p
   br label %9
 
 9:                                                ; preds = %4, %5, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ -1, %4 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %8 ], [ -1, %4 ]
   ret i32 %.0
 }
 

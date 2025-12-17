@@ -496,7 +496,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br label %.thread25
 
 189:                                              ; preds = %.thread27, %154, %151, %97
-  %190 = phi ptr [ %106, %151 ], [ %106, %154 ], [ %99, %97 ], [ %106, %.thread27 ]
+  %190 = phi ptr [ %106, %151 ], [ %106, %154 ], [ %106, %.thread27 ], [ %99, %97 ]
   %191 = add nuw nsw i64 %98, 1
   %192 = icmp eq i64 %191, 5
   br i1 %192, label %82, label %97, !llvm.loop !15

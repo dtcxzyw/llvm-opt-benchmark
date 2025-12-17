@@ -118,8 +118,8 @@ from_utf8_mac_finish.exit:                        ; preds = %5
   br i1 %47, label %.lr.ph.i, label %buf_push.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %from_utf8_mac_finish.exit, %7
-  %.pre.i = phi i32 [ %9, %7 ], [ %.pre.i.pre, %from_utf8_mac_finish.exit ], [ %19, %.lr.ph.i.i ]
-  %.038 = phi i64 [ 0, %7 ], [ 0, %from_utf8_mac_finish.exit ], [ %17, %.lr.ph.i.i ]
+  %.pre.i = phi i32 [ %.pre.i.pre, %from_utf8_mac_finish.exit ], [ %9, %7 ], [ %19, %.lr.ph.i.i ]
+  %.038 = phi i64 [ 0, %from_utf8_mac_finish.exit ], [ 0, %7 ], [ %17, %.lr.ph.i.i ]
   %48 = getelementptr inbounds i8, ptr %1, i64 %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %50
@@ -289,7 +289,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   br i1 %146, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !17
 
 buf_apply.exit:                                   ; preds = %122, %get_info.exit.thread.i, %134, %buf_push.exit, %70
-  %.0.i = phi i64 [ 0, %70 ], [ 0, %buf_push.exit ], [ %140, %134 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
+  %.0.i = phi i64 [ 0, %buf_push.exit ], [ 0, %70 ], [ %140, %134 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %147 = add i64 %.0.i, %.037
   br label %148

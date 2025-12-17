@@ -341,7 +341,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.loopexit.i:         ; preds = %_ZSt7advanceIN9__gn
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit26.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit26.i:                ; preds = %132, %31
-  %.pn.pn.i = phi { ptr, i32 } [ %32, %31 ], [ %133, %132 ]
+  %.pn.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %32, %31 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %12) #18
   resume { ptr, i32 } %.pn.pn.i
 

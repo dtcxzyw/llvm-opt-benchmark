@@ -182,7 +182,7 @@ define internal noundef zeroext i1 @vms_seek_read(ptr noundef readonly captures(
   br label %18
 
 18:                                               ; preds = %11, %14, %17, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %17 ], [ false, %14 ], [ true, %11 ]
+  %.0 = phi i1 [ false, %5 ], [ false, %14 ], [ false, %17 ], [ true, %11 ]
   ret i1 %.0
 }
 
@@ -733,7 +733,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %204, %.critedge3
   br label %224
 
 224:                                              ; preds = %._crit_edge160, %221, %218, %179, %140, %101, %96, %61, %._crit_edge150, %37, %._crit_edge
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %101 ], [ false, %140 ], [ false, %179 ], [ false, %218 ], [ false, %96 ], [ false, %61 ], [ false, %._crit_edge150 ], [ false, %37 ], [ %223, %221 ], [ true, %._crit_edge160 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %101 ], [ false, %140 ], [ false, %179 ], [ false, %218 ], [ false, %._crit_edge150 ], [ %223, %221 ], [ false, %37 ], [ false, %96 ], [ false, %61 ], [ true, %._crit_edge160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

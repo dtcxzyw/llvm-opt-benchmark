@@ -592,7 +592,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   invoke void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h040f412be30805fbE"(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %8, ptr noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(264) %7)
           to label %21 unwind label %.thread30
 
-.thread30:                                        ; preds = %20, %23, %25, %60
+.thread30:                                        ; preds = %25, %20, %60, %23
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -702,7 +702,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   invoke void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h1f484c41596b109dE"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %6, ptr noundef %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %4)
           to label %56 unwind label %.body
 
-.body.thread39:                                   ; preds = %42, %50
+.body.thread39:                                   ; preds = %50, %42
   %lpad.thr_comm37 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -775,7 +775,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   unreachable
 
 .thread:                                          ; preds = %.body, %.body.thread, %.thread30, %.thread26, %70
-  %.pn25 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %70 ], [ %67, %.thread26 ], [ %lpad.thr_comm, %.thread30 ], [ %lpad.thr_comm.split-lp38, %.body ], [ %eh.lpad-body36, %.body.thread ]
+  %.pn25 = phi { ptr, i32 } [ %67, %.thread26 ], [ %lpad.thr_comm.split-lp, %70 ], [ %lpad.thr_comm, %.thread30 ], [ %lpad.thr_comm.split-lp38, %.body ], [ %eh.lpad-body36, %.body.thread ]
   invoke void @"_ZN4core3ptr189drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$C$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$GT$$GT$17h6b44bbdd39ec61e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #24
           to label %71 unwind label %68
 
@@ -3869,7 +3869,7 @@ define hidden void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h040f412be308
   unreachable
 
 common.resume:                                    ; preds = %.thread, %86, %90, %64, %68
-  %common.resume.op = phi { ptr, i32 } [ %65, %68 ], [ %65, %64 ], [ %87, %90 ], [ %87, %86 ], [ %.pn1030, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %65, %64 ], [ %65, %68 ], [ %87, %90 ], [ %.pn1030, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr257drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h1e8c7a41a6685e79E.exit.sink.split": ; preds = %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9e02dad4d85da12E.llvm.16659958247667724540.exit.thread.i", %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9e02dad4d85da12E.llvm.16659958247667724540.exit.thread.i23"
@@ -3939,7 +3939,7 @@ common.resume:                                    ; preds = %.thread, %86, %90, 
   unreachable
 
 .thread:                                          ; preds = %32, %28, %.thread31, %97
-  %.pn1030 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %97 ], [ %lpad.thr_comm, %.thread31 ], [ %.pn, %28 ], [ %.pn, %32 ]
+  %.pn1030 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread31 ], [ %lpad.thr_comm.split-lp, %97 ], [ %.pn, %28 ], [ %.pn, %32 ]
   invoke void @"_ZN4core3ptr257drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h1e8c7a41a6685e79E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #24
           to label %common.resume unwind label %95
 
@@ -4162,7 +4162,7 @@ define hidden void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h1f484c41596b
   unreachable
 
 common.resume:                                    ; preds = %.thread, %94, %98, %72, %76
-  %common.resume.op = phi { ptr, i32 } [ %73, %76 ], [ %73, %72 ], [ %95, %98 ], [ %95, %94 ], [ %.pn1029, %.thread ]
+  %common.resume.op = phi { ptr, i32 } [ %95, %94 ], [ %73, %72 ], [ %73, %76 ], [ %95, %98 ], [ %.pn1029, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr170drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..error..Error$GT$$GT$$GT$17h867743177ed75b27E.exit.sink.split": ; preds = %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6d3e83623b61c39cE.llvm.16659958247667724540.exit.thread.i", %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6d3e83623b61c39cE.llvm.16659958247667724540.exit.thread.i22"
@@ -4232,7 +4232,7 @@ common.resume:                                    ; preds = %.thread, %94, %98, 
   unreachable
 
 .thread:                                          ; preds = %40, %36, %.thread30, %105
-  %.pn1029 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %105 ], [ %lpad.thr_comm, %.thread30 ], [ %.pn, %36 ], [ %.pn, %40 ]
+  %.pn1029 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread30 ], [ %lpad.thr_comm.split-lp, %105 ], [ %.pn, %36 ], [ %.pn, %40 ]
   invoke void @"_ZN4core3ptr170drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..error..Error$GT$$GT$$GT$17h867743177ed75b27E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #24
           to label %common.resume unwind label %103
 

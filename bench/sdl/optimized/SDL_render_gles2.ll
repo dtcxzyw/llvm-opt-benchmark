@@ -852,7 +852,7 @@ define internal fastcc zeroext i1 @GLES2_LoadFunctions(ptr noundef nonnull write
   br i1 %.not170, label %.sink.split, label %174
 
 .sink.split:                                      ; preds = %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4, %1
-  %.str.65.sink = phi ptr [ @.str.8, %1 ], [ @.str.10, %4 ], [ @.str.11, %7 ], [ @.str.12, %10 ], [ @.str.13, %13 ], [ @.str.14, %16 ], [ @.str.15, %19 ], [ @.str.16, %22 ], [ @.str.17, %25 ], [ @.str.18, %28 ], [ @.str.19, %31 ], [ @.str.20, %34 ], [ @.str.21, %37 ], [ @.str.22, %40 ], [ @.str.23, %43 ], [ @.str.24, %46 ], [ @.str.25, %49 ], [ @.str.26, %52 ], [ @.str.27, %55 ], [ @.str.28, %58 ], [ @.str.29, %61 ], [ @.str.30, %64 ], [ @.str.31, %67 ], [ @.str.32, %70 ], [ @.str.33, %73 ], [ @.str.34, %76 ], [ @.str.35, %79 ], [ @.str.36, %82 ], [ @.str.37, %85 ], [ @.str.38, %88 ], [ @.str.39, %91 ], [ @.str.40, %94 ], [ @.str.41, %97 ], [ @.str.42, %100 ], [ @.str.43, %103 ], [ @.str.44, %106 ], [ @.str.45, %109 ], [ @.str.46, %112 ], [ @.str.47, %115 ], [ @.str.48, %118 ], [ @.str.49, %121 ], [ @.str.50, %124 ], [ @.str.51, %127 ], [ @.str.52, %130 ], [ @.str.53, %133 ], [ @.str.54, %136 ], [ @.str.55, %139 ], [ @.str.56, %142 ], [ @.str.57, %145 ], [ @.str.58, %148 ], [ @.str.59, %151 ], [ @.str.60, %154 ], [ @.str.61, %157 ], [ @.str.62, %160 ], [ @.str.63, %163 ], [ @.str.64, %166 ], [ @.str.65, %169 ]
+  %.str.65.sink = phi ptr [ @.str.64, %166 ], [ @.str.63, %163 ], [ @.str.62, %160 ], [ @.str.61, %157 ], [ @.str.60, %154 ], [ @.str.59, %151 ], [ @.str.58, %148 ], [ @.str.57, %145 ], [ @.str.56, %142 ], [ @.str.55, %139 ], [ @.str.54, %136 ], [ @.str.53, %133 ], [ @.str.52, %130 ], [ @.str.51, %127 ], [ @.str.50, %124 ], [ @.str.49, %121 ], [ @.str.48, %118 ], [ @.str.47, %115 ], [ @.str.46, %112 ], [ @.str.45, %109 ], [ @.str.44, %106 ], [ @.str.43, %103 ], [ @.str.42, %100 ], [ @.str.41, %97 ], [ @.str.40, %94 ], [ @.str.39, %91 ], [ @.str.38, %88 ], [ @.str.37, %85 ], [ @.str.36, %82 ], [ @.str.35, %79 ], [ @.str.34, %76 ], [ @.str.33, %73 ], [ @.str.32, %70 ], [ @.str.31, %67 ], [ @.str.30, %64 ], [ @.str.29, %61 ], [ @.str.28, %58 ], [ @.str.27, %55 ], [ @.str.26, %52 ], [ @.str.25, %49 ], [ @.str.24, %46 ], [ @.str.23, %43 ], [ @.str.22, %40 ], [ @.str.21, %37 ], [ @.str.20, %34 ], [ @.str.19, %31 ], [ @.str.18, %28 ], [ @.str.17, %25 ], [ @.str.16, %22 ], [ @.str.15, %19 ], [ @.str.14, %16 ], [ @.str.13, %13 ], [ @.str.12, %10 ], [ @.str.11, %7 ], [ @.str.10, %4 ], [ @.str.8, %1 ], [ @.str.65, %169 ]
   %172 = tail call ptr @SDL_GetError_REAL() #10
   %173 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.65.sink, ptr noundef %172) #10
   br label %174
@@ -965,7 +965,7 @@ define internal noundef zeroext i1 @GLES2_SupportsBlendMode(ptr noundef readonly
   br label %GetBlendFunc.exit
 
 GetBlendFunc.exit:                                ; preds = %2, %16, %12, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %12 ], [ false, %16 ], [ false, %2 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %20 ], [ false, %12 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -1112,7 +1112,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %18, %8, %13
   br label %switch.edge
 
 switch.edge:                                      ; preds = %62, %63, %62, %62, %62, %64
-  %66 = phi i32 [ %65, %64 ], [ 2, %62 ], [ 1, %63 ], [ 2, %62 ], [ 2, %62 ], [ 2, %62 ]
+  %66 = phi i32 [ %65, %64 ], [ 2, %62 ], [ 2, %62 ], [ 2, %62 ], [ 1, %63 ], [ 2, %62 ]
   %67 = mul i32 %66, %61
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 %67, ptr %68, align 8
@@ -1731,7 +1731,7 @@ switch.lookup367:                                 ; preds = %.lr.ph.i258
   br i1 %.not.i262, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258
 
 GL_CheckAllErrors.exit197:                        ; preds = %242, %270, %142, %181, %206, %303, %330, %373, %.preheader.i256, %GLES2_GetFBO.exit, %95, %.thread, %284, %220, %33, %28
-  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %221, %220 ], [ %285, %284 ], [ false, %95 ], [ false, %.thread ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %373 ], [ false, %330 ], [ false, %303 ], [ false, %206 ], [ false, %181 ], [ false, %142 ], [ false, %270 ], [ false, %242 ]
+  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %221, %220 ], [ false, %.thread ], [ %285, %284 ], [ false, %95 ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %270 ], [ false, %373 ], [ false, %330 ], [ false, %303 ], [ false, %206 ], [ false, %181 ], [ false, %142 ], [ false, %242 ]
   ret i1 %.0163
 }
 
@@ -1825,7 +1825,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %22, %12, %17
   br label %switch.edge
 
 switch.edge:                                      ; preds = %50, %51, %50, %50, %50, %52
-  %54 = phi i32 [ %53, %52 ], [ 2, %50 ], [ 1, %51 ], [ 2, %50 ], [ 2, %50 ], [ 2, %50 ]
+  %54 = phi i32 [ %53, %52 ], [ 2, %50 ], [ 2, %50 ], [ 2, %50 ], [ 1, %51 ], [ 2, %50 ]
   %55 = icmp eq i32 %43, 0
   %56 = icmp eq i32 %44, 0
   %or.cond.i = or i1 %55, %56
@@ -2148,7 +2148,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i130
   br i1 %.not.i131, label %GL_CheckAllErrors.exit, label %.lr.ph.i130
 
 GL_CheckAllErrors.exit:                           ; preds = %217, %.preheader.i129, %GLES2_TexSubImage2D.exit113, %GLES2_ActivateRenderer.exit, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit113 ], [ true, %.preheader.i129 ], [ false, %217 ]
+  %.0 = phi i1 [ true, %GLES2_ActivateRenderer.exit ], [ true, %28 ], [ true, %GLES2_TexSubImage2D.exit113 ], [ true, %.preheader.i129 ], [ false, %217 ]
   ret i1 %.0
 }
 
@@ -2434,7 +2434,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i75
   br i1 %.not.i76, label %GL_CheckAllErrors.exit, label %.lr.ph.i75
 
 GL_CheckAllErrors.exit:                           ; preds = %147, %.preheader.i74, %GLES2_TexSubImage2D.exit72, %GLES2_ActivateRenderer.exit, %32
-  %.0 = phi i1 [ true, %32 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit72 ], [ true, %.preheader.i74 ], [ false, %147 ]
+  %.0 = phi i1 [ true, %GLES2_ActivateRenderer.exit ], [ true, %32 ], [ true, %GLES2_TexSubImage2D.exit72 ], [ true, %.preheader.i74 ], [ false, %147 ]
   ret i1 %.0
 }
 
@@ -2652,7 +2652,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i47
   br i1 %.not.i48, label %GL_CheckAllErrors.exit, label %.lr.ph.i47
 
 GL_CheckAllErrors.exit:                           ; preds = %110, %.preheader.i46, %GLES2_TexSubImage2D.exit44, %GLES2_ActivateRenderer.exit, %30
-  %.0 = phi i1 [ true, %30 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit44 ], [ true, %.preheader.i46 ], [ false, %110 ]
+  %.0 = phi i1 [ true, %GLES2_ActivateRenderer.exit ], [ true, %30 ], [ true, %GLES2_TexSubImage2D.exit44 ], [ true, %.preheader.i46 ], [ false, %110 ]
   ret i1 %.0
 }
 
@@ -2690,7 +2690,7 @@ define internal noundef zeroext i1 @GLES2_LockTexture(ptr readnone captures(none
   br label %switch.edge
 
 switch.edge:                                      ; preds = %16, %17, %16, %16, %16, %18
-  %20 = phi i32 [ %19, %18 ], [ 2, %16 ], [ 1, %17 ], [ 2, %16 ], [ 2, %16 ], [ 2, %16 ]
+  %20 = phi i32 [ %19, %18 ], [ 2, %16 ], [ 2, %16 ], [ 2, %16 ], [ 1, %17 ], [ 2, %16 ]
   %21 = mul nsw i32 %13, %11
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %9, i64 %22
@@ -3303,7 +3303,7 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   br i1 %exitcond156.not, label %.critedge, label %.lr.ph140.split, !llvm.loop !13
 
 .critedge:                                        ; preds = %84, %46, %156, %126, %.preheader134, %.preheader, %110, %30
-  %.1 = phi i1 [ false, %30 ], [ false, %110 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %126 ], [ true, %156 ], [ true, %46 ], [ true, %84 ]
+  %.1 = phi i1 [ false, %30 ], [ false, %110 ], [ true, %.preheader ], [ true, %.preheader134 ], [ true, %46 ], [ true, %126 ], [ true, %156 ], [ true, %84 ]
   ret i1 %.1
 }
 
@@ -3596,8 +3596,8 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %.not183, label %.thread, label %.lr.ph238
 
 .thread:                                          ; preds = %137, %.lr.ph295, %.lr.ph238, %140, %.lr.ph238.preheader, %130
-  %.0157.lcssa = phi ptr [ %.0142251, %130 ], [ %.0142251, %.lr.ph238.preheader ], [ %.0160237292, %140 ], [ %.0160237292, %.lr.ph238 ], [ %.0157235294, %.lr.ph295 ], [ %.0157235294, %137 ]
-  %.0154.lcssa = phi i64 [ %125, %130 ], [ %125, %.lr.ph238.preheader ], [ %141, %140 ], [ %141, %.lr.ph238 ], [ %.0154236293, %.lr.ph295 ], [ %.0154236293, %137 ]
+  %.0157.lcssa = phi ptr [ %.0142251, %130 ], [ %.0142251, %.lr.ph238.preheader ], [ %.0160237292, %140 ], [ %.0157235294, %137 ], [ %.0157235294, %.lr.ph295 ], [ %.0160237292, %.lr.ph238 ]
+  %.0154.lcssa = phi i64 [ %125, %130 ], [ %125, %.lr.ph238.preheader ], [ %141, %140 ], [ %.0154236293, %137 ], [ %.0154236293, %.lr.ph295 ], [ %141, %.lr.ph238 ]
   %142 = load ptr, ptr %51, align 8
   %143 = trunc i64 %.0154.lcssa to i32
   call void %142(i32 noundef 1, i32 noundef 0, i32 noundef %143) #10
@@ -3674,8 +3674,8 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %.not171, label %.thread200, label %.lr.ph
 
 .thread200:                                       ; preds = %.lr.ph272, %161, %164, %167, %170, %.lr.ph, %173, %.lr.ph.preheader, %144
-  %.0149.lcssa = phi ptr [ %.0142251, %144 ], [ %.0142251, %.lr.ph.preheader ], [ %.0147212269, %173 ], [ %.0147212269, %.lr.ph ], [ %.0149210271, %170 ], [ %.0149210271, %167 ], [ %.0149210271, %164 ], [ %.0149210271, %161 ], [ %.0149210271, %.lr.ph272 ]
-  %.0144.lcssa = phi i64 [ %156, %144 ], [ %156, %.lr.ph.preheader ], [ %176, %173 ], [ %176, %.lr.ph ], [ %.0144211270, %170 ], [ %.0144211270, %167 ], [ %.0144211270, %164 ], [ %.0144211270, %161 ], [ %.0144211270, %.lr.ph272 ]
+  %.0149.lcssa = phi ptr [ %.0142251, %144 ], [ %.0142251, %.lr.ph.preheader ], [ %.0147212269, %173 ], [ %.0149210271, %.lr.ph272 ], [ %.0149210271, %161 ], [ %.0149210271, %164 ], [ %.0149210271, %167 ], [ %.0149210271, %170 ], [ %.0147212269, %.lr.ph ]
+  %.0144.lcssa = phi i64 [ %156, %144 ], [ %156, %.lr.ph.preheader ], [ %176, %173 ], [ %.0144211270, %.lr.ph272 ], [ %.0144211270, %161 ], [ %.0144211270, %164 ], [ %.0144211270, %167 ], [ %.0144211270, %170 ], [ %176, %.lr.ph ]
   %.not178 = icmp eq ptr %146, null
   br i1 %.not178, label %355, label %177
 
@@ -3802,7 +3802,7 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %210, label %357, label %SetCopyState.exit.thread
 
 211:                                              ; preds = %208, %207, %206, %205, %204, %203, %202, %200, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %186, %184, %183, %183, %180
-  %.094.i = phi i32 [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ], [ 6, %205 ], [ 7, %206 ], [ 8, %207 ], [ 9, %208 ], [ 6, %183 ], [ 6, %183 ], [ 2, %180 ], [ 3, %200 ], [ %185, %184 ], [ %187, %186 ]
+  %.094.i = phi i32 [ 3, %200 ], [ %185, %184 ], [ 9, %208 ], [ 6, %183 ], [ %187, %186 ], [ 2, %188 ], [ 3, %189 ], [ 5, %190 ], [ 2, %191 ], [ 5, %192 ], [ 4, %193 ], [ 3, %194 ], [ 8, %207 ], [ 7, %195 ], [ 8, %196 ], [ 9, %197 ], [ 6, %183 ], [ 2, %180 ], [ 2, %202 ], [ 4, %203 ], [ 5, %204 ], [ 6, %205 ], [ 7, %206 ]
   %212 = call fastcc zeroext i1 @SetDrawState(ptr noundef %.val189, ptr noundef nonnull readonly %.0142251, i32 noundef %.094.i, ptr noundef %2)
   %213 = getelementptr inbounds nuw i8, ptr %.val189, i64 608
   %214 = load ptr, ptr %213, align 8
@@ -4100,7 +4100,7 @@ SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup320, %
 SetCopyState.exit:                                ; preds = %306
   br i1 %212, label %357, label %SetCopyState.exit.thread
 
-357:                                              ; preds = %344, %209, %198, %355, %SetCopyState.exit
+357:                                              ; preds = %209, %344, %198, %355, %SetCopyState.exit
   %358 = icmp eq i32 %66, 5
   %spec.store.select = select i1 %358, i32 0, i32 4
   %359 = load ptr, ptr %51, align 8
@@ -4108,8 +4108,8 @@ SetCopyState.exit:                                ; preds = %306
   call void %359(i32 noundef %spec.store.select, i32 noundef 0, i32 noundef %360) #10
   br label %SetCopyState.exit.thread
 
-SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit112.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %344, %209, %198, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
-  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %121 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %67 ], [ %.0142251, %79 ], [ %.0142251, %77 ], [ %.0142251, %127 ], [ %.0157.lcssa, %.thread ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ]
+SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %209, %344, %198, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
+  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
   %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %362 = load ptr, ptr %361, align 8
   %.not170 = icmp eq ptr %362, null
@@ -4586,7 +4586,7 @@ define internal zeroext i1 @GLES2_SetVSync(ptr readnone captures(none) %0, i32 n
   br label %11
 
 11:                                               ; preds = %7, %5, %2, %9
-  %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %5 ], [ false, %2 ], [ true, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
@@ -5272,8 +5272,8 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   br label %40
 
 40:                                               ; preds = %22, %19, %16, %13, %11, %34, %29, %25, %39
-  %.078 = phi i32 [ 10, %25 ], [ %., %29 ], [ %.100, %34 ], [ 15, %39 ], [ %2, %11 ], [ %spec.select, %13 ], [ %spec.select102, %16 ], [ %spec.select104, %19 ], [ %spec.select106, %22 ]
-  %.0 = phi ptr [ %26, %25 ], [ %31, %29 ], [ %36, %34 ], [ null, %39 ], [ null, %11 ], [ %spec.select101, %13 ], [ %spec.select103, %16 ], [ %spec.select105, %19 ], [ %spec.select107, %22 ]
+  %.078 = phi i32 [ 15, %39 ], [ 10, %25 ], [ %2, %11 ], [ %spec.select106, %22 ], [ %spec.select, %13 ], [ %.100, %34 ], [ %spec.select102, %16 ], [ %., %29 ], [ %spec.select104, %19 ]
+  %.0 = phi ptr [ null, %39 ], [ %26, %25 ], [ null, %11 ], [ %spec.select107, %22 ], [ %spec.select101, %13 ], [ %36, %34 ], [ %spec.select103, %16 ], [ %31, %29 ], [ %spec.select105, %19 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %42 = load i32, ptr %41, align 4
   %.not92 = icmp eq i32 %42, 0
@@ -5555,8 +5555,8 @@ GLES2_CacheProgram.exit:                          ; preds = %.critedge.i, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %245
 
-177:                                              ; preds = %87, %78, %174, %156
-  %.093.i.ph = phi ptr [ %90, %156 ], [ %90, %174 ], [ %.092117.i, %78 ], [ %.092117.i, %87 ]
+177:                                              ; preds = %78, %87, %174, %156
+  %.093.i.ph = phi ptr [ %90, %156 ], [ %90, %174 ], [ %.092117.i, %87 ], [ %.092117.i, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %179 = load ptr, ptr %178, align 8

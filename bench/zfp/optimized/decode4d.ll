@@ -212,7 +212,7 @@ stream_skip.exit.i:                               ; preds = %101, %85
   br label %rev_decode_block_double_4.exit
 
 rev_decode_block_double_4.exit:                   ; preds = %78, %.preheader.preheader.i, %rev_inv_reinterpret_double.exit.i, %.preheader.preheader.i.i, %stream_skip.exit.i
-  %.037.i = phi i32 [ %48, %rev_inv_reinterpret_double.exit.i ], [ %23, %stream_skip.exit.i ], [ 1, %.preheader.preheader.i ], [ %74, %.preheader.preheader.i.i ], [ %74, %78 ]
+  %.037.i = phi i32 [ %48, %rev_inv_reinterpret_double.exit.i ], [ 1, %.preheader.preheader.i ], [ %23, %stream_skip.exit.i ], [ %74, %.preheader.preheader.i.i ], [ %74, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %decode_block_double_4.exit
 
@@ -1307,7 +1307,7 @@ decode_many_ints_prec_uint64.exit:                ; preds = %.critedge.i, %63
   br label %109
 
 109:                                              ; preds = %decode_many_ints_prec_uint64.exit, %decode_many_ints_uint64.exit
-  %.0 = phi i32 [ %62, %decode_many_ints_uint64.exit ], [ %108, %decode_many_ints_prec_uint64.exit ]
+  %.0 = phi i32 [ %108, %decode_many_ints_prec_uint64.exit ], [ %62, %decode_many_ints_uint64.exit ]
   ret i32 %.0
 }
 

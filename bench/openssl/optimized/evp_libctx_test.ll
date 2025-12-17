@@ -471,13 +471,13 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
   br label %75
 
 75:                                               ; preds = %71, %66, %67, %56, %60, %63, %51, %getname.exit55, %25, %28, %34, %40, %46
-  %.037 = phi ptr [ %69, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ %69, %71 ]
-  %.036 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ %26, %51 ], [ %26, %46 ], [ %26, %40 ], [ %26, %34 ], [ %26, %28 ], [ %26, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
-  %.035 = phi ptr [ %58, %67 ], [ %58, %63 ], [ %58, %60 ], [ %58, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ %58, %66 ], [ %58, %71 ]
-  %.034 = phi i32 [ 0, %67 ], [ 0, %63 ], [ 0, %60 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %getname.exit55 ], [ 1, %66 ], [ %spec.select49, %71 ]
-  %.033 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
-  %.032 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
-  %.0 = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit55 ], [ null, %66 ], [ null, %71 ]
+  %.037 = phi ptr [ null, %getname.exit55 ], [ %69, %71 ], [ %69, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
+  %.036 = phi ptr [ null, %getname.exit55 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ %26, %51 ], [ %26, %46 ], [ %26, %40 ], [ %26, %34 ], [ %26, %28 ], [ %26, %25 ], [ null, %66 ]
+  %.035 = phi ptr [ null, %getname.exit55 ], [ %58, %71 ], [ %58, %67 ], [ %58, %63 ], [ %58, %60 ], [ %58, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ %58, %66 ]
+  %.034 = phi i32 [ 0, %getname.exit55 ], [ %spec.select49, %71 ], [ 0, %67 ], [ 0, %63 ], [ 0, %60 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %25 ], [ 1, %66 ]
+  %.033 = phi ptr [ null, %getname.exit55 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %66 ]
+  %.032 = phi ptr [ null, %getname.exit55 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
+  %.0 = phi ptr [ null, %getname.exit55 ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
   %76 = load ptr, ptr %2, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %76) #7
   call void @EVP_PKEY_free(ptr noundef %.037) #7
@@ -633,13 +633,13 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
   br label %do_dh_param_keygen.exit
 
 do_dh_param_keygen.exit:                          ; preds = %getname.exit58.i, %25, %28, %34, %40, %46, %51, %56, %60, %63, %66, %67, %71
-  %.040.i = phi ptr [ %69, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ %69, %71 ]
-  %.039.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ %26, %51 ], [ %26, %46 ], [ %26, %40 ], [ %26, %34 ], [ %26, %28 ], [ %26, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
-  %.038.i = phi ptr [ %58, %67 ], [ %58, %63 ], [ %58, %60 ], [ %58, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ %58, %66 ], [ %58, %71 ]
-  %.037.i = phi i32 [ 0, %67 ], [ 0, %63 ], [ 0, %60 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %getname.exit58.i ], [ 1, %66 ], [ %spec.select52.i, %71 ]
-  %.036.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
-  %.035.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
-  %.0.i = phi ptr [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %getname.exit58.i ], [ null, %66 ], [ null, %71 ]
+  %.040.i = phi ptr [ null, %getname.exit58.i ], [ %69, %71 ], [ %69, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
+  %.039.i = phi ptr [ null, %getname.exit58.i ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ %26, %51 ], [ %26, %46 ], [ %26, %40 ], [ %26, %34 ], [ %26, %28 ], [ %26, %25 ], [ null, %66 ]
+  %.038.i = phi ptr [ null, %getname.exit58.i ], [ %58, %71 ], [ %58, %67 ], [ %58, %63 ], [ %58, %60 ], [ %58, %56 ], [ null, %51 ], [ null, %46 ], [ null, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ %58, %66 ]
+  %.037.i = phi i32 [ 0, %getname.exit58.i ], [ %spec.select52.i, %71 ], [ 0, %67 ], [ 0, %63 ], [ 0, %60 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ 0, %28 ], [ 0, %25 ], [ 1, %66 ]
+  %.036.i = phi ptr [ null, %getname.exit58.i ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %32, %46 ], [ %32, %40 ], [ %32, %34 ], [ %32, %28 ], [ null, %25 ], [ null, %66 ]
+  %.035.i = phi ptr [ null, %getname.exit58.i ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %38, %46 ], [ %38, %40 ], [ %38, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
+  %.0.i = phi ptr [ null, %getname.exit58.i ], [ null, %71 ], [ null, %67 ], [ null, %63 ], [ null, %60 ], [ null, %56 ], [ null, %51 ], [ %44, %46 ], [ %44, %40 ], [ null, %34 ], [ null, %28 ], [ null, %25 ], [ null, %66 ]
   %75 = load ptr, ptr %2, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %75) #7
   call void @EVP_PKEY_free(ptr noundef %.040.i) #7
@@ -680,8 +680,8 @@ define internal range(i32 0, 2) i32 @dhx_cert_load() #1 {
   br label %11
 
 11:                                               ; preds = %8, %0, %4
-  %12 = phi ptr [ %6, %4 ], [ null, %0 ], [ %.pre, %8 ]
-  %.0 = phi i32 [ 0, %4 ], [ 0, %0 ], [ %spec.select, %8 ]
+  %12 = phi ptr [ null, %0 ], [ %.pre, %8 ], [ %6, %4 ]
+  %.0 = phi i32 [ 0, %0 ], [ %spec.select, %8 ], [ 0, %4 ]
   call void @X509_free(ptr noundef %12) #7
   %13 = call i32 @BIO_free(ptr noundef %2) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1080,8 +1080,8 @@ define internal range(i32 0, 2) i32 @test_cipher_reinit_partialupdate(i32 nounde
   br label %82
 
 82:                                               ; preds = %19, %24, %27, %30, %75, %63, %68, %55, %33, %38, %43, %48, %16, %12, %1, %81
-  %.026 = phi ptr [ %14, %81 ], [ %14, %75 ], [ %14, %68 ], [ %14, %63 ], [ %14, %55 ], [ %14, %48 ], [ %14, %43 ], [ %14, %38 ], [ %14, %33 ], [ %14, %16 ], [ %14, %12 ], [ null, %1 ], [ %14, %30 ], [ %14, %27 ], [ %14, %24 ], [ %14, %19 ]
-  %.0 = phi i32 [ 1, %81 ], [ 0, %75 ], [ 0, %68 ], [ 0, %63 ], [ 0, %55 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %16 ], [ 0, %12 ], [ 0, %1 ], [ 1, %30 ], [ 1, %27 ], [ 1, %24 ], [ 1, %19 ]
+  %.026 = phi ptr [ null, %1 ], [ %14, %81 ], [ %14, %75 ], [ %14, %68 ], [ %14, %63 ], [ %14, %55 ], [ %14, %48 ], [ %14, %43 ], [ %14, %38 ], [ %14, %33 ], [ %14, %16 ], [ %14, %12 ], [ %14, %30 ], [ %14, %27 ], [ %14, %24 ], [ %14, %19 ]
+  %.0 = phi i32 [ 0, %1 ], [ 1, %81 ], [ 0, %75 ], [ 0, %68 ], [ 0, %63 ], [ 0, %55 ], [ 0, %48 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %16 ], [ 0, %12 ], [ 1, %30 ], [ 1, %27 ], [ 1, %24 ], [ 1, %19 ]
   call void @EVP_CIPHER_free(ptr noundef %.026) #7
   call void @EVP_CIPHER_CTX_free(ptr noundef %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1257,7 +1257,7 @@ define internal range(i32 0, 2) i32 @kem_rsa_gen_recover() #1 {
   br label %84
 
 84:                                               ; preds = %77, %73
-  %.0 = phi i32 [ %74, %73 ], [ %spec.select39, %77 ]
+  %.0 = phi i32 [ %spec.select39, %77 ], [ %74, %73 ]
   %85 = load ptr, ptr %1, align 8, !tbaa !13
   call void @EVP_PKEY_free(ptr noundef %85) #7
   %86 = load ptr, ptr %2, align 8, !tbaa !13
@@ -1634,8 +1634,8 @@ gen_dh_key.exit:                                  ; preds = %0, %8, %11, %16
   br label %30
 
 30:                                               ; preds = %27, %23, %gen_dh_key.exit
-  %.04 = phi i32 [ 0, %23 ], [ 0, %gen_dh_key.exit ], [ %spec.select, %27 ]
-  %.0 = phi ptr [ %25, %23 ], [ null, %gen_dh_key.exit ], [ %25, %27 ]
+  %.04 = phi i32 [ 0, %gen_dh_key.exit ], [ %spec.select, %27 ], [ 0, %23 ]
+  %.0 = phi ptr [ null, %gen_dh_key.exit ], [ %25, %27 ], [ %25, %23 ]
   call void @EVP_PKEY_free(ptr noundef %21) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #7
   ret i32 %.04
@@ -1892,8 +1892,8 @@ define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %0, p
   br label %23
 
 23:                                               ; preds = %18, %2, %9, %13
-  %.06 = phi i32 [ 0, %13 ], [ 0, %9 ], [ 0, %2 ], [ %spec.select, %18 ]
-  %.0 = phi ptr [ %11, %13 ], [ %11, %9 ], [ null, %2 ], [ %11, %18 ]
+  %.06 = phi i32 [ 0, %2 ], [ %spec.select, %18 ], [ 0, %13 ], [ 0, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ %11, %18 ], [ %11, %13 ], [ %11, %9 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef %.0) #7
   %24 = load ptr, ptr %3, align 8, !tbaa !15
   call void @CRYPTO_free(ptr noundef %24, ptr noundef nonnull @.str.24, i32 noundef 566) #7

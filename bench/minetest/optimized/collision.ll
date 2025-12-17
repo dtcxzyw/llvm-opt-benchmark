@@ -1274,16 +1274,16 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end3.i.i.i
   br i1 %cmp.not.i.i.i1743, label %for.cond.i.i.i, label %invoke.cont255, !llvm.loop !109
 
 if.end.i:                                         ; preds = %land.rhs.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %land.rhs.i.us.i.i.i
-  %130 = phi ptr [ %.pre, %land.rhs.i.us.i.i.i ], [ %.pre, %land.rhs.i.i.i.i.i.i.i ], [ %88, %land.rhs.i.i.i.i ]
-  %retval.sroa.0.1.i = phi ptr [ %__p.0.us.i.i.i, %land.rhs.i.us.i.i.i ], [ %__p.0.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %retval.sroa.0.036.i, %land.rhs.i.i.i.i ]
+  %130 = phi ptr [ %.pre, %land.rhs.i.i.i.i.i.i.i ], [ %.pre, %land.rhs.i.us.i.i.i ], [ %88, %land.rhs.i.i.i.i ]
+  %retval.sroa.0.1.i = phi ptr [ %__p.0.i.i.i, %land.rhs.i.i.i.i.i.i.i ], [ %__p.0.us.i.i.i, %land.rhs.i.us.i.i.i ], [ %retval.sroa.0.036.i, %land.rhs.i.i.i.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i, i64 40
   %131 = load i32, ptr %second.i, align 8, !tbaa !110
   %132 = call i32 @llvm.abs.i32(i32 %131, i1 true)
   br label %invoke.cont255
 
 invoke.cont255:                                   ; preds = %lor.lhs.false.i.i.i, %if.end3.i.i.i, %lor.lhs.false.us.i.i.i, %if.end3.us.i.i.i, %if.end.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i
-  %133 = phi ptr [ %130, %if.end.i ], [ %.pre, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ %.pre, %if.end3.us.i.i.i ], [ %.pre, %lor.lhs.false.us.i.i.i ], [ %.pre, %if.end3.i.i.i ], [ %.pre, %lor.lhs.false.i.i.i ]
-  %retval.0.i = phi i32 [ %132, %if.end.i ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ 0, %if.end3.us.i.i.i ], [ 0, %lor.lhs.false.us.i.i.i ], [ 0, %if.end3.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
+  %133 = phi ptr [ %130, %if.end.i ], [ %.pre, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ %.pre, %lor.lhs.false.us.i.i.i ], [ %.pre, %if.end3.us.i.i.i ], [ %.pre, %if.end3.i.i.i ], [ %.pre, %lor.lhs.false.i.i.i ]
+  %retval.0.i = phi i32 [ %132, %if.end.i ], [ 0, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit.i ], [ 0, %lor.lhs.false.us.i.i.i ], [ 0, %if.end3.us.i.i.i ], [ 0, %if.end3.i.i.i ], [ 0, %lor.lhs.false.i.i.i ]
   %cmp.i.i.i1354 = icmp eq ptr %133, %88
   br i1 %cmp.i.i.i1354, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359, label %if.then.i.i1355
 
@@ -1292,7 +1292,7 @@ if.then.i.i1355:                                  ; preds = %invoke.cont255
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1359: ; preds = %for.inc.i, %if.then.i1733, %invoke.cont255, %if.then.i.i1355
-  %134 = phi i32 [ %retval.0.i, %if.then.i.i1355 ], [ 0, %if.then.i1733 ], [ %retval.0.i, %invoke.cont255 ], [ 0, %for.inc.i ]
+  %134 = phi i32 [ %retval.0.i, %if.then.i.i1355 ], [ %retval.0.i, %invoke.cont255 ], [ 0, %if.then.i1733 ], [ 0, %for.inc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp250)
   %drawtype = getelementptr inbounds nuw i8, ptr %cond-lvalue.i.i, i64 1538
   %135 = load i8, ptr %drawtype, align 2, !tbaa !112
@@ -2647,9 +2647,9 @@ default.unreachable:                              ; preds = %if.then666
   unreachable
 
 invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668
-  %div74 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ], [ %div72, %land.end.thread ]
-  %316 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %304, %invoke.cont690 ], [ false, %if.then668 ], [ true, %land.end.thread ]
-  %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %land.end.thread ]
+  %div74 = phi float [ %div72, %land.end.thread ], [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ]
+  %316 = phi i1 [ true, %land.end.thread ], [ false, %if.then678 ], [ false, %if.then673 ], [ %304, %invoke.cont690 ], [ false, %if.then668 ]
+  %dtime.addr.2 = phi float [ %dtime.addr.12209, %land.end.thread ], [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ]
   %317 = load i8, ptr %add.ptr.i1621, align 8, !tbaa !118, !range !63, !noundef !64
   %spec.store.select = xor i8 %317, 1
   %obj.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1621, i64 8

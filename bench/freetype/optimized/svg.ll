@@ -138,7 +138,7 @@ ft_svg_preset_slot.exit:                          ; preds = %18, %.thread
   br label %45
 
 45:                                               ; preds = %37, %39, %ft_svg_preset_slot.exit, %10, %4
-  %.0 = phi i32 [ 132, %4 ], [ 158, %10 ], [ %33, %ft_svg_preset_slot.exit ], [ 0, %39 ], [ %.pre29, %37 ]
+  %.0 = phi i32 [ %33, %ft_svg_preset_slot.exit ], [ 132, %4 ], [ 158, %10 ], [ 0, %39 ], [ %.pre29, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -333,7 +333,7 @@ define internal range(i32 0, 13) i32 @ft_svg_property_set(ptr noundef writeonly 
   br label %22
 
 22:                                               ; preds = %8, %10, %13, %16, %6, %19, %4
-  %.1 = phi i32 [ 0, %19 ], [ 6, %6 ], [ 6, %16 ], [ 6, %13 ], [ 6, %10 ], [ 6, %8 ], [ 12, %4 ]
+  %.1 = phi i32 [ 6, %8 ], [ 6, %6 ], [ 0, %19 ], [ 6, %16 ], [ 6, %13 ], [ 6, %10 ], [ 12, %4 ]
   ret i32 %.1
 }
 

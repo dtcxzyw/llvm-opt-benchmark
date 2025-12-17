@@ -568,8 +568,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %or.cond61.i.i, label %202, label %200
 
 .sink.split.i.i:                                  ; preds = %307, %305, %250, %248
-  %.sroa.4.0.ph.i.i = phi i8 [ 1, %250 ], [ 1, %248 ], [ 0, %307 ], [ 0, %305 ]
-  %.sroa.0.0.ph.i.i = phi ptr [ %243, %250 ], [ %243, %248 ], [ %304, %307 ], [ %304, %305 ]
+  %.sroa.4.0.ph.i.i = phi i8 [ 1, %248 ], [ 1, %250 ], [ 0, %307 ], [ 0, %305 ]
+  %.sroa.0.0.ph.i.i = phi ptr [ %243, %248 ], [ %243, %250 ], [ %304, %307 ], [ %304, %305 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc74798063fe6411eE"(ptr nonnull align 8 %16)
           to label %310 unwind label %.loopexit.split-lp.i
 
@@ -584,7 +584,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %205, label %210, label %213, !prof !7
 
 .thread66.i.i:                                    ; preds = %308, %282, %278, %255, %226, %222, %207
-  %.pn59.i.i = phi { ptr, i32 } [ %208, %207 ], [ %.pn57.i.i, %255 ], [ %.pn57.i.i, %222 ], [ %eh.lpad-body.i.i, %308 ], [ %eh.lpad-body.i.i, %278 ], [ %227, %226 ], [ %283, %282 ]
+  %.pn59.i.i = phi { ptr, i32 } [ %208, %207 ], [ %.pn57.i.i, %255 ], [ %.pn57.i.i, %222 ], [ %eh.lpad-body.i.i, %278 ], [ %eh.lpad-body.i.i, %308 ], [ %227, %226 ], [ %283, %282 ]
   %206 = load i64, ptr %16, align 8, !range !8, !noundef !3
   %.not72.i.i = icmp eq i64 %206, -9223372036854775808
   br i1 %.not72.i.i, label %320, label %309
@@ -636,7 +636,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %223, label %255, label %.thread66.i.i
 
 224:                                              ; preds = %247, %231, %230, %229, %219
-  %.144.i.i = phi i8 [ %.346.i.i, %247 ], [ %.346.i.i, %231 ], [ 0, %230 ], [ %.043.i.i, %219 ], [ 0, %229 ]
+  %.144.i.i = phi i8 [ 0, %229 ], [ %.346.i.i, %247 ], [ %.346.i.i, %231 ], [ 0, %230 ], [ %.043.i.i, %219 ]
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %222
@@ -802,7 +802,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %279, label %308, label %.thread66.i.i
 
 280:                                              ; preds = %303, %302, %287, %286, %285, %275
-  %.141.i.i = phi i8 [ 0, %287 ], [ 0, %286 ], [ %.040.i.i, %303 ], [ %.040.i.i, %302 ], [ %.040.i.i, %275 ], [ 0, %285 ]
+  %.141.i.i = phi i8 [ 0, %285 ], [ 0, %287 ], [ 0, %286 ], [ %.040.i.i, %303 ], [ %.040.i.i, %302 ], [ %.040.i.i, %275 ]
   %281 = landingpad { ptr, i32 }
           cleanup
   br label %278
@@ -930,7 +930,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   unreachable
 
 320:                                              ; preds = %316, %309, %265, %.thread66.i.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.ph.i = phi { ptr, i32 } [ %317, %316 ], [ %.pn59.i.i, %309 ], [ %.pn59.i.i, %.thread66.i.i ], [ %266, %265 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.ph.i = phi { ptr, i32 } [ %317, %316 ], [ %266, %265 ], [ %.pn59.i.i, %.thread66.i.i ], [ %.pn59.i.i, %309 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h1721f4c39ea87a9eE"(ptr nonnull align 8 %43) #10
           to label %331 unwind label %318
 
@@ -1223,8 +1223,8 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
           to label %.sink.split unwind label %57
 
 .sink.split:                                      ; preds = %62, %37, %40, %61
-  %.sink = phi ptr [ %6, %61 ], [ %8, %40 ], [ %8, %37 ], [ %6, %62 ]
-  %.1.ph = phi i1 [ true, %61 ], [ true, %40 ], [ true, %37 ], [ %67, %62 ]
+  %.sink = phi ptr [ %8, %37 ], [ %6, %61 ], [ %8, %40 ], [ %6, %62 ]
+  %.1.ph = phi i1 [ true, %37 ], [ true, %61 ], [ true, %40 ], [ %67, %62 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %.sink)
   br label %68
 
@@ -1459,7 +1459,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
           to label %29 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %80, %.loopexit.split-lp55, %54
-  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %lpad.phi58, %.loopexit.split-lp55 ], [ %lpad.thr_comm.split-lp, %80 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %80 ], [ %55, %54 ], [ %lpad.phi58, %.loopexit.split-lp55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit59, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp60, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h9979510f148df1c8E"(ptr nonnull align 8 %21) #10
           to label %120 unwind label %67
 

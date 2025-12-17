@@ -549,7 +549,7 @@ default.unreachable:                              ; preds = %3
   br label %_ZN3std2io5error14repr_bitpacked11decode_repr17h63fcd6e4c9d23e92E.exit.thread
 
 _ZN3std2io5error14repr_bitpacked11decode_repr17h63fcd6e4c9d23e92E.exit.thread: ; preds = %3, %3, %14, %54, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit.thread", %70, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit10"
-  %.0 = phi i1 [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit10" ], [ false, %70 ], [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit.thread" ], [ true, %54 ], [ false, %14 ], [ false, %3 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %70 ], [ true, %54 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit10" ], [ true, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17habef557e10895e00E.exit.thread" ], [ false, %3 ], [ false, %14 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -1168,7 +1168,7 @@ define void @_ZN8uu_rmdir6uu_app17h303fedb70338be0aE(ptr noalias noundef writeon
   ret void
 
 .body:                                            ; preds = %166, %147, %115, %83, %48, %177, %176, %175, %174, %171
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body69.ph, %171 ], [ %eh.lpad-body59.ph, %174 ], [ %eh.lpad-body42.ph, %175 ], [ %eh.lpad-body27.ph, %176 ], [ %178, %177 ], [ %49, %48 ], [ %84, %83 ], [ %116, %115 ], [ %148, %147 ], [ %167, %166 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body69.ph, %171 ], [ %148, %147 ], [ %eh.lpad-body59.ph, %174 ], [ %116, %115 ], [ %eh.lpad-body42.ph, %175 ], [ %84, %83 ], [ %eh.lpad-body27.ph, %176 ], [ %49, %48 ], [ %178, %177 ], [ %167, %166 ]
   resume { ptr, i32 } %.pn
 
 171:                                              ; preds = %152, %161

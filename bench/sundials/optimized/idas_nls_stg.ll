@@ -387,7 +387,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensStg(ptr noundef %0, p
   br label %36
 
 36:                                               ; preds = %32, %21, %17, %10, %9
-  %.0 = phi i32 [ -20, %9 ], [ -20, %10 ], [ 0, %17 ], [ 902, %21 ], [ %., %32 ]
+  %.0 = phi i32 [ -20, %9 ], [ 0, %17 ], [ -20, %10 ], [ %., %32 ], [ 902, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -554,7 +554,7 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensStg(ptr noundef readonly 
   br i1 %.not, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %17, %31, %13, %.preheader, %12
-  %.016 = phi i32 [ -20, %12 ], [ 0, %.preheader ], [ -7, %17 ], [ 3, %31 ], [ 0, %13 ]
+  %.016 = phi i32 [ -20, %12 ], [ 0, %.preheader ], [ 3, %31 ], [ -7, %17 ], [ 0, %13 ]
   ret i32 %.016
 }
 

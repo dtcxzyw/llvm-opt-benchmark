@@ -1088,7 +1088,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %150, label %.thread18, label %76, !llvm.loop !17
 
 .thread18:                                        ; preds = %139, %113, %103, %.loopexit, %.preheader.split, %20, %4, %72, %70, %67, %29, %27
-  %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %4 ], [ 0, %20 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
+  %151 = phi i32 [ 0, %27 ], [ %34, %29 ], [ %68, %67 ], [ 1, %72 ], [ 1, %70 ], [ 0, %20 ], [ 0, %4 ], [ -28, %.preheader.split ], [ -5, %103 ], [ 0, %113 ], [ -28, %139 ], [ %147, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %151
 }
@@ -1606,7 +1606,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br label %114
 
 114:                                              ; preds = %.thread, %113, %112, %105, %51, %38
-  %115 = phi i32 [ 0, %113 ], [ 0, %112 ], [ 0, %38 ], [ -5, %51 ], [ -5, %105 ], [ -5, %.thread ]
+  %115 = phi i32 [ -5, %.thread ], [ 0, %113 ], [ 0, %112 ], [ 0, %38 ], [ -5, %51 ], [ -5, %105 ]
   ret i32 %115
 }
 
@@ -2083,7 +2083,7 @@ define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zero
   br i1 %74, label %.loopexit, label %.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %38, %34, %30, %64, %68, %72, %.split5.us
-  %75 = phi i32 [ %.us-phi, %.split5.us ], [ %60, %72 ], [ %60, %68 ], [ %60, %64 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
+  %75 = phi i32 [ %.us-phi, %.split5.us ], [ %60, %64 ], [ %60, %72 ], [ %60, %68 ], [ %26, %30 ], [ %26, %34 ], [ %26, %38 ]
   ret i32 %75
 }
 

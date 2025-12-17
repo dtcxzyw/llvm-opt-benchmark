@@ -109,7 +109,7 @@ define hidden noundef nonnull ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %0) loc
   unreachable
 
 7:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi ptr [ @.str.60, %2 ], [ @.str.61, %3 ], [ @.str.62, %4 ], [ @.str.59, %1 ]
+  %.0 = phi ptr [ @.str.62, %4 ], [ @.str.60, %2 ], [ @.str.61, %3 ], [ @.str.59, %1 ]
   ret ptr %.0
 }
 
@@ -159,7 +159,7 @@ define hidden noundef range(i64 0, 1073741825) i64 @_ZN7NMTUtil15scale_from_name
   br label %25
 
 25:                                               ; preds = %22, %19, %13, %16, %7, %10, %1, %4
-  %.0 = phi i64 [ 1, %4 ], [ 1, %1 ], [ 1024, %10 ], [ 1024, %7 ], [ 1048576, %16 ], [ 1048576, %13 ], [ 1073741824, %19 ], [ %spec.select, %22 ]
+  %.0 = phi i64 [ 1073741824, %19 ], [ 1, %1 ], [ 1024, %7 ], [ 1048576, %13 ], [ 1, %4 ], [ 1024, %10 ], [ 1048576, %16 ], [ %spec.select, %22 ]
   ret i64 %.0
 }
 

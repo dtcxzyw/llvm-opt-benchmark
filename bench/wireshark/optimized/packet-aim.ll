@@ -3428,7 +3428,7 @@ define internal noundef i32 @dissect_generic_rateinfo(ptr noundef %0, ptr readno
   br i1 %.not10.i, label %aim_get_family.exit, label %40
 
 aim_get_family.exit:                              ; preds = %40, %.lr.ph.i
-  %.2.i = phi ptr [ %42, %.lr.ph.i ], [ null, %40 ]
+  %.2.i = phi ptr [ null, %40 ], [ %42, %.lr.ph.i ]
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %aim_get_family.exit, %.thread.i
@@ -3887,7 +3887,7 @@ define internal range(i32 10, 13) i32 @dissect_aim_tlv_value_icq(ptr noundef %0,
   br label %37
 
 37:                                               ; preds = %4, %35, %16
-  %.0 = phi i32 [ 11, %16 ], [ 10, %4 ], [ 12, %35 ]
+  %.0 = phi i32 [ 12, %35 ], [ 11, %16 ], [ 10, %4 ]
   ret i32 %.0
 }
 

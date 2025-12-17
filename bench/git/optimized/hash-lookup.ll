@@ -148,7 +148,7 @@ index_pos_to_insert_pos.exit71:                   ; preds = %76
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.thread75, %index_pos_to_insert_pos.exit, %4, %index_pos_to_insert_pos.exit71
-  %.0 = phi i32 [ %80, %index_pos_to_insert_pos.exit71 ], [ -1, %4 ], [ %54, %index_pos_to_insert_pos.exit ], [ %68, %.thread75 ], [ -1, %20 ]
+  %.0 = phi i32 [ %80, %index_pos_to_insert_pos.exit71 ], [ %68, %.thread75 ], [ -1, %4 ], [ %54, %index_pos_to_insert_pos.exit ], [ -1, %20 ]
   ret i32 %.0
 }
 

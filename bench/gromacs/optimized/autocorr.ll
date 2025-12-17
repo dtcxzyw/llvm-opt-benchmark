@@ -216,7 +216,7 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   br label %66
 
 66:                                               ; preds = %62, %59, %63
-  %.0139 = phi i8 [ 0, %62 ], [ %.mux, %59 ], [ 0, %63 ]
+  %.0139 = phi i8 [ %.mux, %59 ], [ 0, %62 ], [ 0, %63 ]
   %67 = and i64 %8, 1
   %.not156 = icmp eq i64 %67, 0
   %68 = and i64 %8, 5
@@ -591,7 +591,7 @@ _ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i.i263: ; preds = %_ZSt8
   br label %_ZL16low_do_four_coreiPfS_i.exit275
 
 210:                                              ; preds = %183, %181
-  %.pn.i247 = phi { ptr, i32 } [ %182, %181 ], [ %184, %183 ]
+  %.pn.i247 = phi { ptr, i32 } [ %184, %183 ], [ %182, %181 ]
   call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %common.resume
@@ -788,7 +788,7 @@ _ZSt8_DestroyIPSt6vectorIfSaIfEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %_ZL16low_do_four_coreiPfS_i.exit
 
 267:                                              ; preds = %240, %238
-  %.pn.i = phi { ptr, i32 } [ %239, %238 ], [ %241, %240 ]
+  %.pn.i = phi { ptr, i32 } [ %241, %240 ], [ %239, %238 ]
   call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
@@ -2444,7 +2444,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   ret void
 
 59:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %22, %21 ]
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   call void @_ZNSt6vectorIS_IfSaIfEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

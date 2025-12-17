@@ -1077,8 +1077,8 @@ define dso_local range(i32 -12, 2) i32 @__posix_acl_create(ptr noundef captures(
   br label %.thread11
 
 .thread11:                                        ; preds = %3, %29, %31, %32, %.thread
-  %34 = phi i32 [ %.ph12, %32 ], [ %.ph12, %.thread ], [ %.ph12, %31 ], [ %.ph12, %29 ], [ -12, %3 ]
-  %35 = phi ptr [ %.ph, %32 ], [ %.ph, %.thread ], [ %.ph, %31 ], [ %.ph, %29 ], [ null, %3 ]
+  %34 = phi i32 [ %.ph12, %29 ], [ %.ph12, %.thread ], [ %.ph12, %32 ], [ %.ph12, %31 ], [ -12, %3 ]
+  %35 = phi ptr [ %.ph, %29 ], [ %.ph, %.thread ], [ %.ph, %32 ], [ %.ph, %31 ], [ null, %3 ]
   store ptr %35, ptr %0, align 8
   ret i32 %34
 }
@@ -1323,8 +1323,8 @@ define dso_local noundef range(i32 -12, 1) i32 @__posix_acl_chmod(ptr noundef ca
   br label %.thread18
 
 .thread18:                                        ; preds = %3, %64, %66, %67, %.thread
-  %69 = phi i32 [ %.ph19, %67 ], [ %.ph19, %.thread ], [ %.ph19, %66 ], [ %.ph19, %64 ], [ -12, %3 ]
-  %70 = phi ptr [ %.ph, %67 ], [ %.ph, %.thread ], [ %.ph, %66 ], [ %.ph, %64 ], [ null, %3 ]
+  %69 = phi i32 [ %.ph19, %64 ], [ %.ph19, %.thread ], [ %.ph19, %67 ], [ %.ph19, %66 ], [ -12, %3 ]
+  %70 = phi ptr [ %.ph, %64 ], [ %.ph, %.thread ], [ %.ph, %67 ], [ %.ph, %66 ], [ null, %3 ]
   store ptr %70, ptr %0, align 8
   ret i32 %69
 }
@@ -1610,7 +1610,7 @@ define dso_local range(i32 -22, 1) i32 @posix_acl_update_mode(ptr noundef %0, pt
   br i1 %55, label %.thread4, label %57
 
 .thread4:                                         ; preds = %4, %.thread5, %52
-  %56 = phi i16 [ %54, %52 ], [ %15, %.thread5 ], [ %5, %4 ]
+  %56 = phi i16 [ %15, %.thread5 ], [ %54, %52 ], [ %5, %4 ]
   store ptr null, ptr %3, align 8
   br label %57
 
@@ -1670,7 +1670,7 @@ define dso_local ptr @posix_acl_from_xattr(ptr readnone captures(none) %0, ptr n
   br i1 %18, label %select.unfold, label %20
 
 select.unfold:                                    ; preds = %11, %3, %8
-  %.ph = phi i64 [ -95, %8 ], [ -22, %3 ], [ -22, %11 ]
+  %.ph = phi i64 [ -22, %3 ], [ -95, %8 ], [ -22, %11 ]
   %19 = inttoptr i64 %.ph to ptr
   br label %.thread7
 
@@ -2458,7 +2458,7 @@ select.unfold:                                    ; preds = %9, %4
   br i1 %123, label %.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %78, %64, %.split, %.thread16, %105, %103, %84, %81, %.split.us, %46, %60, %.loopexit.split.us
-  %.ph41 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %105 ], [ 0, %103 ], [ 0, %84 ], [ %82, %81 ], [ -5, %.thread16 ], [ %61, %60 ], [ %47, %46 ], [ %44, %.split.us ], [ %79, %78 ], [ %65, %64 ], [ %62, %.split ]
+  %.ph41 = phi i32 [ -11, %.loopexit.split.us ], [ %82, %81 ], [ 0, %105 ], [ 0, %103 ], [ 0, %84 ], [ -5, %.thread16 ], [ %44, %.split.us ], [ %61, %60 ], [ %47, %46 ], [ %79, %78 ], [ %65, %64 ], [ %62, %.split ]
   tail call void @up_write(ptr noundef nonnull %40) #16
   br label %.loopexit
 
@@ -2522,7 +2522,7 @@ select.unfold:                                    ; preds = %8, %3
   br label %31
 
 31:                                               ; preds = %8, %27, %23, %16, %13
-  %32 = phi ptr [ %15, %13 ], [ inttoptr (i64 -95 to ptr), %16 ], [ inttoptr (i64 -95 to ptr), %23 ], [ %30, %27 ], [ inttoptr (i64 -22 to ptr), %8 ]
+  %32 = phi ptr [ %15, %13 ], [ %30, %27 ], [ inttoptr (i64 -95 to ptr), %16 ], [ inttoptr (i64 -95 to ptr), %23 ], [ inttoptr (i64 -22 to ptr), %8 ]
   ret ptr %32
 }
 
@@ -2745,7 +2745,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
   br i1 %115, label %select.unfold.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %48, %34, %select.unfold.split, %70, %59, %51, %.thread14, %97, %95, %.thread19, %72, %select.unfold.split.us, %16, %30, %.loopexit.split.us
-  %.ph40 = phi i32 [ -11, %.loopexit.split.us ], [ 0, %97 ], [ 0, %95 ], [ 0, %.thread19 ], [ %76, %72 ], [ -1, %70 ], [ -95, %59 ], [ -95, %51 ], [ -5, %.thread14 ], [ %31, %30 ], [ %17, %16 ], [ %14, %select.unfold.split.us ], [ %49, %48 ], [ %35, %34 ], [ %32, %select.unfold.split ]
+  %.ph40 = phi i32 [ -11, %.loopexit.split.us ], [ %76, %72 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.thread19 ], [ -95, %59 ], [ -95, %51 ], [ -5, %.thread14 ], [ -1, %70 ], [ %14, %select.unfold.split.us ], [ %31, %30 ], [ %17, %16 ], [ %49, %48 ], [ %35, %34 ], [ %32, %select.unfold.split ]
   tail call void @up_write(ptr noundef nonnull %10) #16
   br label %.loopexit
 
@@ -2801,7 +2801,7 @@ define dso_local i32 @do_set_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread4
 
 .thread4:                                         ; preds = %20, %22, %.thread, %23, %14, %11
-  %25 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %15, %23 ], [ %7, %.thread ], [ %15, %22 ], [ %15, %20 ]
+  %25 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %7, %.thread ], [ %15, %23 ], [ %15, %22 ], [ %15, %20 ]
   ret i32 %25
 }
 
@@ -2855,7 +2855,7 @@ vfs_get_acl.exit:                                 ; preds = %29, %15
   br i1 %33, label %vfs_get_acl.exit.thread, label %36
 
 vfs_get_acl.exit.thread:                          ; preds = %29, %10, %25, %18, %vfs_get_acl.exit
-  %34 = phi ptr [ %32, %vfs_get_acl.exit ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -95 to ptr), %25 ], [ inttoptr (i64 -95 to ptr), %18 ], [ inttoptr (i64 -61 to ptr), %29 ]
+  %34 = phi ptr [ %32, %vfs_get_acl.exit ], [ inttoptr (i64 -95 to ptr), %18 ], [ inttoptr (i64 -22 to ptr), %10 ], [ inttoptr (i64 -95 to ptr), %25 ], [ inttoptr (i64 -61 to ptr), %29 ]
   %35 = ptrtoint ptr %34 to i64
   br label %.thread
 

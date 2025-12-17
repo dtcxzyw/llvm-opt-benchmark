@@ -1097,7 +1097,7 @@ _ZN8rationalD2Ev.exit169:                         ; preds = %.noexc.i168
   ret void
 
 343:                                              ; preds = %26, %237, %35, %340, %.loopexit, %290, %283, %16
-  %.pn120 = phi { ptr, i32 } [ %17, %16 ], [ %.pn113, %283 ], [ %291, %290 ], [ %.pn, %.loopexit ], [ %341, %340 ], [ %27, %26 ], [ %.pn115, %237 ], [ %36, %35 ]
+  %.pn120 = phi { ptr, i32 } [ %17, %16 ], [ %341, %340 ], [ %.pn113, %283 ], [ %291, %290 ], [ %.pn, %.loopexit ], [ %27, %26 ], [ %.pn115, %237 ], [ %36, %35 ]
   resume { ptr, i32 } %.pn120
 
 344:                                              ; preds = %272
@@ -1203,7 +1203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %26
 
 26:                                               ; preds = %7, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
-  %.0 = phi i1 [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %12 ], [ true, %2 ], [ false, %7 ]
+  %.0 = phi i1 [ %14, %12 ], [ true, %2 ], [ %.0.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %7 ]
   ret i1 %.0
 }
 

@@ -696,7 +696,7 @@ _ZNKSt12__shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplELN9__gnu
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %62, %61
-  %64 = phi ptr [ %9, %61 ], [ %.pre.i, %62 ]
+  %64 = phi ptr [ %.pre.i, %62 ], [ %9, %61 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %65, ptr %8, align 8, !tbaa !84
   br label %_ZNSt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEC2ERKS3_.exit
@@ -721,7 +721,7 @@ _ZNSt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEC2ERKS3_.e
   ret void
 
 .body:                                            ; preds = %67, %46, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ], [ %47, %46 ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %47, %46 ], [ %68, %67 ]
   %72 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #37
   resume { ptr, i32 } %.pn
 }
@@ -997,7 +997,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl13initCellRangeEPKfPiS4_i.exit:
   br label %157
 
 157:                                              ; preds = %153, %151, %143
-  %.012.i = phi i32 [ %147, %143 ], [ 0, %151 ], [ %spec.select.i, %153 ]
+  %.012.i = phi i32 [ %147, %143 ], [ %spec.select.i, %153 ], [ 0, %151 ]
   %158 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i14
   store i32 %.012.i, ptr %158, align 4, !tbaa !39
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
@@ -1295,8 +1295,8 @@ define noundef zeroext i1 @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13ini
   br label %.thread
 
 .thread:                                          ; preds = %18, %14
-  %22 = phi i32 [ -1, %14 ], [ %21, %18 ]
-  %23 = phi float [ %.069114, %14 ], [ %spec.select, %18 ]
+  %22 = phi i32 [ %21, %18 ], [ -1, %14 ]
+  %23 = phi float [ %spec.select, %18 ], [ %.069114, %14 ]
   %.368 = add nsw i32 %.065115, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
@@ -1398,7 +1398,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %68, %73
   br i1 %exitcond130.not, label %.thread95, label %68, !llvm.loop !111
 
 .thread95:                                        ; preds = %14, %39, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %52
-  %.4 = phi i1 [ false, %52 ], [ true, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ false, %39 ], [ false, %14 ]
+  %.4 = phi i1 [ false, %52 ], [ false, %39 ], [ true, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ false, %14 ]
   ret i1 %.4
 }
 
@@ -1807,7 +1807,7 @@ _ZN3gmx12_GLOBAL__N_118computeBoundingBoxEiPA3_KfPfS4_.exit: ; preds = %switch.l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %147, %.critedge, %154, %88
-  %.1 = phi i1 [ false, %88 ], [ true, %154 ], [ true, %.critedge ], [ false, %147 ]
+  %.1 = phi i1 [ false, %88 ], [ true, %.critedge ], [ true, %154 ], [ false, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2031,7 +2031,7 @@ define noundef i32 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl16getGridCe
   br label %31
 
 31:                                               ; preds = %27, %25, %17
-  %.012 = phi i32 [ %21, %17 ], [ 0, %25 ], [ %spec.select, %27 ]
+  %.012 = phi i32 [ %21, %17 ], [ %spec.select, %27 ], [ 0, %25 ]
   %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %.012, ptr %32, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2073,7 +2073,7 @@ define void @_ZN3gmx8internal30AnalysisNeighborhoodSearchImpl13addToGridCellEPKf
   br label %21
 
 21:                                               ; preds = %17, %15, %7
-  %.012.i = phi i32 [ %11, %7 ], [ 0, %15 ], [ %spec.select.i, %17 ]
+  %.012.i = phi i32 [ %11, %7 ], [ %spec.select.i, %17 ], [ 0, %15 ]
   %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   store i32 %.012.i, ptr %22, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2714,7 +2714,7 @@ define noundef zeroext i1 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nex
   br label %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl19computeCutoffExtentENS_11BasicVectorIfEEPKii.exit.i: ; preds = %82, %104, %._crit_edge.i.i
-  %.020.i.i = phi float [ %106, %104 ], [ 0.000000e+00, %._crit_edge.i.i ], [ %43, %82 ]
+  %.020.i.i = phi float [ 0.000000e+00, %._crit_edge.i.i ], [ %106, %104 ], [ %43, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = getelementptr inbounds float, ptr %21, i64 %indvars.iv.next
   %108 = load float, ptr %107, align 4, !tbaa !77
@@ -4211,7 +4211,7 @@ _ZNKSt12__shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplELN9__gnu_cxx
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i: ; preds = %51, %50
-  %53 = phi ptr [ %44, %50 ], [ %.pre.i, %51 ]
+  %53 = phi ptr [ %.pre.i, %51 ], [ %44, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %54, ptr %7, align 8, !tbaa !199
   br label %_ZNSt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEC2ERKS3_.exit
@@ -5508,7 +5508,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ;
   br i1 %311, label %32, label %.loopexit89, !llvm.loop !223
 
 .loopexit89:                                      ; preds = %.thread82, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2, %299, %204
-  %312 = phi i1 [ true, %299 ], [ true, %204 ], [ false, %2 ], [ false, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit ], [ false, %.thread82 ]
+  %312 = phi i1 [ true, %204 ], [ true, %299 ], [ false, %2 ], [ false, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit ], [ false, %.thread82 ]
   ret i1 %312
 }
 

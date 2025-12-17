@@ -143,7 +143,7 @@ define internal range(i32 -2147483648, 1) i32 @dolby_e_init(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %11, %21, %26, %1, %29
-  %.023 = phi i32 [ 0, %29 ], [ -1313558101, %1 ], [ -12, %26 ], [ %19, %11 ], [ %24, %21 ]
+  %.023 = phi i32 [ -12, %26 ], [ 0, %29 ], [ -1313558101, %1 ], [ %19, %11 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.023
 }
@@ -345,7 +345,7 @@ parse_meter.exit:                                 ; preds = %74
   br label %102
 
 102:                                              ; preds = %101, %97, %93, %91
-  %.033.i = phi ptr [ @ch_reorder_6, %93 ], [ @ch_reorder_n, %101 ], [ @ch_reorder_4, %91 ], [ @ch_reorder_8, %97 ]
+  %.033.i = phi ptr [ @ch_reorder_n, %101 ], [ @ch_reorder_6, %93 ], [ @ch_reorder_4, %91 ], [ @ch_reorder_8, %97 ]
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 1792, ptr %103, align 8, !tbaa !66
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -832,7 +832,7 @@ parse_key.exit.thread:                            ; preds = %18
   br label %parse_key.exit
 
 parse_key.exit:                                   ; preds = %4, %23
-  %.1.i = phi i32 [ %46, %23 ], [ 0, %4 ]
+  %.1.i = phi i32 [ 0, %4 ], [ %46, %23 ]
   %47 = icmp slt i32 %1, %2
   br i1 %47, label %.lr.ph, label %._crit_edge
 
@@ -2120,7 +2120,7 @@ parse_indices.exit.i:                             ; preds = %574
   br i1 %exitcond139.not.i.i, label %.loopexit.i91.i, label %751, !llvm.loop !137
 
 .loopexit.i91.i:                                  ; preds = %751, %._crit_edge.i90.i, %.preheader.i93.i, %686
-  %766 = phi i8 [ %659, %.preheader.i93.i ], [ %659, %._crit_edge.i90.i ], [ %.pre.i94.i, %686 ], [ %659, %751 ]
+  %766 = phi i8 [ %.pre.i94.i, %686 ], [ %659, %.preheader.i93.i ], [ %659, %._crit_edge.i90.i ], [ %659, %751 ]
   %767 = zext i8 %675 to i64
   %768 = getelementptr inbounds nuw float, ptr %.090109.i.i, i64 %767
   %indvars.iv.next141.i.i = add nuw nsw i64 %indvars.iv140.i.i, 1
@@ -2169,8 +2169,8 @@ parse_mantissas.exit.i:                           ; preds = %._crit_edge118.i.i,
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %794, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %87) #11
   br label %795
 
-795:                                              ; preds = %80, %793, %118, %parse_bit_alloc.exit.i, %parse_indices.exit.i
-  %.053.i.ph = phi i32 [ -1094995529, %parse_indices.exit.i ], [ -1163346256, %parse_bit_alloc.exit.i ], [ -1094995529, %118 ], [ -1094995529, %793 ], [ -1163346256, %80 ]
+795:                                              ; preds = %80, %118, %793, %parse_bit_alloc.exit.i, %parse_indices.exit.i
+  %.053.i.ph = phi i32 [ -1094995529, %parse_indices.exit.i ], [ -1163346256, %parse_bit_alloc.exit.i ], [ -1094995529, %793 ], [ -1094995529, %118 ], [ -1163346256, %80 ]
   %796 = load ptr, ptr %60, align 8, !tbaa !40
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 528
   %798 = load i32, ptr %797, align 8, !tbaa !142
@@ -2236,7 +2236,7 @@ skip_input.exit:                                  ; preds = %parse_channel.exit
   br label %skip_input.exit40
 
 skip_input.exit40:                                ; preds = %795, %72, %819, %817, %skip_input.exit.thread, %parse_key.exit.thread
-  %.0 = phi i32 [ -1094995529, %parse_key.exit.thread ], [ -1094995529, %skip_input.exit.thread ], [ -1094995529, %817 ], [ 0, %819 ], [ %.053.i.ph, %795 ], [ %73, %72 ]
+  %.0 = phi i32 [ -1094995529, %skip_input.exit.thread ], [ -1094995529, %parse_key.exit.thread ], [ -1094995529, %817 ], [ 0, %819 ], [ %.053.i.ph, %795 ], [ %73, %72 ]
   ret i32 %.0
 }
 

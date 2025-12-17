@@ -544,9 +544,9 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %142
   br label %.loopexit148
 
 .loopexit148:                                     ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader, %159
-  %.pre-phi = phi i64 [ %132, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %.pre244, %159 ], [ %132, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
-  %.0 = phi ptr [ %133, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %144, %159 ], [ %133, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
-  %.075 = phi i32 [ %131, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %160, %159 ], [ %131, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.pre-phi = phi i64 [ %.pre244, %159 ], [ %132, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %132, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.0 = phi ptr [ %144, %159 ], [ %133, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %133, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
+  %.075 = phi i32 [ %160, %159 ], [ %131, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader ], [ %131, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit ]
   %161 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.24, i32 noundef 196, i64 noundef range(i64 -2147483647, 2147483648) %.pre-phi, i64 noundef 4)
           to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit113.preheader unwind label %.loopexit.split-lp150
 
@@ -1108,7 +1108,7 @@ _ZN8t_filenmD2Ev.exit:                            ; preds = %_ZSt8_DestroyIPNSt7
   ret i32 0
 
 421:                                              ; preds = %.loopexit149, %.loopexit.split-lp150, %.loopexit.split-lp, %154, %97, %92
-  %.pn110.pn = phi { ptr, i32 } [ %.pn110, %97 ], [ %.pn100.pn, %.loopexit.split-lp ], [ %.pn91, %154 ], [ %.pn, %92 ], [ %lpad.loopexit151, %.loopexit149 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp150 ]
+  %.pn110.pn = phi { ptr, i32 } [ %.pn110, %97 ], [ %.pn, %92 ], [ %.pn100.pn, %.loopexit.split-lp ], [ %.pn91, %154 ], [ %lpad.loopexit151, %.loopexit149 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp150 ]
   %422 = getelementptr inbounds nuw i8, ptr %24, i64 280
   br label %423
 
@@ -1608,13 +1608,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   ret void
 
 .sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
+  %.sink = phi ptr [ %11, %18 ], [ %11, %.sink.split ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %.pn39.pn50.ph, %.sink.split ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #20
   br label %37
 
 37:                                               ; preds = %.sink.split63, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
+  %.pn39.pn.pn = phi { ptr, i32 } [ %35, %34 ], [ %19, %18 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

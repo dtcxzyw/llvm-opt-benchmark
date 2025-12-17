@@ -644,7 +644,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPcRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.outer241, !llvm.loop !18
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPcEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %20, %34, %21, %56, %15
   ret void
 }
 
@@ -1141,7 +1141,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPwRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.outer241, !llvm.loop !31
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPwEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -1636,7 +1636,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPaRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.outer241, !llvm.loop !42
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPaEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %20, %34, %21, %56, %15
   ret void
 }
 
@@ -2131,7 +2131,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPhRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %223, %222 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.outer241, !llvm.loop !53
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %15, %20, %56, %34, %21
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPhEEvT1_S5_T0_.exit, %220, %112, %102, %117, %115, %103, %93, %20, %34, %21, %56, %15
   ret void
 }
 
@@ -2628,7 +2628,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPsRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.outer241, !llvm.loop !66
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPsEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -3125,7 +3125,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPtRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.outer241, !llvm.loop !77
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPtEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -3622,7 +3622,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPiRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.outer241, !llvm.loop !90
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPiEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -4119,7 +4119,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPjRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.outer241, !llvm.loop !101
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPjEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -4616,7 +4616,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPlRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.outer241, !llvm.loop !114
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPlEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -5113,7 +5113,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPmRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.outer241, !llvm.loop !125
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPmEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -5610,7 +5610,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPxRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.outer241, !llvm.loop !138
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPxEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -6107,7 +6107,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyE
   %.088.ph242.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPyRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %224, %223 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.outer241, !llvm.loop !149
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %16, %21, %57, %35, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPyEEvT1_S5_T0_.exit, %221, %113, %103, %118, %116, %104, %94, %21, %35, %22, %57, %16
   ret void
 }
 
@@ -6627,7 +6627,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfE
   %.091.ph240.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPfRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.outer239, !llvm.loop !162
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPfEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %21, %38, %22, %65, %16
   ret void
 }
 
@@ -7147,7 +7147,7 @@ _ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdE
   %.091.ph240.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPdRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %256, %255 ]
   br label %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.outer239, !llvm.loop !175
 
-_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %16, %21, %65, %38, %22
+_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit.thread: ; preds = %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %_ZNSt3__116__insertion_sortB8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPdEEvT1_S5_T0_.exit, %253, %130, %120, %135, %133, %121, %111, %21, %38, %22, %65, %16
   ret void
 }
 
@@ -7958,7 +7958,7 @@ _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enabl
   %.090.ph353.be = phi ptr [ %.3.lcssa.i, %_ZNSt3__131__partition_with_equals_on_leftB8ne210000INS_17_ClassicAlgPolicyEPeRNS_6ranges4lessEEET0_S6_S6_T1_.exit ], [ %309, %308 ]
   br label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.outer352, !llvm.loop !194
 
-_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.thread: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %306, %138, %128, %143, %141, %129, %119, %113, %110, %107, %103, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i, %70, %67, %63, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i, %41, %38, %37, %35, %31, %30, %16, %21
+_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.thread: ; preds = %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, %306, %138, %128, %143, %141, %129, %119, %110, %107, %103, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i, %67, %63, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i, %38, %37, %35, %31, %30, %21, %41, %70, %113, %16
   ret void
 }
 
@@ -8156,13 +8156,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPcEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !202
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
-  %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
-  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
-  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
-  %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
+  %86 = phi i1 [ %67, %73 ], [ %77, %76 ], [ %77, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %60, %73 ], [ %.4.lcssa167, %76 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.382, %73 ], [ %.079.lcssa163, %76 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %62, %73 ], [ %.091.lcssa158, %76 ], [ %.091.lcssa158, %.lr.ph.i11 ]
+  %.389 = phi i64 [ %.288, %73 ], [ 0, %76 ], [ %84, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %73 ], [ %.052.i, %76 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %75, %73 ], [ %.04351.i, %76 ], [ %.04351.i, %.lr.ph.i11 ]
   %87 = icmp sgt i64 %.04350.i, 0
   %or.cond60.i = select i1 %86, i1 %87, i1 false
   br i1 %or.cond60.i, label %.lr.ph59.i, label %.loopexit.i
@@ -8488,7 +8488,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !207
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %6 ], [ true, %47 ], [ true, %2 ], [ true, %12 ], [ true, %25 ], [ true, %2 ], [ true, %11 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -9005,13 +9005,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPwEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !221
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -9359,7 +9359,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !226
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -9870,13 +9870,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPaEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !240
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
-  %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
-  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
-  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
-  %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
+  %86 = phi i1 [ %67, %73 ], [ %77, %76 ], [ %77, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %60, %73 ], [ %.4.lcssa167, %76 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.382, %73 ], [ %.079.lcssa163, %76 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %62, %73 ], [ %.091.lcssa158, %76 ], [ %.091.lcssa158, %.lr.ph.i11 ]
+  %.389 = phi i64 [ %.288, %73 ], [ 0, %76 ], [ %84, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %73 ], [ %.052.i, %76 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %75, %73 ], [ %.04351.i, %76 ], [ %.04351.i, %.lr.ph.i11 ]
   %87 = icmp sgt i64 %.04350.i, 0
   %or.cond60.i = select i1 %86, i1 %87, i1 false
   br i1 %or.cond60.i, label %.lr.ph59.i, label %.loopexit.i
@@ -10202,7 +10202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !245
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %6 ], [ true, %47 ], [ true, %2 ], [ true, %12 ], [ true, %25 ], [ true, %2 ], [ true, %11 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -10711,13 +10711,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPhEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !259
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %76, %73
-  %86 = phi i1 [ %77, %76 ], [ %67, %73 ], [ %77, %.lr.ph.i11 ]
-  %.4.lcssa166 = phi ptr [ %.4.lcssa167, %76 ], [ %60, %73 ], [ %.4.lcssa167, %.lr.ph.i11 ]
-  %.079.lcssa162 = phi i64 [ %.079.lcssa163, %76 ], [ %.382, %73 ], [ %.079.lcssa163, %.lr.ph.i11 ]
-  %.091.lcssa157 = phi ptr [ %.091.lcssa158, %76 ], [ %62, %73 ], [ %.091.lcssa158, %.lr.ph.i11 ]
-  %.389 = phi i64 [ 0, %76 ], [ %.288, %73 ], [ %84, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %76 ], [ 64, %73 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %76 ], [ %75, %73 ], [ %.04351.i, %.lr.ph.i11 ]
+  %86 = phi i1 [ %67, %73 ], [ %77, %76 ], [ %77, %.lr.ph.i11 ]
+  %.4.lcssa166 = phi ptr [ %60, %73 ], [ %.4.lcssa167, %76 ], [ %.4.lcssa167, %.lr.ph.i11 ]
+  %.079.lcssa162 = phi i64 [ %.382, %73 ], [ %.079.lcssa163, %76 ], [ %.079.lcssa163, %.lr.ph.i11 ]
+  %.091.lcssa157 = phi ptr [ %62, %73 ], [ %.091.lcssa158, %76 ], [ %.091.lcssa158, %.lr.ph.i11 ]
+  %.389 = phi i64 [ %.288, %73 ], [ 0, %76 ], [ %84, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %73 ], [ %.052.i, %76 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %75, %73 ], [ %.04351.i, %76 ], [ %.04351.i, %.lr.ph.i11 ]
   %87 = icmp sgt i64 %.04350.i, 0
   %or.cond60.i = select i1 %86, i1 %87, i1 false
   br i1 %or.cond60.i, label %.lr.ph59.i, label %.loopexit.i
@@ -11043,7 +11043,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !264
 
 .loopexit:                                        ; preds = %102, %79, %.thread, %6, %11, %2, %2, %47, %25, %12
-  %.013 = phi i1 [ true, %12 ], [ true, %25 ], [ true, %47 ], [ true, %2 ], [ true, %2 ], [ true, %11 ], [ true, %6 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
+  %.013 = phi i1 [ true, %6 ], [ true, %47 ], [ true, %2 ], [ true, %12 ], [ true, %25 ], [ true, %2 ], [ true, %11 ], [ %101, %.thread ], [ true, %79 ], [ true, %102 ]
   ret i1 %.013
 }
 
@@ -11557,13 +11557,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPsEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !278
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -11911,7 +11911,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !283
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -12427,13 +12427,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPtEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !297
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -12781,7 +12781,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !302
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -13297,13 +13297,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPiEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !316
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -13651,7 +13651,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !321
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -14167,13 +14167,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPjEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !335
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -14521,7 +14521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !340
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -15037,13 +15037,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPlEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !354
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa168 = phi ptr [ %.4.lcssa169, %79 ], [ %60, %76 ], [ %.4.lcssa169, %.lr.ph.i11 ]
-  %.079.lcssa164 = phi i64 [ %.079.lcssa165, %79 ], [ %.382, %76 ], [ %.079.lcssa165, %.lr.ph.i11 ]
-  %.090.lcssa159 = phi ptr [ %.090.lcssa160, %79 ], [ %62, %76 ], [ %.090.lcssa160, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa168 = phi ptr [ %60, %76 ], [ %.4.lcssa169, %79 ], [ %.4.lcssa169, %.lr.ph.i11 ]
+  %.079.lcssa164 = phi i64 [ %.382, %76 ], [ %.079.lcssa165, %79 ], [ %.079.lcssa165, %.lr.ph.i11 ]
+  %.090.lcssa159 = phi ptr [ %62, %76 ], [ %.090.lcssa160, %79 ], [ %.090.lcssa160, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   %90 = icmp sgt i64 %.04350.i, 0
   %or.cond60.i = select i1 %89, i1 %90, i1 false
   br i1 %or.cond60.i, label %.lr.ph59.i, label %.loopexit.i
@@ -15370,7 +15370,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !359
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -15886,13 +15886,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPmEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !373
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa168 = phi ptr [ %.4.lcssa169, %79 ], [ %60, %76 ], [ %.4.lcssa169, %.lr.ph.i11 ]
-  %.079.lcssa164 = phi i64 [ %.079.lcssa165, %79 ], [ %.382, %76 ], [ %.079.lcssa165, %.lr.ph.i11 ]
-  %.090.lcssa159 = phi ptr [ %.090.lcssa160, %79 ], [ %62, %76 ], [ %.090.lcssa160, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa168 = phi ptr [ %60, %76 ], [ %.4.lcssa169, %79 ], [ %.4.lcssa169, %.lr.ph.i11 ]
+  %.079.lcssa164 = phi i64 [ %.382, %76 ], [ %.079.lcssa165, %79 ], [ %.079.lcssa165, %.lr.ph.i11 ]
+  %.090.lcssa159 = phi ptr [ %62, %76 ], [ %.090.lcssa160, %79 ], [ %.090.lcssa160, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   %90 = icmp sgt i64 %.04350.i, 0
   %or.cond60.i = select i1 %89, i1 %90, i1 false
   br i1 %or.cond60.i, label %.lr.ph59.i, label %.loopexit.i
@@ -16219,7 +16219,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !378
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -16735,13 +16735,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPxEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !392
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -17089,7 +17089,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !397
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -17605,13 +17605,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPyEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !411
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -17959,7 +17959,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !416
 
 .loopexit:                                        ; preds = %103, %80, %.thread, %7, %12, %2, %2, %48, %26, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %26 ], [ true, %48 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %48 ], [ true, %2 ], [ true, %13 ], [ true, %26 ], [ true, %2 ], [ true, %12 ], [ %102, %.thread ], [ true, %80 ], [ true, %103 ]
   ret i1 %.013
 }
 
@@ -18475,13 +18475,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPfEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !430
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -18844,7 +18844,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !435
 
 .loopexit:                                        ; preds = %123, %97, %.thread, %7, %12, %2, %2, %56, %29, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %29 ], [ true, %56 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %56 ], [ true, %2 ], [ true, %13 ], [ true, %29 ], [ true, %2 ], [ true, %12 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
   ret i1 %.013
 }
 
@@ -19344,13 +19344,13 @@ _ZNSt3__117__swap_bitmap_posB8ne210000INS_17_ClassicAlgPolicyEPdEEvT0_S3_RmS4_.e
   br i1 %exitcond.not.i14, label %.loopexit54.i, label %.lr.ph.i11, !llvm.loop !449
 
 .loopexit54.i:                                    ; preds = %.lr.ph.i11, %79, %76
-  %89 = phi i1 [ %80, %79 ], [ %68, %76 ], [ %80, %.lr.ph.i11 ]
-  %.4.lcssa169 = phi ptr [ %.4.lcssa170, %79 ], [ %60, %76 ], [ %.4.lcssa170, %.lr.ph.i11 ]
-  %.077.lcssa165 = phi i64 [ %.077.lcssa166, %79 ], [ %.380, %76 ], [ %.077.lcssa166, %.lr.ph.i11 ]
-  %.092.lcssa160 = phi ptr [ %.092.lcssa161, %79 ], [ %62, %76 ], [ %.092.lcssa161, %.lr.ph.i11 ]
-  %.388 = phi i64 [ 0, %79 ], [ %.287, %76 ], [ %87, %.lr.ph.i11 ]
-  %.053.i = phi i64 [ %.052.i, %79 ], [ 64, %76 ], [ %.052.i, %.lr.ph.i11 ]
-  %.04350.i = phi i64 [ %.04351.i, %79 ], [ %78, %76 ], [ %.04351.i, %.lr.ph.i11 ]
+  %89 = phi i1 [ %68, %76 ], [ %80, %79 ], [ %80, %.lr.ph.i11 ]
+  %.4.lcssa169 = phi ptr [ %60, %76 ], [ %.4.lcssa170, %79 ], [ %.4.lcssa170, %.lr.ph.i11 ]
+  %.077.lcssa165 = phi i64 [ %.380, %76 ], [ %.077.lcssa166, %79 ], [ %.077.lcssa166, %.lr.ph.i11 ]
+  %.092.lcssa160 = phi ptr [ %62, %76 ], [ %.092.lcssa161, %79 ], [ %.092.lcssa161, %.lr.ph.i11 ]
+  %.388 = phi i64 [ %.287, %76 ], [ 0, %79 ], [ %87, %.lr.ph.i11 ]
+  %.053.i = phi i64 [ 64, %76 ], [ %.052.i, %79 ], [ %.052.i, %.lr.ph.i11 ]
+  %.04350.i = phi i64 [ %78, %76 ], [ %.04351.i, %79 ], [ %.04351.i, %.lr.ph.i11 ]
   br i1 %89, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.loopexit54.i
@@ -19713,7 +19713,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__127__insertion_sort_incom
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !454
 
 .loopexit:                                        ; preds = %123, %97, %.thread, %7, %12, %2, %2, %56, %29, %13
-  %.013 = phi i1 [ true, %13 ], [ true, %29 ], [ true, %56 ], [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
+  %.013 = phi i1 [ true, %7 ], [ true, %56 ], [ true, %2 ], [ true, %13 ], [ true, %29 ], [ true, %2 ], [ true, %12 ], [ %122, %.thread ], [ true, %97 ], [ true, %123 ]
   ret i1 %.013
 }
 
@@ -20353,7 +20353,7 @@ _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enabl
   br i1 %.not, label %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit, label %.lr.ph, !llvm.loop !462
 
 _ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit: ; preds = %134, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit22, %.thread, %104, %101, %98, %94, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i, %61, %58, %54, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i, %32, %29, %28, %26, %22, %21, %7, %12, %2, %2
-  %.013 = phi i1 [ true, %2 ], [ true, %2 ], [ true, %12 ], [ true, %7 ], [ true, %21 ], [ true, %22 ], [ true, %26 ], [ true, %28 ], [ true, %29 ], [ true, %32 ], [ true, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i ], [ true, %54 ], [ true, %58 ], [ true, %61 ], [ true, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i ], [ true, %94 ], [ true, %98 ], [ true, %101 ], [ true, %104 ], [ %133, %.thread ], [ true, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit22 ], [ true, %134 ]
+  %.013 = phi i1 [ true, %104 ], [ true, %61 ], [ true, %2 ], [ true, %7 ], [ true, %32 ], [ true, %2 ], [ true, %12 ], [ true, %21 ], [ true, %22 ], [ true, %26 ], [ true, %28 ], [ true, %29 ], [ true, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit.i ], [ true, %54 ], [ true, %58 ], [ true, %_ZNSt3__17__sort4B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEvS7_S7_S7_S7_S6_.exit.i ], [ true, %94 ], [ true, %98 ], [ true, %101 ], [ %133, %.thread ], [ true, %_ZNSt3__17__sort3B8ne210000INS_17_ClassicAlgPolicyENS_6ranges4lessEPeTnNS_9enable_ifIXnt21__use_branchless_sortIT0_T1_EEiE4typeELi0EEEbS7_S7_S7_S6_.exit22 ], [ true, %134 ]
   ret i1 %.013
 }
 

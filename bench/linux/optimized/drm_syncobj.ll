@@ -818,7 +818,7 @@ define dso_local i32 @drm_syncobj_find_fence(ptr noundef %0, i32 noundef %1, i64
   br label %.thread10
 
 .thread10:                                        ; preds = %87, %89, %.critedge, %90
-  %92 = phi i32 [ %84, %90 ], [ -2, %.critedge ], [ %84, %89 ], [ %84, %87 ]
+  %92 = phi i32 [ -2, %.critedge ], [ %84, %90 ], [ %84, %89 ], [ %84, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %92
 }
@@ -1801,7 +1801,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_syncobj_fd_to_handle_ioctl(p
   br label %.thread
 
 .thread:                                          ; preds = %62, %64, %52, %54, %115, %.thread15, %79, %76, %66, %65, %55, %25, %17, %13, %3
-  %116 = phi i32 [ -95, %3 ], [ -22, %13 ], [ -22, %17 ], [ -22, %25 ], [ -2, %55 ], [ 0, %65 ], [ -22, %66 ], [ -22, %76 ], [ -22, %79 ], [ %112, %.thread15 ], [ %112, %115 ], [ -2, %54 ], [ -2, %52 ], [ 0, %64 ], [ 0, %62 ]
+  %116 = phi i32 [ -95, %3 ], [ -22, %13 ], [ -22, %17 ], [ -22, %25 ], [ %112, %115 ], [ -2, %55 ], [ -2, %52 ], [ 0, %65 ], [ -22, %66 ], [ -22, %76 ], [ -22, %79 ], [ %112, %.thread15 ], [ -2, %54 ], [ 0, %64 ], [ 0, %62 ]
   ret i32 %116
 }
 
@@ -2830,7 +2830,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br i1 %65, label %.loopexit, label %54, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread12, %27, %.loopexit13
-  %66 = phi i32 [ %50, %.loopexit13 ], [ 0, %27 ], [ %50, %.thread12 ]
+  %66 = phi i32 [ 0, %27 ], [ %50, %.loopexit13 ], [ %50, %.thread12 ]
   tail call void @kfree(ptr noundef %30) #12
   br label %67
 
@@ -3817,7 +3817,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   br label %.critedge
 
 .loopexit28:                                      ; preds = %.preheader27.split.split, %172, %163
-  %.us-phi46 = phi i32 [ %164, %163 ], [ 0, %172 ], [ %spec.select, %.preheader27.split.split ]
+  %.us-phi46 = phi i32 [ 0, %172 ], [ %164, %163 ], [ %spec.select, %.preheader27.split.split ]
   %187 = icmp eq i32 %.us-phi46, %2
   br i1 %187, label %.critedge, label %188
 
@@ -3842,7 +3842,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   br label %.preheader27, !llvm.loop !53
 
 .critedge:                                        ; preds = %.loopexit28, %188, %194, %190, %.split57.us, %185, %.split44.us
-  %200 = phi i64 [ %129, %185 ], [ %129, %.split44.us ], [ %4, %.split57.us ], [ -512, %190 ], [ -512, %194 ], [ -62, %188 ], [ %129, %.loopexit28 ]
+  %200 = phi i64 [ %129, %185 ], [ %129, %.split44.us ], [ %4, %.split57.us ], [ -512, %194 ], [ -62, %188 ], [ %129, %.loopexit28 ], [ -512, %190 ]
   store volatile i32 0, ptr %125, align 8
   br label %.loopexit34
 

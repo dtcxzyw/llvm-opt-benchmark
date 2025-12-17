@@ -1642,8 +1642,8 @@ define void @_ZN13notifications17NotificationStore3new17h80f6b7727087035eE(ptr d
   unreachable
 
 .body:                                            ; preds = %"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$channel..channel_chat..ChannelMessage$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h2b8f5aa0a1d48f9cE.exit", %112, %36
-  %.pn18.pn = phi { ptr, i32 } [ %37, %36 ], [ %.pn18, %112 ], [ %.pn18, %"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$channel..channel_chat..ChannelMessage$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h2b8f5aa0a1d48f9cE.exit" ]
-  %.sroa.0.1 = phi i1 [ true, %36 ], [ false, %112 ], [ false, %"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$channel..channel_chat..ChannelMessage$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h2b8f5aa0a1d48f9cE.exit" ]
+  %.pn18.pn = phi { ptr, i32 } [ %37, %36 ], [ %.pn18, %"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$channel..channel_chat..ChannelMessage$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h2b8f5aa0a1d48f9cE.exit" ], [ %.pn18, %112 ]
+  %.sroa.0.1 = phi i1 [ true, %36 ], [ false, %"_ZN4core3ptr169drop_in_place$LT$std..collections..hash..map..HashMap$LT$u64$C$channel..channel_chat..ChannelMessage$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h2b8f5aa0a1d48f9cE.exit" ], [ false, %112 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_store..ChannelStore$GT$$GT$17hc569345819730f28E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #30
           to label %27 unwind label %105
 
@@ -2215,7 +2215,7 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
   br label %"_ZN4core3ptr117drop_in_place$LT$sum_tree..cursor..Cursor$LT$notifications..NotificationEntry$C$notifications..NotificationId$GT$$GT$17h4351bc9b8b079c93E.exit9"
 
 "_ZN4core3ptr117drop_in_place$LT$sum_tree..cursor..Cursor$LT$notifications..NotificationEntry$C$notifications..NotificationId$GT$$GT$17h4351bc9b8b079c93E.exit9": ; preds = %45, %26, %36
-  %.sroa.0.0 = phi ptr [ null, %36 ], [ null, %26 ], [ %spec.select, %45 ]
+  %.sroa.0.0 = phi ptr [ null, %26 ], [ %spec.select, %45 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.0
 }

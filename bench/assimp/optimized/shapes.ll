@@ -99,7 +99,7 @@ define void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr noundef nonnu
   br i1 %or.cond28, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %20, %15, %18, %4, %12
-  %.sink29 = phi i64 [ 32, %12 ], [ 32, %4 ], [ 40, %18 ], [ 40, %15 ], [ 48, %20 ]
+  %.sink29 = phi i64 [ 32, %4 ], [ 40, %15 ], [ 32, %12 ], [ 40, %18 ], [ 48, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink29
   store ptr %3, ptr %21, align 8
   br label %22
@@ -256,7 +256,7 @@ _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit32: ; preds = %_ZN3p2t8Triangle8Co
   br i1 %or.cond28.i39, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split, label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
 
 _ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit.sink.split: ; preds = %57, %63, %66, %69, %71, %42, %48, %51, %54, %56, %20, %26, %29, %32, %34
-  %.sink29.i41.sink = phi i64 [ 32, %26 ], [ 32, %20 ], [ 40, %32 ], [ 40, %29 ], [ 48, %34 ], [ 32, %48 ], [ 32, %42 ], [ 40, %54 ], [ 40, %51 ], [ 48, %56 ], [ 32, %63 ], [ 32, %57 ], [ 40, %69 ], [ 40, %66 ], [ 48, %71 ]
+  %.sink29.i41.sink = phi i64 [ 48, %56 ], [ 48, %34 ], [ 32, %20 ], [ 40, %29 ], [ 32, %26 ], [ 40, %32 ], [ 32, %42 ], [ 40, %51 ], [ 32, %48 ], [ 40, %54 ], [ 32, %57 ], [ 40, %66 ], [ 32, %63 ], [ 40, %69 ], [ 48, %71 ]
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29.i41.sink
   store ptr %0, ptr %72, align 8
   br label %_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_.exit
@@ -522,7 +522,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr nou
   br label %14
 
 14:                                               ; preds = %10, %6, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %6 ], [ %., %10 ]
+  %.0 = phi i32 [ 1, %6 ], [ 0, %2 ], [ %., %10 ]
   ret i32 %.0
 }
 
@@ -575,7 +575,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(
   br label %30
 
 30:                                               ; preds = %27, %25, %21, %19, %11, %9, %29
-  %.0 = phi i32 [ -1, %29 ], [ 2, %9 ], [ 1, %11 ], [ 0, %19 ], [ 2, %21 ], [ 1, %25 ], [ 0, %27 ]
+  %.0 = phi i32 [ 1, %25 ], [ 2, %9 ], [ -1, %29 ], [ 1, %11 ], [ 0, %19 ], [ 2, %21 ], [ 0, %27 ]
   ret i32 %.0
 }
 

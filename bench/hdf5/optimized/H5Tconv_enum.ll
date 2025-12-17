@@ -486,7 +486,7 @@ define range(i32 -1, 1) i32 @H5T__conv_enum(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %190, %241, %.preheader223, %.preheader, %228, %.thread209, %.thread, %9, %47, %245, %180, %95, %88, %79, %70, %64, %50, %43, %34, %25, %54, %57
-  %.0150 = phi i32 [ -1, %245 ], [ -1, %25 ], [ -1, %34 ], [ -1, %43 ], [ -1, %50 ], [ 0, %47 ], [ -1, %64 ], [ -1, %70 ], [ -1, %79 ], [ -1, %88 ], [ -1, %95 ], [ -1, %180 ], [ 0, %9 ], [ -1, %57 ], [ 0, %54 ], [ -1, %.thread ], [ -1, %228 ], [ -1, %.thread209 ], [ 0, %.preheader ], [ 0, %.preheader223 ], [ 0, %241 ], [ 0, %190 ]
+  %.0150 = phi i32 [ -1, %245 ], [ -1, %25 ], [ -1, %34 ], [ -1, %43 ], [ -1, %50 ], [ 0, %47 ], [ 0, %9 ], [ -1, %64 ], [ -1, %70 ], [ -1, %79 ], [ -1, %88 ], [ -1, %95 ], [ -1, %180 ], [ -1, %.thread ], [ 0, %54 ], [ -1, %57 ], [ -1, %.thread209 ], [ -1, %228 ], [ 0, %.preheader ], [ 0, %.preheader223 ], [ 0, %241 ], [ 0, %190 ]
   ret i32 %.0150
 }
 
@@ -732,8 +732,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   br i1 %134, label %._crit_edge222.thread, label %176
 
 ._crit_edge222.thread:                            ; preds = %103, %130, %._crit_edge222
-  %135 = phi i32 [ %107, %130 ], [ %107, %._crit_edge222 ], [ 1, %103 ]
-  %136 = phi i32 [ %.sroa.0.1, %130 ], [ %.sroa.0.1, %._crit_edge222 ], [ 0, %103 ]
+  %135 = phi i32 [ %107, %._crit_edge222 ], [ %107, %130 ], [ 1, %103 ]
+  %136 = phi i32 [ %.sroa.0.1, %._crit_edge222 ], [ %.sroa.0.1, %130 ], [ 0, %103 ]
   %137 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 16
   store i32 %136, ptr %137, align 8, !tbaa !39
   %138 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 20
@@ -842,8 +842,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_enum_init(ptr noundef non
   store ptr null, ptr %13, align 8, !tbaa !3
   br label %.thread200
 
-.thread200:                                       ; preds = %.thread194.thread, %18, %69, %176, %32, %25, %4, %186
-  %.0145 = phi i32 [ -1, %186 ], [ 0, %4 ], [ 0, %69 ], [ 0, %176 ], [ 0, %32 ], [ 0, %25 ], [ -1, %18 ], [ 0, %.thread194.thread ]
+.thread200:                                       ; preds = %.thread194.thread, %18, %69, %176, %25, %32, %4, %186
+  %.0145 = phi i32 [ 0, %4 ], [ -1, %186 ], [ 0, %.thread194.thread ], [ 0, %69 ], [ 0, %176 ], [ -1, %18 ], [ 0, %25 ], [ 0, %32 ]
   ret i32 %.0145
 }
 

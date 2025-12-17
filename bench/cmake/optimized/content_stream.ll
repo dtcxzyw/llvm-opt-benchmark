@@ -1018,7 +1018,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26.i:            ; preds = %119, %_ZNSt11_Deque
   br label %_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb.exit
 
 _ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb.exit:   ; preds = %95, %96, %99, %100, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26.i
-  %.0.i = phi ptr [ %117, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26.i ], [ %92, %95 ], [ %92, %96 ], [ %92, %99 ], [ %92, %100 ]
+  %.0.i = phi ptr [ %117, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26.i ], [ %92, %96 ], [ %92, %95 ], [ %92, %99 ], [ %92, %100 ]
   store ptr %.0.i, ptr %9, align 8, !tbaa !31
   %123 = load ptr, ptr %.0.i, align 8, !tbaa !35
   store ptr %123, ptr %14, align 8, !tbaa !29
@@ -1488,7 +1488,7 @@ define dso_local noundef zeroext i1 @_ZNK3dap13ContentWriter5writeERKNSt7__cxx11
   br i1 %30, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !91
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %27, %25, %21, %17, %.noexc
-  %.0.i.i = phi i32 [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ 1, %.noexc ], [ %29, %27 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %18, %17 ], [ %22, %21 ], [ 1, %.noexc ], [ %29, %27 ]
   %31 = zext i32 %.0.i.i to i64
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %32, ptr %6, align 8, !tbaa !56, !alias.scope !88
@@ -2310,7 +2310,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !31
   %58 = load ptr, ptr %.0, align 8, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

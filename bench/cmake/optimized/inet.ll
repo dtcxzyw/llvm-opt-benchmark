@@ -106,10 +106,10 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br label %51
 
 51:                                               ; preds = %48, %47, %44
-  %.sroa.16.2.i = phi i32 [ %.sroa.16.1.i, %48 ], [ %.sroa.16.0111.i, %47 ], [ %.sroa.16.0111.i, %44 ]
-  %.sroa.038.2.i = phi i32 [ %.sroa.038.1.i, %48 ], [ %.sroa.038.0112.i, %47 ], [ %.sroa.038.0112.i, %44 ]
-  %.sroa.10.1.i = phi i32 [ %.sroa.10.0113.i, %48 ], [ %.sroa.10.0113.i, %47 ], [ %spec.select91.i, %44 ]
-  %.sroa.0.1.i = phi i32 [ -1, %48 ], [ -1, %47 ], [ %spec.select92.i, %44 ]
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.0111.i, %47 ], [ %.sroa.16.0111.i, %44 ], [ %.sroa.16.1.i, %48 ]
+  %.sroa.038.2.i = phi i32 [ %.sroa.038.0112.i, %47 ], [ %.sroa.038.0112.i, %44 ], [ %.sroa.038.1.i, %48 ]
+  %.sroa.10.1.i = phi i32 [ %.sroa.10.0113.i, %47 ], [ %spec.select91.i, %44 ], [ %.sroa.10.0113.i, %48 ]
+  %.sroa.0.1.i = phi i32 [ -1, %47 ], [ %spec.select92.i, %44 ], [ -1, %48 ]
   %indvars.iv.next149.i = add nuw nsw i64 %indvars.iv148.i, 1
   %exitcond151.not.i = icmp eq i64 %indvars.iv.next149.i, 8
   br i1 %exitcond151.not.i, label %52, label %.preheader.i, !llvm.loop !11
@@ -332,7 +332,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br label %inet_ntop6.exit
 
 .thread.i:                                        ; preds = %117, %111, %110
-  %.397.i = phi ptr [ %112, %117 ], [ %112, %111 ], [ %.074116.i, %110 ]
+  %.397.i = phi ptr [ %112, %111 ], [ %112, %117 ], [ %.074116.i, %110 ]
   %142 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv156.i
   %143 = load i32, ptr %142, align 4, !tbaa !7
   %144 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.397.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %143) #9
@@ -347,7 +347,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %exitcond159.not.i, label %.loopexit.i, label %.split.split.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.thread.us.i.us, %87, %147, %104, %.thread104.i
-  %.175.i = phi ptr [ %140, %.thread104.i ], [ %.276.us126.i, %104 ], [ %.276.i, %147 ], [ %.276.us.i, %87 ], [ %73, %.thread.us.i.us ]
+  %.175.i = phi ptr [ %140, %.thread104.i ], [ %.276.us.i, %87 ], [ %.276.us126.i, %104 ], [ %.276.i, %147 ], [ %73, %.thread.us.i.us ]
   %148 = icmp eq i32 %58, 8
   %or.cond90.i = select i1 %.not78.i, i1 %148, i1 false
   br i1 %or.cond90.i, label %149, label %151
@@ -372,13 +372,13 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br label %inet_ntop6.exit
 
 inet_ntop6.exit:                                  ; preds = %141, %151, %157
-  %.1.i = phi i32 [ 0, %157 ], [ -28, %141 ], [ -28, %151 ]
+  %.1.i = phi i32 [ -28, %141 ], [ 0, %157 ], [ -28, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %159
 
 159:                                              ; preds = %4, %inet_ntop6.exit, %inet_ntop4.exit
-  %.0 = phi i32 [ %.0.i, %inet_ntop4.exit ], [ %.1.i, %inet_ntop6.exit ], [ -97, %4 ]
+  %.0 = phi i32 [ %.1.i, %inet_ntop6.exit ], [ %.0.i, %inet_ntop4.exit ], [ -97, %4 ]
   ret i32 %.0
 }
 
@@ -475,7 +475,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
   br label %inet_pton4.exit
 
 inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, %._crit_edge.i, %40
-  %.4.i = phi i32 [ 0, %40 ], [ -22, %._crit_edge.i ], [ -22, %11 ], [ -22, %30 ], [ -22, %26 ], [ -22, %17 ]
+  %.4.i = phi i32 [ -22, %._crit_edge.i ], [ 0, %40 ], [ -22, %11 ], [ -22, %30 ], [ -22, %26 ], [ -22, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %136
 
@@ -522,15 +522,15 @@ inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, 
   %.083170.i.ph = phi ptr [ %.019, %53 ], [ %.019.sroa.phi, %55 ]
   br label %.lr.ph.i25
 
-.lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %select.unfold118.i
-  %57 = phi i8 [ %111, %select.unfold118.i ], [ %54, %.lr.ph.i25.preheader ]
-  %.pn.i26 = phi ptr [ %58, %select.unfold118.i ], [ %.083170.i.ph, %.lr.ph.i25.preheader ]
-  %.078.ptr.ptr174.i = phi ptr [ %.078.ptr.ptr.i, %select.unfold118.i ], [ %5, %.lr.ph.i25.preheader ]
-  %.070173.i = phi i32 [ %.272.i, %select.unfold118.i ], [ 0, %.lr.ph.i25.preheader ]
-  %.073172.i = phi i32 [ %.275.i, %select.unfold118.i ], [ 0, %.lr.ph.i25.preheader ]
-  %.078.idx171.i = phi i64 [ %.280.idx.i, %select.unfold118.i ], [ 0, %.lr.ph.i25.preheader ]
-  %.083170.i = phi ptr [ %.184.i, %select.unfold118.i ], [ %.083170.i.ph, %.lr.ph.i25.preheader ]
-  %.086169.i = phi ptr [ %.288.i, %select.unfold118.i ], [ null, %.lr.ph.i25.preheader ]
+.lr.ph.i25:                                       ; preds = %.lr.ph.i25.preheader, %select.unfold119.i
+  %57 = phi i8 [ %111, %select.unfold119.i ], [ %54, %.lr.ph.i25.preheader ]
+  %.pn.i26 = phi ptr [ %58, %select.unfold119.i ], [ %.083170.i.ph, %.lr.ph.i25.preheader ]
+  %.078.ptr.ptr174.i = phi ptr [ %.078.ptr.ptr.i, %select.unfold119.i ], [ %5, %.lr.ph.i25.preheader ]
+  %.070173.i = phi i32 [ %.272.i, %select.unfold119.i ], [ 0, %.lr.ph.i25.preheader ]
+  %.073172.i = phi i32 [ %.275.i, %select.unfold119.i ], [ 0, %.lr.ph.i25.preheader ]
+  %.078.idx171.i = phi i64 [ %.280.idx.i, %select.unfold119.i ], [ 0, %.lr.ph.i25.preheader ]
+  %.083170.i = phi ptr [ %.184.i, %select.unfold119.i ], [ %.083170.i.ph, %.lr.ph.i25.preheader ]
+  %.086169.i = phi ptr [ %.288.i, %select.unfold119.i ], [ null, %.lr.ph.i25.preheader ]
   %58 = getelementptr inbounds nuw i8, ptr %.pn.i26, i64 1
   %59 = sext i8 %57 to i32
   %memchr.i27 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @inet_pton6.xdigits_l, i32 %59, i64 17)
@@ -553,7 +553,7 @@ inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, 
   %67 = or i32 %62, %66
   %68 = add nsw i32 %.073172.i, 1
   %69 = icmp sgt i32 %.073172.i, 3
-  br i1 %69, label %inet_pton6.exit, label %select.unfold118.i
+  br i1 %69, label %inet_pton6.exit, label %select.unfold119.i
 
 70:                                               ; preds = %61
   switch i8 %57, label %inet_pton6.exit [
@@ -567,7 +567,7 @@ inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, 
 
 72:                                               ; preds = %71
   %.not105.i = icmp eq ptr %.086169.i, null
-  br i1 %.not105.i, label %select.unfold118.i, label %inet_pton6.exit, !llvm.loop !14
+  br i1 %.not105.i, label %select.unfold119.i, label %inet_pton6.exit, !llvm.loop !14
 
 73:                                               ; preds = %71
   %74 = load i8, ptr %58, align 1, !tbaa !4
@@ -584,7 +584,7 @@ inet_pton4.exit:                                  ; preds = %17, %26, %30, %11, 
   %80 = trunc i32 %.070173.i to i8
   %.add.i = add nuw nsw i64 %.078.idx171.i, 2
   store i8 %80, ptr %.ptr101.i, align 1, !tbaa !4
-  br label %select.unfold118.i, !llvm.loop !14
+  br label %select.unfold119.i, !llvm.loop !14
 
 81:                                               ; preds = %70
   %.078.add.i = add nuw nsw i64 %.078.idx171.i, 4
@@ -665,12 +665,12 @@ inet_pton4.exit.thread.i:                         ; preds = %101, %97, %88, %._c
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %inet_pton6.exit
 
-select.unfold118.i:                               ; preds = %77, %72, %.thread.i
-  %.288.i = phi ptr [ %.086169.i, %77 ], [ %.086169.i, %.thread.i ], [ %.078.ptr.ptr174.i, %72 ]
-  %.184.i = phi ptr [ %58, %77 ], [ %.083170.i, %.thread.i ], [ %58, %72 ]
-  %.280.idx.i = phi i64 [ %.add.i, %77 ], [ %.078.idx171.i, %.thread.i ], [ %.078.idx171.i, %72 ]
-  %.275.i = phi i32 [ 0, %77 ], [ %68, %.thread.i ], [ 0, %72 ]
-  %.272.i = phi i32 [ 0, %77 ], [ %67, %.thread.i ], [ %.070173.i, %72 ]
+select.unfold119.i:                               ; preds = %77, %72, %.thread.i
+  %.288.i = phi ptr [ %.086169.i, %.thread.i ], [ %.086169.i, %77 ], [ %.078.ptr.ptr174.i, %72 ]
+  %.184.i = phi ptr [ %.083170.i, %.thread.i ], [ %58, %77 ], [ %58, %72 ]
+  %.280.idx.i = phi i64 [ %.078.idx171.i, %.thread.i ], [ %.add.i, %77 ], [ %.078.idx171.i, %72 ]
+  %.275.i = phi i32 [ %68, %.thread.i ], [ 0, %77 ], [ 0, %72 ]
+  %.272.i = phi i32 [ %67, %.thread.i ], [ 0, %77 ], [ %.070173.i, %72 ]
   %.078.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.280.idx.i
   %111 = load i8, ptr %58, align 1, !tbaa !4
   %.not96.i = icmp eq i8 %111, 0
@@ -682,7 +682,7 @@ select.unfold118.i:                               ; preds = %77, %72, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %121
 
-._crit_edge.i28:                                  ; preds = %select.unfold118.i
+._crit_edge.i28:                                  ; preds = %select.unfold119.i
   %113 = icmp eq i32 %.275.i, 0
   br i1 %113, label %121, label %114
 
@@ -747,7 +747,7 @@ select.unfold118.i:                               ; preds = %77, %72, %.thread.i
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %.thread.i, %70, %72, %73, %53, %55, %81, %inet_pton4.exit.thread.i, %114, %122, %134, %.thread127.i
-  %.063.i = phi i32 [ 0, %.thread127.i ], [ -22, %55 ], [ -22, %114 ], [ -22, %134 ], [ -22, %122 ], [ -22, %81 ], [ -22, %inet_pton4.exit.thread.i ], [ -22, %53 ], [ -22, %73 ], [ -22, %72 ], [ -22, %70 ], [ -22, %.thread.i ]
+  %.063.i = phi i32 [ -22, %inet_pton4.exit.thread.i ], [ -22, %55 ], [ -22, %134 ], [ 0, %.thread127.i ], [ -22, %114 ], [ -22, %122 ], [ -22, %81 ], [ -22, %53 ], [ -22, %73 ], [ -22, %72 ], [ -22, %70 ], [ -22, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
 
@@ -757,7 +757,7 @@ inet_pton6.exit:                                  ; preds = %.thread.i, %70, %72
   br label %136
 
 136:                                              ; preds = %10, %3, %135, %inet_pton4.exit
-  %.0 = phi i32 [ %.4.i, %inet_pton4.exit ], [ %.1, %135 ], [ -22, %3 ], [ -97, %10 ]
+  %.0 = phi i32 [ %.1, %135 ], [ -22, %3 ], [ %.4.i, %inet_pton4.exit ], [ -97, %10 ]
   ret i32 %.0
 }
 

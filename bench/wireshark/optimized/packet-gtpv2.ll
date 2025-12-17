@@ -3763,7 +3763,7 @@ define internal fastcc noalias ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef
   br label %158
 
 158:                                              ; preds = %142, %140, %126, %89, %74, %52, %30, %12
-  %.075 = phi ptr [ %26, %12 ], [ %47, %30 ], [ %69, %52 ], [ %84, %74 ], [ %107, %89 ], [ %137, %126 ], [ %157, %142 ], [ %.6, %140 ]
+  %.075 = phi ptr [ %.6, %140 ], [ %26, %12 ], [ %47, %30 ], [ %69, %52 ], [ %84, %74 ], [ %107, %89 ], [ %137, %126 ], [ %157, %142 ]
   ret ptr %.075
 }
 
@@ -3922,7 +3922,7 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
   br label %.cont58
 
 64:                                               ; preds = %4, %22, %21, %20, %19, %18, %17, %16, %15, %14
-  %.050 = phi i32 [ 2, %14 ], [ 4, %15 ], [ 8, %16 ], [ 16, %17 ], [ 24, %18 ], [ 64, %19 ], [ 72, %20 ], [ 128, %21 ], [ 136, %22 ], [ 1, %4 ]
+  %.050 = phi i32 [ 136, %22 ], [ 2, %14 ], [ 4, %15 ], [ 8, %16 ], [ 16, %17 ], [ 24, %18 ], [ 64, %19 ], [ 72, %20 ], [ 128, %21 ], [ 1, %4 ]
   %65 = trunc i32 %10 to i16
   %66 = call fastcc ptr @decode_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i16 noundef zeroext %65, i32 noundef %.050)
   br i1 %.not, label %.cont58, label %.else66
@@ -5383,7 +5383,7 @@ define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr noundef readonly capt
   br label %41
 
 41:                                               ; preds = %8, %5, %39
-  %.018 = phi i32 [ 1, %39 ], [ 0, %5 ], [ 0, %8 ]
+  %.018 = phi i32 [ 0, %5 ], [ 1, %39 ], [ 0, %8 ]
   ret i32 %.018
 }
 
@@ -8127,7 +8127,7 @@ switch.lookup40:                                  ; preds = %20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %9, %18, %28
-  %.str.1828.sink = phi ptr [ @.str.1828, %28 ], [ @.str.1828, %18 ], [ @.str.1827, %9 ], [ @.str.1827, %19 ]
+  %.str.1828.sink = phi ptr [ @.str.1828, %28 ], [ @.str.1827, %9 ], [ @.str.1828, %18 ], [ @.str.1827, %19 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1828.sink)
   br label %29
 
@@ -10741,7 +10741,7 @@ define internal range(i32 0, 2) i32 @gtpv2_sn_equal_matched(ptr noundef %0, ptr 
   br label %37
 
 37:                                               ; preds = %12, %6, %31, %17
-  %.0.shrunk = phi i1 [ %30, %17 ], [ %36, %31 ], [ false, %6 ], [ false, %12 ]
+  %.0.shrunk = phi i1 [ %36, %31 ], [ false, %6 ], [ %30, %17 ], [ false, %12 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

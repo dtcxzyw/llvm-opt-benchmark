@@ -1093,7 +1093,7 @@ if.then15.for.inc_crit_edge:                      ; preds = %if.then15
   br label %for.inc
 
 if.then19:                                        ; preds = %if.then15, %land.rhs.i.i.us, %for.body.us61.us, %for.body.us, %for.body.us.us
-  %.us-phi = phi i32 [ %24, %for.body.us.us ], [ %26, %for.body.us ], [ %33, %for.body.us61.us ], [ %37, %land.rhs.i.i.us ], [ %43, %if.then15 ]
+  %.us-phi = phi i32 [ %24, %for.body.us.us ], [ %37, %land.rhs.i.i.us ], [ %26, %for.body.us ], [ %33, %for.body.us61.us ], [ %43, %if.then15 ]
   %call20 = tail call noundef i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %.us-phi)
   br label %return
 
@@ -1109,12 +1109,12 @@ for.end.loopexit87:                               ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.inc.us67, %for.inc.us67.us, %for.inc.us, %for.end.loopexit87, %if.end
-  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ %52, %for.end.loopexit87 ], [ 1, %for.inc.us ], [ 0, %for.inc.us67.us ], [ 0, %for.inc.us67 ]
+  %encoderHasUnackedEntry.0.lcssa = phi i32 [ 0, %if.end ], [ %52, %for.end.loopexit87 ], [ 0, %for.inc.us67.us ], [ 1, %for.inc.us ], [ 0, %for.inc.us67 ]
   %. = sub nsw i32 0, %encoderHasUnackedEntry.0.lcssa
   br label %return
 
 return:                                           ; preds = %while.end.i, %if.end20.i, %for.end, %if.then19
-  %retval.0 = phi i32 [ %call20, %if.then19 ], [ %., %for.end ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
+  %retval.0 = phi i32 [ %., %for.end ], [ %call20, %if.then19 ], [ 0, %if.end20.i ], [ 0, %while.end.i ]
   ret i32 %retval.0
 }
 
@@ -1903,8 +1903,8 @@ _ZN8proxygen11HPACKHeaderD2Ev.exit:               ; preds = %_ZN5folly14basic_fb
   br label %return
 
 return:                                           ; preds = %_ZN8proxygen11HPACKHeaderD2Ev.exit, %if.then37, %while.end, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, %entry
-  %retval.sroa.0.0 = phi i64 [ 0, %entry ], [ 0, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ 0, %while.end ], [ 0, %if.then37 ], [ 1, %_ZN8proxygen11HPACKHeaderD2Ev.exit ]
-  %retval.sroa.620.0 = phi i32 [ 0, %entry ], [ 0, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ %add.i, %while.end ], [ 0, %if.then37 ], [ %spec.select, %_ZN8proxygen11HPACKHeaderD2Ev.exit ]
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ 0, %if.then37 ], [ 0, %entry ], [ 1, %_ZN8proxygen11HPACKHeaderD2Ev.exit ], [ 0, %while.end ]
+  %retval.sroa.620.0 = phi i32 [ 0, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit ], [ 0, %if.then37 ], [ 0, %entry ], [ %spec.select, %_ZN8proxygen11HPACKHeaderD2Ev.exit ], [ %add.i, %while.end ]
   %retval.sroa.620.0.insert.ext = zext i32 %retval.sroa.620.0 to i64
   %retval.sroa.620.0.insert.shift = shl nuw i64 %retval.sroa.620.0.insert.ext, 32
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.620.0.insert.shift, %retval.sroa.0.0
@@ -2601,7 +2601,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %entry, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i = phi i64 [ %cond.i, %if.end2.i ], [ 0, %entry ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i = phi i64 [ 0, %entry ], [ %cond.i, %if.end2.i ], [ %add, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i = call noalias ptr @malloc(i64 noundef %retval.0.i) #34
   %tobool.not.i7 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i7, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -2764,7 +2764,7 @@ if.end18:                                         ; preds = %init.end
   br label %return
 
 return:                                           ; preds = %init.end, %if.end, %entry, %if.end18
-  %retval.0 = phi i1 [ %cmp19, %if.end18 ], [ false, %entry ], [ false, %if.end ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %init.end ], [ false, %entry ], [ false, %if.end ], [ %cmp19, %if.end18 ]
   ret i1 %retval.0
 }
 
@@ -2867,7 +2867,7 @@ _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5: ; preds = %if.end6
   br label %return
 
 return:                                           ; preds = %init.end, %entry, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5
-  %retval.0 = phi i1 [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %entry ], [ false, %init.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp, %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit5 ], [ false, %init.end ]
   ret i1 %retval.0
 }
 
@@ -2987,7 +2987,7 @@ if.end2.i:                                        ; preds = %_ZN5folly10canNallo
   br label %_ZN5folly14goodMallocSizeEm.exit
 
 _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %if.end7, %_ZN5folly10canNallocxEv.exit.i, %if.end2.i
-  %retval.0.i9 = phi i64 [ %cond.i, %if.end2.i ], [ 0, %if.end7 ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
+  %retval.0.i9 = phi i64 [ 0, %if.end7 ], [ %cond.i, %if.end2.i ], [ %7, %_ZN5folly10canNallocxEv.exit.i ]
   %call.i10 = call noalias ptr @malloc(i64 noundef %retval.0.i9) #34
   %tobool.not.i11 = icmp eq ptr %call.i10, null
   br i1 %tobool.not.i11, label %if.then.i, label %_ZN5folly13checkedMallocEm.exit
@@ -3096,7 +3096,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
+  %__first.addr.0.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i ]
   store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
   br label %if.end44
 

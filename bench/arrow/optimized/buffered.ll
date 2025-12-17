@@ -5723,7 +5723,7 @@ _ZN5arrow6StatusD2Ev.exit21:                      ; preds = %34, %22
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.noexc, %14, %51
-  %.sink = phi ptr [ null, %51 ], [ null, %14 ], [ %32, %.noexc ]
+  %.sink = phi ptr [ null, %14 ], [ null, %51 ], [ %32, %.noexc ]
   store ptr %.sink, ptr %0, align 8, !tbaa !55
   br label %.critedge
 

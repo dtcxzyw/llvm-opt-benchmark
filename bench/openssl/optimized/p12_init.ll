@@ -49,8 +49,8 @@ define ptr @PKCS12_init_ex(i32 noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %22, label %.sink.split, label %24
 
 .sink.split:                                      ; preds = %17, %18, %10
-  %.sink14 = phi i32 [ 32, %10 ], [ 39, %18 ], [ 44, %17 ]
-  %.sink = phi i32 [ 524321, %10 ], [ 524301, %18 ], [ 119, %17 ]
+  %.sink14 = phi i32 [ 39, %18 ], [ 32, %10 ], [ 44, %17 ]
+  %.sink = phi i32 [ 524301, %18 ], [ 524321, %10 ], [ 119, %17 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink14, ptr noundef nonnull @__func__.PKCS12_init_ex) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #3

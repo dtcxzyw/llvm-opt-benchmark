@@ -481,7 +481,7 @@ read_cb_data.exit:                                ; preds = %52, %33
   br i1 %exitcond233.not, label %._crit_edge170, label %.preheader152.us, !llvm.loop !64
 
 ._crit_edge170:                                   ; preds = %._crit_edge.us173, %.preheader155.lr.ph, %read_cb_data.exit
-  %.sroa.20.3.lcssa = phi i32 [ %.sroa.20.14, %read_cb_data.exit ], [ %.sroa.20.14, %.preheader155.lr.ph ], [ %spec.select.i.us, %._crit_edge.us173 ]
+  %.sroa.20.3.lcssa = phi i32 [ %.sroa.20.14, %.preheader155.lr.ph ], [ %.sroa.20.14, %read_cb_data.exit ], [ %spec.select.i.us, %._crit_edge.us173 ]
   %136 = load i32, ptr %37, align 4, !tbaa !53
   %137 = icmp eq i32 %136, 2
   br i1 %137, label %.preheader, label %.preheader150
@@ -779,7 +779,7 @@ read_cb_data.exit100:                             ; preds = %247, %._crit_edge19
   br label %321
 
 321:                                              ; preds = %4, %.loopexit, %32
-  %.0 = phi i32 [ -1094995529, %32 ], [ %320, %.loopexit ], [ -1094995529, %4 ]
+  %.0 = phi i32 [ %320, %.loopexit ], [ -1094995529, %32 ], [ -1094995529, %4 ]
   ret i32 %.0
 }
 

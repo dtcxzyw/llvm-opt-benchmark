@@ -1392,7 +1392,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %173, %175
   br i1 %189, label %.sink.split, label %191
 
 .sink.split:                                      ; preds = %188, %185, %183
-  %.sink = phi ptr [ %184, %183 ], [ %2, %185 ], [ %2, %188 ]
+  %.sink = phi ptr [ %2, %185 ], [ %184, %183 ], [ %2, %188 ]
   %190 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48) %.sink, i64 noundef %166) #16
   br label %191
 

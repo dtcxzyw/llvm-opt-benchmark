@@ -112,7 +112,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %30, %21, %34, %52, %47
-  %53 = phi i1 [ true, %47 ], [ %48, %52 ], [ true, %34 ], [ true, %21 ], [ true, %30 ], [ true, %32 ]
+  %53 = phi i1 [ true, %47 ], [ true, %32 ], [ %48, %52 ], [ true, %34 ], [ true, %21 ], [ true, %30 ]
   br i1 %.not57, label %54, label %66
 
 54:                                               ; preds = %.critedge
@@ -142,7 +142,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br label %69
 
 69:                                               ; preds = %67, %.critedge65, %66, %8, %3, %4, %15
-  %.0 = phi ptr [ %16, %15 ], [ null, %4 ], [ null, %3 ], [ null, %8 ], [ %68, %67 ], [ %11, %.critedge65 ], [ %11, %66 ]
+  %.0 = phi ptr [ null, %8 ], [ %16, %15 ], [ null, %3 ], [ null, %4 ], [ %68, %67 ], [ %11, %.critedge65 ], [ %11, %66 ]
   ret ptr %.0
 }
 

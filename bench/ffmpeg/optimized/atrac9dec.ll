@@ -281,7 +281,7 @@ define internal range(i32 -2147483648, 1) i32 @atrac9_decode_init(ptr noundef %0
   br i1 %exitcond113.not, label %116, label %117, !llvm.loop !54
 
 125:                                              ; preds = %77, %61, %114, %60, %49, %39, %24, %19, %13, %9
-  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ 0, %114 ], [ %75, %61 ], [ -12, %77 ]
+  %.075 = phi i32 [ -1094995529, %9 ], [ -1094995529, %13 ], [ -1094995529, %19 ], [ %75, %61 ], [ -1094995529, %24 ], [ -1094995529, %39 ], [ -1094995529, %49 ], [ -1094995529, %60 ], [ -12, %77 ], [ 0, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.075
 }
@@ -1651,8 +1651,8 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br i1 %874, label %.lr.ph169.i.i, label %.loopexit158.i.i, !llvm.loop !103
 
 .loopexit158.i.i:                                 ; preds = %.lr.ph169.i.i, %.lr.ph173.i.i, %709, %.lr.ph179.i.i, %.preheader162.i.i, %.preheader160.i.i, %..loopexit158_crit_edge.i.i
-  %.sroa.16.10 = phi i32 [ %579, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.24, %.preheader160.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %719, %709 ], [ %780, %.lr.ph173.i.i ], [ %870, %.lr.ph169.i.i ]
-  %875 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %748, %.preheader160.i.i ], [ %853, %.preheader162.i.i ], [ %678, %.lr.ph179.i.i ], [ %722, %709 ], [ %782, %.lr.ph173.i.i ], [ %872, %.lr.ph169.i.i ]
+  %.sroa.16.10 = phi i32 [ %579, %..loopexit158_crit_edge.i.i ], [ %.sroa.16.24, %.preheader160.i.i ], [ %.sroa.16.9, %.preheader162.i.i ], [ %780, %.lr.ph173.i.i ], [ %.sroa.16.29, %.lr.ph179.i.i ], [ %719, %709 ], [ %870, %.lr.ph169.i.i ]
+  %875 = phi i32 [ %.pre216.i.i, %..loopexit158_crit_edge.i.i ], [ %748, %.preheader160.i.i ], [ %853, %.preheader162.i.i ], [ %782, %.lr.ph173.i.i ], [ %678, %.lr.ph179.i.i ], [ %722, %709 ], [ %872, %.lr.ph169.i.i ]
   %.not155180.i.i = icmp sgt i32 %875, 0
   br i1 %.not155180.i.i, label %.lr.ph182.preheader.i.i, label %.loopexit333.i
 
@@ -1810,7 +1810,7 @@ parse_band_ext.exit.i:                            ; preds = %._crit_edge.i.i, %.
   br label %950
 
 .preheader1.i261.i:                               ; preds = %950, %.loopexit.i266.i, %.preheader2.i.i, %.preheader3.i.i
-  %946 = phi i32 [ %943, %.loopexit.i266.i ], [ %883, %.preheader3.i.i ], [ %883, %.preheader2.i.i ], [ %953, %950 ]
+  %946 = phi i32 [ %943, %.loopexit.i266.i ], [ %883, %.preheader2.i.i ], [ %883, %.preheader3.i.i ], [ %953, %950 ]
   %947 = load i32, ptr %359, align 16, !tbaa !82
   %948 = icmp sgt i32 %947, 0
   br i1 %948, label %.lr.ph14.i.i, label %.preheader.i262.i
@@ -2126,9 +2126,9 @@ read_coeffs_fine.exit.thread.i:                   ; preds = %calc_codebook_idx.e
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %1098, %1081
-  %.064.i.i.i = phi i32 [ %1100, %1098 ], [ %.sroa.16.20, %1081 ]
-  %.062.i.i.i = phi i32 [ %1114, %1098 ], [ %1093, %1081 ]
-  %.0.i.i294.i = phi i32 [ %1117, %1098 ], [ %1096, %1081 ]
+  %.064.i.i.i = phi i32 [ %.sroa.16.20, %1081 ], [ %1100, %1098 ]
+  %.062.i.i.i = phi i32 [ %1093, %1081 ], [ %1114, %1098 ]
+  %.0.i.i294.i = phi i32 [ %1096, %1081 ], [ %1117, %1098 ]
   %1118 = add i32 %.0.i.i294.i, %.064.i.i.i
   %1119 = call i32 @llvm.umin.i32(i32 %34, i32 %1118)
   br i1 %1078, label %.lr.ph5.i.i, label %._crit_edge.i295.i
@@ -3037,8 +3037,8 @@ atrac9_decode_block.exit:                         ; preds = %1519
   %1560 = load i32, ptr %1559, align 4, !tbaa !34
   br label %.thread148
 
-.thread148:                                       ; preds = %344, %362, %447, %.lr.ph182.i.i, %187, %279, %267, %233, %219, %589, %26, %4, %.thread150
-  %.039 = phi i32 [ %1560, %.thread150 ], [ %24, %4 ], [ -1094995529, %26 ], [ -1094995529, %589 ], [ -1094995529, %219 ], [ -1094995529, %233 ], [ -1094995529, %267 ], [ -1094995529, %279 ], [ -1094995529, %187 ], [ -1094995529, %.lr.ph182.i.i ], [ -1094995529, %447 ], [ -1094995529, %362 ], [ -1094995529, %344 ]
+.thread148:                                       ; preds = %362, %344, %447, %.lr.ph182.i.i, %187, %279, %219, %267, %233, %589, %26, %4, %.thread150
+  %.039 = phi i32 [ -1094995529, %26 ], [ %24, %4 ], [ %1560, %.thread150 ], [ -1094995529, %589 ], [ -1094995529, %233 ], [ -1094995529, %267 ], [ -1094995529, %219 ], [ -1094995529, %279 ], [ -1094995529, %187 ], [ -1094995529, %.lr.ph182.i.i ], [ -1094995529, %447 ], [ -1094995529, %344 ], [ -1094995529, %362 ]
   ret i32 %.039
 }
 

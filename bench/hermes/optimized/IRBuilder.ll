@@ -498,8 +498,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -555,7 +555,7 @@ cond.true:                                        ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %entry, %cond.true, %if.else
-  %statement.0 = phi i32 [ %4, %cond.true ], [ 0, %if.else ], [ %statementOpt.sroa.0.0.extract.trunc, %entry ]
+  %statement.0 = phi i32 [ 0, %if.else ], [ %4, %cond.true ], [ %statementOpt.sroa.0.0.extract.trunc, %entry ]
   %statementIndex_.i4 = getelementptr inbounds nuw i8, ptr %Inst, i64 128
   store i32 %statement.0, ptr %statementIndex_.i4, align 8
   %Location = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -648,8 +648,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -729,8 +729,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -809,8 +809,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -890,8 +890,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -984,8 +984,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %cond.true.i ], [ %7, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %8, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %if.else.i ], [ %7, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %8, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1072,8 +1072,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1152,8 +1152,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1253,8 +1253,8 @@ cond.true.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE.exit
 
 _ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i, %if.else.i.i, %cond.true.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %6, %cond.true.i.i ], [ %6, %if.else.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
-  %statement.0.i.i = phi i32 [ %7, %cond.true.i.i ], [ 0, %if.else.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %6, %if.else.i.i ], [ %6, %cond.true.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %statement.0.i.i = phi i32 [ 0, %if.else.i.i ], [ %7, %cond.true.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
   %statementIndex_.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1349,8 +1349,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1431,8 +1431,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1513,8 +1513,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1595,8 +1595,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1677,8 +1677,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1763,8 +1763,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %cond.true.i ], [ %7, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %8, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %if.else.i ], [ %7, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %8, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1844,8 +1844,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1929,8 +1929,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2015,8 +2015,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2100,8 +2100,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2184,8 +2184,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2270,8 +2270,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2353,8 +2353,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2454,8 +2454,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes8CallInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2555,8 +2555,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes12HBCCallNInstC2EPNS_13LiteralStringEPNS_5ValueEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIS4_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2657,8 +2657,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes13ConstructInstC2EPNS_5ValueES2_PNS_16LiteralUndefinedEN4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2739,8 +2739,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2823,8 +2823,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2914,8 +2914,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2995,8 +2995,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3078,8 +3078,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3172,8 +3172,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3257,8 +3257,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3343,8 +3343,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3439,8 +3439,8 @@ cond.true.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_.exit
 
 _ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i, %if.else.i.i, %cond.true.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %5, %cond.true.i.i ], [ %5, %if.else.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
-  %statement.0.i.i = phi i32 [ %6, %cond.true.i.i ], [ 0, %if.else.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %5, %if.else.i.i ], [ %5, %cond.true.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %statement.0.i.i = phi i32 [ 0, %if.else.i.i ], [ %6, %cond.true.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
   %statementIndex_.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3535,8 +3535,8 @@ cond.true.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_.exit
 
 _ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i, %if.else.i.i, %cond.true.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %5, %cond.true.i.i ], [ %5, %if.else.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
-  %statement.0.i.i = phi i32 [ %6, %cond.true.i.i ], [ 0, %if.else.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %5, %if.else.i.i ], [ %5, %cond.true.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %statement.0.i.i = phi i32 [ 0, %if.else.i.i ], [ %6, %cond.true.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
   %statementIndex_.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3632,8 +3632,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3739,8 +3739,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3826,8 +3826,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3923,8 +3923,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %cond.true.i ], [ %7, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %8, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %if.else.i ], [ %7, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %8, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes14AllocArrayInstC2ERN4llvh11SmallVectorIPNS_5ValueELj4EEEPNS_13LiteralNumberE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4063,8 +4063,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4143,8 +4143,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4224,8 +4224,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4302,8 +4302,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4386,8 +4386,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4469,8 +4469,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4553,8 +4553,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4609,8 +4609,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %cond.true.i ], [ %3, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %4, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %if.else.i ], [ %3, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %4, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4683,8 +4683,8 @@ cond.true.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE.exit
 
 _ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i, %if.else.i.i, %cond.true.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %3, %cond.true.i.i ], [ %3, %if.else.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
-  %statement.0.i.i = phi i32 [ %4, %cond.true.i.i ], [ 0, %if.else.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i = phi ptr [ %3, %if.else.i.i ], [ %3, %cond.true.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
+  %statement.0.i.i = phi i32 [ 0, %if.else.i.i ], [ %4, %cond.true.i.i ], [ %statementOpt.sroa.0.0.extract.trunc.i.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge.i ]
   %statementIndex_.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i32 %statement.0.i.i, ptr %statementIndex_.i4.i.i, align 8
   %Location.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4759,8 +4759,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %cond.true.i ], [ %3, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %4, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %if.else.i ], [ %3, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %4, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4820,8 +4820,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4881,8 +4881,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -4969,8 +4969,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5053,8 +5053,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5137,8 +5137,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5215,8 +5215,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5300,8 +5300,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5387,8 +5387,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5467,8 +5467,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5548,8 +5548,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5630,8 +5630,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5713,8 +5713,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5795,8 +5795,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5851,8 +5851,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %cond.true.i ], [ %3, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %4, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %3, %if.else.i ], [ %3, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %4, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -5935,8 +5935,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6019,8 +6019,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6100,8 +6100,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6181,8 +6181,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6266,8 +6266,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6346,8 +6346,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6431,8 +6431,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6515,8 +6515,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6600,8 +6600,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6682,8 +6682,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6781,8 +6781,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes16HBCConstructInstC2EPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6869,8 +6869,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -6951,8 +6951,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7054,8 +7054,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes15CallBuiltinInstC2EPNS_13LiteralNumberEPNS_16LiteralUndefinedES4_N4llvh8ArrayRefIPNS_5ValueEEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7139,8 +7139,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7243,8 +7243,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %cond.true.i ], [ %7, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %8, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %7, %if.else.i ], [ %7, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %8, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes17HBCCallDirectInstC2EPNS_13LiteralStringEPNS_8FunctionEPNS_16LiteralUndefinedEPNS_5ValueEN4llvh8ArrayRefIS8_EE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call2, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7326,8 +7326,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7410,8 +7410,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7494,8 +7494,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7599,8 +7599,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %11, %cond.true.i ], [ %11, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %12, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %11, %if.else.i ], [ %11, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %12, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %_ZN6hermes28HBCAllocObjectFromBufferInstC2EPNS_13LiteralNumberERKN4llvh11SmallVectorISt4pairIPNS_7LiteralES7_ELj4EEE.exit._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7691,8 +7691,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7775,8 +7775,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %cond.true.i ], [ %5, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %6, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %5, %if.else.i ], [ %5, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %6, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7863,8 +7863,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -7950,8 +7950,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %cond.true.i ], [ %6, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %6, %if.else.i ], [ %6, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %7, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8030,8 +8030,8 @@ cond.true.i:                                      ; preds = %if.else.i
   br label %_ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit
 
 _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge, %if.else.i, %cond.true.i
-  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %cond.true.i ], [ %4, %if.else.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
-  %statement.0.i = phi i32 [ %5, %cond.true.i ], [ 0, %if.else.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %agg.tmp.sroa.0.0.copyload.i.i = phi ptr [ %4, %if.else.i ], [ %4, %cond.true.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.pre, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
+  %statement.0.i = phi i32 [ 0, %if.else.i ], [ %5, %cond.true.i ], [ %statementOpt.sroa.0.0.extract.trunc.i, %entry._ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit_crit_edge ]
   %statementIndex_.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i32 %statement.0.i, ptr %statementIndex_.i4.i, align 8
   %Location.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -9196,8 +9196,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27: ; preds = %while.b
   br i1 %cmp7.i20, label %if.then15, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40
 
 if.then15:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66, %while.body.us50, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
-  %.us-phi46 = phi ptr [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
-  %.us-phi47 = phi ptr [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi46 = phi ptr [ %FoundTombstone.0.us86, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %FoundTombstone.0.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %FoundTombstone.0.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %FoundTombstone.0.us53, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %FoundTombstone.0.us53, %while.body.us50 ], [ %FoundTombstone.0, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
+  %.us-phi47 = phi ptr [ %add.ptr.us89, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100 ], [ %add.ptr.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us ], [ %add.ptr.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us ], [ %add.ptr.us56, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27 ]
   %tobool.not = icmp eq ptr %.us-phi46, null
   %cond = select i1 %tobool.not, ptr %.us-phi47, ptr %.us-phi46
   br label %return
@@ -9212,8 +9212,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !12
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us ], [ true, %if.then.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us50 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i.us98 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

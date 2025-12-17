@@ -514,8 +514,8 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_BEP25UConverterFromUni
   br label %84
 
 84:                                               ; preds = %.sink.split, %52, %.loopexit
-  %.267 = phi ptr [ %.166, %.loopexit ], [ %.065, %52 ], [ %.267.ph, %.sink.split ]
-  %.2 = phi ptr [ %.1, %.loopexit ], [ %.062, %52 ], [ %.2.ph, %.sink.split ]
+  %.267 = phi ptr [ %.065, %52 ], [ %.166, %.loopexit ], [ %.267.ph, %.sink.split ]
+  %.2 = phi ptr [ %.062, %52 ], [ %.1, %.loopexit ], [ %.2.ph, %.sink.split ]
   %85 = icmp uge ptr %.2, %7
   %.not75 = icmp ult ptr %.267, %9
   %or.cond = select i1 %85, i1 true, i1 %.not75
@@ -723,9 +723,9 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_BE_OFFSET_LOGICP25UCon
   br label %94
 
 94:                                               ; preds = %.sink.split, %55, %30
-  %.280 = phi ptr [ %.179, %30 ], [ %.078, %55 ], [ %.280.ph, %.sink.split ]
-  %.276 = phi ptr [ %.175, %30 ], [ %.074, %55 ], [ %.276.ph, %.sink.split ]
-  %.271 = phi ptr [ %.170, %30 ], [ %.069, %55 ], [ %.271.ph, %.sink.split ]
+  %.280 = phi ptr [ %.078, %55 ], [ %.179, %30 ], [ %.280.ph, %.sink.split ]
+  %.276 = phi ptr [ %.074, %55 ], [ %.175, %30 ], [ %.276.ph, %.sink.split ]
+  %.271 = phi ptr [ %.069, %55 ], [ %.170, %30 ], [ %.271.ph, %.sink.split ]
   %95 = icmp uge ptr %.271, %7
   %.not90 = icmp ult ptr %.276, %9
   %or.cond = select i1 %95, i1 true, i1 %.not90
@@ -1328,8 +1328,8 @@ define internal void @_ZL33T_UConverter_fromUnicode_UTF32_LEP25UConverterFromUni
   br label %81
 
 81:                                               ; preds = %.sink.split, %53, %.loopexit
-  %.267 = phi ptr [ %.166, %.loopexit ], [ %.065, %53 ], [ %.267.ph, %.sink.split ]
-  %.2 = phi ptr [ %.1, %.loopexit ], [ %.062, %53 ], [ %.2.ph, %.sink.split ]
+  %.267 = phi ptr [ %.065, %53 ], [ %.166, %.loopexit ], [ %.267.ph, %.sink.split ]
+  %.2 = phi ptr [ %.062, %53 ], [ %.1, %.loopexit ], [ %.2.ph, %.sink.split ]
   %82 = icmp uge ptr %.2, %7
   %.not75 = icmp ult ptr %.267, %9
   %or.cond = select i1 %82, i1 true, i1 %.not75
@@ -1533,9 +1533,9 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
   br label %91
 
 91:                                               ; preds = %.sink.split, %56, %31
-  %.280 = phi ptr [ %.179, %31 ], [ %.078, %56 ], [ %.280.ph, %.sink.split ]
-  %.276 = phi ptr [ %.175, %31 ], [ %.074, %56 ], [ %.276.ph, %.sink.split ]
-  %.271 = phi ptr [ %.170, %31 ], [ %.069, %56 ], [ %.271.ph, %.sink.split ]
+  %.280 = phi ptr [ %.078, %56 ], [ %.179, %31 ], [ %.280.ph, %.sink.split ]
+  %.276 = phi ptr [ %.074, %56 ], [ %.175, %31 ], [ %.276.ph, %.sink.split ]
+  %.271 = phi ptr [ %.069, %56 ], [ %.170, %31 ], [ %.271.ph, %.sink.split ]
   %92 = icmp uge ptr %.271, %7
   %.not90 = icmp ult ptr %.276, %9
   %or.cond = select i1 %92, i1 true, i1 %.not90
@@ -1821,14 +1821,14 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %.outer
 
 .outer:                                           ; preds = %.outer103.split.us.split, %26, %35, %29, %64, %60, %.loopexit102.split.us
-  %.192 = phi i32 [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %60 ], [ %.091.ph177, %64 ], [ %.091.ph177, %26 ], [ %.091.ph177, %.outer103.split.us.split ]
-  %.2 = phi i32 [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ 8, %60 ], [ 9, %64 ], [ %27, %26 ], [ %.089.us, %.outer103.split.us.split ]
-  %.1 = phi ptr [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %61, %60 ], [ %65, %64 ], [ %28, %26 ], [ %.0.ph105171, %.outer103.split.us.split ]
+  %.192 = phi i32 [ %.091.ph177, %.loopexit102.split.us ], [ %34, %29 ], [ %40, %35 ], [ %.091.ph177, %26 ], [ %.091.ph177, %60 ], [ %.091.ph177, %64 ], [ %.091.ph177, %.outer103.split.us.split ]
+  %.2 = phi i32 [ %.190, %.loopexit102.split.us ], [ 8, %29 ], [ 9, %35 ], [ %27, %26 ], [ 8, %60 ], [ 9, %64 ], [ %.089.us, %.outer103.split.us.split ]
+  %.1 = phi ptr [ %25, %.loopexit102.split.us ], [ %28, %29 ], [ %28, %35 ], [ %28, %26 ], [ %61, %60 ], [ %65, %64 ], [ %.0.ph105171, %.outer103.split.us.split ]
   %66 = icmp ult ptr %.1, %8
   br i1 %66, label %.outer103.split.us.lr.ph, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %.outer, %.outer103, %.outer103.split.us
-  %.us-phi = phi i32 [ %.091.ph177, %.outer103.split.us ], [ %.091.ph177, %.outer103 ], [ %.192, %.outer ]
+  %.us-phi = phi i32 [ %.091.ph177, %.outer103 ], [ %.091.ph177, %.outer103.split.us ], [ %.192, %.outer ]
   %.us-phi119 = phi ptr [ %42, %.outer103 ], [ %.0.ph105171, %.outer103.split.us ], [ %.1, %.outer ]
   %.us-phi120 = phi i32 [ 8, %.outer103 ], [ %.089.ph104170, %.outer103.split.us ], [ %.2, %.outer ]
   %67 = icmp ne ptr %10, null
@@ -1851,8 +1851,8 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %69, %.critedge
-  %.us-phi120212 = phi i32 [ %.us-phi120, %69 ], [ %.us-phi120, %.critedge ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
-  %.us-phi119211 = phi ptr [ %.us-phi119, %69 ], [ %.us-phi119, %.critedge ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
+  %.us-phi120212 = phi i32 [ %.us-phi120, %.critedge ], [ %.us-phi120, %69 ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
+  %.us-phi119211 = phi ptr [ %.us-phi119, %.critedge ], [ %.us-phi119, %69 ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
   store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
   %76 = icmp eq ptr %.us-phi119211, %8
   br i1 %76, label %77, label %90
@@ -2033,7 +2033,7 @@ define internal noundef range(i32 -9, 1114112) i32 @_ZL18_UTF32GetNextUCharP23UC
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split
 
 _ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit.sink.split: ; preds = %52, %63, %87, %7, %18, %47
-  %.sink.i7.sink = phi i32 [ 12, %47 ], [ 11, %18 ], [ 8, %7 ], [ 12, %87 ], [ 11, %63 ], [ 8, %52 ]
+  %.sink.i7.sink = phi i32 [ 8, %7 ], [ 12, %47 ], [ 11, %18 ], [ 12, %87 ], [ 11, %63 ], [ 8, %52 ]
   store i32 %.sink.i7.sink, ptr %1, align 4, !tbaa !30
   br label %_ZL34T_UConverter_getNextUChar_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode.exit
 

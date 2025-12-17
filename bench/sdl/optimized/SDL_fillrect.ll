@@ -233,7 +233,7 @@ switch.edge:                                      ; preds = %25
   br label %switch.edge91
 
 switch.edge91:                                    ; preds = %87, %88, %87, %87, %87, %89
-  %91 = phi i32 [ %90, %89 ], [ 2, %87 ], [ 1, %88 ], [ 2, %87 ], [ 2, %87 ], [ 2, %87 ]
+  %91 = phi i32 [ %90, %89 ], [ 2, %87 ], [ 2, %87 ], [ 2, %87 ], [ 1, %88 ], [ 2, %87 ]
   %92 = mul i32 %91, %85
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 %93
@@ -248,7 +248,7 @@ switch.edge91:                                    ; preds = %87, %88, %87, %87, 
   br i1 %exitcond.not, label %.loopexit, label %75, !llvm.loop !4
 
 .loopexit:                                        ; preds = %97, %68, %.critedge88, %9, %13, %66, %.critedge87, %23, %20, %7
-  %.0 = phi i1 [ %56, %.critedge87 ], [ %67, %66 ], [ %24, %23 ], [ %21, %20 ], [ %8, %7 ], [ true, %13 ], [ true, %9 ], [ true, %.critedge88 ], [ true, %68 ], [ true, %97 ]
+  %.0 = phi i1 [ %8, %7 ], [ %56, %.critedge87 ], [ true, %.critedge88 ], [ %67, %66 ], [ true, %9 ], [ %24, %23 ], [ %21, %20 ], [ true, %13 ], [ true, %68 ], [ true, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

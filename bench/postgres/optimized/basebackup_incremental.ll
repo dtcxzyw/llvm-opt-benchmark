@@ -611,7 +611,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br i1 %82, label %.split.us, label %.thread
 
 .split.us:                                        ; preds = %.lr.ph.us, %.critedge.thread, %.critedge, %.critedge.loopexit.us
-  %.us-phi266 = phi ptr [ %34, %.critedge.loopexit.us ], [ %64, %.critedge ], [ %64, %.critedge.thread ], [ %50, %.lr.ph.us ]
+  %.us-phi266 = phi ptr [ %64, %.critedge.thread ], [ %34, %.critedge.loopexit.us ], [ %64, %.critedge ], [ %50, %.lr.ph.us ]
   %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %84 = tail call i32 @errcode(i32 noundef 325) #13
   %85 = load i32, ptr %.us-phi266, align 8
@@ -887,9 +887,9 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
   br label %.critedge192
 
 243:                                              ; preds = %._crit_edge387, %214
-  %244 = phi i32 [ %.pre, %._crit_edge387 ], [ %201, %214 ]
-  %.2159.ph = phi i1 [ true, %._crit_edge387 ], [ false, %214 ]
-  %.2.ph = phi ptr [ %240, %._crit_edge387 ], [ %.0151304320, %214 ]
+  %244 = phi i32 [ %201, %214 ], [ %.pre, %._crit_edge387 ]
+  %.2159.ph = phi i1 [ false, %214 ], [ true, %._crit_edge387 ]
+  %.2.ph = phi ptr [ %.0151304320, %214 ], [ %240, %._crit_edge387 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %245 = sext i32 %244 to i64
@@ -1283,7 +1283,7 @@ backup_file_lookup.exit78.thread.sink.split:      ; preds = %.loopexit, %85
   br label %backup_file_lookup.exit78.thread
 
 backup_file_lookup.exit78.thread:                 ; preds = %62, %backup_file_lookup.exit78.thread.sink.split, %GetIncrementalFilePath.exit, %.loopexit, %98, %87, %83, %backup_file_lookup.exit, %11, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %11 ], [ 0, %backup_file_lookup.exit ], [ 0, %83 ], [ 0, %87 ], [ 0, %98 ], [ 1, %.loopexit ], [ 0, %GetIncrementalFilePath.exit ], [ 1, %backup_file_lookup.exit78.thread.sink.split ], [ 0, %62 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %.loopexit ], [ 0, %backup_file_lookup.exit ], [ 0, %83 ], [ 0, %87 ], [ 0, %98 ], [ 0, %15 ], [ 1, %backup_file_lookup.exit78.thread.sink.split ], [ 0, %GetIncrementalFilePath.exit ], [ 0, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0

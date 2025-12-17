@@ -1059,7 +1059,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit177, %21
-  %.085.lcssa = phi i32 [ %28, %21 ], [ %49, %._crit_edge.loopexit.split.loop.exit ], [ %50, %._crit_edge.loopexit.split.loop.exit177 ], [ 0, %47 ]
+  %.085.lcssa = phi i32 [ %28, %21 ], [ %50, %._crit_edge.loopexit.split.loop.exit177 ], [ %49, %._crit_edge.loopexit.split.loop.exit ], [ 0, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %52 = load i32, ptr %51, align 4, !tbaa !40
   %.not103134 = icmp sgt i32 %52, %.085.lcssa
@@ -1404,8 +1404,8 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr noundef re
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %47, %68, %._crit_edge115.loopexit.split.loop.exit, %._crit_edge115.loopexit.split.loop.exit164, %21, %._crit_edge
-  %.076.lcssa149 = phi i32 [ %49, %._crit_edge ], [ %28, %21 ], [ %49, %._crit_edge115.loopexit.split.loop.exit164 ], [ %49, %._crit_edge115.loopexit.split.loop.exit ], [ %49, %68 ], [ 0, %47 ]
-  %.0.lcssa = phi i32 [ %49, %._crit_edge ], [ %28, %21 ], [ %71, %._crit_edge115.loopexit.split.loop.exit164 ], [ %70, %._crit_edge115.loopexit.split.loop.exit ], [ 0, %68 ], [ 0, %47 ]
+  %.076.lcssa149 = phi i32 [ %49, %._crit_edge ], [ %28, %21 ], [ %49, %._crit_edge115.loopexit.split.loop.exit ], [ %49, %._crit_edge115.loopexit.split.loop.exit164 ], [ %49, %68 ], [ 0, %47 ]
+  %.0.lcssa = phi i32 [ %49, %._crit_edge ], [ %28, %21 ], [ %70, %._crit_edge115.loopexit.split.loop.exit ], [ %71, %._crit_edge115.loopexit.split.loop.exit164 ], [ 0, %68 ], [ 0, %47 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %73 = load i32, ptr %72, align 4, !tbaa !40
   %.not91121 = icmp sgt i32 %73, %.076.lcssa149

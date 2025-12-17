@@ -1640,7 +1640,7 @@ clear_shadow_entry.exit:                          ; preds = %53, %62
   br label %.thread6
 
 .thread6:                                         ; preds = %170, %.thread.thread, %.thread, %167, %.thread8
-  %172 = phi i32 [ %32, %.thread8 ], [ -16, %167 ], [ -16, %.thread ], [ -16, %.thread.thread ], [ %spec.select, %170 ]
+  %172 = phi i32 [ %32, %.thread8 ], [ %spec.select, %170 ], [ -16, %.thread.thread ], [ -16, %167 ], [ -16, %.thread ]
   call void @folio_unlock(ptr noundef %34) #5
   br label %173
 

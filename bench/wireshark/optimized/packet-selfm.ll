@@ -1088,7 +1088,7 @@ clean_telnet_iac.exit:                            ; preds = %.outer.i, %45, %.th
   br label %89
 
 89:                                               ; preds = %4, %7, %._crit_edge, %72, %57, %17, %11
-  %.0 = phi i32 [ %12, %11 ], [ %20, %17 ], [ %60, %57 ], [ %76, %72 ], [ %88, %._crit_edge ], [ 0, %7 ], [ 0, %4 ]
+  %.0 = phi i32 [ %88, %._crit_edge ], [ %12, %11 ], [ %20, %17 ], [ %60, %57 ], [ %76, %72 ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2580,7 +2580,7 @@ region_lookup.exit495.i:                          ; preds = %825, %region_lookup
   br i1 %exitcond.not.i201, label %.loopexit.i198, label %849, !llvm.loop !32
 
 .loopexit.i198:                                   ; preds = %863, %835, %.loopexit498.i, %.lr.ph531.i, %.lr.ph536.i, %.lr.ph553.i, %region_lookup.exit495.i, %804, %._crit_edge.i202, %728, %726, %._crit_edge526.i, %681, %region_lookup.exit485.i, %639, %._crit_edge548.i, %555, %547, %region_lookup.exit473.i, %513, %503, %.preheader.i197, %496
-  %.0.i = phi i32 [ %500, %496 ], [ %512, %503 ], [ %522, %513 ], [ %546, %region_lookup.exit473.i ], [ %558, %555 ], [ %638, %._crit_edge548.i ], [ %680, %region_lookup.exit485.i ], [ %685, %681 ], [ %727, %726 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %spec.select468.i, %804 ], [ %500, %547 ], [ %654, %639 ], [ %720, %._crit_edge526.i ], [ %732, %728 ], [ %831, %region_lookup.exit495.i ], [ %500, %.preheader.i197 ], [ %553, %.lr.ph553.i ], [ %658, %.lr.ph536.i ], [ %724, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %846, %835 ], [ %.11.i, %863 ]
+  %.0.i = phi i32 [ %500, %496 ], [ %512, %503 ], [ %522, %513 ], [ %546, %region_lookup.exit473.i ], [ %558, %555 ], [ %638, %._crit_edge548.i ], [ %680, %region_lookup.exit485.i ], [ %685, %681 ], [ %727, %726 ], [ %spec.select468.i, %804 ], [ %.8.lcssa.i, %._crit_edge.i202 ], [ %500, %547 ], [ %654, %639 ], [ %720, %._crit_edge526.i ], [ %732, %728 ], [ %831, %region_lookup.exit495.i ], [ %500, %.preheader.i197 ], [ %846, %835 ], [ %553, %.lr.ph553.i ], [ %658, %.lr.ph536.i ], [ %724, %.lr.ph531.i ], [ %.7.lcssa.i, %.loopexit498.i ], [ %.11.i, %863 ]
   %865 = load i32, ptr @hf_selfm_fastmsg_crc16, align 4
   %866 = tail call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %865, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
   %867 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i)
@@ -2911,7 +2911,7 @@ region_lookup.exit246:                            ; preds = %region_lookup.exit,
   br label %74
 
 74:                                               ; preds = %60, %70, %66, %63
-  %.0213 = phi i16 [ %65, %63 ], [ %69, %66 ], [ %73, %70 ], [ 0, %60 ]
+  %.0213 = phi i16 [ %73, %70 ], [ %65, %63 ], [ %69, %66 ], [ 0, %60 ]
   %75 = zext i16 %.0213 to i32
   %76 = load i32, ptr @ett_selfm_fastmsg_tag, align 4
   %77 = getelementptr inbounds nuw i8, ptr %56, i64 9
@@ -3184,7 +3184,7 @@ proto_item_set_generated.exit253:                 ; preds = %proto_item_set_gene
   br i1 %.not236, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph275, %.lr.ph280, %.lr.ph285, %.lr.ph290, %.lr.ph295, %.preheader267, %.preheader265, %.preheader263, %.preheader261, %.preheader, %121, %176, %proto_item_set_generated.exit253, %55
-  %.1 = phi i32 [ %.0212298, %proto_item_set_generated.exit253 ], [ %179, %176 ], [ %.0212298, %55 ], [ %.0212298, %121 ], [ %.0212298, %.preheader ], [ %.0212298, %.preheader261 ], [ %.0212298, %.preheader263 ], [ %.0212298, %.preheader265 ], [ %.0212298, %.preheader267 ], [ %173, %.lr.ph295 ], [ %189, %.lr.ph290 ], [ %200, %.lr.ph285 ], [ %211, %.lr.ph280 ], [ %222, %.lr.ph275 ], [ %233, %.lr.ph ]
+  %.1 = phi i32 [ %.0212298, %proto_item_set_generated.exit253 ], [ %179, %176 ], [ %.0212298, %55 ], [ %.0212298, %121 ], [ %.0212298, %.preheader ], [ %.0212298, %.preheader261 ], [ %.0212298, %.preheader263 ], [ %.0212298, %.preheader265 ], [ %.0212298, %.preheader267 ], [ %222, %.lr.ph275 ], [ %173, %.lr.ph295 ], [ %189, %.lr.ph290 ], [ %200, %.lr.ph285 ], [ %211, %.lr.ph280 ], [ %233, %.lr.ph ]
   %235 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0299)
   %.not235 = icmp eq ptr %235, null
   br i1 %.not235, label %.critedge, label %.lr.ph300, !llvm.loop !40

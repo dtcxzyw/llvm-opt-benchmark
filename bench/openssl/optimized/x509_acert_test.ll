@@ -129,8 +129,8 @@ define internal range(i32 0, 2) i32 @test_print_acert(i32 noundef %0) #1 {
   br label %18
 
 18:                                               ; preds = %15, %12, %8
-  %.010 = phi ptr [ %13, %12 ], [ null, %8 ], [ %13, %15 ]
-  %.09 = phi i32 [ 0, %12 ], [ 0, %8 ], [ %spec.select, %15 ]
+  %.010 = phi ptr [ null, %8 ], [ %13, %15 ], [ %13, %12 ]
+  %.09 = phi i32 [ 0, %8 ], [ %spec.select, %15 ], [ 0, %12 ]
   %19 = tail call i32 @BIO_free(ptr noundef %6) #4
   %20 = tail call i32 @BIO_free(ptr noundef %10) #4
   tail call void @X509_ACERT_free(ptr noundef %.010) #4
@@ -183,8 +183,8 @@ define internal range(i32 0, 2) i32 @test_acert_sign() #1 {
   br label %19
 
 19:                                               ; preds = %16, %12, %9, %6
-  %.011 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ %spec.select, %16 ]
-  %.0 = phi ptr [ %10, %12 ], [ %10, %9 ], [ null, %6 ], [ %10, %16 ]
+  %.011 = phi i32 [ 0, %6 ], [ %spec.select, %16 ], [ 0, %12 ], [ 0, %9 ]
+  %.0 = phi ptr [ null, %6 ], [ %10, %16 ], [ %10, %12 ], [ %10, %9 ]
   %20 = tail call i32 @BIO_free(ptr noundef %7) #4
   tail call void @X509_ACERT_free(ptr noundef %.0) #4
   tail call void @EVP_PKEY_free(ptr noundef %4) #4
@@ -242,8 +242,8 @@ define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
   br label %23
 
 23:                                               ; preds = %18, %19, %14, %16, %1, %22
-  %.013 = phi ptr [ %12, %22 ], [ %12, %16 ], [ %12, %14 ], [ null, %1 ], [ %12, %19 ], [ null, %18 ]
-  %.0 = phi i32 [ 0, %22 ], [ 0, %16 ], [ 0, %14 ], [ 0, %1 ], [ 1, %19 ], [ 1, %18 ]
+  %.013 = phi ptr [ null, %1 ], [ %12, %22 ], [ %12, %16 ], [ %12, %14 ], [ %12, %19 ], [ null, %18 ]
+  %.0 = phi i32 [ 0, %1 ], [ 0, %22 ], [ 0, %16 ], [ 0, %14 ], [ 1, %19 ], [ 1, %18 ]
   call void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef %.013) #4
   %24 = call i32 @BIO_free(ptr noundef %4) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

@@ -180,7 +180,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %55, %58, %38, %35, %32, %19, %13, %9, %4
-  %62 = phi i64 [ %54, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %19 ], [ %18, %13 ], [ 0, %9 ], [ -70, %4 ], [ %57, %55 ], [ %61, %58 ]
+  %62 = phi i64 [ -70, %4 ], [ %54, %38 ], [ %37, %35 ], [ %34, %32 ], [ %31, %19 ], [ %18, %13 ], [ 0, %9 ], [ %57, %55 ], [ %61, %58 ]
   %63 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %62, ptr %7, align 8
@@ -717,7 +717,7 @@ thread-pre-split:                                 ; preds = %124, %145, %149, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %157, %106, %.loopexit21
-  %380 = phi i32 [ %379, %.loopexit21 ], [ -84, %106 ], [ -84, %157 ], [ -14, %.lr.ph ]
+  %380 = phi i32 [ %379, %.loopexit21 ], [ -84, %157 ], [ -84, %106 ], [ -14, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %381
 
@@ -1792,14 +1792,14 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   br label %182
 
 180:                                              ; preds = %.thread, %139, %135, %106, %99, %90, %78, %69, %58, %51
-  %181 = phi i32 [ -22, %69 ], [ %76, %78 ], [ -22, %90 ], [ %97, %99 ], [ %112, %106 ], [ -22, %58 ], [ -22, %51 ], [ %137, %139 ], [ -12, %135 ], [ -12, %.thread ]
+  %181 = phi i32 [ -22, %69 ], [ %76, %78 ], [ -22, %90 ], [ %97, %99 ], [ %112, %106 ], [ -12, %135 ], [ -22, %58 ], [ -22, %51 ], [ %137, %139 ], [ -12, %.thread ]
   call void @trace_probe_log_clear() #18
   call void @path_put(ptr noundef nonnull %7) #18
   call void @kfree(ptr noundef nonnull %30) #18
   br label %182
 
 182:                                              ; preds = %180, %178, %44, %40, %29, %23, %14, %2
-  %183 = phi i32 [ %42, %44 ], [ %181, %180 ], [ %179, %178 ], [ -125, %40 ], [ -125, %2 ], [ -125, %14 ], [ -125, %23 ], [ -12, %29 ]
+  %183 = phi i32 [ %42, %44 ], [ %181, %180 ], [ %179, %178 ], [ -12, %29 ], [ -125, %40 ], [ -125, %2 ], [ -125, %14 ], [ -125, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

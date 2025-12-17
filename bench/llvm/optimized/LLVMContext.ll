@@ -452,8 +452,8 @@ default.unreachable1.i:                           ; preds = %.preheader
   unreachable
 
 _ZL15knownBundleNamej.exit:                       ; preds = %.preheader, %145, %146, %147, %148, %149, %150, %151, %152
-  %.sroa.11.0.i = phi i64 [ 7, %145 ], [ 13, %146 ], [ 13, %147 ], [ 12, %148 ], [ 7, %149 ], [ 22, %150 ], [ 7, %151 ], [ 4, %152 ], [ 5, %.preheader ]
-  %.sroa.0.0.i = phi ptr [ @.str.51, %145 ], [ @.str.52, %146 ], [ @.str.53, %147 ], [ @.str.54, %148 ], [ @.str.55, %149 ], [ @.str.56, %150 ], [ @.str.57, %151 ], [ @.str.58, %152 ], [ @.str.50, %.preheader ]
+  %.sroa.11.0.i = phi i64 [ 5, %.preheader ], [ 7, %145 ], [ 13, %146 ], [ 13, %147 ], [ 12, %148 ], [ 7, %149 ], [ 22, %150 ], [ 7, %151 ], [ 4, %152 ]
+  %.sroa.0.0.i = phi ptr [ @.str.50, %.preheader ], [ @.str.51, %145 ], [ @.str.52, %146 ], [ @.str.53, %147 ], [ @.str.54, %148 ], [ @.str.55, %149 ], [ @.str.56, %150 ], [ @.str.57, %151 ], [ @.str.58, %152 ]
   %153 = call noundef ptr @_ZN4llvm15LLVMContextImpl20getOrInsertBundleTagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3032) %144, ptr nonnull %.sroa.0.0.i, i64 %.sroa.11.0.i) #17
   %154 = add nuw nsw i32 %.01257, 1
   br label %.preheader

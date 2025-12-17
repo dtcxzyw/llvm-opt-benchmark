@@ -313,7 +313,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %299, %307, %274, %282, %249, %257, %291, %266, %241, %214, %222, %230, %167, %175, %159, %121, %128, %138, %33, %41
-  %common.resume.op = phi { ptr, i32 } [ %34, %41 ], [ %34, %33 ], [ %139, %138 ], [ %122, %121 ], [ %129, %128 ], [ %160, %159 ], [ %168, %175 ], [ %168, %167 ], [ %223, %230 ], [ %223, %222 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %292, %291 ], [ %250, %257 ], [ %250, %249 ], [ %275, %282 ], [ %275, %274 ], [ %300, %307 ], [ %300, %299 ]
+  %common.resume.op = phi { ptr, i32 } [ %275, %274 ], [ %34, %33 ], [ %129, %128 ], [ %160, %159 ], [ %168, %167 ], [ %223, %222 ], [ %292, %291 ], [ %250, %249 ], [ %34, %41 ], [ %139, %138 ], [ %122, %121 ], [ %168, %175 ], [ %223, %230 ], [ %215, %214 ], [ %242, %241 ], [ %267, %266 ], [ %250, %257 ], [ %275, %282 ], [ %300, %307 ], [ %300, %299 ]
   resume { ptr, i32 } %common.resume.op
 
 50:                                               ; preds = %1
@@ -1278,7 +1278,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %170, %34, %42
-  %common.resume.op = phi { ptr, i32 } [ %35, %42 ], [ %35, %34 ], [ %171, %170 ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %35, %42 ], [ %171, %170 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %1
@@ -1777,7 +1777,7 @@ define internal fastcc void @"_ZN4core3ptr57drop_in_place$LT$deltalake_core..ker
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17hcc80a9266ed9879eE.exit"
 
 common.resume:                                    ; preds = %.body, %176, %44, %52, %137
-  %common.resume.op = phi { ptr, i32 } [ %138, %137 ], [ %45, %52 ], [ %45, %44 ], [ %177, %176 ], [ %152, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %138, %137 ], [ %45, %52 ], [ %177, %176 ], [ %152, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 61:                                               ; preds = %1
@@ -2342,7 +2342,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..De
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd0c9db7436bdbc88E.exit.i"
 
 common.resume:                                    ; preds = %.body, %.body8, %472, %421, %429, %242, %264, %272, %285, %293, %330, %338, %346, %405, %390, %138, %91
-  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %391, %390 ], [ %406, %405 ], [ %243, %242 ], [ %265, %272 ], [ %265, %264 ], [ %286, %293 ], [ %286, %285 ], [ %339, %346 ], [ %339, %338 ], [ %331, %330 ], [ %422, %429 ], [ %422, %421 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %91 ], [ %139, %138 ], [ %422, %421 ], [ %391, %390 ], [ %406, %405 ], [ %331, %330 ], [ %243, %242 ], [ %339, %338 ], [ %286, %285 ], [ %265, %264 ], [ %265, %272 ], [ %286, %293 ], [ %339, %346 ], [ %422, %429 ], [ %123, %.body ], [ %153, %.body8 ], [ %473, %472 ]
   resume { ptr, i32 } %common.resume.op
 
 91:                                               ; preds = %89, %84, %82
@@ -4386,7 +4386,7 @@ define void @_ZN14deltalake_test5utils18IntegrationContext3new17hb6d45e4ce04568d
           to label %24 unwind label %22
 
 .body38:                                          ; preds = %95, %39, %22, %.body
-  %.pn34 = phi { ptr, i32 } [ %.pn, %.body ], [ %23, %22 ], [ %40, %39 ], [ %96, %95 ]
+  %.pn34 = phi { ptr, i32 } [ %.pn, %.body ], [ %40, %39 ], [ %23, %22 ], [ %96, %95 ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17h43762ca7d052a465E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #18
           to label %15 unwind label %89
 
@@ -4448,7 +4448,7 @@ define void @_ZN14deltalake_test5utils18IntegrationContext3new17hb6d45e4ce04568d
   unreachable
 
 .body:                                            ; preds = %81, %85, %77, %57, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %58, %57 ], [ %78, %77 ], [ %82, %85 ], [ %82, %81 ]
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %58, %57 ], [ %44, %43 ], [ %82, %85 ], [ %82, %81 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$tempfile..dir..TempDir$GT$17he59352c339565466E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %.body38 unwind label %89
 
@@ -4702,7 +4702,7 @@ define void @_ZN14deltalake_test5utils18IntegrationContext3new17hb6d45e4ce04568d
   br label %"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$deltalake_test..utils..StorageIntegration$GT$$GT$17h674b8d24f1a2d561E.exit"
 
 common.resume:                                    ; preds = %15, %112, %120
-  %common.resume.op = phi { ptr, i32 } [ %113, %120 ], [ %113, %112 ], [ %.pn36, %15 ]
+  %common.resume.op = phi { ptr, i32 } [ %113, %112 ], [ %113, %120 ], [ %.pn36, %15 ]
   resume { ptr, i32 } %common.resume.op
 }
 

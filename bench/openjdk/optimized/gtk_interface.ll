@@ -128,7 +128,7 @@ get_loaded.exit:                                  ; preds = %29, %23
   store ptr %49, ptr @gtk, align 8
   br label %.critedge
 
-50:                                               ; preds = %21, %get_libs_order.exit.i
+50:                                               ; preds = %get_libs_order.exit.i, %21
   %.b17.i.pr = load i1, ptr @get_libs_order.n_libs, align 4
   br i1 %.b17.i.pr, label %..lr.ph.i_crit_edge, label %51
 
@@ -249,8 +249,8 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.pr
   br label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %69, %82, %.lr.ph, %..critedge.loopexit_crit_edge67, %get_libs_order.exit.thread, %get_libs_order.exit, %40, %45
-  %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ %98, %..critedge.loopexit_crit_edge67 ], [ null, %.lr.ph ], [ %87, %82 ], [ %98, %69 ]
-  %.029 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ %71, %..critedge.loopexit_crit_edge67 ], [ null, %.lr.ph ], [ %71, %82 ], [ %71, %69 ]
+  %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ null, %.lr.ph ], [ %98, %..critedge.loopexit_crit_edge67 ], [ %87, %82 ], [ %98, %69 ]
+  %.029 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ null, %.lr.ph ], [ %71, %..critedge.loopexit_crit_edge67 ], [ %71, %82 ], [ %71, %69 ]
   %.not39 = icmp eq i32 %2, 0
   br i1 %.not39, label %109, label %102
 
@@ -359,7 +359,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %.not15.i = icmp eq i32 %31, 0
   br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !8
 
-32:                                               ; preds = %18, %get_libs_order.exit.i
+32:                                               ; preds = %get_libs_order.exit.i, %18
   %.b17.i.i3.pr = load i1, ptr @get_libs_order.n_libs, align 4
   br i1 %.b17.i.i3.pr, label %...lr.ph.i_crit_edge.i14_crit_edge, label %33
 

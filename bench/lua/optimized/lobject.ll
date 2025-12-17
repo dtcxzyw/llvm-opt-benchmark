@@ -92,7 +92,7 @@ luaO_ceillog2.exit:                               ; preds = %.lr.ph.i, %10
   br label %27
 
 27:                                               ; preds = %1, %luaO_ceillog2.exit, %8
-  %.0 = phi i8 [ %9, %8 ], [ %26, %luaO_ceillog2.exit ], [ -1, %1 ]
+  %.0 = phi i8 [ %26, %luaO_ceillog2.exit ], [ %9, %8 ], [ -1, %1 ]
   ret i8 %.0
 }
 
@@ -145,7 +145,7 @@ define hidden i64 @luaO_applyparam(i8 noundef zeroext %0, i64 noundef %1) local_
   br label %32
 
 32:                                               ; preds = %25, %9, %29, %20, %13
-  %.024 = phi i64 [ %16, %13 ], [ %24, %20 ], [ %31, %29 ], [ 9223372036854775807, %9 ], [ 9223372036854775807, %25 ]
+  %.024 = phi i64 [ %16, %13 ], [ 9223372036854775807, %9 ], [ %24, %20 ], [ %31, %29 ], [ 9223372036854775807, %25 ]
   ret i64 %.024
 }
 
@@ -274,7 +274,7 @@ define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %0, i32 noundef %1,
   br label %numarith.exit
 
 numarith.exit:                                    ; preds = %48, %52, %54
-  %.0.i = phi double [ %49, %48 ], [ %53, %52 ], [ %55, %54 ]
+  %.0.i = phi double [ %55, %54 ], [ %53, %52 ], [ %49, %48 ]
   store double %.0.i, ptr %4, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 19, ptr %56, align 8, !tbaa !7
@@ -385,14 +385,14 @@ numarith.exit:                                    ; preds = %48, %52, %54
   br label %numarith.exit61
 
 numarith.exit61:                                  ; preds = %79, %80, %82, %84, %86, %90, %92, %94, %97, %99
-  %.0.i60 = phi double [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %96, %94 ], [ %98, %97 ], [ %100, %99 ], [ %91, %90 ], [ %93, %92 ], [ 0.000000e+00, %79 ]
+  %.0.i60 = phi double [ %93, %92 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %100, %99 ], [ %96, %94 ], [ %98, %97 ], [ %91, %90 ], [ 0.000000e+00, %79 ]
   store double %.0.i60, ptr %4, align 8, !tbaa !4
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 19, ptr %101, align 8, !tbaa !7
   br label %102
 
 102:                                              ; preds = %57, %65, %numarith.exit61, %72, %numarith.exit, %38, %30, %29
-  %.1 = phi i32 [ %.0, %29 ], [ 1, %numarith.exit ], [ 0, %38 ], [ 0, %30 ], [ 1, %65 ], [ 1, %numarith.exit61 ], [ 0, %72 ], [ 0, %57 ]
+  %.1 = phi i32 [ 0, %30 ], [ %.0, %29 ], [ 1, %numarith.exit ], [ 0, %38 ], [ 1, %65 ], [ 1, %numarith.exit61 ], [ 0, %72 ], [ 0, %57 ]
   ret i32 %.1
 }
 
@@ -465,7 +465,7 @@ define internal fastcc i64 @intarith(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %30
 
 30:                                               ; preds = %4, %28, %26, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
-  %.0 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ], [ %27, %26 ], [ %29, %28 ], [ 0, %4 ]
+  %.0 = phi i64 [ %29, %28 ], [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %25, %23 ], [ %27, %26 ], [ 0, %4 ]
   ret i64 %.0
 }
 
@@ -773,8 +773,8 @@ l_str2d.exit:                                     ; preds = %130
   %140 = add i64 %reass.sub, 1
   br label %l_str2d.exit.thread
 
-l_str2d.exit.thread:                              ; preds = %select.unfold, %.critedge.i, %87, %136
-  %.0 = phi i64 [ %140, %136 ], [ 0, %87 ], [ 0, %.critedge.i ], [ 0, %select.unfold ]
+l_str2d.exit.thread:                              ; preds = %select.unfold, %87, %.critedge.i, %136
+  %.0 = phi i64 [ %140, %136 ], [ 0, %select.unfold ], [ 0, %.critedge.i ], [ 0, %87 ]
   ret i64 %.0
 }
 

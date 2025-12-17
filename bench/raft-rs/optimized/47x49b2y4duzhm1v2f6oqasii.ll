@@ -196,9 +196,9 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4ite
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17he2bbd18366e83074E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17he2bbd18366e83074E.exit": ; preds = %2, %15, %17
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %15 ], [ %.sroa.0.0.i, %17 ], [ 0, %2 ]
-  %.sroa.5.0 = phi i64 [ %.val, %15 ], [ %18, %17 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ %16, %15 ], [ 0, %17 ], [ 0, %2 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %17 ], [ %.sroa.0.0.i, %15 ], [ 0, %2 ]
+  %.sroa.5.0 = phi i64 [ %18, %17 ], [ %.val, %15 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ 0, %17 ], [ %16, %15 ], [ 0, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
   %21 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %20, i64 %.sroa.0.0
@@ -424,8 +424,8 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   br label %10
 
 10:                                               ; preds = %5, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ %6, %5 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %spec.select5, %5 ]
+  %.sroa.3.0 = phi ptr [ %6, %5 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %spec.select5, %5 ], [ null, %1 ]
   %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %12

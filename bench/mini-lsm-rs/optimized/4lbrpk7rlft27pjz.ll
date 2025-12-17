@@ -1711,7 +1711,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -1911,7 +1911,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2111,7 +2111,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2311,7 +2311,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   br label %35
 
 35:                                               ; preds = %28, %33, %74
-  %.0 = phi i1 [ true, %33 ], [ true, %74 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %74 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2513,7 +2513,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h2e565c48092f7405E.llvm.48072493414
   br label %35
 
 35:                                               ; preds = %28, %33, %72
-  %.0 = phi i1 [ true, %33 ], [ true, %72 ], [ false, %28 ]
+  %.0 = phi i1 [ true, %72 ], [ true, %33 ], [ false, %28 ]
   ret i1 %.0
 
 36:                                               ; preds = %31
@@ -2873,7 +2873,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %8
           cleanup
   br label %89
 
-.loopexit.split-lp:                               ; preds = %48, %37
+.loopexit.split-lp:                               ; preds = %37, %48
   %.174.ph.ph = phi ptr [ null, %37 ], [ %.275, %48 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
@@ -3154,7 +3154,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %8
           cleanup
   br label %88
 
-.loopexit.split-lp:                               ; preds = %48, %37
+.loopexit.split-lp:                               ; preds = %37, %48
   %.174.ph.ph = phi ptr [ null, %37 ], [ %.275, %48 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
@@ -3395,7 +3395,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %6
           cleanup
   br label %76
 
-.loopexit.split-lp:                               ; preds = %36, %30
+.loopexit.split-lp:                               ; preds = %30, %36
   %.174.ph.ph = phi ptr [ null, %30 ], [ %.275, %36 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
@@ -3676,7 +3676,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %8
           cleanup
   br label %88
 
-.loopexit.split-lp:                               ; preds = %48, %37
+.loopexit.split-lp:                               ; preds = %37, %48
   %.174.ph.ph = phi ptr [ null, %37 ], [ %.275, %48 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
@@ -6373,7 +6373,7 @@ define hidden void @"_ZN4core3ptr143drop_in_place$LT$moka..notification..notifie
   unreachable
 
 common.resume:                                    ; preds = %30, %11, %17
-  %common.resume.op = phi { ptr, i32 } [ %12, %17 ], [ %12, %11 ], [ %31, %30 ]
+  %common.resume.op = phi { ptr, i32 } [ %12, %11 ], [ %12, %17 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %1

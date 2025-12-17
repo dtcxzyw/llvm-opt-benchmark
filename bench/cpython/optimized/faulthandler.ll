@@ -1660,7 +1660,7 @@ get_thread_state.exit:                            ; preds = %10
   br label %24
 
 24:                                               ; preds = %get_thread_state.exit.thread, %20, %.critedge, %7, %3
-  %.0 = phi ptr [ null, %20 ], [ null, %3 ], [ null, %7 ], [ %_Py_NoneStruct., %.critedge ], [ null, %get_thread_state.exit.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %7 ], [ %_Py_NoneStruct., %.critedge ], [ null, %get_thread_state.exit.thread ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -1884,7 +1884,7 @@ Py_DECREF.exit:                                   ; preds = %97, %94, %92, %89
   br label %99
 
 99:                                               ; preds = %get_thread_state.exit.thread, %Py_XDECREF.exit, %get_thread_state.exit, %11, %3, %Py_DECREF.exit, %64, %46, %37, %24, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %24 ], [ %65, %64 ], [ null, %Py_DECREF.exit ], [ %47, %46 ], [ %38, %37 ], [ null, %3 ], [ null, %11 ], [ null, %get_thread_state.exit ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %get_thread_state.exit.thread ]
+  %.0 = phi ptr [ null, %3 ], [ null, %19 ], [ null, %24 ], [ null, %11 ], [ null, %get_thread_state.exit.thread ], [ %65, %64 ], [ null, %Py_DECREF.exit ], [ null, %get_thread_state.exit ], [ %47, %46 ], [ %38, %37 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2104,7 +2104,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_XINCREF.exit, %8
   br label %check_signum.exit.thread
 
 check_signum.exit.thread:                         ; preds = %56, %52, %19, %24, %get_thread_state.exit.thread, %get_thread_state.exit, %3, %Py_XDECREF.exit, %66, %38
-  %.0 = phi ptr [ %39, %38 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %66 ], [ null, %3 ], [ null, %get_thread_state.exit ], [ null, %get_thread_state.exit.thread ], [ null, %24 ], [ null, %19 ], [ null, %52 ], [ null, %56 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %get_thread_state.exit.thread ], [ %39, %38 ], [ @_Py_NoneStruct, %Py_XDECREF.exit ], [ null, %get_thread_state.exit ], [ null, %66 ], [ null, %3 ], [ null, %24 ], [ null, %52 ], [ null, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2200,7 +2200,7 @@ faulthandler_unregister.exit:                     ; preds = %22, %Py_DECREF.exit
   br label %check_signum.exit.thread
 
 check_signum.exit.thread:                         ; preds = %13, %18, %check_signum.exit, %2, %faulthandler_unregister.exit
-  %.0 = phi ptr [ %38, %faulthandler_unregister.exit ], [ null, %2 ], [ @_Py_FalseStruct, %check_signum.exit ], [ null, %18 ], [ null, %13 ]
+  %.0 = phi ptr [ @_Py_FalseStruct, %check_signum.exit ], [ %38, %faulthandler_unregister.exit ], [ null, %2 ], [ null, %18 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -2552,7 +2552,7 @@ Py_DECREF.exit:                                   ; preds = %44, %46, %49
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %15, %34, %28, %22, %57, %51, %33, %.thread
-  %.1 = phi i32 [ -1, %51 ], [ %.032, %57 ], [ -1, %.thread ], [ %26, %33 ], [ -1, %22 ], [ -1, %28 ], [ -1, %34 ], [ -1, %15 ], [ -1, %11 ]
+  %.1 = phi i32 [ -1, %28 ], [ -1, %51 ], [ %.032, %57 ], [ -1, %34 ], [ %26, %33 ], [ -1, %22 ], [ -1, %.thread ], [ -1, %15 ], [ -1, %11 ]
   ret i32 %.1
 }
 

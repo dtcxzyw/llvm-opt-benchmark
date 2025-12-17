@@ -242,7 +242,7 @@ define void @Saig_ManSimulateFrames(ptr noundef captures(none) %0, i32 noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %8, %38, %35, %25
-  %.sink.i.sink = phi i32 [ %.sink.i, %25 ], [ %36, %35 ], [ %.sink.i32, %38 ], [ %24, %8 ], [ -1, %5 ]
+  %.sink.i.sink = phi i32 [ %.sink.i, %25 ], [ %24, %8 ], [ %36, %35 ], [ %.sink.i32, %38 ], [ -1, %5 ]
   %45 = getelementptr inbounds nuw i8, ptr %.024, i64 12
   store i32 %.sink.i.sink, ptr %45, align 4, !tbaa !37
   br label %46
@@ -747,7 +747,7 @@ define void @Aig_CManAddPo(ptr noundef captures(none) %0, i32 noundef %1) local_
   br i1 %.not.i24, label %Aig_CManStoreNum.exit, label %33, !llvm.loop !55
 
 Aig_CManStoreNum.exit:                            ; preds = %22, %33, %11, %28, %18, %6
-  %.0.lcssa.i19.sink = phi i32 [ %9, %6 ], [ %20, %18 ], [ %31, %28 ], [ %16, %11 ], [ %38, %33 ], [ %27, %22 ]
+  %.0.lcssa.i19.sink = phi i32 [ %9, %6 ], [ %20, %18 ], [ %31, %28 ], [ %38, %33 ], [ %16, %11 ], [ %27, %22 ]
   %39 = trunc nuw nsw i32 %.0.lcssa.i19.sink to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !54
@@ -1164,7 +1164,7 @@ Aig_ObjFaninId0.exit49:                           ; preds = %.lr.ph66, %96
   br i1 %.not.i24.i, label %Aig_CManAddPo.exit, label %.lr.ph.i22.i, !llvm.loop !55
 
 Aig_CManAddPo.exit:                               ; preds = %.lr.ph.i16.i, %.lr.ph.i22.i, %.lr.ph.i.i53, %109, %118, %126
-  %.0.lcssa.i19.sink.i = phi i32 [ %111, %109 ], [ %120, %118 ], [ %129, %126 ], [ %116, %.lr.ph.i.i53 ], [ %134, %.lr.ph.i22.i ], [ %125, %.lr.ph.i16.i ]
+  %.0.lcssa.i19.sink.i = phi i32 [ %111, %109 ], [ %120, %118 ], [ %129, %126 ], [ %134, %.lr.ph.i22.i ], [ %116, %.lr.ph.i.i53 ], [ %125, %.lr.ph.i16.i ]
   %135 = trunc nuw nsw i32 %.0.lcssa.i19.sink.i to i8
   %136 = load ptr, ptr %21, align 8, !tbaa !54
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 1

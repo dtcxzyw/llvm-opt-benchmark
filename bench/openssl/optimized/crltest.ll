@@ -695,8 +695,8 @@ define internal fastcc i32 @verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %35
 
 35:                                               ; preds = %33, %29, %26, %15, %21, %3, %9, %11, %13
-  %.029 = phi ptr [ %6, %26 ], [ %6, %21 ], [ %6, %15 ], [ %6, %13 ], [ %6, %11 ], [ %6, %9 ], [ %6, %3 ], [ null, %29 ], [ null, %33 ]
-  %.0 = phi i32 [ 1, %26 ], [ 1, %21 ], [ 1, %15 ], [ 1, %13 ], [ 1, %11 ], [ 1, %9 ], [ 1, %3 ], [ 0, %29 ], [ %34, %33 ]
+  %.029 = phi ptr [ %6, %3 ], [ %6, %26 ], [ %6, %21 ], [ %6, %15 ], [ %6, %13 ], [ %6, %11 ], [ %6, %9 ], [ null, %29 ], [ null, %33 ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %26 ], [ 1, %21 ], [ 1, %15 ], [ 1, %13 ], [ 1, %11 ], [ 1, %9 ], [ 0, %29 ], [ %34, %33 ]
   tail call void @OSSL_STACK_OF_X509_free(ptr noundef %7) #3
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @X509_CRL_free) #3
   tail call void @X509_VERIFY_PARAM_free(ptr noundef %.029) #3

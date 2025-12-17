@@ -6532,7 +6532,7 @@ _ZN8nanobind6class_IZL30nanobind_init_test_classes_extRNS_7module_EE19ClassWithS
   br label %2250
 
 2250:                                             ; preds = %2248, %2242, %2235, %2233
-  %.pn267.pn = phi { ptr, i32 } [ %.pn261, %2248 ], [ %.pn258, %2242 ], [ %2236, %2235 ], [ %.pn253.pn.pn.pn, %2233 ]
+  %.pn267.pn = phi { ptr, i32 } [ %.pn253.pn.pn.pn, %2233 ], [ %.pn261, %2248 ], [ %.pn258, %2242 ], [ %2236, %2235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %408)
   %2251 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %406) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %406)
@@ -11971,7 +11971,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   br i1 %30, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !432
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %27, %25, %21, %17, %11
-  %.0.i.i.i = phi i32 [ %18, %17 ], [ %22, %21 ], [ %26, %25 ], [ 1, %11 ], [ %29, %27 ]
+  %.0.i.i.i = phi i32 [ %26, %25 ], [ %18, %17 ], [ %22, %21 ], [ 1, %11 ], [ %29, %27 ]
   %.lobit.i.i = lshr i32 %.val, 31
   %31 = add i32 %.0.i.i.i, %.lobit.i.i
   %32 = zext i32 %31 to i64
@@ -12575,7 +12575,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
           to label %.invoke.i unwind label %94, !noalias !451
 
 .invoke.i:                                        ; preds = %91, %84, %77, %66
-  %93 = phi ptr [ %78, %77 ], [ %85, %84 ], [ %92, %91 ], [ %67, %66 ]
+  %93 = phi ptr [ %85, %84 ], [ %78, %77 ], [ %92, %91 ], [ %67, %66 ]
   invoke void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #44
           to label %.cont.i unwind label %70, !noalias !451
 
@@ -12723,7 +12723,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   br label %149
 
 149:                                              ; preds = %148, %115, %94, %86, %79, %72, %70
-  %.pn57.i = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ], [ %87, %86 ], [ %95, %94 ], [ %80, %79 ], [ %.pn53.pn.i, %148 ], [ %116, %115 ]
+  %.pn57.i = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ], [ %87, %86 ], [ %80, %79 ], [ %95, %94 ], [ %.pn53.pn.i, %148 ], [ %116, %115 ]
   %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #37
   br label %151
 
@@ -12733,7 +12733,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i:            ; preds = %_ZNKSt9type_infoeqE
   br label %152
 
 152:                                              ; preds = %151, %59, %57, %46, %44
-  %.pn61.i = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %.pn57.pn.i, %151 ], [ %58, %57 ], [ %60, %59 ]
+  %.pn61.i = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ], [ %60, %59 ], [ %.pn57.pn.i, %151 ], [ %58, %57 ]
   %153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !451
   br label %154
@@ -16156,8 +16156,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt8weak_ptrI9
   br label %61
 
 61:                                               ; preds = %53, %34, %42, %57, %44, %38, %25, %9, %16
-  %.sroa.030.0 = phi ptr [ %18, %16 ], [ null, %9 ], [ %40, %38 ], [ %27, %25 ], [ %59, %57 ], [ null, %44 ], [ %1, %42 ], [ %spec.select, %34 ], [ %spec.select32, %53 ]
-  %.sroa.12.0 = phi ptr [ %19, %16 ], [ %11, %9 ], [ %41, %38 ], [ %27, %25 ], [ %60, %57 ], [ %46, %44 ], [ null, %42 ], [ %spec.select31, %34 ], [ %spec.select33, %53 ]
+  %.sroa.030.0 = phi ptr [ %18, %16 ], [ %spec.select, %34 ], [ null, %9 ], [ %spec.select32, %53 ], [ %40, %38 ], [ %27, %25 ], [ %1, %42 ], [ %59, %57 ], [ null, %44 ]
+  %.sroa.12.0 = phi ptr [ %19, %16 ], [ %spec.select31, %34 ], [ %11, %9 ], [ %spec.select33, %53 ], [ %41, %38 ], [ %27, %25 ], [ null, %42 ], [ %60, %57 ], [ %46, %44 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.030.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -16212,8 +16212,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiSt8weak_ptrI9
   br label %20
 
 20:                                               ; preds = %15, %._crit_edge.thread
-  %.sroa.018.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %15 ]
-  %.sroa.4.0 = phi ptr [ %.019.lcssa29, %._crit_edge.thread ], [ %spec.select21, %15 ]
+  %.sroa.018.0 = phi ptr [ %spec.select, %15 ], [ null, %._crit_edge.thread ]
+  %.sroa.4.0 = phi ptr [ %spec.select21, %15 ], [ %.019.lcssa29, %._crit_edge.thread ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.018.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -16242,7 +16242,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt8weak_ptrI9UniqueInt
   br label %13
 
 13:                                               ; preds = %7, %4
-  %14 = phi i1 [ true, %4 ], [ %12, %7 ]
+  %14 = phi i1 [ %12, %7 ], [ true, %4 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %14, ptr noundef %3, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5) #37
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !626

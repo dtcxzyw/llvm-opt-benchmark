@@ -525,7 +525,7 @@ _ZNK10model_core16get_const_interpEP9func_decl.exit: ; preds = %80, %91
   br label %320
 
 _ZNK10model_core16get_const_interpEP9func_decl.exit.thread: ; preds = %85, %96, %99, %.preheader.i.i.i.i, %102, %_ZNK10model_core16get_const_interpEP9func_decl.exit
-  %107 = phi i1 [ true, %102 ], [ false, %_ZNK10model_core16get_const_interpEP9func_decl.exit ], [ false, %.preheader.i.i.i.i ], [ false, %99 ], [ false, %96 ], [ false, %85 ]
+  %107 = phi i1 [ false, %_ZNK10model_core16get_const_interpEP9func_decl.exit ], [ true, %102 ], [ false, %.preheader.i.i.i.i ], [ false, %96 ], [ false, %99 ], [ false, %85 ]
   %108 = load ptr, ptr %5, align 8, !tbaa !32
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %64, ptr noundef %60, ptr noundef %108)
           to label %_ZNK10model_core16get_const_interpEP9func_decl.exit.thread._crit_edge unwind label %105
@@ -869,7 +869,7 @@ _ZNK10model_core15get_func_interpEP9func_decl.exit: ; preds = %228, %239
   br i1 %254, label %.critedge, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.thread
 
 _ZNK10model_core15get_func_interpEP9func_decl.exit.thread: ; preds = %233, %244, %247, %.preheader.i.i.i.i110, %250, %_ZNK10model_core15get_func_interpEP9func_decl.exit
-  %255 = phi i1 [ true, %250 ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %.preheader.i.i.i.i110 ], [ false, %247 ], [ false, %244 ], [ false, %233 ]
+  %255 = phi i1 [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ true, %250 ], [ false, %.preheader.i.i.i.i110 ], [ false, %244 ], [ false, %247 ], [ false, %233 ]
   %256 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 56)
           to label %257 unwind label %264
 
@@ -895,7 +895,7 @@ _ZNK10model_core15get_func_interpEP9func_decl.exit.thread: ; preds = %233, %244,
   br label %320
 
 _ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit:     ; preds = %.lr.ph.i, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %261, %119
-  %.153 = phi i1 [ %.052, %119 ], [ %.052, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %255, %261 ], [ %.052, %.lr.ph.i ]
+  %.153 = phi i1 [ %.052, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ %255, %261 ], [ %.052, %119 ], [ %.052, %.lr.ph.i ]
   br i1 %.153, label %266, label %.critedge
 
 266:                                              ; preds = %202, %_ZNK6vectorIP4exprLb0EjE8containsERKS1_.exit
@@ -1065,7 +1065,7 @@ _ZN14core_hashtableIN7obj_mapI4sort10ptr_vectorI4exprEE13obj_map_entryE8obj_hash
   br label %320
 
 320:                                              ; preds = %318, %51, %271, %209, %211, %213, %105, %264
-  %.pn66.pn = phi { ptr, i32 } [ %52, %51 ], [ %272, %271 ], [ %106, %105 ], [ %214, %213 ], [ %210, %209 ], [ %212, %211 ], [ %265, %264 ], [ %319, %318 ]
+  %.pn66.pn = phi { ptr, i32 } [ %319, %318 ], [ %52, %51 ], [ %272, %271 ], [ %212, %211 ], [ %106, %105 ], [ %214, %213 ], [ %210, %209 ], [ %265, %264 ]
   call void @_ZN7obj_mapI4sort10ptr_vectorI4exprEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   br label %321
 
@@ -2762,7 +2762,7 @@ _ZNK7obj_mapI4exprbE8containsEPS0_.exit69:        ; preds = %176, %187, %115, %1
   br i1 %.not.wide, label %._crit_edge113, label %74, !llvm.loop !225
 
 271:                                              ; preds = %61, %80, %238, %269
-  %.pn30.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %239, %238 ], [ %270, %269 ], [ %62, %61 ]
+  %.pn30.pn.pn = phi { ptr, i32 } [ %270, %269 ], [ %81, %80 ], [ %239, %238 ], [ %62, %61 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #18
@@ -4114,7 +4114,7 @@ _ZN7obj_mapI4sort10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dataE.ex
   br label %87
 
 55:                                               ; preds = %35, %29
-  %.1 = phi ptr [ %.04973, %29 ], [ %.05072, %35 ]
+  %.1 = phi ptr [ %.05072, %35 ], [ %.04973, %29 ]
   %56 = getelementptr inbounds nuw i8, ptr %.05072, i64 16
   %.not = icmp eq ptr %56, %26
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !236
@@ -4192,7 +4192,7 @@ _ZN7obj_mapI4sort10ptr_vectorI4exprEE13obj_map_entry8set_dataEONS4_8key_dataE.ex
   br label %87
 
 85:                                               ; preds = %65, %59
-  %.3 = phi ptr [ %.276, %59 ], [ %.15175, %65 ]
+  %.3 = phi ptr [ %.15175, %65 ], [ %.276, %59 ]
   %86 = getelementptr inbounds nuw i8, ptr %.15175, i64 16
   %.not53 = icmp eq ptr %86, %24
   br i1 %.not53, label %._crit_edge, label %.lr.ph77, !llvm.loop !237
@@ -4849,7 +4849,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_
   br label %64
 
 43:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %.04464, %28 ], [ %.04563, %34 ]
+  %.1 = phi ptr [ %.04563, %34 ], [ %.04464, %28 ]
   %44 = getelementptr inbounds nuw i8, ptr %.04563, i64 16
   %.not = icmp eq ptr %44, %25
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !251
@@ -4896,7 +4896,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprbE13obj_map_
   br label %64
 
 62:                                               ; preds = %53, %47
-  %.3 = phi ptr [ %.267, %47 ], [ %.14666, %53 ]
+  %.3 = phi ptr [ %.14666, %53 ], [ %.267, %47 ]
   %63 = getelementptr inbounds nuw i8, ptr %.14666, i64 16
   %.not47 = icmp eq ptr %63, %23
   br i1 %.not47, label %._crit_edge, label %.lr.ph68, !llvm.loop !252

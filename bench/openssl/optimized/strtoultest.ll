@@ -77,7 +77,7 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   br label %28
 
 28:                                               ; preds = %22, %13, %1, %27
-  %.0 = phi i32 [ 1, %27 ], [ 0, %1 ], [ 0, %13 ], [ 0, %22 ]
+  %.0 = phi i32 [ 1, %27 ], [ 0, %13 ], [ 0, %1 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

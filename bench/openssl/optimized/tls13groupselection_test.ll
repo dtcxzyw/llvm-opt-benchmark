@@ -485,7 +485,7 @@ define internal fastcc range(i32 0, 2) i32 @test_groupnegotiation(ptr noundef re
   br label %130
 
 130:                                              ; preds = %128, %123, %118, %110, %108, %86, %80, %74, %65, %55, %42, %36, %30, %21, %3
-  %.0.shrunk = phi i1 [ false, %118 ], [ false, %110 ], [ false, %108 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %65 ], [ false, %55 ], [ false, %42 ], [ false, %36 ], [ false, %30 ], [ false, %21 ], [ false, %3 ], [ %.not41, %123 ], [ %.not37, %128 ]
+  %.0.shrunk = phi i1 [ false, %3 ], [ false, %21 ], [ false, %118 ], [ false, %110 ], [ false, %108 ], [ %.not41, %123 ], [ %.not37, %128 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %65 ], [ false, %55 ], [ false, %42 ], [ false, %36 ], [ false, %30 ]
   %.0 = zext i1 %.0.shrunk to i32
   %131 = load ptr, ptr %7, align 8, !tbaa !15
   call void @SSL_free(ptr noundef %131) #6

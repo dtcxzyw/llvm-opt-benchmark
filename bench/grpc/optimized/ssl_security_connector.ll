@@ -580,7 +580,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   unreachable
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit11.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i, %130, %126, %123
-  %eh.lpad-body.i = phi { ptr, i32 } [ %.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i ], [ %124, %123 ], [ %124, %126 ], [ %124, %130 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %124, %130 ], [ %.pn.pn.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i ], [ %124, %123 ], [ %124, %126 ]
   call void @_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #29, !noalias !3
   call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef 136) #32, !noalias !3
   br label %common.resume
@@ -1490,7 +1490,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi89EEERS2_RAT__Kc.exit: ; pr
   unreachable
 
 .body:                                            ; preds = %28, %51, %125, %22, %132
-  %.pn15.pn = phi { ptr, i32 } [ %.pn, %132 ], [ %23, %22 ], [ %29, %28 ], [ %.pn.pn.pn.pn.i, %125 ], [ %52, %51 ]
+  %.pn15.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn, %132 ], [ %23, %22 ], [ %29, %28 ], [ %.pn.pn.pn.pn.i, %125 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit22 unwind label %140
 
@@ -2486,7 +2486,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i16: ; preds = %_ZNSt11char_tr
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit20: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit, %2
-  %.0 = phi i32 [ %3, %2 ], [ %.0.i6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit ], [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i13 ], [ %.0.i6.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i16 ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ]
+  %.0 = phi i32 [ %.0.i6.i19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i16 ], [ %3, %2 ], [ %.0.i6.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_.exit ], [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i13 ], [ %14, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i ]
   ret i32 %.0
 }
 

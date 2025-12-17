@@ -7243,7 +7243,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread:
   br label %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %33, %42
-  %45 = phi ptr [ %41, %33 ], [ %44, %42 ]
+  %45 = phi ptr [ %44, %42 ], [ %41, %33 ]
   switch i64 %32, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.fold.split [
     i64 2, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit
     i64 4, label %46
@@ -7588,7 +7588,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   br label %_ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit: ; preds = %22, %31
-  %34 = phi ptr [ %30, %22 ], [ %33, %31 ]
+  %34 = phi ptr [ %33, %31 ], [ %30, %22 ]
   switch i64 %21, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.fold.split [
     i64 2, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit
     i64 4, label %35
@@ -7759,7 +7759,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
   br label %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %43, %52
-  %55 = phi ptr [ %51, %43 ], [ %54, %52 ]
+  %55 = phi ptr [ %54, %52 ], [ %51, %43 ]
   br i1 %44, label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread, label %56
 
 56:                                               ; preds = %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit
@@ -7771,15 +7771,15 @@ _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgume
   br label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread
 
 _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit: ; preds = %41, %56
-  %58 = phi ptr [ %55, %56 ], [ @_ZZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc, %41 ]
+  %58 = phi ptr [ @_ZZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc, %41 ], [ %55, %56 ]
   %59 = icmp eq i64 %42, 2
   %spec.select = select i1 %59, ptr @.str.9, ptr @.str.10
   br label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread
 
 _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread: ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40
-  %.1.i38 = phi ptr [ %57, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %46, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ null, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
-  %60 = phi ptr [ %55, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %55, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ %58, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
-  %61 = phi ptr [ @.str.10, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ @.str.9, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ %spec.select, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
+  %.1.i38 = phi ptr [ %57, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ null, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ %46, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
+  %60 = phi ptr [ %55, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %58, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ %55, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
+  %61 = phi ptr [ @.str.10, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %spec.select, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ @.str.9, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
   %62 = tail call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
@@ -14977,10 +14977,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   br i1 %.not.i10.i16.i13.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i, label %.lr.ph.i6.i12.i5.i.i, !llvm.loop !1073
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i: ; preds = %.critedge2.i9.i15.i12.i.i, %.lr.ph.i6.i12.i5.i.i, %85, %76
-  %.pre-phi105 = phi i64 [ 0, %85 ], [ %83, %76 ], [ %93, %.lr.ph.i6.i12.i5.i.i ], [ %93, %.critedge2.i9.i15.i12.i.i ]
-  %.pre-phi = phi ptr [ %89, %85 ], [ %79, %76 ], [ %89, %.lr.ph.i6.i12.i5.i.i ], [ %89, %.critedge2.i9.i15.i12.i.i ]
-  %.pn17.i.i = phi ptr [ %89, %85 ], [ %84, %76 ], [ %94, %.critedge2.i9.i15.i12.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
-  %.pn15.i.i = phi ptr [ %94, %85 ], [ %84, %76 ], [ %94, %.lr.ph.i6.i12.i5.i.i ], [ %94, %.critedge2.i9.i15.i12.i.i ]
+  %.pre-phi105 = phi i64 [ %83, %76 ], [ 0, %85 ], [ %93, %.lr.ph.i6.i12.i5.i.i ], [ %93, %.critedge2.i9.i15.i12.i.i ]
+  %.pre-phi = phi ptr [ %79, %76 ], [ %89, %85 ], [ %89, %.lr.ph.i6.i12.i5.i.i ], [ %89, %.critedge2.i9.i15.i12.i.i ]
+  %.pn17.i.i = phi ptr [ %84, %76 ], [ %89, %85 ], [ %94, %.critedge2.i9.i15.i12.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
+  %.pn15.i.i = phi ptr [ %84, %76 ], [ %94, %85 ], [ %94, %.lr.ph.i6.i12.i5.i.i ], [ %94, %.critedge2.i9.i15.i12.i.i ]
   %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi, i64 %.pre-phi105
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
 
@@ -15033,10 +15033,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   br i1 %.not.i10.i16.i13.i.i31, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19, label %.lr.ph.i6.i12.i5.i.i15, !llvm.loop !1073
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19: ; preds = %.critedge2.i9.i15.i12.i.i30, %.lr.ph.i6.i12.i5.i.i15, %111, %102
-  %.pre-phi108 = phi i64 [ 0, %111 ], [ %109, %102 ], [ %119, %.lr.ph.i6.i12.i5.i.i15 ], [ %119, %.critedge2.i9.i15.i12.i.i30 ]
-  %.pre-phi106 = phi ptr [ %115, %111 ], [ %105, %102 ], [ %115, %.lr.ph.i6.i12.i5.i.i15 ], [ %115, %.critedge2.i9.i15.i12.i.i30 ]
-  %.pn17.i.i21 = phi ptr [ %115, %111 ], [ %110, %102 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ], [ %.sroa.0.3.i6.i.i16, %.lr.ph.i6.i12.i5.i.i15 ]
-  %.pn15.i.i22 = phi ptr [ %120, %111 ], [ %110, %102 ], [ %120, %.lr.ph.i6.i12.i5.i.i15 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ]
+  %.pre-phi108 = phi i64 [ %109, %102 ], [ 0, %111 ], [ %119, %.lr.ph.i6.i12.i5.i.i15 ], [ %119, %.critedge2.i9.i15.i12.i.i30 ]
+  %.pre-phi106 = phi ptr [ %105, %102 ], [ %115, %111 ], [ %115, %.lr.ph.i6.i12.i5.i.i15 ], [ %115, %.critedge2.i9.i15.i12.i.i30 ]
+  %.pn17.i.i21 = phi ptr [ %110, %102 ], [ %115, %111 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ], [ %.sroa.0.3.i6.i.i16, %.lr.ph.i6.i12.i5.i.i15 ]
+  %.pn15.i.i22 = phi ptr [ %110, %102 ], [ %120, %111 ], [ %120, %.lr.ph.i6.i12.i5.i.i15 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ]
   %122 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi106, i64 %.pre-phi108
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
 
@@ -17960,7 +17960,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us: ; p
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %.lr.ph.split.us.split, %15
-  %.1.us = phi i1 [ true, %15 ], [ %.037.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ %.037.us, %.lr.ph.split.us.split ], [ true, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.us, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -18040,7 +18040,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49: ; pr
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit
@@ -18073,7 +18073,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us49: ; pr
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %.lr.ph.split.split, %41, %37
-  %.1 = phi i1 [ true, %37 ], [ true, %41 ], [ %.037, %.lr.ph.split.split ]
+  %.1 = phi i1 [ %.037, %.lr.ph.split.split ], [ true, %37 ], [ true, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -18383,7 +18383,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %.lr.ph.split.us.split, %15
-  %.1.us = phi i1 [ true, %15 ], [ %.037.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ %.037.us, %.lr.ph.split.us.split ], [ true, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.us, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -18463,7 +18463,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit
@@ -18496,7 +18496,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %.lr.ph.split.split, %41, %37
-  %.1 = phi i1 [ true, %37 ], [ true, %41 ], [ %.037, %.lr.ph.split.split ]
+  %.1 = phi i1 [ %.037, %.lr.ph.split.split ], [ true, %37 ], [ true, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -18710,7 +18710,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %.lr.ph.split.us.split, %15
-  %.1.us = phi i1 [ true, %15 ], [ %.037.us, %.lr.ph.split.us.split ]
+  %.1.us = phi i1 [ %.037.us, %.lr.ph.split.us.split ], [ true, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.us, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %16, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -18790,7 +18790,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit
@@ -18823,7 +18823,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %.lr.ph.split.split, %41, %37
-  %.1 = phi i1 [ true, %37 ], [ true, %41 ], [ %.037, %.lr.ph.split.split ]
+  %.1 = phi i1 [ %.037, %.lr.ph.split.split ], [ true, %37 ], [ true, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -22956,7 +22956,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread:
   br label %_ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang23NonTypeTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %33, %42
-  %45 = phi ptr [ %41, %33 ], [ %44, %42 ]
+  %45 = phi ptr [ %44, %42 ], [ %41, %33 ]
   switch i64 %32, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.fold.split [
     i64 2, label %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit
     i64 4, label %46
@@ -23301,7 +23301,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   br label %_ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang20TemplateTypeParmDecl18getDefaultArgumentEv.exit: ; preds = %22, %31
-  %34 = phi ptr [ %30, %22 ], [ %33, %31 ]
+  %34 = phi ptr [ %33, %31 ], [ %30, %22 ]
   switch i64 %21, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.fold.split [
     i64 2, label %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit
     i64 4, label %35
@@ -23472,7 +23472,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
   br label %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit
 
 _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %43, %52
-  %55 = phi ptr [ %51, %43 ], [ %54, %52 ]
+  %55 = phi ptr [ %54, %52 ], [ %51, %43 ]
   br i1 %44, label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread, label %56
 
 56:                                               ; preds = %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit
@@ -23484,15 +23484,15 @@ _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgume
   br label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread
 
 _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit: ; preds = %41, %56
-  %58 = phi ptr [ %55, %56 ], [ @_ZZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc, %41 ]
+  %58 = phi ptr [ @_ZZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc, %41 ], [ %55, %56 ]
   %59 = icmp eq i64 %42, 2
   %spec.select = select i1 %59, ptr @.str.9, ptr @.str.10
   br label %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread
 
 _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread: ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40
-  %.1.i38 = phi ptr [ %57, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %46, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ null, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
-  %60 = phi ptr [ %55, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %55, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ %58, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
-  %61 = phi ptr [ @.str.10, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ @.str.9, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ], [ %spec.select, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ]
+  %.1.i38 = phi ptr [ %57, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ null, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ %46, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
+  %60 = phi ptr [ %55, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %58, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ %55, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
+  %61 = phi ptr [ @.str.10, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit.thread40 ], [ %spec.select, %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE16getInheritedFromEv.exit ], [ @.str.9, %_ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit ]
   %62 = tail call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #25
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
@@ -35547,7 +35547,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %25, %27, %.lr.ph.split.us.split
-  %.1.us = phi i1 [ %.037.us, %.lr.ph.split.us.split ], [ true, %27 ], [ %.037.us, %25 ]
+  %.1.us = phi i1 [ %.037.us, %.lr.ph.split.us.split ], [ %.037.us, %25 ], [ true, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.017.035.us, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %28, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -35634,7 +35634,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br i1 %.not32.us52, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us42, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %69, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit
@@ -35674,7 +35674,7 @@ _ZN5clang12RedeclarableINS_7VarDeclEE15redecl_iteratorppEv.exit.us49: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %55, %63, %60, %.lr.ph.split.split
-  %.1 = phi i1 [ %.037, %.lr.ph.split.split ], [ true, %60 ], [ true, %63 ], [ %.037, %55 ]
+  %.1 = phi i1 [ %.037, %.lr.ph.split.split ], [ %.037, %55 ], [ true, %60 ], [ true, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.017.035, i64 72
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -37166,7 +37166,7 @@ define linkonce_odr hidden void @_ZN5clang10JSONDumper31writeTemplateDeclSpecial
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us.us
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us.us: ; preds = %9, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i1 [ %.036.us.us, %.lr.ph.split.us.split.us ], [ true, %9 ]
+  %.1.us.us = phi i1 [ true, %9 ], [ %.036.us.us, %.lr.ph.split.us.split.us ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.017.034.us.us, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us.us = load i64, ptr %10, align 8
   %11 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us.us, 3
@@ -37258,7 +37258,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us: ; pred
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us40
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us40: ; preds = %28, %24, %.lr.ph.split.split.us
-  %.1.us41 = phi i1 [ %.036.us37, %.lr.ph.split.split.us ], [ true, %24 ], [ true, %28 ]
+  %.1.us41 = phi i1 [ true, %28 ], [ %.036.us37, %.lr.ph.split.split.us ], [ true, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.017.034.us39, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us42 = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us42, 3
@@ -37280,7 +37280,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48: ; pr
   br i1 %.not.us51, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us41, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48 ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us41, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %47, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit
@@ -37313,7 +37313,7 @@ _ZN5clang12RedeclarableINS_12FunctionDeclEE15redecl_iteratorppEv.exit.us48: ; pr
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %.lr.ph.split.split, %41, %37
-  %.1 = phi i1 [ true, %37 ], [ true, %41 ], [ %.036, %.lr.ph.split.split ]
+  %.1 = phi i1 [ true, %41 ], [ %.036, %.lr.ph.split.split ], [ true, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.017.034, i64 104
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
@@ -38865,7 +38865,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us: ; preds =
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.us: ; preds = %21, %23, %.lr.ph.split.us.split
-  %.1.us = phi i1 [ %.038.us, %.lr.ph.split.us.split ], [ true, %23 ], [ %.038.us, %21 ]
+  %.1.us = phi i1 [ %.038.us, %.lr.ph.split.us.split ], [ %.038.us, %21 ], [ true, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.036.us, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.us = load i64, ptr %24, align 8
   %25 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.us, 3
@@ -38951,7 +38951,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51: ; preds = 
   br i1 %.not32.us54, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us
-  %.0.lcssa = phi i1 [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
+  %.0.lcssa = phi i1 [ %.1.us44, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51 ], [ %.1.us.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us.us ], [ %.1.us, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us ], [ %.1, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit ]
   br i1 %.0.lcssa, label %61, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit
@@ -38990,7 +38990,7 @@ _ZN5clang12RedeclarableINS_7TagDeclEE15redecl_iteratorppEv.exit.us51: ; preds = 
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit: ; preds = %47, %55, %52, %.lr.ph.split.split
-  %.1 = phi i1 [ %.038, %.lr.ph.split.split ], [ true, %52 ], [ true, %55 ], [ %.038, %47 ]
+  %.1 = phi i1 [ %.038, %.lr.ph.split.split ], [ %.038, %47 ], [ true, %52 ], [ true, %55 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.017.036, i64 96
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
   %57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3

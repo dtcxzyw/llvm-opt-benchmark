@@ -288,7 +288,7 @@ switch.lookup:                                    ; preds = %1
   br i1 %.not17.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %23, %.lr.ph.i
-  %.014.lcssa.i = phi ptr [ %.115.i, %23 ], [ %.01420.i, %.lr.ph.i ]
+  %.014.lcssa.i = phi ptr [ %.01420.i, %.lr.ph.i ], [ %.115.i, %23 ]
   %.not18.i = icmp eq ptr %.014.lcssa.i, null
   br i1 %.not18.i, label %.critedge.thread.i, label %25
 

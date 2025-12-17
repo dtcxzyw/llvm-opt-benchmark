@@ -311,7 +311,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %70, %7
   br i1 %.not52, label %.loopexit, label %.lr.ph73, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph73, %123, %._crit_edge68, %2, %110
-  %.042 = phi i32 [ -2, %110 ], [ 0, %2 ], [ 0, %._crit_edge68 ], [ 0, %123 ], [ 0, %.lr.ph73 ]
+  %.042 = phi i32 [ 0, %2 ], [ -2, %110 ], [ 0, %._crit_edge68 ], [ 0, %123 ], [ 0, %.lr.ph73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

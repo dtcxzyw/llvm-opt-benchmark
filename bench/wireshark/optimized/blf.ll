@@ -450,7 +450,7 @@ define hidden range(i32 -1, 126) i32 @blf_get_xml_pkt_encap(ptr noundef %0, ptr 
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 125, %4 ], [ 106, %10 ], [ 107, %13 ], [ 1, %16 ], [ %., %19 ]
+  %.0 = phi i32 [ 1, %16 ], [ 0, %2 ], [ 125, %4 ], [ 106, %10 ], [ 107, %13 ], [ %., %19 ]
   ret i32 %.0
 }
 
@@ -638,7 +638,7 @@ blf_get_start_offset_ns.exit:                     ; preds = %23, %32, %36, %40, 
   br label %90
 
 90:                                               ; preds = %19, %12, %8, %blf_get_start_offset_ns.exit, %17, %10
-  %.0 = phi i32 [ -1, %17 ], [ 1, %blf_get_start_offset_ns.exit ], [ 0, %10 ], [ -1, %8 ], [ 0, %12 ], [ -1, %19 ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %17 ], [ 1, %blf_get_start_offset_ns.exit ], [ 0, %12 ], [ 0, %10 ], [ -1, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1572,8 +1572,8 @@ blf_read_apptextmessage.exit.thread316:           ; preds = %362
   call void @g_free(ptr noundef nonnull %310)
   br label %blf_read_apptextmessage.exit.thread
 
-blf_read_apptextmessage.exit.thread:              ; preds = %296, %414, %378, %321, %blf_read_bytes.exit.i, %347, %336, %300, %303
-  %.0.i309.ph = phi i32 [ 255, %303 ], [ 255, %300 ], [ 1, %336 ], [ 1, %347 ], [ 255, %blf_read_bytes.exit.i ], [ 255, %321 ], [ 2, %378 ], [ 1, %414 ], [ 255, %296 ]
+blf_read_apptextmessage.exit.thread:              ; preds = %296, %321, %414, %blf_read_bytes.exit.i, %336, %378, %347, %300, %303
+  %.0.i309.ph = phi i32 [ 255, %303 ], [ 255, %300 ], [ 1, %347 ], [ 2, %378 ], [ 1, %336 ], [ 255, %blf_read_bytes.exit.i ], [ 1, %414 ], [ 255, %321 ], [ 255, %296 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %420
 
@@ -1635,8 +1635,8 @@ blf_read_apptextmessage.exit:                     ; preds = %399, %413
   br label %440
 
 440:                                              ; preds = %86, %86, %86, %86, %86, %86, %86, %.thread, %424, %439
-  %.4 = phi i64 [ %spec.select, %439 ], [ %spec.select303, %.thread ], [ 0, %424 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ]
-  %.3280 = phi i64 [ %spec.select302, %439 ], [ %419, %.thread ], [ 0, %424 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ]
+  %.4 = phi i64 [ %spec.select, %439 ], [ 0, %424 ], [ %spec.select303, %.thread ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ], [ %spec.select, %86 ]
+  %.3280 = phi i64 [ %spec.select302, %439 ], [ 0, %424 ], [ %419, %.thread ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ], [ %spec.select302, %86 ]
   %441 = load i32, ptr %18, align 4
   %442 = load i16, ptr %19, align 4
   %443 = zext i16 %442 to i32
@@ -1656,7 +1656,7 @@ blf_read_log_object_header2.exit.thread.loopexit: ; preds = %blf_read_log_object
   br label %blf_read_log_object_header2.exit.thread
 
 blf_read_log_object_header2.exit.thread:          ; preds = %424, %424, %424, %424, %blf_read_log_object_header2.exit.thread.loopexit, %.thread326, %66, %blf_read_log_object_header3.exit.thread, %blf_read_log_object_header.exit.thread, %._crit_edge, %33, %432, %425, %281, %274, %267, %260, %253, %246, %239, %232, %225, %218, %211, %204, %197, %190, %183, %176, %169, %162, %155, %148, %141, %134, %127, %120, %113, %106, %99, %92, %90, %83
-  %.1 = phi i1 [ false, %83 ], [ false, %90 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %119, %113 ], [ %126, %120 ], [ %133, %127 ], [ %140, %134 ], [ %147, %141 ], [ %154, %148 ], [ %161, %155 ], [ %168, %162 ], [ %175, %169 ], [ %182, %176 ], [ %189, %183 ], [ %196, %190 ], [ %203, %197 ], [ %210, %204 ], [ %217, %211 ], [ %224, %218 ], [ %231, %225 ], [ %238, %232 ], [ %245, %239 ], [ %252, %246 ], [ %259, %253 ], [ %266, %260 ], [ %273, %267 ], [ %280, %274 ], [ %287, %281 ], [ %431, %425 ], [ %438, %432 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header.exit.thread ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %66 ], [ true, %.thread326 ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
+  %.1 = phi i1 [ false, %83 ], [ false, %90 ], [ %98, %92 ], [ %105, %99 ], [ %112, %106 ], [ %119, %113 ], [ %126, %120 ], [ %133, %127 ], [ %140, %134 ], [ %147, %141 ], [ %154, %148 ], [ %161, %155 ], [ %168, %162 ], [ %175, %169 ], [ %182, %176 ], [ %189, %183 ], [ %196, %190 ], [ %203, %197 ], [ %210, %204 ], [ %217, %211 ], [ %224, %218 ], [ %231, %225 ], [ %238, %232 ], [ %245, %239 ], [ %252, %246 ], [ %259, %253 ], [ %266, %260 ], [ %273, %267 ], [ %280, %274 ], [ %287, %281 ], [ %431, %425 ], [ %438, %432 ], [ false, %._crit_edge ], [ false, %blf_read_log_object_header3.exit.thread ], [ false, %33 ], [ false, %blf_read_log_object_header.exit.thread ], [ false, %66 ], [ false, %blf_read_log_object_header2.exit.thread.loopexit ], [ true, %.thread326 ], [ true, %424 ], [ true, %424 ], [ true, %424 ], [ true, %424 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1863,7 +1863,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %89, %82, %74, %67, %65, %33, %19, %6, %._crit_edge, %111
-  %.0 = phi i1 [ true, %111 ], [ false, %._crit_edge ], [ false, %6 ], [ false, %19 ], [ false, %33 ], [ false, %65 ], [ false, %67 ], [ false, %74 ], [ false, %82 ], [ false, %89 ], [ false, %95 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ false, %33 ], [ true, %111 ], [ false, %._crit_edge ], [ false, %74 ], [ false, %65 ], [ false, %67 ], [ false, %82 ], [ false, %89 ], [ false, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -2065,7 +2065,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %106, %103, %20, %17, %blf_add_direction_option.exit, %13
-  %.029 = phi i1 [ false, %13 ], [ true, %blf_add_direction_option.exit ], [ false, %17 ], [ false, %20 ], [ false, %103 ], [ false, %106 ]
+  %.029 = phi i1 [ false, %13 ], [ true, %blf_add_direction_option.exit ], [ false, %20 ], [ false, %17 ], [ false, %103 ], [ false, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.029
@@ -2199,7 +2199,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %70
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %46, %43, %22, %19, %blf_add_direction_option.exit, %28, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %28 ], [ true, %blf_add_direction_option.exit ], [ false, %19 ], [ false, %22 ], [ false, %43 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %28 ], [ true, %blf_add_direction_option.exit ], [ false, %22 ], [ false, %19 ], [ false, %43 ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
@@ -2323,7 +2323,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %63
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %43, %40, %20, %17, %blf_add_direction_option.exit, %26, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %26 ], [ true, %blf_add_direction_option.exit ], [ false, %17 ], [ false, %20 ], [ false, %40 ], [ false, %43 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %26 ], [ true, %blf_add_direction_option.exit ], [ false, %20 ], [ false, %17 ], [ false, %40 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -2428,7 +2428,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %43, %40, %20, %17, %blf_add_direction_option.exit, %26, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %26 ], [ true, %blf_add_direction_option.exit ], [ false, %17 ], [ false, %20 ], [ false, %40 ], [ false, %43 ]
+  %.0 = phi i1 [ false, %13 ], [ false, %26 ], [ true, %blf_add_direction_option.exit ], [ false, %20 ], [ false, %17 ], [ false, %40 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -2532,7 +2532,7 @@ blf_add_direction_option.exit:                    ; preds = %blf_read_bytes.exit
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %47, %44, %23, %20, %blf_read_bytes.exit, %blf_add_direction_option.exit, %39, %15
-  %.033 = phi i1 [ false, %15 ], [ false, %39 ], [ true, %blf_add_direction_option.exit ], [ false, %blf_read_bytes.exit ], [ false, %20 ], [ false, %23 ], [ false, %44 ], [ false, %47 ]
+  %.033 = phi i1 [ false, %15 ], [ false, %39 ], [ true, %blf_add_direction_option.exit ], [ false, %blf_read_bytes.exit ], [ false, %23 ], [ false, %20 ], [ false, %44 ], [ false, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.033
@@ -2736,7 +2736,7 @@ blf_add_direction_option.exit:                    ; preds = %.thread45
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %.thread45, %blf_add_direction_option.exit, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %blf_add_direction_option.exit ], [ true, %.thread45 ], [ false, %17 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %13 ], [ true, %.thread45 ], [ true, %blf_add_direction_option.exit ], [ false, %17 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -3072,7 +3072,7 @@ blf_add_direction_option.exit:                    ; preds = %.thread45
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %.thread45, %blf_add_direction_option.exit, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %blf_add_direction_option.exit ], [ true, %.thread45 ], [ false, %17 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %13 ], [ true, %.thread45 ], [ true, %blf_add_direction_option.exit ], [ false, %17 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -3215,7 +3215,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %74, %71, %21, %18, %blf_add_direction_option.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %18 ], [ false, %21 ], [ false, %71 ], [ false, %74 ]
+  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %21 ], [ false, %18 ], [ false, %71 ], [ false, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -3384,7 +3384,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %91, %88, %21, %18, %blf_add_direction_option.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %18 ], [ false, %21 ], [ false, %88 ], [ false, %91 ]
+  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %21 ], [ false, %18 ], [ false, %88 ], [ false, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -3574,7 +3574,7 @@ blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %108, %105, %23, %20, %blf_add_direction_option.exit, %15
-  %.0 = phi i1 [ false, %15 ], [ true, %blf_add_direction_option.exit ], [ false, %20 ], [ false, %23 ], [ false, %105 ], [ false, %108 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %blf_add_direction_option.exit ], [ false, %23 ], [ false, %20 ], [ false, %105 ], [ false, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
@@ -4741,7 +4741,7 @@ blf_read_bytes.exit33:                            ; preds = %25, %blf_read_bytes
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %31, %28, %24, %21, %106, %135, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %135 ], [ true, %106 ], [ false, %21 ], [ false, %24 ], [ false, %28 ], [ false, %31 ]
+  %.0 = phi i1 [ false, %17 ], [ false, %24 ], [ true, %106 ], [ true, %135 ], [ false, %21 ], [ false, %28 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4857,7 +4857,7 @@ blf_read_bytes.exit:                              ; preds = %15
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %blf_read_bytes.exit, %72, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %72 ], [ true, %blf_read_bytes.exit ], [ false, %17 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %13 ], [ true, %blf_read_bytes.exit ], [ true, %72 ], [ false, %17 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
@@ -4942,7 +4942,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %37, %43, %35
-  %.160.i = phi i32 [ 0, %35 ], [ %44, %43 ], [ %.057.i, %37 ]
+  %.160.i = phi i32 [ %44, %43 ], [ 0, %35 ], [ %.057.i, %37 ]
   %45 = zext nneg i32 %.160.i to i64
   %46 = icmp ult i32 %.160.i, 4
   br i1 %46, label %26, label %47, !llvm.loop !27
@@ -5122,7 +5122,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   store ptr %111, ptr %126, align 8
   br label %143
 
-blf_find_next_logcontainer.exit.thread:           ; preds = %26, %55, %60, %67, %47, %74, %78, %124, %113
+blf_find_next_logcontainer.exit.thread:           ; preds = %26, %55, %60, %67, %74, %47, %78, %124, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5184,7 +5184,7 @@ blf_find_next_logcontainer.exit.thread:           ; preds = %26, %55, %60, %67, 
   br label %181
 
 181:                                              ; preds = %blf_find_next_logcontainer.exit.thread, %154, %160, %143, %163
-  %.0 = phi i1 [ %180, %163 ], [ false, %143 ], [ false, %160 ], [ true, %154 ], [ false, %blf_find_next_logcontainer.exit.thread ]
+  %.0 = phi i1 [ false, %blf_find_next_logcontainer.exit.thread ], [ false, %160 ], [ %180, %163 ], [ false, %143 ], [ true, %154 ]
   ret i1 %.0
 }
 
@@ -5481,7 +5481,7 @@ define internal fastcc noundef zeroext i1 @blf_pull_logcontainer_into_memory(ptr
   br label %142
 
 142:                                              ; preds = %125, %122, %137, %132, %127, %121, %116, %114
-  %.sink = phi ptr [ %141, %137 ], [ %136, %132 ], [ %131, %127 ], [ null, %121 ], [ %120, %116 ], [ %115, %114 ], [ %126, %125 ], [ null, %122 ]
+  %.sink = phi ptr [ %141, %137 ], [ %136, %132 ], [ %131, %127 ], [ %115, %114 ], [ null, %121 ], [ %120, %116 ], [ %126, %125 ], [ null, %122 ]
   store ptr %.sink, ptr %3, align 8
   call void @g_free(ptr noundef nonnull %92)
   call void @g_free(ptr noundef nonnull %76)
@@ -5512,7 +5512,7 @@ define internal fastcc noundef zeroext i1 @blf_pull_logcontainer_into_memory(ptr
   br label %150
 
 150:                                              ; preds = %40, %54, %51, %46, %69, %72, %74, %62, %94, %149, %85, %88, %78, %56, %9, %31, %22, %15, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %15 ], [ false, %22 ], [ false, %31 ], [ true, %9 ], [ false, %40 ], [ false, %54 ], [ false, %51 ], [ true, %46 ], [ false, %62 ], [ true, %74 ], [ false, %72 ], [ false, %69 ], [ false, %78 ], [ false, %88 ], [ false, %85 ], [ false, %94 ], [ %.5, %149 ], [ false, %56 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %9 ], [ false, %15 ], [ false, %22 ], [ false, %31 ], [ false, %40 ], [ false, %51 ], [ %.5, %149 ], [ true, %46 ], [ false, %69 ], [ false, %54 ], [ false, %62 ], [ true, %74 ], [ false, %72 ], [ false, %78 ], [ false, %85 ], [ false, %88 ], [ false, %94 ], [ false, %56 ]
   ret i1 %.0
 }
 
@@ -5702,7 +5702,7 @@ define internal fastcc i32 @blf_lookup_interface(ptr noundef readonly captures(n
   br label %38
 
 38:                                               ; preds = %5, %36, %30, %21
-  %.0 = phi i32 [ %23, %21 ], [ %31, %30 ], [ %37, %36 ], [ 0, %5 ]
+  %.0 = phi i32 [ %37, %36 ], [ %23, %21 ], [ %31, %30 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -6006,7 +6006,7 @@ define internal fastcc noundef zeroext i1 @blf_prepare_interface_name(ptr nounde
   br label %49
 
 49:                                               ; preds = %46, %.thread, %47, %31, %23, %6, %48
-  %.0 = phi i1 [ true, %48 ], [ false, %6 ], [ false, %23 ], [ false, %31 ], [ false, %47 ], [ false, %.thread ], [ false, %46 ]
+  %.0 = phi i1 [ false, %6 ], [ true, %48 ], [ false, %31 ], [ false, %23 ], [ false, %47 ], [ false, %.thread ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -6315,7 +6315,7 @@ blf_strmem.exit235:                               ; preds = %blf_strmem.exit230
   br i1 %.not156, label %136, label %.backedge
 
 .backedge:                                        ; preds = %133, %blf_strmem.exit235, %blf_strmem.exit230, %144, %152
-  %.1.be = phi ptr [ %145, %144 ], [ %153, %152 ], [ %120, %blf_strmem.exit230 ], [ %120, %blf_strmem.exit235 ], [ %120, %133 ]
+  %.1.be = phi ptr [ %153, %152 ], [ %145, %144 ], [ %120, %blf_strmem.exit230 ], [ %120, %blf_strmem.exit235 ], [ %120, %133 ]
   %135 = icmp ult ptr %.1.be, %116
   br i1 %135, label %121, label %._crit_edge, !llvm.loop !41
 

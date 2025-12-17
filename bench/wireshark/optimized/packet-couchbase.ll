@@ -2390,7 +2390,7 @@ dissect_subdoc_spath_required_extras.exit.i.i:    ; preds = %531, %528
   br i1 %cond.i31.i, label %612, label %.thread581.i.i
 
 612:                                              ; preds = %605, %592
-  %.5.i.i = phi i32 [ %611, %605 ], [ %604, %592 ]
+  %.5.i.i = phi i32 [ %604, %592 ], [ %611, %605 ]
   %613 = load i32, ptr @hf_metalen, align 4
   %614 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i30.i, i32 noundef %613, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 2, i32 noundef 0)
   %615 = add nuw nsw i32 %.5.i.i, 2
@@ -3765,7 +3765,7 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.lr.ph511, %217, %proto_item_set_generated.exit, %has_json_value.exit.thread, %142, %167, %227, %280, %132, %129, %71, %.lr.ph517._crit_edge, %210, %215, %287, %289, %292
-  %.0428.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3514.lcssa, %.lr.ph517._crit_edge ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ null, %227 ], [ %171, %167 ], [ null, %142 ], [ %137, %has_json_value.exit.thread ], [ %81, %proto_item_set_generated.exit ], [ %204, %217 ], [ %81, %.lr.ph511 ], [ %14, %36 ]
+  %.0428.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3514.lcssa, %.lr.ph517._crit_edge ], [ null, %227 ], [ %171, %167 ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ null, %142 ], [ %137, %has_json_value.exit.thread ], [ %81, %proto_item_set_generated.exit ], [ %81, %.lr.ph511 ], [ %204, %217 ], [ %14, %36 ]
   switch i8 %6, label %.thread494 [
     i8 0, label %294
     i8 9, label %294
@@ -3818,7 +3818,7 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
   br label %.thread494
 
 300:                                              ; preds = %164, %9
-  %.0428 = phi ptr [ %166, %164 ], [ null, %9 ]
+  %.0428 = phi ptr [ null, %9 ], [ %166, %164 ]
   %cond = icmp ne i8 %6, 84
   %or.cond53 = or i1 %cond, %7
   br i1 %or.cond53, label %.thread494, label %301
@@ -3828,7 +3828,7 @@ has_json_value.exit.thread476:                    ; preds = %has_json_value.exit
   %303 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0428, ptr noundef nonnull @ei_value_missing, ptr noundef nonnull @.str.806, ptr noundef %302, ptr noundef nonnull @.str.264)
   br label %.thread494
 
-.thread494:                                       ; preds = %.lr.ph513, %.lr.ph519, %146, %proto_item_set_generated.exit474, %11, %188, %177, %44, %60, %246, %264, %277, %235, %231, %159, %101, %39, %42, %.loopexit, %294, %295, %300, %301, %.critedge
+.thread494:                                       ; preds = %.lr.ph513, %.lr.ph519, %146, %proto_item_set_generated.exit474, %11, %188, %60, %44, %177, %246, %264, %277, %235, %231, %159, %101, %39, %42, %.loopexit, %294, %295, %300, %301, %.critedge
   ret void
 }
 

@@ -895,7 +895,7 @@ define dso_local void @seq_vprintf(ptr noundef captures(none) %0, ptr noundef re
   br label %18
 
 18:                                               ; preds = %9, %3
-  %19 = phi i64 [ %7, %3 ], [ %spec.select, %9 ]
+  %19 = phi i64 [ %spec.select, %9 ], [ %7, %3 ]
   store i64 %19, ptr %4, align 8
   ret void
 }
@@ -929,7 +929,7 @@ define dso_local void @seq_printf(ptr noundef captures(none) %0, ptr noundef rea
   br label %18
 
 18:                                               ; preds = %9, %2
-  %19 = phi i64 [ %7, %2 ], [ %spec.select, %9 ]
+  %19 = phi i64 [ %spec.select, %9 ], [ %7, %2 ]
   store i64 %19, ptr %4, align 8
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -958,7 +958,7 @@ define dso_local void @seq_bprintf(ptr noundef captures(none) %0, ptr noundef %1
   br label %18
 
 18:                                               ; preds = %9, %3
-  %19 = phi i64 [ %7, %3 ], [ %spec.select, %9 ]
+  %19 = phi i64 [ %spec.select, %9 ], [ %7, %3 ]
   store i64 %19, ptr %4, align 8
   ret void
 }
@@ -1013,12 +1013,12 @@ define dso_local ptr @mangle_path(ptr noundef writeonly captures(address, ret: a
   br label %30
 
 30:                                               ; preds = %19, %14
-  %31 = phi ptr [ %17, %19 ], [ %15, %14 ]
+  %31 = phi ptr [ %15, %14 ], [ %17, %19 ]
   %32 = icmp ugt ptr %31, %7
   br i1 %32, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %30, %.lr.ph, %16, %3
-  %33 = phi ptr [ null, %3 ], [ null, %16 ], [ %6, %.lr.ph ], [ null, %30 ]
+  %33 = phi ptr [ null, %3 ], [ %6, %.lr.ph ], [ null, %16 ], [ null, %30 ]
   ret ptr %33
 }
 
@@ -1104,7 +1104,7 @@ define dso_local i32 @seq_path(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %49
 
 49:                                               ; preds = %38, %33
-  %50 = phi ptr [ %36, %38 ], [ %34, %33 ]
+  %50 = phi ptr [ %34, %33 ], [ %36, %38 ]
   %51 = icmp ugt ptr %50, %26
   br i1 %51, label %.thread10, label %.lr.ph
 
@@ -1241,7 +1241,7 @@ define dso_local range(i32 -2147483648, 2) i32 @seq_path_root(ptr noundef captur
   br label %53
 
 53:                                               ; preds = %42, %37
-  %54 = phi ptr [ %40, %42 ], [ %38, %37 ]
+  %54 = phi ptr [ %38, %37 ], [ %40, %42 ]
   %55 = icmp ugt ptr %54, %30
   br i1 %55, label %.thread10, label %.lr.ph
 
@@ -1372,7 +1372,7 @@ define dso_local i32 @seq_dentry(ptr noundef captures(none) %0, ptr noundef %1, 
   br label %49
 
 49:                                               ; preds = %38, %33
-  %50 = phi ptr [ %36, %38 ], [ %34, %33 ]
+  %50 = phi ptr [ %34, %33 ], [ %36, %38 ]
   %51 = icmp ugt ptr %50, %26
   br i1 %51, label %.thread10, label %.lr.ph
 

@@ -690,7 +690,7 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
   br i1 %109, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %dissect_vis_entry_v22.exit.i, %dissect_vis_entry_v22.exit.us69.i, %dissect_vis_entry_v22.exit.us.i, %43
-  %.061.lcssa.i = phi i32 [ 8, %43 ], [ %52, %dissect_vis_entry_v22.exit.us.i ], [ %71, %dissect_vis_entry_v22.exit.us69.i ], [ %107, %dissect_vis_entry_v22.exit.i ]
+  %.061.lcssa.i = phi i32 [ 8, %43 ], [ %71, %dissect_vis_entry_v22.exit.us69.i ], [ %52, %dissect_vis_entry_v22.exit.us.i ], [ %107, %dissect_vis_entry_v22.exit.i ]
   %110 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i)
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %112, label %dissect_bat_vis_v22.exit
@@ -889,7 +889,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i23, 
   br i1 %219, label %.lr.ph.split.split.i20, label %._crit_edge.i16, !llvm.loop !12
 
 ._crit_edge.i16:                                  ; preds = %dissect_vis_entry_v23.exit.i, %dissect_vis_entry_v23.exit.us69.i, %dissect_vis_entry_v23.exit.us.i, %153
-  %.061.lcssa.i17 = phi i32 [ 7, %153 ], [ %162, %dissect_vis_entry_v23.exit.us.i ], [ %181, %dissect_vis_entry_v23.exit.us69.i ], [ %217, %dissect_vis_entry_v23.exit.i ]
+  %.061.lcssa.i17 = phi i32 [ 7, %153 ], [ %181, %dissect_vis_entry_v23.exit.us69.i ], [ %162, %dissect_vis_entry_v23.exit.us.i ], [ %217, %dissect_vis_entry_v23.exit.i ]
   %220 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.061.lcssa.i17)
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %222, label %dissect_bat_vis_v22.exit
@@ -912,7 +912,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i23, 
   br label %dissect_bat_vis_v22.exit.sink.split
 
 dissect_bat_vis_v22.exit.sink.split:              ; preds = %222, %226, %112, %116, %228
-  %.sink = phi ptr [ %0, %228 ], [ %113, %116 ], [ %113, %112 ], [ %223, %226 ], [ %223, %222 ]
+  %.sink = phi ptr [ %113, %112 ], [ %0, %228 ], [ %113, %116 ], [ %223, %226 ], [ %223, %222 ]
   %231 = tail call i32 @call_data_dissector(ptr noundef %.sink, ptr noundef %1, ptr noundef %2)
   br label %dissect_bat_vis_v22.exit
 

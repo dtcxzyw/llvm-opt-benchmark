@@ -568,7 +568,7 @@ define dso_local i32 @i915_vma_wait_for_bind(ptr noundef %0) local_unnamed_addr 
   br label %.thread12
 
 .thread12:                                        ; preds = %45, %47, %.thread9, %48, %1
-  %49 = phi i32 [ 0, %1 ], [ %42, %48 ], [ 0, %.thread9 ], [ %42, %47 ], [ %42, %45 ]
+  %49 = phi i32 [ 0, %1 ], [ %42, %45 ], [ 0, %.thread9 ], [ %42, %48 ], [ %42, %47 ]
   ret i32 %49
 }
 
@@ -1943,7 +1943,7 @@ define dso_local i32 @i915_vma_pin_ww(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph47, %._crit_edge46, %103, %302, %._crit_edge48, %19
-  %305 = phi i32 [ 0, %19 ], [ %263, %._crit_edge48 ], [ %263, %302 ], [ %96, %103 ], [ %60, %._crit_edge46 ], [ %263, %.lr.ph47 ], [ 0, %.lr.ph ]
+  %305 = phi i32 [ 0, %19 ], [ %60, %._crit_edge46 ], [ %263, %._crit_edge48 ], [ %263, %302 ], [ %96, %103 ], [ %263, %.lr.ph47 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %305
 }

@@ -434,7 +434,7 @@ define internal range(i32 -1, 2) i32 @cvBBDPrecSetup(double noundef %0, ptr noun
   br i1 %exitcond.not.i, label %.loopexit, label %70, !llvm.loop !59
 
 cvBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %20, %26
-  %.0.i = phi i32 [ %25, %20 ], [ %33, %26 ], [ %97, %._crit_edge.i ]
+  %.0.i = phi i32 [ %33, %26 ], [ %25, %20 ], [ %97, %._crit_edge.i ]
   %147 = icmp slt i32 %.0.i, 0
   br i1 %147, label %148, label %165
 
@@ -466,7 +466,7 @@ cvBBDDQJac.exit:                                  ; preds = %._crit_edge.i, %20,
   br label %165
 
 165:                                              ; preds = %cvBBDDQJac.exit, %.loopexit, %148
-  %.0 = phi i32 [ -1, %148 ], [ %., %.loopexit ], [ 1, %cvBBDDQJac.exit ]
+  %.0 = phi i32 [ %., %.loopexit ], [ -1, %148 ], [ 1, %cvBBDDQJac.exit ]
   ret i32 %.0
 }
 
@@ -696,7 +696,7 @@ define i32 @CVBBDPrecInitB(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 n
   br label %40
 
 40:                                               ; preds = %._crit_edge, %36, %35, %23, %17, %12
-  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ -4, %35 ], [ 0, %36 ], [ %31, %._crit_edge ]
+  %.0 = phi i32 [ -1, %12 ], [ -101, %17 ], [ -3, %23 ], [ 0, %36 ], [ -4, %35 ], [ %31, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -768,7 +768,7 @@ define internal i32 @cvCfnWrapper(i64 noundef %0, double noundef %1, ptr noundef
   br label %27
 
 27:                                               ; preds = %4, %21, %20
-  %.0 = phi i32 [ -1, %20 ], [ %26, %21 ], [ 0, %4 ]
+  %.0 = phi i32 [ %26, %21 ], [ -1, %20 ], [ 0, %4 ]
   ret i32 %.0
 }
 

@@ -559,12 +559,12 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713BasicTimeZone24hasEquival
           to label %.preheader85 unwind label %160
 
 .loopexit.split-lp:                               ; preds = %.loopexit81, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %160, %158, %104
-  %.pn72.pn = phi { ptr, i32 } [ %105, %104 ], [ %161, %160 ], [ %159, %158 ], [ %lpad.loopexit, %.loopexit81 ], [ %lpad.loopexit82, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp83, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn72.pn = phi { ptr, i32 } [ %105, %104 ], [ %159, %158 ], [ %161, %160 ], [ %lpad.loopexit, %.loopexit81 ], [ %lpad.loopexit82, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp83, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
   br label %231
 
-.thread:                                          ; preds = %219, %228, %187, %198, %210, %167, %162, %156
-  %.4 = phi i8 [ 1, %156 ], [ 0, %162 ], [ 0, %167 ], [ 0, %210 ], [ 0, %198 ], [ 0, %187 ], [ 0, %228 ], [ 0, %219 ]
+.thread:                                          ; preds = %228, %198, %210, %187, %219, %167, %162, %156
+  %.4 = phi i8 [ 1, %156 ], [ 0, %162 ], [ 0, %167 ], [ 0, %219 ], [ 0, %187 ], [ 0, %210 ], [ 0, %198 ], [ 0, %228 ]
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
@@ -583,7 +583,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713BasicTimeZone24hasEquival
   resume { ptr, i32 } %.pn72.pn.pn
 
 232:                                              ; preds = %46, %48, %34, %40, %43, %26, %20, %.thread
-  %.1 = phi i8 [ %.4, %.thread ], [ 0, %20 ], [ 0, %26 ], [ 0, %43 ], [ 0, %40 ], [ 0, %34 ], [ 0, %48 ], [ 0, %46 ]
+  %.1 = phi i8 [ 0, %34 ], [ 0, %20 ], [ 0, %26 ], [ %.4, %.thread ], [ 0, %43 ], [ 0, %40 ], [ 0, %48 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1336,7 +1336,7 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br label %.critedge
 
 359:                                              ; preds = %171, %344, %342, %246, %244, %177, %173, %175, %82
-  %.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %172, %171 ], [ %176, %175 ], [ %345, %344 ], [ %343, %342 ], [ %247, %246 ], [ %245, %244 ], [ %178, %177 ], [ %174, %173 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %172, %171 ], [ %176, %175 ], [ %345, %344 ], [ %245, %244 ], [ %343, %342 ], [ %174, %173 ], [ %247, %246 ], [ %178, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1398,8 +1398,8 @@ define void @_ZNK6icu_7713BasicTimeZone18getSimpleRulesNearEdRPNS_19InitialTimeZ
   br i1 %385, label %386, label %.critedge
 
 386:                                              ; preds = %.thread153, %67, %63, %58, %378, %383
-  %.6 = phi ptr [ null, %378 ], [ null, %383 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.181.ph, %.thread153 ]
-  %.5 = phi ptr [ null, %378 ], [ null, %383 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.1.ph, %.thread153 ]
+  %.6 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.181.ph, %.thread153 ]
+  %.5 = phi ptr [ null, %383 ], [ null, %378 ], [ null, %67 ], [ null, %63 ], [ null, %58 ], [ %.1.ph, %.thread153 ]
   %387 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #12
   %388 = icmp eq ptr %387, null
   br i1 %388, label %392, label %389
@@ -2281,7 +2281,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit278: ; preds = %_Z
   br label %.critedge266.thread.thread473
 
 _ZN6icu_7711LocalMemoryIdED2Ev.exit279:           ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit374, %.loopexit.split-lp375, %284, %316, %240, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273
-  %.pn237.pn = phi { ptr, i32 } [ %242, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273 ], [ %241, %240 ], [ %285, %284 ], [ %.pn233, %316 ], [ %lpad.loopexit376, %.loopexit374 ], [ %lpad.loopexit.split-lp377, %.loopexit.split-lp375 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn237.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp377, %.loopexit.split-lp375 ], [ %.pn233, %316 ], [ %241, %240 ], [ %242, %_ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273 ], [ %285, %284 ], [ %lpad.loopexit376, %.loopexit374 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #12
   br label %320
 
@@ -2464,8 +2464,8 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285: ; preds = %_ZN6i
   br label %.thread351
 
 .thread351:                                       ; preds = %396, %.critedge, %321, %392
-  %.4180 = phi i8 [ %.0176422, %392 ], [ %.0176422, %321 ], [ %.0176422, %.critedge ], [ %.0176., %396 ]
-  %.4175 = phi i8 [ %.0171423, %392 ], [ %.0171423, %321 ], [ %.0171423, %.critedge ], [ %..0171, %396 ]
+  %.4180 = phi i8 [ %.0176422, %.critedge ], [ %.0176., %396 ], [ %.0176422, %321 ], [ %.0176422, %392 ]
+  %.4175 = phi i8 [ %.0171423, %.critedge ], [ %..0171, %396 ], [ %.0171423, %321 ], [ %.0171423, %392 ]
   store i8 1, ptr %189, align 1, !tbaa !25
   br label %.critedge266
 
@@ -2508,7 +2508,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %108, %105, %_ZN6icu
   unreachable
 
 _ZN6icu_7711LocalMemoryIbED2Ev.exit:              ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit, %53, %92, %91, %45
-  %.sroa.0335.1 = phi ptr [ %28, %91 ], [ null, %92 ], [ %28, %53 ], [ %28, %45 ], [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ %28, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
+  %.sroa.0335.1 = phi ptr [ %28, %91 ], [ null, %92 ], [ %28, %45 ], [ %28, %53 ], [ %28, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit ], [ %28, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit ]
   invoke void @uprv_free_77(ptr noundef %43)
           to label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit unwind label %408
 
@@ -2547,7 +2547,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit286: ; preds = %35, %32, %_ZN6icu
   ret void
 
 .thread363:                                       ; preds = %365, %353, %320, %170, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit281, %355, %387, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285, %.loopexit.split-lp386, %.loopexit385, %.loopexit.split-lp381, %.loopexit380
-  %.pn245 = phi { ptr, i32 } [ %171, %170 ], [ %.pn237.pn.pn, %320 ], [ %354, %353 ], [ %366, %365 ], [ %357, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit281 ], [ %356, %355 ], [ %389, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285 ], [ %388, %387 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit.split-lp388, %.loopexit.split-lp386 ], [ %lpad.loopexit382, %.loopexit380 ], [ %lpad.loopexit.split-lp383, %.loopexit.split-lp381 ]
+  %.pn245 = phi { ptr, i32 } [ %388, %387 ], [ %171, %170 ], [ %lpad.loopexit.split-lp388, %.loopexit.split-lp386 ], [ %.pn237.pn.pn, %320 ], [ %354, %353 ], [ %366, %365 ], [ %356, %355 ], [ %357, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit281 ], [ %389, %_ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit382, %.loopexit380 ], [ %lpad.loopexit.split-lp383, %.loopexit.split-lp381 ]
   %416 = load ptr, ptr %119, align 8, !tbaa !3
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8
@@ -2575,7 +2575,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288: ; preds = %_ZN6icu_7712Local
   unreachable
 
 _ZN6icu_7711LocalMemoryIbED2Ev.exit289:           ; preds = %99, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288, %75, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268, %47
-  %.pn252.pn = phi { ptr, i32 } [ %48, %47 ], [ %77, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268 ], [ %76, %75 ], [ %100, %99 ], [ %.pn245.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288 ]
+  %.pn252.pn = phi { ptr, i32 } [ %48, %47 ], [ %76, %75 ], [ %77, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit268 ], [ %100, %99 ], [ %.pn245.pn.pn.pn, %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit288 ]
   invoke void @uprv_free_77(ptr noundef nonnull %43)
           to label %_ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290 unwind label %425
 

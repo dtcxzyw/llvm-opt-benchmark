@@ -169,7 +169,7 @@ v4l2_prepare_decoder.exit:                        ; preds = %44, %47, %51
   br label %54
 
 54:                                               ; preds = %1, %v4l2_prepare_decoder.exit, %28
-  %.0 = phi i32 [ %27, %28 ], [ %.0.i, %v4l2_prepare_decoder.exit ], [ %6, %1 ]
+  %.0 = phi i32 [ %.0.i, %v4l2_prepare_decoder.exit ], [ %27, %28 ], [ %6, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -346,7 +346,7 @@ v4l2_try_start.exit:                              ; preds = %43, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
-87:                                               ; preds = %53, %86, %42
+87:                                               ; preds = %42, %53, %86
   %.0.i.ph = phi i32 [ %40, %42 ], [ %85, %86 ], [ %52, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.0.i.ph.fr = freeze i32 %.0.i.ph

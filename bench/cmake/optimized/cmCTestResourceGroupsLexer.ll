@@ -484,7 +484,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181: ; preds = %188, %.loopexit263, %.loopexit.split-lp264, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i179
-  %.pn174 = phi { ptr, i32 } [ %189, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i179 ], [ %lpad.loopexit265, %.loopexit263 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ], [ %189, %188 ]
+  %.pn174 = phi { ptr, i32 } [ %189, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i179 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ], [ %lpad.loopexit265, %.loopexit263 ], [ %189, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %695
 
@@ -643,7 +643,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %.body, %.loopexit258, %.loopexit.split-lp259, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i189
-  %.pn172 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i189 ], [ %lpad.loopexit260, %.loopexit258 ], [ %lpad.loopexit.split-lp261, %.loopexit.split-lp259 ], [ %eh.lpad-body, %.body ]
+  %.pn172 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i189 ], [ %lpad.loopexit.split-lp261, %.loopexit.split-lp259 ], [ %lpad.loopexit260, %.loopexit258 ], [ %eh.lpad-body, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %695
 
@@ -804,7 +804,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207: ; preds = %.body199, %.loopexit257, %.loopexit.split-lp, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i205
-  %.pn170 = phi { ptr, i32 } [ %eh.lpad-body200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i205 ], [ %lpad.loopexit, %.loopexit257 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %eh.lpad-body200, %.body199 ]
+  %.pn170 = phi { ptr, i32 } [ %eh.lpad-body200, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i205 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit257 ], [ %eh.lpad-body200, %.body199 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %695
 
@@ -1519,9 +1519,9 @@ _ZL18yy_get_next_bufferPv.exit.thread252:         ; preds = %414, %_ZL18yy_get_n
   br i1 %646, label %.lr.ph33.i234, label %.preheader.outer.backedge
 
 .preheader.outer.backedge:                        ; preds = %._crit_edge.i245, %_ZL18yy_get_next_bufferPv.exit.thread252, %_ZL16yy_try_NUL_transiPv.exit
-  %.1153.ph.be = phi ptr [ %325, %_ZL16yy_try_NUL_transiPv.exit ], [ %642, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %642, %._crit_edge.i245 ]
-  %.2144.ph.be = phi ptr [ %328, %_ZL16yy_try_NUL_transiPv.exit ], [ %644, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %644, %._crit_edge.i245 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %645, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %687, %._crit_edge.i245 ]
+  %.1153.ph.be = phi ptr [ %642, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %325, %_ZL16yy_try_NUL_transiPv.exit ], [ %642, %._crit_edge.i245 ]
+  %.2144.ph.be = phi ptr [ %644, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %328, %_ZL16yy_try_NUL_transiPv.exit ], [ %644, %._crit_edge.i245 ]
+  %.3.ph.be = phi i32 [ %645, %_ZL18yy_get_next_bufferPv.exit.thread252 ], [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %687, %._crit_edge.i245 ]
   br label %.preheader.outer
 
 .lr.ph33.i234:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread252, %._crit_edge.i245
@@ -2002,8 +2002,8 @@ define dso_local void @_Z41cmCTestResourceGroups_yy_switch_to_bufferP15yy_buffer
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %47 = phi i64 [ %40, %33 ], [ %27, %31 ]
-  %48 = phi ptr [ %39, %33 ], [ %25, %31 ]
+  %47 = phi i64 [ %27, %31 ], [ %40, %33 ]
+  %48 = phi ptr [ %25, %31 ], [ %39, %33 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28

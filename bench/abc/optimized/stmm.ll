@@ -43,7 +43,7 @@ define noalias noundef ptr @stmm_init_table_with_params(ptr noundef %0, ptr noun
   br label %23
 
 23:                                               ; preds = %6, %.preheader.preheader, %22
-  %.027 = phi ptr [ null, %22 ], [ %7, %.preheader.preheader ], [ null, %6 ]
+  %.027 = phi ptr [ %7, %.preheader.preheader ], [ null, %22 ], [ null, %6 ]
   ret ptr %.027
 }
 
@@ -92,7 +92,7 @@ define noalias noundef ptr @stmm_init_table(ptr noundef %0, ptr noundef %1) loca
   br label %stmm_init_table_with_params.exit
 
 stmm_init_table_with_params.exit:                 ; preds = %2, %.preheader.preheader.i, %16
-  %.027.i = phi ptr [ null, %16 ], [ %3, %.preheader.preheader.i ], [ null, %2 ]
+  %.027.i = phi ptr [ %3, %.preheader.preheader.i ], [ null, %16 ], [ null, %2 ]
   ret ptr %.027.i
 }
 
@@ -249,7 +249,7 @@ define range(i32 0, 2) i32 @stmm_lookup(ptr noundef readonly captures(none) %0, 
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
-  %.037 = phi i32 [ 1, %53 ], [ 1, %52 ], [ 0, %28 ], [ 0, %42 ]
+  %.037 = phi i32 [ 1, %52 ], [ 1, %53 ], [ 0, %28 ], [ 0, %42 ]
   ret i32 %.037
 }
 
@@ -387,7 +387,7 @@ define range(i32 0, 2) i32 @stmm_lookup_int(ptr noundef readonly captures(none) 
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
-  %.037 = phi i32 [ 1, %53 ], [ 1, %52 ], [ 0, %28 ], [ 0, %42 ]
+  %.037 = phi i32 [ 1, %52 ], [ 1, %53 ], [ 0, %28 ], [ 0, %42 ]
   ret i32 %.037
 }
 
@@ -556,7 +556,7 @@ define range(i32 -10000, 2) i32 @stmm_insert(ptr noundef captures(none) %0, ptr 
   br label %99
 
 99:                                               ; preds = %83, %59, %97, %88
-  %.062 = phi i32 [ 0, %88 ], [ 1, %97 ], [ -10000, %59 ], [ -10000, %83 ]
+  %.062 = phi i32 [ 1, %97 ], [ -10000, %59 ], [ 0, %88 ], [ -10000, %83 ]
   ret i32 %.062
 }
 
@@ -712,9 +712,9 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr noundef captures(non
   br i1 %.not53, label %._crit_edge, label %.lr.ph58.splitthread-pre-split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %71, %._crit_edge.split.us, %23
-  %80 = phi ptr [ %24, %._crit_edge.split.us ], [ %24, %23 ], [ %72, %71 ]
-  %81 = phi i32 [ %43, %._crit_edge.split.us ], [ %.promoted, %23 ], [ %79, %71 ]
-  %82 = phi ptr [ %24, %._crit_edge.split.us ], [ %25, %23 ], [ %74, %71 ]
+  %80 = phi ptr [ %24, %23 ], [ %24, %._crit_edge.split.us ], [ %72, %71 ]
+  %81 = phi i32 [ %.promoted, %23 ], [ %43, %._crit_edge.split.us ], [ %79, %71 ]
+  %82 = phi ptr [ %25, %23 ], [ %24, %._crit_edge.split.us ], [ %74, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge61, label %23, !llvm.loop !35
@@ -1001,7 +1001,7 @@ define range(i32 -10000, 2) i32 @stmm_find_or_add(ptr noundef captures(none) %0,
   br label %100
 
 100:                                              ; preds = %.sink.split, %97, %88, %83, %59
-  %.065 = phi i32 [ -10000, %59 ], [ -10000, %83 ], [ 0, %88 ], [ 1, %97 ], [ %.065.ph, %.sink.split ]
+  %.065 = phi i32 [ 0, %88 ], [ -10000, %59 ], [ -10000, %83 ], [ 1, %97 ], [ %.065.ph, %.sink.split ]
   ret i32 %.065
 }
 
@@ -1103,7 +1103,7 @@ define range(i32 0, 2) i32 @stmm_find(ptr noundef readonly captures(none) %0, pt
   br label %.critedge44
 
 .critedge44:                                      ; preds = %42, %28, %52, %53
-  %.037 = phi i32 [ 1, %53 ], [ 1, %52 ], [ 0, %28 ], [ 0, %42 ]
+  %.037 = phi i32 [ 1, %52 ], [ 1, %53 ], [ 0, %28 ], [ 0, %42 ]
   ret i32 %.037
 }
 
@@ -1588,7 +1588,7 @@ define range(i32 0, 2) i32 @stmm_gen(ptr noundef captures(none) %0, ptr noundef 
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !60
 
 23:                                               ; preds = %.thread, %3
-  %24 = phi ptr [ %19, %.thread ], [ %5, %3 ]
+  %24 = phi ptr [ %5, %3 ], [ %19, %.thread ]
   %25 = load ptr, ptr %24, align 8, !tbaa !21
   store ptr %25, ptr %1, align 8, !tbaa !28
   %.not22 = icmp eq ptr %2, null
@@ -1653,7 +1653,7 @@ define range(i32 0, 2) i32 @stmm_gen_int(ptr noundef captures(none) %0, ptr noun
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !61
 
 23:                                               ; preds = %.thread, %3
-  %24 = phi ptr [ %19, %.thread ], [ %5, %3 ]
+  %24 = phi ptr [ %5, %3 ], [ %19, %.thread ]
   %25 = load ptr, ptr %24, align 8, !tbaa !21
   store ptr %25, ptr %1, align 8, !tbaa !28
   %.not22 = icmp eq ptr %2, null

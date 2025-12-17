@@ -116,7 +116,7 @@ define range(i32 -1094995529, 1) i32 @avpriv_split_xiph_headers(ptr noundef %0, 
   br label %.critedge74
 
 .critedge74:                                      ; preds = %.critedge, %20, %.preheader, %.thread, %24, %26
-  %.166 = phi i32 [ -1, %26 ], [ -1, %24 ], [ 0, %.thread ], [ 0, %20 ], [ -1094995529, %.preheader ], [ -1094995529, %.critedge ]
+  %.166 = phi i32 [ -1, %24 ], [ 0, %.thread ], [ -1, %26 ], [ -1094995529, %.preheader ], [ 0, %20 ], [ -1094995529, %.critedge ]
   ret i32 %.166
 }
 

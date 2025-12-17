@@ -294,7 +294,7 @@ define hidden noundef range(i8 0, 5) i8 @_ZN14target_lexicon6triple6Triple26defa
   br label %14
 
 14:                                               ; preds = %4, %12, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %8, %13
-  %.1 = phi i8 [ 4, %13 ], [ 2, %12 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ %., %8 ], [ 1, %4 ]
+  %.1 = phi i8 [ 4, %13 ], [ 2, %12 ], [ %., %8 ], [ 1, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ]
   ret i8 %.1
 }
 
@@ -1830,7 +1830,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6.i: ; preds = %59, %57
   br label %"_ZN82_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84b9ae690cc53cf3E.llvm.1715581770924364745.exit"
 
 "_ZN82_$LT$cranelift_codegen..ir..extfunc..Signature$u20$as$u20$core..cmp..PartialEq$GT$2eq17h84b9ae690cc53cf3E.llvm.1715581770924364745.exit": ; preds = %11, %20, %26, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i.i, %44, %53, %59, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6.i, %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8.i"
-  %.0.i = phi i1 [ %73, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8.i" ], [ false, %2 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit.i" ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6.i ], [ false, %59 ], [ false, %53 ], [ false, %44 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i.i ], [ false, %26 ], [ false, %20 ], [ false, %11 ]
+  %.0.i = phi i1 [ %73, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8.i" ], [ false, %2 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit.i" ], [ false, %44 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6.i ], [ false, %59 ], [ false, %53 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i.i ], [ false, %26 ], [ false, %20 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -2840,7 +2840,7 @@ _ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread: ;
   br i1 %69, label %70, label %58
 
 70:                                               ; preds = %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit, %66, %52, %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread, %2, %58
-  %.0 = phi i1 [ %65, %58 ], [ true, %2 ], [ true, %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit ], [ true, %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread ], [ true, %52 ], [ true, %66 ]
+  %.0 = phi i1 [ %65, %58 ], [ true, %52 ], [ true, %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit.thread ], [ true, %_ZN17cranelift_codegen2ir7extfunc10write_list17h3a3a73e79f9983eeE.exit ], [ true, %2 ], [ true, %66 ]
   ret i1 %.0
 }
 
@@ -2976,7 +2976,7 @@ default.unreachable23:                            ; preds = %16
   br i1 %32, label %33, label %19
 
 33:                                               ; preds = %2, %34, %27, %21, %19
-  %.0 = phi i1 [ true, %21 ], [ true, %27 ], [ false, %19 ], [ %40, %34 ], [ true, %2 ]
+  %.0 = phi i1 [ true, %27 ], [ %40, %34 ], [ false, %19 ], [ true, %21 ], [ true, %2 ]
   ret i1 %.0
 
 34:                                               ; preds = %19
@@ -3051,8 +3051,8 @@ default.unreachable2:                             ; preds = %2
   br label %18
 
 18:                                               ; preds = %2, %17, %16, %15
-  %.sroa.01.0 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.58, %15 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.59, %16 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.60, %17 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.55, %2 ]
-  %.sroa.5.0 = phi i64 [ 4, %15 ], [ 5, %16 ], [ 11, %17 ], [ 6, %2 ]
+  %.sroa.01.0 = phi ptr [ @anon.cce7e70c2f474c62efac044d17224bb4.60, %17 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.58, %15 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.59, %16 ], [ @anon.cce7e70c2f474c62efac044d17224bb4.55, %2 ]
+  %.sroa.5.0 = phi i64 [ 11, %17 ], [ 4, %15 ], [ 5, %16 ], [ 6, %2 ]
   %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.01.0, i64 noundef %.sroa.5.0)
   br label %20
 
@@ -3108,8 +3108,8 @@ define { i32, i32 } @"_ZN94_$LT$cranelift_codegen..ir..extfunc..ArgumentPurpose$
   br i1 %10, label %13, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit.thread"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit30", %.thread54, %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h6f0b756337ac099bE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit34", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
-  %.sroa.9.0 = phi i32 [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit34" ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit" ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h6f0b756337ac099bE.exit" ], [ %spec.select, %19 ], [ undef, %.thread54 ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit30" ]
-  %.sroa.0.0 = phi i32 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit34" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ 5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit" ], [ 5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h6f0b756337ac099bE.exit" ], [ %spec.select26, %19 ], [ 5, %.thread54 ], [ %spec.select66, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit30" ]
+  %.sroa.9.0 = phi i32 [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit30" ], [ undef, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit34" ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h6f0b756337ac099bE.exit" ], [ %spec.select, %19 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit" ], [ undef, %.thread54 ]
+  %.sroa.0.0 = phi i32 [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ %spec.select66, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit30" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit34" ], [ 5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h6f0b756337ac099bE.exit" ], [ %spec.select26, %19 ], [ 5, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h8edf60ee8a39a56bE.exit" ], [ 5, %.thread54 ]
   %11 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %12 = insertvalue { i32, i32 } %11, i32 %.sroa.9.0, 1
   ret { i32, i32 } %12
@@ -3400,7 +3400,7 @@ define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_by_name17h81f358c2
   br label %_ZN17cranelift_codegen2ir8memflags8MemFlags15with_endianness17he96505b704c4aecbE.exit
 
 _ZN17cranelift_codegen2ir8memflags8MemFlags15with_endianness17he96505b704c4aecbE.exit: ; preds = %66, %63, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit78, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit85, %50, %43, %15, %11, %7
-  %.0 = phi i16 [ %9, %7 ], [ %13, %11 ], [ %17, %15 ], [ %62, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ %59, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit78 ], [ %56, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit85 ], [ %45, %43 ], [ %52, %50 ], [ %.0.i89, %63 ], [ %.0.i90, %66 ]
+  %.0 = phi i16 [ %9, %7 ], [ %13, %11 ], [ %17, %15 ], [ %.0.i89, %63 ], [ %52, %50 ], [ %62, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ %59, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit78 ], [ %56, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit85 ], [ %45, %43 ], [ %.0.i90, %66 ]
   store i16 %.0, ptr %1, align 2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %53, align 8
@@ -3652,7 +3652,7 @@ define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags14with_trap_code1
   unreachable
 
 6:                                                ; preds = %3, %26, %25, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i16 [ 128, %9 ], [ 0, %10 ], [ 256, %11 ], [ 384, %12 ], [ 512, %13 ], [ 640, %14 ], [ 768, %15 ], [ 896, %16 ], [ 1024, %17 ], [ 1152, %18 ], [ 1280, %19 ], [ 1408, %25 ], [ 1536, %26 ], [ 1920, %3 ]
+  %.0 = phi i16 [ 1536, %26 ], [ 128, %9 ], [ 0, %10 ], [ 256, %11 ], [ 384, %12 ], [ 512, %13 ], [ 640, %14 ], [ 768, %15 ], [ 896, %16 ], [ 1024, %17 ], [ 1152, %18 ], [ 1280, %19 ], [ 1408, %25 ], [ 1920, %3 ]
   %7 = and i16 %0, -1921
   %8 = or disjoint i16 %.0, %7
   ret i16 %8
@@ -3959,7 +3959,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.ex
   br label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
 _ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread: ; preds = %29, %68, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %83, %77, %71, %62, %54, %46, %38, %22, %94
-  %.1 = phi i1 [ true, %94 ], [ true, %22 ], [ true, %38 ], [ true, %46 ], [ true, %54 ], [ true, %62 ], [ true, %71 ], [ false, %77 ], [ false, %83 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %68 ], [ true, %29 ]
+  %.1 = phi i1 [ true, %71 ], [ true, %94 ], [ true, %62 ], [ true, %54 ], [ true, %46 ], [ true, %38 ], [ false, %68 ], [ true, %22 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %83 ], [ false, %77 ], [ true, %29 ]
   ret i1 %.1
 }
 
@@ -4201,7 +4201,7 @@ _ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833b
   unreachable
 
 20:                                               ; preds = %1, %11, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread
-  %.0 = phi i8 [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread ], [ 4, %1 ], [ 5, %11 ]
+  %.0 = phi i8 [ 4, %1 ], [ 3, %_ZN14target_lexicon6triple6Triple26default_calling_convention17h4e6f5cfcf86d833bE.llvm.1715581770924364745.exit.thread ], [ 5, %11 ]
   ret i8 %.0
 }
 
@@ -4252,7 +4252,7 @@ default.unreachable3:                             ; preds = %_ZN17cranelift_code
   br label %14
 
 14:                                               ; preds = %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit, %13, %12, %11
-  %.0 = phi i8 [ 0, %11 ], [ 1, %12 ], [ %5, %13 ], [ %1, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit ]
+  %.0 = phi i8 [ %1, %_ZN17cranelift_codegen8settings5Flags17libcall_call_conv17hf903fd4bf88a7cefE.exit ], [ 0, %11 ], [ 1, %12 ], [ %5, %13 ]
   ret i8 %.0
 }
 
@@ -4354,7 +4354,7 @@ define noundef range(i8 0, 10) i8 @"_ZN90_$LT$cranelift_codegen..isa..call_conv.
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66.thread": ; preds = %.thread93, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58", %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit"
-  %.0 = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54" ], [ 9, %.thread93 ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ %spec.select102, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ %spec.select103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 9, %2 ]
+  %.0 = phi i8 [ %spec.select103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit62" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit38" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit42" ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit46" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit50" ], [ 5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit54" ], [ 9, %2 ], [ %spec.select102, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit58" ], [ %spec.select, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7f584ed2bf8da1edE.exit66" ], [ 9, %.thread93 ]
   ret i8 %.0
 }
 
@@ -5002,7 +5002,7 @@ _ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6: ; preds = %59, %57
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit.thread"
 
 "_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit.thread": ; preds = %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i, %26, %20, %11, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6, %59, %53, %44, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit", %2, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8"
-  %.0 = phi i1 [ %73, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8" ], [ false, %2 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit" ], [ false, %44 ], [ false, %53 ], [ false, %59 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6 ], [ false, %11 ], [ false, %20 ], [ false, %26 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i ]
+  %.0 = phi i1 [ %73, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit8" ], [ false, %2 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h570097e9e4c80902E.llvm.1715581770924364745.exit" ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i6 ], [ false, %44 ], [ false, %53 ], [ false, %59 ], [ false, %11 ], [ false, %20 ], [ false, %26 ], [ false, %_ZN4core3cmp9PartialEq2ne17h7a51ff9a86ab4424E.exit.i.i ]
   ret i1 %.0
 }
 
@@ -10958,7 +10958,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3265 unwind label %3263
 
 .thread16494:                                     ; preds = %.thread19796.loopexit, %.thread19796.loopexit.split-lp, %.thread19781.loopexit, %.thread19781.loopexit.split-lp, %.thread19766.loopexit, %.thread19766.loopexit.split-lp, %.loopexit21414, %.loopexit.split-lp21415, %.loopexit21422, %.loopexit.split-lp21423, %.loopexit21427, %.loopexit.split-lp21428, %.loopexit21432, %.loopexit.split-lp21433, %.loopexit21437, %.loopexit.split-lp21438, %.loopexit21442, %.loopexit.split-lp21443, %.loopexit21447, %.loopexit.split-lp21448, %.loopexit21452, %.loopexit.split-lp21453, %.thread19665.loopexit, %.thread19665.loopexit.split-lp, %.thread19655.loopexit, %.thread19655.loopexit.split-lp, %.loopexit21463, %.loopexit.split-lp21464, %.loopexit21468, %.loopexit.split-lp21469, %.loopexit21473, %.loopexit.split-lp21474, %.loopexit21478, %.loopexit.split-lp21479, %.loopexit21487, %.loopexit.split-lp21488, %.loopexit21492, %.loopexit.split-lp21493, %.loopexit21497, %.loopexit.split-lp21498, %.loopexit21502, %.loopexit.split-lp21503, %.loopexit21507, %.loopexit.split-lp21508, %.loopexit21512, %.loopexit.split-lp21513, %.loopexit21518, %.loopexit.split-lp21519, %.loopexit21527, %.loopexit.split-lp21528, %.loopexit21610, %.loopexit.split-lp21611, %.thread18942.loopexit, %.thread18942.loopexit.split-lp, %.thread18924.loopexit, %.thread18924.loopexit.split-lp, %.loopexit21542, %.loopexit.split-lp21543, %.loopexit21551, %.loopexit.split-lp21552, %.loopexit21560, %.loopexit.split-lp21561, %.loopexit21569, %.loopexit.split-lp21570, %.loopexit21578, %.loopexit.split-lp21579, %.loopexit21587, %.loopexit.split-lp21588, %.loopexit21596, %.loopexit.split-lp21597, %.loopexit21605, %.loopexit.split-lp21606, %.loopexit21615, %.loopexit.split-lp21616, %.loopexit21623, %.loopexit.split-lp21624, %.loopexit21631, %.loopexit.split-lp21632, %.loopexit21639, %.loopexit.split-lp21640, %.loopexit21647, %.loopexit.split-lp21648, %.loopexit21655, %.loopexit.split-lp21656, %.loopexit21667, %.loopexit.split-lp21668, %.loopexit21676, %.loopexit.split-lp21677, %.loopexit21688, %.loopexit.split-lp21689, %.loopexit21693, %.loopexit.split-lp21694, %.loopexit21698, %.loopexit.split-lp21699, %.loopexit21703, %.loopexit.split-lp21704, %.loopexit21708, %.loopexit.split-lp21709, %.loopexit21719, %.loopexit.split-lp21720, %.loopexit21731, %.loopexit.split-lp21732, %.loopexit21739, %.loopexit.split-lp21740, %.loopexit21744, %.loopexit.split-lp21745, %.loopexit21749, %.loopexit.split-lp21750, %.loopexit21754, %.loopexit.split-lp21755, %.loopexit21759, %.loopexit.split-lp21760, %16161, %16131, %16124, %16087, %16083, %16046, %16042, %15990, %15977, %.thread19736, %15858, %15810, %15790, %15769, %15756, %15735, %15722, %15701, %15688, %15667, %15654, %15383, %15363, %15342, %15335, %15315, %15311, %15277, %15267, %15245, %15232, %15113, %15103, %15069, %15059, %.thread19576, %14824, %14765, %14752, %.thread19552, %14641, %14555, %14542, %.thread19528, %14484, %14278, %14268, %14187, %14177, %.thread18985, %12339, %.thread18957, %12107, %12041, %12025, %11959, %11955, %.loopexit.split-lp21319, %11839, %.loopexit.split-lp21314, %11723, %.thread18837, %11502, %.thread18779, %11281, %.thread18703, %10970, %.thread18631, %10659, %.thread18466, %10155, %.thread18321, %9676, %.thread18305, %9626, %.thread18176, %9053, %.thread18081, %8599, %.thread17990, %8257, %.thread17944, %7973, %.thread17894, %7689, %.thread17769, %7210, %.thread17111, %5736, %.thread16974, %5134, %.thread16954, %5016, %.thread16928, %4900, %.thread16906, %4845, %.thread16890, %4790, %.thread16775, %4367, %.thread16679, %3961, %.thread16566, %3504, %.thread16550, %3449, %.thread16534, %3394, %.thread16518, %3339, %.thread16502, %3263
-  %.pn5781.pn = phi { ptr, i32 } [ %3264, %3263 ], [ %.pn5778.pn, %.thread16502 ], [ %eh.lpad-body6858.ph, %3339 ], [ %.pn5771.pn, %.thread16518 ], [ %eh.lpad-body6882.ph, %3394 ], [ %.pn5764.pn, %.thread16534 ], [ %eh.lpad-body6912.ph, %3449 ], [ %.pn5757.pn, %.thread16550 ], [ %eh.lpad-body6942.ph, %3504 ], [ %.pn5750.pn, %.thread16566 ], [ %eh.lpad-body6972.ph, %3961 ], [ %.pn5706.pn, %.thread16679 ], [ %eh.lpad-body7195.ph, %4367 ], [ %.pn5672.pn, %.thread16775 ], [ %eh.lpad-body7371.ph, %4790 ], [ %.pn5632.pn, %.thread16890 ], [ %eh.lpad-body7639.ph, %4845 ], [ %.pn5625.pn, %.thread16906 ], [ %eh.lpad-body7678.ph, %4900 ], [ %.pn5618.pn, %.thread16928 ], [ %eh.lpad-body7717.ph, %5016 ], [ %.pn5611.pn, %.thread16954 ], [ %eh.lpad-body7773.ph, %5134 ], [ %.pn5604.pn, %.thread16974 ], [ %eh.lpad-body7829.ph, %5736 ], [ %.pn5557.pn, %.thread17111 ], [ %eh.lpad-body8136.ph, %7210 ], [ %.pn5303.pn, %.thread17769 ], [ %eh.lpad-body8934.ph, %7689 ], [ %.pn5261, %.thread17894 ], [ %eh.lpad-body9209.ph, %7973 ], [ %.pn5243, %.thread17944 ], [ %eh.lpad-body9366.ph, %8257 ], [ %.pn5225, %.thread17990 ], [ %eh.lpad-body9525.ph, %8599 ], [ %.pn5199, %.thread18081 ], [ %eh.lpad-body9728.ph, %9053 ], [ %.pn5169, %.thread18176 ], [ %eh.lpad-body9983.ph, %9626 ], [ %.pn5126.pn, %.thread18305 ], [ %eh.lpad-body10246.ph, %9676 ], [ %.pn5119.pn, %.thread18321 ], [ %eh.lpad-body10298.ph, %10155 ], [ %.pn5055.pn, %.thread18466 ], [ %eh.lpad-body10579.ph, %10659 ], [ %.pn4998.pn, %.thread18631 ], [ %eh.lpad-body10872.ph, %10970 ], [ %.pn4972.pn, %.thread18703 ], [ %eh.lpad-body11048.ph, %11281 ], [ %.pn4947, %.thread18779 ], [ %eh.lpad-body11222.ph, %11502 ], [ %.pn4924, %.thread18837 ], [ %eh.lpad-body11362.ph, %11723 ], [ %lpad.phi21317, %.loopexit.split-lp21314 ], [ %eh.lpad-body11503.ph, %11839 ], [ %lpad.phi21322, %.loopexit.split-lp21319 ], [ %eh.lpad-body11568.ph, %11955 ], [ %lpad.phi21327, %11959 ], [ %lpad.thr_comm.split-lp18923, %12025 ], [ %lpad.phi21332, %12041 ], [ %lpad.thr_comm.split-lp18941, %12107 ], [ %.pn5068.pn, %.thread18957 ], [ %eh.lpad-body11704.ph, %12339 ], [ %.pn4888.pn, %.thread18985 ], [ %eh.lpad-body11804.ph, %14177 ], [ %lpad.phi21375, %14187 ], [ %eh.lpad-body12918.ph, %14268 ], [ %14279, %14278 ], [ %eh.lpad-body12949.ph, %14484 ], [ %.pn4706.pn, %.thread19528 ], [ %eh.lpad-body13078.ph, %14542 ], [ %14556, %14555 ], [ %eh.lpad-body13129.ph, %14641 ], [ %.pn4697, %.thread19552 ], [ %eh.lpad-body13159.ph, %14752 ], [ %14766, %14765 ], [ %eh.lpad-body13215.ph, %14824 ], [ %.pn4685.pn, %.thread19576 ], [ %eh.lpad-body13238.ph, %15059 ], [ %15070, %15069 ], [ %eh.lpad-body13350.ph, %15103 ], [ %15114, %15113 ], [ %eh.lpad-body13370.ph, %15232 ], [ %15246, %15245 ], [ %eh.lpad-body13405.ph, %15267 ], [ %15278, %15277 ], [ %eh.lpad-body13422.ph, %15311 ], [ %15316, %15315 ], [ %lpad.thr_comm.split-lp19654, %15335 ], [ %15343, %15342 ], [ %lpad.thr_comm.split-lp19664, %15363 ], [ %lpad.phi21403, %15383 ], [ %eh.lpad-body13461.ph, %15654 ], [ %15668, %15667 ], [ %eh.lpad-body13556.ph, %15688 ], [ %15702, %15701 ], [ %eh.lpad-body13573.ph, %15722 ], [ %15736, %15735 ], [ %eh.lpad-body13590.ph, %15756 ], [ %15770, %15769 ], [ %eh.lpad-body13607.ph, %15790 ], [ %15811, %15810 ], [ %eh.lpad-body13624.ph, %15858 ], [ %.pn4639, %.thread19736 ], [ %eh.lpad-body13652.ph, %15977 ], [ %15991, %15990 ], [ %eh.lpad-body13701.ph, %16042 ], [ %16047, %16046 ], [ %lpad.thr_comm.split-lp19765, %16083 ], [ %16088, %16087 ], [ %lpad.thr_comm.split-lp19780, %16124 ], [ %16132, %16131 ], [ %lpad.thr_comm.split-lp19795, %16161 ], [ %lpad.loopexit21761, %.loopexit21759 ], [ %lpad.loopexit.split-lp21762, %.loopexit.split-lp21760 ], [ %lpad.loopexit21756, %.loopexit21754 ], [ %lpad.loopexit.split-lp21757, %.loopexit.split-lp21755 ], [ %lpad.loopexit21751, %.loopexit21749 ], [ %lpad.loopexit.split-lp21752, %.loopexit.split-lp21750 ], [ %lpad.loopexit21746, %.loopexit21744 ], [ %lpad.loopexit.split-lp21747, %.loopexit.split-lp21745 ], [ %lpad.loopexit21741, %.loopexit21739 ], [ %lpad.loopexit.split-lp21742, %.loopexit.split-lp21740 ], [ %lpad.loopexit21733, %.loopexit21731 ], [ %lpad.loopexit.split-lp21734, %.loopexit.split-lp21732 ], [ %lpad.loopexit21721, %.loopexit21719 ], [ %lpad.loopexit.split-lp21722, %.loopexit.split-lp21720 ], [ %lpad.loopexit21710, %.loopexit21708 ], [ %lpad.loopexit.split-lp21711, %.loopexit.split-lp21709 ], [ %lpad.loopexit21705, %.loopexit21703 ], [ %lpad.loopexit.split-lp21706, %.loopexit.split-lp21704 ], [ %lpad.loopexit21700, %.loopexit21698 ], [ %lpad.loopexit.split-lp21701, %.loopexit.split-lp21699 ], [ %lpad.loopexit21695, %.loopexit21693 ], [ %lpad.loopexit.split-lp21696, %.loopexit.split-lp21694 ], [ %lpad.loopexit21690, %.loopexit21688 ], [ %lpad.loopexit.split-lp21691, %.loopexit.split-lp21689 ], [ %lpad.loopexit21678, %.loopexit21676 ], [ %lpad.loopexit.split-lp21679, %.loopexit.split-lp21677 ], [ %lpad.loopexit21669, %.loopexit21667 ], [ %lpad.loopexit.split-lp21670, %.loopexit.split-lp21668 ], [ %lpad.loopexit21657, %.loopexit21655 ], [ %lpad.loopexit.split-lp21658, %.loopexit.split-lp21656 ], [ %lpad.loopexit21649, %.loopexit21647 ], [ %lpad.loopexit.split-lp21650, %.loopexit.split-lp21648 ], [ %lpad.loopexit21641, %.loopexit21639 ], [ %lpad.loopexit.split-lp21642, %.loopexit.split-lp21640 ], [ %lpad.loopexit21633, %.loopexit21631 ], [ %lpad.loopexit.split-lp21634, %.loopexit.split-lp21632 ], [ %lpad.loopexit21625, %.loopexit21623 ], [ %lpad.loopexit.split-lp21626, %.loopexit.split-lp21624 ], [ %lpad.loopexit21617, %.loopexit21615 ], [ %lpad.loopexit.split-lp21618, %.loopexit.split-lp21616 ], [ %lpad.loopexit21607, %.loopexit21605 ], [ %lpad.loopexit.split-lp21608, %.loopexit.split-lp21606 ], [ %lpad.loopexit21598, %.loopexit21596 ], [ %lpad.loopexit.split-lp21599, %.loopexit.split-lp21597 ], [ %lpad.loopexit21589, %.loopexit21587 ], [ %lpad.loopexit.split-lp21590, %.loopexit.split-lp21588 ], [ %lpad.loopexit21580, %.loopexit21578 ], [ %lpad.loopexit.split-lp21581, %.loopexit.split-lp21579 ], [ %lpad.loopexit21571, %.loopexit21569 ], [ %lpad.loopexit.split-lp21572, %.loopexit.split-lp21570 ], [ %lpad.loopexit21562, %.loopexit21560 ], [ %lpad.loopexit.split-lp21563, %.loopexit.split-lp21561 ], [ %lpad.loopexit21553, %.loopexit21551 ], [ %lpad.loopexit.split-lp21554, %.loopexit.split-lp21552 ], [ %lpad.loopexit21544, %.loopexit21542 ], [ %lpad.loopexit.split-lp21545, %.loopexit.split-lp21543 ], [ %lpad.loopexit21535, %.thread18924.loopexit ], [ %lpad.loopexit.split-lp21536, %.thread18924.loopexit.split-lp ], [ %lpad.loopexit21532, %.thread18942.loopexit ], [ %lpad.loopexit.split-lp21533, %.thread18942.loopexit.split-lp ], [ %lpad.loopexit21612, %.loopexit21610 ], [ %lpad.loopexit.split-lp21613, %.loopexit.split-lp21611 ], [ %lpad.loopexit21529, %.loopexit21527 ], [ %lpad.loopexit.split-lp21530, %.loopexit.split-lp21528 ], [ %lpad.loopexit21520, %.loopexit21518 ], [ %lpad.loopexit.split-lp21521, %.loopexit.split-lp21519 ], [ %lpad.loopexit21514, %.loopexit21512 ], [ %lpad.loopexit.split-lp21515, %.loopexit.split-lp21513 ], [ %lpad.loopexit21509, %.loopexit21507 ], [ %lpad.loopexit.split-lp21510, %.loopexit.split-lp21508 ], [ %lpad.loopexit21504, %.loopexit21502 ], [ %lpad.loopexit.split-lp21505, %.loopexit.split-lp21503 ], [ %lpad.loopexit21499, %.loopexit21497 ], [ %lpad.loopexit.split-lp21500, %.loopexit.split-lp21498 ], [ %lpad.loopexit21494, %.loopexit21492 ], [ %lpad.loopexit.split-lp21495, %.loopexit.split-lp21493 ], [ %lpad.loopexit21489, %.loopexit21487 ], [ %lpad.loopexit.split-lp21490, %.loopexit.split-lp21488 ], [ %lpad.loopexit21480, %.loopexit21478 ], [ %lpad.loopexit.split-lp21481, %.loopexit.split-lp21479 ], [ %lpad.loopexit21475, %.loopexit21473 ], [ %lpad.loopexit.split-lp21476, %.loopexit.split-lp21474 ], [ %lpad.loopexit21470, %.loopexit21468 ], [ %lpad.loopexit.split-lp21471, %.loopexit.split-lp21469 ], [ %lpad.loopexit21465, %.loopexit21463 ], [ %lpad.loopexit.split-lp21466, %.loopexit.split-lp21464 ], [ %lpad.loopexit21457, %.thread19655.loopexit ], [ %lpad.loopexit.split-lp21458, %.thread19655.loopexit.split-lp ], [ %lpad.loopexit21460, %.thread19665.loopexit ], [ %lpad.loopexit.split-lp21461, %.thread19665.loopexit.split-lp ], [ %lpad.loopexit21454, %.loopexit21452 ], [ %lpad.loopexit.split-lp21455, %.loopexit.split-lp21453 ], [ %lpad.loopexit21449, %.loopexit21447 ], [ %lpad.loopexit.split-lp21450, %.loopexit.split-lp21448 ], [ %lpad.loopexit21444, %.loopexit21442 ], [ %lpad.loopexit.split-lp21445, %.loopexit.split-lp21443 ], [ %lpad.loopexit21439, %.loopexit21437 ], [ %lpad.loopexit.split-lp21440, %.loopexit.split-lp21438 ], [ %lpad.loopexit21434, %.loopexit21432 ], [ %lpad.loopexit.split-lp21435, %.loopexit.split-lp21433 ], [ %lpad.loopexit21429, %.loopexit21427 ], [ %lpad.loopexit.split-lp21430, %.loopexit.split-lp21428 ], [ %lpad.loopexit21424, %.loopexit21422 ], [ %lpad.loopexit.split-lp21425, %.loopexit.split-lp21423 ], [ %lpad.loopexit21416, %.loopexit21414 ], [ %lpad.loopexit.split-lp21417, %.loopexit.split-lp21415 ], [ %lpad.loopexit21408, %.thread19766.loopexit ], [ %lpad.loopexit.split-lp21409, %.thread19766.loopexit.split-lp ], [ %lpad.loopexit21405, %.thread19781.loopexit ], [ %lpad.loopexit.split-lp21406, %.thread19781.loopexit.split-lp ], [ %lpad.loopexit21411, %.thread19796.loopexit ], [ %lpad.loopexit.split-lp21412, %.thread19796.loopexit.split-lp ]
+  %.pn5781.pn = phi { ptr, i32 } [ %.pn5778.pn, %.thread16502 ], [ %lpad.thr_comm.split-lp19795, %16161 ], [ %3264, %3263 ], [ %.pn5771.pn, %.thread16518 ], [ %lpad.loopexit.split-lp21762, %.loopexit.split-lp21760 ], [ %.pn5764.pn, %.thread16534 ], [ %lpad.loopexit.split-lp21757, %.loopexit.split-lp21755 ], [ %.pn5757.pn, %.thread16550 ], [ %lpad.loopexit.split-lp21752, %.loopexit.split-lp21750 ], [ %.pn5750.pn, %.thread16566 ], [ %lpad.loopexit.split-lp21747, %.loopexit.split-lp21745 ], [ %.pn5706.pn, %.thread16679 ], [ %lpad.loopexit.split-lp21742, %.loopexit.split-lp21740 ], [ %.pn5672.pn, %.thread16775 ], [ %lpad.loopexit.split-lp21734, %.loopexit.split-lp21732 ], [ %.pn5632.pn, %.thread16890 ], [ %lpad.loopexit.split-lp21722, %.loopexit.split-lp21720 ], [ %.pn5625.pn, %.thread16906 ], [ %lpad.loopexit.split-lp21711, %.loopexit.split-lp21709 ], [ %.pn5618.pn, %.thread16928 ], [ %lpad.loopexit.split-lp21706, %.loopexit.split-lp21704 ], [ %.pn5611.pn, %.thread16954 ], [ %lpad.loopexit.split-lp21701, %.loopexit.split-lp21699 ], [ %.pn5604.pn, %.thread16974 ], [ %lpad.loopexit.split-lp21696, %.loopexit.split-lp21694 ], [ %.pn5557.pn, %.thread17111 ], [ %lpad.loopexit.split-lp21691, %.loopexit.split-lp21689 ], [ %.pn5303.pn, %.thread17769 ], [ %lpad.loopexit.split-lp21679, %.loopexit.split-lp21677 ], [ %.pn5261, %.thread17894 ], [ %lpad.loopexit.split-lp21670, %.loopexit.split-lp21668 ], [ %.pn5243, %.thread17944 ], [ %lpad.loopexit.split-lp21658, %.loopexit.split-lp21656 ], [ %.pn5225, %.thread17990 ], [ %lpad.loopexit.split-lp21650, %.loopexit.split-lp21648 ], [ %.pn5199, %.thread18081 ], [ %lpad.loopexit.split-lp21642, %.loopexit.split-lp21640 ], [ %.pn5169, %.thread18176 ], [ %lpad.loopexit.split-lp21634, %.loopexit.split-lp21632 ], [ %.pn5126.pn, %.thread18305 ], [ %lpad.loopexit.split-lp21626, %.loopexit.split-lp21624 ], [ %.pn5119.pn, %.thread18321 ], [ %lpad.loopexit.split-lp21618, %.loopexit.split-lp21616 ], [ %.pn5068.pn, %.thread18957 ], [ %lpad.loopexit.split-lp21533, %.thread18942.loopexit.split-lp ], [ %.pn5055.pn, %.thread18466 ], [ %lpad.loopexit.split-lp21608, %.loopexit.split-lp21606 ], [ %.pn4998.pn, %.thread18631 ], [ %lpad.loopexit.split-lp21599, %.loopexit.split-lp21597 ], [ %.pn4972.pn, %.thread18703 ], [ %lpad.loopexit.split-lp21590, %.loopexit.split-lp21588 ], [ %.pn4947, %.thread18779 ], [ %lpad.loopexit.split-lp21581, %.loopexit.split-lp21579 ], [ %.pn4924, %.thread18837 ], [ %lpad.loopexit.split-lp21572, %.loopexit.split-lp21570 ], [ %lpad.phi21317, %.loopexit.split-lp21314 ], [ %lpad.loopexit.split-lp21563, %.loopexit.split-lp21561 ], [ %lpad.phi21322, %.loopexit.split-lp21319 ], [ %lpad.loopexit.split-lp21554, %.loopexit.split-lp21552 ], [ %lpad.phi21327, %11959 ], [ %lpad.loopexit.split-lp21545, %.loopexit.split-lp21543 ], [ %lpad.phi21332, %12041 ], [ %lpad.loopexit.split-lp21536, %.thread18924.loopexit.split-lp ], [ %.pn4888.pn, %.thread18985 ], [ %lpad.loopexit.split-lp21613, %.loopexit.split-lp21611 ], [ %lpad.phi21375, %14187 ], [ %lpad.loopexit.split-lp21530, %.loopexit.split-lp21528 ], [ %14279, %14278 ], [ %lpad.loopexit.split-lp21521, %.loopexit.split-lp21519 ], [ %.pn4706.pn, %.thread19528 ], [ %lpad.loopexit.split-lp21515, %.loopexit.split-lp21513 ], [ %14556, %14555 ], [ %lpad.loopexit.split-lp21510, %.loopexit.split-lp21508 ], [ %.pn4697, %.thread19552 ], [ %lpad.loopexit.split-lp21505, %.loopexit.split-lp21503 ], [ %14766, %14765 ], [ %lpad.loopexit.split-lp21500, %.loopexit.split-lp21498 ], [ %.pn4685.pn, %.thread19576 ], [ %lpad.loopexit.split-lp21495, %.loopexit.split-lp21493 ], [ %15070, %15069 ], [ %lpad.loopexit.split-lp21490, %.loopexit.split-lp21488 ], [ %15114, %15113 ], [ %lpad.loopexit.split-lp21481, %.loopexit.split-lp21479 ], [ %15246, %15245 ], [ %lpad.loopexit.split-lp21476, %.loopexit.split-lp21474 ], [ %15278, %15277 ], [ %lpad.loopexit.split-lp21471, %.loopexit.split-lp21469 ], [ %15316, %15315 ], [ %lpad.loopexit.split-lp21466, %.loopexit.split-lp21464 ], [ %15343, %15342 ], [ %lpad.loopexit.split-lp21458, %.thread19655.loopexit.split-lp ], [ %lpad.phi21403, %15383 ], [ %lpad.loopexit.split-lp21461, %.thread19665.loopexit.split-lp ], [ %15668, %15667 ], [ %lpad.loopexit.split-lp21455, %.loopexit.split-lp21453 ], [ %15702, %15701 ], [ %lpad.loopexit.split-lp21450, %.loopexit.split-lp21448 ], [ %15736, %15735 ], [ %lpad.loopexit.split-lp21445, %.loopexit.split-lp21443 ], [ %15770, %15769 ], [ %lpad.loopexit.split-lp21440, %.loopexit.split-lp21438 ], [ %15811, %15810 ], [ %lpad.loopexit.split-lp21435, %.loopexit.split-lp21433 ], [ %.pn4639, %.thread19736 ], [ %lpad.loopexit.split-lp21430, %.loopexit.split-lp21428 ], [ %15991, %15990 ], [ %lpad.loopexit.split-lp21425, %.loopexit.split-lp21423 ], [ %16132, %16131 ], [ %lpad.loopexit.split-lp21406, %.thread19781.loopexit.split-lp ], [ %16047, %16046 ], [ %lpad.loopexit.split-lp21417, %.loopexit.split-lp21415 ], [ %16088, %16087 ], [ %lpad.loopexit.split-lp21409, %.thread19766.loopexit.split-lp ], [ %eh.lpad-body6858.ph, %3339 ], [ %eh.lpad-body6882.ph, %3394 ], [ %eh.lpad-body6912.ph, %3449 ], [ %eh.lpad-body6942.ph, %3504 ], [ %eh.lpad-body6972.ph, %3961 ], [ %eh.lpad-body7195.ph, %4367 ], [ %eh.lpad-body7371.ph, %4790 ], [ %eh.lpad-body7639.ph, %4845 ], [ %eh.lpad-body7678.ph, %4900 ], [ %eh.lpad-body7717.ph, %5016 ], [ %eh.lpad-body7773.ph, %5134 ], [ %eh.lpad-body7829.ph, %5736 ], [ %eh.lpad-body8136.ph, %7210 ], [ %eh.lpad-body8934.ph, %7689 ], [ %eh.lpad-body9209.ph, %7973 ], [ %eh.lpad-body9366.ph, %8257 ], [ %eh.lpad-body9525.ph, %8599 ], [ %eh.lpad-body9728.ph, %9053 ], [ %eh.lpad-body9983.ph, %9626 ], [ %eh.lpad-body10246.ph, %9676 ], [ %eh.lpad-body10298.ph, %10155 ], [ %eh.lpad-body10579.ph, %10659 ], [ %eh.lpad-body10872.ph, %10970 ], [ %eh.lpad-body11048.ph, %11281 ], [ %eh.lpad-body11222.ph, %11502 ], [ %eh.lpad-body11362.ph, %11723 ], [ %eh.lpad-body11503.ph, %11839 ], [ %eh.lpad-body11568.ph, %11955 ], [ %lpad.thr_comm.split-lp18923, %12025 ], [ %lpad.thr_comm.split-lp18941, %12107 ], [ %eh.lpad-body11704.ph, %12339 ], [ %eh.lpad-body11804.ph, %14177 ], [ %eh.lpad-body12918.ph, %14268 ], [ %eh.lpad-body12949.ph, %14484 ], [ %eh.lpad-body13078.ph, %14542 ], [ %eh.lpad-body13129.ph, %14641 ], [ %eh.lpad-body13159.ph, %14752 ], [ %eh.lpad-body13215.ph, %14824 ], [ %eh.lpad-body13238.ph, %15059 ], [ %eh.lpad-body13350.ph, %15103 ], [ %eh.lpad-body13370.ph, %15232 ], [ %eh.lpad-body13405.ph, %15267 ], [ %eh.lpad-body13422.ph, %15311 ], [ %lpad.thr_comm.split-lp19654, %15335 ], [ %lpad.thr_comm.split-lp19664, %15363 ], [ %eh.lpad-body13461.ph, %15654 ], [ %eh.lpad-body13556.ph, %15688 ], [ %eh.lpad-body13573.ph, %15722 ], [ %eh.lpad-body13590.ph, %15756 ], [ %eh.lpad-body13607.ph, %15790 ], [ %eh.lpad-body13624.ph, %15858 ], [ %eh.lpad-body13652.ph, %15977 ], [ %eh.lpad-body13701.ph, %16042 ], [ %lpad.thr_comm.split-lp19765, %16083 ], [ %lpad.thr_comm.split-lp19780, %16124 ], [ %lpad.loopexit21761, %.loopexit21759 ], [ %lpad.loopexit21756, %.loopexit21754 ], [ %lpad.loopexit21751, %.loopexit21749 ], [ %lpad.loopexit21746, %.loopexit21744 ], [ %lpad.loopexit21741, %.loopexit21739 ], [ %lpad.loopexit21733, %.loopexit21731 ], [ %lpad.loopexit21721, %.loopexit21719 ], [ %lpad.loopexit21710, %.loopexit21708 ], [ %lpad.loopexit21705, %.loopexit21703 ], [ %lpad.loopexit21700, %.loopexit21698 ], [ %lpad.loopexit21695, %.loopexit21693 ], [ %lpad.loopexit21690, %.loopexit21688 ], [ %lpad.loopexit21678, %.loopexit21676 ], [ %lpad.loopexit21669, %.loopexit21667 ], [ %lpad.loopexit21657, %.loopexit21655 ], [ %lpad.loopexit21649, %.loopexit21647 ], [ %lpad.loopexit21641, %.loopexit21639 ], [ %lpad.loopexit21633, %.loopexit21631 ], [ %lpad.loopexit21625, %.loopexit21623 ], [ %lpad.loopexit21617, %.loopexit21615 ], [ %lpad.loopexit21607, %.loopexit21605 ], [ %lpad.loopexit21598, %.loopexit21596 ], [ %lpad.loopexit21589, %.loopexit21587 ], [ %lpad.loopexit21580, %.loopexit21578 ], [ %lpad.loopexit21571, %.loopexit21569 ], [ %lpad.loopexit21562, %.loopexit21560 ], [ %lpad.loopexit21553, %.loopexit21551 ], [ %lpad.loopexit21544, %.loopexit21542 ], [ %lpad.loopexit21535, %.thread18924.loopexit ], [ %lpad.loopexit21532, %.thread18942.loopexit ], [ %lpad.loopexit21612, %.loopexit21610 ], [ %lpad.loopexit21529, %.loopexit21527 ], [ %lpad.loopexit21520, %.loopexit21518 ], [ %lpad.loopexit21514, %.loopexit21512 ], [ %lpad.loopexit21509, %.loopexit21507 ], [ %lpad.loopexit21504, %.loopexit21502 ], [ %lpad.loopexit21499, %.loopexit21497 ], [ %lpad.loopexit21494, %.loopexit21492 ], [ %lpad.loopexit21489, %.loopexit21487 ], [ %lpad.loopexit21480, %.loopexit21478 ], [ %lpad.loopexit21475, %.loopexit21473 ], [ %lpad.loopexit21470, %.loopexit21468 ], [ %lpad.loopexit21465, %.loopexit21463 ], [ %lpad.loopexit21457, %.thread19655.loopexit ], [ %lpad.loopexit21460, %.thread19665.loopexit ], [ %lpad.loopexit21454, %.loopexit21452 ], [ %lpad.loopexit21449, %.loopexit21447 ], [ %lpad.loopexit21444, %.loopexit21442 ], [ %lpad.loopexit21439, %.loopexit21437 ], [ %lpad.loopexit21434, %.loopexit21432 ], [ %lpad.loopexit21429, %.loopexit21427 ], [ %lpad.loopexit21424, %.loopexit21422 ], [ %lpad.loopexit21416, %.loopexit21414 ], [ %lpad.loopexit21408, %.thread19766.loopexit ], [ %lpad.loopexit21405, %.thread19781.loopexit ], [ %lpad.loopexit21411, %.thread19796.loopexit ], [ %lpad.loopexit.split-lp21412, %.thread19796.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1642)
           to label %.thread unwind label %3336
 
@@ -11126,7 +11126,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3297 unwind label %3295
 
 .thread16502:                                     ; preds = %.loopexit20951, %.loopexit.split-lp20952, %3338, %3314, %3295
-  %.pn5778.pn = phi { ptr, i32 } [ %3296, %3295 ], [ %3315, %3314 ], [ %eh.lpad-body6868.ph, %3338 ], [ %lpad.loopexit20953, %.loopexit20951 ], [ %lpad.loopexit.split-lp20954, %.loopexit.split-lp20952 ]
+  %.pn5778.pn = phi { ptr, i32 } [ %3315, %3314 ], [ %eh.lpad-body6868.ph, %3338 ], [ %3296, %3295 ], [ %lpad.loopexit20953, %.loopexit20951 ], [ %lpad.loopexit.split-lp20954, %.loopexit.split-lp20952 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1639)
           to label %.thread16494 unwind label %3336
 
@@ -11383,7 +11383,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3354 unwind label %3352
 
 .thread16518:                                     ; preds = %.loopexit20956, %.loopexit.split-lp20957, %3393, %3371, %3352
-  %.pn5771.pn = phi { ptr, i32 } [ %3353, %3352 ], [ %3372, %3371 ], [ %eh.lpad-body6892.ph, %3393 ], [ %lpad.loopexit20958, %.loopexit20956 ], [ %lpad.loopexit.split-lp20959, %.loopexit.split-lp20957 ]
+  %.pn5771.pn = phi { ptr, i32 } [ %3372, %3371 ], [ %eh.lpad-body6892.ph, %3393 ], [ %3353, %3352 ], [ %lpad.loopexit20958, %.loopexit20956 ], [ %lpad.loopexit.split-lp20959, %.loopexit.split-lp20957 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1633)
           to label %.thread16494 unwind label %3336
 
@@ -11634,7 +11634,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3409 unwind label %3407
 
 .thread16534:                                     ; preds = %.loopexit20961, %.loopexit.split-lp20962, %3448, %3426, %3407
-  %.pn5764.pn = phi { ptr, i32 } [ %3408, %3407 ], [ %3427, %3426 ], [ %eh.lpad-body6922.ph, %3448 ], [ %lpad.loopexit20963, %.loopexit20961 ], [ %lpad.loopexit.split-lp20964, %.loopexit.split-lp20962 ]
+  %.pn5764.pn = phi { ptr, i32 } [ %3427, %3426 ], [ %eh.lpad-body6922.ph, %3448 ], [ %3408, %3407 ], [ %lpad.loopexit20963, %.loopexit20961 ], [ %lpad.loopexit.split-lp20964, %.loopexit.split-lp20962 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1627)
           to label %.thread16494 unwind label %3336
 
@@ -11885,7 +11885,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3464 unwind label %3462
 
 .thread16550:                                     ; preds = %.loopexit20966, %.loopexit.split-lp20967, %3503, %3481, %3462
-  %.pn5757.pn = phi { ptr, i32 } [ %3463, %3462 ], [ %3482, %3481 ], [ %eh.lpad-body6952.ph, %3503 ], [ %lpad.loopexit20968, %.loopexit20966 ], [ %lpad.loopexit.split-lp20969, %.loopexit.split-lp20967 ]
+  %.pn5757.pn = phi { ptr, i32 } [ %3482, %3481 ], [ %eh.lpad-body6952.ph, %3503 ], [ %3463, %3462 ], [ %lpad.loopexit20968, %.loopexit20966 ], [ %lpad.loopexit.split-lp20969, %.loopexit.split-lp20967 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1621)
           to label %.thread16494 unwind label %3336
 
@@ -12151,7 +12151,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3529 unwind label %3527
 
 .thread16566:                                     ; preds = %.thread16658.loopexit, %.thread16658.loopexit.split-lp, %.thread16648.loopexit, %.thread16648.loopexit.split-lp, %.thread16608.loopexit, %.thread16608.loopexit.split-lp, %.thread16598.loopexit, %.thread16598.loopexit.split-lp, %.thread16570.loopexit, %.thread16570.loopexit.split-lp, %3960, %.thread16661, %3868, %3859, %3813, %.thread16611, %3646, %3624, %3616, %.thread16573, %3527
-  %.pn5750.pn = phi { ptr, i32 } [ %3528, %3527 ], [ %.pn5748, %.thread16573 ], [ %lpad.thr_comm.split-lp, %3616 ], [ %3625, %3624 ], [ %lpad.thr_comm.split-lp16597, %3646 ], [ %.pn5732.pn, %.thread16611 ], [ %lpad.phi20600, %3813 ], [ %lpad.thr_comm.split-lp16647, %3859 ], [ %lpad.thr_comm.split-lp16607, %3868 ], [ %.pn5714.pn, %.thread16661 ], [ %lpad.thr_comm.split-lp16657, %3960 ], [ %lpad.loopexit20986, %.thread16570.loopexit ], [ %lpad.loopexit.split-lp20987, %.thread16570.loopexit.split-lp ], [ %lpad.loopexit20983, %.thread16598.loopexit ], [ %lpad.loopexit.split-lp20984, %.thread16598.loopexit.split-lp ], [ %lpad.loopexit20976, %.thread16608.loopexit ], [ %lpad.loopexit.split-lp20977, %.thread16608.loopexit.split-lp ], [ %lpad.loopexit20979, %.thread16648.loopexit ], [ %lpad.loopexit.split-lp20980, %.thread16648.loopexit.split-lp ], [ %lpad.loopexit21736, %.thread16658.loopexit ], [ %lpad.loopexit.split-lp21737, %.thread16658.loopexit.split-lp ]
+  %.pn5750.pn = phi { ptr, i32 } [ %.pn5748, %.thread16573 ], [ %lpad.thr_comm.split-lp16657, %3960 ], [ %3528, %3527 ], [ %3625, %3624 ], [ %lpad.loopexit.split-lp20987, %.thread16570.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16647, %3859 ], [ %lpad.loopexit.split-lp20984, %.thread16598.loopexit.split-lp ], [ %lpad.phi20600, %3813 ], [ %lpad.loopexit.split-lp20977, %.thread16608.loopexit.split-lp ], [ %.pn5714.pn, %.thread16661 ], [ %lpad.loopexit.split-lp20980, %.thread16648.loopexit.split-lp ], [ %lpad.thr_comm.split-lp, %3616 ], [ %lpad.thr_comm.split-lp16597, %3646 ], [ %.pn5732.pn, %.thread16611 ], [ %lpad.thr_comm.split-lp16607, %3868 ], [ %lpad.loopexit20986, %.thread16570.loopexit ], [ %lpad.loopexit20983, %.thread16598.loopexit ], [ %lpad.loopexit20976, %.thread16608.loopexit ], [ %lpad.loopexit20979, %.thread16648.loopexit ], [ %lpad.loopexit21736, %.thread16658.loopexit ], [ %lpad.loopexit.split-lp21737, %.thread16658.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1615)
           to label %.thread16494 unwind label %3336
 
@@ -12349,7 +12349,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3574 unwind label %3572
 
 .thread16583:                                     ; preds = %.loopexit20362, %.loopexit.split-lp20363, %3614, %3591, %3572
-  %.pn5743.pn = phi { ptr, i32 } [ %3573, %3572 ], [ %3592, %3591 ], [ %eh.lpad-body7004.ph, %3614 ], [ %lpad.loopexit20364, %.loopexit20362 ], [ %lpad.loopexit.split-lp20365, %.loopexit.split-lp20363 ]
+  %.pn5743.pn = phi { ptr, i32 } [ %3592, %3591 ], [ %eh.lpad-body7004.ph, %3614 ], [ %3573, %3572 ], [ %lpad.loopexit20364, %.loopexit20362 ], [ %lpad.loopexit.split-lp20365, %.loopexit.split-lp20363 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1609)
           to label %.thread16573 unwind label %3336
 
@@ -12756,7 +12756,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3668 unwind label %.loopexit20601
 
 .thread16611:                                     ; preds = %.thread16628.loopexit, %.thread16628.loopexit.split-lp, %.thread16618.loopexit, %.thread16618.loopexit.split-lp, %.loopexit20601, %.loopexit.split-lp20602, %3776, %.thread16631, %3705, %3683
-  %.pn5732.pn = phi { ptr, i32 } [ %3684, %3683 ], [ %lpad.thr_comm.split-lp16617, %3705 ], [ %.pn5727, %.thread16631 ], [ %lpad.thr_comm.split-lp16627, %3776 ], [ %lpad.loopexit20603, %.loopexit20601 ], [ %lpad.loopexit.split-lp20604, %.loopexit.split-lp20602 ], [ %lpad.loopexit20613, %.thread16618.loopexit ], [ %lpad.loopexit.split-lp20614, %.thread16618.loopexit.split-lp ], [ %lpad.loopexit20610, %.thread16628.loopexit ], [ %lpad.loopexit.split-lp20611, %.thread16628.loopexit.split-lp ]
+  %.pn5732.pn = phi { ptr, i32 } [ %3684, %3683 ], [ %lpad.loopexit.split-lp20604, %.loopexit.split-lp20602 ], [ %lpad.thr_comm.split-lp16627, %3776 ], [ %.pn5727, %.thread16631 ], [ %lpad.loopexit.split-lp20614, %.thread16618.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16617, %3705 ], [ %lpad.loopexit20603, %.loopexit20601 ], [ %lpad.loopexit20613, %.thread16618.loopexit ], [ %lpad.loopexit20610, %.thread16628.loopexit ], [ %lpad.loopexit.split-lp20611, %.thread16628.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1600)
           to label %.thread16566 unwind label %3336
 
@@ -12952,7 +12952,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3709 unwind label %.loopexit20372
 
 .thread16631:                                     ; preds = %.thread16638.loopexit, %.thread16638.loopexit.split-lp, %.loopexit20372, %.loopexit.split-lp20373, %3775, %3743
-  %.pn5727 = phi { ptr, i32 } [ %lpad.phi20371, %3743 ], [ %lpad.thr_comm.split-lp16637, %3775 ], [ %lpad.loopexit20374, %.loopexit20372 ], [ %lpad.loopexit.split-lp20375, %.loopexit.split-lp20373 ], [ %lpad.loopexit20607, %.thread16638.loopexit ], [ %lpad.loopexit.split-lp20608, %.thread16638.loopexit.split-lp ]
+  %.pn5727 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp16637, %3775 ], [ %lpad.phi20371, %3743 ], [ %lpad.loopexit.split-lp20375, %.loopexit.split-lp20373 ], [ %lpad.loopexit20374, %.loopexit20372 ], [ %lpad.loopexit20607, %.thread16638.loopexit ], [ %lpad.loopexit.split-lp20608, %.thread16638.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1594)
           to label %.thread16611 unwind label %3336
 
@@ -13540,7 +13540,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7113: ; pr
           to label %3874 unwind label %3872
 
 .thread16661:                                     ; preds = %.thread16668.loopexit, %.thread16668.loopexit.split-lp, %3930, %3890, %3872
-  %.pn5714.pn = phi { ptr, i32 } [ %3873, %3872 ], [ %3891, %3890 ], [ %lpad.thr_comm.split-lp16667, %3930 ], [ %lpad.loopexit20972, %.thread16668.loopexit ], [ %lpad.loopexit.split-lp20973, %.thread16668.loopexit.split-lp ]
+  %.pn5714.pn = phi { ptr, i32 } [ %3891, %3890 ], [ %lpad.thr_comm.split-lp16667, %3930 ], [ %3873, %3872 ], [ %lpad.loopexit20972, %.thread16668.loopexit ], [ %lpad.loopexit.split-lp20973, %.thread16668.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1585)
           to label %.thread16566 unwind label %3336
 
@@ -13937,7 +13937,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %3989 unwind label %3987
 
 .thread16679:                                     ; preds = %.thread16746.loopexit, %.thread16746.loopexit.split-lp, %.thread16736.loopexit, %.thread16736.loopexit.split-lp, %.thread16696.loopexit, %.thread16696.loopexit.split-lp, %.thread16686.loopexit, %.thread16686.loopexit.split-lp, %4366, %.thread16749, %4246, %4237, %4191, %.thread16699, %4025, %4003, %3987
-  %.pn5706.pn = phi { ptr, i32 } [ %3988, %3987 ], [ %4004, %4003 ], [ %lpad.thr_comm.split-lp16685, %4025 ], [ %.pn5700.pn, %.thread16699 ], [ %lpad.phi20620, %4191 ], [ %lpad.thr_comm.split-lp16735, %4237 ], [ %lpad.thr_comm.split-lp16695, %4246 ], [ %.pn5683, %.thread16749 ], [ %lpad.thr_comm.split-lp16745, %4366 ], [ %lpad.loopexit21002, %.thread16686.loopexit ], [ %lpad.loopexit.split-lp21003, %.thread16686.loopexit.split-lp ], [ %lpad.loopexit20995, %.thread16696.loopexit ], [ %lpad.loopexit.split-lp20996, %.thread16696.loopexit.split-lp ], [ %lpad.loopexit20998, %.thread16736.loopexit ], [ %lpad.loopexit.split-lp20999, %.thread16736.loopexit.split-lp ], [ %lpad.loopexit21728, %.thread16746.loopexit ], [ %lpad.loopexit.split-lp21729, %.thread16746.loopexit.split-lp ]
+  %.pn5706.pn = phi { ptr, i32 } [ %4004, %4003 ], [ %lpad.thr_comm.split-lp16745, %4366 ], [ %3988, %3987 ], [ %lpad.thr_comm.split-lp16735, %4237 ], [ %lpad.loopexit.split-lp21003, %.thread16686.loopexit.split-lp ], [ %lpad.phi20620, %4191 ], [ %lpad.loopexit.split-lp20996, %.thread16696.loopexit.split-lp ], [ %.pn5683, %.thread16749 ], [ %lpad.loopexit.split-lp20999, %.thread16736.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16685, %4025 ], [ %.pn5700.pn, %.thread16699 ], [ %lpad.thr_comm.split-lp16695, %4246 ], [ %lpad.loopexit21002, %.thread16686.loopexit ], [ %lpad.loopexit20995, %.thread16696.loopexit ], [ %lpad.loopexit20998, %.thread16736.loopexit ], [ %lpad.loopexit21728, %.thread16746.loopexit ], [ %lpad.loopexit.split-lp21729, %.thread16746.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1579)
           to label %.thread16494 unwind label %3336
 
@@ -14163,7 +14163,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4046 unwind label %.loopexit20621
 
 .thread16699:                                     ; preds = %.thread16716.loopexit, %.thread16716.loopexit.split-lp, %.thread16706.loopexit, %.thread16706.loopexit.split-lp, %.loopexit20621, %.loopexit.split-lp20622, %4163, %.thread16719, %4092, %4059
-  %.pn5700.pn = phi { ptr, i32 } [ %lpad.phi20381, %4059 ], [ %lpad.thr_comm.split-lp16705, %4092 ], [ %.pn5695, %.thread16719 ], [ %lpad.thr_comm.split-lp16715, %4163 ], [ %lpad.loopexit20623, %.loopexit20621 ], [ %lpad.loopexit.split-lp20624, %.loopexit.split-lp20622 ], [ %lpad.loopexit20632, %.thread16706.loopexit ], [ %lpad.loopexit.split-lp20633, %.thread16706.loopexit.split-lp ], [ %lpad.loopexit20629, %.thread16716.loopexit ], [ %lpad.loopexit.split-lp20630, %.thread16716.loopexit.split-lp ]
+  %.pn5700.pn = phi { ptr, i32 } [ %lpad.phi20381, %4059 ], [ %lpad.loopexit.split-lp20624, %.loopexit.split-lp20622 ], [ %lpad.thr_comm.split-lp16715, %4163 ], [ %.pn5695, %.thread16719 ], [ %lpad.loopexit.split-lp20633, %.thread16706.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16705, %4092 ], [ %lpad.loopexit20623, %.loopexit20621 ], [ %lpad.loopexit20632, %.thread16706.loopexit ], [ %lpad.loopexit20629, %.thread16716.loopexit ], [ %lpad.loopexit.split-lp20630, %.thread16716.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1573)
           to label %.thread16679 unwind label %3336
 
@@ -14392,7 +14392,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7233: ; pr
           to label %4096 unwind label %.loopexit20387
 
 .thread16719:                                     ; preds = %.thread16726.loopexit, %.thread16726.loopexit.split-lp, %.loopexit20387, %.loopexit.split-lp20388, %4162, %4130
-  %.pn5695 = phi { ptr, i32 } [ %lpad.phi20386, %4130 ], [ %lpad.thr_comm.split-lp16725, %4162 ], [ %lpad.loopexit20389, %.loopexit20387 ], [ %lpad.loopexit.split-lp20390, %.loopexit.split-lp20388 ], [ %lpad.loopexit20626, %.thread16726.loopexit ], [ %lpad.loopexit.split-lp20627, %.thread16726.loopexit.split-lp ]
+  %.pn5695 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp16725, %4162 ], [ %lpad.phi20386, %4130 ], [ %lpad.loopexit.split-lp20390, %.loopexit.split-lp20388 ], [ %lpad.loopexit20389, %.loopexit20387 ], [ %lpad.loopexit20626, %.thread16726.loopexit ], [ %lpad.loopexit.split-lp20627, %.thread16726.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1567)
           to label %.thread16699 unwind label %3336
 
@@ -14955,7 +14955,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i7304: ; pr
           to label %4250 unwind label %.loopexit20989
 
 .thread16749:                                     ; preds = %.thread16756.loopexit, %.thread16756.loopexit.split-lp, %.loopexit20989, %.loopexit.split-lp20990, %4365, %4321
-  %.pn5683 = phi { ptr, i32 } [ %4322, %4321 ], [ %lpad.thr_comm.split-lp16755, %4365 ], [ %lpad.loopexit20991, %.loopexit20989 ], [ %lpad.loopexit.split-lp20992, %.loopexit.split-lp20990 ], [ %lpad.loopexit21725, %.thread16756.loopexit ], [ %lpad.loopexit.split-lp21726, %.thread16756.loopexit.split-lp ]
+  %.pn5683 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp16755, %4365 ], [ %4322, %4321 ], [ %lpad.loopexit.split-lp20992, %.loopexit.split-lp20990 ], [ %lpad.loopexit20991, %.loopexit20989 ], [ %lpad.loopexit21725, %.thread16756.loopexit ], [ %lpad.loopexit.split-lp21726, %.thread16756.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1558)
           to label %.thread16679 unwind label %3336
 
@@ -15404,7 +15404,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4389 unwind label %4387
 
 .thread16775:                                     ; preds = %.thread16852.loopexit, %.thread16852.loopexit.split-lp, %.thread16830.loopexit, %.thread16830.loopexit.split-lp, %.thread16820.loopexit, %.thread16820.loopexit.split-lp, %.thread16810.loopexit, %.thread16810.loopexit.split-lp, %.thread16782.loopexit, %.thread16782.loopexit.split-lp, %4789, %.thread16855, %4660, %.thread16833, %4546, %4510, %4506, %4484, %4476, %.thread16785, %4387
-  %.pn5672.pn = phi { ptr, i32 } [ %4388, %4387 ], [ %.pn5670, %.thread16785 ], [ %lpad.thr_comm.split-lp16781, %4476 ], [ %4485, %4484 ], [ %lpad.thr_comm.split-lp16809, %4506 ], [ %4511, %4510 ], [ %lpad.thr_comm.split-lp16819, %4546 ], [ %.pn5651.pn, %.thread16833 ], [ %lpad.thr_comm.split-lp16829, %4660 ], [ %.pn5644.pn, %.thread16855 ], [ %lpad.thr_comm.split-lp16851, %4789 ], [ %lpad.loopexit21020, %.thread16782.loopexit ], [ %lpad.loopexit.split-lp21021, %.thread16782.loopexit.split-lp ], [ %lpad.loopexit21017, %.thread16810.loopexit ], [ %lpad.loopexit.split-lp21018, %.thread16810.loopexit.split-lp ], [ %lpad.loopexit21014, %.thread16820.loopexit ], [ %lpad.loopexit.split-lp21015, %.thread16820.loopexit.split-lp ], [ %lpad.loopexit21011, %.thread16830.loopexit ], [ %lpad.loopexit.split-lp21012, %.thread16830.loopexit.split-lp ], [ %lpad.loopexit21716, %.thread16852.loopexit ], [ %lpad.loopexit.split-lp21717, %.thread16852.loopexit.split-lp ]
+  %.pn5672.pn = phi { ptr, i32 } [ %.pn5670, %.thread16785 ], [ %lpad.thr_comm.split-lp16851, %4789 ], [ %4388, %4387 ], [ %4485, %4484 ], [ %lpad.loopexit.split-lp21021, %.thread16782.loopexit.split-lp ], [ %4511, %4510 ], [ %lpad.loopexit.split-lp21018, %.thread16810.loopexit.split-lp ], [ %.pn5651.pn, %.thread16833 ], [ %lpad.loopexit.split-lp21015, %.thread16820.loopexit.split-lp ], [ %.pn5644.pn, %.thread16855 ], [ %lpad.loopexit.split-lp21012, %.thread16830.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16781, %4476 ], [ %lpad.thr_comm.split-lp16809, %4506 ], [ %lpad.thr_comm.split-lp16819, %4546 ], [ %lpad.thr_comm.split-lp16829, %4660 ], [ %lpad.loopexit21020, %.thread16782.loopexit ], [ %lpad.loopexit21017, %.thread16810.loopexit ], [ %lpad.loopexit21014, %.thread16820.loopexit ], [ %lpad.loopexit21011, %.thread16830.loopexit ], [ %lpad.loopexit21716, %.thread16852.loopexit ], [ %lpad.loopexit.split-lp21717, %.thread16852.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1552)
           to label %.thread16494 unwind label %3336
 
@@ -15602,7 +15602,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4434 unwind label %4432
 
 .thread16795:                                     ; preds = %.loopexit20392, %.loopexit.split-lp20393, %4474, %4451, %4432
-  %.pn5665.pn = phi { ptr, i32 } [ %4433, %4432 ], [ %4452, %4451 ], [ %eh.lpad-body7412.ph, %4474 ], [ %lpad.loopexit20394, %.loopexit20392 ], [ %lpad.loopexit.split-lp20395, %.loopexit.split-lp20393 ]
+  %.pn5665.pn = phi { ptr, i32 } [ %4452, %4451 ], [ %eh.lpad-body7412.ph, %4474 ], [ %4433, %4432 ], [ %lpad.loopexit20394, %.loopexit20392 ], [ %lpad.loopexit.split-lp20395, %.loopexit.split-lp20393 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1546)
           to label %.thread16785 unwind label %3336
 
@@ -16187,7 +16187,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4583 unwind label %.loopexit20639
 
 .thread16833:                                     ; preds = %.loopexit20645, %.loopexit.split-lp20646, %.loopexit20639, %.loopexit.split-lp20640, %4623, %4601
-  %.pn5651.pn = phi { ptr, i32 } [ %4602, %4601 ], [ %eh.lpad-body7503.ph, %4623 ], [ %lpad.loopexit20641, %.loopexit20639 ], [ %lpad.loopexit.split-lp20642, %.loopexit.split-lp20640 ], [ %lpad.loopexit20647, %.loopexit20645 ], [ %lpad.loopexit.split-lp20648, %.loopexit.split-lp20646 ]
+  %.pn5651.pn = phi { ptr, i32 } [ %4602, %4601 ], [ %lpad.loopexit.split-lp20642, %.loopexit.split-lp20640 ], [ %eh.lpad-body7503.ph, %4623 ], [ %lpad.loopexit20641, %.loopexit20639 ], [ %lpad.loopexit20647, %.loopexit20645 ], [ %lpad.loopexit.split-lp20648, %.loopexit.split-lp20646 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1534)
           to label %.thread16775 unwind label %3336
 
@@ -16523,7 +16523,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7529: ; pred
           to label %4666 unwind label %4664
 
 .thread16855:                                     ; preds = %.thread16872.loopexit, %.thread16872.loopexit.split-lp, %.thread16862.loopexit, %.thread16862.loopexit.split-lp, %4788, %4750, %4718, %4678, %4664
-  %.pn5644.pn = phi { ptr, i32 } [ %4665, %4664 ], [ %4679, %4678 ], [ %lpad.thr_comm.split-lp16861, %4718 ], [ %4751, %4750 ], [ %lpad.thr_comm.split-lp16871, %4788 ], [ %lpad.loopexit21006, %.thread16862.loopexit ], [ %lpad.loopexit.split-lp21007, %.thread16862.loopexit.split-lp ], [ %lpad.loopexit21713, %.thread16872.loopexit ], [ %lpad.loopexit.split-lp21714, %.thread16872.loopexit.split-lp ]
+  %.pn5644.pn = phi { ptr, i32 } [ %4679, %4678 ], [ %lpad.thr_comm.split-lp16871, %4788 ], [ %4665, %4664 ], [ %4751, %4750 ], [ %lpad.loopexit.split-lp21007, %.thread16862.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16861, %4718 ], [ %lpad.loopexit21006, %.thread16862.loopexit ], [ %lpad.loopexit21713, %.thread16872.loopexit ], [ %lpad.loopexit.split-lp21714, %.thread16872.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1528)
           to label %.thread16775 unwind label %3336
 
@@ -16893,7 +16893,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i7612:
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit7619" unwind label %.thread16872.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit7617": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i7612, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7610
-  %.sroa.714537.3 = phi i64 [ %.sroa.414533.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7610 ], [ %4774, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i7612 ]
+  %.sroa.714537.3 = phi i64 [ %4774, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i7612 ], [ %.sroa.414533.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i7610 ]
   %4776 = icmp eq i64 %.sroa.714537.3, -1
   %4777 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.014528.0.copyload
   %or.cond20056 = select i1 %4776, i1 %4777, i1 false
@@ -17038,7 +17038,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4805 unwind label %4803
 
 .thread16890:                                     ; preds = %.loopexit21023, %.loopexit.split-lp21024, %4844, %4822, %4803
-  %.pn5632.pn = phi { ptr, i32 } [ %4804, %4803 ], [ %4823, %4822 ], [ %eh.lpad-body7651.ph, %4844 ], [ %lpad.loopexit21025, %.loopexit21023 ], [ %lpad.loopexit.split-lp21026, %.loopexit.split-lp21024 ]
+  %.pn5632.pn = phi { ptr, i32 } [ %4823, %4822 ], [ %eh.lpad-body7651.ph, %4844 ], [ %4804, %4803 ], [ %lpad.loopexit21025, %.loopexit21023 ], [ %lpad.loopexit.split-lp21026, %.loopexit.split-lp21024 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1519)
           to label %.thread16494 unwind label %3336
 
@@ -17289,7 +17289,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4860 unwind label %4858
 
 .thread16906:                                     ; preds = %.loopexit21028, %.loopexit.split-lp21029, %4899, %4877, %4858
-  %.pn5625.pn = phi { ptr, i32 } [ %4859, %4858 ], [ %4878, %4877 ], [ %eh.lpad-body7690.ph, %4899 ], [ %lpad.loopexit21030, %.loopexit21028 ], [ %lpad.loopexit.split-lp21031, %.loopexit.split-lp21029 ]
+  %.pn5625.pn = phi { ptr, i32 } [ %4878, %4877 ], [ %eh.lpad-body7690.ph, %4899 ], [ %4859, %4858 ], [ %lpad.loopexit21030, %.loopexit21028 ], [ %lpad.loopexit.split-lp21031, %.loopexit.split-lp21029 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1513)
           to label %.thread16494 unwind label %3336
 
@@ -17553,7 +17553,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %4925 unwind label %4923
 
 .thread16928:                                     ; preds = %.loopexit21034, %.loopexit.split-lp21035, %5015, %.loopexit20650, %4923
-  %.pn5618.pn = phi { ptr, i32 } [ %4924, %4923 ], [ %lpad.phi20654, %.loopexit20650 ], [ %eh.lpad-body7743.ph, %5015 ], [ %lpad.loopexit21036, %.loopexit21034 ], [ %lpad.loopexit.split-lp21037, %.loopexit.split-lp21035 ]
+  %.pn5618.pn = phi { ptr, i32 } [ %lpad.phi20654, %.loopexit20650 ], [ %eh.lpad-body7743.ph, %5015 ], [ %4924, %4923 ], [ %lpad.loopexit21036, %.loopexit21034 ], [ %lpad.loopexit.split-lp21037, %.loopexit.split-lp21035 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1507)
           to label %.thread16494 unwind label %3336
 
@@ -17986,7 +17986,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5041 unwind label %5039
 
 .thread16954:                                     ; preds = %.loopexit21040, %.loopexit.split-lp21041, %5133, %.loopexit20655, %5039
-  %.pn5611.pn = phi { ptr, i32 } [ %5040, %5039 ], [ %lpad.phi20659, %.loopexit20655 ], [ %eh.lpad-body7799.ph, %5133 ], [ %lpad.loopexit21042, %.loopexit21040 ], [ %lpad.loopexit.split-lp21043, %.loopexit.split-lp21041 ]
+  %.pn5611.pn = phi { ptr, i32 } [ %lpad.phi20659, %.loopexit20655 ], [ %eh.lpad-body7799.ph, %5133 ], [ %5040, %5039 ], [ %lpad.loopexit21042, %.loopexit21040 ], [ %lpad.loopexit.split-lp21043, %.loopexit.split-lp21041 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1501)
           to label %.thread16494 unwind label %3336
 
@@ -18428,7 +18428,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5158 unwind label %5156
 
 .thread16974:                                     ; preds = %.thread17073.loopexit, %.thread17073.loopexit.split-lp, %.thread17039.loopexit, %.thread17039.loopexit.split-lp, %.thread17029.loopexit, %.thread17029.loopexit.split-lp, %.thread17019.loopexit, %.thread17019.loopexit.split-lp, %.thread17009.loopexit, %.thread17009.loopexit.split-lp, %.thread16981.loopexit, %.thread16981.loopexit.split-lp, %5735, %.thread17076, %5575, %.thread17042, %5379, %5336, %5316, %5294, %5288, %5259, %5247, %.thread16984, %5156
-  %.pn5604.pn = phi { ptr, i32 } [ %5157, %5156 ], [ %.pn5602, %.thread16984 ], [ %lpad.thr_comm.split-lp16980, %5247 ], [ %5260, %5259 ], [ %lpad.thr_comm.split-lp17008, %5288 ], [ %5295, %5294 ], [ %lpad.thr_comm.split-lp17018, %5316 ], [ %lpad.phi20668, %5336 ], [ %lpad.thr_comm.split-lp17028, %5379 ], [ %.pn5579.pn, %.thread17042 ], [ %lpad.thr_comm.split-lp17038, %5575 ], [ %.pn5569.pn, %.thread17076 ], [ %lpad.thr_comm.split-lp17072, %5735 ], [ %lpad.loopexit21071, %.thread16981.loopexit ], [ %lpad.loopexit.split-lp21072, %.thread16981.loopexit.split-lp ], [ %lpad.loopexit21068, %.thread17009.loopexit ], [ %lpad.loopexit.split-lp21069, %.thread17009.loopexit.split-lp ], [ %lpad.loopexit21065, %.thread17019.loopexit ], [ %lpad.loopexit.split-lp21066, %.thread17019.loopexit.split-lp ], [ %lpad.loopexit21061, %.thread17029.loopexit ], [ %lpad.loopexit.split-lp21062, %.thread17029.loopexit.split-lp ], [ %lpad.loopexit21058, %.thread17039.loopexit ], [ %lpad.loopexit.split-lp21059, %.thread17039.loopexit.split-lp ], [ %lpad.loopexit21685, %.thread17073.loopexit ], [ %lpad.loopexit.split-lp21686, %.thread17073.loopexit.split-lp ]
+  %.pn5604.pn = phi { ptr, i32 } [ %.pn5602, %.thread16984 ], [ %lpad.thr_comm.split-lp17072, %5735 ], [ %5157, %5156 ], [ %5260, %5259 ], [ %lpad.loopexit.split-lp21072, %.thread16981.loopexit.split-lp ], [ %5295, %5294 ], [ %lpad.loopexit.split-lp21069, %.thread17009.loopexit.split-lp ], [ %lpad.phi20668, %5336 ], [ %lpad.loopexit.split-lp21066, %.thread17019.loopexit.split-lp ], [ %.pn5579.pn, %.thread17042 ], [ %lpad.loopexit.split-lp21062, %.thread17029.loopexit.split-lp ], [ %.pn5569.pn, %.thread17076 ], [ %lpad.loopexit.split-lp21059, %.thread17039.loopexit.split-lp ], [ %lpad.thr_comm.split-lp16980, %5247 ], [ %lpad.thr_comm.split-lp17008, %5288 ], [ %lpad.thr_comm.split-lp17018, %5316 ], [ %lpad.thr_comm.split-lp17028, %5379 ], [ %lpad.thr_comm.split-lp17038, %5575 ], [ %lpad.loopexit21071, %.thread16981.loopexit ], [ %lpad.loopexit21068, %.thread17009.loopexit ], [ %lpad.loopexit21065, %.thread17019.loopexit ], [ %lpad.loopexit21061, %.thread17029.loopexit ], [ %lpad.loopexit21058, %.thread17039.loopexit ], [ %lpad.loopexit21685, %.thread17073.loopexit ], [ %lpad.loopexit.split-lp21686, %.thread17073.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1495)
           to label %.thread16494 unwind label %3336
 
@@ -18633,7 +18633,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5205 unwind label %5203
 
 .thread16994:                                     ; preds = %.loopexit20397, %.loopexit.split-lp20398, %5245, %5222, %5203
-  %.pn5597.pn = phi { ptr, i32 } [ %5204, %5203 ], [ %5223, %5222 ], [ %eh.lpad-body7870.ph, %5245 ], [ %lpad.loopexit20399, %.loopexit20397 ], [ %lpad.loopexit.split-lp20400, %.loopexit.split-lp20398 ]
+  %.pn5597.pn = phi { ptr, i32 } [ %5223, %5222 ], [ %eh.lpad-body7870.ph, %5245 ], [ %5204, %5203 ], [ %lpad.loopexit20399, %.loopexit20397 ], [ %lpad.loopexit.split-lp20400, %.loopexit.split-lp20398 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1489)
           to label %.thread16984 unwind label %3336
 
@@ -19319,7 +19319,7 @@ switch.lookup23511:                               ; preds = %5274
           to label %5385 unwind label %.loopexit20669
 
 .thread17042:                                     ; preds = %.thread17059.loopexit, %.thread17059.loopexit.split-lp, %.thread17049.loopexit, %.thread17049.loopexit.split-lp, %.loopexit20669, %.loopexit.split-lp20670.loopexit.split-lp, %.loopexit.split-lp20670.loopexit, %5457, %5440, %5422, %5400
-  %.pn5579.pn = phi { ptr, i32 } [ %5401, %5400 ], [ %lpad.thr_comm.split-lp17048, %5422 ], [ %5441, %5440 ], [ %lpad.thr_comm.split-lp17058, %5457 ], [ %lpad.loopexit20671, %.loopexit20669 ], [ %lpad.loopexit21054, %.loopexit.split-lp20670.loopexit ], [ %lpad.loopexit.split-lp21055, %.loopexit.split-lp20670.loopexit.split-lp ], [ %lpad.loopexit20678, %.thread17049.loopexit ], [ %lpad.loopexit.split-lp20679, %.thread17049.loopexit.split-lp ], [ %lpad.loopexit20675, %.thread17059.loopexit ], [ %lpad.loopexit.split-lp20676, %.thread17059.loopexit.split-lp ]
+  %.pn5579.pn = phi { ptr, i32 } [ %5401, %5400 ], [ %lpad.loopexit.split-lp21055, %.loopexit.split-lp20670.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17058, %5457 ], [ %5441, %5440 ], [ %lpad.loopexit.split-lp20679, %.thread17049.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17048, %5422 ], [ %lpad.loopexit20671, %.loopexit20669 ], [ %lpad.loopexit21054, %.loopexit.split-lp20670.loopexit ], [ %lpad.loopexit20678, %.thread17049.loopexit ], [ %lpad.loopexit20675, %.thread17059.loopexit ], [ %lpad.loopexit.split-lp20676, %.thread17059.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1474)
           to label %.thread16974 unwind label %3336
 
@@ -19902,7 +19902,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8029: ; pred
           to label %5579 unwind label %.loopexit21045
 
 .thread17076:                                     ; preds = %.thread17093.loopexit, %.thread17093.loopexit.split-lp, %.thread17083.loopexit, %.thread17083.loopexit.split-lp, %.loopexit21045, %.loopexit.split-lp21046, %5734, %5682, %5638, %5598
-  %.pn5569.pn = phi { ptr, i32 } [ %5599, %5598 ], [ %lpad.thr_comm.split-lp17082, %5638 ], [ %5683, %5682 ], [ %lpad.thr_comm.split-lp17092, %5734 ], [ %lpad.loopexit21047, %.loopexit21045 ], [ %lpad.loopexit.split-lp21048, %.loopexit.split-lp21046 ], [ %lpad.loopexit21051, %.thread17083.loopexit ], [ %lpad.loopexit.split-lp21052, %.thread17083.loopexit.split-lp ], [ %lpad.loopexit21682, %.thread17093.loopexit ], [ %lpad.loopexit.split-lp21683, %.thread17093.loopexit.split-lp ]
+  %.pn5569.pn = phi { ptr, i32 } [ %5599, %5598 ], [ %lpad.loopexit.split-lp21048, %.loopexit.split-lp21046 ], [ %lpad.thr_comm.split-lp17092, %5734 ], [ %5683, %5682 ], [ %lpad.loopexit.split-lp21052, %.thread17083.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17082, %5638 ], [ %lpad.loopexit21047, %.loopexit21045 ], [ %lpad.loopexit21051, %.thread17083.loopexit ], [ %lpad.loopexit21682, %.thread17093.loopexit ], [ %lpad.loopexit.split-lp21683, %.thread17093.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1465)
           to label %.thread16974 unwind label %3336
 
@@ -20302,7 +20302,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8105:
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit8112" unwind label %.thread17093.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit8110": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8105, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8103
-  %.sroa.714645.3 = phi i64 [ %.sroa.414641.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8103 ], [ %5706, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8105 ]
+  %.sroa.714645.3 = phi i64 [ %5706, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i8105 ], [ %.sroa.414641.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i8103 ]
   %5708 = icmp eq i64 %.sroa.714645.3, -1
   %5709 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.014636.0.copyload
   %or.cond20064 = select i1 %5708, i1 %5709, i1 false
@@ -20510,7 +20510,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5766 unwind label %5764
 
 .thread17111:                                     ; preds = %.thread17758.loopexit, %.thread17758.loopexit.split-lp, %.thread17748.loopexit, %.thread17748.loopexit.split-lp, %.thread17718.loopexit, %.thread17718.loopexit.split-lp, %.thread17708.loopexit, %.thread17708.loopexit.split-lp, %.thread17698.loopexit, %.thread17698.loopexit.split-lp, %.thread17688.loopexit, %.thread17688.loopexit.split-lp, %.thread17678.loopexit, %.thread17678.loopexit.split-lp, %.thread17648.loopexit, %.thread17648.loopexit.split-lp, %.thread17618.loopexit, %.thread17618.loopexit.split-lp, %.thread17168.loopexit, %.thread17168.loopexit.split-lp, %.thread17118.loopexit, %.thread17118.loopexit.split-lp, %7209, %7153, %7149, %7140, %7094, %.thread17721, %6983, %6940, %6935, %6914, %6893, %6871, %6865, %6836, %6824, %.thread17651, %6744, %.thread17621, %6667, %.thread17171, %5963, %.thread17121, %5764
-  %.pn5557.pn = phi { ptr, i32 } [ %5765, %5764 ], [ %.pn5554.pn, %.thread17121 ], [ %lpad.thr_comm.split-lp17117, %5963 ], [ %.pn5532.pn, %.thread17171 ], [ %lpad.thr_comm.split-lp17167, %6667 ], [ %.pn5355.pn, %.thread17621 ], [ %lpad.thr_comm.split-lp17617, %6744 ], [ %.pn5344.pn, %.thread17651 ], [ %lpad.thr_comm.split-lp17647, %6824 ], [ %6837, %6836 ], [ %lpad.thr_comm.split-lp17677, %6865 ], [ %6872, %6871 ], [ %lpad.thr_comm.split-lp17687, %6893 ], [ %6915, %6914 ], [ %lpad.thr_comm.split-lp17697, %6935 ], [ %lpad.phi20707, %6940 ], [ %lpad.thr_comm.split-lp17707, %6983 ], [ %.pn5320.pn, %.thread17721 ], [ %lpad.phi20712, %7094 ], [ %lpad.thr_comm.split-lp17747, %7140 ], [ %lpad.thr_comm.split-lp17717, %7149 ], [ %lpad.phi21078, %7153 ], [ %lpad.thr_comm.split-lp17757, %7209 ], [ %lpad.loopexit21108, %.thread17118.loopexit ], [ %lpad.loopexit.split-lp21109, %.thread17118.loopexit.split-lp ], [ %lpad.loopexit21105, %.thread17168.loopexit ], [ %lpad.loopexit.split-lp21106, %.thread17168.loopexit.split-lp ], [ %lpad.loopexit21102, %.thread17618.loopexit ], [ %lpad.loopexit.split-lp21103, %.thread17618.loopexit.split-lp ], [ %lpad.loopexit21099, %.thread17648.loopexit ], [ %lpad.loopexit.split-lp21100, %.thread17648.loopexit.split-lp ], [ %lpad.loopexit21096, %.thread17678.loopexit ], [ %lpad.loopexit.split-lp21097, %.thread17678.loopexit.split-lp ], [ %lpad.loopexit21093, %.thread17688.loopexit ], [ %lpad.loopexit.split-lp21094, %.thread17688.loopexit.split-lp ], [ %lpad.loopexit21090, %.thread17698.loopexit ], [ %lpad.loopexit.split-lp21091, %.thread17698.loopexit.split-lp ], [ %lpad.loopexit21087, %.thread17708.loopexit ], [ %lpad.loopexit.split-lp21088, %.thread17708.loopexit.split-lp ], [ %lpad.loopexit21080, %.thread17718.loopexit ], [ %lpad.loopexit.split-lp21081, %.thread17718.loopexit.split-lp ], [ %lpad.loopexit21083, %.thread17748.loopexit ], [ %lpad.loopexit.split-lp21084, %.thread17748.loopexit.split-lp ], [ %lpad.loopexit21673, %.thread17758.loopexit ], [ %lpad.loopexit.split-lp21674, %.thread17758.loopexit.split-lp ]
+  %.pn5557.pn = phi { ptr, i32 } [ %.pn5554.pn, %.thread17121 ], [ %lpad.thr_comm.split-lp17757, %7209 ], [ %5765, %5764 ], [ %.pn5532.pn, %.thread17171 ], [ %lpad.loopexit.split-lp21109, %.thread17118.loopexit.split-lp ], [ %.pn5355.pn, %.thread17621 ], [ %lpad.loopexit.split-lp21106, %.thread17168.loopexit.split-lp ], [ %.pn5344.pn, %.thread17651 ], [ %lpad.loopexit.split-lp21103, %.thread17618.loopexit.split-lp ], [ %6837, %6836 ], [ %lpad.loopexit.split-lp21100, %.thread17648.loopexit.split-lp ], [ %6872, %6871 ], [ %lpad.loopexit.split-lp21097, %.thread17678.loopexit.split-lp ], [ %6915, %6914 ], [ %lpad.loopexit.split-lp21094, %.thread17688.loopexit.split-lp ], [ %lpad.phi20707, %6940 ], [ %lpad.loopexit.split-lp21091, %.thread17698.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17747, %7140 ], [ %lpad.loopexit.split-lp21088, %.thread17708.loopexit.split-lp ], [ %lpad.phi20712, %7094 ], [ %lpad.loopexit.split-lp21081, %.thread17718.loopexit.split-lp ], [ %lpad.phi21078, %7153 ], [ %lpad.loopexit.split-lp21084, %.thread17748.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17117, %5963 ], [ %lpad.thr_comm.split-lp17167, %6667 ], [ %lpad.thr_comm.split-lp17617, %6744 ], [ %lpad.thr_comm.split-lp17647, %6824 ], [ %lpad.thr_comm.split-lp17677, %6865 ], [ %lpad.thr_comm.split-lp17687, %6893 ], [ %lpad.thr_comm.split-lp17697, %6935 ], [ %lpad.thr_comm.split-lp17707, %6983 ], [ %.pn5320.pn, %.thread17721 ], [ %lpad.thr_comm.split-lp17717, %7149 ], [ %lpad.loopexit21108, %.thread17118.loopexit ], [ %lpad.loopexit21105, %.thread17168.loopexit ], [ %lpad.loopexit21102, %.thread17618.loopexit ], [ %lpad.loopexit21099, %.thread17648.loopexit ], [ %lpad.loopexit21096, %.thread17678.loopexit ], [ %lpad.loopexit21093, %.thread17688.loopexit ], [ %lpad.loopexit21090, %.thread17698.loopexit ], [ %lpad.loopexit21087, %.thread17708.loopexit ], [ %lpad.loopexit21080, %.thread17718.loopexit ], [ %lpad.loopexit21083, %.thread17748.loopexit ], [ %lpad.loopexit21673, %.thread17758.loopexit ], [ %lpad.loopexit.split-lp21674, %.thread17758.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1456)
           to label %.thread16494 unwind label %3336
 
@@ -20595,7 +20595,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5782 unwind label %5780
 
 .thread17121:                                     ; preds = %.thread17128.loopexit, %.thread17128.loopexit.split-lp, %5950, %.thread17131, %5780
-  %.pn5554.pn = phi { ptr, i32 } [ %5781, %5780 ], [ %.pn5552, %.thread17131 ], [ %lpad.thr_comm.split-lp17127, %5950 ], [ %lpad.loopexit20691, %.thread17128.loopexit ], [ %lpad.loopexit.split-lp20692, %.thread17128.loopexit.split-lp ]
+  %.pn5554.pn = phi { ptr, i32 } [ %.pn5552, %.thread17131 ], [ %lpad.thr_comm.split-lp17127, %5950 ], [ %5781, %5780 ], [ %lpad.loopexit20691, %.thread17128.loopexit ], [ %lpad.loopexit.split-lp20692, %.thread17128.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1453)
           to label %.thread17111 unwind label %3336
 
@@ -21282,7 +21282,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5972 unwind label %5970
 
 .thread17171:                                     ; preds = %.thread17178.loopexit, %.thread17178.loopexit.split-lp, %6666, %.thread17181, %5970
-  %.pn5532.pn = phi { ptr, i32 } [ %5971, %5970 ], [ %.pn5529.pn, %.thread17181 ], [ %lpad.thr_comm.split-lp17177, %6666 ], [ %lpad.loopexit20694, %.thread17178.loopexit ], [ %lpad.loopexit.split-lp20695, %.thread17178.loopexit.split-lp ]
+  %.pn5532.pn = phi { ptr, i32 } [ %.pn5529.pn, %.thread17181 ], [ %lpad.thr_comm.split-lp17177, %6666 ], [ %5971, %5970 ], [ %lpad.loopexit20694, %.thread17178.loopexit ], [ %lpad.loopexit.split-lp20695, %.thread17178.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1438)
           to label %.thread17111 unwind label %3336
 
@@ -21351,7 +21351,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %5987 unwind label %5985
 
 .thread17181:                                     ; preds = %.thread17608.loopexit, %.thread17608.loopexit.split-lp, %.thread17498.loopexit, %.thread17498.loopexit.split-lp, %.thread17188.loopexit, %.thread17188.loopexit.split-lp, %6665, %6642, %6638, %.thread17501, %6464, %.thread17191, %5985
-  %.pn5529.pn = phi { ptr, i32 } [ %5986, %5985 ], [ %.pn5526.pn, %.thread17191 ], [ %lpad.thr_comm.split-lp17187, %6464 ], [ %.pn5403.pn, %.thread17501 ], [ %lpad.thr_comm.split-lp17497, %6638 ], [ %6643, %6642 ], [ %lpad.thr_comm.split-lp17607, %6665 ], [ %lpad.loopexit20408, %.thread17188.loopexit ], [ %lpad.loopexit.split-lp20409, %.thread17188.loopexit.split-lp ], [ %lpad.loopexit20405, %.thread17498.loopexit ], [ %lpad.loopexit.split-lp20406, %.thread17498.loopexit.split-lp ], [ %lpad.loopexit20402, %.thread17608.loopexit ], [ %lpad.loopexit.split-lp20403, %.thread17608.loopexit.split-lp ]
+  %.pn5529.pn = phi { ptr, i32 } [ %.pn5526.pn, %.thread17191 ], [ %lpad.thr_comm.split-lp17607, %6665 ], [ %5986, %5985 ], [ %.pn5403.pn, %.thread17501 ], [ %lpad.loopexit.split-lp20409, %.thread17188.loopexit.split-lp ], [ %6643, %6642 ], [ %lpad.loopexit.split-lp20406, %.thread17498.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17187, %6464 ], [ %lpad.thr_comm.split-lp17497, %6638 ], [ %lpad.loopexit20408, %.thread17188.loopexit ], [ %lpad.loopexit20405, %.thread17498.loopexit ], [ %lpad.loopexit20402, %.thread17608.loopexit ], [ %lpad.loopexit.split-lp20403, %.thread17608.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1435)
           to label %.thread17171 unwind label %3336
 
@@ -21433,7 +21433,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6005 unwind label %6003
 
 .thread17191:                                     ; preds = %.thread17198.loopexit, %.thread17198.loopexit.split-lp, %6463, %.thread17201, %6003
-  %.pn5526.pn = phi { ptr, i32 } [ %6004, %6003 ], [ %.pn5523.pn, %.thread17201 ], [ %lpad.thr_comm.split-lp17197, %6463 ], [ %lpad.loopexit20289, %.thread17198.loopexit ], [ %lpad.loopexit.split-lp20290, %.thread17198.loopexit.split-lp ]
+  %.pn5526.pn = phi { ptr, i32 } [ %.pn5523.pn, %.thread17201 ], [ %lpad.thr_comm.split-lp17197, %6463 ], [ %6004, %6003 ], [ %lpad.loopexit20289, %.thread17198.loopexit ], [ %lpad.loopexit.split-lp20290, %.thread17198.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1432)
           to label %.thread17181 unwind label %3336
 
@@ -21495,7 +21495,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6018 unwind label %6016
 
 .thread17201:                                     ; preds = %.thread17208.loopexit, %.thread17208.loopexit.split-lp, %6462, %.thread17211, %6016
-  %.pn5523.pn = phi { ptr, i32 } [ %6017, %6016 ], [ %.pn5520.pn, %.thread17211 ], [ %lpad.thr_comm.split-lp17207, %6462 ], [ %lpad.loopexit20259, %.thread17208.loopexit ], [ %lpad.loopexit.split-lp20260, %.thread17208.loopexit.split-lp ]
+  %.pn5523.pn = phi { ptr, i32 } [ %.pn5520.pn, %.thread17211 ], [ %lpad.thr_comm.split-lp17207, %6462 ], [ %6017, %6016 ], [ %lpad.loopexit20259, %.thread17208.loopexit ], [ %lpad.loopexit.split-lp20260, %.thread17208.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1429)
           to label %.thread17191 unwind label %3336
 
@@ -21557,7 +21557,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6031 unwind label %6029
 
 .thread17211:                                     ; preds = %.thread17218.loopexit, %.thread17218.loopexit.split-lp, %6461, %.thread17221, %6029
-  %.pn5520.pn = phi { ptr, i32 } [ %6030, %6029 ], [ %.pn5517.pn, %.thread17221 ], [ %lpad.thr_comm.split-lp17217, %6461 ], [ %lpad.loopexit20253, %.thread17218.loopexit ], [ %lpad.loopexit.split-lp20254, %.thread17218.loopexit.split-lp ]
+  %.pn5520.pn = phi { ptr, i32 } [ %.pn5517.pn, %.thread17221 ], [ %lpad.thr_comm.split-lp17217, %6461 ], [ %6030, %6029 ], [ %lpad.loopexit20253, %.thread17218.loopexit ], [ %lpad.loopexit.split-lp20254, %.thread17218.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1426)
           to label %.thread17201 unwind label %3336
 
@@ -21619,7 +21619,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6044 unwind label %6042
 
 .thread17221:                                     ; preds = %.thread17228.loopexit, %.thread17228.loopexit.split-lp, %6460, %.thread17231, %6042
-  %.pn5517.pn = phi { ptr, i32 } [ %6043, %6042 ], [ %.pn5514.pn, %.thread17231 ], [ %lpad.thr_comm.split-lp17227, %6460 ], [ %lpad.loopexit20247, %.thread17228.loopexit ], [ %lpad.loopexit.split-lp20248, %.thread17228.loopexit.split-lp ]
+  %.pn5517.pn = phi { ptr, i32 } [ %.pn5514.pn, %.thread17231 ], [ %lpad.thr_comm.split-lp17227, %6460 ], [ %6043, %6042 ], [ %lpad.loopexit20247, %.thread17228.loopexit ], [ %lpad.loopexit.split-lp20248, %.thread17228.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1423)
           to label %.thread17211 unwind label %3336
 
@@ -21681,7 +21681,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6057 unwind label %6055
 
 .thread17231:                                     ; preds = %.thread17238.loopexit, %.thread17238.loopexit.split-lp, %6459, %.thread17241, %6055
-  %.pn5514.pn = phi { ptr, i32 } [ %6056, %6055 ], [ %.pn5511.pn, %.thread17241 ], [ %lpad.thr_comm.split-lp17237, %6459 ], [ %lpad.loopexit20241, %.thread17238.loopexit ], [ %lpad.loopexit.split-lp20242, %.thread17238.loopexit.split-lp ]
+  %.pn5514.pn = phi { ptr, i32 } [ %.pn5511.pn, %.thread17241 ], [ %lpad.thr_comm.split-lp17237, %6459 ], [ %6056, %6055 ], [ %lpad.loopexit20241, %.thread17238.loopexit ], [ %lpad.loopexit.split-lp20242, %.thread17238.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1420)
           to label %.thread17221 unwind label %3336
 
@@ -21744,7 +21744,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6071 unwind label %6069
 
 .thread17241:                                     ; preds = %.thread17248.loopexit, %.thread17248.loopexit.split-lp, %6458, %.thread17251, %6069
-  %.pn5511.pn = phi { ptr, i32 } [ %6070, %6069 ], [ %.pn5508.pn, %.thread17251 ], [ %lpad.thr_comm.split-lp17247, %6458 ], [ %lpad.loopexit20235, %.thread17248.loopexit ], [ %lpad.loopexit.split-lp20236, %.thread17248.loopexit.split-lp ]
+  %.pn5511.pn = phi { ptr, i32 } [ %.pn5508.pn, %.thread17251 ], [ %lpad.thr_comm.split-lp17247, %6458 ], [ %6070, %6069 ], [ %lpad.loopexit20235, %.thread17248.loopexit ], [ %lpad.loopexit.split-lp20236, %.thread17248.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1417)
           to label %.thread17231 unwind label %3336
 
@@ -21806,7 +21806,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6084 unwind label %6082
 
 .thread17251:                                     ; preds = %.thread17258.loopexit, %.thread17258.loopexit.split-lp, %6457, %.thread17261, %6082
-  %.pn5508.pn = phi { ptr, i32 } [ %6083, %6082 ], [ %.pn5505.pn, %.thread17261 ], [ %lpad.thr_comm.split-lp17257, %6457 ], [ %lpad.loopexit20229, %.thread17258.loopexit ], [ %lpad.loopexit.split-lp20230, %.thread17258.loopexit.split-lp ]
+  %.pn5508.pn = phi { ptr, i32 } [ %.pn5505.pn, %.thread17261 ], [ %lpad.thr_comm.split-lp17257, %6457 ], [ %6083, %6082 ], [ %lpad.loopexit20229, %.thread17258.loopexit ], [ %lpad.loopexit.split-lp20230, %.thread17258.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1414)
           to label %.thread17241 unwind label %3336
 
@@ -21868,7 +21868,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6097 unwind label %6095
 
 .thread17261:                                     ; preds = %.thread17268.loopexit, %.thread17268.loopexit.split-lp, %6456, %.thread17271, %6095
-  %.pn5505.pn = phi { ptr, i32 } [ %6096, %6095 ], [ %.pn5502.pn, %.thread17271 ], [ %lpad.thr_comm.split-lp17267, %6456 ], [ %lpad.loopexit20223, %.thread17268.loopexit ], [ %lpad.loopexit.split-lp20224, %.thread17268.loopexit.split-lp ]
+  %.pn5505.pn = phi { ptr, i32 } [ %.pn5502.pn, %.thread17271 ], [ %lpad.thr_comm.split-lp17267, %6456 ], [ %6096, %6095 ], [ %lpad.loopexit20223, %.thread17268.loopexit ], [ %lpad.loopexit.split-lp20224, %.thread17268.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1411)
           to label %.thread17251 unwind label %3336
 
@@ -21930,7 +21930,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6110 unwind label %6108
 
 .thread17271:                                     ; preds = %.thread17278.loopexit, %.thread17278.loopexit.split-lp, %6455, %.thread17281, %6108
-  %.pn5502.pn = phi { ptr, i32 } [ %6109, %6108 ], [ %.pn5499.pn, %.thread17281 ], [ %lpad.thr_comm.split-lp17277, %6455 ], [ %lpad.loopexit20217, %.thread17278.loopexit ], [ %lpad.loopexit.split-lp20218, %.thread17278.loopexit.split-lp ]
+  %.pn5502.pn = phi { ptr, i32 } [ %.pn5499.pn, %.thread17281 ], [ %lpad.thr_comm.split-lp17277, %6455 ], [ %6109, %6108 ], [ %lpad.loopexit20217, %.thread17278.loopexit ], [ %lpad.loopexit.split-lp20218, %.thread17278.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1408)
           to label %.thread17261 unwind label %3336
 
@@ -21993,7 +21993,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6124 unwind label %6122
 
 .thread17281:                                     ; preds = %.thread17288.loopexit, %.thread17288.loopexit.split-lp, %6454, %.thread17291, %6122
-  %.pn5499.pn = phi { ptr, i32 } [ %6123, %6122 ], [ %.pn5496.pn, %.thread17291 ], [ %lpad.thr_comm.split-lp17287, %6454 ], [ %lpad.loopexit20211, %.thread17288.loopexit ], [ %lpad.loopexit.split-lp20212, %.thread17288.loopexit.split-lp ]
+  %.pn5499.pn = phi { ptr, i32 } [ %.pn5496.pn, %.thread17291 ], [ %lpad.thr_comm.split-lp17287, %6454 ], [ %6123, %6122 ], [ %lpad.loopexit20211, %.thread17288.loopexit ], [ %lpad.loopexit.split-lp20212, %.thread17288.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1405)
           to label %.thread17271 unwind label %3336
 
@@ -22055,7 +22055,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6137 unwind label %6135
 
 .thread17291:                                     ; preds = %.thread17298.loopexit, %.thread17298.loopexit.split-lp, %6453, %.thread17301, %6135
-  %.pn5496.pn = phi { ptr, i32 } [ %6136, %6135 ], [ %.pn5493.pn, %.thread17301 ], [ %lpad.thr_comm.split-lp17297, %6453 ], [ %lpad.loopexit20208, %.thread17298.loopexit ], [ %lpad.loopexit.split-lp20209, %.thread17298.loopexit.split-lp ]
+  %.pn5496.pn = phi { ptr, i32 } [ %.pn5493.pn, %.thread17301 ], [ %lpad.thr_comm.split-lp17297, %6453 ], [ %6136, %6135 ], [ %lpad.loopexit20208, %.thread17298.loopexit ], [ %lpad.loopexit.split-lp20209, %.thread17298.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1402)
           to label %.thread17281 unwind label %3336
 
@@ -22117,7 +22117,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6150 unwind label %6148
 
 .thread17301:                                     ; preds = %.thread17308.loopexit, %.thread17308.loopexit.split-lp, %6452, %.thread17311, %6148
-  %.pn5493.pn = phi { ptr, i32 } [ %6149, %6148 ], [ %.pn5490.pn, %.thread17311 ], [ %lpad.thr_comm.split-lp17307, %6452 ], [ %lpad.loopexit20205, %.thread17308.loopexit ], [ %lpad.loopexit.split-lp20206, %.thread17308.loopexit.split-lp ]
+  %.pn5493.pn = phi { ptr, i32 } [ %.pn5490.pn, %.thread17311 ], [ %lpad.thr_comm.split-lp17307, %6452 ], [ %6149, %6148 ], [ %lpad.loopexit20205, %.thread17308.loopexit ], [ %lpad.loopexit.split-lp20206, %.thread17308.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1399)
           to label %.thread17291 unwind label %3336
 
@@ -22181,7 +22181,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6164 unwind label %6162
 
 .thread17311:                                     ; preds = %.thread17318.loopexit, %.thread17318.loopexit.split-lp, %6451, %.thread17321, %6162
-  %.pn5490.pn = phi { ptr, i32 } [ %6163, %6162 ], [ %.pn5487.pn, %.thread17321 ], [ %lpad.thr_comm.split-lp17317, %6451 ], [ %lpad.loopexit20202, %.thread17318.loopexit ], [ %lpad.loopexit.split-lp20203, %.thread17318.loopexit.split-lp ]
+  %.pn5490.pn = phi { ptr, i32 } [ %.pn5487.pn, %.thread17321 ], [ %lpad.thr_comm.split-lp17317, %6451 ], [ %6163, %6162 ], [ %lpad.loopexit20202, %.thread17318.loopexit ], [ %lpad.loopexit.split-lp20203, %.thread17318.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1396)
           to label %.thread17301 unwind label %3336
 
@@ -22244,7 +22244,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6178 unwind label %6176
 
 .thread17321:                                     ; preds = %.thread17328.loopexit, %.thread17328.loopexit.split-lp, %6450, %.thread17331, %6176
-  %.pn5487.pn = phi { ptr, i32 } [ %6177, %6176 ], [ %.pn5484.pn, %.thread17331 ], [ %lpad.thr_comm.split-lp17327, %6450 ], [ %lpad.loopexit20199, %.thread17328.loopexit ], [ %lpad.loopexit.split-lp20200, %.thread17328.loopexit.split-lp ]
+  %.pn5487.pn = phi { ptr, i32 } [ %.pn5484.pn, %.thread17331 ], [ %lpad.thr_comm.split-lp17327, %6450 ], [ %6177, %6176 ], [ %lpad.loopexit20199, %.thread17328.loopexit ], [ %lpad.loopexit.split-lp20200, %.thread17328.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1393)
           to label %.thread17311 unwind label %3336
 
@@ -22308,7 +22308,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6192 unwind label %6190
 
 .thread17331:                                     ; preds = %.thread17338.loopexit, %.thread17338.loopexit.split-lp, %6449, %.thread17341, %6190
-  %.pn5484.pn = phi { ptr, i32 } [ %6191, %6190 ], [ %.pn5481.pn, %.thread17341 ], [ %lpad.thr_comm.split-lp17337, %6449 ], [ %lpad.loopexit20196, %.thread17338.loopexit ], [ %lpad.loopexit.split-lp20197, %.thread17338.loopexit.split-lp ]
+  %.pn5484.pn = phi { ptr, i32 } [ %.pn5481.pn, %.thread17341 ], [ %lpad.thr_comm.split-lp17337, %6449 ], [ %6191, %6190 ], [ %lpad.loopexit20196, %.thread17338.loopexit ], [ %lpad.loopexit.split-lp20197, %.thread17338.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1390)
           to label %.thread17321 unwind label %3336
 
@@ -22371,7 +22371,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6206 unwind label %6204
 
 .thread17341:                                     ; preds = %.thread17348.loopexit, %.thread17348.loopexit.split-lp, %6448, %.thread17351, %6204
-  %.pn5481.pn = phi { ptr, i32 } [ %6205, %6204 ], [ %.pn5478.pn, %.thread17351 ], [ %lpad.thr_comm.split-lp17347, %6448 ], [ %lpad.loopexit20193, %.thread17348.loopexit ], [ %lpad.loopexit.split-lp20194, %.thread17348.loopexit.split-lp ]
+  %.pn5481.pn = phi { ptr, i32 } [ %.pn5478.pn, %.thread17351 ], [ %lpad.thr_comm.split-lp17347, %6448 ], [ %6205, %6204 ], [ %lpad.loopexit20193, %.thread17348.loopexit ], [ %lpad.loopexit.split-lp20194, %.thread17348.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1387)
           to label %.thread17331 unwind label %3336
 
@@ -22434,7 +22434,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6220 unwind label %6218
 
 .thread17351:                                     ; preds = %.thread17358.loopexit, %.thread17358.loopexit.split-lp, %6447, %.thread17361, %6218
-  %.pn5478.pn = phi { ptr, i32 } [ %6219, %6218 ], [ %.pn5475.pn, %.thread17361 ], [ %lpad.thr_comm.split-lp17357, %6447 ], [ %lpad.loopexit20190, %.thread17358.loopexit ], [ %lpad.loopexit.split-lp20191, %.thread17358.loopexit.split-lp ]
+  %.pn5478.pn = phi { ptr, i32 } [ %.pn5475.pn, %.thread17361 ], [ %lpad.thr_comm.split-lp17357, %6447 ], [ %6219, %6218 ], [ %lpad.loopexit20190, %.thread17358.loopexit ], [ %lpad.loopexit.split-lp20191, %.thread17358.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1384)
           to label %.thread17341 unwind label %3336
 
@@ -22498,7 +22498,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6234 unwind label %6232
 
 .thread17361:                                     ; preds = %.thread17368.loopexit, %.thread17368.loopexit.split-lp, %6446, %.thread17371, %6232
-  %.pn5475.pn = phi { ptr, i32 } [ %6233, %6232 ], [ %.pn5472.pn, %.thread17371 ], [ %lpad.thr_comm.split-lp17367, %6446 ], [ %lpad.loopexit20187, %.thread17368.loopexit ], [ %lpad.loopexit.split-lp20188, %.thread17368.loopexit.split-lp ]
+  %.pn5475.pn = phi { ptr, i32 } [ %.pn5472.pn, %.thread17371 ], [ %lpad.thr_comm.split-lp17367, %6446 ], [ %6233, %6232 ], [ %lpad.loopexit20187, %.thread17368.loopexit ], [ %lpad.loopexit.split-lp20188, %.thread17368.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1381)
           to label %.thread17351 unwind label %3336
 
@@ -22561,7 +22561,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6248 unwind label %6246
 
 .thread17371:                                     ; preds = %.thread17378.loopexit, %.thread17378.loopexit.split-lp, %6445, %.thread17381, %6246
-  %.pn5472.pn = phi { ptr, i32 } [ %6247, %6246 ], [ %.pn5469.pn, %.thread17381 ], [ %lpad.thr_comm.split-lp17377, %6445 ], [ %lpad.loopexit20184, %.thread17378.loopexit ], [ %lpad.loopexit.split-lp20185, %.thread17378.loopexit.split-lp ]
+  %.pn5472.pn = phi { ptr, i32 } [ %.pn5469.pn, %.thread17381 ], [ %lpad.thr_comm.split-lp17377, %6445 ], [ %6247, %6246 ], [ %lpad.loopexit20184, %.thread17378.loopexit ], [ %lpad.loopexit.split-lp20185, %.thread17378.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1378)
           to label %.thread17361 unwind label %3336
 
@@ -22625,7 +22625,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6262 unwind label %6260
 
 .thread17381:                                     ; preds = %.thread17388.loopexit, %.thread17388.loopexit.split-lp, %6444, %.thread17391, %6260
-  %.pn5469.pn = phi { ptr, i32 } [ %6261, %6260 ], [ %.pn5466.pn, %.thread17391 ], [ %lpad.thr_comm.split-lp17387, %6444 ], [ %lpad.loopexit20181, %.thread17388.loopexit ], [ %lpad.loopexit.split-lp20182, %.thread17388.loopexit.split-lp ]
+  %.pn5469.pn = phi { ptr, i32 } [ %.pn5466.pn, %.thread17391 ], [ %lpad.thr_comm.split-lp17387, %6444 ], [ %6261, %6260 ], [ %lpad.loopexit20181, %.thread17388.loopexit ], [ %lpad.loopexit.split-lp20182, %.thread17388.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1375)
           to label %.thread17371 unwind label %3336
 
@@ -22688,7 +22688,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6276 unwind label %6274
 
 .thread17391:                                     ; preds = %.thread17398.loopexit, %.thread17398.loopexit.split-lp, %6443, %.thread17401, %6274
-  %.pn5466.pn = phi { ptr, i32 } [ %6275, %6274 ], [ %.pn5463.pn, %.thread17401 ], [ %lpad.thr_comm.split-lp17397, %6443 ], [ %lpad.loopexit20178, %.thread17398.loopexit ], [ %lpad.loopexit.split-lp20179, %.thread17398.loopexit.split-lp ]
+  %.pn5466.pn = phi { ptr, i32 } [ %.pn5463.pn, %.thread17401 ], [ %lpad.thr_comm.split-lp17397, %6443 ], [ %6275, %6274 ], [ %lpad.loopexit20178, %.thread17398.loopexit ], [ %lpad.loopexit.split-lp20179, %.thread17398.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1372)
           to label %.thread17381 unwind label %3336
 
@@ -22751,7 +22751,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6290 unwind label %6288
 
 .thread17401:                                     ; preds = %.thread17408.loopexit, %.thread17408.loopexit.split-lp, %6442, %.thread17411, %6288
-  %.pn5463.pn = phi { ptr, i32 } [ %6289, %6288 ], [ %.pn5460.pn, %.thread17411 ], [ %lpad.thr_comm.split-lp17407, %6442 ], [ %lpad.loopexit20175, %.thread17408.loopexit ], [ %lpad.loopexit.split-lp20176, %.thread17408.loopexit.split-lp ]
+  %.pn5463.pn = phi { ptr, i32 } [ %.pn5460.pn, %.thread17411 ], [ %lpad.thr_comm.split-lp17407, %6442 ], [ %6289, %6288 ], [ %lpad.loopexit20175, %.thread17408.loopexit ], [ %lpad.loopexit.split-lp20176, %.thread17408.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1369)
           to label %.thread17391 unwind label %3336
 
@@ -22815,7 +22815,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6304 unwind label %6302
 
 .thread17411:                                     ; preds = %.thread17418.loopexit, %.thread17418.loopexit.split-lp, %6441, %.thread17421, %6302
-  %.pn5460.pn = phi { ptr, i32 } [ %6303, %6302 ], [ %.pn5457.pn, %.thread17421 ], [ %lpad.thr_comm.split-lp17417, %6441 ], [ %lpad.loopexit20172, %.thread17418.loopexit ], [ %lpad.loopexit.split-lp20173, %.thread17418.loopexit.split-lp ]
+  %.pn5460.pn = phi { ptr, i32 } [ %.pn5457.pn, %.thread17421 ], [ %lpad.thr_comm.split-lp17417, %6441 ], [ %6303, %6302 ], [ %lpad.loopexit20172, %.thread17418.loopexit ], [ %lpad.loopexit.split-lp20173, %.thread17418.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1366)
           to label %.thread17401 unwind label %3336
 
@@ -22878,7 +22878,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6318 unwind label %6316
 
 .thread17421:                                     ; preds = %.thread17428.loopexit, %.thread17428.loopexit.split-lp, %6440, %.thread17431, %6316
-  %.pn5457.pn = phi { ptr, i32 } [ %6317, %6316 ], [ %.pn5454.pn, %.thread17431 ], [ %lpad.thr_comm.split-lp17427, %6440 ], [ %lpad.loopexit20169, %.thread17428.loopexit ], [ %lpad.loopexit.split-lp20170, %.thread17428.loopexit.split-lp ]
+  %.pn5457.pn = phi { ptr, i32 } [ %.pn5454.pn, %.thread17431 ], [ %lpad.thr_comm.split-lp17427, %6440 ], [ %6317, %6316 ], [ %lpad.loopexit20169, %.thread17428.loopexit ], [ %lpad.loopexit.split-lp20170, %.thread17428.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1363)
           to label %.thread17411 unwind label %3336
 
@@ -22942,7 +22942,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6332 unwind label %6330
 
 .thread17431:                                     ; preds = %.thread17438.loopexit, %.thread17438.loopexit.split-lp, %6439, %.thread17441, %6330
-  %.pn5454.pn = phi { ptr, i32 } [ %6331, %6330 ], [ %.pn5451.pn, %.thread17441 ], [ %lpad.thr_comm.split-lp17437, %6439 ], [ %lpad.loopexit20166, %.thread17438.loopexit ], [ %lpad.loopexit.split-lp20167, %.thread17438.loopexit.split-lp ]
+  %.pn5454.pn = phi { ptr, i32 } [ %.pn5451.pn, %.thread17441 ], [ %lpad.thr_comm.split-lp17437, %6439 ], [ %6331, %6330 ], [ %lpad.loopexit20166, %.thread17438.loopexit ], [ %lpad.loopexit.split-lp20167, %.thread17438.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1360)
           to label %.thread17421 unwind label %3336
 
@@ -23005,7 +23005,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6346 unwind label %6344
 
 .thread17441:                                     ; preds = %.thread17448.loopexit, %.thread17448.loopexit.split-lp, %6438, %.thread17451, %6344
-  %.pn5451.pn = phi { ptr, i32 } [ %6345, %6344 ], [ %.pn5448.pn, %.thread17451 ], [ %lpad.thr_comm.split-lp17447, %6438 ], [ %lpad.loopexit20163, %.thread17448.loopexit ], [ %lpad.loopexit.split-lp20164, %.thread17448.loopexit.split-lp ]
+  %.pn5451.pn = phi { ptr, i32 } [ %.pn5448.pn, %.thread17451 ], [ %lpad.thr_comm.split-lp17447, %6438 ], [ %6345, %6344 ], [ %lpad.loopexit20163, %.thread17448.loopexit ], [ %lpad.loopexit.split-lp20164, %.thread17448.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1357)
           to label %.thread17431 unwind label %3336
 
@@ -23068,7 +23068,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6360 unwind label %6358
 
 .thread17451:                                     ; preds = %.thread17458.loopexit, %.thread17458.loopexit.split-lp, %6437, %.thread17461, %6358
-  %.pn5448.pn = phi { ptr, i32 } [ %6359, %6358 ], [ %.pn5445.pn, %.thread17461 ], [ %lpad.thr_comm.split-lp17457, %6437 ], [ %lpad.loopexit20160, %.thread17458.loopexit ], [ %lpad.loopexit.split-lp20161, %.thread17458.loopexit.split-lp ]
+  %.pn5448.pn = phi { ptr, i32 } [ %.pn5445.pn, %.thread17461 ], [ %lpad.thr_comm.split-lp17457, %6437 ], [ %6359, %6358 ], [ %lpad.loopexit20160, %.thread17458.loopexit ], [ %lpad.loopexit.split-lp20161, %.thread17458.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1354)
           to label %.thread17441 unwind label %3336
 
@@ -23130,7 +23130,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6373 unwind label %6371
 
 .thread17461:                                     ; preds = %.thread17468.loopexit, %.thread17468.loopexit.split-lp, %6436, %.thread17471, %6371
-  %.pn5445.pn = phi { ptr, i32 } [ %6372, %6371 ], [ %.pn5442.pn, %.thread17471 ], [ %lpad.thr_comm.split-lp17467, %6436 ], [ %lpad.loopexit20157, %.thread17468.loopexit ], [ %lpad.loopexit.split-lp20158, %.thread17468.loopexit.split-lp ]
+  %.pn5445.pn = phi { ptr, i32 } [ %.pn5442.pn, %.thread17471 ], [ %lpad.thr_comm.split-lp17467, %6436 ], [ %6372, %6371 ], [ %lpad.loopexit20157, %.thread17468.loopexit ], [ %lpad.loopexit.split-lp20158, %.thread17468.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1351)
           to label %.thread17451 unwind label %3336
 
@@ -23194,7 +23194,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6387 unwind label %6385
 
 .thread17471:                                     ; preds = %.thread17478.loopexit, %.thread17478.loopexit.split-lp, %6435, %.thread17481, %6385
-  %.pn5442.pn = phi { ptr, i32 } [ %6386, %6385 ], [ %.pn5439.pn, %.thread17481 ], [ %lpad.thr_comm.split-lp17477, %6435 ], [ %lpad.loopexit20154, %.thread17478.loopexit ], [ %lpad.loopexit.split-lp20155, %.thread17478.loopexit.split-lp ]
+  %.pn5442.pn = phi { ptr, i32 } [ %.pn5439.pn, %.thread17481 ], [ %lpad.thr_comm.split-lp17477, %6435 ], [ %6386, %6385 ], [ %lpad.loopexit20154, %.thread17478.loopexit ], [ %lpad.loopexit.split-lp20155, %.thread17478.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1348)
           to label %.thread17461 unwind label %3336
 
@@ -23257,7 +23257,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6401 unwind label %6399
 
 .thread17481:                                     ; preds = %.thread17488.loopexit, %.thread17488.loopexit.split-lp, %6434, %6413, %6399
-  %.pn5439.pn = phi { ptr, i32 } [ %6400, %6399 ], [ %6414, %6413 ], [ %lpad.thr_comm.split-lp17487, %6434 ], [ %lpad.loopexit, %.thread17488.loopexit ], [ %lpad.loopexit.split-lp, %.thread17488.loopexit.split-lp ]
+  %.pn5439.pn = phi { ptr, i32 } [ %6414, %6413 ], [ %lpad.thr_comm.split-lp17487, %6434 ], [ %6400, %6399 ], [ %lpad.loopexit, %.thread17488.loopexit ], [ %lpad.loopexit.split-lp, %.thread17488.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1345)
           to label %.thread17471 unwind label %3336
 
@@ -23961,7 +23961,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6470 unwind label %6468
 
 .thread17501:                                     ; preds = %.thread17508.loopexit, %.thread17508.loopexit.split-lp, %6637, %.thread17511, %6468
-  %.pn5403.pn = phi { ptr, i32 } [ %6469, %6468 ], [ %.pn5400.pn, %.thread17511 ], [ %lpad.thr_comm.split-lp17507, %6637 ], [ %lpad.loopexit20292, %.thread17508.loopexit ], [ %lpad.loopexit.split-lp20293, %.thread17508.loopexit.split-lp ]
+  %.pn5403.pn = phi { ptr, i32 } [ %.pn5400.pn, %.thread17511 ], [ %lpad.thr_comm.split-lp17507, %6637 ], [ %6469, %6468 ], [ %lpad.loopexit20292, %.thread17508.loopexit ], [ %lpad.loopexit.split-lp20293, %.thread17508.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1339)
           to label %.thread17181 unwind label %3336
 
@@ -24025,7 +24025,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6484 unwind label %6482
 
 .thread17511:                                     ; preds = %.thread17518.loopexit, %.thread17518.loopexit.split-lp, %6636, %.thread17521, %6482
-  %.pn5400.pn = phi { ptr, i32 } [ %6483, %6482 ], [ %.pn5397.pn, %.thread17521 ], [ %lpad.thr_comm.split-lp17517, %6636 ], [ %lpad.loopexit20262, %.thread17518.loopexit ], [ %lpad.loopexit.split-lp20263, %.thread17518.loopexit.split-lp ]
+  %.pn5400.pn = phi { ptr, i32 } [ %.pn5397.pn, %.thread17521 ], [ %lpad.thr_comm.split-lp17517, %6636 ], [ %6483, %6482 ], [ %lpad.loopexit20262, %.thread17518.loopexit ], [ %lpad.loopexit.split-lp20263, %.thread17518.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1336)
           to label %.thread17501 unwind label %3336
 
@@ -24087,7 +24087,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6497 unwind label %6495
 
 .thread17521:                                     ; preds = %.thread17528.loopexit, %.thread17528.loopexit.split-lp, %6635, %.thread17531, %6495
-  %.pn5397.pn = phi { ptr, i32 } [ %6496, %6495 ], [ %.pn5394.pn, %.thread17531 ], [ %lpad.thr_comm.split-lp17527, %6635 ], [ %lpad.loopexit20256, %.thread17528.loopexit ], [ %lpad.loopexit.split-lp20257, %.thread17528.loopexit.split-lp ]
+  %.pn5397.pn = phi { ptr, i32 } [ %.pn5394.pn, %.thread17531 ], [ %lpad.thr_comm.split-lp17527, %6635 ], [ %6496, %6495 ], [ %lpad.loopexit20256, %.thread17528.loopexit ], [ %lpad.loopexit.split-lp20257, %.thread17528.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1333)
           to label %.thread17511 unwind label %3336
 
@@ -24150,7 +24150,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6511 unwind label %6509
 
 .thread17531:                                     ; preds = %.thread17538.loopexit, %.thread17538.loopexit.split-lp, %6634, %.thread17541, %6509
-  %.pn5394.pn = phi { ptr, i32 } [ %6510, %6509 ], [ %.pn5391.pn, %.thread17541 ], [ %lpad.thr_comm.split-lp17537, %6634 ], [ %lpad.loopexit20250, %.thread17538.loopexit ], [ %lpad.loopexit.split-lp20251, %.thread17538.loopexit.split-lp ]
+  %.pn5394.pn = phi { ptr, i32 } [ %.pn5391.pn, %.thread17541 ], [ %lpad.thr_comm.split-lp17537, %6634 ], [ %6510, %6509 ], [ %lpad.loopexit20250, %.thread17538.loopexit ], [ %lpad.loopexit.split-lp20251, %.thread17538.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1330)
           to label %.thread17521 unwind label %3336
 
@@ -24214,7 +24214,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6525 unwind label %6523
 
 .thread17541:                                     ; preds = %.thread17548.loopexit, %.thread17548.loopexit.split-lp, %6633, %.thread17551, %6523
-  %.pn5391.pn = phi { ptr, i32 } [ %6524, %6523 ], [ %.pn5388.pn, %.thread17551 ], [ %lpad.thr_comm.split-lp17547, %6633 ], [ %lpad.loopexit20244, %.thread17548.loopexit ], [ %lpad.loopexit.split-lp20245, %.thread17548.loopexit.split-lp ]
+  %.pn5391.pn = phi { ptr, i32 } [ %.pn5388.pn, %.thread17551 ], [ %lpad.thr_comm.split-lp17547, %6633 ], [ %6524, %6523 ], [ %lpad.loopexit20244, %.thread17548.loopexit ], [ %lpad.loopexit.split-lp20245, %.thread17548.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1327)
           to label %.thread17531 unwind label %3336
 
@@ -24277,7 +24277,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6539 unwind label %6537
 
 .thread17551:                                     ; preds = %.thread17558.loopexit, %.thread17558.loopexit.split-lp, %6632, %.thread17561, %6537
-  %.pn5388.pn = phi { ptr, i32 } [ %6538, %6537 ], [ %.pn5385.pn, %.thread17561 ], [ %lpad.thr_comm.split-lp17557, %6632 ], [ %lpad.loopexit20238, %.thread17558.loopexit ], [ %lpad.loopexit.split-lp20239, %.thread17558.loopexit.split-lp ]
+  %.pn5388.pn = phi { ptr, i32 } [ %.pn5385.pn, %.thread17561 ], [ %lpad.thr_comm.split-lp17557, %6632 ], [ %6538, %6537 ], [ %lpad.loopexit20238, %.thread17558.loopexit ], [ %lpad.loopexit.split-lp20239, %.thread17558.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1324)
           to label %.thread17541 unwind label %3336
 
@@ -24340,7 +24340,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6553 unwind label %6551
 
 .thread17561:                                     ; preds = %.thread17568.loopexit, %.thread17568.loopexit.split-lp, %6631, %.thread17571, %6551
-  %.pn5385.pn = phi { ptr, i32 } [ %6552, %6551 ], [ %.pn5382.pn, %.thread17571 ], [ %lpad.thr_comm.split-lp17567, %6631 ], [ %lpad.loopexit20232, %.thread17568.loopexit ], [ %lpad.loopexit.split-lp20233, %.thread17568.loopexit.split-lp ]
+  %.pn5385.pn = phi { ptr, i32 } [ %.pn5382.pn, %.thread17571 ], [ %lpad.thr_comm.split-lp17567, %6631 ], [ %6552, %6551 ], [ %lpad.loopexit20232, %.thread17568.loopexit ], [ %lpad.loopexit.split-lp20233, %.thread17568.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1321)
           to label %.thread17551 unwind label %3336
 
@@ -24402,7 +24402,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6566 unwind label %6564
 
 .thread17571:                                     ; preds = %.thread17578.loopexit, %.thread17578.loopexit.split-lp, %6630, %.thread17581, %6564
-  %.pn5382.pn = phi { ptr, i32 } [ %6565, %6564 ], [ %.pn5379.pn, %.thread17581 ], [ %lpad.thr_comm.split-lp17577, %6630 ], [ %lpad.loopexit20226, %.thread17578.loopexit ], [ %lpad.loopexit.split-lp20227, %.thread17578.loopexit.split-lp ]
+  %.pn5382.pn = phi { ptr, i32 } [ %.pn5379.pn, %.thread17581 ], [ %lpad.thr_comm.split-lp17577, %6630 ], [ %6565, %6564 ], [ %lpad.loopexit20226, %.thread17578.loopexit ], [ %lpad.loopexit.split-lp20227, %.thread17578.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1318)
           to label %.thread17561 unwind label %3336
 
@@ -24466,7 +24466,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6580 unwind label %6578
 
 .thread17581:                                     ; preds = %.thread17588.loopexit, %.thread17588.loopexit.split-lp, %6629, %.thread17591, %6578
-  %.pn5379.pn = phi { ptr, i32 } [ %6579, %6578 ], [ %.pn5376.pn, %.thread17591 ], [ %lpad.thr_comm.split-lp17587, %6629 ], [ %lpad.loopexit20220, %.thread17588.loopexit ], [ %lpad.loopexit.split-lp20221, %.thread17588.loopexit.split-lp ]
+  %.pn5379.pn = phi { ptr, i32 } [ %.pn5376.pn, %.thread17591 ], [ %lpad.thr_comm.split-lp17587, %6629 ], [ %6579, %6578 ], [ %lpad.loopexit20220, %.thread17588.loopexit ], [ %lpad.loopexit.split-lp20221, %.thread17588.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1315)
           to label %.thread17571 unwind label %3336
 
@@ -24529,7 +24529,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6594 unwind label %6592
 
 .thread17591:                                     ; preds = %.thread17598.loopexit, %.thread17598.loopexit.split-lp, %6628, %6606, %6592
-  %.pn5376.pn = phi { ptr, i32 } [ %6593, %6592 ], [ %6607, %6606 ], [ %lpad.thr_comm.split-lp17597, %6628 ], [ %lpad.loopexit20214, %.thread17598.loopexit ], [ %lpad.loopexit.split-lp20215, %.thread17598.loopexit.split-lp ]
+  %.pn5376.pn = phi { ptr, i32 } [ %6607, %6606 ], [ %lpad.thr_comm.split-lp17597, %6628 ], [ %6593, %6592 ], [ %lpad.loopexit20214, %.thread17598.loopexit ], [ %lpad.loopexit.split-lp20215, %.thread17598.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1312)
           to label %.thread17581 unwind label %3336
 
@@ -25038,7 +25038,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6675 unwind label %6673
 
 .thread17621:                                     ; preds = %.thread17628.loopexit, %.thread17628.loopexit.split-lp, %6743, %.thread17631, %6673
-  %.pn5355.pn = phi { ptr, i32 } [ %6674, %6673 ], [ %.pn5352.pn, %.thread17631 ], [ %lpad.thr_comm.split-lp17627, %6743 ], [ %lpad.loopexit20697, %.thread17628.loopexit ], [ %lpad.loopexit.split-lp20698, %.thread17628.loopexit.split-lp ]
+  %.pn5355.pn = phi { ptr, i32 } [ %.pn5352.pn, %.thread17631 ], [ %lpad.thr_comm.split-lp17627, %6743 ], [ %6674, %6673 ], [ %lpad.loopexit20697, %.thread17628.loopexit ], [ %lpad.loopexit.split-lp20698, %.thread17628.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1303)
           to label %.thread17111 unwind label %3336
 
@@ -25211,7 +25211,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %6714 unwind label %.split21921
 
 .thread17631:                                     ; preds = %.thread17638.loopexit.split-lp, %.thread17638.loopexit.split.us, %.thread17638.loopexit.split, %.split21921, %.split21921.us, %6742, %6723
-  %.pn5352.pn = phi { ptr, i32 } [ %.us-phi21913, %6723 ], [ %.us-phi21927, %6742 ], [ %6713, %.split21921 ], [ %6711, %.split21921.us ], [ %lpad.loopexit.split-lp20412, %.thread17638.loopexit.split-lp ], [ %lpad.loopexit20411, %.thread17638.loopexit.split ], [ %lpad.loopexit20411.us, %.thread17638.loopexit.split.us ]
+  %.pn5352.pn = phi { ptr, i32 } [ %.us-phi21913, %6723 ], [ %6711, %.split21921.us ], [ %.us-phi21927, %6742 ], [ %6713, %.split21921 ], [ %lpad.loopexit.split-lp20412, %.thread17638.loopexit.split-lp ], [ %lpad.loopexit20411, %.thread17638.loopexit.split ], [ %lpad.loopexit20411.us, %.thread17638.loopexit.split.us ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1300)
           to label %.thread17621 unwind label %3336
 
@@ -25428,7 +25428,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
           to label %6752 unwind label %6750
 
 .thread17651:                                     ; preds = %.thread17658.loopexit, %.thread17658.loopexit.split-lp, %6823, %.thread17661, %6750
-  %.pn5344.pn = phi { ptr, i32 } [ %6751, %6750 ], [ %.pn5341.pn, %.thread17661 ], [ %lpad.thr_comm.split-lp17657, %6823 ], [ %lpad.loopexit20700, %.thread17658.loopexit ], [ %lpad.loopexit.split-lp20701, %.thread17658.loopexit.split-lp ]
+  %.pn5344.pn = phi { ptr, i32 } [ %.pn5341.pn, %.thread17661 ], [ %lpad.thr_comm.split-lp17657, %6823 ], [ %6751, %6750 ], [ %lpad.loopexit20700, %.thread17658.loopexit ], [ %lpad.loopexit.split-lp20701, %.thread17658.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1294)
           to label %.thread17111 unwind label %3336
 
@@ -25603,7 +25603,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i: ;
           to label %6794 unwind label %.split21901
 
 .thread17661:                                     ; preds = %.thread17668.loopexit.split-lp, %.thread17668.loopexit.split.us, %.thread17668.loopexit.split, %.split21901, %.split21901.us, %6822, %6803
-  %.pn5341.pn = phi { ptr, i32 } [ %.us-phi, %6803 ], [ %.us-phi21907, %6822 ], [ %6793, %.split21901 ], [ %6791, %.split21901.us ], [ %lpad.loopexit.split-lp20415, %.thread17668.loopexit.split-lp ], [ %lpad.loopexit20414, %.thread17668.loopexit.split ], [ %lpad.loopexit20414.us, %.thread17668.loopexit.split.us ]
+  %.pn5341.pn = phi { ptr, i32 } [ %.us-phi, %6803 ], [ %6791, %.split21901.us ], [ %.us-phi21907, %6822 ], [ %6793, %.split21901 ], [ %lpad.loopexit.split-lp20415, %.thread17668.loopexit.split-lp ], [ %lpad.loopexit20414, %.thread17668.loopexit.split ], [ %lpad.loopexit20414.us, %.thread17668.loopexit.split.us ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1291)
           to label %.thread17651 unwind label %3336
 
@@ -26374,7 +26374,7 @@ switch.lookup23541:                               ; preds = %6851
           to label %6995 unwind label %.loopexit20713
 
 .thread17721:                                     ; preds = %.thread17738.loopexit, %.thread17738.loopexit.split-lp, %.thread17728.loopexit, %.thread17728.loopexit.split-lp, %.loopexit20713, %.loopexit.split-lp20714, %7066, %7044, %7040, %7008
-  %.pn5320.pn = phi { ptr, i32 } [ %lpad.phi20421, %7008 ], [ %lpad.thr_comm.split-lp17727, %7040 ], [ %7045, %7044 ], [ %lpad.thr_comm.split-lp17737, %7066 ], [ %lpad.loopexit20715, %.loopexit20713 ], [ %lpad.loopexit.split-lp20716, %.loopexit.split-lp20714 ], [ %lpad.loopexit20721, %.thread17728.loopexit ], [ %lpad.loopexit.split-lp20722, %.thread17728.loopexit.split-lp ], [ %lpad.loopexit20718, %.thread17738.loopexit ], [ %lpad.loopexit.split-lp20719, %.thread17738.loopexit.split-lp ]
+  %.pn5320.pn = phi { ptr, i32 } [ %lpad.phi20421, %7008 ], [ %lpad.loopexit.split-lp20716, %.loopexit.split-lp20714 ], [ %lpad.thr_comm.split-lp17737, %7066 ], [ %7045, %7044 ], [ %lpad.loopexit.split-lp20722, %.thread17728.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17727, %7040 ], [ %lpad.loopexit20715, %.loopexit20713 ], [ %lpad.loopexit20721, %.thread17728.loopexit ], [ %lpad.loopexit20718, %.thread17738.loopexit ], [ %lpad.loopexit.split-lp20719, %.thread17738.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1273)
           to label %.thread17111 unwind label %3336
 
@@ -27209,7 +27209,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %7227 unwind label %7225
 
 .thread17769:                                     ; preds = %.thread17852.loopexit, %.thread17852.loopexit.split-lp, %.thread17842.loopexit, %.thread17842.loopexit.split-lp, %.thread17824.loopexit, %.thread17824.loopexit.split-lp, %.thread17814.loopexit, %.thread17814.loopexit.split-lp, %.thread17804.loopexit, %.thread17804.loopexit.split-lp, %.thread17776.loopexit, %.thread17776.loopexit.split-lp, %7688, %.thread17855, %7540, %7531, %7485, %.thread17827, %7405, %7362, %7342, %7320, %7314, %.thread17779, %7225
-  %.pn5303.pn = phi { ptr, i32 } [ %7226, %7225 ], [ %.pn5301, %.thread17779 ], [ %lpad.thr_comm.split-lp17775, %7314 ], [ %7321, %7320 ], [ %lpad.thr_comm.split-lp17803, %7342 ], [ %lpad.phi20732, %7362 ], [ %lpad.thr_comm.split-lp17813, %7405 ], [ %.pn5282.pn, %.thread17827 ], [ %lpad.phi20737, %7485 ], [ %lpad.thr_comm.split-lp17841, %7531 ], [ %lpad.thr_comm.split-lp17823, %7540 ], [ %.pn5272.pn, %.thread17855 ], [ %lpad.thr_comm.split-lp17851, %7688 ], [ %lpad.loopexit21133, %.thread17776.loopexit ], [ %lpad.loopexit.split-lp21134, %.thread17776.loopexit.split-lp ], [ %lpad.loopexit21130, %.thread17804.loopexit ], [ %lpad.loopexit.split-lp21131, %.thread17804.loopexit.split-lp ], [ %lpad.loopexit21127, %.thread17814.loopexit ], [ %lpad.loopexit.split-lp21128, %.thread17814.loopexit.split-lp ], [ %lpad.loopexit21121, %.thread17824.loopexit ], [ %lpad.loopexit.split-lp21122, %.thread17824.loopexit.split-lp ], [ %lpad.loopexit21124, %.thread17842.loopexit ], [ %lpad.loopexit.split-lp21125, %.thread17842.loopexit.split-lp ], [ %lpad.loopexit21664, %.thread17852.loopexit ], [ %lpad.loopexit.split-lp21665, %.thread17852.loopexit.split-lp ]
+  %.pn5303.pn = phi { ptr, i32 } [ %.pn5301, %.thread17779 ], [ %lpad.thr_comm.split-lp17851, %7688 ], [ %7226, %7225 ], [ %7321, %7320 ], [ %lpad.loopexit.split-lp21134, %.thread17776.loopexit.split-lp ], [ %lpad.phi20732, %7362 ], [ %lpad.loopexit.split-lp21131, %.thread17804.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17841, %7531 ], [ %lpad.loopexit.split-lp21128, %.thread17814.loopexit.split-lp ], [ %lpad.phi20737, %7485 ], [ %lpad.loopexit.split-lp21122, %.thread17824.loopexit.split-lp ], [ %.pn5272.pn, %.thread17855 ], [ %lpad.loopexit.split-lp21125, %.thread17842.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17775, %7314 ], [ %lpad.thr_comm.split-lp17803, %7342 ], [ %lpad.thr_comm.split-lp17813, %7405 ], [ %.pn5282.pn, %.thread17827 ], [ %lpad.thr_comm.split-lp17823, %7540 ], [ %lpad.loopexit21133, %.thread17776.loopexit ], [ %lpad.loopexit21130, %.thread17804.loopexit ], [ %lpad.loopexit21127, %.thread17814.loopexit ], [ %lpad.loopexit21121, %.thread17824.loopexit ], [ %lpad.loopexit21124, %.thread17842.loopexit ], [ %lpad.loopexit21664, %.thread17852.loopexit ], [ %lpad.loopexit.split-lp21665, %.thread17852.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1258)
           to label %.thread16494 unwind label %3336
 
@@ -27408,7 +27408,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %7272 unwind label %7270
 
 .thread17789:                                     ; preds = %.loopexit20422, %.loopexit.split-lp20423, %7312, %7289, %7270
-  %.pn5296.pn = phi { ptr, i32 } [ %7271, %7270 ], [ %7290, %7289 ], [ %eh.lpad-body8975.ph, %7312 ], [ %lpad.loopexit20424, %.loopexit20422 ], [ %lpad.loopexit.split-lp20425, %.loopexit.split-lp20423 ]
+  %.pn5296.pn = phi { ptr, i32 } [ %7290, %7289 ], [ %eh.lpad-body8975.ph, %7312 ], [ %7271, %7270 ], [ %lpad.loopexit20424, %.loopexit20422 ], [ %lpad.loopexit.split-lp20425, %.loopexit.split-lp20423 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1252)
           to label %.thread17779 unwind label %3336
 
@@ -27991,7 +27991,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %7430 unwind label %7428
 
 .thread17827:                                     ; preds = %.loopexit20738, %.loopexit.split-lp20739, %7469, %7447, %7428
-  %.pn5282.pn = phi { ptr, i32 } [ %7429, %7428 ], [ %7448, %7447 ], [ %eh.lpad-body9067.ph, %7469 ], [ %lpad.loopexit20740, %.loopexit20738 ], [ %lpad.loopexit.split-lp20741, %.loopexit.split-lp20739 ]
+  %.pn5282.pn = phi { ptr, i32 } [ %7448, %7447 ], [ %eh.lpad-body9067.ph, %7469 ], [ %7429, %7428 ], [ %lpad.loopexit20740, %.loopexit20738 ], [ %lpad.loopexit.split-lp20741, %.loopexit.split-lp20739 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1240)
           to label %.thread17769 unwind label %3336
 
@@ -28430,7 +28430,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9098: ; pr
           to label %7544 unwind label %.loopexit21111
 
 .thread17855:                                     ; preds = %.thread17872.loopexit, %.thread17872.loopexit.split-lp, %.thread17862.loopexit, %.thread17862.loopexit.split-lp, %.loopexit21111, %.loopexit.split-lp21112, %7687, %7649, %7603, %7563
-  %.pn5272.pn = phi { ptr, i32 } [ %7564, %7563 ], [ %lpad.thr_comm.split-lp17861, %7603 ], [ %7650, %7649 ], [ %lpad.thr_comm.split-lp17871, %7687 ], [ %lpad.loopexit21113, %.loopexit21111 ], [ %lpad.loopexit.split-lp21114, %.loopexit.split-lp21112 ], [ %lpad.loopexit21117, %.thread17862.loopexit ], [ %lpad.loopexit.split-lp21118, %.thread17862.loopexit.split-lp ], [ %lpad.loopexit21661, %.thread17872.loopexit ], [ %lpad.loopexit.split-lp21662, %.thread17872.loopexit.split-lp ]
+  %.pn5272.pn = phi { ptr, i32 } [ %7564, %7563 ], [ %lpad.loopexit.split-lp21114, %.loopexit.split-lp21112 ], [ %lpad.thr_comm.split-lp17871, %7687 ], [ %7650, %7649 ], [ %lpad.loopexit.split-lp21118, %.thread17862.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17861, %7603 ], [ %lpad.loopexit21113, %.loopexit21111 ], [ %lpad.loopexit21117, %.thread17862.loopexit ], [ %lpad.loopexit21661, %.thread17872.loopexit ], [ %lpad.loopexit.split-lp21662, %.thread17872.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1231)
           to label %.thread17769 unwind label %3336
 
@@ -28835,7 +28835,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9182:
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit9189" unwind label %.thread17872.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit9187": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9182, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9180
-  %.sroa.715078.3 = phi i64 [ %.sroa.415074.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9180 ], [ %7673, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9182 ]
+  %.sroa.715078.3 = phi i64 [ %7673, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9182 ], [ %.sroa.415074.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9180 ]
   %7675 = icmp eq i64 %.sroa.715078.3, -1
   %7676 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.015069.0.copyload
   %or.cond20080 = select i1 %7675, i1 %7676, i1 false
@@ -28985,7 +28985,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %7704 unwind label %.loopexit21143
 
 .thread17894:                                     ; preds = %.thread17909.loopexit, %.thread17909.loopexit.split-lp, %.loopexit21149, %.loopexit.split-lp21150, %.loopexit21143, %.loopexit.split-lp21144, %7972, %.thread17912, %7847, %7784
-  %.pn5261 = phi { ptr, i32 } [ %lpad.phi20747, %7784 ], [ %eh.lpad-body9257.ph, %7847 ], [ %.pn5253.pn, %.thread17912 ], [ %lpad.thr_comm.split-lp17908, %7972 ], [ %lpad.loopexit21145, %.loopexit21143 ], [ %lpad.loopexit.split-lp21146, %.loopexit.split-lp21144 ], [ %lpad.loopexit21151, %.loopexit21149 ], [ %lpad.loopexit.split-lp21152, %.loopexit.split-lp21150 ], [ %lpad.loopexit21652, %.thread17909.loopexit ], [ %lpad.loopexit.split-lp21653, %.thread17909.loopexit.split-lp ]
+  %.pn5261 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp17908, %7972 ], [ %lpad.phi20747, %7784 ], [ %lpad.loopexit.split-lp21146, %.loopexit.split-lp21144 ], [ %.pn5253.pn, %.thread17912 ], [ %lpad.loopexit.split-lp21152, %.loopexit.split-lp21150 ], [ %eh.lpad-body9257.ph, %7847 ], [ %lpad.loopexit21145, %.loopexit21143 ], [ %lpad.loopexit21151, %.loopexit21149 ], [ %lpad.loopexit21652, %.thread17909.loopexit ], [ %lpad.loopexit.split-lp21653, %.thread17909.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1222)
           to label %.thread16494 unwind label %3336
 
@@ -29468,7 +29468,7 @@ switch.lookup23565:                               ; preds = %7821
           to label %7853 unwind label %7851
 
 .thread17912:                                     ; preds = %.thread17929.loopexit, %.thread17929.loopexit.split-lp, %.thread17919.loopexit, %.thread17919.loopexit.split-lp, %7960, %7939, %7907, %7886, %7851
-  %.pn5253.pn = phi { ptr, i32 } [ %7852, %7851 ], [ %7887, %7886 ], [ %lpad.thr_comm.split-lp17918, %7907 ], [ %7940, %7939 ], [ %lpad.thr_comm.split-lp17928, %7960 ], [ %lpad.loopexit21140, %.thread17919.loopexit ], [ %lpad.loopexit.split-lp21141, %.thread17919.loopexit.split-lp ], [ %lpad.loopexit21137, %.thread17929.loopexit ], [ %lpad.loopexit.split-lp21138, %.thread17929.loopexit.split-lp ]
+  %.pn5253.pn = phi { ptr, i32 } [ %7887, %7886 ], [ %lpad.thr_comm.split-lp17928, %7960 ], [ %7852, %7851 ], [ %7940, %7939 ], [ %lpad.loopexit.split-lp21141, %.thread17919.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17918, %7907 ], [ %lpad.loopexit21140, %.thread17919.loopexit ], [ %lpad.loopexit21137, %.thread17929.loopexit ], [ %lpad.loopexit.split-lp21138, %.thread17929.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1216)
           to label %.thread17894 unwind label %3336
 
@@ -29967,7 +29967,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %7988 unwind label %.loopexit21162
 
 .thread17944:                                     ; preds = %.thread17959.loopexit, %.thread17959.loopexit.split-lp, %.loopexit21168, %.loopexit.split-lp21169, %.loopexit21162, %.loopexit.split-lp21163, %8256, %.thread17962, %8131, %8068
-  %.pn5243 = phi { ptr, i32 } [ %lpad.phi20752, %8068 ], [ %eh.lpad-body9414.ph, %8131 ], [ %.pn5235.pn, %.thread17962 ], [ %lpad.thr_comm.split-lp17958, %8256 ], [ %lpad.loopexit21164, %.loopexit21162 ], [ %lpad.loopexit.split-lp21165, %.loopexit.split-lp21163 ], [ %lpad.loopexit21170, %.loopexit21168 ], [ %lpad.loopexit.split-lp21171, %.loopexit.split-lp21169 ], [ %lpad.loopexit21644, %.thread17959.loopexit ], [ %lpad.loopexit.split-lp21645, %.thread17959.loopexit.split-lp ]
+  %.pn5243 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp17958, %8256 ], [ %lpad.phi20752, %8068 ], [ %lpad.loopexit.split-lp21165, %.loopexit.split-lp21163 ], [ %.pn5235.pn, %.thread17962 ], [ %lpad.loopexit.split-lp21171, %.loopexit.split-lp21169 ], [ %eh.lpad-body9414.ph, %8131 ], [ %lpad.loopexit21164, %.loopexit21162 ], [ %lpad.loopexit21170, %.loopexit21168 ], [ %lpad.loopexit21644, %.thread17959.loopexit ], [ %lpad.loopexit.split-lp21645, %.thread17959.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1207)
           to label %.thread16494 unwind label %3336
 
@@ -30450,7 +30450,7 @@ switch.lookup23573:                               ; preds = %8105
           to label %8137 unwind label %8135
 
 .thread17962:                                     ; preds = %.thread17979.loopexit, %.thread17979.loopexit.split-lp, %.thread17969.loopexit, %.thread17969.loopexit.split-lp, %8244, %8223, %8202, %8181, %8135
-  %.pn5235.pn = phi { ptr, i32 } [ %8136, %8135 ], [ %8182, %8181 ], [ %lpad.thr_comm.split-lp17968, %8202 ], [ %8224, %8223 ], [ %lpad.thr_comm.split-lp17978, %8244 ], [ %lpad.loopexit21159, %.thread17969.loopexit ], [ %lpad.loopexit.split-lp21160, %.thread17969.loopexit.split-lp ], [ %lpad.loopexit21156, %.thread17979.loopexit ], [ %lpad.loopexit.split-lp21157, %.thread17979.loopexit.split-lp ]
+  %.pn5235.pn = phi { ptr, i32 } [ %8182, %8181 ], [ %lpad.thr_comm.split-lp17978, %8244 ], [ %8136, %8135 ], [ %8224, %8223 ], [ %lpad.loopexit.split-lp21160, %.thread17969.loopexit.split-lp ], [ %lpad.thr_comm.split-lp17968, %8202 ], [ %lpad.loopexit21159, %.thread17969.loopexit ], [ %lpad.loopexit21156, %.thread17979.loopexit ], [ %lpad.loopexit.split-lp21157, %.thread17979.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1201)
           to label %.thread17944 unwind label %3336
 
@@ -30979,7 +30979,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %8293 unwind label %8291
 
 .thread17990:                                     ; preds = %.thread18070.loopexit, %.thread18070.loopexit.split-lp, %.loopexit21175, %.loopexit.split-lp21176, %8598, %8576, %8572, %.thread17998, %8291
-  %.pn5225 = phi { ptr, i32 } [ %8292, %8291 ], [ %.pn5220.pn, %.thread17998 ], [ %eh.lpad-body9564.ph, %8572 ], [ %8577, %8576 ], [ %lpad.thr_comm.split-lp18069, %8598 ], [ %lpad.loopexit21177, %.loopexit21175 ], [ %lpad.loopexit.split-lp21178, %.loopexit.split-lp21176 ], [ %lpad.loopexit21636, %.thread18070.loopexit ], [ %lpad.loopexit.split-lp21637, %.thread18070.loopexit.split-lp ]
+  %.pn5225 = phi { ptr, i32 } [ %8292, %8291 ], [ %.pn5220.pn, %.thread17998 ], [ %lpad.thr_comm.split-lp18069, %8598 ], [ %8577, %8576 ], [ %lpad.loopexit.split-lp21178, %.loopexit.split-lp21176 ], [ %eh.lpad-body9564.ph, %8572 ], [ %lpad.loopexit21177, %.loopexit21175 ], [ %lpad.loopexit21636, %.thread18070.loopexit ], [ %lpad.loopexit.split-lp21637, %.thread18070.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1192)
           to label %.thread16494 unwind label %3336
 
@@ -31190,7 +31190,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %8353 unwind label %.loopexit20753
 
 .thread17998:                                     ; preds = %.thread18054.loopexit, %.thread18054.loopexit.split-lp, %.thread18038.loopexit, %.thread18038.loopexit.split-lp, %.thread18005.loopexit, %.thread18005.loopexit.split-lp, %.loopexit20753, %.loopexit.split-lp20754, %8511, %8488, %8484, %8461, %8457, %.thread18015
-  %.pn5220.pn = phi { ptr, i32 } [ %.pn5218, %.thread18015 ], [ %lpad.thr_comm.split-lp18004, %8457 ], [ %8462, %8461 ], [ %lpad.thr_comm.split-lp18037, %8484 ], [ %8489, %8488 ], [ %lpad.thr_comm.split-lp18053, %8511 ], [ %lpad.loopexit20755, %.loopexit20753 ], [ %lpad.loopexit.split-lp20756, %.loopexit.split-lp20754 ], [ %lpad.loopexit20768, %.thread18005.loopexit ], [ %lpad.loopexit.split-lp20769, %.thread18005.loopexit.split-lp ], [ %lpad.loopexit20762, %.thread18038.loopexit ], [ %lpad.loopexit.split-lp20763, %.thread18038.loopexit.split-lp ], [ %lpad.loopexit20759, %.thread18054.loopexit ], [ %lpad.loopexit.split-lp20760, %.thread18054.loopexit.split-lp ]
+  %.pn5220.pn = phi { ptr, i32 } [ %.pn5218, %.thread18015 ], [ %lpad.loopexit.split-lp20756, %.loopexit.split-lp20754 ], [ %lpad.thr_comm.split-lp18053, %8511 ], [ %8462, %8461 ], [ %lpad.loopexit.split-lp20769, %.thread18005.loopexit.split-lp ], [ %8489, %8488 ], [ %lpad.loopexit.split-lp20763, %.thread18038.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18004, %8457 ], [ %lpad.thr_comm.split-lp18037, %8484 ], [ %lpad.loopexit20755, %.loopexit20753 ], [ %lpad.loopexit20768, %.thread18005.loopexit ], [ %lpad.loopexit20762, %.thread18038.loopexit ], [ %lpad.loopexit20759, %.thread18054.loopexit ], [ %lpad.loopexit.split-lp20760, %.thread18054.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1189)
           to label %.thread17990 unwind label %3336
 
@@ -32239,7 +32239,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %8646 unwind label %8644
 
 .thread18081:                                     ; preds = %.thread18165.loopexit, %.thread18165.loopexit.split-lp, %.loopexit21185, %.loopexit.split-lp21186, %9052, %9030, %9026, %.thread18093, %8644
-  %.pn5199 = phi { ptr, i32 } [ %8645, %8644 ], [ %.pn5194.pn, %.thread18093 ], [ %eh.lpad-body9766.ph, %9026 ], [ %9031, %9030 ], [ %lpad.thr_comm.split-lp18164, %9052 ], [ %lpad.loopexit21187, %.loopexit21185 ], [ %lpad.loopexit.split-lp21188, %.loopexit.split-lp21186 ], [ %lpad.loopexit21628, %.thread18165.loopexit ], [ %lpad.loopexit.split-lp21629, %.thread18165.loopexit.split-lp ]
+  %.pn5199 = phi { ptr, i32 } [ %8645, %8644 ], [ %.pn5194.pn, %.thread18093 ], [ %lpad.thr_comm.split-lp18164, %9052 ], [ %9031, %9030 ], [ %lpad.loopexit.split-lp21188, %.loopexit.split-lp21186 ], [ %eh.lpad-body9766.ph, %9026 ], [ %lpad.loopexit21187, %.loopexit21185 ], [ %lpad.loopexit21628, %.thread18165.loopexit ], [ %lpad.loopexit.split-lp21629, %.thread18165.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1171)
           to label %.thread16494 unwind label %3336
 
@@ -32452,7 +32452,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %8708 unwind label %.loopexit20771
 
 .thread18093:                                     ; preds = %.thread18132.loopexit, %.thread18132.loopexit.split-lp, %.loopexit20783, %.loopexit.split-lp20784, %.thread18100.loopexit, %.thread18100.loopexit.split-lp, %.loopexit20771, %.loopexit.split-lp20772.loopexit.split-lp, %.loopexit.split-lp20772.loopexit, %8952, %.thread18142, %8865, %8809, %8797, %.thread18103
-  %.pn5194.pn = phi { ptr, i32 } [ %.pn5191.pn, %.thread18103 ], [ %lpad.thr_comm.split-lp18099, %8797 ], [ %lpad.phi20439, %8809 ], [ %eh.lpad-body9813.ph, %8865 ], [ %.pn5182, %.thread18142 ], [ %lpad.thr_comm.split-lp18131, %8952 ], [ %lpad.loopexit20773, %.loopexit20771 ], [ %lpad.loopexit21181, %.loopexit.split-lp20772.loopexit ], [ %lpad.loopexit.split-lp21182, %.loopexit.split-lp20772.loopexit.split-lp ], [ %lpad.loopexit20788, %.thread18100.loopexit ], [ %lpad.loopexit.split-lp20789, %.thread18100.loopexit.split-lp ], [ %lpad.loopexit20785, %.loopexit20783 ], [ %lpad.loopexit.split-lp20786, %.loopexit.split-lp20784 ], [ %lpad.loopexit20780, %.thread18132.loopexit ], [ %lpad.loopexit.split-lp20781, %.thread18132.loopexit.split-lp ]
+  %.pn5194.pn = phi { ptr, i32 } [ %.pn5191.pn, %.thread18103 ], [ %lpad.loopexit.split-lp21182, %.loopexit.split-lp20772.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18131, %8952 ], [ %lpad.phi20439, %8809 ], [ %lpad.loopexit.split-lp20789, %.thread18100.loopexit.split-lp ], [ %.pn5182, %.thread18142 ], [ %lpad.loopexit.split-lp20786, %.loopexit.split-lp20784 ], [ %lpad.thr_comm.split-lp18099, %8797 ], [ %eh.lpad-body9813.ph, %8865 ], [ %lpad.loopexit20773, %.loopexit20771 ], [ %lpad.loopexit21181, %.loopexit.split-lp20772.loopexit ], [ %lpad.loopexit20788, %.thread18100.loopexit ], [ %lpad.loopexit20785, %.loopexit20783 ], [ %lpad.loopexit20780, %.thread18132.loopexit ], [ %lpad.loopexit.split-lp20781, %.thread18132.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1168)
           to label %.thread18081 unwind label %3336
 
@@ -32546,7 +32546,7 @@ switch.lookup23604:                               ; preds = %8714
           to label %8725 unwind label %.loopexit20427
 
 .thread18103:                                     ; preds = %.thread18110.loopexit, %.thread18110.loopexit.split-lp, %.loopexit20427, %.loopexit.split-lp20428, %8796, %8760
-  %.pn5191.pn = phi { ptr, i32 } [ %lpad.phi20297, %8760 ], [ %lpad.thr_comm.split-lp18109, %8796 ], [ %lpad.loopexit20429, %.loopexit20427 ], [ %lpad.loopexit.split-lp20430, %.loopexit.split-lp20428 ], [ %lpad.loopexit20432, %.thread18110.loopexit ], [ %lpad.loopexit.split-lp20433, %.thread18110.loopexit.split-lp ]
+  %.pn5191.pn = phi { ptr, i32 } [ %lpad.phi20297, %8760 ], [ %lpad.loopexit.split-lp20430, %.loopexit.split-lp20428 ], [ %lpad.thr_comm.split-lp18109, %8796 ], [ %lpad.loopexit20429, %.loopexit20427 ], [ %lpad.loopexit20432, %.thread18110.loopexit ], [ %lpad.loopexit.split-lp20433, %.thread18110.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1165)
           to label %.thread18093 unwind label %3336
 
@@ -32929,7 +32929,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9823: ; pred
   unreachable
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9830: ; preds = %8821, %8822
-  %.0.i.i.i9831.neg = phi i64 [ 32, %8822 ], [ 0, %8821 ]
+  %.0.i.i.i9831.neg = phi i64 [ 0, %8821 ], [ 32, %8822 ]
   %8823 = lshr i64 -1, %.0.i.i.i9831.neg
   switch i16 %.sroa.013799.0.copyload.fr, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837 [
     i16 122, label %.critedge20085.invoke
@@ -32943,7 +32943,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.threa
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837: ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9830, %8824
-  %.0.i.i.i.i9838.neg = phi i64 [ 32, %8824 ], [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9830 ]
+  %.0.i.i.i.i9838.neg = phi i64 [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9830 ], [ 32, %8824 ]
   %8825 = lshr i64 -1, %.0.i.i.i.i9838.neg
   %8826 = and i64 %8825, %8823
   switch i16 %.sroa.013799.0.copyload.fr, label %default.unreachable22832 [
@@ -32962,8 +32962,8 @@ default.unreachable22832:                         ; preds = %_ZN17cranelift_code
   unreachable
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread: ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837, %8821, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread22830, %8828, %8827
-  %8829 = phi i64 [ %8826, %8827 ], [ %8826, %8828 ], [ 65535, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread22830 ], [ 255, %8821 ], [ %8826, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837 ]
-  %.0.i.i.i9840 = phi i64 [ 127, %8827 ], [ 191, %8828 ], [ 79, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread22830 ], [ 71, %8821 ], [ 95, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837 ]
+  %8829 = phi i64 [ %8826, %8828 ], [ 65535, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread22830 ], [ %8826, %8827 ], [ 255, %8821 ], [ %8826, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837 ]
+  %.0.i.i.i9840 = phi i64 [ 191, %8828 ], [ 79, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837.thread22830 ], [ 127, %8827 ], [ 71, %8821 ], [ 95, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9837 ]
   %8830 = and i64 %8705, %.0.i.i.i9840
   %8831 = lshr i64 %8829, %8830
   call void @llvm.lifetime.start.p0(ptr nonnull %642)
@@ -33046,7 +33046,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9854: ; pred
   br label %8853
 
 8853:                                             ; preds = %8849, %8851, %8852
-  %.sroa.81977.0 = phi i16 [ 119, %8851 ], [ 120, %8852 ], [ 118, %8849 ]
+  %.sroa.81977.0 = phi i16 [ 120, %8852 ], [ 119, %8851 ], [ 118, %8849 ]
   br i1 %8807, label %8854, label %.critedge
 
 8854:                                             ; preds = %8853
@@ -33845,7 +33845,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9092 unwind label %9090
 
 .thread18176:                                     ; preds = %.thread18294.loopexit, %.thread18294.loopexit.split-lp, %.loopexit21195, %.loopexit.split-lp21196, %9625, %9603, %9599, %.thread18184, %9090
-  %.pn5169 = phi { ptr, i32 } [ %9091, %9090 ], [ %.pn5164.pn, %.thread18184 ], [ %eh.lpad-body10021.ph, %9599 ], [ %9604, %9603 ], [ %lpad.thr_comm.split-lp18293, %9625 ], [ %lpad.loopexit21197, %.loopexit21195 ], [ %lpad.loopexit.split-lp21198, %.loopexit.split-lp21196 ], [ %lpad.loopexit21620, %.thread18294.loopexit ], [ %lpad.loopexit.split-lp21621, %.thread18294.loopexit.split-lp ]
+  %.pn5169 = phi { ptr, i32 } [ %9091, %9090 ], [ %.pn5164.pn, %.thread18184 ], [ %lpad.thr_comm.split-lp18293, %9625 ], [ %9604, %9603 ], [ %lpad.loopexit.split-lp21198, %.loopexit.split-lp21196 ], [ %eh.lpad-body10021.ph, %9599 ], [ %lpad.loopexit21197, %.loopexit21195 ], [ %lpad.loopexit21620, %.thread18294.loopexit ], [ %lpad.loopexit.split-lp21621, %.thread18294.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1147)
           to label %.thread16494 unwind label %3336
 
@@ -34059,7 +34059,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9155 unwind label %.loopexit20791
 
 .thread18184:                                     ; preds = %.thread18250.loopexit, %.thread18250.loopexit.split-lp, %.thread18231.loopexit, %.thread18231.loopexit.split-lp, %.thread18211.loopexit, %.thread18211.loopexit.split-lp, %.thread18191.loopexit, %.thread18191.loopexit.split-lp, %.loopexit20791, %.loopexit.split-lp20792.loopexit.split-lp, %.loopexit.split-lp20792.loopexit, %9511, %.thread18253, %9453, %.thread18235, %9308, %.thread18214, %9253, %.thread18194
-  %.pn5164.pn = phi { ptr, i32 } [ %.pn5161.pn, %.thread18194 ], [ %lpad.thr_comm.split-lp18190, %9253 ], [ %.pn5155, %.thread18214 ], [ %lpad.thr_comm.split-lp18210, %9308 ], [ %.pn5146.pn, %.thread18235 ], [ %lpad.thr_comm.split-lp18230, %9453 ], [ %.pn5140, %.thread18253 ], [ %lpad.thr_comm.split-lp18249, %9511 ], [ %lpad.loopexit20793, %.loopexit20791 ], [ %lpad.loopexit21191, %.loopexit.split-lp20792.loopexit ], [ %lpad.loopexit.split-lp21192, %.loopexit.split-lp20792.loopexit.split-lp ], [ %lpad.loopexit20812, %.thread18191.loopexit ], [ %lpad.loopexit.split-lp20813, %.thread18191.loopexit.split-lp ], [ %lpad.loopexit20809, %.thread18211.loopexit ], [ %lpad.loopexit.split-lp20810, %.thread18211.loopexit.split-lp ], [ %lpad.loopexit20803, %.thread18231.loopexit ], [ %lpad.loopexit.split-lp20804, %.thread18231.loopexit.split-lp ], [ %lpad.loopexit20800, %.thread18250.loopexit ], [ %lpad.loopexit.split-lp20801, %.thread18250.loopexit.split-lp ]
+  %.pn5164.pn = phi { ptr, i32 } [ %.pn5161.pn, %.thread18194 ], [ %lpad.loopexit.split-lp21192, %.loopexit.split-lp20792.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18249, %9511 ], [ %.pn5155, %.thread18214 ], [ %lpad.loopexit.split-lp20813, %.thread18191.loopexit.split-lp ], [ %.pn5146.pn, %.thread18235 ], [ %lpad.loopexit.split-lp20810, %.thread18211.loopexit.split-lp ], [ %.pn5140, %.thread18253 ], [ %lpad.loopexit.split-lp20804, %.thread18231.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18190, %9253 ], [ %lpad.thr_comm.split-lp18210, %9308 ], [ %lpad.thr_comm.split-lp18230, %9453 ], [ %lpad.loopexit20793, %.loopexit20791 ], [ %lpad.loopexit21191, %.loopexit.split-lp20792.loopexit ], [ %lpad.loopexit20812, %.thread18191.loopexit ], [ %lpad.loopexit20809, %.thread18211.loopexit ], [ %lpad.loopexit20803, %.thread18231.loopexit ], [ %lpad.loopexit20800, %.thread18250.loopexit ], [ %lpad.loopexit.split-lp20801, %.thread18250.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1144)
           to label %.thread18176 unwind label %3336
 
@@ -34160,7 +34160,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9179 unwind label %.loopexit20440
 
 .thread18194:                                     ; preds = %.thread18201.loopexit, %.thread18201.loopexit.split-lp, %.loopexit20440, %.loopexit.split-lp20441, %9252, %9216
-  %.pn5161.pn = phi { ptr, i32 } [ %lpad.phi20302, %9216 ], [ %lpad.thr_comm.split-lp18200, %9252 ], [ %lpad.loopexit20442, %.loopexit20440 ], [ %lpad.loopexit.split-lp20443, %.loopexit.split-lp20441 ], [ %lpad.loopexit20445, %.thread18201.loopexit ], [ %lpad.loopexit.split-lp20446, %.thread18201.loopexit.split-lp ]
+  %.pn5161.pn = phi { ptr, i32 } [ %lpad.phi20302, %9216 ], [ %lpad.loopexit.split-lp20443, %.loopexit.split-lp20441 ], [ %lpad.thr_comm.split-lp18200, %9252 ], [ %lpad.loopexit20442, %.loopexit20440 ], [ %lpad.loopexit20445, %.thread18201.loopexit ], [ %lpad.loopexit.split-lp20446, %.thread18201.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1141)
           to label %.thread18184 unwind label %3336
 
@@ -34660,7 +34660,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i100
           to label %9314 unwind label %9312
 
 .thread18235:                                     ; preds = %.loopexit20448, %.loopexit.split-lp20449, %9452, %9331, %9312
-  %.pn5146.pn = phi { ptr, i32 } [ %9313, %9312 ], [ %lpad.phi20307, %9331 ], [ %eh.lpad-body10091.ph, %9452 ], [ %lpad.loopexit20450, %.loopexit20448 ], [ %lpad.loopexit.split-lp20451, %.loopexit.split-lp20449 ]
+  %.pn5146.pn = phi { ptr, i32 } [ %lpad.phi20307, %9331 ], [ %eh.lpad-body10091.ph, %9452 ], [ %9313, %9312 ], [ %lpad.loopexit20450, %.loopexit20448 ], [ %lpad.loopexit.split-lp20451, %.loopexit.split-lp20449 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1129)
           to label %.thread18184 unwind label %3336
 
@@ -35030,7 +35030,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
   br label %9441
 
 9441:                                             ; preds = %9436, %9439, %9440
-  %.sroa.82102.0 = phi i16 [ 119, %9439 ], [ 120, %9440 ], [ 118, %9436 ]
+  %.sroa.82102.0 = phi i16 [ 120, %9440 ], [ 119, %9439 ], [ 118, %9436 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %633)
   store i8 -101, ptr %2545, align 1
   store i32 %.sroa.1215245.0.copyload, ptr %2546, align 4
@@ -35361,7 +35361,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10190: ; pre
   br label %9519
 
 9519:                                             ; preds = %9518, %9517, %9516
-  %.0.i.i.i10194 = phi i32 [ 32, %9517 ], [ 64, %9518 ], [ 0, %9516 ]
+  %.0.i.i.i10194 = phi i32 [ 32, %9517 ], [ 0, %9516 ], [ 64, %9518 ]
   %9520 = shl nuw nsw i32 %.0.i.i.i10194, %9068
   %.fr.i = freeze i32 %9520
   switch i8 %trunc20011, label %9523 [
@@ -35387,7 +35387,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10190: ; pre
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10195
 
 9523:                                             ; preds = %9522, %9521, %9519
-  %.0.i.i5.i = phi i32 [ 32, %9521 ], [ 64, %9522 ], [ 0, %9519 ]
+  %.0.i.i5.i = phi i32 [ 32, %9521 ], [ 0, %9519 ], [ 64, %9522 ]
   %9524 = shl nuw nsw i32 %.0.i.i5.i, %9068
   %9525 = add nuw nsw i32 %9524, 63
   switch i8 %trunc20011, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10195 [
@@ -35410,9 +35410,9 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10190: ; pre
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10195
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10195: ; preds = %9519, %9516, %9528, %9527, %9526, %9523, %.thread10.i, %.thread8.i
-  %.fr.i18277 = phi i32 [ %.fr.i, %9526 ], [ %.fr.i, %9527 ], [ %.fr.i, %9523 ], [ %.fr.i18281, %.thread8.i ], [ %.fr.i, %9528 ], [ %.fr.i18276, %9516 ], [ %.fr.i, %9519 ], [ %.fr.i18285, %.thread10.i ]
-  %.in.i = phi i32 [ %9525, %9526 ], [ %9525, %9527 ], [ %9525, %9523 ], [ %9073, %.thread8.i ], [ %9525, %9528 ], [ %9074, %9516 ], [ %9075, %9519 ], [ %9075, %.thread10.i ]
-  %.0.i.i.i8.i = phi i32 [ 32, %9526 ], [ 64, %9527 ], [ 0, %9523 ], [ 16, %.thread8.i ], [ 128, %9528 ], [ 8, %9516 ], [ 128, %9519 ], [ 128, %.thread10.i ]
+  %.fr.i18277 = phi i32 [ %.fr.i, %9528 ], [ %.fr.i, %9523 ], [ %.fr.i18276, %9516 ], [ %.fr.i, %9526 ], [ %.fr.i, %9527 ], [ %.fr.i18281, %.thread8.i ], [ %.fr.i, %9519 ], [ %.fr.i18285, %.thread10.i ]
+  %.in.i = phi i32 [ %9525, %9528 ], [ %9525, %9523 ], [ %9074, %9516 ], [ %9525, %9526 ], [ %9525, %9527 ], [ %9073, %.thread8.i ], [ %9075, %9519 ], [ %9075, %.thread10.i ]
+  %.0.i.i.i8.i = phi i32 [ 128, %9528 ], [ 0, %9523 ], [ 8, %9516 ], [ 32, %9526 ], [ 64, %9527 ], [ 16, %.thread8.i ], [ 128, %9519 ], [ 128, %.thread10.i ]
   %9529 = shl nuw nsw i32 %.0.i.i.i8.i, %9068
   %9530 = icmp samesign ugt i32 %9529, 64
   br i1 %9530, label %9531, label %9532
@@ -35770,7 +35770,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9638 unwind label %9636
 
 .thread18305:                                     ; preds = %.loopexit21201, %.loopexit.split-lp21202, %9675, %9655, %9636
-  %.pn5126.pn = phi { ptr, i32 } [ %9637, %9636 ], [ %9656, %9655 ], [ %eh.lpad-body10258.ph, %9675 ], [ %lpad.loopexit21203, %.loopexit21201 ], [ %lpad.loopexit.split-lp21204, %.loopexit.split-lp21202 ]
+  %.pn5126.pn = phi { ptr, i32 } [ %9656, %9655 ], [ %eh.lpad-body10258.ph, %9675 ], [ %9637, %9636 ], [ %lpad.loopexit21203, %.loopexit21201 ], [ %lpad.loopexit.split-lp21204, %.loopexit.split-lp21202 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1114)
           to label %.thread16494 unwind label %3336
 
@@ -36089,7 +36089,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9715 unwind label %.loopexit21223
 
 .thread18321:                                     ; preds = %.thread18435.loopexit, %.thread18435.loopexit.split-lp, %.thread18421.loopexit, %.thread18421.loopexit.split-lp, %.thread18328.loopexit, %.thread18328.loopexit.split-lp, %.loopexit21223, %.loopexit.split-lp21224, %10154, %.thread18438, %10076, %10025, %10020, %.thread18336
-  %.pn5119.pn = phi { ptr, i32 } [ %.pn5116.pn, %.thread18336 ], [ %lpad.thr_comm.split-lp18327, %10020 ], [ %lpad.phi20841, %10025 ], [ %lpad.thr_comm.split-lp18420, %10076 ], [ %.pn5078.pn, %.thread18438 ], [ %lpad.thr_comm.split-lp18434, %10154 ], [ %lpad.loopexit21225, %.loopexit21223 ], [ %lpad.loopexit.split-lp21226, %.loopexit.split-lp21224 ], [ %lpad.loopexit21231, %.thread18328.loopexit ], [ %lpad.loopexit.split-lp21232, %.thread18328.loopexit.split-lp ], [ %lpad.loopexit21228, %.thread18421.loopexit ], [ %lpad.loopexit.split-lp21229, %.thread18421.loopexit.split-lp ], [ %lpad.loopexit21602, %.thread18435.loopexit ], [ %lpad.loopexit.split-lp21603, %.thread18435.loopexit.split-lp ]
+  %.pn5119.pn = phi { ptr, i32 } [ %.pn5116.pn, %.thread18336 ], [ %lpad.loopexit.split-lp21226, %.loopexit.split-lp21224 ], [ %lpad.thr_comm.split-lp18434, %10154 ], [ %lpad.phi20841, %10025 ], [ %lpad.loopexit.split-lp21232, %.thread18328.loopexit.split-lp ], [ %.pn5078.pn, %.thread18438 ], [ %lpad.loopexit.split-lp21229, %.thread18421.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18327, %10020 ], [ %lpad.thr_comm.split-lp18420, %10076 ], [ %lpad.loopexit21225, %.loopexit21223 ], [ %lpad.loopexit21231, %.thread18328.loopexit ], [ %lpad.loopexit21228, %.thread18421.loopexit ], [ %lpad.loopexit21602, %.thread18435.loopexit ], [ %lpad.loopexit.split-lp21603, %.thread18435.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1108)
           to label %.thread16494 unwind label %3336
 
@@ -36159,7 +36159,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9729 unwind label %9727
 
 .thread18336:                                     ; preds = %.thread18395.loopexit, %.thread18395.loopexit.split-lp, %.thread18369.loopexit, %.thread18369.loopexit.split-lp, %.thread18343.loopexit, %.thread18343.loopexit.split-lp, %10019, %.thread18398, %9930, %.thread18372, %9842, %.thread18346, %9727
-  %.pn5116.pn = phi { ptr, i32 } [ %9728, %9727 ], [ %.pn5113.pn, %.thread18346 ], [ %lpad.thr_comm.split-lp18342, %9842 ], [ %.pn5103.pn, %.thread18372 ], [ %lpad.thr_comm.split-lp18368, %9930 ], [ %.pn5093.pn, %.thread18398 ], [ %lpad.thr_comm.split-lp18394, %10019 ], [ %lpad.loopexit20834, %.thread18343.loopexit ], [ %lpad.loopexit.split-lp20835, %.thread18343.loopexit.split-lp ], [ %lpad.loopexit20831, %.thread18369.loopexit ], [ %lpad.loopexit.split-lp20832, %.thread18369.loopexit.split-lp ], [ %lpad.loopexit20828, %.thread18395.loopexit ], [ %lpad.loopexit.split-lp20829, %.thread18395.loopexit.split-lp ]
+  %.pn5116.pn = phi { ptr, i32 } [ %.pn5113.pn, %.thread18346 ], [ %lpad.thr_comm.split-lp18394, %10019 ], [ %9728, %9727 ], [ %.pn5103.pn, %.thread18372 ], [ %lpad.loopexit.split-lp20835, %.thread18343.loopexit.split-lp ], [ %.pn5093.pn, %.thread18398 ], [ %lpad.loopexit.split-lp20832, %.thread18369.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18342, %9842 ], [ %lpad.thr_comm.split-lp18368, %9930 ], [ %lpad.loopexit20834, %.thread18343.loopexit ], [ %lpad.loopexit20831, %.thread18369.loopexit ], [ %lpad.loopexit20828, %.thread18395.loopexit ], [ %lpad.loopexit.split-lp20829, %.thread18395.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1105)
           to label %.thread18321 unwind label %3336
 
@@ -36264,7 +36264,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10318
           to label %9759 unwind label %9757
 
 .thread18346:                                     ; preds = %.loopexit20454, %.loopexit.split-lp20455, %.loopexit20459, %.loopexit.split-lp20460, %9841, %9815, %9805, %9779, %9757
-  %.pn5113.pn = phi { ptr, i32 } [ %9758, %9757 ], [ %9780, %9779 ], [ %eh.lpad-body10338.ph, %9805 ], [ %9816, %9815 ], [ %eh.lpad-body10361.ph, %9841 ], [ %lpad.loopexit20461, %.loopexit20459 ], [ %lpad.loopexit.split-lp20462, %.loopexit.split-lp20460 ], [ %lpad.loopexit20456, %.loopexit20454 ], [ %lpad.loopexit.split-lp20457, %.loopexit.split-lp20455 ]
+  %.pn5113.pn = phi { ptr, i32 } [ %9780, %9779 ], [ %eh.lpad-body10361.ph, %9841 ], [ %9758, %9757 ], [ %9816, %9815 ], [ %lpad.loopexit.split-lp20462, %.loopexit.split-lp20460 ], [ %eh.lpad-body10338.ph, %9805 ], [ %lpad.loopexit20461, %.loopexit20459 ], [ %lpad.loopexit20456, %.loopexit20454 ], [ %lpad.loopexit.split-lp20457, %.loopexit.split-lp20455 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1102)
           to label %.thread18336 unwind label %3336
 
@@ -36639,7 +36639,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9848 unwind label %9846
 
 .thread18372:                                     ; preds = %.loopexit20464, %.loopexit.split-lp20465, %.loopexit20469, %.loopexit.split-lp20470, %9929, %9904, %9894, %9868, %9846
-  %.pn5103.pn = phi { ptr, i32 } [ %9847, %9846 ], [ %9869, %9868 ], [ %eh.lpad-body10394.ph, %9894 ], [ %9905, %9904 ], [ %eh.lpad-body10418.ph, %9929 ], [ %lpad.loopexit20471, %.loopexit20469 ], [ %lpad.loopexit.split-lp20472, %.loopexit.split-lp20470 ], [ %lpad.loopexit20466, %.loopexit20464 ], [ %lpad.loopexit.split-lp20467, %.loopexit.split-lp20465 ]
+  %.pn5103.pn = phi { ptr, i32 } [ %9869, %9868 ], [ %eh.lpad-body10418.ph, %9929 ], [ %9847, %9846 ], [ %9905, %9904 ], [ %lpad.loopexit.split-lp20472, %.loopexit.split-lp20470 ], [ %eh.lpad-body10394.ph, %9894 ], [ %lpad.loopexit20471, %.loopexit20469 ], [ %lpad.loopexit20466, %.loopexit20464 ], [ %lpad.loopexit.split-lp20467, %.loopexit.split-lp20465 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1093)
           to label %.thread18336 unwind label %3336
 
@@ -37009,7 +37009,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %9936 unwind label %9934
 
 .thread18398:                                     ; preds = %.loopexit20474, %.loopexit.split-lp20475, %.loopexit20479, %.loopexit.split-lp20480, %10018, %9992, %9982, %9956, %9934
-  %.pn5093.pn = phi { ptr, i32 } [ %9935, %9934 ], [ %9957, %9956 ], [ %eh.lpad-body10449.ph, %9982 ], [ %9993, %9992 ], [ %eh.lpad-body10473.ph, %10018 ], [ %lpad.loopexit20481, %.loopexit20479 ], [ %lpad.loopexit.split-lp20482, %.loopexit.split-lp20480 ], [ %lpad.loopexit20476, %.loopexit20474 ], [ %lpad.loopexit.split-lp20477, %.loopexit.split-lp20475 ]
+  %.pn5093.pn = phi { ptr, i32 } [ %9957, %9956 ], [ %eh.lpad-body10473.ph, %10018 ], [ %9935, %9934 ], [ %9993, %9992 ], [ %lpad.loopexit.split-lp20482, %.loopexit.split-lp20480 ], [ %eh.lpad-body10449.ph, %9982 ], [ %lpad.loopexit20481, %.loopexit20479 ], [ %lpad.loopexit20476, %.loopexit20474 ], [ %lpad.loopexit.split-lp20477, %.loopexit.split-lp20475 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1084)
           to label %.thread18336 unwind label %3336
 
@@ -37472,7 +37472,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10514" unwind label %.thread18421.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10512": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10505
-  %.sroa.615395.6 = phi i64 [ %.sroa.415391.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10505 ], [ %10048, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507 ]
+  %.sroa.615395.6 = phi i64 [ %10048, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507 ], [ %.sroa.415391.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10505 ]
   %10050 = icmp eq i64 %.sroa.615395.6, 0
   br i1 %10050, label %10051, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10512.thread"
 
@@ -37612,7 +37612,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507
           to label %10095 unwind label %10093
 
 .thread18438:                                     ; preds = %.thread18445.loopexit, %.thread18445.loopexit.split-lp, %10152, %.thread18448, %10093
-  %.pn5078.pn = phi { ptr, i32 } [ %10094, %10093 ], [ %.pn5075.pn, %.thread18448 ], [ %lpad.thr_comm.split-lp18444, %10152 ], [ %lpad.loopexit21220, %.thread18445.loopexit ], [ %lpad.loopexit.split-lp21221, %.thread18445.loopexit.split-lp ]
+  %.pn5078.pn = phi { ptr, i32 } [ %.pn5075.pn, %.thread18448 ], [ %lpad.thr_comm.split-lp18444, %10152 ], [ %10094, %10093 ], [ %lpad.loopexit21220, %.thread18445.loopexit ], [ %lpad.loopexit.split-lp21221, %.thread18445.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1072)
           to label %.thread18321 unwind label %3336
 
@@ -37674,7 +37674,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10507
           to label %10108 unwind label %10106
 
 .thread18448:                                     ; preds = %.thread18455.loopexit, %.thread18455.loopexit.split-lp, %10151, %10115, %10106
-  %.pn5075.pn = phi { ptr, i32 } [ %10107, %10106 ], [ %10116, %10115 ], [ %lpad.thr_comm.split-lp18454, %10151 ], [ %lpad.loopexit20825, %.thread18455.loopexit ], [ %lpad.loopexit.split-lp20826, %.thread18455.loopexit.split-lp ]
+  %.pn5075.pn = phi { ptr, i32 } [ %10116, %10115 ], [ %lpad.thr_comm.split-lp18454, %10151 ], [ %10107, %10106 ], [ %lpad.loopexit20825, %.thread18455.loopexit ], [ %lpad.loopexit.split-lp20826, %.thread18455.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2495)
           to label %.thread18438 unwind label %3336
 
@@ -37952,7 +37952,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10167 unwind label %10165
 
 .thread18466:                                     ; preds = %.thread18580.loopexit, %.thread18580.loopexit.split-lp, %.thread18566.loopexit, %.thread18566.loopexit.split-lp, %.thread18473.loopexit, %.thread18473.loopexit.split-lp, %10658, %.thread18583, %10529, %10477, %10472, %.thread18481, %10165
-  %.pn5055.pn = phi { ptr, i32 } [ %10166, %10165 ], [ %.pn5052.pn, %.thread18481 ], [ %lpad.thr_comm.split-lp18472, %10472 ], [ %lpad.phi20864, %10477 ], [ %lpad.thr_comm.split-lp18565, %10529 ], [ %.pn5014.pn, %.thread18583 ], [ %lpad.thr_comm.split-lp18579, %10658 ], [ %lpad.loopexit21248, %.thread18473.loopexit ], [ %lpad.loopexit.split-lp21249, %.thread18473.loopexit.split-lp ], [ %lpad.loopexit21245, %.thread18566.loopexit ], [ %lpad.loopexit.split-lp21246, %.thread18566.loopexit.split-lp ], [ %lpad.loopexit21593, %.thread18580.loopexit ], [ %lpad.loopexit.split-lp21594, %.thread18580.loopexit.split-lp ]
+  %.pn5055.pn = phi { ptr, i32 } [ %.pn5052.pn, %.thread18481 ], [ %lpad.thr_comm.split-lp18579, %10658 ], [ %10166, %10165 ], [ %lpad.phi20864, %10477 ], [ %lpad.loopexit.split-lp21249, %.thread18473.loopexit.split-lp ], [ %.pn5014.pn, %.thread18583 ], [ %lpad.loopexit.split-lp21246, %.thread18566.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18472, %10472 ], [ %lpad.thr_comm.split-lp18565, %10529 ], [ %lpad.loopexit21248, %.thread18473.loopexit ], [ %lpad.loopexit21245, %.thread18566.loopexit ], [ %lpad.loopexit21593, %.thread18580.loopexit ], [ %lpad.loopexit.split-lp21594, %.thread18580.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1063)
           to label %.thread16494 unwind label %3336
 
@@ -38017,7 +38017,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10181 unwind label %10179
 
 .thread18481:                                     ; preds = %.thread18540.loopexit, %.thread18540.loopexit.split-lp, %.thread18514.loopexit, %.thread18514.loopexit.split-lp, %.thread18488.loopexit, %.thread18488.loopexit.split-lp, %10471, %.thread18543, %10382, %.thread18517, %10294, %.thread18491, %10179
-  %.pn5052.pn = phi { ptr, i32 } [ %10180, %10179 ], [ %.pn5049.pn, %.thread18491 ], [ %lpad.thr_comm.split-lp18487, %10294 ], [ %.pn5039.pn, %.thread18517 ], [ %lpad.thr_comm.split-lp18513, %10382 ], [ %.pn5029.pn, %.thread18543 ], [ %lpad.thr_comm.split-lp18539, %10471 ], [ %lpad.loopexit20857, %.thread18488.loopexit ], [ %lpad.loopexit.split-lp20858, %.thread18488.loopexit.split-lp ], [ %lpad.loopexit20854, %.thread18514.loopexit ], [ %lpad.loopexit.split-lp20855, %.thread18514.loopexit.split-lp ], [ %lpad.loopexit20851, %.thread18540.loopexit ], [ %lpad.loopexit.split-lp20852, %.thread18540.loopexit.split-lp ]
+  %.pn5052.pn = phi { ptr, i32 } [ %.pn5049.pn, %.thread18491 ], [ %lpad.thr_comm.split-lp18539, %10471 ], [ %10180, %10179 ], [ %.pn5039.pn, %.thread18517 ], [ %lpad.loopexit.split-lp20858, %.thread18488.loopexit.split-lp ], [ %.pn5029.pn, %.thread18543 ], [ %lpad.loopexit.split-lp20855, %.thread18514.loopexit.split-lp ], [ %lpad.thr_comm.split-lp18487, %10294 ], [ %lpad.thr_comm.split-lp18513, %10382 ], [ %lpad.loopexit20857, %.thread18488.loopexit ], [ %lpad.loopexit20854, %.thread18514.loopexit ], [ %lpad.loopexit20851, %.thread18540.loopexit ], [ %lpad.loopexit.split-lp20852, %.thread18540.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1060)
           to label %.thread18466 unwind label %3336
 
@@ -38122,7 +38122,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10597
           to label %10211 unwind label %10209
 
 .thread18491:                                     ; preds = %.loopexit20484, %.loopexit.split-lp20485, %.loopexit20489, %.loopexit.split-lp20490, %10293, %10267, %10257, %10231, %10209
-  %.pn5049.pn = phi { ptr, i32 } [ %10210, %10209 ], [ %10232, %10231 ], [ %eh.lpad-body10617.ph, %10257 ], [ %10268, %10267 ], [ %eh.lpad-body10641.ph, %10293 ], [ %lpad.loopexit20491, %.loopexit20489 ], [ %lpad.loopexit.split-lp20492, %.loopexit.split-lp20490 ], [ %lpad.loopexit20486, %.loopexit20484 ], [ %lpad.loopexit.split-lp20487, %.loopexit.split-lp20485 ]
+  %.pn5049.pn = phi { ptr, i32 } [ %10232, %10231 ], [ %eh.lpad-body10641.ph, %10293 ], [ %10210, %10209 ], [ %10268, %10267 ], [ %lpad.loopexit.split-lp20492, %.loopexit.split-lp20490 ], [ %eh.lpad-body10617.ph, %10257 ], [ %lpad.loopexit20491, %.loopexit20489 ], [ %lpad.loopexit20486, %.loopexit20484 ], [ %lpad.loopexit.split-lp20487, %.loopexit.split-lp20485 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1057)
           to label %.thread18481 unwind label %3336
 
@@ -38497,7 +38497,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10300 unwind label %10298
 
 .thread18517:                                     ; preds = %.loopexit20494, %.loopexit.split-lp20495, %.loopexit20499, %.loopexit.split-lp20500, %10381, %10356, %10346, %10320, %10298
-  %.pn5039.pn = phi { ptr, i32 } [ %10299, %10298 ], [ %10321, %10320 ], [ %eh.lpad-body10674.ph, %10346 ], [ %10357, %10356 ], [ %eh.lpad-body10698.ph, %10381 ], [ %lpad.loopexit20501, %.loopexit20499 ], [ %lpad.loopexit.split-lp20502, %.loopexit.split-lp20500 ], [ %lpad.loopexit20496, %.loopexit20494 ], [ %lpad.loopexit.split-lp20497, %.loopexit.split-lp20495 ]
+  %.pn5039.pn = phi { ptr, i32 } [ %10321, %10320 ], [ %eh.lpad-body10698.ph, %10381 ], [ %10299, %10298 ], [ %10357, %10356 ], [ %lpad.loopexit.split-lp20502, %.loopexit.split-lp20500 ], [ %eh.lpad-body10674.ph, %10346 ], [ %lpad.loopexit20501, %.loopexit20499 ], [ %lpad.loopexit20496, %.loopexit20494 ], [ %lpad.loopexit.split-lp20497, %.loopexit.split-lp20495 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1048)
           to label %.thread18481 unwind label %3336
 
@@ -38867,7 +38867,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10388 unwind label %10386
 
 .thread18543:                                     ; preds = %.loopexit20504, %.loopexit.split-lp20505, %.loopexit20509, %.loopexit.split-lp20510, %10470, %10444, %10434, %10408, %10386
-  %.pn5029.pn = phi { ptr, i32 } [ %10387, %10386 ], [ %10409, %10408 ], [ %eh.lpad-body10729.ph, %10434 ], [ %10445, %10444 ], [ %eh.lpad-body10753.ph, %10470 ], [ %lpad.loopexit20511, %.loopexit20509 ], [ %lpad.loopexit.split-lp20512, %.loopexit.split-lp20510 ], [ %lpad.loopexit20506, %.loopexit20504 ], [ %lpad.loopexit.split-lp20507, %.loopexit.split-lp20505 ]
+  %.pn5029.pn = phi { ptr, i32 } [ %10409, %10408 ], [ %eh.lpad-body10753.ph, %10470 ], [ %10387, %10386 ], [ %10445, %10444 ], [ %lpad.loopexit.split-lp20512, %.loopexit.split-lp20510 ], [ %eh.lpad-body10729.ph, %10434 ], [ %lpad.loopexit20511, %.loopexit20509 ], [ %lpad.loopexit20506, %.loopexit20504 ], [ %lpad.loopexit.split-lp20507, %.loopexit.split-lp20505 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1039)
           to label %.thread18481 unwind label %3336
 
@@ -39330,7 +39330,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10794" unwind label %.thread18566.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10792": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10785
-  %.sroa.615537.6 = phi i64 [ %.sroa.415533.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10785 ], [ %10500, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787 ]
+  %.sroa.615537.6 = phi i64 [ %10500, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787 ], [ %.sroa.415533.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10785 ]
   %10502 = icmp eq i64 %.sroa.615537.6, 0
   br i1 %10502, label %10503, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10792.thread"
 
@@ -39443,7 +39443,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787
           to label %10533 unwind label %.loopexit21234
 
 .thread18583:                                     ; preds = %.thread18590.loopexit, %.thread18590.loopexit.split-lp, %.loopexit21234, %.loopexit.split-lp21235, %10645, %.thread18599
-  %.pn5014.pn = phi { ptr, i32 } [ %.pn5012, %.thread18599 ], [ %lpad.thr_comm.split-lp18589, %10645 ], [ %lpad.loopexit21236, %.loopexit21234 ], [ %lpad.loopexit.split-lp21237, %.loopexit.split-lp21235 ], [ %lpad.loopexit21242, %.thread18590.loopexit ], [ %lpad.loopexit.split-lp21243, %.thread18590.loopexit.split-lp ]
+  %.pn5014.pn = phi { ptr, i32 } [ %.pn5012, %.thread18599 ], [ %lpad.loopexit.split-lp21237, %.loopexit.split-lp21235 ], [ %lpad.thr_comm.split-lp18589, %10645 ], [ %lpad.loopexit21236, %.loopexit21234 ], [ %lpad.loopexit21242, %.thread18590.loopexit ], [ %lpad.loopexit.split-lp21243, %.thread18590.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1027)
           to label %.thread18466 unwind label %3336
 
@@ -39519,7 +39519,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10787
   br i1 %10544, label %._crit_edge, label %.lr.ph
 
 .thread18599:                                     ; preds = %.thread18606.loopexit, %.thread18606.loopexit.split-lp, %.loopexit20845, %.loopexit.split-lp20846, %10643, %.thread18609
-  %.pn5012 = phi { ptr, i32 } [ %.pn5007.pn, %.thread18609 ], [ %lpad.thr_comm.split-lp18605, %10643 ], [ %lpad.loopexit20847, %.loopexit20845 ], [ %lpad.loopexit.split-lp20848, %.loopexit.split-lp20846 ], [ %lpad.loopexit21239, %.thread18606.loopexit ], [ %lpad.loopexit.split-lp21240, %.thread18606.loopexit.split-lp ]
+  %.pn5012 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp18605, %10643 ], [ %.pn5007.pn, %.thread18609 ], [ %lpad.loopexit.split-lp20848, %.loopexit.split-lp20846 ], [ %lpad.loopexit20847, %.loopexit20845 ], [ %lpad.loopexit21239, %.thread18606.loopexit ], [ %lpad.loopexit.split-lp21240, %.thread18606.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr212drop_in_place$LT$cranelift_codegen..opts..generated_code..ContextIterWrapper$LT$smallvec..IntoIter$LT$$u5b$cranelift_codegen..ir..entities..Value$u3b$$u20$8$u5d$$GT$$C$cranelift_codegen..opts..IsleContext$GT$$GT$17h932be557a438c29eE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1024) #35
           to label %.thread18583 unwind label %3336
 
@@ -39679,7 +39679,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10819: ; p
           to label %10599 unwind label %10597
 
 .thread18609:                                     ; preds = %.thread18616.loopexit, %.thread18616.loopexit.split-lp, %10641, %10606, %10597
-  %.pn5007.pn = phi { ptr, i32 } [ %10598, %10597 ], [ %10607, %10606 ], [ %lpad.thr_comm.split-lp18615, %10641 ], [ %lpad.loopexit20842, %.thread18616.loopexit ], [ %lpad.loopexit.split-lp20843, %.thread18616.loopexit.split-lp ]
+  %.pn5007.pn = phi { ptr, i32 } [ %10607, %10606 ], [ %lpad.thr_comm.split-lp18615, %10641 ], [ %10598, %10597 ], [ %lpad.loopexit20842, %.thread18616.loopexit ], [ %lpad.loopexit.split-lp20843, %.thread18616.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2442)
           to label %.thread18599 unwind label %3336
 
@@ -40001,7 +40001,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10679 unwind label %.loopexit21260
 
 .thread18631:                                     ; preds = %.thread18646.loopexit, %.thread18646.loopexit.split-lp, %.loopexit21266, %.loopexit.split-lp21267, %.loopexit21260, %.loopexit.split-lp21261, %10969, %.thread18657, %10808, %10758
-  %.pn4998.pn = phi { ptr, i32 } [ %lpad.phi20874, %10758 ], [ %eh.lpad-body10913.ph, %10808 ], [ %.pn4992.pn, %.thread18657 ], [ %lpad.thr_comm.split-lp18645, %10969 ], [ %lpad.loopexit21262, %.loopexit21260 ], [ %lpad.loopexit.split-lp21263, %.loopexit.split-lp21261 ], [ %lpad.loopexit21268, %.loopexit21266 ], [ %lpad.loopexit.split-lp21269, %.loopexit.split-lp21267 ], [ %lpad.loopexit21584, %.thread18646.loopexit ], [ %lpad.loopexit.split-lp21585, %.thread18646.loopexit.split-lp ]
+  %.pn4998.pn = phi { ptr, i32 } [ %lpad.phi20874, %10758 ], [ %lpad.loopexit.split-lp21263, %.loopexit.split-lp21261 ], [ %lpad.thr_comm.split-lp18645, %10969 ], [ %.pn4992.pn, %.thread18657 ], [ %lpad.loopexit.split-lp21269, %.loopexit.split-lp21267 ], [ %eh.lpad-body10913.ph, %10808 ], [ %lpad.loopexit21262, %.loopexit21260 ], [ %lpad.loopexit21268, %.loopexit21266 ], [ %lpad.loopexit21584, %.thread18646.loopexit ], [ %lpad.loopexit.split-lp21585, %.thread18646.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %977)
           to label %.thread16494 unwind label %3336
 
@@ -40416,7 +40416,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10812 unwind label %.loopexit21251
 
 .thread18657:                                     ; preds = %.thread18664.loopexit, %.thread18664.loopexit.split-lp, %.loopexit21251, %.loopexit.split-lp21252, %10945, %.thread18667
-  %.pn4992.pn = phi { ptr, i32 } [ %.pn4989.pn, %.thread18667 ], [ %lpad.thr_comm.split-lp18663, %10945 ], [ %lpad.loopexit21253, %.loopexit21251 ], [ %lpad.loopexit.split-lp21254, %.loopexit.split-lp21252 ], [ %lpad.loopexit21257, %.thread18664.loopexit ], [ %lpad.loopexit.split-lp21258, %.thread18664.loopexit.split-lp ]
+  %.pn4992.pn = phi { ptr, i32 } [ %.pn4989.pn, %.thread18667 ], [ %lpad.loopexit.split-lp21254, %.loopexit.split-lp21252 ], [ %lpad.thr_comm.split-lp18663, %10945 ], [ %lpad.loopexit21253, %.loopexit21251 ], [ %lpad.loopexit21257, %.thread18664.loopexit ], [ %lpad.loopexit.split-lp21258, %.thread18664.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %971)
           to label %.thread18631 unwind label %3336
 
@@ -40524,7 +40524,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10944
           to label %10843 unwind label %10841
 
 .thread18667:                                     ; preds = %.loopexit20865, %.loopexit.split-lp20866, %10944, %.thread18675, %10841
-  %.pn4989.pn = phi { ptr, i32 } [ %10842, %10841 ], [ %.pn4986.pn, %.thread18675 ], [ %eh.lpad-body10964.ph, %10944 ], [ %lpad.loopexit20867, %.loopexit20865 ], [ %lpad.loopexit.split-lp20868, %.loopexit.split-lp20866 ]
+  %.pn4989.pn = phi { ptr, i32 } [ %.pn4986.pn, %.thread18675 ], [ %eh.lpad-body10964.ph, %10944 ], [ %10842, %10841 ], [ %lpad.loopexit20867, %.loopexit20865 ], [ %lpad.loopexit.split-lp20868, %.loopexit.split-lp20866 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %968)
           to label %.thread18657 unwind label %3336
 
@@ -40615,7 +40615,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10862 unwind label %10860
 
 .thread18675:                                     ; preds = %.loopexit20514, %.loopexit.split-lp20515, %.loopexit20519, %.loopexit.split-lp20520, %10943, %10918, %10908, %10882, %10860
-  %.pn4986.pn = phi { ptr, i32 } [ %10861, %10860 ], [ %10883, %10882 ], [ %eh.lpad-body10977.ph, %10908 ], [ %10919, %10918 ], [ %eh.lpad-body11001.ph, %10943 ], [ %lpad.loopexit20521, %.loopexit20519 ], [ %lpad.loopexit.split-lp20522, %.loopexit.split-lp20520 ], [ %lpad.loopexit20516, %.loopexit20514 ], [ %lpad.loopexit.split-lp20517, %.loopexit.split-lp20515 ]
+  %.pn4986.pn = phi { ptr, i32 } [ %10883, %10882 ], [ %eh.lpad-body11001.ph, %10943 ], [ %10861, %10860 ], [ %10919, %10918 ], [ %lpad.loopexit.split-lp20522, %.loopexit.split-lp20520 ], [ %eh.lpad-body10977.ph, %10908 ], [ %lpad.loopexit20521, %.loopexit20519 ], [ %lpad.loopexit20516, %.loopexit20514 ], [ %lpad.loopexit.split-lp20517, %.loopexit.split-lp20515 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %965)
           to label %.thread18667 unwind label %3336
 
@@ -41141,7 +41141,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %10990 unwind label %.loopexit21280
 
 .thread18703:                                     ; preds = %.thread18718.loopexit, %.thread18718.loopexit.split-lp, %.loopexit21286, %.loopexit.split-lp21287, %.loopexit21280, %.loopexit.split-lp21281, %11280, %.thread18729, %11119, %11069
-  %.pn4972.pn = phi { ptr, i32 } [ %lpad.phi20884, %11069 ], [ %eh.lpad-body11091.ph, %11119 ], [ %.pn4966.pn, %.thread18729 ], [ %lpad.thr_comm.split-lp18717, %11280 ], [ %lpad.loopexit21282, %.loopexit21280 ], [ %lpad.loopexit.split-lp21283, %.loopexit.split-lp21281 ], [ %lpad.loopexit21288, %.loopexit21286 ], [ %lpad.loopexit.split-lp21289, %.loopexit.split-lp21287 ], [ %lpad.loopexit21575, %.thread18718.loopexit ], [ %lpad.loopexit.split-lp21576, %.thread18718.loopexit.split-lp ]
+  %.pn4972.pn = phi { ptr, i32 } [ %lpad.phi20884, %11069 ], [ %lpad.loopexit.split-lp21283, %.loopexit.split-lp21281 ], [ %lpad.thr_comm.split-lp18717, %11280 ], [ %.pn4966.pn, %.thread18729 ], [ %lpad.loopexit.split-lp21289, %.loopexit.split-lp21287 ], [ %eh.lpad-body11091.ph, %11119 ], [ %lpad.loopexit21282, %.loopexit21280 ], [ %lpad.loopexit21288, %.loopexit21286 ], [ %lpad.loopexit21575, %.thread18718.loopexit ], [ %lpad.loopexit.split-lp21576, %.thread18718.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %998)
           to label %.thread16494 unwind label %3336
 
@@ -41556,7 +41556,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11123 unwind label %.loopexit21271
 
 .thread18729:                                     ; preds = %.thread18736.loopexit, %.thread18736.loopexit.split-lp, %.loopexit21271, %.loopexit.split-lp21272, %11256, %.thread18739
-  %.pn4966.pn = phi { ptr, i32 } [ %.pn4963.pn, %.thread18739 ], [ %lpad.thr_comm.split-lp18735, %11256 ], [ %lpad.loopexit21273, %.loopexit21271 ], [ %lpad.loopexit.split-lp21274, %.loopexit.split-lp21272 ], [ %lpad.loopexit21277, %.thread18736.loopexit ], [ %lpad.loopexit.split-lp21278, %.thread18736.loopexit.split-lp ]
+  %.pn4966.pn = phi { ptr, i32 } [ %.pn4963.pn, %.thread18739 ], [ %lpad.loopexit.split-lp21274, %.loopexit.split-lp21272 ], [ %lpad.thr_comm.split-lp18735, %11256 ], [ %lpad.loopexit21273, %.loopexit21271 ], [ %lpad.loopexit21277, %.thread18736.loopexit ], [ %lpad.loopexit.split-lp21278, %.thread18736.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %992)
           to label %.thread18703 unwind label %3336
 
@@ -41664,7 +41664,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11122
           to label %11154 unwind label %11152
 
 .thread18739:                                     ; preds = %.loopexit20875, %.loopexit.split-lp20876, %11255, %.thread18747, %11152
-  %.pn4963.pn = phi { ptr, i32 } [ %11153, %11152 ], [ %.pn4960.pn, %.thread18747 ], [ %eh.lpad-body11142.ph, %11255 ], [ %lpad.loopexit20877, %.loopexit20875 ], [ %lpad.loopexit.split-lp20878, %.loopexit.split-lp20876 ]
+  %.pn4963.pn = phi { ptr, i32 } [ %.pn4960.pn, %.thread18747 ], [ %eh.lpad-body11142.ph, %11255 ], [ %11153, %11152 ], [ %lpad.loopexit20877, %.loopexit20875 ], [ %lpad.loopexit.split-lp20878, %.loopexit.split-lp20876 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %989)
           to label %.thread18729 unwind label %3336
 
@@ -41755,7 +41755,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11173 unwind label %11171
 
 .thread18747:                                     ; preds = %.loopexit20524, %.loopexit.split-lp20525, %.loopexit20529, %.loopexit.split-lp20530, %11254, %11229, %11219, %11193, %11171
-  %.pn4960.pn = phi { ptr, i32 } [ %11172, %11171 ], [ %11194, %11193 ], [ %eh.lpad-body11155.ph, %11219 ], [ %11230, %11229 ], [ %eh.lpad-body11179.ph, %11254 ], [ %lpad.loopexit20531, %.loopexit20529 ], [ %lpad.loopexit.split-lp20532, %.loopexit.split-lp20530 ], [ %lpad.loopexit20526, %.loopexit20524 ], [ %lpad.loopexit.split-lp20527, %.loopexit.split-lp20525 ]
+  %.pn4960.pn = phi { ptr, i32 } [ %11194, %11193 ], [ %eh.lpad-body11179.ph, %11254 ], [ %11172, %11171 ], [ %11230, %11229 ], [ %lpad.loopexit.split-lp20532, %.loopexit.split-lp20530 ], [ %eh.lpad-body11155.ph, %11219 ], [ %lpad.loopexit20531, %.loopexit20529 ], [ %lpad.loopexit20526, %.loopexit20524 ], [ %lpad.loopexit.split-lp20527, %.loopexit.split-lp20525 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %986)
           to label %.thread18739 unwind label %3336
 
@@ -42267,7 +42267,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11291 unwind label %.loopexit21291
 
 .thread18779:                                     ; preds = %.thread18818.loopexit, %.thread18818.loopexit.split-lp, %.loopexit21296, %.loopexit.split-lp21297, %.loopexit21291, %.loopexit.split-lp21292, %11487, %11449, %11443, %.thread18787
-  %.pn4947 = phi { ptr, i32 } [ %.pn4942.pn, %.thread18787 ], [ %eh.lpad-body11254.ph, %11443 ], [ %11450, %11449 ], [ %lpad.thr_comm.split-lp18817, %11487 ], [ %lpad.loopexit21293, %.loopexit21291 ], [ %lpad.loopexit.split-lp21294, %.loopexit.split-lp21292 ], [ %lpad.loopexit21298, %.loopexit21296 ], [ %lpad.loopexit.split-lp21299, %.loopexit.split-lp21297 ], [ %lpad.loopexit21565, %.thread18818.loopexit ], [ %lpad.loopexit.split-lp21566, %.thread18818.loopexit.split-lp ]
+  %.pn4947 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp18817, %11487 ], [ %.pn4942.pn, %.thread18787 ], [ %lpad.loopexit.split-lp21294, %.loopexit.split-lp21292 ], [ %11450, %11449 ], [ %lpad.loopexit.split-lp21299, %.loopexit.split-lp21297 ], [ %eh.lpad-body11254.ph, %11443 ], [ %lpad.loopexit21293, %.loopexit21291 ], [ %lpad.loopexit21298, %.loopexit21296 ], [ %lpad.loopexit21565, %.thread18818.loopexit ], [ %lpad.loopexit.split-lp21566, %.thread18818.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1016)
           to label %.thread16494 unwind label %3336
 
@@ -42440,7 +42440,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11341 unwind label %11339
 
 .thread18787:                                     ; preds = %.loopexit20885, %.loopexit.split-lp20886, %11442, %.thread18795, %11339
-  %.pn4942.pn = phi { ptr, i32 } [ %11340, %11339 ], [ %.pn4939.pn, %.thread18795 ], [ %eh.lpad-body11266.ph, %11442 ], [ %lpad.loopexit20887, %.loopexit20885 ], [ %lpad.loopexit.split-lp20888, %.loopexit.split-lp20886 ]
+  %.pn4942.pn = phi { ptr, i32 } [ %.pn4939.pn, %.thread18795 ], [ %eh.lpad-body11266.ph, %11442 ], [ %11340, %11339 ], [ %lpad.loopexit20887, %.loopexit20885 ], [ %lpad.loopexit.split-lp20888, %.loopexit.split-lp20886 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1013)
           to label %.thread18779 unwind label %3336
 
@@ -42531,7 +42531,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11360 unwind label %11358
 
 .thread18795:                                     ; preds = %.loopexit20534, %.loopexit.split-lp20535, %.loopexit20539, %.loopexit.split-lp20540, %11441, %11416, %11406, %11380, %11358
-  %.pn4939.pn = phi { ptr, i32 } [ %11359, %11358 ], [ %11381, %11380 ], [ %eh.lpad-body11279.ph, %11406 ], [ %11417, %11416 ], [ %eh.lpad-body11303.ph, %11441 ], [ %lpad.loopexit20541, %.loopexit20539 ], [ %lpad.loopexit.split-lp20542, %.loopexit.split-lp20540 ], [ %lpad.loopexit20536, %.loopexit20534 ], [ %lpad.loopexit.split-lp20537, %.loopexit.split-lp20535 ]
+  %.pn4939.pn = phi { ptr, i32 } [ %11381, %11380 ], [ %eh.lpad-body11303.ph, %11441 ], [ %11359, %11358 ], [ %11417, %11416 ], [ %lpad.loopexit.split-lp20542, %.loopexit.split-lp20540 ], [ %eh.lpad-body11279.ph, %11406 ], [ %lpad.loopexit20541, %.loopexit20539 ], [ %lpad.loopexit20536, %.loopexit20534 ], [ %lpad.loopexit.split-lp20537, %.loopexit.split-lp20535 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1010)
           to label %.thread18787 unwind label %3336
 
@@ -43137,7 +43137,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11512 unwind label %.loopexit21302
 
 .thread18837:                                     ; preds = %.thread18876.loopexit, %.thread18876.loopexit.split-lp, %.loopexit21307, %.loopexit.split-lp21308, %.loopexit21302, %.loopexit.split-lp21303, %11708, %11670, %11664, %.thread18845
-  %.pn4924 = phi { ptr, i32 } [ %.pn4919.pn, %.thread18845 ], [ %eh.lpad-body11395.ph, %11664 ], [ %11671, %11670 ], [ %lpad.thr_comm.split-lp18875, %11708 ], [ %lpad.loopexit21304, %.loopexit21302 ], [ %lpad.loopexit.split-lp21305, %.loopexit.split-lp21303 ], [ %lpad.loopexit21309, %.loopexit21307 ], [ %lpad.loopexit.split-lp21310, %.loopexit.split-lp21308 ], [ %lpad.loopexit21556, %.thread18876.loopexit ], [ %lpad.loopexit.split-lp21557, %.thread18876.loopexit.split-lp ]
+  %.pn4924 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp18875, %11708 ], [ %.pn4919.pn, %.thread18845 ], [ %lpad.loopexit.split-lp21305, %.loopexit.split-lp21303 ], [ %11671, %11670 ], [ %lpad.loopexit.split-lp21310, %.loopexit.split-lp21308 ], [ %eh.lpad-body11395.ph, %11664 ], [ %lpad.loopexit21304, %.loopexit21302 ], [ %lpad.loopexit21309, %.loopexit21307 ], [ %lpad.loopexit21556, %.thread18876.loopexit ], [ %lpad.loopexit.split-lp21557, %.thread18876.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %956)
           to label %.thread16494 unwind label %3336
 
@@ -43310,7 +43310,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11562 unwind label %11560
 
 .thread18845:                                     ; preds = %.loopexit20890, %.loopexit.split-lp20891, %11663, %.thread18853, %11560
-  %.pn4919.pn = phi { ptr, i32 } [ %11561, %11560 ], [ %.pn4916.pn, %.thread18853 ], [ %eh.lpad-body11407.ph, %11663 ], [ %lpad.loopexit20892, %.loopexit20890 ], [ %lpad.loopexit.split-lp20893, %.loopexit.split-lp20891 ]
+  %.pn4919.pn = phi { ptr, i32 } [ %.pn4916.pn, %.thread18853 ], [ %eh.lpad-body11407.ph, %11663 ], [ %11561, %11560 ], [ %lpad.loopexit20892, %.loopexit20890 ], [ %lpad.loopexit.split-lp20893, %.loopexit.split-lp20891 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %953)
           to label %.thread18837 unwind label %3336
 
@@ -43401,7 +43401,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %11581 unwind label %11579
 
 .thread18853:                                     ; preds = %.loopexit20544, %.loopexit.split-lp20545, %.loopexit20549, %.loopexit.split-lp20550, %11662, %11637, %11627, %11601, %11579
-  %.pn4916.pn = phi { ptr, i32 } [ %11580, %11579 ], [ %11602, %11601 ], [ %eh.lpad-body11420.ph, %11627 ], [ %11638, %11637 ], [ %eh.lpad-body11444.ph, %11662 ], [ %lpad.loopexit20551, %.loopexit20549 ], [ %lpad.loopexit.split-lp20552, %.loopexit.split-lp20550 ], [ %lpad.loopexit20546, %.loopexit20544 ], [ %lpad.loopexit.split-lp20547, %.loopexit.split-lp20545 ]
+  %.pn4916.pn = phi { ptr, i32 } [ %11602, %11601 ], [ %eh.lpad-body11444.ph, %11662 ], [ %11580, %11579 ], [ %11638, %11637 ], [ %lpad.loopexit.split-lp20552, %.loopexit.split-lp20550 ], [ %eh.lpad-body11420.ph, %11627 ], [ %lpad.loopexit20551, %.loopexit20549 ], [ %lpad.loopexit20546, %.loopexit20544 ], [ %lpad.loopexit.split-lp20547, %.loopexit.split-lp20545 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %950)
           to label %.thread18845 unwind label %3336
 
@@ -45218,7 +45218,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %12132 unwind label %12130
 
 .thread18957:                                     ; preds = %.loopexit21210, %.loopexit.split-lp21211, %.loopexit21215, %.loopexit.split-lp21216, %12338, %.loopexit.split-lp20821, %12203, %12151, %12130
-  %.pn5068.pn = phi { ptr, i32 } [ %12131, %12130 ], [ %lpad.phi20819, %12151 ], [ %eh.lpad-body11717.ph, %12203 ], [ %lpad.phi20824, %.loopexit.split-lp20821 ], [ %eh.lpad-body11760.ph, %12338 ], [ %lpad.loopexit21217, %.loopexit21215 ], [ %lpad.loopexit.split-lp21218, %.loopexit.split-lp21216 ], [ %lpad.loopexit21212, %.loopexit21210 ], [ %lpad.loopexit.split-lp21213, %.loopexit.split-lp21211 ]
+  %.pn5068.pn = phi { ptr, i32 } [ %lpad.phi20819, %12151 ], [ %eh.lpad-body11760.ph, %12338 ], [ %12131, %12130 ], [ %lpad.phi20824, %.loopexit.split-lp20821 ], [ %lpad.loopexit.split-lp21218, %.loopexit.split-lp21216 ], [ %eh.lpad-body11717.ph, %12203 ], [ %lpad.loopexit21217, %.loopexit21215 ], [ %lpad.loopexit21212, %.loopexit21210 ], [ %lpad.loopexit.split-lp21213, %.loopexit.split-lp21211 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %926)
           to label %.thread16494 unwind label %3336
 
@@ -45389,7 +45389,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11731
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11738" unwind label %.loopexit21215
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11736": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11731, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11729
-  %.sroa.615773.5 = phi i64 [ %.sroa.415769.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11729 ], [ %12174, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11731 ]
+  %.sroa.615773.5 = phi i64 [ %12174, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11731 ], [ %.sroa.415769.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11729 ]
   %12176 = icmp eq i64 %.sroa.615773.5, 0
   br i1 %12176, label %12177, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11736.thread"
 
@@ -45683,7 +45683,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i: ;
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771: ; preds = %12263, %12262, %12256
-  %.0.i.i.i11772 = phi i32 [ 32, %12262 ], [ 64, %12263 ], [ 0, %12256 ]
+  %.0.i.i.i11772 = phi i32 [ 32, %12262 ], [ 0, %12256 ], [ 64, %12263 ]
   %12264 = shl nuw nsw i32 %.0.i.i.i11772, %12218
   %12265 = icmp samesign ugt i32 %12264, 63
   %narrow.i.i11773 = sub nsw i32 0, %12264
@@ -45712,8 +45712,8 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771: ; pre
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit11.i
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit11.i: ; preds = %12272, %12271, %12270, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11774, %12256
-  %.061331.i = phi i64 [ %.0613.i, %12270 ], [ %.0613.i, %12271 ], [ %.0613.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771 ], [ %.061329.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11774 ], [ %.061335.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i ], [ %.0613.i, %12272 ], [ %.sroa.102615.0.copyload, %12256 ]
-  %.0.i.i9.i = phi i32 [ 32, %12270 ], [ 64, %12271 ], [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771 ], [ 8, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11774 ], [ 16, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i ], [ 128, %12272 ], [ 128, %12256 ]
+  %.061331.i = phi i64 [ %.sroa.102615.0.copyload, %12256 ], [ %.0613.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771 ], [ %.0613.i, %12272 ], [ %.0613.i, %12270 ], [ %.0613.i, %12271 ], [ %.061329.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11774 ], [ %.061335.i, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i ]
+  %.0.i.i9.i = phi i32 [ 128, %12256 ], [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11771 ], [ 128, %12272 ], [ 32, %12270 ], [ 64, %12271 ], [ 8, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11774 ], [ 16, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread32.i ]
   %12273 = shl nuw nsw i32 %.0.i.i9.i, %12218
   %12274 = icmp samesign ugt i32 %12273, 63
   br i1 %12274, label %_ZN17cranelift_codegen2ir10immediates5Imm6422sign_extend_from_width17h881a5af8de0226a2E.exit13.i, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit11.thread.i
@@ -45983,7 +45983,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %12352 unwind label %.loopexit21333
 
 .thread18985:                                     ; preds = %.thread19494.loopexit, %.thread19494.loopexit.split-lp, %.loopexit21339, %.loopexit.split-lp21340, %.loopexit21366, %.loopexit.split-lp21367, %.thread19375.loopexit, %.thread19375.loopexit.split-lp, %.thread19340.loopexit, %.thread19340.loopexit.split-lp, %.thread19280.loopexit, %.thread19280.loopexit.split-lp, %.thread19245.loopexit, %.thread19245.loopexit.split-lp, %.thread18992.loopexit, %.thread18992.loopexit.split-lp, %.loopexit21333, %.loopexit.split-lp21334, %14176, %14155, %14107, %14081, %14071, %.thread19436, %13874, %.thread19378, %13578, %.thread19350, %13401, %.thread19283, %13105, %.thread19255, %12952, %.thread18995
-  %.pn4888.pn = phi { ptr, i32 } [ %.pn4868.pn, %.thread18995 ], [ %lpad.thr_comm.split-lp18991, %12952 ], [ %.pn4783.pn, %.thread19255 ], [ %lpad.thr_comm.split-lp19244, %13105 ], [ %.pn4771.pn, %.thread19283 ], [ %lpad.thr_comm.split-lp19279, %13401 ], [ %.pn4751.pn, %.thread19350 ], [ %lpad.thr_comm.split-lp19339, %13578 ], [ %.pn4739.pn, %.thread19378 ], [ %lpad.thr_comm.split-lp19374, %13874 ], [ %.pn4885.pn, %.thread19436 ], [ %eh.lpad-body12746.ph, %14071 ], [ %14082, %14081 ], [ %eh.lpad-body12870.ph, %14107 ], [ %14156, %14155 ], [ %lpad.thr_comm.split-lp19493, %14176 ], [ %lpad.loopexit21335, %.loopexit21333 ], [ %lpad.loopexit.split-lp21336, %.loopexit.split-lp21334 ], [ %lpad.loopexit21360, %.thread18992.loopexit ], [ %lpad.loopexit.split-lp21361, %.thread18992.loopexit.split-lp ], [ %lpad.loopexit21357, %.thread19245.loopexit ], [ %lpad.loopexit.split-lp21358, %.thread19245.loopexit.split-lp ], [ %lpad.loopexit21353, %.thread19280.loopexit ], [ %lpad.loopexit.split-lp21354, %.thread19280.loopexit.split-lp ], [ %lpad.loopexit21349, %.thread19340.loopexit ], [ %lpad.loopexit.split-lp21350, %.thread19340.loopexit.split-lp ], [ %lpad.loopexit21345, %.thread19375.loopexit ], [ %lpad.loopexit.split-lp21346, %.thread19375.loopexit.split-lp ], [ %lpad.loopexit21368, %.loopexit21366 ], [ %lpad.loopexit.split-lp21369, %.loopexit.split-lp21367 ], [ %lpad.loopexit21341, %.loopexit21339 ], [ %lpad.loopexit.split-lp21342, %.loopexit.split-lp21340 ], [ %lpad.loopexit21524, %.thread19494.loopexit ], [ %lpad.loopexit.split-lp21525, %.thread19494.loopexit.split-lp ]
+  %.pn4888.pn = phi { ptr, i32 } [ %.pn4885.pn, %.thread19436 ], [ %lpad.loopexit.split-lp21346, %.thread19375.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19493, %14176 ], [ %.pn4868.pn, %.thread18995 ], [ %lpad.loopexit.split-lp21336, %.loopexit.split-lp21334 ], [ %.pn4783.pn, %.thread19255 ], [ %lpad.loopexit.split-lp21361, %.thread18992.loopexit.split-lp ], [ %.pn4771.pn, %.thread19283 ], [ %lpad.loopexit.split-lp21358, %.thread19245.loopexit.split-lp ], [ %.pn4751.pn, %.thread19350 ], [ %lpad.loopexit.split-lp21354, %.thread19280.loopexit.split-lp ], [ %.pn4739.pn, %.thread19378 ], [ %lpad.loopexit.split-lp21350, %.thread19340.loopexit.split-lp ], [ %14082, %14081 ], [ %lpad.loopexit.split-lp21369, %.loopexit.split-lp21367 ], [ %14156, %14155 ], [ %lpad.loopexit.split-lp21342, %.loopexit.split-lp21340 ], [ %lpad.thr_comm.split-lp18991, %12952 ], [ %lpad.thr_comm.split-lp19244, %13105 ], [ %lpad.thr_comm.split-lp19279, %13401 ], [ %lpad.thr_comm.split-lp19339, %13578 ], [ %lpad.thr_comm.split-lp19374, %13874 ], [ %eh.lpad-body12746.ph, %14071 ], [ %eh.lpad-body12870.ph, %14107 ], [ %lpad.loopexit21335, %.loopexit21333 ], [ %lpad.loopexit21360, %.thread18992.loopexit ], [ %lpad.loopexit21357, %.thread19245.loopexit ], [ %lpad.loopexit21353, %.thread19280.loopexit ], [ %lpad.loopexit21349, %.thread19340.loopexit ], [ %lpad.loopexit21345, %.thread19375.loopexit ], [ %lpad.loopexit21368, %.loopexit21366 ], [ %lpad.loopexit21341, %.loopexit21339 ], [ %lpad.loopexit21524, %.thread19494.loopexit ], [ %lpad.loopexit.split-lp21525, %.thread19494.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %917)
           to label %.thread16494 unwind label %3336
 
@@ -46076,7 +46076,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %12369 unwind label %12367
 
 .thread18995:                                     ; preds = %.thread19002.loopexit, %.thread19002.loopexit.split-lp, %12951, %.thread19012, %12367
-  %.pn4868.pn = phi { ptr, i32 } [ %12368, %12367 ], [ %.pn4865.pn, %.thread19012 ], [ %lpad.thr_comm.split-lp19001, %12951 ], [ %lpad.loopexit20910, %.thread19002.loopexit ], [ %lpad.loopexit.split-lp20911, %.thread19002.loopexit.split-lp ]
+  %.pn4868.pn = phi { ptr, i32 } [ %.pn4865.pn, %.thread19012 ], [ %lpad.thr_comm.split-lp19001, %12951 ], [ %12368, %12367 ], [ %lpad.loopexit20910, %.thread19002.loopexit ], [ %lpad.loopexit.split-lp20911, %.thread19002.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %914)
           to label %.thread18985 unwind label %3336
 
@@ -46139,7 +46139,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %12382 unwind label %12380
 
 .thread19012:                                     ; preds = %.thread19019.loopexit, %.thread19019.loopexit.split-lp, %12950, %.thread19022, %12380
-  %.pn4865.pn = phi { ptr, i32 } [ %12381, %12380 ], [ %.pn4862.pn, %.thread19022 ], [ %lpad.thr_comm.split-lp19018, %12950 ], [ %lpad.loopexit20559, %.thread19019.loopexit ], [ %lpad.loopexit.split-lp20560, %.thread19019.loopexit.split-lp ]
+  %.pn4865.pn = phi { ptr, i32 } [ %.pn4862.pn, %.thread19022 ], [ %lpad.thr_comm.split-lp19018, %12950 ], [ %12381, %12380 ], [ %lpad.loopexit20559, %.thread19019.loopexit ], [ %lpad.loopexit.split-lp20560, %.thread19019.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %911)
           to label %.thread18995 unwind label %3336
 
@@ -46206,7 +46206,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11838" unwind label %.thread19002.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11836": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11829
-  %.sroa.715963.8 = phi i64 [ %.sroa.415959.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11829 ], [ %12404, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831 ]
+  %.sroa.715963.8 = phi i64 [ %12404, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831 ], [ %.sroa.415959.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11829 ]
   %12406 = icmp eq i64 %.sroa.715963.8, 0
   %12407 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.015954.0.copyload
   %or.cond20109 = select i1 %12406, i1 %12407, i1 false
@@ -46243,7 +46243,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831
           to label %12413 unwind label %12411
 
 .thread19022:                                     ; preds = %.thread19218.loopexit, %.thread19218.loopexit.split-lp, %.thread19191.loopexit, %.thread19191.loopexit.split-lp, %.thread19164.loopexit, %.thread19164.loopexit.split-lp, %.thread19137.loopexit, %.thread19137.loopexit.split-lp, %.thread19110.loopexit, %.thread19110.loopexit.split-lp, %.thread19083.loopexit, %.thread19083.loopexit.split-lp, %.thread19056.loopexit, %.thread19056.loopexit.split-lp, %.thread19029.loopexit, %.thread19029.loopexit.split-lp, %12949, %.thread19221, %12885, %.thread19194, %12821, %.thread19167, %12757, %.thread19140, %12693, %.thread19113, %12629, %.thread19086, %12565, %.thread19059, %12501, %.thread19032, %12411
-  %.pn4862.pn = phi { ptr, i32 } [ %12412, %12411 ], [ %.pn4859.pn, %.thread19032 ], [ %lpad.thr_comm.split-lp19028, %12501 ], [ %.pn4850.pn, %.thread19059 ], [ %lpad.thr_comm.split-lp19055, %12565 ], [ %.pn4841.pn, %.thread19086 ], [ %lpad.thr_comm.split-lp19082, %12629 ], [ %.pn4832.pn, %.thread19113 ], [ %lpad.thr_comm.split-lp19109, %12693 ], [ %.pn4823.pn, %.thread19140 ], [ %lpad.thr_comm.split-lp19136, %12757 ], [ %.pn4814.pn, %.thread19167 ], [ %lpad.thr_comm.split-lp19163, %12821 ], [ %.pn4805.pn, %.thread19194 ], [ %lpad.thr_comm.split-lp19190, %12885 ], [ %.pn4796.pn, %.thread19221 ], [ %lpad.thr_comm.split-lp19217, %12949 ], [ %lpad.loopexit20329, %.thread19029.loopexit ], [ %lpad.loopexit.split-lp20330, %.thread19029.loopexit.split-lp ], [ %lpad.loopexit20326, %.thread19056.loopexit ], [ %lpad.loopexit.split-lp20327, %.thread19056.loopexit.split-lp ], [ %lpad.loopexit20323, %.thread19083.loopexit ], [ %lpad.loopexit.split-lp20324, %.thread19083.loopexit.split-lp ], [ %lpad.loopexit20320, %.thread19110.loopexit ], [ %lpad.loopexit.split-lp20321, %.thread19110.loopexit.split-lp ], [ %lpad.loopexit20317, %.thread19137.loopexit ], [ %lpad.loopexit.split-lp20318, %.thread19137.loopexit.split-lp ], [ %lpad.loopexit20314, %.thread19164.loopexit ], [ %lpad.loopexit.split-lp20315, %.thread19164.loopexit.split-lp ], [ %lpad.loopexit20311, %.thread19191.loopexit ], [ %lpad.loopexit.split-lp20312, %.thread19191.loopexit.split-lp ], [ %lpad.loopexit20308, %.thread19218.loopexit ], [ %lpad.loopexit.split-lp20309, %.thread19218.loopexit.split-lp ]
+  %.pn4862.pn = phi { ptr, i32 } [ %.pn4859.pn, %.thread19032 ], [ %lpad.thr_comm.split-lp19217, %12949 ], [ %12412, %12411 ], [ %.pn4850.pn, %.thread19059 ], [ %lpad.loopexit.split-lp20330, %.thread19029.loopexit.split-lp ], [ %.pn4841.pn, %.thread19086 ], [ %lpad.loopexit.split-lp20327, %.thread19056.loopexit.split-lp ], [ %.pn4832.pn, %.thread19113 ], [ %lpad.loopexit.split-lp20324, %.thread19083.loopexit.split-lp ], [ %.pn4823.pn, %.thread19140 ], [ %lpad.loopexit.split-lp20321, %.thread19110.loopexit.split-lp ], [ %.pn4814.pn, %.thread19167 ], [ %lpad.loopexit.split-lp20318, %.thread19137.loopexit.split-lp ], [ %.pn4805.pn, %.thread19194 ], [ %lpad.loopexit.split-lp20315, %.thread19164.loopexit.split-lp ], [ %.pn4796.pn, %.thread19221 ], [ %lpad.loopexit.split-lp20312, %.thread19191.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19028, %12501 ], [ %lpad.thr_comm.split-lp19055, %12565 ], [ %lpad.thr_comm.split-lp19082, %12629 ], [ %lpad.thr_comm.split-lp19109, %12693 ], [ %lpad.thr_comm.split-lp19136, %12757 ], [ %lpad.thr_comm.split-lp19163, %12821 ], [ %lpad.thr_comm.split-lp19190, %12885 ], [ %lpad.loopexit20329, %.thread19029.loopexit ], [ %lpad.loopexit20326, %.thread19056.loopexit ], [ %lpad.loopexit20323, %.thread19083.loopexit ], [ %lpad.loopexit20320, %.thread19110.loopexit ], [ %lpad.loopexit20317, %.thread19137.loopexit ], [ %lpad.loopexit20314, %.thread19164.loopexit ], [ %lpad.loopexit20311, %.thread19191.loopexit ], [ %lpad.loopexit20308, %.thread19218.loopexit ], [ %lpad.loopexit.split-lp20309, %.thread19218.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %908)
           to label %.thread19012 unwind label %3336
 
@@ -46354,7 +46354,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11831
           to label %12445 unwind label %12443
 
 .thread19032:                                     ; preds = %.thread19039.loopexit, %.thread19039.loopexit.split-lp, %12500, %12459, %12443
-  %.pn4859.pn = phi { ptr, i32 } [ %12444, %12443 ], [ %12460, %12459 ], [ %lpad.thr_comm.split-lp19038, %12500 ], [ %lpad.loopexit20265, %.thread19039.loopexit ], [ %lpad.loopexit.split-lp20266, %.thread19039.loopexit.split-lp ]
+  %.pn4859.pn = phi { ptr, i32 } [ %12460, %12459 ], [ %lpad.thr_comm.split-lp19038, %12500 ], [ %12444, %12443 ], [ %lpad.loopexit20265, %.thread19039.loopexit ], [ %lpad.loopexit.split-lp20266, %.thread19039.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %889)
           to label %.thread19022 unwind label %3336
 
@@ -46485,7 +46485,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11862
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11869" unwind label %.thread19039.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11867": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11862, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11860
-  %.sroa.716031.14 = phi i64 [ %.sroa.416027.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11860 ], [ %12483, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11862 ]
+  %.sroa.716031.14 = phi i64 [ %12483, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11862 ], [ %.sroa.416027.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11860 ]
   %12485 = icmp eq i64 %.sroa.716031.14, 1
   %12486 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016022.0.copyload
   %or.cond20111 = select i1 %12485, i1 %12486, i1 false
@@ -46593,7 +46593,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11862
           to label %12510 unwind label %12508
 
 .thread19059:                                     ; preds = %.thread19066.loopexit, %.thread19066.loopexit.split-lp, %12564, %12524, %12508
-  %.pn4850.pn = phi { ptr, i32 } [ %12509, %12508 ], [ %12525, %12524 ], [ %lpad.thr_comm.split-lp19065, %12564 ], [ %lpad.loopexit20268, %.thread19066.loopexit ], [ %lpad.loopexit.split-lp20269, %.thread19066.loopexit.split-lp ]
+  %.pn4850.pn = phi { ptr, i32 } [ %12525, %12524 ], [ %lpad.thr_comm.split-lp19065, %12564 ], [ %12509, %12508 ], [ %lpad.loopexit20268, %.thread19066.loopexit ], [ %lpad.loopexit.split-lp20269, %.thread19066.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %897)
           to label %.thread19022 unwind label %3336
 
@@ -46724,7 +46724,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11899
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11906" unwind label %.thread19066.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11904": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11899, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11897
-  %.sroa.716019.14 = phi i64 [ %.sroa.416015.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11897 ], [ %12548, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11899 ]
+  %.sroa.716019.14 = phi i64 [ %12548, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11899 ], [ %.sroa.416015.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11897 ]
   %12550 = icmp eq i64 %.sroa.716019.14, -1
   %12551 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016010.0.copyload
   %or.cond20113 = select i1 %12550, i1 %12551, i1 false
@@ -46827,7 +46827,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11899
           to label %12574 unwind label %12572
 
 .thread19086:                                     ; preds = %.thread19093.loopexit, %.thread19093.loopexit.split-lp, %12628, %12588, %12572
-  %.pn4841.pn = phi { ptr, i32 } [ %12573, %12572 ], [ %12589, %12588 ], [ %lpad.thr_comm.split-lp19092, %12628 ], [ %lpad.loopexit20271, %.thread19093.loopexit ], [ %lpad.loopexit.split-lp20272, %.thread19093.loopexit.split-lp ]
+  %.pn4841.pn = phi { ptr, i32 } [ %12589, %12588 ], [ %lpad.thr_comm.split-lp19092, %12628 ], [ %12573, %12572 ], [ %lpad.loopexit20271, %.thread19093.loopexit ], [ %lpad.loopexit.split-lp20272, %.thread19093.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %905)
           to label %.thread19022 unwind label %3336
 
@@ -46958,7 +46958,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11934
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11941" unwind label %.thread19093.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11939": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11934, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11932
-  %.sroa.716007.14 = phi i64 [ %.sroa.416003.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11932 ], [ %12612, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11934 ]
+  %.sroa.716007.14 = phi i64 [ %12612, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11934 ], [ %.sroa.416003.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11932 ]
   %12614 = icmp eq i64 %.sroa.716007.14, -1
   %12615 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.015998.0.copyload
   %or.cond20115 = select i1 %12614, i1 %12615, i1 false
@@ -47061,7 +47061,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11934
           to label %12638 unwind label %12636
 
 .thread19113:                                     ; preds = %.thread19120.loopexit, %.thread19120.loopexit.split-lp, %12692, %12652, %12636
-  %.pn4832.pn = phi { ptr, i32 } [ %12637, %12636 ], [ %12653, %12652 ], [ %lpad.thr_comm.split-lp19119, %12692 ], [ %lpad.loopexit20274, %.thread19120.loopexit ], [ %lpad.loopexit.split-lp20275, %.thread19120.loopexit.split-lp ]
+  %.pn4832.pn = phi { ptr, i32 } [ %12653, %12652 ], [ %lpad.thr_comm.split-lp19119, %12692 ], [ %12637, %12636 ], [ %lpad.loopexit20274, %.thread19120.loopexit ], [ %lpad.loopexit.split-lp20275, %.thread19120.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %881)
           to label %.thread19022 unwind label %3336
 
@@ -47192,7 +47192,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11969
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11976" unwind label %.thread19120.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit11974": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11969, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11967
-  %.sroa.716043.14 = phi i64 [ %.sroa.416039.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11967 ], [ %12676, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11969 ]
+  %.sroa.716043.14 = phi i64 [ %12676, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11969 ], [ %.sroa.416039.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11967 ]
   %12678 = icmp eq i64 %.sroa.716043.14, 1
   %12679 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016034.0.copyload
   %or.cond20117 = select i1 %12678, i1 %12679, i1 false
@@ -47295,7 +47295,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11969
           to label %12702 unwind label %12700
 
 .thread19140:                                     ; preds = %.thread19147.loopexit, %.thread19147.loopexit.split-lp, %12756, %12716, %12700
-  %.pn4823.pn = phi { ptr, i32 } [ %12701, %12700 ], [ %12717, %12716 ], [ %lpad.thr_comm.split-lp19146, %12756 ], [ %lpad.loopexit20277, %.thread19147.loopexit ], [ %lpad.loopexit.split-lp20278, %.thread19147.loopexit.split-lp ]
+  %.pn4823.pn = phi { ptr, i32 } [ %12717, %12716 ], [ %lpad.thr_comm.split-lp19146, %12756 ], [ %12701, %12700 ], [ %lpad.loopexit20277, %.thread19147.loopexit ], [ %lpad.loopexit.split-lp20278, %.thread19147.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %857)
           to label %.thread19022 unwind label %3336
 
@@ -47426,7 +47426,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12004
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12011" unwind label %.thread19147.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12009": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12004, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12002
-  %.sroa.716079.14 = phi i64 [ %.sroa.416075.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12002 ], [ %12740, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12004 ]
+  %.sroa.716079.14 = phi i64 [ %12740, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12004 ], [ %.sroa.416075.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12002 ]
   %12742 = icmp eq i64 %.sroa.716079.14, 1
   %12743 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016070.0.copyload
   %or.cond20119 = select i1 %12742, i1 %12743, i1 false
@@ -47529,7 +47529,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12004
           to label %12766 unwind label %12764
 
 .thread19167:                                     ; preds = %.thread19174.loopexit, %.thread19174.loopexit.split-lp, %12820, %12780, %12764
-  %.pn4814.pn = phi { ptr, i32 } [ %12765, %12764 ], [ %12781, %12780 ], [ %lpad.thr_comm.split-lp19173, %12820 ], [ %lpad.loopexit20280, %.thread19174.loopexit ], [ %lpad.loopexit.split-lp20281, %.thread19174.loopexit.split-lp ]
+  %.pn4814.pn = phi { ptr, i32 } [ %12781, %12780 ], [ %lpad.thr_comm.split-lp19173, %12820 ], [ %12765, %12764 ], [ %lpad.loopexit20280, %.thread19174.loopexit ], [ %lpad.loopexit.split-lp20281, %.thread19174.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %865)
           to label %.thread19022 unwind label %3336
 
@@ -47660,7 +47660,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12039
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12046" unwind label %.thread19174.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12044": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12039, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12037
-  %.sroa.716067.14 = phi i64 [ %.sroa.416063.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12037 ], [ %12804, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12039 ]
+  %.sroa.716067.14 = phi i64 [ %12804, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12039 ], [ %.sroa.416063.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12037 ]
   %12806 = icmp eq i64 %.sroa.716067.14, -1
   %12807 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016058.0.copyload
   %or.cond20121 = select i1 %12806, i1 %12807, i1 false
@@ -47763,7 +47763,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12039
           to label %12830 unwind label %12828
 
 .thread19194:                                     ; preds = %.thread19201.loopexit, %.thread19201.loopexit.split-lp, %12884, %12844, %12828
-  %.pn4805.pn = phi { ptr, i32 } [ %12829, %12828 ], [ %12845, %12844 ], [ %lpad.thr_comm.split-lp19200, %12884 ], [ %lpad.loopexit20283, %.thread19201.loopexit ], [ %lpad.loopexit.split-lp20284, %.thread19201.loopexit.split-lp ]
+  %.pn4805.pn = phi { ptr, i32 } [ %12845, %12844 ], [ %lpad.thr_comm.split-lp19200, %12884 ], [ %12829, %12828 ], [ %lpad.loopexit20283, %.thread19201.loopexit ], [ %lpad.loopexit.split-lp20284, %.thread19201.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %873)
           to label %.thread19022 unwind label %3336
 
@@ -47894,7 +47894,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12074
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12081" unwind label %.thread19201.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12079": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12074, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12072
-  %.sroa.716055.14 = phi i64 [ %.sroa.416051.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12072 ], [ %12868, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12074 ]
+  %.sroa.716055.14 = phi i64 [ %12868, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12074 ], [ %.sroa.416051.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12072 ]
   %12870 = icmp eq i64 %.sroa.716055.14, -1
   %12871 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016046.0.copyload
   %or.cond20123 = select i1 %12870, i1 %12871, i1 false
@@ -47997,7 +47997,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12074
           to label %12894 unwind label %12892
 
 .thread19221:                                     ; preds = %.thread19228.loopexit, %.thread19228.loopexit.split-lp, %12948, %12908, %12892
-  %.pn4796.pn = phi { ptr, i32 } [ %12893, %12892 ], [ %12909, %12908 ], [ %lpad.thr_comm.split-lp19227, %12948 ], [ %lpad.loopexit20286, %.thread19228.loopexit ], [ %lpad.loopexit.split-lp20287, %.thread19228.loopexit.split-lp ]
+  %.pn4796.pn = phi { ptr, i32 } [ %12909, %12908 ], [ %lpad.thr_comm.split-lp19227, %12948 ], [ %12893, %12892 ], [ %lpad.loopexit20286, %.thread19228.loopexit ], [ %lpad.loopexit.split-lp20287, %.thread19228.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %849)
           to label %.thread19022 unwind label %3336
 
@@ -48128,7 +48128,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12109
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12116" unwind label %.thread19228.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12114": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12109, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12107
-  %.sroa.716091.14 = phi i64 [ %.sroa.416087.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12107 ], [ %12932, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12109 ]
+  %.sroa.716091.14 = phi i64 [ %12932, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12109 ], [ %.sroa.416087.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12107 ]
   %12934 = icmp eq i64 %.sroa.716091.14, 1
   %12935 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016082.0.copyload
   %or.cond20125 = select i1 %12934, i1 %12935, i1 false
@@ -48281,7 +48281,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12109
           to label %12956 unwind label %.loopexit20913
 
 .thread19255:                                     ; preds = %.thread19262.loopexit, %.thread19262.loopexit.split-lp, %.loopexit20913, %.loopexit.split-lp20914, %13078, %.thread19265
-  %.pn4783.pn = phi { ptr, i32 } [ %.pn4780.pn, %.thread19265 ], [ %lpad.thr_comm.split-lp19261, %13078 ], [ %lpad.loopexit20915, %.loopexit20913 ], [ %lpad.loopexit.split-lp20916, %.loopexit.split-lp20914 ], [ %lpad.loopexit20918, %.thread19262.loopexit ], [ %lpad.loopexit.split-lp20919, %.thread19262.loopexit.split-lp ]
+  %.pn4783.pn = phi { ptr, i32 } [ %.pn4780.pn, %.thread19265 ], [ %lpad.loopexit.split-lp20916, %.loopexit.split-lp20914 ], [ %lpad.thr_comm.split-lp19261, %13078 ], [ %lpad.loopexit20915, %.loopexit20913 ], [ %lpad.loopexit20918, %.thread19262.loopexit ], [ %lpad.loopexit.split-lp20919, %.thread19262.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %826)
           to label %.thread18985 unwind label %3336
 
@@ -48348,7 +48348,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12148
   br label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12153"
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12153": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12148, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12146
-  %.sroa.716147.6 = phi i64 [ %.sroa.416143.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12146 ], [ %12978, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12148 ]
+  %.sroa.716147.6 = phi i64 [ %12978, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12148 ], [ %.sroa.416143.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12146 ]
   %12979 = icmp eq i64 %.sroa.716147.6, -1
   %12980 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016138.0.copyload
   %or.cond20127 = select i1 %12979, i1 %12980, i1 false
@@ -48387,7 +48387,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12148
           to label %12986 unwind label %12984
 
 .thread19265:                                     ; preds = %.loopexit20562, %.loopexit.split-lp20563, %13077, %13003, %12984
-  %.pn4780.pn = phi { ptr, i32 } [ %12985, %12984 ], [ %lpad.phi20336, %13003 ], [ %eh.lpad-body12165.ph, %13077 ], [ %lpad.loopexit20564, %.loopexit20562 ], [ %lpad.loopexit.split-lp20565, %.loopexit.split-lp20563 ]
+  %.pn4780.pn = phi { ptr, i32 } [ %lpad.phi20336, %13003 ], [ %eh.lpad-body12165.ph, %13077 ], [ %12985, %12984 ], [ %lpad.loopexit20564, %.loopexit20562 ], [ %lpad.loopexit.split-lp20565, %.loopexit.split-lp20563 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2182)
           to label %.thread19255 unwind label %3336
 
@@ -48917,7 +48917,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13133 unwind label %.loopexit20921
 
 .thread19283:                                     ; preds = %.thread19315.loopexit, %.thread19315.loopexit.split-lp, %.thread19290.loopexit, %.thread19290.loopexit.split-lp, %.loopexit20921, %.loopexit.split-lp20922, %13375, %.thread19325, %13259, %.thread19300
-  %.pn4771.pn = phi { ptr, i32 } [ %.pn4768.pn, %.thread19300 ], [ %lpad.thr_comm.split-lp19289, %13259 ], [ %.pn4760.pn, %.thread19325 ], [ %lpad.thr_comm.split-lp19314, %13375 ], [ %lpad.loopexit20923, %.loopexit20921 ], [ %lpad.loopexit.split-lp20924, %.loopexit.split-lp20922 ], [ %lpad.loopexit20929, %.thread19290.loopexit ], [ %lpad.loopexit.split-lp20930, %.thread19290.loopexit.split-lp ], [ %lpad.loopexit20926, %.thread19315.loopexit ], [ %lpad.loopexit.split-lp20927, %.thread19315.loopexit.split-lp ]
+  %.pn4771.pn = phi { ptr, i32 } [ %.pn4768.pn, %.thread19300 ], [ %lpad.loopexit.split-lp20924, %.loopexit.split-lp20922 ], [ %lpad.thr_comm.split-lp19314, %13375 ], [ %.pn4760.pn, %.thread19325 ], [ %lpad.loopexit.split-lp20930, %.thread19290.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19289, %13259 ], [ %lpad.loopexit20923, %.loopexit20921 ], [ %lpad.loopexit20929, %.thread19290.loopexit ], [ %lpad.loopexit20926, %.thread19315.loopexit ], [ %lpad.loopexit.split-lp20927, %.thread19315.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %841)
           to label %.thread18985 unwind label %3336
 
@@ -48988,7 +48988,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13148 unwind label %13146
 
 .thread19300:                                     ; preds = %.loopexit20567, %.loopexit.split-lp20568, %13258, %13183, %13146
-  %.pn4768.pn = phi { ptr, i32 } [ %13147, %13146 ], [ %lpad.phi20341, %13183 ], [ %eh.lpad-body12268.ph, %13258 ], [ %lpad.loopexit20569, %.loopexit20567 ], [ %lpad.loopexit.split-lp20570, %.loopexit.split-lp20568 ]
+  %.pn4768.pn = phi { ptr, i32 } [ %lpad.phi20341, %13183 ], [ %eh.lpad-body12268.ph, %13258 ], [ %13147, %13146 ], [ %lpad.loopexit20569, %.loopexit20567 ], [ %lpad.loopexit.split-lp20570, %.loopexit.split-lp20568 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %838)
           to label %.thread19283 unwind label %3336
 
@@ -49055,7 +49055,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12254
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12261" unwind label %.thread19290.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12259": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12254, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12252
-  %.sroa.716103.8 = phi i64 [ %.sroa.416099.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12252 ], [ %13170, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12254 ]
+  %.sroa.716103.8 = phi i64 [ %13170, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12254 ], [ %.sroa.416099.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12252 ]
   %13172 = icmp eq i64 %.sroa.716103.8, 1
   %13173 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016094.0.copyload
   %or.cond20129 = select i1 %13172, i1 %13173, i1 false
@@ -49424,7 +49424,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13265 unwind label %13263
 
 .thread19325:                                     ; preds = %.loopexit20572, %.loopexit.split-lp20573, %13374, %13300, %13263
-  %.pn4760.pn = phi { ptr, i32 } [ %13264, %13263 ], [ %lpad.phi20346, %13300 ], [ %eh.lpad-body12347.ph, %13374 ], [ %lpad.loopexit20574, %.loopexit20572 ], [ %lpad.loopexit.split-lp20575, %.loopexit.split-lp20573 ]
+  %.pn4760.pn = phi { ptr, i32 } [ %lpad.phi20346, %13300 ], [ %eh.lpad-body12347.ph, %13374 ], [ %13264, %13263 ], [ %lpad.loopexit20574, %.loopexit20572 ], [ %lpad.loopexit.split-lp20575, %.loopexit.split-lp20573 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %832)
           to label %.thread19283 unwind label %3336
 
@@ -49491,7 +49491,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12333
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12340" unwind label %.thread19315.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12338": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12333, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12331
-  %.sroa.716125.8 = phi i64 [ %.sroa.416121.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12331 ], [ %13287, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12333 ]
+  %.sroa.716125.8 = phi i64 [ %13287, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12333 ], [ %.sroa.416121.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12331 ]
   %13289 = icmp eq i64 %.sroa.716125.8, 1
   %13290 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016116.0.copyload
   %or.cond20131 = select i1 %13289, i1 %13290, i1 false
@@ -50000,7 +50000,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13429 unwind label %.loopexit20932
 
 .thread19350:                                     ; preds = %.thread19357.loopexit, %.thread19357.loopexit.split-lp, %.loopexit20932, %.loopexit.split-lp20933, %13551, %.thread19360
-  %.pn4751.pn = phi { ptr, i32 } [ %.pn4748.pn, %.thread19360 ], [ %lpad.thr_comm.split-lp19356, %13551 ], [ %lpad.loopexit20934, %.loopexit20932 ], [ %lpad.loopexit.split-lp20935, %.loopexit.split-lp20933 ], [ %lpad.loopexit20937, %.thread19357.loopexit ], [ %lpad.loopexit.split-lp20938, %.thread19357.loopexit.split-lp ]
+  %.pn4751.pn = phi { ptr, i32 } [ %.pn4748.pn, %.thread19360 ], [ %lpad.loopexit.split-lp20935, %.loopexit.split-lp20933 ], [ %lpad.thr_comm.split-lp19356, %13551 ], [ %lpad.loopexit20934, %.loopexit20932 ], [ %lpad.loopexit20937, %.thread19357.loopexit ], [ %lpad.loopexit.split-lp20938, %.thread19357.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %802)
           to label %.thread18985 unwind label %3336
 
@@ -50067,7 +50067,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12445
   br label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12450"
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12450": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12445, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12443
-  %.sroa.716214.6 = phi i64 [ %.sroa.416210.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12443 ], [ %13451, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12445 ]
+  %.sroa.716214.6 = phi i64 [ %13451, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12445 ], [ %.sroa.416210.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12443 ]
   %13452 = icmp eq i64 %.sroa.716214.6, -1
   %13453 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016205.0.copyload
   %or.cond20133 = select i1 %13452, i1 %13453, i1 false
@@ -50106,7 +50106,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12445
           to label %13459 unwind label %13457
 
 .thread19360:                                     ; preds = %.loopexit20577, %.loopexit.split-lp20578, %13550, %13476, %13457
-  %.pn4748.pn = phi { ptr, i32 } [ %13458, %13457 ], [ %lpad.phi20351, %13476 ], [ %eh.lpad-body12462.ph, %13550 ], [ %lpad.loopexit20579, %.loopexit20577 ], [ %lpad.loopexit.split-lp20580, %.loopexit.split-lp20578 ]
+  %.pn4748.pn = phi { ptr, i32 } [ %lpad.phi20351, %13476 ], [ %eh.lpad-body12462.ph, %13550 ], [ %13458, %13457 ], [ %lpad.loopexit20579, %.loopexit20577 ], [ %lpad.loopexit.split-lp20580, %.loopexit.split-lp20578 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %2092)
           to label %.thread19350 unwind label %3336
 
@@ -50636,7 +50636,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13606 unwind label %.loopexit20940
 
 .thread19378:                                     ; preds = %.thread19410.loopexit, %.thread19410.loopexit.split-lp, %.thread19385.loopexit, %.thread19385.loopexit.split-lp, %.loopexit20940, %.loopexit.split-lp20941, %13848, %.thread19420, %13732, %.thread19395
-  %.pn4739.pn = phi { ptr, i32 } [ %.pn4736.pn, %.thread19395 ], [ %lpad.thr_comm.split-lp19384, %13732 ], [ %.pn4728.pn, %.thread19420 ], [ %lpad.thr_comm.split-lp19409, %13848 ], [ %lpad.loopexit20942, %.loopexit20940 ], [ %lpad.loopexit.split-lp20943, %.loopexit.split-lp20941 ], [ %lpad.loopexit20948, %.thread19385.loopexit ], [ %lpad.loopexit.split-lp20949, %.thread19385.loopexit.split-lp ], [ %lpad.loopexit20945, %.thread19410.loopexit ], [ %lpad.loopexit.split-lp20946, %.thread19410.loopexit.split-lp ]
+  %.pn4739.pn = phi { ptr, i32 } [ %.pn4736.pn, %.thread19395 ], [ %lpad.loopexit.split-lp20943, %.loopexit.split-lp20941 ], [ %lpad.thr_comm.split-lp19409, %13848 ], [ %.pn4728.pn, %.thread19420 ], [ %lpad.loopexit.split-lp20949, %.thread19385.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19384, %13732 ], [ %lpad.loopexit20942, %.loopexit20940 ], [ %lpad.loopexit20948, %.thread19385.loopexit ], [ %lpad.loopexit20945, %.thread19410.loopexit ], [ %lpad.loopexit.split-lp20946, %.thread19410.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %817)
           to label %.thread18985 unwind label %3336
 
@@ -50707,7 +50707,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13621 unwind label %13619
 
 .thread19395:                                     ; preds = %.loopexit20582, %.loopexit.split-lp20583, %13731, %13656, %13619
-  %.pn4736.pn = phi { ptr, i32 } [ %13620, %13619 ], [ %lpad.phi20356, %13656 ], [ %eh.lpad-body12576.ph, %13731 ], [ %lpad.loopexit20584, %.loopexit20582 ], [ %lpad.loopexit.split-lp20585, %.loopexit.split-lp20583 ]
+  %.pn4736.pn = phi { ptr, i32 } [ %lpad.phi20356, %13656 ], [ %eh.lpad-body12576.ph, %13731 ], [ %13620, %13619 ], [ %lpad.loopexit20584, %.loopexit20582 ], [ %lpad.loopexit.split-lp20585, %.loopexit.split-lp20583 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %814)
           to label %.thread19378 unwind label %3336
 
@@ -50774,7 +50774,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12562
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12569" unwind label %.thread19385.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12567": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12562, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12560
-  %.sroa.716170.8 = phi i64 [ %.sroa.416166.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12560 ], [ %13643, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12562 ]
+  %.sroa.716170.8 = phi i64 [ %13643, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12562 ], [ %.sroa.416166.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12560 ]
   %13645 = icmp eq i64 %.sroa.716170.8, 1
   %13646 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016161.0.copyload
   %or.cond20135 = select i1 %13645, i1 %13646, i1 false
@@ -51143,7 +51143,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
           to label %13738 unwind label %13736
 
 .thread19420:                                     ; preds = %.loopexit20587, %.loopexit.split-lp20588, %13847, %13773, %13736
-  %.pn4728.pn = phi { ptr, i32 } [ %13737, %13736 ], [ %lpad.phi20361, %13773 ], [ %eh.lpad-body12655.ph, %13847 ], [ %lpad.loopexit20589, %.loopexit20587 ], [ %lpad.loopexit.split-lp20590, %.loopexit.split-lp20588 ]
+  %.pn4728.pn = phi { ptr, i32 } [ %lpad.phi20361, %13773 ], [ %eh.lpad-body12655.ph, %13847 ], [ %13737, %13736 ], [ %lpad.loopexit20589, %.loopexit20587 ], [ %lpad.loopexit.split-lp20590, %.loopexit.split-lp20588 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %808)
           to label %.thread19378 unwind label %3336
 
@@ -51210,7 +51210,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12641
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12648" unwind label %.thread19410.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12646": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12641, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12639
-  %.sroa.716192.8 = phi i64 [ %.sroa.416188.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12639 ], [ %13760, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12641 ]
+  %.sroa.716192.8 = phi i64 [ %13760, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12641 ], [ %.sroa.416188.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12639 ]
   %13762 = icmp eq i64 %.sroa.716192.8, 1
   %13763 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016183.0.copyload
   %or.cond20137 = select i1 %13762, i1 %13763, i1 false
@@ -51749,7 +51749,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %13911 unwind label %13909
 
 .thread19436:                                     ; preds = %.thread19459.loopexit, %.thread19459.loopexit.split-lp, %.loopexit20900, %.loopexit.split-lp20901, %.loopexit20905, %.loopexit.split-lp20906, %14070, %.thread19466, %13992, %13959, %13949, %13927, %13909
-  %.pn4885.pn = phi { ptr, i32 } [ %13910, %13909 ], [ %13928, %13927 ], [ %eh.lpad-body12758.ph, %13949 ], [ %lpad.phi20558, %13959 ], [ %eh.lpad-body12785.ph, %13992 ], [ %.pn4876.pn, %.thread19466 ], [ %lpad.thr_comm.split-lp19458, %14070 ], [ %lpad.loopexit20907, %.loopexit20905 ], [ %lpad.loopexit.split-lp20908, %.loopexit.split-lp20906 ], [ %lpad.loopexit20902, %.loopexit20900 ], [ %lpad.loopexit.split-lp20903, %.loopexit.split-lp20901 ], [ %lpad.loopexit21363, %.thread19459.loopexit ], [ %lpad.loopexit.split-lp21364, %.thread19459.loopexit.split-lp ]
+  %.pn4885.pn = phi { ptr, i32 } [ %13928, %13927 ], [ %lpad.thr_comm.split-lp19458, %14070 ], [ %13910, %13909 ], [ %lpad.phi20558, %13959 ], [ %lpad.loopexit.split-lp20908, %.loopexit.split-lp20906 ], [ %.pn4876.pn, %.thread19466 ], [ %lpad.loopexit.split-lp20903, %.loopexit.split-lp20901 ], [ %eh.lpad-body12758.ph, %13949 ], [ %eh.lpad-body12785.ph, %13992 ], [ %lpad.loopexit20907, %.loopexit20905 ], [ %lpad.loopexit20902, %.loopexit20900 ], [ %lpad.loopexit21363, %.thread19459.loopexit ], [ %lpad.loopexit.split-lp21364, %.thread19459.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %793)
           to label %.thread18985 unwind label %3336
 
@@ -52123,7 +52123,7 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_uextend_maybe17hb2d402a
           to label %13998 unwind label %13996
 
 .thread19466:                                     ; preds = %.loopexit20895, %.loopexit.split-lp20896, %14069, %14032, %13996
-  %.pn4876.pn = phi { ptr, i32 } [ %13997, %13996 ], [ %14033, %14032 ], [ %eh.lpad-body12829.ph, %14069 ], [ %lpad.loopexit20897, %.loopexit20895 ], [ %lpad.loopexit.split-lp20898, %.loopexit.split-lp20896 ]
+  %.pn4876.pn = phi { ptr, i32 } [ %14033, %14032 ], [ %eh.lpad-body12829.ph, %14069 ], [ %13997, %13996 ], [ %lpad.loopexit20897, %.loopexit20895 ], [ %lpad.loopexit.split-lp20898, %.loopexit.split-lp20896 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %784)
           to label %.thread19436 unwind label %3336
 
@@ -52190,7 +52190,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12815
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12822" unwind label %.thread19459.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12820": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12815, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12813
-  %.sroa.616240.5 = phi i64 [ %.sroa.416236.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12813 ], [ %14020, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12815 ]
+  %.sroa.616240.5 = phi i64 [ %14020, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12815 ], [ %.sroa.416236.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12813 ]
   %14022 = icmp eq i64 %.sroa.616240.5, -1
   br i1 %14022, label %14023, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12820.thread"
 
@@ -52317,7 +52317,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12843
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit12850" unwind label %.loopexit20895
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12848": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12843, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12841
-  %.sroa.616251.7 = phi i64 [ %.sroa.416247.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12841 ], [ %14056, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12843 ]
+  %.sroa.616251.7 = phi i64 [ %14056, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12843 ], [ %.sroa.416247.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12841 ]
   %14058 = icmp eq i64 %.sroa.616251.7, 0
   br i1 %14058, label %14059, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit12848.thread"
 
@@ -53663,7 +53663,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %14504 unwind label %14502
 
 .thread19528:                                     ; preds = %.loopexit21376, %.loopexit.split-lp21377, %14541, %14521, %14502
-  %.pn4706.pn = phi { ptr, i32 } [ %14503, %14502 ], [ %14522, %14521 ], [ %eh.lpad-body13090.ph, %14541 ], [ %lpad.loopexit21378, %.loopexit21376 ], [ %lpad.loopexit.split-lp21379, %.loopexit.split-lp21377 ]
+  %.pn4706.pn = phi { ptr, i32 } [ %14522, %14521 ], [ %eh.lpad-body13090.ph, %14541 ], [ %14503, %14502 ], [ %lpad.loopexit21378, %.loopexit21376 ], [ %lpad.loopexit.split-lp21379, %.loopexit.split-lp21377 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %767)
           to label %.thread16494 unwind label %3336
 
@@ -54843,7 +54843,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %14849 unwind label %.loopexit21387
 
 .thread19576:                                     ; preds = %.thread19600.loopexit, %.thread19600.loopexit.split-lp, %.thread19583.loopexit, %.thread19583.loopexit.split-lp, %.loopexit21387, %.loopexit.split-lp21388.loopexit.split-lp, %.loopexit.split-lp21388.loopexit, %14947, %14909, %14905, %14867
-  %.pn4685.pn = phi { ptr, i32 } [ %14868, %14867 ], [ %lpad.thr_comm.split-lp19582, %14905 ], [ %14910, %14909 ], [ %lpad.thr_comm.split-lp19599, %14947 ], [ %lpad.loopexit21389, %.loopexit21387 ], [ %lpad.loopexit21483, %.loopexit.split-lp21388.loopexit ], [ %lpad.loopexit.split-lp21484, %.loopexit.split-lp21388.loopexit.split-lp ], [ %lpad.loopexit21396, %.thread19583.loopexit ], [ %lpad.loopexit.split-lp21397, %.thread19583.loopexit.split-lp ], [ %lpad.loopexit21393, %.thread19600.loopexit ], [ %lpad.loopexit.split-lp21394, %.thread19600.loopexit.split-lp ]
+  %.pn4685.pn = phi { ptr, i32 } [ %14868, %14867 ], [ %lpad.loopexit.split-lp21484, %.loopexit.split-lp21388.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19599, %14947 ], [ %14910, %14909 ], [ %lpad.loopexit.split-lp21397, %.thread19583.loopexit.split-lp ], [ %lpad.thr_comm.split-lp19582, %14905 ], [ %lpad.loopexit21389, %.loopexit21387 ], [ %lpad.loopexit21483, %.loopexit.split-lp21388.loopexit ], [ %lpad.loopexit21396, %.thread19583.loopexit ], [ %lpad.loopexit21393, %.thread19600.loopexit ], [ %lpad.loopexit.split-lp21394, %.thread19600.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %749)
           to label %.thread16494 unwind label %3336
 
@@ -55009,7 +55009,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13255
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit13262" unwind label %.thread19583.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13260": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13255, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13253
-  %.sroa.716360.5 = phi i64 [ %.sroa.416356.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13253 ], [ %14891, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13255 ]
+  %.sroa.716360.5 = phi i64 [ %14891, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13255 ], [ %.sroa.416356.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13253 ]
   %14893 = icmp eq i64 %.sroa.716360.5, -1
   %14894 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016351.0.copyload
   %or.cond20139 = select i1 %14893, i1 %14894, i1 false
@@ -55152,7 +55152,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13281
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit13288" unwind label %.thread19600.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit13286": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13281, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13279
-  %.sroa.716371.5 = phi i64 [ %.sroa.416367.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13279 ], [ %14933, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13281 ]
+  %.sroa.716371.5 = phi i64 [ %14933, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13281 ], [ %.sroa.416367.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13279 ]
   %14935 = icmp eq i64 %.sroa.716371.5, 1
   %14936 = icmp eq i16 %.sroa.013799.0.copyload.fr, %.sroa.016362.0.copyload
   %or.cond20141 = select i1 %14935, i1 %14936, i1 false
@@ -59355,7 +59355,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13756
   ret void
 
 .thread:                                          ; preds = %16234, %.thread16494
-  %.pn578416489 = phi { ptr, i32 } [ %.pn5781.pn, %.thread16494 ], [ %eh.lpad-body.ph, %16234 ]
+  %.pn578416489 = phi { ptr, i32 } [ %eh.lpad-body.ph, %16234 ], [ %.pn5781.pn, %.thread16494 ]
   resume { ptr, i32 } %.pn578416489
 
 16234:                                            ; preds = %1649, %1645
@@ -59714,7 +59714,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %40 unwind label %38
 
 .thread169:                                       ; preds = %.loopexit200, %.loopexit.split-lp201, %.loopexit205, %.loopexit.split-lp206, %130, %.thread185, %85, %68, %38
-  %.pn57 = phi { ptr, i32 } [ %39, %38 ], [ %69, %68 ], [ %eh.lpad-body99.ph, %85 ], [ %.pn.pn, %.thread185 ], [ %eh.lpad-body113.ph, %130 ], [ %lpad.loopexit207, %.loopexit205 ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp206 ], [ %lpad.loopexit202, %.loopexit200 ], [ %lpad.loopexit.split-lp203, %.loopexit.split-lp201 ]
+  %.pn57 = phi { ptr, i32 } [ %39, %38 ], [ %69, %68 ], [ %eh.lpad-body113.ph, %130 ], [ %.pn.pn, %.thread185 ], [ %lpad.loopexit.split-lp208, %.loopexit.split-lp206 ], [ %eh.lpad-body99.ph, %85 ], [ %lpad.loopexit207, %.loopexit205 ], [ %lpad.loopexit202, %.loopexit200 ], [ %lpad.loopexit.split-lp203, %.loopexit.split-lp201 ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
           to label %.thread unwind label %83
 
@@ -59975,7 +59975,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %97 unwind label %95
 
 .thread185:                                       ; preds = %.loopexit, %.loopexit.split-lp, %129, %114, %95
-  %.pn.pn = phi { ptr, i32 } [ %96, %95 ], [ %115, %114 ], [ %eh.lpad-body123.ph, %129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %115, %114 ], [ %eh.lpad-body123.ph, %129 ], [ %96, %95 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %.thread169 unwind label %83
 
@@ -60234,7 +60234,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   ret void
 
 .thread:                                          ; preds = %159, %.thread169
-  %.pn59164 = phi { ptr, i32 } [ %.pn57, %.thread169 ], [ %eh.lpad-body.ph, %159 ]
+  %.pn59164 = phi { ptr, i32 } [ %eh.lpad-body.ph, %159 ], [ %.pn57, %.thread169 ]
   resume { ptr, i32 } %.pn59164
 
 159:                                              ; preds = %25, %21
@@ -60986,7 +60986,7 @@ define internal fastcc noundef i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleCon
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
 26:                                               ; preds = %20, %19, %5
-  %.0.i.i = phi i32 [ 32, %19 ], [ 64, %20 ], [ 0, %5 ]
+  %.0.i.i = phi i32 [ 32, %19 ], [ 0, %5 ], [ 64, %20 ]
   %27 = tail call i16 @llvm.usub.sat.i16(i16 %0, i16 112)
   %28 = lshr i16 %27, 4
   %29 = zext nneg i16 %28 to i32
@@ -61020,9 +61020,9 @@ define internal fastcc noundef i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleCon
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i
 
 _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i: ; preds = %.thread7, %.thread5, %.thread, %36, %35, %34, %33, %32, %26
-  %.in = phi i32 [ %31, %34 ], [ %31, %35 ], [ %31, %26 ], [ %13, %.thread ], [ %31, %32 ], [ %18, %.thread5 ], [ %31, %33 ], [ %25, %.thread7 ], [ %31, %36 ]
-  %37 = phi i32 [ %29, %34 ], [ %29, %35 ], [ %29, %26 ], [ %11, %.thread ], [ %29, %32 ], [ %16, %.thread5 ], [ %29, %33 ], [ %23, %.thread7 ], [ %29, %36 ]
-  %.0.i.i.i1 = phi i32 [ 32, %34 ], [ 64, %35 ], [ 0, %26 ], [ 8, %.thread ], [ 8, %32 ], [ 16, %.thread5 ], [ 16, %33 ], [ 128, %.thread7 ], [ 128, %36 ]
+  %.in = phi i32 [ %31, %33 ], [ %31, %26 ], [ %31, %32 ], [ %31, %34 ], [ %31, %35 ], [ %13, %.thread ], [ %18, %.thread5 ], [ %25, %.thread7 ], [ %31, %36 ]
+  %37 = phi i32 [ %29, %33 ], [ %29, %26 ], [ %29, %32 ], [ %29, %34 ], [ %29, %35 ], [ %11, %.thread ], [ %16, %.thread5 ], [ %23, %.thread7 ], [ %29, %36 ]
+  %.0.i.i.i1 = phi i32 [ 16, %33 ], [ 0, %26 ], [ 8, %32 ], [ 32, %34 ], [ 64, %35 ], [ 8, %.thread ], [ 16, %.thread5 ], [ 128, %.thread7 ], [ 128, %36 ]
   %38 = zext i32 %.in to i64
   %39 = shl nuw nsw i32 %.0.i.i.i1, %37
   %40 = icmp samesign ugt i32 %39, 64
@@ -61238,7 +61238,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread: ; pre
   br label %14
 
 14:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit
-  %.sroa.0.0 = phi i16 [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit ], [ %spec.select, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread ]
+  %.sroa.0.0 = phi i16 [ %spec.select, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread ], [ 0, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit ]
   %15 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %16 = insertvalue { i16, i16 } %15, i16 %0, 1
   ret { i16, i16 } %16

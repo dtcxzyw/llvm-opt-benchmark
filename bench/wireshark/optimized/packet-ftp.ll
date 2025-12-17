@@ -541,8 +541,8 @@ proto_item_set_hidden.exit344:                    ; preds = %proto_item_set_hidd
   br label %.thread
 
 143:                                              ; preds = %97, %91, %118, %89
-  %.0300 = phi i1 [ false, %118 ], [ false, %89 ], [ false, %91 ], [ true, %97 ]
-  %.0299 = phi i1 [ false, %118 ], [ false, %89 ], [ true, %91 ], [ false, %97 ]
+  %.0300 = phi i1 [ false, %89 ], [ false, %91 ], [ true, %97 ], [ false, %118 ]
+  %.0299 = phi i1 [ false, %89 ], [ true, %91 ], [ false, %97 ], [ false, %118 ]
   %.not333 = icmp eq ptr %37, null
   br i1 %.not333, label %.critedge, label %.thread
 
@@ -745,11 +745,11 @@ thread-pre-split.thread:                          ; preds = %thread-pre-split.th
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %143, %249, %250, %154, %157, %169, %166, %164
-  %.0306 = phi i32 [ %90, %157 ], [ %90, %164 ], [ %90, %169 ], [ %90, %166 ], [ %90, %154 ], [ 0, %249 ], [ 0, %250 ], [ %90, %143 ], [ %90, %103 ]
-  %.0304 = phi i1 [ false, %157 ], [ false, %164 ], [ false, %169 ], [ false, %166 ], [ false, %154 ], [ %203, %249 ], [ false, %250 ], [ false, %143 ], [ false, %103 ]
-  %.0302 = phi i1 [ false, %157 ], [ false, %164 ], [ false, %169 ], [ false, %166 ], [ false, %154 ], [ %202, %249 ], [ false, %250 ], [ false, %143 ], [ false, %103 ]
-  %.1301 = phi i1 [ %.0300398, %157 ], [ %.0300398, %164 ], [ %.0300398, %169 ], [ %.0300398, %166 ], [ %.0300398, %154 ], [ false, %249 ], [ false, %250 ], [ %.0300, %143 ], [ false, %103 ]
-  %.1 = phi i1 [ %.0299399, %157 ], [ %.0299399, %164 ], [ %.0299399, %169 ], [ %.0299399, %166 ], [ %.0299399, %154 ], [ false, %249 ], [ false, %250 ], [ %.0299, %143 ], [ false, %103 ]
+  %.0306 = phi i32 [ %90, %157 ], [ %90, %164 ], [ %90, %169 ], [ %90, %166 ], [ %90, %154 ], [ %90, %143 ], [ 0, %249 ], [ 0, %250 ], [ %90, %103 ]
+  %.0304 = phi i1 [ false, %157 ], [ false, %164 ], [ false, %169 ], [ false, %166 ], [ false, %154 ], [ false, %143 ], [ %203, %249 ], [ false, %250 ], [ false, %103 ]
+  %.0302 = phi i1 [ false, %157 ], [ false, %164 ], [ false, %169 ], [ false, %166 ], [ false, %154 ], [ false, %143 ], [ %202, %249 ], [ false, %250 ], [ false, %103 ]
+  %.1301 = phi i1 [ %.0300398, %157 ], [ %.0300398, %164 ], [ %.0300398, %169 ], [ %.0300398, %166 ], [ %.0300398, %154 ], [ %.0300, %143 ], [ false, %249 ], [ false, %250 ], [ false, %103 ]
+  %.1 = phi i1 [ %.0299399, %157 ], [ %.0299399, %164 ], [ %.0299399, %169 ], [ %.0299399, %166 ], [ %.0299399, %154 ], [ %.0299, %143 ], [ false, %249 ], [ false, %250 ], [ false, %103 ]
   %251 = load i32, ptr %9, align 4
   %252 = sub i32 %54, %251
   %253 = icmp ne i32 %54, %251
@@ -992,9 +992,9 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
   br i1 %373, label %.sink.split.i, label %parse_eprt_request.exit.thread
 
 .sink.split.i:                                    ; preds = %369, %367, %365
-  %.sink.i = phi ptr [ %17, %367 ], [ %17, %365 ], [ %19, %369 ]
-  %.171.ph.i = phi i1 [ %368, %367 ], [ %366, %365 ], [ %.07095.i, %369 ]
-  %.366.ph.i = phi i32 [ 3, %367 ], [ 3, %365 ], [ 4, %369 ]
+  %.sink.i = phi ptr [ %17, %365 ], [ %17, %367 ], [ %19, %369 ]
+  %.171.ph.i = phi i1 [ %366, %365 ], [ %368, %367 ], [ %.07095.i, %369 ]
+  %.366.ph.i = phi i32 [ 3, %365 ], [ 3, %367 ], [ 4, %369 ]
   store i32 %348, ptr %.sink.i, align 4
   br label %374
 
@@ -1059,7 +1059,7 @@ parse_eprt_request.exit.thread407._crit_edge:     ; preds = %parse_eprt_request.
   call fastcc void @create_and_link_data_conversation(ptr noundef %1, ptr noundef nonnull %21, i16 noundef zeroext %396, ptr noundef nonnull %20, i16 noundef zeroext 0, ptr noundef nonnull @.str.177)
   br label %400
 
-parse_eprt_request.exit.thread:                   ; preds = %369, %360, %345, %355, %320, %._crit_edge.i, %isvalid_rfc2428_delimiter.exit.i, %318, %parse_eprt_request.exit
+parse_eprt_request.exit.thread:                   ; preds = %369, %345, %360, %355, %320, %._crit_edge.i, %isvalid_rfc2428_delimiter.exit.i, %318, %parse_eprt_request.exit
   %397 = xor i32 %252, -1
   %398 = add i32 %251, %397
   %399 = call ptr @proto_tree_add_expert(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @ei_ftp_eprt_args_invalid, ptr noundef %0, i32 noundef %398, i32 noundef %252)
@@ -2003,8 +2003,8 @@ define internal range(i32 0, 2) i32 @ftp_eo_packet(ptr noundef readonly captures
   br label %89
 
 89:                                               ; preds = %78, %._crit_edge
-  %90 = phi i64 [ %.pre76.pre, %._crit_edge ], [ %80, %78 ]
-  %.0 = phi i64 [ %.pre81, %._crit_edge ], [ %spec.select89, %78 ]
+  %90 = phi i64 [ %80, %78 ], [ %.pre76.pre, %._crit_edge ]
+  %.0 = phi i64 [ %spec.select89, %78 ], [ %.pre81, %._crit_edge ]
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -2022,7 +2022,7 @@ define internal range(i32 0, 2) i32 @ftp_eo_packet(ptr noundef readonly captures
   br label %102
 
 102:                                              ; preds = %5, %._crit_edge77, %89, %13
-  %.060 = phi i32 [ 0, %13 ], [ 1, %89 ], [ 1, %._crit_edge77 ], [ 0, %5 ]
+  %.060 = phi i32 [ 1, %._crit_edge77 ], [ 0, %13 ], [ 1, %89 ], [ 0, %5 ]
   ret i32 %.060
 }
 

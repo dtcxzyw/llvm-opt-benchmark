@@ -130,7 +130,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK4llvm18FunctionComparator9cmp
   br label %16
 
 16:                                               ; preds = %3, %13, %10
-  %.1 = phi i32 [ %.0.i, %3 ], [ 1, %10 ], [ %., %13 ]
+  %.1 = phi i32 [ %.0.i, %3 ], [ %., %13 ], [ 1, %10 ]
   ret i32 %.1
 }
 
@@ -187,7 +187,7 @@ _ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit: ; preds = %3, %13
   br label %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit13
 
 _ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit13: ; preds = %10, %28, %25, %16, %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit
-  %.1 = phi i32 [ %.1.i, %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit ], [ %.0.i.i9, %16 ], [ 1, %25 ], [ %..i12, %28 ], [ 1, %10 ]
+  %.1 = phi i32 [ 1, %25 ], [ %.1.i, %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit ], [ %.0.i.i9, %16 ], [ %..i12, %28 ], [ 1, %10 ]
   ret i32 %.1
 }
 
@@ -419,7 +419,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK4llvm18FunctionComparator8cmp
 
 46:                                               ; preds = %39
   %.not94 = icmp eq ptr %40, %41
-  br i1 %.not94, label %select.unfold, label %.thread.loopexit161.split.loop.exit181
+  br i1 %.not94, label %select.unfold, label %.thread.loopexit161.split.loop.exit179
 
 47:                                               ; preds = %29, %.lr.ph201
   %48 = call noundef zeroext i1 @_ZNK4llvm9Attribute24isConstantRangeAttributeEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
@@ -620,14 +620,14 @@ _ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit11
   %.0.i108.le = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %103, i64 %105)
   br label %.thread
 
-.thread.loopexit161.split.loop.exit181:           ; preds = %46
+.thread.loopexit161.split.loop.exit179:           ; preds = %46
   %147 = ptrtoint ptr %40 to i64
   %148 = ptrtoint ptr %41 to i64
   %.0.i105.le = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %147, i64 %148)
   br label %.thread
 
-.thread:                                          ; preds = %145, %143, %44, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit, %83, %68, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit119, %132, %117, %.thread.loopexit161.split.loop.exit177, %.thread.loopexit161.split.loop.exit181, %34, %54, %96
-  %.5.ph = phi i32 [ %.0.i107, %96 ], [ %.0.i106, %54 ], [ %.0.i104, %34 ], [ %.0.i108.le, %.thread.loopexit161.split.loop.exit177 ], [ %.0.i105.le, %.thread.loopexit161.split.loop.exit181 ], [ 1, %117 ], [ 1, %132 ], [ %.1.i114, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit119 ], [ 1, %145 ], [ -1, %143 ], [ %45, %44 ], [ %.1.i, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit ], [ 1, %83 ], [ 1, %68 ]
+.thread:                                          ; preds = %145, %44, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit, %143, %83, %68, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit119, %132, %117, %.thread.loopexit161.split.loop.exit177, %.thread.loopexit161.split.loop.exit179, %34, %54, %96
+  %.5.ph = phi i32 [ %.0.i106, %54 ], [ %.0.i108.le, %.thread.loopexit161.split.loop.exit177 ], [ %.0.i107, %96 ], [ %.0.i104, %34 ], [ 1, %117 ], [ %.0.i105.le, %.thread.loopexit161.split.loop.exit179 ], [ 1, %132 ], [ %.1.i114, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit119 ], [ %45, %44 ], [ 1, %145 ], [ 1, %83 ], [ %.1.i, %_ZNK4llvm18FunctionComparator17cmpConstantRangesERKNS_13ConstantRangeES3_.exit ], [ -1, %143 ], [ 1, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %select.unfold149
@@ -944,7 +944,7 @@ tailrecurse.backedge:                             ; preds = %120, %114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %33, %33, %33, %33, %33, %33, %33, %33, %33, %105, %104, %66, %67, %.loopexit180.split.loop.exit, %.preheader, %125, %119, %80, %89, %92, %52, %61, %40, %35
-  %.0 = phi i32 [ %.0.i127, %35 ], [ %.0.i128, %40 ], [ %.0.i129, %52 ], [ %.0.i130, %61 ], [ %.0.i131, %80 ], [ %.0.i132, %89 ], [ %99, %92 ], [ %.0.i133, %119 ], [ %.0.i156, %125 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit180.split.loop.exit ], [ 0, %66 ], [ %74, %67 ], [ 0, %104 ], [ %113, %105 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %24 ]
+  %.0 = phi i32 [ %.0.i131, %80 ], [ %.0.i127, %35 ], [ %.0.i132, %89 ], [ %.0.i128, %40 ], [ %99, %92 ], [ %.0.i133, %119 ], [ %.0.i156, %125 ], [ %.0.i129, %52 ], [ %.0.i130, %61 ], [ 0, %.preheader ], [ %.0.i.le, %.loopexit180.split.loop.exit ], [ %113, %105 ], [ %74, %67 ], [ 0, %66 ], [ 0, %104 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %33 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1030,7 +1030,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %9
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %19, %.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %22, %31, %25, %29, %30, %7
-  %.0 = phi i32 [ 0, %7 ], [ %.mux, %22 ], [ %36, %31 ], [ 0, %25 ], [ -1, %29 ], [ 1, %30 ], [ %21, %19 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ]
+  %.0 = phi i32 [ 1, %30 ], [ -1, %29 ], [ 0, %7 ], [ %.mux, %22 ], [ 0, %25 ], [ %36, %31 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %21, %19 ], [ 0, %.thread.i ]
   ret i32 %.0
 }
 
@@ -1656,7 +1656,7 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exi
   unreachable
 
 .thread:                                          ; preds = %.lr.ph539, %.lr.ph, %.lr.ph463, %176, %178, %150, %151, %122, %124, %287, %.preheader445, %.preheader442, %.preheader, %24, %24, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit, %227, %231, %97, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %.thread.i.i, %48, %43, %36, %.thread424, %266, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit, %107, %111, %298, %92, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %115, %141, %167, %201, %252, %194, %285, %271, %296, %59, %55, %51, %22
-  %.1 = phi i32 [ %., %22 ], [ %14, %51 ], [ 1, %55 ], [ -1, %59 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %110, %107 ], [ %114, %111 ], [ %303, %298 ], [ %.0.i385, %92 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %115 ], [ %.0.i391, %141 ], [ %.0.i392, %167 ], [ %.0.i393, %194 ], [ %.34, %252 ], [ %.0.i394, %201 ], [ %297, %296 ], [ %276, %271 ], [ 0, %285 ], [ 1, %24 ], [ 0, %.thread424 ], [ %.0.i399, %266 ], [ %spec.select367, %48 ], [ %.0.i381, %43 ], [ %.0.i, %36 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %.0.i.i388, %97 ], [ %230, %227 ], [ %.0.i396, %231 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ 1, %24 ], [ 0, %.preheader ], [ 0, %.preheader442 ], [ 0, %.preheader445 ], [ -1, %287 ], [ 0, %122 ], [ %140, %124 ], [ 0, %150 ], [ %166, %151 ], [ 0, %176 ], [ %193, %178 ], [ %225, %.lr.ph463 ], [ -1, %.lr.ph ], [ 1, %.lr.ph539 ]
+  %.1 = phi i32 [ %., %22 ], [ -1, %59 ], [ 1, %55 ], [ %14, %51 ], [ %.0.i396, %231 ], [ %.0.i.i388, %97 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator15cmpGlobalValuesEPNS_11GlobalValueES2_.exit ], [ %.0.i385, %92 ], [ %110, %107 ], [ %114, %111 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ 0, %285 ], [ %297, %296 ], [ %276, %271 ], [ %303, %298 ], [ %.0.i, %36 ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %14, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i390, %115 ], [ 1, %24 ], [ %.0.i391, %141 ], [ 0, %.preheader442 ], [ %.0.i392, %167 ], [ %.0.i393, %194 ], [ %.0.i394, %201 ], [ %.34, %252 ], [ 1, %24 ], [ 0, %.thread424 ], [ %.0.i399, %266 ], [ %.0.i381, %43 ], [ %spec.select367, %48 ], [ 0, %.thread.i.i ], [ %spec.select.i.i389, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %230, %227 ], [ %.0.i398, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exit ], [ 0, %.preheader445 ], [ 0, %.preheader ], [ %140, %124 ], [ %166, %151 ], [ %225, %.lr.ph463 ], [ -1, %287 ], [ 0, %176 ], [ 0, %122 ], [ 0, %150 ], [ %193, %178 ], [ 1, %.lr.ph539 ], [ -1, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -1784,7 +1784,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit40:            ; preds = %53, %55
   br i1 %.not30, label %33, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit40, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit33, %6, %5, %3
-  %.0 = phi i32 [ %.0.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit33 ], [ 0, %3 ], [ -1, %5 ], [ 1, %6 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36.thread ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36 ], [ %62, %_ZNK4llvm6MDNode10getOperandEj.exit40 ]
+  %.0 = phi i32 [ 0, %3 ], [ 1, %6 ], [ -1, %5 ], [ %.0.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit33 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36.thread ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit36 ], [ %62, %_ZNK4llvm6MDNode10getOperandEj.exit40 ]
   ret i32 %.0
 }
 
@@ -1854,7 +1854,7 @@ define dso_local noundef i32 @_ZNK4llvm18FunctionComparator15cmpInstMetadataEPKN
   br label %.thread
 
 .thread:                                          ; preds = %18, %24, %.thread.loopexit.split.loop.exit, %.preheader, %16, %3
-  %.0 = phi i32 [ 1, %3 ], [ -1, %16 ], [ %.0.i.le, %.thread.loopexit.split.loop.exit ], [ 0, %.preheader ], [ 0, %18 ], [ %25, %24 ]
+  %.0 = phi i32 [ -1, %16 ], [ 1, %3 ], [ 0, %.preheader ], [ %.0.i.le, %.thread.loopexit.split.loop.exit ], [ 0, %18 ], [ %25, %24 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !85
   %29 = icmp eq ptr %28, %9
   br i1 %29, label %_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj3EED2Ev.exit, label %30
@@ -2271,7 +2271,7 @@ define dso_local noundef i32 @_ZNK4llvm18FunctionComparator9cmpValuesEPKNS_5Valu
   br label %61
 
 61:                                               ; preds = %43, %37, %25, %23, %21, %41, %44, %29, %31, %14, %12
-  %.0 = phi i32 [ %., %12 ], [ 1, %14 ], [ %24, %23 ], [ 0, %21 ], [ %.mux, %25 ], [ %36, %31 ], [ 0, %29 ], [ %.mux38, %37 ], [ %42, %41 ], [ %.0.i, %44 ], [ %.mux40, %43 ]
+  %.0 = phi i32 [ %., %12 ], [ 1, %14 ], [ %.0.i, %44 ], [ %24, %23 ], [ 0, %21 ], [ %.mux, %25 ], [ %.mux40, %43 ], [ %36, %31 ], [ 0, %29 ], [ %.mux38, %37 ], [ %42, %41 ]
   ret i32 %.0
 }
 
@@ -2646,7 +2646,7 @@ _ZNK4llvm4User10getOperandEj.exit499:             ; preds = %82, %84
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %.thread592, %219
-  %.0.i519 = phi ptr [ %220, %219 ], [ null, %.thread592 ]
+  %.0.i519 = phi ptr [ null, %.thread592 ], [ %220, %219 ]
   %221 = load i32, ptr %39, align 4
   %222 = and i32 %221, 536870912
   %.not.i.i520 = icmp eq i32 %222, 0
@@ -2657,7 +2657,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %.thread592, %219
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit522
 
 _ZNK4llvm11Instruction11getMetadataEj.exit522:    ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit, %223
-  %.0.i521 = phi ptr [ %224, %223 ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ]
+  %.0.i521 = phi ptr [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ %224, %223 ]
   %225 = tail call noundef i32 @_ZNK4llvm18FunctionComparator9cmpMDNodeEPKNS_6MDNodeES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %.0.i519, ptr noundef %.0.i521)
   br label %.thread
 
@@ -2953,7 +2953,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit522:    ; preds = %_ZNK4llvm11Instruct
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm4User10getOperandEj.exit499, %367, %366, %237, %190, %.thread603, %.preheader658, %.preheader, %.thread.loopexit661.split.loop.exit666, %.preheader660, %358, %.thread.loopexit659, %.thread.loopexit657, %.thread621, %210, %206, %202, %191, %_ZNK4llvm11Instruction11getMetadataEj.exit522, %341, %334, %311, %322, %327, %304, %276, %285, %290, %297, %269, %260, %243, %226, %172, %147, %156, %165, %145, %113, %122, %131, %138, %102, %96, %16, %32, %181, %49, %43, %34, %6, %4
-  %.1 = phi i32 [ %.0.i513, %181 ], [ %.0.i497, %49 ], [ %48, %43 ], [ %.0.i496, %34 ], [ %.0.i, %6 ], [ %5, %4 ], [ %31, %16 ], [ %33, %32 ], [ %101, %96 ], [ %.0.i501, %102 ], [ %.0.i503, %113 ], [ %.0.i504, %122 ], [ %.0.i505, %131 ], [ %.0.i506, %138 ], [ %146, %145 ], [ %.0.i508, %147 ], [ %.0.i509, %156 ], [ %.0.i510, %165 ], [ %.0.i511, %172 ], [ %.0.i526, %226 ], [ %.0.i533, %243 ], [ %.0.i536, %260 ], [ %.0.i537, %269 ], [ %.0.i539, %276 ], [ %.0.i540, %285 ], [ %.0.i541, %290 ], [ %.0.i542, %297 ], [ %.0.i543, %304 ], [ %.0.i545, %311 ], [ %.0.i546, %322 ], [ %.0.i547, %327 ], [ %.0.i548, %334 ], [ %.0.i554, %341 ], [ %225, %_ZNK4llvm11Instruction11getMetadataEj.exit522 ], [ %.0.i517, %210 ], [ %207, %206 ], [ %205, %202 ], [ %.0.i514, %191 ], [ 0, %.thread621 ], [ %.0.i555.le, %.thread.loopexit657 ], [ %.0.i534.le, %.thread.loopexit659 ], [ 0, %358 ], [ %.0.i527.le, %.thread.loopexit661.split.loop.exit666 ], [ 0, %.preheader660 ], [ 0, %.preheader ], [ 0, %.preheader658 ], [ 0, %.thread603 ], [ 0, %190 ], [ 0, %237 ], [ %380, %367 ], [ 0, %366 ], [ %94, %_ZNK4llvm4User10getOperandEj.exit499 ]
+  %.1 = phi i32 [ %5, %4 ], [ %.0.i548, %334 ], [ %.0.i543, %304 ], [ %.0.i537, %269 ], [ %.0.i526, %226 ], [ %.0.i511, %172 ], [ %.0.i513, %181 ], [ %146, %145 ], [ %.0.i501, %102 ], [ %31, %16 ], [ %.0.i, %6 ], [ %.0.i497, %49 ], [ %48, %43 ], [ %.0.i496, %34 ], [ %.0.i555.le, %.thread.loopexit657 ], [ 0, %.thread621 ], [ %33, %32 ], [ %101, %96 ], [ %.0.i503, %113 ], [ %.0.i504, %122 ], [ %.0.i505, %131 ], [ %.0.i506, %138 ], [ %.0.i508, %147 ], [ %.0.i509, %156 ], [ %.0.i510, %165 ], [ %205, %202 ], [ %.0.i533, %243 ], [ %.0.i536, %260 ], [ %.0.i539, %276 ], [ %.0.i540, %285 ], [ %.0.i541, %290 ], [ %.0.i542, %297 ], [ %.0.i545, %311 ], [ %.0.i546, %322 ], [ %.0.i547, %327 ], [ %.0.i554, %341 ], [ %.0.i514, %191 ], [ %225, %_ZNK4llvm11Instruction11getMetadataEj.exit522 ], [ %.0.i517, %210 ], [ %207, %206 ], [ %.0.i534.le, %.thread.loopexit659 ], [ 0, %.preheader660 ], [ 0, %358 ], [ %.0.i527.le, %.thread.loopexit661.split.loop.exit666 ], [ 0, %.preheader ], [ 0, %.preheader658 ], [ 0, %190 ], [ 0, %.thread603 ], [ 0, %366 ], [ 0, %237 ], [ %380, %367 ], [ %94, %_ZNK4llvm4User10getOperandEj.exit499 ]
   ret i32 %.1
 }
 
@@ -3124,7 +3124,7 @@ _ZN4llvm5APIntC2Ejmbb.exit58:                     ; preds = %55, %56
   br i1 %.not53, label %82, label %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exitthread-pre-split
 
 _ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exitthread-pre-split: ; preds = %82, %.lr.ph, %.preheader, %71, %75, %65, %68
-  %.2.ph = phi i32 [ %..i, %68 ], [ 1, %65 ], [ %74, %71 ], [ %.0.i59, %75 ], [ 0, %.preheader ], [ 0, %82 ], [ %97, %.lr.ph ]
+  %.2.ph = phi i32 [ 1, %65 ], [ %..i, %68 ], [ %.0.i59, %75 ], [ %74, %71 ], [ 0, %.preheader ], [ 0, %82 ], [ %97, %.lr.ph ]
   %.pr = load i32, ptr %54, align 8, !tbaa !3
   br label %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit
 
@@ -3272,7 +3272,7 @@ _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65.thread: ; preds = 
   br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread78
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread78: ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i59, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %45, %38, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65.thread, %5, %3
-  %.0 = phi i32 [ %.0.i66, %38 ], [ %.0.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65.thread ], [ %.0.i.i56, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %8, %5 ], [ 0, %3 ], [ %spec.select, %45 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i63, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i59 ]
+  %.0 = phi i32 [ %8, %5 ], [ 0, %3 ], [ %spec.select, %45 ], [ %.0.i66, %38 ], [ %.0.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65.thread ], [ %.0.i.i56, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit65 ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i63, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i59 ]
   ret i32 %.0
 }
 
@@ -3618,7 +3618,7 @@ _ZNK4llvm8Function7arg_endEv.exit:                ; preds = %_ZNK4llvm8Function9
   br i1 %.not58, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95, label %.lr.ph, !llvm.loop !203
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95: ; preds = %.lr.ph, %_ZNK4llvm8Function7arg_endEv.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %83, %72, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, %8, %1
-  %.1 = phi i32 [ %84, %83 ], [ %.0.i86, %72 ], [ %.0.i85, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread ], [ %.0.i.i75, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84 ], [ %.0.i68, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i, %8 ], [ %7, %1 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i82, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78 ], [ 0, %_ZNK4llvm8Function7arg_endEv.exit ], [ 0, %.lr.ph ]
+  %.1 = phi i32 [ %7, %1 ], [ %84, %83 ], [ %.0.i86, %72 ], [ %.0.i85, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread ], [ %.0.i.i75, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84 ], [ %.0.i68, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i, %8 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ %spec.select.i.i82, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78 ], [ 0, %_ZNK4llvm8Function7arg_endEv.exit ], [ 0, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -3915,7 +3915,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_10BasicBlockELb1EE9push_backES3_.exit85: 
   %.not37 = icmp eq i32 %140, %96
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !226
 
-.thread:                                          ; preds = %.loopexit, %82, %.lr.ph99
+.thread:                                          ; preds = %.loopexit, %.lr.ph99, %82
   %.6.ph = phi i32 [ 0, %.loopexit ], [ %83, %82 ], [ %81, %.lr.ph99 ]
   %.pre106 = load i8, ptr %54, align 4, !tbaa !213, !range !56
   %141 = trunc nuw i8 %.pre106 to i1
@@ -4106,11 +4106,11 @@ _ZSt9make_pairIN4llvm18ValueMapCallbackVHIPNS0_11GlobalValueEmNS0_17GlobalNumber
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPNS_11GlobalValueEmNS_17GlobalNumberState6ConfigEEEmNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_mEEEES7_mS9_SC_E6insertEOSt4pairIS7_mE.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_18ValueMapCallbackVHIPNS_11GlobalValueEmNS_17GlobalNumberState6ConfigEEEmNS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_mEEEES7_mS9_SC_E6insertEOSt4pairIS7_mE.exit: ; preds = %47, %29, %57
-  %magicptr.i.i.i.pre-phi = phi i64 [ %31, %29 ], [ %.pre16, %57 ], [ %31, %47 ]
-  %.sink32.i.i = phi i32 [ %27, %29 ], [ %60, %57 ], [ %27, %47 ]
-  %.sink30.i.i = phi ptr [ %25, %29 ], [ %59, %57 ], [ %25, %47 ]
-  %.sink29.i.i = phi ptr [ %38, %29 ], [ %58, %57 ], [ %53, %47 ]
-  %.sink.i.i = phi i8 [ 0, %29 ], [ 1, %57 ], [ 0, %47 ]
+  %magicptr.i.i.i.pre-phi = phi i64 [ %.pre16, %57 ], [ %31, %29 ], [ %31, %47 ]
+  %.sink32.i.i = phi i32 [ %60, %57 ], [ %27, %29 ], [ %27, %47 ]
+  %.sink30.i.i = phi ptr [ %59, %57 ], [ %25, %29 ], [ %25, %47 ]
+  %.sink29.i.i = phi ptr [ %58, %57 ], [ %38, %29 ], [ %53, %47 ]
+  %.sink.i.i = phi i8 [ 1, %57 ], [ 0, %29 ], [ 0, %47 ]
   switch i64 %magicptr.i.i.i.pre-phi, label %61 [
     i64 0, label %_ZNSt4pairIN4llvm18ValueMapCallbackVHIPNS0_11GlobalValueEmNS0_17GlobalNumberState6ConfigEEEmED2Ev.exit
     i64 -4096, label %_ZNSt4pairIN4llvm18ValueMapCallbackVHIPNS0_11GlobalValueEmNS0_17GlobalNumberState6ConfigEEEmED2Ev.exit
@@ -4426,7 +4426,7 @@ _ZN4llvm10CallbackVHD2Ev.exit.i:                  ; preds = %_ZN4llvm15ValueHand
   br label %_ZNSt11unique_lockIN4llvm3sys10SmartMutexILb0EEEED2Ev.exit7
 
 _ZNSt11unique_lockIN4llvm3sys10SmartMutexILb0EEEED2Ev.exit7: ; preds = %.lr.ph.i.i, %_ZN4llvm10CallbackVHD2Ev.exit.i, %13
-  %53 = phi ptr [ %.pre, %_ZN4llvm10CallbackVHD2Ev.exit.i ], [ %.pre17, %13 ], [ %.pre17, %.lr.ph.i.i ]
+  %53 = phi ptr [ %.pre17, %13 ], [ %.pre, %_ZN4llvm10CallbackVHD2Ev.exit.i ], [ %.pre17, %.lr.ph.i.i ]
   %magicptr.i.i = ptrtoint ptr %53 to i64
   switch i64 %magicptr.i.i, label %54 [
     i64 0, label %_ZN4llvm10CallbackVHD2Ev.exit

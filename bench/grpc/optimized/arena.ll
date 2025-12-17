@@ -556,7 +556,7 @@ _upb_Arena_FixupRefs.exit:                        ; preds = %76
   br i1 %83, label %_upb_Arena_FixupRefs.exit.thread, label %.critedge.backedge
 
 _upb_Arena_FixupRefs.exit.thread:                 ; preds = %_upb_Arena_DoFuse.exit, %_upb_Arena_FixupRefs.exit, %8, %4, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ false, %4 ], [ true, %_upb_Arena_FixupRefs.exit ], [ true, %_upb_Arena_DoFuse.exit ]
+  %.0 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %8 ], [ true, %_upb_Arena_FixupRefs.exit ], [ true, %_upb_Arena_DoFuse.exit ]
   ret i1 %.0
 }
 

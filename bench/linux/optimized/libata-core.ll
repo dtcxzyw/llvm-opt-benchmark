@@ -5125,7 +5125,7 @@ default.unreachable10:                            ; preds = %29, %8
   br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %51, %47, %25, %9
-  %55 = phi ptr [ %52, %51 ], [ %33, %47 ], [ %28, %25 ], [ %10, %9 ]
+  %55 = phi ptr [ %10, %9 ], [ %52, %51 ], [ %33, %47 ], [ %28, %25 ]
   %56 = icmp samesign ult i32 %2, 2
   br i1 %56, label %57, label %.critedge
 
@@ -5758,7 +5758,7 @@ define dso_local range(i32 -34, 1) i32 @ata_build_rw_tf(ptr noundef %0, i64 noun
   br label %.thread
 
 .thread:                                          ; preds = %253, %261, %216, %72, %78, %199, %281, %191, %140, %133, %18
-  %293 = phi i32 [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ -22, %191 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ 0, %72 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
+  %293 = phi i32 [ -22, %191 ], [ 0, %72 ], [ -34, %18 ], [ -34, %140 ], [ -34, %133 ], [ 0, %281 ], [ 0, %199 ], [ 0, %78 ], [ -22, %253 ], [ -34, %261 ], [ -34, %216 ]
   ret i32 %293
 }
 
@@ -6521,8 +6521,8 @@ define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(non
   br label %169
 
 156:                                              ; preds = %.thread10, %153
-  %157 = phi ptr [ %154, %153 ], [ %152, %.thread10 ]
-  %158 = phi i32 [ %.pre, %153 ], [ %151, %.thread10 ]
+  %157 = phi ptr [ %152, %.thread10 ], [ %154, %153 ]
+  %158 = phi i32 [ %151, %.thread10 ], [ %.pre, %153 ]
   %159 = and i32 %158, -257
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %169, label %161
@@ -7042,9 +7042,9 @@ select.unfold.backedge:                           ; preds = %119
   br label %.loopexit19
 
 .loopexit:                                        ; preds = %201, %169, %151, %141, %.split.us, %115, %104, %select.unfold, %.thread16
-  %222 = phi i32 [ -5, %.thread16 ], [ -19, %select.unfold ], [ -5, %115 ], [ -5, %104 ], [ -19, %.split.us ], [ -22, %141 ], [ -22, %151 ], [ -5, %169 ], [ -5, %201 ]
-  %223 = phi ptr [ @.str.39, %.thread16 ], [ @.str.31, %select.unfold ], [ @.str.33, %115 ], [ @.str.33, %104 ], [ @.str.31, %.split.us ], [ @.str.37, %141 ], [ @.str.37, %151 ], [ @.str.39, %201 ], [ @.str.38, %169 ]
-  %224 = phi i32 [ 128, %.thread16 ], [ %78, %select.unfold ], [ 1, %115 ], [ %99, %104 ], [ 0, %.split.us ], [ 0, %141 ], [ 0, %151 ], [ %219, %201 ], [ %167, %169 ]
+  %222 = phi i32 [ -5, %.thread16 ], [ -22, %151 ], [ -5, %104 ], [ -19, %select.unfold ], [ -5, %115 ], [ -19, %.split.us ], [ -22, %141 ], [ -5, %169 ], [ -5, %201 ]
+  %223 = phi ptr [ @.str.39, %.thread16 ], [ @.str.37, %151 ], [ @.str.33, %104 ], [ @.str.31, %select.unfold ], [ @.str.33, %115 ], [ @.str.31, %.split.us ], [ @.str.37, %141 ], [ @.str.38, %169 ], [ @.str.39, %201 ]
+  %224 = phi i32 [ 128, %.thread16 ], [ 0, %151 ], [ %99, %104 ], [ %78, %select.unfold ], [ 1, %115 ], [ 0, %.split.us ], [ 0, %141 ], [ %167, %169 ], [ %219, %201 ]
   %225 = load ptr, ptr %0, align 64
   %226 = load ptr, ptr %225, align 64
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 36
@@ -7057,7 +7057,7 @@ select.unfold.backedge:                           ; preds = %119
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %145, %101, %119, %73, %.loopexit, %221, %.split50.us
-  %234 = phi i32 [ %222, %.loopexit ], [ 0, %.split50.us ], [ 0, %221 ], [ -2, %73 ], [ -2, %119 ], [ -2, %101 ], [ -2, %145 ]
+  %234 = phi i32 [ %222, %.loopexit ], [ 0, %.split50.us ], [ 0, %221 ], [ -2, %73 ], [ -2, %101 ], [ -2, %119 ], [ -2, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %234
 }
@@ -7598,7 +7598,7 @@ define dso_local i32 @ata_dev_configure(ptr noundef %0) local_unnamed_addr #1 al
   br label %36
 
 36:                                               ; preds = %31, %.thread
-  %37 = phi i32 [ %30, %.thread ], [ %spec.select, %31 ]
+  %37 = phi i32 [ %spec.select, %31 ], [ %30, %.thread ]
   %38 = load i32, ptr @ata_force_tbl_size, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.preheader.preheader, label %.loopexit39
@@ -7962,7 +7962,7 @@ define dso_local i32 @ata_dev_configure(ptr noundef %0) local_unnamed_addr #1 al
   br label %ata_id_n_sectors.exit
 
 ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %274
-  %287 = phi i64 [ %248, %245 ], [ %273, %267 ], [ %286, %274 ], [ %240, %227 ]
+  %287 = phi i64 [ %286, %274 ], [ %248, %245 ], [ %273, %267 ], [ %240, %227 ]
   %288 = load i32, ptr %15, align 32
   switch i32 %288, label %.thread33 [
     i32 1, label %289
@@ -8681,7 +8681,7 @@ ata_id_xfermask.exit:                             ; preds = %600, %605
   br label %ata_id_n_sectors.exit25
 
 ata_id_n_sectors.exit25:                          ; preds = %727, %745, %766, %773
-  %786 = phi i64 [ %748, %745 ], [ %772, %766 ], [ %785, %773 ], [ %740, %727 ]
+  %786 = phi i64 [ %785, %773 ], [ %748, %745 ], [ %772, %766 ], [ %740, %727 ]
   store i64 %786, ptr %544, align 16
   %787 = getelementptr i8, ptr %0, i64 990
   %788 = load i16, ptr %787, align 2
@@ -8862,7 +8862,7 @@ ata_id_n_sectors.exit25:                          ; preds = %727, %745, %766, %7
   br label %893
 
 893:                                              ; preds = %861, %890, %880, %873, %864, %857, %850
-  %894 = phi ptr [ @.str.36, %880 ], [ @.str.57, %890 ], [ @.str.36, %873 ], [ @.str.36, %864 ], [ @.str.36, %857 ], [ @.str.36, %850 ], [ @.str.36, %861 ]
+  %894 = phi ptr [ @.str.36, %880 ], [ @.str.57, %890 ], [ @.str.36, %873 ], [ @.str.36, %864 ], [ @.str.36, %861 ], [ @.str.36, %857 ], [ @.str.36, %850 ]
   %895 = load i16, ptr %14, align 64
   %896 = and i16 %895, 96
   %897 = icmp eq i16 %896, 32
@@ -9146,7 +9146,7 @@ ata_id_n_sectors.exit25:                          ; preds = %727, %745, %766, %7
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread30, %367, %503, %.thread38, %153, %1, %1057, %1052, %832, %525, %199, %119, %98
-  %1076 = phi i32 [ 0, %98 ], [ 0, %119 ], [ -11, %153 ], [ %200, %199 ], [ %527, %525 ], [ %833, %832 ], [ 0, %1052 ], [ 0, %1057 ], [ 0, %1 ], [ -22, %.thread38 ], [ -5, %.thread30 ], [ -5, %367 ], [ %501, %503 ]
+  %1076 = phi i32 [ 0, %98 ], [ 0, %119 ], [ %501, %503 ], [ -11, %153 ], [ %200, %199 ], [ %527, %525 ], [ %833, %832 ], [ 0, %1052 ], [ 0, %1057 ], [ 0, %1 ], [ -22, %.thread38 ], [ -5, %.thread30 ], [ -5, %367 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9421,7 +9421,7 @@ define internal fastcc i64 @ata_id_n_sectors(ptr noundef readonly captures(none)
   br label %72
 
 72:                                               ; preds = %12, %59, %52, %30
-  %73 = phi i64 [ %33, %30 ], [ %58, %52 ], [ %71, %59 ], [ %25, %12 ]
+  %73 = phi i64 [ %71, %59 ], [ %33, %30 ], [ %58, %52 ], [ %25, %12 ]
   ret i64 %73
 }
 
@@ -9617,7 +9617,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @ata_dev_config_lba(ptr noun
   br label %235
 
 123:                                              ; preds = %109, %93, %88, %84, %80
-  %124 = phi ptr [ @.str.36, %80 ], [ @.str.36, %109 ], [ @.str.36, %88 ], [ @.str.36, %84 ], [ @.str.291, %93 ]
+  %124 = phi ptr [ @.str.36, %80 ], [ @.str.36, %109 ], [ @.str.36, %88 ], [ @.str.291, %93 ], [ @.str.36, %84 ]
   %125 = icmp slt i32 %81, %38
   br i1 %125, label %128, label %126
 
@@ -10983,7 +10983,7 @@ define dso_local zeroext i8 @ata_timing_cycle2mode(i32 noundef %0, i32 noundef %
   br i1 %83, label %.thread, label %.preheader.split.us7, !llvm.loop !86
 
 .thread:                                          ; preds = %74, %76, %81, %70, %49, %44, %41, %.preheader, %16
-  %84 = phi i8 [ -1, %16 ], [ -1, %.preheader ], [ %20, %44 ], [ %22, %49 ], [ %20, %41 ], [ %53, %70 ], [ %53, %76 ], [ %55, %81 ], [ %53, %74 ]
+  %84 = phi i8 [ -1, %16 ], [ -1, %.preheader ], [ %20, %41 ], [ %53, %70 ], [ %20, %44 ], [ %22, %49 ], [ %53, %74 ], [ %53, %76 ], [ %55, %81 ]
   ret i8 %84
 }
 
@@ -11733,7 +11733,7 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   ]
 
 .critedge67:                                      ; preds = %348, %348, %348, %348, %348, %342, %342, %342, %342, %342, %336, %336, %336, %336, %336, %324, %324, %324, %324, %324, %318, %318, %318, %318, %318
-  %.us-phi174 = phi ptr [ %316, %318 ], [ %316, %318 ], [ %316, %318 ], [ %316, %318 ], [ %316, %318 ], [ %322, %324 ], [ %322, %324 ], [ %322, %324 ], [ %322, %324 ], [ %322, %324 ], [ %334, %336 ], [ %334, %336 ], [ %334, %336 ], [ %334, %336 ], [ %334, %336 ], [ %340, %342 ], [ %340, %342 ], [ %340, %342 ], [ %340, %342 ], [ %340, %342 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ]
+  %.us-phi174 = phi ptr [ %340, %342 ], [ %316, %318 ], [ %322, %324 ], [ %334, %336 ], [ %316, %318 ], [ %316, %318 ], [ %316, %318 ], [ %316, %318 ], [ %322, %324 ], [ %322, %324 ], [ %322, %324 ], [ %322, %324 ], [ %334, %336 ], [ %334, %336 ], [ %334, %336 ], [ %334, %336 ], [ %340, %342 ], [ %340, %342 ], [ %340, %342 ], [ %340, %342 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ], [ %346, %348 ]
   %351 = icmp eq ptr %.us-phi174, null
   br i1 %351, label %.critedge64.thread, label %289, !llvm.loop !89
 
@@ -11802,7 +11802,7 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   br label %392
 
 392:                                              ; preds = %387, %.thread92
-  %393 = phi i32 [ %386, %.thread92 ], [ %spec.select, %387 ]
+  %393 = phi i32 [ %spec.select, %387 ], [ %386, %.thread92 ]
   %394 = load i32, ptr @ata_force_tbl_size, align 4
   %395 = add i32 %394, -1
   %396 = icmp sgt i32 %395, -1
@@ -11888,7 +11888,7 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   br i1 %445, label %401, label %.loopexit122, !llvm.loop !91
 
 .loopexit122:                                     ; preds = %443, %434, %392
-  %446 = phi i32 [ %442, %434 ], [ %373, %392 ], [ %373, %443 ]
+  %446 = phi i32 [ %373, %392 ], [ %442, %434 ], [ %373, %443 ]
   %447 = load i32, ptr @libata_dma_mask, align 4
   %448 = and i32 %447, %52
   %449 = icmp eq i32 %448, 0
@@ -12229,12 +12229,12 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   ]
 
 .critedge76:                                      ; preds = %621, %621, %621, %621, %621, %615, %615, %615, %615, %615, %609, %609, %609, %609, %609, %597, %597, %597, %597, %597, %591, %591, %591, %591, %591
-  %.us-phi180 = phi ptr [ %589, %591 ], [ %589, %591 ], [ %589, %591 ], [ %589, %591 ], [ %589, %591 ], [ %595, %597 ], [ %595, %597 ], [ %595, %597 ], [ %595, %597 ], [ %595, %597 ], [ %607, %609 ], [ %607, %609 ], [ %607, %609 ], [ %607, %609 ], [ %607, %609 ], [ %613, %615 ], [ %613, %615 ], [ %613, %615 ], [ %613, %615 ], [ %613, %615 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ]
+  %.us-phi180 = phi ptr [ %613, %615 ], [ %589, %591 ], [ %595, %597 ], [ %607, %609 ], [ %589, %591 ], [ %589, %591 ], [ %589, %591 ], [ %589, %591 ], [ %595, %597 ], [ %595, %597 ], [ %595, %597 ], [ %595, %597 ], [ %607, %609 ], [ %607, %609 ], [ %607, %609 ], [ %607, %609 ], [ %613, %615 ], [ %613, %615 ], [ %613, %615 ], [ %613, %615 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ], [ %619, %621 ]
   %624 = icmp eq ptr %.us-phi180, null
   br i1 %624, label %.critedge73.thread, label %556, !llvm.loop !93
 
 .critedge73.thread:                               ; preds = %541, %.critedge76, %.split179.split, %.split179.split.us.split, %.split179.split.us.split.us, %.split179.us.split, %.split179.us.split.us, %.critedge73
-  %625 = phi ptr [ %508, %.critedge73 ], [ %581, %.split179.us.split.us ], [ %581, %.split179.us.split ], [ %581, %.split179.split.us.split.us ], [ %581, %.split179.split.us.split ], [ %581, %.split179.split ], [ %581, %.critedge76 ], [ %508, %541 ]
+  %625 = phi ptr [ %508, %.critedge73 ], [ %581, %.critedge76 ], [ %581, %.split179.us.split.us ], [ %581, %.split179.us.split ], [ %581, %.split179.split.us.split.us ], [ %581, %.split179.split.us.split ], [ %581, %.split179.split ], [ %508, %541 ]
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 8256
   %627 = icmp eq ptr %626, %0
   %628 = getelementptr inbounds nuw i8, ptr %625, i64 14720
@@ -12447,12 +12447,12 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   ]
 
 .critedge82:                                      ; preds = %726, %726, %726, %726, %726, %720, %720, %720, %720, %720, %714, %714, %714, %714, %714, %702, %702, %702, %702, %702, %696, %696, %696, %696, %696
-  %.us-phi186 = phi ptr [ %694, %696 ], [ %694, %696 ], [ %694, %696 ], [ %694, %696 ], [ %694, %696 ], [ %700, %702 ], [ %700, %702 ], [ %700, %702 ], [ %700, %702 ], [ %700, %702 ], [ %712, %714 ], [ %712, %714 ], [ %712, %714 ], [ %712, %714 ], [ %712, %714 ], [ %718, %720 ], [ %718, %720 ], [ %718, %720 ], [ %718, %720 ], [ %718, %720 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ]
+  %.us-phi186 = phi ptr [ %718, %720 ], [ %694, %696 ], [ %700, %702 ], [ %712, %714 ], [ %694, %696 ], [ %694, %696 ], [ %694, %696 ], [ %694, %696 ], [ %700, %702 ], [ %700, %702 ], [ %700, %702 ], [ %700, %702 ], [ %712, %714 ], [ %712, %714 ], [ %712, %714 ], [ %712, %714 ], [ %718, %720 ], [ %718, %720 ], [ %718, %720 ], [ %718, %720 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ], [ %724, %726 ]
   %729 = icmp eq ptr %.us-phi186, null
   br i1 %729, label %.critedge79.thread, label %653, !llvm.loop !94
 
 .critedge79.thread:                               ; preds = %638, %.critedge82, %.split185.split, %.split185.split.us.split, %.split185.split.us.split.us, %.split185.us.split, %.split185.us.split.us, %.critedge79
-  %730 = phi ptr [ %625, %.critedge79 ], [ %686, %.split185.us.split.us ], [ %686, %.split185.us.split ], [ %686, %.split185.split.us.split.us ], [ %686, %.split185.split.us.split ], [ %686, %.split185.split ], [ %686, %.critedge82 ], [ %625, %638 ]
+  %730 = phi ptr [ %625, %.critedge79 ], [ %686, %.critedge82 ], [ %686, %.split185.us.split.us ], [ %686, %.split185.us.split ], [ %686, %.split185.split.us.split.us ], [ %686, %.split185.split.us.split ], [ %686, %.split185.split ], [ %625, %638 ]
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 8256
   %732 = icmp eq ptr %731, %0
   %733 = getelementptr inbounds nuw i8, ptr %730, i64 14720
@@ -12660,8 +12660,8 @@ switch.edge:                                      ; preds = %ata_id_xfermask.exi
   br i1 %851, label %.thread99, label %1062
 
 .thread99:                                        ; preds = %789, %.thread100, %849
-  %852 = phi i32 [ %850, %849 ], [ 0, %.thread100 ], [ 0, %789 ]
-  %853 = phi ptr [ @.str.36, %849 ], [ @.str.36, %.thread100 ], [ @.str.317, %789 ]
+  %852 = phi i32 [ 0, %.thread100 ], [ %850, %849 ], [ 0, %789 ]
+  %853 = phi ptr [ @.str.36, %.thread100 ], [ @.str.36, %849 ], [ @.str.317, %789 ]
   %854 = getelementptr inbounds nuw i8, ptr %765, i64 924
   %855 = load i32, ptr %854, align 4
   %856 = or i32 %855, 1048576
@@ -13084,7 +13084,7 @@ ata_id_xfermask.exit89:                           ; preds = %971, %976
   ]
 
 .critedge88:                                      ; preds = %1115, %1115, %1115, %1115, %1115, %1109, %1109, %1109, %1109, %1109, %1103, %1103, %1103, %1103, %1103, %1091, %1091, %1091, %1091, %1091, %1085, %1085, %1085, %1085, %1085
-  %.us-phi192 = phi ptr [ %1083, %1085 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ]
+  %.us-phi192 = phi ptr [ %1107, %1109 ], [ %1083, %1085 ], [ %1089, %1091 ], [ %1101, %1103 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1083, %1085 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1089, %1091 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1101, %1103 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1107, %1109 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ], [ %1113, %1115 ]
   %1118 = icmp eq ptr %.us-phi192, null
   br i1 %1118, label %.critedge85.thread, label %763, !llvm.loop !95
 
@@ -13283,7 +13283,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_wait_ready(ptr noundef %0, i
   br label %90
 
 90:                                               ; preds = %88, %77
-  %91 = phi i1 [ %89, %88 ], [ false, %77 ]
+  %91 = phi i1 [ false, %77 ], [ %89, %88 ]
   %92 = sub i64 %32, %25
   %93 = icmp sgt i64 %92, -1
   %94 = select i1 %91, i1 true, i1 %93
@@ -13364,7 +13364,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_wait_ready(ptr noundef %0, i
   br i1 %139, label %.thread7, label %.lr.ph, !llvm.loop !106
 
 .thread7:                                         ; preds = %.thread, %136, %59, %90, %78, %.lr.ph, %22
-  %.ph = phi i32 [ 0, %22 ], [ %31, %.lr.ph ], [ -19, %78 ], [ -19, %90 ], [ -19, %59 ], [ 0, %136 ], [ -16, %.thread ]
+  %.ph = phi i32 [ 0, %22 ], [ -19, %59 ], [ 0, %136 ], [ -19, %90 ], [ -19, %78 ], [ %31, %.lr.ph ], [ -16, %.thread ]
   ret i32 %.ph
 }
 
@@ -13516,7 +13516,7 @@ define dso_local void @ata_msleep(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %2, %12, %4
-  %13 = phi i1 [ true, %12 ], [ false, %4 ], [ false, %2 ]
+  %13 = phi i1 [ false, %4 ], [ true, %12 ], [ false, %2 ]
   %14 = icmp ult i32 %1, 20
   br i1 %14, label %15, label %19
 
@@ -15096,7 +15096,7 @@ define dso_local i32 @sata_link_init_spd(ptr noundef %0) local_unnamed_addr #1 a
   br label %29
 
 29:                                               ; preds = %24, %.thread
-  %30 = phi i32 [ %23, %.thread ], [ %spec.select, %24 ]
+  %30 = phi i32 [ %spec.select, %24 ], [ %23, %.thread ]
   %31 = load i32, ptr @ata_force_tbl_size, align 4
   %32 = add i32 %31, -1
   %33 = icmp sgt i32 %32, -1
@@ -17110,19 +17110,19 @@ define dso_local i32 @ata_wait_register(ptr noundef %0, ptr noundef %1, i32 noun
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %38
-  br i1 %42, label %.critedge, label %.thread.us2
+  br i1 %42, label %.thread.us2, label %.critedge
 
-.critedge:                                        ; preds = %.preheader.split.split.us
+.thread.us2:                                      ; preds = %.preheader.split.split.us
   tail call void @ata_eh_release(ptr noundef nonnull %0) #32
   tail call void @usleep_range_state(i64 noundef %17, i64 noundef %18, i32 noundef 2) #32
   tail call void @ata_eh_acquire(ptr noundef nonnull %0) #32
   br label %43
 
-.thread.us2:                                      ; preds = %.preheader.split.split.us
+.critedge:                                        ; preds = %.preheader.split.split.us
   tail call void @usleep_range_state(i64 noundef %17, i64 noundef %18, i32 noundef 2) #32
   br label %43
 
-43:                                               ; preds = %.thread.us2, %.critedge
+43:                                               ; preds = %.critedge, %.thread.us2
   %44 = tail call i32 @ioread32(ptr noundef %1) #32
   %45 = and i32 %44, %2
   %46 = icmp eq i32 %45, %3
@@ -17145,26 +17145,26 @@ define dso_local i32 @ata_wait_register(ptr noundef %0, ptr noundef %1, i32 noun
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %38
-  br i1 %58, label %.critedge6, label %.thread
+  br i1 %58, label %.thread, label %.critedge6
 
-.critedge6:                                       ; preds = %.preheader.split.split
+.thread:                                          ; preds = %.preheader.split.split
   tail call void @ata_eh_release(ptr noundef nonnull %0) #32
   tail call void @msleep(i32 noundef %4) #32
   tail call void @ata_eh_acquire(ptr noundef nonnull %0) #32
   br label %59
 
-.thread:                                          ; preds = %.preheader.split.split
+.critedge6:                                       ; preds = %.preheader.split.split
   tail call void @msleep(i32 noundef %4) #32
   br label %59
 
-59:                                               ; preds = %.thread, %.critedge6
+59:                                               ; preds = %.critedge6, %.thread
   %60 = tail call i32 @ioread32(ptr noundef %1) #32
   %61 = and i32 %60, %2
   %62 = icmp eq i32 %61, %3
   br i1 %62, label %51, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %59, %51, %43, %47, %.thread.us, %33, %.thread.us.us, %26, %12, %6
-  %63 = phi i32 [ %7, %6 ], [ %7, %12 ], [ %23, %26 ], [ %23, %.thread.us.us ], [ %30, %33 ], [ %30, %.thread.us ], [ %44, %47 ], [ %44, %43 ], [ %60, %51 ], [ %60, %59 ]
+  %63 = phi i32 [ %7, %6 ], [ %7, %12 ], [ %44, %43 ], [ %23, %.thread.us.us ], [ %30, %.thread.us ], [ %23, %26 ], [ %30, %33 ], [ %44, %47 ], [ %60, %51 ], [ %60, %59 ]
   ret i32 %63
 }
 
@@ -18355,7 +18355,7 @@ define internal noundef range(i32 -16, 1) i32 @ata_port_runtime_idle(ptr noundef
   ]
 
 .critedge9:                                       ; preds = %83, %83, %83, %83, %83, %77, %77, %77, %77, %77, %71, %71, %71, %71, %71, %59, %59, %59, %59, %59, %53, %53, %53, %53, %53
-  %.us-phi = phi ptr [ %51, %53 ], [ %51, %53 ], [ %51, %53 ], [ %51, %53 ], [ %51, %53 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %69, %71 ], [ %69, %71 ], [ %69, %71 ], [ %69, %71 ], [ %69, %71 ], [ %75, %77 ], [ %75, %77 ], [ %75, %77 ], [ %75, %77 ], [ %75, %77 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ]
+  %.us-phi = phi ptr [ %75, %77 ], [ %51, %53 ], [ %57, %59 ], [ %69, %71 ], [ %51, %53 ], [ %51, %53 ], [ %51, %53 ], [ %51, %53 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %57, %59 ], [ %69, %71 ], [ %69, %71 ], [ %69, %71 ], [ %69, %71 ], [ %75, %77 ], [ %75, %77 ], [ %75, %77 ], [ %75, %77 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ], [ %81, %83 ]
   %86 = icmp eq ptr %.us-phi, null
   br i1 %86, label %.critedge.thread, label %37, !llvm.loop !197
 

@@ -885,7 +885,7 @@ _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit: ; pred
   br label %127
 
 127:                                              ; preds = %112, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit, %22, %16, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %16 ], [ false, %22 ], [ true, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit ], [ true, %112 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %22 ], [ false, %3 ], [ true, %_ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit ], [ true, %112 ]
   ret i1 %.0
 }
 

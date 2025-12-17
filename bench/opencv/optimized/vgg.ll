@@ -614,7 +614,7 @@ _ZN2cv11xfeatures2d17ComputeVGGInvokerD2Ev.exit:  ; preds = %131, %136
   br label %174
 
 174:                                              ; preds = %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %51, %31
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %173 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %51 ], [ %32, %31 ]
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %173 ], [ %32, %31 ], [ %.pn25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %51 ]
   resume { ptr, i32 } %.pn41.pn.pn.pn
 }
 

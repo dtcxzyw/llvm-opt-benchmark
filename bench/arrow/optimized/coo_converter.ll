@@ -217,7 +217,7 @@ define noundef i64 @_ZN5arrow8internal26SparseTensorConverterMixin13GetIndexValu
   br label %17
 
 17:                                               ; preds = %.split, %2, %15, %12, %9, %6
-  %.0 = phi i64 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ], [ 0, %2 ], [ 0, %.split ]
+  %.0 = phi i64 [ %16, %15 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0, %2 ], [ 0, %.split ]
   ret i64 %.0
 }
 
@@ -609,7 +609,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %71, %69
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.i.i.i.i.i.us.i, %.loopexit.us.i.loopexit.split.loop.exit, %.loopexit.us.i.loopexit.split.loop.exit131, %.loopexit.us.i.loopexit.split.loop.exit133, %190, %186, %182
-  %.028.i.i.i.i.i.us.i = phi ptr [ %indvars.iv.i, %182 ], [ %.1.i.i.i.i.i.us.i, %186 ], [ %.2.i.i.i.i.i.us.i, %190 ], [ %192, %.loopexit.us.i.loopexit.split.loop.exit ], [ %193, %.loopexit.us.i.loopexit.split.loop.exit131 ], [ %194, %.loopexit.us.i.loopexit.split.loop.exit133 ], [ %.02946.i.i.i.i.i.us.i, %.lr.ph.i.i.i.i.i.us.i ]
+  %.028.i.i.i.i.i.us.i = phi ptr [ %.1.i.i.i.i.i.us.i, %186 ], [ %indvars.iv.i, %182 ], [ %.2.i.i.i.i.i.us.i, %190 ], [ %194, %.loopexit.us.i.loopexit.split.loop.exit133 ], [ %193, %.loopexit.us.i.loopexit.split.loop.exit131 ], [ %192, %.loopexit.us.i.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i.us.i, %.lr.ph.i.i.i.i.i.us.i ]
   %.not329.us.i = icmp eq ptr %167, %.028.i.i.i.i.i.us.i
   br i1 %.not329.us.i, label %.thread.us.i, label %195
 
@@ -715,7 +715,7 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   br i1 %.not328.us357.i, label %.thread.us364.i, label %217
 
 217:                                              ; preds = %215, %211, %207
-  %.028.i.i.i.i.i.us358.i = phi ptr [ %.0238343.us349.i, %207 ], [ %.1.i.i.i.i.i.us354.i, %211 ], [ %.2.i.i.i.i.i.us356.i, %215 ]
+  %.028.i.i.i.i.i.us358.i = phi ptr [ %.1.i.i.i.i.i.us354.i, %211 ], [ %.0238343.us349.i, %207 ], [ %.2.i.i.i.i.i.us356.i, %215 ]
   %.not329.us359.i = icmp eq ptr %206, %.028.i.i.i.i.i.us358.i
   br i1 %.not329.us359.i, label %.thread.us364.i, label %.split.i.us360.i
 
@@ -791,7 +791,7 @@ _ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us363.i:      ; preds = %223, %221, %219, %2
   br i1 %.not328.i.us, label %.thread.i.us, label %236
 
 236:                                              ; preds = %233, %230, %._crit_edge.i.i.i.i.i.i.us
-  %.028.i.i.i.i.i.i.us = phi ptr [ %.0238343.i.us, %._crit_edge.i.i.i.i.i.i.us ], [ %231, %230 ], [ %234, %233 ]
+  %.028.i.i.i.i.i.i.us = phi ptr [ %231, %230 ], [ %.0238343.i.us, %._crit_edge.i.i.i.i.i.i.us ], [ %234, %233 ]
   %.not329.i.us = icmp eq ptr %228, %.028.i.i.i.i.i.i.us
   br i1 %.not329.i.us, label %.thread.i.us, label %_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli.exit.i.us
 
@@ -1710,7 +1710,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit297.i:               ; preds = %529, %_ZNSt6vectorI
   br label %534
 
 534:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit297.i, %251
-  %.pn249.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIlSaIlEED2Ev.exit297.i ], [ %252, %251 ]
+  %.pn249.i = phi { ptr, i32 } [ %252, %251 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIlSaIlEED2Ev.exit297.i ]
   %535 = load ptr, ptr %14, align 8, !tbaa !66, !noalias !28
   %.not.i298.i = icmp eq ptr %535, null
   br i1 %.not.i298.i, label %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit300.i, label %_ZNKSt14default_deleteIN5arrow6BufferEEclEPS1_.exit.i299.i
@@ -1856,7 +1856,7 @@ _ZN5arrow6StatusC2ERKS0_.exit.i:                  ; preds = %_ZN5arrow6ResultISt
   br label %_ZN5arrow6StatusD2Ev.exit
 
 582:                                              ; preds = %575, %102, %90
-  %.pn260.i = phi { ptr, i32 } [ %91, %90 ], [ %.pn256.i, %575 ], [ %103, %102 ]
+  %.pn260.i = phi { ptr, i32 } [ %91, %90 ], [ %103, %102 ], [ %.pn256.i, %575 ]
   %583 = load ptr, ptr %10, align 8, !tbaa !34, !noalias !28
   %.not.i.i316.i = icmp eq ptr %583, null
   br i1 %.not.i.i316.i, label %_ZN5arrow6ResultIlED2Ev.exit317.i, label %584, !prof !59
@@ -2757,8 +2757,8 @@ _ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us.us:        ; preds = %._crit_edge.split.u
   br i1 %exitcond.not, label %._crit_edge.split.us.us.us, label %.split.i.us.us.us.us159, !llvm.loop !151
 
 ._crit_edge.split.us.us.us:                       ; preds = %.split.i.us.us.us.us159, %.split.i.us.us.us.us148, %.split.i.us.us.us.us137, %.split.i.us.us.us.us, %.split.i.us.us.us.preheader
-  %.us-phi134 = phi i64 [ 0, %.split.i.us.us.us.preheader ], [ %182, %.split.i.us.us.us.us ], [ %189, %.split.i.us.us.us.us137 ], [ %196, %.split.i.us.us.us.us148 ], [ %202, %.split.i.us.us.us.us159 ]
-  %.us-phi135 = phi ptr [ %scevgep, %.split.i.us.us.us.preheader ], [ %183, %.split.i.us.us.us.us ], [ %190, %.split.i.us.us.us.us137 ], [ %197, %.split.i.us.us.us.us148 ], [ %203, %.split.i.us.us.us.us159 ]
+  %.us-phi134 = phi i64 [ 0, %.split.i.us.us.us.preheader ], [ %196, %.split.i.us.us.us.us148 ], [ %182, %.split.i.us.us.us.us ], [ %189, %.split.i.us.us.us.us137 ], [ %202, %.split.i.us.us.us.us159 ]
+  %.us-phi135 = phi ptr [ %scevgep, %.split.i.us.us.us.preheader ], [ %197, %.split.i.us.us.us.us148 ], [ %183, %.split.i.us.us.us.us ], [ %190, %.split.i.us.us.us.us137 ], [ %203, %.split.i.us.us.us.us159 ]
   br i1 %157, label %_ZSt6copy_nIPKhiPhET1_T_T0_S3_.exit.us.us, label %_ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.us.us
 
 .split.us.split.us:                               ; preds = %166
@@ -3042,7 +3042,7 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
   br label %316
 
 .split.us:                                        ; preds = %.split.us.split.split, %.split.us.split.split.us, %.split.us.split.us, %.split.split.us, %.split.split, %.body, %136
-  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %eh.lpad-body, %.body ], [ %204, %.split.us.split.us ], [ %227, %.split.us.split.split ], [ %216, %.split.us.split.split.us ], [ %264, %.split.split ], [ %239, %.split.split.us ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %eh.lpad-body, %.body ], [ %216, %.split.us.split.split.us ], [ %204, %.split.us.split.us ], [ %227, %.split.us.split.split ], [ %264, %.split.split ], [ %239, %.split.split.us ]
   %304 = load ptr, ptr %7, align 8, !tbaa !58
   %.not.i.i.i90 = icmp eq ptr %304, null
   br i1 %.not.i.i.i90, label %311, label %305
@@ -7128,9 +7128,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %26
 
 26:                                               ; preds = %25, %.noexc46, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %27 = phi ptr [ %20, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %28 = phi ptr [ %19, %.noexc46 ], [ %19, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %27 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %25 ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %19, %.noexc46 ], [ %19, %25 ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %22, %.noexc46 ], [ %20, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !185
   %30 = icmp slt i64 %3, 0
@@ -7164,8 +7164,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47: ; preds = %26
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit53
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit53:             ; preds = %37, %.noexc52, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47
-  %.sroa.11.0 = phi ptr [ %34, %.noexc52 ], [ %34, %37 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47 ]
-  %.sroa.078.0 = phi ptr [ %33, %.noexc52 ], [ %33, %37 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.11.0 = phi ptr [ %34, %37 ], [ %34, %.noexc52 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.078.0 = phi ptr [ %33, %37 ], [ %33, %.noexc52 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i47 ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %28, ptr noundef %.sroa.078.0)
           to label %.preheader113 unwind label %62
 
@@ -7622,9 +7622,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %26
 
 26:                                               ; preds = %25, %.noexc46, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %27 = phi ptr [ %20, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %28 = phi ptr [ %19, %.noexc46 ], [ %19, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %27 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %25 ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %19, %.noexc46 ], [ %19, %25 ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %22, %.noexc46 ], [ %20, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !185
   %30 = icmp ugt i64 %3, 4611686018427387903
@@ -7660,8 +7660,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %34, %.noexc50 ], [ %34, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %34, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %28, ptr noundef %.sroa.075.0)
           to label %.preheader110 unwind label %62
 
@@ -8119,9 +8119,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %26
 
 26:                                               ; preds = %25, %.noexc46, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %27 = phi ptr [ %20, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %28 = phi ptr [ %19, %.noexc46 ], [ %19, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %27 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %25 ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %19, %.noexc46 ], [ %19, %25 ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %22, %.noexc46 ], [ %20, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !185
   %30 = icmp ugt i64 %3, 2305843009213693951
@@ -8157,8 +8157,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %34, %.noexc50 ], [ %34, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %34, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %28, ptr noundef %.sroa.075.0)
           to label %.preheader110 unwind label %62
 
@@ -8616,9 +8616,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %26
 
 26:                                               ; preds = %25, %.noexc46, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %27 = phi ptr [ %20, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %28 = phi ptr [ %19, %.noexc46 ], [ %19, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %22, %.noexc46 ], [ %20, %25 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %27 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %25 ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %19, %.noexc46 ], [ %19, %25 ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %22, %.noexc46 ], [ %20, %25 ]
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %29, align 8, !tbaa !185
   %30 = icmp ugt i64 %3, 1152921504606846975
@@ -8654,8 +8654,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc50
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc50, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %34, %.noexc50 ], [ %34, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %34, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIhmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %28, ptr noundef %.sroa.075.0)
           to label %.preheader110 unwind label %59
 
@@ -9101,9 +9101,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !215
   %31 = icmp slt i64 %3, 0
@@ -9137,8 +9137,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %27
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %38, %.noexc50, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %34, %.noexc50 ], [ %34, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %38 ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %34, %38 ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIthEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.075.0)
           to label %.preheader110 unwind label %63
 
@@ -9599,9 +9599,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !215
   %31 = icmp ugt i64 %3, 4611686018427387903
@@ -9637,8 +9637,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49: ; preds = %.noexc54
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit55
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit55:             ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49, %.noexc54, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i47
-  %.sroa.11.0 = phi ptr [ %36, %.noexc54 ], [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i47 ]
-  %.sroa.081.0 = phi ptr [ %35, %.noexc54 ], [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ %36, %.noexc54 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.081.0 = phi ptr [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ %35, %.noexc54 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i47 ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIttEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.081.0)
           to label %.preheader116 unwind label %63
 
@@ -10100,9 +10100,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !215
   %31 = icmp ugt i64 %3, 2305843009213693951
@@ -10138,8 +10138,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.076.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.076.0 = phi ptr [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.076.0)
           to label %.preheader111 unwind label %63
 
@@ -10601,9 +10601,9 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !215
   %31 = icmp ugt i64 %3, 1152921504606846975
@@ -10639,8 +10639,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.076.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.076.0 = phi ptr [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorItmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.076.0)
           to label %.preheader111 unwind label %60
 
@@ -11087,9 +11087,9 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !244
   %31 = icmp slt i64 %3, 0
@@ -11123,8 +11123,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %27
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %38, %.noexc50, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.075.0 = phi ptr [ %34, %.noexc50 ], [ %34, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %38 ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.075.0 = phi ptr [ %34, %38 ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.075.0)
           to label %.preheader110 unwind label %63
 
@@ -11585,9 +11585,9 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !244
   %31 = icmp ugt i64 %3, 4611686018427387903
@@ -11623,8 +11623,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.076.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.076.0 = phi ptr [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjtEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.076.0)
           to label %.preheader111 unwind label %63
 
@@ -12086,9 +12086,9 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !244
   %31 = icmp ugt i64 %3, 2305843009213693951
@@ -12124,8 +12124,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49: ; preds = %.noexc54
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit55
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit55:             ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49, %.noexc54, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i47
-  %.sroa.11.0 = phi ptr [ %36, %.noexc54 ], [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i47 ]
-  %.sroa.081.0 = phi ptr [ %35, %.noexc54 ], [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ %36, %.noexc54 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i47 ]
+  %.sroa.081.0 = phi ptr [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i49 ], [ %35, %.noexc54 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i47 ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjjEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.081.0)
           to label %.preheader116 unwind label %63
 
@@ -12587,9 +12587,9 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !244
   %31 = icmp ugt i64 %3, 1152921504606846975
@@ -12625,8 +12625,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.076.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.076.0 = phi ptr [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIjmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.076.0)
           to label %.preheader111 unwind label %60
 
@@ -13073,9 +13073,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !55
   %31 = icmp slt i64 %3, 0
@@ -13109,8 +13109,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %27
   br label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %38, %.noexc50, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %35, %.noexc50 ], [ %35, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.080.0 = phi ptr [ %34, %.noexc50 ], [ %34, %38 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %35, %38 ], [ %35, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.080.0 = phi ptr [ %34, %38 ], [ %34, %.noexc50 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlhEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.080.0)
           to label %.preheader115 unwind label %63
 
@@ -13570,9 +13570,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !55
   %31 = icmp ugt i64 %3, 4611686018427387903
@@ -13608,8 +13608,8 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorItSaItEEC2EmRKS0_.exit
 
 _ZNSt6vectorItSaItEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.081.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.081.0 = phi ptr [ %35, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIltEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.081.0)
           to label %.preheader116 unwind label %63
 
@@ -14070,9 +14070,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !55
   %31 = icmp ugt i64 %3, 2305843009213693951
@@ -14108,8 +14108,8 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.081.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.081.0 = phi ptr [ %35, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIljEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.081.0)
           to label %.preheader116 unwind label %63
 
@@ -14570,9 +14570,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
   br label %27
 
 27:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i
-  %28 = phi ptr [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %29 = phi ptr [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
-  %.0.i.i.i.i.i = phi ptr [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ]
+  %28 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %21, %.noexc46 ], [ %21, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %29 = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %20, %.noexc46 ], [ %20, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i ], [ %23, %.noexc46 ], [ %26, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.i.i.i.i.i, ptr %30, align 8, !tbaa !55
   %31 = icmp ugt i64 %3, 1152921504606846975
@@ -14608,8 +14608,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc51
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc51, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.11.0 = phi ptr [ %36, %.noexc51 ], [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.081.0 = phi ptr [ %35, %.noexc51 ], [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %36, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %36, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.081.0 = phi ptr [ %35, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %35, %.noexc51 ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ]
   invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTensorIlmEEvRKNS_6TensorEPT_PT0_l(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %29, ptr noundef %.sroa.081.0)
           to label %.preheader116 unwind label %60
 
@@ -20754,8 +20754,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !189
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -21170,8 +21170,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !195
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -21583,8 +21583,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !201
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -21996,8 +21996,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !207
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -22409,8 +22409,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !218
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -22822,8 +22822,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !224
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -23235,8 +23235,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !230
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -23648,8 +23648,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !236
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -24061,8 +24061,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !247
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -24474,8 +24474,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !253
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -24887,8 +24887,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !259
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -25300,8 +25300,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !265
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -25713,8 +25713,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !271
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -26126,8 +26126,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !277
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -26539,8 +26539,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !283
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10
@@ -26952,8 +26952,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br i1 %or.cond.i.i69.i.i, label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i, label %.lr.ph.i.i64.i.i, !llvm.loop !289
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i: ; preds = %69, %81, %.lr.ph.i.i64.i.i, %53, %65, %.lr.ph.i.i46.i.i
-  %.sink88.i.i = phi i64 [ %50, %.lr.ph.i.i46.i.i ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %66, %.lr.ph.i.i64.i.i ], [ %.pre.i.i, %81 ], [ %36, %69 ]
-  %.sink87.i.i = phi ptr [ %33, %.lr.ph.i.i46.i.i ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i64.i.i ], [ %32, %81 ], [ %11, %69 ]
+  %.sink88.i.i = phi i64 [ %.pre.i.i, %81 ], [ %36, %65 ], [ %.pre.i.i, %53 ], [ %50, %.lr.ph.i.i46.i.i ], [ %66, %.lr.ph.i.i64.i.i ], [ %36, %69 ]
+  %.sink87.i.i = phi ptr [ %32, %81 ], [ %11, %65 ], [ %32, %53 ], [ %33, %.lr.ph.i.i46.i.i ], [ %33, %.lr.ph.i.i64.i.i ], [ %11, %69 ]
   %82 = load i64, ptr %0, align 8, !tbaa !10
   store i64 %.sink88.i.i, ptr %0, align 8, !tbaa !10
   store i64 %82, ptr %.sink87.i.i, align 8, !tbaa !10

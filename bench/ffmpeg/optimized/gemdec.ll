@@ -138,8 +138,8 @@ bytestream2_get_be16.exit405.thread:              ; preds = %57, %bytestream2_ge
   br label %72
 
 72:                                               ; preds = %66, %69, %71, %70, %68
-  %.sink = phi i32 [ 2, %69 ], [ 11, %71 ], [ 118, %70 ], [ 36, %68 ], [ 43, %66 ]
-  %.0322 = phi i32 [ 3, %69 ], [ 1, %71 ], [ 4, %70 ], [ 2, %68 ], [ 2, %66 ]
+  %.sink = phi i32 [ 36, %68 ], [ 2, %69 ], [ 11, %71 ], [ 118, %70 ], [ 43, %66 ]
+  %.0322 = phi i32 [ 2, %68 ], [ 3, %69 ], [ 1, %71 ], [ 4, %70 ], [ 2, %66 ]
   store i32 %.sink, ptr %67, align 8, !tbaa !33
   %73 = icmp ult i16 %19, 11
   %74 = ptrtoint ptr %45 to i64
@@ -198,7 +198,7 @@ switch.early.test.split:                          ; preds = %switch.early.test
   br label %bytestream2_get_be16.exit.thread
 
 .thread512:                                       ; preds = %bytestream2_peek_be32.exit, %72
-  %.0310499507522 = phi i32 [ 0, %72 ], [ %78, %bytestream2_peek_be32.exit ]
+  %.0310499507522 = phi i32 [ %78, %bytestream2_peek_be32.exit ], [ 0, %72 ]
   %89 = and i32 %26, 65527
   %.not550 = icmp eq i32 %89, 16
   br i1 %.not550, label %91, label %switch.early.test390
@@ -524,9 +524,9 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   unreachable
 
 .loopexit:                                        ; preds = %bytestream2_get_be16.exit413, %.preheader558, %bytestream2_get_be16.exit415, %bytestream2_get_be16.exit407, %127, %192, %235, %232, %224, %180, %186, %174
-  %.0323 = phi ptr [ @put_lines_bits, %127 ], [ @put_lines_bytes, %174 ], [ @put_lines_bytes, %180 ], [ @put_lines_bytes, %186 ], [ @put_lines_bits, %192 ], [ @put_lines_bits, %224 ], [ @put_lines_bytes, %232 ], [ @put_lines_bytes, %235 ], [ @put_lines_bits, %bytestream2_get_be16.exit407 ], [ @put_lines_bits, %bytestream2_get_be16.exit415 ], [ @put_lines_bits, %.preheader558 ], [ @put_lines_bits, %bytestream2_get_be16.exit413 ]
-  %.0321 = phi i32 [ %55, %127 ], [ %179, %174 ], [ %185, %180 ], [ %188, %186 ], [ %55, %192 ], [ %55, %224 ], [ %234, %232 ], [ %237, %235 ], [ %55, %bytestream2_get_be16.exit407 ], [ %55, %bytestream2_get_be16.exit415 ], [ %55, %.preheader558 ], [ %55, %bytestream2_get_be16.exit413 ]
-  %.1 = phi i32 [ 15, %127 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 1, %192 ], [ %.0309485491, %224 ], [ 1, %232 ], [ 1, %235 ], [ 4, %bytestream2_get_be16.exit407 ], [ %.0309485491, %bytestream2_get_be16.exit415 ], [ 8, %.preheader558 ], [ %.0309485491, %bytestream2_get_be16.exit413 ]
+  %.0323 = phi ptr [ @put_lines_bytes, %235 ], [ @put_lines_bits, %127 ], [ @put_lines_bytes, %174 ], [ @put_lines_bytes, %180 ], [ @put_lines_bytes, %186 ], [ @put_lines_bits, %192 ], [ @put_lines_bits, %224 ], [ @put_lines_bytes, %232 ], [ @put_lines_bits, %.preheader558 ], [ @put_lines_bits, %bytestream2_get_be16.exit407 ], [ @put_lines_bits, %bytestream2_get_be16.exit415 ], [ @put_lines_bits, %bytestream2_get_be16.exit413 ]
+  %.0321 = phi i32 [ %237, %235 ], [ %55, %127 ], [ %179, %174 ], [ %185, %180 ], [ %188, %186 ], [ %55, %192 ], [ %55, %224 ], [ %234, %232 ], [ %55, %.preheader558 ], [ %55, %bytestream2_get_be16.exit407 ], [ %55, %bytestream2_get_be16.exit415 ], [ %55, %bytestream2_get_be16.exit413 ]
+  %.1 = phi i32 [ 1, %235 ], [ 15, %127 ], [ 1, %174 ], [ 1, %180 ], [ 1, %186 ], [ 1, %192 ], [ %.0309485491, %224 ], [ 1, %232 ], [ 8, %.preheader558 ], [ 4, %bytestream2_get_be16.exit407 ], [ %.0309485491, %bytestream2_get_be16.exit415 ], [ %.0309485491, %bytestream2_get_be16.exit413 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %240 = zext nneg i32 %.1 to i64
   %241 = sext i32 %.0321 to i64
@@ -791,12 +791,12 @@ bytestream2_get_be16.exit415:                     ; preds = %205, %209
   %356 = icmp ult ptr %.1316, %11
   br i1 %356, label %261, label %.thread537
 
-.thread537:                                       ; preds = %.thread534, %._crit_edge, %264, %307, %312, %335, %341, %347, %278, %298, %325, %244
+.thread537:                                       ; preds = %.thread534, %._crit_edge, %264, %307, %341, %312, %335, %347, %278, %298, %325, %244
   store i32 1, ptr %2, align 4, !tbaa !41
   br label %bytestream2_get_be16.exit.thread
 
 bytestream2_get_be16.exit.thread:                 ; preds = %.loopexit, %91, %bytestream2_get_be16.exit397, %bytestream2_get_be16.exit, %22, %4, %.thread537, %90, %88, %82, %80, %bytestream2_get_be16.exit405.thread
-  %.0307 = phi i32 [ -1163346256, %bytestream2_get_be16.exit405.thread ], [ -1163346256, %80 ], [ %9, %.thread537 ], [ -1163346256, %82 ], [ -1163346256, %88 ], [ -1163346256, %90 ], [ -1094995529, %4 ], [ -1094995529, %22 ], [ -1094995529, %bytestream2_get_be16.exit ], [ %49, %bytestream2_get_be16.exit397 ], [ %93, %91 ], [ %242, %.loopexit ]
+  %.0307 = phi i32 [ -1163346256, %90 ], [ -1094995529, %4 ], [ -1094995529, %bytestream2_get_be16.exit ], [ -1163346256, %bytestream2_get_be16.exit405.thread ], [ -1163346256, %80 ], [ %49, %bytestream2_get_be16.exit397 ], [ %93, %91 ], [ %242, %.loopexit ], [ %9, %.thread537 ], [ -1163346256, %82 ], [ -1163346256, %88 ], [ -1094995529, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0307
 }
@@ -905,8 +905,8 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit, %7
-  %57 = phi i32 [ %9, %7 ], [ %.pre, %.critedge.loopexit ], [ %9, %.lr.ph ]
-  %.lcssa = phi i32 [ %13, %7 ], [ %55, %.critedge.loopexit ], [ %13, %.lr.ph ]
+  %57 = phi i32 [ %9, %7 ], [ %9, %.lr.ph ], [ %.pre, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %13, %7 ], [ %13, %.lr.ph ], [ %55, %.critedge.loopexit ]
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %8, align 4, !tbaa !49
   %.not = icmp slt i32 %58, %1
@@ -960,7 +960,7 @@ define internal void @put_lines_bytes(ptr noundef readonly captures(none) %0, i3
   br label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %17, %.lr.ph, %..critedge.loopexit_crit_edge, %7
-  %.lcssa = phi i32 [ %9, %7 ], [ %34, %..critedge.loopexit_crit_edge ], [ %9, %.lr.ph ], [ %34, %17 ]
+  %.lcssa = phi i32 [ %9, %7 ], [ %9, %.lr.ph ], [ %34, %..critedge.loopexit_crit_edge ], [ %34, %17 ]
   %22 = load i32, ptr %4, align 4, !tbaa !52
   %23 = add nsw i32 %22, %.lcssa
   store i32 %23, ptr %4, align 4, !tbaa !52

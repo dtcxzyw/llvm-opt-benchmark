@@ -713,7 +713,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   br label %54
 
 54:                                               ; preds = %50, %.thread.split.split
-  %55 = phi i64 [ %53, %50 ], [ 1, %.thread.split.split ]
+  %55 = phi i64 [ 1, %.thread.split.split ], [ %53, %50 ]
   %56 = icmp samesign ult i64 %indvars.iv, %55
   br i1 %56, label %57, label %.split.us
 
@@ -746,7 +746,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   br label %.thread6
 
 .thread6:                                         ; preds = %62, %.thread5, %67
-  %75 = phi ptr [ %74, %.thread5 ], [ null, %67 ], [ null, %62 ]
+  %75 = phi ptr [ null, %62 ], [ %74, %.thread5 ], [ null, %67 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
@@ -1699,8 +1699,8 @@ define dso_local i32 @fib_nh_match(ptr noundef readnone captures(none) %0, ptr n
   %.pre26 = load ptr, ptr %17, align 8
   br label %79, !llvm.loop !31
 
-.critedge.thread:                                 ; preds = %138, %142, %107, %105, %115, %102, %136, %137, %.thread21, %129, %130, %67, %66, %61, %55, %.thread.thread, %45, %35, %31, %30, %25, %21, %9
-  %181 = phi i32 [ 1, %25 ], [ 1, %9 ], [ 0, %21 ], [ 1, %31 ], [ 1, %30 ], [ 0, %66 ], [ 1, %.thread.thread ], [ 1, %45 ], [ 1, %55 ], [ 1, %61 ], [ 0, %67 ], [ %39, %35 ], [ %.ph20, %.thread21 ], [ -22, %129 ], [ -22, %130 ], [ -22, %137 ], [ -22, %136 ], [ 1, %138 ], [ 1, %142 ], [ 1, %115 ], [ -22, %105 ], [ -22, %107 ], [ 0, %102 ]
+.critedge.thread:                                 ; preds = %138, %142, %105, %115, %107, %102, %136, %137, %129, %130, %.thread21, %67, %66, %61, %55, %.thread.thread, %45, %35, %31, %30, %25, %21, %9
+  %181 = phi i32 [ 1, %25 ], [ 1, %9 ], [ 0, %21 ], [ 1, %31 ], [ 1, %30 ], [ 0, %66 ], [ 1, %.thread.thread ], [ 1, %45 ], [ 1, %55 ], [ 1, %61 ], [ 0, %67 ], [ %39, %35 ], [ -22, %130 ], [ %.ph20, %.thread21 ], [ -22, %137 ], [ -22, %136 ], [ -22, %129 ], [ 1, %138 ], [ 1, %142 ], [ -22, %107 ], [ 1, %115 ], [ -22, %105 ], [ 0, %102 ]
   ret i32 %181
 }
 
@@ -1808,7 +1808,7 @@ define dso_local noundef zeroext i1 @fib_metrics_match(ptr noundef readonly capt
   br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.thread5, %.lr.ph, %25, %37, %43, %8, %2
-  %59 = phi i1 [ true, %2 ], [ true, %8 ], [ true, %.thread5 ], [ true, %.lr.ph ], [ false, %25 ], [ false, %37 ], [ false, %43 ]
+  %59 = phi i1 [ true, %2 ], [ true, %8 ], [ false, %25 ], [ true, %.lr.ph ], [ true, %.thread5 ], [ false, %37 ], [ false, %43 ]
   ret i1 %59
 }
 
@@ -2011,7 +2011,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   br label %100
 
 100:                                              ; preds = %.thread12, %80
-  %101 = phi i32 [ %81, %80 ], [ %99, %.thread12 ]
+  %101 = phi i32 [ %99, %.thread12 ], [ %81, %80 ]
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %.thread14, label %103
 
@@ -2099,7 +2099,7 @@ define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1
   br label %145
 
 145:                                              ; preds = %143, %54, %45, %43, %37, %35, %29, %27, %21, %19
-  %146 = phi i32 [ %144, %143 ], [ 0, %54 ], [ -22, %21 ], [ -22, %19 ], [ -19, %29 ], [ -19, %27 ], [ -100, %37 ], [ -100, %35 ], [ -22, %45 ], [ -22, %43 ]
+  %146 = phi i32 [ -22, %43 ], [ %144, %143 ], [ 0, %54 ], [ -22, %21 ], [ -22, %19 ], [ -19, %29 ], [ -19, %27 ], [ -100, %37 ], [ -100, %35 ], [ -22, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %217
 
@@ -2326,7 +2326,7 @@ define dso_local i32 @fib_result_prefsrc(ptr noundef %0, ptr noundef readonly ca
   br label %38
 
 38:                                               ; preds = %.thread, %28, %22, %2
-  %39 = phi i32 [ %8, %2 ], [ %27, %22 ], [ %35, %28 ], [ %21, %.thread ]
+  %39 = phi i32 [ %21, %.thread ], [ %8, %2 ], [ %27, %22 ], [ %35, %28 ]
   ret i32 %39
 }
 
@@ -2740,7 +2740,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %259
 
 259:                                              ; preds = %257, %253
-  %260 = phi i32 [ %256, %253 ], [ %258, %257 ]
+  %260 = phi i32 [ %258, %257 ], [ %256, %253 ]
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %262, label %.thread58
 
@@ -3162,12 +3162,12 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %511
 
 .thread58.sink.split:                             ; preds = %361, %304, %298, %284, %279, %276, %216
-  %fib_create_info.__msg.5.sink = phi ptr [ @fib_create_info.__msg.4, %216 ], [ @fib_create_info.__msg.5, %276 ], [ @fib_create_info.__msg.6, %279 ], [ @fib_create_info.__msg.7, %284 ], [ @fib_create_info.__msg.8, %298 ], [ @fib_create_info.__msg.9, %304 ], [ @fib_create_info.__msg.10, %361 ]
+  %fib_create_info.__msg.5.sink = phi ptr [ @fib_create_info.__msg.4, %216 ], [ @fib_create_info.__msg.5, %276 ], [ @fib_create_info.__msg.6, %279 ], [ @fib_create_info.__msg.9, %304 ], [ @fib_create_info.__msg.7, %284 ], [ @fib_create_info.__msg.8, %298 ], [ @fib_create_info.__msg.10, %361 ]
   store ptr %fib_create_info.__msg.5.sink, ptr %1, align 8
   br label %.thread58
 
 .thread58:                                        ; preds = %336, %.thread58.sink.split, %259, %276, %279, %284, %290, %361, %306, %298, %304, %216
-  %505 = phi i32 [ -22, %216 ], [ %260, %259 ], [ %291, %290 ], [ -22, %276 ], [ -22, %279 ], [ -22, %284 ], [ -22, %361 ], [ -19, %306 ], [ -22, %298 ], [ -22, %304 ], [ -22, %.thread58.sink.split ], [ %340, %336 ]
+  %505 = phi i32 [ -22, %216 ], [ -22, %279 ], [ %260, %259 ], [ %291, %290 ], [ -19, %306 ], [ -22, %284 ], [ -22, %361 ], [ -22, %304 ], [ -22, %298 ], [ -22, %276 ], [ -22, %.thread58.sink.split ], [ %340, %336 ]
   %506 = getelementptr inbounds nuw i8, ptr %176, i64 68
   store i8 1, ptr %506, align 4
   %507 = getelementptr inbounds nuw i8, ptr %176, i64 112
@@ -3176,7 +3176,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %.thread57
 
 .thread57:                                        ; preds = %.critedge.thread119, %.critedge.thread, %145, %115, %117, %23, %25, %15, %17, %146, %2, %169, %166, %.thread58
-  %509 = phi i64 [ %508, %.thread58 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -105, %166 ], [ -22, %145 ], [ -22, %.critedge.thread ], [ -22, %.critedge.thread119 ]
+  %509 = phi i64 [ -22, %.critedge.thread ], [ %508, %.thread58 ], [ -105, %166 ], [ -22, %115 ], [ -22, %117 ], [ -22, %23 ], [ -22, %25 ], [ -22, %15 ], [ -22, %17 ], [ -22, %146 ], [ -22, %2 ], [ -105, %169 ], [ -22, %145 ], [ -22, %.critedge.thread119 ]
   %510 = inttoptr i64 %509 to ptr
   br label %511
 
@@ -3484,7 +3484,7 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   br label %40
 
 40:                                               ; preds = %36, %30, %26
-  %41 = phi i32 [ 1, %26 ], [ %39, %36 ], [ 1, %30 ]
+  %41 = phi i32 [ 1, %30 ], [ 1, %26 ], [ %39, %36 ]
   %42 = icmp ult i32 %22, %41
   br i1 %42, label %45, label %141
 
@@ -3731,12 +3731,12 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   br i1 %10, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %170, %149, %96, %79, %73, %57, %.critedge
-  %fib_get_nhs.__msg.21.sink = phi ptr [ @fib_get_nhs.__msg, %.critedge ], [ @fib_get_nhs.__msg.20, %57 ], [ @fib_get_nhs.__msg.21, %73 ], [ @fib_gw_from_attr.__msg, %79 ], [ @fib_get_nhs.__msg.22, %96 ], [ @fib_get_nhs.__msg.23, %149 ], [ @fib_get_nhs.__msg.24, %170 ]
+  %fib_get_nhs.__msg.21.sink = phi ptr [ @fib_get_nhs.__msg.20, %57 ], [ @fib_gw_from_attr.__msg, %79 ], [ @fib_get_nhs.__msg.22, %96 ], [ @fib_get_nhs.__msg, %.critedge ], [ @fib_get_nhs.__msg.21, %73 ], [ @fib_get_nhs.__msg.23, %149 ], [ @fib_get_nhs.__msg.24, %170 ]
   store ptr %fib_get_nhs.__msg.21.sink, ptr %4, align 8
   br label %.thread
 
 .thread:                                          ; preds = %107, %86, %.thread.sink.split, %73, %96, %.critedge, %57, %79, %159, %170, %165, %158, %150, %149
-  %171 = phi i32 [ -22, %149 ], [ -22, %170 ], [ 0, %165 ], [ 0, %150 ], [ 0, %158 ], [ 0, %159 ], [ -22, %79 ], [ -22, %57 ], [ -22, %.critedge ], [ -22, %96 ], [ -22, %73 ], [ -22, %.thread.sink.split ], [ %115, %107 ], [ %87, %86 ]
+  %171 = phi i32 [ -22, %.critedge ], [ -22, %149 ], [ -22, %170 ], [ -22, %73 ], [ 0, %165 ], [ 0, %150 ], [ 0, %159 ], [ 0, %158 ], [ -22, %79 ], [ -22, %57 ], [ -22, %96 ], [ -22, %.thread.sink.split ], [ %87, %86 ], [ %115, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %171
 }
@@ -3956,14 +3956,14 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #3 align
   br label %112
 
 112:                                              ; preds = %108, %.split.split
-  %113 = phi i32 [ %111, %108 ], [ 1, %.split.split ]
+  %113 = phi i32 [ 1, %.split.split ], [ %111, %108 ]
   %114 = icmp samesign ult i32 %102, %113
   br i1 %114, label %120, label %.split7.us
 
 .split7.us:                                       ; preds = %112, %60, %.split.split.us.preheader, %88, %91, %98, %.split.us
-  %115 = phi ptr [ %23, %.split.us ], [ %66, %98 ], [ %66, %91 ], [ %66, %88 ], [ %66, %.split.split.us.preheader ], [ %23, %60 ], [ %66, %112 ]
-  %116 = phi ptr [ %22, %.split.us ], [ %64, %98 ], [ %64, %91 ], [ %64, %88 ], [ %64, %.split.split.us.preheader ], [ %22, %60 ], [ %64, %112 ]
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %100, %98 ], [ 0, %91 ], [ 0, %88 ], [ 0, %.split.split.us.preheader ], [ %61, %60 ], [ %103, %112 ]
+  %115 = phi ptr [ %23, %.split.us ], [ %66, %.split.split.us.preheader ], [ %66, %98 ], [ %66, %91 ], [ %66, %88 ], [ %23, %60 ], [ %66, %112 ]
+  %116 = phi ptr [ %22, %.split.us ], [ %64, %.split.split.us.preheader ], [ %64, %98 ], [ %64, %91 ], [ %64, %88 ], [ %22, %60 ], [ %64, %112 ]
+  %.us-phi = phi i32 [ 0, %.split.us ], [ 0, %.split.split.us.preheader ], [ %100, %98 ], [ 0, %91 ], [ 0, %88 ], [ %61, %60 ], [ %103, %112 ]
   %117 = sdiv i32 %.us-phi, 2
   %118 = sext i32 %117 to i64
   %119 = zext i32 %.us-phi to i64
@@ -5902,7 +5902,7 @@ define dso_local void @fib_select_path(ptr noundef %0, ptr noundef captures(none
   br label %89
 
 89:                                               ; preds = %.thread2, %79, %73, %53
-  %90 = phi i32 [ %59, %53 ], [ %78, %73 ], [ %86, %79 ], [ %72, %.thread2 ]
+  %90 = phi i32 [ %72, %.thread2 ], [ %59, %53 ], [ %78, %73 ], [ %86, %79 ]
   store i32 %90, ptr %50, align 8
   br label %91
 

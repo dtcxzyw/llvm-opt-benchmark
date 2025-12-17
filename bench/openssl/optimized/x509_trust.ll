@@ -83,7 +83,7 @@ X509_TRUST_get_by_id.exit:                        ; preds = %13
   br label %X509_TRUST_get0.exit
 
 X509_TRUST_get0.exit:                             ; preds = %20, %24
-  %.0.i15 = phi ptr [ %23, %20 ], [ %26, %24 ]
+  %.0.i15 = phi ptr [ %26, %24 ], [ %23, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !13
   %29 = call i32 %28(ptr noundef %.0.i15, ptr noundef %0, i32 noundef %2) #6
@@ -222,7 +222,7 @@ define internal range(i32 1, 4) i32 @obj_trust(i32 noundef %0, ptr noundef %1, i
   br label %trust_compat.exit
 
 trust_compat.exit:                                ; preds = %.lr.ph.split, %.lr.ph.split.us, %42, %.lr.ph53.split, %37, %.lr.ph53.split.us, %.preheader, %62, %58, %53, %.critedge44
-  %.3 = phi i32 [ 3, %.critedge44 ], [ 3, %62 ], [ 3, %53 ], [ 1, %58 ], [ 2, %.preheader ], [ 2, %37 ], [ 1, %.lr.ph53.split.us ], [ 2, %42 ], [ 1, %.lr.ph53.split ], [ 2, %.lr.ph.split.us ], [ 2, %.lr.ph.split ]
+  %.3 = phi i32 [ 1, %58 ], [ 3, %62 ], [ 3, %53 ], [ 3, %.critedge44 ], [ 2, %.preheader ], [ 2, %.lr.ph.split.us ], [ 2, %37 ], [ 2, %42 ], [ 1, %.lr.ph53.split.us ], [ 1, %.lr.ph53.split ], [ 2, %.lr.ph.split ]
   ret i32 %.3
 }
 
@@ -276,7 +276,7 @@ define ptr @X509_TRUST_get0(i32 noundef %0) local_unnamed_addr #1 {
   br label %12
 
 12:                                               ; preds = %1, %8, %5
-  %.0 = phi ptr [ %7, %5 ], [ %11, %8 ], [ null, %1 ]
+  %.0 = phi ptr [ %11, %8 ], [ %7, %5 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -412,8 +412,8 @@ X509_TRUST_get_by_id.exit:                        ; preds = %13
   br label %X509_TRUST_get0.exit
 
 X509_TRUST_get0.exit:                             ; preds = %25, %22, %20
-  %28 = phi i1 [ true, %20 ], [ false, %22 ], [ false, %25 ]
-  %.0 = phi ptr [ %18, %20 ], [ %24, %22 ], [ %27, %25 ]
+  %28 = phi i1 [ true, %20 ], [ false, %25 ], [ false, %22 ]
+  %.0 = phi ptr [ %18, %20 ], [ %27, %25 ], [ %24, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !51
   %31 = and i32 %30, 2
@@ -482,7 +482,7 @@ X509_TRUST_get0.exit:                             ; preds = %25, %22, %20
   br label %58
 
 58:                                               ; preds = %56, %.thread37, %39, %53, %17
-  %.026 = phi i32 [ 0, %17 ], [ 1, %53 ], [ 1, %39 ], [ 0, %.thread37 ], [ 0, %56 ]
+  %.026 = phi i32 [ 0, %17 ], [ 1, %39 ], [ 1, %53 ], [ 0, %.thread37 ], [ 0, %56 ]
   ret i32 %.026
 }
 

@@ -387,8 +387,8 @@ xs_setup_xprt.exit.thread.sink.split:             ; preds = %73, %26
   tail call void @xprt_free(ptr noundef %12) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %60, %xs_setup_xprt.exit
-  %76 = phi ptr [ %12, %xs_setup_xprt.exit ], [ %12, %60 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %1, %7, %60, %xs_setup_xprt.exit
+  %76 = phi ptr [ inttoptr (i64 -12 to ptr), %7 ], [ %12, %xs_setup_xprt.exit ], [ %12, %60 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
   ret ptr %76
 }
 
@@ -1227,7 +1227,7 @@ xs_sock_recv_cmsg.exit42:                         ; preds = %388, %408
   br label %.loopexit45
 
 450:                                              ; preds = %446, %413, %387
-  %451 = phi i64 [ %420, %446 ], [ %383, %387 ], [ %416, %413 ]
+  %451 = phi i64 [ %416, %413 ], [ %420, %446 ], [ %383, %387 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %452 = icmp slt i64 %451, 0
   br i1 %452, label %.loopexit45, label %453
@@ -1848,7 +1848,7 @@ define internal noundef range(i32 -107, 1) i32 @xs_local_send_request(ptr nounde
   br label %75
 
 .thread:                                          ; preds = %59, %60
-  %72 = phi i1 [ false, %60 ], [ %50, %59 ]
+  %72 = phi i1 [ %50, %59 ], [ false, %60 ]
   %73 = call fastcc i32 @xs_stream_nospace(ptr noundef %0, i1 noundef zeroext %72)
   br label %75
 
@@ -2927,8 +2927,8 @@ xs_setup_xprt.exit.thread.sink.split:             ; preds = %83, %25
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %69, %xs_setup_xprt.exit
-  %86 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %69 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %1, %7, %69, %xs_setup_xprt.exit
+  %86 = phi ptr [ inttoptr (i64 -12 to ptr), %7 ], [ %11, %xs_setup_xprt.exit ], [ %11, %69 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
   ret ptr %86
 }
 
@@ -4100,8 +4100,8 @@ xs_setup_xprt.exit.thread.sink.split:             ; preds = %104, %31
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %90, %xs_setup_xprt.exit
-  %107 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %90 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %1, %7, %90, %xs_setup_xprt.exit
+  %107 = phi ptr [ inttoptr (i64 -12 to ptr), %7 ], [ %17, %xs_setup_xprt.exit ], [ %17, %90 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
   ret ptr %107
 }
 
@@ -5323,8 +5323,8 @@ xs_setup_xprt.exit.thread.sink.split:             ; preds = %97, %31
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %83, %xs_setup_xprt.exit
-  %100 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %83 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %1, %7, %83, %xs_setup_xprt.exit
+  %100 = phi ptr [ inttoptr (i64 -12 to ptr), %7 ], [ %17, %xs_setup_xprt.exit ], [ %17, %83 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
   ret ptr %100
 }
 
@@ -5854,7 +5854,7 @@ define internal void @xs_tcp_tls_setup_socket(ptr noundef %0) #0 align 16 {
   ret void
 
 305:                                              ; preds = %231, %166, %162, %149, %148
-  %306 = phi i32 [ %142, %148 ], [ %142, %149 ], [ %142, %162 ], [ %142, %166 ], [ -107, %231 ]
+  %306 = phi i32 [ %142, %166 ], [ %142, %148 ], [ %142, %149 ], [ %142, %162 ], [ -107, %231 ]
   call void @xprt_release_write(ptr noundef %89, ptr noundef null) #12
   call void @rpc_shutdown_client(ptr noundef %56) #12
   call void @xprt_wake_pending_tasks(ptr noundef %4, i32 noundef %306) #12
@@ -6074,8 +6074,8 @@ xs_setup_xprt.exit.thread.sink.split:             ; preds = %70, %25
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %.split1, %xs_setup_xprt.exit
-  %73 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %1, %7, %.split1, %xs_setup_xprt.exit
+  %73 = phi ptr [ inttoptr (i64 -12 to ptr), %7 ], [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
   ret ptr %73
 }
 

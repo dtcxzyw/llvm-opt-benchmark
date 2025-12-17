@@ -409,7 +409,7 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
   br label %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge
 
 _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge: ; preds = %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit, %125, %.noexc80
-  %126 = phi ptr [ %.pre167, %125 ], [ %120, %.noexc80 ], [ %.pre168, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit ]
+  %126 = phi ptr [ %120, %.noexc80 ], [ %.pre167, %125 ], [ %.pre168, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit ]
   store i64 %115, ptr %101, align 8
   %127 = trunc i64 %113 to i32
   %128 = sub i32 %127, %114
@@ -456,7 +456,7 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge: ; p
   br i1 %.not71, label %.loopexit, label %.lr.ph135, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph135, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge, %._crit_edge130, %.lr.ph139
-  %146 = phi i32 [ %129, %._crit_edge130 ], [ %100, %.lr.ph139 ], [ %129, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge ], [ %129, %.lr.ph135 ]
+  %146 = phi i32 [ %100, %.lr.ph139 ], [ %129, %._crit_edge130 ], [ %129, %_ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit._crit_edge ], [ %129, %.lr.ph135 ]
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 88
   %148 = load ptr, ptr %26, align 8
   %.not109 = icmp eq ptr %147, %148
@@ -1335,7 +1335,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN6Assimp23LimitBoneWeightsProcess6W
   br i1 %45, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us, !llvm.loop !19
 
 _ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %42, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.019.i.i.us, %42 ], [ %.01318.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01318.i.i.us, %.lr.ph.i.i.us ], [ %.019.i.i.us, %42 ]
   %46 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i.us
   store i64 %.sroa.01.0.copyload.us, ptr %46, align 4
   %.not.us = icmp eq i64 %.013.us, 0

@@ -729,7 +729,7 @@ lv_obj_remove_state.exit245:                      ; preds = %151, %155
   br i1 %267, label %.critedge.i, label %263
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %263, %.preheader.i254, %259, %254, %245, %240, %219
-  %.sink.i = phi i32 [ 1, %219 ], [ 1, %240 ], [ 1, %245 ], [ 1, %254 ], [ 0, %.preheader.i254 ], [ 0, %259 ], [ 0, %263 ], [ 1, %.lr.ph.i ]
+  %.sink.i = phi i32 [ 1, %254 ], [ 0, %.preheader.i254 ], [ 1, %245 ], [ 1, %240 ], [ 1, %219 ], [ 0, %259 ], [ 0, %263 ], [ 1, %.lr.ph.i ]
   store i32 %.sink.i, ptr %211, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
@@ -1827,7 +1827,7 @@ define noundef zeroext i1 @lv_obj_is_valid(ptr noundef readnone captures(address
   br i1 %.not.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %._crit_edge, %12, %8, %1
-  %.not26 = phi i1 [ false, %1 ], [ true, %8 ], [ true, %12 ], [ false, %._crit_edge ]
+  %.not26 = phi i1 [ false, %1 ], [ true, %12 ], [ true, %8 ], [ false, %._crit_edge ]
   ret i1 %.not26
 }
 
@@ -1868,7 +1868,7 @@ define internal fastcc noundef zeroext i1 @obj_valid_child(ptr noundef readonly 
   br i1 %15, label %.critedge, label %9
 
 .critedge:                                        ; preds = %14, %9, %10, %2, %5
-  %.lcssa = phi i1 [ false, %5 ], [ false, %2 ], [ true, %10 ], [ false, %9 ], [ true, %14 ]
+  %.lcssa = phi i1 [ false, %5 ], [ false, %2 ], [ false, %9 ], [ true, %14 ], [ true, %10 ]
   ret i1 %.lcssa
 }
 

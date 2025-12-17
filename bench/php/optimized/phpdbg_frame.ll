@@ -154,10 +154,10 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   br label %51
 
 51:                                               ; preds = %48, %35
-  %52 = phi ptr [ %.pre92, %48 ], [ %40, %35 ]
-  %53 = phi i64 [ %49, %48 ], [ %45, %35 ]
-  %54 = phi ptr [ %50, %48 ], [ %46, %35 ]
-  %.1.i50 = phi i64 [ %.0.i49, %48 ], [ %47, %35 ]
+  %52 = phi ptr [ %40, %35 ], [ %.pre92, %48 ]
+  %53 = phi i64 [ %45, %35 ], [ %49, %48 ]
+  %54 = phi ptr [ %46, %35 ], [ %50, %48 ]
+  %.1.i50 = phi i64 [ %47, %35 ], [ %.0.i49, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !43
@@ -250,8 +250,8 @@ smart_str_appendc_ex.exit66:                      ; preds = %51, %64
   br label %smart_str_appendc_ex.exit61
 
 smart_str_appendc_ex.exit61:                      ; preds = %89, %94
-  %95 = phi ptr [ %.pre94, %94 ], [ %88, %89 ]
-  %.1.i.i60 = phi i64 [ %.0.i.i59, %94 ], [ %92, %89 ]
+  %95 = phi ptr [ %88, %89 ], [ %.pre94, %94 ]
+  %.1.i.i60 = phi i64 [ %92, %89 ], [ %.0.i.i59, %94 ]
   %96 = getelementptr i8, ptr %95, i64 23
   %97 = getelementptr i8, ptr %96, i64 %.1.i.i60
   store i8 41, ptr %97, align 1, !tbaa !27
@@ -439,9 +439,9 @@ define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0
   br label %smart_str_alloc.exit31
 
 smart_str_alloc.exit31:                           ; preds = %9, %15
-  %16 = phi i64 [ %.pre32, %15 ], [ %11, %9 ]
-  %17 = phi ptr [ %.pre, %15 ], [ %8, %9 ]
-  %.1.i30 = phi i64 [ %.0.i29, %15 ], [ %12, %9 ]
+  %16 = phi i64 [ %11, %9 ], [ %.pre32, %15 ]
+  %17 = phi ptr [ %8, %9 ], [ %.pre, %15 ]
+  %.1.i30 = phi i64 [ %12, %9 ], [ %.0.i29, %15 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i16 8236, ptr %19, align 1
@@ -497,9 +497,9 @@ smart_str_alloc.exit31:                           ; preds = %9, %15
   br label %44
 
 44:                                               ; preds = %43, %37
-  %45 = phi i64 [ %.pre35, %43 ], [ %39, %37 ]
-  %46 = phi ptr [ %.pre33, %43 ], [ %36, %37 ]
-  %.1.i25 = phi i64 [ %.0.i24, %43 ], [ %40, %37 ]
+  %45 = phi i64 [ %39, %37 ], [ %.pre35, %43 ]
+  %46 = phi ptr [ %36, %37 ], [ %.pre33, %43 ]
+  %.1.i25 = phi i64 [ %40, %37 ], [ %.0.i24, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %34, i64 %35, i1 false)
@@ -552,9 +552,9 @@ smart_str_appendc_ex.exit:                        ; preds = %44, %54
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %64, %70
-  %71 = phi i64 [ %.pre39, %70 ], [ %66, %64 ]
-  %72 = phi ptr [ %.pre37, %70 ], [ %63, %64 ]
-  %.1.i = phi i64 [ %.0.i, %70 ], [ %67, %64 ]
+  %71 = phi i64 [ %66, %64 ], [ %.pre39, %70 ]
+  %72 = phi ptr [ %63, %64 ], [ %.pre37, %70 ]
+  %.1.i = phi i64 [ %67, %64 ], [ %.0.i, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull align 1 %61, i64 %62, i1 false)

@@ -1234,8 +1234,8 @@ dot_polygon.exit93:                               ; preds = %197, %210, %207, %1
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %26, %._crit_edge282, %221
-  %.sroa.0.0.lcssa320 = phi ptr [ %.sroa.0.1.lcssa, %._crit_edge282 ], [ %.sroa.0.1.lcssa, %221 ], [ null, %26 ]
-  %.sroa.0131.0.lcssa319 = phi ptr [ %.sroa.0131.1.lcssa, %._crit_edge282 ], [ %.sroa.0131.1.lcssa, %221 ], [ null, %26 ]
+  %.sroa.0.0.lcssa320 = phi ptr [ %.sroa.0.1.lcssa, %221 ], [ %.sroa.0.1.lcssa, %._crit_edge282 ], [ null, %26 ]
+  %.sroa.0131.0.lcssa319 = phi ptr [ %.sroa.0131.1.lcssa, %221 ], [ %.sroa.0131.1.lcssa, %._crit_edge282 ], [ null, %26 ]
   call void @free(ptr noundef %.sroa.0131.0.lcssa319) #20
   call void @free(ptr noundef %.sroa.0.0.lcssa320) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1630,7 +1630,7 @@ get_boundingbox.exit:                             ; preds = %114, %109
   br label %.loopexit251
 
 .loopexit251:                                     ; preds = %.lr.ph281, %158, %.loopexit251.critedge, %.split.preheader
-  %.sroa.5.0375 = phi i32 [ %169, %.loopexit251.critedge ], [ %169, %.split.preheader ], [ 0, %158 ], [ %169, %.lr.ph281 ]
+  %.sroa.5.0375 = phi i32 [ %169, %.split.preheader ], [ %169, %.loopexit251.critedge ], [ 0, %158 ], [ %169, %.lr.ph281 ]
   %214 = icmp sgt i32 %.sroa.5.0375, 0
   br i1 %214, label %215, label %.loopexit
 
@@ -1840,7 +1840,7 @@ define internal fastcc range(i32 -1, 1) i32 @make_map_internal(i1 noundef zeroex
   br label %54
 
 54:                                               ; preds = %53, %._crit_edge, %50
-  %.0412 = phi i32 [ %52, %50 ], [ %1, %._crit_edge ], [ %spec.select, %53 ]
+  %.0412 = phi i32 [ %spec.select, %53 ], [ %52, %50 ], [ %1, %._crit_edge ]
   %55 = fcmp olt double %9, 0.000000e+00
   br i1 %55, label %56, label %60
 
@@ -2456,11 +2456,11 @@ gv_recalloc.exit:                                 ; preds = %290, %288, %281, %g
   unreachable
 
 gv_calloc.exit504:                                ; preds = %327, %._crit_edge636, %324
-  %.1455 = phi i32 [ %.0450, %324 ], [ %.0450, %._crit_edge636 ], [ 0, %327 ]
-  %.0453 = phi ptr [ %250, %324 ], [ %250, %._crit_edge636 ], [ %328, %327 ]
-  %.2449 = phi ptr [ %.1448, %324 ], [ %.1448, %._crit_edge636 ], [ %.0447, %327 ]
-  %.2446 = phi i32 [ %.0444.lcssa, %324 ], [ %.0444.lcssa, %._crit_edge636 ], [ 0, %327 ]
-  %.2414 = phi i32 [ %.0410.lcssa, %324 ], [ %.0410.lcssa, %._crit_edge636 ], [ 0, %327 ]
+  %.1455 = phi i32 [ %.0450, %._crit_edge636 ], [ %.0450, %324 ], [ 0, %327 ]
+  %.0453 = phi ptr [ %250, %._crit_edge636 ], [ %250, %324 ], [ %328, %327 ]
+  %.2449 = phi ptr [ %.1448, %._crit_edge636 ], [ %.1448, %324 ], [ %.0447, %327 ]
+  %.2446 = phi i32 [ %.0444.lcssa, %._crit_edge636 ], [ %.0444.lcssa, %324 ], [ 0, %327 ]
+  %.2414 = phi i32 [ %.0410.lcssa, %._crit_edge636 ], [ %.0410.lcssa, %324 ], [ 0, %327 ]
   %.sroa.01092.0..sroa.01092.0.1097 = load double, ptr %.sroa.01092, align 16, !tbaa !20
   %.sroa.01069.0..sroa.01069.0.1074 = load double, ptr %.sroa.01069, align 16, !tbaa !20
   %333 = fsub double %.sroa.01092.0..sroa.01092.0.1097, %.sroa.01069.0..sroa.01069.0.1074
@@ -3832,8 +3832,8 @@ gv_calloc.exit426.i.i:                            ; preds = %953
   br label %._crit_edge467.i.i
 
 ._crit_edge467.i.i:                               ; preds = %.lr.ph466.preheader.i.i, %.preheader452.thread.i.i
-  %970 = phi ptr [ %954, %.lr.ph466.preheader.i.i ], [ %966, %.preheader452.thread.i.i ]
-  %971 = phi ptr [ %960, %.lr.ph466.preheader.i.i ], [ %967, %.preheader452.thread.i.i ]
+  %970 = phi ptr [ %966, %.preheader452.thread.i.i ], [ %954, %.lr.ph466.preheader.i.i ]
+  %971 = phi ptr [ %967, %.preheader452.thread.i.i ], [ %960, %.lr.ph466.preheader.i.i ]
   %972 = getelementptr inbounds nuw i8, ptr %946, i64 24
   %973 = load ptr, ptr %972, align 8, !tbaa !30
   %974 = getelementptr inbounds nuw i8, ptr %946, i64 40

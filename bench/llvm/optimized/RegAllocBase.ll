@@ -1152,7 +1152,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br label %66
 
 66:                                               ; preds = %49, %65, %55, %39, %48
-  %.0.in = phi ptr [ %41, %48 ], [ %41, %39 ], [ %35, %55 ], [ %35, %65 ], [ %35, %49 ]
+  %.0.in = phi ptr [ %41, %39 ], [ %41, %48 ], [ %35, %55 ], [ %35, %65 ], [ %35, %49 ]
   %.0 = load i16, ptr %.0.in, align 2, !tbaa !333
   ret i16 %.0
 }

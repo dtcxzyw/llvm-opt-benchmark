@@ -305,13 +305,13 @@ scan_buffer.exit:                                 ; preds = %.loopexit.i
   store i8 0, ptr %90, align 1, !tbaa !22
   br label %91
 
-.thread93:                                        ; preds = %52, %85
+.thread93:                                        ; preds = %85, %52
   %.04495 = phi i32 [ -12, %52 ], [ %86, %85 ]
   call void @av_packet_unref(ptr noundef %1) #3
   br label %91
 
 91:                                               ; preds = %83, %.thread87, %82, %69, %.thread107, %.thread96, %.thread93, %2
-  %.0 = phi i32 [ %6, %2 ], [ %.04495, %.thread93 ], [ %86, %.thread96 ], [ %6, %.thread107 ], [ %6, %69 ], [ %6, %82 ], [ %6, %.thread87 ], [ %6, %83 ]
+  %.0 = phi i32 [ %6, %2 ], [ %.04495, %.thread93 ], [ %6, %.thread107 ], [ %86, %.thread96 ], [ %6, %69 ], [ %6, %82 ], [ %6, %.thread87 ], [ %6, %83 ]
   ret i32 %.0
 }
 

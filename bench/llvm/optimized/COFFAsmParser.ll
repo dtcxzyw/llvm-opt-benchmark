@@ -608,18 +608,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
   %.065106.i = phi i32 [ %.368.ph.fr.i, %154 ], [ 0, %.lr.ph.i.preheader ]
   %.071105.i = phi ptr [ %155, %154 ], [ %105, %.lr.ph.i.preheader ]
   %106 = load i8, ptr %.071105.i, align 1, !tbaa !25
-  switch i8 %106, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit [
+  switch i8 %106, label %149 [
     i8 97, label %154
     i8 98, label %107
     i8 100, label %117
-    i8 110, label %128
-    i8 68, label %131
-    i8 114, label %133
-    i8 115, label %140
-    i8 119, label %144
-    i8 120, label %146
-    i8 121, label %150
-    i8 105, label %152
+    i8 110, label %123
+    i8 68, label %126
+    i8 114, label %128
+    i8 115, label %135
+    i8 119, label %139
+    i8 120, label %141
+    i8 121, label %145
+    i8 105, label %147
   ]
 
 107:                                              ; preds = %.lr.ph.i
@@ -647,80 +647,80 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
 117:                                              ; preds = %.lr.ph.i
   %118 = and i32 %.065106.i, 1
   %.not72.i = icmp eq i32 %118, 0
-  br i1 %.not72.i, label %124, label %119
+  br i1 %.not72.i, label %119, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %121, align 1, !tbaa !22
-  store ptr @.str.39, ptr %4, align 8, !tbaa !25
-  store i8 3, ptr %120, align 8, !tbaa !26
-  %122 = load ptr, ptr %14, align 8, !tbaa !6
-  %123 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %122, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr null, ptr null) #12
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %123, label %307, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
+  %120 = and i32 %.065106.i, -138
+  %121 = and i32 %.065106.i, 32
+  %122 = icmp eq i32 %121, 0
+  %spec.select.v.i = select i1 %122, i32 12, i32 8
+  %spec.select.i = or i32 %spec.select.v.i, %120
+  br label %154
 
-124:                                              ; preds = %117
-  %125 = and i32 %.065106.i, -138
-  %126 = and i32 %.065106.i, 32
-  %127 = icmp eq i32 %126, 0
-  %spec.select.v.i = select i1 %127, i32 12, i32 8
-  %spec.select.i = or i32 %spec.select.v.i, %125
+123:                                              ; preds = %.lr.ph.i
+  %124 = and i32 %.065106.i, -37
+  %125 = or disjoint i32 %124, 32
+  br label %154
+
+126:                                              ; preds = %.lr.ph.i
+  %127 = or i32 %.065106.i, 256
   br label %154
 
 128:                                              ; preds = %.lr.ph.i
-  %129 = and i32 %.065106.i, -37
-  %130 = or disjoint i32 %129, 32
+  %129 = and i32 %.065106.i, 2
+  %130 = icmp eq i32 %129, 0
+  %spec.select81.v.i = select i1 %130, i32 136, i32 128
+  %131 = lshr i32 %.065106.i, 3
+  %132 = and i32 %131, 4
+  %133 = or disjoint i32 %spec.select81.v.i, %132
+  %134 = xor i32 %133, 4
+  %spec.select86.i = or i32 %134, %.065106.i
   br label %154
 
-131:                                              ; preds = %.lr.ph.i
-  %132 = or i32 %.065106.i, 256
+135:                                              ; preds = %.lr.ph.i
+  %136 = and i32 %.065106.i, -153
+  %137 = and i32 %.065106.i, 32
+  %138 = icmp eq i32 %137, 0
+  %spec.select82.v.i = select i1 %138, i32 28, i32 24
+  %spec.select82.i = or i32 %spec.select82.v.i, %136
   br label %154
 
-133:                                              ; preds = %.lr.ph.i
-  %134 = and i32 %.065106.i, 2
-  %135 = icmp eq i32 %134, 0
-  %spec.select81.v.i = select i1 %135, i32 136, i32 128
-  %136 = lshr i32 %.065106.i, 3
-  %137 = and i32 %136, 4
-  %138 = or disjoint i32 %spec.select81.v.i, %137
-  %139 = xor i32 %138, 4
-  %spec.select86.i = or i32 %139, %.065106.i
+139:                                              ; preds = %.lr.ph.i
+  %140 = and i32 %.065106.i, -129
   br label %154
 
-140:                                              ; preds = %.lr.ph.i
-  %141 = and i32 %.065106.i, -153
+141:                                              ; preds = %.lr.ph.i
   %142 = and i32 %.065106.i, 32
   %143 = icmp eq i32 %142, 0
-  %spec.select82.v.i = select i1 %143, i32 28, i32 24
-  %spec.select82.i = or i32 %spec.select82.v.i, %141
-  br label %154
-
-144:                                              ; preds = %.lr.ph.i
-  %145 = and i32 %.065106.i, -129
-  br label %154
-
-146:                                              ; preds = %.lr.ph.i
-  %147 = and i32 %.065106.i, 32
-  %148 = icmp eq i32 %147, 0
-  %spec.select83.v.i = select i1 %148, i32 6, i32 2
+  %spec.select83.v.i = select i1 %143, i32 6, i32 2
   %spec.select83.i = or i32 %spec.select83.v.i, %.065106.i
-  %149 = or i32 %spec.select83.i, 128
-  %spec.select87.i = select i1 %.062107.i, i32 %spec.select83.i, i32 %149
+  %144 = or i32 %spec.select83.i, 128
+  %spec.select87.i = select i1 %.062107.i, i32 %spec.select83.i, i32 %144
   br label %154
 
-150:                                              ; preds = %.lr.ph.i
-  %151 = or i32 %.065106.i, 192
+145:                                              ; preds = %.lr.ph.i
+  %146 = or i32 %.065106.i, 192
   br label %154
 
-152:                                              ; preds = %.lr.ph.i
-  %153 = or i32 %.065106.i, 512
+147:                                              ; preds = %.lr.ph.i
+  %148 = or i32 %.065106.i, 512
   br label %154
 
-154:                                              ; preds = %152, %150, %146, %144, %140, %133, %131, %128, %124, %114, %.lr.ph.i
-  %.368.ph.i = phi i32 [ %spec.select87.i, %146 ], [ %spec.select86.i, %133 ], [ %spec.select82.i, %140 ], [ %spec.select.i, %124 ], [ %153, %152 ], [ %151, %150 ], [ %145, %144 ], [ %132, %131 ], [ %130, %128 ], [ %116, %114 ], [ %.065106.i, %.lr.ph.i ]
-  %.264.ph.i = phi i1 [ %.062107.i, %146 ], [ false, %133 ], [ %.062107.i, %140 ], [ %.062107.i, %124 ], [ %.062107.i, %152 ], [ %.062107.i, %150 ], [ true, %144 ], [ %.062107.i, %131 ], [ %.062107.i, %128 ], [ %.062107.i, %114 ], [ %.062107.i, %.lr.ph.i ]
+149:                                              ; preds = %.lr.ph.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %151, align 1, !tbaa !22
+  store ptr @.str.40, ptr %5, align 8, !tbaa !25
+  store i8 3, ptr %150, align 8, !tbaa !26
+  %152 = load ptr, ptr %14, align 8, !tbaa !6
+  %153 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %152, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br i1 %153, label %307, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
+
+154:                                              ; preds = %147, %145, %141, %139, %135, %128, %126, %123, %119, %114, %.lr.ph.i
+  %.368.ph.i = phi i32 [ %140, %139 ], [ %spec.select82.i, %135 ], [ %spec.select.i, %119 ], [ %spec.select86.i, %128 ], [ %146, %145 ], [ %127, %126 ], [ %125, %123 ], [ %spec.select87.i, %141 ], [ %148, %147 ], [ %116, %114 ], [ %.065106.i, %.lr.ph.i ]
+  %.264.ph.i = phi i1 [ true, %139 ], [ %.062107.i, %135 ], [ %.062107.i, %119 ], [ false, %128 ], [ %.062107.i, %145 ], [ %.062107.i, %126 ], [ %.062107.i, %123 ], [ %.062107.i, %141 ], [ %.062107.i, %147 ], [ %.062107.i, %114 ], [ %.062107.i, %.lr.ph.i ]
   %.368.ph.fr.i = freeze i32 %.368.ph.i
   %155 = getelementptr inbounds nuw i8, ptr %.071105.i, i64 1
   %.not.i = icmp eq ptr %155, %104
@@ -780,20 +780,20 @@ _ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i: ;
   %spec.select112.i = or i32 %.05, %178
   br label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
 
-_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit: ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %179 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 33
+_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit: ; preds = %117
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %180, align 1, !tbaa !22
-  store ptr @.str.40, ptr %5, align 8, !tbaa !25
+  store ptr @.str.39, ptr %4, align 8, !tbaa !25
   store i8 3, ptr %179, align 8, !tbaa !26
   %181 = load ptr, ptr %14, align 8, !tbaa !6
-  %182 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %181, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #12
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %182 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %181, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr null, ptr null) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %182, label %307, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread
 
-_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %109, %119, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
-  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %119 ], [ -1073741760, %109 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
+_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread: ; preds = %173, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i, %149, %109, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %55
+  %.2 = phi i32 [ -1073741760, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ -1073741760, %55 ], [ -1073741760, %149 ], [ -1073741760, %109 ], [ %spec.select112.i, %173 ], [ %.05, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -993,13 +993,13 @@ _ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.
   br label %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit: ; preds = %286, %281, %213, %254, %240, %224, %208
-  %.3 = phi i1 [ %228, %224 ], [ %244, %240 ], [ %258, %254 ], [ %212, %208 ], [ true, %213 ], [ false, %281 ], [ false, %286 ]
+  %.3 = phi i1 [ %212, %208 ], [ %228, %224 ], [ %244, %240 ], [ %258, %254 ], [ true, %213 ], [ false, %281 ], [ false, %286 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %307
 
-307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %119, %109, %50
-  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %119 ], [ true, %109 ]
+307:                                              ; preds = %84, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit, %109, %149, %50
+  %.0 = phi i1 [ %54, %50 ], [ %88, %84 ], [ %.3, %_ZN12_GLOBAL__N_113COFFAsmParser18parseSectionSwitchEN4llvm9StringRefEjS2_NS1_4COFF10COMDATTypeE.exit ], [ true, %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit ], [ true, %109 ], [ true, %149 ]
   ret i1 %.0
 }
 
@@ -1108,8 +1108,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
-select.unfold:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
-  %.sroa.18.6.ph = phi i8 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ]
+select.unfold:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
+  %.sroa.18.6.ph = phi i8 [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i16 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8 ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i32 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i40 ]
   store i8 %.sroa.18.6.ph, ptr %1, align 1, !tbaa !31
   %38 = load ptr, ptr %5, align 8, !tbaa !6
   %39 = load ptr, ptr %38, align 8, !tbaa !3
@@ -1388,7 +1388,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZN12_GLOBAL__N_113COFFAsmParser17parseDirectiveSclEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser17parseDirectiveSclEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %22, %27
-  %.0.i = phi i1 [ %26, %22 ], [ false, %27 ], [ true, %4 ]
+  %.0.i = phi i1 [ false, %27 ], [ %26, %22 ], [ true, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
@@ -1450,7 +1450,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZN12_GLOBAL__N_113COFFAsmParser18parseDirectiveTypeEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser18parseDirectiveTypeEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %22, %27
-  %.0.i = phi i1 [ %26, %22 ], [ false, %27 ], [ true, %4 ]
+  %.0.i = phi i1 [ false, %27 ], [ %26, %22 ], [ true, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
@@ -1612,7 +1612,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %92
 
 92:                                               ; preds = %65, %60, %53, %32
-  %.1.i = phi i1 [ %57, %53 ], [ %64, %60 ], [ false, %65 ], [ true, %32 ]
+  %.1.i = phi i1 [ false, %65 ], [ %57, %53 ], [ %64, %60 ], [ true, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_113COFFAsmParser22parseDirectiveSecRel32EN4llvm9StringRefENS1_5SMLocE.exit
 
@@ -2185,7 +2185,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbvEE11callback_fnIZ
   br label %80
 
 80:                                               ; preds = %.thread.i, %54, %39
-  %.1.i = phi i1 [ %58, %54 ], [ false, %.thread.i ], [ true, %39 ]
+  %.1.i = phi i1 [ false, %.thread.i ], [ %58, %54 ], [ true, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZN12_GLOBAL__N_113COFFAsmParser17parseDirectiveRVAEN4llvm9StringRefENS1_5SMLocEENK3$_0clEv.exit"
 
@@ -2221,7 +2221,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i:        ; preds = %4
   br label %_ZN4llvm12StringSwitchINS_12MCSymbolAttrES1_E4CaseENS_13StringLiteralES1_.exit16.i
 
 _ZN4llvm12StringSwitchINS_12MCSymbolAttrES1_E4CaseENS_13StringLiteralES1_.exit16.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %4
-  %.sroa.8.1.i = phi i64 [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %4 ], [ %spec.select22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ]
+  %.sroa.8.1.i = phi i64 [ 0, %4 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ %spec.select22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i ]
   %spec.select.i23.i = tail call i64 @llvm.umax.i64(i64 %.sroa.8.1.i, i64 4294967296)
   %spec.select.i.i = trunc i64 %spec.select.i23.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2358,7 +2358,7 @@ _ZN4llvm12StringSwitchINS_12MCSymbolAttrES1_E4CaseENS_13StringLiteralES1_.exit16
   br label %_ZN12_GLOBAL__N_113COFFAsmParser29parseDirectiveSymbolAttributeEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser29parseDirectiveSymbolAttributeEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %.thread16.i, %85
-  %.3.i = phi i1 [ false, %85 ], [ %.1.ph.i, %.thread16.i ]
+  %.3.i = phi i1 [ %.1.ph.i, %.thread16.i ], [ false, %85 ]
   ret i1 %.3.i
 }
 
@@ -2631,7 +2631,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZN12_GLOBAL__N_113COFFAsmParser26parseSEHDirectiveStartProcEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser26parseSEHDirectiveStartProcEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %23, %28
-  %.0.i = phi i1 [ %27, %23 ], [ false, %28 ], [ true, %4 ]
+  %.0.i = phi i1 [ false, %28 ], [ %27, %23 ], [ true, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
@@ -2856,13 +2856,13 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %99
 
 99:                                               ; preds = %69, %64, %48, %31
-  %.1.i = phi i1 [ %68, %64 ], [ false, %69 ], [ true, %31 ], [ true, %48 ]
+  %.1.i = phi i1 [ false, %69 ], [ true, %31 ], [ %68, %64 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN12_GLOBAL__N_113COFFAsmParser24parseSEHDirectiveHandlerEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser24parseSEHDirectiveHandlerEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %26, %99
-  %.0.i = phi i1 [ %30, %26 ], [ %.1.i, %99 ], [ true, %4 ]
+  %.0.i = phi i1 [ %.1.i, %99 ], [ %30, %26 ], [ true, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
@@ -3062,7 +3062,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZN12_GLOBAL__N_113COFFAsmParser27parseSEHDirectiveAllocStackEN4llvm9StringRefENS1_5SMLocE.exit
 
 _ZN12_GLOBAL__N_113COFFAsmParser27parseSEHDirectiveAllocStackEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %22, %27
-  %.0.i = phi i1 [ %26, %22 ], [ false, %27 ], [ true, %4 ]
+  %.0.i = phi i1 [ false, %27 ], [ %26, %22 ], [ true, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }

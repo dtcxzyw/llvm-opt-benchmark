@@ -327,7 +327,7 @@ define hidden noundef double @_ZNK2pb4card10get_rewardERKNS_16solver_interfaceER
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %23, %3, %._crit_edge, %45
-  %.3 = phi double [ %49, %45 ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %3 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %34 ]
+  %.3 = phi double [ 1.000000e+00, %._crit_edge ], [ %49, %45 ], [ 1.000000e+00, %3 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %34 ]
   ret double %.3
 }
 
@@ -871,7 +871,7 @@ define hidden noundef zeroext i1 @_ZN2pb4card10init_watchERNS_16solver_interface
   br i1 %.not, label %123, label %125, !llvm.loop !55
 
 .loopexit:                                        ; preds = %107, %.lr.ph161, %.preheader, %36, %112, %123, %._crit_edge156
-  %.0 = phi i1 [ false, %._crit_edge156 ], [ true, %123 ], [ true, %112 ], [ false, %36 ], [ false, %.preheader ], [ false, %.lr.ph161 ], [ false, %107 ]
+  %.0 = phi i1 [ true, %123 ], [ false, %._crit_edge156 ], [ true, %112 ], [ false, %36 ], [ false, %.preheader ], [ false, %.lr.ph161 ], [ false, %107 ]
   ret i1 %.0
 }
 

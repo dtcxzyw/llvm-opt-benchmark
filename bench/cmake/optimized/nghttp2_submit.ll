@@ -171,7 +171,7 @@ detect_self_dependency.exit:                      ; preds = %21, %22
   br label %30
 
 30:                                               ; preds = %detect_self_dependency.exit, %12, %9, %28
-  %.0 = phi i32 [ %29, %28 ], [ -505, %9 ], [ -501, %12 ], [ -501, %detect_self_dependency.exit ]
+  %.0 = phi i32 [ -505, %9 ], [ %29, %28 ], [ -501, %12 ], [ -501, %detect_self_dependency.exit ]
   ret i32 %.0
 }
 
@@ -227,7 +227,7 @@ define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext
   br label %22
 
 22:                                               ; preds = %19, %16, %13, %10, %4, %21
-  %.0 = phi i32 [ %20, %21 ], [ 0, %4 ], [ -501, %10 ], [ -501, %13 ], [ -901, %16 ], [ 0, %19 ]
+  %.0 = phi i32 [ -901, %16 ], [ 0, %4 ], [ -501, %10 ], [ -501, %13 ], [ %20, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -302,7 +302,7 @@ define dso_local i32 @nghttp2_submit_shutdown_notice(ptr noundef %0) local_unnam
   br label %9
 
 9:                                                ; preds = %4, %1, %7
-  %.0 = phi i32 [ %8, %7 ], [ -519, %1 ], [ 0, %4 ]
+  %.0 = phi i32 [ -519, %1 ], [ %8, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -372,7 +372,7 @@ define dso_local i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zer
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %19, %15, %12, %6, %10
-  %.0 = phi i32 [ -501, %10 ], [ -501, %6 ], [ -505, %12 ], [ -509, %15 ], [ -901, %19 ], [ %27, %26 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ -501, %6 ], [ -505, %12 ], [ -509, %15 ], [ -501, %10 ], [ %27, %26 ], [ -901, %19 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -449,7 +449,7 @@ define dso_local i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef ze
   br label %37
 
 37:                                               ; preds = %.thread, %21, %16, %14, %9, %4, %34
-  %.023 = phi i32 [ %36, %34 ], [ 0, %4 ], [ %13, %9 ], [ 0, %14 ], [ %20, %16 ], [ 0, %21 ], [ 0, %.thread ]
+  %.023 = phi i32 [ %13, %9 ], [ 0, %4 ], [ %36, %34 ], [ %20, %16 ], [ 0, %14 ], [ 0, %21 ], [ 0, %.thread ]
   ret i32 %.023
 }
 
@@ -548,7 +548,7 @@ define dso_local i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 n
   br label %52
 
 52:                                               ; preds = %43, %32, %29, %20, %9, %4, %50, %48, %41, %27, %25, %18
-  %.0 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %28, %27 ], [ %42, %41 ], [ %49, %48 ], [ %51, %50 ], [ -501, %4 ], [ 0, %9 ], [ %21, %20 ], [ 0, %29 ], [ 0, %32 ], [ %44, %43 ]
+  %.0 = phi i32 [ %51, %50 ], [ -501, %4 ], [ %19, %18 ], [ 0, %9 ], [ %26, %25 ], [ %28, %27 ], [ %21, %20 ], [ 0, %29 ], [ %42, %41 ], [ 0, %32 ], [ %49, %48 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -639,7 +639,7 @@ define dso_local i32 @nghttp2_submit_altsvc(ptr noundef %0, i8 noundef zeroext %
   br label %41
 
 41:                                               ; preds = %.thread, %35, %20, %19, %18, %11, %7, %34, %40
-  %.0 = phi i32 [ -901, %34 ], [ %39, %40 ], [ -519, %7 ], [ -501, %11 ], [ -501, %18 ], [ -501, %19 ], [ -901, %20 ], [ 0, %35 ], [ -901, %.thread ]
+  %.0 = phi i32 [ -519, %7 ], [ -501, %11 ], [ -501, %19 ], [ -901, %34 ], [ %39, %40 ], [ -901, %20 ], [ -501, %18 ], [ 0, %35 ], [ -901, %.thread ]
   ret i32 %.0
 }
 
@@ -739,7 +739,7 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
   br label %45
 
 45:                                               ; preds = %39, %18, %14, %4, %38, %44
-  %.057 = phi i32 [ -901, %38 ], [ %43, %44 ], [ -519, %4 ], [ -501, %14 ], [ -901, %18 ], [ 0, %39 ]
+  %.057 = phi i32 [ -519, %4 ], [ -501, %14 ], [ -901, %38 ], [ %43, %44 ], [ -901, %18 ], [ 0, %39 ]
   ret i32 %.057
 }
 
@@ -811,7 +811,7 @@ define dso_local i32 @nghttp2_submit_priority_update(ptr noundef %0, i8 noundef 
   br label %34
 
 34:                                               ; preds = %28, %18, %13, %9, %5, %27, %33
-  %.0 = phi i32 [ -901, %27 ], [ %32, %33 ], [ -519, %5 ], [ 0, %9 ], [ -501, %13 ], [ -901, %18 ], [ 0, %28 ]
+  %.0 = phi i32 [ -901, %18 ], [ -519, %5 ], [ 0, %9 ], [ -501, %13 ], [ -901, %27 ], [ %32, %33 ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -871,7 +871,7 @@ set_request_flags.exit:                           ; preds = %21, %25
   br label %28
 
 28:                                               ; preds = %15, %6, %set_request_flags.exit
-  %.0 = phi i32 [ %27, %set_request_flags.exit ], [ -505, %6 ], [ -501, %15 ]
+  %.0 = phi i32 [ -505, %6 ], [ %27, %set_request_flags.exit ], [ -501, %15 ]
   ret i32 %.0
 }
 
@@ -905,7 +905,7 @@ set_response_flags.exit:                          ; preds = %12, %16
   br label %18
 
 18:                                               ; preds = %7, %5, %set_response_flags.exit
-  %.0 = phi i32 [ %17, %set_response_flags.exit ], [ -501, %5 ], [ -505, %7 ]
+  %.0 = phi i32 [ -501, %5 ], [ %17, %set_response_flags.exit ], [ -505, %7 ]
   ret i32 %.0
 }
 
@@ -940,7 +940,7 @@ define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1,
   br label %17
 
 17:                                               ; preds = %11, %8, %4, %16
-  %.0 = phi i32 [ %15, %16 ], [ -501, %4 ], [ -901, %8 ], [ 0, %11 ]
+  %.0 = phi i32 [ -901, %8 ], [ -501, %4 ], [ %15, %16 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -964,7 +964,7 @@ define dso_local i64 @nghttp2_pack_settings_payload(ptr noundef %0, i64 noundef 
   br label %11
 
 11:                                               ; preds = %6, %4, %9
-  %.0 = phi i64 [ %10, %9 ], [ -501, %4 ], [ -525, %6 ]
+  %.0 = phi i64 [ -501, %4 ], [ %10, %9 ], [ -525, %6 ]
   ret i64 %.0
 }
 
@@ -1002,7 +1002,7 @@ define dso_local i32 @nghttp2_submit_extension(ptr noundef %0, i8 noundef zeroex
   br label %17
 
 17:                                               ; preds = %14, %11, %8, %5, %16
-  %.0 = phi i32 [ %15, %16 ], [ -501, %5 ], [ -519, %8 ], [ -901, %11 ], [ 0, %14 ]
+  %.0 = phi i32 [ -501, %5 ], [ -519, %8 ], [ %15, %16 ], [ -901, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

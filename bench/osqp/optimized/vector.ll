@@ -83,7 +83,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %6
   br i1 %exitcond.not.i, label %OSQPVectorf_from_raw.exit, label %.lr.ph.i, !llvm.loop !15
 
 OSQPVectorf_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %OSQPVectorf_malloc.exit.thread9, %OSQPVectorf_malloc.exit
-  %.0 = phi ptr [ %3, %OSQPVectorf_malloc.exit ], [ %3, %OSQPVectorf_malloc.exit.thread9 ], [ null, %9 ], [ null, %2 ], [ %3, %.lr.ph.i ]
+  %.0 = phi ptr [ %3, %OSQPVectorf_malloc.exit.thread9 ], [ %3, %OSQPVectorf_malloc.exit ], [ null, %2 ], [ null, %9 ], [ %3, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -183,7 +183,7 @@ OSQPVectori_malloc.exit:                          ; preds = %6
   br i1 %exitcond.not.i, label %OSQPVectori_from_raw.exit, label %.lr.ph.i, !llvm.loop !21
 
 OSQPVectori_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %OSQPVectori_malloc.exit.thread9, %OSQPVectori_malloc.exit
-  %.0 = phi ptr [ %3, %OSQPVectori_malloc.exit ], [ %3, %OSQPVectori_malloc.exit.thread9 ], [ null, %9 ], [ null, %2 ], [ %3, %.lr.ph.i ]
+  %.0 = phi ptr [ %3, %OSQPVectori_malloc.exit.thread9 ], [ %3, %OSQPVectori_malloc.exit ], [ null, %2 ], [ null, %9 ], [ %3, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -1240,7 +1240,7 @@ define double @OSQPVectorf_dot_prod_signed(ptr noundef readonly captures(none) %
   br i1 %exitcond.not.i, label %OSQPVectorf_dot_prod.exit, label %.lr.ph.i, !llvm.loop !48
 
 OSQPVectorf_dot_prod.exit:                        ; preds = %.lr.ph, %.lr.ph39, %.lr.ph.i, %.preheader33, %.preheader, %25
-  %.1 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader33 ], [ %30, %.lr.ph.i ], [ %15, %.lr.ph39 ], [ %23, %.lr.ph ]
+  %.1 = phi double [ 0.000000e+00, %25 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader33 ], [ %15, %.lr.ph39 ], [ %30, %.lr.ph.i ], [ %23, %.lr.ph ]
   ret double %.1
 }
 

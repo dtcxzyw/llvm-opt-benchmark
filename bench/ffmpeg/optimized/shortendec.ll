@@ -619,7 +619,7 @@ get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126,
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i84, %210, %281, %316, %245, %174, %324, %get_ur_golomb_shorten.exit88, %get_ur_golomb_shorten.exit114, %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit62, %6, %1
-  %.031 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ %spec.select, %324 ], [ 0, %174 ], [ 0, %245 ], [ 0, %316 ], [ 0, %281 ], [ 0, %210 ], [ 0, %.lr.ph.i.i84 ]
+  %.031 = phi i32 [ %spec.select, %324 ], [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %245 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ 0, %174 ], [ 0, %316 ], [ 0, %210 ], [ 0, %281 ], [ 0, %.lr.ph.i.i84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }

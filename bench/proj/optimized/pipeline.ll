@@ -323,17 +323,17 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
   br label %.thread325
 
 .critedge278:                                     ; preds = %81, %77, %88, %70
-  %.2242 = phi i32 [ %spec.select, %70 ], [ %.0240358, %88 ], [ %.0240358, %77 ], [ %.0240358, %81 ]
-  %.1239 = phi i32 [ %.0238359, %70 ], [ %.0238359, %88 ], [ %78, %77 ], [ %.0238359, %81 ]
-  %.1237 = phi i32 [ %73, %70 ], [ 0, %88 ], [ %.0236360, %77 ], [ %.0236360, %81 ]
+  %.2242 = phi i32 [ %spec.select, %70 ], [ %.0240358, %81 ], [ %.0240358, %88 ], [ %.0240358, %77 ]
+  %.1239 = phi i32 [ %.0238359, %70 ], [ %.0238359, %81 ], [ %.0238359, %88 ], [ %78, %77 ]
+  %.1237 = phi i32 [ %73, %70 ], [ %.0236360, %81 ], [ 0, %88 ], [ %.0236360, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !93
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge278
-  %.0240.lcssa = phi i32 [ %.0240358, %.lr.ph ], [ %.2242, %.critedge278 ]
-  %.0238.lcssa = phi i32 [ %.0238359, %.lr.ph ], [ %.1239, %.critedge278 ]
-  %.0236.lcssa = phi i32 [ %.0236360, %.lr.ph ], [ %.1237, %.critedge278 ]
+  %.0240.lcssa = phi i32 [ %.2242, %.critedge278 ], [ %.0240358, %.lr.ph ]
+  %.0238.lcssa = phi i32 [ %.1239, %.critedge278 ], [ %.0238359, %.lr.ph ]
+  %.0236.lcssa = phi i32 [ %.1237, %.critedge278 ], [ %.0236360, %.lr.ph ]
   %93 = add i32 %.0236.lcssa, -1
   %94 = icmp eq i32 %.0238.lcssa, -1
   br i1 %94, label %.critedge.thread, label %96
@@ -779,7 +779,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   %289 = tail call noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1025)
   br label %.thread325
 
-290:                                              ; preds = %.lr.ph396, %270, %267, %264, %283, %280, %277
+290:                                              ; preds = %.lr.ph396, %264, %270, %267, %283, %280, %277
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.0310.0394, i64 16
   %.not332 = icmp eq ptr %291, %.val
   br i1 %.not332, label %.lr.ph401, label %.lr.ph396
@@ -947,7 +947,7 @@ _ZSt8_DestroyIPN12_GLOBAL__N_14StepES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt
   br label %.thread325
 
 .thread325:                                       ; preds = %286, %273, %351, %.thread, %52, %59, %68, %79, %86, %91, %.critedge.thread, %98, %356, %31, %6
-  %.0 = phi ptr [ %7, %6 ], [ %33, %31 ], [ %53, %52 ], [ %60, %59 ], [ %69, %68 ], [ %80, %79 ], [ %87, %86 ], [ %92, %91 ], [ %95, %.critedge.thread ], [ %99, %98 ], [ %355, %351 ], [ %0, %356 ], [ %179, %.thread ], [ %289, %286 ], [ %276, %273 ]
+  %.0 = phi ptr [ %7, %6 ], [ %33, %31 ], [ %53, %52 ], [ %60, %59 ], [ %69, %68 ], [ %80, %79 ], [ %87, %86 ], [ %92, %91 ], [ %95, %.critedge.thread ], [ %99, %98 ], [ %289, %286 ], [ %355, %351 ], [ %0, %356 ], [ %179, %.thread ], [ %276, %273 ]
   ret ptr %.0
 }
 
@@ -2492,7 +2492,7 @@ _ZSt4copyIPPdS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPdS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPdS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !153
   %58 = load ptr, ptr %.0, align 8, !tbaa !131
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

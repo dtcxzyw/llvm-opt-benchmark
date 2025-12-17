@@ -169,7 +169,7 @@ check_modulus_and_exponent_sizes.exit:            ; preds = %24
   br label %check_modulus_and_exponent_sizes.exit.thread
 
 check_modulus_and_exponent_sizes.exit.thread:     ; preds = %check_modulus_and_exponent_sizes.exit, %26, %23, %17, %72, %73, %11
-  %.059 = phi i32 [ 0, %11 ], [ %.0.ph, %73 ], [ %.0.ph, %72 ], [ 0, %17 ], [ 0, %23 ], [ 0, %26 ], [ 0, %check_modulus_and_exponent_sizes.exit ]
+  %.059 = phi i32 [ 0, %11 ], [ 0, %26 ], [ %.0.ph, %73 ], [ %.0.ph, %72 ], [ 0, %17 ], [ 0, %23 ], [ 0, %check_modulus_and_exponent_sizes.exit ]
   ret i32 %.059
 }
 
@@ -548,7 +548,7 @@ check_modulus_and_exponent_sizes.exit:            ; preds = %33
   br label %check_modulus_and_exponent_sizes.exit.thread
 
 check_modulus_and_exponent_sizes.exit.thread:     ; preds = %35, %32, %27, %20, %22, %80, %81, %check_modulus_and_exponent_sizes.exit, %15
-  %.053 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %22 ], [ 0, %check_modulus_and_exponent_sizes.exit ], [ %.052, %81 ], [ %.052, %80 ], [ 0, %27 ], [ 0, %32 ], [ 0, %35 ]
+  %.053 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %22 ], [ %.052, %80 ], [ 0, %check_modulus_and_exponent_sizes.exit ], [ %.052, %81 ], [ 0, %27 ], [ 0, %32 ], [ 0, %35 ]
   ret i32 %.053
 }
 
@@ -729,8 +729,8 @@ define hidden range(i32 0, 2) i32 @rsa_default_private_transform(ptr noundef %0,
   br label %87
 
 87:                                               ; preds = %14, %23, %32, %38, %42, %86, %15, %43, %65, %80, %84, %.thread
-  %.065.ph = phi ptr [ %.1, %.thread ], [ %.1, %84 ], [ null, %38 ], [ %40, %43 ], [ null, %42 ], [ null, %32 ], [ %.1, %65 ], [ %.1, %80 ], [ %.1, %86 ], [ null, %23 ], [ null, %15 ], [ null, %14 ]
-  %.064.ph = phi i32 [ 0, %.thread ], [ 1, %84 ], [ 0, %38 ], [ 0, %43 ], [ 0, %42 ], [ 0, %32 ], [ 0, %65 ], [ 0, %80 ], [ 0, %86 ], [ 0, %23 ], [ 0, %15 ], [ 0, %14 ]
+  %.065.ph = phi ptr [ %.1, %84 ], [ %40, %43 ], [ null, %42 ], [ null, %32 ], [ %.1, %.thread ], [ %.1, %65 ], [ %.1, %80 ], [ %.1, %86 ], [ null, %38 ], [ null, %23 ], [ null, %15 ], [ null, %14 ]
+  %.064.ph = phi i32 [ 1, %84 ], [ 0, %43 ], [ 0, %42 ], [ 0, %32 ], [ 0, %.thread ], [ 0, %65 ], [ 0, %80 ], [ 0, %86 ], [ 0, %38 ], [ 0, %23 ], [ 0, %15 ], [ 0, %14 ]
   call void @BN_CTX_end(ptr noundef nonnull %7) #8
   call void @BN_CTX_free(ptr noundef nonnull %7) #8
   %.not88 = icmp eq ptr %.065.ph, null
@@ -757,7 +757,7 @@ define hidden range(i32 0, 2) i32 @rsa_default_private_transform(ptr noundef %0,
   br label %rsa_blinding_release.exit
 
 rsa_blinding_release.exit:                        ; preds = %4, %92, %91, %87
-  %.06498103 = phi i32 [ %.064.ph, %87 ], [ %.064.ph, %91 ], [ %.064.ph, %92 ], [ 0, %4 ]
+  %.06498103 = phi i32 [ %.064.ph, %92 ], [ %.064.ph, %87 ], [ %.064.ph, %91 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.06498103
 }
@@ -874,7 +874,7 @@ thread-pre-split:                                 ; preds = %13
   br label %51
 
 51:                                               ; preds = %.thread, %50, %42, %26, %20
-  %.051 = phi ptr [ %19, %20 ], [ %22, %26 ], [ null, %50 ], [ %22, %42 ], [ null, %.thread ]
+  %.051 = phi ptr [ %19, %20 ], [ %22, %42 ], [ %22, %26 ], [ null, %50 ], [ null, %.thread ]
   ret ptr %.051
 }
 
@@ -1112,7 +1112,7 @@ define internal fastcc range(i32 0, 2) i32 @mod_exp(ptr noundef nonnull %0, ptr 
   %.not201 = icmp eq i32 %112, 0
   br i1 %.not201, label %.thread209, label %113
 
-.thread209:                                       ; preds = %.lr.ph, %92, %89, %107, %105, %101, %97, %95, %111
+.thread209:                                       ; preds = %95, %89, %.lr.ph, %92, %107, %105, %101, %97, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %139
@@ -1176,7 +1176,7 @@ define internal fastcc range(i32 0, 2) i32 @mod_exp(ptr noundef nonnull %0, ptr 
   br label %139
 
 139:                                              ; preds = %.thread209, %.thread, %132, %127, %122, %120, %._crit_edge, %81, %78, %75, %70, %66, %63, %59, %53, %50, %44, %41, %36, %18, %138
-  %.0161 = phi i32 [ 0, %18 ], [ 1, %138 ], [ 0, %132 ], [ 0, %127 ], [ 0, %122 ], [ 0, %120 ], [ 0, %._crit_edge ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %66 ], [ 0, %63 ], [ 0, %59 ], [ 0, %53 ], [ 0, %50 ], [ 0, %44 ], [ 0, %41 ], [ 0, %36 ], [ 0, %.thread ], [ 0, %.thread209 ]
+  %.0161 = phi i32 [ 0, %18 ], [ 0, %.thread209 ], [ 1, %138 ], [ 0, %132 ], [ 0, %127 ], [ 0, %122 ], [ 0, %120 ], [ 0, %._crit_edge ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %70 ], [ 0, %66 ], [ 0, %63 ], [ 0, %59 ], [ 0, %53 ], [ 0, %50 ], [ 0, %44 ], [ 0, %41 ], [ 0, %36 ], [ 0, %.thread ]
   call void @BN_CTX_end(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1856,8 +1856,8 @@ define hidden range(i32 0, 2) i32 @rsa_default_multi_prime_keygen(ptr noundef ca
   store ptr %.1227466, ptr %314, align 8, !tbaa !40
   br label %315
 
-.thread341:                                       ; preds = %.lr.ph, %103, %106, %110, %115, %139, %.critedge, %144, %126, %.split397.us, %248, %250, %253, %.outer, %239, %232, %.outer.us, %173, %180, %223, %227, %.backedge, %199, %203, %.backedge.us.us, %.lr.ph400, %278, %303, %.lr.ph403, %307, %149, %147, %262, %266, %270, %._crit_edge401, %283, %287, %290, %48, %51, %57, %63, %69, %75, %81, %87, %93, %96, %118, %23, %13, %10
-  %.0226348 = phi ptr [ %.1227466, %51 ], [ %.1227466, %57 ], [ %.1227466, %63 ], [ %.1227466, %69 ], [ %.1227466, %75 ], [ %.1227466, %81 ], [ %.1227466, %87 ], [ %.1227466, %93 ], [ %.1227466, %96 ], [ %.1227466, %118 ], [ null, %23 ], [ null, %13 ], [ null, %10 ], [ %24, %48 ], [ %.1227466, %290 ], [ %.1227466, %287 ], [ %.1227466, %283 ], [ %.1227466, %._crit_edge401 ], [ %.1227466, %270 ], [ %.1227466, %266 ], [ %.1227466, %262 ], [ %.1227466, %147 ], [ %.1227466, %149 ], [ %.1227466, %307 ], [ %.1227466, %.lr.ph403 ], [ %.1227466, %303 ], [ %.1227466, %278 ], [ %.1227466, %.lr.ph400 ], [ %.1227466, %.backedge.us.us ], [ %.1227466, %203 ], [ %.1227466, %199 ], [ %.1227466, %.backedge ], [ %.1227466, %227 ], [ %.1227466, %223 ], [ %.1227466, %180 ], [ %.1227466, %173 ], [ %.1227466, %.outer.us ], [ %.1227466, %232 ], [ %.1227466, %239 ], [ %.1227466, %.outer ], [ %.1227466, %253 ], [ %.1227466, %250 ], [ %.1227466, %248 ], [ %.1227466, %.split397.us ], [ %.1227466, %126 ], [ %.1227466, %144 ], [ %.1227466, %.critedge ], [ %.1227466, %139 ], [ %.1227466, %115 ], [ %.1227466, %110 ], [ %.1227466, %106 ], [ %.1227466, %103 ], [ %24, %.lr.ph ]
+.thread341:                                       ; preds = %.lr.ph, %103, %106, %110, %115, %.critedge, %139, %144, %126, %250, %.split397.us, %248, %253, %.outer, %232, %239, %.outer.us, %173, %180, %227, %.backedge, %223, %203, %.backedge.us.us, %199, %.lr.ph400, %278, %.lr.ph403, %303, %307, %149, %147, %262, %266, %270, %._crit_edge401, %283, %287, %290, %48, %51, %57, %63, %69, %75, %81, %87, %93, %96, %118, %23, %13, %10
+  %.0226348 = phi ptr [ %24, %48 ], [ %.1227466, %51 ], [ %.1227466, %57 ], [ %.1227466, %63 ], [ %.1227466, %69 ], [ %.1227466, %75 ], [ %.1227466, %81 ], [ %.1227466, %87 ], [ %.1227466, %93 ], [ %.1227466, %96 ], [ %.1227466, %118 ], [ null, %10 ], [ null, %23 ], [ null, %13 ], [ %.1227466, %290 ], [ %.1227466, %287 ], [ %.1227466, %283 ], [ %.1227466, %._crit_edge401 ], [ %.1227466, %270 ], [ %.1227466, %266 ], [ %.1227466, %262 ], [ %.1227466, %147 ], [ %.1227466, %149 ], [ %.1227466, %103 ], [ %.1227466, %.lr.ph403 ], [ %.1227466, %.lr.ph400 ], [ %.1227466, %203 ], [ %.1227466, %227 ], [ %.1227466, %.outer.us ], [ %.1227466, %.outer ], [ %.1227466, %250 ], [ %.1227466, %126 ], [ %.1227466, %.critedge ], [ %.1227466, %307 ], [ %.1227466, %303 ], [ %.1227466, %278 ], [ %.1227466, %199 ], [ %.1227466, %.backedge.us.us ], [ %.1227466, %223 ], [ %.1227466, %.backedge ], [ %.1227466, %180 ], [ %.1227466, %173 ], [ %.1227466, %239 ], [ %.1227466, %232 ], [ %.1227466, %253 ], [ %.1227466, %248 ], [ %.1227466, %.split397.us ], [ %.1227466, %144 ], [ %.1227466, %139 ], [ %.1227466, %115 ], [ %.1227466, %110 ], [ %.1227466, %106 ], [ %24, %.lr.ph ]
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1098) #8
   br label %.thread351
 

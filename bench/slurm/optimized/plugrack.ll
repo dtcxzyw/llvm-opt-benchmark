@@ -254,7 +254,7 @@ define dso_local ptr @plugrack_use_by_type(ptr noundef readonly captures(address
   br label %36
 
 36:                                               ; preds = %.thread29, %2, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %2 ], [ %34, %.thread29 ]
+  %.0 = phi ptr [ %34, %.thread29 ], [ null, %35 ], [ null, %2 ]
   ret ptr %.0
 }
 

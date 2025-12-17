@@ -280,14 +280,14 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
   %cond = icmp eq i32 %.0147, 1
   br i1 %cond, label %.loopexit, label %.preheader
 
-.preheader219:                                    ; preds = %53, %35, %28, %89
+.preheader219:                                    ; preds = %53, %28, %89, %35
   %.3154314 = phi ptr [ %.1152, %35 ], [ %.1152, %28 ], [ %86, %89 ], [ %.1152, %53 ]
   %93 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
   %.not190260 = icmp eq i32 %93, 0
   br i1 %.not190260, label %.lr.ph261, label %.loopexit
 
 .preheader.sink.split:                            ; preds = %44, %.thread321
-  %.sink = phi i32 [ 10, %.thread321 ], [ %switch.select354, %44 ]
+  %.sink = phi i32 [ %switch.select354, %44 ], [ 10, %.thread321 ]
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.sink) #9
   br label %.preheader
 
@@ -365,15 +365,15 @@ Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserP
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %116, %.lr.ph261, %.preheader, %45, %119
-  %.sink352 = phi i32 [ %103, %119 ], [ 1, %45 ], [ %94, %.preheader ], [ %96, %.lr.ph261 ], [ %117, %116 ]
-  %.2153.ph = phi ptr [ %.1152, %119 ], [ %.1152, %45 ], [ %.1152, %.preheader ], [ %.3154314, %.lr.ph261 ], [ %.1152, %116 ]
-  %.2.ph = phi i32 [ %.3320, %119 ], [ 1, %45 ], [ %.3320, %.preheader ], [ 2, %.lr.ph261 ], [ %.3320, %116 ]
+  %.sink352 = phi i32 [ 1, %45 ], [ %103, %119 ], [ %94, %.preheader ], [ %96, %.lr.ph261 ], [ %117, %116 ]
+  %.2153.ph = phi ptr [ %.1152, %45 ], [ %.1152, %119 ], [ %.1152, %.preheader ], [ %.3154314, %.lr.ph261 ], [ %.1152, %116 ]
+  %.2.ph = phi i32 [ 1, %45 ], [ %.3320, %119 ], [ %.3320, %.preheader ], [ 2, %.lr.ph261 ], [ %.3320, %116 ]
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %.sink352) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %.loopexit.sink.split, %92, %.preheader219, %26, %26, %26, %26
-  %.2153 = phi ptr [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %92 ], [ %.3154314, %.preheader219 ], [ %.2153.ph, %.loopexit.sink.split ], [ %.3154314, %97 ]
-  %.2 = phi i32 [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ 1, %92 ], [ 2, %.preheader219 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %97 ]
+  %.2153 = phi ptr [ %.1152, %92 ], [ %.1152, %26 ], [ %.3154314, %.preheader219 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.2153.ph, %.loopexit.sink.split ], [ %.3154314, %97 ]
+  %.2 = phi i32 [ 1, %92 ], [ %.0147, %26 ], [ 2, %.preheader219 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %97 ]
   %120 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
   br label %26, !llvm.loop !23
 

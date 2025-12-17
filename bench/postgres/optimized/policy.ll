@@ -328,7 +328,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %65, %64, %56, %54, %49, %46, %43, %40, %12
-  %.0 = phi i64 [ %13, %12 ], [ 0, %64 ], [ %66, %65 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
+  %.0 = phi i64 [ %13, %12 ], [ %66, %65 ], [ 0, %64 ], [ %57, %56 ], [ %42, %40 ], [ %45, %43 ], [ %48, %46 ], [ %50, %49 ], [ %55, %54 ]
   ret i64 %.0
 }
 
@@ -621,7 +621,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %42, %._crit_edge, %84
-  %85 = phi i1 [ false, %._crit_edge ], [ true, %84 ], [ false, %42 ]
+  %85 = phi i1 [ true, %84 ], [ false, %._crit_edge ], [ false, %42 ]
   call void @systable_endscan(ptr noundef %13) #9
   call void @table_close(ptr noundef %11, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -711,8 +711,8 @@ define dso_local { i64, i32 } @CreatePolicy(ptr noundef %0) local_unnamed_addr #
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.parse_policy_command) #9
   unreachable
 
-31:                                               ; preds = %16, %25
-  %.0.i.ph78 = phi i64 [ 100, %25 ], [ 114, %16 ]
+31:                                               ; preds = %25, %16
+  %.0.i.ph78 = phi i64 [ 114, %16 ], [ 100, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
@@ -738,8 +738,8 @@ parse_policy_command.exit:                        ; preds = %19
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 612, ptr noundef nonnull @__func__.CreatePolicy) #9
   unreachable
 
-parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %parse_policy_command.exit
-  %.0.i76 = phi i64 [ 97, %parse_policy_command.exit ], [ %.0.i.ph78, %31 ], [ 119, %22 ], [ 42, %13 ]
+parse_policy_command.exit.thread:                 ; preds = %13, %22, %31, %parse_policy_command.exit
+  %.0.i76 = phi i64 [ %.0.i.ph78, %31 ], [ 97, %parse_policy_command.exit ], [ 42, %13 ], [ 119, %22 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = call fastcc ptr @policy_role_list_to_array(ptr noundef %45, ptr noundef %3)

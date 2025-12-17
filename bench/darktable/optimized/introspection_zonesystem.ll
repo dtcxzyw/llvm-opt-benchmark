@@ -1069,7 +1069,7 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   br label %158
 
 158:                                              ; preds = %146, %154, %152
-  %159 = phi i8 [ %157, %154 ], [ -1, %152 ], [ 0, %146 ]
+  %159 = phi i8 [ -1, %152 ], [ %157, %154 ], [ 0, %146 ]
   %160 = load i32, ptr %107, align 8, !tbaa !101
   %.not123 = icmp eq i32 %160, 0
   br i1 %.not123, label %175, label %161
@@ -1105,8 +1105,8 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   br label %180
 
 180:                                              ; preds = %161, %175
-  %181 = phi ptr [ %177, %175 ], [ %166, %161 ]
-  %182 = phi i8 [ %159, %175 ], [ %spec.select, %161 ]
+  %181 = phi ptr [ %166, %161 ], [ %177, %175 ]
+  %182 = phi i8 [ %spec.select, %161 ], [ %159, %175 ]
   store i8 %182, ptr %181, align 1, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %183 = icmp samesign ult i64 %indvars.iv.next, %111
@@ -1600,7 +1600,7 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
   br label %67
 
 67:                                               ; preds = %_iop_zonesystem_calculate_zonemap.exit, %66, %64
-  %68 = phi reassoc nsz arcp contract afn double [ %61, %66 ], [ 0.000000e+00, %64 ], [ %62, %_iop_zonesystem_calculate_zonemap.exit ]
+  %68 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %64 ], [ %61, %66 ], [ %62, %_iop_zonesystem_calculate_zonemap.exit ]
   %69 = fptrunc reassoc nsz arcp contract afn double %68 to float
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store float %69, ptr %70, align 8, !tbaa !165
@@ -1622,7 +1622,7 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
   br label %82
 
 82:                                               ; preds = %67, %81, %79
-  %83 = phi reassoc nsz arcp contract afn double [ %76, %81 ], [ 0.000000e+00, %79 ], [ %77, %67 ]
+  %83 = phi reassoc nsz arcp contract afn double [ 0.000000e+00, %79 ], [ %76, %81 ], [ %77, %67 ]
   %84 = fptrunc reassoc nsz arcp contract afn double %83 to float
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store float %84, ptr %85, align 4, !tbaa !172
@@ -2105,7 +2105,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %11
 
 11:                                               ; preds = %8, %2, %6
-  %.0 = phi ptr [ %7, %6 ], [ %0, %2 ], [ %spec.select, %8 ]
+  %.0 = phi ptr [ %0, %2 ], [ %spec.select, %8 ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -2130,7 +2130,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
   br label %7
 
 7:                                                ; preds = %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ %., %5 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

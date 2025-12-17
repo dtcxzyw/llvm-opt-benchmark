@@ -405,7 +405,7 @@ define dso_local noundef zeroext i1 @sema_analyse_function_signature(ptr noundef
   br label %19
 
 19:                                               ; preds = %.thread, %._crit_edge42
-  %.0 = phi i32 [ %.pre, %._crit_edge42 ], [ %17, %.thread ]
+  %.0 = phi i32 [ %17, %.thread ], [ %.pre, %._crit_edge42 ]
   %.not40 = icmp eq i32 %.0, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1140,7 +1140,7 @@ sema_analyse_attributes_for_var.exit.thread:      ; preds = %.thread271, %185
   br i1 %exitcond.not, label %.critedge268, label %131, !llvm.loop !9
 
 .critedge268:                                     ; preds = %299, %332, %.critedge266, %125, %sema_analyse_attributes_for_var.exit, %83, %66, %22, %326, %318, %277, %.thread279, %.loopexit, %253, %246, %235, %225, %218, %208, %202, %177, %146, %137, %106, %75, %74, %.critedge, %38
-  %.0233 = phi i1 [ false, %38 ], [ false, %74 ], [ false, %75 ], [ false, %137 ], [ false, %.loopexit ], [ false, %277 ], [ false, %326 ], [ false, %318 ], [ false, %.thread279 ], [ false, %235 ], [ false, %225 ], [ false, %218 ], [ false, %208 ], [ false, %202 ], [ false, %246 ], [ false, %253 ], [ false, %177 ], [ false, %146 ], [ false, %106 ], [ false, %.critedge ], [ false, %22 ], [ false, %66 ], [ false, %83 ], [ false, %sema_analyse_attributes_for_var.exit ], [ true, %125 ], [ false, %299 ], [ true, %332 ], [ false, %.critedge266 ]
+  %.0233 = phi i1 [ false, %38 ], [ false, %74 ], [ false, %75 ], [ false, %137 ], [ false, %.loopexit ], [ false, %277 ], [ false, %326 ], [ false, %318 ], [ false, %22 ], [ false, %sema_analyse_attributes_for_var.exit ], [ false, %.thread279 ], [ false, %83 ], [ false, %235 ], [ false, %225 ], [ false, %218 ], [ false, %208 ], [ false, %202 ], [ false, %246 ], [ false, %253 ], [ false, %177 ], [ false, %146 ], [ false, %.critedge ], [ false, %106 ], [ false, %66 ], [ true, %125 ], [ true, %332 ], [ false, %299 ], [ false, %.critedge266 ]
   ret i1 %.0233
 }
 
@@ -1506,7 +1506,7 @@ define dso_local noundef zeroext i1 @sema_decl_if_cond(ptr noundef %0, ptr nound
   unreachable
 
 44:                                               ; preds = %35, %23, %39, %31, %.critedge
-  %.028 = phi i1 [ false, %.critedge ], [ false, %31 ], [ false, %39 ], [ false, %23 ], [ true, %35 ]
+  %.028 = phi i1 [ false, %.critedge ], [ false, %31 ], [ false, %23 ], [ false, %39 ], [ true, %35 ]
   ret i1 %.028
 }
 
@@ -1571,7 +1571,7 @@ define dso_local noundef zeroext i1 @sema_analyse_decl_type(ptr readnone capture
   br label %27
 
 27:                                               ; preds = %17, %12, %24, %6, %5
-  %.015 = phi i1 [ false, %24 ], [ false, %5 ], [ false, %6 ], [ true, %12 ], [ true, %17 ]
+  %.015 = phi i1 [ false, %24 ], [ true, %12 ], [ false, %6 ], [ false, %5 ], [ true, %17 ]
   ret i1 %.015
 }
 
@@ -2091,7 +2091,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl(ptr noundef %0, ptr noundef %
   unreachable
 
 179:                                              ; preds = %174, %177, %176
-  %.0240 = phi ptr [ @.str.110, %176 ], [ @.str.111, %177 ], [ @.str.109, %174 ]
+  %.0240 = phi ptr [ @.str.111, %177 ], [ @.str.110, %176 ], [ @.str.109, %174 ]
   %180 = load i64, ptr %173, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %180, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0240) #11
   br label %183
@@ -2224,7 +2224,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl(ptr noundef %0, ptr noundef %
   br i1 %.not273, label %.loopexit, label %.preheader305
 
 thread-pre-split:                                 ; preds = %.preheader305, %249
-  %.sink = phi i64 [ 56, %249 ], [ 8, %.preheader305 ]
+  %.sink = phi i64 [ 8, %.preheader305 ], [ 56, %249 ]
   %247 = getelementptr inbounds nuw i8, ptr %.in, i64 %.sink
   %.0234.ph = load ptr, ptr %247, align 8
   br label %.preheader305
@@ -2286,8 +2286,8 @@ thread-pre-split:                                 ; preds = %.preheader305, %249
   br label %.thread302
 
 .thread302:                                       ; preds = %.loopexit, %267, %259
-  %269 = phi ptr [ %250, %267 ], [ %250, %259 ], [ %252, %.loopexit ]
-  %.0233300301304 = phi i1 [ false, %267 ], [ false, %259 ], [ true, %.loopexit ]
+  %269 = phi ptr [ %250, %259 ], [ %250, %267 ], [ %252, %.loopexit ]
+  %.0233300301304 = phi i1 [ false, %259 ], [ false, %267 ], [ true, %.loopexit ]
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %271 = load i16, ptr %270, align 8
   %272 = and i16 %271, 255
@@ -2441,7 +2441,7 @@ thread-pre-split:                                 ; preds = %.preheader305, %249
   br label %.critedge285
 
 .critedge285:                                     ; preds = %342, %349, %345, %265, %189, %327, %307, %281, %254, %239, %216, %205, %198, %183, %135, %128, %119, %108, %101, %92, %56, %44, %38, %34, %8
-  %.0244 = phi i1 [ false, %92 ], [ true, %101 ], [ false, %239 ], [ false, %254 ], [ false, %327 ], [ false, %307 ], [ false, %281 ], [ false, %216 ], [ false, %205 ], [ false, %183 ], [ false, %198 ], [ false, %135 ], [ false, %128 ], [ false, %119 ], [ false, %108 ], [ false, %56 ], [ false, %34 ], [ false, %38 ], [ false, %44 ], [ %9, %8 ], [ false, %189 ], [ false, %265 ], [ false, %345 ], [ true, %349 ], [ true, %342 ]
+  %.0244 = phi i1 [ false, %92 ], [ true, %101 ], [ false, %239 ], [ false, %254 ], [ false, %327 ], [ false, %345 ], [ false, %189 ], [ false, %307 ], [ false, %281 ], [ false, %265 ], [ false, %216 ], [ false, %205 ], [ false, %183 ], [ false, %198 ], [ %9, %8 ], [ false, %135 ], [ false, %128 ], [ false, %119 ], [ false, %108 ], [ false, %56 ], [ false, %34 ], [ false, %38 ], [ false, %44 ], [ true, %349 ], [ true, %342 ]
   ret i1 %.0244
 }
 
@@ -3120,22 +3120,22 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   %.str.113.sink = phi ptr [ @.str.112, %5 ], [ @.str.113, %4 ]
   tail call void @scratch_buffer_append(ptr noundef nonnull %.str.113.sink) #11
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge130, label %13
+  br i1 %.not, label %._crit_edge, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %2, i64 -8
   %15 = load i32, ptr %14, align 4
-  %.not131 = icmp eq i32 %15, 0
-  br i1 %.not131, label %._crit_edge130, label %.lr.ph129
+  %.not129 = icmp eq i32 %15, 0
+  br i1 %.not129, label %._crit_edge, label %.lr.ph128
 
-.lr.ph129:                                        ; preds = %13
+.lr.ph128:                                        ; preds = %13
   %16 = select i1 %3, ptr @.str.112, ptr @.str.114
   %17 = select i1 %3, ptr @.str.121, ptr @.str.122
   %wide.trip.count = zext i32 %15 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph129, %138
-  %indvars.iv = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next, %138 ]
+18:                                               ; preds = %.lr.ph128, %139
+  %indvars.iv = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next, %139 ]
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %.not99 = icmp eq i64 %indvars.iv, 0
@@ -3150,7 +3150,7 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 62
-  br i1 %26, label %27, label %73
+  br i1 %26, label %27, label %74
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -3183,7 +3183,7 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
 .preheader:                                       ; preds = %41
   %46 = load ptr, ptr @type_wildcard_optional, align 8
   %47 = icmp eq ptr %35, %46
-  br i1 %47, label %.preheader._crit_edge, label %.lr.ph
+  br i1 %47, label %.critedge, label %.lr.ph
 
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -3194,12 +3194,12 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
 .lr.ph:                                           ; preds = %.preheader, %52
   %.091115 = phi ptr [ %54, %52 ], [ %35, %.preheader ]
   %51 = load i32, ptr %.091115, align 8
-  switch i32 %51, label %.critedge [
-    i32 1, label %.preheader._crit_edge
-    i32 43, label %.preheader._crit_edge
-    i32 39, label %.preheader._crit_edge
-    i32 42, label %.preheader._crit_edge
-    i32 41, label %.preheader._crit_edge
+  switch i32 %51, label %56 [
+    i32 1, label %.critedge
+    i32 43, label %.critedge
+    i32 39, label %.critedge
+    i32 42, label %.critedge
+    i32 41, label %.critedge
     i32 31, label %52
   ]
 
@@ -3207,193 +3207,193 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   %53 = getelementptr inbounds nuw i8, ptr %.091115, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %46
-  br i1 %55, label %.preheader._crit_edge, label %.lr.ph
+  br i1 %55, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %.lr.ph
-  %56 = load i32, ptr %43, align 8
-  %.not101 = icmp eq i32 %56, 23
-  br i1 %.not101, label %59, label %.critedge103
+56:                                               ; preds = %.lr.ph
+  %57 = load i32, ptr %43, align 8
+  %.not101 = icmp eq i32 %57, 23
+  br i1 %.not101, label %60, label %.critedge103
 
-.preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %52
-  %57 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %58 = load i64, ptr %57, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %58, ptr noundef nonnull @.str.117) #11
+.critedge:                                        ; preds = %.preheader, %52, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %58 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %59 = load i64, ptr %58, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.117) #11
   br label %.loopexit
 
-59:                                               ; preds = %.critedge
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, 25
-  br i1 %63, label %64, label %.critedge103
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %62 = load ptr, ptr %61, align 8
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 25
+  br i1 %64, label %65, label %.critedge103
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %66) #11
-  br i1 %67, label %.critedge103, label %.loopexit
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %67) #11
+  br i1 %68, label %.critedge103, label %.loopexit
 
-.critedge103:                                     ; preds = %.critedge, %64, %59
-  br i1 %3, label %68, label %69
-
-68:                                               ; preds = %.critedge103
-  tail call void @type_mangle_introspect_name_to_buffer(ptr noundef nonnull %35) #11
-  br label %138
+.critedge103:                                     ; preds = %56, %65, %60
+  br i1 %3, label %69, label %70
 
 69:                                               ; preds = %.critedge103
-  %70 = load ptr, ptr %32, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = load ptr, ptr %71, align 8
-  tail call void @scratch_buffer_append(ptr noundef %72) #11
-  br label %138
+  tail call void @type_mangle_introspect_name_to_buffer(ptr noundef nonnull %35) #11
+  br label %139
 
-73:                                               ; preds = %22
-  %74 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef %0, ptr noundef nonnull %20) #11
-  br i1 %74, label %75, label %.loopexit
+70:                                               ; preds = %.critedge103
+  %71 = load ptr, ptr %32, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load ptr, ptr %72, align 8
+  tail call void @scratch_buffer_append(ptr noundef %73) #11
+  br label %139
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr %20, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, 31
-  br i1 %80, label %81, label %85
+74:                                               ; preds = %22
+  %75 = tail call zeroext i1 @sema_analyse_ct_expr(ptr noundef %0, ptr noundef nonnull %20) #11
+  br i1 %75, label %76, label %.loopexit
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %83, align 8
-  br label %85
+76:                                               ; preds = %74
+  %77 = load ptr, ptr %20, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 31
+  br i1 %81, label %82, label %86
 
-85:                                               ; preds = %81, %75
-  %.088 = phi i32 [ %84, %81 ], [ %79, %75 ]
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i32, ptr %84, align 8
+  br label %86
+
+86:                                               ; preds = %82, %76
+  %.088 = phi i32 [ %85, %82 ], [ %80, %76 ]
   %.088.fr = freeze i32 %.088
-  %86 = add i32 %.088.fr, -2
-  %87 = icmp ult i32 %86, 11
-  br i1 %87, label %93, label %switch.early.test
+  %87 = add i32 %.088.fr, -2
+  %88 = icmp ult i32 %87, 11
+  br i1 %88, label %94, label %switch.early.test
 
-switch.early.test:                                ; preds = %85
-  switch i32 %79, label %88 [
-    i32 30, label %93
-    i32 24, label %93
+switch.early.test:                                ; preds = %86
+  switch i32 %80, label %89 [
+    i32 30, label %94
+    i32 24, label %94
   ]
 
-88:                                               ; preds = %switch.early.test
-  %89 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %90 = load i64, ptr %89, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %90, ptr noundef nonnull @.str.118) #11
-  %91 = load ptr, ptr @poisoned_decl, align 8
-  %92 = icmp ne ptr %91, null
+89:                                               ; preds = %switch.early.test
+  %90 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %91 = load i64, ptr %90, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %91, ptr noundef nonnull @.str.118) #11
+  %92 = load ptr, ptr @poisoned_decl, align 8
+  %93 = icmp ne ptr %92, null
   br label %.loopexit
 
-93:                                               ; preds = %switch.early.test, %switch.early.test, %85
-  %94 = load ptr, ptr @type_bool, align 8
-  %95 = icmp eq ptr %78, %94
-  br i1 %95, label %96, label %104
+94:                                               ; preds = %switch.early.test, %switch.early.test, %86
+  %95 = load ptr, ptr @type_bool, align 8
+  %96 = icmp eq ptr %79, %95
+  br i1 %96, label %97, label %105
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %98 = load i8, ptr %97, align 8
-  %99 = trunc i8 %98 to i1
-  br i1 %3, label %100, label %102
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %99 = load i8, ptr %98, align 8
+  %100 = trunc i8 %99 to i1
+  br i1 %3, label %101, label %103
 
-100:                                              ; preds = %96
-  %101 = select i1 %99, i8 116, i8 102
-  tail call void @scratch_buffer_append_char(i8 noundef signext %101) #11
-  br label %138
+101:                                              ; preds = %97
+  %102 = select i1 %100, i8 116, i8 102
+  tail call void @scratch_buffer_append_char(i8 noundef signext %102) #11
+  br label %139
 
-102:                                              ; preds = %96
-  %103 = select i1 %99, ptr @.str.119, ptr @.str.120
-  tail call void @scratch_buffer_append(ptr noundef nonnull %103) #11
-  br label %138
+103:                                              ; preds = %97
+  %104 = select i1 %100, ptr @.str.119, ptr @.str.120
+  tail call void @scratch_buffer_append(ptr noundef nonnull %104) #11
+  br label %139
 
-104:                                              ; preds = %93
-  switch i32 %79, label %113 [
-    i32 30, label %105
-    i32 24, label %105
+105:                                              ; preds = %94
+  switch i32 %80, label %114 [
+    i32 30, label %106
+    i32 24, label %106
   ]
 
-105:                                              ; preds = %104, %104
-  %106 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8
-  tail call void @type_mangle_introspect_name_to_buffer(ptr noundef %111) #11
+106:                                              ; preds = %105, %105
+  %107 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  tail call void @type_mangle_introspect_name_to_buffer(ptr noundef %112) #11
   tail call void @scratch_buffer_append(ptr noundef nonnull %17) #11
-  %112 = load ptr, ptr %107, align 8
-  tail call void @scratch_buffer_append(ptr noundef %112) #11
-  br label %138
+  %113 = load ptr, ptr %108, align 8
+  tail call void @scratch_buffer_append(ptr noundef %113) #11
+  br label %139
 
-113:                                              ; preds = %104
-  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %115
-  switch i32 %79, label %120 [
-    i32 7, label %117
-    i32 12, label %117
+114:                                              ; preds = %105
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @scratch_buffer, i64 65536), align 4
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %116
+  switch i32 %80, label %121 [
+    i32 7, label %118
+    i32 12, label %118
   ]
 
-117:                                              ; preds = %113, %113
-  %118 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %119 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %118, i32 noundef 10) #11
-  tail call void @scratch_buffer_append(ptr noundef %119) #11
-  br label %133
+118:                                              ; preds = %114, %114
+  %119 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %120 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %119, i32 noundef 10) #11
+  tail call void @scratch_buffer_append(ptr noundef %120) #11
+  br label %134
 
-120:                                              ; preds = %113
-  %121 = add i32 %79, -3
-  %or.cond3 = icmp ult i32 %121, 5
-  br i1 %or.cond3, label %.critedge105, label %122
+121:                                              ; preds = %114
+  %122 = add i32 %80, -3
+  %or.cond3 = icmp ult i32 %122, 5
+  br i1 %or.cond3, label %.critedge105, label %123
 
-122:                                              ; preds = %120
-  %.not100 = icmp eq i32 %79, 37
-  br i1 %.not100, label %123, label %.critedge107
+123:                                              ; preds = %121
+  %.not100 = icmp eq i32 %80, 37
+  br i1 %.not100, label %124, label %.critedge107
 
-123:                                              ; preds = %122
-  %124 = getelementptr inbounds nuw i8, ptr %78, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %125, align 8
-  %127 = add i32 %126, -3
-  %128 = icmp ult i32 %127, 5
-  br i1 %128, label %.critedge105, label %.critedge107
+124:                                              ; preds = %123
+  %125 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i32, ptr %126, align 8
+  %128 = add i32 %127, -3
+  %129 = icmp ult i32 %128, 5
+  br i1 %129, label %.critedge105, label %.critedge107
 
-.critedge105:                                     ; preds = %120, %123
-  %129 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %130 = load i64, ptr %129, align 8
-  tail call void @scratch_buffer_append_signed_int(i64 noundef %130) #11
-  br label %133
+.critedge105:                                     ; preds = %121, %124
+  %130 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %131 = load i64, ptr %130, align 8
+  tail call void @scratch_buffer_append_signed_int(i64 noundef %131) #11
+  br label %134
 
-.critedge107:                                     ; preds = %122, %123
-  %131 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %132 = load i64, ptr %131, align 8
-  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %132) #11
-  br label %133
+.critedge107:                                     ; preds = %123, %124
+  %132 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %133 = load i64, ptr %132, align 8
+  tail call void @scratch_buffer_append_unsigned_int(i64 noundef %133) #11
+  br label %134
 
-133:                                              ; preds = %.critedge105, %.critedge107, %117
-  br i1 %3, label %134, label %138
+134:                                              ; preds = %.critedge105, %.critedge107, %118
+  br i1 %3, label %135, label %139
 
-134:                                              ; preds = %133
-  %135 = load i8, ptr %116, align 1
-  %136 = icmp eq i8 %135, 45
-  br i1 %136, label %137, label %138
+135:                                              ; preds = %134
+  %136 = load i8, ptr %117, align 1
+  %137 = icmp eq i8 %136, 45
+  br i1 %137, label %138, label %139
 
-137:                                              ; preds = %134
-  store i8 95, ptr %116, align 1
-  br label %138
+138:                                              ; preds = %135
+  store i8 95, ptr %117, align 1
+  br label %139
 
-138:                                              ; preds = %69, %68, %105, %134, %137, %133, %100, %102
+139:                                              ; preds = %70, %69, %106, %135, %138, %134, %101, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge130, label %18, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !18
 
-._crit_edge130:                                   ; preds = %138, %12, %13
-  %139 = select i1 %3, ptr @.str.112, ptr @.str.123
-  tail call void @scratch_buffer_append(ptr noundef nonnull %139) #11
+._crit_edge:                                      ; preds = %139, %12, %13
+  %140 = select i1 %3, ptr @.str.112, ptr @.str.123
+  tail call void @scratch_buffer_append(ptr noundef nonnull %140) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %64, %27, %._crit_edge130, %88, %.preheader._crit_edge, %48, %38
-  %.094 = phi i1 [ false, %38 ], [ false, %48 ], [ false, %.preheader._crit_edge ], [ %92, %88 ], [ true, %._crit_edge130 ], [ false, %27 ], [ false, %64 ], [ false, %73 ]
+.loopexit:                                        ; preds = %74, %65, %27, %._crit_edge, %89, %.critedge, %48, %38
+  %.094 = phi i1 [ false, %38 ], [ false, %48 ], [ false, %.critedge ], [ true, %._crit_edge ], [ %93, %89 ], [ false, %27 ], [ false, %65 ], [ false, %74 ]
   ret i1 %.094
 }
 
@@ -3707,7 +3707,7 @@ define dso_local zeroext i1 @sema_analyse_decl(ptr noundef %0, ptr noundef %1) l
   unreachable
 
 sema_analyse_struct_union.exit:                   ; preds = %77, %44, %98, %96, %92, %88, %31, %29, %100, %94, %90, %86, %84, %82, %24
-  %.0 = phi i1 [ false, %24 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ false, %90 ], [ false, %94 ], [ false, %100 ], [ true, %29 ], [ true, %31 ], [ true, %88 ], [ true, %92 ], [ true, %96 ], [ true, %98 ], [ true, %44 ], [ true, %77 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %100 ], [ true, %29 ], [ true, %31 ], [ false, %82 ], [ false, %84 ], [ false, %86 ], [ true, %98 ], [ false, %90 ], [ true, %88 ], [ false, %94 ], [ true, %92 ], [ true, %96 ], [ true, %44 ], [ true, %77 ]
   %103 = load i8, ptr %4, align 1
   %104 = trunc i8 %103 to i1
   br i1 %104, label %.critedge, label %108
@@ -3734,7 +3734,7 @@ sema_analyse_struct_union.exit:                   ; preds = %77, %44, %98, %96, 
   call void @sema_context_destroy(ptr noundef nonnull %3) #11
   br label %117
 
-sema_analyse_struct_union.exit.thread:            ; preds = %40, %50, %.critedge.i, %78, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %31, %29, %19
+sema_analyse_struct_union.exit.thread:            ; preds = %50, %.critedge.i, %78, %40, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %31, %29, %19
   call void @sema_context_destroy(ptr noundef nonnull %3) #11
   %114 = load i64, ptr %5, align 8
   %115 = and i64 %114, -1024
@@ -3856,7 +3856,7 @@ define dso_local zeroext i1 @sema_resolve_type_structure(ptr noundef %0, ptr nou
   unreachable
 
 .loopexit:                                        ; preds = %15, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %6, %.loopexit13
-  %.012 = phi i1 [ %10, %.loopexit13 ], [ true, %6 ], [ false, %15 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
+  %.012 = phi i1 [ true, %6 ], [ %10, %.loopexit13 ], [ false, %15 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ]
   ret i1 %.012
 }
 
@@ -4184,7 +4184,7 @@ vec_erase_ptr_at.exit108:                         ; preds = %vec_erase_ptr_at.ex
   br i1 %163, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %33, %.critedge, %vec_erase_ptr_at.exit108, %14, %17, %11, %8, %3, %147, %vec_erase_ptr_at.exit, %41, %35
-  %.085 = phi i1 [ false, %35 ], [ false, %41 ], [ false, %147 ], [ false, %vec_erase_ptr_at.exit ], [ false, %3 ], [ true, %8 ], [ false, %11 ], [ true, %17 ], [ true, %14 ], [ true, %vec_erase_ptr_at.exit108 ], [ false, %33 ], [ true, %.critedge ]
+  %.085 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %35 ], [ false, %41 ], [ false, %147 ], [ false, %vec_erase_ptr_at.exit ], [ true, %8 ], [ true, %14 ], [ true, %17 ], [ true, %vec_erase_ptr_at.exit108 ], [ true, %.critedge ], [ false, %33 ]
   ret i1 %.085
 }
 
@@ -4406,7 +4406,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   br label %113
 
 113:                                              ; preds = %.loopexit, %105, %24, %21, %108, %50, %16, %8
-  %.062 = phi i1 [ false, %108 ], [ false, %50 ], [ false, %16 ], [ false, %8 ], [ true, %21 ], [ false, %24 ], [ true, %105 ], [ true, %.loopexit ]
+  %.062 = phi i1 [ false, %8 ], [ false, %24 ], [ false, %108 ], [ false, %50 ], [ true, %21 ], [ false, %16 ], [ true, %105 ], [ true, %.loopexit ]
   ret i1 %.062
 }
 
@@ -4441,7 +4441,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_fntype(ptr noundef %0, p
   br label %23
 
 23:                                               ; preds = %12, %15, %7
-  %.0 = phi i1 [ %22, %15 ], [ false, %7 ], [ true, %12 ]
+  %.0 = phi i1 [ false, %7 ], [ %22, %15 ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -4821,7 +4821,7 @@ sema_analyse_func_macro.exit:                     ; preds = %3
   br label %227
 
 227:                                              ; preds = %224, %215, %sema_analyse_func_macro.exit, %.critedge, %18, %210, %201, %182, %172, %160, %151, %.critedge161, %122, %100, %78, %62, %40, %28
-  %.0141 = phi i1 [ false, %28 ], [ false, %40 ], [ false, %62 ], [ false, %122 ], [ false, %210 ], [ false, %201 ], [ false, %151 ], [ false, %160 ], [ false, %172 ], [ false, %182 ], [ false, %.critedge161 ], [ false, %100 ], [ false, %78 ], [ false, %sema_analyse_func_macro.exit ], [ true, %18 ], [ false, %.critedge ], [ false, %215 ], [ true, %224 ]
+  %.0141 = phi i1 [ false, %sema_analyse_func_macro.exit ], [ false, %28 ], [ false, %40 ], [ false, %62 ], [ false, %122 ], [ false, %.critedge ], [ true, %18 ], [ false, %210 ], [ false, %201 ], [ false, %151 ], [ false, %160 ], [ false, %172 ], [ false, %182 ], [ false, %.critedge161 ], [ false, %100 ], [ false, %78 ], [ false, %215 ], [ true, %224 ]
   ret i1 %.0141
 }
 
@@ -5105,7 +5105,7 @@ sema_analyse_macro_method.exit:                   ; preds = %137, %137
   %145 = tail call fastcc zeroext i1 @unit_add_method_like(ptr noundef %143, ptr noundef %144, ptr noundef nonnull %1)
   br i1 %145, label %150, label %sema_analyse_macro_method.exit.thread
 
-sema_analyse_macro_method.exit.thread:            ; preds = %133, %105, %114, %.critedge.i, %129, %140, %sema_analyse_macro_method.exit
+sema_analyse_macro_method.exit.thread:            ; preds = %133, %114, %.critedge.i, %129, %105, %140, %sema_analyse_macro_method.exit
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %147 = load i64, ptr %146, align 8
   %148 = and i64 %147, -1024
@@ -5120,7 +5120,7 @@ sema_analyse_macro_method.exit.thread:            ; preds = %133, %105, %114, %.
   br label %153
 
 153:                                              ; preds = %sema_analyse_func_macro.exit, %17, %150, %sema_analyse_macro_method.exit.thread, %98, %83, %72, %67, %36, %24
-  %.066 = phi i1 [ false, %83 ], [ false, %67 ], [ false, %72 ], [ true, %150 ], [ false, %sema_analyse_macro_method.exit.thread ], [ false, %98 ], [ false, %36 ], [ false, %24 ], [ false, %sema_analyse_func_macro.exit ], [ true, %17 ]
+  %.066 = phi i1 [ false, %sema_analyse_func_macro.exit ], [ false, %83 ], [ false, %67 ], [ false, %72 ], [ true, %150 ], [ false, %sema_analyse_macro_method.exit.thread ], [ false, %98 ], [ false, %36 ], [ false, %24 ], [ true, %17 ]
   ret i1 %.066
 }
 
@@ -5234,7 +5234,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attribute_decl(ptr nound
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph49, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge, %15, %18, %12, %53, %39, %33, %27, %7
-  %.036 = phi i1 [ false, %27 ], [ false, %33 ], [ false, %39 ], [ false, %53 ], [ false, %7 ], [ true, %12 ], [ true, %18 ], [ true, %15 ], [ true, %._crit_edge ]
+  %.036 = phi i1 [ false, %7 ], [ false, %27 ], [ false, %33 ], [ false, %39 ], [ false, %53 ], [ true, %12 ], [ true, %18 ], [ true, %15 ], [ true, %._crit_edge ]
   ret i1 %.036
 }
 
@@ -5365,7 +5365,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_distinct(ptr noundef %0,
   br label %58
 
 58:                                               ; preds = %.critedge, %54, %18, %7, %3, %51, %48, %45, %42, %34, %13
-  %.031 = phi i1 [ false, %34 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ false, %13 ], [ false, %3 ], [ true, %7 ], [ false, %18 ], [ true, %54 ], [ true, %.critedge ]
+  %.031 = phi i1 [ false, %3 ], [ false, %34 ], [ false, %18 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ true, %7 ], [ false, %13 ], [ true, %54 ], [ true, %.critedge ]
   ret i1 %.031
 }
 
@@ -5429,7 +5429,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_typedef(ptr noundef %0, 
   br label %42
 
 42:                                               ; preds = %32, %12, %34, %21, %7
-  %.0 = phi i1 [ true, %21 ], [ true, %34 ], [ false, %7 ], [ true, %12 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %21 ], [ true, %34 ], [ true, %12 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -5997,12 +5997,12 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   %282 = icmp ult i32 %.1, %.1133
   br i1 %282, label %180, label %.loopexit, !llvm.loop !31
 
-sema_analyse_enum_param.exit.thread:              ; preds = %150, %129, %.critedge.i, %82, %147, %143, %122, %117, %92, %163, %69
+sema_analyse_enum_param.exit.thread:              ; preds = %150, %.critedge.i, %129, %82, %147, %143, %122, %117, %92, %163, %69
   tail call void @sema_decl_stack_restore(ptr noundef %61) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %281, %.lr.ph212, %._crit_edge, %174, %25, %14, %sema_analyse_enum_param.exit.thread, %274, %261, %254, %250, %236, %197, %187, %50, %20, %9
-  %.0134 = phi i1 [ false, %sema_analyse_enum_param.exit.thread ], [ false, %197 ], [ false, %254 ], [ false, %250 ], [ false, %261 ], [ false, %274 ], [ false, %236 ], [ false, %187 ], [ false, %50 ], [ false, %20 ], [ false, %9 ], [ true, %14 ], [ false, %25 ], [ true, %174 ], [ true, %._crit_edge ], [ false, %.lr.ph212 ], [ true, %281 ]
+  %.0134 = phi i1 [ false, %9 ], [ false, %sema_analyse_enum_param.exit.thread ], [ false, %197 ], [ false, %254 ], [ false, %250 ], [ false, %261 ], [ false, %274 ], [ false, %25 ], [ false, %236 ], [ false, %187 ], [ false, %50 ], [ true, %14 ], [ false, %20 ], [ true, %174 ], [ true, %._crit_edge ], [ false, %.lr.ph212 ], [ true, %281 ]
   ret i1 %.0134
 }
 
@@ -6173,7 +6173,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_define(ptr noundef %0, p
   unreachable
 
 sema_analyse_parameterized_define.exit:           ; preds = %53, %46, %19, %12, %28, %7
-  %.0 = phi i1 [ true, %28 ], [ false, %7 ], [ true, %12 ], [ false, %19 ], [ true, %53 ], [ false, %46 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %28 ], [ true, %12 ], [ false, %19 ], [ true, %53 ], [ false, %46 ]
   ret i1 %.0
 }
 
@@ -6959,8 +6959,8 @@ is_power_of_two.exit.thread.i:                    ; preds = %194
   br label %.critedge9.i
 
 .critedge9.i:                                     ; preds = %.critedge9.i.sink.split, %284, %276
-  %296 = phi i1 [ false, %284 ], [ false, %276 ], [ %.ph, %.critedge9.i.sink.split ]
-  %.0220.i = phi i32 [ 0, %284 ], [ 0, %276 ], [ %.0220.i.ph, %.critedge9.i.sink.split ]
+  %296 = phi i1 [ false, %276 ], [ false, %284 ], [ %.ph, %.critedge9.i.sink.split ]
+  %.0220.i = phi i32 [ 0, %276 ], [ 0, %284 ], [ %.0220.i.ph, %.critedge9.i.sink.split ]
   %297 = icmp ult i32 %.0220.i, %.0254258.i
   br i1 %297, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -7495,8 +7495,8 @@ sema_analyse_attribute.exit:                      ; preds = %478, %392, %388, %3
   %exitcond362.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count361
   br i1 %exitcond362.not, label %sema_analyse_attribute.exit.thread, label %36, !llvm.loop !36
 
-sema_analyse_attribute.exit.thread:               ; preds = %sema_analyse_attribute.exit, %485, %556, %562, %78, %169, %211, %245, %272, %326, %371, %386, %.lr.ph.i, %15, %16, %125, %111, %450, %439, %366, %.critedge19.i, %360, %.critedge11.i, %266, %.critedge13.i, %348, %242, %257, %.critedge7.i, %228, %207, %166, %.critedge5.i, %is_power_of_two.exit.thread.i, %191, %186, %159, %162, %108, %.critedge3.i, %101, %.critedge.i, %.thread265.i, %66, %.split.i.i, %.loopexit, %527, %509, %494, %11
-  %.091 = phi i1 [ false, %11 ], [ false, %494 ], [ false, %509 ], [ false, %527 ], [ false, %.loopexit ], [ false, %.split.i.i ], [ false, %66 ], [ false, %.thread265.i ], [ false, %.critedge.i ], [ false, %101 ], [ false, %.critedge3.i ], [ false, %108 ], [ false, %162 ], [ false, %159 ], [ false, %186 ], [ false, %191 ], [ false, %is_power_of_two.exit.thread.i ], [ false, %.critedge5.i ], [ false, %166 ], [ false, %207 ], [ false, %228 ], [ false, %.critedge7.i ], [ false, %257 ], [ false, %242 ], [ false, %348 ], [ false, %.critedge13.i ], [ false, %266 ], [ false, %.critedge11.i ], [ false, %360 ], [ false, %.critedge19.i ], [ false, %366 ], [ false, %439 ], [ false, %450 ], [ false, %111 ], [ false, %125 ], [ true, %16 ], [ true, %15 ], [ false, %.lr.ph.i ], [ true, %sema_analyse_attribute.exit ], [ false, %485 ], [ true, %556 ], [ true, %562 ], [ false, %78 ], [ false, %169 ], [ false, %211 ], [ false, %245 ], [ false, %272 ], [ false, %326 ], [ false, %371 ], [ false, %386 ]
+sema_analyse_attribute.exit.thread:               ; preds = %sema_analyse_attribute.exit, %485, %556, %562, %78, %169, %245, %211, %326, %272, %386, %371, %.lr.ph.i, %15, %16, %439, %366, %.critedge19.i, %360, %.critedge11.i, %266, %.critedge13.i, %348, %242, %257, %.critedge7.i, %228, %207, %166, %.critedge5.i, %is_power_of_two.exit.thread.i, %191, %186, %159, %125, %162, %108, %.critedge3.i, %111, %101, %450, %.critedge.i, %.thread265.i, %66, %.split.i.i, %.loopexit, %527, %509, %494, %11
+  %.091 = phi i1 [ false, %11 ], [ false, %494 ], [ false, %509 ], [ false, %527 ], [ false, %.loopexit ], [ false, %.critedge19.i ], [ false, %.critedge13.i ], [ false, %266 ], [ false, %.critedge11.i ], [ false, %.split.i.i ], [ false, %66 ], [ false, %.thread265.i ], [ false, %.critedge.i ], [ false, %450 ], [ false, %101 ], [ false, %111 ], [ false, %.critedge3.i ], [ false, %366 ], [ false, %108 ], [ false, %162 ], [ false, %125 ], [ false, %159 ], [ false, %186 ], [ false, %191 ], [ false, %is_power_of_two.exit.thread.i ], [ false, %.critedge5.i ], [ false, %166 ], [ false, %207 ], [ false, %228 ], [ false, %.critedge7.i ], [ false, %360 ], [ false, %257 ], [ false, %439 ], [ false, %242 ], [ false, %348 ], [ true, %16 ], [ true, %15 ], [ false, %.lr.ph.i ], [ false, %272 ], [ false, %326 ], [ false, %211 ], [ false, %245 ], [ false, %169 ], [ false, %78 ], [ true, %562 ], [ false, %485 ], [ true, %556 ], [ true, %sema_analyse_attribute.exit ], [ false, %371 ], [ false, %386 ]
   ret i1 %.091
 }
 
@@ -7579,7 +7579,7 @@ define internal fastcc noundef zeroext i1 @update_call_abi_from_string(ptr nound
   br label %39
 
 39:                                               ; preds = %29, %14, %36, %31, %21, %16, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %16 ], [ true, %21 ], [ true, %31 ], [ false, %36 ], [ true, %14 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %7 ], [ false, %36 ], [ true, %16 ], [ true, %21 ], [ true, %31 ], [ true, %14 ], [ true, %29 ]
   ret i1 %.0
 }
 
@@ -7641,7 +7641,7 @@ define internal fastcc noundef zeroext i1 @sema_check_section(ptr readonly captu
   br i1 %26, label %.sink.split, label %29
 
 .sink.split:                                      ; preds = %25, %23, %21, %5
-  %.str.108.sink = phi ptr [ @.str.105, %5 ], [ @.str.106, %21 ], [ @.str.107, %23 ], [ @.str.108, %25 ]
+  %.str.108.sink = phi ptr [ @.str.107, %23 ], [ @.str.106, %21 ], [ @.str.105, %5 ], [ @.str.108, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr %.32.val.0.val, i64 8
   %28 = load i64, ptr %27, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %28, ptr noundef nonnull %.str.108.sink) #11
@@ -7819,7 +7819,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
   br i1 %exitcond35.not, label %.thread, label %.preheader3.split, !llvm.loop !38
 
 .thread:                                          ; preds = %.preheader3.split, %._crit_edge, %17, %._crit_edge.us, %.preheader3.split.us, %2, %3, %.split12.us, %.split.us
-  %.030 = phi i1 [ false, %.split.us ], [ false, %.split12.us ], [ true, %3 ], [ true, %2 ], [ true, %17 ], [ false, %._crit_edge.us ], [ false, %.preheader3.split.us ], [ %27, %._crit_edge ], [ %27, %.preheader3.split ]
+  %.030 = phi i1 [ false, %.split.us ], [ false, %.split12.us ], [ true, %2 ], [ true, %3 ], [ false, %.preheader3.split.us ], [ true, %17 ], [ false, %._crit_edge.us ], [ %27, %._crit_edge ], [ %27, %.preheader3.split ]
   ret i1 %.030
 }
 
@@ -8270,7 +8270,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
   br label %239
 
 239:                                              ; preds = %152, %115, %51, %35, %.critedge, %15, %12, %.loopexit, %230, %209, %192, %184, %178, %173, %142, %137, %108, %101, %92, %80, %42, %31, %24
-  %.0138 = phi i1 [ false, %24 ], [ false, %42 ], [ false, %92 ], [ false, %101 ], [ false, %108 ], [ true, %.loopexit ], [ false, %230 ], [ false, %137 ], [ false, %142 ], [ false, %173 ], [ false, %178 ], [ false, %192 ], [ false, %209 ], [ false, %184 ], [ false, %80 ], [ false, %31 ], [ false, %12 ], [ true, %15 ], [ true, %.critedge ], [ true, %35 ], [ false, %51 ], [ false, %115 ], [ false, %152 ]
+  %.0138 = phi i1 [ false, %12 ], [ false, %31 ], [ false, %24 ], [ true, %.critedge ], [ false, %42 ], [ false, %92 ], [ false, %101 ], [ false, %108 ], [ true, %.loopexit ], [ false, %230 ], [ false, %137 ], [ false, %142 ], [ false, %173 ], [ false, %178 ], [ false, %192 ], [ false, %209 ], [ false, %115 ], [ false, %184 ], [ false, %51 ], [ false, %80 ], [ true, %35 ], [ true, %15 ], [ false, %152 ]
   ret i1 %.0138
 }
 
@@ -8797,7 +8797,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   br label %136
 
 136:                                              ; preds = %126, %128, %118
-  %.1125 = phi i8 [ %.0124198, %128 ], [ %.0124198, %118 ], [ 1, %126 ]
+  %.1125 = phi i8 [ %.0124198, %118 ], [ %.0124198, %128 ], [ 1, %126 ]
   store i32 %.0118, ptr %109, align 8
   %137 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %138 = zext i32 %122 to i64
@@ -9068,7 +9068,7 @@ define internal fastcc zeroext i1 @sema_analyse_struct_member(ptr noundef %0, pt
   unreachable
 
 85:                                               ; preds = %82, %34, %.critedge, %13, %10, %.critedge62, %._crit_edge, %61, %41, %30, %14
-  %.050 = phi i1 [ false, %14 ], [ false, %41 ], [ false, %._crit_edge ], [ true, %.critedge62 ], [ false, %61 ], [ false, %30 ], [ false, %10 ], [ true, %13 ], [ true, %.critedge ], [ true, %34 ], [ %83, %82 ]
+  %.050 = phi i1 [ false, %10 ], [ false, %30 ], [ false, %14 ], [ true, %.critedge ], [ false, %41 ], [ false, %._crit_edge ], [ true, %.critedge62 ], [ false, %61 ], [ true, %34 ], [ %83, %82 ], [ true, %13 ]
   ret i1 %.050
 }
 
@@ -9285,7 +9285,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_method(ptr noundef %0, p
   br label %122
 
 122:                                              ; preds = %.critedge, %103, %77, %49, %31, %25, %118, %98, %72, %65, %57, %.critedge87, %16, %7
-  %.069 = phi i1 [ false, %7 ], [ false, %16 ], [ false, %57 ], [ false, %98 ], [ %121, %118 ], [ false, %72 ], [ false, %65 ], [ false, %.critedge87 ], [ false, %25 ], [ false, %31 ], [ false, %49 ], [ false, %77 ], [ false, %103 ], [ false, %.critedge ]
+  %.069 = phi i1 [ false, %7 ], [ false, %16 ], [ false, %57 ], [ false, %98 ], [ %121, %118 ], [ false, %103 ], [ false, %77 ], [ false, %49 ], [ false, %72 ], [ false, %65 ], [ false, %31 ], [ false, %.critedge87 ], [ false, %25 ], [ false, %.critedge ]
   ret i1 %.069
 }
 
@@ -9401,8 +9401,8 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %sema_find_main_type.exit.thread
 
 .thread.thread:                                   ; preds = %32, %type_flatten.exit, %.thread
-  %spec.select124 = phi i1 [ true, %type_flatten.exit ], [ false, %.thread ], [ false, %32 ]
-  %.090123 = phi i1 [ false, %type_flatten.exit ], [ false, %.thread ], [ true, %32 ]
+  %spec.select124 = phi i1 [ false, %.thread ], [ true, %type_flatten.exit ], [ false, %32 ]
+  %.090123 = phi i1 [ false, %.thread ], [ false, %type_flatten.exit ], [ true, %32 ]
   %59 = getelementptr i8, ptr %1, i64 104
   %.val = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -9714,10 +9714,10 @@ type_flatten.exit59.i:                            ; preds = %157
   br label %sema_find_main_type.exit.thread
 
 sema_find_main_type.exit:                         ; preds = %181, %132, %type_flatten.exit.i, %60, %.thread.thread
-  %or.cond3 = phi i1 [ true, %60 ], [ true, %type_flatten.exit.i ], [ %spec.select124, %132 ], [ true, %181 ], [ true, %.thread.thread ]
-  %or.cond5 = phi i1 [ %spec.select124, %60 ], [ false, %type_flatten.exit.i ], [ %spec.select124, %132 ], [ false, %181 ], [ %spec.select124, %.thread.thread ]
-  %197 = phi i1 [ false, %60 ], [ true, %type_flatten.exit.i ], [ true, %132 ], [ true, %181 ], [ false, %.thread.thread ]
-  %.034.i = phi i32 [ 2, %60 ], [ 3, %type_flatten.exit.i ], [ 1, %132 ], [ 4, %181 ], [ 2, %.thread.thread ]
+  %or.cond3 = phi i1 [ %spec.select124, %132 ], [ true, %60 ], [ true, %type_flatten.exit.i ], [ true, %181 ], [ true, %.thread.thread ]
+  %or.cond5 = phi i1 [ %spec.select124, %132 ], [ %spec.select124, %60 ], [ false, %type_flatten.exit.i ], [ false, %181 ], [ %spec.select124, %.thread.thread ]
+  %197 = phi i1 [ true, %132 ], [ false, %60 ], [ true, %type_flatten.exit.i ], [ true, %181 ], [ false, %.thread.thread ]
+  %.034.i = phi i32 [ 1, %132 ], [ 2, %60 ], [ 3, %type_flatten.exit.i ], [ 4, %181 ], [ 2, %.thread.thread ]
   %198 = load i32, ptr @active_target, align 8
   %199 = and i32 %198, -2
   %or.cond = icmp eq i32 %199, 4
@@ -9773,7 +9773,7 @@ sema_find_main_type.exit:                         ; preds = %181, %132, %type_fl
   br i1 %.not85, label %sema_find_main_type.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %200, %218, %214, %209
-  %.067 = phi ptr [ %217, %218 ], [ null, %214 ], [ %1, %209 ], [ %1, %200 ]
+  %.067 = phi ptr [ %1, %209 ], [ %217, %218 ], [ null, %214 ], [ %1, %200 ]
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 192
@@ -9797,7 +9797,7 @@ sema_find_main_type.exit:                         ; preds = %181, %132, %type_fl
   br label %sema_find_main_type.exit.thread
 
 sema_find_main_type.exit.thread:                  ; preds = %188, %177, %171, %133, %128, %120, %83, %193, %218, %sema_find_main_type.exit, %232, %226, %204, %55, %36, %12
-  %.071 = phi i1 [ false, %12 ], [ false, %55 ], [ false, %226 ], [ true, %232 ], [ false, %204 ], [ false, %36 ], [ true, %sema_find_main_type.exit ], [ false, %218 ], [ false, %193 ], [ false, %83 ], [ false, %120 ], [ false, %128 ], [ false, %133 ], [ false, %171 ], [ false, %177 ], [ false, %188 ]
+  %.071 = phi i1 [ false, %12 ], [ false, %55 ], [ false, %36 ], [ false, %218 ], [ false, %226 ], [ true, %232 ], [ true, %sema_find_main_type.exit ], [ false, %204 ], [ false, %193 ], [ false, %83 ], [ false, %120 ], [ false, %128 ], [ false, %133 ], [ false, %171 ], [ false, %177 ], [ false, %188 ]
   ret i1 %.071
 }
 
@@ -10014,7 +10014,7 @@ type_flatten.exit.thread:                         ; preds = %.preheader, %.loope
   br label %.loopexit83
 
 .loopexit83:                                      ; preds = %.backedge, %4, %82, %66, %._crit_edge106, %19
-  %.not96 = phi i1 [ false, %82 ], [ false, %66 ], [ false, %._crit_edge106 ], [ false, %19 ], [ true, %4 ], [ true, %.backedge ]
+  %.not96 = phi i1 [ false, %19 ], [ false, %82 ], [ false, %66 ], [ false, %._crit_edge106 ], [ true, %4 ], [ true, %.backedge ]
   ret i1 %.not96
 }
 
@@ -10091,7 +10091,7 @@ switch.early.test:                                ; preds = %23, %21, %3
   br label %38
 
 38:                                               ; preds = %23, %19, %11, %33, %29, %14
-  %.022 = phi i1 [ false, %14 ], [ false, %29 ], [ false, %33 ], [ true, %11 ], [ true, %19 ], [ true, %23 ]
+  %.022 = phi i1 [ false, %14 ], [ true, %19 ], [ true, %11 ], [ false, %29 ], [ false, %33 ], [ true, %23 ]
   ret i1 %.022
 }
 
@@ -10159,7 +10159,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
   br i1 %.not37, label %18, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %18, %._crit_edge, %15
-  %.031 = phi ptr [ null, %15 ], [ null, %._crit_edge ], [ %25, %.lr.ph42 ], [ null, %18 ], [ %11, %.lr.ph ]
+  %.031 = phi ptr [ null, %15 ], [ null, %._crit_edge ], [ null, %18 ], [ %25, %.lr.ph42 ], [ %11, %.lr.ph ]
   ret ptr %.031
 }
 
@@ -10317,8 +10317,8 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
-.loopexit:                                        ; preds = %84, %.thread5, %28, %.thread11, %64, %40, %.thread14, %15
-  %.067 = phi i1 [ false, %15 ], [ false, %.thread14 ], [ false, %40 ], [ false, %64 ], [ true, %.thread11 ], [ true, %28 ], [ true, %.thread5 ], [ true, %84 ]
+.loopexit:                                        ; preds = %84, %28, %.thread5, %.thread11, %64, %40, %.thread14, %15
+  %.067 = phi i1 [ false, %15 ], [ false, %.thread14 ], [ false, %40 ], [ false, %64 ], [ true, %.thread11 ], [ true, %.thread5 ], [ true, %28 ], [ true, %84 ]
   ret i1 %.067
 }
 
@@ -10412,7 +10412,7 @@ define internal fastcc ptr @sema_find_interface_for_method(ptr noundef %0, ptr n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %5, %11, %42, %._crit_edge, %3, %36
-  %.030 = phi ptr [ null, %36 ], [ null, %3 ], [ null, %._crit_edge ], [ %spec.select, %42 ], [ null, %11 ], [ null, %5 ]
+  %.030 = phi ptr [ null, %3 ], [ null, %36 ], [ null, %._crit_edge ], [ %spec.select, %42 ], [ null, %11 ], [ null, %5 ]
   ret ptr %.030
 }
 
@@ -10804,7 +10804,7 @@ method_name_by_decl.exit135:                      ; preds = %176, %181
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %199 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull readonly %2, ptr noundef %6, ptr noundef %7, i32 noundef 2)
-  br i1 %199, label %200, label %sema_analyse_operator_element_at.exit.i.thread
+  br i1 %199, label %200, label %sema_check_operator_method_validity.exit.thread
 
 200:                                              ; preds = %198
   %201 = load ptr, ptr %6, align 8
@@ -10814,29 +10814,19 @@ method_name_by_decl.exit135:                      ; preds = %176, %181
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr @type_void, align 8
   %207 = icmp eq ptr %205, %206
-  br i1 %207, label %208, label %sema_analyse_operator_element_at.exit.i
+  br i1 %207, label %208, label %sema_check_operator_method_validity.exit
 
 208:                                              ; preds = %200
   %209 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %210 = load i64, ptr %209, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %210, ptr noundef nonnull @.str.201) #11
-  br label %sema_analyse_operator_element_at.exit.i.thread
-
-sema_analyse_operator_element_at.exit.i.thread:   ; preds = %208, %198
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %unit_add_base_extension_method.exit
-
-sema_analyse_operator_element_at.exit.i:          ; preds = %200
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %230
+  br label %sema_check_operator_method_validity.exit.thread
 
 211:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %212 = call fastcc zeroext i1 @sema_analyse_operator_common(ptr noundef nonnull readonly %2, ptr noundef %4, ptr noundef %5, i32 noundef 1)
-  br i1 %212, label %213, label %sema_check_operator_method_validity.exit.thread
+  br i1 %212, label %213, label %sema_analyse_operator_len.exit.i.thread
 
 213:                                              ; preds = %211
   %214 = load ptr, ptr %4, align 8
@@ -10856,29 +10846,39 @@ sema_analyse_operator_element_at.exit.i:          ; preds = %200
   %.0.i5.i = phi i32 [ %222, %219 ], [ %217, %213 ]
   %224 = add i32 %.0.i5.i, -3
   %225 = icmp ult i32 %224, 10
-  br i1 %225, label %sema_check_operator_method_validity.exit, label %226
+  br i1 %225, label %sema_analyse_operator_len.exit.i, label %226
 
 226:                                              ; preds = %223
   %227 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %228 = load i64, ptr %227, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %228, ptr noundef nonnull @.str.202) #11
-  br label %sema_check_operator_method_validity.exit.thread
+  br label %sema_analyse_operator_len.exit.i.thread
+
+sema_analyse_operator_len.exit.i.thread:          ; preds = %211, %226
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %unit_add_base_extension_method.exit
+
+sema_analyse_operator_len.exit.i:                 ; preds = %223
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %230
 
 229:                                              ; preds = %192
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.sema_check_operator_method_validity, ptr noundef nonnull @.str.4, i32 noundef 1608) #12
   unreachable
 
-sema_check_operator_method_validity.exit.thread:  ; preds = %226, %211
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+sema_check_operator_method_validity.exit.thread:  ; preds = %208, %198
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %unit_add_base_extension_method.exit
 
-sema_check_operator_method_validity.exit:         ; preds = %223
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+sema_check_operator_method_validity.exit:         ; preds = %200
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %230
 
-230:                                              ; preds = %sema_analyse_operator_element_at.exit.i, %sema_check_operator_method_validity.exit, %196, %188
+230:                                              ; preds = %sema_analyse_operator_len.exit.i, %sema_check_operator_method_validity.exit, %196, %188
   %231 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = load i64, ptr %189, align 8
@@ -11195,8 +11195,8 @@ expand_.exit146:                                  ; preds = %319, %323
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.unit_add_method_like, ptr noundef nonnull @.str.4, i32 noundef 1735) #12
   unreachable
 
-unit_add_base_extension_method.exit:              ; preds = %sema_analyse_operator_element_at.exit.i.thread, %sema_check_operator_method_validity.exit.thread, %196, %160, %133, %85, %55, %284, %302, %350, %360, %394, %method_name_by_decl.exit135, %method_name_by_decl.exit
-  %.0109 = phi i1 [ false, %method_name_by_decl.exit ], [ false, %method_name_by_decl.exit135 ], [ true, %394 ], [ true, %360 ], [ true, %350 ], [ true, %302 ], [ true, %284 ], [ true, %55 ], [ true, %85 ], [ true, %133 ], [ true, %160 ], [ false, %196 ], [ false, %sema_check_operator_method_validity.exit.thread ], [ false, %sema_analyse_operator_element_at.exit.i.thread ]
+unit_add_base_extension_method.exit:              ; preds = %sema_analyse_operator_len.exit.i.thread, %sema_check_operator_method_validity.exit.thread, %196, %160, %133, %85, %55, %284, %302, %350, %360, %394, %method_name_by_decl.exit135, %method_name_by_decl.exit
+  %.0109 = phi i1 [ false, %method_name_by_decl.exit ], [ false, %sema_check_operator_method_validity.exit.thread ], [ true, %284 ], [ false, %method_name_by_decl.exit135 ], [ true, %394 ], [ true, %360 ], [ true, %350 ], [ true, %302 ], [ true, %55 ], [ true, %85 ], [ true, %133 ], [ true, %160 ], [ false, %196 ], [ false, %sema_analyse_operator_len.exit.i.thread ]
   ret i1 %.0109
 }
 
@@ -11519,7 +11519,7 @@ define internal fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr nound
   unreachable
 
 switch.lookup:                                    ; preds = %140, %131, %141
-  %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %141 ], [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %140 ]
+  %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %140 ], [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %141 ]
   %143 = select i1 %4, i64 2, i64 0
   %144 = select i1 %3, i64 1, i64 %143
   %switch.gep263 = getelementptr inbounds nuw ptr, ptr %switch.table.sema_create_synthetic_main.13.sink, i64 %144

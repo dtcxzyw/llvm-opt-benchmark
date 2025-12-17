@@ -82,8 +82,8 @@ define ptr @ENGINE_load_private_key(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %20, label %.sink.split, label %21
 
 .sink.split:                                      ; preds = %18, %15, %9, %4
-  %.sink18 = phi i32 [ 62, %4 ], [ 69, %9 ], [ 74, %15 ], [ 79, %18 ]
-  %.sink = phi i32 [ 786690, %4 ], [ 117, %9 ], [ 125, %15 ], [ 128, %18 ]
+  %.sink18 = phi i32 [ 74, %15 ], [ 69, %9 ], [ 62, %4 ], [ 79, %18 ]
+  %.sink = phi i32 [ 125, %15 ], [ 117, %9 ], [ 786690, %4 ], [ 128, %18 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.ENGINE_load_private_key) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef %.sink, ptr noundef null) #4
@@ -135,8 +135,8 @@ define ptr @ENGINE_load_public_key(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %20, label %.sink.split, label %21
 
 .sink.split:                                      ; preds = %18, %15, %9, %4
-  %.sink18 = phi i32 [ 91, %4 ], [ 98, %9 ], [ 103, %15 ], [ 108, %18 ]
-  %.sink = phi i32 [ 786690, %4 ], [ 117, %9 ], [ 125, %15 ], [ 129, %18 ]
+  %.sink18 = phi i32 [ 103, %15 ], [ 98, %9 ], [ 91, %4 ], [ 108, %18 ]
+  %.sink = phi i32 [ 125, %15 ], [ 117, %9 ], [ 786690, %4 ], [ 129, %18 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.ENGINE_load_public_key) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef %.sink, ptr noundef null) #4

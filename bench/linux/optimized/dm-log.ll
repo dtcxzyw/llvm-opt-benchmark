@@ -751,9 +751,9 @@ define internal i32 @disk_resume(ptr noundef readonly captures(none) %0) #0 alig
   br i1 %80, label %74, label %.loopexit6, !llvm.loop !16
 
 .loopexit6:                                       ; preds = %74, %60, %.thread3.thread, %67
-  %81 = phi ptr [ %54, %67 ], [ %48, %.thread3.thread ], [ %54, %60 ], [ %71, %74 ]
-  %82 = phi ptr [ %53, %67 ], [ %46, %.thread3.thread ], [ %53, %60 ], [ %69, %74 ]
-  %83 = phi i32 [ %55, %67 ], [ %49, %.thread3.thread ], [ %65, %60 ], [ %79, %74 ]
+  %81 = phi ptr [ %48, %.thread3.thread ], [ %54, %67 ], [ %54, %60 ], [ %71, %74 ]
+  %82 = phi ptr [ %46, %.thread3.thread ], [ %53, %67 ], [ %53, %60 ], [ %69, %74 ]
+  %83 = phi i32 [ %49, %.thread3.thread ], [ %55, %67 ], [ %65, %60 ], [ %79, %74 ]
   %84 = and i32 %83, 63
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.loopexit, label %86
@@ -1291,8 +1291,8 @@ define internal fastcc i32 @create_log_context(ptr noundef writeonly captures(no
   br label %92
 
 92:                                               ; preds = %.thread11, %83
-  %93 = phi i64 [ %91, %83 ], [ %.zext, %.thread11 ]
-  %94 = phi i64 [ %88, %83 ], [ 512, %.thread11 ]
+  %93 = phi i64 [ %.zext, %.thread11 ], [ %91, %83 ]
+  %94 = phi i64 [ 512, %.thread11 ], [ %88, %83 ]
   %95 = mul i64 %94, %93
   %96 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %97 = load i64, ptr %96, align 8

@@ -581,13 +581,13 @@ kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %76, %75, %74, %73, 
   br label %92
 
 92:                                               ; preds = %21, %18, %._crit_edge
-  %.sink = phi i32 [ %91, %._crit_edge ], [ 6, %18 ], [ 5, %21 ]
+  %.sink = phi i32 [ 6, %18 ], [ %91, %._crit_edge ], [ 5, %21 ]
   store volatile i32 %.sink, ptr %4, align 4, !tbaa !18
   tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %2, %3, %92, %17, %13
-  %.047 = phi i32 [ 1, %13 ], [ 1, %17 ], [ 1, %92 ], [ 1, %3 ], [ 1, %2 ], [ 0, %8 ]
+  %.047 = phi i32 [ 1, %92 ], [ 1, %2 ], [ 1, %13 ], [ 1, %17 ], [ 1, %3 ], [ 0, %8 ]
   ret i32 %.047
 }
 
@@ -703,7 +703,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_SetWorkingDirectory(ptr nound
   br label %18
 
 18:                                               ; preds = %15, %10, %3, %2, %17
-  %.0 = phi i32 [ 1, %17 ], [ 0, %2 ], [ 1, %3 ], [ 1, %10 ], [ 0, %15 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %3 ], [ 1, %17 ], [ 1, %10 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -779,7 +779,7 @@ default.unreachable:                              ; preds = %.thread
   br label %cmsysProcess_SetPipeShared.exit
 
 cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %12, %23, %19, %15, %13, %3
-  %.017 = phi i32 [ 0, %3 ], [ 0, %4 ], [ 0, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %23 ], [ 1, %12 ]
+  %.017 = phi i32 [ 0, %3 ], [ 0, %13 ], [ 0, %4 ], [ 1, %23 ], [ 1, %15 ], [ 1, %19 ], [ 1, %12 ]
   ret i32 %.017
 }
 
@@ -958,7 +958,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_AddCommand(ptr noundef %0, pt
   br label %.critedge77
 
 .critedge77:                                      ; preds = %._crit_edge87, %59, %7, %2, %5, %90, %41
-  %.063 = phi i32 [ 1, %90 ], [ 0, %41 ], [ 0, %5 ], [ 0, %2 ], [ 0, %7 ], [ 0, %59 ], [ 0, %._crit_edge87 ]
+  %.063 = phi i32 [ 1, %90 ], [ 0, %41 ], [ 0, %7 ], [ 0, %2 ], [ 0, %5 ], [ 0, %59 ], [ 0, %._crit_edge87 ]
   ret i32 %.063
 }
 
@@ -1161,7 +1161,7 @@ define dso_local i32 @cmsysProcess_GetOption(ptr noundef %0, i32 noundef %1) loc
   br label %16
 
 16:                                               ; preds = %3, %2, %13, %10, %7, %4
-  %.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ 0, %2 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %2 ], [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1321,7 +1321,7 @@ define dso_local nonnull ptr @cmsysProcess_GetErrorString(ptr noundef %0) local_
   br label %7
 
 7:                                                ; preds = %2, %1
-  %.0 = phi ptr [ @.str, %1 ], [ %spec.select, %2 ]
+  %.0 = phi ptr [ %spec.select, %2 ], [ @.str, %1 ]
   ret ptr %.0
 }
 
@@ -1356,7 +1356,7 @@ define dso_local ptr @cmsysProcess_GetExceptionString(ptr noundef %0) local_unna
   br label %18
 
 18:                                               ; preds = %9, %1, %2, %5, %13
-  %.0 = phi ptr [ %17, %13 ], [ @.str.2, %5 ], [ @.str.2, %2 ], [ @.str.2, %1 ], [ @.str.3, %9 ]
+  %.0 = phi ptr [ %17, %13 ], [ @.str.2, %1 ], [ @.str.2, %5 ], [ @.str.2, %2 ], [ @.str.3, %9 ]
   ret ptr %.0
 }
 
@@ -1491,7 +1491,7 @@ define dso_local nonnull ptr @cmsysProcess_GetExceptionStringByIndex(ptr noundef
   br label %16
 
 16:                                               ; preds = %8, %2, %3
-  %.0 = phi ptr [ @.str.4, %3 ], [ @.str.4, %2 ], [ %spec.select, %8 ]
+  %.0 = phi ptr [ @.str.4, %2 ], [ %spec.select, %8 ], [ @.str.4, %3 ]
   ret ptr %.0
 }
 
@@ -1641,7 +1641,7 @@ define dso_local void @cmsysProcess_Execute(ptr noundef %0) local_unnamed_addr #
   %.not73.i = icmp eq ptr %78, null
   br i1 %.not73.i, label %80, label %kwsysProcessInitialize.exit
 
-80:                                               ; preds = %22, %._crit_edge.i, %49, %76
+80:                                               ; preds = %49, %._crit_edge.i, %22, %76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.6, i64 14, i1 false) #25
   store volatile i32 1, ptr %13, align 4, !tbaa !18
   br label %.critedge153
@@ -2691,7 +2691,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
   br label %20
 
 20:                                               ; preds = %kwsysProcessCleanupDescriptor.exit, %19, %17
-  %.0 = phi i32 [ 0, %17 ], [ 1, %19 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %17 ], [ 0, %kwsysProcessCleanupDescriptor.exit ]
   ret i32 %.0
 }
 
@@ -3100,7 +3100,7 @@ kwsysProcessCleanupDescriptor.exit86:             ; preds = %kwsysProcessCleanup
   br label %kwsysProcessFork.exit
 
 kwsysProcessFork.exit:                            ; preds = %130, %146, %.critedge4.i
-  %.2.i = phi i32 [ 0, %146 ], [ %162, %.critedge4.i ], [ %132, %130 ]
+  %.2.i = phi i32 [ %132, %130 ], [ %162, %.critedge4.i ], [ 0, %146 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %164 = load volatile ptr, ptr %163, align 8, !tbaa !55
   %165 = sext i32 %1 to i64
@@ -3500,7 +3500,7 @@ kwsysProcessCleanupDescriptor.exit121:            ; preds = %.loopexit, %.crited
   br label %kwsysProcessCleanupDescriptor.exit65
 
 kwsysProcessCleanupDescriptor.exit65:             ; preds = %.preheader.i113, %335, %.preheader.i101, %205, %.preheader.i87, %126, %.preheader.i75, %83, %kwsysProcessCleanupDescriptor.exit112, %kwsysProcessCleanupDescriptor.exit100, %kwsysProcessCleanupDescriptor.exit86, %kwsysProcessCleanupDescriptor.exit74, %.critedge.i64, %kwsysProcessCleanupDescriptor.exit, %kwsysProcessCleanupDescriptor.exit121, %3, %351
-  %.052 = phi i32 [ 0, %351 ], [ 0, %3 ], [ %spec.select62, %kwsysProcessCleanupDescriptor.exit121 ], [ 0, %kwsysProcessCleanupDescriptor.exit ], [ 0, %.critedge.i64 ], [ 0, %kwsysProcessCleanupDescriptor.exit74 ], [ 0, %kwsysProcessCleanupDescriptor.exit86 ], [ 0, %kwsysProcessCleanupDescriptor.exit100 ], [ 0, %kwsysProcessCleanupDescriptor.exit112 ], [ 0, %83 ], [ 0, %.preheader.i75 ], [ 0, %126 ], [ 0, %.preheader.i87 ], [ 0, %205 ], [ 0, %.preheader.i101 ], [ 0, %335 ], [ 0, %.preheader.i113 ]
+  %.052 = phi i32 [ %spec.select62, %kwsysProcessCleanupDescriptor.exit121 ], [ 0, %3 ], [ 0, %.critedge.i64 ], [ 0, %351 ], [ 0, %kwsysProcessCleanupDescriptor.exit ], [ 0, %kwsysProcessCleanupDescriptor.exit74 ], [ 0, %kwsysProcessCleanupDescriptor.exit86 ], [ 0, %kwsysProcessCleanupDescriptor.exit100 ], [ 0, %kwsysProcessCleanupDescriptor.exit112 ], [ 0, %.preheader.i101 ], [ 0, %.preheader.i75 ], [ 0, %.preheader.i87 ], [ 0, %83 ], [ 0, %126 ], [ 0, %205 ], [ 0, %335 ], [ 0, %.preheader.i113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4073,7 +4073,7 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
   store i32 1, ptr %107, align 8, !tbaa !34
   br label %kwsysProcessWaitForPipe.exit
 
-kwsysProcessWaitForPipe.exit.thread:              ; preds = %198, %227, %213, %238, %185, %186
+kwsysProcessWaitForPipe.exit.thread:              ; preds = %227, %198, %213, %238, %185, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
@@ -4133,7 +4133,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %239
   br label %267
 
 267:                                              ; preds = %263, %265, %260, %4, %14, %17, %20, %266
-  %.0 = phi i32 [ 0, %266 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %4 ], [ %262, %260 ], [ 255, %265 ], [ 0, %263 ]
+  %.0 = phi i32 [ 255, %265 ], [ 0, %4 ], [ %262, %260 ], [ 0, %266 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }

@@ -198,10 +198,10 @@ define ptr @ossl_dsa_do_sign_int(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %exitcond = icmp eq i32 %101, 10
   br i1 %exitcond, label %.loopexit, label %.preheader104
 
-.loopexit:                                        ; preds = %57, %86, %90, %81, %77, %74, %70, %66, %.preheader104, %100, %.preheader, %24, %27, %34, %39, %16, %12, %7, %20
-  %.080.ph = phi ptr [ null, %20 ], [ null, %7 ], [ null, %12 ], [ null, %16 ], [ %37, %39 ], [ null, %34 ], [ null, %27 ], [ null, %24 ], [ %37, %.preheader ], [ %37, %100 ], [ %37, %.preheader104 ], [ %37, %66 ], [ %37, %70 ], [ %37, %74 ], [ %37, %77 ], [ %37, %81 ], [ %37, %90 ], [ %37, %86 ], [ %37, %57 ]
-  %.079.ph = phi i32 [ 111, %20 ], [ 101, %7 ], [ 101, %12 ], [ 101, %16 ], [ 524291, %39 ], [ 524291, %34 ], [ 524291, %27 ], [ 524291, %24 ], [ 524291, %.preheader ], [ 524291, %57 ], [ 524291, %86 ], [ 524291, %90 ], [ 524291, %81 ], [ 524291, %77 ], [ 524291, %74 ], [ 524291, %70 ], [ 524291, %66 ], [ 524291, %.preheader104 ], [ 116, %100 ]
-  %.078.ph = phi ptr [ null, %20 ], [ null, %7 ], [ null, %12 ], [ null, %16 ], [ %25, %39 ], [ %25, %34 ], [ %25, %27 ], [ null, %24 ], [ %25, %.preheader ], [ %25, %100 ], [ %25, %.preheader104 ], [ %25, %66 ], [ %25, %70 ], [ %25, %74 ], [ %25, %77 ], [ %25, %81 ], [ %25, %90 ], [ %25, %86 ], [ %25, %57 ]
+.loopexit:                                        ; preds = %.preheader104, %57, %86, %100, %90, %81, %77, %74, %70, %66, %.preheader, %7, %24, %27, %20, %34, %39, %12, %16
+  %.080.ph = phi ptr [ null, %16 ], [ null, %12 ], [ %37, %39 ], [ null, %34 ], [ null, %20 ], [ null, %27 ], [ null, %24 ], [ null, %7 ], [ %37, %.preheader ], [ %37, %66 ], [ %37, %70 ], [ %37, %74 ], [ %37, %77 ], [ %37, %81 ], [ %37, %90 ], [ %37, %100 ], [ %37, %86 ], [ %37, %57 ], [ %37, %.preheader104 ]
+  %.079.ph = phi i32 [ 101, %16 ], [ 101, %12 ], [ 524291, %39 ], [ 524291, %34 ], [ 111, %20 ], [ 524291, %27 ], [ 524291, %24 ], [ 101, %7 ], [ 524291, %.preheader ], [ 524291, %.preheader104 ], [ 524291, %57 ], [ 524291, %86 ], [ 116, %100 ], [ 524291, %90 ], [ 524291, %81 ], [ 524291, %77 ], [ 524291, %74 ], [ 524291, %70 ], [ 524291, %66 ]
+  %.078.ph = phi ptr [ null, %16 ], [ null, %12 ], [ %25, %39 ], [ %25, %34 ], [ null, %20 ], [ %25, %27 ], [ null, %24 ], [ null, %7 ], [ %25, %.preheader ], [ %25, %66 ], [ %25, %70 ], [ %25, %74 ], [ %25, %77 ], [ %25, %81 ], [ %25, %90 ], [ %25, %100 ], [ %25, %86 ], [ %25, %57 ], [ %25, %.preheader104 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @__func__.ossl_dsa_do_sign_int) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.079.ph, ptr noundef null) #8
@@ -460,7 +460,7 @@ define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %0, ptr n
   br label %118
 
 .loopexit:                                        ; preds = %.preheader.split.split, %.preheader.split.split.us, %.preheader.split.us, %42, %49, %52, %112, %109, %105, %107, %91, %88, %82, %61, %58
-  %.093.ph = phi ptr [ %.1, %58 ], [ %.1, %61 ], [ %.1, %82 ], [ %.1, %88 ], [ %.1, %91 ], [ %.1, %107 ], [ %.1, %105 ], [ %.1, %109 ], [ %.1, %112 ], [ %.1, %52 ], [ null, %49 ], [ null, %42 ], [ %.1, %.preheader.split.us ], [ %.1, %.preheader.split.split.us ], [ %.1, %.preheader.split.split ]
+  %.093.ph = phi ptr [ %.1, %58 ], [ %.1, %61 ], [ %.1, %82 ], [ %.1, %88 ], [ %.1, %91 ], [ %.1, %107 ], [ %.1, %105 ], [ %.1, %109 ], [ %.1, %112 ], [ %.1, %52 ], [ null, %49 ], [ null, %42 ], [ %.1, %.preheader.split.split.us ], [ %.1, %.preheader.split.us ], [ %.1, %.preheader.split.split ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @__func__.dsa_sign_setup) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef 524291, ptr noundef null) #8
@@ -714,14 +714,14 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %0, i32 noundef 
   %104 = zext i1 %103 to i32
   br label %106
 
-105:                                              ; preds = %27, %58, %63, %97, %93, %95, %78, %70, %67
+105:                                              ; preds = %27, %67, %58, %63, %97, %93, %95, %78, %70
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @__func__.dsa_do_verify) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef 524291, ptr noundef null) #8
   br label %106
 
 106:                                              ; preds = %100, %42, %39, %36, %53, %50, %47, %105
-  %.078102 = phi i32 [ -1, %105 ], [ %104, %100 ], [ 0, %42 ], [ 0, %39 ], [ 0, %36 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ]
+  %.078102 = phi i32 [ -1, %105 ], [ 0, %36 ], [ %104, %100 ], [ 0, %42 ], [ 0, %39 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ]
   call void @BN_CTX_free(ptr noundef %31) #8
   call void @BN_free(ptr noundef %28) #8
   call void @BN_free(ptr noundef %29) #8

@@ -898,7 +898,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.37079381
   unreachable
 
 common.resume:                                    ; preds = %37, %30, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %31, %30 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %19, %18 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"
@@ -1048,7 +1048,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.37079381
   unreachable
 
 common.resume:                                    ; preds = %37, %30, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %31, %30 ], [ %38, %37 ]
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %19, %18 ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e81deeb22fcae4eE.llvm.3707938170552112821.exit": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E.exit"

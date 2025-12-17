@@ -872,7 +872,7 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   br i1 %exitcond.not.i57.i, label %Fraig_GetSmallestColumn.exit.i, label %.lr.ph.i54.i, !llvm.loop !74
 
 Fraig_GetSmallestColumn.exit.i:                   ; preds = %218, %.lr.ph.i54.i
-  %.018.i.i = phi i32 [ %.116.i.i, %218 ], [ %215, %.lr.ph.i54.i ]
+  %.018.i.i = phi i32 [ %215, %.lr.ph.i54.i ], [ %.116.i.i, %218 ]
   %.not.i = icmp eq i32 %.018.i.i, -1
   br i1 %.not.i, label %.preheader.i, label %220
 

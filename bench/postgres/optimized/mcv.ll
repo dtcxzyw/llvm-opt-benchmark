@@ -294,7 +294,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br label %sort_item_compare.exit.thread.us.i
 
 sort_item_compare.exit.us.i:                      ; preds = %119, %114
-  %.0.i.i.us.i = phi i32 [ %121, %119 ], [ %116, %114 ]
+  %.0.i.i.us.i = phi i32 [ %116, %114 ], [ %121, %119 ]
   %122 = icmp eq i32 %.0.i.i.us.i, 0
   %.pre113.i = load ptr, ptr %92, align 8
   br i1 %122, label %sort_item_compare.exit.thread72.us.i, label %sort_item_compare.exit.thread.us.i
@@ -1275,8 +1275,8 @@ fetch_att.exit:                                   ; preds = %274, %276, %278, %2
   br i1 %349, label %337, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %337, %320, %296, %fetch_att.exit, %.preheader333, %.preheader331, %.preheader329, %.preheader328, %313
-  %.2278 = phi ptr [ %.0276367, %313 ], [ %.0276367, %.preheader328 ], [ %.0276367, %.preheader329 ], [ %.0276367, %.preheader331 ], [ %.0276367, %.preheader333 ], [ %270, %fetch_att.exit ], [ %301, %296 ], [ %326, %320 ], [ %340, %337 ]
-  %.1271 = phi ptr [ %.0270368, %313 ], [ %.0270368, %.preheader328 ], [ %.0270368, %.preheader329 ], [ %.0270368, %.preheader331 ], [ %.0270368, %.preheader333 ], [ %.0270368, %fetch_att.exit ], [ %309, %296 ], [ %333, %320 ], [ %346, %337 ]
+  %.2278 = phi ptr [ %.0276367, %313 ], [ %.0276367, %.preheader328 ], [ %.0276367, %.preheader329 ], [ %.0276367, %.preheader331 ], [ %.0276367, %.preheader333 ], [ %326, %320 ], [ %270, %fetch_att.exit ], [ %301, %296 ], [ %340, %337 ]
+  %.1271 = phi ptr [ %.0270368, %313 ], [ %.0270368, %.preheader328 ], [ %.0270368, %.preheader329 ], [ %.0270368, %.preheader331 ], [ %.0270368, %.preheader333 ], [ %333, %320 ], [ %.0270368, %fetch_att.exit ], [ %309, %296 ], [ %346, %337 ]
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %exitcond427.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count426
   br i1 %exitcond427.not, label %.lr.ph376.us.preheader, label %.lr.ph371, !llvm.loop !25
@@ -1882,7 +1882,7 @@ store_att_byval.exit:                             ; preds = %278, %280, %282, %2
   br label %324
 
 324:                                              ; preds = %306, %311, %316, %320
-  %325 = phi i32 [ %319, %316 ], [ %323, %320 ], [ 8, %306 ], [ %313, %311 ]
+  %325 = phi i32 [ %323, %320 ], [ %319, %316 ], [ 8, %306 ], [ %313, %311 ]
   store i32 %325, ptr %.1310355, align 1
   %326 = getelementptr inbounds nuw i8, ptr %.1310355, i64 4
   %327 = load i8, ptr %303, align 1
@@ -2160,7 +2160,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   br label %116
 
 116:                                              ; preds = %111, %._crit_edge
-  %.0 = phi i64 [ %105, %._crit_edge ], [ 0, %111 ]
+  %.0 = phi i64 [ 0, %111 ], [ %105, %._crit_edge ]
   ret i64 %.0
 }
 
@@ -2245,7 +2245,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
   br label %10
 
 10:                                               ; preds = %4, %7, %9
-  %.012 = phi double [ 1.000000e+00, %9 ], [ %5, %7 ], [ 0.000000e+00, %4 ]
+  %.012 = phi double [ %5, %7 ], [ 1.000000e+00, %9 ], [ 0.000000e+00, %4 ]
   %11 = fsub double 1.000000e+00, %3
   %12 = fcmp ogt double %.012, %11
   %.1 = select i1 %12, double %11, double %.012
@@ -2261,7 +2261,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
   br label %18
 
 18:                                               ; preds = %10, %15, %17
-  %.0 = phi double [ 1.000000e+00, %17 ], [ %13, %15 ], [ 0.000000e+00, %10 ]
+  %.0 = phi double [ %13, %15 ], [ 1.000000e+00, %17 ], [ 0.000000e+00, %10 ]
   ret double %.0
 }
 
@@ -3212,7 +3212,7 @@ define internal i32 @sort_item_compare(ptr noundef readonly captures(none) %0, p
   br label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %16, %17, %22, %26, %33
-  %.0.i = phi i32 [ %36, %33 ], [ %29, %26 ], [ 0, %16 ], [ %..i, %17 ], [ %.12.i, %22 ]
+  %.0.i = phi i32 [ %29, %26 ], [ %..i, %17 ], [ 0, %16 ], [ %.12.i, %22 ], [ %36, %33 ]
   ret i32 %.0.i
 }
 

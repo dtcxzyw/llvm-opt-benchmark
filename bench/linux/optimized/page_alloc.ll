@@ -1018,8 +1018,8 @@ define internal fastcc void @__free_one_page(ptr noundef %0, i64 noundef %1, ptr
   br label %173
 
 .thread8:                                         ; preds = %.thread7, %139, %133, %121, %119
-  %160 = phi ptr [ %106, %139 ], [ %106, %133 ], [ %106, %121 ], [ %106, %119 ], [ %100, %.thread7 ]
-  %161 = phi i64 [ %108, %139 ], [ %108, %133 ], [ %108, %121 ], [ %108, %119 ], [ 10, %.thread7 ]
+  %160 = phi ptr [ %106, %119 ], [ %106, %139 ], [ %106, %133 ], [ %106, %121 ], [ %100, %.thread7 ]
+  %161 = phi i64 [ %108, %119 ], [ %108, %139 ], [ %108, %133 ], [ %108, %121 ], [ 10, %.thread7 ]
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %163 = getelementptr %struct.free_area, ptr %162, i64 %161
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
@@ -1627,7 +1627,7 @@ define dso_local ptr @__pageblock_pfn_to_page(i64 noundef %0, i64 noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %98, %72, %35, %9, %3, %145, %136, %128, %65
-  %151 = phi ptr [ null, %65 ], [ null, %128 ], [ null, %136 ], [ %150, %145 ], [ null, %3 ], [ null, %9 ], [ null, %35 ], [ null, %72 ], [ null, %98 ]
+  %151 = phi ptr [ null, %65 ], [ null, %128 ], [ null, %136 ], [ %150, %145 ], [ null, %35 ], [ null, %3 ], [ null, %9 ], [ null, %98 ], [ null, %72 ]
   ret ptr %151
 }
 
@@ -1999,12 +1999,12 @@ define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32
   br i1 %60, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %43, %.split6.us.split.split.us, %.split6.us.split.us, %._crit_edge, %57
-  %.ph = phi i32 [ %.lcssa, %57 ], [ %.lcssa, %._crit_edge ], [ %19, %.split6.us.split.us ], [ %29, %.split6.us.split.split.us ], [ %38, %43 ]
+  %.ph = phi i32 [ %.lcssa, %._crit_edge ], [ %.lcssa, %57 ], [ %29, %.split6.us.split.split.us ], [ %19, %.split6.us.split.us ], [ %38, %43 ]
   store i8 1, ptr %4, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %44, %34, %24, %.loopexit.sink.split, %.backedge.preheader, %57, %5
-  %61 = phi i32 [ -1, %5 ], [ %.lcssa, %57 ], [ -1, %.backedge.preheader ], [ %.ph, %.loopexit.sink.split ], [ -1, %24 ], [ -1, %34 ], [ -1, %44 ], [ -1, %45 ]
+  %61 = phi i32 [ -1, %5 ], [ %.lcssa, %57 ], [ -1, %.backedge.preheader ], [ %.ph, %.loopexit.sink.split ], [ -1, %34 ], [ -1, %24 ], [ -1, %44 ], [ -1, %45 ]
   ret i32 %61
 }
 
@@ -3075,7 +3075,7 @@ define internal fastcc void @free_unref_page_commit(ptr noundef %0, ptr noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28, %40, %37, %33
-  %42 = phi i1 [ false, %33 ], [ true, %37 ], [ %41, %40 ], [ false, %28 ]
+  %42 = phi i1 [ false, %33 ], [ %41, %40 ], [ true, %37 ], [ false, %28 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = or i8 %.pre, 1
   store i8 %44, ptr %43, align 8
@@ -3180,7 +3180,7 @@ define internal fastcc void @free_unref_page_commit(ptr noundef %0, ptr noundef 
   br label %109
 
 109:                                              ; preds = %105, %101, %99, %93, %87, %80, %62
-  %110 = phi i32 [ %86, %80 ], [ 0, %62 ], [ %72, %87 ], [ %98, %93 ], [ %72, %99 ], [ %72, %105 ], [ %72, %101 ]
+  %110 = phi i32 [ %72, %101 ], [ %86, %80 ], [ 0, %62 ], [ %72, %87 ], [ %98, %93 ], [ %72, %99 ], [ %72, %105 ]
   %111 = icmp slt i32 %23, %110
   br i1 %111, label %148, label %115
 
@@ -4719,8 +4719,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   br label %.thread22
 
 .thread22:                                        ; preds = %179, %143, %127, %91, %.thread22.sink.split, %189, %225, %196, %.thread.thread, %20
-  %313 = phi i32 [ %15, %20 ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %15, %189 ], [ %.ph, %.thread22.sink.split ], [ %15, %91 ], [ %15, %127 ], [ %15, %143 ], [ %15, %179 ]
-  %314 = phi i32 [ %0, %20 ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %189 ], [ %56, %.thread22.sink.split ], [ %56, %91 ], [ %56, %127 ], [ %56, %143 ], [ %56, %179 ]
+  %313 = phi i32 [ %15, %20 ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %15, %189 ], [ %.ph, %.thread22.sink.split ], [ %15, %127 ], [ %15, %91 ], [ %15, %143 ], [ %15, %179 ]
+  %314 = phi i32 [ %0, %20 ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %189 ], [ %56, %.thread22.sink.split ], [ %56, %127 ], [ %56, %91 ], [ %56, %143 ], [ %56, %179 ]
   %315 = tail call ptr @__alloc_pages(i32 noundef %314, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   %316 = icmp eq ptr %315, null
   br i1 %316, label %310, label %317
@@ -6348,10 +6348,10 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   br i1 %428, label %399, label %.loopexit.thread, !llvm.loop !114
 
 .loopexit.thread:                                 ; preds = %419, %424, %find_suitable_fallback.exit, %.loopexit
-  %429 = phi i8 [ %.pre193, %.loopexit ], [ 1, %find_suitable_fallback.exit ], [ %426, %424 ], [ %421, %419 ]
+  %429 = phi i8 [ %.pre193, %.loopexit ], [ 1, %find_suitable_fallback.exit ], [ %421, %419 ], [ %426, %424 ]
   %430 = phi ptr [ %388, %.loopexit ], [ %317, %find_suitable_fallback.exit ], [ %402, %424 ], [ %402, %419 ]
-  %431 = phi i32 [ %389, %.loopexit ], [ 10, %find_suitable_fallback.exit ], [ 11, %424 ], [ %423, %419 ]
-  %432 = phi i32 [ %390, %.loopexit ], [ %.lcssa.i, %find_suitable_fallback.exit ], [ -1, %424 ], [ %412, %419 ]
+  %431 = phi i32 [ %389, %.loopexit ], [ 10, %find_suitable_fallback.exit ], [ %423, %419 ], [ 11, %424 ]
+  %432 = phi i32 [ %390, %.loopexit ], [ %.lcssa.i, %find_suitable_fallback.exit ], [ %412, %419 ], [ -1, %424 ]
   %433 = sext i32 %432 to i64
   %434 = getelementptr %struct.list_head, ptr %430, i64 %433
   %435 = load volatile ptr, ptr %434, align 8
@@ -6509,7 +6509,7 @@ find_suitable_fallback.exit:                      ; preds = %.backedge.i, %375
   br label %zone_statistics.exit
 
 zone_statistics.exit:                             ; preds = %519, %.loopexit71, %281, %305, %.loopexit73
-  %523 = phi ptr [ null, %.loopexit73 ], [ %272, %281 ], [ %272, %305 ], [ %468, %.loopexit71 ], [ %468, %519 ]
+  %523 = phi ptr [ null, %.loopexit73 ], [ %272, %305 ], [ %272, %281 ], [ %468, %.loopexit71 ], [ %468, %519 ]
   br i1 %73, label %536, label %524
 
 524:                                              ; preds = %zone_statistics.exit
@@ -6545,8 +6545,8 @@ zone_statistics.exit:                             ; preds = %519, %.loopexit71, 
   br label %.thread67
 
 .thread65:                                        ; preds = %238, %233, %219, %223, %536, %92, %79
-  %542 = phi i8 [ %98, %536 ], [ 0, %92 ], [ %75, %79 ], [ %98, %223 ], [ %98, %219 ], [ %98, %233 ], [ %98, %238 ]
-  %543 = phi ptr [ %97, %536 ], [ %93, %92 ], [ %76, %79 ], [ %97, %223 ], [ %97, %219 ], [ %97, %233 ], [ %97, %238 ]
+  %542 = phi i8 [ %98, %233 ], [ %98, %219 ], [ %75, %79 ], [ %98, %536 ], [ 0, %92 ], [ %98, %223 ], [ %98, %238 ]
+  %543 = phi ptr [ %97, %233 ], [ %97, %219 ], [ %76, %79 ], [ %97, %536 ], [ %93, %92 ], [ %97, %223 ], [ %97, %238 ]
   %544 = getelementptr i8, ptr %77, i64 16
   %545 = load i32, ptr %8, align 4
   %546 = load ptr, ptr %22, align 8
@@ -6582,7 +6582,7 @@ zone_statistics.exit:                             ; preds = %519, %.loopexit71, 
   br label %.split, !llvm.loop !145
 
 .thread67:                                        ; preds = %.loopexit80, %4, %538, %541
-  %562 = phi ptr [ %523, %541 ], [ %523, %538 ], [ null, %4 ], [ null, %.loopexit80 ]
+  %562 = phi ptr [ %523, %538 ], [ %523, %541 ], [ null, %4 ], [ null, %.loopexit80 ]
   ret ptr %562
 }
 
@@ -7641,7 +7641,7 @@ wake_all_kswapds.exit29:                          ; preds = %257, %230, %214
   br label %.thread37
 
 .thread37:                                        ; preds = %601, %604, %196, %wake_all_kswapds.exit, %545, %333, %.thread36, %336, %304, %.thread50, %609
-  %611 = phi ptr [ null, %609 ], [ %.ph49, %.thread50 ], [ %334, %333 ], [ %306, %304 ], [ %338, %336 ], [ %340, %.thread36 ], [ %546, %545 ], [ %602, %601 ], [ %197, %196 ], [ %159, %wake_all_kswapds.exit ], [ %605, %604 ]
+  %611 = phi ptr [ null, %609 ], [ %.ph49, %.thread50 ], [ %546, %545 ], [ %340, %.thread36 ], [ %334, %333 ], [ %306, %304 ], [ %338, %336 ], [ %159, %wake_all_kswapds.exit ], [ %605, %604 ], [ %602, %601 ], [ %197, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %611
 }
@@ -8195,7 +8195,7 @@ define dso_local noalias ptr @alloc_pages_exact(i64 noundef %0, i32 noundef %1) 
   br i1 %48, label %.preheader, label %.thread, !llvm.loop !183
 
 .thread:                                          ; preds = %.preheader, %6, %.loopexit, %14
-  %49 = phi i64 [ %20, %.loopexit ], [ 0, %14 ], [ 0, %6 ], [ %20, %.preheader ]
+  %49 = phi i64 [ 0, %14 ], [ %20, %.loopexit ], [ 0, %6 ], [ %20, %.preheader ]
   %50 = inttoptr i64 %49 to ptr
   ret ptr %50
 }
@@ -9303,7 +9303,7 @@ define dso_local i64 @free_reserved_area(ptr noundef %0, ptr noundef %1, i32 nou
   br label %.thread
 
 .thread:                                          ; preds = %4, %71, %70
-  %74 = phi i64 [ %68, %71 ], [ %68, %70 ], [ 0, %4 ]
+  %74 = phi i64 [ %68, %70 ], [ %68, %71 ], [ 0, %4 ]
   ret i64 %74
 }
 
@@ -10344,7 +10344,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @free_tail_page_prepare(ptr n
   br i1 %70, label %72, label %.thread, !prof !7
 
 .thread:                                          ; preds = %30, %33, %37, %29, %68, %20, %16, %12, %8
-  %71 = phi ptr [ @.str.23, %8 ], [ @.str.24, %12 ], [ @.str.25, %16 ], [ @.str.26, %20 ], [ @.str.28, %68 ], [ @.str.27, %29 ], [ @.str.27, %37 ], [ @.str.27, %33 ], [ @.str.27, %30 ]
+  %71 = phi ptr [ @.str.23, %8 ], [ @.str.24, %12 ], [ @.str.25, %16 ], [ @.str.26, %20 ], [ @.str.27, %30 ], [ @.str.28, %68 ], [ @.str.27, %29 ], [ @.str.27, %37 ], [ @.str.27, %33 ]
   tail call fastcc void @bad_page(ptr noundef %1, ptr noundef nonnull %71)
   br label %72
 

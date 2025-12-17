@@ -837,7 +837,7 @@ get_lcaf_data.exit:                               ; preds = %16, %19
   br label %55
 
 55:                                               ; preds = %5, %get_lcaf_data.exit, %49, %45, %35, %25, %12, %8, %7
-  %.0 = phi ptr [ @.str, %7 ], [ %11, %8 ], [ %15, %12 ], [ %34, %25 ], [ %44, %35 ], [ %48, %45 ], [ %54, %49 ], [ %24, %get_lcaf_data.exit ], [ null, %5 ]
+  %.0 = phi ptr [ %24, %get_lcaf_data.exit ], [ @.str, %7 ], [ %11, %8 ], [ %15, %12 ], [ %34, %25 ], [ %44, %35 ], [ %54, %49 ], [ %48, %45 ], [ null, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
@@ -2065,7 +2065,7 @@ dissect_lcaf_kv_addr_pair.exit:                   ; preds = %643, %647, %651, %6
   br label %683
 
 dissect_lcaf_natt.exit:                           ; preds = %dissect_lcaf_rle_entry.exit, %dissect_lcaf_elp_hop.exit, %.lr.ph170, %.preheader156, %.preheader, %302, %668, %dissect_lcaf_kv_addr_pair.exit, %dissect_lcaf_src_dst_key.exit, %dissect_lcaf_mcast_info.exit, %dissect_lcaf_nonce_loc.exit, %dissect_lcaf_geo.exit, %dissect_lcaf_asn.exit, %dissect_lcaf_iid.exit, %dissect_lcaf_afi_list.exit, %53
-  %.0130 = phi i32 [ %58, %53 ], [ %.0.i, %dissect_lcaf_afi_list.exit ], [ %.0.i131, %dissect_lcaf_iid.exit ], [ %.0.i133, %dissect_lcaf_asn.exit ], [ %.0.i135, %dissect_lcaf_geo.exit ], [ %.0.i138, %dissect_lcaf_nonce_loc.exit ], [ %.1.i140, %dissect_lcaf_mcast_info.exit ], [ %.1.i143, %dissect_lcaf_src_dst_key.exit ], [ %.1.i148, %dissect_lcaf_kv_addr_pair.exit ], [ %59, %668 ], [ %314, %302 ], [ %58, %.preheader ], [ %58, %.preheader156 ], [ %320, %.lr.ph170 ], [ %483, %dissect_lcaf_elp_hop.exit ], [ %594, %dissect_lcaf_rle_entry.exit ]
+  %.0130 = phi i32 [ %58, %53 ], [ %.0.i, %dissect_lcaf_afi_list.exit ], [ %.0.i131, %dissect_lcaf_iid.exit ], [ %.0.i133, %dissect_lcaf_asn.exit ], [ %.0.i135, %dissect_lcaf_geo.exit ], [ %59, %668 ], [ %.0.i138, %dissect_lcaf_nonce_loc.exit ], [ %.1.i140, %dissect_lcaf_mcast_info.exit ], [ %.1.i143, %dissect_lcaf_src_dst_key.exit ], [ %.1.i148, %dissect_lcaf_kv_addr_pair.exit ], [ %314, %302 ], [ %58, %.preheader ], [ %58, %.preheader156 ], [ %483, %dissect_lcaf_elp_hop.exit ], [ %320, %.lr.ph170 ], [ %594, %dissect_lcaf_rle_entry.exit ]
   call void @decrement_dissection_depth(ptr noundef %1)
   br label %683
 

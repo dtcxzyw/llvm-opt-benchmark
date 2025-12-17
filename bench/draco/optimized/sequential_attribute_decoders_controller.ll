@@ -219,7 +219,7 @@ _ZNSt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS1_EED2
   br i1 %72, label %33, label %.critedge18
 
 .critedge18:                                      ; preds = %59, %33, %34, %_ZNSt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit, %2
-  %.015 = phi i1 [ false, %2 ], [ true, %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit ], [ false, %59 ], [ true, %33 ], [ false, %34 ], [ false, %_ZNSt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS1_EED2Ev.exit ]
+  %.015 = phi i1 [ false, %2 ], [ true, %_ZNSt6vectorISt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit ], [ false, %34 ], [ true, %33 ], [ false, %59 ], [ false, %_ZNSt10unique_ptrIN5draco26SequentialAttributeDecoderESt14default_deleteIS1_EED2Ev.exit ]
   ret i1 %.015
 }
 
@@ -301,7 +301,7 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController16Dec
   br label %_ZN5draco17AttributesDecoder16DecodeAttributesEPNS_13DecoderBufferE.exit
 
 _ZN5draco17AttributesDecoder16DecodeAttributesEPNS_13DecoderBufferE.exit: ; preds = %.lr.ph, %48, %43, %.critedge, %2, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %.critedge ], [ false, %43 ], [ %52, %48 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %43 ], [ %52, %48 ], [ false, %.critedge ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -623,7 +623,7 @@ _ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %42 = icmp sgt i32 %.0.i.i.i.i.i.i, -1
   br i1 %42, label %43, label %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread
 
-_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread: ; preds = %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNKSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i, %4, %_ZNKSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit, %_ZNKSt3mapIN5draco17GeometryAttribute4TypeENS0_7OptionsESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit.i, %4, %_ZNKSt8_Rb_treeIN5draco17GeometryAttribute4TypeESt4pairIKS2_NS0_7OptionsEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i.i, %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br label %43
 
 43:                                               ; preds = %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNK5draco12DracoOptionsINS_17GeometryAttribute4TypeEE20FindAttributeOptionsERKS2_.exit.thread
@@ -690,7 +690,7 @@ define void @_ZN5draco37SequentialAttributeDecodersController23CreateSequentialD
   br label %20
 
 _ZNSt10unique_ptrIN5draco32SequentialNormalAttributeDecoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %3, %16, %12, %8, %4
-  %.sink = phi ptr [ %5, %4 ], [ %9, %8 ], [ %13, %12 ], [ %17, %16 ], [ null, %3 ]
+  %.sink = phi ptr [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %5, %4 ], [ null, %3 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !14
   ret void
 

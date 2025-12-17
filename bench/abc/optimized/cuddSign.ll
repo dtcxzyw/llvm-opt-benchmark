@@ -137,7 +137,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   br label %.thread
 
 .thread:                                          ; preds = %5, %66, %62
-  %.04760 = phi ptr [ %14, %66 ], [ %14, %62 ], [ null, %5 ]
+  %.04760 = phi ptr [ %14, %62 ], [ %14, %66 ], [ null, %5 ]
   %67 = tail call i32 @st__foreach(ptr noundef nonnull %3, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #6
   tail call void @st__free_table(ptr noundef nonnull %3) #6
   %68 = icmp eq ptr %.04760, null
@@ -476,7 +476,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   br label %188
 
 188:                                              ; preds = %179, %183, %187, %186, %57, %44, %28, %6
-  %.0106 = phi ptr [ %7, %6 ], [ null, %28 ], [ null, %44 ], [ null, %57 ], [ null, %186 ], [ null, %187 ], [ %.pre, %183 ], [ %.pre137, %179 ]
+  %.0106 = phi ptr [ %7, %6 ], [ null, %28 ], [ null, %57 ], [ null, %187 ], [ null, %44 ], [ null, %186 ], [ %.pre, %183 ], [ %.pre137, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0106
 }

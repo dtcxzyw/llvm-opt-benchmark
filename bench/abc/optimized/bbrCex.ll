@@ -345,7 +345,7 @@ Abc_Clock.exit206:                                ; preds = %153, %156
   br label %166
 
 166:                                              ; preds = %150, %Abc_Clock.exit206, %98, %97, %33, %34
-  %.0 = phi ptr [ null, %34 ], [ null, %33 ], [ null, %97 ], [ null, %98 ], [ %21, %Abc_Clock.exit206 ], [ %21, %150 ]
+  %.0 = phi ptr [ null, %98 ], [ null, %33 ], [ null, %34 ], [ null, %97 ], [ %21, %Abc_Clock.exit206 ], [ %21, %150 ]
   ret ptr %.0
 }
 

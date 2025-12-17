@@ -561,13 +561,13 @@ _ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread: ; preds = %
           cleanup
   br label %.body
 
-.loopexit392:                                     ; preds = %102, %75, %74
-  %193 = phi ptr [ %61, %74 ], [ %61, %75 ], [ %.pre783, %102 ]
-  %194 = phi ptr [ %60, %74 ], [ %60, %75 ], [ %.pre, %102 ]
-  %.0176.ph = phi i32 [ %55, %74 ], [ %55, %75 ], [ %.3, %102 ]
-  %.0175.ph = phi i32 [ %52, %74 ], [ %52, %75 ], [ %95, %102 ]
-  %.0172.ph = phi i32 [ %26, %74 ], [ %26, %75 ], [ %91, %102 ]
-  %.0170.ph = phi i1 [ false, %74 ], [ true, %75 ], [ %89, %102 ]
+.loopexit392:                                     ; preds = %102, %74, %75
+  %193 = phi ptr [ %61, %75 ], [ %61, %74 ], [ %.pre783, %102 ]
+  %194 = phi ptr [ %60, %75 ], [ %60, %74 ], [ %.pre, %102 ]
+  %.0176.ph = phi i32 [ %55, %75 ], [ %55, %74 ], [ %.3, %102 ]
+  %.0175.ph = phi i32 [ %52, %75 ], [ %52, %74 ], [ %95, %102 ]
+  %.0172.ph = phi i32 [ %26, %75 ], [ %26, %74 ], [ %91, %102 ]
+  %.0170.ph = phi i1 [ true, %75 ], [ false, %74 ], [ %89, %102 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -903,10 +903,10 @@ _ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit: ; preds = %_ZN5ZXi
   br label %327
 
 327:                                              ; preds = %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread
-  %.0195943 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ], [ %200, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ]
-  %.0172363941 = phi i32 [ 0, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ], [ %.0172.ph, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ]
-  %.0170365939 = phi i1 [ true, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ], [ %.0170.ph, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ]
-  %328 = phi i32 [ 11, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ], [ %spec.select, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ]
+  %.0195943 = phi i32 [ %200, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ], [ 0, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ]
+  %.0172363941 = phi i32 [ %.0172.ph, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ], [ 0, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ]
+  %.0170365939 = phi i1 [ %.0170.ph, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ], [ true, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ]
+  %328 = phi i32 [ %spec.select, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit ], [ 11, %_ZN5ZXing5AztecL19GenerateModeMessageEbiiRNS_8BitArrayE.exit.thread ]
   %329 = shl nsw i32 %.0172363941, 2
   %330 = add nsw i32 %329, %328
   %331 = icmp slt i32 %330, 0
@@ -1326,8 +1326,8 @@ _ZNK5ZXing8BitArray3getEi.exit76.i:               ; preds = %517
   br i1 %.not.i.i.i.i.i77.i, label %_ZN5ZXing9BitMatrix3setEiib.exit78.i, label %.invoke1134
 
 .invoke1134:                                      ; preds = %522, %517, %506, %501, %490, %485, %474, %462, %449, %444, %433, %428, %416, %411, %400, %391
-  %532 = phi i64 [ %indvars.iv298.i, %391 ], [ %404, %400 ], [ %413, %411 ], [ %421, %416 ], [ %430, %428 ], [ %437, %433 ], [ %446, %444 ], [ %454, %449 ], [ %indvars.iv.i, %462 ], [ %478, %474 ], [ %487, %485 ], [ %494, %490 ], [ %503, %501 ], [ %510, %506 ], [ %519, %517 ], [ %526, %522 ]
-  %533 = phi i64 [ %397, %391 ], [ %409, %400 ], [ %.pre-phi317.i, %411 ], [ %426, %416 ], [ %.pre-phi323.i, %428 ], [ %442, %433 ], [ %.pre-phi329.i, %444 ], [ %459, %449 ], [ %471, %462 ], [ %483, %474 ], [ %.pre-phi335.i, %485 ], [ %499, %490 ], [ %.pre-phi341.i, %501 ], [ %515, %506 ], [ %.pre-phi347.i, %517 ], [ %531, %522 ]
+  %532 = phi i64 [ %454, %449 ], [ %446, %444 ], [ %437, %433 ], [ %430, %428 ], [ %421, %416 ], [ %413, %411 ], [ %404, %400 ], [ %indvars.iv298.i, %391 ], [ %519, %517 ], [ %510, %506 ], [ %503, %501 ], [ %494, %490 ], [ %487, %485 ], [ %478, %474 ], [ %indvars.iv.i, %462 ], [ %526, %522 ]
+  %533 = phi i64 [ %459, %449 ], [ %.pre-phi329.i, %444 ], [ %442, %433 ], [ %.pre-phi323.i, %428 ], [ %426, %416 ], [ %.pre-phi317.i, %411 ], [ %409, %400 ], [ %397, %391 ], [ %.pre-phi347.i, %517 ], [ %515, %506 ], [ %.pre-phi341.i, %501 ], [ %499, %490 ], [ %.pre-phi335.i, %485 ], [ %483, %474 ], [ %471, %462 ], [ %531, %522 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, i64 noundef %532, i64 noundef %533) #20
           to label %.cont1135 unwind label %652
 
@@ -1538,8 +1538,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit289:              ; preds = %615
   br i1 %.not.i.i.i.i.i293, label %_ZN5ZXing9BitMatrix3setEiib.exit295, label %.invoke1132
 
 .invoke1132:                                      ; preds = %573, %567, %635, %630, %615, %610, %593, %588
-  %647 = phi i64 [ %589, %588 ], [ %603, %593 ], [ %611, %610 ], [ %623, %615 ], [ %631, %630 ], [ %641, %635 ], [ %569, %567 ], [ %579, %573 ]
-  %648 = phi i64 [ %375, %588 ], [ %608, %593 ], [ %375, %610 ], [ %628, %615 ], [ %375, %630 ], [ %646, %635 ], [ %375, %567 ], [ %584, %573 ]
+  %647 = phi i64 [ %631, %630 ], [ %623, %615 ], [ %611, %610 ], [ %603, %593 ], [ %589, %588 ], [ %641, %635 ], [ %569, %567 ], [ %579, %573 ]
+  %648 = phi i64 [ %375, %630 ], [ %628, %615 ], [ %375, %610 ], [ %608, %593 ], [ %375, %588 ], [ %646, %635 ], [ %375, %567 ], [ %584, %573 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, i64 noundef %647, i64 noundef %648) #20
           to label %.cont1133 unwind label %586
 
@@ -1661,8 +1661,8 @@ _ZN5ZXing5AztecL15DrawModeMessageERNS_9BitMatrixEbiRKNS_8BitArrayE.exit: ; preds
   br i1 %710, label %.lr.ph574.us, label %_ZNSt6vectorIiSaIiEED2Ev.exit, !llvm.loop !40
 
 .split588.us.invoke:                              ; preds = %693, %682, %671, %661
-  %711 = phi i64 [ %665, %661 ], [ %676, %671 ], [ %687, %682 ], [ %698, %693 ]
-  %712 = phi i64 [ %670, %661 ], [ %681, %671 ], [ %692, %682 ], [ %703, %693 ]
+  %711 = phi i64 [ %687, %682 ], [ %676, %671 ], [ %665, %661 ], [ %698, %693 ]
+  %712 = phi i64 [ %692, %682 ], [ %681, %671 ], [ %670, %661 ], [ %703, %693 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, i64 noundef %711, i64 noundef %712) #20
           to label %.split588.us.cont unwind label %713
 
@@ -1760,7 +1760,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit319:                 ; preds = %718, %715, %342
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %340, %_ZNSt6vectorIiSaIiEED2Ev.exit319, %_ZN5ZXing8BitArrayD2Ev.exit24.i
-  %.pn210.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi.i, %_ZN5ZXing8BitArrayD2Ev.exit24.i ], [ %.pn210.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit319 ], [ %341, %340 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit374, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit381, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit384, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn210.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi.i, %_ZN5ZXing8BitArrayD2Ev.exit24.i ], [ %341, %340 ], [ %.pn210.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit319 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit374, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit377, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit381, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit384, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %752 = load ptr, ptr %11, align 8, !tbaa !9
   %.not.i.i.i.i320 = icmp eq ptr %752, null
   br i1 %.not.i.i.i.i320, label %_ZN5ZXing8BitArrayD2Ev.exit321, label %753
@@ -1794,7 +1794,7 @@ _ZN5ZXing8BitArrayD2Ev.exit323:                   ; preds = %_ZN5ZXing8BitArrayD
   br label %766
 
 766:                                              ; preds = %.loopexit387, %.loopexit.split-lp388, %86, %70, %72, %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218, %47, %_ZN5ZXing8BitArrayD2Ev.exit323
-  %.pn210.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn210.pn.pn.pn, %_ZN5ZXing8BitArrayD2Ev.exit323 ], [ %.pn208, %47 ], [ %.pn208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %71, %70 ], [ %73, %72 ], [ %82, %81 ], [ %87, %86 ], [ %lpad.loopexit389, %.loopexit387 ], [ %lpad.loopexit.split-lp390, %.loopexit.split-lp388 ]
+  %.pn210.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn210.pn.pn.pn, %_ZN5ZXing8BitArrayD2Ev.exit323 ], [ %87, %86 ], [ %.pn208, %47 ], [ %.pn208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218 ], [ %82, %81 ], [ %71, %70 ], [ %73, %72 ], [ %lpad.loopexit389, %.loopexit387 ], [ %lpad.loopexit.split-lp390, %.loopexit.split-lp388 ]
   %767 = load ptr, ptr %7, align 8, !tbaa !9
   %.not.i.i.i.i324 = icmp eq ptr %767, null
   br i1 %.not.i.i.i.i324, label %_ZN5ZXing8BitArrayD2Ev.exit325, label %768
@@ -1918,7 +1918,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !43
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %.lobit = lshr i32 %1, 31
   %20 = add i32 %.0.i, %.lobit
   %21 = zext i32 %20 to i64
@@ -2588,7 +2588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i: ; preds = %_
   unreachable
 
 _ZN5ZXing5AztecL17GetGFFromWordSizeEi.exit:       ; preds = %47, %49, %51, %53, %55
-  %.07.i = phi ptr [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ]
+  %.07.i = phi ptr [ %54, %53 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %56, %55 ]
   %77 = load ptr, ptr %20, align 8, !tbaa !3
   %78 = load ptr, ptr %0, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2902,7 +2902,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit52:         ; preds = %_ZNSt6vectorIhSaIhE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit68, %.loopexit.split-lp69, %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i, %103, %151
-  %.pn.pn = phi { ptr, i32 } [ %.pn.i, %75 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i ], [ %152, %151 ], [ %104, %103 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i ], [ %.pn.i, %75 ], [ %152, %151 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %187 = load ptr, ptr %8, align 8, !tbaa !50
   %.not.i.i.i53 = icmp eq ptr %187, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIiSaIiEED2Ev.exit54, label %188
@@ -3619,9 +3619,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %15
 
 15:                                               ; preds = %.noexc15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
-  %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
-  %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %16 = phi i64 [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %14, %.noexc15 ]
+  %17 = phi ptr [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %11, %.noexc15 ]
+  %18 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %12, %.noexc15 ]
   store ptr %18, ptr %17, align 8, !tbaa !3
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %31, label %19

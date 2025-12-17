@@ -94,7 +94,7 @@ define dso_local range(i32 -1, 1) i32 @connTypeRegister(ptr noundef %0) local_un
   br label %26
 
 26:                                               ; preds = %20, %25, %14, %11
-  %.013 = phi i32 [ -1, %11 ], [ -1, %14 ], [ 0, %25 ], [ 0, %20 ]
+  %.013 = phi i32 [ -1, %14 ], [ -1, %11 ], [ 0, %25 ], [ 0, %20 ]
   ret i32 %.013
 }
 
@@ -163,7 +163,7 @@ define dso_local ptr @connectionByType(ptr noundef %0) local_unnamed_addr #0 {
   %.not12 = icmp eq i32 %9, 0
   br i1 %.not12, label %.loopexit, label %2
 
-10:                                               ; preds = %2, %3
+10:                                               ; preds = %3, %2
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !12
   %12 = icmp sgt i32 %11, 3
   br i1 %12, label %.loopexit, label %13
@@ -173,7 +173,7 @@ define dso_local ptr @connectionByType(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %13, %10
-  %.1 = phi ptr [ null, %10 ], [ null, %13 ], [ %5, %6 ]
+  %.1 = phi ptr [ null, %13 ], [ null, %10 ], [ %5, %6 ]
   ret ptr %.1
 }
 
@@ -215,7 +215,7 @@ connectionByType.exit:                            ; preds = %5
   store ptr %4, ptr @connectionTypeTcp.ct_tcp, align 8, !tbaa !10
   br label %14
 
-13:                                               ; preds = %9, %12
+13:                                               ; preds = %12, %9
   store ptr null, ptr @connectionTypeTcp.ct_tcp, align 8, !tbaa !10
   tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 98) #4
   tail call void @abort() #6
@@ -268,7 +268,7 @@ define dso_local ptr @connectionTypeTls() local_unnamed_addr #0 {
   br label %connectionByType.exit
 
 connectionByType.exit:                            ; preds = %6, %10, %13
-  %.1.i = phi ptr [ null, %10 ], [ null, %13 ], [ %5, %6 ]
+  %.1.i = phi ptr [ null, %13 ], [ null, %10 ], [ %5, %6 ]
   store ptr %.1.i, ptr @connectionTypeTls.ct_tls, align 8, !tbaa !10
   br label %14
 
@@ -312,7 +312,7 @@ define dso_local ptr @connectionTypeUnix() local_unnamed_addr #0 {
   br label %connectionByType.exit
 
 connectionByType.exit:                            ; preds = %5, %9, %12
-  %.1.i = phi ptr [ null, %9 ], [ null, %12 ], [ %4, %5 ]
+  %.1.i = phi ptr [ null, %12 ], [ null, %9 ], [ %4, %5 ]
   store ptr %.1.i, ptr @connectionTypeUnix.ct_unix, align 8, !tbaa !10
   br label %13
 
@@ -348,8 +348,8 @@ define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr noundef readonl
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %9, %2, %.split.loop.exit17
-  %11 = phi i32 [ %10, %.split.loop.exit17 ], [ -1, %2 ], [ -1, %9 ]
+.split.loop.exit:                                 ; preds = %2, %9, %.split.loop.exit17
+  %11 = phi i32 [ %10, %.split.loop.exit17 ], [ -1, %9 ], [ -1, %2 ]
   ret i32 %11
 }
 

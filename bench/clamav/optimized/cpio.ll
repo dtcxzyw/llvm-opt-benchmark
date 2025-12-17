@@ -173,9 +173,9 @@ sanitname.exit:                                   ; preds = %48, %37
   br label %59
 
 59:                                               ; preds = %57, %53, %22
-  %.156 = phi ptr [ %.055107, %22 ], [ %3, %57 ], [ %3, %53 ]
-  %.152 = phi i32 [ %.051109, %22 ], [ %spec.select, %57 ], [ %spec.select, %53 ]
-  %.1 = phi i64 [ %17, %22 ], [ %spec.select86, %57 ], [ %56, %53 ]
+  %.156 = phi ptr [ %.055107, %22 ], [ %3, %53 ], [ %3, %57 ]
+  %.152 = phi i32 [ %.051109, %22 ], [ %spec.select, %53 ], [ %spec.select, %57 ]
+  %.1 = phi i64 [ %17, %22 ], [ %56, %53 ], [ %spec.select86, %57 ]
   %.22..22..22.97 = load i16, ptr %.22..22..22..sroa_idx, align 2
   %rev74 = call i16 @llvm.bswap.i16(i16 %.22..22..22.97)
   %.in75 = select i1 %21, i16 %.22..22..22.97, i16 %rev74
@@ -234,7 +234,7 @@ fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, 
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %64, %69, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
-  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %66, %64 ], [ %71, %69 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
+  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %.backedge ], [ 0, %16 ], [ 0, %fmap_readn.exit ], [ %66, %64 ], [ %71, %69 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.148
@@ -440,12 +440,12 @@ sanitname.exit:                                   ; preds = %56, %46
   br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %65, %fmap_readn.exit48, %41, %35, %29, %28
-  %.str.12.sink = phi ptr [ @.str.8, %28 ], [ @.str.10, %29 ], [ @.str.11, %35 ], [ @.str.11, %41 ], [ @.str.11, %fmap_readn.exit48 ], [ @.str.12, %65 ]
+  %.str.12.sink = phi ptr [ @.str.11, %fmap_readn.exit48 ], [ @.str.10, %29 ], [ @.str.8, %28 ], [ @.str.11, %35 ], [ @.str.11, %41 ], [ @.str.12, %65 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.12.sink) #9
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %71, %75, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %1
-  %.128 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %71 ], [ %79, %75 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
+  %.128 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %.backedge ], [ 0, %23 ], [ 0, %fmap_readn.exit ], [ 1, %71 ], [ %79, %75 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -689,12 +689,12 @@ sanitname.exit:                                   ; preds = %57, %47
   br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %77, %fmap_readn.exit65, %42, %36, %30, %29, %.critedge
-  %.str.19.sink = phi ptr [ @.str.15, %.critedge ], [ @.str.15, %29 ], [ @.str.17, %30 ], [ @.str.18, %36 ], [ @.str.18, %42 ], [ @.str.18, %fmap_readn.exit65 ], [ @.str.19, %77 ]
+  %.str.19.sink = phi ptr [ @.str.18, %fmap_readn.exit65 ], [ @.str.17, %30 ], [ @.str.15, %29 ], [ @.str.15, %.critedge ], [ @.str.18, %36 ], [ @.str.18, %42 ], [ @.str.19, %77 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.19.sink) #9
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %83, %87, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %2
-  %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %83 ], [ %91, %87 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
+  %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %.backedge ], [ 0, %23 ], [ 0, %fmap_readn.exit ], [ 1, %83 ], [ %91, %87 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

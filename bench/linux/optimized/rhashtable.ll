@@ -192,7 +192,7 @@ define dso_local ptr @rhashtable_insert_slow(ptr noundef %0, ptr noundef %1, ptr
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.loopexit32, %101, %99, %94
-  %105 = phi ptr [ %97, %94 ], [ %100, %99 ], [ %104, %101 ], [ %93, %.loopexit32 ]
+  %105 = phi ptr [ %104, %101 ], [ %97, %94 ], [ %100, %99 ], [ %93, %.loopexit32 ]
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread21, label %107
 
@@ -339,8 +339,8 @@ select.unfold:                                    ; preds = %.loopexit32, %101, 
   %spec.select = select i1 %182, ptr inttoptr (i64 -11 to ptr), ptr inttoptr (i64 -2 to ptr)
   br label %.thread20
 
-.thread20:                                        ; preds = %.split47.us, %176, %175, %.loopexit
-  %.ph = phi ptr [ null, %175 ], [ null, %176 ], [ inttoptr (i64 -2 to ptr), %.loopexit ], [ %spec.select, %.split47.us ]
+.thread20:                                        ; preds = %.split47.us, %175, %176, %.loopexit
+  %.ph = phi ptr [ null, %175 ], [ %spec.select, %.split47.us ], [ inttoptr (i64 -2 to ptr), %.loopexit ], [ null, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
@@ -1815,8 +1815,8 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
   br label %45
 
 45:                                               ; preds = %2, %.thread
-  %46 = phi i64 [ %0, %2 ], [ 0, %.thread ]
-  %47 = phi ptr [ %6, %2 ], [ %23, %.thread ]
+  %46 = phi i64 [ 0, %.thread ], [ %0, %2 ]
+  %47 = phi ptr [ %23, %.thread ], [ %6, %2 ]
   %48 = trunc nuw i64 %0 to i32
   store i32 %48, ptr %47, align 64
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -1846,7 +1846,7 @@ define internal fastcc noundef ptr @bucket_table_alloc(i64 noundef range(i64 0, 
   br i1 %63, label %57, label %.thread6, !llvm.loop !54
 
 .thread6:                                         ; preds = %57, %39, %19, %8, %45
-  %64 = phi ptr [ %47, %45 ], [ null, %8 ], [ null, %19 ], [ null, %39 ], [ %47, %57 ]
+  %64 = phi ptr [ %47, %45 ], [ null, %8 ], [ null, %39 ], [ null, %19 ], [ %47, %57 ]
   ret ptr %64
 }
 
@@ -2903,7 +2903,7 @@ define internal fastcc noundef range(i32 -17, 1) i32 @rhashtable_rehash_alloc(pt
   br label %45
 
 45:                                               ; preds = %2, %44, %.loopexit
-  %46 = phi i32 [ -17, %44 ], [ 0, %.loopexit ], [ -12, %2 ]
+  %46 = phi i32 [ 0, %.loopexit ], [ -17, %44 ], [ -12, %2 ]
   ret i32 %46
 }
 

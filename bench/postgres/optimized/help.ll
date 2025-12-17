@@ -871,7 +871,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %.not121, label %.critedge2, label %69
 
 .critedge2:                                       ; preds = %71, %69, %.critedge
-  %.199 = phi i64 [ %.098.lcssa, %.critedge ], [ %.2100, %69 ], [ %.2100148, %71 ]
+  %.199 = phi i64 [ %.098.lcssa, %.critedge ], [ %.2100148, %71 ], [ %.2100, %69 ]
   %.not122 = icmp ult i64 %.199, %.0101158
   br i1 %.not122, label %74, label %.critedge2.thread
 
@@ -919,7 +919,7 @@ sub_0:                                            ; preds = %.lr.ph152
   br i1 %.not123, label %._crit_edge, label %.lr.ph152, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.tail.thread, %83
-  %.1 = phi i32 [ %.2, %.tail.thread ], [ %87, %83 ]
+  %.1 = phi i32 [ %87, %83 ], [ %.2, %.tail.thread ]
   %94 = icmp eq i32 %.1, 0
   br i1 %94, label %.critedge2.thread, label %95
 

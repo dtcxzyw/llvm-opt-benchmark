@@ -283,7 +283,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %126, %108, %97, %75
-  %.045.sink.i.i = phi i32 [ 17137663, %75 ], [ %101, %108 ], [ %101, %97 ], [ %spec.select.i.i, %126 ]
+  %.045.sink.i.i = phi i32 [ 17137663, %75 ], [ %101, %108 ], [ %spec.select.i.i, %126 ], [ %101, %97 ]
   %129 = add i32 %.04657.i.i, 1
   %130 = zext i32 %.04657.i.i to i64
   %131 = getelementptr inbounds nuw i32, ptr %63, i64 %130
@@ -291,7 +291,7 @@ lj_snap_grow_map.exit.i:                          ; preds = %59, %44
   br label %132
 
 132:                                              ; preds = %.sink.split.i.i, %122, %119, %117, %96, %75
-  %.2.i.i = phi i32 [ %.04657.i.i, %75 ], [ %.04657.i.i, %96 ], [ %.04657.i.i, %122 ], [ %.04657.i.i, %119 ], [ %.04657.i.i, %117 ], [ %129, %.sink.split.i.i ]
+  %.2.i.i = phi i32 [ %.04657.i.i, %96 ], [ %.04657.i.i, %75 ], [ %.04657.i.i, %119 ], [ %.04657.i.i, %117 ], [ %.04657.i.i, %122 ], [ %129, %.sink.split.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %70
   br i1 %exitcond.not.i.i, label %snapshot_slots.exit.i, label %71, !llvm.loop !52
@@ -1016,8 +1016,8 @@ define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %0, 
   %exitcond297.not = icmp eq i32 %3, %lftr.wideiv
   br i1 %exitcond297.not, label %._crit_edge.backedge, label %.lr.ph232, !llvm.loop !84
 
-.thread186:                                       ; preds = %175, %36, %90, %.lr.ph257, %.lr.ph262, %.preheader191, %.preheader, %.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ %89, %.thread ], [ 0, %.preheader ], [ 0, %.preheader191 ], [ 0, %.lr.ph262 ], [ 0, %.lr.ph257 ], [ %3, %90 ], [ %3, %36 ], [ %3, %175 ]
+.thread186:                                       ; preds = %175, %90, %36, %.lr.ph257, %.lr.ph262, %.preheader191, %.preheader, %.thread, %4
+  %.0 = phi i32 [ 0, %4 ], [ %89, %.thread ], [ 0, %.preheader191 ], [ 0, %.preheader ], [ 0, %.lr.ph257 ], [ 0, %.lr.ph262 ], [ %3, %36 ], [ %3, %90 ], [ %3, %175 ]
   ret i32 %.0
 }
 
@@ -1502,9 +1502,9 @@ snap_dedup.exit.thread:                           ; preds = %34, %snap_dedup.exi
   br label %74
 
 74:                                               ; preds = %50, %46, %48, %67, %snap_dedup.exit
-  %.0258 = phi i32 [ %43, %snap_dedup.exit ], [ %49, %48 ], [ %73, %67 ], [ 0, %46 ], [ %26, %50 ]
-  %.1256 = phi i32 [ %.0255470, %snap_dedup.exit ], [ %.0255470, %48 ], [ %.0255470, %67 ], [ %.0255470, %46 ], [ 1, %50 ]
-  %.1254 = phi i64 [ %.0253471, %snap_dedup.exit ], [ %44, %48 ], [ %44, %67 ], [ %44, %46 ], [ %44, %50 ]
+  %.0258 = phi i32 [ %43, %snap_dedup.exit ], [ 0, %46 ], [ %49, %48 ], [ %73, %67 ], [ %26, %50 ]
+  %.1256 = phi i32 [ %.0255470, %snap_dedup.exit ], [ %.0255470, %46 ], [ %.0255470, %48 ], [ %.0255470, %67 ], [ 1, %50 ]
+  %.1254 = phi i64 [ %.0253471, %snap_dedup.exit ], [ %44, %46 ], [ %44, %48 ], [ %44, %67 ], [ %44, %50 ]
   %75 = and i32 %25, 1245184
   %76 = or i32 %.0258, %75
   %77 = zext nneg i32 %26 to i64
@@ -2009,7 +2009,7 @@ snap_pref.exit368:                                ; preds = %313, %315, %snap_de
   br label %.loopexit450
 
 .loopexit450:                                     ; preds = %snap_pref.exit354, %118, %snap_pref.exit325, %snap_pref.exit368, %305, %303
-  %.5 = phi i32 [ %.3479, %303 ], [ %.3479, %305 ], [ %.3479, %snap_pref.exit368 ], [ %.3479, %118 ], [ 1, %snap_pref.exit325 ], [ 1, %snap_pref.exit354 ]
+  %.5 = phi i32 [ %.3479, %snap_pref.exit368 ], [ %.3479, %305 ], [ %.3479, %303 ], [ %.3479, %118 ], [ 1, %snap_pref.exit325 ], [ 1, %snap_pref.exit354 ]
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
   br i1 %exitcond519.not, label %.preheader, label %108, !llvm.loop !98
@@ -2351,9 +2351,9 @@ snap_sunk_store.exit300:                          ; preds = %471, %479
   %535 = icmp eq i16 %533, %534
   br i1 %535, label %541, label %.thread443
 
-.thread443:                                       ; preds = %528, %524, %514, %512, %487
-  %.pre-phi530 = phi i16 [ %456, %528 ], [ %456, %524 ], [ %.pre529, %514 ], [ %456, %512 ], [ %456, %487 ]
-  %.0271 = phi i32 [ %.1272, %528 ], [ %.1272, %524 ], [ %.1272, %514 ], [ %.1272, %512 ], [ %494, %487 ]
+.thread443:                                       ; preds = %528, %524, %512, %514, %487
+  %.pre-phi530 = phi i16 [ %456, %528 ], [ %456, %524 ], [ %456, %512 ], [ %.pre529, %514 ], [ %456, %487 ]
+  %.0271 = phi i32 [ %.1272, %528 ], [ %.1272, %524 ], [ %.1272, %512 ], [ %.1272, %514 ], [ %494, %487 ]
   %536 = getelementptr inbounds nuw i8, ptr %491, i64 4
   %537 = load i16, ptr %536, align 4, !tbaa !40
   %538 = trunc i32 %.0271 to i16
@@ -2554,7 +2554,7 @@ snap_sunk_store.exit300.thread:                   ; preds = %464, %468, %snap_su
   br i1 %624, label %344, label %._crit_edge.thread, !llvm.loop !100
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %.preheader, %2, %._crit_edge
-  %.2257 = phi i1 [ true, %._crit_edge ], [ true, %2 ], [ true, %.preheader ], [ false, %.loopexit ]
+  %.2257 = phi i1 [ true, %2 ], [ true, %._crit_edge ], [ true, %.preheader ], [ false, %.loopexit ]
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %627 = load i32, ptr %626, align 8, !tbaa !44
@@ -2646,7 +2646,7 @@ define internal fastcc i32 @snap_replay_const(ptr noundef %0, ptr noundef readon
   br label %39
 
 39:                                               ; preds = %2, %33, %28, %23, %15, %12, %5
-  %.0 = phi i32 [ %11, %5 ], [ %14, %12 ], [ %22, %15 ], [ %27, %23 ], [ %32, %28 ], [ %38, %33 ], [ 32767, %2 ]
+  %.0 = phi i32 [ %38, %33 ], [ %11, %5 ], [ %14, %12 ], [ %22, %15 ], [ %27, %23 ], [ %32, %28 ], [ 32767, %2 ]
   ret i32 %.0
 }
 
@@ -2980,7 +2980,7 @@ switch.lookup:                                    ; preds = %203
   br label %206
 
 206:                                              ; preds = %203, %switch.lookup, %190
-  %.0107.i = phi i32 [ 8, %190 ], [ %switch.load, %switch.lookup ], [ 4, %203 ]
+  %.0107.i = phi i32 [ %switch.load, %switch.lookup ], [ 8, %190 ], [ 4, %203 ]
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 5
   %208 = load i8, ptr %207, align 1, !tbaa !40
   %209 = icmp eq i8 %208, 29
@@ -3599,7 +3599,7 @@ snap_renameref.exit:                              ; preds = %47, %28, %24
   br label %88
 
 77:                                               ; preds = %.thread, %22, %53, %20
-  %.053 = phi ptr [ %21, %20 ], [ %56, %53 ], [ %12, %22 ], [ %.2, %.thread ]
+  %.053 = phi ptr [ %21, %20 ], [ %12, %22 ], [ %.2, %.thread ], [ %56, %53 ]
   switch i32 %6, label %85 [
     i32 4, label %78
     i32 8, label %.thread2

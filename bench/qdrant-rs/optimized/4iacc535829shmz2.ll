@@ -1700,12 +1700,12 @@ define void @_ZN6sparse5index12posting_list11PostingList4from17hf09543c46381d0a4
   unreachable
 
 .thread20:                                        ; preds = %15, %12, %.thread27
-  %.pn23 = phi { ptr, i32 } [ %11, %.thread27 ], [ %13, %12 ], [ %16, %15 ]
+  %.pn23 = phi { ptr, i32 } [ %13, %12 ], [ %11, %.thread27 ], [ %16, %15 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #34
           to label %.thread unwind label %58
 
 .thread:                                          ; preds = %36, %.thread20
-  %.pn.pn19 = phi { ptr, i32 } [ %.pn23, %.thread20 ], [ %37, %36 ]
+  %.pn.pn19 = phi { ptr, i32 } [ %37, %36 ], [ %.pn23, %.thread20 ]
   resume { ptr, i32 } %.pn.pn19
 }
 
@@ -1816,9 +1816,9 @@ define void @_ZN6sparse5index12posting_list11PostingList6upsert17h63af1831e8aac7
   br label %39
 
 39:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit", %38
-  %.val14 = phi i64 [ %6, %38 ], [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
-  %.val13 = phi ptr [ %4, %38 ], [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
-  %.sroa.7.0 = phi i64 [ %8, %38 ], [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ]
+  %.val14 = phi i64 [ %29, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %6, %38 ]
+  %.val13 = phi ptr [ %.val13.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %4, %38 ]
+  %.sroa.7.0 = phi i64 [ %spec.select, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE.exit" ], [ %8, %38 ]
   %40 = icmp ult i64 %.sroa.7.0, %.val14
   br i1 %40, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7d28550995aaff86E.exit.i", label %54, !prof !250
 

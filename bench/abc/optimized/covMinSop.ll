@@ -489,8 +489,8 @@ Min_CubeIsContained.exit.i.i:                     ; preds = %210, %202
   br i1 %exitcond.not.i287.i, label %Min_CoverContainsCube.exit.i, label %199, !llvm.loop !30
 
 Min_CoverContainsCube.exit.i:                     ; preds = %._crit_edge.i285.i, %203, %209
-  %216 = phi i1 [ true, %209 ], [ true, %203 ], [ false, %._crit_edge.i285.i ]
-  %.not458.i = phi i1 [ false, %209 ], [ false, %203 ], [ true, %._crit_edge.i285.i ]
+  %216 = phi i1 [ true, %203 ], [ true, %209 ], [ false, %._crit_edge.i285.i ]
+  %.not458.i = phi i1 [ false, %203 ], [ false, %209 ], [ true, %._crit_edge.i285.i ]
   store i32 %167, ptr %166, align 4, !tbaa !21
   %217 = shl nuw i32 3, %176
   %218 = load i32, ptr %174, align 4, !tbaa !21
@@ -1235,8 +1235,8 @@ Min_CubesDistOne.exit:                            ; preds = %51, %52
   br i1 %.not78, label %._crit_edge168, label %.lr.ph.i99, !llvm.loop !39
 
 .loopexit131:                                     ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.069152 = phi ptr [ %.069153, %._crit_edge.thread.i ], [ %.069165, %._crit_edge.i ], [ %.069165, %.thread.i ]
-  %.274147 = phi ptr [ %.274148, %._crit_edge.thread.i ], [ %.274166, %._crit_edge.i ], [ %.274166, %.thread.i ]
+  %.069152 = phi ptr [ %.069165, %._crit_edge.i ], [ %.069153, %._crit_edge.thread.i ], [ %.069165, %.thread.i ]
+  %.274147 = phi ptr [ %.274166, %._crit_edge.i ], [ %.274148, %._crit_edge.thread.i ], [ %.274166, %.thread.i ]
   %61 = load ptr, ptr %.274147, align 8, !tbaa !15
   store ptr %61, ptr %.069152, align 8, !tbaa !14
   %62 = load i32, ptr %5, align 8
@@ -1957,8 +1957,8 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
   br label %Vec_IntPush.exit.i.sink.split
 
 Vec_IntPush.exit.i.sink.split:                    ; preds = %80, %82, %72, %74
-  %.sink110 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
-  %.sink = phi i32 [ 16, %72 ], [ 16, %74 ], [ %77, %80 ], [ %77, %82 ]
+  %.sink110 = phi ptr [ %75, %74 ], [ %73, %72 ], [ %81, %80 ], [ %83, %82 ]
+  %.sink = phi i32 [ 16, %74 ], [ 16, %72 ], [ %77, %80 ], [ %77, %82 ]
   store ptr %.sink110, ptr %7, align 8, !tbaa !59
   store i32 %.sink, ptr %4, align 8, !tbaa !58
   br label %Vec_IntPush.exit.i
@@ -2314,7 +2314,7 @@ Min_CubeIsContained.exit:                         ; preds = %38, %30
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !69
 
 .loopexit:                                        ; preds = %._crit_edge, %31, %37, %1
-  %.025 = phi i32 [ 0, %1 ], [ 1, %37 ], [ 1, %31 ], [ 0, %._crit_edge ]
+  %.025 = phi i32 [ 0, %1 ], [ 1, %31 ], [ 1, %37 ], [ 0, %._crit_edge ]
   %.val = load ptr, ptr %2, align 8, !tbaa !31
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val, ptr noundef nonnull %4) #10
   ret i32 %.025

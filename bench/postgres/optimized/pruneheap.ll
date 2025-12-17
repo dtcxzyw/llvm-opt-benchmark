@@ -400,7 +400,7 @@ default.unreachable:                              ; preds = %103
   br label %heap_prune_satisfies_vacuum.exit
 
 heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
-  %.0.i164 = phi i32 [ %138, %132 ], [ %..i, %146 ], [ 0, %141 ]
+  %.0.i164 = phi i32 [ 0, %141 ], [ %138, %132 ], [ %..i, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %150 = trunc i32 %.0.i164 to i8
   store i8 %150, ptr %107, align 1
@@ -601,17 +601,17 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
-  %.183.i = phi i32 [ %.082115.i, %205 ], [ %.2.i, %247 ], [ %.2.i, %249 ]
-  %.181.i = phi i32 [ %206, %205 ], [ %224, %247 ], [ %224, %249 ]
-  %.179.i = phi i16 [ %211, %205 ], [ %.val86.i, %247 ], [ %.val86.i, %249 ]
-  %.177.i = phi i32 [ %.076118.i, %205 ], [ %248, %247 ], [ %.val.i87.i, %249 ]
+  %.183.i = phi i32 [ %.2.i, %249 ], [ %.082115.i, %205 ], [ %.2.i, %247 ]
+  %.181.i = phi i32 [ %224, %249 ], [ %206, %205 ], [ %224, %247 ]
+  %.179.i = phi i16 [ %.val86.i, %249 ], [ %211, %205 ], [ %.val86.i, %247 ]
+  %.177.i = phi i32 [ %.val.i87.i, %249 ], [ %.076118.i, %205 ], [ %248, %247 ]
   %251 = add i16 %.179.i, -1
   %or.cond85.not.i = icmp ult i16 %251, %85
   br i1 %or.cond85.not.i, label %.lr.ph.i, label %._crit_edge.i165
 
 ._crit_edge.i165:                                 ; preds = %HeapTupleHeaderGetUpdateXid.exit.i, %HeapTupleHeaderGetXmin.exit.i, %203, %.lr.ph.i, %191
-  %.082.lcssa.i = phi i32 [ 0, %191 ], [ %.082115.i, %HeapTupleHeaderGetXmin.exit.i ], [ %.082115.i, %203 ], [ %.082115.i, %.lr.ph.i ], [ %.183.i, %HeapTupleHeaderGetUpdateXid.exit.i ]
-  %.080.lcssa.i = phi i32 [ 0, %191 ], [ %.080116.i, %HeapTupleHeaderGetXmin.exit.i ], [ %.080116.i, %203 ], [ %.080116.i, %.lr.ph.i ], [ %.181.i, %HeapTupleHeaderGetUpdateXid.exit.i ]
+  %.082.lcssa.i = phi i32 [ 0, %191 ], [ %.082115.i, %HeapTupleHeaderGetXmin.exit.i ], [ %.082115.i, %.lr.ph.i ], [ %.183.i, %HeapTupleHeaderGetUpdateXid.exit.i ], [ %.082115.i, %203 ]
+  %.080.lcssa.i = phi i32 [ 0, %191 ], [ %.080116.i, %HeapTupleHeaderGetXmin.exit.i ], [ %.080116.i, %.lr.ph.i ], [ %.181.i, %HeapTupleHeaderGetUpdateXid.exit.i ], [ %.080116.i, %203 ]
   %252 = load i32, ptr %192, align 4
   %253 = and i32 %252, 98304
   %254 = icmp eq i32 %253, 65536
@@ -932,7 +932,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   br label %413
 
 413:                                              ; preds = %410, %._crit_edge199
-  %414 = phi i1 [ true, %._crit_edge199 ], [ %412, %410 ]
+  %414 = phi i1 [ %412, %410 ], [ true, %._crit_edge199 ]
   %415 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
   %416 = load i32, ptr %415, align 4
   %417 = load i32, ptr %37, align 8
@@ -1027,7 +1027,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   call void @heap_pre_freeze_checks(i32 noundef %1, ptr noundef nonnull %465, i32 noundef %466) #7
   br label %470
 
-.threadthread-pre-split:                          ; preds = %464, %455, %462, %458, %457, %445, %436, %422
+.threadthread-pre-split:                          ; preds = %464, %455, %462, %422, %458, %457, %445, %436
   %.pr = load i32, ptr %39, align 4
   br label %.thread
 
@@ -2238,7 +2238,7 @@ define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr noundef readonly c
   br label %40
 
 40:                                               ; preds = %38, %32, %30, %24, %22, %16, %14, %8, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ 1, %14 ], [ -1, %16 ], [ 1, %22 ], [ -1, %24 ], [ 1, %30 ], [ -1, %32 ], [ %., %38 ]
+  %.0 = phi i32 [ -1, %32 ], [ -1, %2 ], [ 1, %6 ], [ -1, %8 ], [ 1, %14 ], [ -1, %16 ], [ 1, %22 ], [ -1, %24 ], [ 1, %30 ], [ %., %38 ]
   ret i32 %.0
 }
 

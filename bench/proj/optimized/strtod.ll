@@ -87,7 +87,7 @@ _ZL29replace_point_by_locale_pointPKcc.exit:      ; preds = %24, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
-39:                                               ; preds = %7, %7, %9, %5, %2, %15
+39:                                               ; preds = %2, %7, %7, %9, %5, %15
   %40 = tail call double @strtod(ptr noundef %0, ptr noundef %1) #8
   br label %41
 

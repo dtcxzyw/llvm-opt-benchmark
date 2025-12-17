@@ -1317,7 +1317,7 @@ _kill_old_slurmctld.exit:                         ; preds = %235, %256
   br i1 %344, label %.lr.ph33.i, label %._crit_edge.i271, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.lr.ph.i270, %._crit_edge.i271, %304
-  %345 = phi i32 [ %310, %304 ], [ %334, %._crit_edge.i271 ], [ %319, %.lr.ph.i270 ]
+  %345 = phi i32 [ %334, %._crit_edge.i271 ], [ %310, %304 ], [ %319, %.lr.ph.i270 ]
   %.not38.i = icmp eq i32 %345, 0
   br i1 %.not38.i, label %._crit_edge37.i, label %.lr.ph36.i
 
@@ -2924,7 +2924,7 @@ define internal fastcc void @_set_work_dir() unnamed_addr #5 {
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.260) #19
   br label %.thread14
 
-.thread14:                                        ; preds = %.thread11, %22, %33, %38, %35
+.thread14:                                        ; preds = %22, %.thread11, %33, %38, %35
   ret void
 }
 
@@ -4184,7 +4184,7 @@ define dso_local void @notify_parent_of_success() local_unnamed_addr #5 {
 .lr.ph.split.backedge:                            ; preds = %28, %25
   br label %.lr.ph.split, !llvm.loop !29
 
-29:                                               ; preds = %21, %.split32.us
+29:                                               ; preds = %.split32.us, %21
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.67) #19
   br label %.sink.split
 
@@ -5759,7 +5759,7 @@ _send_reconfig_replies.exit:                      ; preds = %.lr.ph.i, %12, %11
   unreachable
 
 _try_to_reconfig.exit:                            ; preds = %144, %145, %148, %155
-  %.042.i = phi i32 [ 0, %145 ], [ 0, %144 ], [ -1, %155 ], [ -1, %148 ]
+  %.042.i = phi i32 [ 0, %144 ], [ 0, %145 ], [ -1, %155 ], [ -1, %148 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6610,7 +6610,7 @@ define internal fastcc void @_init_tres() unnamed_addr #5 {
   unreachable
 
 .sink.split:                                      ; preds = %83, %45, %43, %41, %39, %37, %35, %.lr.ph
-  %.sink = phi i32 [ 1, %.lr.ph ], [ 2, %35 ], [ 3, %37 ], [ 4, %39 ], [ 5, %41 ], [ 7, %43 ], [ 8, %45 ], [ 6, %83 ]
+  %.sink = phi i32 [ 1, %.lr.ph ], [ 3, %37 ], [ 5, %41 ], [ 8, %45 ], [ 7, %43 ], [ 4, %39 ], [ 2, %35 ], [ 6, %83 ]
   %95 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %.sink, ptr %95, align 8
   br label %96
@@ -7457,8 +7457,8 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   br label %57
 
 57:                                               ; preds = %46, %27, %49, %42, %52, %35, %31, %15
-  %.154 = phi ptr [ %.05370, %31 ], [ %.05370, %49 ], [ %.05370, %52 ], [ %.05370, %42 ], [ %.05370, %35 ], [ %.05370, %15 ], [ %12, %27 ], [ %.05370, %46 ]
-  %.152 = phi ptr [ %12, %31 ], [ %.05171, %49 ], [ %.05171, %52 ], [ %.05171, %42 ], [ %.05171, %35 ], [ %.05171, %15 ], [ %.05171, %27 ], [ %.05171, %46 ]
+  %.154 = phi ptr [ %.05370, %15 ], [ %.05370, %31 ], [ %.05370, %49 ], [ %.05370, %52 ], [ %.05370, %42 ], [ %12, %27 ], [ %.05370, %46 ], [ %.05370, %35 ]
+  %.152 = phi ptr [ %.05171, %15 ], [ %12, %31 ], [ %.05171, %49 ], [ %.05171, %52 ], [ %.05171, %42 ], [ %.05171, %27 ], [ %.05171, %46 ], [ %.05171, %35 ]
   %58 = add nuw nsw i32 %8, 1
   %59 = load i32, ptr @g_tres_count, align 4
   %60 = icmp ult i32 %58, %59

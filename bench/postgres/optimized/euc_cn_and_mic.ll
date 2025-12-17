@@ -110,8 +110,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_cn_to_mic(ptr noundef readonl
   br i1 %42, label %.lr.ph.i, label %euc_cn2mic.exit, !llvm.loop !3
 
 euc_cn2mic.exit:                                  ; preds = %39, %1, %26, %35
-  %.02636.i = phi ptr [ %.02640.i, %35 ], [ %.02640.i, %26 ], [ %8, %1 ], [ %.127.i, %39 ]
-  %.033.i = phi ptr [ %.041.i, %35 ], [ %.041.i, %26 ], [ %5, %1 ], [ %40, %39 ]
+  %.02636.i = phi ptr [ %.02640.i, %26 ], [ %.02640.i, %35 ], [ %8, %1 ], [ %.127.i, %39 ]
+  %.033.i = phi ptr [ %.041.i, %26 ], [ %.041.i, %35 ], [ %5, %1 ], [ %40, %39 ]
   store i8 0, ptr %.02636.i, align 1
   %43 = ptrtoint ptr %.033.i to i64
   %44 = sub i64 %43, %4
@@ -223,8 +223,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_cn(ptr noundef readonl
   br i1 %48, label %.lr.ph.i, label %mic2euc_cn.exit, !llvm.loop !5
 
 mic2euc_cn.exit:                                  ; preds = %46, %1, %22, %32, %41
-  %.03044.i = phi ptr [ %.03049.i, %41 ], [ %.03049.i, %32 ], [ %.03049.i, %22 ], [ %8, %1 ], [ %.131.i, %46 ]
-  %.040.i = phi ptr [ %.050.i, %41 ], [ %.050.i, %32 ], [ %.050.i, %22 ], [ %5, %1 ], [ %.1.i, %46 ]
+  %.03044.i = phi ptr [ %.03049.i, %22 ], [ %.03049.i, %41 ], [ %.03049.i, %32 ], [ %8, %1 ], [ %.131.i, %46 ]
+  %.040.i = phi ptr [ %.050.i, %22 ], [ %.050.i, %41 ], [ %.050.i, %32 ], [ %5, %1 ], [ %.1.i, %46 ]
   store i8 0, ptr %.03044.i, align 1
   %49 = ptrtoint ptr %.040.i to i64
   %50 = sub i64 %49, %4

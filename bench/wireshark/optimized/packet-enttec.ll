@@ -491,7 +491,7 @@ dissect_enttec_dmx_data.exit:                     ; preds = %._crit_edge188.i, %
   br label %194
 
 194:                                              ; preds = %8, %19, %36, %dissect_enttec_dmx_data.exit, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 27, %19 ], [ 5, %36 ], [ %.0.i, %dissect_enttec_dmx_data.exit ], [ 4, %8 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ %.0.i, %dissect_enttec_dmx_data.exit ], [ 27, %19 ], [ 5, %36 ], [ 4, %8 ]
   ret i32 %.0
 }
 
@@ -522,7 +522,7 @@ define internal i32 @dissect_enttec_tcp(ptr noundef %0, ptr noundef readonly cap
   br label %20
 
 20:                                               ; preds = %6, %4, %8
-  %.0 = phi i32 [ %19, %8 ], [ 0, %4 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %4 ], [ %19, %8 ], [ 0, %6 ]
   ret i32 %.0
 }
 

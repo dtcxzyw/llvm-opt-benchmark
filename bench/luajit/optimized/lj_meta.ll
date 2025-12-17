@@ -521,8 +521,8 @@ mmcall.exit:                                      ; preds = %82, %92
   tail call void @lj_err_msg(ptr noundef %0, i32 noundef 381) #8
   unreachable
 
-lj_meta_cache.exit.thread73:                      ; preds = %60, %14, %19, %73, %mmcall.exit
-  %.2.ph = phi ptr [ null, %mmcall.exit ], [ %12, %60 ], [ %12, %14 ], [ %12, %19 ], [ %74, %73 ]
+lj_meta_cache.exit.thread73:                      ; preds = %19, %14, %60, %73, %mmcall.exit
+  %.2.ph = phi ptr [ null, %mmcall.exit ], [ %12, %19 ], [ %12, %14 ], [ %12, %60 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.2.ph
 }
@@ -1599,8 +1599,8 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   br label %53
 
 53:                                               ; preds = %11, %17, %48, %34
-  %.028 = phi ptr [ %.sroa.0, %17 ], [ %47, %34 ], [ %.sroa.0, %48 ], [ %14, %11 ]
-  %.0 = phi ptr [ %9, %17 ], [ %9, %34 ], [ %9, %48 ], [ %spec.select, %11 ]
+  %.028 = phi ptr [ %14, %11 ], [ %.sroa.0, %48 ], [ %.sroa.0, %17 ], [ %47, %34 ]
+  %.0 = phi ptr [ %spec.select, %11 ], [ %9, %48 ], [ %9, %17 ], [ %9, %34 ]
   %54 = load i64, ptr %.0, align 8, !tbaa !14
   %55 = ashr i64 %54, 47
   switch i64 %55, label %64 [
@@ -2076,7 +2076,7 @@ lj_meta_lookup.exit93:                            ; preds = %151, %159
   unreachable
 
 199:                                              ; preds = %.thread98, %.thread, %84
-  %.1 = phi ptr [ %97, %84 ], [ %76, %.thread ], [ %192, %.thread98 ]
+  %.1 = phi ptr [ %76, %.thread ], [ %97, %84 ], [ %192, %.thread98 ]
   ret ptr %.1
 }
 

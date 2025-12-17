@@ -231,7 +231,7 @@ FASTCOVER_checkParameters.exit.thread:            ; preds = %29, %28, %6
   br label %111
 
 111:                                              ; preds = %66, %63, %51, %53, %42, %44, %FASTCOVER_checkParameters.exit.thread, %35, %108
-  %.0 = phi i64 [ %98, %108 ], [ -42, %35 ], [ -42, %FASTCOVER_checkParameters.exit.thread ], [ -72, %44 ], [ -72, %42 ], [ -70, %53 ], [ -70, %51 ], [ %61, %63 ], [ %61, %66 ]
+  %.0 = phi i64 [ -42, %FASTCOVER_checkParameters.exit.thread ], [ -72, %42 ], [ %98, %108 ], [ -70, %51 ], [ -42, %35 ], [ -72, %44 ], [ -70, %53 ], [ %61, %63 ], [ %61, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
@@ -517,7 +517,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr noundef non
   br i1 %.not.i, label %.loopexit.i, label %157, !llvm.loop !45
 
 FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %131, %51, %54, %41, %44, %29, %32, %126, %100
-  %.074 = phi i64 [ -64, %100 ], [ -64, %126 ], [ -72, %32 ], [ -72, %29 ], [ -72, %44 ], [ -72, %41 ], [ -72, %54 ], [ -72, %51 ], [ 0, %131 ], [ 0, %.loopexit.i ]
+  %.074 = phi i64 [ -72, %51 ], [ -72, %29 ], [ -72, %41 ], [ -64, %100 ], [ -64, %126 ], [ -72, %32 ], [ -72, %44 ], [ -72, %54 ], [ 0, %131 ], [ 0, %.loopexit.i ]
   ret i64 %.074
 }
 
@@ -1216,7 +1216,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   br label %211
 
 211:                                              ; preds = %.thread205, %202, %203, %91, %82, %84, %73, %75, %64, %66, %54, %56, %45, %47
-  %.0 = phi i64 [ -42, %47 ], [ -42, %45 ], [ -42, %56 ], [ -42, %54 ], [ -42, %66 ], [ -42, %64 ], [ -72, %75 ], [ -72, %73 ], [ -70, %84 ], [ -70, %82 ], [ -64, %91 ], [ %200, %202 ], [ %205, %203 ], [ %.3.ph, %.thread205 ]
+  %.0 = phi i64 [ -70, %82 ], [ -42, %45 ], [ -42, %54 ], [ -42, %64 ], [ -72, %73 ], [ %.3.ph, %.thread205 ], [ -64, %91 ], [ -42, %47 ], [ -42, %56 ], [ -42, %66 ], [ -72, %75 ], [ -70, %84 ], [ %200, %202 ], [ %205, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.sroa.4)
   ret i64 %.0

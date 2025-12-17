@@ -1371,8 +1371,8 @@ _get_tres_prio_weighted.exit.loopexit:            ; preds = %.lr.ph.i
   br label %_get_tres_prio_weighted.exit
 
 _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weighted.exit.loopexit, %.preheader.i, %92, %53
-  %104 = phi ptr [ %.pre156, %92 ], [ %.pre156, %53 ], [ %.pre156, %.preheader.i ], [ %.pre155, %_get_tres_prio_weighted.exit.loopexit ]
-  %.0113 = phi double [ 0.000000e+00, %92 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %.preheader.i ], [ %103, %_get_tres_prio_weighted.exit.loopexit ]
+  %104 = phi ptr [ %.pre156, %53 ], [ %.pre156, %92 ], [ %.pre156, %.preheader.i ], [ %.pre155, %_get_tres_prio_weighted.exit.loopexit ]
+  %.0113 = phi double [ 0.000000e+00, %53 ], [ 0.000000e+00, %92 ], [ 0.000000e+00, %.preheader.i ], [ %103, %_get_tres_prio_weighted.exit.loopexit ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load double, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
@@ -1761,7 +1761,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   br label %336
 
 336:                                              ; preds = %11, %14, %22, %28, %334
-  %.0 = phi i32 [ %335, %334 ], [ 0, %28 ], [ 0, %22 ], [ %.pre, %14 ], [ %10, %11 ]
+  %.0 = phi i32 [ 0, %22 ], [ %335, %334 ], [ 0, %28 ], [ %.pre, %14 ], [ %10, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -2692,7 +2692,7 @@ define dso_local ptr @priority_p_get_priority_factors_list(i32 noundef %0) local
   br label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %75, %76, %._crit_edge, %5, %1
-  %77 = phi ptr [ null, %5 ], [ null, %1 ], [ %74, %._crit_edge ], [ null, %76 ], [ null, %75 ]
+  %77 = phi ptr [ null, %1 ], [ %74, %._crit_edge ], [ null, %5 ], [ null, %76 ], [ null, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %77
 }
@@ -2834,7 +2834,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   br label %44
 
 44:                                               ; preds = %14, %35, %42, %39
-  %.0136 = phi i64 [ %36, %35 ], [ %spec.select179, %39 ], [ %43, %42 ], [ 0, %14 ]
+  %.0136 = phi i64 [ %43, %42 ], [ %36, %35 ], [ %spec.select179, %39 ], [ 0, %14 ]
   br i1 %3, label %45, label %46
 
 45:                                               ; preds = %44
@@ -3173,7 +3173,7 @@ define dso_local noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr n
   br label %24
 
 24:                                               ; preds = %19, %2, %23
-  %.0 = phi i1 [ true, %23 ], [ false, %2 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %2 ], [ true, %23 ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -3553,8 +3553,8 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
 .thread:                                          ; preds = %125
   br i1 %.not130, label %.thread.thread193, label %.thread.thread
 
-.thread.thread:                                   ; preds = %134, %131, %.thread
-  %.0105191 = phi i32 [ %127, %.thread ], [ %136, %134 ], [ %133, %131 ]
+.thread.thread:                                   ; preds = %131, %134, %.thread
+  %.0105191 = phi i32 [ %127, %.thread ], [ %133, %131 ], [ %136, %134 ]
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 284
   %138 = load i32, ptr %137, align 4
   br label %.thread.thread193
@@ -3605,7 +3605,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br label %164
 
 164:                                              ; preds = %155, %158, %161
-  %.0 = phi i32 [ %163, %161 ], [ 1, %158 ], [ %157, %155 ]
+  %.0 = phi i32 [ 1, %158 ], [ %163, %161 ], [ %157, %155 ]
   %165 = uitofp i32 %.0 to double
   %166 = load ptr, ptr %5, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
@@ -3930,7 +3930,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br label %349
 
 349:                                              ; preds = %346, %341
-  %.0.us.i = phi i64 [ %348, %346 ], [ %343, %341 ]
+  %.0.us.i = phi i64 [ %343, %341 ], [ %348, %346 ]
   %.not37.i = icmp eq i64 %.0.us.i, 0
   br i1 %.not37.i, label %.thread.i, label %350
 
@@ -3981,7 +3981,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br label %369
 
 369:                                              ; preds = %366, %364, %361
-  %.0.i152 = phi i64 [ %368, %366 ], [ 0, %364 ], [ %363, %361 ]
+  %.0.i152 = phi i64 [ 0, %364 ], [ %368, %366 ], [ %363, %361 ]
   %370 = uitofp i64 %.0.i152 to double
   %371 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i
   store double %370, ptr %371, align 8
@@ -4469,7 +4469,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br label %50
 
 50:                                               ; preds = %47, %.lr.ph.split.us.split.i
-  %.0.us.i = phi i64 [ %49, %47 ], [ %44, %.lr.ph.split.us.split.i ]
+  %.0.us.i = phi i64 [ %44, %.lr.ph.split.us.split.i ], [ %49, %47 ]
   %.not37.i = icmp eq i64 %.0.us.i, 0
   br i1 %.not37.i, label %.thread.i, label %51
 
@@ -4515,7 +4515,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br label %68
 
 68:                                               ; preds = %65, %63, %.lr.ph.split.i
-  %.0.i = phi i64 [ %67, %65 ], [ 0, %63 ], [ %62, %.lr.ph.split.i ]
+  %.0.i = phi i64 [ 0, %63 ], [ %67, %65 ], [ %62, %.lr.ph.split.i ]
   %69 = uitofp i64 %.0.i to double
   %70 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i
   store double %69, ptr %70, align 8
@@ -4534,7 +4534,7 @@ _get_tres_factors.exit.thread25:                  ; preds = %.lr.ph.split.us.i
   br i1 %.not.i1826, label %_get_tres_prio_weighted.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_get_tres_factors.exit, %_get_tres_factors.exit.thread25
-  %73 = phi ptr [ %72, %_get_tres_factors.exit.thread25 ], [ %71, %_get_tres_factors.exit ]
+  %73 = phi ptr [ %71, %_get_tres_factors.exit ], [ %72, %_get_tres_factors.exit.thread25 ]
   %wide.trip.count.i19 = zext nneg i32 %13 to i64
   br label %.lr.ph.i20
 
@@ -4553,7 +4553,7 @@ _get_tres_factors.exit.thread25:                  ; preds = %.lr.ph.split.us.i
   br i1 %exitcond.not.i23, label %_get_tres_prio_weighted.exit, label %.lr.ph.i20, !llvm.loop !18
 
 _get_tres_prio_weighted.exit:                     ; preds = %.lr.ph.i20, %_get_tres_factors.exit, %8, %_get_tres_factors.exit.thread25
-  %.011.i = phi double [ 0.000000e+00, %_get_tres_factors.exit ], [ 0.000000e+00, %_get_tres_factors.exit.thread25 ], [ 0.000000e+00, %8 ], [ %79, %.lr.ph.i20 ]
+  %.011.i = phi double [ 0.000000e+00, %_get_tres_factors.exit ], [ 0.000000e+00, %8 ], [ 0.000000e+00, %_get_tres_factors.exit.thread25 ], [ %79, %.lr.ph.i20 ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store double %.011.i, ptr %80, align 8
   call void @llvm.stackrestore.p0(ptr %11)
@@ -5336,7 +5336,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br label %83
 
 83:                                               ; preds = %80, %75
-  %.0.us.i = phi i64 [ %82, %80 ], [ %77, %75 ]
+  %.0.us.i = phi i64 [ %77, %75 ], [ %82, %80 ]
   %.not37.i = icmp eq i64 %.0.us.i, 0
   br i1 %.not37.i, label %.thread.i, label %84
 
@@ -5387,7 +5387,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br label %103
 
 103:                                              ; preds = %100, %98, %95
-  %.0.i = phi i64 [ %102, %100 ], [ 0, %98 ], [ %97, %95 ]
+  %.0.i = phi i64 [ 0, %98 ], [ %102, %100 ], [ %97, %95 ]
   %104 = uitofp i64 %.0.i to double
   %105 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv.i
   store double %104, ptr %105, align 8

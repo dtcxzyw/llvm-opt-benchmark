@@ -287,7 +287,7 @@ define dso_local range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr noundef readonly cap
   br label %64
 
 64:                                               ; preds = %61, %59, %43, %26, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %26 ], [ -1, %43 ], [ -1, %59 ], [ %., %61 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %26 ], [ -1, %43 ], [ %., %61 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
@@ -431,7 +431,7 @@ define dso_local i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr noundef writeon
   br label %47
 
 47:                                               ; preds = %16, %.loopexit, %9, %15, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %15 ], [ -1, %9 ], [ %.1, %.loopexit ], [ %17, %16 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %12 ], [ -1, %15 ], [ %.1, %.loopexit ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -511,7 +511,7 @@ define dso_local range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr noundef 
   br label %40
 
 40:                                               ; preds = %21, %27, %24, %10, %16, %13, %29
-  %.0 = phi i32 [ 0, %29 ], [ -1, %13 ], [ -1, %16 ], [ -1, %10 ], [ -1, %24 ], [ -1, %27 ], [ -1, %21 ]
+  %.0 = phi i32 [ 0, %29 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %24 ], [ -1, %27 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

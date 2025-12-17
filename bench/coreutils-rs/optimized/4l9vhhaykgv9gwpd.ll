@@ -1024,9 +1024,9 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit137:
   br i1 %trunc.i, label %146, label %143
 
 _ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit.thread: ; preds = %74, %68, %35, %29, %67, %148, %143
-  %.0 = phi i8 [ 1, %148 ], [ 2, %143 ], [ %spec.select245, %67 ], [ 1, %29 ], [ 1, %35 ], [ 2, %68 ], [ 2, %74 ]
-  %.2120 = phi i64 [ %150, %148 ], [ %145, %143 ], [ 0, %67 ], [ 0, %29 ], [ 0, %35 ], [ 0, %68 ], [ 0, %74 ]
-  %.2117 = phi i1 [ false, %148 ], [ false, %143 ], [ true, %67 ], [ true, %29 ], [ true, %35 ], [ true, %68 ], [ true, %74 ]
+  %.0 = phi i8 [ 1, %35 ], [ 1, %148 ], [ %spec.select245, %67 ], [ 2, %143 ], [ 1, %29 ], [ 2, %68 ], [ 2, %74 ]
+  %.2120 = phi i64 [ 0, %35 ], [ %150, %148 ], [ 0, %67 ], [ %145, %143 ], [ 0, %29 ], [ 0, %68 ], [ 0, %74 ]
+  %.2117 = phi i1 [ true, %35 ], [ false, %148 ], [ true, %67 ], [ false, %143 ], [ true, %29 ], [ true, %68 ], [ true, %74 ]
   %106 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hfa98a52554920eb3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.66d731aad004fadc267d2ec7cc952fb9.51.llvm.4295070668343094693, i64 noundef 13), !noalias !279
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h4ec7f269a9a62422E.exit146.thread, label %108

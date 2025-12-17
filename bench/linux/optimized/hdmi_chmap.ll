@@ -1379,7 +1379,7 @@ define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr readnone captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %6, %.loopexit1.loopexit
-  %20 = phi i32 [ 3, %6 ], [ %19, %.loopexit1.loopexit ], [ 0, %.preheader ]
+  %20 = phi i32 [ %19, %.loopexit1.loopexit ], [ 3, %6 ], [ 0, %.preheader ]
   %21 = add i32 %8, 1
   %22 = sext i32 %8 to i64
   %23 = getelementptr i32, ptr %2, i64 %22

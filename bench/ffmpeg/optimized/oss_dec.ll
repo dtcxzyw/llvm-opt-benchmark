@@ -51,7 +51,7 @@ define internal range(i32 -12, 1) i32 @audio_read_header(ptr noundef %0) #0 {
   br label %22
 
 22:                                               ; preds = %5, %1, %10
-  %.0 = phi i32 [ 0, %10 ], [ -12, %1 ], [ -5, %5 ]
+  %.0 = phi i32 [ -12, %1 ], [ 0, %10 ], [ -5, %5 ]
   ret i32 %.0
 }
 
@@ -141,7 +141,7 @@ define internal i32 @audio_read_packet(ptr noundef readonly captures(none) %0, p
   br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %21, %2, %23
-  %.034 = phi i32 [ %26, %23 ], [ %8, %2 ], [ -541478725, %21 ], [ 0, %27 ], [ 0, %.lr.ph ]
+  %.034 = phi i32 [ -541478725, %21 ], [ %26, %23 ], [ %8, %2 ], [ 0, %27 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.034
 }

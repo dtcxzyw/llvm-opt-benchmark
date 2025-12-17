@@ -592,8 +592,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %130, %.critedge.i
   br label %159
 
 159:                                              ; preds = %154, %FindMatchLengthWithLimit.exit, %126, %121
-  %.3 = phi i64 [ %.2.i159, %154 ], [ %.0257381, %FindMatchLengthWithLimit.exit ], [ %.0257381, %126 ], [ %.0257381, %121 ]
-  %.2.i = phi ptr [ %155, %154 ], [ %.0.i382, %FindMatchLengthWithLimit.exit ], [ %.0.i382, %126 ], [ %.0.i382, %121 ]
+  %.3 = phi i64 [ %.0257381, %121 ], [ %.2.i159, %154 ], [ %.0257381, %FindMatchLengthWithLimit.exit ], [ %.0257381, %126 ]
+  %.2.i = phi ptr [ %.0.i382, %121 ], [ %155, %154 ], [ %.0.i382, %FindMatchLengthWithLimit.exit ], [ %.0.i382, %126 ]
   %.072.i = add i64 %.072.i383, -1
   %160 = icmp ugt i64 %.072.i, %spec.select.i
   %161 = icmp ult i64 %.3, 3
@@ -1101,9 +1101,9 @@ FindMatchLengthWithLimit.exit.i181:               ; preds = %375, %.critedge.i.i
   br i1 %405, label %FindAllCompoundDictionaryMatches.exit, label %406
 
 406:                                              ; preds = %399, %FindMatchLengthWithLimit.exit.i181, %366, %363, %353
-  %.283.i = phi i64 [ %.081.i448, %353 ], [ %.081.i448, %366 ], [ %.081.i448, %363 ], [ %.081.i448, %FindMatchLengthWithLimit.exit.i181 ], [ %404, %399 ]
-  %.178.i = phi i64 [ %.077.i450, %353 ], [ %.077.i450, %366 ], [ %.077.i450, %363 ], [ %.077.i450, %FindMatchLengthWithLimit.exit.i181 ], [ %.2.i.i182, %399 ]
-  %.1.i170 = phi ptr [ %.075.i451, %353 ], [ %.075.i451, %366 ], [ %.075.i451, %363 ], [ %.075.i451, %FindMatchLengthWithLimit.exit.i181 ], [ %400, %399 ]
+  %.283.i = phi i64 [ %404, %399 ], [ %.081.i448, %353 ], [ %.081.i448, %363 ], [ %.081.i448, %366 ], [ %.081.i448, %FindMatchLengthWithLimit.exit.i181 ]
+  %.178.i = phi i64 [ %.2.i.i182, %399 ], [ %.077.i450, %353 ], [ %.077.i450, %363 ], [ %.077.i450, %366 ], [ %.077.i450, %FindMatchLengthWithLimit.exit.i181 ]
+  %.1.i170 = phi ptr [ %400, %399 ], [ %.075.i451, %353 ], [ %.075.i451, %363 ], [ %.075.i451, %366 ], [ %.075.i451, %FindMatchLengthWithLimit.exit.i181 ]
   %407 = icmp sgt i32 %354, -1
   br i1 %407, label %353, label %FindAllCompoundDictionaryMatches.exit
 
@@ -1458,10 +1458,10 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
   %562 = icmp eq i64 %.0.i154492, %.093.i.i
   br i1 %562, label %._crit_edge486, label %.lr.ph485
 
-StoreH10.exit:                                    ; preds = %._crit_edge486, %540
-  %.0102.i.i.lcssa.sink = phi i64 [ %.0102.i.i.lcssa, %._crit_edge486 ], [ %.0102.i.i480, %540 ]
-  %.sink703 = phi i32 [ %506, %._crit_edge486 ], [ %546, %540 ]
-  %563 = getelementptr inbounds nuw i32, ptr %489, i64 %.0102.i.i.lcssa.sink
+StoreH10.exit:                                    ; preds = %540, %._crit_edge486
+  %.0102.i.i480.lcssa688.sink = phi i64 [ %.0102.i.i480, %540 ], [ %.0102.i.i.lcssa, %._crit_edge486 ]
+  %.sink703 = phi i32 [ %546, %540 ], [ %506, %._crit_edge486 ]
+  %563 = getelementptr inbounds nuw i32, ptr %489, i64 %.0102.i.i480.lcssa688.sink
   store i32 %.sink703, ptr %563, align 4, !tbaa !3, !noalias !131
   %564 = add i64 %.0.i154492, 8
   %565 = icmp ult i64 %564, %spec.select.i153
@@ -1649,10 +1649,10 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
   %643 = icmp eq i64 %.1.i155527, %.093.i.i198
   br i1 %643, label %._crit_edge521, label %.lr.ph520
 
-StoreH10.exit236:                                 ; preds = %._crit_edge521, %621
-  %.0102.i.i196.lcssa.sink = phi i64 [ %.0102.i.i196.lcssa, %._crit_edge521 ], [ %.0102.i.i196515, %621 ]
-  %.sink705 = phi i32 [ %587, %._crit_edge521 ], [ %627, %621 ]
-  %644 = getelementptr inbounds nuw i32, ptr %570, i64 %.0102.i.i196.lcssa.sink
+StoreH10.exit236:                                 ; preds = %621, %._crit_edge521
+  %.0102.i.i196515.lcssa697.sink = phi i64 [ %.0102.i.i196515, %621 ], [ %.0102.i.i196.lcssa, %._crit_edge521 ]
+  %.sink705 = phi i32 [ %627, %621 ], [ %587, %._crit_edge521 ]
+  %644 = getelementptr inbounds nuw i32, ptr %570, i64 %.0102.i.i196515.lcssa697.sink
   store i32 %.sink705, ptr %644, align 4, !tbaa !3, !noalias !149
   %645 = add nuw i64 %.1.i155527, 1
   %646 = icmp ult i64 %645, %481
@@ -1714,7 +1714,7 @@ ZopfliNodeDistanceCode.exit.i.i:                  ; preds = %662
   br label %ComputeDistanceShortcut.exit.i
 
 ComputeDistanceShortcut.exit.i:                   ; preds = %674, %672, %650
-  %.0.i.i245 = phi i32 [ %673, %672 ], [ %679, %674 ], [ 0, %650 ]
+  %.0.i.i245 = phi i32 [ %679, %674 ], [ %673, %672 ], [ 0, %650 ]
   store i32 %.0.i.i245, ptr %652, align 4, !tbaa !7
   %680 = load ptr, ptr %43, align 8, !tbaa !51
   %681 = getelementptr inbounds nuw float, ptr %680, i64 %648
@@ -2382,7 +2382,7 @@ GetInsertLengthCode.exit:                         ; preds = %82, %86, %100, %106
   br label %FindMatchLengthWithLimit.exit
 
 FindMatchLengthWithLimit.exit:                    ; preds = %.critedge.i257, %205, %.critedge.i, %156
-  %.0211 = phi i64 [ %163, %156 ], [ %178, %.critedge.i ], [ %227, %.critedge.i257 ], [ %212, %205 ]
+  %.0211 = phi i64 [ %178, %.critedge.i ], [ %163, %156 ], [ %227, %.critedge.i257 ], [ %212, %205 ]
   %228 = load ptr, ptr %68, align 8, !tbaa !53
   %229 = getelementptr inbounds nuw float, ptr %228, i64 %.0209351
   %230 = load float, ptr %229, align 4, !tbaa !152
@@ -2504,9 +2504,9 @@ CombineLengthCodes.exit:                          ; preds = %262, %GetCopyLength
   %.not236 = icmp ugt i64 %.0219, %.0211
   br i1 %.not236, label %.loopexit, label %237, !llvm.loop !173
 
-.loopexit:                                        ; preds = %297, %FindMatchLengthWithLimit.exit, %143, %146, %151, %147, %179, %197, %189
-  %.1207.ph = phi i64 [ %.0206353, %197 ], [ %.0206353, %189 ], [ %.0206353, %179 ], [ %.0206353, %147 ], [ %.0206353, %151 ], [ %.0206353, %146 ], [ %.0206353, %143 ], [ %.0206353, %FindMatchLengthWithLimit.exit ], [ %.0219347, %297 ]
-  %.3.ph = phi i64 [ %.1354, %197 ], [ %.1354, %189 ], [ %.1354, %179 ], [ %.1354, %147 ], [ %.1354, %151 ], [ %.1354, %146 ], [ %.1354, %143 ], [ %.1354, %FindMatchLengthWithLimit.exit ], [ %.5, %297 ]
+.loopexit:                                        ; preds = %297, %FindMatchLengthWithLimit.exit, %147, %143, %146, %179, %151, %189, %197
+  %.1207.ph = phi i64 [ %.0206353, %197 ], [ %.0206353, %189 ], [ %.0206353, %151 ], [ %.0206353, %179 ], [ %.0206353, %146 ], [ %.0206353, %143 ], [ %.0206353, %147 ], [ %.0206353, %FindMatchLengthWithLimit.exit ], [ %.0219347, %297 ]
+  %.3.ph = phi i64 [ %.1354, %197 ], [ %.1354, %189 ], [ %.1354, %151 ], [ %.1354, %179 ], [ %.1354, %146 ], [ %.1354, %143 ], [ %.1354, %147 ], [ %.1354, %FindMatchLengthWithLimit.exit ], [ %.5, %297 ]
   %298 = add nuw nsw i64 %.0209351, 1
   %299 = icmp samesign ult i64 %.0209351, 15
   %300 = icmp ult i64 %.1207.ph, %21
@@ -2765,7 +2765,7 @@ ZopfliNodeDistanceCode.exit.i:                    ; preds = %22
   br label %ComputeDistanceShortcut.exit
 
 ComputeDistanceShortcut.exit:                     ; preds = %8, %34, %36
-  %.0.i = phi i32 [ %35, %34 ], [ %41, %36 ], [ 0, %8 ]
+  %.0.i = phi i32 [ %41, %36 ], [ %35, %34 ], [ 0, %8 ]
   store i32 %.0.i, ptr %12, align 4, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2832
   %43 = load ptr, ptr %42, align 8, !tbaa !51
@@ -3186,8 +3186,8 @@ FindMatchLengthWithLimit.exit:                    ; preds = %128, %.critedge.i
   br label %157
 
 157:                                              ; preds = %152, %FindMatchLengthWithLimit.exit, %124, %119
-  %.3348 = phi i64 [ %.2.i240, %152 ], [ %.0346477, %FindMatchLengthWithLimit.exit ], [ %.0346477, %124 ], [ %.0346477, %119 ]
-  %.2.i = phi ptr [ %153, %152 ], [ %.0.i478, %FindMatchLengthWithLimit.exit ], [ %.0.i478, %124 ], [ %.0.i478, %119 ]
+  %.3348 = phi i64 [ %.0346477, %119 ], [ %.2.i240, %152 ], [ %.0346477, %FindMatchLengthWithLimit.exit ], [ %.0346477, %124 ]
+  %.2.i = phi ptr [ %.0.i478, %119 ], [ %153, %152 ], [ %.0.i478, %FindMatchLengthWithLimit.exit ], [ %.0.i478, %124 ]
   %.072.i = add i64 %.072.i479, -1
   %158 = icmp ugt i64 %.072.i, %spec.select.i
   %159 = icmp ult i64 %.3348, 3
@@ -3697,9 +3697,9 @@ FindMatchLengthWithLimit.exit.i262:               ; preds = %375, %.critedge.i.i
   br i1 %405, label %FindAllCompoundDictionaryMatches.exit, label %406
 
 406:                                              ; preds = %399, %FindMatchLengthWithLimit.exit.i262, %366, %363, %353
-  %.283.i = phi i64 [ %.081.i544, %353 ], [ %.081.i544, %366 ], [ %.081.i544, %363 ], [ %.081.i544, %FindMatchLengthWithLimit.exit.i262 ], [ %404, %399 ]
-  %.178.i = phi i64 [ %.077.i546, %353 ], [ %.077.i546, %366 ], [ %.077.i546, %363 ], [ %.077.i546, %FindMatchLengthWithLimit.exit.i262 ], [ %.2.i.i263, %399 ]
-  %.1.i251 = phi ptr [ %.075.i547, %353 ], [ %.075.i547, %366 ], [ %.075.i547, %363 ], [ %.075.i547, %FindMatchLengthWithLimit.exit.i262 ], [ %400, %399 ]
+  %.283.i = phi i64 [ %404, %399 ], [ %.081.i544, %353 ], [ %.081.i544, %363 ], [ %.081.i544, %366 ], [ %.081.i544, %FindMatchLengthWithLimit.exit.i262 ]
+  %.178.i = phi i64 [ %.2.i.i263, %399 ], [ %.077.i546, %353 ], [ %.077.i546, %363 ], [ %.077.i546, %366 ], [ %.077.i546, %FindMatchLengthWithLimit.exit.i262 ]
+  %.1.i251 = phi ptr [ %400, %399 ], [ %.075.i547, %353 ], [ %.075.i547, %363 ], [ %.075.i547, %366 ], [ %.075.i547, %FindMatchLengthWithLimit.exit.i262 ]
   %407 = icmp sgt i32 %354, -1
   br i1 %407, label %353, label %FindAllCompoundDictionaryMatches.exit
 
@@ -4034,10 +4034,10 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
   %553 = icmp eq i64 %.0.i235588, %.093.i.i
   br i1 %553, label %._crit_edge582, label %.lr.ph581
 
-StoreH10.exit:                                    ; preds = %._crit_edge582, %531
-  %.0102.i.i.lcssa.sink = phi i64 [ %.0102.i.i.lcssa, %._crit_edge582 ], [ %.0102.i.i576, %531 ]
-  %.sink813 = phi i32 [ %497, %._crit_edge582 ], [ %537, %531 ]
-  %554 = getelementptr inbounds nuw i32, ptr %480, i64 %.0102.i.i.lcssa.sink
+StoreH10.exit:                                    ; preds = %531, %._crit_edge582
+  %.0102.i.i576.lcssa800.sink = phi i64 [ %.0102.i.i576, %531 ], [ %.0102.i.i.lcssa, %._crit_edge582 ]
+  %.sink813 = phi i32 [ %537, %531 ], [ %497, %._crit_edge582 ]
+  %554 = getelementptr inbounds nuw i32, ptr %480, i64 %.0102.i.i576.lcssa800.sink
   store i32 %.sink813, ptr %554, align 4, !tbaa !3, !noalias !223
   %555 = add i64 %.0.i235588, 8
   %556 = icmp ult i64 %555, %spec.select.i234
@@ -4220,10 +4220,10 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
   %634 = icmp eq i64 %.1.i236623, %.093.i.i279
   br i1 %634, label %._crit_edge617, label %.lr.ph616
 
-StoreH10.exit317:                                 ; preds = %._crit_edge617, %612
-  %.0102.i.i277.lcssa.sink = phi i64 [ %.0102.i.i277.lcssa, %._crit_edge617 ], [ %.0102.i.i277611, %612 ]
-  %.sink815 = phi i32 [ %578, %._crit_edge617 ], [ %618, %612 ]
-  %635 = getelementptr inbounds nuw i32, ptr %561, i64 %.0102.i.i277.lcssa.sink
+StoreH10.exit317:                                 ; preds = %612, %._crit_edge617
+  %.0102.i.i277611.lcssa809.sink = phi i64 [ %.0102.i.i277611, %612 ], [ %.0102.i.i277.lcssa, %._crit_edge617 ]
+  %.sink815 = phi i32 [ %618, %612 ], [ %578, %._crit_edge617 ]
+  %635 = getelementptr inbounds nuw i32, ptr %561, i64 %.0102.i.i277611.lcssa809.sink
   store i32 %.sink815, ptr %635, align 4, !tbaa !3, !noalias !240
   %636 = add nuw i64 %.1.i236623, 1
   %637 = icmp ult i64 %636, %472
@@ -4662,7 +4662,7 @@ ZopfliNodeDistanceCode.exit.i.i.i:                ; preds = %850
   br label %ComputeDistanceShortcut.exit.i.i
 
 ComputeDistanceShortcut.exit.i.i:                 ; preds = %862, %860, %838
-  %.0.i.i.i338 = phi i32 [ %861, %860 ], [ %867, %862 ], [ 0, %838 ]
+  %.0.i.i.i338 = phi i32 [ %867, %862 ], [ %861, %860 ], [ 0, %838 ]
   store i32 %.0.i.i.i338, ptr %840, align 4, !tbaa !7
   %868 = load ptr, ptr %673, align 8, !tbaa !51
   %869 = getelementptr inbounds nuw float, ptr %868, i64 %836

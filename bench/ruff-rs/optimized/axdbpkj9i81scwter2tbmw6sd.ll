@@ -925,8 +925,8 @@ default.unreachable:                              ; preds = %9
   br label %22
 
 33:                                               ; preds = %19, %18, %17, %16, %15, %22
-  %.sroa.171.1 = phi i64 [ %24, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ]
-  %.sroa.0.2 = phi i64 [ 1, %22 ], [ 0, %15 ], [ 0, %16 ], [ 0, %17 ], [ 0, %18 ], [ 0, %19 ]
+  %.sroa.171.1 = phi i64 [ %24, %22 ], [ 0, %15 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.0.2 = phi i64 [ 1, %22 ], [ 0, %15 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %19 ]
   %.sroa.12.0.insert.ext = zext nneg i8 %4 to i64
   %.sroa.12.0.insert.shift = shl nuw nsw i64 %.sroa.12.0.insert.ext, 8
   %.sroa.12.0.insert.insert = or disjoint i64 %.sroa.171.1, %.sroa.12.0.insert.shift
@@ -990,7 +990,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN211_$LT$ruff_linter..rules..iso
   br i1 %32, label %33, label %11, !prof !12
 
 33:                                               ; preds = %222, %175, %139, %93, %29, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4"
-  %.sroa.7.0.insert.insert = phi i64 [ %237, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 0, %29 ], [ 256, %93 ], [ 512, %139 ], [ 768, %175 ], [ 1024, %222 ]
+  %.sroa.7.0.insert.insert = phi i64 [ %237, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 768, %175 ], [ 0, %29 ], [ 256, %93 ], [ 512, %139 ], [ 1024, %222 ]
   ret i64 %.sroa.7.0.insert.insert
 
 34:                                               ; preds = %2
@@ -1425,7 +1425,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN212_$LT$ruff_linter..rules..pyd
   br label %27
 
 19:                                               ; preds = %2, %25, %23, %14
-  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %24, %23 ], [ %26, %25 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %26, %25 ], [ %15, %14 ], [ %24, %23 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   %22 = or disjoint i64 %21, 1
@@ -1573,7 +1573,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..pyd
   br i1 %34, label %35, label %6, !prof !12
 
 35:                                               ; preds = %67, %48, %31, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5"
-  %.sroa.5.0.insert.insert = phi i64 [ %82, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 0, %31 ], [ 512, %48 ], [ 256, %67 ]
+  %.sroa.5.0.insert.insert = phi i64 [ %82, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit5" ], [ 512, %48 ], [ 0, %31 ], [ 256, %67 ]
   ret i64 %.sroa.5.0.insert.insert
 
 36:                                               ; preds = %19
@@ -1829,7 +1829,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN233_$LT$ruff_linter..rules..fla
   br label %27
 
 19:                                               ; preds = %2, %25, %23, %14
-  %.sroa.111.0 = phi i32 [ %15, %14 ], [ %24, %23 ], [ %26, %25 ], [ %.sroa.530.0.extract.trunc, %2 ]
+  %.sroa.111.0 = phi i32 [ %26, %25 ], [ %15, %14 ], [ %24, %23 ], [ %.sroa.530.0.extract.trunc, %2 ]
   %20 = zext i32 %.sroa.111.0 to i64
   %21 = shl nuw i64 %20, 32
   %22 = or disjoint i64 %21, 1
@@ -1875,7 +1875,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1
@@ -1979,7 +1979,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN238_$LT$ruff_linter..rules..fla
   br i1 %20, label %21, label %11, !prof !12
 
 21:                                               ; preds = %52, %37, %17, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4"
-  %.sroa.5.0.insert.insert = phi i64 [ %67, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 0, %17 ], [ 256, %37 ], [ 512, %52 ]
+  %.sroa.5.0.insert.insert = phi i64 [ %67, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit4" ], [ 256, %37 ], [ 0, %17 ], [ 512, %52 ]
   ret i64 %.sroa.5.0.insert.insert
 
 22:                                               ; preds = %2
@@ -2150,7 +2150,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN238_$LT$ruff_linter..rules..fla
   br label %15
 
 15:                                               ; preds = %2, %19, %13
-  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+  %.sroa.81.0 = phi i32 [ %14, %13 ], [ %20, %19 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
   %18 = or disjoint i64 %17, 1

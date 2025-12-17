@@ -875,7 +875,7 @@ define hidden void @_ZN12ZDriverMajor10run_threadEv(ptr noundef nonnull align 8 
   br label %_ZL28should_clear_soft_referencesN7GCCause5CauseE.exit
 
 _ZL28should_clear_soft_referencesN7GCCause5CauseE.exit: ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %13
-  %.0.i = phi i1 [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %15, %13 ]
+  %.0.i = phi i1 [ true, %.lr.ph ], [ %15, %13 ], [ true, %.lr.ph ], [ true, %.lr.ph ]
   %16 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
   call void @_ZN14ZGenerationOld25set_soft_reference_policyEb(ptr noundef nonnull align 64 dereferenceable(6720) %16, i1 noundef zeroext %.0.i) #13
   call void @_ZN12ZDriverMajor2gcERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(1264) %0, ptr noundef nonnull align 4 dereferenceable(12) %2)

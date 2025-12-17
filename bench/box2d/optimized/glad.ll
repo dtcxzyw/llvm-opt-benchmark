@@ -2402,8 +2402,8 @@ get_proc.exit6309:                                ; preds = %87, %.thread.i6308
   br label %get_proc.exit6303
 
 get_proc.exit6303:                                ; preds = %95, %.thread.i6302
-  %.pr6331 = phi ptr [ %.pr6331.pre8410, %95 ], [ %.pr6331.pre, %.thread.i6302 ]
-  %.05.i6299.ph = phi ptr [ %96, %95 ], [ %99, %.thread.i6302 ]
+  %.pr6331 = phi ptr [ %.pr6331.pre, %.thread.i6302 ], [ %.pr6331.pre8410, %95 ]
+  %.05.i6299.ph = phi ptr [ %99, %.thread.i6302 ], [ %96, %95 ]
   store ptr %.05.i6299.ph, ptr @glad_glHint, align 8, !tbaa !11
   %100 = icmp eq ptr %.pr6331, null
   br i1 %100, label %get_proc.exit6291.thread12034, label %101
@@ -2460,8 +2460,8 @@ get_proc.exit6297:                                ; preds = %103, %.thread.i6296
   br label %get_proc.exit6291
 
 get_proc.exit6291:                                ; preds = %111, %.thread.i6290
-  %.pr6335 = phi ptr [ %.pr6335.pre8413, %111 ], [ %.pr6335.pre, %.thread.i6290 ]
-  %.05.i6287.ph = phi ptr [ %112, %111 ], [ %115, %.thread.i6290 ]
+  %.pr6335 = phi ptr [ %.pr6335.pre, %.thread.i6290 ], [ %.pr6335.pre8413, %111 ]
+  %.05.i6287.ph = phi ptr [ %115, %.thread.i6290 ], [ %112, %111 ]
   store ptr %.05.i6287.ph, ptr @glad_glPointSize, align 8, !tbaa !11
   %116 = icmp eq ptr %.pr6335, null
   br i1 %116, label %get_proc.exit6279.thread12037, label %117
@@ -2518,8 +2518,8 @@ get_proc.exit6285:                                ; preds = %119, %.thread.i6284
   br label %get_proc.exit6279
 
 get_proc.exit6279:                                ; preds = %127, %.thread.i6278
-  %.pr6339 = phi ptr [ %.pr6339.pre8416, %127 ], [ %.pr6339.pre, %.thread.i6278 ]
-  %.05.i6275.ph = phi ptr [ %128, %127 ], [ %131, %.thread.i6278 ]
+  %.pr6339 = phi ptr [ %.pr6339.pre, %.thread.i6278 ], [ %.pr6339.pre8416, %127 ]
+  %.05.i6275.ph = phi ptr [ %131, %.thread.i6278 ], [ %128, %127 ]
   store ptr %.05.i6275.ph, ptr @glad_glScissor, align 8, !tbaa !11
   %132 = icmp eq ptr %.pr6339, null
   br i1 %132, label %get_proc.exit6267.thread12040, label %133
@@ -2576,8 +2576,8 @@ get_proc.exit6273:                                ; preds = %135, %.thread.i6272
   br label %get_proc.exit6267
 
 get_proc.exit6267:                                ; preds = %143, %.thread.i6266
-  %.pr6343 = phi ptr [ %.pr6343.pre8419, %143 ], [ %.pr6343.pre, %.thread.i6266 ]
-  %.05.i6263.ph = phi ptr [ %144, %143 ], [ %147, %.thread.i6266 ]
+  %.pr6343 = phi ptr [ %.pr6343.pre, %.thread.i6266 ], [ %.pr6343.pre8419, %143 ]
+  %.05.i6263.ph = phi ptr [ %147, %.thread.i6266 ], [ %144, %143 ]
   store ptr %.05.i6263.ph, ptr @glad_glTexParameterfv, align 8, !tbaa !11
   %148 = icmp eq ptr %.pr6343, null
   br i1 %148, label %get_proc.exit6255.thread12043, label %149
@@ -2634,8 +2634,8 @@ get_proc.exit6261:                                ; preds = %151, %.thread.i6260
   br label %get_proc.exit6255
 
 get_proc.exit6255:                                ; preds = %159, %.thread.i6254
-  %.pr6347 = phi ptr [ %.pr6347.pre8422, %159 ], [ %.pr6347.pre, %.thread.i6254 ]
-  %.05.i6251.ph = phi ptr [ %160, %159 ], [ %163, %.thread.i6254 ]
+  %.pr6347 = phi ptr [ %.pr6347.pre, %.thread.i6254 ], [ %.pr6347.pre8422, %159 ]
+  %.05.i6251.ph = phi ptr [ %163, %.thread.i6254 ], [ %160, %159 ]
   store ptr %.05.i6251.ph, ptr @glad_glTexParameteriv, align 8, !tbaa !11
   %164 = icmp eq ptr %.pr6347, null
   br i1 %164, label %get_proc.exit6243.thread12046, label %165
@@ -2692,8 +2692,8 @@ get_proc.exit6249:                                ; preds = %167, %.thread.i6248
   br label %get_proc.exit6243
 
 get_proc.exit6243:                                ; preds = %175, %.thread.i6242
-  %.pr6351 = phi ptr [ %.pr6351.pre8425, %175 ], [ %.pr6351.pre, %.thread.i6242 ]
-  %.05.i6239.ph = phi ptr [ %176, %175 ], [ %179, %.thread.i6242 ]
+  %.pr6351 = phi ptr [ %.pr6351.pre, %.thread.i6242 ], [ %.pr6351.pre8425, %175 ]
+  %.05.i6239.ph = phi ptr [ %179, %.thread.i6242 ], [ %176, %175 ]
   store ptr %.05.i6239.ph, ptr @glad_glTexImage2D, align 8, !tbaa !11
   %180 = icmp eq ptr %.pr6351, null
   br i1 %180, label %get_proc.exit6231.thread12049, label %181
@@ -2750,8 +2750,8 @@ get_proc.exit6237:                                ; preds = %183, %.thread.i6236
   br label %get_proc.exit6231
 
 get_proc.exit6231:                                ; preds = %191, %.thread.i6230
-  %.pr6355 = phi ptr [ %.pr6355.pre8428, %191 ], [ %.pr6355.pre, %.thread.i6230 ]
-  %.05.i6227.ph = phi ptr [ %192, %191 ], [ %195, %.thread.i6230 ]
+  %.pr6355 = phi ptr [ %.pr6355.pre, %.thread.i6230 ], [ %.pr6355.pre8428, %191 ]
+  %.05.i6227.ph = phi ptr [ %195, %.thread.i6230 ], [ %192, %191 ]
   store ptr %.05.i6227.ph, ptr @glad_glClear, align 8, !tbaa !11
   %196 = icmp eq ptr %.pr6355, null
   br i1 %196, label %get_proc.exit6219.thread12052, label %197
@@ -2808,8 +2808,8 @@ get_proc.exit6225:                                ; preds = %199, %.thread.i6224
   br label %get_proc.exit6219
 
 get_proc.exit6219:                                ; preds = %207, %.thread.i6218
-  %.pr6359 = phi ptr [ %.pr6359.pre8431, %207 ], [ %.pr6359.pre, %.thread.i6218 ]
-  %.05.i6215.ph = phi ptr [ %208, %207 ], [ %211, %.thread.i6218 ]
+  %.pr6359 = phi ptr [ %.pr6359.pre, %.thread.i6218 ], [ %.pr6359.pre8431, %207 ]
+  %.05.i6215.ph = phi ptr [ %211, %.thread.i6218 ], [ %208, %207 ]
   store ptr %.05.i6215.ph, ptr @glad_glClearStencil, align 8, !tbaa !11
   %212 = icmp eq ptr %.pr6359, null
   br i1 %212, label %get_proc.exit6207.thread12055, label %213
@@ -2866,8 +2866,8 @@ get_proc.exit6213:                                ; preds = %215, %.thread.i6212
   br label %get_proc.exit6207
 
 get_proc.exit6207:                                ; preds = %223, %.thread.i6206
-  %.pr6363 = phi ptr [ %.pr6363.pre8434, %223 ], [ %.pr6363.pre, %.thread.i6206 ]
-  %.05.i6203.ph = phi ptr [ %224, %223 ], [ %227, %.thread.i6206 ]
+  %.pr6363 = phi ptr [ %.pr6363.pre, %.thread.i6206 ], [ %.pr6363.pre8434, %223 ]
+  %.05.i6203.ph = phi ptr [ %227, %.thread.i6206 ], [ %224, %223 ]
   store ptr %.05.i6203.ph, ptr @glad_glStencilMask, align 8, !tbaa !11
   %228 = icmp eq ptr %.pr6363, null
   br i1 %228, label %get_proc.exit6195.thread12058, label %229
@@ -2924,8 +2924,8 @@ get_proc.exit6201:                                ; preds = %231, %.thread.i6200
   br label %get_proc.exit6195
 
 get_proc.exit6195:                                ; preds = %239, %.thread.i6194
-  %.pr6367 = phi ptr [ %.pr6367.pre8437, %239 ], [ %.pr6367.pre, %.thread.i6194 ]
-  %.05.i6191.ph = phi ptr [ %240, %239 ], [ %243, %.thread.i6194 ]
+  %.pr6367 = phi ptr [ %.pr6367.pre, %.thread.i6194 ], [ %.pr6367.pre8437, %239 ]
+  %.05.i6191.ph = phi ptr [ %243, %.thread.i6194 ], [ %240, %239 ]
   store ptr %.05.i6191.ph, ptr @glad_glDepthMask, align 8, !tbaa !11
   %244 = icmp eq ptr %.pr6367, null
   br i1 %244, label %get_proc.exit6183.thread12061, label %245
@@ -2982,8 +2982,8 @@ get_proc.exit6189:                                ; preds = %247, %.thread.i6188
   br label %get_proc.exit6183
 
 get_proc.exit6183:                                ; preds = %255, %.thread.i6182
-  %.pr6371 = phi ptr [ %.pr6371.pre8440, %255 ], [ %.pr6371.pre, %.thread.i6182 ]
-  %.05.i6179.ph = phi ptr [ %256, %255 ], [ %259, %.thread.i6182 ]
+  %.pr6371 = phi ptr [ %.pr6371.pre, %.thread.i6182 ], [ %.pr6371.pre8440, %255 ]
+  %.05.i6179.ph = phi ptr [ %259, %.thread.i6182 ], [ %256, %255 ]
   store ptr %.05.i6179.ph, ptr @glad_glEnable, align 8, !tbaa !11
   %260 = icmp eq ptr %.pr6371, null
   br i1 %260, label %get_proc.exit6171.thread12064, label %261
@@ -3040,8 +3040,8 @@ get_proc.exit6177:                                ; preds = %263, %.thread.i6176
   br label %get_proc.exit6171
 
 get_proc.exit6171:                                ; preds = %271, %.thread.i6170
-  %.pr6375 = phi ptr [ %.pr6375.pre8443, %271 ], [ %.pr6375.pre, %.thread.i6170 ]
-  %.05.i6167.ph = phi ptr [ %272, %271 ], [ %275, %.thread.i6170 ]
+  %.pr6375 = phi ptr [ %.pr6375.pre, %.thread.i6170 ], [ %.pr6375.pre8443, %271 ]
+  %.05.i6167.ph = phi ptr [ %275, %.thread.i6170 ], [ %272, %271 ]
   store ptr %.05.i6167.ph, ptr @glad_glFlush, align 8, !tbaa !11
   %276 = icmp eq ptr %.pr6375, null
   br i1 %276, label %get_proc.exit6159.thread12067, label %277
@@ -3098,8 +3098,8 @@ get_proc.exit6165:                                ; preds = %279, %.thread.i6164
   br label %get_proc.exit6159
 
 get_proc.exit6159:                                ; preds = %287, %.thread.i6158
-  %.pr6379 = phi ptr [ %.pr6379.pre8446, %287 ], [ %.pr6379.pre, %.thread.i6158 ]
-  %.05.i6155.ph = phi ptr [ %288, %287 ], [ %291, %.thread.i6158 ]
+  %.pr6379 = phi ptr [ %.pr6379.pre, %.thread.i6158 ], [ %.pr6379.pre8446, %287 ]
+  %.05.i6155.ph = phi ptr [ %291, %.thread.i6158 ], [ %288, %287 ]
   store ptr %.05.i6155.ph, ptr @glad_glLogicOp, align 8, !tbaa !11
   %292 = icmp eq ptr %.pr6379, null
   br i1 %292, label %get_proc.exit6147.thread12070, label %293
@@ -3156,8 +3156,8 @@ get_proc.exit6153:                                ; preds = %295, %.thread.i6152
   br label %get_proc.exit6147
 
 get_proc.exit6147:                                ; preds = %303, %.thread.i6146
-  %.pr6383 = phi ptr [ %.pr6383.pre8449, %303 ], [ %.pr6383.pre, %.thread.i6146 ]
-  %.05.i6143.ph = phi ptr [ %304, %303 ], [ %307, %.thread.i6146 ]
+  %.pr6383 = phi ptr [ %.pr6383.pre, %.thread.i6146 ], [ %.pr6383.pre8449, %303 ]
+  %.05.i6143.ph = phi ptr [ %307, %.thread.i6146 ], [ %304, %303 ]
   store ptr %.05.i6143.ph, ptr @glad_glStencilOp, align 8, !tbaa !11
   %308 = icmp eq ptr %.pr6383, null
   br i1 %308, label %get_proc.exit6135.thread12073, label %309
@@ -3214,8 +3214,8 @@ get_proc.exit6141:                                ; preds = %311, %.thread.i6140
   br label %get_proc.exit6135
 
 get_proc.exit6135:                                ; preds = %319, %.thread.i6134
-  %.pr6387 = phi ptr [ %.pr6387.pre8452, %319 ], [ %.pr6387.pre, %.thread.i6134 ]
-  %.05.i6131.ph = phi ptr [ %320, %319 ], [ %323, %.thread.i6134 ]
+  %.pr6387 = phi ptr [ %.pr6387.pre, %.thread.i6134 ], [ %.pr6387.pre8452, %319 ]
+  %.05.i6131.ph = phi ptr [ %323, %.thread.i6134 ], [ %320, %319 ]
   store ptr %.05.i6131.ph, ptr @glad_glPixelStoref, align 8, !tbaa !11
   %324 = icmp eq ptr %.pr6387, null
   br i1 %324, label %get_proc.exit6123.thread12076, label %325
@@ -3272,8 +3272,8 @@ get_proc.exit6129:                                ; preds = %327, %.thread.i6128
   br label %get_proc.exit6123
 
 get_proc.exit6123:                                ; preds = %335, %.thread.i6122
-  %.pr6391 = phi ptr [ %.pr6391.pre8455, %335 ], [ %.pr6391.pre, %.thread.i6122 ]
-  %.05.i6119.ph = phi ptr [ %336, %335 ], [ %339, %.thread.i6122 ]
+  %.pr6391 = phi ptr [ %.pr6391.pre, %.thread.i6122 ], [ %.pr6391.pre8455, %335 ]
+  %.05.i6119.ph = phi ptr [ %339, %.thread.i6122 ], [ %336, %335 ]
   store ptr %.05.i6119.ph, ptr @glad_glReadBuffer, align 8, !tbaa !11
   %340 = icmp eq ptr %.pr6391, null
   br i1 %340, label %get_proc.exit6111.thread12079, label %341
@@ -3330,8 +3330,8 @@ get_proc.exit6117:                                ; preds = %343, %.thread.i6116
   br label %get_proc.exit6111
 
 get_proc.exit6111:                                ; preds = %351, %.thread.i6110
-  %.pr6395 = phi ptr [ %.pr6395.pre8458, %351 ], [ %.pr6395.pre, %.thread.i6110 ]
-  %.05.i6107.ph = phi ptr [ %352, %351 ], [ %355, %.thread.i6110 ]
+  %.pr6395 = phi ptr [ %.pr6395.pre, %.thread.i6110 ], [ %.pr6395.pre8458, %351 ]
+  %.05.i6107.ph = phi ptr [ %355, %.thread.i6110 ], [ %352, %351 ]
   store ptr %.05.i6107.ph, ptr @glad_glGetBooleanv, align 8, !tbaa !11
   %356 = icmp eq ptr %.pr6395, null
   br i1 %356, label %get_proc.exit6099.thread12082, label %357
@@ -3388,8 +3388,8 @@ get_proc.exit6105:                                ; preds = %359, %.thread.i6104
   br label %get_proc.exit6099
 
 get_proc.exit6099:                                ; preds = %367, %.thread.i6098
-  %.pr6399 = phi ptr [ %.pr6399.pre8461, %367 ], [ %.pr6399.pre, %.thread.i6098 ]
-  %.05.i6095.ph = phi ptr [ %368, %367 ], [ %371, %.thread.i6098 ]
+  %.pr6399 = phi ptr [ %.pr6399.pre, %.thread.i6098 ], [ %.pr6399.pre8461, %367 ]
+  %.05.i6095.ph = phi ptr [ %371, %.thread.i6098 ], [ %368, %367 ]
   store ptr %.05.i6095.ph, ptr @glad_glGetError, align 8, !tbaa !11
   %372 = icmp eq ptr %.pr6399, null
   br i1 %372, label %get_proc.exit6087.thread12085, label %373
@@ -3446,8 +3446,8 @@ get_proc.exit6093:                                ; preds = %375, %.thread.i6092
   br label %get_proc.exit6087
 
 get_proc.exit6087:                                ; preds = %383, %.thread.i6086
-  %.pr6403 = phi ptr [ %.pr6403.pre8464, %383 ], [ %.pr6403.pre, %.thread.i6086 ]
-  %.05.i6083.ph = phi ptr [ %384, %383 ], [ %387, %.thread.i6086 ]
+  %.pr6403 = phi ptr [ %.pr6403.pre, %.thread.i6086 ], [ %.pr6403.pre8464, %383 ]
+  %.05.i6083.ph = phi ptr [ %387, %.thread.i6086 ], [ %384, %383 ]
   store ptr %.05.i6083.ph, ptr @glad_glGetIntegerv, align 8, !tbaa !11
   %388 = icmp eq ptr %.pr6403, null
   br i1 %388, label %get_proc.exit6075.thread12088, label %389
@@ -3504,8 +3504,8 @@ get_proc.exit6081:                                ; preds = %391, %.thread.i6080
   br label %get_proc.exit6075
 
 get_proc.exit6075:                                ; preds = %399, %.thread.i6074
-  %.pr6407 = phi ptr [ %.pr6407.pre8467, %399 ], [ %.pr6407.pre, %.thread.i6074 ]
-  %.05.i6071.ph = phi ptr [ %400, %399 ], [ %403, %.thread.i6074 ]
+  %.pr6407 = phi ptr [ %.pr6407.pre, %.thread.i6074 ], [ %.pr6407.pre8467, %399 ]
+  %.05.i6071.ph = phi ptr [ %403, %.thread.i6074 ], [ %400, %399 ]
   store ptr %.05.i6071.ph, ptr @glad_glGetTexImage, align 8, !tbaa !11
   %404 = icmp eq ptr %.pr6407, null
   br i1 %404, label %get_proc.exit6063.thread12091, label %405
@@ -3562,8 +3562,8 @@ get_proc.exit6069:                                ; preds = %407, %.thread.i6068
   br label %get_proc.exit6063
 
 get_proc.exit6063:                                ; preds = %415, %.thread.i6062
-  %.pr6411 = phi ptr [ %.pr6411.pre8470, %415 ], [ %.pr6411.pre, %.thread.i6062 ]
-  %.05.i6059.ph = phi ptr [ %416, %415 ], [ %419, %.thread.i6062 ]
+  %.pr6411 = phi ptr [ %.pr6411.pre, %.thread.i6062 ], [ %.pr6411.pre8470, %415 ]
+  %.05.i6059.ph = phi ptr [ %419, %.thread.i6062 ], [ %416, %415 ]
   store ptr %.05.i6059.ph, ptr @glad_glGetTexParameteriv, align 8, !tbaa !11
   %420 = icmp eq ptr %.pr6411, null
   br i1 %420, label %get_proc.exit6051.thread12094, label %421
@@ -3620,8 +3620,8 @@ get_proc.exit6057:                                ; preds = %423, %.thread.i6056
   br label %get_proc.exit6051
 
 get_proc.exit6051:                                ; preds = %431, %.thread.i6050
-  %.pr6415 = phi ptr [ %.pr6415.pre8473, %431 ], [ %.pr6415.pre, %.thread.i6050 ]
-  %.05.i6047.ph = phi ptr [ %432, %431 ], [ %435, %.thread.i6050 ]
+  %.pr6415 = phi ptr [ %.pr6415.pre, %.thread.i6050 ], [ %.pr6415.pre8473, %431 ]
+  %.05.i6047.ph = phi ptr [ %435, %.thread.i6050 ], [ %432, %431 ]
   store ptr %.05.i6047.ph, ptr @glad_glGetTexLevelParameteriv, align 8, !tbaa !11
   %436 = icmp eq ptr %.pr6415, null
   br i1 %436, label %get_proc.exit6039.thread12097, label %437
@@ -3678,8 +3678,8 @@ get_proc.exit6045:                                ; preds = %439, %.thread.i6044
   br label %get_proc.exit6039
 
 get_proc.exit6039:                                ; preds = %447, %.thread.i6038
-  %.pr6419 = phi ptr [ %.pr6419.pre8476, %447 ], [ %.pr6419.pre, %.thread.i6038 ]
-  %.05.i6035.ph = phi ptr [ %448, %447 ], [ %451, %.thread.i6038 ]
+  %.pr6419 = phi ptr [ %.pr6419.pre, %.thread.i6038 ], [ %.pr6419.pre8476, %447 ]
+  %.05.i6035.ph = phi ptr [ %451, %.thread.i6038 ], [ %448, %447 ]
   store ptr %.05.i6035.ph, ptr @glad_glDepthRange, align 8, !tbaa !11
   %452 = icmp eq ptr %.pr6419, null
   br i1 %452, label %get_proc.exit6027.thread12100, label %453
@@ -3736,8 +3736,8 @@ get_proc.exit6033:                                ; preds = %455, %.thread.i6032
   br label %get_proc.exit6027
 
 get_proc.exit6027:                                ; preds = %463, %.thread.i6026
-  %.pr6423 = phi ptr [ %.pr6423.pre8479, %463 ], [ %.pr6423.pre, %.thread.i6026 ]
-  %.05.i6023.ph = phi ptr [ %464, %463 ], [ %467, %.thread.i6026 ]
+  %.pr6423 = phi ptr [ %.pr6423.pre, %.thread.i6026 ], [ %.pr6423.pre8479, %463 ]
+  %.05.i6023.ph = phi ptr [ %467, %.thread.i6026 ], [ %464, %463 ]
   store ptr %.05.i6023.ph, ptr @glad_glNewList, align 8, !tbaa !11
   %468 = icmp eq ptr %.pr6423, null
   br i1 %468, label %get_proc.exit6015.thread12103, label %469
@@ -3794,8 +3794,8 @@ get_proc.exit6021:                                ; preds = %471, %.thread.i6020
   br label %get_proc.exit6015
 
 get_proc.exit6015:                                ; preds = %479, %.thread.i6014
-  %.pr6427 = phi ptr [ %.pr6427.pre8482, %479 ], [ %.pr6427.pre, %.thread.i6014 ]
-  %.05.i6011.ph = phi ptr [ %480, %479 ], [ %483, %.thread.i6014 ]
+  %.pr6427 = phi ptr [ %.pr6427.pre, %.thread.i6014 ], [ %.pr6427.pre8482, %479 ]
+  %.05.i6011.ph = phi ptr [ %483, %.thread.i6014 ], [ %480, %479 ]
   store ptr %.05.i6011.ph, ptr @glad_glCallList, align 8, !tbaa !11
   %484 = icmp eq ptr %.pr6427, null
   br i1 %484, label %get_proc.exit6003.thread12106, label %485
@@ -3852,8 +3852,8 @@ get_proc.exit6009:                                ; preds = %487, %.thread.i6008
   br label %get_proc.exit6003
 
 get_proc.exit6003:                                ; preds = %495, %.thread.i6002
-  %.pr6431 = phi ptr [ %.pr6431.pre8485, %495 ], [ %.pr6431.pre, %.thread.i6002 ]
-  %.05.i5999.ph = phi ptr [ %496, %495 ], [ %499, %.thread.i6002 ]
+  %.pr6431 = phi ptr [ %.pr6431.pre, %.thread.i6002 ], [ %.pr6431.pre8485, %495 ]
+  %.05.i5999.ph = phi ptr [ %499, %.thread.i6002 ], [ %496, %495 ]
   store ptr %.05.i5999.ph, ptr @glad_glDeleteLists, align 8, !tbaa !11
   %500 = icmp eq ptr %.pr6431, null
   br i1 %500, label %get_proc.exit5991.thread12109, label %501
@@ -3910,8 +3910,8 @@ get_proc.exit5997:                                ; preds = %503, %.thread.i5996
   br label %get_proc.exit5991
 
 get_proc.exit5991:                                ; preds = %511, %.thread.i5990
-  %.pr6435 = phi ptr [ %.pr6435.pre8488, %511 ], [ %.pr6435.pre, %.thread.i5990 ]
-  %.05.i5987.ph = phi ptr [ %512, %511 ], [ %515, %.thread.i5990 ]
+  %.pr6435 = phi ptr [ %.pr6435.pre, %.thread.i5990 ], [ %.pr6435.pre8488, %511 ]
+  %.05.i5987.ph = phi ptr [ %515, %.thread.i5990 ], [ %512, %511 ]
   store ptr %.05.i5987.ph, ptr @glad_glListBase, align 8, !tbaa !11
   %516 = icmp eq ptr %.pr6435, null
   br i1 %516, label %get_proc.exit5979.thread12112, label %517
@@ -3968,8 +3968,8 @@ get_proc.exit5985:                                ; preds = %519, %.thread.i5984
   br label %get_proc.exit5979
 
 get_proc.exit5979:                                ; preds = %527, %.thread.i5978
-  %.pr6439 = phi ptr [ %.pr6439.pre8491, %527 ], [ %.pr6439.pre, %.thread.i5978 ]
-  %.05.i5975.ph = phi ptr [ %528, %527 ], [ %531, %.thread.i5978 ]
+  %.pr6439 = phi ptr [ %.pr6439.pre, %.thread.i5978 ], [ %.pr6439.pre8491, %527 ]
+  %.05.i5975.ph = phi ptr [ %531, %.thread.i5978 ], [ %528, %527 ]
   store ptr %.05.i5975.ph, ptr @glad_glBitmap, align 8, !tbaa !11
   %532 = icmp eq ptr %.pr6439, null
   br i1 %532, label %get_proc.exit5967.thread12115, label %533
@@ -4026,8 +4026,8 @@ get_proc.exit5973:                                ; preds = %535, %.thread.i5972
   br label %get_proc.exit5967
 
 get_proc.exit5967:                                ; preds = %543, %.thread.i5966
-  %.pr6443 = phi ptr [ %.pr6443.pre8494, %543 ], [ %.pr6443.pre, %.thread.i5966 ]
-  %.05.i5963.ph = phi ptr [ %544, %543 ], [ %547, %.thread.i5966 ]
+  %.pr6443 = phi ptr [ %.pr6443.pre, %.thread.i5966 ], [ %.pr6443.pre8494, %543 ]
+  %.05.i5963.ph = phi ptr [ %547, %.thread.i5966 ], [ %544, %543 ]
   store ptr %.05.i5963.ph, ptr @glad_glColor3bv, align 8, !tbaa !11
   %548 = icmp eq ptr %.pr6443, null
   br i1 %548, label %get_proc.exit5955.thread12118, label %549
@@ -4084,8 +4084,8 @@ get_proc.exit5961:                                ; preds = %551, %.thread.i5960
   br label %get_proc.exit5955
 
 get_proc.exit5955:                                ; preds = %559, %.thread.i5954
-  %.pr6447 = phi ptr [ %.pr6447.pre8497, %559 ], [ %.pr6447.pre, %.thread.i5954 ]
-  %.05.i5951.ph = phi ptr [ %560, %559 ], [ %563, %.thread.i5954 ]
+  %.pr6447 = phi ptr [ %.pr6447.pre, %.thread.i5954 ], [ %.pr6447.pre8497, %559 ]
+  %.05.i5951.ph = phi ptr [ %563, %.thread.i5954 ], [ %560, %559 ]
   store ptr %.05.i5951.ph, ptr @glad_glColor3dv, align 8, !tbaa !11
   %564 = icmp eq ptr %.pr6447, null
   br i1 %564, label %get_proc.exit5943.thread12121, label %565
@@ -4142,8 +4142,8 @@ get_proc.exit5949:                                ; preds = %567, %.thread.i5948
   br label %get_proc.exit5943
 
 get_proc.exit5943:                                ; preds = %575, %.thread.i5942
-  %.pr6451 = phi ptr [ %.pr6451.pre8500, %575 ], [ %.pr6451.pre, %.thread.i5942 ]
-  %.05.i5939.ph = phi ptr [ %576, %575 ], [ %579, %.thread.i5942 ]
+  %.pr6451 = phi ptr [ %.pr6451.pre, %.thread.i5942 ], [ %.pr6451.pre8500, %575 ]
+  %.05.i5939.ph = phi ptr [ %579, %.thread.i5942 ], [ %576, %575 ]
   store ptr %.05.i5939.ph, ptr @glad_glColor3fv, align 8, !tbaa !11
   %580 = icmp eq ptr %.pr6451, null
   br i1 %580, label %get_proc.exit5931.thread12124, label %581
@@ -4200,8 +4200,8 @@ get_proc.exit5937:                                ; preds = %583, %.thread.i5936
   br label %get_proc.exit5931
 
 get_proc.exit5931:                                ; preds = %591, %.thread.i5930
-  %.pr6455 = phi ptr [ %.pr6455.pre8503, %591 ], [ %.pr6455.pre, %.thread.i5930 ]
-  %.05.i5927.ph = phi ptr [ %592, %591 ], [ %595, %.thread.i5930 ]
+  %.pr6455 = phi ptr [ %.pr6455.pre, %.thread.i5930 ], [ %.pr6455.pre8503, %591 ]
+  %.05.i5927.ph = phi ptr [ %595, %.thread.i5930 ], [ %592, %591 ]
   store ptr %.05.i5927.ph, ptr @glad_glColor3iv, align 8, !tbaa !11
   %596 = icmp eq ptr %.pr6455, null
   br i1 %596, label %get_proc.exit5919.thread12127, label %597
@@ -4258,8 +4258,8 @@ get_proc.exit5925:                                ; preds = %599, %.thread.i5924
   br label %get_proc.exit5919
 
 get_proc.exit5919:                                ; preds = %607, %.thread.i5918
-  %.pr6459 = phi ptr [ %.pr6459.pre8506, %607 ], [ %.pr6459.pre, %.thread.i5918 ]
-  %.05.i5915.ph = phi ptr [ %608, %607 ], [ %611, %.thread.i5918 ]
+  %.pr6459 = phi ptr [ %.pr6459.pre, %.thread.i5918 ], [ %.pr6459.pre8506, %607 ]
+  %.05.i5915.ph = phi ptr [ %611, %.thread.i5918 ], [ %608, %607 ]
   store ptr %.05.i5915.ph, ptr @glad_glColor3sv, align 8, !tbaa !11
   %612 = icmp eq ptr %.pr6459, null
   br i1 %612, label %get_proc.exit5913.thread, label %613
@@ -4376,8 +4376,8 @@ get_proc.exit5901:                                ; preds = %631, %.thread.i5900
   br label %get_proc.exit5895
 
 get_proc.exit5895:                                ; preds = %639, %.thread.i5894
-  %.pr6467 = phi ptr [ %.pr6467.pre8509, %639 ], [ %.pr6467.pre, %.thread.i5894 ]
-  %.05.i5891.ph = phi ptr [ %640, %639 ], [ %643, %.thread.i5894 ]
+  %.pr6467 = phi ptr [ %.pr6467.pre, %.thread.i5894 ], [ %.pr6467.pre8509, %639 ]
+  %.05.i5891.ph = phi ptr [ %643, %.thread.i5894 ], [ %640, %639 ]
   store ptr %.05.i5891.ph, ptr @glad_glColor3uiv, align 8, !tbaa !11
   %644 = icmp eq ptr %.pr6467, null
   br i1 %644, label %get_proc.exit5883.thread12133, label %645
@@ -4434,8 +4434,8 @@ get_proc.exit5889:                                ; preds = %647, %.thread.i5888
   br label %get_proc.exit5883
 
 get_proc.exit5883:                                ; preds = %655, %.thread.i5882
-  %.pr6471 = phi ptr [ %.pr6471.pre8512, %655 ], [ %.pr6471.pre, %.thread.i5882 ]
-  %.05.i5879.ph = phi ptr [ %656, %655 ], [ %659, %.thread.i5882 ]
+  %.pr6471 = phi ptr [ %.pr6471.pre, %.thread.i5882 ], [ %.pr6471.pre8512, %655 ]
+  %.05.i5879.ph = phi ptr [ %659, %.thread.i5882 ], [ %656, %655 ]
   store ptr %.05.i5879.ph, ptr @glad_glColor3usv, align 8, !tbaa !11
   %660 = icmp eq ptr %.pr6471, null
   br i1 %660, label %get_proc.exit5871.thread12136, label %661
@@ -4492,8 +4492,8 @@ get_proc.exit5877:                                ; preds = %663, %.thread.i5876
   br label %get_proc.exit5871
 
 get_proc.exit5871:                                ; preds = %671, %.thread.i5870
-  %.pr6475 = phi ptr [ %.pr6475.pre8515, %671 ], [ %.pr6475.pre, %.thread.i5870 ]
-  %.05.i5867.ph = phi ptr [ %672, %671 ], [ %675, %.thread.i5870 ]
+  %.pr6475 = phi ptr [ %.pr6475.pre, %.thread.i5870 ], [ %.pr6475.pre8515, %671 ]
+  %.05.i5867.ph = phi ptr [ %675, %.thread.i5870 ], [ %672, %671 ]
   store ptr %.05.i5867.ph, ptr @glad_glColor4bv, align 8, !tbaa !11
   %676 = icmp eq ptr %.pr6475, null
   br i1 %676, label %get_proc.exit5859.thread12139, label %677
@@ -4550,8 +4550,8 @@ get_proc.exit5865:                                ; preds = %679, %.thread.i5864
   br label %get_proc.exit5859
 
 get_proc.exit5859:                                ; preds = %687, %.thread.i5858
-  %.pr6479 = phi ptr [ %.pr6479.pre8518, %687 ], [ %.pr6479.pre, %.thread.i5858 ]
-  %.05.i5855.ph = phi ptr [ %688, %687 ], [ %691, %.thread.i5858 ]
+  %.pr6479 = phi ptr [ %.pr6479.pre, %.thread.i5858 ], [ %.pr6479.pre8518, %687 ]
+  %.05.i5855.ph = phi ptr [ %691, %.thread.i5858 ], [ %688, %687 ]
   store ptr %.05.i5855.ph, ptr @glad_glColor4dv, align 8, !tbaa !11
   %692 = icmp eq ptr %.pr6479, null
   br i1 %692, label %get_proc.exit5847.thread12142, label %693
@@ -4608,8 +4608,8 @@ get_proc.exit5853:                                ; preds = %695, %.thread.i5852
   br label %get_proc.exit5847
 
 get_proc.exit5847:                                ; preds = %703, %.thread.i5846
-  %.pr6483 = phi ptr [ %.pr6483.pre8521, %703 ], [ %.pr6483.pre, %.thread.i5846 ]
-  %.05.i5843.ph = phi ptr [ %704, %703 ], [ %707, %.thread.i5846 ]
+  %.pr6483 = phi ptr [ %.pr6483.pre, %.thread.i5846 ], [ %.pr6483.pre8521, %703 ]
+  %.05.i5843.ph = phi ptr [ %707, %.thread.i5846 ], [ %704, %703 ]
   store ptr %.05.i5843.ph, ptr @glad_glColor4fv, align 8, !tbaa !11
   %708 = icmp eq ptr %.pr6483, null
   br i1 %708, label %get_proc.exit5835.thread12145, label %709
@@ -4666,8 +4666,8 @@ get_proc.exit5841:                                ; preds = %711, %.thread.i5840
   br label %get_proc.exit5835
 
 get_proc.exit5835:                                ; preds = %719, %.thread.i5834
-  %.pr6487 = phi ptr [ %.pr6487.pre8524, %719 ], [ %.pr6487.pre, %.thread.i5834 ]
-  %.05.i5831.ph = phi ptr [ %720, %719 ], [ %723, %.thread.i5834 ]
+  %.pr6487 = phi ptr [ %.pr6487.pre, %.thread.i5834 ], [ %.pr6487.pre8524, %719 ]
+  %.05.i5831.ph = phi ptr [ %723, %.thread.i5834 ], [ %720, %719 ]
   store ptr %.05.i5831.ph, ptr @glad_glColor4iv, align 8, !tbaa !11
   %724 = icmp eq ptr %.pr6487, null
   br i1 %724, label %get_proc.exit5823.thread12148, label %725
@@ -4724,8 +4724,8 @@ get_proc.exit5829:                                ; preds = %727, %.thread.i5828
   br label %get_proc.exit5823
 
 get_proc.exit5823:                                ; preds = %735, %.thread.i5822
-  %.pr6491 = phi ptr [ %.pr6491.pre8527, %735 ], [ %.pr6491.pre, %.thread.i5822 ]
-  %.05.i5819.ph = phi ptr [ %736, %735 ], [ %739, %.thread.i5822 ]
+  %.pr6491 = phi ptr [ %.pr6491.pre, %.thread.i5822 ], [ %.pr6491.pre8527, %735 ]
+  %.05.i5819.ph = phi ptr [ %739, %.thread.i5822 ], [ %736, %735 ]
   store ptr %.05.i5819.ph, ptr @glad_glColor4sv, align 8, !tbaa !11
   %740 = icmp eq ptr %.pr6491, null
   br i1 %740, label %get_proc.exit5811.thread12151, label %741
@@ -4782,8 +4782,8 @@ get_proc.exit5817:                                ; preds = %743, %.thread.i5816
   br label %get_proc.exit5811
 
 get_proc.exit5811:                                ; preds = %751, %.thread.i5810
-  %.pr6495 = phi ptr [ %.pr6495.pre8530, %751 ], [ %.pr6495.pre, %.thread.i5810 ]
-  %.05.i5807.ph = phi ptr [ %752, %751 ], [ %755, %.thread.i5810 ]
+  %.pr6495 = phi ptr [ %.pr6495.pre, %.thread.i5810 ], [ %.pr6495.pre8530, %751 ]
+  %.05.i5807.ph = phi ptr [ %755, %.thread.i5810 ], [ %752, %751 ]
   store ptr %.05.i5807.ph, ptr @glad_glColor4ubv, align 8, !tbaa !11
   %756 = icmp eq ptr %.pr6495, null
   br i1 %756, label %get_proc.exit5799.thread12154, label %757
@@ -4840,8 +4840,8 @@ get_proc.exit5805:                                ; preds = %759, %.thread.i5804
   br label %get_proc.exit5799
 
 get_proc.exit5799:                                ; preds = %767, %.thread.i5798
-  %.pr6499 = phi ptr [ %.pr6499.pre8533, %767 ], [ %.pr6499.pre, %.thread.i5798 ]
-  %.05.i5795.ph = phi ptr [ %768, %767 ], [ %771, %.thread.i5798 ]
+  %.pr6499 = phi ptr [ %.pr6499.pre, %.thread.i5798 ], [ %.pr6499.pre8533, %767 ]
+  %.05.i5795.ph = phi ptr [ %771, %.thread.i5798 ], [ %768, %767 ]
   store ptr %.05.i5795.ph, ptr @glad_glColor4uiv, align 8, !tbaa !11
   %772 = icmp eq ptr %.pr6499, null
   br i1 %772, label %get_proc.exit5787.thread12157, label %773
@@ -4898,8 +4898,8 @@ get_proc.exit5793:                                ; preds = %775, %.thread.i5792
   br label %get_proc.exit5787
 
 get_proc.exit5787:                                ; preds = %783, %.thread.i5786
-  %.pr6503 = phi ptr [ %.pr6503.pre8536, %783 ], [ %.pr6503.pre, %.thread.i5786 ]
-  %.05.i5783.ph = phi ptr [ %784, %783 ], [ %787, %.thread.i5786 ]
+  %.pr6503 = phi ptr [ %.pr6503.pre, %.thread.i5786 ], [ %.pr6503.pre8536, %783 ]
+  %.05.i5783.ph = phi ptr [ %787, %.thread.i5786 ], [ %784, %783 ]
   store ptr %.05.i5783.ph, ptr @glad_glColor4usv, align 8, !tbaa !11
   %788 = icmp eq ptr %.pr6503, null
   br i1 %788, label %get_proc.exit5775.thread12160, label %789
@@ -4956,8 +4956,8 @@ get_proc.exit5781:                                ; preds = %791, %.thread.i5780
   br label %get_proc.exit5775
 
 get_proc.exit5775:                                ; preds = %799, %.thread.i5774
-  %.pr6507 = phi ptr [ %.pr6507.pre8539, %799 ], [ %.pr6507.pre, %.thread.i5774 ]
-  %.05.i5771.ph = phi ptr [ %800, %799 ], [ %803, %.thread.i5774 ]
+  %.pr6507 = phi ptr [ %.pr6507.pre, %.thread.i5774 ], [ %.pr6507.pre8539, %799 ]
+  %.05.i5771.ph = phi ptr [ %803, %.thread.i5774 ], [ %800, %799 ]
   store ptr %.05.i5771.ph, ptr @glad_glEdgeFlagv, align 8, !tbaa !11
   %804 = icmp eq ptr %.pr6507, null
   br i1 %804, label %get_proc.exit5763.thread12163, label %805
@@ -5014,8 +5014,8 @@ get_proc.exit5769:                                ; preds = %807, %.thread.i5768
   br label %get_proc.exit5763
 
 get_proc.exit5763:                                ; preds = %815, %.thread.i5762
-  %.pr6511 = phi ptr [ %.pr6511.pre8542, %815 ], [ %.pr6511.pre, %.thread.i5762 ]
-  %.05.i5759.ph = phi ptr [ %816, %815 ], [ %819, %.thread.i5762 ]
+  %.pr6511 = phi ptr [ %.pr6511.pre, %.thread.i5762 ], [ %.pr6511.pre8542, %815 ]
+  %.05.i5759.ph = phi ptr [ %819, %.thread.i5762 ], [ %816, %815 ]
   store ptr %.05.i5759.ph, ptr @glad_glIndexd, align 8, !tbaa !11
   %820 = icmp eq ptr %.pr6511, null
   br i1 %820, label %get_proc.exit5751.thread12166, label %821
@@ -5072,8 +5072,8 @@ get_proc.exit5757:                                ; preds = %823, %.thread.i5756
   br label %get_proc.exit5751
 
 get_proc.exit5751:                                ; preds = %831, %.thread.i5750
-  %.pr6515 = phi ptr [ %.pr6515.pre8545, %831 ], [ %.pr6515.pre, %.thread.i5750 ]
-  %.05.i5747.ph = phi ptr [ %832, %831 ], [ %835, %.thread.i5750 ]
+  %.pr6515 = phi ptr [ %.pr6515.pre, %.thread.i5750 ], [ %.pr6515.pre8545, %831 ]
+  %.05.i5747.ph = phi ptr [ %835, %.thread.i5750 ], [ %832, %831 ]
   store ptr %.05.i5747.ph, ptr @glad_glIndexf, align 8, !tbaa !11
   %836 = icmp eq ptr %.pr6515, null
   br i1 %836, label %get_proc.exit5739.thread12169, label %837
@@ -5130,8 +5130,8 @@ get_proc.exit5745:                                ; preds = %839, %.thread.i5744
   br label %get_proc.exit5739
 
 get_proc.exit5739:                                ; preds = %847, %.thread.i5738
-  %.pr6519 = phi ptr [ %.pr6519.pre8548, %847 ], [ %.pr6519.pre, %.thread.i5738 ]
-  %.05.i5735.ph = phi ptr [ %848, %847 ], [ %851, %.thread.i5738 ]
+  %.pr6519 = phi ptr [ %.pr6519.pre, %.thread.i5738 ], [ %.pr6519.pre8548, %847 ]
+  %.05.i5735.ph = phi ptr [ %851, %.thread.i5738 ], [ %848, %847 ]
   store ptr %.05.i5735.ph, ptr @glad_glIndexi, align 8, !tbaa !11
   %852 = icmp eq ptr %.pr6519, null
   br i1 %852, label %get_proc.exit5727.thread12172, label %853
@@ -5188,8 +5188,8 @@ get_proc.exit5733:                                ; preds = %855, %.thread.i5732
   br label %get_proc.exit5727
 
 get_proc.exit5727:                                ; preds = %863, %.thread.i5726
-  %.pr6523 = phi ptr [ %.pr6523.pre8551, %863 ], [ %.pr6523.pre, %.thread.i5726 ]
-  %.05.i5723.ph = phi ptr [ %864, %863 ], [ %867, %.thread.i5726 ]
+  %.pr6523 = phi ptr [ %.pr6523.pre, %.thread.i5726 ], [ %.pr6523.pre8551, %863 ]
+  %.05.i5723.ph = phi ptr [ %867, %.thread.i5726 ], [ %864, %863 ]
   store ptr %.05.i5723.ph, ptr @glad_glIndexs, align 8, !tbaa !11
   %868 = icmp eq ptr %.pr6523, null
   br i1 %868, label %get_proc.exit5715.thread12175, label %869
@@ -5246,8 +5246,8 @@ get_proc.exit5721:                                ; preds = %871, %.thread.i5720
   br label %get_proc.exit5715
 
 get_proc.exit5715:                                ; preds = %879, %.thread.i5714
-  %.pr6527 = phi ptr [ %.pr6527.pre8554, %879 ], [ %.pr6527.pre, %.thread.i5714 ]
-  %.05.i5711.ph = phi ptr [ %880, %879 ], [ %883, %.thread.i5714 ]
+  %.pr6527 = phi ptr [ %.pr6527.pre, %.thread.i5714 ], [ %.pr6527.pre8554, %879 ]
+  %.05.i5711.ph = phi ptr [ %883, %.thread.i5714 ], [ %880, %879 ]
   store ptr %.05.i5711.ph, ptr @glad_glNormal3b, align 8, !tbaa !11
   %884 = icmp eq ptr %.pr6527, null
   br i1 %884, label %get_proc.exit5703.thread12178, label %885
@@ -5304,8 +5304,8 @@ get_proc.exit5709:                                ; preds = %887, %.thread.i5708
   br label %get_proc.exit5703
 
 get_proc.exit5703:                                ; preds = %895, %.thread.i5702
-  %.pr6531 = phi ptr [ %.pr6531.pre8557, %895 ], [ %.pr6531.pre, %.thread.i5702 ]
-  %.05.i5699.ph = phi ptr [ %896, %895 ], [ %899, %.thread.i5702 ]
+  %.pr6531 = phi ptr [ %.pr6531.pre, %.thread.i5702 ], [ %.pr6531.pre8557, %895 ]
+  %.05.i5699.ph = phi ptr [ %899, %.thread.i5702 ], [ %896, %895 ]
   store ptr %.05.i5699.ph, ptr @glad_glNormal3d, align 8, !tbaa !11
   %900 = icmp eq ptr %.pr6531, null
   br i1 %900, label %get_proc.exit5691.thread12181, label %901
@@ -5362,8 +5362,8 @@ get_proc.exit5697:                                ; preds = %903, %.thread.i5696
   br label %get_proc.exit5691
 
 get_proc.exit5691:                                ; preds = %911, %.thread.i5690
-  %.pr6535 = phi ptr [ %.pr6535.pre8560, %911 ], [ %.pr6535.pre, %.thread.i5690 ]
-  %.05.i5687.ph = phi ptr [ %912, %911 ], [ %915, %.thread.i5690 ]
+  %.pr6535 = phi ptr [ %.pr6535.pre, %.thread.i5690 ], [ %.pr6535.pre8560, %911 ]
+  %.05.i5687.ph = phi ptr [ %915, %.thread.i5690 ], [ %912, %911 ]
   store ptr %.05.i5687.ph, ptr @glad_glNormal3f, align 8, !tbaa !11
   %916 = icmp eq ptr %.pr6535, null
   br i1 %916, label %get_proc.exit5679.thread12184, label %917
@@ -5420,8 +5420,8 @@ get_proc.exit5685:                                ; preds = %919, %.thread.i5684
   br label %get_proc.exit5679
 
 get_proc.exit5679:                                ; preds = %927, %.thread.i5678
-  %.pr6539 = phi ptr [ %.pr6539.pre8563, %927 ], [ %.pr6539.pre, %.thread.i5678 ]
-  %.05.i5675.ph = phi ptr [ %928, %927 ], [ %931, %.thread.i5678 ]
+  %.pr6539 = phi ptr [ %.pr6539.pre, %.thread.i5678 ], [ %.pr6539.pre8563, %927 ]
+  %.05.i5675.ph = phi ptr [ %931, %.thread.i5678 ], [ %928, %927 ]
   store ptr %.05.i5675.ph, ptr @glad_glNormal3i, align 8, !tbaa !11
   %932 = icmp eq ptr %.pr6539, null
   br i1 %932, label %get_proc.exit5667.thread12187, label %933
@@ -5478,8 +5478,8 @@ get_proc.exit5673:                                ; preds = %935, %.thread.i5672
   br label %get_proc.exit5667
 
 get_proc.exit5667:                                ; preds = %943, %.thread.i5666
-  %.pr6543 = phi ptr [ %.pr6543.pre8566, %943 ], [ %.pr6543.pre, %.thread.i5666 ]
-  %.05.i5663.ph = phi ptr [ %944, %943 ], [ %947, %.thread.i5666 ]
+  %.pr6543 = phi ptr [ %.pr6543.pre, %.thread.i5666 ], [ %.pr6543.pre8566, %943 ]
+  %.05.i5663.ph = phi ptr [ %947, %.thread.i5666 ], [ %944, %943 ]
   store ptr %.05.i5663.ph, ptr @glad_glNormal3s, align 8, !tbaa !11
   %948 = icmp eq ptr %.pr6543, null
   br i1 %948, label %get_proc.exit5655.thread12190, label %949
@@ -5536,8 +5536,8 @@ get_proc.exit5661:                                ; preds = %951, %.thread.i5660
   br label %get_proc.exit5655
 
 get_proc.exit5655:                                ; preds = %959, %.thread.i5654
-  %.pr6547 = phi ptr [ %.pr6547.pre8569, %959 ], [ %.pr6547.pre, %.thread.i5654 ]
-  %.05.i5651.ph = phi ptr [ %960, %959 ], [ %963, %.thread.i5654 ]
+  %.pr6547 = phi ptr [ %.pr6547.pre, %.thread.i5654 ], [ %.pr6547.pre8569, %959 ]
+  %.05.i5651.ph = phi ptr [ %963, %.thread.i5654 ], [ %960, %959 ]
   store ptr %.05.i5651.ph, ptr @glad_glRasterPos2d, align 8, !tbaa !11
   %964 = icmp eq ptr %.pr6547, null
   br i1 %964, label %get_proc.exit5643.thread12193, label %965
@@ -5594,8 +5594,8 @@ get_proc.exit5649:                                ; preds = %967, %.thread.i5648
   br label %get_proc.exit5643
 
 get_proc.exit5643:                                ; preds = %975, %.thread.i5642
-  %.pr6551 = phi ptr [ %.pr6551.pre8572, %975 ], [ %.pr6551.pre, %.thread.i5642 ]
-  %.05.i5639.ph = phi ptr [ %976, %975 ], [ %979, %.thread.i5642 ]
+  %.pr6551 = phi ptr [ %.pr6551.pre, %.thread.i5642 ], [ %.pr6551.pre8572, %975 ]
+  %.05.i5639.ph = phi ptr [ %979, %.thread.i5642 ], [ %976, %975 ]
   store ptr %.05.i5639.ph, ptr @glad_glRasterPos2f, align 8, !tbaa !11
   %980 = icmp eq ptr %.pr6551, null
   br i1 %980, label %get_proc.exit5631.thread12196, label %981
@@ -5652,8 +5652,8 @@ get_proc.exit5637:                                ; preds = %983, %.thread.i5636
   br label %get_proc.exit5631
 
 get_proc.exit5631:                                ; preds = %991, %.thread.i5630
-  %.pr6555 = phi ptr [ %.pr6555.pre8575, %991 ], [ %.pr6555.pre, %.thread.i5630 ]
-  %.05.i5627.ph = phi ptr [ %992, %991 ], [ %995, %.thread.i5630 ]
+  %.pr6555 = phi ptr [ %.pr6555.pre, %.thread.i5630 ], [ %.pr6555.pre8575, %991 ]
+  %.05.i5627.ph = phi ptr [ %995, %.thread.i5630 ], [ %992, %991 ]
   store ptr %.05.i5627.ph, ptr @glad_glRasterPos2i, align 8, !tbaa !11
   %996 = icmp eq ptr %.pr6555, null
   br i1 %996, label %get_proc.exit5619.thread12199, label %997
@@ -5710,8 +5710,8 @@ get_proc.exit5625:                                ; preds = %999, %.thread.i5624
   br label %get_proc.exit5619
 
 get_proc.exit5619:                                ; preds = %1007, %.thread.i5618
-  %.pr6559 = phi ptr [ %.pr6559.pre8578, %1007 ], [ %.pr6559.pre, %.thread.i5618 ]
-  %.05.i5615.ph = phi ptr [ %1008, %1007 ], [ %1011, %.thread.i5618 ]
+  %.pr6559 = phi ptr [ %.pr6559.pre, %.thread.i5618 ], [ %.pr6559.pre8578, %1007 ]
+  %.05.i5615.ph = phi ptr [ %1011, %.thread.i5618 ], [ %1008, %1007 ]
   store ptr %.05.i5615.ph, ptr @glad_glRasterPos2s, align 8, !tbaa !11
   %1012 = icmp eq ptr %.pr6559, null
   br i1 %1012, label %get_proc.exit5607.thread12202, label %1013
@@ -5768,8 +5768,8 @@ get_proc.exit5613:                                ; preds = %1015, %.thread.i561
   br label %get_proc.exit5607
 
 get_proc.exit5607:                                ; preds = %1023, %.thread.i5606
-  %.pr6563 = phi ptr [ %.pr6563.pre8581, %1023 ], [ %.pr6563.pre, %.thread.i5606 ]
-  %.05.i5603.ph = phi ptr [ %1024, %1023 ], [ %1027, %.thread.i5606 ]
+  %.pr6563 = phi ptr [ %.pr6563.pre, %.thread.i5606 ], [ %.pr6563.pre8581, %1023 ]
+  %.05.i5603.ph = phi ptr [ %1027, %.thread.i5606 ], [ %1024, %1023 ]
   store ptr %.05.i5603.ph, ptr @glad_glRasterPos3d, align 8, !tbaa !11
   %1028 = icmp eq ptr %.pr6563, null
   br i1 %1028, label %get_proc.exit5595.thread12205, label %1029
@@ -5826,8 +5826,8 @@ get_proc.exit5601:                                ; preds = %1031, %.thread.i560
   br label %get_proc.exit5595
 
 get_proc.exit5595:                                ; preds = %1039, %.thread.i5594
-  %.pr6567 = phi ptr [ %.pr6567.pre8584, %1039 ], [ %.pr6567.pre, %.thread.i5594 ]
-  %.05.i5591.ph = phi ptr [ %1040, %1039 ], [ %1043, %.thread.i5594 ]
+  %.pr6567 = phi ptr [ %.pr6567.pre, %.thread.i5594 ], [ %.pr6567.pre8584, %1039 ]
+  %.05.i5591.ph = phi ptr [ %1043, %.thread.i5594 ], [ %1040, %1039 ]
   store ptr %.05.i5591.ph, ptr @glad_glRasterPos3f, align 8, !tbaa !11
   %1044 = icmp eq ptr %.pr6567, null
   br i1 %1044, label %get_proc.exit5583.thread12208, label %1045
@@ -5884,8 +5884,8 @@ get_proc.exit5589:                                ; preds = %1047, %.thread.i558
   br label %get_proc.exit5583
 
 get_proc.exit5583:                                ; preds = %1055, %.thread.i5582
-  %.pr6571 = phi ptr [ %.pr6571.pre8587, %1055 ], [ %.pr6571.pre, %.thread.i5582 ]
-  %.05.i5579.ph = phi ptr [ %1056, %1055 ], [ %1059, %.thread.i5582 ]
+  %.pr6571 = phi ptr [ %.pr6571.pre, %.thread.i5582 ], [ %.pr6571.pre8587, %1055 ]
+  %.05.i5579.ph = phi ptr [ %1059, %.thread.i5582 ], [ %1056, %1055 ]
   store ptr %.05.i5579.ph, ptr @glad_glRasterPos3i, align 8, !tbaa !11
   %1060 = icmp eq ptr %.pr6571, null
   br i1 %1060, label %get_proc.exit5571.thread12211, label %1061
@@ -5942,8 +5942,8 @@ get_proc.exit5577:                                ; preds = %1063, %.thread.i557
   br label %get_proc.exit5571
 
 get_proc.exit5571:                                ; preds = %1071, %.thread.i5570
-  %.pr6575 = phi ptr [ %.pr6575.pre8590, %1071 ], [ %.pr6575.pre, %.thread.i5570 ]
-  %.05.i5567.ph = phi ptr [ %1072, %1071 ], [ %1075, %.thread.i5570 ]
+  %.pr6575 = phi ptr [ %.pr6575.pre, %.thread.i5570 ], [ %.pr6575.pre8590, %1071 ]
+  %.05.i5567.ph = phi ptr [ %1075, %.thread.i5570 ], [ %1072, %1071 ]
   store ptr %.05.i5567.ph, ptr @glad_glRasterPos3s, align 8, !tbaa !11
   %1076 = icmp eq ptr %.pr6575, null
   br i1 %1076, label %get_proc.exit5559.thread12214, label %1077
@@ -6000,8 +6000,8 @@ get_proc.exit5565:                                ; preds = %1079, %.thread.i556
   br label %get_proc.exit5559
 
 get_proc.exit5559:                                ; preds = %1087, %.thread.i5558
-  %.pr6579 = phi ptr [ %.pr6579.pre8593, %1087 ], [ %.pr6579.pre, %.thread.i5558 ]
-  %.05.i5555.ph = phi ptr [ %1088, %1087 ], [ %1091, %.thread.i5558 ]
+  %.pr6579 = phi ptr [ %.pr6579.pre, %.thread.i5558 ], [ %.pr6579.pre8593, %1087 ]
+  %.05.i5555.ph = phi ptr [ %1091, %.thread.i5558 ], [ %1088, %1087 ]
   store ptr %.05.i5555.ph, ptr @glad_glRasterPos4d, align 8, !tbaa !11
   %1092 = icmp eq ptr %.pr6579, null
   br i1 %1092, label %get_proc.exit5547.thread12217, label %1093
@@ -6058,8 +6058,8 @@ get_proc.exit5553:                                ; preds = %1095, %.thread.i555
   br label %get_proc.exit5547
 
 get_proc.exit5547:                                ; preds = %1103, %.thread.i5546
-  %.pr6583 = phi ptr [ %.pr6583.pre8596, %1103 ], [ %.pr6583.pre, %.thread.i5546 ]
-  %.05.i5543.ph = phi ptr [ %1104, %1103 ], [ %1107, %.thread.i5546 ]
+  %.pr6583 = phi ptr [ %.pr6583.pre, %.thread.i5546 ], [ %.pr6583.pre8596, %1103 ]
+  %.05.i5543.ph = phi ptr [ %1107, %.thread.i5546 ], [ %1104, %1103 ]
   store ptr %.05.i5543.ph, ptr @glad_glRasterPos4f, align 8, !tbaa !11
   %1108 = icmp eq ptr %.pr6583, null
   br i1 %1108, label %get_proc.exit5535.thread12220, label %1109
@@ -6116,8 +6116,8 @@ get_proc.exit5541:                                ; preds = %1111, %.thread.i554
   br label %get_proc.exit5535
 
 get_proc.exit5535:                                ; preds = %1119, %.thread.i5534
-  %.pr6587 = phi ptr [ %.pr6587.pre8599, %1119 ], [ %.pr6587.pre, %.thread.i5534 ]
-  %.05.i5531.ph = phi ptr [ %1120, %1119 ], [ %1123, %.thread.i5534 ]
+  %.pr6587 = phi ptr [ %.pr6587.pre, %.thread.i5534 ], [ %.pr6587.pre8599, %1119 ]
+  %.05.i5531.ph = phi ptr [ %1123, %.thread.i5534 ], [ %1120, %1119 ]
   store ptr %.05.i5531.ph, ptr @glad_glRasterPos4i, align 8, !tbaa !11
   %1124 = icmp eq ptr %.pr6587, null
   br i1 %1124, label %get_proc.exit5523.thread12223, label %1125
@@ -6174,8 +6174,8 @@ get_proc.exit5529:                                ; preds = %1127, %.thread.i552
   br label %get_proc.exit5523
 
 get_proc.exit5523:                                ; preds = %1135, %.thread.i5522
-  %.pr6591 = phi ptr [ %.pr6591.pre8602, %1135 ], [ %.pr6591.pre, %.thread.i5522 ]
-  %.05.i5519.ph = phi ptr [ %1136, %1135 ], [ %1139, %.thread.i5522 ]
+  %.pr6591 = phi ptr [ %.pr6591.pre, %.thread.i5522 ], [ %.pr6591.pre8602, %1135 ]
+  %.05.i5519.ph = phi ptr [ %1139, %.thread.i5522 ], [ %1136, %1135 ]
   store ptr %.05.i5519.ph, ptr @glad_glRasterPos4s, align 8, !tbaa !11
   %1140 = icmp eq ptr %.pr6591, null
   br i1 %1140, label %get_proc.exit5511.thread12226, label %1141
@@ -6232,8 +6232,8 @@ get_proc.exit5517:                                ; preds = %1143, %.thread.i551
   br label %get_proc.exit5511
 
 get_proc.exit5511:                                ; preds = %1151, %.thread.i5510
-  %.pr6595 = phi ptr [ %.pr6595.pre8605, %1151 ], [ %.pr6595.pre, %.thread.i5510 ]
-  %.05.i5507.ph = phi ptr [ %1152, %1151 ], [ %1155, %.thread.i5510 ]
+  %.pr6595 = phi ptr [ %.pr6595.pre, %.thread.i5510 ], [ %.pr6595.pre8605, %1151 ]
+  %.05.i5507.ph = phi ptr [ %1155, %.thread.i5510 ], [ %1152, %1151 ]
   store ptr %.05.i5507.ph, ptr @glad_glRectd, align 8, !tbaa !11
   %1156 = icmp eq ptr %.pr6595, null
   br i1 %1156, label %get_proc.exit5505.thread, label %1157
@@ -6350,8 +6350,8 @@ get_proc.exit5493:                                ; preds = %1175, %.thread.i549
   br label %get_proc.exit5487
 
 get_proc.exit5487:                                ; preds = %1183, %.thread.i5486
-  %.pr6603 = phi ptr [ %.pr6603.pre8608, %1183 ], [ %.pr6603.pre, %.thread.i5486 ]
-  %.05.i5483.ph = phi ptr [ %1184, %1183 ], [ %1187, %.thread.i5486 ]
+  %.pr6603 = phi ptr [ %.pr6603.pre, %.thread.i5486 ], [ %.pr6603.pre8608, %1183 ]
+  %.05.i5483.ph = phi ptr [ %1187, %.thread.i5486 ], [ %1184, %1183 ]
   store ptr %.05.i5483.ph, ptr @glad_glRecti, align 8, !tbaa !11
   %1188 = icmp eq ptr %.pr6603, null
   br i1 %1188, label %get_proc.exit5475.thread12232, label %1189
@@ -6408,8 +6408,8 @@ get_proc.exit5481:                                ; preds = %1191, %.thread.i548
   br label %get_proc.exit5475
 
 get_proc.exit5475:                                ; preds = %1199, %.thread.i5474
-  %.pr6607 = phi ptr [ %.pr6607.pre8611, %1199 ], [ %.pr6607.pre, %.thread.i5474 ]
-  %.05.i5471.ph = phi ptr [ %1200, %1199 ], [ %1203, %.thread.i5474 ]
+  %.pr6607 = phi ptr [ %.pr6607.pre, %.thread.i5474 ], [ %.pr6607.pre8611, %1199 ]
+  %.05.i5471.ph = phi ptr [ %1203, %.thread.i5474 ], [ %1200, %1199 ]
   store ptr %.05.i5471.ph, ptr @glad_glRects, align 8, !tbaa !11
   %1204 = icmp eq ptr %.pr6607, null
   br i1 %1204, label %get_proc.exit5463.thread12235, label %1205
@@ -6466,8 +6466,8 @@ get_proc.exit5469:                                ; preds = %1207, %.thread.i546
   br label %get_proc.exit5463
 
 get_proc.exit5463:                                ; preds = %1215, %.thread.i5462
-  %.pr6611 = phi ptr [ %.pr6611.pre8614, %1215 ], [ %.pr6611.pre, %.thread.i5462 ]
-  %.05.i5459.ph = phi ptr [ %1216, %1215 ], [ %1219, %.thread.i5462 ]
+  %.pr6611 = phi ptr [ %.pr6611.pre, %.thread.i5462 ], [ %.pr6611.pre8614, %1215 ]
+  %.05.i5459.ph = phi ptr [ %1219, %.thread.i5462 ], [ %1216, %1215 ]
   store ptr %.05.i5459.ph, ptr @glad_glTexCoord1d, align 8, !tbaa !11
   %1220 = icmp eq ptr %.pr6611, null
   br i1 %1220, label %get_proc.exit5451.thread12238, label %1221
@@ -6524,8 +6524,8 @@ get_proc.exit5457:                                ; preds = %1223, %.thread.i545
   br label %get_proc.exit5451
 
 get_proc.exit5451:                                ; preds = %1231, %.thread.i5450
-  %.pr6615 = phi ptr [ %.pr6615.pre8617, %1231 ], [ %.pr6615.pre, %.thread.i5450 ]
-  %.05.i5447.ph = phi ptr [ %1232, %1231 ], [ %1235, %.thread.i5450 ]
+  %.pr6615 = phi ptr [ %.pr6615.pre, %.thread.i5450 ], [ %.pr6615.pre8617, %1231 ]
+  %.05.i5447.ph = phi ptr [ %1235, %.thread.i5450 ], [ %1232, %1231 ]
   store ptr %.05.i5447.ph, ptr @glad_glTexCoord1f, align 8, !tbaa !11
   %1236 = icmp eq ptr %.pr6615, null
   br i1 %1236, label %get_proc.exit5439.thread12241, label %1237
@@ -6582,8 +6582,8 @@ get_proc.exit5445:                                ; preds = %1239, %.thread.i544
   br label %get_proc.exit5439
 
 get_proc.exit5439:                                ; preds = %1247, %.thread.i5438
-  %.pr6619 = phi ptr [ %.pr6619.pre8620, %1247 ], [ %.pr6619.pre, %.thread.i5438 ]
-  %.05.i5435.ph = phi ptr [ %1248, %1247 ], [ %1251, %.thread.i5438 ]
+  %.pr6619 = phi ptr [ %.pr6619.pre, %.thread.i5438 ], [ %.pr6619.pre8620, %1247 ]
+  %.05.i5435.ph = phi ptr [ %1251, %.thread.i5438 ], [ %1248, %1247 ]
   store ptr %.05.i5435.ph, ptr @glad_glTexCoord1i, align 8, !tbaa !11
   %1252 = icmp eq ptr %.pr6619, null
   br i1 %1252, label %get_proc.exit5427.thread12244, label %1253
@@ -6640,8 +6640,8 @@ get_proc.exit5433:                                ; preds = %1255, %.thread.i543
   br label %get_proc.exit5427
 
 get_proc.exit5427:                                ; preds = %1263, %.thread.i5426
-  %.pr6623 = phi ptr [ %.pr6623.pre8623, %1263 ], [ %.pr6623.pre, %.thread.i5426 ]
-  %.05.i5423.ph = phi ptr [ %1264, %1263 ], [ %1267, %.thread.i5426 ]
+  %.pr6623 = phi ptr [ %.pr6623.pre, %.thread.i5426 ], [ %.pr6623.pre8623, %1263 ]
+  %.05.i5423.ph = phi ptr [ %1267, %.thread.i5426 ], [ %1264, %1263 ]
   store ptr %.05.i5423.ph, ptr @glad_glTexCoord1s, align 8, !tbaa !11
   %1268 = icmp eq ptr %.pr6623, null
   br i1 %1268, label %get_proc.exit5415.thread12247, label %1269
@@ -6698,8 +6698,8 @@ get_proc.exit5421:                                ; preds = %1271, %.thread.i542
   br label %get_proc.exit5415
 
 get_proc.exit5415:                                ; preds = %1279, %.thread.i5414
-  %.pr6627 = phi ptr [ %.pr6627.pre8626, %1279 ], [ %.pr6627.pre, %.thread.i5414 ]
-  %.05.i5411.ph = phi ptr [ %1280, %1279 ], [ %1283, %.thread.i5414 ]
+  %.pr6627 = phi ptr [ %.pr6627.pre, %.thread.i5414 ], [ %.pr6627.pre8626, %1279 ]
+  %.05.i5411.ph = phi ptr [ %1283, %.thread.i5414 ], [ %1280, %1279 ]
   store ptr %.05.i5411.ph, ptr @glad_glTexCoord2d, align 8, !tbaa !11
   %1284 = icmp eq ptr %.pr6627, null
   br i1 %1284, label %get_proc.exit5403.thread12250, label %1285
@@ -6756,8 +6756,8 @@ get_proc.exit5409:                                ; preds = %1287, %.thread.i540
   br label %get_proc.exit5403
 
 get_proc.exit5403:                                ; preds = %1295, %.thread.i5402
-  %.pr6631 = phi ptr [ %.pr6631.pre8629, %1295 ], [ %.pr6631.pre, %.thread.i5402 ]
-  %.05.i5399.ph = phi ptr [ %1296, %1295 ], [ %1299, %.thread.i5402 ]
+  %.pr6631 = phi ptr [ %.pr6631.pre, %.thread.i5402 ], [ %.pr6631.pre8629, %1295 ]
+  %.05.i5399.ph = phi ptr [ %1299, %.thread.i5402 ], [ %1296, %1295 ]
   store ptr %.05.i5399.ph, ptr @glad_glTexCoord2f, align 8, !tbaa !11
   %1300 = icmp eq ptr %.pr6631, null
   br i1 %1300, label %get_proc.exit5391.thread12253, label %1301
@@ -6814,8 +6814,8 @@ get_proc.exit5397:                                ; preds = %1303, %.thread.i539
   br label %get_proc.exit5391
 
 get_proc.exit5391:                                ; preds = %1311, %.thread.i5390
-  %.pr6635 = phi ptr [ %.pr6635.pre8632, %1311 ], [ %.pr6635.pre, %.thread.i5390 ]
-  %.05.i5387.ph = phi ptr [ %1312, %1311 ], [ %1315, %.thread.i5390 ]
+  %.pr6635 = phi ptr [ %.pr6635.pre, %.thread.i5390 ], [ %.pr6635.pre8632, %1311 ]
+  %.05.i5387.ph = phi ptr [ %1315, %.thread.i5390 ], [ %1312, %1311 ]
   store ptr %.05.i5387.ph, ptr @glad_glTexCoord2i, align 8, !tbaa !11
   %1316 = icmp eq ptr %.pr6635, null
   br i1 %1316, label %get_proc.exit5379.thread12256, label %1317
@@ -6872,8 +6872,8 @@ get_proc.exit5385:                                ; preds = %1319, %.thread.i538
   br label %get_proc.exit5379
 
 get_proc.exit5379:                                ; preds = %1327, %.thread.i5378
-  %.pr6639 = phi ptr [ %.pr6639.pre8635, %1327 ], [ %.pr6639.pre, %.thread.i5378 ]
-  %.05.i5375.ph = phi ptr [ %1328, %1327 ], [ %1331, %.thread.i5378 ]
+  %.pr6639 = phi ptr [ %.pr6639.pre, %.thread.i5378 ], [ %.pr6639.pre8635, %1327 ]
+  %.05.i5375.ph = phi ptr [ %1331, %.thread.i5378 ], [ %1328, %1327 ]
   store ptr %.05.i5375.ph, ptr @glad_glTexCoord2s, align 8, !tbaa !11
   %1332 = icmp eq ptr %.pr6639, null
   br i1 %1332, label %get_proc.exit5367.thread12259, label %1333
@@ -6930,8 +6930,8 @@ get_proc.exit5373:                                ; preds = %1335, %.thread.i537
   br label %get_proc.exit5367
 
 get_proc.exit5367:                                ; preds = %1343, %.thread.i5366
-  %.pr6643 = phi ptr [ %.pr6643.pre8638, %1343 ], [ %.pr6643.pre, %.thread.i5366 ]
-  %.05.i5363.ph = phi ptr [ %1344, %1343 ], [ %1347, %.thread.i5366 ]
+  %.pr6643 = phi ptr [ %.pr6643.pre, %.thread.i5366 ], [ %.pr6643.pre8638, %1343 ]
+  %.05.i5363.ph = phi ptr [ %1347, %.thread.i5366 ], [ %1344, %1343 ]
   store ptr %.05.i5363.ph, ptr @glad_glTexCoord3d, align 8, !tbaa !11
   %1348 = icmp eq ptr %.pr6643, null
   br i1 %1348, label %get_proc.exit5355.thread12262, label %1349
@@ -6988,8 +6988,8 @@ get_proc.exit5361:                                ; preds = %1351, %.thread.i536
   br label %get_proc.exit5355
 
 get_proc.exit5355:                                ; preds = %1359, %.thread.i5354
-  %.pr6647 = phi ptr [ %.pr6647.pre8641, %1359 ], [ %.pr6647.pre, %.thread.i5354 ]
-  %.05.i5351.ph = phi ptr [ %1360, %1359 ], [ %1363, %.thread.i5354 ]
+  %.pr6647 = phi ptr [ %.pr6647.pre, %.thread.i5354 ], [ %.pr6647.pre8641, %1359 ]
+  %.05.i5351.ph = phi ptr [ %1363, %.thread.i5354 ], [ %1360, %1359 ]
   store ptr %.05.i5351.ph, ptr @glad_glTexCoord3f, align 8, !tbaa !11
   %1364 = icmp eq ptr %.pr6647, null
   br i1 %1364, label %get_proc.exit5343.thread12265, label %1365
@@ -7046,8 +7046,8 @@ get_proc.exit5349:                                ; preds = %1367, %.thread.i534
   br label %get_proc.exit5343
 
 get_proc.exit5343:                                ; preds = %1375, %.thread.i5342
-  %.pr6651 = phi ptr [ %.pr6651.pre8644, %1375 ], [ %.pr6651.pre, %.thread.i5342 ]
-  %.05.i5339.ph = phi ptr [ %1376, %1375 ], [ %1379, %.thread.i5342 ]
+  %.pr6651 = phi ptr [ %.pr6651.pre, %.thread.i5342 ], [ %.pr6651.pre8644, %1375 ]
+  %.05.i5339.ph = phi ptr [ %1379, %.thread.i5342 ], [ %1376, %1375 ]
   store ptr %.05.i5339.ph, ptr @glad_glTexCoord3i, align 8, !tbaa !11
   %1380 = icmp eq ptr %.pr6651, null
   br i1 %1380, label %get_proc.exit5331.thread12268, label %1381
@@ -7104,8 +7104,8 @@ get_proc.exit5337:                                ; preds = %1383, %.thread.i533
   br label %get_proc.exit5331
 
 get_proc.exit5331:                                ; preds = %1391, %.thread.i5330
-  %.pr6655 = phi ptr [ %.pr6655.pre8647, %1391 ], [ %.pr6655.pre, %.thread.i5330 ]
-  %.05.i5327.ph = phi ptr [ %1392, %1391 ], [ %1395, %.thread.i5330 ]
+  %.pr6655 = phi ptr [ %.pr6655.pre, %.thread.i5330 ], [ %.pr6655.pre8647, %1391 ]
+  %.05.i5327.ph = phi ptr [ %1395, %.thread.i5330 ], [ %1392, %1391 ]
   store ptr %.05.i5327.ph, ptr @glad_glTexCoord3s, align 8, !tbaa !11
   %1396 = icmp eq ptr %.pr6655, null
   br i1 %1396, label %get_proc.exit5319.thread12271, label %1397
@@ -7162,8 +7162,8 @@ get_proc.exit5325:                                ; preds = %1399, %.thread.i532
   br label %get_proc.exit5319
 
 get_proc.exit5319:                                ; preds = %1407, %.thread.i5318
-  %.pr6659 = phi ptr [ %.pr6659.pre8650, %1407 ], [ %.pr6659.pre, %.thread.i5318 ]
-  %.05.i5315.ph = phi ptr [ %1408, %1407 ], [ %1411, %.thread.i5318 ]
+  %.pr6659 = phi ptr [ %.pr6659.pre, %.thread.i5318 ], [ %.pr6659.pre8650, %1407 ]
+  %.05.i5315.ph = phi ptr [ %1411, %.thread.i5318 ], [ %1408, %1407 ]
   store ptr %.05.i5315.ph, ptr @glad_glTexCoord4d, align 8, !tbaa !11
   %1412 = icmp eq ptr %.pr6659, null
   br i1 %1412, label %get_proc.exit5307.thread12274, label %1413
@@ -7220,8 +7220,8 @@ get_proc.exit5313:                                ; preds = %1415, %.thread.i531
   br label %get_proc.exit5307
 
 get_proc.exit5307:                                ; preds = %1423, %.thread.i5306
-  %.pr6663 = phi ptr [ %.pr6663.pre8653, %1423 ], [ %.pr6663.pre, %.thread.i5306 ]
-  %.05.i5303.ph = phi ptr [ %1424, %1423 ], [ %1427, %.thread.i5306 ]
+  %.pr6663 = phi ptr [ %.pr6663.pre, %.thread.i5306 ], [ %.pr6663.pre8653, %1423 ]
+  %.05.i5303.ph = phi ptr [ %1427, %.thread.i5306 ], [ %1424, %1423 ]
   store ptr %.05.i5303.ph, ptr @glad_glTexCoord4f, align 8, !tbaa !11
   %1428 = icmp eq ptr %.pr6663, null
   br i1 %1428, label %get_proc.exit5295.thread12277, label %1429
@@ -7278,8 +7278,8 @@ get_proc.exit5301:                                ; preds = %1431, %.thread.i530
   br label %get_proc.exit5295
 
 get_proc.exit5295:                                ; preds = %1439, %.thread.i5294
-  %.pr6667 = phi ptr [ %.pr6667.pre8656, %1439 ], [ %.pr6667.pre, %.thread.i5294 ]
-  %.05.i5291.ph = phi ptr [ %1440, %1439 ], [ %1443, %.thread.i5294 ]
+  %.pr6667 = phi ptr [ %.pr6667.pre, %.thread.i5294 ], [ %.pr6667.pre8656, %1439 ]
+  %.05.i5291.ph = phi ptr [ %1443, %.thread.i5294 ], [ %1440, %1439 ]
   store ptr %.05.i5291.ph, ptr @glad_glTexCoord4i, align 8, !tbaa !11
   %1444 = icmp eq ptr %.pr6667, null
   br i1 %1444, label %get_proc.exit5283.thread12280, label %1445
@@ -7336,8 +7336,8 @@ get_proc.exit5289:                                ; preds = %1447, %.thread.i528
   br label %get_proc.exit5283
 
 get_proc.exit5283:                                ; preds = %1455, %.thread.i5282
-  %.pr6671 = phi ptr [ %.pr6671.pre8659, %1455 ], [ %.pr6671.pre, %.thread.i5282 ]
-  %.05.i5279.ph = phi ptr [ %1456, %1455 ], [ %1459, %.thread.i5282 ]
+  %.pr6671 = phi ptr [ %.pr6671.pre, %.thread.i5282 ], [ %.pr6671.pre8659, %1455 ]
+  %.05.i5279.ph = phi ptr [ %1459, %.thread.i5282 ], [ %1456, %1455 ]
   store ptr %.05.i5279.ph, ptr @glad_glTexCoord4s, align 8, !tbaa !11
   %1460 = icmp eq ptr %.pr6671, null
   br i1 %1460, label %get_proc.exit5271.thread12283, label %1461
@@ -7394,8 +7394,8 @@ get_proc.exit5277:                                ; preds = %1463, %.thread.i527
   br label %get_proc.exit5271
 
 get_proc.exit5271:                                ; preds = %1471, %.thread.i5270
-  %.pr6675 = phi ptr [ %.pr6675.pre8662, %1471 ], [ %.pr6675.pre, %.thread.i5270 ]
-  %.05.i5267.ph = phi ptr [ %1472, %1471 ], [ %1475, %.thread.i5270 ]
+  %.pr6675 = phi ptr [ %.pr6675.pre, %.thread.i5270 ], [ %.pr6675.pre8662, %1471 ]
+  %.05.i5267.ph = phi ptr [ %1475, %.thread.i5270 ], [ %1472, %1471 ]
   store ptr %.05.i5267.ph, ptr @glad_glVertex2d, align 8, !tbaa !11
   %1476 = icmp eq ptr %.pr6675, null
   br i1 %1476, label %get_proc.exit5259.thread12286, label %1477
@@ -7452,8 +7452,8 @@ get_proc.exit5265:                                ; preds = %1479, %.thread.i526
   br label %get_proc.exit5259
 
 get_proc.exit5259:                                ; preds = %1487, %.thread.i5258
-  %.pr6679 = phi ptr [ %.pr6679.pre8665, %1487 ], [ %.pr6679.pre, %.thread.i5258 ]
-  %.05.i5255.ph = phi ptr [ %1488, %1487 ], [ %1491, %.thread.i5258 ]
+  %.pr6679 = phi ptr [ %.pr6679.pre, %.thread.i5258 ], [ %.pr6679.pre8665, %1487 ]
+  %.05.i5255.ph = phi ptr [ %1491, %.thread.i5258 ], [ %1488, %1487 ]
   store ptr %.05.i5255.ph, ptr @glad_glVertex2f, align 8, !tbaa !11
   %1492 = icmp eq ptr %.pr6679, null
   br i1 %1492, label %get_proc.exit5247.thread12289, label %1493
@@ -7510,8 +7510,8 @@ get_proc.exit5253:                                ; preds = %1495, %.thread.i525
   br label %get_proc.exit5247
 
 get_proc.exit5247:                                ; preds = %1503, %.thread.i5246
-  %.pr6683 = phi ptr [ %.pr6683.pre8668, %1503 ], [ %.pr6683.pre, %.thread.i5246 ]
-  %.05.i5243.ph = phi ptr [ %1504, %1503 ], [ %1507, %.thread.i5246 ]
+  %.pr6683 = phi ptr [ %.pr6683.pre, %.thread.i5246 ], [ %.pr6683.pre8668, %1503 ]
+  %.05.i5243.ph = phi ptr [ %1507, %.thread.i5246 ], [ %1504, %1503 ]
   store ptr %.05.i5243.ph, ptr @glad_glVertex2i, align 8, !tbaa !11
   %1508 = icmp eq ptr %.pr6683, null
   br i1 %1508, label %get_proc.exit5235.thread12292, label %1509
@@ -7568,8 +7568,8 @@ get_proc.exit5241:                                ; preds = %1511, %.thread.i524
   br label %get_proc.exit5235
 
 get_proc.exit5235:                                ; preds = %1519, %.thread.i5234
-  %.pr6687 = phi ptr [ %.pr6687.pre8671, %1519 ], [ %.pr6687.pre, %.thread.i5234 ]
-  %.05.i5231.ph = phi ptr [ %1520, %1519 ], [ %1523, %.thread.i5234 ]
+  %.pr6687 = phi ptr [ %.pr6687.pre, %.thread.i5234 ], [ %.pr6687.pre8671, %1519 ]
+  %.05.i5231.ph = phi ptr [ %1523, %.thread.i5234 ], [ %1520, %1519 ]
   store ptr %.05.i5231.ph, ptr @glad_glVertex2s, align 8, !tbaa !11
   %1524 = icmp eq ptr %.pr6687, null
   br i1 %1524, label %get_proc.exit5223.thread12295, label %1525
@@ -7626,8 +7626,8 @@ get_proc.exit5229:                                ; preds = %1527, %.thread.i522
   br label %get_proc.exit5223
 
 get_proc.exit5223:                                ; preds = %1535, %.thread.i5222
-  %.pr6691 = phi ptr [ %.pr6691.pre8674, %1535 ], [ %.pr6691.pre, %.thread.i5222 ]
-  %.05.i5219.ph = phi ptr [ %1536, %1535 ], [ %1539, %.thread.i5222 ]
+  %.pr6691 = phi ptr [ %.pr6691.pre, %.thread.i5222 ], [ %.pr6691.pre8674, %1535 ]
+  %.05.i5219.ph = phi ptr [ %1539, %.thread.i5222 ], [ %1536, %1535 ]
   store ptr %.05.i5219.ph, ptr @glad_glVertex3d, align 8, !tbaa !11
   %1540 = icmp eq ptr %.pr6691, null
   br i1 %1540, label %get_proc.exit5211.thread12298, label %1541
@@ -7684,8 +7684,8 @@ get_proc.exit5217:                                ; preds = %1543, %.thread.i521
   br label %get_proc.exit5211
 
 get_proc.exit5211:                                ; preds = %1551, %.thread.i5210
-  %.pr6695 = phi ptr [ %.pr6695.pre8677, %1551 ], [ %.pr6695.pre, %.thread.i5210 ]
-  %.05.i5207.ph = phi ptr [ %1552, %1551 ], [ %1555, %.thread.i5210 ]
+  %.pr6695 = phi ptr [ %.pr6695.pre, %.thread.i5210 ], [ %.pr6695.pre8677, %1551 ]
+  %.05.i5207.ph = phi ptr [ %1555, %.thread.i5210 ], [ %1552, %1551 ]
   store ptr %.05.i5207.ph, ptr @glad_glVertex3f, align 8, !tbaa !11
   %1556 = icmp eq ptr %.pr6695, null
   br i1 %1556, label %get_proc.exit5199.thread12301, label %1557
@@ -7742,8 +7742,8 @@ get_proc.exit5205:                                ; preds = %1559, %.thread.i520
   br label %get_proc.exit5199
 
 get_proc.exit5199:                                ; preds = %1567, %.thread.i5198
-  %.pr6699 = phi ptr [ %.pr6699.pre8680, %1567 ], [ %.pr6699.pre, %.thread.i5198 ]
-  %.05.i5195.ph = phi ptr [ %1568, %1567 ], [ %1571, %.thread.i5198 ]
+  %.pr6699 = phi ptr [ %.pr6699.pre, %.thread.i5198 ], [ %.pr6699.pre8680, %1567 ]
+  %.05.i5195.ph = phi ptr [ %1571, %.thread.i5198 ], [ %1568, %1567 ]
   store ptr %.05.i5195.ph, ptr @glad_glVertex3i, align 8, !tbaa !11
   %1572 = icmp eq ptr %.pr6699, null
   br i1 %1572, label %get_proc.exit5187.thread12304, label %1573
@@ -7800,8 +7800,8 @@ get_proc.exit5193:                                ; preds = %1575, %.thread.i519
   br label %get_proc.exit5187
 
 get_proc.exit5187:                                ; preds = %1583, %.thread.i5186
-  %.pr6703 = phi ptr [ %.pr6703.pre8683, %1583 ], [ %.pr6703.pre, %.thread.i5186 ]
-  %.05.i5183.ph = phi ptr [ %1584, %1583 ], [ %1587, %.thread.i5186 ]
+  %.pr6703 = phi ptr [ %.pr6703.pre, %.thread.i5186 ], [ %.pr6703.pre8683, %1583 ]
+  %.05.i5183.ph = phi ptr [ %1587, %.thread.i5186 ], [ %1584, %1583 ]
   store ptr %.05.i5183.ph, ptr @glad_glVertex3s, align 8, !tbaa !11
   %1588 = icmp eq ptr %.pr6703, null
   br i1 %1588, label %get_proc.exit5175.thread12307, label %1589
@@ -7858,8 +7858,8 @@ get_proc.exit5181:                                ; preds = %1591, %.thread.i518
   br label %get_proc.exit5175
 
 get_proc.exit5175:                                ; preds = %1599, %.thread.i5174
-  %.pr6707 = phi ptr [ %.pr6707.pre8686, %1599 ], [ %.pr6707.pre, %.thread.i5174 ]
-  %.05.i5171.ph = phi ptr [ %1600, %1599 ], [ %1603, %.thread.i5174 ]
+  %.pr6707 = phi ptr [ %.pr6707.pre, %.thread.i5174 ], [ %.pr6707.pre8686, %1599 ]
+  %.05.i5171.ph = phi ptr [ %1603, %.thread.i5174 ], [ %1600, %1599 ]
   store ptr %.05.i5171.ph, ptr @glad_glVertex4d, align 8, !tbaa !11
   %1604 = icmp eq ptr %.pr6707, null
   br i1 %1604, label %get_proc.exit5163.thread12310, label %1605
@@ -7916,8 +7916,8 @@ get_proc.exit5169:                                ; preds = %1607, %.thread.i516
   br label %get_proc.exit5163
 
 get_proc.exit5163:                                ; preds = %1615, %.thread.i5162
-  %.pr6711 = phi ptr [ %.pr6711.pre8689, %1615 ], [ %.pr6711.pre, %.thread.i5162 ]
-  %.05.i5159.ph = phi ptr [ %1616, %1615 ], [ %1619, %.thread.i5162 ]
+  %.pr6711 = phi ptr [ %.pr6711.pre, %.thread.i5162 ], [ %.pr6711.pre8689, %1615 ]
+  %.05.i5159.ph = phi ptr [ %1619, %.thread.i5162 ], [ %1616, %1615 ]
   store ptr %.05.i5159.ph, ptr @glad_glVertex4f, align 8, !tbaa !11
   %1620 = icmp eq ptr %.pr6711, null
   br i1 %1620, label %get_proc.exit5151.thread12313, label %1621
@@ -7974,8 +7974,8 @@ get_proc.exit5157:                                ; preds = %1623, %.thread.i515
   br label %get_proc.exit5151
 
 get_proc.exit5151:                                ; preds = %1631, %.thread.i5150
-  %.pr6715 = phi ptr [ %.pr6715.pre8692, %1631 ], [ %.pr6715.pre, %.thread.i5150 ]
-  %.05.i5147.ph = phi ptr [ %1632, %1631 ], [ %1635, %.thread.i5150 ]
+  %.pr6715 = phi ptr [ %.pr6715.pre, %.thread.i5150 ], [ %.pr6715.pre8692, %1631 ]
+  %.05.i5147.ph = phi ptr [ %1635, %.thread.i5150 ], [ %1632, %1631 ]
   store ptr %.05.i5147.ph, ptr @glad_glVertex4i, align 8, !tbaa !11
   %1636 = icmp eq ptr %.pr6715, null
   br i1 %1636, label %get_proc.exit5139.thread12316, label %1637
@@ -8032,8 +8032,8 @@ get_proc.exit5145:                                ; preds = %1639, %.thread.i514
   br label %get_proc.exit5139
 
 get_proc.exit5139:                                ; preds = %1647, %.thread.i5138
-  %.pr6719 = phi ptr [ %.pr6719.pre8695, %1647 ], [ %.pr6719.pre, %.thread.i5138 ]
-  %.05.i5135.ph = phi ptr [ %1648, %1647 ], [ %1651, %.thread.i5138 ]
+  %.pr6719 = phi ptr [ %.pr6719.pre, %.thread.i5138 ], [ %.pr6719.pre8695, %1647 ]
+  %.05.i5135.ph = phi ptr [ %1651, %.thread.i5138 ], [ %1648, %1647 ]
   store ptr %.05.i5135.ph, ptr @glad_glVertex4s, align 8, !tbaa !11
   %1652 = icmp eq ptr %.pr6719, null
   br i1 %1652, label %get_proc.exit5127.thread12319, label %1653
@@ -8090,8 +8090,8 @@ get_proc.exit5133:                                ; preds = %1655, %.thread.i513
   br label %get_proc.exit5127
 
 get_proc.exit5127:                                ; preds = %1663, %.thread.i5126
-  %.pr6723 = phi ptr [ %.pr6723.pre8698, %1663 ], [ %.pr6723.pre, %.thread.i5126 ]
-  %.05.i5123.ph = phi ptr [ %1664, %1663 ], [ %1667, %.thread.i5126 ]
+  %.pr6723 = phi ptr [ %.pr6723.pre, %.thread.i5126 ], [ %.pr6723.pre8698, %1663 ]
+  %.05.i5123.ph = phi ptr [ %1667, %.thread.i5126 ], [ %1664, %1663 ]
   store ptr %.05.i5123.ph, ptr @glad_glClipPlane, align 8, !tbaa !11
   %1668 = icmp eq ptr %.pr6723, null
   br i1 %1668, label %get_proc.exit5115.thread12322, label %1669
@@ -8148,8 +8148,8 @@ get_proc.exit5121:                                ; preds = %1671, %.thread.i512
   br label %get_proc.exit5115
 
 get_proc.exit5115:                                ; preds = %1679, %.thread.i5114
-  %.pr6727 = phi ptr [ %.pr6727.pre8701, %1679 ], [ %.pr6727.pre, %.thread.i5114 ]
-  %.05.i5111.ph = phi ptr [ %1680, %1679 ], [ %1683, %.thread.i5114 ]
+  %.pr6727 = phi ptr [ %.pr6727.pre, %.thread.i5114 ], [ %.pr6727.pre8701, %1679 ]
+  %.05.i5111.ph = phi ptr [ %1683, %.thread.i5114 ], [ %1680, %1679 ]
   store ptr %.05.i5111.ph, ptr @glad_glFogf, align 8, !tbaa !11
   %1684 = icmp eq ptr %.pr6727, null
   br i1 %1684, label %get_proc.exit5103.thread12325, label %1685
@@ -8206,8 +8206,8 @@ get_proc.exit5109:                                ; preds = %1687, %.thread.i510
   br label %get_proc.exit5103
 
 get_proc.exit5103:                                ; preds = %1695, %.thread.i5102
-  %.pr6731 = phi ptr [ %.pr6731.pre8704, %1695 ], [ %.pr6731.pre, %.thread.i5102 ]
-  %.05.i5099.ph = phi ptr [ %1696, %1695 ], [ %1699, %.thread.i5102 ]
+  %.pr6731 = phi ptr [ %.pr6731.pre, %.thread.i5102 ], [ %.pr6731.pre8704, %1695 ]
+  %.05.i5099.ph = phi ptr [ %1699, %.thread.i5102 ], [ %1696, %1695 ]
   store ptr %.05.i5099.ph, ptr @glad_glFogi, align 8, !tbaa !11
   %1700 = icmp eq ptr %.pr6731, null
   br i1 %1700, label %get_proc.exit5097.thread, label %1701
@@ -8324,8 +8324,8 @@ get_proc.exit5085:                                ; preds = %1719, %.thread.i508
   br label %get_proc.exit5079
 
 get_proc.exit5079:                                ; preds = %1727, %.thread.i5078
-  %.pr6739 = phi ptr [ %.pr6739.pre8707, %1727 ], [ %.pr6739.pre, %.thread.i5078 ]
-  %.05.i5075.ph = phi ptr [ %1728, %1727 ], [ %1731, %.thread.i5078 ]
+  %.pr6739 = phi ptr [ %.pr6739.pre, %.thread.i5078 ], [ %.pr6739.pre8707, %1727 ]
+  %.05.i5075.ph = phi ptr [ %1731, %.thread.i5078 ], [ %1728, %1727 ]
   store ptr %.05.i5075.ph, ptr @glad_glLighti, align 8, !tbaa !11
   %1732 = icmp eq ptr %.pr6739, null
   br i1 %1732, label %get_proc.exit5067.thread12331, label %1733
@@ -8382,8 +8382,8 @@ get_proc.exit5073:                                ; preds = %1735, %.thread.i507
   br label %get_proc.exit5067
 
 get_proc.exit5067:                                ; preds = %1743, %.thread.i5066
-  %.pr6743 = phi ptr [ %.pr6743.pre8710, %1743 ], [ %.pr6743.pre, %.thread.i5066 ]
-  %.05.i5063.ph = phi ptr [ %1744, %1743 ], [ %1747, %.thread.i5066 ]
+  %.pr6743 = phi ptr [ %.pr6743.pre, %.thread.i5066 ], [ %.pr6743.pre8710, %1743 ]
+  %.05.i5063.ph = phi ptr [ %1747, %.thread.i5066 ], [ %1744, %1743 ]
   store ptr %.05.i5063.ph, ptr @glad_glLightModelf, align 8, !tbaa !11
   %1748 = icmp eq ptr %.pr6743, null
   br i1 %1748, label %get_proc.exit5055.thread12334, label %1749
@@ -8440,8 +8440,8 @@ get_proc.exit5061:                                ; preds = %1751, %.thread.i506
   br label %get_proc.exit5055
 
 get_proc.exit5055:                                ; preds = %1759, %.thread.i5054
-  %.pr6747 = phi ptr [ %.pr6747.pre8713, %1759 ], [ %.pr6747.pre, %.thread.i5054 ]
-  %.05.i5051.ph = phi ptr [ %1760, %1759 ], [ %1763, %.thread.i5054 ]
+  %.pr6747 = phi ptr [ %.pr6747.pre, %.thread.i5054 ], [ %.pr6747.pre8713, %1759 ]
+  %.05.i5051.ph = phi ptr [ %1763, %.thread.i5054 ], [ %1760, %1759 ]
   store ptr %.05.i5051.ph, ptr @glad_glLightModeli, align 8, !tbaa !11
   %1764 = icmp eq ptr %.pr6747, null
   br i1 %1764, label %get_proc.exit5043.thread12337, label %1765
@@ -8498,8 +8498,8 @@ get_proc.exit5049:                                ; preds = %1767, %.thread.i504
   br label %get_proc.exit5043
 
 get_proc.exit5043:                                ; preds = %1775, %.thread.i5042
-  %.pr6751 = phi ptr [ %.pr6751.pre8716, %1775 ], [ %.pr6751.pre, %.thread.i5042 ]
-  %.05.i5039.ph = phi ptr [ %1776, %1775 ], [ %1779, %.thread.i5042 ]
+  %.pr6751 = phi ptr [ %.pr6751.pre, %.thread.i5042 ], [ %.pr6751.pre8716, %1775 ]
+  %.05.i5039.ph = phi ptr [ %1779, %.thread.i5042 ], [ %1776, %1775 ]
   store ptr %.05.i5039.ph, ptr @glad_glLineStipple, align 8, !tbaa !11
   %1780 = icmp eq ptr %.pr6751, null
   br i1 %1780, label %get_proc.exit5031.thread12340, label %1781
@@ -8556,8 +8556,8 @@ get_proc.exit5037:                                ; preds = %1783, %.thread.i503
   br label %get_proc.exit5031
 
 get_proc.exit5031:                                ; preds = %1791, %.thread.i5030
-  %.pr6755 = phi ptr [ %.pr6755.pre8719, %1791 ], [ %.pr6755.pre, %.thread.i5030 ]
-  %.05.i5027.ph = phi ptr [ %1792, %1791 ], [ %1795, %.thread.i5030 ]
+  %.pr6755 = phi ptr [ %.pr6755.pre, %.thread.i5030 ], [ %.pr6755.pre8719, %1791 ]
+  %.05.i5027.ph = phi ptr [ %1795, %.thread.i5030 ], [ %1792, %1791 ]
   store ptr %.05.i5027.ph, ptr @glad_glMaterialfv, align 8, !tbaa !11
   %1796 = icmp eq ptr %.pr6755, null
   br i1 %1796, label %get_proc.exit5019.thread12343, label %1797
@@ -8614,8 +8614,8 @@ get_proc.exit5025:                                ; preds = %1799, %.thread.i502
   br label %get_proc.exit5019
 
 get_proc.exit5019:                                ; preds = %1807, %.thread.i5018
-  %.pr6759 = phi ptr [ %.pr6759.pre8722, %1807 ], [ %.pr6759.pre, %.thread.i5018 ]
-  %.05.i5015.ph = phi ptr [ %1808, %1807 ], [ %1811, %.thread.i5018 ]
+  %.pr6759 = phi ptr [ %.pr6759.pre, %.thread.i5018 ], [ %.pr6759.pre8722, %1807 ]
+  %.05.i5015.ph = phi ptr [ %1811, %.thread.i5018 ], [ %1808, %1807 ]
   store ptr %.05.i5015.ph, ptr @glad_glMaterialiv, align 8, !tbaa !11
   %1812 = icmp eq ptr %.pr6759, null
   br i1 %1812, label %get_proc.exit5007.thread12346, label %1813
@@ -8672,8 +8672,8 @@ get_proc.exit5013:                                ; preds = %1815, %.thread.i501
   br label %get_proc.exit5007
 
 get_proc.exit5007:                                ; preds = %1823, %.thread.i5006
-  %.pr6763 = phi ptr [ %.pr6763.pre8725, %1823 ], [ %.pr6763.pre, %.thread.i5006 ]
-  %.05.i5003.ph = phi ptr [ %1824, %1823 ], [ %1827, %.thread.i5006 ]
+  %.pr6763 = phi ptr [ %.pr6763.pre, %.thread.i5006 ], [ %.pr6763.pre8725, %1823 ]
+  %.05.i5003.ph = phi ptr [ %1827, %.thread.i5006 ], [ %1824, %1823 ]
   store ptr %.05.i5003.ph, ptr @glad_glShadeModel, align 8, !tbaa !11
   %1828 = icmp eq ptr %.pr6763, null
   br i1 %1828, label %get_proc.exit4995.thread12349, label %1829
@@ -8730,8 +8730,8 @@ get_proc.exit5001:                                ; preds = %1831, %.thread.i500
   br label %get_proc.exit4995
 
 get_proc.exit4995:                                ; preds = %1839, %.thread.i4994
-  %.pr6767 = phi ptr [ %.pr6767.pre8728, %1839 ], [ %.pr6767.pre, %.thread.i4994 ]
-  %.05.i4991.ph = phi ptr [ %1840, %1839 ], [ %1843, %.thread.i4994 ]
+  %.pr6767 = phi ptr [ %.pr6767.pre, %.thread.i4994 ], [ %.pr6767.pre8728, %1839 ]
+  %.05.i4991.ph = phi ptr [ %1843, %.thread.i4994 ], [ %1840, %1839 ]
   store ptr %.05.i4991.ph, ptr @glad_glTexEnvfv, align 8, !tbaa !11
   %1844 = icmp eq ptr %.pr6767, null
   br i1 %1844, label %get_proc.exit4983.thread12352, label %1845
@@ -8788,8 +8788,8 @@ get_proc.exit4989:                                ; preds = %1847, %.thread.i498
   br label %get_proc.exit4983
 
 get_proc.exit4983:                                ; preds = %1855, %.thread.i4982
-  %.pr6771 = phi ptr [ %.pr6771.pre8731, %1855 ], [ %.pr6771.pre, %.thread.i4982 ]
-  %.05.i4979.ph = phi ptr [ %1856, %1855 ], [ %1859, %.thread.i4982 ]
+  %.pr6771 = phi ptr [ %.pr6771.pre, %.thread.i4982 ], [ %.pr6771.pre8731, %1855 ]
+  %.05.i4979.ph = phi ptr [ %1859, %.thread.i4982 ], [ %1856, %1855 ]
   store ptr %.05.i4979.ph, ptr @glad_glTexEnviv, align 8, !tbaa !11
   %1860 = icmp eq ptr %.pr6771, null
   br i1 %1860, label %get_proc.exit4971.thread12355, label %1861
@@ -8846,8 +8846,8 @@ get_proc.exit4977:                                ; preds = %1863, %.thread.i497
   br label %get_proc.exit4971
 
 get_proc.exit4971:                                ; preds = %1871, %.thread.i4970
-  %.pr6775 = phi ptr [ %.pr6775.pre8734, %1871 ], [ %.pr6775.pre, %.thread.i4970 ]
-  %.05.i4967.ph = phi ptr [ %1872, %1871 ], [ %1875, %.thread.i4970 ]
+  %.pr6775 = phi ptr [ %.pr6775.pre, %.thread.i4970 ], [ %.pr6775.pre8734, %1871 ]
+  %.05.i4967.ph = phi ptr [ %1875, %.thread.i4970 ], [ %1872, %1871 ]
   store ptr %.05.i4967.ph, ptr @glad_glTexGendv, align 8, !tbaa !11
   %1876 = icmp eq ptr %.pr6775, null
   br i1 %1876, label %get_proc.exit4959.thread12358, label %1877
@@ -8904,8 +8904,8 @@ get_proc.exit4965:                                ; preds = %1879, %.thread.i496
   br label %get_proc.exit4959
 
 get_proc.exit4959:                                ; preds = %1887, %.thread.i4958
-  %.pr6779 = phi ptr [ %.pr6779.pre8737, %1887 ], [ %.pr6779.pre, %.thread.i4958 ]
-  %.05.i4955.ph = phi ptr [ %1888, %1887 ], [ %1891, %.thread.i4958 ]
+  %.pr6779 = phi ptr [ %.pr6779.pre, %.thread.i4958 ], [ %.pr6779.pre8737, %1887 ]
+  %.05.i4955.ph = phi ptr [ %1891, %.thread.i4958 ], [ %1888, %1887 ]
   store ptr %.05.i4955.ph, ptr @glad_glTexGenfv, align 8, !tbaa !11
   %1892 = icmp eq ptr %.pr6779, null
   br i1 %1892, label %get_proc.exit4947.thread12361, label %1893
@@ -8962,8 +8962,8 @@ get_proc.exit4953:                                ; preds = %1895, %.thread.i495
   br label %get_proc.exit4947
 
 get_proc.exit4947:                                ; preds = %1903, %.thread.i4946
-  %.pr6783 = phi ptr [ %.pr6783.pre8740, %1903 ], [ %.pr6783.pre, %.thread.i4946 ]
-  %.05.i4943.ph = phi ptr [ %1904, %1903 ], [ %1907, %.thread.i4946 ]
+  %.pr6783 = phi ptr [ %.pr6783.pre, %.thread.i4946 ], [ %.pr6783.pre8740, %1903 ]
+  %.05.i4943.ph = phi ptr [ %1907, %.thread.i4946 ], [ %1904, %1903 ]
   store ptr %.05.i4943.ph, ptr @glad_glTexGeniv, align 8, !tbaa !11
   %1908 = icmp eq ptr %.pr6783, null
   br i1 %1908, label %get_proc.exit4935.thread12364, label %1909
@@ -9020,8 +9020,8 @@ get_proc.exit4941:                                ; preds = %1911, %.thread.i494
   br label %get_proc.exit4935
 
 get_proc.exit4935:                                ; preds = %1919, %.thread.i4934
-  %.pr6787 = phi ptr [ %.pr6787.pre8743, %1919 ], [ %.pr6787.pre, %.thread.i4934 ]
-  %.05.i4931.ph = phi ptr [ %1920, %1919 ], [ %1923, %.thread.i4934 ]
+  %.pr6787 = phi ptr [ %.pr6787.pre, %.thread.i4934 ], [ %.pr6787.pre8743, %1919 ]
+  %.05.i4931.ph = phi ptr [ %1923, %.thread.i4934 ], [ %1920, %1919 ]
   store ptr %.05.i4931.ph, ptr @glad_glSelectBuffer, align 8, !tbaa !11
   %1924 = icmp eq ptr %.pr6787, null
   br i1 %1924, label %get_proc.exit4923.thread12367, label %1925
@@ -9078,8 +9078,8 @@ get_proc.exit4929:                                ; preds = %1927, %.thread.i492
   br label %get_proc.exit4923
 
 get_proc.exit4923:                                ; preds = %1935, %.thread.i4922
-  %.pr6791 = phi ptr [ %.pr6791.pre8746, %1935 ], [ %.pr6791.pre, %.thread.i4922 ]
-  %.05.i4919.ph = phi ptr [ %1936, %1935 ], [ %1939, %.thread.i4922 ]
+  %.pr6791 = phi ptr [ %.pr6791.pre, %.thread.i4922 ], [ %.pr6791.pre8746, %1935 ]
+  %.05.i4919.ph = phi ptr [ %1939, %.thread.i4922 ], [ %1936, %1935 ]
   store ptr %.05.i4919.ph, ptr @glad_glInitNames, align 8, !tbaa !11
   %1940 = icmp eq ptr %.pr6791, null
   br i1 %1940, label %get_proc.exit4911.thread12370, label %1941
@@ -9136,8 +9136,8 @@ get_proc.exit4917:                                ; preds = %1943, %.thread.i491
   br label %get_proc.exit4911
 
 get_proc.exit4911:                                ; preds = %1951, %.thread.i4910
-  %.pr6795 = phi ptr [ %.pr6795.pre8749, %1951 ], [ %.pr6795.pre, %.thread.i4910 ]
-  %.05.i4907.ph = phi ptr [ %1952, %1951 ], [ %1955, %.thread.i4910 ]
+  %.pr6795 = phi ptr [ %.pr6795.pre, %.thread.i4910 ], [ %.pr6795.pre8749, %1951 ]
+  %.05.i4907.ph = phi ptr [ %1955, %.thread.i4910 ], [ %1952, %1951 ]
   store ptr %.05.i4907.ph, ptr @glad_glPassThrough, align 8, !tbaa !11
   %1956 = icmp eq ptr %.pr6795, null
   br i1 %1956, label %get_proc.exit4899.thread12373, label %1957
@@ -9194,8 +9194,8 @@ get_proc.exit4905:                                ; preds = %1959, %.thread.i490
   br label %get_proc.exit4899
 
 get_proc.exit4899:                                ; preds = %1967, %.thread.i4898
-  %.pr6799 = phi ptr [ %.pr6799.pre8752, %1967 ], [ %.pr6799.pre, %.thread.i4898 ]
-  %.05.i4895.ph = phi ptr [ %1968, %1967 ], [ %1971, %.thread.i4898 ]
+  %.pr6799 = phi ptr [ %.pr6799.pre, %.thread.i4898 ], [ %.pr6799.pre8752, %1967 ]
+  %.05.i4895.ph = phi ptr [ %1971, %.thread.i4898 ], [ %1968, %1967 ]
   store ptr %.05.i4895.ph, ptr @glad_glPushName, align 8, !tbaa !11
   %1972 = icmp eq ptr %.pr6799, null
   br i1 %1972, label %get_proc.exit4887.thread12376, label %1973
@@ -9252,8 +9252,8 @@ get_proc.exit4893:                                ; preds = %1975, %.thread.i489
   br label %get_proc.exit4887
 
 get_proc.exit4887:                                ; preds = %1983, %.thread.i4886
-  %.pr6803 = phi ptr [ %.pr6803.pre8755, %1983 ], [ %.pr6803.pre, %.thread.i4886 ]
-  %.05.i4883.ph = phi ptr [ %1984, %1983 ], [ %1987, %.thread.i4886 ]
+  %.pr6803 = phi ptr [ %.pr6803.pre, %.thread.i4886 ], [ %.pr6803.pre8755, %1983 ]
+  %.05.i4883.ph = phi ptr [ %1987, %.thread.i4886 ], [ %1984, %1983 ]
   store ptr %.05.i4883.ph, ptr @glad_glClearIndex, align 8, !tbaa !11
   %1988 = icmp eq ptr %.pr6803, null
   br i1 %1988, label %get_proc.exit4875.thread12379, label %1989
@@ -9310,8 +9310,8 @@ get_proc.exit4881:                                ; preds = %1991, %.thread.i488
   br label %get_proc.exit4875
 
 get_proc.exit4875:                                ; preds = %1999, %.thread.i4874
-  %.pr6807 = phi ptr [ %.pr6807.pre8758, %1999 ], [ %.pr6807.pre, %.thread.i4874 ]
-  %.05.i4871.ph = phi ptr [ %2000, %1999 ], [ %2003, %.thread.i4874 ]
+  %.pr6807 = phi ptr [ %.pr6807.pre, %.thread.i4874 ], [ %.pr6807.pre8758, %1999 ]
+  %.05.i4871.ph = phi ptr [ %2003, %.thread.i4874 ], [ %2000, %1999 ]
   store ptr %.05.i4871.ph, ptr @glad_glAccum, align 8, !tbaa !11
   %2004 = icmp eq ptr %.pr6807, null
   br i1 %2004, label %get_proc.exit4863.thread12382, label %2005
@@ -9368,8 +9368,8 @@ get_proc.exit4869:                                ; preds = %2007, %.thread.i486
   br label %get_proc.exit4863
 
 get_proc.exit4863:                                ; preds = %2015, %.thread.i4862
-  %.pr6811 = phi ptr [ %.pr6811.pre8761, %2015 ], [ %.pr6811.pre, %.thread.i4862 ]
-  %.05.i4859.ph = phi ptr [ %2016, %2015 ], [ %2019, %.thread.i4862 ]
+  %.pr6811 = phi ptr [ %.pr6811.pre, %.thread.i4862 ], [ %.pr6811.pre8761, %2015 ]
+  %.05.i4859.ph = phi ptr [ %2019, %.thread.i4862 ], [ %2016, %2015 ]
   store ptr %.05.i4859.ph, ptr @glad_glPushAttrib, align 8, !tbaa !11
   %2020 = icmp eq ptr %.pr6811, null
   br i1 %2020, label %get_proc.exit4851.thread12385, label %2021
@@ -9426,8 +9426,8 @@ get_proc.exit4857:                                ; preds = %2023, %.thread.i485
   br label %get_proc.exit4851
 
 get_proc.exit4851:                                ; preds = %2031, %.thread.i4850
-  %.pr6815 = phi ptr [ %.pr6815.pre8764, %2031 ], [ %.pr6815.pre, %.thread.i4850 ]
-  %.05.i4847.ph = phi ptr [ %2032, %2031 ], [ %2035, %.thread.i4850 ]
+  %.pr6815 = phi ptr [ %.pr6815.pre, %.thread.i4850 ], [ %.pr6815.pre8764, %2031 ]
+  %.05.i4847.ph = phi ptr [ %2035, %.thread.i4850 ], [ %2032, %2031 ]
   store ptr %.05.i4847.ph, ptr @glad_glMap1f, align 8, !tbaa !11
   %2036 = icmp eq ptr %.pr6815, null
   br i1 %2036, label %get_proc.exit4839.thread12388, label %2037
@@ -9484,8 +9484,8 @@ get_proc.exit4845:                                ; preds = %2039, %.thread.i484
   br label %get_proc.exit4839
 
 get_proc.exit4839:                                ; preds = %2047, %.thread.i4838
-  %.pr6819 = phi ptr [ %.pr6819.pre8767, %2047 ], [ %.pr6819.pre, %.thread.i4838 ]
-  %.05.i4835.ph = phi ptr [ %2048, %2047 ], [ %2051, %.thread.i4838 ]
+  %.pr6819 = phi ptr [ %.pr6819.pre, %.thread.i4838 ], [ %.pr6819.pre8767, %2047 ]
+  %.05.i4835.ph = phi ptr [ %2051, %.thread.i4838 ], [ %2048, %2047 ]
   store ptr %.05.i4835.ph, ptr @glad_glMap2f, align 8, !tbaa !11
   %2052 = icmp eq ptr %.pr6819, null
   br i1 %2052, label %get_proc.exit4827.thread12391, label %2053
@@ -9542,8 +9542,8 @@ get_proc.exit4833:                                ; preds = %2055, %.thread.i483
   br label %get_proc.exit4827
 
 get_proc.exit4827:                                ; preds = %2063, %.thread.i4826
-  %.pr6823 = phi ptr [ %.pr6823.pre8770, %2063 ], [ %.pr6823.pre, %.thread.i4826 ]
-  %.05.i4823.ph = phi ptr [ %2064, %2063 ], [ %2067, %.thread.i4826 ]
+  %.pr6823 = phi ptr [ %.pr6823.pre, %.thread.i4826 ], [ %.pr6823.pre8770, %2063 ]
+  %.05.i4823.ph = phi ptr [ %2067, %.thread.i4826 ], [ %2064, %2063 ]
   store ptr %.05.i4823.ph, ptr @glad_glMapGrid1f, align 8, !tbaa !11
   %2068 = icmp eq ptr %.pr6823, null
   br i1 %2068, label %get_proc.exit4815.thread12394, label %2069
@@ -9600,8 +9600,8 @@ get_proc.exit4821:                                ; preds = %2071, %.thread.i482
   br label %get_proc.exit4815
 
 get_proc.exit4815:                                ; preds = %2079, %.thread.i4814
-  %.pr6827 = phi ptr [ %.pr6827.pre8773, %2079 ], [ %.pr6827.pre, %.thread.i4814 ]
-  %.05.i4811.ph = phi ptr [ %2080, %2079 ], [ %2083, %.thread.i4814 ]
+  %.pr6827 = phi ptr [ %.pr6827.pre, %.thread.i4814 ], [ %.pr6827.pre8773, %2079 ]
+  %.05.i4811.ph = phi ptr [ %2083, %.thread.i4814 ], [ %2080, %2079 ]
   store ptr %.05.i4811.ph, ptr @glad_glMapGrid2f, align 8, !tbaa !11
   %2084 = icmp eq ptr %.pr6827, null
   br i1 %2084, label %get_proc.exit4803.thread12397, label %2085
@@ -9658,8 +9658,8 @@ get_proc.exit4809:                                ; preds = %2087, %.thread.i480
   br label %get_proc.exit4803
 
 get_proc.exit4803:                                ; preds = %2095, %.thread.i4802
-  %.pr6831 = phi ptr [ %.pr6831.pre8776, %2095 ], [ %.pr6831.pre, %.thread.i4802 ]
-  %.05.i4799.ph = phi ptr [ %2096, %2095 ], [ %2099, %.thread.i4802 ]
+  %.pr6831 = phi ptr [ %.pr6831.pre, %.thread.i4802 ], [ %.pr6831.pre8776, %2095 ]
+  %.05.i4799.ph = phi ptr [ %2099, %.thread.i4802 ], [ %2096, %2095 ]
   store ptr %.05.i4799.ph, ptr @glad_glEvalCoord1dv, align 8, !tbaa !11
   %2100 = icmp eq ptr %.pr6831, null
   br i1 %2100, label %get_proc.exit4791.thread12400, label %2101
@@ -9716,8 +9716,8 @@ get_proc.exit4797:                                ; preds = %2103, %.thread.i479
   br label %get_proc.exit4791
 
 get_proc.exit4791:                                ; preds = %2111, %.thread.i4790
-  %.pr6835 = phi ptr [ %.pr6835.pre8779, %2111 ], [ %.pr6835.pre, %.thread.i4790 ]
-  %.05.i4787.ph = phi ptr [ %2112, %2111 ], [ %2115, %.thread.i4790 ]
+  %.pr6835 = phi ptr [ %.pr6835.pre, %.thread.i4790 ], [ %.pr6835.pre8779, %2111 ]
+  %.05.i4787.ph = phi ptr [ %2115, %.thread.i4790 ], [ %2112, %2111 ]
   store ptr %.05.i4787.ph, ptr @glad_glEvalCoord1fv, align 8, !tbaa !11
   %2116 = icmp eq ptr %.pr6835, null
   br i1 %2116, label %get_proc.exit4779.thread12403, label %2117
@@ -9774,8 +9774,8 @@ get_proc.exit4785:                                ; preds = %2119, %.thread.i478
   br label %get_proc.exit4779
 
 get_proc.exit4779:                                ; preds = %2127, %.thread.i4778
-  %.pr6839 = phi ptr [ %.pr6839.pre8782, %2127 ], [ %.pr6839.pre, %.thread.i4778 ]
-  %.05.i4775.ph = phi ptr [ %2128, %2127 ], [ %2131, %.thread.i4778 ]
+  %.pr6839 = phi ptr [ %.pr6839.pre, %.thread.i4778 ], [ %.pr6839.pre8782, %2127 ]
+  %.05.i4775.ph = phi ptr [ %2131, %.thread.i4778 ], [ %2128, %2127 ]
   store ptr %.05.i4775.ph, ptr @glad_glEvalCoord2dv, align 8, !tbaa !11
   %2132 = icmp eq ptr %.pr6839, null
   br i1 %2132, label %get_proc.exit4767.thread12406, label %2133
@@ -9832,8 +9832,8 @@ get_proc.exit4773:                                ; preds = %2135, %.thread.i477
   br label %get_proc.exit4767
 
 get_proc.exit4767:                                ; preds = %2143, %.thread.i4766
-  %.pr6843 = phi ptr [ %.pr6843.pre8785, %2143 ], [ %.pr6843.pre, %.thread.i4766 ]
-  %.05.i4763.ph = phi ptr [ %2144, %2143 ], [ %2147, %.thread.i4766 ]
+  %.pr6843 = phi ptr [ %.pr6843.pre, %.thread.i4766 ], [ %.pr6843.pre8785, %2143 ]
+  %.05.i4763.ph = phi ptr [ %2147, %.thread.i4766 ], [ %2144, %2143 ]
   store ptr %.05.i4763.ph, ptr @glad_glEvalCoord2fv, align 8, !tbaa !11
   %2148 = icmp eq ptr %.pr6843, null
   br i1 %2148, label %get_proc.exit4755.thread12409, label %2149
@@ -9890,8 +9890,8 @@ get_proc.exit4761:                                ; preds = %2151, %.thread.i476
   br label %get_proc.exit4755
 
 get_proc.exit4755:                                ; preds = %2159, %.thread.i4754
-  %.pr6847 = phi ptr [ %.pr6847.pre8788, %2159 ], [ %.pr6847.pre, %.thread.i4754 ]
-  %.05.i4751.ph = phi ptr [ %2160, %2159 ], [ %2163, %.thread.i4754 ]
+  %.pr6847 = phi ptr [ %.pr6847.pre, %.thread.i4754 ], [ %.pr6847.pre8788, %2159 ]
+  %.05.i4751.ph = phi ptr [ %2163, %.thread.i4754 ], [ %2160, %2159 ]
   store ptr %.05.i4751.ph, ptr @glad_glEvalPoint1, align 8, !tbaa !11
   %2164 = icmp eq ptr %.pr6847, null
   br i1 %2164, label %get_proc.exit4743.thread12412, label %2165
@@ -9948,8 +9948,8 @@ get_proc.exit4749:                                ; preds = %2167, %.thread.i474
   br label %get_proc.exit4743
 
 get_proc.exit4743:                                ; preds = %2175, %.thread.i4742
-  %.pr6851 = phi ptr [ %.pr6851.pre8791, %2175 ], [ %.pr6851.pre, %.thread.i4742 ]
-  %.05.i4739.ph = phi ptr [ %2176, %2175 ], [ %2179, %.thread.i4742 ]
+  %.pr6851 = phi ptr [ %.pr6851.pre, %.thread.i4742 ], [ %.pr6851.pre8791, %2175 ]
+  %.05.i4739.ph = phi ptr [ %2179, %.thread.i4742 ], [ %2176, %2175 ]
   store ptr %.05.i4739.ph, ptr @glad_glEvalPoint2, align 8, !tbaa !11
   %2180 = icmp eq ptr %.pr6851, null
   br i1 %2180, label %get_proc.exit4731.thread12415, label %2181
@@ -10006,8 +10006,8 @@ get_proc.exit4737:                                ; preds = %2183, %.thread.i473
   br label %get_proc.exit4731
 
 get_proc.exit4731:                                ; preds = %2191, %.thread.i4730
-  %.pr6855 = phi ptr [ %.pr6855.pre8794, %2191 ], [ %.pr6855.pre, %.thread.i4730 ]
-  %.05.i4727.ph = phi ptr [ %2192, %2191 ], [ %2195, %.thread.i4730 ]
+  %.pr6855 = phi ptr [ %.pr6855.pre, %.thread.i4730 ], [ %.pr6855.pre8794, %2191 ]
+  %.05.i4727.ph = phi ptr [ %2195, %.thread.i4730 ], [ %2192, %2191 ]
   store ptr %.05.i4727.ph, ptr @glad_glPixelZoom, align 8, !tbaa !11
   %2196 = icmp eq ptr %.pr6855, null
   br i1 %2196, label %get_proc.exit4719.thread12418, label %2197
@@ -10064,8 +10064,8 @@ get_proc.exit4725:                                ; preds = %2199, %.thread.i472
   br label %get_proc.exit4719
 
 get_proc.exit4719:                                ; preds = %2207, %.thread.i4718
-  %.pr6859 = phi ptr [ %.pr6859.pre8797, %2207 ], [ %.pr6859.pre, %.thread.i4718 ]
-  %.05.i4715.ph = phi ptr [ %2208, %2207 ], [ %2211, %.thread.i4718 ]
+  %.pr6859 = phi ptr [ %.pr6859.pre, %.thread.i4718 ], [ %.pr6859.pre8797, %2207 ]
+  %.05.i4715.ph = phi ptr [ %2211, %.thread.i4718 ], [ %2208, %2207 ]
   store ptr %.05.i4715.ph, ptr @glad_glPixelTransferi, align 8, !tbaa !11
   %2212 = icmp eq ptr %.pr6859, null
   br i1 %2212, label %get_proc.exit4707.thread12421, label %2213
@@ -10122,8 +10122,8 @@ get_proc.exit4713:                                ; preds = %2215, %.thread.i471
   br label %get_proc.exit4707
 
 get_proc.exit4707:                                ; preds = %2223, %.thread.i4706
-  %.pr6863 = phi ptr [ %.pr6863.pre8800, %2223 ], [ %.pr6863.pre, %.thread.i4706 ]
-  %.05.i4703.ph = phi ptr [ %2224, %2223 ], [ %2227, %.thread.i4706 ]
+  %.pr6863 = phi ptr [ %.pr6863.pre, %.thread.i4706 ], [ %.pr6863.pre8800, %2223 ]
+  %.05.i4703.ph = phi ptr [ %2227, %.thread.i4706 ], [ %2224, %2223 ]
   store ptr %.05.i4703.ph, ptr @glad_glPixelMapuiv, align 8, !tbaa !11
   %2228 = icmp eq ptr %.pr6863, null
   br i1 %2228, label %get_proc.exit4695.thread12424, label %2229
@@ -10180,8 +10180,8 @@ get_proc.exit4701:                                ; preds = %2231, %.thread.i470
   br label %get_proc.exit4695
 
 get_proc.exit4695:                                ; preds = %2239, %.thread.i4694
-  %.pr6867 = phi ptr [ %.pr6867.pre8803, %2239 ], [ %.pr6867.pre, %.thread.i4694 ]
-  %.05.i4691.ph = phi ptr [ %2240, %2239 ], [ %2243, %.thread.i4694 ]
+  %.pr6867 = phi ptr [ %.pr6867.pre, %.thread.i4694 ], [ %.pr6867.pre8803, %2239 ]
+  %.05.i4691.ph = phi ptr [ %2243, %.thread.i4694 ], [ %2240, %2239 ]
   store ptr %.05.i4691.ph, ptr @glad_glCopyPixels, align 8, !tbaa !11
   %2244 = icmp eq ptr %.pr6867, null
   br i1 %2244, label %get_proc.exit4689.thread, label %2245
@@ -10298,8 +10298,8 @@ get_proc.exit4677:                                ; preds = %2263, %.thread.i467
   br label %get_proc.exit4671
 
 get_proc.exit4671:                                ; preds = %2271, %.thread.i4670
-  %.pr6875 = phi ptr [ %.pr6875.pre8806, %2271 ], [ %.pr6875.pre, %.thread.i4670 ]
-  %.05.i4667.ph = phi ptr [ %2272, %2271 ], [ %2275, %.thread.i4670 ]
+  %.pr6875 = phi ptr [ %.pr6875.pre, %.thread.i4670 ], [ %.pr6875.pre8806, %2271 ]
+  %.05.i4667.ph = phi ptr [ %2275, %.thread.i4670 ], [ %2272, %2271 ]
   store ptr %.05.i4667.ph, ptr @glad_glGetLightiv, align 8, !tbaa !11
   %2276 = icmp eq ptr %.pr6875, null
   br i1 %2276, label %get_proc.exit4659.thread12430, label %2277
@@ -10356,8 +10356,8 @@ get_proc.exit4665:                                ; preds = %2279, %.thread.i466
   br label %get_proc.exit4659
 
 get_proc.exit4659:                                ; preds = %2287, %.thread.i4658
-  %.pr6879 = phi ptr [ %.pr6879.pre8809, %2287 ], [ %.pr6879.pre, %.thread.i4658 ]
-  %.05.i4655.ph = phi ptr [ %2288, %2287 ], [ %2291, %.thread.i4658 ]
+  %.pr6879 = phi ptr [ %.pr6879.pre, %.thread.i4658 ], [ %.pr6879.pre8809, %2287 ]
+  %.05.i4655.ph = phi ptr [ %2291, %.thread.i4658 ], [ %2288, %2287 ]
   store ptr %.05.i4655.ph, ptr @glad_glGetMapfv, align 8, !tbaa !11
   %2292 = icmp eq ptr %.pr6879, null
   br i1 %2292, label %get_proc.exit4647.thread12433, label %2293
@@ -10414,8 +10414,8 @@ get_proc.exit4653:                                ; preds = %2295, %.thread.i465
   br label %get_proc.exit4647
 
 get_proc.exit4647:                                ; preds = %2303, %.thread.i4646
-  %.pr6883 = phi ptr [ %.pr6883.pre8812, %2303 ], [ %.pr6883.pre, %.thread.i4646 ]
-  %.05.i4643.ph = phi ptr [ %2304, %2303 ], [ %2307, %.thread.i4646 ]
+  %.pr6883 = phi ptr [ %.pr6883.pre, %.thread.i4646 ], [ %.pr6883.pre8812, %2303 ]
+  %.05.i4643.ph = phi ptr [ %2307, %.thread.i4646 ], [ %2304, %2303 ]
   store ptr %.05.i4643.ph, ptr @glad_glGetMaterialfv, align 8, !tbaa !11
   %2308 = icmp eq ptr %.pr6883, null
   br i1 %2308, label %get_proc.exit4635.thread12436, label %2309
@@ -10472,8 +10472,8 @@ get_proc.exit4641:                                ; preds = %2311, %.thread.i464
   br label %get_proc.exit4635
 
 get_proc.exit4635:                                ; preds = %2319, %.thread.i4634
-  %.pr6887 = phi ptr [ %.pr6887.pre8815, %2319 ], [ %.pr6887.pre, %.thread.i4634 ]
-  %.05.i4631.ph = phi ptr [ %2320, %2319 ], [ %2323, %.thread.i4634 ]
+  %.pr6887 = phi ptr [ %.pr6887.pre, %.thread.i4634 ], [ %.pr6887.pre8815, %2319 ]
+  %.05.i4631.ph = phi ptr [ %2323, %.thread.i4634 ], [ %2320, %2319 ]
   store ptr %.05.i4631.ph, ptr @glad_glGetPixelMapfv, align 8, !tbaa !11
   %2324 = icmp eq ptr %.pr6887, null
   br i1 %2324, label %get_proc.exit4623.thread12439, label %2325
@@ -10530,8 +10530,8 @@ get_proc.exit4629:                                ; preds = %2327, %.thread.i462
   br label %get_proc.exit4623
 
 get_proc.exit4623:                                ; preds = %2335, %.thread.i4622
-  %.pr6891 = phi ptr [ %.pr6891.pre8818, %2335 ], [ %.pr6891.pre, %.thread.i4622 ]
-  %.05.i4619.ph = phi ptr [ %2336, %2335 ], [ %2339, %.thread.i4622 ]
+  %.pr6891 = phi ptr [ %.pr6891.pre, %.thread.i4622 ], [ %.pr6891.pre8818, %2335 ]
+  %.05.i4619.ph = phi ptr [ %2339, %.thread.i4622 ], [ %2336, %2335 ]
   store ptr %.05.i4619.ph, ptr @glad_glGetPixelMapusv, align 8, !tbaa !11
   %2340 = icmp eq ptr %.pr6891, null
   br i1 %2340, label %get_proc.exit4611.thread12442, label %2341
@@ -10588,8 +10588,8 @@ get_proc.exit4617:                                ; preds = %2343, %.thread.i461
   br label %get_proc.exit4611
 
 get_proc.exit4611:                                ; preds = %2351, %.thread.i4610
-  %.pr6895 = phi ptr [ %.pr6895.pre8821, %2351 ], [ %.pr6895.pre, %.thread.i4610 ]
-  %.05.i4607.ph = phi ptr [ %2352, %2351 ], [ %2355, %.thread.i4610 ]
+  %.pr6895 = phi ptr [ %.pr6895.pre, %.thread.i4610 ], [ %.pr6895.pre8821, %2351 ]
+  %.05.i4607.ph = phi ptr [ %2355, %.thread.i4610 ], [ %2352, %2351 ]
   store ptr %.05.i4607.ph, ptr @glad_glGetTexEnvfv, align 8, !tbaa !11
   %2356 = icmp eq ptr %.pr6895, null
   br i1 %2356, label %get_proc.exit4599.thread12445, label %2357
@@ -10646,8 +10646,8 @@ get_proc.exit4605:                                ; preds = %2359, %.thread.i460
   br label %get_proc.exit4599
 
 get_proc.exit4599:                                ; preds = %2367, %.thread.i4598
-  %.pr6899 = phi ptr [ %.pr6899.pre8824, %2367 ], [ %.pr6899.pre, %.thread.i4598 ]
-  %.05.i4595.ph = phi ptr [ %2368, %2367 ], [ %2371, %.thread.i4598 ]
+  %.pr6899 = phi ptr [ %.pr6899.pre, %.thread.i4598 ], [ %.pr6899.pre8824, %2367 ]
+  %.05.i4595.ph = phi ptr [ %2371, %.thread.i4598 ], [ %2368, %2367 ]
   store ptr %.05.i4595.ph, ptr @glad_glGetTexGendv, align 8, !tbaa !11
   %2372 = icmp eq ptr %.pr6899, null
   br i1 %2372, label %get_proc.exit4587.thread12448, label %2373
@@ -10704,8 +10704,8 @@ get_proc.exit4593:                                ; preds = %2375, %.thread.i459
   br label %get_proc.exit4587
 
 get_proc.exit4587:                                ; preds = %2383, %.thread.i4586
-  %.pr6903 = phi ptr [ %.pr6903.pre8827, %2383 ], [ %.pr6903.pre, %.thread.i4586 ]
-  %.05.i4583.ph = phi ptr [ %2384, %2383 ], [ %2387, %.thread.i4586 ]
+  %.pr6903 = phi ptr [ %.pr6903.pre, %.thread.i4586 ], [ %.pr6903.pre8827, %2383 ]
+  %.05.i4583.ph = phi ptr [ %2387, %.thread.i4586 ], [ %2384, %2383 ]
   store ptr %.05.i4583.ph, ptr @glad_glGetTexGeniv, align 8, !tbaa !11
   %2388 = icmp eq ptr %.pr6903, null
   br i1 %2388, label %get_proc.exit4575.thread12451, label %2389
@@ -10762,8 +10762,8 @@ get_proc.exit4581:                                ; preds = %2391, %.thread.i458
   br label %get_proc.exit4575
 
 get_proc.exit4575:                                ; preds = %2399, %.thread.i4574
-  %.pr6907 = phi ptr [ %.pr6907.pre8830, %2399 ], [ %.pr6907.pre, %.thread.i4574 ]
-  %.05.i4571.ph = phi ptr [ %2400, %2399 ], [ %2403, %.thread.i4574 ]
+  %.pr6907 = phi ptr [ %.pr6907.pre, %.thread.i4574 ], [ %.pr6907.pre8830, %2399 ]
+  %.05.i4571.ph = phi ptr [ %2403, %.thread.i4574 ], [ %2400, %2399 ]
   store ptr %.05.i4571.ph, ptr @glad_glFrustum, align 8, !tbaa !11
   %2404 = icmp eq ptr %.pr6907, null
   br i1 %2404, label %get_proc.exit4563.thread12454, label %2405
@@ -10820,8 +10820,8 @@ get_proc.exit4569:                                ; preds = %2407, %.thread.i456
   br label %get_proc.exit4563
 
 get_proc.exit4563:                                ; preds = %2415, %.thread.i4562
-  %.pr6911 = phi ptr [ %.pr6911.pre8833, %2415 ], [ %.pr6911.pre, %.thread.i4562 ]
-  %.05.i4559.ph = phi ptr [ %2416, %2415 ], [ %2419, %.thread.i4562 ]
+  %.pr6911 = phi ptr [ %.pr6911.pre, %.thread.i4562 ], [ %.pr6911.pre8833, %2415 ]
+  %.05.i4559.ph = phi ptr [ %2419, %.thread.i4562 ], [ %2416, %2415 ]
   store ptr %.05.i4559.ph, ptr @glad_glLoadMatrixf, align 8, !tbaa !11
   %2420 = icmp eq ptr %.pr6911, null
   br i1 %2420, label %get_proc.exit4551.thread12457, label %2421
@@ -10878,8 +10878,8 @@ get_proc.exit4557:                                ; preds = %2423, %.thread.i455
   br label %get_proc.exit4551
 
 get_proc.exit4551:                                ; preds = %2431, %.thread.i4550
-  %.pr6915 = phi ptr [ %.pr6915.pre8836, %2431 ], [ %.pr6915.pre, %.thread.i4550 ]
-  %.05.i4547.ph = phi ptr [ %2432, %2431 ], [ %2435, %.thread.i4550 ]
+  %.pr6915 = phi ptr [ %.pr6915.pre, %.thread.i4550 ], [ %.pr6915.pre8836, %2431 ]
+  %.05.i4547.ph = phi ptr [ %2435, %.thread.i4550 ], [ %2432, %2431 ]
   store ptr %.05.i4547.ph, ptr @glad_glMatrixMode, align 8, !tbaa !11
   %2436 = icmp eq ptr %.pr6915, null
   br i1 %2436, label %get_proc.exit4539.thread12460, label %2437
@@ -10936,8 +10936,8 @@ get_proc.exit4545:                                ; preds = %2439, %.thread.i454
   br label %get_proc.exit4539
 
 get_proc.exit4539:                                ; preds = %2447, %.thread.i4538
-  %.pr6919 = phi ptr [ %.pr6919.pre8839, %2447 ], [ %.pr6919.pre, %.thread.i4538 ]
-  %.05.i4535.ph = phi ptr [ %2448, %2447 ], [ %2451, %.thread.i4538 ]
+  %.pr6919 = phi ptr [ %.pr6919.pre, %.thread.i4538 ], [ %.pr6919.pre8839, %2447 ]
+  %.05.i4535.ph = phi ptr [ %2451, %.thread.i4538 ], [ %2448, %2447 ]
   store ptr %.05.i4535.ph, ptr @glad_glMultMatrixd, align 8, !tbaa !11
   %2452 = icmp eq ptr %.pr6919, null
   br i1 %2452, label %get_proc.exit4527.thread12463, label %2453
@@ -10994,8 +10994,8 @@ get_proc.exit4533:                                ; preds = %2455, %.thread.i453
   br label %get_proc.exit4527
 
 get_proc.exit4527:                                ; preds = %2463, %.thread.i4526
-  %.pr6923 = phi ptr [ %.pr6923.pre8842, %2463 ], [ %.pr6923.pre, %.thread.i4526 ]
-  %.05.i4523.ph = phi ptr [ %2464, %2463 ], [ %2467, %.thread.i4526 ]
+  %.pr6923 = phi ptr [ %.pr6923.pre, %.thread.i4526 ], [ %.pr6923.pre8842, %2463 ]
+  %.05.i4523.ph = phi ptr [ %2467, %.thread.i4526 ], [ %2464, %2463 ]
   store ptr %.05.i4523.ph, ptr @glad_glPopMatrix, align 8, !tbaa !11
   %2468 = icmp eq ptr %.pr6923, null
   br i1 %2468, label %get_proc.exit4515.thread12466, label %2469
@@ -11052,8 +11052,8 @@ get_proc.exit4521:                                ; preds = %2471, %.thread.i452
   br label %get_proc.exit4515
 
 get_proc.exit4515:                                ; preds = %2479, %.thread.i4514
-  %.pr6927 = phi ptr [ %.pr6927.pre8845, %2479 ], [ %.pr6927.pre, %.thread.i4514 ]
-  %.05.i4511.ph = phi ptr [ %2480, %2479 ], [ %2483, %.thread.i4514 ]
+  %.pr6927 = phi ptr [ %.pr6927.pre, %.thread.i4514 ], [ %.pr6927.pre8845, %2479 ]
+  %.05.i4511.ph = phi ptr [ %2483, %.thread.i4514 ], [ %2480, %2479 ]
   store ptr %.05.i4511.ph, ptr @glad_glRotated, align 8, !tbaa !11
   %2484 = icmp eq ptr %.pr6927, null
   br i1 %2484, label %get_proc.exit4503.thread12469, label %2485
@@ -11110,8 +11110,8 @@ get_proc.exit4509:                                ; preds = %2487, %.thread.i450
   br label %get_proc.exit4503
 
 get_proc.exit4503:                                ; preds = %2495, %.thread.i4502
-  %.pr6931 = phi ptr [ %.pr6931.pre8848, %2495 ], [ %.pr6931.pre, %.thread.i4502 ]
-  %.05.i4499.ph = phi ptr [ %2496, %2495 ], [ %2499, %.thread.i4502 ]
+  %.pr6931 = phi ptr [ %.pr6931.pre, %.thread.i4502 ], [ %.pr6931.pre8848, %2495 ]
+  %.05.i4499.ph = phi ptr [ %2499, %.thread.i4502 ], [ %2496, %2495 ]
   store ptr %.05.i4499.ph, ptr @glad_glScaled, align 8, !tbaa !11
   %2500 = icmp eq ptr %.pr6931, null
   br i1 %2500, label %get_proc.exit4491.thread12472, label %2501
@@ -11173,8 +11173,8 @@ get_proc.exit4491.thread:                         ; preds = %get_proc.exit4497
   br label %get_proc.exit4491
 
 get_proc.exit4491:                                ; preds = %2511, %.thread.i4490
-  %.pr6935 = phi ptr [ %.pr6935.pre8851, %2511 ], [ %.pr6935.pre, %.thread.i4490 ]
-  %.05.i4487.ph = phi ptr [ %2512, %2511 ], [ %2515, %.thread.i4490 ]
+  %.pr6935 = phi ptr [ %.pr6935.pre, %.thread.i4490 ], [ %.pr6935.pre8851, %2511 ]
+  %.05.i4487.ph = phi ptr [ %2515, %.thread.i4490 ], [ %2512, %2511 ]
   store ptr %.05.i4487.ph, ptr @glad_glTranslated, align 8, !tbaa !11
   %2516 = icmp eq ptr %.pr6935, null
   br i1 %2516, label %get_proc.exit4485, label %2517
@@ -11291,8 +11291,8 @@ get_proc.exit4473:                                ; preds = %2538, %.thread.i447
   br label %get_proc.exit4467
 
 get_proc.exit4467:                                ; preds = %2546, %.thread.i4466
-  %.pr6941 = phi ptr [ %.pr6941.pre8854, %2546 ], [ %.pr6941.pre, %.thread.i4466 ]
-  %.05.i4463.ph = phi ptr [ %2547, %2546 ], [ %2550, %.thread.i4466 ]
+  %.pr6941 = phi ptr [ %.pr6941.pre, %.thread.i4466 ], [ %.pr6941.pre8854, %2546 ]
+  %.05.i4463.ph = phi ptr [ %2550, %.thread.i4466 ], [ %2547, %2546 ]
   store ptr %.05.i4463.ph, ptr @glad_glGetPointerv, align 8, !tbaa !11
   %2551 = icmp eq ptr %.pr6941, null
   br i1 %2551, label %get_proc.exit4455.thread12478, label %2552
@@ -11349,8 +11349,8 @@ get_proc.exit4461:                                ; preds = %2554, %.thread.i446
   br label %get_proc.exit4455
 
 get_proc.exit4455:                                ; preds = %2562, %.thread.i4454
-  %.pr6945 = phi ptr [ %.pr6945.pre8857, %2562 ], [ %.pr6945.pre, %.thread.i4454 ]
-  %.05.i4451.ph = phi ptr [ %2563, %2562 ], [ %2566, %.thread.i4454 ]
+  %.pr6945 = phi ptr [ %.pr6945.pre, %.thread.i4454 ], [ %.pr6945.pre8857, %2562 ]
+  %.05.i4451.ph = phi ptr [ %2566, %.thread.i4454 ], [ %2563, %2562 ]
   store ptr %.05.i4451.ph, ptr @glad_glCopyTexImage1D, align 8, !tbaa !11
   %2567 = icmp eq ptr %.pr6945, null
   br i1 %2567, label %get_proc.exit4443.thread12481, label %2568
@@ -11407,8 +11407,8 @@ get_proc.exit4449:                                ; preds = %2570, %.thread.i444
   br label %get_proc.exit4443
 
 get_proc.exit4443:                                ; preds = %2578, %.thread.i4442
-  %.pr6949 = phi ptr [ %.pr6949.pre8860, %2578 ], [ %.pr6949.pre, %.thread.i4442 ]
-  %.05.i4439.ph = phi ptr [ %2579, %2578 ], [ %2582, %.thread.i4442 ]
+  %.pr6949 = phi ptr [ %.pr6949.pre, %.thread.i4442 ], [ %.pr6949.pre8860, %2578 ]
+  %.05.i4439.ph = phi ptr [ %2582, %.thread.i4442 ], [ %2579, %2578 ]
   store ptr %.05.i4439.ph, ptr @glad_glCopyTexSubImage1D, align 8, !tbaa !11
   %2583 = icmp eq ptr %.pr6949, null
   br i1 %2583, label %get_proc.exit4431.thread12484, label %2584
@@ -11465,8 +11465,8 @@ get_proc.exit4437:                                ; preds = %2586, %.thread.i443
   br label %get_proc.exit4431
 
 get_proc.exit4431:                                ; preds = %2594, %.thread.i4430
-  %.pr6953 = phi ptr [ %.pr6953.pre8863, %2594 ], [ %.pr6953.pre, %.thread.i4430 ]
-  %.05.i4427.ph = phi ptr [ %2595, %2594 ], [ %2598, %.thread.i4430 ]
+  %.pr6953 = phi ptr [ %.pr6953.pre, %.thread.i4430 ], [ %.pr6953.pre8863, %2594 ]
+  %.05.i4427.ph = phi ptr [ %2598, %.thread.i4430 ], [ %2595, %2594 ]
   store ptr %.05.i4427.ph, ptr @glad_glTexSubImage1D, align 8, !tbaa !11
   %2599 = icmp eq ptr %.pr6953, null
   br i1 %2599, label %get_proc.exit4419.thread12487, label %2600
@@ -11523,8 +11523,8 @@ get_proc.exit4425:                                ; preds = %2602, %.thread.i442
   br label %get_proc.exit4419
 
 get_proc.exit4419:                                ; preds = %2610, %.thread.i4418
-  %.pr6957 = phi ptr [ %.pr6957.pre8866, %2610 ], [ %.pr6957.pre, %.thread.i4418 ]
-  %.05.i4415.ph = phi ptr [ %2611, %2610 ], [ %2614, %.thread.i4418 ]
+  %.pr6957 = phi ptr [ %.pr6957.pre, %.thread.i4418 ], [ %.pr6957.pre8866, %2610 ]
+  %.05.i4415.ph = phi ptr [ %2614, %.thread.i4418 ], [ %2611, %2610 ]
   store ptr %.05.i4415.ph, ptr @glad_glBindTexture, align 8, !tbaa !11
   %2615 = icmp eq ptr %.pr6957, null
   br i1 %2615, label %get_proc.exit4407.thread12490, label %2616
@@ -11581,8 +11581,8 @@ get_proc.exit4413:                                ; preds = %2618, %.thread.i441
   br label %get_proc.exit4407
 
 get_proc.exit4407:                                ; preds = %2626, %.thread.i4406
-  %.pr6961 = phi ptr [ %.pr6961.pre8869, %2626 ], [ %.pr6961.pre, %.thread.i4406 ]
-  %.05.i4403.ph = phi ptr [ %2627, %2626 ], [ %2630, %.thread.i4406 ]
+  %.pr6961 = phi ptr [ %.pr6961.pre, %.thread.i4406 ], [ %.pr6961.pre8869, %2626 ]
+  %.05.i4403.ph = phi ptr [ %2630, %.thread.i4406 ], [ %2627, %2626 ]
   store ptr %.05.i4403.ph, ptr @glad_glGenTextures, align 8, !tbaa !11
   %2631 = icmp eq ptr %.pr6961, null
   br i1 %2631, label %get_proc.exit4395.thread12493, label %2632
@@ -11639,8 +11639,8 @@ get_proc.exit4401:                                ; preds = %2634, %.thread.i440
   br label %get_proc.exit4395
 
 get_proc.exit4395:                                ; preds = %2642, %.thread.i4394
-  %.pr6965 = phi ptr [ %.pr6965.pre8872, %2642 ], [ %.pr6965.pre, %.thread.i4394 ]
-  %.05.i4391.ph = phi ptr [ %2643, %2642 ], [ %2646, %.thread.i4394 ]
+  %.pr6965 = phi ptr [ %.pr6965.pre, %.thread.i4394 ], [ %.pr6965.pre8872, %2642 ]
+  %.05.i4391.ph = phi ptr [ %2646, %.thread.i4394 ], [ %2643, %2642 ]
   store ptr %.05.i4391.ph, ptr @glad_glArrayElement, align 8, !tbaa !11
   %2647 = icmp eq ptr %.pr6965, null
   br i1 %2647, label %get_proc.exit4383.thread12496, label %2648
@@ -11697,8 +11697,8 @@ get_proc.exit4389:                                ; preds = %2650, %.thread.i438
   br label %get_proc.exit4383
 
 get_proc.exit4383:                                ; preds = %2658, %.thread.i4382
-  %.pr6969 = phi ptr [ %.pr6969.pre8875, %2658 ], [ %.pr6969.pre, %.thread.i4382 ]
-  %.05.i4379.ph = phi ptr [ %2659, %2658 ], [ %2662, %.thread.i4382 ]
+  %.pr6969 = phi ptr [ %.pr6969.pre, %.thread.i4382 ], [ %.pr6969.pre8875, %2658 ]
+  %.05.i4379.ph = phi ptr [ %2662, %.thread.i4382 ], [ %2659, %2658 ]
   store ptr %.05.i4379.ph, ptr @glad_glDisableClientState, align 8, !tbaa !11
   %2663 = icmp eq ptr %.pr6969, null
   br i1 %2663, label %get_proc.exit4371.thread12499, label %2664
@@ -11755,8 +11755,8 @@ get_proc.exit4377:                                ; preds = %2666, %.thread.i437
   br label %get_proc.exit4371
 
 get_proc.exit4371:                                ; preds = %2674, %.thread.i4370
-  %.pr6973 = phi ptr [ %.pr6973.pre8878, %2674 ], [ %.pr6973.pre, %.thread.i4370 ]
-  %.05.i4367.ph = phi ptr [ %2675, %2674 ], [ %2678, %.thread.i4370 ]
+  %.pr6973 = phi ptr [ %.pr6973.pre, %.thread.i4370 ], [ %.pr6973.pre8878, %2674 ]
+  %.05.i4367.ph = phi ptr [ %2678, %.thread.i4370 ], [ %2675, %2674 ]
   store ptr %.05.i4367.ph, ptr @glad_glEnableClientState, align 8, !tbaa !11
   %2679 = icmp eq ptr %.pr6973, null
   br i1 %2679, label %get_proc.exit4359.thread12502, label %2680
@@ -11813,8 +11813,8 @@ get_proc.exit4365:                                ; preds = %2682, %.thread.i436
   br label %get_proc.exit4359
 
 get_proc.exit4359:                                ; preds = %2690, %.thread.i4358
-  %.pr6977 = phi ptr [ %.pr6977.pre8881, %2690 ], [ %.pr6977.pre, %.thread.i4358 ]
-  %.05.i4355.ph = phi ptr [ %2691, %2690 ], [ %2694, %.thread.i4358 ]
+  %.pr6977 = phi ptr [ %.pr6977.pre, %.thread.i4358 ], [ %.pr6977.pre8881, %2690 ]
+  %.05.i4355.ph = phi ptr [ %2694, %.thread.i4358 ], [ %2691, %2690 ]
   store ptr %.05.i4355.ph, ptr @glad_glInterleavedArrays, align 8, !tbaa !11
   %2695 = icmp eq ptr %.pr6977, null
   br i1 %2695, label %get_proc.exit4347.thread12505, label %2696
@@ -11871,8 +11871,8 @@ get_proc.exit4353:                                ; preds = %2698, %.thread.i435
   br label %get_proc.exit4347
 
 get_proc.exit4347:                                ; preds = %2706, %.thread.i4346
-  %.pr6981 = phi ptr [ %.pr6981.pre8884, %2706 ], [ %.pr6981.pre, %.thread.i4346 ]
-  %.05.i4343.ph = phi ptr [ %2707, %2706 ], [ %2710, %.thread.i4346 ]
+  %.pr6981 = phi ptr [ %.pr6981.pre, %.thread.i4346 ], [ %.pr6981.pre8884, %2706 ]
+  %.05.i4343.ph = phi ptr [ %2710, %.thread.i4346 ], [ %2707, %2706 ]
   store ptr %.05.i4343.ph, ptr @glad_glTexCoordPointer, align 8, !tbaa !11
   %2711 = icmp eq ptr %.pr6981, null
   br i1 %2711, label %get_proc.exit4335.thread12508, label %2712
@@ -11929,8 +11929,8 @@ get_proc.exit4341:                                ; preds = %2714, %.thread.i434
   br label %get_proc.exit4335
 
 get_proc.exit4335:                                ; preds = %2722, %.thread.i4334
-  %.pr6985 = phi ptr [ %.pr6985.pre8887, %2722 ], [ %.pr6985.pre, %.thread.i4334 ]
-  %.05.i4331.ph = phi ptr [ %2723, %2722 ], [ %2726, %.thread.i4334 ]
+  %.pr6985 = phi ptr [ %.pr6985.pre, %.thread.i4334 ], [ %.pr6985.pre8887, %2722 ]
+  %.05.i4331.ph = phi ptr [ %2726, %.thread.i4334 ], [ %2723, %2722 ]
   store ptr %.05.i4331.ph, ptr @glad_glAreTexturesResident, align 8, !tbaa !11
   %2727 = icmp eq ptr %.pr6985, null
   br i1 %2727, label %get_proc.exit4323.thread12511, label %2728
@@ -11987,8 +11987,8 @@ get_proc.exit4329:                                ; preds = %2730, %.thread.i432
   br label %get_proc.exit4323
 
 get_proc.exit4323:                                ; preds = %2738, %.thread.i4322
-  %.pr6989 = phi ptr [ %.pr6989.pre8890, %2738 ], [ %.pr6989.pre, %.thread.i4322 ]
-  %.05.i4319.ph = phi ptr [ %2739, %2738 ], [ %2742, %.thread.i4322 ]
+  %.pr6989 = phi ptr [ %.pr6989.pre, %.thread.i4322 ], [ %.pr6989.pre8890, %2738 ]
+  %.05.i4319.ph = phi ptr [ %2742, %.thread.i4322 ], [ %2739, %2738 ]
   store ptr %.05.i4319.ph, ptr @glad_glIndexub, align 8, !tbaa !11
   %2743 = icmp eq ptr %.pr6989, null
   br i1 %2743, label %get_proc.exit4311.thread12514, label %2744
@@ -12050,8 +12050,8 @@ get_proc.exit4311.thread:                         ; preds = %get_proc.exit4317
   br label %get_proc.exit4311
 
 get_proc.exit4311:                                ; preds = %2754, %.thread.i4310
-  %.pr6993 = phi ptr [ %.pr6993.pre8893, %2754 ], [ %.pr6993.pre, %.thread.i4310 ]
-  %.05.i4307.ph = phi ptr [ %2755, %2754 ], [ %2758, %.thread.i4310 ]
+  %.pr6993 = phi ptr [ %.pr6993.pre, %.thread.i4310 ], [ %.pr6993.pre8893, %2754 ]
+  %.05.i4307.ph = phi ptr [ %2758, %.thread.i4310 ], [ %2755, %2754 ]
   store ptr %.05.i4307.ph, ptr @glad_glPopClientAttrib, align 8, !tbaa !11
   %2759 = icmp eq ptr %.pr6993, null
   br i1 %2759, label %get_proc.exit4305, label %2760
@@ -12173,8 +12173,8 @@ get_proc.exit4287.thread:                         ; preds = %get_proc.exit4293
   br label %get_proc.exit4287
 
 get_proc.exit4287:                                ; preds = %2789, %.thread.i4286
-  %.pr6999 = phi ptr [ %.pr6999.pre8896, %2789 ], [ %.pr6999.pre, %.thread.i4286 ]
-  %.05.i4283.ph = phi ptr [ %2790, %2789 ], [ %2793, %.thread.i4286 ]
+  %.pr6999 = phi ptr [ %.pr6999.pre, %.thread.i4286 ], [ %.pr6999.pre8896, %2789 ]
+  %.05.i4283.ph = phi ptr [ %2793, %.thread.i4286 ], [ %2790, %2789 ]
   store ptr %.05.i4283.ph, ptr @glad_glTexSubImage3D, align 8, !tbaa !11
   %2794 = icmp eq ptr %.pr6999, null
   br i1 %2794, label %get_proc.exit4281, label %2795
@@ -12291,8 +12291,8 @@ get_proc.exit4269:                                ; preds = %2816, %.thread.i426
   br label %get_proc.exit4263
 
 get_proc.exit4263:                                ; preds = %2824, %.thread.i4262
-  %.pr7005 = phi ptr [ %.pr7005.pre8899, %2824 ], [ %.pr7005.pre, %.thread.i4262 ]
-  %.05.i4259.ph = phi ptr [ %2825, %2824 ], [ %2828, %.thread.i4262 ]
+  %.pr7005 = phi ptr [ %.pr7005.pre, %.thread.i4262 ], [ %.pr7005.pre8899, %2824 ]
+  %.05.i4259.ph = phi ptr [ %2828, %.thread.i4262 ], [ %2825, %2824 ]
   store ptr %.05.i4259.ph, ptr @glad_glCompressedTexImage3D, align 8, !tbaa !11
   %2829 = icmp eq ptr %.pr7005, null
   br i1 %2829, label %get_proc.exit4251.thread12523, label %2830
@@ -12349,8 +12349,8 @@ get_proc.exit4257:                                ; preds = %2832, %.thread.i425
   br label %get_proc.exit4251
 
 get_proc.exit4251:                                ; preds = %2840, %.thread.i4250
-  %.pr7009 = phi ptr [ %.pr7009.pre8902, %2840 ], [ %.pr7009.pre, %.thread.i4250 ]
-  %.05.i4247.ph = phi ptr [ %2841, %2840 ], [ %2844, %.thread.i4250 ]
+  %.pr7009 = phi ptr [ %.pr7009.pre, %.thread.i4250 ], [ %.pr7009.pre8902, %2840 ]
+  %.05.i4247.ph = phi ptr [ %2844, %.thread.i4250 ], [ %2841, %2840 ]
   store ptr %.05.i4247.ph, ptr @glad_glCompressedTexImage1D, align 8, !tbaa !11
   %2845 = icmp eq ptr %.pr7009, null
   br i1 %2845, label %get_proc.exit4239.thread12526, label %2846
@@ -12407,8 +12407,8 @@ get_proc.exit4245:                                ; preds = %2848, %.thread.i424
   br label %get_proc.exit4239
 
 get_proc.exit4239:                                ; preds = %2856, %.thread.i4238
-  %.pr7013 = phi ptr [ %.pr7013.pre8905, %2856 ], [ %.pr7013.pre, %.thread.i4238 ]
-  %.05.i4235.ph = phi ptr [ %2857, %2856 ], [ %2860, %.thread.i4238 ]
+  %.pr7013 = phi ptr [ %.pr7013.pre, %.thread.i4238 ], [ %.pr7013.pre8905, %2856 ]
+  %.05.i4235.ph = phi ptr [ %2860, %.thread.i4238 ], [ %2857, %2856 ]
   store ptr %.05.i4235.ph, ptr @glad_glCompressedTexSubImage2D, align 8, !tbaa !11
   %2861 = icmp eq ptr %.pr7013, null
   br i1 %2861, label %get_proc.exit4227.thread12529, label %2862
@@ -12465,8 +12465,8 @@ get_proc.exit4233:                                ; preds = %2864, %.thread.i423
   br label %get_proc.exit4227
 
 get_proc.exit4227:                                ; preds = %2872, %.thread.i4226
-  %.pr7017 = phi ptr [ %.pr7017.pre8908, %2872 ], [ %.pr7017.pre, %.thread.i4226 ]
-  %.05.i4223.ph = phi ptr [ %2873, %2872 ], [ %2876, %.thread.i4226 ]
+  %.pr7017 = phi ptr [ %.pr7017.pre, %.thread.i4226 ], [ %.pr7017.pre8908, %2872 ]
+  %.05.i4223.ph = phi ptr [ %2876, %.thread.i4226 ], [ %2873, %2872 ]
   store ptr %.05.i4223.ph, ptr @glad_glGetCompressedTexImage, align 8, !tbaa !11
   %2877 = icmp eq ptr %.pr7017, null
   br i1 %2877, label %get_proc.exit4215.thread12532, label %2878
@@ -12523,8 +12523,8 @@ get_proc.exit4221:                                ; preds = %2880, %.thread.i422
   br label %get_proc.exit4215
 
 get_proc.exit4215:                                ; preds = %2888, %.thread.i4214
-  %.pr7021 = phi ptr [ %.pr7021.pre8911, %2888 ], [ %.pr7021.pre, %.thread.i4214 ]
-  %.05.i4211.ph = phi ptr [ %2889, %2888 ], [ %2892, %.thread.i4214 ]
+  %.pr7021 = phi ptr [ %.pr7021.pre, %.thread.i4214 ], [ %.pr7021.pre8911, %2888 ]
+  %.05.i4211.ph = phi ptr [ %2892, %.thread.i4214 ], [ %2889, %2888 ]
   store ptr %.05.i4211.ph, ptr @glad_glMultiTexCoord1d, align 8, !tbaa !11
   %2893 = icmp eq ptr %.pr7021, null
   br i1 %2893, label %get_proc.exit4203.thread12535, label %2894
@@ -12581,8 +12581,8 @@ get_proc.exit4209:                                ; preds = %2896, %.thread.i420
   br label %get_proc.exit4203
 
 get_proc.exit4203:                                ; preds = %2904, %.thread.i4202
-  %.pr7025 = phi ptr [ %.pr7025.pre8914, %2904 ], [ %.pr7025.pre, %.thread.i4202 ]
-  %.05.i4199.ph = phi ptr [ %2905, %2904 ], [ %2908, %.thread.i4202 ]
+  %.pr7025 = phi ptr [ %.pr7025.pre, %.thread.i4202 ], [ %.pr7025.pre8914, %2904 ]
+  %.05.i4199.ph = phi ptr [ %2908, %.thread.i4202 ], [ %2905, %2904 ]
   store ptr %.05.i4199.ph, ptr @glad_glMultiTexCoord1f, align 8, !tbaa !11
   %2909 = icmp eq ptr %.pr7025, null
   br i1 %2909, label %get_proc.exit4191.thread12538, label %2910
@@ -12639,8 +12639,8 @@ get_proc.exit4197:                                ; preds = %2912, %.thread.i419
   br label %get_proc.exit4191
 
 get_proc.exit4191:                                ; preds = %2920, %.thread.i4190
-  %.pr7029 = phi ptr [ %.pr7029.pre8917, %2920 ], [ %.pr7029.pre, %.thread.i4190 ]
-  %.05.i4187.ph = phi ptr [ %2921, %2920 ], [ %2924, %.thread.i4190 ]
+  %.pr7029 = phi ptr [ %.pr7029.pre, %.thread.i4190 ], [ %.pr7029.pre8917, %2920 ]
+  %.05.i4187.ph = phi ptr [ %2924, %.thread.i4190 ], [ %2921, %2920 ]
   store ptr %.05.i4187.ph, ptr @glad_glMultiTexCoord1i, align 8, !tbaa !11
   %2925 = icmp eq ptr %.pr7029, null
   br i1 %2925, label %get_proc.exit4179.thread12541, label %2926
@@ -12697,8 +12697,8 @@ get_proc.exit4185:                                ; preds = %2928, %.thread.i418
   br label %get_proc.exit4179
 
 get_proc.exit4179:                                ; preds = %2936, %.thread.i4178
-  %.pr7033 = phi ptr [ %.pr7033.pre8920, %2936 ], [ %.pr7033.pre, %.thread.i4178 ]
-  %.05.i4175.ph = phi ptr [ %2937, %2936 ], [ %2940, %.thread.i4178 ]
+  %.pr7033 = phi ptr [ %.pr7033.pre, %.thread.i4178 ], [ %.pr7033.pre8920, %2936 ]
+  %.05.i4175.ph = phi ptr [ %2940, %.thread.i4178 ], [ %2937, %2936 ]
   store ptr %.05.i4175.ph, ptr @glad_glMultiTexCoord1s, align 8, !tbaa !11
   %2941 = icmp eq ptr %.pr7033, null
   br i1 %2941, label %get_proc.exit4167.thread12544, label %2942
@@ -12755,8 +12755,8 @@ get_proc.exit4173:                                ; preds = %2944, %.thread.i417
   br label %get_proc.exit4167
 
 get_proc.exit4167:                                ; preds = %2952, %.thread.i4166
-  %.pr7037 = phi ptr [ %.pr7037.pre8923, %2952 ], [ %.pr7037.pre, %.thread.i4166 ]
-  %.05.i4163.ph = phi ptr [ %2953, %2952 ], [ %2956, %.thread.i4166 ]
+  %.pr7037 = phi ptr [ %.pr7037.pre, %.thread.i4166 ], [ %.pr7037.pre8923, %2952 ]
+  %.05.i4163.ph = phi ptr [ %2956, %.thread.i4166 ], [ %2953, %2952 ]
   store ptr %.05.i4163.ph, ptr @glad_glMultiTexCoord2d, align 8, !tbaa !11
   %2957 = icmp eq ptr %.pr7037, null
   br i1 %2957, label %get_proc.exit4155.thread12547, label %2958
@@ -12813,8 +12813,8 @@ get_proc.exit4161:                                ; preds = %2960, %.thread.i416
   br label %get_proc.exit4155
 
 get_proc.exit4155:                                ; preds = %2968, %.thread.i4154
-  %.pr7041 = phi ptr [ %.pr7041.pre8926, %2968 ], [ %.pr7041.pre, %.thread.i4154 ]
-  %.05.i4151.ph = phi ptr [ %2969, %2968 ], [ %2972, %.thread.i4154 ]
+  %.pr7041 = phi ptr [ %.pr7041.pre, %.thread.i4154 ], [ %.pr7041.pre8926, %2968 ]
+  %.05.i4151.ph = phi ptr [ %2972, %.thread.i4154 ], [ %2969, %2968 ]
   store ptr %.05.i4151.ph, ptr @glad_glMultiTexCoord2f, align 8, !tbaa !11
   %2973 = icmp eq ptr %.pr7041, null
   br i1 %2973, label %get_proc.exit4143.thread12550, label %2974
@@ -12871,8 +12871,8 @@ get_proc.exit4149:                                ; preds = %2976, %.thread.i414
   br label %get_proc.exit4143
 
 get_proc.exit4143:                                ; preds = %2984, %.thread.i4142
-  %.pr7045 = phi ptr [ %.pr7045.pre8929, %2984 ], [ %.pr7045.pre, %.thread.i4142 ]
-  %.05.i4139.ph = phi ptr [ %2985, %2984 ], [ %2988, %.thread.i4142 ]
+  %.pr7045 = phi ptr [ %.pr7045.pre, %.thread.i4142 ], [ %.pr7045.pre8929, %2984 ]
+  %.05.i4139.ph = phi ptr [ %2988, %.thread.i4142 ], [ %2985, %2984 ]
   store ptr %.05.i4139.ph, ptr @glad_glMultiTexCoord2i, align 8, !tbaa !11
   %2989 = icmp eq ptr %.pr7045, null
   br i1 %2989, label %get_proc.exit4131.thread12553, label %2990
@@ -12929,8 +12929,8 @@ get_proc.exit4137:                                ; preds = %2992, %.thread.i413
   br label %get_proc.exit4131
 
 get_proc.exit4131:                                ; preds = %3000, %.thread.i4130
-  %.pr7049 = phi ptr [ %.pr7049.pre8932, %3000 ], [ %.pr7049.pre, %.thread.i4130 ]
-  %.05.i4127.ph = phi ptr [ %3001, %3000 ], [ %3004, %.thread.i4130 ]
+  %.pr7049 = phi ptr [ %.pr7049.pre, %.thread.i4130 ], [ %.pr7049.pre8932, %3000 ]
+  %.05.i4127.ph = phi ptr [ %3004, %.thread.i4130 ], [ %3001, %3000 ]
   store ptr %.05.i4127.ph, ptr @glad_glMultiTexCoord2s, align 8, !tbaa !11
   %3005 = icmp eq ptr %.pr7049, null
   br i1 %3005, label %get_proc.exit4119.thread12556, label %3006
@@ -12987,8 +12987,8 @@ get_proc.exit4125:                                ; preds = %3008, %.thread.i412
   br label %get_proc.exit4119
 
 get_proc.exit4119:                                ; preds = %3016, %.thread.i4118
-  %.pr7053 = phi ptr [ %.pr7053.pre8935, %3016 ], [ %.pr7053.pre, %.thread.i4118 ]
-  %.05.i4115.ph = phi ptr [ %3017, %3016 ], [ %3020, %.thread.i4118 ]
+  %.pr7053 = phi ptr [ %.pr7053.pre, %.thread.i4118 ], [ %.pr7053.pre8935, %3016 ]
+  %.05.i4115.ph = phi ptr [ %3020, %.thread.i4118 ], [ %3017, %3016 ]
   store ptr %.05.i4115.ph, ptr @glad_glMultiTexCoord3d, align 8, !tbaa !11
   %3021 = icmp eq ptr %.pr7053, null
   br i1 %3021, label %get_proc.exit4107.thread12559, label %3022
@@ -13045,8 +13045,8 @@ get_proc.exit4113:                                ; preds = %3024, %.thread.i411
   br label %get_proc.exit4107
 
 get_proc.exit4107:                                ; preds = %3032, %.thread.i4106
-  %.pr7057 = phi ptr [ %.pr7057.pre8938, %3032 ], [ %.pr7057.pre, %.thread.i4106 ]
-  %.05.i4103.ph = phi ptr [ %3033, %3032 ], [ %3036, %.thread.i4106 ]
+  %.pr7057 = phi ptr [ %.pr7057.pre, %.thread.i4106 ], [ %.pr7057.pre8938, %3032 ]
+  %.05.i4103.ph = phi ptr [ %3036, %.thread.i4106 ], [ %3033, %3032 ]
   store ptr %.05.i4103.ph, ptr @glad_glMultiTexCoord3f, align 8, !tbaa !11
   %3037 = icmp eq ptr %.pr7057, null
   br i1 %3037, label %get_proc.exit4095.thread12562, label %3038
@@ -13103,8 +13103,8 @@ get_proc.exit4101:                                ; preds = %3040, %.thread.i410
   br label %get_proc.exit4095
 
 get_proc.exit4095:                                ; preds = %3048, %.thread.i4094
-  %.pr7061 = phi ptr [ %.pr7061.pre8941, %3048 ], [ %.pr7061.pre, %.thread.i4094 ]
-  %.05.i4091.ph = phi ptr [ %3049, %3048 ], [ %3052, %.thread.i4094 ]
+  %.pr7061 = phi ptr [ %.pr7061.pre, %.thread.i4094 ], [ %.pr7061.pre8941, %3048 ]
+  %.05.i4091.ph = phi ptr [ %3052, %.thread.i4094 ], [ %3049, %3048 ]
   store ptr %.05.i4091.ph, ptr @glad_glMultiTexCoord3i, align 8, !tbaa !11
   %3053 = icmp eq ptr %.pr7061, null
   br i1 %3053, label %get_proc.exit4083.thread12565, label %3054
@@ -13161,8 +13161,8 @@ get_proc.exit4089:                                ; preds = %3056, %.thread.i408
   br label %get_proc.exit4083
 
 get_proc.exit4083:                                ; preds = %3064, %.thread.i4082
-  %.pr7065 = phi ptr [ %.pr7065.pre8944, %3064 ], [ %.pr7065.pre, %.thread.i4082 ]
-  %.05.i4079.ph = phi ptr [ %3065, %3064 ], [ %3068, %.thread.i4082 ]
+  %.pr7065 = phi ptr [ %.pr7065.pre, %.thread.i4082 ], [ %.pr7065.pre8944, %3064 ]
+  %.05.i4079.ph = phi ptr [ %3068, %.thread.i4082 ], [ %3065, %3064 ]
   store ptr %.05.i4079.ph, ptr @glad_glMultiTexCoord3s, align 8, !tbaa !11
   %3069 = icmp eq ptr %.pr7065, null
   br i1 %3069, label %get_proc.exit4071.thread12568, label %3070
@@ -13219,8 +13219,8 @@ get_proc.exit4077:                                ; preds = %3072, %.thread.i407
   br label %get_proc.exit4071
 
 get_proc.exit4071:                                ; preds = %3080, %.thread.i4070
-  %.pr7069 = phi ptr [ %.pr7069.pre8947, %3080 ], [ %.pr7069.pre, %.thread.i4070 ]
-  %.05.i4067.ph = phi ptr [ %3081, %3080 ], [ %3084, %.thread.i4070 ]
+  %.pr7069 = phi ptr [ %.pr7069.pre, %.thread.i4070 ], [ %.pr7069.pre8947, %3080 ]
+  %.05.i4067.ph = phi ptr [ %3084, %.thread.i4070 ], [ %3081, %3080 ]
   store ptr %.05.i4067.ph, ptr @glad_glMultiTexCoord4d, align 8, !tbaa !11
   %3085 = icmp eq ptr %.pr7069, null
   br i1 %3085, label %get_proc.exit4059.thread12571, label %3086
@@ -13277,8 +13277,8 @@ get_proc.exit4065:                                ; preds = %3088, %.thread.i406
   br label %get_proc.exit4059
 
 get_proc.exit4059:                                ; preds = %3096, %.thread.i4058
-  %.pr7073 = phi ptr [ %.pr7073.pre8950, %3096 ], [ %.pr7073.pre, %.thread.i4058 ]
-  %.05.i4055.ph = phi ptr [ %3097, %3096 ], [ %3100, %.thread.i4058 ]
+  %.pr7073 = phi ptr [ %.pr7073.pre, %.thread.i4058 ], [ %.pr7073.pre8950, %3096 ]
+  %.05.i4055.ph = phi ptr [ %3100, %.thread.i4058 ], [ %3097, %3096 ]
   store ptr %.05.i4055.ph, ptr @glad_glMultiTexCoord4f, align 8, !tbaa !11
   %3101 = icmp eq ptr %.pr7073, null
   br i1 %3101, label %get_proc.exit4047.thread12574, label %3102
@@ -13335,8 +13335,8 @@ get_proc.exit4053:                                ; preds = %3104, %.thread.i405
   br label %get_proc.exit4047
 
 get_proc.exit4047:                                ; preds = %3112, %.thread.i4046
-  %.pr7077 = phi ptr [ %.pr7077.pre8953, %3112 ], [ %.pr7077.pre, %.thread.i4046 ]
-  %.05.i4043.ph = phi ptr [ %3113, %3112 ], [ %3116, %.thread.i4046 ]
+  %.pr7077 = phi ptr [ %.pr7077.pre, %.thread.i4046 ], [ %.pr7077.pre8953, %3112 ]
+  %.05.i4043.ph = phi ptr [ %3116, %.thread.i4046 ], [ %3113, %3112 ]
   store ptr %.05.i4043.ph, ptr @glad_glMultiTexCoord4i, align 8, !tbaa !11
   %3117 = icmp eq ptr %.pr7077, null
   br i1 %3117, label %get_proc.exit4035.thread12577, label %3118
@@ -13393,8 +13393,8 @@ get_proc.exit4041:                                ; preds = %3120, %.thread.i404
   br label %get_proc.exit4035
 
 get_proc.exit4035:                                ; preds = %3128, %.thread.i4034
-  %.pr7081 = phi ptr [ %.pr7081.pre8956, %3128 ], [ %.pr7081.pre, %.thread.i4034 ]
-  %.05.i4031.ph = phi ptr [ %3129, %3128 ], [ %3132, %.thread.i4034 ]
+  %.pr7081 = phi ptr [ %.pr7081.pre, %.thread.i4034 ], [ %.pr7081.pre8956, %3128 ]
+  %.05.i4031.ph = phi ptr [ %3132, %.thread.i4034 ], [ %3129, %3128 ]
   store ptr %.05.i4031.ph, ptr @glad_glMultiTexCoord4s, align 8, !tbaa !11
   %3133 = icmp eq ptr %.pr7081, null
   br i1 %3133, label %get_proc.exit4023.thread12580, label %3134
@@ -13451,8 +13451,8 @@ get_proc.exit4029:                                ; preds = %3136, %.thread.i402
   br label %get_proc.exit4023
 
 get_proc.exit4023:                                ; preds = %3144, %.thread.i4022
-  %.pr7085 = phi ptr [ %.pr7085.pre8959, %3144 ], [ %.pr7085.pre, %.thread.i4022 ]
-  %.05.i4019.ph = phi ptr [ %3145, %3144 ], [ %3148, %.thread.i4022 ]
+  %.pr7085 = phi ptr [ %.pr7085.pre, %.thread.i4022 ], [ %.pr7085.pre8959, %3144 ]
+  %.05.i4019.ph = phi ptr [ %3148, %.thread.i4022 ], [ %3145, %3144 ]
   store ptr %.05.i4019.ph, ptr @glad_glLoadTransposeMatrixf, align 8, !tbaa !11
   %3149 = icmp eq ptr %.pr7085, null
   br i1 %3149, label %get_proc.exit4011.thread12583, label %3150
@@ -13514,8 +13514,8 @@ get_proc.exit4011.thread:                         ; preds = %get_proc.exit4017
   br label %get_proc.exit4011
 
 get_proc.exit4011:                                ; preds = %3160, %.thread.i4010
-  %.pr7089 = phi ptr [ %.pr7089.pre8962, %3160 ], [ %.pr7089.pre, %.thread.i4010 ]
-  %.05.i4007.ph = phi ptr [ %3161, %3160 ], [ %3164, %.thread.i4010 ]
+  %.pr7089 = phi ptr [ %.pr7089.pre, %.thread.i4010 ], [ %.pr7089.pre8962, %3160 ]
+  %.05.i4007.ph = phi ptr [ %3164, %.thread.i4010 ], [ %3161, %3160 ]
   store ptr %.05.i4007.ph, ptr @glad_glMultTransposeMatrixf, align 8, !tbaa !11
   %3165 = icmp eq ptr %.pr7089, null
   br i1 %3165, label %get_proc.exit4005, label %3166
@@ -13632,8 +13632,8 @@ get_proc.exit3993:                                ; preds = %3187, %.thread.i399
   br label %get_proc.exit3987
 
 get_proc.exit3987:                                ; preds = %3195, %.thread.i3986
-  %.pr7095 = phi ptr [ %.pr7095.pre8965, %3195 ], [ %.pr7095.pre, %.thread.i3986 ]
-  %.05.i3983.ph = phi ptr [ %3196, %3195 ], [ %3199, %.thread.i3986 ]
+  %.pr7095 = phi ptr [ %.pr7095.pre, %.thread.i3986 ], [ %.pr7095.pre8965, %3195 ]
+  %.05.i3983.ph = phi ptr [ %3199, %.thread.i3986 ], [ %3196, %3195 ]
   store ptr %.05.i3983.ph, ptr @glad_glMultiDrawElements, align 8, !tbaa !11
   %3200 = icmp eq ptr %.pr7095, null
   br i1 %3200, label %get_proc.exit3975.thread12589, label %3201
@@ -13690,8 +13690,8 @@ get_proc.exit3981:                                ; preds = %3203, %.thread.i398
   br label %get_proc.exit3975
 
 get_proc.exit3975:                                ; preds = %3211, %.thread.i3974
-  %.pr7099 = phi ptr [ %.pr7099.pre8968, %3211 ], [ %.pr7099.pre, %.thread.i3974 ]
-  %.05.i3971.ph = phi ptr [ %3212, %3211 ], [ %3215, %.thread.i3974 ]
+  %.pr7099 = phi ptr [ %.pr7099.pre, %.thread.i3974 ], [ %.pr7099.pre8968, %3211 ]
+  %.05.i3971.ph = phi ptr [ %3215, %.thread.i3974 ], [ %3212, %3211 ]
   store ptr %.05.i3971.ph, ptr @glad_glPointParameterfv, align 8, !tbaa !11
   %3216 = icmp eq ptr %.pr7099, null
   br i1 %3216, label %get_proc.exit3963.thread12592, label %3217
@@ -13748,8 +13748,8 @@ get_proc.exit3969:                                ; preds = %3219, %.thread.i396
   br label %get_proc.exit3963
 
 get_proc.exit3963:                                ; preds = %3227, %.thread.i3962
-  %.pr7103 = phi ptr [ %.pr7103.pre8971, %3227 ], [ %.pr7103.pre, %.thread.i3962 ]
-  %.05.i3959.ph = phi ptr [ %3228, %3227 ], [ %3231, %.thread.i3962 ]
+  %.pr7103 = phi ptr [ %.pr7103.pre, %.thread.i3962 ], [ %.pr7103.pre8971, %3227 ]
+  %.05.i3959.ph = phi ptr [ %3231, %.thread.i3962 ], [ %3228, %3227 ]
   store ptr %.05.i3959.ph, ptr @glad_glPointParameteriv, align 8, !tbaa !11
   %3232 = icmp eq ptr %.pr7103, null
   br i1 %3232, label %get_proc.exit3951.thread12595, label %3233
@@ -13806,8 +13806,8 @@ get_proc.exit3957:                                ; preds = %3235, %.thread.i395
   br label %get_proc.exit3951
 
 get_proc.exit3951:                                ; preds = %3243, %.thread.i3950
-  %.pr7107 = phi ptr [ %.pr7107.pre8974, %3243 ], [ %.pr7107.pre, %.thread.i3950 ]
-  %.05.i3947.ph = phi ptr [ %3244, %3243 ], [ %3247, %.thread.i3950 ]
+  %.pr7107 = phi ptr [ %.pr7107.pre, %.thread.i3950 ], [ %.pr7107.pre8974, %3243 ]
+  %.05.i3947.ph = phi ptr [ %3247, %.thread.i3950 ], [ %3244, %3243 ]
   store ptr %.05.i3947.ph, ptr @glad_glFogCoordfv, align 8, !tbaa !11
   %3248 = icmp eq ptr %.pr7107, null
   br i1 %3248, label %get_proc.exit3939.thread12598, label %3249
@@ -13864,8 +13864,8 @@ get_proc.exit3945:                                ; preds = %3251, %.thread.i394
   br label %get_proc.exit3939
 
 get_proc.exit3939:                                ; preds = %3259, %.thread.i3938
-  %.pr7111 = phi ptr [ %.pr7111.pre8977, %3259 ], [ %.pr7111.pre, %.thread.i3938 ]
-  %.05.i3935.ph = phi ptr [ %3260, %3259 ], [ %3263, %.thread.i3938 ]
+  %.pr7111 = phi ptr [ %.pr7111.pre, %.thread.i3938 ], [ %.pr7111.pre8977, %3259 ]
+  %.05.i3935.ph = phi ptr [ %3263, %.thread.i3938 ], [ %3260, %3259 ]
   store ptr %.05.i3935.ph, ptr @glad_glFogCoorddv, align 8, !tbaa !11
   %3264 = icmp eq ptr %.pr7111, null
   br i1 %3264, label %get_proc.exit3927.thread12601, label %3265
@@ -13922,8 +13922,8 @@ get_proc.exit3933:                                ; preds = %3267, %.thread.i393
   br label %get_proc.exit3927
 
 get_proc.exit3927:                                ; preds = %3275, %.thread.i3926
-  %.pr7115 = phi ptr [ %.pr7115.pre8980, %3275 ], [ %.pr7115.pre, %.thread.i3926 ]
-  %.05.i3923.ph = phi ptr [ %3276, %3275 ], [ %3279, %.thread.i3926 ]
+  %.pr7115 = phi ptr [ %.pr7115.pre, %.thread.i3926 ], [ %.pr7115.pre8980, %3275 ]
+  %.05.i3923.ph = phi ptr [ %3279, %.thread.i3926 ], [ %3276, %3275 ]
   store ptr %.05.i3923.ph, ptr @glad_glSecondaryColor3b, align 8, !tbaa !11
   %3280 = icmp eq ptr %.pr7115, null
   br i1 %3280, label %get_proc.exit3915.thread12604, label %3281
@@ -13980,8 +13980,8 @@ get_proc.exit3921:                                ; preds = %3283, %.thread.i392
   br label %get_proc.exit3915
 
 get_proc.exit3915:                                ; preds = %3291, %.thread.i3914
-  %.pr7119 = phi ptr [ %.pr7119.pre8983, %3291 ], [ %.pr7119.pre, %.thread.i3914 ]
-  %.05.i3911.ph = phi ptr [ %3292, %3291 ], [ %3295, %.thread.i3914 ]
+  %.pr7119 = phi ptr [ %.pr7119.pre, %.thread.i3914 ], [ %.pr7119.pre8983, %3291 ]
+  %.05.i3911.ph = phi ptr [ %3295, %.thread.i3914 ], [ %3292, %3291 ]
   store ptr %.05.i3911.ph, ptr @glad_glSecondaryColor3d, align 8, !tbaa !11
   %3296 = icmp eq ptr %.pr7119, null
   br i1 %3296, label %get_proc.exit3903.thread12607, label %3297
@@ -14038,8 +14038,8 @@ get_proc.exit3909:                                ; preds = %3299, %.thread.i390
   br label %get_proc.exit3903
 
 get_proc.exit3903:                                ; preds = %3307, %.thread.i3902
-  %.pr7123 = phi ptr [ %.pr7123.pre8986, %3307 ], [ %.pr7123.pre, %.thread.i3902 ]
-  %.05.i3899.ph = phi ptr [ %3308, %3307 ], [ %3311, %.thread.i3902 ]
+  %.pr7123 = phi ptr [ %.pr7123.pre, %.thread.i3902 ], [ %.pr7123.pre8986, %3307 ]
+  %.05.i3899.ph = phi ptr [ %3311, %.thread.i3902 ], [ %3308, %3307 ]
   store ptr %.05.i3899.ph, ptr @glad_glSecondaryColor3f, align 8, !tbaa !11
   %3312 = icmp eq ptr %.pr7123, null
   br i1 %3312, label %get_proc.exit3891.thread12610, label %3313
@@ -14096,8 +14096,8 @@ get_proc.exit3897:                                ; preds = %3315, %.thread.i389
   br label %get_proc.exit3891
 
 get_proc.exit3891:                                ; preds = %3323, %.thread.i3890
-  %.pr7127 = phi ptr [ %.pr7127.pre8989, %3323 ], [ %.pr7127.pre, %.thread.i3890 ]
-  %.05.i3887.ph = phi ptr [ %3324, %3323 ], [ %3327, %.thread.i3890 ]
+  %.pr7127 = phi ptr [ %.pr7127.pre, %.thread.i3890 ], [ %.pr7127.pre8989, %3323 ]
+  %.05.i3887.ph = phi ptr [ %3327, %.thread.i3890 ], [ %3324, %3323 ]
   store ptr %.05.i3887.ph, ptr @glad_glSecondaryColor3i, align 8, !tbaa !11
   %3328 = icmp eq ptr %.pr7127, null
   br i1 %3328, label %get_proc.exit3879.thread12613, label %3329
@@ -14154,8 +14154,8 @@ get_proc.exit3885:                                ; preds = %3331, %.thread.i388
   br label %get_proc.exit3879
 
 get_proc.exit3879:                                ; preds = %3339, %.thread.i3878
-  %.pr7131 = phi ptr [ %.pr7131.pre8992, %3339 ], [ %.pr7131.pre, %.thread.i3878 ]
-  %.05.i3875.ph = phi ptr [ %3340, %3339 ], [ %3343, %.thread.i3878 ]
+  %.pr7131 = phi ptr [ %.pr7131.pre, %.thread.i3878 ], [ %.pr7131.pre8992, %3339 ]
+  %.05.i3875.ph = phi ptr [ %3343, %.thread.i3878 ], [ %3340, %3339 ]
   store ptr %.05.i3875.ph, ptr @glad_glSecondaryColor3s, align 8, !tbaa !11
   %3344 = icmp eq ptr %.pr7131, null
   br i1 %3344, label %get_proc.exit3867.thread12616, label %3345
@@ -14212,8 +14212,8 @@ get_proc.exit3873:                                ; preds = %3347, %.thread.i387
   br label %get_proc.exit3867
 
 get_proc.exit3867:                                ; preds = %3355, %.thread.i3866
-  %.pr7135 = phi ptr [ %.pr7135.pre8995, %3355 ], [ %.pr7135.pre, %.thread.i3866 ]
-  %.05.i3863.ph = phi ptr [ %3356, %3355 ], [ %3359, %.thread.i3866 ]
+  %.pr7135 = phi ptr [ %.pr7135.pre, %.thread.i3866 ], [ %.pr7135.pre8995, %3355 ]
+  %.05.i3863.ph = phi ptr [ %3359, %.thread.i3866 ], [ %3356, %3355 ]
   store ptr %.05.i3863.ph, ptr @glad_glSecondaryColor3ub, align 8, !tbaa !11
   %3360 = icmp eq ptr %.pr7135, null
   br i1 %3360, label %get_proc.exit3855.thread12619, label %3361
@@ -14270,8 +14270,8 @@ get_proc.exit3861:                                ; preds = %3363, %.thread.i386
   br label %get_proc.exit3855
 
 get_proc.exit3855:                                ; preds = %3371, %.thread.i3854
-  %.pr7139 = phi ptr [ %.pr7139.pre8998, %3371 ], [ %.pr7139.pre, %.thread.i3854 ]
-  %.05.i3851.ph = phi ptr [ %3372, %3371 ], [ %3375, %.thread.i3854 ]
+  %.pr7139 = phi ptr [ %.pr7139.pre, %.thread.i3854 ], [ %.pr7139.pre8998, %3371 ]
+  %.05.i3851.ph = phi ptr [ %3375, %.thread.i3854 ], [ %3372, %3371 ]
   store ptr %.05.i3851.ph, ptr @glad_glSecondaryColor3ui, align 8, !tbaa !11
   %3376 = icmp eq ptr %.pr7139, null
   br i1 %3376, label %get_proc.exit3843.thread12622, label %3377
@@ -14328,8 +14328,8 @@ get_proc.exit3849:                                ; preds = %3379, %.thread.i384
   br label %get_proc.exit3843
 
 get_proc.exit3843:                                ; preds = %3387, %.thread.i3842
-  %.pr7143 = phi ptr [ %.pr7143.pre9001, %3387 ], [ %.pr7143.pre, %.thread.i3842 ]
-  %.05.i3839.ph = phi ptr [ %3388, %3387 ], [ %3391, %.thread.i3842 ]
+  %.pr7143 = phi ptr [ %.pr7143.pre, %.thread.i3842 ], [ %.pr7143.pre9001, %3387 ]
+  %.05.i3839.ph = phi ptr [ %3391, %.thread.i3842 ], [ %3388, %3387 ]
   store ptr %.05.i3839.ph, ptr @glad_glSecondaryColor3us, align 8, !tbaa !11
   %3392 = icmp eq ptr %.pr7143, null
   br i1 %3392, label %get_proc.exit3831.thread12625, label %3393
@@ -14386,8 +14386,8 @@ get_proc.exit3837:                                ; preds = %3395, %.thread.i383
   br label %get_proc.exit3831
 
 get_proc.exit3831:                                ; preds = %3403, %.thread.i3830
-  %.pr7147 = phi ptr [ %.pr7147.pre9004, %3403 ], [ %.pr7147.pre, %.thread.i3830 ]
-  %.05.i3827.ph = phi ptr [ %3404, %3403 ], [ %3407, %.thread.i3830 ]
+  %.pr7147 = phi ptr [ %.pr7147.pre, %.thread.i3830 ], [ %.pr7147.pre9004, %3403 ]
+  %.05.i3827.ph = phi ptr [ %3407, %.thread.i3830 ], [ %3404, %3403 ]
   store ptr %.05.i3827.ph, ptr @glad_glSecondaryColorPointer, align 8, !tbaa !11
   %3408 = icmp eq ptr %.pr7147, null
   br i1 %3408, label %get_proc.exit3819.thread12628, label %3409
@@ -14444,8 +14444,8 @@ get_proc.exit3825:                                ; preds = %3411, %.thread.i382
   br label %get_proc.exit3819
 
 get_proc.exit3819:                                ; preds = %3419, %.thread.i3818
-  %.pr7151 = phi ptr [ %.pr7151.pre9007, %3419 ], [ %.pr7151.pre, %.thread.i3818 ]
-  %.05.i3815.ph = phi ptr [ %3420, %3419 ], [ %3423, %.thread.i3818 ]
+  %.pr7151 = phi ptr [ %.pr7151.pre, %.thread.i3818 ], [ %.pr7151.pre9007, %3419 ]
+  %.05.i3815.ph = phi ptr [ %3423, %.thread.i3818 ], [ %3420, %3419 ]
   store ptr %.05.i3815.ph, ptr @glad_glWindowPos2dv, align 8, !tbaa !11
   %3424 = icmp eq ptr %.pr7151, null
   br i1 %3424, label %get_proc.exit3807.thread12631, label %3425
@@ -14502,8 +14502,8 @@ get_proc.exit3813:                                ; preds = %3427, %.thread.i381
   br label %get_proc.exit3807
 
 get_proc.exit3807:                                ; preds = %3435, %.thread.i3806
-  %.pr7155 = phi ptr [ %.pr7155.pre9010, %3435 ], [ %.pr7155.pre, %.thread.i3806 ]
-  %.05.i3803.ph = phi ptr [ %3436, %3435 ], [ %3439, %.thread.i3806 ]
+  %.pr7155 = phi ptr [ %.pr7155.pre, %.thread.i3806 ], [ %.pr7155.pre9010, %3435 ]
+  %.05.i3803.ph = phi ptr [ %3439, %.thread.i3806 ], [ %3436, %3435 ]
   store ptr %.05.i3803.ph, ptr @glad_glWindowPos2fv, align 8, !tbaa !11
   %3440 = icmp eq ptr %.pr7155, null
   br i1 %3440, label %get_proc.exit3795.thread12634, label %3441
@@ -14560,8 +14560,8 @@ get_proc.exit3801:                                ; preds = %3443, %.thread.i380
   br label %get_proc.exit3795
 
 get_proc.exit3795:                                ; preds = %3451, %.thread.i3794
-  %.pr7159 = phi ptr [ %.pr7159.pre9013, %3451 ], [ %.pr7159.pre, %.thread.i3794 ]
-  %.05.i3791.ph = phi ptr [ %3452, %3451 ], [ %3455, %.thread.i3794 ]
+  %.pr7159 = phi ptr [ %.pr7159.pre, %.thread.i3794 ], [ %.pr7159.pre9013, %3451 ]
+  %.05.i3791.ph = phi ptr [ %3455, %.thread.i3794 ], [ %3452, %3451 ]
   store ptr %.05.i3791.ph, ptr @glad_glWindowPos2iv, align 8, !tbaa !11
   %3456 = icmp eq ptr %.pr7159, null
   br i1 %3456, label %get_proc.exit3783.thread12637, label %3457
@@ -14618,8 +14618,8 @@ get_proc.exit3789:                                ; preds = %3459, %.thread.i378
   br label %get_proc.exit3783
 
 get_proc.exit3783:                                ; preds = %3467, %.thread.i3782
-  %.pr7163 = phi ptr [ %.pr7163.pre9016, %3467 ], [ %.pr7163.pre, %.thread.i3782 ]
-  %.05.i3779.ph = phi ptr [ %3468, %3467 ], [ %3471, %.thread.i3782 ]
+  %.pr7163 = phi ptr [ %.pr7163.pre, %.thread.i3782 ], [ %.pr7163.pre9016, %3467 ]
+  %.05.i3779.ph = phi ptr [ %3471, %.thread.i3782 ], [ %3468, %3467 ]
   store ptr %.05.i3779.ph, ptr @glad_glWindowPos2sv, align 8, !tbaa !11
   %3472 = icmp eq ptr %.pr7163, null
   br i1 %3472, label %get_proc.exit3771.thread12640, label %3473
@@ -14676,8 +14676,8 @@ get_proc.exit3777:                                ; preds = %3475, %.thread.i377
   br label %get_proc.exit3771
 
 get_proc.exit3771:                                ; preds = %3483, %.thread.i3770
-  %.pr7167 = phi ptr [ %.pr7167.pre9019, %3483 ], [ %.pr7167.pre, %.thread.i3770 ]
-  %.05.i3767.ph = phi ptr [ %3484, %3483 ], [ %3487, %.thread.i3770 ]
+  %.pr7167 = phi ptr [ %.pr7167.pre, %.thread.i3770 ], [ %.pr7167.pre9019, %3483 ]
+  %.05.i3767.ph = phi ptr [ %3487, %.thread.i3770 ], [ %3484, %3483 ]
   store ptr %.05.i3767.ph, ptr @glad_glWindowPos3dv, align 8, !tbaa !11
   %3488 = icmp eq ptr %.pr7167, null
   br i1 %3488, label %get_proc.exit3759.thread12643, label %3489
@@ -14734,8 +14734,8 @@ get_proc.exit3765:                                ; preds = %3491, %.thread.i376
   br label %get_proc.exit3759
 
 get_proc.exit3759:                                ; preds = %3499, %.thread.i3758
-  %.pr7171 = phi ptr [ %.pr7171.pre9022, %3499 ], [ %.pr7171.pre, %.thread.i3758 ]
-  %.05.i3755.ph = phi ptr [ %3500, %3499 ], [ %3503, %.thread.i3758 ]
+  %.pr7171 = phi ptr [ %.pr7171.pre, %.thread.i3758 ], [ %.pr7171.pre9022, %3499 ]
+  %.05.i3755.ph = phi ptr [ %3503, %.thread.i3758 ], [ %3500, %3499 ]
   store ptr %.05.i3755.ph, ptr @glad_glWindowPos3fv, align 8, !tbaa !11
   %3504 = icmp eq ptr %.pr7171, null
   br i1 %3504, label %get_proc.exit3747.thread12646, label %3505
@@ -14792,8 +14792,8 @@ get_proc.exit3753:                                ; preds = %3507, %.thread.i375
   br label %get_proc.exit3747
 
 get_proc.exit3747:                                ; preds = %3515, %.thread.i3746
-  %.pr7175 = phi ptr [ %.pr7175.pre9025, %3515 ], [ %.pr7175.pre, %.thread.i3746 ]
-  %.05.i3743.ph = phi ptr [ %3516, %3515 ], [ %3519, %.thread.i3746 ]
+  %.pr7175 = phi ptr [ %.pr7175.pre, %.thread.i3746 ], [ %.pr7175.pre9025, %3515 ]
+  %.05.i3743.ph = phi ptr [ %3519, %.thread.i3746 ], [ %3516, %3515 ]
   store ptr %.05.i3743.ph, ptr @glad_glWindowPos3iv, align 8, !tbaa !11
   %3520 = icmp eq ptr %.pr7175, null
   br i1 %3520, label %get_proc.exit3735.thread12649, label %3521
@@ -14850,8 +14850,8 @@ get_proc.exit3741:                                ; preds = %3523, %.thread.i374
   br label %get_proc.exit3735
 
 get_proc.exit3735:                                ; preds = %3531, %.thread.i3734
-  %.pr7179 = phi ptr [ %.pr7179.pre9028, %3531 ], [ %.pr7179.pre, %.thread.i3734 ]
-  %.05.i3731.ph = phi ptr [ %3532, %3531 ], [ %3535, %.thread.i3734 ]
+  %.pr7179 = phi ptr [ %.pr7179.pre, %.thread.i3734 ], [ %.pr7179.pre9028, %3531 ]
+  %.05.i3731.ph = phi ptr [ %3535, %.thread.i3734 ], [ %3532, %3531 ]
   store ptr %.05.i3731.ph, ptr @glad_glWindowPos3sv, align 8, !tbaa !11
   %3536 = icmp eq ptr %.pr7179, null
   br i1 %3536, label %get_proc.exit3729.thread, label %3537
@@ -15002,8 +15002,8 @@ get_proc.exit3711:                                ; preds = %3566, %.thread.i371
   br label %get_proc.exit3705
 
 get_proc.exit3705:                                ; preds = %3574, %.thread.i3704
-  %.pr7187 = phi ptr [ %.pr7187.pre9031, %3574 ], [ %.pr7187.pre, %.thread.i3704 ]
-  %.05.i3701.ph = phi ptr [ %3575, %3574 ], [ %3578, %.thread.i3704 ]
+  %.pr7187 = phi ptr [ %.pr7187.pre, %.thread.i3704 ], [ %.pr7187.pre9031, %3574 ]
+  %.05.i3701.ph = phi ptr [ %3578, %.thread.i3704 ], [ %3575, %3574 ]
   store ptr %.05.i3701.ph, ptr @glad_glIsQuery, align 8, !tbaa !11
   %3579 = icmp eq ptr %.pr7187, null
   br i1 %3579, label %get_proc.exit3693.thread12655, label %3580
@@ -15060,8 +15060,8 @@ get_proc.exit3699:                                ; preds = %3582, %.thread.i369
   br label %get_proc.exit3693
 
 get_proc.exit3693:                                ; preds = %3590, %.thread.i3692
-  %.pr7191 = phi ptr [ %.pr7191.pre9034, %3590 ], [ %.pr7191.pre, %.thread.i3692 ]
-  %.05.i3689.ph = phi ptr [ %3591, %3590 ], [ %3594, %.thread.i3692 ]
+  %.pr7191 = phi ptr [ %.pr7191.pre, %.thread.i3692 ], [ %.pr7191.pre9034, %3590 ]
+  %.05.i3689.ph = phi ptr [ %3594, %.thread.i3692 ], [ %3591, %3590 ]
   store ptr %.05.i3689.ph, ptr @glad_glEndQuery, align 8, !tbaa !11
   %3595 = icmp eq ptr %.pr7191, null
   br i1 %3595, label %get_proc.exit3681.thread12658, label %3596
@@ -15118,8 +15118,8 @@ get_proc.exit3687:                                ; preds = %3598, %.thread.i368
   br label %get_proc.exit3681
 
 get_proc.exit3681:                                ; preds = %3606, %.thread.i3680
-  %.pr7195 = phi ptr [ %.pr7195.pre9037, %3606 ], [ %.pr7195.pre, %.thread.i3680 ]
-  %.05.i3677.ph = phi ptr [ %3607, %3606 ], [ %3610, %.thread.i3680 ]
+  %.pr7195 = phi ptr [ %.pr7195.pre, %.thread.i3680 ], [ %.pr7195.pre9037, %3606 ]
+  %.05.i3677.ph = phi ptr [ %3610, %.thread.i3680 ], [ %3607, %3606 ]
   store ptr %.05.i3677.ph, ptr @glad_glGetQueryObjectiv, align 8, !tbaa !11
   %3611 = icmp eq ptr %.pr7195, null
   br i1 %3611, label %get_proc.exit3669.thread12661, label %3612
@@ -15176,8 +15176,8 @@ get_proc.exit3675:                                ; preds = %3614, %.thread.i367
   br label %get_proc.exit3669
 
 get_proc.exit3669:                                ; preds = %3622, %.thread.i3668
-  %.pr7199 = phi ptr [ %.pr7199.pre9040, %3622 ], [ %.pr7199.pre, %.thread.i3668 ]
-  %.05.i3665.ph = phi ptr [ %3623, %3622 ], [ %3626, %.thread.i3668 ]
+  %.pr7199 = phi ptr [ %.pr7199.pre, %.thread.i3668 ], [ %.pr7199.pre9040, %3622 ]
+  %.05.i3665.ph = phi ptr [ %3626, %.thread.i3668 ], [ %3623, %3622 ]
   store ptr %.05.i3665.ph, ptr @glad_glBindBuffer, align 8, !tbaa !11
   %3627 = icmp eq ptr %.pr7199, null
   br i1 %3627, label %get_proc.exit3657.thread12664, label %3628
@@ -15234,8 +15234,8 @@ get_proc.exit3663:                                ; preds = %3630, %.thread.i366
   br label %get_proc.exit3657
 
 get_proc.exit3657:                                ; preds = %3638, %.thread.i3656
-  %.pr7203 = phi ptr [ %.pr7203.pre9043, %3638 ], [ %.pr7203.pre, %.thread.i3656 ]
-  %.05.i3653.ph = phi ptr [ %3639, %3638 ], [ %3642, %.thread.i3656 ]
+  %.pr7203 = phi ptr [ %.pr7203.pre, %.thread.i3656 ], [ %.pr7203.pre9043, %3638 ]
+  %.05.i3653.ph = phi ptr [ %3642, %.thread.i3656 ], [ %3639, %3638 ]
   store ptr %.05.i3653.ph, ptr @glad_glGenBuffers, align 8, !tbaa !11
   %3643 = icmp eq ptr %.pr7203, null
   br i1 %3643, label %get_proc.exit3645.thread12667, label %3644
@@ -15292,8 +15292,8 @@ get_proc.exit3651:                                ; preds = %3646, %.thread.i365
   br label %get_proc.exit3645
 
 get_proc.exit3645:                                ; preds = %3654, %.thread.i3644
-  %.pr7207 = phi ptr [ %.pr7207.pre9046, %3654 ], [ %.pr7207.pre, %.thread.i3644 ]
-  %.05.i3641.ph = phi ptr [ %3655, %3654 ], [ %3658, %.thread.i3644 ]
+  %.pr7207 = phi ptr [ %.pr7207.pre, %.thread.i3644 ], [ %.pr7207.pre9046, %3654 ]
+  %.05.i3641.ph = phi ptr [ %3658, %.thread.i3644 ], [ %3655, %3654 ]
   store ptr %.05.i3641.ph, ptr @glad_glBufferData, align 8, !tbaa !11
   %3659 = icmp eq ptr %.pr7207, null
   br i1 %3659, label %get_proc.exit3633.thread12670, label %3660
@@ -15350,8 +15350,8 @@ get_proc.exit3639:                                ; preds = %3662, %.thread.i363
   br label %get_proc.exit3633
 
 get_proc.exit3633:                                ; preds = %3670, %.thread.i3632
-  %.pr7211 = phi ptr [ %.pr7211.pre9049, %3670 ], [ %.pr7211.pre, %.thread.i3632 ]
-  %.05.i3629.ph = phi ptr [ %3671, %3670 ], [ %3674, %.thread.i3632 ]
+  %.pr7211 = phi ptr [ %.pr7211.pre, %.thread.i3632 ], [ %.pr7211.pre9049, %3670 ]
+  %.05.i3629.ph = phi ptr [ %3674, %.thread.i3632 ], [ %3671, %3670 ]
   store ptr %.05.i3629.ph, ptr @glad_glGetBufferSubData, align 8, !tbaa !11
   %3675 = icmp eq ptr %.pr7211, null
   br i1 %3675, label %get_proc.exit3621.thread12673, label %3676
@@ -15408,8 +15408,8 @@ get_proc.exit3627:                                ; preds = %3678, %.thread.i362
   br label %get_proc.exit3621
 
 get_proc.exit3621:                                ; preds = %3686, %.thread.i3620
-  %.pr7215 = phi ptr [ %.pr7215.pre9052, %3686 ], [ %.pr7215.pre, %.thread.i3620 ]
-  %.05.i3617.ph = phi ptr [ %3687, %3686 ], [ %3690, %.thread.i3620 ]
+  %.pr7215 = phi ptr [ %.pr7215.pre, %.thread.i3620 ], [ %.pr7215.pre9052, %3686 ]
+  %.05.i3617.ph = phi ptr [ %3690, %.thread.i3620 ], [ %3687, %3686 ]
   store ptr %.05.i3617.ph, ptr @glad_glUnmapBuffer, align 8, !tbaa !11
   %3691 = icmp eq ptr %.pr7215, null
   br i1 %3691, label %get_proc.exit3615.thread, label %3692
@@ -15560,8 +15560,8 @@ get_proc.exit3597:                                ; preds = %3721, %.thread.i359
   br label %get_proc.exit3591
 
 get_proc.exit3591:                                ; preds = %3729, %.thread.i3590
-  %.pr7223 = phi ptr [ %.pr7223.pre9055, %3729 ], [ %.pr7223.pre, %.thread.i3590 ]
-  %.05.i3587.ph = phi ptr [ %3730, %3729 ], [ %3733, %.thread.i3590 ]
+  %.pr7223 = phi ptr [ %.pr7223.pre, %.thread.i3590 ], [ %.pr7223.pre9055, %3729 ]
+  %.05.i3587.ph = phi ptr [ %3733, %.thread.i3590 ], [ %3730, %3729 ]
   store ptr %.05.i3587.ph, ptr @glad_glStencilOpSeparate, align 8, !tbaa !11
   %3734 = icmp eq ptr %.pr7223, null
   br i1 %3734, label %get_proc.exit3579.thread12679, label %3735
@@ -15618,8 +15618,8 @@ get_proc.exit3585:                                ; preds = %3737, %.thread.i358
   br label %get_proc.exit3579
 
 get_proc.exit3579:                                ; preds = %3745, %.thread.i3578
-  %.pr7227 = phi ptr [ %.pr7227.pre9058, %3745 ], [ %.pr7227.pre, %.thread.i3578 ]
-  %.05.i3575.ph = phi ptr [ %3746, %3745 ], [ %3749, %.thread.i3578 ]
+  %.pr7227 = phi ptr [ %.pr7227.pre, %.thread.i3578 ], [ %.pr7227.pre9058, %3745 ]
+  %.05.i3575.ph = phi ptr [ %3749, %.thread.i3578 ], [ %3746, %3745 ]
   store ptr %.05.i3575.ph, ptr @glad_glStencilMaskSeparate, align 8, !tbaa !11
   %3750 = icmp eq ptr %.pr7227, null
   br i1 %3750, label %get_proc.exit3567.thread12682, label %3751
@@ -15676,8 +15676,8 @@ get_proc.exit3573:                                ; preds = %3753, %.thread.i357
   br label %get_proc.exit3567
 
 get_proc.exit3567:                                ; preds = %3761, %.thread.i3566
-  %.pr7231 = phi ptr [ %.pr7231.pre9061, %3761 ], [ %.pr7231.pre, %.thread.i3566 ]
-  %.05.i3563.ph = phi ptr [ %3762, %3761 ], [ %3765, %.thread.i3566 ]
+  %.pr7231 = phi ptr [ %.pr7231.pre, %.thread.i3566 ], [ %.pr7231.pre9061, %3761 ]
+  %.05.i3563.ph = phi ptr [ %3765, %.thread.i3566 ], [ %3762, %3761 ]
   store ptr %.05.i3563.ph, ptr @glad_glBindAttribLocation, align 8, !tbaa !11
   %3766 = icmp eq ptr %.pr7231, null
   br i1 %3766, label %get_proc.exit3555.thread12685, label %3767
@@ -15734,8 +15734,8 @@ get_proc.exit3561:                                ; preds = %3769, %.thread.i356
   br label %get_proc.exit3555
 
 get_proc.exit3555:                                ; preds = %3777, %.thread.i3554
-  %.pr7235 = phi ptr [ %.pr7235.pre9064, %3777 ], [ %.pr7235.pre, %.thread.i3554 ]
-  %.05.i3551.ph = phi ptr [ %3778, %3777 ], [ %3781, %.thread.i3554 ]
+  %.pr7235 = phi ptr [ %.pr7235.pre, %.thread.i3554 ], [ %.pr7235.pre9064, %3777 ]
+  %.05.i3551.ph = phi ptr [ %3781, %.thread.i3554 ], [ %3778, %3777 ]
   store ptr %.05.i3551.ph, ptr @glad_glCreateProgram, align 8, !tbaa !11
   %3782 = icmp eq ptr %.pr7235, null
   br i1 %3782, label %get_proc.exit3543.thread12688, label %3783
@@ -15792,8 +15792,8 @@ get_proc.exit3549:                                ; preds = %3785, %.thread.i354
   br label %get_proc.exit3543
 
 get_proc.exit3543:                                ; preds = %3793, %.thread.i3542
-  %.pr7239 = phi ptr [ %.pr7239.pre9067, %3793 ], [ %.pr7239.pre, %.thread.i3542 ]
-  %.05.i3539.ph = phi ptr [ %3794, %3793 ], [ %3797, %.thread.i3542 ]
+  %.pr7239 = phi ptr [ %.pr7239.pre, %.thread.i3542 ], [ %.pr7239.pre9067, %3793 ]
+  %.05.i3539.ph = phi ptr [ %3797, %.thread.i3542 ], [ %3794, %3793 ]
   store ptr %.05.i3539.ph, ptr @glad_glDeleteProgram, align 8, !tbaa !11
   %3798 = icmp eq ptr %.pr7239, null
   br i1 %3798, label %get_proc.exit3531.thread12691, label %3799
@@ -15850,8 +15850,8 @@ get_proc.exit3537:                                ; preds = %3801, %.thread.i353
   br label %get_proc.exit3531
 
 get_proc.exit3531:                                ; preds = %3809, %.thread.i3530
-  %.pr7243 = phi ptr [ %.pr7243.pre9070, %3809 ], [ %.pr7243.pre, %.thread.i3530 ]
-  %.05.i3527.ph = phi ptr [ %3810, %3809 ], [ %3813, %.thread.i3530 ]
+  %.pr7243 = phi ptr [ %.pr7243.pre, %.thread.i3530 ], [ %.pr7243.pre9070, %3809 ]
+  %.05.i3527.ph = phi ptr [ %3813, %.thread.i3530 ], [ %3810, %3809 ]
   store ptr %.05.i3527.ph, ptr @glad_glDetachShader, align 8, !tbaa !11
   %3814 = icmp eq ptr %.pr7243, null
   br i1 %3814, label %get_proc.exit3519.thread12694, label %3815
@@ -15908,8 +15908,8 @@ get_proc.exit3525:                                ; preds = %3817, %.thread.i352
   br label %get_proc.exit3519
 
 get_proc.exit3519:                                ; preds = %3825, %.thread.i3518
-  %.pr7247 = phi ptr [ %.pr7247.pre9073, %3825 ], [ %.pr7247.pre, %.thread.i3518 ]
-  %.05.i3515.ph = phi ptr [ %3826, %3825 ], [ %3829, %.thread.i3518 ]
+  %.pr7247 = phi ptr [ %.pr7247.pre, %.thread.i3518 ], [ %.pr7247.pre9073, %3825 ]
+  %.05.i3515.ph = phi ptr [ %3829, %.thread.i3518 ], [ %3826, %3825 ]
   store ptr %.05.i3515.ph, ptr @glad_glEnableVertexAttribArray, align 8, !tbaa !11
   %3830 = icmp eq ptr %.pr7247, null
   br i1 %3830, label %get_proc.exit3507.thread12697, label %3831
@@ -15966,8 +15966,8 @@ get_proc.exit3513:                                ; preds = %3833, %.thread.i351
   br label %get_proc.exit3507
 
 get_proc.exit3507:                                ; preds = %3841, %.thread.i3506
-  %.pr7251 = phi ptr [ %.pr7251.pre9076, %3841 ], [ %.pr7251.pre, %.thread.i3506 ]
-  %.05.i3503.ph = phi ptr [ %3842, %3841 ], [ %3845, %.thread.i3506 ]
+  %.pr7251 = phi ptr [ %.pr7251.pre, %.thread.i3506 ], [ %.pr7251.pre9076, %3841 ]
+  %.05.i3503.ph = phi ptr [ %3845, %.thread.i3506 ], [ %3842, %3841 ]
   store ptr %.05.i3503.ph, ptr @glad_glGetActiveUniform, align 8, !tbaa !11
   %3846 = icmp eq ptr %.pr7251, null
   br i1 %3846, label %get_proc.exit3495.thread12700, label %3847
@@ -16024,8 +16024,8 @@ get_proc.exit3501:                                ; preds = %3849, %.thread.i350
   br label %get_proc.exit3495
 
 get_proc.exit3495:                                ; preds = %3857, %.thread.i3494
-  %.pr7255 = phi ptr [ %.pr7255.pre9079, %3857 ], [ %.pr7255.pre, %.thread.i3494 ]
-  %.05.i3491.ph = phi ptr [ %3858, %3857 ], [ %3861, %.thread.i3494 ]
+  %.pr7255 = phi ptr [ %.pr7255.pre, %.thread.i3494 ], [ %.pr7255.pre9079, %3857 ]
+  %.05.i3491.ph = phi ptr [ %3861, %.thread.i3494 ], [ %3858, %3857 ]
   store ptr %.05.i3491.ph, ptr @glad_glGetAttribLocation, align 8, !tbaa !11
   %3862 = icmp eq ptr %.pr7255, null
   br i1 %3862, label %get_proc.exit3483.thread12703, label %3863
@@ -16082,8 +16082,8 @@ get_proc.exit3489:                                ; preds = %3865, %.thread.i348
   br label %get_proc.exit3483
 
 get_proc.exit3483:                                ; preds = %3873, %.thread.i3482
-  %.pr7259 = phi ptr [ %.pr7259.pre9082, %3873 ], [ %.pr7259.pre, %.thread.i3482 ]
-  %.05.i3479.ph = phi ptr [ %3874, %3873 ], [ %3877, %.thread.i3482 ]
+  %.pr7259 = phi ptr [ %.pr7259.pre, %.thread.i3482 ], [ %.pr7259.pre9082, %3873 ]
+  %.05.i3479.ph = phi ptr [ %3877, %.thread.i3482 ], [ %3874, %3873 ]
   store ptr %.05.i3479.ph, ptr @glad_glGetProgramInfoLog, align 8, !tbaa !11
   %3878 = icmp eq ptr %.pr7259, null
   br i1 %3878, label %get_proc.exit3471.thread12706, label %3879
@@ -16140,8 +16140,8 @@ get_proc.exit3477:                                ; preds = %3881, %.thread.i347
   br label %get_proc.exit3471
 
 get_proc.exit3471:                                ; preds = %3889, %.thread.i3470
-  %.pr7263 = phi ptr [ %.pr7263.pre9085, %3889 ], [ %.pr7263.pre, %.thread.i3470 ]
-  %.05.i3467.ph = phi ptr [ %3890, %3889 ], [ %3893, %.thread.i3470 ]
+  %.pr7263 = phi ptr [ %.pr7263.pre, %.thread.i3470 ], [ %.pr7263.pre9085, %3889 ]
+  %.05.i3467.ph = phi ptr [ %3893, %.thread.i3470 ], [ %3890, %3889 ]
   store ptr %.05.i3467.ph, ptr @glad_glGetShaderInfoLog, align 8, !tbaa !11
   %3894 = icmp eq ptr %.pr7263, null
   br i1 %3894, label %get_proc.exit3459.thread12709, label %3895
@@ -16198,8 +16198,8 @@ get_proc.exit3465:                                ; preds = %3897, %.thread.i346
   br label %get_proc.exit3459
 
 get_proc.exit3459:                                ; preds = %3905, %.thread.i3458
-  %.pr7267 = phi ptr [ %.pr7267.pre9088, %3905 ], [ %.pr7267.pre, %.thread.i3458 ]
-  %.05.i3455.ph = phi ptr [ %3906, %3905 ], [ %3909, %.thread.i3458 ]
+  %.pr7267 = phi ptr [ %.pr7267.pre, %.thread.i3458 ], [ %.pr7267.pre9088, %3905 ]
+  %.05.i3455.ph = phi ptr [ %3909, %.thread.i3458 ], [ %3906, %3905 ]
   store ptr %.05.i3455.ph, ptr @glad_glGetUniformLocation, align 8, !tbaa !11
   %3910 = icmp eq ptr %.pr7267, null
   br i1 %3910, label %get_proc.exit3447.thread12712, label %3911
@@ -16256,8 +16256,8 @@ get_proc.exit3453:                                ; preds = %3913, %.thread.i345
   br label %get_proc.exit3447
 
 get_proc.exit3447:                                ; preds = %3921, %.thread.i3446
-  %.pr7271 = phi ptr [ %.pr7271.pre9091, %3921 ], [ %.pr7271.pre, %.thread.i3446 ]
-  %.05.i3443.ph = phi ptr [ %3922, %3921 ], [ %3925, %.thread.i3446 ]
+  %.pr7271 = phi ptr [ %.pr7271.pre, %.thread.i3446 ], [ %.pr7271.pre9091, %3921 ]
+  %.05.i3443.ph = phi ptr [ %3925, %.thread.i3446 ], [ %3922, %3921 ]
   store ptr %.05.i3443.ph, ptr @glad_glGetUniformiv, align 8, !tbaa !11
   %3926 = icmp eq ptr %.pr7271, null
   br i1 %3926, label %get_proc.exit3435.thread12715, label %3927
@@ -16314,8 +16314,8 @@ get_proc.exit3441:                                ; preds = %3929, %.thread.i344
   br label %get_proc.exit3435
 
 get_proc.exit3435:                                ; preds = %3937, %.thread.i3434
-  %.pr7275 = phi ptr [ %.pr7275.pre9094, %3937 ], [ %.pr7275.pre, %.thread.i3434 ]
-  %.05.i3431.ph = phi ptr [ %3938, %3937 ], [ %3941, %.thread.i3434 ]
+  %.pr7275 = phi ptr [ %.pr7275.pre, %.thread.i3434 ], [ %.pr7275.pre9094, %3937 ]
+  %.05.i3431.ph = phi ptr [ %3941, %.thread.i3434 ], [ %3938, %3937 ]
   store ptr %.05.i3431.ph, ptr @glad_glGetVertexAttribfv, align 8, !tbaa !11
   %3942 = icmp eq ptr %.pr7275, null
   br i1 %3942, label %get_proc.exit3423.thread12718, label %3943
@@ -16372,8 +16372,8 @@ get_proc.exit3429:                                ; preds = %3945, %.thread.i342
   br label %get_proc.exit3423
 
 get_proc.exit3423:                                ; preds = %3953, %.thread.i3422
-  %.pr7279 = phi ptr [ %.pr7279.pre9097, %3953 ], [ %.pr7279.pre, %.thread.i3422 ]
-  %.05.i3419.ph = phi ptr [ %3954, %3953 ], [ %3957, %.thread.i3422 ]
+  %.pr7279 = phi ptr [ %.pr7279.pre, %.thread.i3422 ], [ %.pr7279.pre9097, %3953 ]
+  %.05.i3419.ph = phi ptr [ %3957, %.thread.i3422 ], [ %3954, %3953 ]
   store ptr %.05.i3419.ph, ptr @glad_glGetVertexAttribPointerv, align 8, !tbaa !11
   %3958 = icmp eq ptr %.pr7279, null
   br i1 %3958, label %get_proc.exit3411.thread12721, label %3959
@@ -16430,8 +16430,8 @@ get_proc.exit3417:                                ; preds = %3961, %.thread.i341
   br label %get_proc.exit3411
 
 get_proc.exit3411:                                ; preds = %3969, %.thread.i3410
-  %.pr7283 = phi ptr [ %.pr7283.pre9100, %3969 ], [ %.pr7283.pre, %.thread.i3410 ]
-  %.05.i3407.ph = phi ptr [ %3970, %3969 ], [ %3973, %.thread.i3410 ]
+  %.pr7283 = phi ptr [ %.pr7283.pre, %.thread.i3410 ], [ %.pr7283.pre9100, %3969 ]
+  %.05.i3407.ph = phi ptr [ %3973, %.thread.i3410 ], [ %3970, %3969 ]
   store ptr %.05.i3407.ph, ptr @glad_glIsShader, align 8, !tbaa !11
   %3974 = icmp eq ptr %.pr7283, null
   br i1 %3974, label %get_proc.exit3399.thread12724, label %3975
@@ -16488,8 +16488,8 @@ get_proc.exit3405:                                ; preds = %3977, %.thread.i340
   br label %get_proc.exit3399
 
 get_proc.exit3399:                                ; preds = %3985, %.thread.i3398
-  %.pr7287 = phi ptr [ %.pr7287.pre9103, %3985 ], [ %.pr7287.pre, %.thread.i3398 ]
-  %.05.i3395.ph = phi ptr [ %3986, %3985 ], [ %3989, %.thread.i3398 ]
+  %.pr7287 = phi ptr [ %.pr7287.pre, %.thread.i3398 ], [ %.pr7287.pre9103, %3985 ]
+  %.05.i3395.ph = phi ptr [ %3989, %.thread.i3398 ], [ %3986, %3985 ]
   store ptr %.05.i3395.ph, ptr @glad_glShaderSource, align 8, !tbaa !11
   %3990 = icmp eq ptr %.pr7287, null
   br i1 %3990, label %get_proc.exit3387.thread12727, label %3991
@@ -16546,8 +16546,8 @@ get_proc.exit3393:                                ; preds = %3993, %.thread.i339
   br label %get_proc.exit3387
 
 get_proc.exit3387:                                ; preds = %4001, %.thread.i3386
-  %.pr7291 = phi ptr [ %.pr7291.pre9106, %4001 ], [ %.pr7291.pre, %.thread.i3386 ]
-  %.05.i3383.ph = phi ptr [ %4002, %4001 ], [ %4005, %.thread.i3386 ]
+  %.pr7291 = phi ptr [ %.pr7291.pre, %.thread.i3386 ], [ %.pr7291.pre9106, %4001 ]
+  %.05.i3383.ph = phi ptr [ %4005, %.thread.i3386 ], [ %4002, %4001 ]
   store ptr %.05.i3383.ph, ptr @glad_glUniform1f, align 8, !tbaa !11
   %4006 = icmp eq ptr %.pr7291, null
   br i1 %4006, label %get_proc.exit3375.thread12730, label %4007
@@ -16604,8 +16604,8 @@ get_proc.exit3381:                                ; preds = %4009, %.thread.i338
   br label %get_proc.exit3375
 
 get_proc.exit3375:                                ; preds = %4017, %.thread.i3374
-  %.pr7295 = phi ptr [ %.pr7295.pre9109, %4017 ], [ %.pr7295.pre, %.thread.i3374 ]
-  %.05.i3371.ph = phi ptr [ %4018, %4017 ], [ %4021, %.thread.i3374 ]
+  %.pr7295 = phi ptr [ %.pr7295.pre, %.thread.i3374 ], [ %.pr7295.pre9109, %4017 ]
+  %.05.i3371.ph = phi ptr [ %4021, %.thread.i3374 ], [ %4018, %4017 ]
   store ptr %.05.i3371.ph, ptr @glad_glUniform3f, align 8, !tbaa !11
   %4022 = icmp eq ptr %.pr7295, null
   br i1 %4022, label %get_proc.exit3363.thread12733, label %4023
@@ -16662,8 +16662,8 @@ get_proc.exit3369:                                ; preds = %4025, %.thread.i336
   br label %get_proc.exit3363
 
 get_proc.exit3363:                                ; preds = %4033, %.thread.i3362
-  %.pr7299 = phi ptr [ %.pr7299.pre9112, %4033 ], [ %.pr7299.pre, %.thread.i3362 ]
-  %.05.i3359.ph = phi ptr [ %4034, %4033 ], [ %4037, %.thread.i3362 ]
+  %.pr7299 = phi ptr [ %.pr7299.pre, %.thread.i3362 ], [ %.pr7299.pre9112, %4033 ]
+  %.05.i3359.ph = phi ptr [ %4037, %.thread.i3362 ], [ %4034, %4033 ]
   store ptr %.05.i3359.ph, ptr @glad_glUniform1i, align 8, !tbaa !11
   %4038 = icmp eq ptr %.pr7299, null
   br i1 %4038, label %get_proc.exit3351.thread12736, label %4039
@@ -16720,8 +16720,8 @@ get_proc.exit3357:                                ; preds = %4041, %.thread.i335
   br label %get_proc.exit3351
 
 get_proc.exit3351:                                ; preds = %4049, %.thread.i3350
-  %.pr7303 = phi ptr [ %.pr7303.pre9115, %4049 ], [ %.pr7303.pre, %.thread.i3350 ]
-  %.05.i3347.ph = phi ptr [ %4050, %4049 ], [ %4053, %.thread.i3350 ]
+  %.pr7303 = phi ptr [ %.pr7303.pre, %.thread.i3350 ], [ %.pr7303.pre9115, %4049 ]
+  %.05.i3347.ph = phi ptr [ %4053, %.thread.i3350 ], [ %4050, %4049 ]
   store ptr %.05.i3347.ph, ptr @glad_glUniform3i, align 8, !tbaa !11
   %4054 = icmp eq ptr %.pr7303, null
   br i1 %4054, label %get_proc.exit3339.thread12739, label %4055
@@ -16778,8 +16778,8 @@ get_proc.exit3345:                                ; preds = %4057, %.thread.i334
   br label %get_proc.exit3339
 
 get_proc.exit3339:                                ; preds = %4065, %.thread.i3338
-  %.pr7307 = phi ptr [ %.pr7307.pre9118, %4065 ], [ %.pr7307.pre, %.thread.i3338 ]
-  %.05.i3335.ph = phi ptr [ %4066, %4065 ], [ %4069, %.thread.i3338 ]
+  %.pr7307 = phi ptr [ %.pr7307.pre, %.thread.i3338 ], [ %.pr7307.pre9118, %4065 ]
+  %.05.i3335.ph = phi ptr [ %4069, %.thread.i3338 ], [ %4066, %4065 ]
   store ptr %.05.i3335.ph, ptr @glad_glUniform1fv, align 8, !tbaa !11
   %4070 = icmp eq ptr %.pr7307, null
   br i1 %4070, label %get_proc.exit3327.thread12742, label %4071
@@ -16836,8 +16836,8 @@ get_proc.exit3333:                                ; preds = %4073, %.thread.i333
   br label %get_proc.exit3327
 
 get_proc.exit3327:                                ; preds = %4081, %.thread.i3326
-  %.pr7311 = phi ptr [ %.pr7311.pre9121, %4081 ], [ %.pr7311.pre, %.thread.i3326 ]
-  %.05.i3323.ph = phi ptr [ %4082, %4081 ], [ %4085, %.thread.i3326 ]
+  %.pr7311 = phi ptr [ %.pr7311.pre, %.thread.i3326 ], [ %.pr7311.pre9121, %4081 ]
+  %.05.i3323.ph = phi ptr [ %4085, %.thread.i3326 ], [ %4082, %4081 ]
   store ptr %.05.i3323.ph, ptr @glad_glUniform3fv, align 8, !tbaa !11
   %4086 = icmp eq ptr %.pr7311, null
   br i1 %4086, label %get_proc.exit3315.thread12745, label %4087
@@ -16894,8 +16894,8 @@ get_proc.exit3321:                                ; preds = %4089, %.thread.i332
   br label %get_proc.exit3315
 
 get_proc.exit3315:                                ; preds = %4097, %.thread.i3314
-  %.pr7315 = phi ptr [ %.pr7315.pre9124, %4097 ], [ %.pr7315.pre, %.thread.i3314 ]
-  %.05.i3311.ph = phi ptr [ %4098, %4097 ], [ %4101, %.thread.i3314 ]
+  %.pr7315 = phi ptr [ %.pr7315.pre, %.thread.i3314 ], [ %.pr7315.pre9124, %4097 ]
+  %.05.i3311.ph = phi ptr [ %4101, %.thread.i3314 ], [ %4098, %4097 ]
   store ptr %.05.i3311.ph, ptr @glad_glUniform1iv, align 8, !tbaa !11
   %4102 = icmp eq ptr %.pr7315, null
   br i1 %4102, label %get_proc.exit3303.thread12748, label %4103
@@ -16952,8 +16952,8 @@ get_proc.exit3309:                                ; preds = %4105, %.thread.i330
   br label %get_proc.exit3303
 
 get_proc.exit3303:                                ; preds = %4113, %.thread.i3302
-  %.pr7319 = phi ptr [ %.pr7319.pre9127, %4113 ], [ %.pr7319.pre, %.thread.i3302 ]
-  %.05.i3299.ph = phi ptr [ %4114, %4113 ], [ %4117, %.thread.i3302 ]
+  %.pr7319 = phi ptr [ %.pr7319.pre, %.thread.i3302 ], [ %.pr7319.pre9127, %4113 ]
+  %.05.i3299.ph = phi ptr [ %4117, %.thread.i3302 ], [ %4114, %4113 ]
   store ptr %.05.i3299.ph, ptr @glad_glUniform3iv, align 8, !tbaa !11
   %4118 = icmp eq ptr %.pr7319, null
   br i1 %4118, label %get_proc.exit3291.thread12751, label %4119
@@ -17010,8 +17010,8 @@ get_proc.exit3297:                                ; preds = %4121, %.thread.i329
   br label %get_proc.exit3291
 
 get_proc.exit3291:                                ; preds = %4129, %.thread.i3290
-  %.pr7323 = phi ptr [ %.pr7323.pre9130, %4129 ], [ %.pr7323.pre, %.thread.i3290 ]
-  %.05.i3287.ph = phi ptr [ %4130, %4129 ], [ %4133, %.thread.i3290 ]
+  %.pr7323 = phi ptr [ %.pr7323.pre, %.thread.i3290 ], [ %.pr7323.pre9130, %4129 ]
+  %.05.i3287.ph = phi ptr [ %4133, %.thread.i3290 ], [ %4130, %4129 ]
   store ptr %.05.i3287.ph, ptr @glad_glUniformMatrix2fv, align 8, !tbaa !11
   %4134 = icmp eq ptr %.pr7323, null
   br i1 %4134, label %get_proc.exit3279.thread12754, label %4135
@@ -17068,8 +17068,8 @@ get_proc.exit3285:                                ; preds = %4137, %.thread.i328
   br label %get_proc.exit3279
 
 get_proc.exit3279:                                ; preds = %4145, %.thread.i3278
-  %.pr7327 = phi ptr [ %.pr7327.pre9133, %4145 ], [ %.pr7327.pre, %.thread.i3278 ]
-  %.05.i3275.ph = phi ptr [ %4146, %4145 ], [ %4149, %.thread.i3278 ]
+  %.pr7327 = phi ptr [ %.pr7327.pre, %.thread.i3278 ], [ %.pr7327.pre9133, %4145 ]
+  %.05.i3275.ph = phi ptr [ %4149, %.thread.i3278 ], [ %4146, %4145 ]
   store ptr %.05.i3275.ph, ptr @glad_glUniformMatrix4fv, align 8, !tbaa !11
   %4150 = icmp eq ptr %.pr7327, null
   br i1 %4150, label %get_proc.exit3267.thread12757, label %4151
@@ -17126,8 +17126,8 @@ get_proc.exit3273:                                ; preds = %4153, %.thread.i327
   br label %get_proc.exit3267
 
 get_proc.exit3267:                                ; preds = %4161, %.thread.i3266
-  %.pr7331 = phi ptr [ %.pr7331.pre9136, %4161 ], [ %.pr7331.pre, %.thread.i3266 ]
-  %.05.i3263.ph = phi ptr [ %4162, %4161 ], [ %4165, %.thread.i3266 ]
+  %.pr7331 = phi ptr [ %.pr7331.pre, %.thread.i3266 ], [ %.pr7331.pre9136, %4161 ]
+  %.05.i3263.ph = phi ptr [ %4165, %.thread.i3266 ], [ %4162, %4161 ]
   store ptr %.05.i3263.ph, ptr @glad_glVertexAttrib1d, align 8, !tbaa !11
   %4166 = icmp eq ptr %.pr7331, null
   br i1 %4166, label %get_proc.exit3255.thread12760, label %4167
@@ -17184,8 +17184,8 @@ get_proc.exit3261:                                ; preds = %4169, %.thread.i326
   br label %get_proc.exit3255
 
 get_proc.exit3255:                                ; preds = %4177, %.thread.i3254
-  %.pr7335 = phi ptr [ %.pr7335.pre9139, %4177 ], [ %.pr7335.pre, %.thread.i3254 ]
-  %.05.i3251.ph = phi ptr [ %4178, %4177 ], [ %4181, %.thread.i3254 ]
+  %.pr7335 = phi ptr [ %.pr7335.pre, %.thread.i3254 ], [ %.pr7335.pre9139, %4177 ]
+  %.05.i3251.ph = phi ptr [ %4181, %.thread.i3254 ], [ %4178, %4177 ]
   store ptr %.05.i3251.ph, ptr @glad_glVertexAttrib1f, align 8, !tbaa !11
   %4182 = icmp eq ptr %.pr7335, null
   br i1 %4182, label %get_proc.exit3243.thread12763, label %4183
@@ -17242,8 +17242,8 @@ get_proc.exit3249:                                ; preds = %4185, %.thread.i324
   br label %get_proc.exit3243
 
 get_proc.exit3243:                                ; preds = %4193, %.thread.i3242
-  %.pr7339 = phi ptr [ %.pr7339.pre9142, %4193 ], [ %.pr7339.pre, %.thread.i3242 ]
-  %.05.i3239.ph = phi ptr [ %4194, %4193 ], [ %4197, %.thread.i3242 ]
+  %.pr7339 = phi ptr [ %.pr7339.pre, %.thread.i3242 ], [ %.pr7339.pre9142, %4193 ]
+  %.05.i3239.ph = phi ptr [ %4197, %.thread.i3242 ], [ %4194, %4193 ]
   store ptr %.05.i3239.ph, ptr @glad_glVertexAttrib1s, align 8, !tbaa !11
   %4198 = icmp eq ptr %.pr7339, null
   br i1 %4198, label %get_proc.exit3231.thread12766, label %4199
@@ -17300,8 +17300,8 @@ get_proc.exit3237:                                ; preds = %4201, %.thread.i323
   br label %get_proc.exit3231
 
 get_proc.exit3231:                                ; preds = %4209, %.thread.i3230
-  %.pr7343 = phi ptr [ %.pr7343.pre9145, %4209 ], [ %.pr7343.pre, %.thread.i3230 ]
-  %.05.i3227.ph = phi ptr [ %4210, %4209 ], [ %4213, %.thread.i3230 ]
+  %.pr7343 = phi ptr [ %.pr7343.pre, %.thread.i3230 ], [ %.pr7343.pre9145, %4209 ]
+  %.05.i3227.ph = phi ptr [ %4213, %.thread.i3230 ], [ %4210, %4209 ]
   store ptr %.05.i3227.ph, ptr @glad_glVertexAttrib2d, align 8, !tbaa !11
   %4214 = icmp eq ptr %.pr7343, null
   br i1 %4214, label %get_proc.exit3219.thread12769, label %4215
@@ -17358,8 +17358,8 @@ get_proc.exit3225:                                ; preds = %4217, %.thread.i322
   br label %get_proc.exit3219
 
 get_proc.exit3219:                                ; preds = %4225, %.thread.i3218
-  %.pr7347 = phi ptr [ %.pr7347.pre9148, %4225 ], [ %.pr7347.pre, %.thread.i3218 ]
-  %.05.i3215.ph = phi ptr [ %4226, %4225 ], [ %4229, %.thread.i3218 ]
+  %.pr7347 = phi ptr [ %.pr7347.pre, %.thread.i3218 ], [ %.pr7347.pre9148, %4225 ]
+  %.05.i3215.ph = phi ptr [ %4229, %.thread.i3218 ], [ %4226, %4225 ]
   store ptr %.05.i3215.ph, ptr @glad_glVertexAttrib2f, align 8, !tbaa !11
   %4230 = icmp eq ptr %.pr7347, null
   br i1 %4230, label %get_proc.exit3207.thread12772, label %4231
@@ -17416,8 +17416,8 @@ get_proc.exit3213:                                ; preds = %4233, %.thread.i321
   br label %get_proc.exit3207
 
 get_proc.exit3207:                                ; preds = %4241, %.thread.i3206
-  %.pr7351 = phi ptr [ %.pr7351.pre9151, %4241 ], [ %.pr7351.pre, %.thread.i3206 ]
-  %.05.i3203.ph = phi ptr [ %4242, %4241 ], [ %4245, %.thread.i3206 ]
+  %.pr7351 = phi ptr [ %.pr7351.pre, %.thread.i3206 ], [ %.pr7351.pre9151, %4241 ]
+  %.05.i3203.ph = phi ptr [ %4245, %.thread.i3206 ], [ %4242, %4241 ]
   store ptr %.05.i3203.ph, ptr @glad_glVertexAttrib2s, align 8, !tbaa !11
   %4246 = icmp eq ptr %.pr7351, null
   br i1 %4246, label %get_proc.exit3201.thread, label %4247
@@ -17534,8 +17534,8 @@ get_proc.exit3189:                                ; preds = %4265, %.thread.i318
   br label %get_proc.exit3183
 
 get_proc.exit3183:                                ; preds = %4273, %.thread.i3182
-  %.pr7359 = phi ptr [ %.pr7359.pre9154, %4273 ], [ %.pr7359.pre, %.thread.i3182 ]
-  %.05.i3179.ph = phi ptr [ %4274, %4273 ], [ %4277, %.thread.i3182 ]
+  %.pr7359 = phi ptr [ %.pr7359.pre, %.thread.i3182 ], [ %.pr7359.pre9154, %4273 ]
+  %.05.i3179.ph = phi ptr [ %4277, %.thread.i3182 ], [ %4274, %4273 ]
   store ptr %.05.i3179.ph, ptr @glad_glVertexAttrib3f, align 8, !tbaa !11
   %4278 = icmp eq ptr %.pr7359, null
   br i1 %4278, label %get_proc.exit3171.thread12778, label %4279
@@ -17592,8 +17592,8 @@ get_proc.exit3177:                                ; preds = %4281, %.thread.i317
   br label %get_proc.exit3171
 
 get_proc.exit3171:                                ; preds = %4289, %.thread.i3170
-  %.pr7363 = phi ptr [ %.pr7363.pre9157, %4289 ], [ %.pr7363.pre, %.thread.i3170 ]
-  %.05.i3167.ph = phi ptr [ %4290, %4289 ], [ %4293, %.thread.i3170 ]
+  %.pr7363 = phi ptr [ %.pr7363.pre, %.thread.i3170 ], [ %.pr7363.pre9157, %4289 ]
+  %.05.i3167.ph = phi ptr [ %4293, %.thread.i3170 ], [ %4290, %4289 ]
   store ptr %.05.i3167.ph, ptr @glad_glVertexAttrib3s, align 8, !tbaa !11
   %4294 = icmp eq ptr %.pr7363, null
   br i1 %4294, label %get_proc.exit3159.thread12781, label %4295
@@ -17650,8 +17650,8 @@ get_proc.exit3165:                                ; preds = %4297, %.thread.i316
   br label %get_proc.exit3159
 
 get_proc.exit3159:                                ; preds = %4305, %.thread.i3158
-  %.pr7367 = phi ptr [ %.pr7367.pre9160, %4305 ], [ %.pr7367.pre, %.thread.i3158 ]
-  %.05.i3155.ph = phi ptr [ %4306, %4305 ], [ %4309, %.thread.i3158 ]
+  %.pr7367 = phi ptr [ %.pr7367.pre, %.thread.i3158 ], [ %.pr7367.pre9160, %4305 ]
+  %.05.i3155.ph = phi ptr [ %4309, %.thread.i3158 ], [ %4306, %4305 ]
   store ptr %.05.i3155.ph, ptr @glad_glVertexAttrib4Nbv, align 8, !tbaa !11
   %4310 = icmp eq ptr %.pr7367, null
   br i1 %4310, label %get_proc.exit3147.thread12784, label %4311
@@ -17708,8 +17708,8 @@ get_proc.exit3153:                                ; preds = %4313, %.thread.i315
   br label %get_proc.exit3147
 
 get_proc.exit3147:                                ; preds = %4321, %.thread.i3146
-  %.pr7371 = phi ptr [ %.pr7371.pre9163, %4321 ], [ %.pr7371.pre, %.thread.i3146 ]
-  %.05.i3143.ph = phi ptr [ %4322, %4321 ], [ %4325, %.thread.i3146 ]
+  %.pr7371 = phi ptr [ %.pr7371.pre, %.thread.i3146 ], [ %.pr7371.pre9163, %4321 ]
+  %.05.i3143.ph = phi ptr [ %4325, %.thread.i3146 ], [ %4322, %4321 ]
   store ptr %.05.i3143.ph, ptr @glad_glVertexAttrib4Nsv, align 8, !tbaa !11
   %4326 = icmp eq ptr %.pr7371, null
   br i1 %4326, label %get_proc.exit3135.thread12787, label %4327
@@ -17766,8 +17766,8 @@ get_proc.exit3141:                                ; preds = %4329, %.thread.i314
   br label %get_proc.exit3135
 
 get_proc.exit3135:                                ; preds = %4337, %.thread.i3134
-  %.pr7375 = phi ptr [ %.pr7375.pre9166, %4337 ], [ %.pr7375.pre, %.thread.i3134 ]
-  %.05.i3131.ph = phi ptr [ %4338, %4337 ], [ %4341, %.thread.i3134 ]
+  %.pr7375 = phi ptr [ %.pr7375.pre, %.thread.i3134 ], [ %.pr7375.pre9166, %4337 ]
+  %.05.i3131.ph = phi ptr [ %4341, %.thread.i3134 ], [ %4338, %4337 ]
   store ptr %.05.i3131.ph, ptr @glad_glVertexAttrib4Nubv, align 8, !tbaa !11
   %4342 = icmp eq ptr %.pr7375, null
   br i1 %4342, label %get_proc.exit3123.thread12790, label %4343
@@ -17824,8 +17824,8 @@ get_proc.exit3129:                                ; preds = %4345, %.thread.i312
   br label %get_proc.exit3123
 
 get_proc.exit3123:                                ; preds = %4353, %.thread.i3122
-  %.pr7379 = phi ptr [ %.pr7379.pre9169, %4353 ], [ %.pr7379.pre, %.thread.i3122 ]
-  %.05.i3119.ph = phi ptr [ %4354, %4353 ], [ %4357, %.thread.i3122 ]
+  %.pr7379 = phi ptr [ %.pr7379.pre, %.thread.i3122 ], [ %.pr7379.pre9169, %4353 ]
+  %.05.i3119.ph = phi ptr [ %4357, %.thread.i3122 ], [ %4354, %4353 ]
   store ptr %.05.i3119.ph, ptr @glad_glVertexAttrib4Nusv, align 8, !tbaa !11
   %4358 = icmp eq ptr %.pr7379, null
   br i1 %4358, label %get_proc.exit3111.thread12793, label %4359
@@ -17882,8 +17882,8 @@ get_proc.exit3117:                                ; preds = %4361, %.thread.i311
   br label %get_proc.exit3111
 
 get_proc.exit3111:                                ; preds = %4369, %.thread.i3110
-  %.pr7383 = phi ptr [ %.pr7383.pre9172, %4369 ], [ %.pr7383.pre, %.thread.i3110 ]
-  %.05.i3107.ph = phi ptr [ %4370, %4369 ], [ %4373, %.thread.i3110 ]
+  %.pr7383 = phi ptr [ %.pr7383.pre, %.thread.i3110 ], [ %.pr7383.pre9172, %4369 ]
+  %.05.i3107.ph = phi ptr [ %4373, %.thread.i3110 ], [ %4370, %4369 ]
   store ptr %.05.i3107.ph, ptr @glad_glVertexAttrib4d, align 8, !tbaa !11
   %4374 = icmp eq ptr %.pr7383, null
   br i1 %4374, label %get_proc.exit3099.thread12796, label %4375
@@ -17940,8 +17940,8 @@ get_proc.exit3105:                                ; preds = %4377, %.thread.i310
   br label %get_proc.exit3099
 
 get_proc.exit3099:                                ; preds = %4385, %.thread.i3098
-  %.pr7387 = phi ptr [ %.pr7387.pre9175, %4385 ], [ %.pr7387.pre, %.thread.i3098 ]
-  %.05.i3095.ph = phi ptr [ %4386, %4385 ], [ %4389, %.thread.i3098 ]
+  %.pr7387 = phi ptr [ %.pr7387.pre, %.thread.i3098 ], [ %.pr7387.pre9175, %4385 ]
+  %.05.i3095.ph = phi ptr [ %4389, %.thread.i3098 ], [ %4386, %4385 ]
   store ptr %.05.i3095.ph, ptr @glad_glVertexAttrib4f, align 8, !tbaa !11
   %4390 = icmp eq ptr %.pr7387, null
   br i1 %4390, label %get_proc.exit3087.thread12799, label %4391
@@ -17998,8 +17998,8 @@ get_proc.exit3093:                                ; preds = %4393, %.thread.i309
   br label %get_proc.exit3087
 
 get_proc.exit3087:                                ; preds = %4401, %.thread.i3086
-  %.pr7391 = phi ptr [ %.pr7391.pre9178, %4401 ], [ %.pr7391.pre, %.thread.i3086 ]
-  %.05.i3083.ph = phi ptr [ %4402, %4401 ], [ %4405, %.thread.i3086 ]
+  %.pr7391 = phi ptr [ %.pr7391.pre, %.thread.i3086 ], [ %.pr7391.pre9178, %4401 ]
+  %.05.i3083.ph = phi ptr [ %4405, %.thread.i3086 ], [ %4402, %4401 ]
   store ptr %.05.i3083.ph, ptr @glad_glVertexAttrib4iv, align 8, !tbaa !11
   %4406 = icmp eq ptr %.pr7391, null
   br i1 %4406, label %get_proc.exit3075.thread12802, label %4407
@@ -18056,8 +18056,8 @@ get_proc.exit3081:                                ; preds = %4409, %.thread.i308
   br label %get_proc.exit3075
 
 get_proc.exit3075:                                ; preds = %4417, %.thread.i3074
-  %.pr7395 = phi ptr [ %.pr7395.pre9181, %4417 ], [ %.pr7395.pre, %.thread.i3074 ]
-  %.05.i3071.ph = phi ptr [ %4418, %4417 ], [ %4421, %.thread.i3074 ]
+  %.pr7395 = phi ptr [ %.pr7395.pre, %.thread.i3074 ], [ %.pr7395.pre9181, %4417 ]
+  %.05.i3071.ph = phi ptr [ %4421, %.thread.i3074 ], [ %4418, %4417 ]
   store ptr %.05.i3071.ph, ptr @glad_glVertexAttrib4sv, align 8, !tbaa !11
   %4422 = icmp eq ptr %.pr7395, null
   br i1 %4422, label %get_proc.exit3063.thread12805, label %4423
@@ -18114,8 +18114,8 @@ get_proc.exit3069:                                ; preds = %4425, %.thread.i306
   br label %get_proc.exit3063
 
 get_proc.exit3063:                                ; preds = %4433, %.thread.i3062
-  %.pr7399 = phi ptr [ %.pr7399.pre9184, %4433 ], [ %.pr7399.pre, %.thread.i3062 ]
-  %.05.i3059.ph = phi ptr [ %4434, %4433 ], [ %4437, %.thread.i3062 ]
+  %.pr7399 = phi ptr [ %.pr7399.pre, %.thread.i3062 ], [ %.pr7399.pre9184, %4433 ]
+  %.05.i3059.ph = phi ptr [ %4437, %.thread.i3062 ], [ %4434, %4433 ]
   store ptr %.05.i3059.ph, ptr @glad_glVertexAttrib4uiv, align 8, !tbaa !11
   %4438 = icmp eq ptr %.pr7399, null
   br i1 %4438, label %get_proc.exit3057.thread, label %4439
@@ -18266,8 +18266,8 @@ get_proc.exit3039:                                ; preds = %4468, %.thread.i303
   br label %get_proc.exit3033
 
 get_proc.exit3033:                                ; preds = %4476, %.thread.i3032
-  %.pr7407 = phi ptr [ %.pr7407.pre9187, %4476 ], [ %.pr7407.pre, %.thread.i3032 ]
-  %.05.i3029.ph = phi ptr [ %4477, %4476 ], [ %4480, %.thread.i3032 ]
+  %.pr7407 = phi ptr [ %.pr7407.pre, %.thread.i3032 ], [ %.pr7407.pre9187, %4476 ]
+  %.05.i3029.ph = phi ptr [ %4480, %.thread.i3032 ], [ %4477, %4476 ]
   store ptr %.05.i3029.ph, ptr @glad_glUniformMatrix2x4fv, align 8, !tbaa !11
   %4481 = icmp eq ptr %.pr7407, null
   br i1 %4481, label %get_proc.exit3021.thread12811, label %4482
@@ -18329,8 +18329,8 @@ get_proc.exit3021.thread:                         ; preds = %get_proc.exit3027
   br label %get_proc.exit3021
 
 get_proc.exit3021:                                ; preds = %4492, %.thread.i3020
-  %.pr7411 = phi ptr [ %.pr7411.pre9190, %4492 ], [ %.pr7411.pre, %.thread.i3020 ]
-  %.05.i3017.ph = phi ptr [ %4493, %4492 ], [ %4496, %.thread.i3020 ]
+  %.pr7411 = phi ptr [ %.pr7411.pre, %.thread.i3020 ], [ %.pr7411.pre9190, %4492 ]
+  %.05.i3017.ph = phi ptr [ %4496, %.thread.i3020 ], [ %4493, %4492 ]
   store ptr %.05.i3017.ph, ptr @glad_glUniformMatrix3x4fv, align 8, !tbaa !11
   %4497 = icmp eq ptr %.pr7411, null
   br i1 %4497, label %get_proc.exit3015, label %4498
@@ -18447,8 +18447,8 @@ get_proc.exit3003:                                ; preds = %4519, %.thread.i300
   br label %get_proc.exit2997
 
 get_proc.exit2997:                                ; preds = %4527, %.thread.i2996
-  %.pr7417 = phi ptr [ %.pr7417.pre9193, %4527 ], [ %.pr7417.pre, %.thread.i2996 ]
-  %.05.i2993.ph = phi ptr [ %4528, %4527 ], [ %4531, %.thread.i2996 ]
+  %.pr7417 = phi ptr [ %.pr7417.pre, %.thread.i2996 ], [ %.pr7417.pre9193, %4527 ]
+  %.05.i2993.ph = phi ptr [ %4531, %.thread.i2996 ], [ %4528, %4527 ]
   store ptr %.05.i2993.ph, ptr @glad_glGetIntegeri_v, align 8, !tbaa !11
   %4532 = icmp eq ptr %.pr7417, null
   br i1 %4532, label %get_proc.exit2985.thread12817, label %4533
@@ -18505,8 +18505,8 @@ get_proc.exit2991:                                ; preds = %4535, %.thread.i299
   br label %get_proc.exit2985
 
 get_proc.exit2985:                                ; preds = %4543, %.thread.i2984
-  %.pr7421 = phi ptr [ %.pr7421.pre9196, %4543 ], [ %.pr7421.pre, %.thread.i2984 ]
-  %.05.i2981.ph = phi ptr [ %4544, %4543 ], [ %4547, %.thread.i2984 ]
+  %.pr7421 = phi ptr [ %.pr7421.pre, %.thread.i2984 ], [ %.pr7421.pre9196, %4543 ]
+  %.05.i2981.ph = phi ptr [ %4547, %.thread.i2984 ], [ %4544, %4543 ]
   store ptr %.05.i2981.ph, ptr @glad_glDisablei, align 8, !tbaa !11
   %4548 = icmp eq ptr %.pr7421, null
   br i1 %4548, label %get_proc.exit2973.thread12820, label %4549
@@ -18563,8 +18563,8 @@ get_proc.exit2979:                                ; preds = %4551, %.thread.i297
   br label %get_proc.exit2973
 
 get_proc.exit2973:                                ; preds = %4559, %.thread.i2972
-  %.pr7425 = phi ptr [ %.pr7425.pre9199, %4559 ], [ %.pr7425.pre, %.thread.i2972 ]
-  %.05.i2969.ph = phi ptr [ %4560, %4559 ], [ %4563, %.thread.i2972 ]
+  %.pr7425 = phi ptr [ %.pr7425.pre, %.thread.i2972 ], [ %.pr7425.pre9199, %4559 ]
+  %.05.i2969.ph = phi ptr [ %4563, %.thread.i2972 ], [ %4560, %4559 ]
   store ptr %.05.i2969.ph, ptr @glad_glBeginTransformFeedback, align 8, !tbaa !11
   %4564 = icmp eq ptr %.pr7425, null
   br i1 %4564, label %get_proc.exit2961.thread12823, label %4565
@@ -18621,8 +18621,8 @@ get_proc.exit2967:                                ; preds = %4567, %.thread.i296
   br label %get_proc.exit2961
 
 get_proc.exit2961:                                ; preds = %4575, %.thread.i2960
-  %.pr7429 = phi ptr [ %.pr7429.pre9202, %4575 ], [ %.pr7429.pre, %.thread.i2960 ]
-  %.05.i2957.ph = phi ptr [ %4576, %4575 ], [ %4579, %.thread.i2960 ]
+  %.pr7429 = phi ptr [ %.pr7429.pre, %.thread.i2960 ], [ %.pr7429.pre9202, %4575 ]
+  %.05.i2957.ph = phi ptr [ %4579, %.thread.i2960 ], [ %4576, %4575 ]
   store ptr %.05.i2957.ph, ptr @glad_glBindBufferRange, align 8, !tbaa !11
   %4580 = icmp eq ptr %.pr7429, null
   br i1 %4580, label %get_proc.exit2949.thread12826, label %4581
@@ -18679,8 +18679,8 @@ get_proc.exit2955:                                ; preds = %4583, %.thread.i295
   br label %get_proc.exit2949
 
 get_proc.exit2949:                                ; preds = %4591, %.thread.i2948
-  %.pr7433 = phi ptr [ %.pr7433.pre9205, %4591 ], [ %.pr7433.pre, %.thread.i2948 ]
-  %.05.i2945.ph = phi ptr [ %4592, %4591 ], [ %4595, %.thread.i2948 ]
+  %.pr7433 = phi ptr [ %.pr7433.pre, %.thread.i2948 ], [ %.pr7433.pre9205, %4591 ]
+  %.05.i2945.ph = phi ptr [ %4595, %.thread.i2948 ], [ %4592, %4591 ]
   store ptr %.05.i2945.ph, ptr @glad_glTransformFeedbackVaryings, align 8, !tbaa !11
   %4596 = icmp eq ptr %.pr7433, null
   br i1 %4596, label %get_proc.exit2937.thread12829, label %4597
@@ -18737,8 +18737,8 @@ get_proc.exit2943:                                ; preds = %4599, %.thread.i294
   br label %get_proc.exit2937
 
 get_proc.exit2937:                                ; preds = %4607, %.thread.i2936
-  %.pr7437 = phi ptr [ %.pr7437.pre9208, %4607 ], [ %.pr7437.pre, %.thread.i2936 ]
-  %.05.i2933.ph = phi ptr [ %4608, %4607 ], [ %4611, %.thread.i2936 ]
+  %.pr7437 = phi ptr [ %.pr7437.pre, %.thread.i2936 ], [ %.pr7437.pre9208, %4607 ]
+  %.05.i2933.ph = phi ptr [ %4611, %.thread.i2936 ], [ %4608, %4607 ]
   store ptr %.05.i2933.ph, ptr @glad_glClampColor, align 8, !tbaa !11
   %4612 = icmp eq ptr %.pr7437, null
   br i1 %4612, label %get_proc.exit2925.thread12832, label %4613
@@ -18795,8 +18795,8 @@ get_proc.exit2931:                                ; preds = %4615, %.thread.i293
   br label %get_proc.exit2925
 
 get_proc.exit2925:                                ; preds = %4623, %.thread.i2924
-  %.pr7441 = phi ptr [ %.pr7441.pre9211, %4623 ], [ %.pr7441.pre, %.thread.i2924 ]
-  %.05.i2921.ph = phi ptr [ %4624, %4623 ], [ %4627, %.thread.i2924 ]
+  %.pr7441 = phi ptr [ %.pr7441.pre, %.thread.i2924 ], [ %.pr7441.pre9211, %4623 ]
+  %.05.i2921.ph = phi ptr [ %4627, %.thread.i2924 ], [ %4624, %4623 ]
   store ptr %.05.i2921.ph, ptr @glad_glEndConditionalRender, align 8, !tbaa !11
   %4628 = icmp eq ptr %.pr7441, null
   br i1 %4628, label %get_proc.exit2913.thread12835, label %4629
@@ -18853,8 +18853,8 @@ get_proc.exit2919:                                ; preds = %4631, %.thread.i291
   br label %get_proc.exit2913
 
 get_proc.exit2913:                                ; preds = %4639, %.thread.i2912
-  %.pr7445 = phi ptr [ %.pr7445.pre9214, %4639 ], [ %.pr7445.pre, %.thread.i2912 ]
-  %.05.i2909.ph = phi ptr [ %4640, %4639 ], [ %4643, %.thread.i2912 ]
+  %.pr7445 = phi ptr [ %.pr7445.pre, %.thread.i2912 ], [ %.pr7445.pre9214, %4639 ]
+  %.05.i2909.ph = phi ptr [ %4643, %.thread.i2912 ], [ %4640, %4639 ]
   store ptr %.05.i2909.ph, ptr @glad_glGetVertexAttribIiv, align 8, !tbaa !11
   %4644 = icmp eq ptr %.pr7445, null
   br i1 %4644, label %get_proc.exit2901.thread12838, label %4645
@@ -18911,8 +18911,8 @@ get_proc.exit2907:                                ; preds = %4647, %.thread.i290
   br label %get_proc.exit2901
 
 get_proc.exit2901:                                ; preds = %4655, %.thread.i2900
-  %.pr7449 = phi ptr [ %.pr7449.pre9217, %4655 ], [ %.pr7449.pre, %.thread.i2900 ]
-  %.05.i2897.ph = phi ptr [ %4656, %4655 ], [ %4659, %.thread.i2900 ]
+  %.pr7449 = phi ptr [ %.pr7449.pre, %.thread.i2900 ], [ %.pr7449.pre9217, %4655 ]
+  %.05.i2897.ph = phi ptr [ %4659, %.thread.i2900 ], [ %4656, %4655 ]
   store ptr %.05.i2897.ph, ptr @glad_glVertexAttribI1i, align 8, !tbaa !11
   %4660 = icmp eq ptr %.pr7449, null
   br i1 %4660, label %get_proc.exit2889.thread12841, label %4661
@@ -18969,8 +18969,8 @@ get_proc.exit2895:                                ; preds = %4663, %.thread.i289
   br label %get_proc.exit2889
 
 get_proc.exit2889:                                ; preds = %4671, %.thread.i2888
-  %.pr7453 = phi ptr [ %.pr7453.pre9220, %4671 ], [ %.pr7453.pre, %.thread.i2888 ]
-  %.05.i2885.ph = phi ptr [ %4672, %4671 ], [ %4675, %.thread.i2888 ]
+  %.pr7453 = phi ptr [ %.pr7453.pre, %.thread.i2888 ], [ %.pr7453.pre9220, %4671 ]
+  %.05.i2885.ph = phi ptr [ %4675, %.thread.i2888 ], [ %4672, %4671 ]
   store ptr %.05.i2885.ph, ptr @glad_glVertexAttribI3i, align 8, !tbaa !11
   %4676 = icmp eq ptr %.pr7453, null
   br i1 %4676, label %get_proc.exit2877.thread12844, label %4677
@@ -19027,8 +19027,8 @@ get_proc.exit2883:                                ; preds = %4679, %.thread.i288
   br label %get_proc.exit2877
 
 get_proc.exit2877:                                ; preds = %4687, %.thread.i2876
-  %.pr7457 = phi ptr [ %.pr7457.pre9223, %4687 ], [ %.pr7457.pre, %.thread.i2876 ]
-  %.05.i2873.ph = phi ptr [ %4688, %4687 ], [ %4691, %.thread.i2876 ]
+  %.pr7457 = phi ptr [ %.pr7457.pre, %.thread.i2876 ], [ %.pr7457.pre9223, %4687 ]
+  %.05.i2873.ph = phi ptr [ %4691, %.thread.i2876 ], [ %4688, %4687 ]
   store ptr %.05.i2873.ph, ptr @glad_glVertexAttribI1ui, align 8, !tbaa !11
   %4692 = icmp eq ptr %.pr7457, null
   br i1 %4692, label %get_proc.exit2865.thread12847, label %4693
@@ -19085,8 +19085,8 @@ get_proc.exit2871:                                ; preds = %4695, %.thread.i287
   br label %get_proc.exit2865
 
 get_proc.exit2865:                                ; preds = %4703, %.thread.i2864
-  %.pr7461 = phi ptr [ %.pr7461.pre9226, %4703 ], [ %.pr7461.pre, %.thread.i2864 ]
-  %.05.i2861.ph = phi ptr [ %4704, %4703 ], [ %4707, %.thread.i2864 ]
+  %.pr7461 = phi ptr [ %.pr7461.pre, %.thread.i2864 ], [ %.pr7461.pre9226, %4703 ]
+  %.05.i2861.ph = phi ptr [ %4707, %.thread.i2864 ], [ %4704, %4703 ]
   store ptr %.05.i2861.ph, ptr @glad_glVertexAttribI3ui, align 8, !tbaa !11
   %4708 = icmp eq ptr %.pr7461, null
   br i1 %4708, label %get_proc.exit2853.thread12850, label %4709
@@ -19143,8 +19143,8 @@ get_proc.exit2859:                                ; preds = %4711, %.thread.i285
   br label %get_proc.exit2853
 
 get_proc.exit2853:                                ; preds = %4719, %.thread.i2852
-  %.pr7465 = phi ptr [ %.pr7465.pre9229, %4719 ], [ %.pr7465.pre, %.thread.i2852 ]
-  %.05.i2849.ph = phi ptr [ %4720, %4719 ], [ %4723, %.thread.i2852 ]
+  %.pr7465 = phi ptr [ %.pr7465.pre, %.thread.i2852 ], [ %.pr7465.pre9229, %4719 ]
+  %.05.i2849.ph = phi ptr [ %4723, %.thread.i2852 ], [ %4720, %4719 ]
   store ptr %.05.i2849.ph, ptr @glad_glVertexAttribI1iv, align 8, !tbaa !11
   %4724 = icmp eq ptr %.pr7465, null
   br i1 %4724, label %get_proc.exit2841.thread12853, label %4725
@@ -19201,8 +19201,8 @@ get_proc.exit2847:                                ; preds = %4727, %.thread.i284
   br label %get_proc.exit2841
 
 get_proc.exit2841:                                ; preds = %4735, %.thread.i2840
-  %.pr7469 = phi ptr [ %.pr7469.pre9232, %4735 ], [ %.pr7469.pre, %.thread.i2840 ]
-  %.05.i2837.ph = phi ptr [ %4736, %4735 ], [ %4739, %.thread.i2840 ]
+  %.pr7469 = phi ptr [ %.pr7469.pre, %.thread.i2840 ], [ %.pr7469.pre9232, %4735 ]
+  %.05.i2837.ph = phi ptr [ %4739, %.thread.i2840 ], [ %4736, %4735 ]
   store ptr %.05.i2837.ph, ptr @glad_glVertexAttribI3iv, align 8, !tbaa !11
   %4740 = icmp eq ptr %.pr7469, null
   br i1 %4740, label %get_proc.exit2829.thread12856, label %4741
@@ -19259,8 +19259,8 @@ get_proc.exit2835:                                ; preds = %4743, %.thread.i283
   br label %get_proc.exit2829
 
 get_proc.exit2829:                                ; preds = %4751, %.thread.i2828
-  %.pr7473 = phi ptr [ %.pr7473.pre9235, %4751 ], [ %.pr7473.pre, %.thread.i2828 ]
-  %.05.i2825.ph = phi ptr [ %4752, %4751 ], [ %4755, %.thread.i2828 ]
+  %.pr7473 = phi ptr [ %.pr7473.pre, %.thread.i2828 ], [ %.pr7473.pre9235, %4751 ]
+  %.05.i2825.ph = phi ptr [ %4755, %.thread.i2828 ], [ %4752, %4751 ]
   store ptr %.05.i2825.ph, ptr @glad_glVertexAttribI1uiv, align 8, !tbaa !11
   %4756 = icmp eq ptr %.pr7473, null
   br i1 %4756, label %get_proc.exit2817.thread12859, label %4757
@@ -19317,8 +19317,8 @@ get_proc.exit2823:                                ; preds = %4759, %.thread.i282
   br label %get_proc.exit2817
 
 get_proc.exit2817:                                ; preds = %4767, %.thread.i2816
-  %.pr7477 = phi ptr [ %.pr7477.pre9238, %4767 ], [ %.pr7477.pre, %.thread.i2816 ]
-  %.05.i2813.ph = phi ptr [ %4768, %4767 ], [ %4771, %.thread.i2816 ]
+  %.pr7477 = phi ptr [ %.pr7477.pre, %.thread.i2816 ], [ %.pr7477.pre9238, %4767 ]
+  %.05.i2813.ph = phi ptr [ %4771, %.thread.i2816 ], [ %4768, %4767 ]
   store ptr %.05.i2813.ph, ptr @glad_glVertexAttribI3uiv, align 8, !tbaa !11
   %4772 = icmp eq ptr %.pr7477, null
   br i1 %4772, label %get_proc.exit2805.thread12862, label %4773
@@ -19375,8 +19375,8 @@ get_proc.exit2811:                                ; preds = %4775, %.thread.i281
   br label %get_proc.exit2805
 
 get_proc.exit2805:                                ; preds = %4783, %.thread.i2804
-  %.pr7481 = phi ptr [ %.pr7481.pre9241, %4783 ], [ %.pr7481.pre, %.thread.i2804 ]
-  %.05.i2801.ph = phi ptr [ %4784, %4783 ], [ %4787, %.thread.i2804 ]
+  %.pr7481 = phi ptr [ %.pr7481.pre, %.thread.i2804 ], [ %.pr7481.pre9241, %4783 ]
+  %.05.i2801.ph = phi ptr [ %4787, %.thread.i2804 ], [ %4784, %4783 ]
   store ptr %.05.i2801.ph, ptr @glad_glVertexAttribI4bv, align 8, !tbaa !11
   %4788 = icmp eq ptr %.pr7481, null
   br i1 %4788, label %get_proc.exit2793.thread12865, label %4789
@@ -19433,8 +19433,8 @@ get_proc.exit2799:                                ; preds = %4791, %.thread.i279
   br label %get_proc.exit2793
 
 get_proc.exit2793:                                ; preds = %4799, %.thread.i2792
-  %.pr7485 = phi ptr [ %.pr7485.pre9244, %4799 ], [ %.pr7485.pre, %.thread.i2792 ]
-  %.05.i2789.ph = phi ptr [ %4800, %4799 ], [ %4803, %.thread.i2792 ]
+  %.pr7485 = phi ptr [ %.pr7485.pre, %.thread.i2792 ], [ %.pr7485.pre9244, %4799 ]
+  %.05.i2789.ph = phi ptr [ %4803, %.thread.i2792 ], [ %4800, %4799 ]
   store ptr %.05.i2789.ph, ptr @glad_glVertexAttribI4ubv, align 8, !tbaa !11
   %4804 = icmp eq ptr %.pr7485, null
   br i1 %4804, label %get_proc.exit2781.thread12868, label %4805
@@ -19491,8 +19491,8 @@ get_proc.exit2787:                                ; preds = %4807, %.thread.i278
   br label %get_proc.exit2781
 
 get_proc.exit2781:                                ; preds = %4815, %.thread.i2780
-  %.pr7489 = phi ptr [ %.pr7489.pre9247, %4815 ], [ %.pr7489.pre, %.thread.i2780 ]
-  %.05.i2777.ph = phi ptr [ %4816, %4815 ], [ %4819, %.thread.i2780 ]
+  %.pr7489 = phi ptr [ %.pr7489.pre, %.thread.i2780 ], [ %.pr7489.pre9247, %4815 ]
+  %.05.i2777.ph = phi ptr [ %4819, %.thread.i2780 ], [ %4816, %4815 ]
   store ptr %.05.i2777.ph, ptr @glad_glGetUniformuiv, align 8, !tbaa !11
   %4820 = icmp eq ptr %.pr7489, null
   br i1 %4820, label %get_proc.exit2769.thread12871, label %4821
@@ -19549,8 +19549,8 @@ get_proc.exit2775:                                ; preds = %4823, %.thread.i277
   br label %get_proc.exit2769
 
 get_proc.exit2769:                                ; preds = %4831, %.thread.i2768
-  %.pr7493 = phi ptr [ %.pr7493.pre9250, %4831 ], [ %.pr7493.pre, %.thread.i2768 ]
-  %.05.i2765.ph = phi ptr [ %4832, %4831 ], [ %4835, %.thread.i2768 ]
+  %.pr7493 = phi ptr [ %.pr7493.pre, %.thread.i2768 ], [ %.pr7493.pre9250, %4831 ]
+  %.05.i2765.ph = phi ptr [ %4835, %.thread.i2768 ], [ %4832, %4831 ]
   store ptr %.05.i2765.ph, ptr @glad_glGetFragDataLocation, align 8, !tbaa !11
   %4836 = icmp eq ptr %.pr7493, null
   br i1 %4836, label %get_proc.exit2757.thread12874, label %4837
@@ -19607,8 +19607,8 @@ get_proc.exit2763:                                ; preds = %4839, %.thread.i276
   br label %get_proc.exit2757
 
 get_proc.exit2757:                                ; preds = %4847, %.thread.i2756
-  %.pr7497 = phi ptr [ %.pr7497.pre9253, %4847 ], [ %.pr7497.pre, %.thread.i2756 ]
-  %.05.i2753.ph = phi ptr [ %4848, %4847 ], [ %4851, %.thread.i2756 ]
+  %.pr7497 = phi ptr [ %.pr7497.pre, %.thread.i2756 ], [ %.pr7497.pre9253, %4847 ]
+  %.05.i2753.ph = phi ptr [ %4851, %.thread.i2756 ], [ %4848, %4847 ]
   store ptr %.05.i2753.ph, ptr @glad_glUniform2ui, align 8, !tbaa !11
   %4852 = icmp eq ptr %.pr7497, null
   br i1 %4852, label %get_proc.exit2745.thread12877, label %4853
@@ -19665,8 +19665,8 @@ get_proc.exit2751:                                ; preds = %4855, %.thread.i275
   br label %get_proc.exit2745
 
 get_proc.exit2745:                                ; preds = %4863, %.thread.i2744
-  %.pr7501 = phi ptr [ %.pr7501.pre9256, %4863 ], [ %.pr7501.pre, %.thread.i2744 ]
-  %.05.i2741.ph = phi ptr [ %4864, %4863 ], [ %4867, %.thread.i2744 ]
+  %.pr7501 = phi ptr [ %.pr7501.pre, %.thread.i2744 ], [ %.pr7501.pre9256, %4863 ]
+  %.05.i2741.ph = phi ptr [ %4867, %.thread.i2744 ], [ %4864, %4863 ]
   store ptr %.05.i2741.ph, ptr @glad_glUniform4ui, align 8, !tbaa !11
   %4868 = icmp eq ptr %.pr7501, null
   br i1 %4868, label %get_proc.exit2733.thread12880, label %4869
@@ -19723,8 +19723,8 @@ get_proc.exit2739:                                ; preds = %4871, %.thread.i273
   br label %get_proc.exit2733
 
 get_proc.exit2733:                                ; preds = %4879, %.thread.i2732
-  %.pr7505 = phi ptr [ %.pr7505.pre9259, %4879 ], [ %.pr7505.pre, %.thread.i2732 ]
-  %.05.i2729.ph = phi ptr [ %4880, %4879 ], [ %4883, %.thread.i2732 ]
+  %.pr7505 = phi ptr [ %.pr7505.pre, %.thread.i2732 ], [ %.pr7505.pre9259, %4879 ]
+  %.05.i2729.ph = phi ptr [ %4883, %.thread.i2732 ], [ %4880, %4879 ]
   store ptr %.05.i2729.ph, ptr @glad_glUniform2uiv, align 8, !tbaa !11
   %4884 = icmp eq ptr %.pr7505, null
   br i1 %4884, label %get_proc.exit2721.thread12883, label %4885
@@ -19781,8 +19781,8 @@ get_proc.exit2727:                                ; preds = %4887, %.thread.i272
   br label %get_proc.exit2721
 
 get_proc.exit2721:                                ; preds = %4895, %.thread.i2720
-  %.pr7509 = phi ptr [ %.pr7509.pre9262, %4895 ], [ %.pr7509.pre, %.thread.i2720 ]
-  %.05.i2717.ph = phi ptr [ %4896, %4895 ], [ %4899, %.thread.i2720 ]
+  %.pr7509 = phi ptr [ %.pr7509.pre, %.thread.i2720 ], [ %.pr7509.pre9262, %4895 ]
+  %.05.i2717.ph = phi ptr [ %4899, %.thread.i2720 ], [ %4896, %4895 ]
   store ptr %.05.i2717.ph, ptr @glad_glUniform4uiv, align 8, !tbaa !11
   %4900 = icmp eq ptr %.pr7509, null
   br i1 %4900, label %get_proc.exit2709.thread12886, label %4901
@@ -19839,8 +19839,8 @@ get_proc.exit2715:                                ; preds = %4903, %.thread.i271
   br label %get_proc.exit2709
 
 get_proc.exit2709:                                ; preds = %4911, %.thread.i2708
-  %.pr7513 = phi ptr [ %.pr7513.pre9265, %4911 ], [ %.pr7513.pre, %.thread.i2708 ]
-  %.05.i2705.ph = phi ptr [ %4912, %4911 ], [ %4915, %.thread.i2708 ]
+  %.pr7513 = phi ptr [ %.pr7513.pre, %.thread.i2708 ], [ %.pr7513.pre9265, %4911 ]
+  %.05.i2705.ph = phi ptr [ %4915, %.thread.i2708 ], [ %4912, %4911 ]
   store ptr %.05.i2705.ph, ptr @glad_glTexParameterIuiv, align 8, !tbaa !11
   %4916 = icmp eq ptr %.pr7513, null
   br i1 %4916, label %get_proc.exit2697.thread12889, label %4917
@@ -19897,8 +19897,8 @@ get_proc.exit2703:                                ; preds = %4919, %.thread.i270
   br label %get_proc.exit2697
 
 get_proc.exit2697:                                ; preds = %4927, %.thread.i2696
-  %.pr7517 = phi ptr [ %.pr7517.pre9268, %4927 ], [ %.pr7517.pre, %.thread.i2696 ]
-  %.05.i2693.ph = phi ptr [ %4928, %4927 ], [ %4931, %.thread.i2696 ]
+  %.pr7517 = phi ptr [ %.pr7517.pre, %.thread.i2696 ], [ %.pr7517.pre9268, %4927 ]
+  %.05.i2693.ph = phi ptr [ %4931, %.thread.i2696 ], [ %4928, %4927 ]
   store ptr %.05.i2693.ph, ptr @glad_glGetTexParameterIuiv, align 8, !tbaa !11
   %4932 = icmp eq ptr %.pr7517, null
   br i1 %4932, label %get_proc.exit2685.thread12892, label %4933
@@ -19955,8 +19955,8 @@ get_proc.exit2691:                                ; preds = %4935, %.thread.i269
   br label %get_proc.exit2685
 
 get_proc.exit2685:                                ; preds = %4943, %.thread.i2684
-  %.pr7521 = phi ptr [ %.pr7521.pre9271, %4943 ], [ %.pr7521.pre, %.thread.i2684 ]
-  %.05.i2681.ph = phi ptr [ %4944, %4943 ], [ %4947, %.thread.i2684 ]
+  %.pr7521 = phi ptr [ %.pr7521.pre, %.thread.i2684 ], [ %.pr7521.pre9271, %4943 ]
+  %.05.i2681.ph = phi ptr [ %4947, %.thread.i2684 ], [ %4944, %4943 ]
   store ptr %.05.i2681.ph, ptr @glad_glClearBufferuiv, align 8, !tbaa !11
   %4948 = icmp eq ptr %.pr7521, null
   br i1 %4948, label %get_proc.exit2673.thread12895, label %4949
@@ -20013,8 +20013,8 @@ get_proc.exit2679:                                ; preds = %4951, %.thread.i267
   br label %get_proc.exit2673
 
 get_proc.exit2673:                                ; preds = %4959, %.thread.i2672
-  %.pr7525 = phi ptr [ %.pr7525.pre9274, %4959 ], [ %.pr7525.pre, %.thread.i2672 ]
-  %.05.i2669.ph = phi ptr [ %4960, %4959 ], [ %4963, %.thread.i2672 ]
+  %.pr7525 = phi ptr [ %.pr7525.pre, %.thread.i2672 ], [ %.pr7525.pre9274, %4959 ]
+  %.05.i2669.ph = phi ptr [ %4963, %.thread.i2672 ], [ %4960, %4959 ]
   store ptr %.05.i2669.ph, ptr @glad_glClearBufferfi, align 8, !tbaa !11
   %4964 = icmp eq ptr %.pr7525, null
   br i1 %4964, label %get_proc.exit2661.thread12898, label %4965
@@ -20071,8 +20071,8 @@ get_proc.exit2667:                                ; preds = %4967, %.thread.i266
   br label %get_proc.exit2661
 
 get_proc.exit2661:                                ; preds = %4975, %.thread.i2660
-  %.pr7529 = phi ptr [ %.pr7529.pre9277, %4975 ], [ %.pr7529.pre, %.thread.i2660 ]
-  %.05.i2657.ph = phi ptr [ %4976, %4975 ], [ %4979, %.thread.i2660 ]
+  %.pr7529 = phi ptr [ %.pr7529.pre, %.thread.i2660 ], [ %.pr7529.pre9277, %4975 ]
+  %.05.i2657.ph = phi ptr [ %4979, %.thread.i2660 ], [ %4976, %4975 ]
   store ptr %.05.i2657.ph, ptr @glad_glIsRenderbuffer, align 8, !tbaa !11
   %4980 = icmp eq ptr %.pr7529, null
   br i1 %4980, label %get_proc.exit2649.thread12901, label %4981
@@ -20129,8 +20129,8 @@ get_proc.exit2655:                                ; preds = %4983, %.thread.i265
   br label %get_proc.exit2649
 
 get_proc.exit2649:                                ; preds = %4991, %.thread.i2648
-  %.pr7533 = phi ptr [ %.pr7533.pre9280, %4991 ], [ %.pr7533.pre, %.thread.i2648 ]
-  %.05.i2645.ph = phi ptr [ %4992, %4991 ], [ %4995, %.thread.i2648 ]
+  %.pr7533 = phi ptr [ %.pr7533.pre, %.thread.i2648 ], [ %.pr7533.pre9280, %4991 ]
+  %.05.i2645.ph = phi ptr [ %4995, %.thread.i2648 ], [ %4992, %4991 ]
   store ptr %.05.i2645.ph, ptr @glad_glDeleteRenderbuffers, align 8, !tbaa !11
   %4996 = icmp eq ptr %.pr7533, null
   br i1 %4996, label %get_proc.exit2637.thread12904, label %4997
@@ -20187,8 +20187,8 @@ get_proc.exit2643:                                ; preds = %4999, %.thread.i264
   br label %get_proc.exit2637
 
 get_proc.exit2637:                                ; preds = %5007, %.thread.i2636
-  %.pr7537 = phi ptr [ %.pr7537.pre9283, %5007 ], [ %.pr7537.pre, %.thread.i2636 ]
-  %.05.i2633.ph = phi ptr [ %5008, %5007 ], [ %5011, %.thread.i2636 ]
+  %.pr7537 = phi ptr [ %.pr7537.pre, %.thread.i2636 ], [ %.pr7537.pre9283, %5007 ]
+  %.05.i2633.ph = phi ptr [ %5011, %.thread.i2636 ], [ %5008, %5007 ]
   store ptr %.05.i2633.ph, ptr @glad_glRenderbufferStorage, align 8, !tbaa !11
   %5012 = icmp eq ptr %.pr7537, null
   br i1 %5012, label %get_proc.exit2625.thread12907, label %5013
@@ -20245,8 +20245,8 @@ get_proc.exit2631:                                ; preds = %5015, %.thread.i263
   br label %get_proc.exit2625
 
 get_proc.exit2625:                                ; preds = %5023, %.thread.i2624
-  %.pr7541 = phi ptr [ %.pr7541.pre9286, %5023 ], [ %.pr7541.pre, %.thread.i2624 ]
-  %.05.i2621.ph = phi ptr [ %5024, %5023 ], [ %5027, %.thread.i2624 ]
+  %.pr7541 = phi ptr [ %.pr7541.pre, %.thread.i2624 ], [ %.pr7541.pre9286, %5023 ]
+  %.05.i2621.ph = phi ptr [ %5027, %.thread.i2624 ], [ %5024, %5023 ]
   store ptr %.05.i2621.ph, ptr @glad_glIsFramebuffer, align 8, !tbaa !11
   %5028 = icmp eq ptr %.pr7541, null
   br i1 %5028, label %get_proc.exit2613.thread12910, label %5029
@@ -20303,8 +20303,8 @@ get_proc.exit2619:                                ; preds = %5031, %.thread.i261
   br label %get_proc.exit2613
 
 get_proc.exit2613:                                ; preds = %5039, %.thread.i2612
-  %.pr7545 = phi ptr [ %.pr7545.pre9289, %5039 ], [ %.pr7545.pre, %.thread.i2612 ]
-  %.05.i2609.ph = phi ptr [ %5040, %5039 ], [ %5043, %.thread.i2612 ]
+  %.pr7545 = phi ptr [ %.pr7545.pre, %.thread.i2612 ], [ %.pr7545.pre9289, %5039 ]
+  %.05.i2609.ph = phi ptr [ %5043, %.thread.i2612 ], [ %5040, %5039 ]
   store ptr %.05.i2609.ph, ptr @glad_glDeleteFramebuffers, align 8, !tbaa !11
   %5044 = icmp eq ptr %.pr7545, null
   br i1 %5044, label %get_proc.exit2607.thread, label %5045
@@ -20421,8 +20421,8 @@ get_proc.exit2595:                                ; preds = %5063, %.thread.i259
   br label %get_proc.exit2589
 
 get_proc.exit2589:                                ; preds = %5071, %.thread.i2588
-  %.pr7553 = phi ptr [ %.pr7553.pre9292, %5071 ], [ %.pr7553.pre, %.thread.i2588 ]
-  %.05.i2585.ph = phi ptr [ %5072, %5071 ], [ %5075, %.thread.i2588 ]
+  %.pr7553 = phi ptr [ %.pr7553.pre, %.thread.i2588 ], [ %.pr7553.pre9292, %5071 ]
+  %.05.i2585.ph = phi ptr [ %5075, %.thread.i2588 ], [ %5072, %5071 ]
   store ptr %.05.i2585.ph, ptr @glad_glFramebufferTexture2D, align 8, !tbaa !11
   %5076 = icmp eq ptr %.pr7553, null
   br i1 %5076, label %get_proc.exit2577.thread12916, label %5077
@@ -20479,8 +20479,8 @@ get_proc.exit2583:                                ; preds = %5079, %.thread.i258
   br label %get_proc.exit2577
 
 get_proc.exit2577:                                ; preds = %5087, %.thread.i2576
-  %.pr7557 = phi ptr [ %.pr7557.pre9295, %5087 ], [ %.pr7557.pre, %.thread.i2576 ]
-  %.05.i2573.ph = phi ptr [ %5088, %5087 ], [ %5091, %.thread.i2576 ]
+  %.pr7557 = phi ptr [ %.pr7557.pre, %.thread.i2576 ], [ %.pr7557.pre9295, %5087 ]
+  %.05.i2573.ph = phi ptr [ %5091, %.thread.i2576 ], [ %5088, %5087 ]
   store ptr %.05.i2573.ph, ptr @glad_glFramebufferRenderbuffer, align 8, !tbaa !11
   %5092 = icmp eq ptr %.pr7557, null
   br i1 %5092, label %get_proc.exit2565.thread12919, label %5093
@@ -20537,8 +20537,8 @@ get_proc.exit2571:                                ; preds = %5095, %.thread.i257
   br label %get_proc.exit2565
 
 get_proc.exit2565:                                ; preds = %5103, %.thread.i2564
-  %.pr7561 = phi ptr [ %.pr7561.pre9298, %5103 ], [ %.pr7561.pre, %.thread.i2564 ]
-  %.05.i2561.ph = phi ptr [ %5104, %5103 ], [ %5107, %.thread.i2564 ]
+  %.pr7561 = phi ptr [ %.pr7561.pre, %.thread.i2564 ], [ %.pr7561.pre9298, %5103 ]
+  %.05.i2561.ph = phi ptr [ %5107, %.thread.i2564 ], [ %5104, %5103 ]
   store ptr %.05.i2561.ph, ptr @glad_glGenerateMipmap, align 8, !tbaa !11
   %5108 = icmp eq ptr %.pr7561, null
   br i1 %5108, label %get_proc.exit2553.thread12922, label %5109
@@ -20595,8 +20595,8 @@ get_proc.exit2559:                                ; preds = %5111, %.thread.i255
   br label %get_proc.exit2553
 
 get_proc.exit2553:                                ; preds = %5119, %.thread.i2552
-  %.pr7565 = phi ptr [ %.pr7565.pre9301, %5119 ], [ %.pr7565.pre, %.thread.i2552 ]
-  %.05.i2549.ph = phi ptr [ %5120, %5119 ], [ %5123, %.thread.i2552 ]
+  %.pr7565 = phi ptr [ %.pr7565.pre, %.thread.i2552 ], [ %.pr7565.pre9301, %5119 ]
+  %.05.i2549.ph = phi ptr [ %5123, %.thread.i2552 ], [ %5120, %5119 ]
   store ptr %.05.i2549.ph, ptr @glad_glRenderbufferStorageMultisample, align 8, !tbaa !11
   %5124 = icmp eq ptr %.pr7565, null
   br i1 %5124, label %get_proc.exit2541.thread12925, label %5125
@@ -20653,8 +20653,8 @@ get_proc.exit2547:                                ; preds = %5127, %.thread.i254
   br label %get_proc.exit2541
 
 get_proc.exit2541:                                ; preds = %5135, %.thread.i2540
-  %.pr7569 = phi ptr [ %.pr7569.pre9304, %5135 ], [ %.pr7569.pre, %.thread.i2540 ]
-  %.05.i2537.ph = phi ptr [ %5136, %5135 ], [ %5139, %.thread.i2540 ]
+  %.pr7569 = phi ptr [ %.pr7569.pre, %.thread.i2540 ], [ %.pr7569.pre9304, %5135 ]
+  %.05.i2537.ph = phi ptr [ %5139, %.thread.i2540 ], [ %5136, %5135 ]
   store ptr %.05.i2537.ph, ptr @glad_glMapBufferRange, align 8, !tbaa !11
   %5140 = icmp eq ptr %.pr7569, null
   br i1 %5140, label %get_proc.exit2529.thread12928, label %5141
@@ -20711,8 +20711,8 @@ get_proc.exit2535:                                ; preds = %5143, %.thread.i253
   br label %get_proc.exit2529
 
 get_proc.exit2529:                                ; preds = %5151, %.thread.i2528
-  %.pr7573 = phi ptr [ %.pr7573.pre9307, %5151 ], [ %.pr7573.pre, %.thread.i2528 ]
-  %.05.i2525.ph = phi ptr [ %5152, %5151 ], [ %5155, %.thread.i2528 ]
+  %.pr7573 = phi ptr [ %.pr7573.pre, %.thread.i2528 ], [ %.pr7573.pre9307, %5151 ]
+  %.05.i2525.ph = phi ptr [ %5155, %.thread.i2528 ], [ %5152, %5151 ]
   store ptr %.05.i2525.ph, ptr @glad_glBindVertexArray, align 8, !tbaa !11
   %5156 = icmp eq ptr %.pr7573, null
   br i1 %5156, label %get_proc.exit2517.thread12931, label %5157
@@ -20774,8 +20774,8 @@ get_proc.exit2517.thread:                         ; preds = %get_proc.exit2523
   br label %get_proc.exit2517
 
 get_proc.exit2517:                                ; preds = %5167, %.thread.i2516
-  %.pr7577 = phi ptr [ %.pr7577.pre9310, %5167 ], [ %.pr7577.pre, %.thread.i2516 ]
-  %.05.i2513.ph = phi ptr [ %5168, %5167 ], [ %5171, %.thread.i2516 ]
+  %.pr7577 = phi ptr [ %.pr7577.pre, %.thread.i2516 ], [ %.pr7577.pre9310, %5167 ]
+  %.05.i2513.ph = phi ptr [ %5171, %.thread.i2516 ], [ %5168, %5167 ]
   store ptr %.05.i2513.ph, ptr @glad_glGenVertexArrays, align 8, !tbaa !11
   %5172 = icmp eq ptr %.pr7577, null
   br i1 %5172, label %get_proc.exit2511, label %5173
@@ -20892,8 +20892,8 @@ get_proc.exit2499:                                ; preds = %5194, %.thread.i249
   br label %get_proc.exit2493
 
 get_proc.exit2493:                                ; preds = %5202, %.thread.i2492
-  %.pr7583 = phi ptr [ %.pr7583.pre9313, %5202 ], [ %.pr7583.pre, %.thread.i2492 ]
-  %.05.i2489.ph = phi ptr [ %5203, %5202 ], [ %5206, %.thread.i2492 ]
+  %.pr7583 = phi ptr [ %.pr7583.pre, %.thread.i2492 ], [ %.pr7583.pre9313, %5202 ]
+  %.05.i2489.ph = phi ptr [ %5206, %.thread.i2492 ], [ %5203, %5202 ]
   store ptr %.05.i2489.ph, ptr @glad_glTexBuffer, align 8, !tbaa !11
   %5207 = icmp eq ptr %.pr7583, null
   br i1 %5207, label %get_proc.exit2481.thread12937, label %5208
@@ -20950,8 +20950,8 @@ get_proc.exit2487:                                ; preds = %5210, %.thread.i248
   br label %get_proc.exit2481
 
 get_proc.exit2481:                                ; preds = %5218, %.thread.i2480
-  %.pr7587 = phi ptr [ %.pr7587.pre9316, %5218 ], [ %.pr7587.pre, %.thread.i2480 ]
-  %.05.i2477.ph = phi ptr [ %5219, %5218 ], [ %5222, %.thread.i2480 ]
+  %.pr7587 = phi ptr [ %.pr7587.pre, %.thread.i2480 ], [ %.pr7587.pre9316, %5218 ]
+  %.05.i2477.ph = phi ptr [ %5222, %.thread.i2480 ], [ %5219, %5218 ]
   store ptr %.05.i2477.ph, ptr @glad_glCopyBufferSubData, align 8, !tbaa !11
   %5223 = icmp eq ptr %.pr7587, null
   br i1 %5223, label %get_proc.exit2469.thread12940, label %5224
@@ -21008,8 +21008,8 @@ get_proc.exit2475:                                ; preds = %5226, %.thread.i247
   br label %get_proc.exit2469
 
 get_proc.exit2469:                                ; preds = %5234, %.thread.i2468
-  %.pr7591 = phi ptr [ %.pr7591.pre9319, %5234 ], [ %.pr7591.pre, %.thread.i2468 ]
-  %.05.i2465.ph = phi ptr [ %5235, %5234 ], [ %5238, %.thread.i2468 ]
+  %.pr7591 = phi ptr [ %.pr7591.pre, %.thread.i2468 ], [ %.pr7591.pre9319, %5234 ]
+  %.05.i2465.ph = phi ptr [ %5238, %.thread.i2468 ], [ %5235, %5234 ]
   store ptr %.05.i2465.ph, ptr @glad_glGetActiveUniformsiv, align 8, !tbaa !11
   %5239 = icmp eq ptr %.pr7591, null
   br i1 %5239, label %get_proc.exit2457.thread12943, label %5240
@@ -21066,8 +21066,8 @@ get_proc.exit2463:                                ; preds = %5242, %.thread.i246
   br label %get_proc.exit2457
 
 get_proc.exit2457:                                ; preds = %5250, %.thread.i2456
-  %.pr7595 = phi ptr [ %.pr7595.pre9322, %5250 ], [ %.pr7595.pre, %.thread.i2456 ]
-  %.05.i2453.ph = phi ptr [ %5251, %5250 ], [ %5254, %.thread.i2456 ]
+  %.pr7595 = phi ptr [ %.pr7595.pre, %.thread.i2456 ], [ %.pr7595.pre9322, %5250 ]
+  %.05.i2453.ph = phi ptr [ %5254, %.thread.i2456 ], [ %5251, %5250 ]
   store ptr %.05.i2453.ph, ptr @glad_glGetUniformBlockIndex, align 8, !tbaa !11
   %5255 = icmp eq ptr %.pr7595, null
   br i1 %5255, label %get_proc.exit2445.thread12946, label %5256
@@ -21124,8 +21124,8 @@ get_proc.exit2451:                                ; preds = %5258, %.thread.i245
   br label %get_proc.exit2445
 
 get_proc.exit2445:                                ; preds = %5266, %.thread.i2444
-  %.pr7599 = phi ptr [ %.pr7599.pre9325, %5266 ], [ %.pr7599.pre, %.thread.i2444 ]
-  %.05.i2441.ph = phi ptr [ %5267, %5266 ], [ %5270, %.thread.i2444 ]
+  %.pr7599 = phi ptr [ %.pr7599.pre, %.thread.i2444 ], [ %.pr7599.pre9325, %5266 ]
+  %.05.i2441.ph = phi ptr [ %5270, %.thread.i2444 ], [ %5267, %5266 ]
   store ptr %.05.i2441.ph, ptr @glad_glGetActiveUniformBlockName, align 8, !tbaa !11
   %5271 = icmp eq ptr %.pr7599, null
   br i1 %5271, label %get_proc.exit2433.thread12949, label %5272
@@ -21182,8 +21182,8 @@ get_proc.exit2439:                                ; preds = %5274, %.thread.i243
   br label %get_proc.exit2433
 
 get_proc.exit2433:                                ; preds = %5282, %.thread.i2432
-  %.pr7603 = phi ptr [ %.pr7603.pre9328, %5282 ], [ %.pr7603.pre, %.thread.i2432 ]
-  %.05.i2429.ph = phi ptr [ %5283, %5282 ], [ %5286, %.thread.i2432 ]
+  %.pr7603 = phi ptr [ %.pr7603.pre, %.thread.i2432 ], [ %.pr7603.pre9328, %5282 ]
+  %.05.i2429.ph = phi ptr [ %5286, %.thread.i2432 ], [ %5283, %5282 ]
   store ptr %.05.i2429.ph, ptr @glad_glBindBufferRange, align 8, !tbaa !11
   %5287 = icmp eq ptr %.pr7603, null
   br i1 %5287, label %get_proc.exit2427.thread, label %5288
@@ -21334,8 +21334,8 @@ get_proc.exit2409:                                ; preds = %5317, %.thread.i240
   br label %get_proc.exit2403
 
 get_proc.exit2403:                                ; preds = %5325, %.thread.i2402
-  %.pr7611 = phi ptr [ %.pr7611.pre9331, %5325 ], [ %.pr7611.pre, %.thread.i2402 ]
-  %.05.i2399.ph = phi ptr [ %5326, %5325 ], [ %5329, %.thread.i2402 ]
+  %.pr7611 = phi ptr [ %.pr7611.pre, %.thread.i2402 ], [ %.pr7611.pre9331, %5325 ]
+  %.05.i2399.ph = phi ptr [ %5329, %.thread.i2402 ], [ %5326, %5325 ]
   store ptr %.05.i2399.ph, ptr @glad_glDrawElementsInstancedBaseVertex, align 8, !tbaa !11
   %5330 = icmp eq ptr %.pr7611, null
   br i1 %5330, label %get_proc.exit2391.thread12955, label %5331
@@ -21392,8 +21392,8 @@ get_proc.exit2397:                                ; preds = %5333, %.thread.i239
   br label %get_proc.exit2391
 
 get_proc.exit2391:                                ; preds = %5341, %.thread.i2390
-  %.pr7615 = phi ptr [ %.pr7615.pre9334, %5341 ], [ %.pr7615.pre, %.thread.i2390 ]
-  %.05.i2387.ph = phi ptr [ %5342, %5341 ], [ %5345, %.thread.i2390 ]
+  %.pr7615 = phi ptr [ %.pr7615.pre, %.thread.i2390 ], [ %.pr7615.pre9334, %5341 ]
+  %.05.i2387.ph = phi ptr [ %5345, %.thread.i2390 ], [ %5342, %5341 ]
   store ptr %.05.i2387.ph, ptr @glad_glProvokingVertex, align 8, !tbaa !11
   %5346 = icmp eq ptr %.pr7615, null
   br i1 %5346, label %get_proc.exit2379.thread12958, label %5347
@@ -21450,8 +21450,8 @@ get_proc.exit2385:                                ; preds = %5349, %.thread.i238
   br label %get_proc.exit2379
 
 get_proc.exit2379:                                ; preds = %5357, %.thread.i2378
-  %.pr7619 = phi ptr [ %.pr7619.pre9337, %5357 ], [ %.pr7619.pre, %.thread.i2378 ]
-  %.05.i2375.ph = phi ptr [ %5358, %5357 ], [ %5361, %.thread.i2378 ]
+  %.pr7619 = phi ptr [ %.pr7619.pre, %.thread.i2378 ], [ %.pr7619.pre9337, %5357 ]
+  %.05.i2375.ph = phi ptr [ %5361, %.thread.i2378 ], [ %5358, %5357 ]
   store ptr %.05.i2375.ph, ptr @glad_glIsSync, align 8, !tbaa !11
   %5362 = icmp eq ptr %.pr7619, null
   br i1 %5362, label %get_proc.exit2367.thread12961, label %5363
@@ -21508,8 +21508,8 @@ get_proc.exit2373:                                ; preds = %5365, %.thread.i237
   br label %get_proc.exit2367
 
 get_proc.exit2367:                                ; preds = %5373, %.thread.i2366
-  %.pr7623 = phi ptr [ %.pr7623.pre9340, %5373 ], [ %.pr7623.pre, %.thread.i2366 ]
-  %.05.i2363.ph = phi ptr [ %5374, %5373 ], [ %5377, %.thread.i2366 ]
+  %.pr7623 = phi ptr [ %.pr7623.pre, %.thread.i2366 ], [ %.pr7623.pre9340, %5373 ]
+  %.05.i2363.ph = phi ptr [ %5377, %.thread.i2366 ], [ %5374, %5373 ]
   store ptr %.05.i2363.ph, ptr @glad_glClientWaitSync, align 8, !tbaa !11
   %5378 = icmp eq ptr %.pr7623, null
   br i1 %5378, label %get_proc.exit2355.thread12964, label %5379
@@ -21566,8 +21566,8 @@ get_proc.exit2361:                                ; preds = %5381, %.thread.i236
   br label %get_proc.exit2355
 
 get_proc.exit2355:                                ; preds = %5389, %.thread.i2354
-  %.pr7627 = phi ptr [ %.pr7627.pre9343, %5389 ], [ %.pr7627.pre, %.thread.i2354 ]
-  %.05.i2351.ph = phi ptr [ %5390, %5389 ], [ %5393, %.thread.i2354 ]
+  %.pr7627 = phi ptr [ %.pr7627.pre, %.thread.i2354 ], [ %.pr7627.pre9343, %5389 ]
+  %.05.i2351.ph = phi ptr [ %5393, %.thread.i2354 ], [ %5390, %5389 ]
   store ptr %.05.i2351.ph, ptr @glad_glGetInteger64v, align 8, !tbaa !11
   %5394 = icmp eq ptr %.pr7627, null
   br i1 %5394, label %get_proc.exit2343.thread12967, label %5395
@@ -21624,8 +21624,8 @@ get_proc.exit2349:                                ; preds = %5397, %.thread.i234
   br label %get_proc.exit2343
 
 get_proc.exit2343:                                ; preds = %5405, %.thread.i2342
-  %.pr7631 = phi ptr [ %.pr7631.pre9346, %5405 ], [ %.pr7631.pre, %.thread.i2342 ]
-  %.05.i2339.ph = phi ptr [ %5406, %5405 ], [ %5409, %.thread.i2342 ]
+  %.pr7631 = phi ptr [ %.pr7631.pre, %.thread.i2342 ], [ %.pr7631.pre9346, %5405 ]
+  %.05.i2339.ph = phi ptr [ %5409, %.thread.i2342 ], [ %5406, %5405 ]
   store ptr %.05.i2339.ph, ptr @glad_glGetInteger64i_v, align 8, !tbaa !11
   %5410 = icmp eq ptr %.pr7631, null
   br i1 %5410, label %get_proc.exit2331.thread12970, label %5411
@@ -21682,8 +21682,8 @@ get_proc.exit2337:                                ; preds = %5413, %.thread.i233
   br label %get_proc.exit2331
 
 get_proc.exit2331:                                ; preds = %5421, %.thread.i2330
-  %.pr7635 = phi ptr [ %.pr7635.pre9349, %5421 ], [ %.pr7635.pre, %.thread.i2330 ]
-  %.05.i2327.ph = phi ptr [ %5422, %5421 ], [ %5425, %.thread.i2330 ]
+  %.pr7635 = phi ptr [ %.pr7635.pre, %.thread.i2330 ], [ %.pr7635.pre9349, %5421 ]
+  %.05.i2327.ph = phi ptr [ %5425, %.thread.i2330 ], [ %5422, %5421 ]
   store ptr %.05.i2327.ph, ptr @glad_glFramebufferTexture, align 8, !tbaa !11
   %5426 = icmp eq ptr %.pr7635, null
   br i1 %5426, label %get_proc.exit2319.thread12973, label %5427
@@ -21740,8 +21740,8 @@ get_proc.exit2325:                                ; preds = %5429, %.thread.i232
   br label %get_proc.exit2319
 
 get_proc.exit2319:                                ; preds = %5437, %.thread.i2318
-  %.pr7639 = phi ptr [ %.pr7639.pre9352, %5437 ], [ %.pr7639.pre, %.thread.i2318 ]
-  %.05.i2315.ph = phi ptr [ %5438, %5437 ], [ %5441, %.thread.i2318 ]
+  %.pr7639 = phi ptr [ %.pr7639.pre, %.thread.i2318 ], [ %.pr7639.pre9352, %5437 ]
+  %.05.i2315.ph = phi ptr [ %5441, %.thread.i2318 ], [ %5438, %5437 ]
   store ptr %.05.i2315.ph, ptr @glad_glTexImage3DMultisample, align 8, !tbaa !11
   %5442 = icmp eq ptr %.pr7639, null
   br i1 %5442, label %get_proc.exit2313.thread, label %5443
@@ -21892,8 +21892,8 @@ get_proc.exit2295:                                ; preds = %5472, %.thread.i229
   br label %get_proc.exit2289
 
 get_proc.exit2289:                                ; preds = %5480, %.thread.i2288
-  %.pr7647 = phi ptr [ %.pr7647.pre9355, %5480 ], [ %.pr7647.pre, %.thread.i2288 ]
-  %.05.i2285.ph = phi ptr [ %5481, %5480 ], [ %5484, %.thread.i2288 ]
+  %.pr7647 = phi ptr [ %.pr7647.pre, %.thread.i2288 ], [ %.pr7647.pre9355, %5480 ]
+  %.05.i2285.ph = phi ptr [ %5484, %.thread.i2288 ], [ %5481, %5480 ]
   store ptr %.05.i2285.ph, ptr @glad_glGenSamplers, align 8, !tbaa !11
   %5485 = icmp eq ptr %.pr7647, null
   br i1 %5485, label %get_proc.exit2277.thread12979, label %5486
@@ -21950,8 +21950,8 @@ get_proc.exit2283:                                ; preds = %5488, %.thread.i228
   br label %get_proc.exit2277
 
 get_proc.exit2277:                                ; preds = %5496, %.thread.i2276
-  %.pr7651 = phi ptr [ %.pr7651.pre9358, %5496 ], [ %.pr7651.pre, %.thread.i2276 ]
-  %.05.i2273.ph = phi ptr [ %5497, %5496 ], [ %5500, %.thread.i2276 ]
+  %.pr7651 = phi ptr [ %.pr7651.pre, %.thread.i2276 ], [ %.pr7651.pre9358, %5496 ]
+  %.05.i2273.ph = phi ptr [ %5500, %.thread.i2276 ], [ %5497, %5496 ]
   store ptr %.05.i2273.ph, ptr @glad_glIsSampler, align 8, !tbaa !11
   %5501 = icmp eq ptr %.pr7651, null
   br i1 %5501, label %get_proc.exit2265.thread12982, label %5502
@@ -22008,8 +22008,8 @@ get_proc.exit2271:                                ; preds = %5504, %.thread.i227
   br label %get_proc.exit2265
 
 get_proc.exit2265:                                ; preds = %5512, %.thread.i2264
-  %.pr7655 = phi ptr [ %.pr7655.pre9361, %5512 ], [ %.pr7655.pre, %.thread.i2264 ]
-  %.05.i2261.ph = phi ptr [ %5513, %5512 ], [ %5516, %.thread.i2264 ]
+  %.pr7655 = phi ptr [ %.pr7655.pre, %.thread.i2264 ], [ %.pr7655.pre9361, %5512 ]
+  %.05.i2261.ph = phi ptr [ %5516, %.thread.i2264 ], [ %5513, %5512 ]
   store ptr %.05.i2261.ph, ptr @glad_glSamplerParameteri, align 8, !tbaa !11
   %5517 = icmp eq ptr %.pr7655, null
   br i1 %5517, label %get_proc.exit2253.thread12985, label %5518
@@ -22066,8 +22066,8 @@ get_proc.exit2259:                                ; preds = %5520, %.thread.i225
   br label %get_proc.exit2253
 
 get_proc.exit2253:                                ; preds = %5528, %.thread.i2252
-  %.pr7659 = phi ptr [ %.pr7659.pre9364, %5528 ], [ %.pr7659.pre, %.thread.i2252 ]
-  %.05.i2249.ph = phi ptr [ %5529, %5528 ], [ %5532, %.thread.i2252 ]
+  %.pr7659 = phi ptr [ %.pr7659.pre, %.thread.i2252 ], [ %.pr7659.pre9364, %5528 ]
+  %.05.i2249.ph = phi ptr [ %5532, %.thread.i2252 ], [ %5529, %5528 ]
   store ptr %.05.i2249.ph, ptr @glad_glSamplerParameterf, align 8, !tbaa !11
   %5533 = icmp eq ptr %.pr7659, null
   br i1 %5533, label %get_proc.exit2241.thread12988, label %5534
@@ -22124,8 +22124,8 @@ get_proc.exit2247:                                ; preds = %5536, %.thread.i224
   br label %get_proc.exit2241
 
 get_proc.exit2241:                                ; preds = %5544, %.thread.i2240
-  %.pr7663 = phi ptr [ %.pr7663.pre9367, %5544 ], [ %.pr7663.pre, %.thread.i2240 ]
-  %.05.i2237.ph = phi ptr [ %5545, %5544 ], [ %5548, %.thread.i2240 ]
+  %.pr7663 = phi ptr [ %.pr7663.pre, %.thread.i2240 ], [ %.pr7663.pre9367, %5544 ]
+  %.05.i2237.ph = phi ptr [ %5548, %.thread.i2240 ], [ %5545, %5544 ]
   store ptr %.05.i2237.ph, ptr @glad_glSamplerParameterIiv, align 8, !tbaa !11
   %5549 = icmp eq ptr %.pr7663, null
   br i1 %5549, label %get_proc.exit2229.thread12991, label %5550
@@ -22182,8 +22182,8 @@ get_proc.exit2235:                                ; preds = %5552, %.thread.i223
   br label %get_proc.exit2229
 
 get_proc.exit2229:                                ; preds = %5560, %.thread.i2228
-  %.pr7667 = phi ptr [ %.pr7667.pre9370, %5560 ], [ %.pr7667.pre, %.thread.i2228 ]
-  %.05.i2225.ph = phi ptr [ %5561, %5560 ], [ %5564, %.thread.i2228 ]
+  %.pr7667 = phi ptr [ %.pr7667.pre, %.thread.i2228 ], [ %.pr7667.pre9370, %5560 ]
+  %.05.i2225.ph = phi ptr [ %5564, %.thread.i2228 ], [ %5561, %5560 ]
   store ptr %.05.i2225.ph, ptr @glad_glGetSamplerParameteriv, align 8, !tbaa !11
   %5565 = icmp eq ptr %.pr7667, null
   br i1 %5565, label %get_proc.exit2217.thread12994, label %5566
@@ -22240,8 +22240,8 @@ get_proc.exit2223:                                ; preds = %5568, %.thread.i222
   br label %get_proc.exit2217
 
 get_proc.exit2217:                                ; preds = %5576, %.thread.i2216
-  %.pr7671 = phi ptr [ %.pr7671.pre9373, %5576 ], [ %.pr7671.pre, %.thread.i2216 ]
-  %.05.i2213.ph = phi ptr [ %5577, %5576 ], [ %5580, %.thread.i2216 ]
+  %.pr7671 = phi ptr [ %.pr7671.pre, %.thread.i2216 ], [ %.pr7671.pre9373, %5576 ]
+  %.05.i2213.ph = phi ptr [ %5580, %.thread.i2216 ], [ %5577, %5576 ]
   store ptr %.05.i2213.ph, ptr @glad_glGetSamplerParameterfv, align 8, !tbaa !11
   %5581 = icmp eq ptr %.pr7671, null
   br i1 %5581, label %get_proc.exit2205.thread12997, label %5582
@@ -22298,8 +22298,8 @@ get_proc.exit2211:                                ; preds = %5584, %.thread.i221
   br label %get_proc.exit2205
 
 get_proc.exit2205:                                ; preds = %5592, %.thread.i2204
-  %.pr7675 = phi ptr [ %.pr7675.pre9376, %5592 ], [ %.pr7675.pre, %.thread.i2204 ]
-  %.05.i2201.ph = phi ptr [ %5593, %5592 ], [ %5596, %.thread.i2204 ]
+  %.pr7675 = phi ptr [ %.pr7675.pre, %.thread.i2204 ], [ %.pr7675.pre9376, %5592 ]
+  %.05.i2201.ph = phi ptr [ %5596, %.thread.i2204 ], [ %5593, %5592 ]
   store ptr %.05.i2201.ph, ptr @glad_glQueryCounter, align 8, !tbaa !11
   %5597 = icmp eq ptr %.pr7675, null
   br i1 %5597, label %get_proc.exit2193.thread13000, label %5598
@@ -22356,8 +22356,8 @@ get_proc.exit2199:                                ; preds = %5600, %.thread.i219
   br label %get_proc.exit2193
 
 get_proc.exit2193:                                ; preds = %5608, %.thread.i2192
-  %.pr7679 = phi ptr [ %.pr7679.pre9379, %5608 ], [ %.pr7679.pre, %.thread.i2192 ]
-  %.05.i2189.ph = phi ptr [ %5609, %5608 ], [ %5612, %.thread.i2192 ]
+  %.pr7679 = phi ptr [ %.pr7679.pre, %.thread.i2192 ], [ %.pr7679.pre9379, %5608 ]
+  %.05.i2189.ph = phi ptr [ %5612, %.thread.i2192 ], [ %5609, %5608 ]
   store ptr %.05.i2189.ph, ptr @glad_glGetQueryObjectui64v, align 8, !tbaa !11
   %5613 = icmp eq ptr %.pr7679, null
   br i1 %5613, label %get_proc.exit2181.thread13003, label %5614
@@ -22414,8 +22414,8 @@ get_proc.exit2187:                                ; preds = %5616, %.thread.i218
   br label %get_proc.exit2181
 
 get_proc.exit2181:                                ; preds = %5624, %.thread.i2180
-  %.pr7683 = phi ptr [ %.pr7683.pre9382, %5624 ], [ %.pr7683.pre, %.thread.i2180 ]
-  %.05.i2177.ph = phi ptr [ %5625, %5624 ], [ %5628, %.thread.i2180 ]
+  %.pr7683 = phi ptr [ %.pr7683.pre, %.thread.i2180 ], [ %.pr7683.pre9382, %5624 ]
+  %.05.i2177.ph = phi ptr [ %5628, %.thread.i2180 ], [ %5625, %5624 ]
   store ptr %.05.i2177.ph, ptr @glad_glVertexAttribP1ui, align 8, !tbaa !11
   %5629 = icmp eq ptr %.pr7683, null
   br i1 %5629, label %get_proc.exit2169.thread13006, label %5630
@@ -22472,8 +22472,8 @@ get_proc.exit2175:                                ; preds = %5632, %.thread.i217
   br label %get_proc.exit2169
 
 get_proc.exit2169:                                ; preds = %5640, %.thread.i2168
-  %.pr7687 = phi ptr [ %.pr7687.pre9385, %5640 ], [ %.pr7687.pre, %.thread.i2168 ]
-  %.05.i2165.ph = phi ptr [ %5641, %5640 ], [ %5644, %.thread.i2168 ]
+  %.pr7687 = phi ptr [ %.pr7687.pre, %.thread.i2168 ], [ %.pr7687.pre9385, %5640 ]
+  %.05.i2165.ph = phi ptr [ %5644, %.thread.i2168 ], [ %5641, %5640 ]
   store ptr %.05.i2165.ph, ptr @glad_glVertexAttribP2ui, align 8, !tbaa !11
   %5645 = icmp eq ptr %.pr7687, null
   br i1 %5645, label %get_proc.exit2157.thread13009, label %5646
@@ -22530,8 +22530,8 @@ get_proc.exit2163:                                ; preds = %5648, %.thread.i216
   br label %get_proc.exit2157
 
 get_proc.exit2157:                                ; preds = %5656, %.thread.i2156
-  %.pr7691 = phi ptr [ %.pr7691.pre9388, %5656 ], [ %.pr7691.pre, %.thread.i2156 ]
-  %.05.i2153.ph = phi ptr [ %5657, %5656 ], [ %5660, %.thread.i2156 ]
+  %.pr7691 = phi ptr [ %.pr7691.pre, %.thread.i2156 ], [ %.pr7691.pre9388, %5656 ]
+  %.05.i2153.ph = phi ptr [ %5660, %.thread.i2156 ], [ %5657, %5656 ]
   store ptr %.05.i2153.ph, ptr @glad_glVertexAttribP3ui, align 8, !tbaa !11
   %5661 = icmp eq ptr %.pr7691, null
   br i1 %5661, label %get_proc.exit2145.thread13012, label %5662
@@ -22588,8 +22588,8 @@ get_proc.exit2151:                                ; preds = %5664, %.thread.i215
   br label %get_proc.exit2145
 
 get_proc.exit2145:                                ; preds = %5672, %.thread.i2144
-  %.pr7695 = phi ptr [ %.pr7695.pre9391, %5672 ], [ %.pr7695.pre, %.thread.i2144 ]
-  %.05.i2141.ph = phi ptr [ %5673, %5672 ], [ %5676, %.thread.i2144 ]
+  %.pr7695 = phi ptr [ %.pr7695.pre, %.thread.i2144 ], [ %.pr7695.pre9391, %5672 ]
+  %.05.i2141.ph = phi ptr [ %5676, %.thread.i2144 ], [ %5673, %5672 ]
   store ptr %.05.i2141.ph, ptr @glad_glVertexAttribP4ui, align 8, !tbaa !11
   %5677 = icmp eq ptr %.pr7695, null
   br i1 %5677, label %get_proc.exit2133.thread13015, label %5678
@@ -22646,8 +22646,8 @@ get_proc.exit2139:                                ; preds = %5680, %.thread.i213
   br label %get_proc.exit2133
 
 get_proc.exit2133:                                ; preds = %5688, %.thread.i2132
-  %.pr7699 = phi ptr [ %.pr7699.pre9394, %5688 ], [ %.pr7699.pre, %.thread.i2132 ]
-  %.05.i2129.ph = phi ptr [ %5689, %5688 ], [ %5692, %.thread.i2132 ]
+  %.pr7699 = phi ptr [ %.pr7699.pre, %.thread.i2132 ], [ %.pr7699.pre9394, %5688 ]
+  %.05.i2129.ph = phi ptr [ %5692, %.thread.i2132 ], [ %5689, %5688 ]
   store ptr %.05.i2129.ph, ptr @glad_glVertexP2ui, align 8, !tbaa !11
   %5693 = icmp eq ptr %.pr7699, null
   br i1 %5693, label %get_proc.exit2121.thread13018, label %5694
@@ -22704,8 +22704,8 @@ get_proc.exit2127:                                ; preds = %5696, %.thread.i212
   br label %get_proc.exit2121
 
 get_proc.exit2121:                                ; preds = %5704, %.thread.i2120
-  %.pr7703 = phi ptr [ %.pr7703.pre9397, %5704 ], [ %.pr7703.pre, %.thread.i2120 ]
-  %.05.i2117.ph = phi ptr [ %5705, %5704 ], [ %5708, %.thread.i2120 ]
+  %.pr7703 = phi ptr [ %.pr7703.pre, %.thread.i2120 ], [ %.pr7703.pre9397, %5704 ]
+  %.05.i2117.ph = phi ptr [ %5708, %.thread.i2120 ], [ %5705, %5704 ]
   store ptr %.05.i2117.ph, ptr @glad_glVertexP3ui, align 8, !tbaa !11
   %5709 = icmp eq ptr %.pr7703, null
   br i1 %5709, label %get_proc.exit2109.thread13021, label %5710
@@ -22762,8 +22762,8 @@ get_proc.exit2115:                                ; preds = %5712, %.thread.i211
   br label %get_proc.exit2109
 
 get_proc.exit2109:                                ; preds = %5720, %.thread.i2108
-  %.pr7707 = phi ptr [ %.pr7707.pre9400, %5720 ], [ %.pr7707.pre, %.thread.i2108 ]
-  %.05.i2105.ph = phi ptr [ %5721, %5720 ], [ %5724, %.thread.i2108 ]
+  %.pr7707 = phi ptr [ %.pr7707.pre, %.thread.i2108 ], [ %.pr7707.pre9400, %5720 ]
+  %.05.i2105.ph = phi ptr [ %5724, %.thread.i2108 ], [ %5721, %5720 ]
   store ptr %.05.i2105.ph, ptr @glad_glVertexP4ui, align 8, !tbaa !11
   %5725 = icmp eq ptr %.pr7707, null
   br i1 %5725, label %get_proc.exit2097.thread13024, label %5726
@@ -22820,8 +22820,8 @@ get_proc.exit2103:                                ; preds = %5728, %.thread.i210
   br label %get_proc.exit2097
 
 get_proc.exit2097:                                ; preds = %5736, %.thread.i2096
-  %.pr7711 = phi ptr [ %.pr7711.pre9403, %5736 ], [ %.pr7711.pre, %.thread.i2096 ]
-  %.05.i2093.ph = phi ptr [ %5737, %5736 ], [ %5740, %.thread.i2096 ]
+  %.pr7711 = phi ptr [ %.pr7711.pre, %.thread.i2096 ], [ %.pr7711.pre9403, %5736 ]
+  %.05.i2093.ph = phi ptr [ %5740, %.thread.i2096 ], [ %5737, %5736 ]
   store ptr %.05.i2093.ph, ptr @glad_glTexCoordP1ui, align 8, !tbaa !11
   %5741 = icmp eq ptr %.pr7711, null
   br i1 %5741, label %get_proc.exit2085.thread13027, label %5742
@@ -22878,8 +22878,8 @@ get_proc.exit2091:                                ; preds = %5744, %.thread.i209
   br label %get_proc.exit2085
 
 get_proc.exit2085:                                ; preds = %5752, %.thread.i2084
-  %.pr7715 = phi ptr [ %.pr7715.pre9406, %5752 ], [ %.pr7715.pre, %.thread.i2084 ]
-  %.05.i2081.ph = phi ptr [ %5753, %5752 ], [ %5756, %.thread.i2084 ]
+  %.pr7715 = phi ptr [ %.pr7715.pre, %.thread.i2084 ], [ %.pr7715.pre9406, %5752 ]
+  %.05.i2081.ph = phi ptr [ %5756, %.thread.i2084 ], [ %5753, %5752 ]
   store ptr %.05.i2081.ph, ptr @glad_glTexCoordP2ui, align 8, !tbaa !11
   %5757 = icmp eq ptr %.pr7715, null
   br i1 %5757, label %get_proc.exit2073.thread13030, label %5758
@@ -22936,8 +22936,8 @@ get_proc.exit2079:                                ; preds = %5760, %.thread.i207
   br label %get_proc.exit2073
 
 get_proc.exit2073:                                ; preds = %5768, %.thread.i2072
-  %.pr7719 = phi ptr [ %.pr7719.pre9409, %5768 ], [ %.pr7719.pre, %.thread.i2072 ]
-  %.05.i2069.ph = phi ptr [ %5769, %5768 ], [ %5772, %.thread.i2072 ]
+  %.pr7719 = phi ptr [ %.pr7719.pre, %.thread.i2072 ], [ %.pr7719.pre9409, %5768 ]
+  %.05.i2069.ph = phi ptr [ %5772, %.thread.i2072 ], [ %5769, %5768 ]
   store ptr %.05.i2069.ph, ptr @glad_glTexCoordP3ui, align 8, !tbaa !11
   %5773 = icmp eq ptr %.pr7719, null
   br i1 %5773, label %get_proc.exit2061.thread13033, label %5774
@@ -22994,8 +22994,8 @@ get_proc.exit2067:                                ; preds = %5776, %.thread.i206
   br label %get_proc.exit2061
 
 get_proc.exit2061:                                ; preds = %5784, %.thread.i2060
-  %.pr7723 = phi ptr [ %.pr7723.pre9412, %5784 ], [ %.pr7723.pre, %.thread.i2060 ]
-  %.05.i2057.ph = phi ptr [ %5785, %5784 ], [ %5788, %.thread.i2060 ]
+  %.pr7723 = phi ptr [ %.pr7723.pre, %.thread.i2060 ], [ %.pr7723.pre9412, %5784 ]
+  %.05.i2057.ph = phi ptr [ %5788, %.thread.i2060 ], [ %5785, %5784 ]
   store ptr %.05.i2057.ph, ptr @glad_glTexCoordP4ui, align 8, !tbaa !11
   %5789 = icmp eq ptr %.pr7723, null
   br i1 %5789, label %get_proc.exit2049.thread13036, label %5790
@@ -23052,8 +23052,8 @@ get_proc.exit2055:                                ; preds = %5792, %.thread.i205
   br label %get_proc.exit2049
 
 get_proc.exit2049:                                ; preds = %5800, %.thread.i2048
-  %.pr7727 = phi ptr [ %.pr7727.pre9415, %5800 ], [ %.pr7727.pre, %.thread.i2048 ]
-  %.05.i2045.ph = phi ptr [ %5801, %5800 ], [ %5804, %.thread.i2048 ]
+  %.pr7727 = phi ptr [ %.pr7727.pre, %.thread.i2048 ], [ %.pr7727.pre9415, %5800 ]
+  %.05.i2045.ph = phi ptr [ %5804, %.thread.i2048 ], [ %5801, %5800 ]
   store ptr %.05.i2045.ph, ptr @glad_glMultiTexCoordP1ui, align 8, !tbaa !11
   %5805 = icmp eq ptr %.pr7727, null
   br i1 %5805, label %get_proc.exit2037.thread13039, label %5806
@@ -23110,8 +23110,8 @@ get_proc.exit2043:                                ; preds = %5808, %.thread.i204
   br label %get_proc.exit2037
 
 get_proc.exit2037:                                ; preds = %5816, %.thread.i2036
-  %.pr7731 = phi ptr [ %.pr7731.pre9418, %5816 ], [ %.pr7731.pre, %.thread.i2036 ]
-  %.05.i2033.ph = phi ptr [ %5817, %5816 ], [ %5820, %.thread.i2036 ]
+  %.pr7731 = phi ptr [ %.pr7731.pre, %.thread.i2036 ], [ %.pr7731.pre9418, %5816 ]
+  %.05.i2033.ph = phi ptr [ %5820, %.thread.i2036 ], [ %5817, %5816 ]
   store ptr %.05.i2033.ph, ptr @glad_glMultiTexCoordP2ui, align 8, !tbaa !11
   %5821 = icmp eq ptr %.pr7731, null
   br i1 %5821, label %get_proc.exit2025.thread13042, label %5822
@@ -23168,8 +23168,8 @@ get_proc.exit2031:                                ; preds = %5824, %.thread.i203
   br label %get_proc.exit2025
 
 get_proc.exit2025:                                ; preds = %5832, %.thread.i2024
-  %.pr7735 = phi ptr [ %.pr7735.pre9421, %5832 ], [ %.pr7735.pre, %.thread.i2024 ]
-  %.05.i2021.ph = phi ptr [ %5833, %5832 ], [ %5836, %.thread.i2024 ]
+  %.pr7735 = phi ptr [ %.pr7735.pre, %.thread.i2024 ], [ %.pr7735.pre9421, %5832 ]
+  %.05.i2021.ph = phi ptr [ %5836, %.thread.i2024 ], [ %5833, %5832 ]
   store ptr %.05.i2021.ph, ptr @glad_glMultiTexCoordP3ui, align 8, !tbaa !11
   %5837 = icmp eq ptr %.pr7735, null
   br i1 %5837, label %get_proc.exit2013.thread13045, label %5838
@@ -23226,8 +23226,8 @@ get_proc.exit2019:                                ; preds = %5840, %.thread.i201
   br label %get_proc.exit2013
 
 get_proc.exit2013:                                ; preds = %5848, %.thread.i2012
-  %.pr7739 = phi ptr [ %.pr7739.pre9424, %5848 ], [ %.pr7739.pre, %.thread.i2012 ]
-  %.05.i2009.ph = phi ptr [ %5849, %5848 ], [ %5852, %.thread.i2012 ]
+  %.pr7739 = phi ptr [ %.pr7739.pre, %.thread.i2012 ], [ %.pr7739.pre9424, %5848 ]
+  %.05.i2009.ph = phi ptr [ %5852, %.thread.i2012 ], [ %5849, %5848 ]
   store ptr %.05.i2009.ph, ptr @glad_glMultiTexCoordP4ui, align 8, !tbaa !11
   %5853 = icmp eq ptr %.pr7739, null
   br i1 %5853, label %get_proc.exit2001.thread13048, label %5854
@@ -23284,8 +23284,8 @@ get_proc.exit2007:                                ; preds = %5856, %.thread.i200
   br label %get_proc.exit2001
 
 get_proc.exit2001:                                ; preds = %5864, %.thread.i2000
-  %.pr7743 = phi ptr [ %.pr7743.pre9427, %5864 ], [ %.pr7743.pre, %.thread.i2000 ]
-  %.05.i1997.ph = phi ptr [ %5865, %5864 ], [ %5868, %.thread.i2000 ]
+  %.pr7743 = phi ptr [ %.pr7743.pre, %.thread.i2000 ], [ %.pr7743.pre9427, %5864 ]
+  %.05.i1997.ph = phi ptr [ %5868, %.thread.i2000 ], [ %5865, %5864 ]
   store ptr %.05.i1997.ph, ptr @glad_glNormalP3ui, align 8, !tbaa !11
   %5869 = icmp eq ptr %.pr7743, null
   br i1 %5869, label %get_proc.exit1989.thread13051, label %5870
@@ -23342,8 +23342,8 @@ get_proc.exit1995:                                ; preds = %5872, %.thread.i199
   br label %get_proc.exit1989
 
 get_proc.exit1989:                                ; preds = %5880, %.thread.i1988
-  %.pr7747 = phi ptr [ %.pr7747.pre9430, %5880 ], [ %.pr7747.pre, %.thread.i1988 ]
-  %.05.i1985.ph = phi ptr [ %5881, %5880 ], [ %5884, %.thread.i1988 ]
+  %.pr7747 = phi ptr [ %.pr7747.pre, %.thread.i1988 ], [ %.pr7747.pre9430, %5880 ]
+  %.05.i1985.ph = phi ptr [ %5884, %.thread.i1988 ], [ %5881, %5880 ]
   store ptr %.05.i1985.ph, ptr @glad_glColorP3ui, align 8, !tbaa !11
   %5885 = icmp eq ptr %.pr7747, null
   br i1 %5885, label %get_proc.exit1977.thread13054, label %5886
@@ -23400,8 +23400,8 @@ get_proc.exit1983:                                ; preds = %5888, %.thread.i198
   br label %get_proc.exit1977
 
 get_proc.exit1977:                                ; preds = %5896, %.thread.i1976
-  %.pr7751 = phi ptr [ %.pr7751.pre9433, %5896 ], [ %.pr7751.pre, %.thread.i1976 ]
-  %.05.i1973.ph = phi ptr [ %5897, %5896 ], [ %5900, %.thread.i1976 ]
+  %.pr7751 = phi ptr [ %.pr7751.pre, %.thread.i1976 ], [ %.pr7751.pre9433, %5896 ]
+  %.05.i1973.ph = phi ptr [ %5900, %.thread.i1976 ], [ %5897, %5896 ]
   store ptr %.05.i1973.ph, ptr @glad_glColorP4ui, align 8, !tbaa !11
   %5901 = icmp eq ptr %.pr7751, null
   br i1 %5901, label %get_proc.exit1965.thread13057, label %5902
@@ -23463,8 +23463,8 @@ get_proc.exit1965.thread:                         ; preds = %get_proc.exit1971
   br label %get_proc.exit1965
 
 get_proc.exit1965:                                ; preds = %5912, %.thread.i1964
-  %.pr7755 = phi ptr [ %.pr7755.pre9436, %5912 ], [ %.pr7755.pre, %.thread.i1964 ]
-  %.05.i1961.ph = phi ptr [ %5913, %5912 ], [ %5916, %.thread.i1964 ]
+  %.pr7755 = phi ptr [ %.pr7755.pre, %.thread.i1964 ], [ %.pr7755.pre9436, %5912 ]
+  %.05.i1961.ph = phi ptr [ %5916, %.thread.i1964 ], [ %5913, %5912 ]
   store ptr %.05.i1961.ph, ptr @glad_glSecondaryColorP3ui, align 8, !tbaa !11
   %5917 = icmp eq ptr %.pr7755, null
   br i1 %5917, label %get_proc.exit1959, label %5918
@@ -23581,8 +23581,8 @@ get_proc.exit1947:                                ; preds = %5939, %.thread.i194
   br label %get_proc.exit1941
 
 get_proc.exit1941:                                ; preds = %5947, %.thread.i1940
-  %.pr7761 = phi ptr [ %.pr7761.pre9439, %5947 ], [ %.pr7761.pre, %.thread.i1940 ]
-  %.05.i1937.ph = phi ptr [ %5948, %5947 ], [ %5951, %.thread.i1940 ]
+  %.pr7761 = phi ptr [ %.pr7761.pre, %.thread.i1940 ], [ %.pr7761.pre9439, %5947 ]
+  %.05.i1937.ph = phi ptr [ %5951, %.thread.i1940 ], [ %5948, %5947 ]
   store ptr %.05.i1937.ph, ptr @glad_glBlendEquationSeparatei, align 8, !tbaa !11
   %5952 = icmp eq ptr %.pr7761, null
   br i1 %5952, label %get_proc.exit1929.thread13063, label %5953
@@ -23639,8 +23639,8 @@ get_proc.exit1935:                                ; preds = %5955, %.thread.i193
   br label %get_proc.exit1929
 
 get_proc.exit1929:                                ; preds = %5963, %.thread.i1928
-  %.pr7765 = phi ptr [ %.pr7765.pre9442, %5963 ], [ %.pr7765.pre, %.thread.i1928 ]
-  %.05.i1925.ph = phi ptr [ %5964, %5963 ], [ %5967, %.thread.i1928 ]
+  %.pr7765 = phi ptr [ %.pr7765.pre, %.thread.i1928 ], [ %.pr7765.pre9442, %5963 ]
+  %.05.i1925.ph = phi ptr [ %5967, %.thread.i1928 ], [ %5964, %5963 ]
   store ptr %.05.i1925.ph, ptr @glad_glBlendFuncSeparatei, align 8, !tbaa !11
   %5968 = icmp eq ptr %.pr7765, null
   br i1 %5968, label %get_proc.exit1917.thread13066, label %5969
@@ -23697,8 +23697,8 @@ get_proc.exit1923:                                ; preds = %5971, %.thread.i192
   br label %get_proc.exit1917
 
 get_proc.exit1917:                                ; preds = %5979, %.thread.i1916
-  %.pr7769 = phi ptr [ %.pr7769.pre9445, %5979 ], [ %.pr7769.pre, %.thread.i1916 ]
-  %.05.i1913.ph = phi ptr [ %5980, %5979 ], [ %5983, %.thread.i1916 ]
+  %.pr7769 = phi ptr [ %.pr7769.pre, %.thread.i1916 ], [ %.pr7769.pre9445, %5979 ]
+  %.05.i1913.ph = phi ptr [ %5983, %.thread.i1916 ], [ %5980, %5979 ]
   store ptr %.05.i1913.ph, ptr @glad_glDrawElementsIndirect, align 8, !tbaa !11
   %5984 = icmp eq ptr %.pr7769, null
   br i1 %5984, label %get_proc.exit1905.thread13069, label %5985
@@ -23755,8 +23755,8 @@ get_proc.exit1911:                                ; preds = %5987, %.thread.i191
   br label %get_proc.exit1905
 
 get_proc.exit1905:                                ; preds = %5995, %.thread.i1904
-  %.pr7773 = phi ptr [ %.pr7773.pre9448, %5995 ], [ %.pr7773.pre, %.thread.i1904 ]
-  %.05.i1901.ph = phi ptr [ %5996, %5995 ], [ %5999, %.thread.i1904 ]
+  %.pr7773 = phi ptr [ %.pr7773.pre, %.thread.i1904 ], [ %.pr7773.pre9448, %5995 ]
+  %.05.i1901.ph = phi ptr [ %5999, %.thread.i1904 ], [ %5996, %5995 ]
   store ptr %.05.i1901.ph, ptr @glad_glUniform2d, align 8, !tbaa !11
   %6000 = icmp eq ptr %.pr7773, null
   br i1 %6000, label %get_proc.exit1893.thread13072, label %6001
@@ -23813,8 +23813,8 @@ get_proc.exit1899:                                ; preds = %6003, %.thread.i189
   br label %get_proc.exit1893
 
 get_proc.exit1893:                                ; preds = %6011, %.thread.i1892
-  %.pr7777 = phi ptr [ %.pr7777.pre9451, %6011 ], [ %.pr7777.pre, %.thread.i1892 ]
-  %.05.i1889.ph = phi ptr [ %6012, %6011 ], [ %6015, %.thread.i1892 ]
+  %.pr7777 = phi ptr [ %.pr7777.pre, %.thread.i1892 ], [ %.pr7777.pre9451, %6011 ]
+  %.05.i1889.ph = phi ptr [ %6015, %.thread.i1892 ], [ %6012, %6011 ]
   store ptr %.05.i1889.ph, ptr @glad_glUniform4d, align 8, !tbaa !11
   %6016 = icmp eq ptr %.pr7777, null
   br i1 %6016, label %get_proc.exit1881.thread13075, label %6017
@@ -23871,8 +23871,8 @@ get_proc.exit1887:                                ; preds = %6019, %.thread.i188
   br label %get_proc.exit1881
 
 get_proc.exit1881:                                ; preds = %6027, %.thread.i1880
-  %.pr7781 = phi ptr [ %.pr7781.pre9454, %6027 ], [ %.pr7781.pre, %.thread.i1880 ]
-  %.05.i1877.ph = phi ptr [ %6028, %6027 ], [ %6031, %.thread.i1880 ]
+  %.pr7781 = phi ptr [ %.pr7781.pre, %.thread.i1880 ], [ %.pr7781.pre9454, %6027 ]
+  %.05.i1877.ph = phi ptr [ %6031, %.thread.i1880 ], [ %6028, %6027 ]
   store ptr %.05.i1877.ph, ptr @glad_glUniform2dv, align 8, !tbaa !11
   %6032 = icmp eq ptr %.pr7781, null
   br i1 %6032, label %get_proc.exit1869.thread13078, label %6033
@@ -23929,8 +23929,8 @@ get_proc.exit1875:                                ; preds = %6035, %.thread.i187
   br label %get_proc.exit1869
 
 get_proc.exit1869:                                ; preds = %6043, %.thread.i1868
-  %.pr7785 = phi ptr [ %.pr7785.pre9457, %6043 ], [ %.pr7785.pre, %.thread.i1868 ]
-  %.05.i1865.ph = phi ptr [ %6044, %6043 ], [ %6047, %.thread.i1868 ]
+  %.pr7785 = phi ptr [ %.pr7785.pre, %.thread.i1868 ], [ %.pr7785.pre9457, %6043 ]
+  %.05.i1865.ph = phi ptr [ %6047, %.thread.i1868 ], [ %6044, %6043 ]
   store ptr %.05.i1865.ph, ptr @glad_glUniform4dv, align 8, !tbaa !11
   %6048 = icmp eq ptr %.pr7785, null
   br i1 %6048, label %get_proc.exit1857.thread13081, label %6049
@@ -23987,8 +23987,8 @@ get_proc.exit1863:                                ; preds = %6051, %.thread.i186
   br label %get_proc.exit1857
 
 get_proc.exit1857:                                ; preds = %6059, %.thread.i1856
-  %.pr7789 = phi ptr [ %.pr7789.pre9460, %6059 ], [ %.pr7789.pre, %.thread.i1856 ]
-  %.05.i1853.ph = phi ptr [ %6060, %6059 ], [ %6063, %.thread.i1856 ]
+  %.pr7789 = phi ptr [ %.pr7789.pre, %.thread.i1856 ], [ %.pr7789.pre9460, %6059 ]
+  %.05.i1853.ph = phi ptr [ %6063, %.thread.i1856 ], [ %6060, %6059 ]
   store ptr %.05.i1853.ph, ptr @glad_glUniformMatrix3dv, align 8, !tbaa !11
   %6064 = icmp eq ptr %.pr7789, null
   br i1 %6064, label %get_proc.exit1845.thread13084, label %6065
@@ -24045,8 +24045,8 @@ get_proc.exit1851:                                ; preds = %6067, %.thread.i185
   br label %get_proc.exit1845
 
 get_proc.exit1845:                                ; preds = %6075, %.thread.i1844
-  %.pr7793 = phi ptr [ %.pr7793.pre9463, %6075 ], [ %.pr7793.pre, %.thread.i1844 ]
-  %.05.i1841.ph = phi ptr [ %6076, %6075 ], [ %6079, %.thread.i1844 ]
+  %.pr7793 = phi ptr [ %.pr7793.pre, %.thread.i1844 ], [ %.pr7793.pre9463, %6075 ]
+  %.05.i1841.ph = phi ptr [ %6079, %.thread.i1844 ], [ %6076, %6075 ]
   store ptr %.05.i1841.ph, ptr @glad_glUniformMatrix2x3dv, align 8, !tbaa !11
   %6080 = icmp eq ptr %.pr7793, null
   br i1 %6080, label %get_proc.exit1833.thread13087, label %6081
@@ -24103,8 +24103,8 @@ get_proc.exit1839:                                ; preds = %6083, %.thread.i183
   br label %get_proc.exit1833
 
 get_proc.exit1833:                                ; preds = %6091, %.thread.i1832
-  %.pr7797 = phi ptr [ %.pr7797.pre9466, %6091 ], [ %.pr7797.pre, %.thread.i1832 ]
-  %.05.i1829.ph = phi ptr [ %6092, %6091 ], [ %6095, %.thread.i1832 ]
+  %.pr7797 = phi ptr [ %.pr7797.pre, %.thread.i1832 ], [ %.pr7797.pre9466, %6091 ]
+  %.05.i1829.ph = phi ptr [ %6095, %.thread.i1832 ], [ %6092, %6091 ]
   store ptr %.05.i1829.ph, ptr @glad_glUniformMatrix3x2dv, align 8, !tbaa !11
   %6096 = icmp eq ptr %.pr7797, null
   br i1 %6096, label %get_proc.exit1821.thread13090, label %6097
@@ -24161,8 +24161,8 @@ get_proc.exit1827:                                ; preds = %6099, %.thread.i182
   br label %get_proc.exit1821
 
 get_proc.exit1821:                                ; preds = %6107, %.thread.i1820
-  %.pr7801 = phi ptr [ %.pr7801.pre9469, %6107 ], [ %.pr7801.pre, %.thread.i1820 ]
-  %.05.i1817.ph = phi ptr [ %6108, %6107 ], [ %6111, %.thread.i1820 ]
+  %.pr7801 = phi ptr [ %.pr7801.pre, %.thread.i1820 ], [ %.pr7801.pre9469, %6107 ]
+  %.05.i1817.ph = phi ptr [ %6111, %.thread.i1820 ], [ %6108, %6107 ]
   store ptr %.05.i1817.ph, ptr @glad_glUniformMatrix4x2dv, align 8, !tbaa !11
   %6112 = icmp eq ptr %.pr7801, null
   br i1 %6112, label %get_proc.exit1809.thread13093, label %6113
@@ -24219,8 +24219,8 @@ get_proc.exit1815:                                ; preds = %6115, %.thread.i181
   br label %get_proc.exit1809
 
 get_proc.exit1809:                                ; preds = %6123, %.thread.i1808
-  %.pr7805 = phi ptr [ %.pr7805.pre9472, %6123 ], [ %.pr7805.pre, %.thread.i1808 ]
-  %.05.i1805.ph = phi ptr [ %6124, %6123 ], [ %6127, %.thread.i1808 ]
+  %.pr7805 = phi ptr [ %.pr7805.pre, %.thread.i1808 ], [ %.pr7805.pre9472, %6123 ]
+  %.05.i1805.ph = phi ptr [ %6127, %.thread.i1808 ], [ %6124, %6123 ]
   store ptr %.05.i1805.ph, ptr @glad_glGetUniformdv, align 8, !tbaa !11
   %6128 = icmp eq ptr %.pr7805, null
   br i1 %6128, label %get_proc.exit1797.thread13096, label %6129
@@ -24277,8 +24277,8 @@ get_proc.exit1803:                                ; preds = %6131, %.thread.i180
   br label %get_proc.exit1797
 
 get_proc.exit1797:                                ; preds = %6139, %.thread.i1796
-  %.pr7809 = phi ptr [ %.pr7809.pre9475, %6139 ], [ %.pr7809.pre, %.thread.i1796 ]
-  %.05.i1793.ph = phi ptr [ %6140, %6139 ], [ %6143, %.thread.i1796 ]
+  %.pr7809 = phi ptr [ %.pr7809.pre, %.thread.i1796 ], [ %.pr7809.pre9475, %6139 ]
+  %.05.i1793.ph = phi ptr [ %6143, %.thread.i1796 ], [ %6140, %6139 ]
   store ptr %.05.i1793.ph, ptr @glad_glGetSubroutineIndex, align 8, !tbaa !11
   %6144 = icmp eq ptr %.pr7809, null
   br i1 %6144, label %get_proc.exit1785.thread13099, label %6145
@@ -24335,8 +24335,8 @@ get_proc.exit1791:                                ; preds = %6147, %.thread.i179
   br label %get_proc.exit1785
 
 get_proc.exit1785:                                ; preds = %6155, %.thread.i1784
-  %.pr7813 = phi ptr [ %.pr7813.pre9478, %6155 ], [ %.pr7813.pre, %.thread.i1784 ]
-  %.05.i1781.ph = phi ptr [ %6156, %6155 ], [ %6159, %.thread.i1784 ]
+  %.pr7813 = phi ptr [ %.pr7813.pre, %.thread.i1784 ], [ %.pr7813.pre9478, %6155 ]
+  %.05.i1781.ph = phi ptr [ %6159, %.thread.i1784 ], [ %6156, %6155 ]
   store ptr %.05.i1781.ph, ptr @glad_glGetActiveSubroutineUniformName, align 8, !tbaa !11
   %6160 = icmp eq ptr %.pr7813, null
   br i1 %6160, label %get_proc.exit1773.thread13102, label %6161
@@ -24393,8 +24393,8 @@ get_proc.exit1779:                                ; preds = %6163, %.thread.i177
   br label %get_proc.exit1773
 
 get_proc.exit1773:                                ; preds = %6171, %.thread.i1772
-  %.pr7817 = phi ptr [ %.pr7817.pre9481, %6171 ], [ %.pr7817.pre, %.thread.i1772 ]
-  %.05.i1769.ph = phi ptr [ %6172, %6171 ], [ %6175, %.thread.i1772 ]
+  %.pr7817 = phi ptr [ %.pr7817.pre, %.thread.i1772 ], [ %.pr7817.pre9481, %6171 ]
+  %.05.i1769.ph = phi ptr [ %6175, %.thread.i1772 ], [ %6172, %6171 ]
   store ptr %.05.i1769.ph, ptr @glad_glUniformSubroutinesuiv, align 8, !tbaa !11
   %6176 = icmp eq ptr %.pr7817, null
   br i1 %6176, label %get_proc.exit1761.thread13105, label %6177
@@ -24451,8 +24451,8 @@ get_proc.exit1767:                                ; preds = %6179, %.thread.i176
   br label %get_proc.exit1761
 
 get_proc.exit1761:                                ; preds = %6187, %.thread.i1760
-  %.pr7821 = phi ptr [ %.pr7821.pre9484, %6187 ], [ %.pr7821.pre, %.thread.i1760 ]
-  %.05.i1757.ph = phi ptr [ %6188, %6187 ], [ %6191, %.thread.i1760 ]
+  %.pr7821 = phi ptr [ %.pr7821.pre, %.thread.i1760 ], [ %.pr7821.pre9484, %6187 ]
+  %.05.i1757.ph = phi ptr [ %6191, %.thread.i1760 ], [ %6188, %6187 ]
   store ptr %.05.i1757.ph, ptr @glad_glGetProgramStageiv, align 8, !tbaa !11
   %6192 = icmp eq ptr %.pr7821, null
   br i1 %6192, label %get_proc.exit1749.thread13108, label %6193
@@ -24509,8 +24509,8 @@ get_proc.exit1755:                                ; preds = %6195, %.thread.i175
   br label %get_proc.exit1749
 
 get_proc.exit1749:                                ; preds = %6203, %.thread.i1748
-  %.pr7825 = phi ptr [ %.pr7825.pre9487, %6203 ], [ %.pr7825.pre, %.thread.i1748 ]
-  %.05.i1745.ph = phi ptr [ %6204, %6203 ], [ %6207, %.thread.i1748 ]
+  %.pr7825 = phi ptr [ %.pr7825.pre, %.thread.i1748 ], [ %.pr7825.pre9487, %6203 ]
+  %.05.i1745.ph = phi ptr [ %6207, %.thread.i1748 ], [ %6204, %6203 ]
   store ptr %.05.i1745.ph, ptr @glad_glPatchParameterfv, align 8, !tbaa !11
   %6208 = icmp eq ptr %.pr7825, null
   br i1 %6208, label %get_proc.exit1737.thread13111, label %6209
@@ -24567,8 +24567,8 @@ get_proc.exit1743:                                ; preds = %6211, %.thread.i174
   br label %get_proc.exit1737
 
 get_proc.exit1737:                                ; preds = %6219, %.thread.i1736
-  %.pr7829 = phi ptr [ %.pr7829.pre9490, %6219 ], [ %.pr7829.pre, %.thread.i1736 ]
-  %.05.i1733.ph = phi ptr [ %6220, %6219 ], [ %6223, %.thread.i1736 ]
+  %.pr7829 = phi ptr [ %.pr7829.pre, %.thread.i1736 ], [ %.pr7829.pre9490, %6219 ]
+  %.05.i1733.ph = phi ptr [ %6223, %.thread.i1736 ], [ %6220, %6219 ]
   store ptr %.05.i1733.ph, ptr @glad_glDeleteTransformFeedbacks, align 8, !tbaa !11
   %6224 = icmp eq ptr %.pr7829, null
   br i1 %6224, label %get_proc.exit1725.thread13114, label %6225
@@ -24625,8 +24625,8 @@ get_proc.exit1731:                                ; preds = %6227, %.thread.i173
   br label %get_proc.exit1725
 
 get_proc.exit1725:                                ; preds = %6235, %.thread.i1724
-  %.pr7833 = phi ptr [ %.pr7833.pre9493, %6235 ], [ %.pr7833.pre, %.thread.i1724 ]
-  %.05.i1721.ph = phi ptr [ %6236, %6235 ], [ %6239, %.thread.i1724 ]
+  %.pr7833 = phi ptr [ %.pr7833.pre, %.thread.i1724 ], [ %.pr7833.pre9493, %6235 ]
+  %.05.i1721.ph = phi ptr [ %6239, %.thread.i1724 ], [ %6236, %6235 ]
   store ptr %.05.i1721.ph, ptr @glad_glIsTransformFeedback, align 8, !tbaa !11
   %6240 = icmp eq ptr %.pr7833, null
   br i1 %6240, label %get_proc.exit1713.thread13117, label %6241
@@ -24683,8 +24683,8 @@ get_proc.exit1719:                                ; preds = %6243, %.thread.i171
   br label %get_proc.exit1713
 
 get_proc.exit1713:                                ; preds = %6251, %.thread.i1712
-  %.pr7837 = phi ptr [ %.pr7837.pre9496, %6251 ], [ %.pr7837.pre, %.thread.i1712 ]
-  %.05.i1709.ph = phi ptr [ %6252, %6251 ], [ %6255, %.thread.i1712 ]
+  %.pr7837 = phi ptr [ %.pr7837.pre, %.thread.i1712 ], [ %.pr7837.pre9496, %6251 ]
+  %.05.i1709.ph = phi ptr [ %6255, %.thread.i1712 ], [ %6252, %6251 ]
   store ptr %.05.i1709.ph, ptr @glad_glResumeTransformFeedback, align 8, !tbaa !11
   %6256 = icmp eq ptr %.pr7837, null
   br i1 %6256, label %get_proc.exit1701.thread13120, label %6257
@@ -24741,8 +24741,8 @@ get_proc.exit1707:                                ; preds = %6259, %.thread.i170
   br label %get_proc.exit1701
 
 get_proc.exit1701:                                ; preds = %6267, %.thread.i1700
-  %.pr7841 = phi ptr [ %.pr7841.pre9499, %6267 ], [ %.pr7841.pre, %.thread.i1700 ]
-  %.05.i1697.ph = phi ptr [ %6268, %6267 ], [ %6271, %.thread.i1700 ]
+  %.pr7841 = phi ptr [ %.pr7841.pre, %.thread.i1700 ], [ %.pr7841.pre9499, %6267 ]
+  %.05.i1697.ph = phi ptr [ %6271, %.thread.i1700 ], [ %6268, %6267 ]
   store ptr %.05.i1697.ph, ptr @glad_glDrawTransformFeedbackStream, align 8, !tbaa !11
   %6272 = icmp eq ptr %.pr7841, null
   br i1 %6272, label %get_proc.exit1689.thread13123, label %6273
@@ -24804,8 +24804,8 @@ get_proc.exit1689.thread:                         ; preds = %get_proc.exit1695
   br label %get_proc.exit1689
 
 get_proc.exit1689:                                ; preds = %6283, %.thread.i1688
-  %.pr7845 = phi ptr [ %.pr7845.pre9502, %6283 ], [ %.pr7845.pre, %.thread.i1688 ]
-  %.05.i1685.ph = phi ptr [ %6284, %6283 ], [ %6287, %.thread.i1688 ]
+  %.pr7845 = phi ptr [ %.pr7845.pre, %.thread.i1688 ], [ %.pr7845.pre9502, %6283 ]
+  %.05.i1685.ph = phi ptr [ %6287, %.thread.i1688 ], [ %6284, %6283 ]
   store ptr %.05.i1685.ph, ptr @glad_glEndQueryIndexed, align 8, !tbaa !11
   %6288 = icmp eq ptr %.pr7845, null
   br i1 %6288, label %get_proc.exit1683, label %6289
@@ -24922,8 +24922,8 @@ get_proc.exit1671:                                ; preds = %6310, %.thread.i167
   br label %get_proc.exit1665
 
 get_proc.exit1665:                                ; preds = %6318, %.thread.i1664
-  %.pr7851 = phi ptr [ %.pr7851.pre9505, %6318 ], [ %.pr7851.pre, %.thread.i1664 ]
-  %.05.i1661.ph = phi ptr [ %6319, %6318 ], [ %6322, %.thread.i1664 ]
+  %.pr7851 = phi ptr [ %.pr7851.pre, %.thread.i1664 ], [ %.pr7851.pre9505, %6318 ]
+  %.05.i1661.ph = phi ptr [ %6322, %.thread.i1664 ], [ %6319, %6318 ]
   store ptr %.05.i1661.ph, ptr @glad_glGetShaderPrecisionFormat, align 8, !tbaa !11
   %6323 = icmp eq ptr %.pr7851, null
   br i1 %6323, label %get_proc.exit1653.thread13129, label %6324
@@ -24980,8 +24980,8 @@ get_proc.exit1659:                                ; preds = %6326, %.thread.i165
   br label %get_proc.exit1653
 
 get_proc.exit1653:                                ; preds = %6334, %.thread.i1652
-  %.pr7855 = phi ptr [ %.pr7855.pre9508, %6334 ], [ %.pr7855.pre, %.thread.i1652 ]
-  %.05.i1649.ph = phi ptr [ %6335, %6334 ], [ %6338, %.thread.i1652 ]
+  %.pr7855 = phi ptr [ %.pr7855.pre, %.thread.i1652 ], [ %.pr7855.pre9508, %6334 ]
+  %.05.i1649.ph = phi ptr [ %6338, %.thread.i1652 ], [ %6335, %6334 ]
   store ptr %.05.i1649.ph, ptr @glad_glClearDepthf, align 8, !tbaa !11
   %6339 = icmp eq ptr %.pr7855, null
   br i1 %6339, label %get_proc.exit1641.thread13132, label %6340
@@ -25038,8 +25038,8 @@ get_proc.exit1647:                                ; preds = %6342, %.thread.i164
   br label %get_proc.exit1641
 
 get_proc.exit1641:                                ; preds = %6350, %.thread.i1640
-  %.pr7859 = phi ptr [ %.pr7859.pre9511, %6350 ], [ %.pr7859.pre, %.thread.i1640 ]
-  %.05.i1637.ph = phi ptr [ %6351, %6350 ], [ %6354, %.thread.i1640 ]
+  %.pr7859 = phi ptr [ %.pr7859.pre, %.thread.i1640 ], [ %.pr7859.pre9511, %6350 ]
+  %.05.i1637.ph = phi ptr [ %6354, %.thread.i1640 ], [ %6351, %6350 ]
   store ptr %.05.i1637.ph, ptr @glad_glProgramBinary, align 8, !tbaa !11
   %6355 = icmp eq ptr %.pr7859, null
   br i1 %6355, label %get_proc.exit1629.thread13135, label %6356
@@ -25096,8 +25096,8 @@ get_proc.exit1635:                                ; preds = %6358, %.thread.i163
   br label %get_proc.exit1629
 
 get_proc.exit1629:                                ; preds = %6366, %.thread.i1628
-  %.pr7863 = phi ptr [ %.pr7863.pre9514, %6366 ], [ %.pr7863.pre, %.thread.i1628 ]
-  %.05.i1625.ph = phi ptr [ %6367, %6366 ], [ %6370, %.thread.i1628 ]
+  %.pr7863 = phi ptr [ %.pr7863.pre, %.thread.i1628 ], [ %.pr7863.pre9514, %6366 ]
+  %.05.i1625.ph = phi ptr [ %6370, %.thread.i1628 ], [ %6367, %6366 ]
   store ptr %.05.i1625.ph, ptr @glad_glUseProgramStages, align 8, !tbaa !11
   %6371 = icmp eq ptr %.pr7863, null
   br i1 %6371, label %get_proc.exit1617.thread13138, label %6372
@@ -25154,8 +25154,8 @@ get_proc.exit1623:                                ; preds = %6374, %.thread.i162
   br label %get_proc.exit1617
 
 get_proc.exit1617:                                ; preds = %6382, %.thread.i1616
-  %.pr7867 = phi ptr [ %.pr7867.pre9517, %6382 ], [ %.pr7867.pre, %.thread.i1616 ]
-  %.05.i1613.ph = phi ptr [ %6383, %6382 ], [ %6386, %.thread.i1616 ]
+  %.pr7867 = phi ptr [ %.pr7867.pre, %.thread.i1616 ], [ %.pr7867.pre9517, %6382 ]
+  %.05.i1613.ph = phi ptr [ %6386, %.thread.i1616 ], [ %6383, %6382 ]
   store ptr %.05.i1613.ph, ptr @glad_glCreateShaderProgramv, align 8, !tbaa !11
   %6387 = icmp eq ptr %.pr7867, null
   br i1 %6387, label %get_proc.exit1605.thread13141, label %6388
@@ -25212,8 +25212,8 @@ get_proc.exit1611:                                ; preds = %6390, %.thread.i161
   br label %get_proc.exit1605
 
 get_proc.exit1605:                                ; preds = %6398, %.thread.i1604
-  %.pr7871 = phi ptr [ %.pr7871.pre9520, %6398 ], [ %.pr7871.pre, %.thread.i1604 ]
-  %.05.i1601.ph = phi ptr [ %6399, %6398 ], [ %6402, %.thread.i1604 ]
+  %.pr7871 = phi ptr [ %.pr7871.pre, %.thread.i1604 ], [ %.pr7871.pre9520, %6398 ]
+  %.05.i1601.ph = phi ptr [ %6402, %.thread.i1604 ], [ %6399, %6398 ]
   store ptr %.05.i1601.ph, ptr @glad_glDeleteProgramPipelines, align 8, !tbaa !11
   %6403 = icmp eq ptr %.pr7871, null
   br i1 %6403, label %get_proc.exit1593.thread13144, label %6404
@@ -25270,8 +25270,8 @@ get_proc.exit1599:                                ; preds = %6406, %.thread.i159
   br label %get_proc.exit1593
 
 get_proc.exit1593:                                ; preds = %6414, %.thread.i1592
-  %.pr7875 = phi ptr [ %.pr7875.pre9523, %6414 ], [ %.pr7875.pre, %.thread.i1592 ]
-  %.05.i1589.ph = phi ptr [ %6415, %6414 ], [ %6418, %.thread.i1592 ]
+  %.pr7875 = phi ptr [ %.pr7875.pre, %.thread.i1592 ], [ %.pr7875.pre9523, %6414 ]
+  %.05.i1589.ph = phi ptr [ %6418, %.thread.i1592 ], [ %6415, %6414 ]
   store ptr %.05.i1589.ph, ptr @glad_glIsProgramPipeline, align 8, !tbaa !11
   %6419 = icmp eq ptr %.pr7875, null
   br i1 %6419, label %get_proc.exit1581.thread13147, label %6420
@@ -25328,8 +25328,8 @@ get_proc.exit1587:                                ; preds = %6422, %.thread.i158
   br label %get_proc.exit1581
 
 get_proc.exit1581:                                ; preds = %6430, %.thread.i1580
-  %.pr7879 = phi ptr [ %.pr7879.pre9526, %6430 ], [ %.pr7879.pre, %.thread.i1580 ]
-  %.05.i1577.ph = phi ptr [ %6431, %6430 ], [ %6434, %.thread.i1580 ]
+  %.pr7879 = phi ptr [ %.pr7879.pre, %.thread.i1580 ], [ %.pr7879.pre9526, %6430 ]
+  %.05.i1577.ph = phi ptr [ %6434, %.thread.i1580 ], [ %6431, %6430 ]
   store ptr %.05.i1577.ph, ptr @glad_glProgramParameteri, align 8, !tbaa !11
   %6435 = icmp eq ptr %.pr7879, null
   br i1 %6435, label %get_proc.exit1569.thread13150, label %6436
@@ -25386,8 +25386,8 @@ get_proc.exit1575:                                ; preds = %6438, %.thread.i157
   br label %get_proc.exit1569
 
 get_proc.exit1569:                                ; preds = %6446, %.thread.i1568
-  %.pr7883 = phi ptr [ %.pr7883.pre9529, %6446 ], [ %.pr7883.pre, %.thread.i1568 ]
-  %.05.i1565.ph = phi ptr [ %6447, %6446 ], [ %6450, %.thread.i1568 ]
+  %.pr7883 = phi ptr [ %.pr7883.pre, %.thread.i1568 ], [ %.pr7883.pre9529, %6446 ]
+  %.05.i1565.ph = phi ptr [ %6450, %.thread.i1568 ], [ %6447, %6446 ]
   store ptr %.05.i1565.ph, ptr @glad_glProgramUniform1iv, align 8, !tbaa !11
   %6451 = icmp eq ptr %.pr7883, null
   br i1 %6451, label %get_proc.exit1557.thread13153, label %6452
@@ -25444,8 +25444,8 @@ get_proc.exit1563:                                ; preds = %6454, %.thread.i156
   br label %get_proc.exit1557
 
 get_proc.exit1557:                                ; preds = %6462, %.thread.i1556
-  %.pr7887 = phi ptr [ %.pr7887.pre9532, %6462 ], [ %.pr7887.pre, %.thread.i1556 ]
-  %.05.i1553.ph = phi ptr [ %6463, %6462 ], [ %6466, %.thread.i1556 ]
+  %.pr7887 = phi ptr [ %.pr7887.pre, %.thread.i1556 ], [ %.pr7887.pre9532, %6462 ]
+  %.05.i1553.ph = phi ptr [ %6466, %.thread.i1556 ], [ %6463, %6462 ]
   store ptr %.05.i1553.ph, ptr @glad_glProgramUniform1fv, align 8, !tbaa !11
   %6467 = icmp eq ptr %.pr7887, null
   br i1 %6467, label %get_proc.exit1545.thread13156, label %6468
@@ -25502,8 +25502,8 @@ get_proc.exit1551:                                ; preds = %6470, %.thread.i155
   br label %get_proc.exit1545
 
 get_proc.exit1545:                                ; preds = %6478, %.thread.i1544
-  %.pr7891 = phi ptr [ %.pr7891.pre9535, %6478 ], [ %.pr7891.pre, %.thread.i1544 ]
-  %.05.i1541.ph = phi ptr [ %6479, %6478 ], [ %6482, %.thread.i1544 ]
+  %.pr7891 = phi ptr [ %.pr7891.pre, %.thread.i1544 ], [ %.pr7891.pre9535, %6478 ]
+  %.05.i1541.ph = phi ptr [ %6482, %.thread.i1544 ], [ %6479, %6478 ]
   store ptr %.05.i1541.ph, ptr @glad_glProgramUniform1dv, align 8, !tbaa !11
   %6483 = icmp eq ptr %.pr7891, null
   br i1 %6483, label %get_proc.exit1533.thread13159, label %6484
@@ -25560,8 +25560,8 @@ get_proc.exit1539:                                ; preds = %6486, %.thread.i153
   br label %get_proc.exit1533
 
 get_proc.exit1533:                                ; preds = %6494, %.thread.i1532
-  %.pr7895 = phi ptr [ %.pr7895.pre9538, %6494 ], [ %.pr7895.pre, %.thread.i1532 ]
-  %.05.i1529.ph = phi ptr [ %6495, %6494 ], [ %6498, %.thread.i1532 ]
+  %.pr7895 = phi ptr [ %.pr7895.pre, %.thread.i1532 ], [ %.pr7895.pre9538, %6494 ]
+  %.05.i1529.ph = phi ptr [ %6498, %.thread.i1532 ], [ %6495, %6494 ]
   store ptr %.05.i1529.ph, ptr @glad_glProgramUniform1uiv, align 8, !tbaa !11
   %6499 = icmp eq ptr %.pr7895, null
   br i1 %6499, label %get_proc.exit1521.thread13162, label %6500
@@ -25618,8 +25618,8 @@ get_proc.exit1527:                                ; preds = %6502, %.thread.i152
   br label %get_proc.exit1521
 
 get_proc.exit1521:                                ; preds = %6510, %.thread.i1520
-  %.pr7899 = phi ptr [ %.pr7899.pre9541, %6510 ], [ %.pr7899.pre, %.thread.i1520 ]
-  %.05.i1517.ph = phi ptr [ %6511, %6510 ], [ %6514, %.thread.i1520 ]
+  %.pr7899 = phi ptr [ %.pr7899.pre, %.thread.i1520 ], [ %.pr7899.pre9541, %6510 ]
+  %.05.i1517.ph = phi ptr [ %6514, %.thread.i1520 ], [ %6511, %6510 ]
   store ptr %.05.i1517.ph, ptr @glad_glProgramUniform2iv, align 8, !tbaa !11
   %6515 = icmp eq ptr %.pr7899, null
   br i1 %6515, label %get_proc.exit1509.thread13165, label %6516
@@ -25676,8 +25676,8 @@ get_proc.exit1515:                                ; preds = %6518, %.thread.i151
   br label %get_proc.exit1509
 
 get_proc.exit1509:                                ; preds = %6526, %.thread.i1508
-  %.pr7903 = phi ptr [ %.pr7903.pre9544, %6526 ], [ %.pr7903.pre, %.thread.i1508 ]
-  %.05.i1505.ph = phi ptr [ %6527, %6526 ], [ %6530, %.thread.i1508 ]
+  %.pr7903 = phi ptr [ %.pr7903.pre, %.thread.i1508 ], [ %.pr7903.pre9544, %6526 ]
+  %.05.i1505.ph = phi ptr [ %6530, %.thread.i1508 ], [ %6527, %6526 ]
   store ptr %.05.i1505.ph, ptr @glad_glProgramUniform2fv, align 8, !tbaa !11
   %6531 = icmp eq ptr %.pr7903, null
   br i1 %6531, label %get_proc.exit1497.thread13168, label %6532
@@ -25734,8 +25734,8 @@ get_proc.exit1503:                                ; preds = %6534, %.thread.i150
   br label %get_proc.exit1497
 
 get_proc.exit1497:                                ; preds = %6542, %.thread.i1496
-  %.pr7907 = phi ptr [ %.pr7907.pre9547, %6542 ], [ %.pr7907.pre, %.thread.i1496 ]
-  %.05.i1493.ph = phi ptr [ %6543, %6542 ], [ %6546, %.thread.i1496 ]
+  %.pr7907 = phi ptr [ %.pr7907.pre, %.thread.i1496 ], [ %.pr7907.pre9547, %6542 ]
+  %.05.i1493.ph = phi ptr [ %6546, %.thread.i1496 ], [ %6543, %6542 ]
   store ptr %.05.i1493.ph, ptr @glad_glProgramUniform2dv, align 8, !tbaa !11
   %6547 = icmp eq ptr %.pr7907, null
   br i1 %6547, label %get_proc.exit1485.thread13171, label %6548
@@ -25792,8 +25792,8 @@ get_proc.exit1491:                                ; preds = %6550, %.thread.i149
   br label %get_proc.exit1485
 
 get_proc.exit1485:                                ; preds = %6558, %.thread.i1484
-  %.pr7911 = phi ptr [ %.pr7911.pre9550, %6558 ], [ %.pr7911.pre, %.thread.i1484 ]
-  %.05.i1481.ph = phi ptr [ %6559, %6558 ], [ %6562, %.thread.i1484 ]
+  %.pr7911 = phi ptr [ %.pr7911.pre, %.thread.i1484 ], [ %.pr7911.pre9550, %6558 ]
+  %.05.i1481.ph = phi ptr [ %6562, %.thread.i1484 ], [ %6559, %6558 ]
   store ptr %.05.i1481.ph, ptr @glad_glProgramUniform2uiv, align 8, !tbaa !11
   %6563 = icmp eq ptr %.pr7911, null
   br i1 %6563, label %get_proc.exit1473.thread13174, label %6564
@@ -25850,8 +25850,8 @@ get_proc.exit1479:                                ; preds = %6566, %.thread.i147
   br label %get_proc.exit1473
 
 get_proc.exit1473:                                ; preds = %6574, %.thread.i1472
-  %.pr7915 = phi ptr [ %.pr7915.pre9553, %6574 ], [ %.pr7915.pre, %.thread.i1472 ]
-  %.05.i1469.ph = phi ptr [ %6575, %6574 ], [ %6578, %.thread.i1472 ]
+  %.pr7915 = phi ptr [ %.pr7915.pre, %.thread.i1472 ], [ %.pr7915.pre9553, %6574 ]
+  %.05.i1469.ph = phi ptr [ %6578, %.thread.i1472 ], [ %6575, %6574 ]
   store ptr %.05.i1469.ph, ptr @glad_glProgramUniform3iv, align 8, !tbaa !11
   %6579 = icmp eq ptr %.pr7915, null
   br i1 %6579, label %get_proc.exit1461.thread13177, label %6580
@@ -25908,8 +25908,8 @@ get_proc.exit1467:                                ; preds = %6582, %.thread.i146
   br label %get_proc.exit1461
 
 get_proc.exit1461:                                ; preds = %6590, %.thread.i1460
-  %.pr7919 = phi ptr [ %.pr7919.pre9556, %6590 ], [ %.pr7919.pre, %.thread.i1460 ]
-  %.05.i1457.ph = phi ptr [ %6591, %6590 ], [ %6594, %.thread.i1460 ]
+  %.pr7919 = phi ptr [ %.pr7919.pre, %.thread.i1460 ], [ %.pr7919.pre9556, %6590 ]
+  %.05.i1457.ph = phi ptr [ %6594, %.thread.i1460 ], [ %6591, %6590 ]
   store ptr %.05.i1457.ph, ptr @glad_glProgramUniform3fv, align 8, !tbaa !11
   %6595 = icmp eq ptr %.pr7919, null
   br i1 %6595, label %get_proc.exit1449.thread13180, label %6596
@@ -25966,8 +25966,8 @@ get_proc.exit1455:                                ; preds = %6598, %.thread.i145
   br label %get_proc.exit1449
 
 get_proc.exit1449:                                ; preds = %6606, %.thread.i1448
-  %.pr7923 = phi ptr [ %.pr7923.pre9559, %6606 ], [ %.pr7923.pre, %.thread.i1448 ]
-  %.05.i1445.ph = phi ptr [ %6607, %6606 ], [ %6610, %.thread.i1448 ]
+  %.pr7923 = phi ptr [ %.pr7923.pre, %.thread.i1448 ], [ %.pr7923.pre9559, %6606 ]
+  %.05.i1445.ph = phi ptr [ %6610, %.thread.i1448 ], [ %6607, %6606 ]
   store ptr %.05.i1445.ph, ptr @glad_glProgramUniform3dv, align 8, !tbaa !11
   %6611 = icmp eq ptr %.pr7923, null
   br i1 %6611, label %get_proc.exit1437.thread13183, label %6612
@@ -26024,8 +26024,8 @@ get_proc.exit1443:                                ; preds = %6614, %.thread.i144
   br label %get_proc.exit1437
 
 get_proc.exit1437:                                ; preds = %6622, %.thread.i1436
-  %.pr7927 = phi ptr [ %.pr7927.pre9562, %6622 ], [ %.pr7927.pre, %.thread.i1436 ]
-  %.05.i1433.ph = phi ptr [ %6623, %6622 ], [ %6626, %.thread.i1436 ]
+  %.pr7927 = phi ptr [ %.pr7927.pre, %.thread.i1436 ], [ %.pr7927.pre9562, %6622 ]
+  %.05.i1433.ph = phi ptr [ %6626, %.thread.i1436 ], [ %6623, %6622 ]
   store ptr %.05.i1433.ph, ptr @glad_glProgramUniform3uiv, align 8, !tbaa !11
   %6627 = icmp eq ptr %.pr7927, null
   br i1 %6627, label %get_proc.exit1425.thread13186, label %6628
@@ -26082,8 +26082,8 @@ get_proc.exit1431:                                ; preds = %6630, %.thread.i143
   br label %get_proc.exit1425
 
 get_proc.exit1425:                                ; preds = %6638, %.thread.i1424
-  %.pr7931 = phi ptr [ %.pr7931.pre9565, %6638 ], [ %.pr7931.pre, %.thread.i1424 ]
-  %.05.i1421.ph = phi ptr [ %6639, %6638 ], [ %6642, %.thread.i1424 ]
+  %.pr7931 = phi ptr [ %.pr7931.pre, %.thread.i1424 ], [ %.pr7931.pre9565, %6638 ]
+  %.05.i1421.ph = phi ptr [ %6642, %.thread.i1424 ], [ %6639, %6638 ]
   store ptr %.05.i1421.ph, ptr @glad_glProgramUniform4iv, align 8, !tbaa !11
   %6643 = icmp eq ptr %.pr7931, null
   br i1 %6643, label %get_proc.exit1413.thread13189, label %6644
@@ -26140,8 +26140,8 @@ get_proc.exit1419:                                ; preds = %6646, %.thread.i141
   br label %get_proc.exit1413
 
 get_proc.exit1413:                                ; preds = %6654, %.thread.i1412
-  %.pr7935 = phi ptr [ %.pr7935.pre9568, %6654 ], [ %.pr7935.pre, %.thread.i1412 ]
-  %.05.i1409.ph = phi ptr [ %6655, %6654 ], [ %6658, %.thread.i1412 ]
+  %.pr7935 = phi ptr [ %.pr7935.pre, %.thread.i1412 ], [ %.pr7935.pre9568, %6654 ]
+  %.05.i1409.ph = phi ptr [ %6658, %.thread.i1412 ], [ %6655, %6654 ]
   store ptr %.05.i1409.ph, ptr @glad_glProgramUniform4fv, align 8, !tbaa !11
   %6659 = icmp eq ptr %.pr7935, null
   br i1 %6659, label %get_proc.exit1401.thread13192, label %6660
@@ -26198,8 +26198,8 @@ get_proc.exit1407:                                ; preds = %6662, %.thread.i140
   br label %get_proc.exit1401
 
 get_proc.exit1401:                                ; preds = %6670, %.thread.i1400
-  %.pr7939 = phi ptr [ %.pr7939.pre9571, %6670 ], [ %.pr7939.pre, %.thread.i1400 ]
-  %.05.i1397.ph = phi ptr [ %6671, %6670 ], [ %6674, %.thread.i1400 ]
+  %.pr7939 = phi ptr [ %.pr7939.pre, %.thread.i1400 ], [ %.pr7939.pre9571, %6670 ]
+  %.05.i1397.ph = phi ptr [ %6674, %.thread.i1400 ], [ %6671, %6670 ]
   store ptr %.05.i1397.ph, ptr @glad_glProgramUniform4dv, align 8, !tbaa !11
   %6675 = icmp eq ptr %.pr7939, null
   br i1 %6675, label %get_proc.exit1389.thread13195, label %6676
@@ -26256,8 +26256,8 @@ get_proc.exit1395:                                ; preds = %6678, %.thread.i139
   br label %get_proc.exit1389
 
 get_proc.exit1389:                                ; preds = %6686, %.thread.i1388
-  %.pr7943 = phi ptr [ %.pr7943.pre9574, %6686 ], [ %.pr7943.pre, %.thread.i1388 ]
-  %.05.i1385.ph = phi ptr [ %6687, %6686 ], [ %6690, %.thread.i1388 ]
+  %.pr7943 = phi ptr [ %.pr7943.pre, %.thread.i1388 ], [ %.pr7943.pre9574, %6686 ]
+  %.05.i1385.ph = phi ptr [ %6690, %.thread.i1388 ], [ %6687, %6686 ]
   store ptr %.05.i1385.ph, ptr @glad_glProgramUniform4uiv, align 8, !tbaa !11
   %6691 = icmp eq ptr %.pr7943, null
   br i1 %6691, label %get_proc.exit1377.thread13198, label %6692
@@ -26314,8 +26314,8 @@ get_proc.exit1383:                                ; preds = %6694, %.thread.i138
   br label %get_proc.exit1377
 
 get_proc.exit1377:                                ; preds = %6702, %.thread.i1376
-  %.pr7947 = phi ptr [ %.pr7947.pre9577, %6702 ], [ %.pr7947.pre, %.thread.i1376 ]
-  %.05.i1373.ph = phi ptr [ %6703, %6702 ], [ %6706, %.thread.i1376 ]
+  %.pr7947 = phi ptr [ %.pr7947.pre, %.thread.i1376 ], [ %.pr7947.pre9577, %6702 ]
+  %.05.i1373.ph = phi ptr [ %6706, %.thread.i1376 ], [ %6703, %6702 ]
   store ptr %.05.i1373.ph, ptr @glad_glProgramUniformMatrix3fv, align 8, !tbaa !11
   %6707 = icmp eq ptr %.pr7947, null
   br i1 %6707, label %get_proc.exit1365.thread13201, label %6708
@@ -26372,8 +26372,8 @@ get_proc.exit1371:                                ; preds = %6710, %.thread.i137
   br label %get_proc.exit1365
 
 get_proc.exit1365:                                ; preds = %6718, %.thread.i1364
-  %.pr7951 = phi ptr [ %.pr7951.pre9580, %6718 ], [ %.pr7951.pre, %.thread.i1364 ]
-  %.05.i1361.ph = phi ptr [ %6719, %6718 ], [ %6722, %.thread.i1364 ]
+  %.pr7951 = phi ptr [ %.pr7951.pre, %.thread.i1364 ], [ %.pr7951.pre9580, %6718 ]
+  %.05.i1361.ph = phi ptr [ %6722, %.thread.i1364 ], [ %6719, %6718 ]
   store ptr %.05.i1361.ph, ptr @glad_glProgramUniformMatrix2dv, align 8, !tbaa !11
   %6723 = icmp eq ptr %.pr7951, null
   br i1 %6723, label %get_proc.exit1353.thread13204, label %6724
@@ -26430,8 +26430,8 @@ get_proc.exit1359:                                ; preds = %6726, %.thread.i135
   br label %get_proc.exit1353
 
 get_proc.exit1353:                                ; preds = %6734, %.thread.i1352
-  %.pr7955 = phi ptr [ %.pr7955.pre9583, %6734 ], [ %.pr7955.pre, %.thread.i1352 ]
-  %.05.i1349.ph = phi ptr [ %6735, %6734 ], [ %6738, %.thread.i1352 ]
+  %.pr7955 = phi ptr [ %.pr7955.pre, %.thread.i1352 ], [ %.pr7955.pre9583, %6734 ]
+  %.05.i1349.ph = phi ptr [ %6738, %.thread.i1352 ], [ %6735, %6734 ]
   store ptr %.05.i1349.ph, ptr @glad_glProgramUniformMatrix4dv, align 8, !tbaa !11
   %6739 = icmp eq ptr %.pr7955, null
   br i1 %6739, label %get_proc.exit1341.thread13207, label %6740
@@ -26488,8 +26488,8 @@ get_proc.exit1347:                                ; preds = %6742, %.thread.i134
   br label %get_proc.exit1341
 
 get_proc.exit1341:                                ; preds = %6750, %.thread.i1340
-  %.pr7959 = phi ptr [ %.pr7959.pre9586, %6750 ], [ %.pr7959.pre, %.thread.i1340 ]
-  %.05.i1337.ph = phi ptr [ %6751, %6750 ], [ %6754, %.thread.i1340 ]
+  %.pr7959 = phi ptr [ %.pr7959.pre, %.thread.i1340 ], [ %.pr7959.pre9586, %6750 ]
+  %.05.i1337.ph = phi ptr [ %6754, %.thread.i1340 ], [ %6751, %6750 ]
   store ptr %.05.i1337.ph, ptr @glad_glProgramUniformMatrix3x2fv, align 8, !tbaa !11
   %6755 = icmp eq ptr %.pr7959, null
   br i1 %6755, label %get_proc.exit1329.thread13210, label %6756
@@ -26546,8 +26546,8 @@ get_proc.exit1335:                                ; preds = %6758, %.thread.i133
   br label %get_proc.exit1329
 
 get_proc.exit1329:                                ; preds = %6766, %.thread.i1328
-  %.pr7963 = phi ptr [ %.pr7963.pre9589, %6766 ], [ %.pr7963.pre, %.thread.i1328 ]
-  %.05.i1325.ph = phi ptr [ %6767, %6766 ], [ %6770, %.thread.i1328 ]
+  %.pr7963 = phi ptr [ %.pr7963.pre, %.thread.i1328 ], [ %.pr7963.pre9589, %6766 ]
+  %.05.i1325.ph = phi ptr [ %6770, %.thread.i1328 ], [ %6767, %6766 ]
   store ptr %.05.i1325.ph, ptr @glad_glProgramUniformMatrix4x2fv, align 8, !tbaa !11
   %6771 = icmp eq ptr %.pr7963, null
   br i1 %6771, label %get_proc.exit1317.thread13213, label %6772
@@ -26604,8 +26604,8 @@ get_proc.exit1323:                                ; preds = %6774, %.thread.i132
   br label %get_proc.exit1317
 
 get_proc.exit1317:                                ; preds = %6782, %.thread.i1316
-  %.pr7967 = phi ptr [ %.pr7967.pre9592, %6782 ], [ %.pr7967.pre, %.thread.i1316 ]
-  %.05.i1313.ph = phi ptr [ %6783, %6782 ], [ %6786, %.thread.i1316 ]
+  %.pr7967 = phi ptr [ %.pr7967.pre, %.thread.i1316 ], [ %.pr7967.pre9592, %6782 ]
+  %.05.i1313.ph = phi ptr [ %6786, %.thread.i1316 ], [ %6783, %6782 ]
   store ptr %.05.i1313.ph, ptr @glad_glProgramUniformMatrix4x3fv, align 8, !tbaa !11
   %6787 = icmp eq ptr %.pr7967, null
   br i1 %6787, label %get_proc.exit1305.thread13216, label %6788
@@ -26662,8 +26662,8 @@ get_proc.exit1311:                                ; preds = %6790, %.thread.i131
   br label %get_proc.exit1305
 
 get_proc.exit1305:                                ; preds = %6798, %.thread.i1304
-  %.pr7971 = phi ptr [ %.pr7971.pre9595, %6798 ], [ %.pr7971.pre, %.thread.i1304 ]
-  %.05.i1301.ph = phi ptr [ %6799, %6798 ], [ %6802, %.thread.i1304 ]
+  %.pr7971 = phi ptr [ %.pr7971.pre, %.thread.i1304 ], [ %.pr7971.pre9595, %6798 ]
+  %.05.i1301.ph = phi ptr [ %6802, %.thread.i1304 ], [ %6799, %6798 ]
   store ptr %.05.i1301.ph, ptr @glad_glProgramUniformMatrix3x2dv, align 8, !tbaa !11
   %6803 = icmp eq ptr %.pr7971, null
   br i1 %6803, label %get_proc.exit1293.thread13219, label %6804
@@ -26720,8 +26720,8 @@ get_proc.exit1299:                                ; preds = %6806, %.thread.i129
   br label %get_proc.exit1293
 
 get_proc.exit1293:                                ; preds = %6814, %.thread.i1292
-  %.pr7975 = phi ptr [ %.pr7975.pre9598, %6814 ], [ %.pr7975.pre, %.thread.i1292 ]
-  %.05.i1289.ph = phi ptr [ %6815, %6814 ], [ %6818, %.thread.i1292 ]
+  %.pr7975 = phi ptr [ %.pr7975.pre, %.thread.i1292 ], [ %.pr7975.pre9598, %6814 ]
+  %.05.i1289.ph = phi ptr [ %6818, %.thread.i1292 ], [ %6815, %6814 ]
   store ptr %.05.i1289.ph, ptr @glad_glProgramUniformMatrix4x2dv, align 8, !tbaa !11
   %6819 = icmp eq ptr %.pr7975, null
   br i1 %6819, label %get_proc.exit1281.thread13222, label %6820
@@ -26778,8 +26778,8 @@ get_proc.exit1287:                                ; preds = %6822, %.thread.i128
   br label %get_proc.exit1281
 
 get_proc.exit1281:                                ; preds = %6830, %.thread.i1280
-  %.pr7979 = phi ptr [ %.pr7979.pre9601, %6830 ], [ %.pr7979.pre, %.thread.i1280 ]
-  %.05.i1277.ph = phi ptr [ %6831, %6830 ], [ %6834, %.thread.i1280 ]
+  %.pr7979 = phi ptr [ %.pr7979.pre, %.thread.i1280 ], [ %.pr7979.pre9601, %6830 ]
+  %.05.i1277.ph = phi ptr [ %6834, %.thread.i1280 ], [ %6831, %6830 ]
   store ptr %.05.i1277.ph, ptr @glad_glProgramUniformMatrix4x3dv, align 8, !tbaa !11
   %6835 = icmp eq ptr %.pr7979, null
   br i1 %6835, label %get_proc.exit1275.thread, label %6836
@@ -26896,8 +26896,8 @@ get_proc.exit1263:                                ; preds = %6854, %.thread.i126
   br label %get_proc.exit1257
 
 get_proc.exit1257:                                ; preds = %6862, %.thread.i1256
-  %.pr7987 = phi ptr [ %.pr7987.pre9604, %6862 ], [ %.pr7987.pre, %.thread.i1256 ]
-  %.05.i1253.ph = phi ptr [ %6863, %6862 ], [ %6866, %.thread.i1256 ]
+  %.pr7987 = phi ptr [ %.pr7987.pre, %.thread.i1256 ], [ %.pr7987.pre9604, %6862 ]
+  %.05.i1253.ph = phi ptr [ %6866, %.thread.i1256 ], [ %6863, %6862 ]
   store ptr %.05.i1253.ph, ptr @glad_glVertexAttribL2d, align 8, !tbaa !11
   %6867 = icmp eq ptr %.pr7987, null
   br i1 %6867, label %get_proc.exit1245.thread13228, label %6868
@@ -26954,8 +26954,8 @@ get_proc.exit1251:                                ; preds = %6870, %.thread.i125
   br label %get_proc.exit1245
 
 get_proc.exit1245:                                ; preds = %6878, %.thread.i1244
-  %.pr7991 = phi ptr [ %.pr7991.pre9607, %6878 ], [ %.pr7991.pre, %.thread.i1244 ]
-  %.05.i1241.ph = phi ptr [ %6879, %6878 ], [ %6882, %.thread.i1244 ]
+  %.pr7991 = phi ptr [ %.pr7991.pre, %.thread.i1244 ], [ %.pr7991.pre9607, %6878 ]
+  %.05.i1241.ph = phi ptr [ %6882, %.thread.i1244 ], [ %6879, %6878 ]
   store ptr %.05.i1241.ph, ptr @glad_glVertexAttribL4d, align 8, !tbaa !11
   %6883 = icmp eq ptr %.pr7991, null
   br i1 %6883, label %get_proc.exit1233.thread13231, label %6884
@@ -27012,8 +27012,8 @@ get_proc.exit1239:                                ; preds = %6886, %.thread.i123
   br label %get_proc.exit1233
 
 get_proc.exit1233:                                ; preds = %6894, %.thread.i1232
-  %.pr7995 = phi ptr [ %.pr7995.pre9610, %6894 ], [ %.pr7995.pre, %.thread.i1232 ]
-  %.05.i1229.ph = phi ptr [ %6895, %6894 ], [ %6898, %.thread.i1232 ]
+  %.pr7995 = phi ptr [ %.pr7995.pre, %.thread.i1232 ], [ %.pr7995.pre9610, %6894 ]
+  %.05.i1229.ph = phi ptr [ %6898, %.thread.i1232 ], [ %6895, %6894 ]
   store ptr %.05.i1229.ph, ptr @glad_glVertexAttribL2dv, align 8, !tbaa !11
   %6899 = icmp eq ptr %.pr7995, null
   br i1 %6899, label %get_proc.exit1221.thread13234, label %6900
@@ -27070,8 +27070,8 @@ get_proc.exit1227:                                ; preds = %6902, %.thread.i122
   br label %get_proc.exit1221
 
 get_proc.exit1221:                                ; preds = %6910, %.thread.i1220
-  %.pr7999 = phi ptr [ %.pr7999.pre9613, %6910 ], [ %.pr7999.pre, %.thread.i1220 ]
-  %.05.i1217.ph = phi ptr [ %6911, %6910 ], [ %6914, %.thread.i1220 ]
+  %.pr7999 = phi ptr [ %.pr7999.pre, %.thread.i1220 ], [ %.pr7999.pre9613, %6910 ]
+  %.05.i1217.ph = phi ptr [ %6914, %.thread.i1220 ], [ %6911, %6910 ]
   store ptr %.05.i1217.ph, ptr @glad_glVertexAttribL4dv, align 8, !tbaa !11
   %6915 = icmp eq ptr %.pr7999, null
   br i1 %6915, label %get_proc.exit1209.thread13237, label %6916
@@ -27128,8 +27128,8 @@ get_proc.exit1215:                                ; preds = %6918, %.thread.i121
   br label %get_proc.exit1209
 
 get_proc.exit1209:                                ; preds = %6926, %.thread.i1208
-  %.pr8003 = phi ptr [ %.pr8003.pre9616, %6926 ], [ %.pr8003.pre, %.thread.i1208 ]
-  %.05.i1205.ph = phi ptr [ %6927, %6926 ], [ %6930, %.thread.i1208 ]
+  %.pr8003 = phi ptr [ %.pr8003.pre, %.thread.i1208 ], [ %.pr8003.pre9616, %6926 ]
+  %.05.i1205.ph = phi ptr [ %6930, %.thread.i1208 ], [ %6927, %6926 ]
   store ptr %.05.i1205.ph, ptr @glad_glGetVertexAttribLdv, align 8, !tbaa !11
   %6931 = icmp eq ptr %.pr8003, null
   br i1 %6931, label %get_proc.exit1197.thread13240, label %6932
@@ -27186,8 +27186,8 @@ get_proc.exit1203:                                ; preds = %6934, %.thread.i120
   br label %get_proc.exit1197
 
 get_proc.exit1197:                                ; preds = %6942, %.thread.i1196
-  %.pr8007 = phi ptr [ %.pr8007.pre9619, %6942 ], [ %.pr8007.pre, %.thread.i1196 ]
-  %.05.i1193.ph = phi ptr [ %6943, %6942 ], [ %6946, %.thread.i1196 ]
+  %.pr8007 = phi ptr [ %.pr8007.pre, %.thread.i1196 ], [ %.pr8007.pre9619, %6942 ]
+  %.05.i1193.ph = phi ptr [ %6946, %.thread.i1196 ], [ %6943, %6942 ]
   store ptr %.05.i1193.ph, ptr @glad_glViewportIndexedf, align 8, !tbaa !11
   %6947 = icmp eq ptr %.pr8007, null
   br i1 %6947, label %get_proc.exit1185.thread13243, label %6948
@@ -27244,8 +27244,8 @@ get_proc.exit1191:                                ; preds = %6950, %.thread.i119
   br label %get_proc.exit1185
 
 get_proc.exit1185:                                ; preds = %6958, %.thread.i1184
-  %.pr8011 = phi ptr [ %.pr8011.pre9622, %6958 ], [ %.pr8011.pre, %.thread.i1184 ]
-  %.05.i1181.ph = phi ptr [ %6959, %6958 ], [ %6962, %.thread.i1184 ]
+  %.pr8011 = phi ptr [ %.pr8011.pre, %.thread.i1184 ], [ %.pr8011.pre9622, %6958 ]
+  %.05.i1181.ph = phi ptr [ %6962, %.thread.i1184 ], [ %6959, %6958 ]
   store ptr %.05.i1181.ph, ptr @glad_glScissorArrayv, align 8, !tbaa !11
   %6963 = icmp eq ptr %.pr8011, null
   br i1 %6963, label %get_proc.exit1173.thread13246, label %6964
@@ -27302,8 +27302,8 @@ get_proc.exit1179:                                ; preds = %6966, %.thread.i117
   br label %get_proc.exit1173
 
 get_proc.exit1173:                                ; preds = %6974, %.thread.i1172
-  %.pr8015 = phi ptr [ %.pr8015.pre9625, %6974 ], [ %.pr8015.pre, %.thread.i1172 ]
-  %.05.i1169.ph = phi ptr [ %6975, %6974 ], [ %6978, %.thread.i1172 ]
+  %.pr8015 = phi ptr [ %.pr8015.pre, %.thread.i1172 ], [ %.pr8015.pre9625, %6974 ]
+  %.05.i1169.ph = phi ptr [ %6978, %.thread.i1172 ], [ %6975, %6974 ]
   store ptr %.05.i1169.ph, ptr @glad_glScissorIndexedv, align 8, !tbaa !11
   %6979 = icmp eq ptr %.pr8015, null
   br i1 %6979, label %get_proc.exit1161.thread13249, label %6980
@@ -27360,8 +27360,8 @@ get_proc.exit1167:                                ; preds = %6982, %.thread.i116
   br label %get_proc.exit1161
 
 get_proc.exit1161:                                ; preds = %6990, %.thread.i1160
-  %.pr8019 = phi ptr [ %.pr8019.pre9628, %6990 ], [ %.pr8019.pre, %.thread.i1160 ]
-  %.05.i1157.ph = phi ptr [ %6991, %6990 ], [ %6994, %.thread.i1160 ]
+  %.pr8019 = phi ptr [ %.pr8019.pre, %.thread.i1160 ], [ %.pr8019.pre9628, %6990 ]
+  %.05.i1157.ph = phi ptr [ %6994, %.thread.i1160 ], [ %6991, %6990 ]
   store ptr %.05.i1157.ph, ptr @glad_glDepthRangeIndexed, align 8, !tbaa !11
   %6995 = icmp eq ptr %.pr8019, null
   br i1 %6995, label %get_proc.exit1155.thread, label %6996
@@ -27512,8 +27512,8 @@ get_proc.exit1137:                                ; preds = %7025, %.thread.i113
   br label %get_proc.exit1131
 
 get_proc.exit1131:                                ; preds = %7033, %.thread.i1130
-  %.pr8027 = phi ptr [ %.pr8027.pre9631, %7033 ], [ %.pr8027.pre, %.thread.i1130 ]
-  %.05.i1127.ph = phi ptr [ %7034, %7033 ], [ %7037, %.thread.i1130 ]
+  %.pr8027 = phi ptr [ %.pr8027.pre, %.thread.i1130 ], [ %.pr8027.pre9631, %7033 ]
+  %.05.i1127.ph = phi ptr [ %7037, %.thread.i1130 ], [ %7034, %7033 ]
   store ptr %.05.i1127.ph, ptr @glad_glDrawElementsInstancedBaseVertexBaseInstance, align 8, !tbaa !11
   %7038 = icmp eq ptr %.pr8027, null
   br i1 %7038, label %get_proc.exit1119.thread13255, label %7039
@@ -27570,8 +27570,8 @@ get_proc.exit1125:                                ; preds = %7041, %.thread.i112
   br label %get_proc.exit1119
 
 get_proc.exit1119:                                ; preds = %7049, %.thread.i1118
-  %.pr8031 = phi ptr [ %.pr8031.pre9634, %7049 ], [ %.pr8031.pre, %.thread.i1118 ]
-  %.05.i1115.ph = phi ptr [ %7050, %7049 ], [ %7053, %.thread.i1118 ]
+  %.pr8031 = phi ptr [ %.pr8031.pre, %.thread.i1118 ], [ %.pr8031.pre9634, %7049 ]
+  %.05.i1115.ph = phi ptr [ %7053, %.thread.i1118 ], [ %7050, %7049 ]
   store ptr %.05.i1115.ph, ptr @glad_glGetActiveAtomicCounterBufferiv, align 8, !tbaa !11
   %7054 = icmp eq ptr %.pr8031, null
   br i1 %7054, label %get_proc.exit1107.thread13258, label %7055
@@ -27628,8 +27628,8 @@ get_proc.exit1113:                                ; preds = %7057, %.thread.i111
   br label %get_proc.exit1107
 
 get_proc.exit1107:                                ; preds = %7065, %.thread.i1106
-  %.pr8035 = phi ptr [ %.pr8035.pre9637, %7065 ], [ %.pr8035.pre, %.thread.i1106 ]
-  %.05.i1103.ph = phi ptr [ %7066, %7065 ], [ %7069, %.thread.i1106 ]
+  %.pr8035 = phi ptr [ %.pr8035.pre, %.thread.i1106 ], [ %.pr8035.pre9637, %7065 ]
+  %.05.i1103.ph = phi ptr [ %7069, %.thread.i1106 ], [ %7066, %7065 ]
   store ptr %.05.i1103.ph, ptr @glad_glMemoryBarrier, align 8, !tbaa !11
   %7070 = icmp eq ptr %.pr8035, null
   br i1 %7070, label %get_proc.exit1095.thread13261, label %7071
@@ -27686,8 +27686,8 @@ get_proc.exit1101:                                ; preds = %7073, %.thread.i110
   br label %get_proc.exit1095
 
 get_proc.exit1095:                                ; preds = %7081, %.thread.i1094
-  %.pr8039 = phi ptr [ %.pr8039.pre9640, %7081 ], [ %.pr8039.pre, %.thread.i1094 ]
-  %.05.i1091.ph = phi ptr [ %7082, %7081 ], [ %7085, %.thread.i1094 ]
+  %.pr8039 = phi ptr [ %.pr8039.pre, %.thread.i1094 ], [ %.pr8039.pre9640, %7081 ]
+  %.05.i1091.ph = phi ptr [ %7085, %.thread.i1094 ], [ %7082, %7081 ]
   store ptr %.05.i1091.ph, ptr @glad_glTexStorage2D, align 8, !tbaa !11
   %7086 = icmp eq ptr %.pr8039, null
   br i1 %7086, label %get_proc.exit1083.thread13264, label %7087
@@ -27749,8 +27749,8 @@ get_proc.exit1083.thread:                         ; preds = %get_proc.exit1089
   br label %get_proc.exit1083
 
 get_proc.exit1083:                                ; preds = %7097, %.thread.i1082
-  %.pr8043 = phi ptr [ %.pr8043.pre9643, %7097 ], [ %.pr8043.pre, %.thread.i1082 ]
-  %.05.i1079.ph = phi ptr [ %7098, %7097 ], [ %7101, %.thread.i1082 ]
+  %.pr8043 = phi ptr [ %.pr8043.pre, %.thread.i1082 ], [ %.pr8043.pre9643, %7097 ]
+  %.05.i1079.ph = phi ptr [ %7101, %.thread.i1082 ], [ %7098, %7097 ]
   store ptr %.05.i1079.ph, ptr @glad_glDrawTransformFeedbackInstanced, align 8, !tbaa !11
   %7102 = icmp eq ptr %.pr8043, null
   br i1 %7102, label %get_proc.exit1077, label %7103
@@ -27867,8 +27867,8 @@ get_proc.exit1065:                                ; preds = %7124, %.thread.i106
   br label %get_proc.exit1059
 
 get_proc.exit1059:                                ; preds = %7132, %.thread.i1058
-  %.pr8049 = phi ptr [ %.pr8049.pre9646, %7132 ], [ %.pr8049.pre, %.thread.i1058 ]
-  %.05.i1055.ph = phi ptr [ %7133, %7132 ], [ %7136, %.thread.i1058 ]
+  %.pr8049 = phi ptr [ %.pr8049.pre, %.thread.i1058 ], [ %.pr8049.pre9646, %7132 ]
+  %.05.i1055.ph = phi ptr [ %7136, %.thread.i1058 ], [ %7133, %7132 ]
   store ptr %.05.i1055.ph, ptr @glad_glDispatchCompute, align 8, !tbaa !11
   %7137 = icmp eq ptr %.pr8049, null
   br i1 %7137, label %get_proc.exit1047.thread13270, label %7138
@@ -27925,8 +27925,8 @@ get_proc.exit1053:                                ; preds = %7140, %.thread.i105
   br label %get_proc.exit1047
 
 get_proc.exit1047:                                ; preds = %7148, %.thread.i1046
-  %.pr8053 = phi ptr [ %.pr8053.pre9649, %7148 ], [ %.pr8053.pre, %.thread.i1046 ]
-  %.05.i1043.ph = phi ptr [ %7149, %7148 ], [ %7152, %.thread.i1046 ]
+  %.pr8053 = phi ptr [ %.pr8053.pre, %.thread.i1046 ], [ %.pr8053.pre9649, %7148 ]
+  %.05.i1043.ph = phi ptr [ %7152, %.thread.i1046 ], [ %7149, %7148 ]
   store ptr %.05.i1043.ph, ptr @glad_glCopyImageSubData, align 8, !tbaa !11
   %7153 = icmp eq ptr %.pr8053, null
   br i1 %7153, label %get_proc.exit1035.thread13273, label %7154
@@ -27983,8 +27983,8 @@ get_proc.exit1041:                                ; preds = %7156, %.thread.i104
   br label %get_proc.exit1035
 
 get_proc.exit1035:                                ; preds = %7164, %.thread.i1034
-  %.pr8057 = phi ptr [ %.pr8057.pre9652, %7164 ], [ %.pr8057.pre, %.thread.i1034 ]
-  %.05.i1031.ph = phi ptr [ %7165, %7164 ], [ %7168, %.thread.i1034 ]
+  %.pr8057 = phi ptr [ %.pr8057.pre, %.thread.i1034 ], [ %.pr8057.pre9652, %7164 ]
+  %.05.i1031.ph = phi ptr [ %7168, %.thread.i1034 ], [ %7165, %7164 ]
   store ptr %.05.i1031.ph, ptr @glad_glGetFramebufferParameteriv, align 8, !tbaa !11
   %7169 = icmp eq ptr %.pr8057, null
   br i1 %7169, label %get_proc.exit1023.thread13276, label %7170
@@ -28041,8 +28041,8 @@ get_proc.exit1029:                                ; preds = %7172, %.thread.i102
   br label %get_proc.exit1023
 
 get_proc.exit1023:                                ; preds = %7180, %.thread.i1022
-  %.pr8061 = phi ptr [ %.pr8061.pre9655, %7180 ], [ %.pr8061.pre, %.thread.i1022 ]
-  %.05.i1019.ph = phi ptr [ %7181, %7180 ], [ %7184, %.thread.i1022 ]
+  %.pr8061 = phi ptr [ %.pr8061.pre, %.thread.i1022 ], [ %.pr8061.pre9655, %7180 ]
+  %.05.i1019.ph = phi ptr [ %7184, %.thread.i1022 ], [ %7181, %7180 ]
   store ptr %.05.i1019.ph, ptr @glad_glInvalidateTexSubImage, align 8, !tbaa !11
   %7185 = icmp eq ptr %.pr8061, null
   br i1 %7185, label %get_proc.exit1011.thread13279, label %7186
@@ -28099,8 +28099,8 @@ get_proc.exit1017:                                ; preds = %7188, %.thread.i101
   br label %get_proc.exit1011
 
 get_proc.exit1011:                                ; preds = %7196, %.thread.i1010
-  %.pr8065 = phi ptr [ %.pr8065.pre9658, %7196 ], [ %.pr8065.pre, %.thread.i1010 ]
-  %.05.i1007.ph = phi ptr [ %7197, %7196 ], [ %7200, %.thread.i1010 ]
+  %.pr8065 = phi ptr [ %.pr8065.pre, %.thread.i1010 ], [ %.pr8065.pre9658, %7196 ]
+  %.05.i1007.ph = phi ptr [ %7200, %.thread.i1010 ], [ %7197, %7196 ]
   store ptr %.05.i1007.ph, ptr @glad_glInvalidateBufferSubData, align 8, !tbaa !11
   %7201 = icmp eq ptr %.pr8065, null
   br i1 %7201, label %get_proc.exit999.thread13282, label %7202
@@ -28157,8 +28157,8 @@ get_proc.exit1005:                                ; preds = %7204, %.thread.i100
   br label %get_proc.exit999
 
 get_proc.exit999:                                 ; preds = %7212, %.thread.i998
-  %.pr8069 = phi ptr [ %.pr8069.pre9661, %7212 ], [ %.pr8069.pre, %.thread.i998 ]
-  %.05.i995.ph = phi ptr [ %7213, %7212 ], [ %7216, %.thread.i998 ]
+  %.pr8069 = phi ptr [ %.pr8069.pre, %.thread.i998 ], [ %.pr8069.pre9661, %7212 ]
+  %.05.i995.ph = phi ptr [ %7216, %.thread.i998 ], [ %7213, %7212 ]
   store ptr %.05.i995.ph, ptr @glad_glInvalidateFramebuffer, align 8, !tbaa !11
   %7217 = icmp eq ptr %.pr8069, null
   br i1 %7217, label %get_proc.exit987.thread13285, label %7218
@@ -28215,8 +28215,8 @@ get_proc.exit993:                                 ; preds = %7220, %.thread.i992
   br label %get_proc.exit987
 
 get_proc.exit987:                                 ; preds = %7228, %.thread.i986
-  %.pr8073 = phi ptr [ %.pr8073.pre9664, %7228 ], [ %.pr8073.pre, %.thread.i986 ]
-  %.05.i983.ph = phi ptr [ %7229, %7228 ], [ %7232, %.thread.i986 ]
+  %.pr8073 = phi ptr [ %.pr8073.pre, %.thread.i986 ], [ %.pr8073.pre9664, %7228 ]
+  %.05.i983.ph = phi ptr [ %7232, %.thread.i986 ], [ %7229, %7228 ]
   store ptr %.05.i983.ph, ptr @glad_glMultiDrawArraysIndirect, align 8, !tbaa !11
   %7233 = icmp eq ptr %.pr8073, null
   br i1 %7233, label %get_proc.exit975.thread13288, label %7234
@@ -28273,8 +28273,8 @@ get_proc.exit981:                                 ; preds = %7236, %.thread.i980
   br label %get_proc.exit975
 
 get_proc.exit975:                                 ; preds = %7244, %.thread.i974
-  %.pr8077 = phi ptr [ %.pr8077.pre9667, %7244 ], [ %.pr8077.pre, %.thread.i974 ]
-  %.05.i971.ph = phi ptr [ %7245, %7244 ], [ %7248, %.thread.i974 ]
+  %.pr8077 = phi ptr [ %.pr8077.pre, %.thread.i974 ], [ %.pr8077.pre9667, %7244 ]
+  %.05.i971.ph = phi ptr [ %7248, %.thread.i974 ], [ %7245, %7244 ]
   store ptr %.05.i971.ph, ptr @glad_glGetProgramInterfaceiv, align 8, !tbaa !11
   %7249 = icmp eq ptr %.pr8077, null
   br i1 %7249, label %get_proc.exit963.thread13291, label %7250
@@ -28331,8 +28331,8 @@ get_proc.exit969:                                 ; preds = %7252, %.thread.i968
   br label %get_proc.exit963
 
 get_proc.exit963:                                 ; preds = %7260, %.thread.i962
-  %.pr8081 = phi ptr [ %.pr8081.pre9670, %7260 ], [ %.pr8081.pre, %.thread.i962 ]
-  %.05.i959.ph = phi ptr [ %7261, %7260 ], [ %7264, %.thread.i962 ]
+  %.pr8081 = phi ptr [ %.pr8081.pre, %.thread.i962 ], [ %.pr8081.pre9670, %7260 ]
+  %.05.i959.ph = phi ptr [ %7264, %.thread.i962 ], [ %7261, %7260 ]
   store ptr %.05.i959.ph, ptr @glad_glGetProgramResourceName, align 8, !tbaa !11
   %7265 = icmp eq ptr %.pr8081, null
   br i1 %7265, label %get_proc.exit951.thread13294, label %7266
@@ -28389,8 +28389,8 @@ get_proc.exit957:                                 ; preds = %7268, %.thread.i956
   br label %get_proc.exit951
 
 get_proc.exit951:                                 ; preds = %7276, %.thread.i950
-  %.pr8085 = phi ptr [ %.pr8085.pre9673, %7276 ], [ %.pr8085.pre, %.thread.i950 ]
-  %.05.i947.ph = phi ptr [ %7277, %7276 ], [ %7280, %.thread.i950 ]
+  %.pr8085 = phi ptr [ %.pr8085.pre, %.thread.i950 ], [ %.pr8085.pre9673, %7276 ]
+  %.05.i947.ph = phi ptr [ %7280, %.thread.i950 ], [ %7277, %7276 ]
   store ptr %.05.i947.ph, ptr @glad_glGetProgramResourceLocation, align 8, !tbaa !11
   %7281 = icmp eq ptr %.pr8085, null
   br i1 %7281, label %get_proc.exit939.thread13297, label %7282
@@ -28447,8 +28447,8 @@ get_proc.exit945:                                 ; preds = %7284, %.thread.i944
   br label %get_proc.exit939
 
 get_proc.exit939:                                 ; preds = %7292, %.thread.i938
-  %.pr8089 = phi ptr [ %.pr8089.pre9676, %7292 ], [ %.pr8089.pre, %.thread.i938 ]
-  %.05.i935.ph = phi ptr [ %7293, %7292 ], [ %7296, %.thread.i938 ]
+  %.pr8089 = phi ptr [ %.pr8089.pre, %.thread.i938 ], [ %.pr8089.pre9676, %7292 ]
+  %.05.i935.ph = phi ptr [ %7296, %.thread.i938 ], [ %7293, %7292 ]
   store ptr %.05.i935.ph, ptr @glad_glShaderStorageBlockBinding, align 8, !tbaa !11
   %7297 = icmp eq ptr %.pr8089, null
   br i1 %7297, label %get_proc.exit927.thread13300, label %7298
@@ -28505,8 +28505,8 @@ get_proc.exit933:                                 ; preds = %7300, %.thread.i932
   br label %get_proc.exit927
 
 get_proc.exit927:                                 ; preds = %7308, %.thread.i926
-  %.pr8093 = phi ptr [ %.pr8093.pre9679, %7308 ], [ %.pr8093.pre, %.thread.i926 ]
-  %.05.i923.ph = phi ptr [ %7309, %7308 ], [ %7312, %.thread.i926 ]
+  %.pr8093 = phi ptr [ %.pr8093.pre, %.thread.i926 ], [ %.pr8093.pre9679, %7308 ]
+  %.05.i923.ph = phi ptr [ %7312, %.thread.i926 ], [ %7309, %7308 ]
   store ptr %.05.i923.ph, ptr @glad_glTexStorage2DMultisample, align 8, !tbaa !11
   %7313 = icmp eq ptr %.pr8093, null
   br i1 %7313, label %get_proc.exit915.thread13303, label %7314
@@ -28563,8 +28563,8 @@ get_proc.exit921:                                 ; preds = %7316, %.thread.i920
   br label %get_proc.exit915
 
 get_proc.exit915:                                 ; preds = %7324, %.thread.i914
-  %.pr8097 = phi ptr [ %.pr8097.pre9682, %7324 ], [ %.pr8097.pre, %.thread.i914 ]
-  %.05.i911.ph = phi ptr [ %7325, %7324 ], [ %7328, %.thread.i914 ]
+  %.pr8097 = phi ptr [ %.pr8097.pre, %.thread.i914 ], [ %.pr8097.pre9682, %7324 ]
+  %.05.i911.ph = phi ptr [ %7328, %.thread.i914 ], [ %7325, %7324 ]
   store ptr %.05.i911.ph, ptr @glad_glTextureView, align 8, !tbaa !11
   %7329 = icmp eq ptr %.pr8097, null
   br i1 %7329, label %get_proc.exit903.thread13306, label %7330
@@ -28621,8 +28621,8 @@ get_proc.exit909:                                 ; preds = %7332, %.thread.i908
   br label %get_proc.exit903
 
 get_proc.exit903:                                 ; preds = %7340, %.thread.i902
-  %.pr8101 = phi ptr [ %.pr8101.pre9685, %7340 ], [ %.pr8101.pre, %.thread.i902 ]
-  %.05.i899.ph = phi ptr [ %7341, %7340 ], [ %7344, %.thread.i902 ]
+  %.pr8101 = phi ptr [ %.pr8101.pre, %.thread.i902 ], [ %.pr8101.pre9685, %7340 ]
+  %.05.i899.ph = phi ptr [ %7344, %.thread.i902 ], [ %7341, %7340 ]
   store ptr %.05.i899.ph, ptr @glad_glVertexAttribFormat, align 8, !tbaa !11
   %7345 = icmp eq ptr %.pr8101, null
   br i1 %7345, label %get_proc.exit891.thread13309, label %7346
@@ -28679,8 +28679,8 @@ get_proc.exit897:                                 ; preds = %7348, %.thread.i896
   br label %get_proc.exit891
 
 get_proc.exit891:                                 ; preds = %7356, %.thread.i890
-  %.pr8105 = phi ptr [ %.pr8105.pre9688, %7356 ], [ %.pr8105.pre, %.thread.i890 ]
-  %.05.i887.ph = phi ptr [ %7357, %7356 ], [ %7360, %.thread.i890 ]
+  %.pr8105 = phi ptr [ %.pr8105.pre, %.thread.i890 ], [ %.pr8105.pre9688, %7356 ]
+  %.05.i887.ph = phi ptr [ %7360, %.thread.i890 ], [ %7357, %7356 ]
   store ptr %.05.i887.ph, ptr @glad_glVertexAttribLFormat, align 8, !tbaa !11
   %7361 = icmp eq ptr %.pr8105, null
   br i1 %7361, label %get_proc.exit879.thread13312, label %7362
@@ -28737,8 +28737,8 @@ get_proc.exit885:                                 ; preds = %7364, %.thread.i884
   br label %get_proc.exit879
 
 get_proc.exit879:                                 ; preds = %7372, %.thread.i878
-  %.pr8109 = phi ptr [ %.pr8109.pre9691, %7372 ], [ %.pr8109.pre, %.thread.i878 ]
-  %.05.i875.ph = phi ptr [ %7373, %7372 ], [ %7376, %.thread.i878 ]
+  %.pr8109 = phi ptr [ %.pr8109.pre, %.thread.i878 ], [ %.pr8109.pre9691, %7372 ]
+  %.05.i875.ph = phi ptr [ %7376, %.thread.i878 ], [ %7373, %7372 ]
   store ptr %.05.i875.ph, ptr @glad_glVertexBindingDivisor, align 8, !tbaa !11
   %7377 = icmp eq ptr %.pr8109, null
   br i1 %7377, label %get_proc.exit867.thread13315, label %7378
@@ -28795,8 +28795,8 @@ get_proc.exit873:                                 ; preds = %7380, %.thread.i872
   br label %get_proc.exit867
 
 get_proc.exit867:                                 ; preds = %7388, %.thread.i866
-  %.pr8113 = phi ptr [ %.pr8113.pre9694, %7388 ], [ %.pr8113.pre, %.thread.i866 ]
-  %.05.i863.ph = phi ptr [ %7389, %7388 ], [ %7392, %.thread.i866 ]
+  %.pr8113 = phi ptr [ %.pr8113.pre, %.thread.i866 ], [ %.pr8113.pre9694, %7388 ]
+  %.05.i863.ph = phi ptr [ %7392, %.thread.i866 ], [ %7389, %7388 ]
   store ptr %.05.i863.ph, ptr @glad_glDebugMessageInsert, align 8, !tbaa !11
   %7393 = icmp eq ptr %.pr8113, null
   br i1 %7393, label %get_proc.exit855.thread13318, label %7394
@@ -28853,8 +28853,8 @@ get_proc.exit861:                                 ; preds = %7396, %.thread.i860
   br label %get_proc.exit855
 
 get_proc.exit855:                                 ; preds = %7404, %.thread.i854
-  %.pr8117 = phi ptr [ %.pr8117.pre9697, %7404 ], [ %.pr8117.pre, %.thread.i854 ]
-  %.05.i851.ph = phi ptr [ %7405, %7404 ], [ %7408, %.thread.i854 ]
+  %.pr8117 = phi ptr [ %.pr8117.pre, %.thread.i854 ], [ %.pr8117.pre9697, %7404 ]
+  %.05.i851.ph = phi ptr [ %7408, %.thread.i854 ], [ %7405, %7404 ]
   store ptr %.05.i851.ph, ptr @glad_glGetDebugMessageLog, align 8, !tbaa !11
   %7409 = icmp eq ptr %.pr8117, null
   br i1 %7409, label %get_proc.exit843.thread13321, label %7410
@@ -28911,8 +28911,8 @@ get_proc.exit849:                                 ; preds = %7412, %.thread.i848
   br label %get_proc.exit843
 
 get_proc.exit843:                                 ; preds = %7420, %.thread.i842
-  %.pr8121 = phi ptr [ %.pr8121.pre9700, %7420 ], [ %.pr8121.pre, %.thread.i842 ]
-  %.05.i839.ph = phi ptr [ %7421, %7420 ], [ %7424, %.thread.i842 ]
+  %.pr8121 = phi ptr [ %.pr8121.pre, %.thread.i842 ], [ %.pr8121.pre9700, %7420 ]
+  %.05.i839.ph = phi ptr [ %7424, %.thread.i842 ], [ %7421, %7420 ]
   store ptr %.05.i839.ph, ptr @glad_glPopDebugGroup, align 8, !tbaa !11
   %7425 = icmp eq ptr %.pr8121, null
   br i1 %7425, label %get_proc.exit831.thread13324, label %7426
@@ -28969,8 +28969,8 @@ get_proc.exit837:                                 ; preds = %7428, %.thread.i836
   br label %get_proc.exit831
 
 get_proc.exit831:                                 ; preds = %7436, %.thread.i830
-  %.pr8125 = phi ptr [ %.pr8125.pre9703, %7436 ], [ %.pr8125.pre, %.thread.i830 ]
-  %.05.i827.ph = phi ptr [ %7437, %7436 ], [ %7440, %.thread.i830 ]
+  %.pr8125 = phi ptr [ %.pr8125.pre, %.thread.i830 ], [ %.pr8125.pre9703, %7436 ]
+  %.05.i827.ph = phi ptr [ %7440, %.thread.i830 ], [ %7437, %7436 ]
   store ptr %.05.i827.ph, ptr @glad_glGetObjectLabel, align 8, !tbaa !11
   %7441 = icmp eq ptr %.pr8125, null
   br i1 %7441, label %get_proc.exit819.thread13327, label %7442
@@ -29032,8 +29032,8 @@ get_proc.exit819.thread:                          ; preds = %get_proc.exit825
   br label %get_proc.exit819
 
 get_proc.exit819:                                 ; preds = %7452, %.thread.i818
-  %.pr8129 = phi ptr [ %.pr8129.pre9706, %7452 ], [ %.pr8129.pre, %.thread.i818 ]
-  %.05.i815.ph = phi ptr [ %7453, %7452 ], [ %7456, %.thread.i818 ]
+  %.pr8129 = phi ptr [ %.pr8129.pre, %.thread.i818 ], [ %.pr8129.pre9706, %7452 ]
+  %.05.i815.ph = phi ptr [ %7456, %.thread.i818 ], [ %7453, %7452 ]
   store ptr %.05.i815.ph, ptr @glad_glGetObjectPtrLabel, align 8, !tbaa !11
   %7457 = icmp eq ptr %.pr8129, null
   br i1 %7457, label %get_proc.exit813, label %7458
@@ -29150,8 +29150,8 @@ get_proc.exit801:                                 ; preds = %7479, %.thread.i800
   br label %get_proc.exit795
 
 get_proc.exit795:                                 ; preds = %7487, %.thread.i794
-  %.pr8135 = phi ptr [ %.pr8135.pre9709, %7487 ], [ %.pr8135.pre, %.thread.i794 ]
-  %.05.i791.ph = phi ptr [ %7488, %7487 ], [ %7491, %.thread.i794 ]
+  %.pr8135 = phi ptr [ %.pr8135.pre, %.thread.i794 ], [ %.pr8135.pre9709, %7487 ]
+  %.05.i791.ph = phi ptr [ %7491, %.thread.i794 ], [ %7488, %7487 ]
   store ptr %.05.i791.ph, ptr @glad_glClearTexSubImage, align 8, !tbaa !11
   %7492 = icmp eq ptr %.pr8135, null
   br i1 %7492, label %get_proc.exit783.thread13333, label %7493
@@ -29208,8 +29208,8 @@ get_proc.exit789:                                 ; preds = %7495, %.thread.i788
   br label %get_proc.exit783
 
 get_proc.exit783:                                 ; preds = %7503, %.thread.i782
-  %.pr8139 = phi ptr [ %.pr8139.pre9712, %7503 ], [ %.pr8139.pre, %.thread.i782 ]
-  %.05.i779.ph = phi ptr [ %7504, %7503 ], [ %7507, %.thread.i782 ]
+  %.pr8139 = phi ptr [ %.pr8139.pre, %.thread.i782 ], [ %.pr8139.pre9712, %7503 ]
+  %.05.i779.ph = phi ptr [ %7507, %.thread.i782 ], [ %7504, %7503 ]
   store ptr %.05.i779.ph, ptr @glad_glBindBuffersRange, align 8, !tbaa !11
   %7508 = icmp eq ptr %.pr8139, null
   br i1 %7508, label %get_proc.exit771.thread13336, label %7509
@@ -29266,8 +29266,8 @@ get_proc.exit777:                                 ; preds = %7511, %.thread.i776
   br label %get_proc.exit771
 
 get_proc.exit771:                                 ; preds = %7519, %.thread.i770
-  %.pr8143 = phi ptr [ %.pr8143.pre9715, %7519 ], [ %.pr8143.pre, %.thread.i770 ]
-  %.05.i767.ph = phi ptr [ %7520, %7519 ], [ %7523, %.thread.i770 ]
+  %.pr8143 = phi ptr [ %.pr8143.pre, %.thread.i770 ], [ %.pr8143.pre9715, %7519 ]
+  %.05.i767.ph = phi ptr [ %7523, %.thread.i770 ], [ %7520, %7519 ]
   store ptr %.05.i767.ph, ptr @glad_glBindSamplers, align 8, !tbaa !11
   %7524 = icmp eq ptr %.pr8143, null
   br i1 %7524, label %get_proc.exit765.thread, label %7525
@@ -29418,8 +29418,8 @@ get_proc.exit747:                                 ; preds = %7554, %.thread.i746
   br label %get_proc.exit741
 
 get_proc.exit741:                                 ; preds = %7562, %.thread.i740
-  %.pr8151 = phi ptr [ %.pr8151.pre9718, %7562 ], [ %.pr8151.pre, %.thread.i740 ]
-  %.05.i737.ph = phi ptr [ %7563, %7562 ], [ %7566, %.thread.i740 ]
+  %.pr8151 = phi ptr [ %.pr8151.pre, %.thread.i740 ], [ %.pr8151.pre9718, %7562 ]
+  %.05.i737.ph = phi ptr [ %7566, %.thread.i740 ], [ %7563, %7562 ]
   store ptr %.05.i737.ph, ptr @glad_glTransformFeedbackBufferBase, align 8, !tbaa !11
   %7567 = icmp eq ptr %.pr8151, null
   br i1 %7567, label %get_proc.exit729.thread13342, label %7568
@@ -29476,8 +29476,8 @@ get_proc.exit735:                                 ; preds = %7570, %.thread.i734
   br label %get_proc.exit729
 
 get_proc.exit729:                                 ; preds = %7578, %.thread.i728
-  %.pr8155 = phi ptr [ %.pr8155.pre9721, %7578 ], [ %.pr8155.pre, %.thread.i728 ]
-  %.05.i725.ph = phi ptr [ %7579, %7578 ], [ %7582, %.thread.i728 ]
+  %.pr8155 = phi ptr [ %.pr8155.pre, %.thread.i728 ], [ %.pr8155.pre9721, %7578 ]
+  %.05.i725.ph = phi ptr [ %7582, %.thread.i728 ], [ %7579, %7578 ]
   store ptr %.05.i725.ph, ptr @glad_glGetTransformFeedbackiv, align 8, !tbaa !11
   %7583 = icmp eq ptr %.pr8155, null
   br i1 %7583, label %get_proc.exit717.thread13345, label %7584
@@ -29534,8 +29534,8 @@ get_proc.exit723:                                 ; preds = %7586, %.thread.i722
   br label %get_proc.exit717
 
 get_proc.exit717:                                 ; preds = %7594, %.thread.i716
-  %.pr8159 = phi ptr [ %.pr8159.pre9724, %7594 ], [ %.pr8159.pre, %.thread.i716 ]
-  %.05.i713.ph = phi ptr [ %7595, %7594 ], [ %7598, %.thread.i716 ]
+  %.pr8159 = phi ptr [ %.pr8159.pre, %.thread.i716 ], [ %.pr8159.pre9724, %7594 ]
+  %.05.i713.ph = phi ptr [ %7598, %.thread.i716 ], [ %7595, %7594 ]
   store ptr %.05.i713.ph, ptr @glad_glGetTransformFeedbacki64_v, align 8, !tbaa !11
   %7599 = icmp eq ptr %.pr8159, null
   br i1 %7599, label %get_proc.exit705.thread13348, label %7600
@@ -29592,8 +29592,8 @@ get_proc.exit711:                                 ; preds = %7602, %.thread.i710
   br label %get_proc.exit705
 
 get_proc.exit705:                                 ; preds = %7610, %.thread.i704
-  %.pr8163 = phi ptr [ %.pr8163.pre9727, %7610 ], [ %.pr8163.pre, %.thread.i704 ]
-  %.05.i701.ph = phi ptr [ %7611, %7610 ], [ %7614, %.thread.i704 ]
+  %.pr8163 = phi ptr [ %.pr8163.pre, %.thread.i704 ], [ %.pr8163.pre9727, %7610 ]
+  %.05.i701.ph = phi ptr [ %7614, %.thread.i704 ], [ %7611, %7610 ]
   store ptr %.05.i701.ph, ptr @glad_glNamedBufferStorage, align 8, !tbaa !11
   %7615 = icmp eq ptr %.pr8163, null
   br i1 %7615, label %get_proc.exit693.thread13351, label %7616
@@ -29650,8 +29650,8 @@ get_proc.exit699:                                 ; preds = %7618, %.thread.i698
   br label %get_proc.exit693
 
 get_proc.exit693:                                 ; preds = %7626, %.thread.i692
-  %.pr8167 = phi ptr [ %.pr8167.pre9730, %7626 ], [ %.pr8167.pre, %.thread.i692 ]
-  %.05.i689.ph = phi ptr [ %7627, %7626 ], [ %7630, %.thread.i692 ]
+  %.pr8167 = phi ptr [ %.pr8167.pre, %.thread.i692 ], [ %.pr8167.pre9730, %7626 ]
+  %.05.i689.ph = phi ptr [ %7630, %.thread.i692 ], [ %7627, %7626 ]
   store ptr %.05.i689.ph, ptr @glad_glNamedBufferSubData, align 8, !tbaa !11
   %7631 = icmp eq ptr %.pr8167, null
   br i1 %7631, label %get_proc.exit681.thread13354, label %7632
@@ -29708,8 +29708,8 @@ get_proc.exit687:                                 ; preds = %7634, %.thread.i686
   br label %get_proc.exit681
 
 get_proc.exit681:                                 ; preds = %7642, %.thread.i680
-  %.pr8171 = phi ptr [ %.pr8171.pre9733, %7642 ], [ %.pr8171.pre, %.thread.i680 ]
-  %.05.i677.ph = phi ptr [ %7643, %7642 ], [ %7646, %.thread.i680 ]
+  %.pr8171 = phi ptr [ %.pr8171.pre, %.thread.i680 ], [ %.pr8171.pre9733, %7642 ]
+  %.05.i677.ph = phi ptr [ %7646, %.thread.i680 ], [ %7643, %7642 ]
   store ptr %.05.i677.ph, ptr @glad_glClearNamedBufferData, align 8, !tbaa !11
   %7647 = icmp eq ptr %.pr8171, null
   br i1 %7647, label %get_proc.exit669.thread13357, label %7648
@@ -29766,8 +29766,8 @@ get_proc.exit675:                                 ; preds = %7650, %.thread.i674
   br label %get_proc.exit669
 
 get_proc.exit669:                                 ; preds = %7658, %.thread.i668
-  %.pr8175 = phi ptr [ %.pr8175.pre9736, %7658 ], [ %.pr8175.pre, %.thread.i668 ]
-  %.05.i665.ph = phi ptr [ %7659, %7658 ], [ %7662, %.thread.i668 ]
+  %.pr8175 = phi ptr [ %.pr8175.pre, %.thread.i668 ], [ %.pr8175.pre9736, %7658 ]
+  %.05.i665.ph = phi ptr [ %7662, %.thread.i668 ], [ %7659, %7658 ]
   store ptr %.05.i665.ph, ptr @glad_glMapNamedBuffer, align 8, !tbaa !11
   %7663 = icmp eq ptr %.pr8175, null
   br i1 %7663, label %get_proc.exit657.thread13360, label %7664
@@ -29824,8 +29824,8 @@ get_proc.exit663:                                 ; preds = %7666, %.thread.i662
   br label %get_proc.exit657
 
 get_proc.exit657:                                 ; preds = %7674, %.thread.i656
-  %.pr8179 = phi ptr [ %.pr8179.pre9739, %7674 ], [ %.pr8179.pre, %.thread.i656 ]
-  %.05.i653.ph = phi ptr [ %7675, %7674 ], [ %7678, %.thread.i656 ]
+  %.pr8179 = phi ptr [ %.pr8179.pre, %.thread.i656 ], [ %.pr8179.pre9739, %7674 ]
+  %.05.i653.ph = phi ptr [ %7678, %.thread.i656 ], [ %7675, %7674 ]
   store ptr %.05.i653.ph, ptr @glad_glUnmapNamedBuffer, align 8, !tbaa !11
   %7679 = icmp eq ptr %.pr8179, null
   br i1 %7679, label %get_proc.exit645.thread13363, label %7680
@@ -29882,8 +29882,8 @@ get_proc.exit651:                                 ; preds = %7682, %.thread.i650
   br label %get_proc.exit645
 
 get_proc.exit645:                                 ; preds = %7690, %.thread.i644
-  %.pr8183 = phi ptr [ %.pr8183.pre9742, %7690 ], [ %.pr8183.pre, %.thread.i644 ]
-  %.05.i641.ph = phi ptr [ %7691, %7690 ], [ %7694, %.thread.i644 ]
+  %.pr8183 = phi ptr [ %.pr8183.pre, %.thread.i644 ], [ %.pr8183.pre9742, %7690 ]
+  %.05.i641.ph = phi ptr [ %7694, %.thread.i644 ], [ %7691, %7690 ]
   store ptr %.05.i641.ph, ptr @glad_glGetNamedBufferParameteriv, align 8, !tbaa !11
   %7695 = icmp eq ptr %.pr8183, null
   br i1 %7695, label %get_proc.exit633.thread13366, label %7696
@@ -29940,8 +29940,8 @@ get_proc.exit639:                                 ; preds = %7698, %.thread.i638
   br label %get_proc.exit633
 
 get_proc.exit633:                                 ; preds = %7706, %.thread.i632
-  %.pr8187 = phi ptr [ %.pr8187.pre9745, %7706 ], [ %.pr8187.pre, %.thread.i632 ]
-  %.05.i629.ph = phi ptr [ %7707, %7706 ], [ %7710, %.thread.i632 ]
+  %.pr8187 = phi ptr [ %.pr8187.pre, %.thread.i632 ], [ %.pr8187.pre9745, %7706 ]
+  %.05.i629.ph = phi ptr [ %7710, %.thread.i632 ], [ %7707, %7706 ]
   store ptr %.05.i629.ph, ptr @glad_glGetNamedBufferPointerv, align 8, !tbaa !11
   %7711 = icmp eq ptr %.pr8187, null
   br i1 %7711, label %get_proc.exit621.thread13369, label %7712
@@ -29998,8 +29998,8 @@ get_proc.exit627:                                 ; preds = %7714, %.thread.i626
   br label %get_proc.exit621
 
 get_proc.exit621:                                 ; preds = %7722, %.thread.i620
-  %.pr8191 = phi ptr [ %.pr8191.pre9748, %7722 ], [ %.pr8191.pre, %.thread.i620 ]
-  %.05.i617.ph = phi ptr [ %7723, %7722 ], [ %7726, %.thread.i620 ]
+  %.pr8191 = phi ptr [ %.pr8191.pre, %.thread.i620 ], [ %.pr8191.pre9748, %7722 ]
+  %.05.i617.ph = phi ptr [ %7726, %.thread.i620 ], [ %7723, %7722 ]
   store ptr %.05.i617.ph, ptr @glad_glCreateFramebuffers, align 8, !tbaa !11
   %7727 = icmp eq ptr %.pr8191, null
   br i1 %7727, label %get_proc.exit609.thread13372, label %7728
@@ -30056,8 +30056,8 @@ get_proc.exit615:                                 ; preds = %7730, %.thread.i614
   br label %get_proc.exit609
 
 get_proc.exit609:                                 ; preds = %7738, %.thread.i608
-  %.pr8195 = phi ptr [ %.pr8195.pre9751, %7738 ], [ %.pr8195.pre, %.thread.i608 ]
-  %.05.i605.ph = phi ptr [ %7739, %7738 ], [ %7742, %.thread.i608 ]
+  %.pr8195 = phi ptr [ %.pr8195.pre, %.thread.i608 ], [ %.pr8195.pre9751, %7738 ]
+  %.05.i605.ph = phi ptr [ %7742, %.thread.i608 ], [ %7739, %7738 ]
   store ptr %.05.i605.ph, ptr @glad_glNamedFramebufferParameteri, align 8, !tbaa !11
   %7743 = icmp eq ptr %.pr8195, null
   br i1 %7743, label %get_proc.exit597.thread13375, label %7744
@@ -30114,8 +30114,8 @@ get_proc.exit603:                                 ; preds = %7746, %.thread.i602
   br label %get_proc.exit597
 
 get_proc.exit597:                                 ; preds = %7754, %.thread.i596
-  %.pr8199 = phi ptr [ %.pr8199.pre9754, %7754 ], [ %.pr8199.pre, %.thread.i596 ]
-  %.05.i593.ph = phi ptr [ %7755, %7754 ], [ %7758, %.thread.i596 ]
+  %.pr8199 = phi ptr [ %.pr8199.pre, %.thread.i596 ], [ %.pr8199.pre9754, %7754 ]
+  %.05.i593.ph = phi ptr [ %7758, %.thread.i596 ], [ %7755, %7754 ]
   store ptr %.05.i593.ph, ptr @glad_glNamedFramebufferTextureLayer, align 8, !tbaa !11
   %7759 = icmp eq ptr %.pr8199, null
   br i1 %7759, label %get_proc.exit585.thread13378, label %7760
@@ -30172,8 +30172,8 @@ get_proc.exit591:                                 ; preds = %7762, %.thread.i590
   br label %get_proc.exit585
 
 get_proc.exit585:                                 ; preds = %7770, %.thread.i584
-  %.pr8203 = phi ptr [ %.pr8203.pre9757, %7770 ], [ %.pr8203.pre, %.thread.i584 ]
-  %.05.i581.ph = phi ptr [ %7771, %7770 ], [ %7774, %.thread.i584 ]
+  %.pr8203 = phi ptr [ %.pr8203.pre, %.thread.i584 ], [ %.pr8203.pre9757, %7770 ]
+  %.05.i581.ph = phi ptr [ %7774, %.thread.i584 ], [ %7771, %7770 ]
   store ptr %.05.i581.ph, ptr @glad_glNamedFramebufferDrawBuffers, align 8, !tbaa !11
   %7775 = icmp eq ptr %.pr8203, null
   br i1 %7775, label %get_proc.exit573.thread13381, label %7776
@@ -30230,8 +30230,8 @@ get_proc.exit579:                                 ; preds = %7778, %.thread.i578
   br label %get_proc.exit573
 
 get_proc.exit573:                                 ; preds = %7786, %.thread.i572
-  %.pr8207 = phi ptr [ %.pr8207.pre9760, %7786 ], [ %.pr8207.pre, %.thread.i572 ]
-  %.05.i569.ph = phi ptr [ %7787, %7786 ], [ %7790, %.thread.i572 ]
+  %.pr8207 = phi ptr [ %.pr8207.pre, %.thread.i572 ], [ %.pr8207.pre9760, %7786 ]
+  %.05.i569.ph = phi ptr [ %7790, %.thread.i572 ], [ %7787, %7786 ]
   store ptr %.05.i569.ph, ptr @glad_glInvalidateNamedFramebufferData, align 8, !tbaa !11
   %7791 = icmp eq ptr %.pr8207, null
   br i1 %7791, label %get_proc.exit561.thread13384, label %7792
@@ -30288,8 +30288,8 @@ get_proc.exit567:                                 ; preds = %7794, %.thread.i566
   br label %get_proc.exit561
 
 get_proc.exit561:                                 ; preds = %7802, %.thread.i560
-  %.pr8211 = phi ptr [ %.pr8211.pre9763, %7802 ], [ %.pr8211.pre, %.thread.i560 ]
-  %.05.i557.ph = phi ptr [ %7803, %7802 ], [ %7806, %.thread.i560 ]
+  %.pr8211 = phi ptr [ %.pr8211.pre, %.thread.i560 ], [ %.pr8211.pre9763, %7802 ]
+  %.05.i557.ph = phi ptr [ %7806, %.thread.i560 ], [ %7803, %7802 ]
   store ptr %.05.i557.ph, ptr @glad_glClearNamedFramebufferiv, align 8, !tbaa !11
   %7807 = icmp eq ptr %.pr8211, null
   br i1 %7807, label %get_proc.exit549.thread13387, label %7808
@@ -30346,8 +30346,8 @@ get_proc.exit555:                                 ; preds = %7810, %.thread.i554
   br label %get_proc.exit549
 
 get_proc.exit549:                                 ; preds = %7818, %.thread.i548
-  %.pr8215 = phi ptr [ %.pr8215.pre9766, %7818 ], [ %.pr8215.pre, %.thread.i548 ]
-  %.05.i545.ph = phi ptr [ %7819, %7818 ], [ %7822, %.thread.i548 ]
+  %.pr8215 = phi ptr [ %.pr8215.pre, %.thread.i548 ], [ %.pr8215.pre9766, %7818 ]
+  %.05.i545.ph = phi ptr [ %7822, %.thread.i548 ], [ %7819, %7818 ]
   store ptr %.05.i545.ph, ptr @glad_glClearNamedFramebufferfv, align 8, !tbaa !11
   %7823 = icmp eq ptr %.pr8215, null
   br i1 %7823, label %get_proc.exit537.thread13390, label %7824
@@ -30404,8 +30404,8 @@ get_proc.exit543:                                 ; preds = %7826, %.thread.i542
   br label %get_proc.exit537
 
 get_proc.exit537:                                 ; preds = %7834, %.thread.i536
-  %.pr8219 = phi ptr [ %.pr8219.pre9769, %7834 ], [ %.pr8219.pre, %.thread.i536 ]
-  %.05.i533.ph = phi ptr [ %7835, %7834 ], [ %7838, %.thread.i536 ]
+  %.pr8219 = phi ptr [ %.pr8219.pre, %.thread.i536 ], [ %.pr8219.pre9769, %7834 ]
+  %.05.i533.ph = phi ptr [ %7838, %.thread.i536 ], [ %7835, %7834 ]
   store ptr %.05.i533.ph, ptr @glad_glBlitNamedFramebuffer, align 8, !tbaa !11
   %7839 = icmp eq ptr %.pr8219, null
   br i1 %7839, label %get_proc.exit525.thread13393, label %7840
@@ -30462,8 +30462,8 @@ get_proc.exit531:                                 ; preds = %7842, %.thread.i530
   br label %get_proc.exit525
 
 get_proc.exit525:                                 ; preds = %7850, %.thread.i524
-  %.pr8223 = phi ptr [ %.pr8223.pre9772, %7850 ], [ %.pr8223.pre, %.thread.i524 ]
-  %.05.i521.ph = phi ptr [ %7851, %7850 ], [ %7854, %.thread.i524 ]
+  %.pr8223 = phi ptr [ %.pr8223.pre, %.thread.i524 ], [ %.pr8223.pre9772, %7850 ]
+  %.05.i521.ph = phi ptr [ %7854, %.thread.i524 ], [ %7851, %7850 ]
   store ptr %.05.i521.ph, ptr @glad_glGetNamedFramebufferParameteriv, align 8, !tbaa !11
   %7855 = icmp eq ptr %.pr8223, null
   br i1 %7855, label %get_proc.exit513.thread13396, label %7856
@@ -30520,8 +30520,8 @@ get_proc.exit519:                                 ; preds = %7858, %.thread.i518
   br label %get_proc.exit513
 
 get_proc.exit513:                                 ; preds = %7866, %.thread.i512
-  %.pr8227 = phi ptr [ %.pr8227.pre9775, %7866 ], [ %.pr8227.pre, %.thread.i512 ]
-  %.05.i509.ph = phi ptr [ %7867, %7866 ], [ %7870, %.thread.i512 ]
+  %.pr8227 = phi ptr [ %.pr8227.pre, %.thread.i512 ], [ %.pr8227.pre9775, %7866 ]
+  %.05.i509.ph = phi ptr [ %7870, %.thread.i512 ], [ %7867, %7866 ]
   store ptr %.05.i509.ph, ptr @glad_glCreateRenderbuffers, align 8, !tbaa !11
   %7871 = icmp eq ptr %.pr8227, null
   br i1 %7871, label %get_proc.exit501.thread13399, label %7872
@@ -30578,8 +30578,8 @@ get_proc.exit507:                                 ; preds = %7874, %.thread.i506
   br label %get_proc.exit501
 
 get_proc.exit501:                                 ; preds = %7882, %.thread.i500
-  %.pr8231 = phi ptr [ %.pr8231.pre9778, %7882 ], [ %.pr8231.pre, %.thread.i500 ]
-  %.05.i497.ph = phi ptr [ %7883, %7882 ], [ %7886, %.thread.i500 ]
+  %.pr8231 = phi ptr [ %.pr8231.pre, %.thread.i500 ], [ %.pr8231.pre9778, %7882 ]
+  %.05.i497.ph = phi ptr [ %7886, %.thread.i500 ], [ %7883, %7882 ]
   store ptr %.05.i497.ph, ptr @glad_glNamedRenderbufferStorageMultisample, align 8, !tbaa !11
   %7887 = icmp eq ptr %.pr8231, null
   br i1 %7887, label %get_proc.exit489.thread13402, label %7888
@@ -30636,8 +30636,8 @@ get_proc.exit495:                                 ; preds = %7890, %.thread.i494
   br label %get_proc.exit489
 
 get_proc.exit489:                                 ; preds = %7898, %.thread.i488
-  %.pr8235 = phi ptr [ %.pr8235.pre9781, %7898 ], [ %.pr8235.pre, %.thread.i488 ]
-  %.05.i485.ph = phi ptr [ %7899, %7898 ], [ %7902, %.thread.i488 ]
+  %.pr8235 = phi ptr [ %.pr8235.pre, %.thread.i488 ], [ %.pr8235.pre9781, %7898 ]
+  %.05.i485.ph = phi ptr [ %7902, %.thread.i488 ], [ %7899, %7898 ]
   store ptr %.05.i485.ph, ptr @glad_glCreateTextures, align 8, !tbaa !11
   %7903 = icmp eq ptr %.pr8235, null
   br i1 %7903, label %get_proc.exit477.thread13405, label %7904
@@ -30694,8 +30694,8 @@ get_proc.exit483:                                 ; preds = %7906, %.thread.i482
   br label %get_proc.exit477
 
 get_proc.exit477:                                 ; preds = %7914, %.thread.i476
-  %.pr8239 = phi ptr [ %.pr8239.pre9784, %7914 ], [ %.pr8239.pre, %.thread.i476 ]
-  %.05.i473.ph = phi ptr [ %7915, %7914 ], [ %7918, %.thread.i476 ]
+  %.pr8239 = phi ptr [ %.pr8239.pre, %.thread.i476 ], [ %.pr8239.pre9784, %7914 ]
+  %.05.i473.ph = phi ptr [ %7918, %.thread.i476 ], [ %7915, %7914 ]
   store ptr %.05.i473.ph, ptr @glad_glTextureBufferRange, align 8, !tbaa !11
   %7919 = icmp eq ptr %.pr8239, null
   br i1 %7919, label %get_proc.exit465.thread13408, label %7920
@@ -30752,8 +30752,8 @@ get_proc.exit471:                                 ; preds = %7922, %.thread.i470
   br label %get_proc.exit465
 
 get_proc.exit465:                                 ; preds = %7930, %.thread.i464
-  %.pr8243 = phi ptr [ %.pr8243.pre9787, %7930 ], [ %.pr8243.pre, %.thread.i464 ]
-  %.05.i461.ph = phi ptr [ %7931, %7930 ], [ %7934, %.thread.i464 ]
+  %.pr8243 = phi ptr [ %.pr8243.pre, %.thread.i464 ], [ %.pr8243.pre9787, %7930 ]
+  %.05.i461.ph = phi ptr [ %7934, %.thread.i464 ], [ %7931, %7930 ]
   store ptr %.05.i461.ph, ptr @glad_glTextureStorage2D, align 8, !tbaa !11
   %7935 = icmp eq ptr %.pr8243, null
   br i1 %7935, label %get_proc.exit453.thread13411, label %7936
@@ -30810,8 +30810,8 @@ get_proc.exit459:                                 ; preds = %7938, %.thread.i458
   br label %get_proc.exit453
 
 get_proc.exit453:                                 ; preds = %7946, %.thread.i452
-  %.pr8247 = phi ptr [ %.pr8247.pre9790, %7946 ], [ %.pr8247.pre, %.thread.i452 ]
-  %.05.i449.ph = phi ptr [ %7947, %7946 ], [ %7950, %.thread.i452 ]
+  %.pr8247 = phi ptr [ %.pr8247.pre, %.thread.i452 ], [ %.pr8247.pre9790, %7946 ]
+  %.05.i449.ph = phi ptr [ %7950, %.thread.i452 ], [ %7947, %7946 ]
   store ptr %.05.i449.ph, ptr @glad_glTextureStorage2DMultisample, align 8, !tbaa !11
   %7951 = icmp eq ptr %.pr8247, null
   br i1 %7951, label %get_proc.exit441.thread13414, label %7952
@@ -30868,8 +30868,8 @@ get_proc.exit447:                                 ; preds = %7954, %.thread.i446
   br label %get_proc.exit441
 
 get_proc.exit441:                                 ; preds = %7962, %.thread.i440
-  %.pr8251 = phi ptr [ %.pr8251.pre9793, %7962 ], [ %.pr8251.pre, %.thread.i440 ]
-  %.05.i437.ph = phi ptr [ %7963, %7962 ], [ %7966, %.thread.i440 ]
+  %.pr8251 = phi ptr [ %.pr8251.pre, %.thread.i440 ], [ %.pr8251.pre9793, %7962 ]
+  %.05.i437.ph = phi ptr [ %7966, %.thread.i440 ], [ %7963, %7962 ]
   store ptr %.05.i437.ph, ptr @glad_glTextureSubImage1D, align 8, !tbaa !11
   %7967 = icmp eq ptr %.pr8251, null
   br i1 %7967, label %get_proc.exit429.thread13417, label %7968
@@ -30926,8 +30926,8 @@ get_proc.exit435:                                 ; preds = %7970, %.thread.i434
   br label %get_proc.exit429
 
 get_proc.exit429:                                 ; preds = %7978, %.thread.i428
-  %.pr8255 = phi ptr [ %.pr8255.pre9796, %7978 ], [ %.pr8255.pre, %.thread.i428 ]
-  %.05.i425.ph = phi ptr [ %7979, %7978 ], [ %7982, %.thread.i428 ]
+  %.pr8255 = phi ptr [ %.pr8255.pre, %.thread.i428 ], [ %.pr8255.pre9796, %7978 ]
+  %.05.i425.ph = phi ptr [ %7982, %.thread.i428 ], [ %7979, %7978 ]
   store ptr %.05.i425.ph, ptr @glad_glTextureSubImage3D, align 8, !tbaa !11
   %7983 = icmp eq ptr %.pr8255, null
   br i1 %7983, label %get_proc.exit417.thread13420, label %7984
@@ -30984,8 +30984,8 @@ get_proc.exit423:                                 ; preds = %7986, %.thread.i422
   br label %get_proc.exit417
 
 get_proc.exit417:                                 ; preds = %7994, %.thread.i416
-  %.pr8259 = phi ptr [ %.pr8259.pre9799, %7994 ], [ %.pr8259.pre, %.thread.i416 ]
-  %.05.i413.ph = phi ptr [ %7995, %7994 ], [ %7998, %.thread.i416 ]
+  %.pr8259 = phi ptr [ %.pr8259.pre, %.thread.i416 ], [ %.pr8259.pre9799, %7994 ]
+  %.05.i413.ph = phi ptr [ %7998, %.thread.i416 ], [ %7995, %7994 ]
   store ptr %.05.i413.ph, ptr @glad_glCompressedTextureSubImage2D, align 8, !tbaa !11
   %7999 = icmp eq ptr %.pr8259, null
   br i1 %7999, label %get_proc.exit405.thread13423, label %8000
@@ -31042,8 +31042,8 @@ get_proc.exit411:                                 ; preds = %8002, %.thread.i410
   br label %get_proc.exit405
 
 get_proc.exit405:                                 ; preds = %8010, %.thread.i404
-  %.pr8263 = phi ptr [ %.pr8263.pre9802, %8010 ], [ %.pr8263.pre, %.thread.i404 ]
-  %.05.i401.ph = phi ptr [ %8011, %8010 ], [ %8014, %.thread.i404 ]
+  %.pr8263 = phi ptr [ %.pr8263.pre, %.thread.i404 ], [ %.pr8263.pre9802, %8010 ]
+  %.05.i401.ph = phi ptr [ %8014, %.thread.i404 ], [ %8011, %8010 ]
   store ptr %.05.i401.ph, ptr @glad_glCopyTextureSubImage1D, align 8, !tbaa !11
   %8015 = icmp eq ptr %.pr8263, null
   br i1 %8015, label %get_proc.exit393.thread13426, label %8016
@@ -31100,8 +31100,8 @@ get_proc.exit399:                                 ; preds = %8018, %.thread.i398
   br label %get_proc.exit393
 
 get_proc.exit393:                                 ; preds = %8026, %.thread.i392
-  %.pr8267 = phi ptr [ %.pr8267.pre9805, %8026 ], [ %.pr8267.pre, %.thread.i392 ]
-  %.05.i389.ph = phi ptr [ %8027, %8026 ], [ %8030, %.thread.i392 ]
+  %.pr8267 = phi ptr [ %.pr8267.pre, %.thread.i392 ], [ %.pr8267.pre9805, %8026 ]
+  %.05.i389.ph = phi ptr [ %8030, %.thread.i392 ], [ %8027, %8026 ]
   store ptr %.05.i389.ph, ptr @glad_glCopyTextureSubImage3D, align 8, !tbaa !11
   %8031 = icmp eq ptr %.pr8267, null
   br i1 %8031, label %get_proc.exit381.thread13429, label %8032
@@ -31158,8 +31158,8 @@ get_proc.exit387:                                 ; preds = %8034, %.thread.i386
   br label %get_proc.exit381
 
 get_proc.exit381:                                 ; preds = %8042, %.thread.i380
-  %.pr8271 = phi ptr [ %.pr8271.pre9808, %8042 ], [ %.pr8271.pre, %.thread.i380 ]
-  %.05.i377.ph = phi ptr [ %8043, %8042 ], [ %8046, %.thread.i380 ]
+  %.pr8271 = phi ptr [ %.pr8271.pre, %.thread.i380 ], [ %.pr8271.pre9808, %8042 ]
+  %.05.i377.ph = phi ptr [ %8046, %.thread.i380 ], [ %8043, %8042 ]
   store ptr %.05.i377.ph, ptr @glad_glTextureParameterfv, align 8, !tbaa !11
   %8047 = icmp eq ptr %.pr8271, null
   br i1 %8047, label %get_proc.exit369.thread13432, label %8048
@@ -31216,8 +31216,8 @@ get_proc.exit375:                                 ; preds = %8050, %.thread.i374
   br label %get_proc.exit369
 
 get_proc.exit369:                                 ; preds = %8058, %.thread.i368
-  %.pr8275 = phi ptr [ %.pr8275.pre9811, %8058 ], [ %.pr8275.pre, %.thread.i368 ]
-  %.05.i365.ph = phi ptr [ %8059, %8058 ], [ %8062, %.thread.i368 ]
+  %.pr8275 = phi ptr [ %.pr8275.pre, %.thread.i368 ], [ %.pr8275.pre9811, %8058 ]
+  %.05.i365.ph = phi ptr [ %8062, %.thread.i368 ], [ %8059, %8058 ]
   store ptr %.05.i365.ph, ptr @glad_glTextureParameterIiv, align 8, !tbaa !11
   %8063 = icmp eq ptr %.pr8275, null
   br i1 %8063, label %get_proc.exit357.thread13435, label %8064
@@ -31274,8 +31274,8 @@ get_proc.exit363:                                 ; preds = %8066, %.thread.i362
   br label %get_proc.exit357
 
 get_proc.exit357:                                 ; preds = %8074, %.thread.i356
-  %.pr8279 = phi ptr [ %.pr8279.pre9814, %8074 ], [ %.pr8279.pre, %.thread.i356 ]
-  %.05.i353.ph = phi ptr [ %8075, %8074 ], [ %8078, %.thread.i356 ]
+  %.pr8279 = phi ptr [ %.pr8279.pre, %.thread.i356 ], [ %.pr8279.pre9814, %8074 ]
+  %.05.i353.ph = phi ptr [ %8078, %.thread.i356 ], [ %8075, %8074 ]
   store ptr %.05.i353.ph, ptr @glad_glTextureParameteriv, align 8, !tbaa !11
   %8079 = icmp eq ptr %.pr8279, null
   br i1 %8079, label %get_proc.exit351.thread, label %8080
@@ -31392,8 +31392,8 @@ get_proc.exit339:                                 ; preds = %8098, %.thread.i338
   br label %get_proc.exit333
 
 get_proc.exit333:                                 ; preds = %8106, %.thread.i332
-  %.pr8287 = phi ptr [ %.pr8287.pre9817, %8106 ], [ %.pr8287.pre, %.thread.i332 ]
-  %.05.i329.ph = phi ptr [ %8107, %8106 ], [ %8110, %.thread.i332 ]
+  %.pr8287 = phi ptr [ %.pr8287.pre, %.thread.i332 ], [ %.pr8287.pre9817, %8106 ]
+  %.05.i329.ph = phi ptr [ %8110, %.thread.i332 ], [ %8107, %8106 ]
   store ptr %.05.i329.ph, ptr @glad_glGetCompressedTextureImage, align 8, !tbaa !11
   %8111 = icmp eq ptr %.pr8287, null
   br i1 %8111, label %get_proc.exit321.thread13441, label %8112
@@ -31450,8 +31450,8 @@ get_proc.exit327:                                 ; preds = %8114, %.thread.i326
   br label %get_proc.exit321
 
 get_proc.exit321:                                 ; preds = %8122, %.thread.i320
-  %.pr8291 = phi ptr [ %.pr8291.pre9820, %8122 ], [ %.pr8291.pre, %.thread.i320 ]
-  %.05.i317.ph = phi ptr [ %8123, %8122 ], [ %8126, %.thread.i320 ]
+  %.pr8291 = phi ptr [ %.pr8291.pre, %.thread.i320 ], [ %.pr8291.pre9820, %8122 ]
+  %.05.i317.ph = phi ptr [ %8126, %.thread.i320 ], [ %8123, %8122 ]
   store ptr %.05.i317.ph, ptr @glad_glGetTextureLevelParameteriv, align 8, !tbaa !11
   %8127 = icmp eq ptr %.pr8291, null
   br i1 %8127, label %get_proc.exit309.thread13444, label %8128
@@ -31508,8 +31508,8 @@ get_proc.exit315:                                 ; preds = %8130, %.thread.i314
   br label %get_proc.exit309
 
 get_proc.exit309:                                 ; preds = %8138, %.thread.i308
-  %.pr8295 = phi ptr [ %.pr8295.pre9823, %8138 ], [ %.pr8295.pre, %.thread.i308 ]
-  %.05.i305.ph = phi ptr [ %8139, %8138 ], [ %8142, %.thread.i308 ]
+  %.pr8295 = phi ptr [ %.pr8295.pre, %.thread.i308 ], [ %.pr8295.pre9823, %8138 ]
+  %.05.i305.ph = phi ptr [ %8142, %.thread.i308 ], [ %8139, %8138 ]
   store ptr %.05.i305.ph, ptr @glad_glGetTextureParameterIiv, align 8, !tbaa !11
   %8143 = icmp eq ptr %.pr8295, null
   br i1 %8143, label %get_proc.exit297.thread13447, label %8144
@@ -31566,8 +31566,8 @@ get_proc.exit303:                                 ; preds = %8146, %.thread.i302
   br label %get_proc.exit297
 
 get_proc.exit297:                                 ; preds = %8154, %.thread.i296
-  %.pr8299 = phi ptr [ %.pr8299.pre9826, %8154 ], [ %.pr8299.pre, %.thread.i296 ]
-  %.05.i293.ph = phi ptr [ %8155, %8154 ], [ %8158, %.thread.i296 ]
+  %.pr8299 = phi ptr [ %.pr8299.pre, %.thread.i296 ], [ %.pr8299.pre9826, %8154 ]
+  %.05.i293.ph = phi ptr [ %8158, %.thread.i296 ], [ %8155, %8154 ]
   store ptr %.05.i293.ph, ptr @glad_glGetTextureParameteriv, align 8, !tbaa !11
   %8159 = icmp eq ptr %.pr8299, null
   br i1 %8159, label %get_proc.exit285.thread13450, label %8160
@@ -31624,8 +31624,8 @@ get_proc.exit291:                                 ; preds = %8162, %.thread.i290
   br label %get_proc.exit285
 
 get_proc.exit285:                                 ; preds = %8170, %.thread.i284
-  %.pr8303 = phi ptr [ %.pr8303.pre9829, %8170 ], [ %.pr8303.pre, %.thread.i284 ]
-  %.05.i281.ph = phi ptr [ %8171, %8170 ], [ %8174, %.thread.i284 ]
+  %.pr8303 = phi ptr [ %.pr8303.pre, %.thread.i284 ], [ %.pr8303.pre9829, %8170 ]
+  %.05.i281.ph = phi ptr [ %8174, %.thread.i284 ], [ %8171, %8170 ]
   store ptr %.05.i281.ph, ptr @glad_glDisableVertexArrayAttrib, align 8, !tbaa !11
   %8175 = icmp eq ptr %.pr8303, null
   br i1 %8175, label %get_proc.exit273.thread13453, label %8176
@@ -31682,8 +31682,8 @@ get_proc.exit279:                                 ; preds = %8178, %.thread.i278
   br label %get_proc.exit273
 
 get_proc.exit273:                                 ; preds = %8186, %.thread.i272
-  %.pr8307 = phi ptr [ %.pr8307.pre9832, %8186 ], [ %.pr8307.pre, %.thread.i272 ]
-  %.05.i269.ph = phi ptr [ %8187, %8186 ], [ %8190, %.thread.i272 ]
+  %.pr8307 = phi ptr [ %.pr8307.pre, %.thread.i272 ], [ %.pr8307.pre9832, %8186 ]
+  %.05.i269.ph = phi ptr [ %8190, %.thread.i272 ], [ %8187, %8186 ]
   store ptr %.05.i269.ph, ptr @glad_glVertexArrayElementBuffer, align 8, !tbaa !11
   %8191 = icmp eq ptr %.pr8307, null
   br i1 %8191, label %get_proc.exit261.thread13456, label %8192
@@ -31740,8 +31740,8 @@ get_proc.exit267:                                 ; preds = %8194, %.thread.i266
   br label %get_proc.exit261
 
 get_proc.exit261:                                 ; preds = %8202, %.thread.i260
-  %.pr8311 = phi ptr [ %.pr8311.pre9835, %8202 ], [ %.pr8311.pre, %.thread.i260 ]
-  %.05.i257.ph = phi ptr [ %8203, %8202 ], [ %8206, %.thread.i260 ]
+  %.pr8311 = phi ptr [ %.pr8311.pre, %.thread.i260 ], [ %.pr8311.pre9835, %8202 ]
+  %.05.i257.ph = phi ptr [ %8206, %.thread.i260 ], [ %8203, %8202 ]
   store ptr %.05.i257.ph, ptr @glad_glVertexArrayVertexBuffers, align 8, !tbaa !11
   %8207 = icmp eq ptr %.pr8311, null
   br i1 %8207, label %get_proc.exit249.thread13459, label %8208
@@ -31798,8 +31798,8 @@ get_proc.exit255:                                 ; preds = %8210, %.thread.i254
   br label %get_proc.exit249
 
 get_proc.exit249:                                 ; preds = %8218, %.thread.i248
-  %.pr8315 = phi ptr [ %.pr8315.pre9838, %8218 ], [ %.pr8315.pre, %.thread.i248 ]
-  %.05.i245.ph = phi ptr [ %8219, %8218 ], [ %8222, %.thread.i248 ]
+  %.pr8315 = phi ptr [ %.pr8315.pre, %.thread.i248 ], [ %.pr8315.pre9838, %8218 ]
+  %.05.i245.ph = phi ptr [ %8222, %.thread.i248 ], [ %8219, %8218 ]
   store ptr %.05.i245.ph, ptr @glad_glVertexArrayAttribFormat, align 8, !tbaa !11
   %8223 = icmp eq ptr %.pr8315, null
   br i1 %8223, label %get_proc.exit237.thread13462, label %8224
@@ -31856,8 +31856,8 @@ get_proc.exit243:                                 ; preds = %8226, %.thread.i242
   br label %get_proc.exit237
 
 get_proc.exit237:                                 ; preds = %8234, %.thread.i236
-  %.pr8319 = phi ptr [ %.pr8319.pre9841, %8234 ], [ %.pr8319.pre, %.thread.i236 ]
-  %.05.i233.ph = phi ptr [ %8235, %8234 ], [ %8238, %.thread.i236 ]
+  %.pr8319 = phi ptr [ %.pr8319.pre, %.thread.i236 ], [ %.pr8319.pre9841, %8234 ]
+  %.05.i233.ph = phi ptr [ %8238, %.thread.i236 ], [ %8235, %8234 ]
   store ptr %.05.i233.ph, ptr @glad_glVertexArrayAttribLFormat, align 8, !tbaa !11
   %8239 = icmp eq ptr %.pr8319, null
   br i1 %8239, label %get_proc.exit225.thread13465, label %8240
@@ -31914,8 +31914,8 @@ get_proc.exit231:                                 ; preds = %8242, %.thread.i230
   br label %get_proc.exit225
 
 get_proc.exit225:                                 ; preds = %8250, %.thread.i224
-  %.pr8323 = phi ptr [ %.pr8323.pre9844, %8250 ], [ %.pr8323.pre, %.thread.i224 ]
-  %.05.i221.ph = phi ptr [ %8251, %8250 ], [ %8254, %.thread.i224 ]
+  %.pr8323 = phi ptr [ %.pr8323.pre, %.thread.i224 ], [ %.pr8323.pre9844, %8250 ]
+  %.05.i221.ph = phi ptr [ %8254, %.thread.i224 ], [ %8251, %8250 ]
   store ptr %.05.i221.ph, ptr @glad_glGetVertexArrayiv, align 8, !tbaa !11
   %8255 = icmp eq ptr %.pr8323, null
   br i1 %8255, label %get_proc.exit213.thread13468, label %8256
@@ -31972,8 +31972,8 @@ get_proc.exit219:                                 ; preds = %8258, %.thread.i218
   br label %get_proc.exit213
 
 get_proc.exit213:                                 ; preds = %8266, %.thread.i212
-  %.pr8327 = phi ptr [ %.pr8327.pre9847, %8266 ], [ %.pr8327.pre, %.thread.i212 ]
-  %.05.i209.ph = phi ptr [ %8267, %8266 ], [ %8270, %.thread.i212 ]
+  %.pr8327 = phi ptr [ %.pr8327.pre, %.thread.i212 ], [ %.pr8327.pre9847, %8266 ]
+  %.05.i209.ph = phi ptr [ %8270, %.thread.i212 ], [ %8267, %8266 ]
   store ptr %.05.i209.ph, ptr @glad_glGetVertexArrayIndexed64iv, align 8, !tbaa !11
   %8271 = icmp eq ptr %.pr8327, null
   br i1 %8271, label %get_proc.exit201.thread13471, label %8272
@@ -32030,8 +32030,8 @@ get_proc.exit207:                                 ; preds = %8274, %.thread.i206
   br label %get_proc.exit201
 
 get_proc.exit201:                                 ; preds = %8282, %.thread.i200
-  %.pr8331 = phi ptr [ %.pr8331.pre9850, %8282 ], [ %.pr8331.pre, %.thread.i200 ]
-  %.05.i197.ph = phi ptr [ %8283, %8282 ], [ %8286, %.thread.i200 ]
+  %.pr8331 = phi ptr [ %.pr8331.pre, %.thread.i200 ], [ %.pr8331.pre9850, %8282 ]
+  %.05.i197.ph = phi ptr [ %8286, %.thread.i200 ], [ %8283, %8282 ]
   store ptr %.05.i197.ph, ptr @glad_glCreateProgramPipelines, align 8, !tbaa !11
   %8287 = icmp eq ptr %.pr8331, null
   br i1 %8287, label %get_proc.exit189.thread13474, label %8288
@@ -32088,8 +32088,8 @@ get_proc.exit195:                                 ; preds = %8290, %.thread.i194
   br label %get_proc.exit189
 
 get_proc.exit189:                                 ; preds = %8298, %.thread.i188
-  %.pr8335 = phi ptr [ %.pr8335.pre9853, %8298 ], [ %.pr8335.pre, %.thread.i188 ]
-  %.05.i185.ph = phi ptr [ %8299, %8298 ], [ %8302, %.thread.i188 ]
+  %.pr8335 = phi ptr [ %.pr8335.pre, %.thread.i188 ], [ %.pr8335.pre9853, %8298 ]
+  %.05.i185.ph = phi ptr [ %8302, %.thread.i188 ], [ %8299, %8298 ]
   store ptr %.05.i185.ph, ptr @glad_glGetQueryBufferObjecti64v, align 8, !tbaa !11
   %8303 = icmp eq ptr %.pr8335, null
   br i1 %8303, label %get_proc.exit177.thread13477, label %8304
@@ -32146,8 +32146,8 @@ get_proc.exit183:                                 ; preds = %8306, %.thread.i182
   br label %get_proc.exit177
 
 get_proc.exit177:                                 ; preds = %8314, %.thread.i176
-  %.pr8339 = phi ptr [ %.pr8339.pre9856, %8314 ], [ %.pr8339.pre, %.thread.i176 ]
-  %.05.i173.ph = phi ptr [ %8315, %8314 ], [ %8318, %.thread.i176 ]
+  %.pr8339 = phi ptr [ %.pr8339.pre, %.thread.i176 ], [ %.pr8339.pre9856, %8314 ]
+  %.05.i173.ph = phi ptr [ %8318, %.thread.i176 ], [ %8315, %8314 ]
   store ptr %.05.i173.ph, ptr @glad_glGetQueryBufferObjectui64v, align 8, !tbaa !11
   %8319 = icmp eq ptr %.pr8339, null
   br i1 %8319, label %get_proc.exit165.thread13480, label %8320
@@ -32204,8 +32204,8 @@ get_proc.exit171:                                 ; preds = %8322, %.thread.i170
   br label %get_proc.exit165
 
 get_proc.exit165:                                 ; preds = %8330, %.thread.i164
-  %.pr8343 = phi ptr [ %.pr8343.pre9859, %8330 ], [ %.pr8343.pre, %.thread.i164 ]
-  %.05.i161.ph = phi ptr [ %8331, %8330 ], [ %8334, %.thread.i164 ]
+  %.pr8343 = phi ptr [ %.pr8343.pre, %.thread.i164 ], [ %.pr8343.pre9859, %8330 ]
+  %.05.i161.ph = phi ptr [ %8334, %.thread.i164 ], [ %8331, %8330 ]
   store ptr %.05.i161.ph, ptr @glad_glMemoryBarrierByRegion, align 8, !tbaa !11
   %8335 = icmp eq ptr %.pr8343, null
   br i1 %8335, label %get_proc.exit153.thread13483, label %8336
@@ -32262,8 +32262,8 @@ get_proc.exit159:                                 ; preds = %8338, %.thread.i158
   br label %get_proc.exit153
 
 get_proc.exit153:                                 ; preds = %8346, %.thread.i152
-  %.pr8347 = phi ptr [ %.pr8347.pre9862, %8346 ], [ %.pr8347.pre, %.thread.i152 ]
-  %.05.i149.ph = phi ptr [ %8347, %8346 ], [ %8350, %.thread.i152 ]
+  %.pr8347 = phi ptr [ %.pr8347.pre, %.thread.i152 ], [ %.pr8347.pre9862, %8346 ]
+  %.05.i149.ph = phi ptr [ %8350, %.thread.i152 ], [ %8347, %8346 ]
   store ptr %.05.i149.ph, ptr @glad_glGetCompressedTextureSubImage, align 8, !tbaa !11
   %8351 = icmp eq ptr %.pr8347, null
   br i1 %8351, label %get_proc.exit141.thread13486, label %8352
@@ -32320,8 +32320,8 @@ get_proc.exit147:                                 ; preds = %8354, %.thread.i146
   br label %get_proc.exit141
 
 get_proc.exit141:                                 ; preds = %8362, %.thread.i140
-  %.pr8351 = phi ptr [ %.pr8351.pre9865, %8362 ], [ %.pr8351.pre, %.thread.i140 ]
-  %.05.i137.ph = phi ptr [ %8363, %8362 ], [ %8366, %.thread.i140 ]
+  %.pr8351 = phi ptr [ %.pr8351.pre, %.thread.i140 ], [ %.pr8351.pre9865, %8362 ]
+  %.05.i137.ph = phi ptr [ %8366, %.thread.i140 ], [ %8363, %8362 ]
   store ptr %.05.i137.ph, ptr @glad_glGetnCompressedTexImage, align 8, !tbaa !11
   %8367 = icmp eq ptr %.pr8351, null
   br i1 %8367, label %get_proc.exit129.thread13489, label %8368
@@ -32378,8 +32378,8 @@ get_proc.exit135:                                 ; preds = %8370, %.thread.i134
   br label %get_proc.exit129
 
 get_proc.exit129:                                 ; preds = %8378, %.thread.i128
-  %.pr8355 = phi ptr [ %.pr8355.pre9868, %8378 ], [ %.pr8355.pre, %.thread.i128 ]
-  %.05.i125.ph = phi ptr [ %8379, %8378 ], [ %8382, %.thread.i128 ]
+  %.pr8355 = phi ptr [ %.pr8355.pre, %.thread.i128 ], [ %.pr8355.pre9868, %8378 ]
+  %.05.i125.ph = phi ptr [ %8382, %.thread.i128 ], [ %8379, %8378 ]
   store ptr %.05.i125.ph, ptr @glad_glGetnUniformdv, align 8, !tbaa !11
   %8383 = icmp eq ptr %.pr8355, null
   br i1 %8383, label %get_proc.exit117.thread13492, label %8384
@@ -32436,8 +32436,8 @@ get_proc.exit123:                                 ; preds = %8386, %.thread.i122
   br label %get_proc.exit117
 
 get_proc.exit117:                                 ; preds = %8394, %.thread.i116
-  %.pr8359 = phi ptr [ %.pr8359.pre9871, %8394 ], [ %.pr8359.pre, %.thread.i116 ]
-  %.05.i113.ph = phi ptr [ %8395, %8394 ], [ %8398, %.thread.i116 ]
+  %.pr8359 = phi ptr [ %.pr8359.pre, %.thread.i116 ], [ %.pr8359.pre9871, %8394 ]
+  %.05.i113.ph = phi ptr [ %8398, %.thread.i116 ], [ %8395, %8394 ]
   store ptr %.05.i113.ph, ptr @glad_glGetnUniformiv, align 8, !tbaa !11
   %8399 = icmp eq ptr %.pr8359, null
   br i1 %8399, label %get_proc.exit105.thread13495, label %8400
@@ -32494,8 +32494,8 @@ get_proc.exit111:                                 ; preds = %8402, %.thread.i110
   br label %get_proc.exit105
 
 get_proc.exit105:                                 ; preds = %8410, %.thread.i104
-  %.pr8363 = phi ptr [ %.pr8363.pre9874, %8410 ], [ %.pr8363.pre, %.thread.i104 ]
-  %.05.i101.ph = phi ptr [ %8411, %8410 ], [ %8414, %.thread.i104 ]
+  %.pr8363 = phi ptr [ %.pr8363.pre, %.thread.i104 ], [ %.pr8363.pre9874, %8410 ]
+  %.05.i101.ph = phi ptr [ %8414, %.thread.i104 ], [ %8411, %8410 ]
   store ptr %.05.i101.ph, ptr @glad_glReadnPixels, align 8, !tbaa !11
   %8415 = icmp eq ptr %.pr8363, null
   br i1 %8415, label %get_proc.exit93.thread13498, label %8416
@@ -32552,8 +32552,8 @@ get_proc.exit99:                                  ; preds = %8418, %.thread.i98
   br label %get_proc.exit93
 
 get_proc.exit93:                                  ; preds = %8426, %.thread.i92
-  %.pr8367 = phi ptr [ %.pr8367.pre9877, %8426 ], [ %.pr8367.pre, %.thread.i92 ]
-  %.05.i89.ph = phi ptr [ %8427, %8426 ], [ %8430, %.thread.i92 ]
+  %.pr8367 = phi ptr [ %.pr8367.pre, %.thread.i92 ], [ %.pr8367.pre9877, %8426 ]
+  %.05.i89.ph = phi ptr [ %8430, %.thread.i92 ], [ %8427, %8426 ]
   store ptr %.05.i89.ph, ptr @glad_glGetnMapfv, align 8, !tbaa !11
   %8431 = icmp eq ptr %.pr8367, null
   br i1 %8431, label %get_proc.exit81.thread13501, label %8432
@@ -32610,8 +32610,8 @@ get_proc.exit87:                                  ; preds = %8434, %.thread.i86
   br label %get_proc.exit81
 
 get_proc.exit81:                                  ; preds = %8442, %.thread.i80
-  %.pr8371 = phi ptr [ %.pr8371.pre9880, %8442 ], [ %.pr8371.pre, %.thread.i80 ]
-  %.05.i77.ph = phi ptr [ %8443, %8442 ], [ %8446, %.thread.i80 ]
+  %.pr8371 = phi ptr [ %.pr8371.pre, %.thread.i80 ], [ %.pr8371.pre9880, %8442 ]
+  %.05.i77.ph = phi ptr [ %8446, %.thread.i80 ], [ %8443, %8442 ]
   store ptr %.05.i77.ph, ptr @glad_glGetnPixelMapfv, align 8, !tbaa !11
   %8447 = icmp eq ptr %.pr8371, null
   br i1 %8447, label %get_proc.exit69.thread13504, label %8448
@@ -32668,8 +32668,8 @@ get_proc.exit75:                                  ; preds = %8450, %.thread.i74
   br label %get_proc.exit69
 
 get_proc.exit69:                                  ; preds = %8458, %.thread.i68
-  %.pr8375 = phi ptr [ %.pr8375.pre9883, %8458 ], [ %.pr8375.pre, %.thread.i68 ]
-  %.05.i65.ph = phi ptr [ %8459, %8458 ], [ %8462, %.thread.i68 ]
+  %.pr8375 = phi ptr [ %.pr8375.pre, %.thread.i68 ], [ %.pr8375.pre9883, %8458 ]
+  %.05.i65.ph = phi ptr [ %8462, %.thread.i68 ], [ %8459, %8458 ]
   store ptr %.05.i65.ph, ptr @glad_glGetnPixelMapusv, align 8, !tbaa !11
   %8463 = icmp eq ptr %.pr8375, null
   br i1 %8463, label %get_proc.exit57.thread13507, label %8464
@@ -32726,8 +32726,8 @@ get_proc.exit63:                                  ; preds = %8466, %.thread.i62
   br label %get_proc.exit57
 
 get_proc.exit57:                                  ; preds = %8474, %.thread.i56
-  %.pr8379 = phi ptr [ %.pr8379.pre9886, %8474 ], [ %.pr8379.pre, %.thread.i56 ]
-  %.05.i53.ph = phi ptr [ %8475, %8474 ], [ %8478, %.thread.i56 ]
+  %.pr8379 = phi ptr [ %.pr8379.pre, %.thread.i56 ], [ %.pr8379.pre9886, %8474 ]
+  %.05.i53.ph = phi ptr [ %8478, %.thread.i56 ], [ %8475, %8474 ]
   store ptr %.05.i53.ph, ptr @glad_glGetnColorTable, align 8, !tbaa !11
   %8479 = icmp eq ptr %.pr8379, null
   br i1 %8479, label %get_proc.exit45.thread13510, label %8480
@@ -32784,8 +32784,8 @@ get_proc.exit51:                                  ; preds = %8482, %.thread.i50
   br label %get_proc.exit45
 
 get_proc.exit45:                                  ; preds = %8490, %.thread.i44
-  %.pr8383 = phi ptr [ %.pr8383.pre9889, %8490 ], [ %.pr8383.pre, %.thread.i44 ]
-  %.05.i41.ph = phi ptr [ %8491, %8490 ], [ %8494, %.thread.i44 ]
+  %.pr8383 = phi ptr [ %.pr8383.pre, %.thread.i44 ], [ %.pr8383.pre9889, %8490 ]
+  %.05.i41.ph = phi ptr [ %8494, %.thread.i44 ], [ %8491, %8490 ]
   store ptr %.05.i41.ph, ptr @glad_glGetnSeparableFilter, align 8, !tbaa !11
   %8495 = icmp eq ptr %.pr8383, null
   br i1 %8495, label %get_proc.exit33.thread13513, label %8496
@@ -32847,8 +32847,8 @@ get_proc.exit33.thread:                           ; preds = %get_proc.exit39
   br label %get_proc.exit33
 
 get_proc.exit33:                                  ; preds = %8506, %.thread.i32
-  %.pr8387 = phi ptr [ %.pr8387.pre9892, %8506 ], [ %.pr8387.pre, %.thread.i32 ]
-  %.05.i29.ph = phi ptr [ %8507, %8506 ], [ %8510, %.thread.i32 ]
+  %.pr8387 = phi ptr [ %.pr8387.pre, %.thread.i32 ], [ %.pr8387.pre9892, %8506 ]
+  %.05.i29.ph = phi ptr [ %8510, %.thread.i32 ], [ %8507, %8506 ]
   store ptr %.05.i29.ph, ptr @glad_glGetnMinmax, align 8, !tbaa !11
   %8511 = icmp eq ptr %.pr8387, null
   br i1 %8511, label %get_proc.exit27, label %8512
@@ -32970,8 +32970,8 @@ get_proc.exit9.thread:                            ; preds = %get_proc.exit15
   br label %get_proc.exit9
 
 get_proc.exit9:                                   ; preds = %8541, %.thread.i8
-  %.pr8393 = phi ptr [ %.pr8393.pre9895, %8541 ], [ %.pr8393.pre, %.thread.i8 ]
-  %.05.i5.ph = phi ptr [ %8542, %8541 ], [ %8545, %.thread.i8 ]
+  %.pr8393 = phi ptr [ %.pr8393.pre, %.thread.i8 ], [ %.pr8393.pre9895, %8541 ]
+  %.05.i5.ph = phi ptr [ %8545, %.thread.i8 ], [ %8542, %8541 ]
   store ptr %.05.i5.ph, ptr @glad_glMultiDrawElementsIndirectCount, align 8, !tbaa !11
   %8546 = icmp eq ptr %.pr8393, null
   br i1 %8546, label %get_proc.exit, label %8547
@@ -33103,7 +33103,7 @@ thread-pre-split.i.i.i:                           ; preds = %8556
   br label %gladLoadGLLoader.exit
 
 gladLoadGLLoader.exit:                            ; preds = %get_proc.exit6321, %18, %8564, %8591
-  %.0.i.ph = phi i32 [ 0, %8564 ], [ 0, %18 ], [ 0, %get_proc.exit6321 ], [ %8597, %8591 ]
+  %.0.i.ph = phi i32 [ 0, %8564 ], [ %8597, %8591 ], [ 0, %get_proc.exit6321 ], [ 0, %18 ]
   %.pr8395 = load ptr, ptr @libGL, align 8, !tbaa !11
   %.not.i1 = icmp eq ptr %.pr8395, null
   br i1 %.not.i1, label %close_gl.exit, label %8598
@@ -33119,7 +33119,7 @@ close_gl.exit.sink.split:                         ; preds = %10, %8598
   br label %close_gl.exit
 
 close_gl.exit:                                    ; preds = %3, %close_gl.exit.sink.split, %gladLoadGLLoader.exit, %open_gl.exit
-  %.0 = phi i32 [ 0, %open_gl.exit ], [ %.0.i.ph, %gladLoadGLLoader.exit ], [ %.0.ph, %close_gl.exit.sink.split ], [ 0, %3 ]
+  %.0 = phi i32 [ %.0.i.ph, %gladLoadGLLoader.exit ], [ 0, %open_gl.exit ], [ %.0.ph, %close_gl.exit.sink.split ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -35623,7 +35623,7 @@ thread-pre-split.i.i:                             ; preds = %1154
   br label %find_extensionsGL.exit
 
 find_extensionsGL.exit:                           ; preds = %1162, %6, %1, %1189
-  %.0 = phi i32 [ %1195, %1189 ], [ 0, %1 ], [ 0, %6 ], [ 0, %1162 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %1195, %1189 ], [ 0, %1162 ]
   ret i32 %.0
 }
 

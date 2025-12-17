@@ -219,7 +219,7 @@ define hidden range(i32 0, 2) i32 @_cmsOptimizePipeline(ptr noundef %0, ptr noun
   br i1 %.not43, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph54, %39, %.preheader, %30, %29, %17, %11
-  %.039 = phi i32 [ %13, %11 ], [ 1, %17 ], [ 1, %29 ], [ 0, %30 ], [ %25, %39 ], [ 1, %.preheader ], [ 1, %.lr.ph54 ], [ 0, %.lr.ph ]
+  %.039 = phi i32 [ %13, %11 ], [ 1, %17 ], [ 1, %29 ], [ 0, %30 ], [ 1, %.lr.ph54 ], [ 1, %.preheader ], [ %25, %39 ], [ 0, %.lr.ph ]
   ret i32 %.039
 }
 
@@ -360,7 +360,7 @@ _Remove2Op.exit:                                  ; preds = %.preheader.i, %36
   br i1 %.not.i26, label %_Remove2Op.exit29, label %.preheader.i20, !llvm.loop !12
 
 _Remove2Op.exit29:                                ; preds = %.preheader.i20, %57
-  %.015.i27.ph.ph = phi i32 [ %.021.i21, %.preheader.i20 ], [ %.1.i25, %57 ]
+  %.015.i27.ph.ph = phi i32 [ %.1.i25, %57 ], [ %.021.i21, %.preheader.i20 ]
   %.pr80.pr = load ptr, ptr %0, align 8
   %58 = or i32 %.015.i27.ph.ph, %37
   %59 = icmp eq ptr %.pr80.pr, null
@@ -697,9 +697,9 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
   br label %204
 
 204:                                              ; preds = %202, %isFloatMatrixIdentity.exit.i, %152, %148
-  %.pr.i71 = phi ptr [ %200, %202 ], [ %.pr.pre.i74, %isFloatMatrixIdentity.exit.i ], [ %146, %152 ], [ %146, %148 ]
-  %.132.i = phi i32 [ 1, %202 ], [ 1, %isFloatMatrixIdentity.exit.i ], [ %.03145.i, %152 ], [ %.03145.i, %148 ]
-  %.1.i72 = phi ptr [ %.03046.i, %202 ], [ %.03046.i, %isFloatMatrixIdentity.exit.i ], [ %145, %152 ], [ %145, %148 ]
+  %.pr.i71 = phi ptr [ %.pr.pre.i74, %isFloatMatrixIdentity.exit.i ], [ %200, %202 ], [ %146, %152 ], [ %146, %148 ]
+  %.132.i = phi i32 [ 1, %isFloatMatrixIdentity.exit.i ], [ 1, %202 ], [ %.03145.i, %152 ], [ %.03145.i, %148 ]
+  %.1.i72 = phi ptr [ %.03046.i, %isFloatMatrixIdentity.exit.i ], [ %.03046.i, %202 ], [ %145, %152 ], [ %145, %148 ]
   %.not.i73 = icmp eq ptr %.pr.i71, null
   br i1 %.not.i73, label %_MultiplyMatrix.exit.loopexit, label %.preheader.i70, !llvm.loop !15
 
@@ -970,7 +970,7 @@ define internal range(i32 0, 2) i32 @OptimizeByResampling(ptr noundef captures(n
   br label %136
 
 136:                                              ; preds = %24, %13, %5, %10, %135, %85
-  %.0 = phi i32 [ 0, %85 ], [ 1, %135 ], [ 0, %10 ], [ 0, %5 ], [ 0, %13 ], [ 0, %24 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %5 ], [ 0, %85 ], [ 1, %135 ], [ 0, %10 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -1756,7 +1756,7 @@ WhitesAreEqual.exit:                              ; preds = %39
   br i1 %exitcond.not.i54, label %PatchLUT.exit, label %.lr.ph.i51, !llvm.loop !29
 
 PatchLUT.exit:                                    ; preds = %.lr.ph.i, %29, %.lr.ph.i51, %25, %230, %228, %212, %164, %100, %97, %45, %21, %17, %15, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 1, %97 ], [ 1, %100 ], [ 1, %164 ], [ 1, %212 ], [ 1, %228 ], [ 1, %230 ], [ 1, %25 ], [ 1, %.lr.ph.i51 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %17 ], [ 0, %21 ], [ 0, %45 ], [ 0, %3 ], [ 1, %97 ], [ 1, %100 ], [ 1, %164 ], [ 1, %212 ], [ 1, %228 ], [ 1, %230 ], [ 1, %25 ], [ 1, %.lr.ph.i51 ], [ 1, %29 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -2078,7 +2078,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph143, %57, %59
   br label %.loopexit133
 
 .loopexit133:                                     ; preds = %.lr.ph, %._crit_edge, %5, %11, %.thread127, %118
-  %.0 = phi i32 [ 0, %.thread127 ], [ 1, %118 ], [ 0, %11 ], [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %118 ], [ 0, %5 ], [ 0, %.thread127 ], [ 0, %11 ], [ 0, %._crit_edge ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2257,7 +2257,7 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
   br label %103
 
 103:                                              ; preds = %59, %46, %48, %54, %40, %22, %30, %33, %37, %17, %5, %14, %102, %100
-  %.0 = phi i32 [ 1, %100 ], [ 0, %102 ], [ 0, %14 ], [ 0, %5 ], [ 0, %17 ], [ 0, %37 ], [ 0, %33 ], [ 0, %30 ], [ 0, %22 ], [ 0, %40 ], [ 0, %54 ], [ 0, %48 ], [ 0, %46 ], [ 0, %59 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %22 ], [ 1, %100 ], [ 0, %102 ], [ 0, %46 ], [ 0, %40 ], [ 0, %48 ], [ 0, %14 ], [ 0, %37 ], [ 0, %33 ], [ 0, %30 ], [ 0, %54 ], [ 0, %59 ]
   ret i32 %.0
 }
 
@@ -2513,8 +2513,8 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
 
 .preheader218:                                    ; preds = %._crit_edge233.thread, %SlopeLimiting.exit, %.preheader220
   %117 = load i32, ptr %70, align 8
-  %.not333 = icmp eq i32 %117, 0
-  br i1 %.not333, label %.critedge._crit_edge, label %.lr.ph332
+  %.not334 = icmp eq i32 %117, 0
+  br i1 %.not334, label %.critedge._crit_edge, label %.lr.ph333
 
 .lr.ph236:                                        ; preds = %.preheader220, %SlopeLimiting.exit
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %SlopeLimiting.exit ], [ 0, %.preheader220 ]
@@ -2638,73 +2638,73 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %188 = icmp samesign ult i64 %indvars.iv.next273, %187
   br i1 %188, label %.lr.ph236, label %.preheader218, !llvm.loop !45
 
-.backedge:                                        ; preds = %.lr.ph332, %215
-  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph332 ]
-  %.017.lcssa3437.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph332 ]
-  %190 = icmp ugt i32 %.017.lcssa3437.i201, %189
-  %191 = select i1 %190, i1 true, i1 %.not168
-  br i1 %191, label %.critedge176, label %.backedge316
+.backedge:                                        ; preds = %._crit_edge.i198
+  br i1 %.not168, label %.critedge176, label %.backedge317
 
-.backedge316:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
-  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275331, 1
-  %192 = load i32, ptr %70, align 8
-  %193 = zext i32 %192 to i64
-  %194 = icmp samesign ult i64 %indvars.iv275.be, %193
-  br i1 %194, label %.lr.ph332, label %..critedge.preheader_crit_edge, !llvm.loop !46
+.backedge317:                                     ; preds = %.backedge, %IsDegenerated.exit204
+  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275332, 1
+  %189 = load i32, ptr %70, align 8
+  %190 = zext i32 %189 to i64
+  %191 = icmp samesign ult i64 %indvars.iv275.be, %190
+  br i1 %191, label %.lr.ph333, label %..critedge.preheader_crit_edge, !llvm.loop !46
 
-..critedge.preheader_crit_edge:                   ; preds = %.backedge316
-  %195 = icmp eq i32 %192, 0
-  br i1 %195, label %.critedge._crit_edge, label %.lr.ph240
+..critedge.preheader_crit_edge:                   ; preds = %.backedge317
+  %192 = icmp eq i32 %189, 0
+  br i1 %192, label %.critedge._crit_edge, label %.lr.ph240
 
-.lr.ph332:                                        ; preds = %.preheader218, %.backedge316
-  %indvars.iv275331 = phi i64 [ %indvars.iv275.be, %.backedge316 ], [ 0, %.preheader218 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv275331
-  %197 = load ptr, ptr %196, align 8
-  %198 = call i32 @cmsIsToneCurveLinear(ptr noundef %197) #11
-  %199 = load ptr, ptr %196, align 8
-  %200 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %199) #11
-  %.not168 = icmp eq i32 %200, 0
-  %201 = load ptr, ptr %196, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
-  %203 = load i32, ptr %202, align 8
-  %.not.i188 = icmp eq i32 %203, 0
-  br i1 %.not.i188, label %.backedge, label %.lr.ph.i189
+.lr.ph333:                                        ; preds = %.preheader218, %.backedge317
+  %indvars.iv275332 = phi i64 [ %indvars.iv275.be, %.backedge317 ], [ 0, %.preheader218 ]
+  %193 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv275332
+  %194 = load ptr, ptr %193, align 8
+  %195 = call i32 @cmsIsToneCurveLinear(ptr noundef %194) #11
+  %196 = load ptr, ptr %193, align 8
+  %197 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %196) #11
+  %.not168 = icmp eq i32 %197, 0
+  %198 = load ptr, ptr %193, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
+  %200 = load i32, ptr %199, align 8
+  %.not.i188 = icmp eq i32 %200, 0
+  br i1 %.not.i188, label %IsDegenerated.exit204, label %.lr.ph.i189
 
-.lr.ph.i189:                                      ; preds = %.lr.ph332
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 48
-  %205 = load ptr, ptr %204, align 8
-  %wide.trip.count.i190 = zext i32 %203 to i64
-  br label %206
+.lr.ph.i189:                                      ; preds = %.lr.ph333
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 48
+  %202 = load ptr, ptr %201, align 8
+  %wide.trip.count.i190 = zext i32 %200 to i64
+  br label %203
 
-206:                                              ; preds = %206, %.lr.ph.i189
-  %indvars.iv.i191 = phi i64 [ 0, %.lr.ph.i189 ], [ %indvars.iv.next.i196, %206 ]
-  %.01725.i192 = phi i32 [ 0, %.lr.ph.i189 ], [ %.1.i195, %206 ]
-  %.01824.i193 = phi i32 [ 0, %.lr.ph.i189 ], [ %spec.select.i194, %206 ]
-  %207 = getelementptr inbounds nuw i16, ptr %205, i64 %indvars.iv.i191
-  %208 = load i16, ptr %207, align 2
-  %209 = icmp eq i16 %208, 0
-  %210 = zext i1 %209 to i32
-  %spec.select.i194 = add i32 %.01824.i193, %210
-  %211 = icmp eq i16 %208, -1
-  %212 = zext i1 %211 to i32
-  %.1.i195 = add i32 %.01725.i192, %212
+203:                                              ; preds = %203, %.lr.ph.i189
+  %indvars.iv.i191 = phi i64 [ 0, %.lr.ph.i189 ], [ %indvars.iv.next.i196, %203 ]
+  %.01725.i192 = phi i32 [ 0, %.lr.ph.i189 ], [ %.1.i195, %203 ]
+  %.01824.i193 = phi i32 [ 0, %.lr.ph.i189 ], [ %spec.select.i194, %203 ]
+  %204 = getelementptr inbounds nuw i16, ptr %202, i64 %indvars.iv.i191
+  %205 = load i16, ptr %204, align 2
+  %206 = icmp eq i16 %205, 0
+  %207 = zext i1 %206 to i32
+  %spec.select.i194 = add i32 %.01824.i193, %207
+  %208 = icmp eq i16 %205, -1
+  %209 = zext i1 %208 to i32
+  %.1.i195 = add i32 %.01725.i192, %209
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i191, 1
   %exitcond.not.i197 = icmp eq i64 %indvars.iv.next.i196, %wide.trip.count.i190
-  br i1 %exitcond.not.i197, label %._crit_edge.i198, label %206, !llvm.loop !37
+  br i1 %exitcond.not.i197, label %._crit_edge.i198, label %203, !llvm.loop !37
 
-._crit_edge.i198:                                 ; preds = %206
-  %213 = icmp eq i32 %spec.select.i194, 1
-  %214 = icmp eq i32 %.1.i195, 1
-  %or.cond.i199 = select i1 %213, i1 %214, i1 false
-  br i1 %or.cond.i199, label %IsDegenerated.exit204.thread, label %215
+._crit_edge.i198:                                 ; preds = %203
+  %210 = icmp eq i32 %spec.select.i194, 1
+  %211 = icmp eq i32 %.1.i195, 1
+  %or.cond.i199 = select i1 %210, i1 %211, i1 false
+  br i1 %or.cond.i199, label %.backedge, label %212
 
-IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
-  br i1 %.not168, label %.critedge176, label %.backedge316
+212:                                              ; preds = %._crit_edge.i198
+  %213 = udiv i32 %200, 20
+  %214 = icmp ugt i32 %spec.select.i194, %213
+  br i1 %214, label %.critedge176, label %IsDegenerated.exit204
 
-215:                                              ; preds = %._crit_edge.i198
-  %216 = udiv i32 %203, 20
-  %217 = icmp ugt i32 %spec.select.i194, %216
-  br i1 %217, label %.critedge176, label %.backedge
+IsDegenerated.exit204:                            ; preds = %.lr.ph333, %212
+  %215 = phi i32 [ %213, %212 ], [ 0, %.lr.ph333 ]
+  %.017.lcssa3437.i201 = phi i32 [ %.1.i195, %212 ], [ 0, %.lr.ph333 ]
+  %216 = icmp ugt i32 %.017.lcssa3437.i201, %215
+  %217 = select i1 %216, i1 true, i1 %.not168
+  br i1 %217, label %.critedge176, label %.backedge317
 
 .critedge:                                        ; preds = %.lr.ph240
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
@@ -2859,9 +2859,9 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   store ptr %239, ptr %0, align 8
   br label %309
 
-.critedge176:                                     ; preds = %67, %77, %.backedge, %IsDegenerated.exit204.thread, %215, %.lr.ph240, %252, %246, %241, %234, %228, %.critedge._crit_edge, %38
-  %.0136 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ %226, %234 ], [ %226, %252 ], [ %226, %246 ], [ %226, %241 ], [ %226, %228 ], [ null, %.lr.ph240 ], [ null, %215 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
-  %.0135 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ null, %234 ], [ %239, %252 ], [ %239, %246 ], [ %239, %241 ], [ null, %228 ], [ null, %.lr.ph240 ], [ null, %215 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
+.critedge176:                                     ; preds = %67, %77, %212, %.backedge, %IsDegenerated.exit204, %.lr.ph240, %252, %246, %241, %234, %228, %.critedge._crit_edge, %38
+  %.0136 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ %226, %234 ], [ %226, %252 ], [ %226, %246 ], [ %226, %241 ], [ %226, %228 ], [ null, %77 ], [ null, %.lr.ph240 ], [ null, %212 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
+  %.0135 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ null, %234 ], [ %239, %252 ], [ %239, %246 ], [ %239, %241 ], [ null, %228 ], [ null, %77 ], [ null, %.lr.ph240 ], [ null, %212 ], [ null, %IsDegenerated.exit204 ], [ null, %.backedge ], [ null, %67 ]
   %293 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %294 = load i32, ptr %293, align 8
   %.not254 = icmp eq i32 %294, 0
@@ -2912,7 +2912,7 @@ IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
   br label %309
 
 309:                                              ; preds = %307, %308, %290, %279, %275, %26, %23, %18, %15, %5, %12, %292
-  %.0 = phi i32 [ 1, %292 ], [ 0, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ 0, %275 ], [ 0, %279 ], [ 0, %290 ], [ 0, %308 ], [ 0, %307 ]
+  %.0 = phi i32 [ 0, %308 ], [ 0, %5 ], [ 0, %15 ], [ 0, %307 ], [ 0, %18 ], [ 0, %23 ], [ 0, %290 ], [ 0, %26 ], [ 1, %292 ], [ 0, %279 ], [ 0, %275 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -3923,7 +3923,7 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
   br label %116
 
 116:                                              ; preds = %99, %.lr.ph.split.us.split.us.split.us.split.us.split.us
-  %117 = phi i32 [ %115, %99 ], [ 32769, %.lr.ph.split.us.split.us.split.us.split.us.split.us ]
+  %117 = phi i32 [ 32769, %.lr.ph.split.us.split.us.split.us.split.us.split.us ], [ %115, %99 ]
   %118 = ashr i32 %117, 16
   %119 = add nsw i32 %118, %117
   %120 = lshr i32 %119, 16

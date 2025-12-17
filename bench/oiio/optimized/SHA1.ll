@@ -2420,7 +2420,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !37
 
 .loopexit:                                        ; preds = %44, %.split, %.split.us, %10
-  %.1 = phi i1 [ false, %10 ], [ true, %.split.us ], [ true, %.split ], [ true, %44 ]
+  %.1 = phi i1 [ false, %10 ], [ true, %.split ], [ true, %.split.us ], [ true, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 

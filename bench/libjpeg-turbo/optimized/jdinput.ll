@@ -600,7 +600,7 @@ per_scan_setup.exit.thread:                       ; preds = %1
   br i1 %.not19, label %.lr.ph.i10, label %latch_quant_tables.exit
 
 .lr.ph.i10:                                       ; preds = %per_scan_setup.exit, %per_scan_setup.exit.thread
-  %120 = phi i32 [ 1, %per_scan_setup.exit.thread ], [ %90, %per_scan_setup.exit ]
+  %120 = phi i32 [ %90, %per_scan_setup.exit ], [ 1, %per_scan_setup.exit.thread ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8

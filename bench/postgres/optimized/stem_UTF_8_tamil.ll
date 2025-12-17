@@ -401,7 +401,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %82
 
-27:                                               ; preds = %24, %17, %15, %11
+27:                                               ; preds = %24, %15, %11, %17
   store i32 %12, ptr %4, align 8
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -462,7 +462,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
   %59 = icmp sgt i32 %58, -1
   br i1 %59, label %60, label %82
 
-60:                                               ; preds = %55, %48, %46, %44, %27, %34, %40
+60:                                               ; preds = %55, %40, %44, %46, %34, %48, %27
   store i32 %12, ptr %4, align 8
   %61 = tail call fastcc i32 @r_remove_question_suffixes(ptr noundef nonnull %0)
   %62 = icmp slt i32 %61, 0
@@ -509,7 +509,7 @@ define hidden range(i32 -2147483648, 2) i32 @tamil_UTF_8_stem(ptr noundef %0) lo
   br label %82
 
 82:                                               ; preds = %81, %78, %50, %55, %19, %24, %75, %72, %69, %66, %63, %60, %1, %8
-  %.1 = phi i32 [ 0, %8 ], [ %6, %1 ], [ %61, %60 ], [ %64, %63 ], [ %67, %66 ], [ %70, %69 ], [ %73, %72 ], [ %76, %75 ], [ %22, %19 ], [ %25, %24 ], [ %53, %50 ], [ %58, %55 ], [ %79, %78 ], [ 1, %81 ]
+  %.1 = phi i32 [ 0, %8 ], [ %53, %50 ], [ %73, %72 ], [ %70, %69 ], [ %67, %66 ], [ %64, %63 ], [ %61, %60 ], [ %6, %1 ], [ %25, %24 ], [ %76, %75 ], [ %22, %19 ], [ %58, %55 ], [ %79, %78 ], [ 1, %81 ]
   ret i32 %.1
 }
 
@@ -603,7 +603,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %.not361 = icmp eq i32 %44, 0
   br i1 %.not361, label %50, label %45
 
-45:                                               ; preds = %39, %42
+45:                                               ; preds = %42, %39
   %46 = load i32, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %46, ptr %47, align 4
@@ -712,7 +712,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %.not369 = icmp eq i32 %96, 0
   br i1 %.not369, label %102, label %97
 
-97:                                               ; preds = %91, %94
+97:                                               ; preds = %94, %91
   %98 = load i32, ptr %6, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %98, ptr %99, align 4
@@ -961,7 +961,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %.not393 = icmp eq i32 %219, 0
   br i1 %.not393, label %.thread473, label %220
 
-220:                                              ; preds = %216, %211
+220:                                              ; preds = %211, %216
   %221 = load i32, ptr %9, align 4
   %222 = sub i32 %221, %214
   store i32 %222, ptr %6, align 8
@@ -971,13 +971,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %225 = icmp sgt i32 %224, -1
   br i1 %225, label %select.unfold456, label %.thread473
 
-select.unfold456:                                 ; preds = %220, %203, %194, %181, %169, %161, %129, %119, %111, %97, %69, %61, %53, %45, %33, %21, %89
+select.unfold456:                                 ; preds = %97, %203, %69, %169, %194, %220, %61, %181, %53, %129, %45, %161, %33, %119, %21, %111, %89
   %226 = load i32, ptr %8, align 8
   store i32 %226, ptr %6, align 8
   br label %.thread473
 
-.thread473:                                       ; preds = %216, %220, %203, %194, %181, %169, %161, %129, %119, %111, %97, %69, %61, %53, %45, %33, %21, %208, %84, %1, %select.unfold456
-  %.0 = phi i32 [ 1, %select.unfold456 ], [ 0, %1 ], [ 0, %216 ], [ %224, %220 ], [ %206, %203 ], [ %198, %194 ], [ %185, %181 ], [ %172, %169 ], [ %164, %161 ], [ %132, %129 ], [ %122, %119 ], [ %114, %111 ], [ %100, %97 ], [ %72, %69 ], [ %64, %61 ], [ %56, %53 ], [ %48, %45 ], [ %37, %33 ], [ %24, %21 ], [ 0, %208 ], [ %87, %84 ]
+.thread473:                                       ; preds = %216, %97, %203, %69, %169, %84, %194, %220, %61, %181, %53, %129, %45, %161, %33, %208, %119, %21, %111, %1, %select.unfold456
+  %.0 = phi i32 [ 0, %1 ], [ 1, %select.unfold456 ], [ 0, %216 ], [ %100, %97 ], [ %206, %203 ], [ %72, %69 ], [ %172, %169 ], [ %87, %84 ], [ %198, %194 ], [ %224, %220 ], [ %64, %61 ], [ %185, %181 ], [ %56, %53 ], [ %132, %129 ], [ %48, %45 ], [ %164, %161 ], [ %37, %33 ], [ 0, %208 ], [ %122, %119 ], [ %24, %21 ], [ %114, %111 ]
   ret i32 %.0
 }
 
@@ -1114,7 +1114,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_um(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %26, %20, %15, %1, %7
-  %.1 = phi i32 [ %18, %15 ], [ 0, %1 ], [ 0, %7 ], [ %24, %20 ], [ 1, %26 ]
+  %.1 = phi i32 [ 0, %7 ], [ 0, %1 ], [ %18, %15 ], [ %24, %20 ], [ 1, %26 ]
   ret i32 %.1
 }
 
@@ -1248,7 +1248,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_common_word_endin
   %.not147 = icmp eq i32 %59, 0
   br i1 %.not147, label %65, label %60
 
-60:                                               ; preds = %7, %15, %18, %21, %24, %27, %30, %33, %36, %39, %42, %54, %57, %.thread153
+60:                                               ; preds = %57, %7, %15, %18, %21, %24, %27, %30, %33, %36, %39, %42, %54, %.thread153
   %61 = load i32, ptr %8, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %61, ptr %62, align 4
@@ -1317,7 +1317,7 @@ r_fix_endings.exit.thread:                        ; preds = %82, %.thread.i, %r_
   br label %.thread165
 
 .thread165:                                       ; preds = %r_fix_endings.exit.thread, %r_fix_endings.exit, %60, %65, %68, %1
-  %.1 = phi i32 [ 0, %1 ], [ 0, %65 ], [ %71, %68 ], [ %63, %60 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
+  %.1 = phi i32 [ %63, %60 ], [ 0, %1 ], [ 0, %65 ], [ %71, %68 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
   ret i32 %.1
 }
 
@@ -1371,7 +1371,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   %.not316 = icmp eq i32 %26, 0
   br i1 %.not316, label %31, label %27
 
-27:                                               ; preds = %21, %24
+27:                                               ; preds = %24, %21
   %28 = load i32, ptr %12, align 4
   %29 = load i32, ptr %9, align 8
   %30 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_18, i32 noundef 6) #2
@@ -1540,14 +1540,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   %.not336 = icmp eq i32 %98, 0
   br i1 %.not336, label %106, label %101
 
-.sink.split:                                      ; preds = %.thread393, %.thread389
-  %.neg438.sink = phi i32 [ %.neg438, %.thread389 ], [ %.neg439, %.thread393 ]
+.sink.split:                                      ; preds = %.thread389, %.thread393
+  %.neg439.sink = phi i32 [ %.neg439, %.thread393 ], [ %.neg438, %.thread389 ]
   %99 = load i32, ptr %12, align 4
-  %100 = add i32 %.neg438.sink, %99
+  %100 = add i32 %.neg439.sink, %99
   store i32 %100, ptr %9, align 8
   br label %101
 
-101:                                              ; preds = %.sink.split, %.thread374, %48, %51, %54, %64, %67, %70, %78, %80, %83, %86, %96
+101:                                              ; preds = %.sink.split, %96, %.thread374, %48, %51, %54, %64, %67, %70, %78, %80, %83, %86
   %102 = load i32, ptr %9, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %102, ptr %103, align 4
@@ -1619,7 +1619,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_vetrumai_urupukal
   store i32 %133, ptr %9, align 8
   br label %.thread409
 
-.thread409:                                       ; preds = %121, %118, %115, %112, %109, %106, %131
+.thread409:                                       ; preds = %118, %115, %112, %109, %106, %121, %131
   %134 = load i32, ptr %9, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %134, ptr %135, align 4
@@ -1707,7 +1707,7 @@ r_fix_endings.exit.thread:                        ; preds = %164, %.thread.i, %r
   br label %.thread430
 
 .thread430:                                       ; preds = %r_fix_endings.exit.thread, %r_fix_endings.exit, %.thread411, %140, %.thread409, %101, %40, %16, %152, %1
-  %.1 = phi i32 [ 0, %1 ], [ %155, %152 ], [ %19, %16 ], [ %44, %40 ], [ %104, %101 ], [ %136, %.thread409 ], [ 0, %.thread411 ], [ %143, %140 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
+  %.1 = phi i32 [ %155, %152 ], [ 0, %1 ], [ %143, %140 ], [ %136, %.thread409 ], [ %104, %101 ], [ %44, %40 ], [ %19, %16 ], [ 0, %.thread411 ], [ 1, %r_fix_endings.exit.thread ], [ %.114.i, %r_fix_endings.exit ]
   ret i32 %.1
 }
 
@@ -1746,7 +1746,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_plural_suffix(ptr
   store i32 %18, ptr %19, align 4
   %20 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_47) #2
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %select.unfold, label %.thread96
+  br i1 %21, label %select.unfold93, label %.thread96
 
 22:                                               ; preds = %12, %1
   %23 = load i32, ptr %8, align 4
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_plural_suffix(ptr
   store i32 %26, ptr %27, align 4
   %28 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_49) #2
   %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %select.unfold, label %.thread96
+  br i1 %29, label %select.unfold93, label %.thread96
 
 30:                                               ; preds = %22
   %31 = load i32, ptr %8, align 4
@@ -1778,7 +1778,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_plural_suffix(ptr
   store i32 %34, ptr %35, align 4
   %36 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_51) #2
   %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %select.unfold, label %.thread96
+  br i1 %37, label %select.unfold93, label %.thread96
 
 38:                                               ; preds = %30
   %39 = load i32, ptr %8, align 4
@@ -1794,9 +1794,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_plural_suffix(ptr
   store i32 %42, ptr %43, align 4
   %44 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %.thread96, label %select.unfold
+  br i1 %45, label %.thread96, label %select.unfold93
 
-select.unfold:                                    ; preds = %33, %25, %16, %41
+select.unfold93:                                  ; preds = %33, %25, %16, %41
   %46 = load ptr, ptr %2, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 1, ptr %47, align 4
@@ -1804,8 +1804,8 @@ select.unfold:                                    ; preds = %33, %25, %16, %41
   store i32 %48, ptr %5, align 8
   br label %.thread96
 
-.thread96:                                        ; preds = %41, %38, %33, %25, %16, %select.unfold
-  %.5 = phi i32 [ 1, %select.unfold ], [ 0, %38 ], [ %36, %33 ], [ %28, %25 ], [ %20, %16 ], [ %44, %41 ]
+.thread96:                                        ; preds = %41, %38, %33, %25, %16, %select.unfold93
+  %.5 = phi i32 [ 1, %select.unfold93 ], [ %20, %16 ], [ 0, %38 ], [ %36, %33 ], [ %28, %25 ], [ %44, %41 ]
   ret i32 %.5
 }
 
@@ -1865,7 +1865,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_command_suffixes(
   br label %32
 
 32:                                               ; preds = %23, %1, %21, %4, %15, %28
-  %.1 = phi i32 [ 1, %28 ], [ %26, %23 ], [ 0, %1 ], [ 0, %15 ], [ 0, %4 ], [ 0, %21 ]
+  %.1 = phi i32 [ 0, %1 ], [ 1, %28 ], [ %26, %23 ], [ 0, %4 ], [ 0, %15 ], [ 0, %21 ]
   ret i32 %.1
 }
 
@@ -1936,7 +1936,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_tense_suffixes(pt
   br i1 %32, label %.thread528.sink.split.sink.split.i, label %.thread
 
 33:                                               ; preds = %._crit_edge.i, %21, %17
-  %34 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %19, %21 ], [ %19, %17 ]
+  %34 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %19, %17 ], [ %19, %21 ]
   store i32 %34, ptr %5, align 8
   store i32 %34, ptr %11, align 8
   %35 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @s_104) #2
@@ -2475,8 +2475,8 @@ r_fix_endings.exit.thread.i:                      ; preds = %255, %250, %r_fix_e
   %.not = icmp eq i32 %259, 0
   br i1 %.not, label %.thread, label %13
 
-.thread:                                          ; preds = %r_fix_endings.exit.thread.i, %r_fix_endings.exit.i, %224, %210, %146, %29, %241, %1
-  %.3 = phi i32 [ 1, %1 ], [ %243, %241 ], [ %31, %29 ], [ %148, %146 ], [ %212, %210 ], [ %226, %224 ], [ %.114.i.i, %r_fix_endings.exit.i ], [ 1, %r_fix_endings.exit.thread.i ]
+.thread:                                          ; preds = %r_fix_endings.exit.thread.i, %r_fix_endings.exit.i, %29, %146, %210, %241, %224, %1
+  %.3 = phi i32 [ 1, %1 ], [ %.114.i.i, %r_fix_endings.exit.i ], [ %31, %29 ], [ %148, %146 ], [ %212, %210 ], [ %243, %241 ], [ %226, %224 ], [ 1, %r_fix_endings.exit.thread.i ]
   ret i32 %.3
 }
 
@@ -2586,7 +2586,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_va_start(ptr noundef
   br label %select.unfold
 
 select.unfold:                                    ; preds = %31, %23, %15, %7, %28
-  %36 = phi i32 [ 0, %28 ], [ %spec.select, %7 ], [ %spec.select100, %15 ], [ %spec.select101, %23 ], [ %spec.select102, %31 ]
+  %36 = phi i32 [ 0, %28 ], [ %spec.select102, %31 ], [ %spec.select100, %15 ], [ %spec.select, %7 ], [ %spec.select101, %23 ]
   ret i32 %36
 }
 

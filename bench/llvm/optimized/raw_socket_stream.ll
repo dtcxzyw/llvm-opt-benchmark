@@ -776,7 +776,7 @@ _ZNKRSt8optionalIiE5valueEv.exit:                 ; preds = %_ZNKSt8functionIFiv
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %33
-  %.sroa.033.1 = phi i64 [ %34, %33 ], [ %.sroa.033.0, %24 ]
+  %.sroa.033.1 = phi i64 [ %.sroa.033.0, %24 ], [ %34, %33 ]
   %35 = trunc i64 %.sroa.033.1 to i32
   %36 = call i32 @poll(ptr noundef nonnull %4, i64 noundef %.0, i32 noundef %35) #20
   %37 = icmp eq i32 %36, -1

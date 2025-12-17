@@ -301,8 +301,8 @@ tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.pr
   br i1 %55, label %.loopexit29, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %63, %60, %.thread.i.i, %54
-  %.tr42.be.i.i = phi i64 [ %64, %63 ], [ 0, %54 ], [ 0, %60 ], [ 0, %.thread.i.i ]
-  %.tr43.be.i.i = phi i1 [ true, %63 ], [ true, %54 ], [ false, %60 ], [ false, %.thread.i.i ]
+  %.tr42.be.i.i = phi i64 [ 0, %54 ], [ %64, %63 ], [ 0, %60 ], [ 0, %.thread.i.i ]
+  %.tr43.be.i.i = phi i1 [ true, %54 ], [ true, %63 ], [ false, %60 ], [ false, %.thread.i.i ]
   %.tr41.be.i.i = add i64 %.tr41.i.i, 1
   br label %tailrecurse.i.i
 
@@ -512,8 +512,8 @@ tailrecurse.i2.i:                                 ; preds = %tailrecurse.i2.i.pr
   br i1 %59, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit, label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %67, %64, %.thread.i.i, %58
-  %.tr42.be.i.i = phi i64 [ %68, %67 ], [ 0, %58 ], [ 0, %64 ], [ 0, %.thread.i.i ]
-  %.tr43.be.i.i = phi i1 [ true, %67 ], [ true, %58 ], [ false, %64 ], [ false, %.thread.i.i ]
+  %.tr42.be.i.i = phi i64 [ 0, %58 ], [ %68, %67 ], [ 0, %64 ], [ 0, %.thread.i.i ]
+  %.tr43.be.i.i = phi i1 [ true, %58 ], [ true, %67 ], [ false, %64 ], [ false, %.thread.i.i ]
   %.tr41.be.i.i = add i64 %.tr41.i.i, 1
   br label %tailrecurse.i.i
 
@@ -628,8 +628,8 @@ tailrecurse.i2.i127:                              ; preds = %tailrecurse.i2.i127
   br i1 %101, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit133, label %tailrecurse.backedge.i.i123
 
 tailrecurse.backedge.i.i123:                      ; preds = %109, %106, %.thread.i.i131, %100
-  %.tr42.be.i.i124 = phi i64 [ %110, %109 ], [ 0, %100 ], [ 0, %106 ], [ 0, %.thread.i.i131 ]
-  %.tr43.be.i.i125 = phi i1 [ true, %109 ], [ true, %100 ], [ false, %106 ], [ false, %.thread.i.i131 ]
+  %.tr42.be.i.i124 = phi i64 [ 0, %100 ], [ %110, %109 ], [ 0, %106 ], [ 0, %.thread.i.i131 ]
+  %.tr43.be.i.i125 = phi i1 [ true, %100 ], [ true, %109 ], [ false, %106 ], [ false, %.thread.i.i131 ]
   %.tr41.be.i.i126 = add i64 %.tr41.i.i119, 1
   br label %tailrecurse.i.i118
 
@@ -749,8 +749,8 @@ tailrecurse.i2.i148:                              ; preds = %tailrecurse.i2.i148
   br i1 %144, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit155, label %tailrecurse.backedge.i.i144
 
 tailrecurse.backedge.i.i144:                      ; preds = %152, %149, %.thread.i.i152, %143
-  %.tr42.be.i.i145 = phi i64 [ %153, %152 ], [ 0, %143 ], [ 0, %149 ], [ 0, %.thread.i.i152 ]
-  %.tr43.be.i.i146 = phi i1 [ true, %152 ], [ true, %143 ], [ false, %149 ], [ false, %.thread.i.i152 ]
+  %.tr42.be.i.i145 = phi i64 [ 0, %143 ], [ %153, %152 ], [ 0, %149 ], [ 0, %.thread.i.i152 ]
+  %.tr43.be.i.i146 = phi i1 [ true, %143 ], [ true, %152 ], [ false, %149 ], [ false, %.thread.i.i152 ]
   %.tr41.be.i.i147 = add i64 %.tr41.i.i140, 1
   br label %tailrecurse.i.i139
 
@@ -880,8 +880,8 @@ tailrecurse.i2.i170:                              ; preds = %tailrecurse.i2.i170
   br i1 %190, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit177, label %tailrecurse.backedge.i.i166
 
 tailrecurse.backedge.i.i166:                      ; preds = %198, %195, %.thread.i.i174, %189
-  %.tr42.be.i.i167 = phi i64 [ %199, %198 ], [ 0, %189 ], [ 0, %195 ], [ 0, %.thread.i.i174 ]
-  %.tr43.be.i.i168 = phi i1 [ true, %198 ], [ true, %189 ], [ false, %195 ], [ false, %.thread.i.i174 ]
+  %.tr42.be.i.i167 = phi i64 [ 0, %189 ], [ %199, %198 ], [ 0, %195 ], [ 0, %.thread.i.i174 ]
+  %.tr43.be.i.i168 = phi i1 [ true, %189 ], [ true, %198 ], [ false, %195 ], [ false, %.thread.i.i174 ]
   %.tr41.be.i.i169 = add i64 %.tr41.i.i162, 1
   br label %tailrecurse.i.i161
 
@@ -1019,8 +1019,8 @@ tailrecurse.i2.i194:                              ; preds = %tailrecurse.i2.i194
   br i1 %237, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit201, label %tailrecurse.backedge.i.i190
 
 tailrecurse.backedge.i.i190:                      ; preds = %245, %242, %.thread.i.i198, %236
-  %.tr42.be.i.i191 = phi i64 [ %246, %245 ], [ 0, %236 ], [ 0, %242 ], [ 0, %.thread.i.i198 ]
-  %.tr43.be.i.i192 = phi i1 [ true, %245 ], [ true, %236 ], [ false, %242 ], [ false, %.thread.i.i198 ]
+  %.tr42.be.i.i191 = phi i64 [ 0, %236 ], [ %246, %245 ], [ 0, %242 ], [ 0, %.thread.i.i198 ]
+  %.tr43.be.i.i192 = phi i1 [ true, %236 ], [ true, %245 ], [ false, %242 ], [ false, %.thread.i.i198 ]
   %.tr41.be.i.i193 = add i64 %.tr41.i.i186, 1
   br label %tailrecurse.i.i185
 
@@ -1154,8 +1154,8 @@ tailrecurse.i2.i218:                              ; preds = %tailrecurse.i2.i218
   br i1 %284, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit225, label %tailrecurse.backedge.i.i214
 
 tailrecurse.backedge.i.i214:                      ; preds = %292, %289, %.thread.i.i222, %283
-  %.tr42.be.i.i215 = phi i64 [ %293, %292 ], [ 0, %283 ], [ 0, %289 ], [ 0, %.thread.i.i222 ]
-  %.tr43.be.i.i216 = phi i1 [ true, %292 ], [ true, %283 ], [ false, %289 ], [ false, %.thread.i.i222 ]
+  %.tr42.be.i.i215 = phi i64 [ 0, %283 ], [ %293, %292 ], [ 0, %289 ], [ 0, %.thread.i.i222 ]
+  %.tr43.be.i.i216 = phi i1 [ true, %283 ], [ true, %292 ], [ false, %289 ], [ false, %.thread.i.i222 ]
   %.tr41.be.i.i217 = add i64 %.tr41.i.i210, 1
   br label %tailrecurse.i.i209
 
@@ -1277,8 +1277,8 @@ tailrecurse.i2.i242:                              ; preds = %tailrecurse.i2.i242
   br i1 %329, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit249, label %tailrecurse.backedge.i.i238
 
 tailrecurse.backedge.i.i238:                      ; preds = %337, %334, %.thread.i.i246, %328
-  %.tr42.be.i.i239 = phi i64 [ %338, %337 ], [ 0, %328 ], [ 0, %334 ], [ 0, %.thread.i.i246 ]
-  %.tr43.be.i.i240 = phi i1 [ true, %337 ], [ true, %328 ], [ false, %334 ], [ false, %.thread.i.i246 ]
+  %.tr42.be.i.i239 = phi i64 [ 0, %328 ], [ %338, %337 ], [ 0, %334 ], [ 0, %.thread.i.i246 ]
+  %.tr43.be.i.i240 = phi i1 [ true, %328 ], [ true, %337 ], [ false, %334 ], [ false, %.thread.i.i246 ]
   %.tr41.be.i.i241 = add i64 %.tr41.i.i234, 1
   br label %tailrecurse.i.i233
 
@@ -1415,8 +1415,8 @@ tailrecurse.i2.i268:                              ; preds = %tailrecurse.i2.i268
   br i1 %379, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit275, label %tailrecurse.backedge.i.i264
 
 tailrecurse.backedge.i.i264:                      ; preds = %387, %384, %.thread.i.i272, %378
-  %.tr42.be.i.i265 = phi i64 [ %388, %387 ], [ 0, %378 ], [ 0, %384 ], [ 0, %.thread.i.i272 ]
-  %.tr43.be.i.i266 = phi i1 [ true, %387 ], [ true, %378 ], [ false, %384 ], [ false, %.thread.i.i272 ]
+  %.tr42.be.i.i265 = phi i64 [ 0, %378 ], [ %388, %387 ], [ 0, %384 ], [ 0, %.thread.i.i272 ]
+  %.tr43.be.i.i266 = phi i1 [ true, %378 ], [ true, %387 ], [ false, %384 ], [ false, %.thread.i.i272 ]
   %.tr41.be.i.i267 = add i64 %.tr41.i.i260, 1
   br label %tailrecurse.i.i259
 
@@ -1554,8 +1554,8 @@ tailrecurse.i2.i297:                              ; preds = %tailrecurse.i2.i297
   br i1 %428, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit304, label %tailrecurse.backedge.i.i293
 
 tailrecurse.backedge.i.i293:                      ; preds = %436, %433, %.thread.i.i301, %427
-  %.tr42.be.i.i294 = phi i64 [ %437, %436 ], [ 0, %427 ], [ 0, %433 ], [ 0, %.thread.i.i301 ]
-  %.tr43.be.i.i295 = phi i1 [ true, %436 ], [ true, %427 ], [ false, %433 ], [ false, %.thread.i.i301 ]
+  %.tr42.be.i.i294 = phi i64 [ 0, %427 ], [ %437, %436 ], [ 0, %433 ], [ 0, %.thread.i.i301 ]
+  %.tr43.be.i.i295 = phi i1 [ true, %427 ], [ true, %436 ], [ false, %433 ], [ false, %.thread.i.i301 ]
   %.tr41.be.i.i296 = add i64 %.tr41.i.i289, 1
   br label %tailrecurse.i.i288
 
@@ -1743,7 +1743,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit309: ; preds = %_ZN5
   br label %490
 
 490:                                              ; preds = %483, %489, %474, %480, %467, %473, %460, %466, %456, %458, %452, %454, %448, %450, %481
-  %.pn96.pn.pn = phi { ptr, i32 } [ %482, %481 ], [ %451, %450 ], [ %449, %448 ], [ %455, %454 ], [ %453, %452 ], [ %459, %458 ], [ %457, %456 ], [ %.pn87, %466 ], [ %461, %460 ], [ %.pn90, %473 ], [ %468, %467 ], [ %.pn93, %480 ], [ %475, %474 ], [ %.pn96, %489 ], [ %484, %483 ]
+  %.pn96.pn.pn = phi { ptr, i32 } [ %475, %474 ], [ %482, %481 ], [ %468, %467 ], [ %461, %460 ], [ %457, %456 ], [ %453, %452 ], [ %449, %448 ], [ %451, %450 ], [ %455, %454 ], [ %459, %458 ], [ %.pn87, %466 ], [ %.pn90, %473 ], [ %.pn93, %480 ], [ %.pn96, %489 ], [ %484, %483 ]
   call void @_ZN5folly4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %491
@@ -2224,8 +2224,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %25, label %.loopexit, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %.thread, %30, %24, %33
-  %.tr42.be = phi i64 [ %34, %33 ], [ 0, %24 ], [ 0, %30 ], [ 0, %.thread ]
-  %.tr43.be = phi i1 [ true, %33 ], [ true, %24 ], [ false, %30 ], [ false, %.thread ]
+  %.tr42.be = phi i64 [ 0, %24 ], [ %34, %33 ], [ 0, %30 ], [ 0, %.thread ]
+  %.tr43.be = phi i1 [ true, %24 ], [ true, %33 ], [ false, %30 ], [ false, %.thread ]
   %.tr41.be = add i64 %.tr41, 1
   br label %tailrecurse
 

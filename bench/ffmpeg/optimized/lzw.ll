@@ -74,7 +74,7 @@ bytestream2_get_byte.exit:                        ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %bytestream2_get_byte.exit, %10, %bytestream2_get_byte.exit.thread, %.preheader, %25
-  %34 = phi ptr [ %.pre, %.preheader ], [ %33, %25 ], [ %8, %bytestream2_get_byte.exit.thread ], [ %22, %bytestream2_get_byte.exit ], [ %11, %10 ]
+  %34 = phi ptr [ %33, %25 ], [ %.pre, %.preheader ], [ %8, %bytestream2_get_byte.exit.thread ], [ %22, %bytestream2_get_byte.exit ], [ %11, %10 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !19
   %37 = ptrtoint ptr %34 to i64

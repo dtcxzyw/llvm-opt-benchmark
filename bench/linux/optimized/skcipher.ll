@@ -248,7 +248,7 @@ define dso_local i32 @skcipher_walk_done(ptr noundef %0, i32 noundef %1) #0 alig
   br label %137
 
 103:                                              ; preds = %55, %2
-  %104 = phi i32 [ %1, %2 ], [ %59, %55 ]
+  %104 = phi i32 [ %59, %55 ], [ %1, %2 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 96

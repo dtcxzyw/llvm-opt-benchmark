@@ -399,7 +399,7 @@ define range(i32 -1, 1) i32 @H5PB_create(ptr noundef captures(none) %0, i64 noun
   br label %.thread62
 
 .thread62:                                        ; preds = %28, %35, %16, %79, %95, %10
-  %.047 = phi i32 [ -1, %95 ], [ 0, %10 ], [ -1, %28 ], [ 0, %79 ], [ -1, %35 ], [ -1, %16 ]
+  %.047 = phi i32 [ -1, %95 ], [ -1, %16 ], [ 0, %10 ], [ -1, %28 ], [ 0, %79 ], [ -1, %35 ]
   ret i32 %.047
 }
 
@@ -462,7 +462,7 @@ define range(i32 -1, 1) i32 @H5PB_flush(ptr noundef %0) local_unnamed_addr #4 {
   br label %25
 
 25:                                               ; preds = %7, %10, %13, %16, %21
-  %.09 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %7 ], [ -1, %21 ], [ 0, %16 ]
+  %.09 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %13 ], [ -1, %21 ], [ 0, %16 ]
   ret i32 %.09
 }
 
@@ -560,7 +560,7 @@ define range(i32 -1, 1) i32 @H5PB_dest(ptr noundef %0) local_unnamed_addr #4 {
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.H5PB_dest, i32 noundef 464, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.17) #10
   br label %60
 
-32:                                               ; preds = %17, %20
+32:                                               ; preds = %20, %17
   store ptr %14, ptr %2, align 8, !tbaa !54
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %33, align 8, !tbaa !56
@@ -614,7 +614,7 @@ define range(i32 -1, 1) i32 @H5PB_dest(ptr noundef %0) local_unnamed_addr #4 {
   br label %61
 
 61:                                               ; preds = %8, %11, %60
-  %.016 = phi i32 [ %.1, %60 ], [ 0, %11 ], [ 0, %8 ]
+  %.016 = phi i32 [ 0, %8 ], [ %.1, %60 ], [ 0, %11 ]
   ret i32 %.016
 }
 
@@ -769,7 +769,7 @@ define range(i32 -1, 1) i32 @H5PB_add_new_page(ptr noundef readonly captures(non
   br label %.thread18
 
 .thread18:                                        ; preds = %23, %13, %27, %35, %10
-  %.0 = phi i32 [ -1, %35 ], [ 0, %10 ], [ 0, %13 ], [ 0, %27 ], [ -1, %23 ]
+  %.0 = phi i32 [ -1, %35 ], [ -1, %23 ], [ 0, %10 ], [ 0, %13 ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -1709,13 +1709,13 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %.thread390
 
 .thread390:                                       ; preds = %381, %384, %264, %261
-  %.6301394 = phi i64 [ %spec.select, %261 ], [ %spec.select, %264 ], [ %spec.select353, %384 ], [ %spec.select353, %381 ]
+  %.6301394 = phi i64 [ %spec.select, %264 ], [ %spec.select, %261 ], [ %spec.select353, %384 ], [ %spec.select353, %381 ]
   %387 = add nuw i64 %.1293411, 1
   %exitcond.not = icmp eq i64 %387, %.0302367456
   br i1 %exitcond.not, label %.thread397, label %200, !llvm.loop !71
 
 .thread397:                                       ; preds = %182, %86, %.thread390, %65, %185, %283, %286, %277, %373, %336, %318, %308, %301, %294, %23, %13, %28, %37
-  %.0289 = phi i32 [ -1, %28 ], [ 0, %13 ], [ 0, %37 ], [ 0, %23 ], [ -1, %373 ], [ -1, %336 ], [ -1, %318 ], [ -1, %308 ], [ -1, %301 ], [ -1, %294 ], [ 0, %283 ], [ -1, %286 ], [ -1, %277 ], [ 0, %185 ], [ 0, %65 ], [ 0, %.thread390 ], [ 0, %86 ], [ 0, %182 ]
+  %.0289 = phi i32 [ -1, %28 ], [ 0, %13 ], [ 0, %37 ], [ 0, %23 ], [ -1, %294 ], [ -1, %373 ], [ -1, %336 ], [ -1, %318 ], [ -1, %308 ], [ -1, %301 ], [ 0, %283 ], [ -1, %286 ], [ -1, %277 ], [ 0, %185 ], [ 0, %65 ], [ 0, %.thread390 ], [ 0, %86 ], [ 0, %182 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0289
@@ -1825,7 +1825,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br i1 %.not64, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %53, %56, %50, %34, %30, %27
-  %.1 = phi ptr [ %.057, %27 ], [ %.057, %30 ], [ %.057, %34 ], [ %.2, %50 ], [ %.2, %56 ], [ %.2, %53 ]
+  %.1 = phi ptr [ %.057, %34 ], [ %.057, %27 ], [ %.057, %30 ], [ %.2, %50 ], [ %.2, %56 ], [ %.2, %53 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !48
   %61 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -1965,7 +1965,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5PB__make_space(ptr noundef %0, pt
   br label %133
 
 133:                                              ; preds = %41, %18, %64, %114, %127, %3
-  %.0 = phi i32 [ -1, %64 ], [ -1, %114 ], [ 1, %127 ], [ 1, %3 ], [ 0, %18 ], [ 0, %41 ]
+  %.0 = phi i32 [ 1, %3 ], [ -1, %64 ], [ -1, %114 ], [ 1, %127 ], [ 0, %18 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -2811,13 +2811,13 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %.thread463
 
 .thread456:                                       ; preds = %408, %441, %283, %280
-  %.1352429460 = phi i64 [ %.1352428433, %280 ], [ %.1352428433, %283 ], [ %.1352430, %441 ], [ %.1352430, %408 ]
+  %.1352429460 = phi i64 [ %.1352428433, %283 ], [ %.1352428433, %280 ], [ %.1352430, %441 ], [ %.1352430, %408 ]
   %451 = add nuw i64 %.1349474, 1
   %exitcond.not = icmp eq i64 %451, %.0353419523
   br i1 %exitcond.not, label %.thread463, label %224, !llvm.loop !73
 
 .thread463:                                       ; preds = %205, %.thread456, %.preheader, %.thread422, %384, %397, %374, %367, %357, %350, %302, %305, %296, %444, %329, %22, %12, %27, %41
-  %.0344 = phi i32 [ -1, %27 ], [ 0, %12 ], [ 0, %41 ], [ 0, %22 ], [ -1, %444 ], [ -1, %329 ], [ 0, %302 ], [ -1, %305 ], [ -1, %296 ], [ -1, %350 ], [ -1, %357 ], [ -1, %367 ], [ -1, %374 ], [ -1, %397 ], [ -1, %384 ], [ 0, %.thread422 ], [ 0, %.preheader ], [ 0, %.thread456 ], [ 0, %205 ]
+  %.0344 = phi i32 [ -1, %27 ], [ 0, %12 ], [ 0, %41 ], [ 0, %22 ], [ -1, %296 ], [ -1, %329 ], [ -1, %444 ], [ 0, %302 ], [ -1, %305 ], [ -1, %350 ], [ -1, %357 ], [ -1, %367 ], [ -1, %374 ], [ -1, %397 ], [ -1, %384 ], [ 0, %.thread422 ], [ 0, %.preheader ], [ 0, %.thread456 ], [ 0, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0344
 }

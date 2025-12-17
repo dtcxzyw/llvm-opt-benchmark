@@ -726,7 +726,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i258, %341
   br i1 %361, label %.backedge.sink.split808.backedge, label %362
 
 .backedge.sink.split808.backedge:                 ; preds = %_ZL16yy_try_NUL_transiPv.exit, %155
-  %.1235.ph.be = phi ptr [ %.1235, %155 ], [ %290, %_ZL16yy_try_NUL_transiPv.exit ]
+  %.1235.ph.be = phi ptr [ %290, %_ZL16yy_try_NUL_transiPv.exit ], [ %.1235, %155 ]
   br label %.backedge.sink.split808
 
 362:                                              ; preds = %_ZL16yy_try_NUL_transiPv.exit
@@ -1303,7 +1303,7 @@ _ZL21yy_get_previous_statePv.exit279:             ; preds = %_ZL18yy_get_next_bu
   br label %.loopexit, !llvm.loop !60
 
 638:                                              ; preds = %66, %256, %248, %244, %236, %232, %228, %224, %220, %216, %212, %208, %204, %200, %198, %196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %171, %164, %157
-  %.0 = phi i32 [ 259, %157 ], [ 260, %164 ], [ 261, %171 ], [ 263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %196 ], [ 263, %198 ], [ 259, %200 ], [ 259, %204 ], [ 264, %208 ], [ 265, %212 ], [ 280, %216 ], [ 285, %220 ], [ 283, %224 ], [ 284, %228 ], [ 286, %232 ], [ 281, %236 ], [ %247, %244 ], [ 261, %248 ], [ %262, %256 ], [ %68, %66 ]
+  %.0 = phi i32 [ %262, %256 ], [ 259, %157 ], [ 260, %164 ], [ 261, %171 ], [ 263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %196 ], [ 263, %198 ], [ 259, %200 ], [ 259, %204 ], [ 264, %208 ], [ 265, %212 ], [ 280, %216 ], [ 285, %220 ], [ 283, %224 ], [ 284, %228 ], [ 286, %232 ], [ 281, %236 ], [ %247, %244 ], [ 261, %248 ], [ %68, %66 ]
   ret i32 %.0
 }
 
@@ -1671,8 +1671,8 @@ define void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %0
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %31
-  %47 = phi i64 [ %40, %33 ], [ %27, %31 ]
-  %48 = phi ptr [ %39, %33 ], [ %25, %31 ]
+  %47 = phi i64 [ %27, %31 ], [ %40, %33 ]
+  %48 = phi ptr [ %25, %31 ], [ %39, %33 ]
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   store ptr %0, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32

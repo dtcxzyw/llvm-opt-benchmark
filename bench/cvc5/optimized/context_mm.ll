@@ -1422,7 +1422,7 @@ _ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit26:             ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit:               ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPcS2_ET0_T_S4_S3_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !38
   %58 = load ptr, ptr %.0, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24

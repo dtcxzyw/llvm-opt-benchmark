@@ -347,7 +347,7 @@ define dso_local i32 @gss_svc_init_net(ptr noundef %0) local_unnamed_addr #1 ali
   br label %82
 
 82:                                               ; preds = %.sink.split17, %45, %14
-  %83 = phi i32 [ %16, %14 ], [ 0, %45 ], [ %.ph18, %.sink.split17 ]
+  %83 = phi i32 [ 0, %45 ], [ %16, %14 ], [ %.ph18, %.sink.split17 ]
   ret i32 %83
 }
 
@@ -864,7 +864,7 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   br label %.thread30
 
 .thread30:                                        ; preds = %.thread30.sink.split, %144, %145, %158, %120, %121, %134, %100
-  %.sink = phi i32 [ 50331648, %100 ], [ 218103808, %134 ], [ 218103808, %121 ], [ 218103808, %120 ], [ 234881024, %158 ], [ 234881024, %145 ], [ 234881024, %144 ], [ %.sink.ph, %.thread30.sink.split ]
+  %.sink = phi i32 [ 218103808, %120 ], [ 50331648, %100 ], [ %.sink.ph, %.thread30.sink.split ], [ 234881024, %145 ], [ 218103808, %134 ], [ 218103808, %121 ], [ 234881024, %144 ], [ 234881024, %158 ]
   store i32 %.sink, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -996,7 +996,7 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   call fastcc void @trace_rpcgss_svc_authenticate(ptr noundef %0, ptr noundef nonnull %27)
   br label %.thread35
 
-.thread37:                                        ; preds = %80, %237, %241, %95, %91, %85, %23, %.critedge, %52, %46, %41, %38, %33, %.thread, %71, %58
+.thread37:                                        ; preds = %80, %237, %241, %95, %91, %85, %23, %.critedge, %52, %46, %41, %38, %33, %.thread, %58, %71
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 576
   tail call void @xdr_truncate_encode(ptr noundef nonnull %290, i64 noundef 8) #24
   br label %.thread39
@@ -1047,7 +1047,7 @@ define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0)
   br label %.thread39
 
 .thread39:                                        ; preds = %310, %312, %.thread37, %313, %89
-  %314 = phi i32 [ %90, %89 ], [ %293, %313 ], [ 8, %.thread37 ], [ %293, %312 ], [ %293, %310 ]
+  %314 = phi i32 [ %90, %89 ], [ 8, %.thread37 ], [ %293, %313 ], [ %293, %312 ], [ %293, %310 ]
   ret i32 %314
 }
 
@@ -1461,7 +1461,7 @@ define internal noundef range(i32 -22, 1) i32 @svcauth_gss_release(ptr noundef %
   br label %.thread21
 
 .thread21:                                        ; preds = %244, %240, %227, %226, %223, %219, %206, %205, %129, %121, %1, %20, %24, %.thread, %187, %.thread18
-  %247 = phi i32 [ -22, %.thread18 ], [ 0, %187 ], [ 0, %.thread ], [ 0, %24 ], [ 0, %20 ], [ 0, %1 ], [ 0, %121 ], [ 0, %129 ], [ -12, %244 ], [ -12, %240 ], [ -12, %227 ], [ -12, %226 ], [ -22, %223 ], [ -22, %219 ], [ -22, %206 ], [ -22, %205 ]
+  %247 = phi i32 [ 0, %129 ], [ -22, %.thread18 ], [ -22, %205 ], [ 0, %187 ], [ 0, %1 ], [ 0, %.thread ], [ 0, %24 ], [ 0, %20 ], [ 0, %121 ], [ -12, %244 ], [ -12, %240 ], [ -12, %227 ], [ -12, %226 ], [ -22, %223 ], [ -22, %219 ], [ -22, %206 ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 11368
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, null
@@ -2280,7 +2280,7 @@ define internal fastcc noundef range(i32 1, 11) i32 @svcauth_gss_proc_init(ptr n
   call fastcc void @rsc_free(ptr noundef nonnull %3)
   br label %.thread47
 
-.thread43:                                        ; preds = %382, %.thread38
+.thread43:                                        ; preds = %.thread38, %382
   call fastcc void @rsc_free(ptr noundef nonnull %3)
   br label %413
 
@@ -3895,7 +3895,7 @@ get_int.exit.thread:                              ; preds = %54, %58
   %113 = icmp eq ptr %111, null
   br i1 %113, label %.thread26, label %114
 
-.thread26:                                        ; preds = %85, %89, %63, %68, %71, %.loopexit, %95, %99, %102, %110, %get_int.exit.thread
+.thread26:                                        ; preds = %85, %89, %get_int.exit.thread, %63, %68, %71, %.loopexit, %95, %99, %102, %110
   %.ph25 = phi i32 [ -22, %get_int.exit.thread ], [ -12, %110 ], [ %105, %102 ], [ -22, %99 ], [ -95, %95 ], [ -22, %.loopexit ], [ -12, %71 ], [ -22, %68 ], [ -22, %63 ], [ -22, %89 ], [ -22, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %122
@@ -3919,8 +3919,8 @@ get_int.exit.thread:                              ; preds = %54, %58
   br label %.thread32
 
 122:                                              ; preds = %.thread26, %115
-  %123 = phi ptr [ %121, %115 ], [ %41, %.thread26 ]
-  %124 = phi i32 [ 0, %115 ], [ %.ph25, %.thread26 ]
+  %123 = phi ptr [ %41, %.thread26 ], [ %121, %115 ]
+  %124 = phi i32 [ %.ph25, %.thread26 ], [ 0, %115 ]
   call fastcc void @rsc_free(ptr noundef nonnull %13)
   %125 = icmp eq ptr %123, null
   br i1 %125, label %.thread32, label %126
@@ -3966,7 +3966,7 @@ get_int.exit.thread:                              ; preds = %54, %58
   br label %.thread32
 
 .thread32:                                        ; preds = %144, %146, %.thread29, %147, %122
-  %148 = phi i32 [ -12, %122 ], [ %127, %147 ], [ -12, %.thread29 ], [ %127, %146 ], [ %127, %144 ]
+  %148 = phi i32 [ %127, %147 ], [ -12, %122 ], [ -12, %.thread29 ], [ %127, %146 ], [ %127, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %148

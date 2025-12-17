@@ -311,7 +311,7 @@ checkArg.exit.i.i:                                ; preds = %88, %84, %78, %74, 
   br label %readArgFile.exit.i
 
 readArgFile.exit.i:                               ; preds = %94, %91, %._crit_edge.i.i, %41
-  %.sink.i.i = phi ptr [ %.pre24.i.pre.i, %91 ], [ %.pre24.i.pre.i, %94 ], [ %42, %41 ], [ %.pre24.i.pre.i, %._crit_edge.i.i ]
+  %.sink.i.i = phi ptr [ %.pre24.i.pre.i, %94 ], [ %.pre24.i.pre.i, %91 ], [ %42, %41 ], [ %.pre24.i.pre.i, %._crit_edge.i.i ]
   call void @JLI_List_free(ptr noundef %.sink.i.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -329,7 +329,7 @@ expandArgFile.exit:                               ; preds = %readArgFile.exit.i
   br label %99
 
 99:                                               ; preds = %26, %expandArgFile.exit, %2, %25, %21, %17, %10
-  %.016 = phi ptr [ null, %10 ], [ %18, %17 ], [ null, %21 ], [ null, %25 ], [ null, %2 ], [ %27, %26 ], [ %45, %expandArgFile.exit ]
+  %.016 = phi ptr [ null, %2 ], [ null, %10 ], [ %18, %17 ], [ null, %21 ], [ null, %25 ], [ %27, %26 ], [ %45, %expandArgFile.exit ]
   ret ptr %.016
 }
 

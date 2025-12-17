@@ -118,7 +118,7 @@ define internal fastcc void @"_ZN13cf_rustracing4span13Span$LT$T$GT$5child17h9d5
   unreachable
 
 common.resume:                                    ; preds = %.body, %42, %49
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %50, %49 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %50, %49 ], [ %43, %42 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN80_$LT$cf_rustracing..span..SpanContext$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcab3fa25bda5debeE.exit.i": ; preds = %27
@@ -669,8 +669,8 @@ _ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i.i
   br i1 %.sroa.09.0.ph.i.i.i, label %223, label %.body
 
 219:                                              ; preds = %218, %168
-  %.sroa.09.0.ph.i.i.i = phi i1 [ true, %168 ], [ false, %218 ]
-  %.pn.ph.i.i.i = phi { ptr, i32 } [ %169, %168 ], [ %213, %218 ]
+  %.sroa.09.0.ph.i.i.i = phi i1 [ false, %218 ], [ true, %168 ]
+  %.pn.ph.i.i.i = phi { ptr, i32 } [ %213, %218 ], [ %169, %168 ]
   %220 = load i64, ptr %15, align 8, !range !3, !alias.scope !147, !noalias !100, !noundef !4
   %221 = icmp eq i64 %220, -9223372036854775808
   br i1 %221, label %.body.thread.i.i.i, label %222
@@ -733,7 +733,7 @@ _ZN4core10intrinsics25typed_swap_nonoverlapping17heeed44aec9cb3ce3E.exit.i.i.i.i
   br label %.body
 
 .body:                                            ; preds = %.body.i.i, %206, %209, %.body.thread.i.i.i, %231, %234
-  %eh.lpad-body = phi { ptr, i32 } [ %235, %234 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn.pn3557.i.i.i, %231 ], [ %.pn.ph.i.i.i, %.body.thread.i.i.i ], [ %192, %206 ], [ %192, %209 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %235, %234 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %.pn.pn3557.i.i.i, %231 ], [ %.pn.ph.i.i.i, %.body.thread.i.i.i ], [ %192, %209 ], [ %192, %206 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$cf_rustracing..span..SpanHandle$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$17hddf48317a647fc4dE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %25) #18
           to label %common.resume unwind label %236
 
@@ -1135,9 +1135,9 @@ _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
   store i8 3, ptr %0, align 8
   br label %28
 
-27:                                               ; preds = %20, %12, %23, %18
-  %.sroa.5.0.ph.ph = phi i8 [ -128, %18 ], [ -112, %23 ], [ -32, %12 ], [ %spec.select9.i, %20 ]
-  %.sroa.7.0.ph.ph = phi i8 [ %19, %18 ], [ %24, %23 ], [ %10, %12 ], [ %22, %20 ]
+27:                                               ; preds = %20, %23, %18, %12
+  %.sroa.5.0.ph.ph = phi i8 [ -32, %12 ], [ -128, %18 ], [ -112, %23 ], [ %spec.select9.i, %20 ]
+  %.sroa.7.0.ph.ph = phi i8 [ %10, %12 ], [ %19, %18 ], [ %24, %23 ], [ %22, %20 ]
   store i8 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.5.0.ph.ph, ptr %.sroa.4.0..sroa_idx, align 1
@@ -1322,7 +1322,7 @@ define hidden void @_ZN3rmp6encode3bin13write_bin_len17hf1612b99b0c05fbbE(ptr de
   br label %"_ZN60_$LT$rmp..marker..Marker$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b558436e159d9bE.exit31"
 
 "_ZN60_$LT$rmp..marker..Marker$u20$as$u20$core..cmp..PartialEq$GT$2eq17h62b558436e159d9bE.exit31": ; preds = %17, %20, %15
-  %.sroa.0.0424649 = phi i8 [ -59, %17 ], [ -58, %20 ], [ -60, %15 ]
+  %.sroa.0.0424649 = phi i8 [ -59, %17 ], [ -60, %15 ], [ -58, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sroa.0.0424649, ptr %22, align 8
   store i64 2, ptr %0, align 8
@@ -1539,7 +1539,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h0269cbf643bf5d0fE(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h54258589463b33daE.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h54258589463b33daE.exit.i: ; preds = %55, %.lr.ph34.i, %45, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %22, %55 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %22, %55 ]
   %57 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %57)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -1842,7 +1842,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17h5ab1972ae164cb8eE(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17h8119a4cfc0abc40dE.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h8119a4cfc0abc40dE.exit.i: ; preds = %55, %.lr.ph34.i, %45, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %22, %55 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %22, %55 ]
   %57 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %57)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -2145,7 +2145,7 @@ define hidden void @_ZN4core5slice4sort6stable5drift4sort17hb870cf039d622f20E(pt
   br i1 %exitcond42.not.i, label %_ZN4core5slice4sort6shared17find_existing_run17hefe0c4dbbdcaee50E.exit.i, label %.lr.ph34.i
 
 _ZN4core5slice4sort6shared17find_existing_run17hefe0c4dbbdcaee50E.exit.i: ; preds = %55, %.lr.ph34.i, %45, %.lr.ph.i
-  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %22, %55 ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ]
+  %.sroa.0.0.i.i = phi i64 [ %22, %45 ], [ %.sroa.01.1.i30.i, %.lr.ph.i ], [ %.sroa.01.0.i33.i, %.lr.ph34.i ], [ %22, %55 ]
   %57 = icmp ule i64 %.sroa.0.0.i.i, %22
   tail call void @llvm.assume(i1 %57)
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
@@ -2359,7 +2359,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %7, %2
-  %.sroa.0.0.i = phi i64 [ 1, %2 ], [ %..i, %9 ], [ 2, %7 ]
+  %.sroa.0.0.i = phi i64 [ 2, %7 ], [ %..i, %9 ], [ 1, %2 ]
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8fb1b6eaab8aa62dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.sroa.0.0.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b062b34719e4811dae0e51130238e6b5.88)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !336, !nonnull !4, !noundef !4
@@ -2737,7 +2737,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   unreachable
 
 .critedge:                                        ; preds = %.noexc.i, %74, %.noexc8
-  %eh.lpad-body12 = phi { ptr, i32 } [ %lpad.phi, %.noexc8 ], [ %79, %.noexc.i ], [ %75, %74 ]
+  %eh.lpad-body12 = phi { ptr, i32 } [ %79, %.noexc.i ], [ %lpad.phi, %.noexc8 ], [ %75, %74 ]
   resume { ptr, i32 } %eh.lpad-body12
 
 .noexc8:                                          ; preds = %98, %95

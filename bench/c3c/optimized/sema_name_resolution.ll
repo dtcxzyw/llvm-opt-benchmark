@@ -513,13 +513,13 @@ sema_find_decl_in_module.exit:                    ; preds = %matches_subpath.exi
   %.not19 = icmp eq ptr %37, null
   br i1 %.not19, label %sema_find_decl_in_module.exit.thread, label %._crit_edge
 
-sema_find_decl_in_module.exit.thread:             ; preds = %29, %33, %24, %matches_subpath.exit.i, %.lr.ph.split, %sema_find_decl_in_module.exit
+sema_find_decl_in_module.exit.thread:             ; preds = %24, %matches_subpath.exit.i, %.lr.ph.split, %29, %33, %sema_find_decl_in_module.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %sema_find_decl_in_module.exit, %sema_find_decl_in_module.exit.thread, %sema_find_decl_in_module.exit.us, %sema_find_decl_in_module.exit.thread.us, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ null, %sema_find_decl_in_module.exit.thread ], [ %37, %sema_find_decl_in_module.exit ]
+  %.015 = phi ptr [ null, %3 ], [ null, %4 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ %37, %sema_find_decl_in_module.exit ], [ null, %sema_find_decl_in_module.exit.thread ]
   ret ptr %.015
 }
 
@@ -565,7 +565,7 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %12, %22, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %22 ], [ %10, %12 ]
+  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ %10, %12 ], [ null, %22 ]
   ret ptr %.015
 }
 
@@ -635,7 +635,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %31, %38, %33, %13, %10
-  %.042.ph = phi ptr [ %19, %33 ], [ null, %38 ], [ null, %13 ], [ null, %10 ], [ null, %31 ]
+  %.042.ph = phi ptr [ null, %38 ], [ %19, %33 ], [ null, %13 ], [ null, %10 ], [ null, %31 ]
   %39 = icmp eq i32 %5, 2
   %40 = select i1 %39, i32 0, i32 %5
   br label %43
@@ -686,7 +686,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %54, %43, %46, %41, %6, %53
-  %.040 = phi ptr [ %.157, %53 ], [ null, %6 ], [ %19, %41 ], [ %.04253, %46 ], [ %.04253, %43 ], [ %.2, %54 ]
+  %.040 = phi ptr [ %19, %41 ], [ null, %6 ], [ %.157, %53 ], [ %.04253, %46 ], [ %.04253, %43 ], [ %.2, %54 ]
   ret ptr %.040
 }
 
@@ -1006,7 +1006,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br label %.thread107
 
 .thread107:                                       ; preds = %82, %93, %94, %107, %102, %96, %101, %.loopexit, %70, %61, %58, %37
-  %.065 = phi ptr [ %36, %37 ], [ %.1124, %58 ], [ %56, %61 ], [ %.3, %70 ], [ %100, %101 ], [ null, %96 ], [ %106, %107 ], [ null, %102 ], [ null, %.loopexit ], [ %.3, %94 ], [ %.3, %93 ], [ %80, %82 ]
+  %.065 = phi ptr [ %36, %37 ], [ %.1124, %58 ], [ %56, %61 ], [ %.3, %70 ], [ %.3, %93 ], [ %100, %101 ], [ null, %96 ], [ %106, %107 ], [ null, %102 ], [ null, %.loopexit ], [ %.3, %94 ], [ %80, %82 ]
   ret ptr %.065
 }
 
@@ -1222,7 +1222,7 @@ tailrecurse.backedge:                             ; preds = %4, %7, %13, %34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit, %18, %21, %30, %28
-  %.0 = phi i1 [ %29, %28 ], [ %33, %30 ], [ true, %21 ], [ true, %18 ], [ false, %.loopexit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
+  %.0 = phi i1 [ %29, %28 ], [ false, %.loopexit.loopexit ], [ true, %18 ], [ true, %21 ], [ %33, %30 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -1314,7 +1314,7 @@ switch.early.test:                                ; preds = %19
   br label %41
 
 41:                                               ; preds = %26, %19, %switch.early.test, %switch.early.test, %switch.early.test, %35, %33, %17, %15
-  %.025 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %34, %33 ], [ %40, %35 ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %19 ], [ %.032, %26 ]
+  %.025 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %40, %35 ], [ %34, %33 ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %19 ], [ %.032, %26 ]
   ret ptr %.025
 }
 
@@ -1485,8 +1485,8 @@ matches_subpath.exit.thread13.i:                  ; preds = %matches_subpath.exi
   store ptr null, ptr %14, align 8
   br label %sema_find_decl_in_module.exit.thread
 
-sema_find_decl_in_module.exit.thread:             ; preds = %68, %72, %63, %matches_subpath.exit.i, %52, %matches_subpath.exit.thread13.i, %48, %.lr.ph.split, %78, %.thread48
-  %.1 = phi ptr [ %.03350, %.lr.ph.split ], [ %.03350, %.thread48 ], [ %76, %78 ], [ %.03350, %matches_subpath.exit.thread13.i ], [ %.03350, %48 ], [ %.03350, %52 ], [ %.03350, %matches_subpath.exit.i ], [ %.03350, %63 ], [ %.03350, %72 ], [ %.03350, %68 ]
+sema_find_decl_in_module.exit.thread:             ; preds = %63, %matches_subpath.exit.i, %52, %68, %72, %matches_subpath.exit.thread13.i, %48, %.lr.ph.split, %78, %.thread48
+  %.1 = phi ptr [ %.03350, %.lr.ph.split ], [ %.03350, %.thread48 ], [ %.03350, %matches_subpath.exit.i ], [ %.03350, %63 ], [ %76, %78 ], [ %.03350, %matches_subpath.exit.thread13.i ], [ %.03350, %48 ], [ %.03350, %72 ], [ %.03350, %68 ], [ %.03350, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
@@ -1585,7 +1585,7 @@ matches_subpath.exit.thread.i:                    ; preds = %matches_subpath.exi
   br i1 %exitcond.not.i, label %sema_is_path_found.exit, label %22, !llvm.loop !23
 
 sema_is_path_found.exit:                          ; preds = %29, %matches_subpath.exit.i, %matches_subpath.exit.thread.i, %16, %17
-  %.lcssa.i = phi i8 [ 0, %17 ], [ 0, %16 ], [ 1, %matches_subpath.exit.i ], [ 0, %matches_subpath.exit.thread.i ], [ 1, %29 ]
+  %.lcssa.i = phi i8 [ 0, %17 ], [ 0, %16 ], [ 1, %29 ], [ 1, %matches_subpath.exit.i ], [ 0, %matches_subpath.exit.thread.i ]
   store i8 %.lcssa.i, ptr %13, align 8
   br label %matches_subpath.exit.thread
 
@@ -1826,9 +1826,9 @@ sema_first_is_preferred.exit105:                  ; preds = %161
   br label %matches_subpath.exit94.thread
 
 matches_subpath.exit94.thread:                    ; preds = %sema_first_is_preferred.exit105, %sema_first_is_preferred.exit, %sema_first_is_preferred.exit100.thread120, %161, %146, %129, %133, %115, %119, %107, %sema_first_is_preferred.exit100, %matches_subpath.exit94.thread110, %141, %matches_subpath.exit94
-  %.167 = phi ptr [ %.066136, %141 ], [ %.066136, %matches_subpath.exit94 ], [ %99, %matches_subpath.exit94.thread110 ], [ %.066136, %sema_first_is_preferred.exit100 ], [ %.066136, %107 ], [ %.066136, %119 ], [ %.066136, %115 ], [ %.066136, %133 ], [ %.066136, %129 ], [ %.066136, %146 ], [ %.066136, %161 ], [ %.066136, %sema_first_is_preferred.exit100.thread120 ], [ %.066136, %sema_first_is_preferred.exit ], [ %.066136, %sema_first_is_preferred.exit105 ]
-  %.165 = phi ptr [ null, %141 ], [ %.064137, %matches_subpath.exit94 ], [ %.064137, %matches_subpath.exit94.thread110 ], [ null, %sema_first_is_preferred.exit100 ], [ %.064137, %107 ], [ %.064137, %119 ], [ %.064137, %115 ], [ %.064137, %133 ], [ null, %129 ], [ null, %146 ], [ %.063138, %161 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %spec.select134, %sema_first_is_preferred.exit105 ]
-  %.1 = phi ptr [ %99, %141 ], [ %.063138, %matches_subpath.exit94 ], [ %.063138, %matches_subpath.exit94.thread110 ], [ %99, %sema_first_is_preferred.exit100 ], [ %.063138, %107 ], [ %.063138, %119 ], [ %.063138, %115 ], [ %.063138, %133 ], [ %99, %129 ], [ %99, %146 ], [ %99, %161 ], [ %.063138, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %spec.select135, %sema_first_is_preferred.exit105 ]
+  %.167 = phi ptr [ %99, %matches_subpath.exit94.thread110 ], [ %.066136, %matches_subpath.exit94 ], [ %.066136, %129 ], [ %.066136, %sema_first_is_preferred.exit100 ], [ %.066136, %sema_first_is_preferred.exit100.thread120 ], [ %.066136, %141 ], [ %.066136, %133 ], [ %.066136, %115 ], [ %.066136, %sema_first_is_preferred.exit ], [ %.066136, %119 ], [ %.066136, %161 ], [ %.066136, %146 ], [ %.066136, %sema_first_is_preferred.exit105 ], [ %.066136, %107 ]
+  %.165 = phi ptr [ %.064137, %matches_subpath.exit94.thread110 ], [ %.064137, %matches_subpath.exit94 ], [ null, %129 ], [ null, %sema_first_is_preferred.exit100 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ null, %141 ], [ %.064137, %133 ], [ %.064137, %115 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %.064137, %119 ], [ %.063138, %161 ], [ null, %146 ], [ %spec.select134, %sema_first_is_preferred.exit105 ], [ %.064137, %107 ]
+  %.1 = phi ptr [ %.063138, %matches_subpath.exit94.thread110 ], [ %.063138, %matches_subpath.exit94 ], [ %99, %129 ], [ %99, %sema_first_is_preferred.exit100 ], [ %.063138, %sema_first_is_preferred.exit100.thread120 ], [ %99, %141 ], [ %.063138, %133 ], [ %.063138, %115 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %.063138, %119 ], [ %99, %161 ], [ %99, %146 ], [ %spec.select135, %sema_first_is_preferred.exit105 ], [ %.063138, %107 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %97, !llvm.loop !24
@@ -1845,7 +1845,7 @@ matches_subpath.exit94.thread:                    ; preds = %sema_first_is_prefe
   br label %matches_subpath.exit.thread
 
 matches_subpath.exit.thread:                      ; preds = %76, %80, %67, %matches_subpath.exit, %11, %12, %sema_is_path_found.exit, %._crit_edge, %87, %85
-  %.061 = phi ptr [ %54, %87 ], [ null, %85 ], [ %.063.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %11 ], [ null, %matches_subpath.exit ], [ null, %67 ], [ null, %80 ], [ null, %76 ]
+  %.061 = phi ptr [ %54, %87 ], [ null, %85 ], [ null, %11 ], [ %.063.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %matches_subpath.exit ], [ null, %67 ], [ null, %80 ], [ null, %76 ]
   ret ptr %.061
 }
 
@@ -2010,7 +2010,7 @@ define dso_local ptr @sema_find_symbol(ptr noundef readonly captures(none) %0, p
   br label %14
 
 14:                                               ; preds = %.thread94, %11, %9
-  %.057 = phi ptr [ %10, %9 ], [ %7, %11 ], [ null, %.thread94 ]
+  %.057 = phi ptr [ null, %.thread94 ], [ %10, %9 ], [ %7, %11 ]
   ret ptr %.057
 }
 
@@ -2052,7 +2052,7 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr noundef readonly captur
   br i1 %20, label %.loopexit, label %14, !llvm.loop !25
 
 .loopexit:                                        ; preds = %14, %15, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %14 ], [ %18, %15 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %14 ], [ %18, %15 ]
   ret ptr %.0
 }
 
@@ -2088,7 +2088,7 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr noundef readon
   br i1 %18, label %.loopexit, label %11, !llvm.loop !26
 
 .loopexit:                                        ; preds = %11, %13, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %11 ], [ %16, %13 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %11 ], [ %16, %13 ]
   ret ptr %.0
 }
 
@@ -2155,7 +2155,7 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr noundef readonl
   br label %.thread117
 
 .thread117:                                       ; preds = %.thread110, %20, %12, %11, %25
-  %.067 = phi i1 [ %27, %25 ], [ false, %11 ], [ true, %12 ], [ true, %20 ], [ false, %.thread110 ]
+  %.067 = phi i1 [ false, %11 ], [ true, %12 ], [ %27, %25 ], [ true, %20 ], [ false, %.thread110 ]
   ret i1 %.067
 }
 
@@ -2334,7 +2334,7 @@ matches_subpath.exit81.thread:                    ; preds = %75, %79, %67, %matc
   br i1 %exitcond119.not, label %._crit_edge107, label %60, !llvm.loop !28
 
 .thread:                                          ; preds = %30, %matches_subpath.exit, %60, %matches_subpath.exit81
-  %83 = phi ptr [ %65, %matches_subpath.exit81 ], [ %65, %60 ], [ %35, %matches_subpath.exit ], [ %35, %30 ]
+  %83 = phi ptr [ %65, %60 ], [ %65, %matches_subpath.exit81 ], [ %35, %matches_subpath.exit ], [ %35, %30 ]
   %84 = load ptr, ptr %9, align 8
   %85 = load i64, ptr %8, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %85, ptr noundef nonnull @.str.16, ptr noundef %84, ptr noundef %83) #10
@@ -2382,7 +2382,7 @@ matches_subpath.exit81.thread:                    ; preds = %75, %79, %67, %matc
   br label %102
 
 102:                                              ; preds = %.thread95, %18, %99, %97, %89
-  %.058 = phi ptr [ %98, %97 ], [ %.059, %99 ], [ %90, %89 ], [ null, %18 ], [ null, %.thread95 ]
+  %.058 = phi ptr [ null, %18 ], [ %98, %97 ], [ %.059, %99 ], [ %90, %89 ], [ null, %.thread95 ]
   ret ptr %.058
 }
 
@@ -2560,7 +2560,7 @@ matches_subpath.exit81.thread:                    ; preds = %76, %80, %68, %matc
   br i1 %exitcond119.not, label %._crit_edge107, label %61, !llvm.loop !30
 
 .thread:                                          ; preds = %31, %matches_subpath.exit, %61, %matches_subpath.exit81
-  %84 = phi ptr [ %66, %matches_subpath.exit81 ], [ %66, %61 ], [ %36, %matches_subpath.exit ], [ %36, %31 ]
+  %84 = phi ptr [ %66, %61 ], [ %66, %matches_subpath.exit81 ], [ %36, %matches_subpath.exit ], [ %36, %31 ]
   %85 = load ptr, ptr %10, align 8
   %86 = load i64, ptr %9, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %86, ptr noundef nonnull @.str.16, ptr noundef %85, ptr noundef %84) #10
@@ -2608,7 +2608,7 @@ matches_subpath.exit81.thread:                    ; preds = %76, %80, %68, %matc
   br label %103
 
 103:                                              ; preds = %.thread95, %19, %100, %98, %90
-  %.058 = phi ptr [ %99, %98 ], [ %.059, %100 ], [ %91, %90 ], [ null, %19 ], [ null, %.thread95 ]
+  %.058 = phi ptr [ null, %19 ], [ %99, %98 ], [ %.059, %100 ], [ %91, %90 ], [ null, %.thread95 ]
   ret ptr %.058
 }
 
@@ -2865,7 +2865,7 @@ sema_find_local.exit.thread78:                    ; preds = %.lr.ph.i.i, %100, %
   store i64 %126, ptr %123, align 8
   br label %181
 
-sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, %105, %83, %86, %sema_find_local.exit, %115, %69
+sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, %86, %105, %83, %sema_find_local.exit, %115, %69
   %127 = and i64 %9, -897
   %128 = or disjoint i64 %127, 256
   store i64 %128, ptr %8, align 8
@@ -2970,7 +2970,7 @@ sema_append_local.exit:                           ; preds = %167, %176
   br label %181
 
 181:                                              ; preds = %sema_find_ct_local.exit, %61, %2, %sema_append_local.exit, %119
-  %.055 = phi i1 [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %2 ], [ true, %61 ], [ false, %sema_find_ct_local.exit ]
+  %.055 = phi i1 [ true, %2 ], [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %61 ], [ false, %sema_find_ct_local.exit ]
   ret i1 %.055
 }
 
@@ -3613,7 +3613,7 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr noundef readonly 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph17, !llvm.loop !41
 
 .loopexit:                                        ; preds = %36, %.lr.ph17, %._crit_edge13, %.critedge90, %._crit_edge9, %46, %._crit_edge, %1
-  %.067 = phi i1 [ true, %1 ], [ true, %._crit_edge ], [ false, %46 ], [ false, %._crit_edge9 ], [ true, %.lr.ph17 ], [ true, %._crit_edge13 ], [ false, %.critedge90 ], [ true, %36 ]
+  %.067 = phi i1 [ true, %1 ], [ true, %._crit_edge ], [ false, %46 ], [ false, %._crit_edge9 ], [ false, %.critedge90 ], [ true, %._crit_edge13 ], [ true, %.lr.ph17 ], [ true, %36 ]
   ret i1 %.067
 }
 
@@ -3795,7 +3795,7 @@ sema_find_local.exit:                             ; preds = %39
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %sema_find_local.exit.thread, label %sema_find_local.exit.thread31
 
-sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %39, %17, %20, %sema_find_local.exit
+sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %20, %39, %17, %sema_find_local.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 200
@@ -3822,7 +3822,7 @@ sema_find_local.exit.thread:                      ; preds = %26, %12, %7, %9, %3
   br label %sema_find_local.exit.thread31
 
 sema_find_local.exit.thread31:                    ; preds = %.lr.ph.i.i, %34, %39, %55, %51, %48, %sema_find_local.exit.thread, %sema_find_local.exit
-  %.0 = phi ptr [ %43, %sema_find_local.exit ], [ %47, %sema_find_local.exit.thread ], [ %50, %48 ], [ %57, %55 ], [ %54, %51 ], [ %31, %39 ], [ %31, %34 ], [ %14, %.lr.ph.i.i ]
+  %.0 = phi ptr [ %50, %48 ], [ %43, %sema_find_local.exit ], [ %47, %sema_find_local.exit.thread ], [ %57, %55 ], [ %54, %51 ], [ %31, %39 ], [ %31, %34 ], [ %14, %.lr.ph.i.i ]
   ret ptr %.0
 }
 

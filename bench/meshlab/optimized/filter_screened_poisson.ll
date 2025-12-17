@@ -1398,7 +1398,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -1411,7 +1411,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #47
           to label %.noexc6 unwind label %43
 
@@ -2884,7 +2884,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -5245,7 +5245,7 @@ define noundef zeroext i1 @_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_(ptr noundef 
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
   ret i1 %12
 }
 
@@ -5266,7 +5266,7 @@ define noundef zeroext i1 @_ZN6OctreeIdE7_IsZeroI7Point3DIdEEEbRKT_(ptr noundef 
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  %12 = phi i1 [ %10, %7 ], [ false, %1 ]
   ret i1 %12
 }
 
@@ -7603,7 +7603,7 @@ _ZN7QStringD2Ev.exit221:                          ; preds = %_ZN9QtPrivate8RefCo
   br label %417
 
 414:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit235, %.loopexit.split-lp236, %396, %394, %373, %320, %322, %412, %368, %346, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %118, %109, %100
-  %.pn88.pn = phi { ptr, i32 } [ %413, %412 ], [ %369, %368 ], [ %.pn82, %346 ], [ %.pn80230, %322 ], [ %321, %320 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %119, %118 ], [ %.pn.pn, %109 ], [ %101, %100 ], [ %374, %373 ], [ %397, %396 ], [ %395, %394 ], [ %lpad.loopexit237, %.loopexit235 ], [ %lpad.loopexit.split-lp238, %.loopexit.split-lp236 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn88.pn = phi { ptr, i32 } [ %101, %100 ], [ %413, %412 ], [ %397, %396 ], [ %374, %373 ], [ %369, %368 ], [ %.pn82, %346 ], [ %.pn80230, %322 ], [ %321, %320 ], [ %284, %283 ], [ %282, %281 ], [ %280, %279 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %264, %263 ], [ %119, %118 ], [ %.pn.pn, %109 ], [ %lpad.loopexit.split-lp238, %.loopexit.split-lp236 ], [ %395, %394 ], [ %lpad.loopexit237, %.loopexit235 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14QTemporaryFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   br label %415
 
@@ -10859,7 +10859,7 @@ _ZN17CoredFileMeshDataI22PlyColorAndValueVertexIfEE18nextOutOfCorePointERS1_.exi
   br label %.body235
 
 .body235:                                         ; preds = %.loopexit, %.loopexit.split-lp, %843, %846
-  %eh.lpad-body236 = phi { ptr, i32 } [ %844, %846 ], [ %844, %843 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body236 = phi { ptr, i32 } [ %844, %843 ], [ %844, %846 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %824 = load ptr, ptr %54, align 8
   %.not.i.i.i233 = icmp eq ptr %824, null
   br i1 %.not.i.i.i233, label %.body, label %825
@@ -11020,7 +11020,7 @@ _ZN13DenseNodeDataIfLi2EED2Ev.exit245:            ; preds = %_ZN17CoredFileMeshD
   br label %886
 
 .body:                                            ; preds = %.loopexit310, %.loopexit.split-lp311, %825, %.body235, %770, %773, %727, %730, %617
-  %.pn124 = phi { ptr, i32 } [ %618, %617 ], [ %728, %730 ], [ %728, %727 ], [ %771, %773 ], [ %771, %770 ], [ %eh.lpad-body236, %.body235 ], [ %eh.lpad-body236, %825 ], [ %lpad.loopexit312, %.loopexit310 ], [ %lpad.loopexit.split-lp313, %.loopexit.split-lp311 ]
+  %.pn124 = phi { ptr, i32 } [ %618, %617 ], [ %771, %770 ], [ %728, %727 ], [ %eh.lpad-body236, %825 ], [ %728, %730 ], [ %771, %773 ], [ %eh.lpad-body236, %.body235 ], [ %lpad.loopexit312, %.loopexit310 ], [ %lpad.loopexit.split-lp313, %.loopexit.split-lp311 ]
   call void @_ZN17CoredFileMeshDataI22PlyColorAndValueVertexIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(2104) %48) #25
   br label %882
 
@@ -11239,13 +11239,13 @@ define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE18CompactEveryVectorERS2
   br i1 %.not.i.i.i.i2.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %10, %34, %26, %18
-  %.sink = phi ptr [ %21, %18 ], [ %29, %26 ], [ %37, %34 ], [ %13, %10 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %19, %18 ], [ %27, %26 ], [ %35, %34 ], [ %11, %10 ]
+  %.sink = phi ptr [ %29, %26 ], [ %21, %18 ], [ %37, %34 ], [ %13, %10 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %27, %26 ], [ %19, %18 ], [ %35, %34 ], [ %11, %10 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %34, %26, %18, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ], [ %27, %26 ], [ %35, %34 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %11, %10 ], [ %19, %18 ], [ %35, %34 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri9AllocatorI6CMeshOE19CompactVertexVectorERS2_.exit: ; preds = %6, %9
@@ -13680,7 +13680,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -18848,7 +18848,7 @@ _ZNSt8functionIF14ProjectiveDataI15OrientedPoint3DIfEfEP7OctNodeI12TreeNodeDataE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit22
 
 _ZNSt6vectorIiSaIiEED2Ev.exit22:                  ; preds = %78, %_ZNSt8functionIF14ProjectiveDataI15OrientedPoint3DIfEfEP7OctNodeI12TreeNodeDataEEED2Ev.exit20, %65, %63
-  %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %64, %63 ], [ %.pn, %_ZNSt8functionIF14ProjectiveDataI15OrientedPoint3DIfEfEP7OctNodeI12TreeNodeDataEEED2Ev.exit20 ], [ %.pn, %78 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ], [ %.pn, %_ZNSt8functionIF14ProjectiveDataI15OrientedPoint3DIfEfEP7OctNodeI12TreeNodeDataEEED2Ev.exit20 ], [ %.pn, %78 ]
   %79 = load ptr, ptr %19, align 8
   %.not.i.i23 = icmp eq ptr %79, null
   br i1 %.not.i.i23, label %_ZN15PointSupportKeyILi2EED2Ev.exit24, label %80
@@ -21962,7 +21962,7 @@ _ZN13DenseNodeDataIfLi2EED2Ev.exit:               ; preds = %_ZNSt6vectorIN6Octr
   br label %340
 
 340:                                              ; preds = %.loopexit169, %.loopexit.split-lp170, %339, %88
-  %.pn130 = phi { ptr, i32 } [ %.pn, %339 ], [ %89, %88 ], [ %lpad.loopexit171, %.loopexit169 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp170 ]
+  %.pn130 = phi { ptr, i32 } [ %89, %88 ], [ %.pn, %339 ], [ %lpad.loopexit171, %.loopexit169 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp170 ]
   %341 = load ptr, ptr %62, align 8
   %.not.i154 = icmp eq ptr %341, null
   br i1 %.not.i154, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit155, label %342
@@ -22106,9 +22106,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc21
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc21
-  %.pre-phi = phi i64 [ %11, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ 4, %.noexc21 ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.sroa.0.0 = phi ptr [ %12, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %12, %.noexc21 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %13, %.noexc21 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.pre-phi = phi i64 [ 4, %.noexc21 ], [ %11, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0.0 = phi ptr [ %12, %.noexc21 ], [ %12, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %13, %.noexc21 ], [ %16, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %17 = load ptr, ptr %4, align 8
   %18 = invoke noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(1064) %17, ptr noundef nonnull %.sroa.0.0, i64 noundef %.pre-phi)
           to label %19 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -24788,8 +24788,8 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %37, %_Z12IsAc
   br label %72
 
 72:                                               ; preds = %62, %65, %71
-  %.0116 = phi i32 [ %10, %71 ], [ %64, %65 ], [ %9, %62 ]
-  %.0 = phi double [ 1.000000e+00, %71 ], [ %69, %65 ], [ 1.000000e+00, %62 ]
+  %.0116 = phi i32 [ %64, %65 ], [ %10, %71 ], [ %9, %62 ]
+  %.0 = phi double [ %69, %65 ], [ 1.000000e+00, %71 ], [ 1.000000e+00, %62 ]
   %73 = load i32, ptr %17, align 8
   %74 = load i64, ptr %.0113.lcssa, align 8
   %75 = trunc i64 %74 to i32
@@ -25133,9 +25133,9 @@ define linkonce_odr void @_ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E15PointSu
   br label %.critedge, !llvm.loop !318
 
 .critedge:                                        ; preds = %.lr.ph46, %.lr.ph46.preheader, %..critedge.loopexit_crit_edge, %.preheader
-  %.039.lcssa = phi float [ %25, %.preheader ], [ %45, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph46.preheader ], [ %45, %.lr.ph46 ]
-  %.038.lcssa = phi float [ %25, %.preheader ], [ %.0394358, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph46.preheader ], [ %.0394358, %.lr.ph46 ]
-  %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader ], [ %44, %..critedge.loopexit_crit_edge ], [ %.0.lcssa, %.lr.ph46.preheader ], [ %44, %.lr.ph46 ]
+  %.039.lcssa = phi float [ %25, %.preheader ], [ %25, %.lr.ph46.preheader ], [ %45, %..critedge.loopexit_crit_edge ], [ %45, %.lr.ph46 ]
+  %.038.lcssa = phi float [ %25, %.preheader ], [ %25, %.lr.ph46.preheader ], [ %.0394358, %..critedge.loopexit_crit_edge ], [ %.0394358, %.lr.ph46 ]
+  %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %.lr.ph46.preheader ], [ %44, %..critedge.loopexit_crit_edge ], [ %44, %.lr.ph46 ]
   %47 = load i64, ptr %.1.lcssa, align 8
   %48 = trunc i64 %47 to i32
   %49 = and i32 %48, 31
@@ -25737,7 +25737,7 @@ _ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %102
   br label %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %102, %95, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit
-  %.3 = phi float [ %116, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.243, %95 ], [ %.243, %102 ], [ %.243, %98 ]
+  %.3 = phi float [ %116, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.243, %98 ], [ %.243, %95 ], [ %.243, %102 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
   br i1 %exitcond61.not, label %.split45, label %95, !llvm.loop !329
@@ -26304,7 +26304,7 @@ _Z12SetGhostFlagP7OctNodeI12TreeNodeDataEb.exit:  ; preds = %.preheader.split, %
   br i1 %.not8.i, label %tailrecurse.i.i.preheader, label %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit.backedge
 
 tailrecurse.i.i.preheader:                        ; preds = %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit, %.thread44, %31
-  %32 = phi ptr [ %.pre, %31 ], [ %.pre46, %.thread44 ], [ %6, %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit ]
+  %32 = phi ptr [ %.pre46, %.thread44 ], [ %.pre, %31 ], [ %6, %_ZN7OctNodeI12TreeNodeDataE8nextNodeEPS1_.exit ]
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i.preheader, %37
@@ -26585,8 +26585,8 @@ _ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds
   %61 = icmp eq ptr %.pre12, null
   br i1 %61, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread, label %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread
 
-_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread: ; preds = %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %27, %52, %49, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
-  %62 = phi ptr [ %.pre12, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ %26, %49 ], [ %26, %52 ], [ %26, %27 ], [ %26, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ]
+_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread: ; preds = %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %27, %49, %52, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
+  %62 = phi ptr [ %.pre12, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ %26, %52 ], [ %26, %49 ], [ %26, %27 ], [ %26, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
@@ -26648,7 +26648,7 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   store i8 %105, ptr %103, align 4
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %17, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread, %88, %96, %69, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %102
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %17, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %_ZNK6OctreeIfE16isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread, %88, %96, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %69, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = load ptr, ptr %2, align 8
   %107 = load i32, ptr %3, align 8
@@ -26803,7 +26803,7 @@ _ZNKSt8functionIFP7OctNodeI12TreeNodeDataES3_RiPiEEclES3_S4_S5_.exit: ; preds = 
   br label %71
 
 71:                                               ; preds = %4, %44, %_ZNKSt8functionIFP7OctNodeI12TreeNodeDataES3_RiPiEEclES3_S4_S5_.exit
-  %.0 = phi ptr [ %43, %_ZNKSt8functionIFP7OctNodeI12TreeNodeDataES3_RiPiEEclES3_S4_S5_.exit ], [ %70, %44 ], [ null, %4 ]
+  %.0 = phi ptr [ %70, %44 ], [ %43, %_ZNKSt8functionIFP7OctNodeI12TreeNodeDataES3_RiPiEEclES3_S4_S5_.exit ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -26874,7 +26874,7 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
   %.not26 = select i1 %48, i1 %49, i1 false
   br i1 %.not26, label %.critedge14, label %.critedge
 
-.critedge14:                                      ; preds = %26, %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %47
+.critedge14:                                      ; preds = %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %26, %47
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
@@ -27015,7 +27015,7 @@ _ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit: ; preds = %_ZN7OctNodeI
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.critedge, label %_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit, !llvm.loop !349
 
-.critedge:                                        ; preds = %_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit, %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit.thread, %43, %3, %47
+.critedge:                                        ; preds = %_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS1_E.exit, %3, %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit.thread, %43, %47
   ret void
 }
 
@@ -27088,7 +27088,7 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread: 
   br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !350
 
 .loopexit:                                        ; preds = %.preheader, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread, %25, %28, %32
-  %.012 = phi i1 [ true, %32 ], [ true, %28 ], [ true, %25 ], [ false, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ %40, %.preheader ]
+  %.012 = phi i1 [ false, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread ], [ true, %25 ], [ true, %32 ], [ true, %28 ], [ %40, %.preheader ]
   ret i1 %.012
 }
 
@@ -28115,7 +28115,7 @@ _ZN13DenseNodeDataI7Point3DIfELi2EED2Ev.exit:     ; preds = %370, %372
   ret void
 
 .loopexit163:                                     ; preds = %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149, %.loopexit169, %.loopexit.split-lp170, %333
-  %.pn50 = phi { ptr, i32 } [ %334, %333 ], [ %lpad.loopexit171, %.loopexit169 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %.pn, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149 ], [ %334, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134 ]
+  %.pn50 = phi { ptr, i32 } [ %334, %333 ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp170 ], [ %lpad.loopexit171, %.loopexit169 ], [ %.pn, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit149 ], [ %334, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134 ]
   %373 = load ptr, ptr %236, align 8
   %.not.i151 = icmp eq ptr %373, null
   br i1 %.not.i151, label %_ZN7StencilI7Point3DIdELi5EED2Ev.exit88, label %374
@@ -28125,7 +28125,7 @@ _ZN13DenseNodeDataI7Point3DIfELi2EED2Ev.exit:     ; preds = %370, %372
   br label %_ZN7StencilI7Point3DIdELi5EED2Ev.exit88
 
 _ZN7StencilI7Point3DIdELi5EED2Ev.exit88:          ; preds = %374, %.loopexit163, %207, %.loopexit, %80
-  %.pn56.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn56.pn, %.loopexit ], [ %.pn56.pn, %207 ], [ %.pn50, %.loopexit163 ], [ %.pn50, %374 ]
+  %.pn56.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn56.pn, %207 ], [ %.pn56.pn, %.loopexit ], [ %.pn50, %.loopexit163 ], [ %.pn50, %374 ]
   resume { ptr, i32 } %.pn56.pn.pn
 }
 
@@ -28264,7 +28264,7 @@ define internal void @_ZN6OctreeIfE18_addFEMConstraintsILi2EL12BoundaryType2ELi2
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %107, %105, %98, %80, %79
-  %.0.i = phi i1 [ false, %79 ], [ false, %105 ], [ false, %98 ], [ %spec.select.i.i, %107 ], [ false, %80 ]
+  %.0.i = phi i1 [ false, %79 ], [ false, %80 ], [ %spec.select.i.i, %107 ], [ false, %98 ], [ false, %105 ]
   %109 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not.i109 = icmp eq ptr %110, null
@@ -28317,7 +28317,7 @@ _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.ex
   br label %140
 
 140:                                              ; preds = %138, %136, %129, %111, %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
-  %.0.i110 = phi i1 [ false, %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ false, %136 ], [ false, %129 ], [ %spec.select.i.i116, %138 ], [ false, %111 ]
+  %.0.i110 = phi i1 [ false, %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ false, %111 ], [ %spec.select.i.i116, %138 ], [ false, %129 ], [ false, %136 ]
   %141 = load i64, ptr %78, align 8
   %142 = trunc i64 %141 to i32
   %143 = and i32 %142, 31
@@ -28536,7 +28536,7 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   store float %286, ptr %284, align 4
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.sink.split, %215, %219, %227, %171, %175, %201, %209, %182, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i118, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.sink.split, %215, %219, %227, %171, %175, %201, %209, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i118, %182, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %287, label %171, !llvm.loop !373
@@ -28711,7 +28711,7 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit127: ; pr
   br label %_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit
 
 _ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit:    ; preds = %387, %381
-  %391 = phi i1 [ false, %381 ], [ %390, %387 ]
+  %391 = phi i1 [ %390, %387 ], [ false, %381 ]
   %392 = icmp sle i32 %143, %.fr208
   %or.cond.not = select i1 %391, i1 true, i1 %392
   br i1 %or.cond.not, label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread, label %393
@@ -28935,7 +28935,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit129.thread.us195.
           catch ptr null
   br label %.loopexit.split-lp
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread: ; preds = %._crit_edge192.split.us.split.us205.us, %._crit_edge192.split.us.split.us.us.us.us, %.preheader182.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread294, %.preheader184, %140, %361, %365, %373, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %347, %355, %328, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit127, %_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125.thread: ; preds = %._crit_edge192.split.us.split.us205.us, %._crit_edge192.split.us.split.us.us.us.us, %.preheader182.lr.ph, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.thread294, %.preheader184, %140, %361, %365, %373, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread, %347, %355, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i122, %328, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit125, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit127, %_ZN6OctreeIfE7_IsZeroI7Point3DIfEEEbRKT_.exit
   %504 = add nuw i32 %.095207, 1
   %505 = load i32, ptr %18, align 4
   %506 = add i32 %505, 1
@@ -29684,8 +29684,8 @@ _ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds
   %.pre = load i32, ptr %8, align 4
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
 
-_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %87, %91, %99, %39, %47, %73, %81, %54, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit, %105, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit
-  %118 = phi i32 [ %40, %87 ], [ %40, %91 ], [ %40, %99 ], [ %40, %39 ], [ %40, %47 ], [ %40, %73 ], [ %40, %81 ], [ %40, %54 ], [ %40, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %40, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.pre, %105 ], [ %40, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ]
+_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %87, %91, %99, %39, %47, %73, %81, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %54, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit, %105, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit
+  %118 = phi i32 [ %40, %87 ], [ %40, %91 ], [ %40, %99 ], [ %40, %39 ], [ %40, %47 ], [ %40, %73 ], [ %40, %81 ], [ %40, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %40, %54 ], [ %40, %_ZNK14SparseNodeDataI7Point3DIfELi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.pre, %105 ], [ %40, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ]
   %119 = add nuw i32 %.029, 1
   %120 = add i32 %118, 1
   %121 = icmp ult i32 %119, %120
@@ -29916,7 +29916,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i: ; preds = %114, %112, %111
-  %.0.i.i = phi i64 [ %116, %114 ], [ 0, %111 ], [ 1, %112 ]
+  %.0.i.i = phi i64 [ 0, %111 ], [ %116, %114 ], [ 1, %112 ]
   %gep = getelementptr [4 x double], ptr %invariant.gep, i64 %.0.i.i
   %117 = getelementptr i8, ptr %gep, i64 16
   %118 = load double, ptr %117, align 8
@@ -29950,7 +29950,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53: ; preds = %128, %126, %125
-  %.0.i.i54 = phi i64 [ %129, %128 ], [ 0, %125 ], [ 1, %126 ]
+  %.0.i.i54 = phi i64 [ 0, %125 ], [ %129, %128 ], [ 1, %126 ]
   %gep94 = getelementptr [4 x double], ptr %invariant.gep93, i64 %.0.i.i54
   %130 = getelementptr i8, ptr %gep94, i64 16
   %131 = load double, ptr %130, align 8
@@ -29993,7 +29993,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61: ; preds = %148, %146, %144
-  %.0.i.i62 = phi i64 [ %150, %148 ], [ 0, %144 ], [ 1, %146 ]
+  %.0.i.i62 = phi i64 [ 0, %144 ], [ %150, %148 ], [ 1, %146 ]
   %151 = getelementptr [4 x double], ptr %5, i64 %.0.i.i62
   %152 = sext i32 %134 to i64
   %153 = getelementptr double, ptr %151, i64 %152
@@ -30374,7 +30374,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %150, %148, %141, %122, %120
-  %.0.i = phi i1 [ false, %120 ], [ false, %148 ], [ false, %141 ], [ %spec.select.i.i, %150 ], [ false, %122 ]
+  %.0.i = phi i1 [ false, %120 ], [ false, %122 ], [ %spec.select.i.i, %150 ], [ false, %141 ], [ false, %148 ]
   %152 = load i32, ptr %3, align 4
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %165
@@ -30568,7 +30568,7 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us
 
 _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us.us.us.us.us.us: ; preds = %248, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us, %242, %234, %217, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us, %210, %206
-  %.3.us.us.us.us.us.us = phi float [ %273, %248 ], [ %.297.us.us.us.us.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %217 ], [ %.297.us.us.us.us.us.us, %242 ], [ %.297.us.us.us.us.us.us, %234 ], [ %.297.us.us.us.us.us.us, %210 ], [ %.297.us.us.us.us.us.us, %206 ]
+  %.3.us.us.us.us.us.us = phi float [ %273, %248 ], [ %.297.us.us.us.us.us.us, %206 ], [ %.297.us.us.us.us.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %217 ], [ %.297.us.us.us.us.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us.us.us.us.us.us ], [ %.297.us.us.us.us.us.us, %242 ], [ %.297.us.us.us.us.us.us, %234 ], [ %.297.us.us.us.us.us.us, %210 ]
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
   br i1 %exitcond160.not, label %._crit_edge.split.us.us.us.us.us.us, label %206, !llvm.loop !393
@@ -30701,7 +30701,7 @@ _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us
 
 _ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread.us108.us.us: ; preds = %334, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us, %314, %306, %287, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us, %280, %276
-  %.3.us109.us.us = phi float [ %351, %334 ], [ %.297.us104.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us ], [ %.297.us104.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us ], [ %.297.us104.us.us, %287 ], [ %.297.us104.us.us, %314 ], [ %.297.us104.us.us, %306 ], [ %.297.us104.us.us, %280 ], [ %.297.us104.us.us, %276 ]
+  %.3.us109.us.us = phi float [ %.297.us104.us.us, %276 ], [ %351, %334 ], [ %.297.us104.us.us, %_ZNK6OctreeIfE14isValidFEMNodeILi2EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.us106.us.us ], [ %.297.us104.us.us, %287 ], [ %.297.us104.us.us, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i61.us105.us.us ], [ %.297.us104.us.us, %314 ], [ %.297.us104.us.us, %306 ], [ %.297.us104.us.us, %280 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.291, %lftr.wideiv
@@ -31392,13 +31392,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit100:           ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit88, %40, %27
-  %.sink = phi ptr [ %29, %27 ], [ %42, %40 ], [ %76, %_ZN15BSplineElementsILi2EED2Ev.exit88 ]
-  %.pn.ph = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %73, %_ZN15BSplineElementsILi2EED2Ev.exit88 ]
+  %.sink = phi ptr [ %42, %40 ], [ %29, %27 ], [ %76, %_ZN15BSplineElementsILi2EED2Ev.exit88 ]
+  %.pn.ph = phi { ptr, i32 } [ %41, %40 ], [ %28, %27 ], [ %73, %_ZN15BSplineElementsILi2EED2Ev.exit88 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi2EED2Ev.exit88, %40, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %73, %_ZN15BSplineElementsILi2EED2Ev.exit88 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %73, %_ZN15BSplineElementsILi2EED2Ev.exit88 ], [ %28, %27 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %134 = load ptr, ptr %7, align 8
   %.not.i.i.i.i101 = icmp eq ptr %134, null
   br i1 %.not.i.i.i.i101, label %_ZN15BSplineElementsILi2EED2Ev.exit102, label %135
@@ -33076,13 +33076,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit98:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi1EED2Ev.exit, %42, %29
-  %.sink = phi ptr [ %31, %29 ], [ %44, %42 ], [ %73, %_ZN15BSplineElementsILi1EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %30, %29 ], [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.sink = phi ptr [ %44, %42 ], [ %31, %29 ], [ %73, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %30, %29 ], [ %lpad.phi, %_ZN15BSplineElementsILi1EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi1EED2Ev.exit, %42, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %30, %29 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %150 = load ptr, ptr %9, align 8
   %.not.i.i.i.i99 = icmp eq ptr %150, null
   br i1 %.not.i.i.i.i99, label %_ZN15BSplineElementsILi2EED2Ev.exit100, label %151
@@ -33907,13 +33907,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit98:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi0EED2Ev.exit, %42, %29
-  %.sink = phi ptr [ %31, %29 ], [ %44, %42 ], [ %73, %_ZN15BSplineElementsILi0EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %30, %29 ], [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.sink = phi ptr [ %44, %42 ], [ %31, %29 ], [ %73, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %43, %42 ], [ %30, %29 ], [ %lpad.phi, %_ZN15BSplineElementsILi0EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi0EED2Ev.exit, %42, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %lpad.phi, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %30, %29 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %136 = load ptr, ptr %9, align 8
   %.not.i.i.i.i99 = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i99, label %_ZN15BSplineElementsILi2EED2Ev.exit100, label %137
@@ -34828,13 +34828,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit98:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit87, %40, %27
-  %.sink = phi ptr [ %29, %27 ], [ %42, %40 ], [ %72, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
-  %.pn.ph = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
+  %.sink = phi ptr [ %42, %40 ], [ %29, %27 ], [ %72, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
+  %.pn.ph = phi { ptr, i32 } [ %41, %40 ], [ %28, %27 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi2EED2Ev.exit87, %40, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ], [ %28, %27 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %127 = load ptr, ptr %7, align 8
   %.not.i.i.i.i99 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i99, label %_ZN15BSplineElementsILi2EED2Ev.exit100, label %128
@@ -35401,13 +35401,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit99:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi1EED2Ev.exit, %41, %28
-  %.sink = phi ptr [ %30, %28 ], [ %43, %41 ], [ %69, %_ZN15BSplineElementsILi1EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %29, %28 ], [ %42, %41 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.sink = phi ptr [ %43, %41 ], [ %30, %28 ], [ %69, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %42, %41 ], [ %29, %28 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi1EED2Ev.exit, %41, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %42, %41 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %42, %41 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %29, %28 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %145 = load ptr, ptr %8, align 8
   %.not.i.i.i.i100 = icmp eq ptr %145, null
   br i1 %.not.i.i.i.i100, label %_ZN15BSplineElementsILi2EED2Ev.exit101, label %146
@@ -35777,13 +35777,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit97:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi0EED2Ev.exit, %38, %25
-  %.sink = phi ptr [ %27, %25 ], [ %40, %38 ], [ %66, %_ZN15BSplineElementsILi0EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.sink = phi ptr [ %40, %38 ], [ %27, %25 ], [ %66, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %39, %38 ], [ %26, %25 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi0EED2Ev.exit, %38, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %26, %25 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %121 = load ptr, ptr %6, align 8
   %.not.i.i.i.i98 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i98, label %_ZN15BSplineElementsILi2EED2Ev.exit99, label %122
@@ -36143,13 +36143,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit98:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit87, %40, %27
-  %.sink = phi ptr [ %29, %27 ], [ %42, %40 ], [ %72, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
-  %.pn.ph = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
+  %.sink = phi ptr [ %42, %40 ], [ %29, %27 ], [ %72, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
+  %.pn.ph = phi { ptr, i32 } [ %41, %40 ], [ %28, %27 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi2EED2Ev.exit87, %40, %27
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %69, %_ZN15BSplineElementsILi2EED2Ev.exit87 ], [ %28, %27 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %122 = load ptr, ptr %7, align 8
   %.not.i.i.i.i99 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i99, label %_ZN15BSplineElementsILi2EED2Ev.exit100, label %123
@@ -36635,13 +36635,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit97:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi1EED2Ev.exit, %38, %25
-  %.sink = phi ptr [ %27, %25 ], [ %40, %38 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.sink = phi ptr [ %40, %38 ], [ %27, %25 ], [ %66, %_ZN15BSplineElementsILi1EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %39, %38 ], [ %26, %25 ], [ %63, %_ZN15BSplineElementsILi1EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi1EED2Ev.exit, %38, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi1EED2Ev.exit ], [ %26, %25 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %120 = load ptr, ptr %6, align 8
   %.not.i.i.i.i98 = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i98, label %_ZN15BSplineElementsILi2EED2Ev.exit99, label %121
@@ -36973,13 +36973,13 @@ _ZN15BSplineElementsILi2EED2Ev.exit99:            ; preds = %_ZN15BSplineElement
   ret double %.059
 
 _ZN15BSplineElementsILi2EED2Ev.exit.sink.split:   ; preds = %_ZN15BSplineElementsILi0EED2Ev.exit, %38, %25
-  %.sink = phi ptr [ %27, %25 ], [ %40, %38 ], [ %66, %_ZN15BSplineElementsILi0EED2Ev.exit ]
-  %.pn.ph = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.sink = phi ptr [ %40, %38 ], [ %27, %25 ], [ %66, %_ZN15BSplineElementsILi0EED2Ev.exit ]
+  %.pn.ph = phi { ptr, i32 } [ %39, %38 ], [ %26, %25 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZN15BSplineElementsILi2EED2Ev.exit
 
 _ZN15BSplineElementsILi2EED2Ev.exit:              ; preds = %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split, %_ZN15BSplineElementsILi0EED2Ev.exit, %38, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %63, %_ZN15BSplineElementsILi0EED2Ev.exit ], [ %26, %25 ], [ %.pn.ph, %_ZN15BSplineElementsILi2EED2Ev.exit.sink.split ]
   %108 = load ptr, ptr %6, align 8
   %.not.i.i.i.i100 = icmp eq ptr %108, null
   br i1 %.not.i.i.i.i100, label %_ZN15BSplineElementsILi2EED2Ev.exit101, label %109
@@ -37314,7 +37314,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i: ; preds = %24, %22, %20
-  %.0.i.i = phi i32 [ %26, %24 ], [ %6, %20 ], [ 3, %22 ]
+  %.0.i.i = phi i32 [ %6, %20 ], [ %26, %24 ], [ 3, %22 ]
   %27 = sext i32 %.0.i.i to i64
   %28 = getelementptr [5 x double], ptr %2, i64 %27
   %29 = sext i32 %8 to i64
@@ -37359,7 +37359,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74: ; preds = %51, %49, %47
-  %.0.i.i75 = phi i32 [ %52, %51 ], [ %34, %47 ], [ 3, %49 ]
+  %.0.i.i75 = phi i32 [ %34, %47 ], [ %52, %51 ], [ 3, %49 ]
   %53 = sext i32 %.0.i.i75 to i64
   %54 = getelementptr [5 x double], ptr %2, i64 %53
   %55 = sext i32 %37 to i64
@@ -37404,7 +37404,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80: ; preds = %77, %75, %73
-  %.0.i.i81 = phi i32 [ %78, %77 ], [ %60, %73 ], [ 3, %75 ]
+  %.0.i.i81 = phi i32 [ %60, %73 ], [ %78, %77 ], [ 3, %75 ]
   %79 = sext i32 %.0.i.i81 to i64
   %80 = getelementptr [5 x double], ptr %2, i64 %79
   %81 = sext i32 %63 to i64
@@ -37441,7 +37441,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86: ; preds = %95, %93, %91
-  %.0.i.i87 = phi i32 [ %97, %95 ], [ %6, %91 ], [ 3, %93 ]
+  %.0.i.i87 = phi i32 [ %6, %91 ], [ %97, %95 ], [ 3, %93 ]
   %98 = sext i32 %.0.i.i87 to i64
   %99 = getelementptr [5 x double], ptr %2, i64 %98
   %100 = sext i32 %8 to i64
@@ -37478,7 +37478,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92: ; preds = %114, %112, %110
-  %.0.i.i93 = phi i32 [ %115, %114 ], [ %34, %110 ], [ 3, %112 ]
+  %.0.i.i93 = phi i32 [ %34, %110 ], [ %115, %114 ], [ 3, %112 ]
   %116 = sext i32 %.0.i.i93 to i64
   %117 = getelementptr [5 x double], ptr %2, i64 %116
   %118 = sext i32 %37 to i64
@@ -37515,7 +37515,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98: ; preds = %132, %130, %128
-  %.0.i.i99 = phi i32 [ %133, %132 ], [ %60, %128 ], [ 3, %130 ]
+  %.0.i.i99 = phi i32 [ %60, %128 ], [ %133, %132 ], [ 3, %130 ]
   %134 = sext i32 %.0.i.i99 to i64
   %135 = getelementptr [5 x double], ptr %2, i64 %134
   %136 = sext i32 %63 to i64
@@ -37552,7 +37552,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104: ; preds = %150, %148, %146
-  %.0.i.i105 = phi i32 [ %152, %150 ], [ %6, %146 ], [ 3, %148 ]
+  %.0.i.i105 = phi i32 [ %6, %146 ], [ %152, %150 ], [ 3, %148 ]
   %153 = sext i32 %.0.i.i105 to i64
   %154 = getelementptr [5 x double], ptr %2, i64 %153
   %155 = sext i32 %8 to i64
@@ -37589,7 +37589,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110: ; preds = %169, %167, %165
-  %.0.i.i111 = phi i32 [ %170, %169 ], [ %34, %165 ], [ 3, %167 ]
+  %.0.i.i111 = phi i32 [ %34, %165 ], [ %170, %169 ], [ 3, %167 ]
   %171 = sext i32 %.0.i.i111 to i64
   %172 = getelementptr [5 x double], ptr %2, i64 %171
   %173 = sext i32 %37 to i64
@@ -37626,7 +37626,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116: ; preds = %187, %185, %183
-  %.0.i.i117 = phi i32 [ %188, %187 ], [ %60, %183 ], [ 3, %185 ]
+  %.0.i.i117 = phi i32 [ %60, %183 ], [ %188, %187 ], [ 3, %185 ]
   %189 = sext i32 %.0.i.i117 to i64
   %190 = getelementptr [5 x double], ptr %2, i64 %189
   %191 = sext i32 %63 to i64
@@ -37663,7 +37663,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122: ; preds = %205, %203, %201
-  %.0.i.i123 = phi i32 [ %207, %205 ], [ %6, %201 ], [ 3, %203 ]
+  %.0.i.i123 = phi i32 [ %6, %201 ], [ %207, %205 ], [ 3, %203 ]
   %208 = sext i32 %.0.i.i123 to i64
   %209 = getelementptr [5 x double], ptr %2, i64 %208
   %210 = sext i32 %8 to i64
@@ -37700,7 +37700,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128: ; preds = %224, %222, %220
-  %.0.i.i129 = phi i32 [ %225, %224 ], [ %34, %220 ], [ 3, %222 ]
+  %.0.i.i129 = phi i32 [ %34, %220 ], [ %225, %224 ], [ 3, %222 ]
   %226 = sext i32 %.0.i.i129 to i64
   %227 = getelementptr [5 x double], ptr %2, i64 %226
   %228 = sext i32 %37 to i64
@@ -37737,7 +37737,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134: ; preds = %242, %240, %238
-  %.0.i.i135 = phi i32 [ %243, %242 ], [ %60, %238 ], [ 3, %240 ]
+  %.0.i.i135 = phi i32 [ %60, %238 ], [ %243, %242 ], [ 3, %240 ]
   %244 = sext i32 %.0.i.i135 to i64
   %245 = getelementptr [5 x double], ptr %2, i64 %244
   %246 = sext i32 %63 to i64
@@ -37774,7 +37774,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140: ; preds = %260, %258, %256
-  %.0.i.i141 = phi i32 [ %262, %260 ], [ %6, %256 ], [ 3, %258 ]
+  %.0.i.i141 = phi i32 [ %6, %256 ], [ %262, %260 ], [ 3, %258 ]
   %263 = sext i32 %.0.i.i141 to i64
   %264 = getelementptr [5 x double], ptr %2, i64 %263
   %265 = sext i32 %8 to i64
@@ -37811,7 +37811,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146: ; preds = %279, %277, %275
-  %.0.i.i147 = phi i32 [ %280, %279 ], [ %34, %275 ], [ 3, %277 ]
+  %.0.i.i147 = phi i32 [ %34, %275 ], [ %280, %279 ], [ 3, %277 ]
   %281 = sext i32 %.0.i.i147 to i64
   %282 = getelementptr [5 x double], ptr %2, i64 %281
   %283 = sext i32 %37 to i64
@@ -37848,7 +37848,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152: ; preds = %297, %295, %293
-  %.0.i.i153 = phi i32 [ %298, %297 ], [ %60, %293 ], [ 3, %295 ]
+  %.0.i.i153 = phi i32 [ %60, %293 ], [ %298, %297 ], [ 3, %295 ]
   %299 = sext i32 %.0.i.i153 to i64
   %300 = getelementptr [5 x double], ptr %2, i64 %299
   %301 = sext i32 %63 to i64
@@ -37939,7 +37939,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i: ; preds = %27, %25, %23
-  %.0.i.i = phi i32 [ %29, %27 ], [ %6, %23 ], [ 3, %25 ]
+  %.0.i.i = phi i32 [ %6, %23 ], [ %29, %27 ], [ 3, %25 ]
   %30 = sext i32 %.0.i.i to i64
   %31 = getelementptr [8 x double], ptr %2, i64 %30
   %32 = sext i32 %9 to i64
@@ -37987,7 +37987,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74: ; preds = %57, %55, %53
-  %.0.i.i75 = phi i32 [ %58, %57 ], [ %37, %53 ], [ 3, %55 ]
+  %.0.i.i75 = phi i32 [ %37, %53 ], [ %58, %57 ], [ 3, %55 ]
   %59 = sext i32 %.0.i.i75 to i64
   %60 = getelementptr [8 x double], ptr %2, i64 %59
   %61 = sext i32 %41 to i64
@@ -38035,7 +38035,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80: ; preds = %86, %84, %82
-  %.0.i.i81 = phi i32 [ %87, %86 ], [ %66, %82 ], [ 3, %84 ]
+  %.0.i.i81 = phi i32 [ %66, %82 ], [ %87, %86 ], [ 3, %84 ]
   %88 = sext i32 %.0.i.i81 to i64
   %89 = getelementptr [8 x double], ptr %2, i64 %88
   %90 = sext i32 %70 to i64
@@ -38074,7 +38074,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86: ; preds = %106, %104, %102
-  %.0.i.i87 = phi i32 [ %108, %106 ], [ %6, %102 ], [ 3, %104 ]
+  %.0.i.i87 = phi i32 [ %6, %102 ], [ %108, %106 ], [ 3, %104 ]
   %109 = sext i32 %.0.i.i87 to i64
   %110 = getelementptr [8 x double], ptr %2, i64 %109
   %111 = sext i32 %9 to i64
@@ -38113,7 +38113,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92: ; preds = %127, %125, %123
-  %.0.i.i93 = phi i32 [ %128, %127 ], [ %37, %123 ], [ 3, %125 ]
+  %.0.i.i93 = phi i32 [ %37, %123 ], [ %128, %127 ], [ 3, %125 ]
   %129 = sext i32 %.0.i.i93 to i64
   %130 = getelementptr [8 x double], ptr %2, i64 %129
   %131 = sext i32 %41 to i64
@@ -38152,7 +38152,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98: ; preds = %147, %145, %143
-  %.0.i.i99 = phi i32 [ %148, %147 ], [ %66, %143 ], [ 3, %145 ]
+  %.0.i.i99 = phi i32 [ %66, %143 ], [ %148, %147 ], [ 3, %145 ]
   %149 = sext i32 %.0.i.i99 to i64
   %150 = getelementptr [8 x double], ptr %2, i64 %149
   %151 = sext i32 %70 to i64
@@ -38191,7 +38191,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104: ; preds = %167, %165, %163
-  %.0.i.i105 = phi i32 [ %169, %167 ], [ %6, %163 ], [ 3, %165 ]
+  %.0.i.i105 = phi i32 [ %6, %163 ], [ %169, %167 ], [ 3, %165 ]
   %170 = sext i32 %.0.i.i105 to i64
   %171 = getelementptr [8 x double], ptr %2, i64 %170
   %172 = sext i32 %9 to i64
@@ -38230,7 +38230,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110: ; preds = %188, %186, %184
-  %.0.i.i111 = phi i32 [ %189, %188 ], [ %37, %184 ], [ 3, %186 ]
+  %.0.i.i111 = phi i32 [ %37, %184 ], [ %189, %188 ], [ 3, %186 ]
   %190 = sext i32 %.0.i.i111 to i64
   %191 = getelementptr [8 x double], ptr %2, i64 %190
   %192 = sext i32 %41 to i64
@@ -38269,7 +38269,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116: ; preds = %208, %206, %204
-  %.0.i.i117 = phi i32 [ %209, %208 ], [ %66, %204 ], [ 3, %206 ]
+  %.0.i.i117 = phi i32 [ %66, %204 ], [ %209, %208 ], [ 3, %206 ]
   %210 = sext i32 %.0.i.i117 to i64
   %211 = getelementptr [8 x double], ptr %2, i64 %210
   %212 = sext i32 %70 to i64
@@ -38308,7 +38308,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122: ; preds = %228, %226, %224
-  %.0.i.i123 = phi i32 [ %230, %228 ], [ %6, %224 ], [ 3, %226 ]
+  %.0.i.i123 = phi i32 [ %6, %224 ], [ %230, %228 ], [ 3, %226 ]
   %231 = sext i32 %.0.i.i123 to i64
   %232 = getelementptr [8 x double], ptr %2, i64 %231
   %233 = sext i32 %9 to i64
@@ -38347,7 +38347,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128: ; preds = %249, %247, %245
-  %.0.i.i129 = phi i32 [ %250, %249 ], [ %37, %245 ], [ 3, %247 ]
+  %.0.i.i129 = phi i32 [ %37, %245 ], [ %250, %249 ], [ 3, %247 ]
   %251 = sext i32 %.0.i.i129 to i64
   %252 = getelementptr [8 x double], ptr %2, i64 %251
   %253 = sext i32 %41 to i64
@@ -38386,7 +38386,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134: ; preds = %269, %267, %265
-  %.0.i.i135 = phi i32 [ %270, %269 ], [ %66, %265 ], [ 3, %267 ]
+  %.0.i.i135 = phi i32 [ %66, %265 ], [ %270, %269 ], [ 3, %267 ]
   %271 = sext i32 %.0.i.i135 to i64
   %272 = getelementptr [8 x double], ptr %2, i64 %271
   %273 = sext i32 %70 to i64
@@ -38425,7 +38425,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140: ; preds = %289, %287, %285
-  %.0.i.i141 = phi i32 [ %291, %289 ], [ %6, %285 ], [ 3, %287 ]
+  %.0.i.i141 = phi i32 [ %6, %285 ], [ %291, %289 ], [ 3, %287 ]
   %292 = sext i32 %.0.i.i141 to i64
   %293 = getelementptr [8 x double], ptr %2, i64 %292
   %294 = sext i32 %9 to i64
@@ -38464,7 +38464,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146: ; preds = %310, %308, %306
-  %.0.i.i147 = phi i32 [ %311, %310 ], [ %37, %306 ], [ 3, %308 ]
+  %.0.i.i147 = phi i32 [ %37, %306 ], [ %311, %310 ], [ 3, %308 ]
   %312 = sext i32 %.0.i.i147 to i64
   %313 = getelementptr [8 x double], ptr %2, i64 %312
   %314 = sext i32 %41 to i64
@@ -38503,7 +38503,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152: ; preds = %330, %328, %326
-  %.0.i.i153 = phi i32 [ %331, %330 ], [ %66, %326 ], [ 3, %328 ]
+  %.0.i.i153 = phi i32 [ %66, %326 ], [ %331, %330 ], [ 3, %328 ]
   %332 = sext i32 %.0.i.i153 to i64
   %333 = getelementptr [8 x double], ptr %2, i64 %332
   %334 = sext i32 %70 to i64
@@ -39524,7 +39524,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %122, %120, %113, %94
-  %.0.i = phi i1 [ false, %120 ], [ false, %113 ], [ %spec.select.i.i, %122 ], [ false, %94 ]
+  %.0.i = phi i1 [ false, %120 ], [ false, %94 ], [ %spec.select.i.i, %122 ], [ false, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = load ptr, ptr %42, align 8
@@ -39694,7 +39694,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i: ; preds = %226, %225, %223
-  %.0.i.i = phi i64 [ %227, %226 ], [ 0, %223 ], [ 1, %225 ]
+  %.0.i.i = phi i64 [ 0, %223 ], [ %227, %226 ], [ 1, %225 ]
   %228 = getelementptr [4 x double], ptr %7, i64 %.0.i.i
   %229 = sext i32 %217 to i64
   %230 = getelementptr double, ptr %228, i64 %229
@@ -39752,7 +39752,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i119
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i119: ; preds = %256, %255, %253
-  %.0.i.i120 = phi i64 [ %257, %256 ], [ 0, %253 ], [ 1, %255 ]
+  %.0.i.i120 = phi i64 [ 0, %253 ], [ %257, %256 ], [ 1, %255 ]
   %258 = getelementptr [4 x double], ptr %7, i64 %.0.i.i120
   %259 = sext i32 %246 to i64
   %260 = getelementptr double, ptr %258, i64 %259
@@ -39803,7 +39803,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i127
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i127: ; preds = %280, %279, %277
-  %.0.i.i128 = phi i64 [ %281, %280 ], [ 0, %277 ], [ 1, %279 ]
+  %.0.i.i128 = phi i64 [ 0, %277 ], [ %281, %280 ], [ 1, %279 ]
   %282 = getelementptr [4 x double], ptr %7, i64 %.0.i.i128
   %283 = sext i32 %270 to i64
   %284 = getelementptr double, ptr %282, i64 %283
@@ -39984,7 +39984,7 @@ define linkonce_odr void @_ZNK22FEMVFConstraintFunctorILi2EL12BoundaryType2ELi2E
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i: ; preds = %27, %25, %23
-  %.0.i.i = phi i32 [ %29, %27 ], [ %6, %23 ], [ 3, %25 ]
+  %.0.i.i = phi i32 [ %6, %23 ], [ %29, %27 ], [ 3, %25 ]
   %30 = sext i32 %.0.i.i to i64
   %31 = getelementptr [8 x double], ptr %2, i64 %30
   %32 = sext i32 %9 to i64
@@ -40032,7 +40032,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i74: ; preds = %57, %55, %53
-  %.0.i.i75 = phi i32 [ %58, %57 ], [ %37, %53 ], [ 3, %55 ]
+  %.0.i.i75 = phi i32 [ %37, %53 ], [ %58, %57 ], [ 3, %55 ]
   %59 = sext i32 %.0.i.i75 to i64
   %60 = getelementptr [8 x double], ptr %2, i64 %59
   %61 = sext i32 %41 to i64
@@ -40080,7 +40080,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i80: ; preds = %86, %84, %82
-  %.0.i.i81 = phi i32 [ %87, %86 ], [ %66, %82 ], [ 3, %84 ]
+  %.0.i.i81 = phi i32 [ %66, %82 ], [ %87, %86 ], [ 3, %84 ]
   %88 = sext i32 %.0.i.i81 to i64
   %89 = getelementptr [8 x double], ptr %2, i64 %88
   %90 = sext i32 %70 to i64
@@ -40119,7 +40119,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i86: ; preds = %106, %104, %102
-  %.0.i.i87 = phi i32 [ %108, %106 ], [ %6, %102 ], [ 3, %104 ]
+  %.0.i.i87 = phi i32 [ %6, %102 ], [ %108, %106 ], [ 3, %104 ]
   %109 = sext i32 %.0.i.i87 to i64
   %110 = getelementptr [8 x double], ptr %2, i64 %109
   %111 = sext i32 %9 to i64
@@ -40158,7 +40158,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i92: ; preds = %127, %125, %123
-  %.0.i.i93 = phi i32 [ %128, %127 ], [ %37, %123 ], [ 3, %125 ]
+  %.0.i.i93 = phi i32 [ %37, %123 ], [ %128, %127 ], [ 3, %125 ]
   %129 = sext i32 %.0.i.i93 to i64
   %130 = getelementptr [8 x double], ptr %2, i64 %129
   %131 = sext i32 %41 to i64
@@ -40197,7 +40197,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i98: ; preds = %147, %145, %143
-  %.0.i.i99 = phi i32 [ %148, %147 ], [ %66, %143 ], [ 3, %145 ]
+  %.0.i.i99 = phi i32 [ %66, %143 ], [ %148, %147 ], [ 3, %145 ]
   %149 = sext i32 %.0.i.i99 to i64
   %150 = getelementptr [8 x double], ptr %2, i64 %149
   %151 = sext i32 %70 to i64
@@ -40236,7 +40236,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i104: ; preds = %167, %165, %163
-  %.0.i.i105 = phi i32 [ %169, %167 ], [ %6, %163 ], [ 3, %165 ]
+  %.0.i.i105 = phi i32 [ %6, %163 ], [ %169, %167 ], [ 3, %165 ]
   %170 = sext i32 %.0.i.i105 to i64
   %171 = getelementptr [8 x double], ptr %2, i64 %170
   %172 = sext i32 %9 to i64
@@ -40275,7 +40275,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i110: ; preds = %188, %186, %184
-  %.0.i.i111 = phi i32 [ %189, %188 ], [ %37, %184 ], [ 3, %186 ]
+  %.0.i.i111 = phi i32 [ %37, %184 ], [ %189, %188 ], [ 3, %186 ]
   %190 = sext i32 %.0.i.i111 to i64
   %191 = getelementptr [8 x double], ptr %2, i64 %190
   %192 = sext i32 %41 to i64
@@ -40314,7 +40314,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i116: ; preds = %208, %206, %204
-  %.0.i.i117 = phi i32 [ %209, %208 ], [ %66, %204 ], [ 3, %206 ]
+  %.0.i.i117 = phi i32 [ %66, %204 ], [ %209, %208 ], [ 3, %206 ]
   %210 = sext i32 %.0.i.i117 to i64
   %211 = getelementptr [8 x double], ptr %2, i64 %210
   %212 = sext i32 %70 to i64
@@ -40353,7 +40353,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i122: ; preds = %228, %226, %224
-  %.0.i.i123 = phi i32 [ %230, %228 ], [ %6, %224 ], [ 3, %226 ]
+  %.0.i.i123 = phi i32 [ %6, %224 ], [ %230, %228 ], [ 3, %226 ]
   %231 = sext i32 %.0.i.i123 to i64
   %232 = getelementptr [8 x double], ptr %2, i64 %231
   %233 = sext i32 %9 to i64
@@ -40392,7 +40392,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i128: ; preds = %249, %247, %245
-  %.0.i.i129 = phi i32 [ %250, %249 ], [ %37, %245 ], [ 3, %247 ]
+  %.0.i.i129 = phi i32 [ %37, %245 ], [ %250, %249 ], [ 3, %247 ]
   %251 = sext i32 %.0.i.i129 to i64
   %252 = getelementptr [8 x double], ptr %2, i64 %251
   %253 = sext i32 %41 to i64
@@ -40431,7 +40431,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i134: ; preds = %269, %267, %265
-  %.0.i.i135 = phi i32 [ %270, %269 ], [ %66, %265 ], [ 3, %267 ]
+  %.0.i.i135 = phi i32 [ %66, %265 ], [ %270, %269 ], [ 3, %267 ]
   %271 = sext i32 %.0.i.i135 to i64
   %272 = getelementptr [8 x double], ptr %2, i64 %271
   %273 = sext i32 %70 to i64
@@ -40470,7 +40470,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i140: ; preds = %289, %287, %285
-  %.0.i.i141 = phi i32 [ %291, %289 ], [ %6, %285 ], [ 3, %287 ]
+  %.0.i.i141 = phi i32 [ %6, %285 ], [ %291, %289 ], [ 3, %287 ]
   %292 = sext i32 %.0.i.i141 to i64
   %293 = getelementptr [8 x double], ptr %2, i64 %292
   %294 = sext i32 %9 to i64
@@ -40509,7 +40509,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i146: ; preds = %310, %308, %306
-  %.0.i.i147 = phi i32 [ %311, %310 ], [ %37, %306 ], [ 3, %308 ]
+  %.0.i.i147 = phi i32 [ %37, %306 ], [ %311, %310 ], [ 3, %308 ]
   %312 = sext i32 %.0.i.i147 to i64
   %313 = getelementptr [8 x double], ptr %2, i64 %312
   %314 = sext i32 %41 to i64
@@ -40548,7 +40548,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i152: ; preds = %330, %328, %326
-  %.0.i.i153 = phi i32 [ %331, %330 ], [ %66, %326 ], [ 3, %328 ]
+  %.0.i.i153 = phi i32 [ %66, %326 ], [ %331, %330 ], [ 3, %328 ]
   %332 = sext i32 %.0.i.i153 to i64
   %333 = getelementptr [8 x double], ptr %2, i64 %332
   %334 = sext i32 %70 to i64
@@ -41147,7 +41147,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %3, %7, %_Z12I
   br label %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread
 
 _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19.thread: ; preds = %68, %63, %54, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread, %.thread51, %28, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19, %35
-  %.018 = phi i1 [ true, %35 ], [ true, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19 ], [ false, %28 ], [ true, %.thread51 ], [ %71, %68 ], [ false, %63 ], [ false, %54 ], [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ]
+  %.018 = phi i1 [ true, %.thread51 ], [ true, %35 ], [ true, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit19 ], [ false, %28 ], [ %71, %68 ], [ false, %63 ], [ false, %54 ], [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ]
   ret i1 %.018
 }
 
@@ -41595,7 +41595,7 @@ _ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit58: ; p
   br label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %145, %149, %130, %135, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i56, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit58
-  %.3 = phi double [ %191, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit58 ], [ %.265, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.265, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i56 ], [ %.265, %135 ], [ %.265, %130 ], [ %.265, %149 ], [ %.265, %145 ]
+  %.3 = phi double [ %191, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit58 ], [ %.265, %145 ], [ %.265, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.265, %130 ], [ %.265, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i56 ], [ %.265, %135 ], [ %.265, %149 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond.not, label %.split, label %130, !llvm.loop !660
@@ -42333,7 +42333,7 @@ _ZNK6OctreeIfE11_sNodesSizeEi.exit90:             ; preds = %_ZNK6OctreeIfE11_sN
   br label %203
 
 203:                                              ; preds = %200, %196, %._crit_edge
-  %204 = phi i1 [ false, %196 ], [ false, %._crit_edge ], [ %202, %200 ]
+  %204 = phi i1 [ %202, %200 ], [ false, %196 ], [ false, %._crit_edge ]
   store double 0.000000e+00, ptr %26, align 8
   store double 0.000000e+00, ptr %27, align 8
   store double 0.000000e+00, ptr %28, align 8
@@ -43805,7 +43805,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i: ; preds = %114, %112, %111
-  %.0.i.i = phi i64 [ %116, %114 ], [ 0, %111 ], [ 1, %112 ]
+  %.0.i.i = phi i64 [ 0, %111 ], [ %116, %114 ], [ 1, %112 ]
   %gep = getelementptr [4 x double], ptr %invariant.gep, i64 %.0.i.i
   %117 = getelementptr i8, ptr %gep, i64 16
   %118 = load double, ptr %117, align 8
@@ -43839,7 +43839,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i53: ; preds = %128, %126, %125
-  %.0.i.i54 = phi i64 [ %129, %128 ], [ 0, %125 ], [ 1, %126 ]
+  %.0.i.i54 = phi i64 [ 0, %125 ], [ %129, %128 ], [ 1, %126 ]
   %gep94 = getelementptr [4 x double], ptr %invariant.gep93, i64 %.0.i.i54
   %130 = getelementptr i8, ptr %gep94, i64 16
   %131 = load double, ptr %130, align 8
@@ -43882,7 +43882,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i61: ; preds = %148, %146, %144
-  %.0.i.i62 = phi i64 [ %150, %148 ], [ 0, %144 ], [ 1, %146 ]
+  %.0.i.i62 = phi i64 [ 0, %144 ], [ %150, %148 ], [ 1, %146 ]
   %151 = getelementptr [4 x double], ptr %5, i64 %.0.i.i62
   %152 = sext i32 %134 to i64
   %153 = getelementptr double, ptr %151, i64 %152
@@ -46003,7 +46003,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %122, %120, %113, %94
-  %.0.i = phi i1 [ false, %120 ], [ false, %113 ], [ %spec.select.i.i, %122 ], [ false, %94 ]
+  %.0.i = phi i1 [ false, %120 ], [ false, %94 ], [ %spec.select.i.i, %122 ], [ false, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = load ptr, ptr %42, align 8
@@ -46160,7 +46160,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i: ; preds = %215, %214, %212
-  %.0.i.i = phi i64 [ %216, %215 ], [ 0, %212 ], [ 1, %214 ]
+  %.0.i.i = phi i64 [ 0, %212 ], [ %216, %215 ], [ 1, %214 ]
   %217 = getelementptr [4 x double], ptr %7, i64 %.0.i.i
   %218 = sext i32 %206 to i64
   %219 = getelementptr double, ptr %217, i64 %218
@@ -46218,7 +46218,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i103
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i103: ; preds = %245, %244, %242
-  %.0.i.i104 = phi i64 [ %246, %245 ], [ 0, %242 ], [ 1, %244 ]
+  %.0.i.i104 = phi i64 [ 0, %242 ], [ %246, %245 ], [ 1, %244 ]
   %247 = getelementptr [4 x double], ptr %7, i64 %.0.i.i104
   %248 = sext i32 %235 to i64
   %249 = getelementptr double, ptr %247, i64 %248
@@ -46264,7 +46264,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i111
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i111: ; preds = %267, %266, %264
-  %.0.i.i112 = phi i64 [ %268, %267 ], [ 0, %264 ], [ 1, %266 ]
+  %.0.i.i112 = phi i64 [ 0, %264 ], [ %268, %267 ], [ 1, %266 ]
   %269 = getelementptr [4 x double], ptr %7, i64 %.0.i.i112
   %270 = sext i32 %257 to i64
   %271 = getelementptr double, ptr %269, i64 %270
@@ -47017,7 +47017,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %_Z
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i, %71, %.preheader
-  %83 = phi i32 [ %.079.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i ], [ %.079.i, %71 ], [ %.079.i, %.preheader ], [ %spec.select.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i ]
+  %83 = phi i32 [ %.079.i, %.preheader ], [ %spec.select.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.079.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i ], [ %.079.i, %71 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 125
   br i1 %exitcond.not.i, label %_ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit, label %.preheader, !llvm.loop !748
@@ -47252,7 +47252,7 @@ define linkonce_odr noundef i32 @_ZNK6OctreeIfE13_setMatrixRowILi2EL12BoundaryTy
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %9, %49, %53, %55
-  %.0.i = phi i1 [ false, %53 ], [ false, %49 ], [ %spec.select.i.i, %55 ], [ false, %9 ]
+  %.0.i = phi i1 [ false, %53 ], [ false, %9 ], [ %spec.select.i.i, %55 ], [ false, %49 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread.thread, label %.preheader317.preheader
 
@@ -47452,7 +47452,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexi
   br label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit, %94, %98, %106, %79, %84, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit
-  %.4 = phi float [ %.3329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.3329, %84 ], [ %.3329, %79 ], [ %.3329, %106 ], [ %.3329, %98 ], [ %.3329, %94 ], [ %162, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit ]
+  %.4 = phi float [ %.3329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.3329, %79 ], [ %.3329, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.3329, %84 ], [ %.3329, %106 ], [ %.3329, %98 ], [ %.3329, %94 ], [ %162, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.loopexit ]
   %indvars.iv.next374 = add nsw i64 %indvars.iv373, 1
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next376, 3
@@ -47975,7 +47975,7 @@ define linkonce_odr void @_ZNK6OctreeIfE29_updateConstraintsFromCoarserILi2EL12B
   br label %_ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE23_isInteriorlyOverlappedILi2ELi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %24, %27, %45, %52, %54
-  %.0.i = phi i1 [ false, %24 ], [ false, %52 ], [ false, %45 ], [ %spec.select.i.i, %54 ], [ false, %27 ]
+  %.0.i = phi i1 [ false, %24 ], [ false, %27 ], [ %spec.select.i.i, %54 ], [ false, %45 ], [ false, %52 ]
   %56 = lshr i32 %20, 5
   %57 = and i32 %56, 524287
   %58 = lshr i64 %19, 24
@@ -48441,7 +48441,7 @@ _ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80: ; p
   br label %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %279, %283, %291, %264, %269, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80
-  %.3 = phi double [ %329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80 ], [ %.2120, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77 ], [ %.2120, %269 ], [ %.2120, %264 ], [ %.2120, %291 ], [ %.2120, %283 ], [ %.2120, %279 ]
+  %.3 = phi double [ %329, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit80 ], [ %.2120, %_ZNK6OctreeIfE17InterpolationInfoILb0EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit ], [ %.2120, %264 ], [ %.2120, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i77 ], [ %.2120, %269 ], [ %.2120, %291 ], [ %.2120, %283 ], [ %.2120, %279 ]
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 2
   br i1 %exitcond160.not, label %330, label %264, !llvm.loop !770
@@ -48509,7 +48509,7 @@ define linkonce_odr noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2E
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i: ; preds = %23, %21, %19
-  %.0.i.i = phi i32 [ %25, %23 ], [ %5, %19 ], [ 3, %21 ]
+  %.0.i.i = phi i32 [ %5, %19 ], [ %25, %23 ], [ 3, %21 ]
   %26 = sext i32 %.0.i.i to i64
   %27 = getelementptr [5 x double], ptr %1, i64 %26
   %28 = sext i32 %7 to i64
@@ -48554,7 +48554,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77: ; preds = %50, %48, %46
-  %.0.i.i78 = phi i32 [ %51, %50 ], [ %33, %46 ], [ 3, %48 ]
+  %.0.i.i78 = phi i32 [ %33, %46 ], [ %51, %50 ], [ 3, %48 ]
   %52 = sext i32 %.0.i.i78 to i64
   %53 = getelementptr [5 x double], ptr %1, i64 %52
   %54 = sext i32 %36 to i64
@@ -48599,7 +48599,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83: ; preds = %76, %74, %72
-  %.0.i.i84 = phi i32 [ %77, %76 ], [ %59, %72 ], [ 3, %74 ]
+  %.0.i.i84 = phi i32 [ %59, %72 ], [ %77, %76 ], [ 3, %74 ]
   %78 = sext i32 %.0.i.i84 to i64
   %79 = getelementptr [5 x double], ptr %1, i64 %78
   %80 = sext i32 %62 to i64
@@ -48636,7 +48636,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89: ; preds = %94, %92, %90
-  %.0.i.i90 = phi i32 [ %96, %94 ], [ %5, %90 ], [ 3, %92 ]
+  %.0.i.i90 = phi i32 [ %5, %90 ], [ %96, %94 ], [ 3, %92 ]
   %97 = sext i32 %.0.i.i90 to i64
   %98 = getelementptr [5 x double], ptr %1, i64 %97
   %99 = sext i32 %7 to i64
@@ -48673,7 +48673,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95: ; preds = %113, %111, %109
-  %.0.i.i96 = phi i32 [ %114, %113 ], [ %33, %109 ], [ 3, %111 ]
+  %.0.i.i96 = phi i32 [ %33, %109 ], [ %114, %113 ], [ 3, %111 ]
   %115 = sext i32 %.0.i.i96 to i64
   %116 = getelementptr [5 x double], ptr %1, i64 %115
   %117 = sext i32 %36 to i64
@@ -48710,7 +48710,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101: ; preds = %131, %129, %127
-  %.0.i.i102 = phi i32 [ %132, %131 ], [ %59, %127 ], [ 3, %129 ]
+  %.0.i.i102 = phi i32 [ %59, %127 ], [ %132, %131 ], [ 3, %129 ]
   %133 = sext i32 %.0.i.i102 to i64
   %134 = getelementptr [5 x double], ptr %1, i64 %133
   %135 = sext i32 %62 to i64
@@ -48747,7 +48747,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107: ; preds = %149, %147, %145
-  %.0.i.i108 = phi i32 [ %151, %149 ], [ %5, %145 ], [ 3, %147 ]
+  %.0.i.i108 = phi i32 [ %5, %145 ], [ %151, %149 ], [ 3, %147 ]
   %152 = sext i32 %.0.i.i108 to i64
   %153 = getelementptr [5 x double], ptr %1, i64 %152
   %154 = sext i32 %7 to i64
@@ -48784,7 +48784,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113: ; preds = %168, %166, %164
-  %.0.i.i114 = phi i32 [ %169, %168 ], [ %33, %164 ], [ 3, %166 ]
+  %.0.i.i114 = phi i32 [ %33, %164 ], [ %169, %168 ], [ 3, %166 ]
   %170 = sext i32 %.0.i.i114 to i64
   %171 = getelementptr [5 x double], ptr %1, i64 %170
   %172 = sext i32 %36 to i64
@@ -48821,7 +48821,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119: ; preds = %186, %184, %182
-  %.0.i.i120 = phi i32 [ %187, %186 ], [ %59, %182 ], [ 3, %184 ]
+  %.0.i.i120 = phi i32 [ %59, %182 ], [ %187, %186 ], [ 3, %184 ]
   %188 = sext i32 %.0.i.i120 to i64
   %189 = getelementptr [5 x double], ptr %1, i64 %188
   %190 = sext i32 %62 to i64
@@ -48858,7 +48858,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125: ; preds = %204, %202, %200
-  %.0.i.i126 = phi i32 [ %206, %204 ], [ %5, %200 ], [ 3, %202 ]
+  %.0.i.i126 = phi i32 [ %5, %200 ], [ %206, %204 ], [ 3, %202 ]
   %207 = sext i32 %.0.i.i126 to i64
   %208 = getelementptr [5 x double], ptr %1, i64 %207
   %209 = sext i32 %7 to i64
@@ -48895,7 +48895,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131: ; preds = %223, %221, %219
-  %.0.i.i132 = phi i32 [ %224, %223 ], [ %33, %219 ], [ 3, %221 ]
+  %.0.i.i132 = phi i32 [ %33, %219 ], [ %224, %223 ], [ 3, %221 ]
   %225 = sext i32 %.0.i.i132 to i64
   %226 = getelementptr [5 x double], ptr %1, i64 %225
   %227 = sext i32 %36 to i64
@@ -48932,7 +48932,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137: ; preds = %241, %239, %237
-  %.0.i.i138 = phi i32 [ %242, %241 ], [ %59, %237 ], [ 3, %239 ]
+  %.0.i.i138 = phi i32 [ %59, %237 ], [ %242, %241 ], [ 3, %239 ]
   %243 = sext i32 %.0.i.i138 to i64
   %244 = getelementptr [5 x double], ptr %1, i64 %243
   %245 = sext i32 %62 to i64
@@ -48969,7 +48969,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143: ; preds = %259, %257, %255
-  %.0.i.i144 = phi i32 [ %261, %259 ], [ %5, %255 ], [ 3, %257 ]
+  %.0.i.i144 = phi i32 [ %5, %255 ], [ %261, %259 ], [ 3, %257 ]
   %262 = sext i32 %.0.i.i144 to i64
   %263 = getelementptr [5 x double], ptr %1, i64 %262
   %264 = sext i32 %7 to i64
@@ -49006,7 +49006,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149: ; preds = %278, %276, %274
-  %.0.i.i150 = phi i32 [ %279, %278 ], [ %33, %274 ], [ 3, %276 ]
+  %.0.i.i150 = phi i32 [ %33, %274 ], [ %279, %278 ], [ 3, %276 ]
   %280 = sext i32 %.0.i.i150 to i64
   %281 = getelementptr [5 x double], ptr %1, i64 %280
   %282 = sext i32 %36 to i64
@@ -49043,7 +49043,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155: ; preds = %296, %294, %292
-  %.0.i.i156 = phi i32 [ %297, %296 ], [ %59, %292 ], [ 3, %294 ]
+  %.0.i.i156 = phi i32 [ %59, %292 ], [ %297, %296 ], [ 3, %294 ]
   %298 = sext i32 %.0.i.i156 to i64
   %299 = getelementptr [5 x double], ptr %1, i64 %298
   %300 = sext i32 %62 to i64
@@ -49127,7 +49127,7 @@ define linkonce_odr noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2E
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i: ; preds = %26, %24, %22
-  %.0.i.i = phi i32 [ %28, %26 ], [ %5, %22 ], [ 3, %24 ]
+  %.0.i.i = phi i32 [ %5, %22 ], [ %28, %26 ], [ 3, %24 ]
   %29 = sext i32 %.0.i.i to i64
   %30 = getelementptr [8 x double], ptr %1, i64 %29
   %31 = sext i32 %8 to i64
@@ -49175,7 +49175,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i77: ; preds = %56, %54, %52
-  %.0.i.i78 = phi i32 [ %57, %56 ], [ %36, %52 ], [ 3, %54 ]
+  %.0.i.i78 = phi i32 [ %36, %52 ], [ %57, %56 ], [ 3, %54 ]
   %58 = sext i32 %.0.i.i78 to i64
   %59 = getelementptr [8 x double], ptr %1, i64 %58
   %60 = sext i32 %40 to i64
@@ -49223,7 +49223,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i83: ; preds = %85, %83, %81
-  %.0.i.i84 = phi i32 [ %86, %85 ], [ %65, %81 ], [ 3, %83 ]
+  %.0.i.i84 = phi i32 [ %65, %81 ], [ %86, %85 ], [ 3, %83 ]
   %87 = sext i32 %.0.i.i84 to i64
   %88 = getelementptr [8 x double], ptr %1, i64 %87
   %89 = sext i32 %69 to i64
@@ -49262,7 +49262,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i89: ; preds = %105, %103, %101
-  %.0.i.i90 = phi i32 [ %107, %105 ], [ %5, %101 ], [ 3, %103 ]
+  %.0.i.i90 = phi i32 [ %5, %101 ], [ %107, %105 ], [ 3, %103 ]
   %108 = sext i32 %.0.i.i90 to i64
   %109 = getelementptr [8 x double], ptr %1, i64 %108
   %110 = sext i32 %8 to i64
@@ -49301,7 +49301,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i95: ; preds = %126, %124, %122
-  %.0.i.i96 = phi i32 [ %127, %126 ], [ %36, %122 ], [ 3, %124 ]
+  %.0.i.i96 = phi i32 [ %36, %122 ], [ %127, %126 ], [ 3, %124 ]
   %128 = sext i32 %.0.i.i96 to i64
   %129 = getelementptr [8 x double], ptr %1, i64 %128
   %130 = sext i32 %40 to i64
@@ -49340,7 +49340,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i101: ; preds = %146, %144, %142
-  %.0.i.i102 = phi i32 [ %147, %146 ], [ %65, %142 ], [ 3, %144 ]
+  %.0.i.i102 = phi i32 [ %65, %142 ], [ %147, %146 ], [ 3, %144 ]
   %148 = sext i32 %.0.i.i102 to i64
   %149 = getelementptr [8 x double], ptr %1, i64 %148
   %150 = sext i32 %69 to i64
@@ -49379,7 +49379,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i107: ; preds = %166, %164, %162
-  %.0.i.i108 = phi i32 [ %168, %166 ], [ %5, %162 ], [ 3, %164 ]
+  %.0.i.i108 = phi i32 [ %5, %162 ], [ %168, %166 ], [ 3, %164 ]
   %169 = sext i32 %.0.i.i108 to i64
   %170 = getelementptr [8 x double], ptr %1, i64 %169
   %171 = sext i32 %8 to i64
@@ -49418,7 +49418,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i113: ; preds = %187, %185, %183
-  %.0.i.i114 = phi i32 [ %188, %187 ], [ %36, %183 ], [ 3, %185 ]
+  %.0.i.i114 = phi i32 [ %36, %183 ], [ %188, %187 ], [ 3, %185 ]
   %189 = sext i32 %.0.i.i114 to i64
   %190 = getelementptr [8 x double], ptr %1, i64 %189
   %191 = sext i32 %40 to i64
@@ -49457,7 +49457,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i119: ; preds = %207, %205, %203
-  %.0.i.i120 = phi i32 [ %208, %207 ], [ %65, %203 ], [ 3, %205 ]
+  %.0.i.i120 = phi i32 [ %65, %203 ], [ %208, %207 ], [ 3, %205 ]
   %209 = sext i32 %.0.i.i120 to i64
   %210 = getelementptr [8 x double], ptr %1, i64 %209
   %211 = sext i32 %69 to i64
@@ -49496,7 +49496,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i125: ; preds = %227, %225, %223
-  %.0.i.i126 = phi i32 [ %229, %227 ], [ %5, %223 ], [ 3, %225 ]
+  %.0.i.i126 = phi i32 [ %5, %223 ], [ %229, %227 ], [ 3, %225 ]
   %230 = sext i32 %.0.i.i126 to i64
   %231 = getelementptr [8 x double], ptr %1, i64 %230
   %232 = sext i32 %8 to i64
@@ -49535,7 +49535,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i131: ; preds = %248, %246, %244
-  %.0.i.i132 = phi i32 [ %249, %248 ], [ %36, %244 ], [ 3, %246 ]
+  %.0.i.i132 = phi i32 [ %36, %244 ], [ %249, %248 ], [ 3, %246 ]
   %250 = sext i32 %.0.i.i132 to i64
   %251 = getelementptr [8 x double], ptr %1, i64 %250
   %252 = sext i32 %40 to i64
@@ -49574,7 +49574,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i137: ; preds = %268, %266, %264
-  %.0.i.i138 = phi i32 [ %269, %268 ], [ %65, %264 ], [ 3, %266 ]
+  %.0.i.i138 = phi i32 [ %65, %264 ], [ %269, %268 ], [ 3, %266 ]
   %270 = sext i32 %.0.i.i138 to i64
   %271 = getelementptr [8 x double], ptr %1, i64 %270
   %272 = sext i32 %69 to i64
@@ -49613,7 +49613,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i143: ; preds = %288, %286, %284
-  %.0.i.i144 = phi i32 [ %290, %288 ], [ %5, %284 ], [ 3, %286 ]
+  %.0.i.i144 = phi i32 [ %5, %284 ], [ %290, %288 ], [ 3, %286 ]
   %291 = sext i32 %.0.i.i144 to i64
   %292 = getelementptr [8 x double], ptr %1, i64 %291
   %293 = sext i32 %8 to i64
@@ -49652,7 +49652,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i149: ; preds = %309, %307, %305
-  %.0.i.i150 = phi i32 [ %310, %309 ], [ %36, %305 ], [ 3, %307 ]
+  %.0.i.i150 = phi i32 [ %36, %305 ], [ %310, %309 ], [ 3, %307 ]
   %311 = sext i32 %.0.i.i150 to i64
   %312 = getelementptr [8 x double], ptr %1, i64 %311
   %313 = sext i32 %40 to i64
@@ -49691,7 +49691,7 @@ _ZNK22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE18FunctionIntegrato
   br label %_ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155
 
 _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13OffsetToIndexEii.exit.i155: ; preds = %329, %327, %325
-  %.0.i.i156 = phi i32 [ %330, %329 ], [ %65, %325 ], [ 3, %327 ]
+  %.0.i.i156 = phi i32 [ %65, %325 ], [ %330, %329 ], [ 3, %327 ]
   %331 = sext i32 %.0.i.i156 to i64
   %332 = getelementptr [8 x double], ptr %1, i64 %331
   %333 = sext i32 %69 to i64
@@ -50815,7 +50815,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %131
 
 131:                                              ; preds = %91, %102, %120, %127, %129
-  %.0.i = phi i1 [ false, %91 ], [ false, %127 ], [ false, %120 ], [ %spec.select.i.i, %129 ], [ false, %102 ]
+  %.0.i = phi i1 [ false, %91 ], [ false, %102 ], [ %spec.select.i.i, %129 ], [ false, %120 ], [ false, %127 ]
   %132 = load i64, ptr %77, align 8
   %133 = trunc i64 %132 to i32
   %134 = and i32 %133, 31
@@ -53107,7 +53107,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i: ; preds = %_Z
   br label %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i
 
 _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.thread.i: ; preds = %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i, %76, %.preheader
-  %88 = phi i32 [ %.079.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i ], [ %.079.i, %76 ], [ %.079.i, %.preheader ], [ %spec.select.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i ]
+  %88 = phi i32 [ %.079.i, %.preheader ], [ %spec.select.i, %_ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.079.i, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i.i ], [ %.079.i, %76 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 125
   br i1 %exitcond.not.i, label %_ZNK6OctreeIfE17_getMatrixRowSizeILi2EL12BoundaryType2EEEiRKN7OctNodeI12TreeNodeDataE9NeighborsIXsr19BSplineOverlapSizesIXT_EXT_EEE11OverlapSizeEEE.exit, label %.preheader, !llvm.loop !748
@@ -53593,7 +53593,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc17
   br label %20
 
 20:                                               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc17
-  %.0.i.i.i.i.i = phi ptr [ %16, %.noexc17 ], [ %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %16, %.noexc17 ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i, ptr %21, align 8
   %22 = lshr exact i64 %9, 3
@@ -54840,7 +54840,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i362.us
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i362.us: ; preds = %140, %146, %133
-  %.0.i.i.i363.us = phi i64 [ %147, %146 ], [ 0, %140 ], [ 1, %133 ]
+  %.0.i.i.i363.us = phi i64 [ 0, %140 ], [ %147, %146 ], [ 1, %133 ]
   %148 = getelementptr [3 x double], ptr %0, i64 %.0.i.i.i363.us
   %149 = sext i32 %124 to i64
   %150 = getelementptr double, ptr %148, i64 %149
@@ -54963,7 +54963,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i370
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i370: ; preds = %210, %207, %206
-  %.0.i.i.i371 = phi i64 [ %212, %210 ], [ 0, %206 ], [ 1, %207 ]
+  %.0.i.i.i371 = phi i64 [ 0, %206 ], [ %212, %210 ], [ 1, %207 ]
   %213 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i371
   %214 = zext nneg i32 %197 to i64
   %215 = getelementptr inbounds nuw double, ptr %213, i64 %214
@@ -55000,7 +55000,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380: ; preds = %227, %224, %223
-  %.0.i.i.i381 = phi i64 [ %229, %227 ], [ 0, %223 ], [ 1, %224 ]
+  %.0.i.i.i381 = phi i64 [ 0, %223 ], [ %229, %227 ], [ 1, %224 ]
   %gep1278 = getelementptr [3 x double], ptr %invariant.gep1265, i64 %.0.i.i.i381
   %230 = getelementptr i8, ptr %gep1278, i64 16
   %231 = load double, ptr %230, align 8
@@ -55028,7 +55028,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i380:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i390
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i390: ; preds = %239, %236, %235
-  %.0.i.i.i391 = phi i64 [ %241, %239 ], [ 0, %235 ], [ 1, %236 ]
+  %.0.i.i.i391 = phi i64 [ 0, %235 ], [ %241, %239 ], [ 1, %236 ]
   %gep1280 = getelementptr [3 x double], ptr %invariant.gep1271, i64 %.0.i.i.i391
   %242 = getelementptr i8, ptr %gep1280, i64 16
   %243 = load double, ptr %242, align 8
@@ -55063,7 +55063,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i399
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i399: ; preds = %253, %250, %249
-  %.0.i.i.i400 = phi i64 [ %255, %253 ], [ 0, %249 ], [ 1, %250 ]
+  %.0.i.i.i400 = phi i64 [ 0, %249 ], [ %255, %253 ], [ 1, %250 ]
   %256 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i400
   %257 = zext nneg i32 %197 to i64
   %258 = getelementptr inbounds nuw double, ptr %256, i64 %257
@@ -55096,7 +55096,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410: ; preds = %268, %265, %264
-  %.0.i.i.i411 = phi i64 [ %270, %268 ], [ 0, %264 ], [ 1, %265 ]
+  %.0.i.i.i411 = phi i64 [ 0, %264 ], [ %270, %268 ], [ 1, %265 ]
   %gep1282 = getelementptr [3 x double], ptr %invariant.gep1265, i64 %.0.i.i.i411
   %271 = getelementptr i8, ptr %gep1282, i64 88
   %272 = load double, ptr %271, align 8
@@ -55124,7 +55124,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i410:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420: ; preds = %280, %277, %276
-  %.0.i.i.i421 = phi i64 [ %282, %280 ], [ 0, %276 ], [ 1, %277 ]
+  %.0.i.i.i421 = phi i64 [ 0, %276 ], [ %282, %280 ], [ 1, %277 ]
   %gep1654 = getelementptr [3 x double], ptr %invariant.gep1653, i64 %.0.i.i.i421
   %283 = getelementptr i8, ptr %gep1654, i64 88
   %284 = load double, ptr %283, align 8
@@ -55158,7 +55158,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i430: ; preds = %295, %292, %291
-  %.0.i.i.i431 = phi i64 [ %297, %295 ], [ 0, %291 ], [ 1, %292 ]
+  %.0.i.i.i431 = phi i64 [ 0, %291 ], [ %297, %295 ], [ 1, %292 ]
   %gep1270 = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i431
   %298 = getelementptr i8, ptr %gep1270, i64 16
   %299 = load double, ptr %298, align 8
@@ -55200,7 +55200,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i439
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i439: ; preds = %315, %312, %311
-  %.0.i.i.i440 = phi i64 [ %317, %315 ], [ 0, %311 ], [ 1, %312 ]
+  %.0.i.i.i440 = phi i64 [ 0, %311 ], [ %317, %315 ], [ 1, %312 ]
   %318 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i440
   %319 = zext nneg i32 %302 to i64
   %320 = getelementptr inbounds nuw double, ptr %318, i64 %319
@@ -55233,7 +55233,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450: ; preds = %330, %327, %326
-  %.0.i.i.i451 = phi i64 [ %332, %330 ], [ 0, %326 ], [ 1, %327 ]
+  %.0.i.i.i451 = phi i64 [ 0, %326 ], [ %332, %330 ], [ 1, %327 ]
   %gep1272 = getelementptr [3 x double], ptr %invariant.gep1271, i64 %.0.i.i.i451
   %333 = getelementptr i8, ptr %gep1272, i64 16
   %334 = load double, ptr %333, align 8
@@ -55261,7 +55261,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i450:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i460
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i460: ; preds = %342, %339, %338
-  %.0.i.i.i461 = phi i64 [ %344, %342 ], [ 0, %338 ], [ 1, %339 ]
+  %.0.i.i.i461 = phi i64 [ 0, %338 ], [ %344, %342 ], [ 1, %339 ]
   %gep1274 = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i461
   %345 = getelementptr i8, ptr %gep1274, i64 88
   %346 = load double, ptr %345, align 8
@@ -55296,7 +55296,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i469: ; preds = %356, %353, %352
-  %.0.i.i.i470 = phi i64 [ %358, %356 ], [ 0, %352 ], [ 1, %353 ]
+  %.0.i.i.i470 = phi i64 [ 0, %352 ], [ %358, %356 ], [ 1, %353 ]
   %359 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i470
   %360 = zext nneg i32 %302 to i64
   %361 = getelementptr inbounds nuw double, ptr %359, i64 %360
@@ -55328,7 +55328,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480: ; preds = %370, %367, %366
-  %.0.i.i.i481 = phi i64 [ %372, %370 ], [ 0, %366 ], [ 1, %367 ]
+  %.0.i.i.i481 = phi i64 [ 0, %366 ], [ %372, %370 ], [ 1, %367 ]
   %gep1276 = getelementptr [3 x double], ptr %invariant.gep1271, i64 %.0.i.i.i481
   %373 = getelementptr i8, ptr %gep1276, i64 88
   %374 = load double, ptr %373, align 8
@@ -55363,7 +55363,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490: ; preds = %386, %383, %382
-  %.0.i.i.i491 = phi i64 [ %388, %386 ], [ 0, %382 ], [ 1, %383 ]
+  %.0.i.i.i491 = phi i64 [ 0, %382 ], [ %388, %386 ], [ 1, %383 ]
   %gep = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i491
   %389 = getelementptr i8, ptr %gep, i64 16
   %390 = load double, ptr %389, align 8
@@ -55391,7 +55391,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i490:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i500: ; preds = %398, %395, %394
-  %.0.i.i.i501 = phi i64 [ %400, %398 ], [ 0, %394 ], [ 1, %395 ]
+  %.0.i.i.i501 = phi i64 [ 0, %394 ], [ %400, %398 ], [ 1, %395 ]
   %gep1266 = getelementptr [3 x double], ptr %invariant.gep1265, i64 %.0.i.i.i501
   %401 = getelementptr i8, ptr %gep1266, i64 16
   %402 = load double, ptr %401, align 8
@@ -55434,7 +55434,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i509
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i509: ; preds = %418, %415, %414
-  %.0.i.i.i510 = phi i64 [ %420, %418 ], [ 0, %414 ], [ 1, %415 ]
+  %.0.i.i.i510 = phi i64 [ 0, %414 ], [ %420, %418 ], [ 1, %415 ]
   %421 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i510
   %422 = zext nneg i32 %405 to i64
   %423 = getelementptr inbounds nuw double, ptr %421, i64 %422
@@ -55467,7 +55467,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520: ; preds = %433, %430, %429
-  %.0.i.i.i521 = phi i64 [ %435, %433 ], [ 0, %429 ], [ 1, %430 ]
+  %.0.i.i.i521 = phi i64 [ 0, %429 ], [ %435, %433 ], [ 1, %430 ]
   %gep1268 = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i521
   %436 = getelementptr i8, ptr %gep1268, i64 88
   %437 = load double, ptr %436, align 8
@@ -55495,7 +55495,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i520:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i530
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i530: ; preds = %445, %442, %441
-  %.0.i.i.i531 = phi i64 [ %447, %445 ], [ 0, %441 ], [ 1, %442 ]
+  %.0.i.i.i531 = phi i64 [ 0, %441 ], [ %447, %445 ], [ 1, %442 ]
   %gep1652 = getelementptr [3 x double], ptr %invariant.gep1651, i64 %.0.i.i.i531
   %448 = getelementptr i8, ptr %gep1652, i64 88
   %449 = load double, ptr %448, align 8
@@ -55530,7 +55530,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539: ; preds = %459, %456, %455
-  %.0.i.i.i540 = phi i64 [ %461, %459 ], [ 0, %455 ], [ 1, %456 ]
+  %.0.i.i.i540 = phi i64 [ 0, %455 ], [ %461, %459 ], [ 1, %456 ]
   %462 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i540
   %463 = zext nneg i32 %405 to i64
   %464 = getelementptr inbounds nuw double, ptr %462, i64 %463
@@ -55538,12 +55538,12 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539:
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422: ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539, %450, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420, %273, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402, %191
-  %.sroa.9182.4 = phi double [ 0.000000e+00, %191 ], [ %284, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ 0.000000e+00, %273 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %374, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %465, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ 0.000000e+00, %450 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
-  %.sroa.5181.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i405.ph, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i405.ph, %273 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i471, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i471, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i525, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i525, %450 ], [ %.0.i.i525, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
-  %.sroa.0180.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i401, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i401, %273 ], [ %.0.i.i401, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i455, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i455, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i5151248, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i5151248, %450 ], [ %.0.i.i5151248, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
-  %.sroa.13189.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i385, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i385, %273 ], [ %.0.i.i385, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i4451242, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i4451242, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i511, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i511, %450 ], [ %.0.i.i511, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
-  %.sroa.7186.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i3751236, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i3751236, %273 ], [ %.0.i.i3751236, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i441, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i441, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i495, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i495, %450 ], [ %.0.i.i495, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
-  %.sroa.0183.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i372, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i372, %273 ], [ %.0.i.i372, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i425, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i425, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i4851245, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i4851245, %450 ], [ %.0.i.i4851245, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ]
+  %.sroa.9182.4 = phi double [ 0.000000e+00, %191 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %284, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ 0.000000e+00, %273 ], [ %374, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %465, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ 0.000000e+00, %450 ]
+  %.sroa.5181.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i471, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i405.ph, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i405.ph, %273 ], [ %.0.i.i471, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i525, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i525, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i525, %450 ]
+  %.sroa.0180.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i455, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i401, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i401, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i401, %273 ], [ %.0.i.i455, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i5151248, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i5151248, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i5151248, %450 ]
+  %.sroa.13189.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i4451242, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i385, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i385, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i385, %273 ], [ %.0.i.i4451242, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i511, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i511, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i511, %450 ]
+  %.sroa.7186.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i441, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i3751236, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i3751236, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i3751236, %273 ], [ %.0.i.i441, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i495, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i495, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i495, %450 ]
+  %.sroa.0183.4 = phi double [ 0.000000e+00, %191 ], [ %.0.i.i425, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit472 ], [ %.0.i.i372, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit402 ], [ %.0.i.i372, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i420 ], [ %.0.i.i372, %273 ], [ %.0.i.i425, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i480 ], [ %.0.i.i4851245, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit532 ], [ %.0.i.i4851245, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i539 ], [ %.0.i.i4851245, %450 ]
   %466 = fmul double %.sroa.7186.4, %.sroa.0183.4
   %467 = fmul double %.sroa.13189.4, %466
   %468 = getelementptr inbounds nuw %struct.Stencil, ptr %45, i64 %indvars.iv1310
@@ -55612,7 +55612,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i550: ; preds = %495, %492, %491
-  %.0.i.i.i551 = phi i64 [ %497, %495 ], [ 0, %491 ], [ 1, %492 ]
+  %.0.i.i.i551 = phi i64 [ 0, %491 ], [ %497, %495 ], [ 1, %492 ]
   %gep1293 = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i551
   %498 = getelementptr i8, ptr %gep1293, i64 16
   %499 = load double, ptr %498, align 8
@@ -55654,7 +55654,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i559: ; preds = %515, %512, %511
-  %.0.i.i.i560 = phi i64 [ %517, %515 ], [ 0, %511 ], [ 1, %512 ]
+  %.0.i.i.i560 = phi i64 [ 0, %511 ], [ %517, %515 ], [ 1, %512 ]
   %518 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i560
   %519 = zext nneg i32 %502 to i64
   %520 = getelementptr inbounds nuw double, ptr %518, i64 %519
@@ -55695,7 +55695,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i569: ; preds = %535, %532, %531
-  %.0.i.i.i570 = phi i64 [ %537, %535 ], [ 0, %531 ], [ 1, %532 ]
+  %.0.i.i.i570 = phi i64 [ 0, %531 ], [ %537, %535 ], [ 1, %532 ]
   %538 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i570
   %539 = zext nneg i32 %524 to i64
   %540 = getelementptr inbounds nuw double, ptr %538, i64 %539
@@ -55727,7 +55727,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i580
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i580: ; preds = %549, %546, %545
-  %.0.i.i.i581 = phi i64 [ %551, %549 ], [ 0, %545 ], [ 1, %546 ]
+  %.0.i.i.i581 = phi i64 [ 0, %545 ], [ %551, %549 ], [ 1, %546 ]
   %gep1295 = getelementptr [3 x double], ptr %invariant.gep, i64 %.0.i.i.i581
   %552 = getelementptr i8, ptr %gep1295, i64 88
   %553 = load double, ptr %552, align 8
@@ -55761,7 +55761,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i589
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i589: ; preds = %563, %560, %559
-  %.0.i.i.i590 = phi i64 [ %565, %563 ], [ 0, %559 ], [ 1, %560 ]
+  %.0.i.i.i590 = phi i64 [ 0, %559 ], [ %565, %563 ], [ 1, %560 ]
   %566 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i590
   %567 = zext nneg i32 %502 to i64
   %568 = getelementptr inbounds nuw double, ptr %566, i64 %567
@@ -55796,7 +55796,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599: ; preds = %579, %576, %575
-  %.0.i.i.i600 = phi i64 [ %581, %579 ], [ 0, %575 ], [ 1, %576 ]
+  %.0.i.i.i600 = phi i64 [ 0, %575 ], [ %581, %579 ], [ 1, %576 ]
   %582 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i600
   %583 = zext nneg i32 %524 to i64
   %584 = getelementptr inbounds nuw double, ptr %582, i64 %583
@@ -55838,7 +55838,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i609
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i609: ; preds = %602, %599, %598
-  %.0.i.i.i610 = phi i64 [ %604, %602 ], [ 0, %598 ], [ 1, %599 ]
+  %.0.i.i.i610 = phi i64 [ 0, %598 ], [ %604, %602 ], [ 1, %599 ]
   %605 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i610
   %606 = zext nneg i32 %589 to i64
   %607 = getelementptr inbounds nuw double, ptr %605, i64 %606
@@ -55874,7 +55874,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i620: ; preds = %618, %615, %614
-  %.0.i.i.i621 = phi i64 [ %620, %618 ], [ 0, %614 ], [ 1, %615 ]
+  %.0.i.i.i621 = phi i64 [ 0, %614 ], [ %620, %618 ], [ 1, %615 ]
   %gep1289 = getelementptr [3 x double], ptr %invariant.gep1265, i64 %.0.i.i.i621
   %621 = getelementptr i8, ptr %gep1289, i64 16
   %622 = load double, ptr %621, align 8
@@ -55914,7 +55914,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i629
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i629: ; preds = %636, %633, %632
-  %.0.i.i.i630 = phi i64 [ %638, %636 ], [ 0, %632 ], [ 1, %633 ]
+  %.0.i.i.i630 = phi i64 [ 0, %632 ], [ %638, %636 ], [ 1, %633 ]
   %639 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i630
   %640 = zext nneg i32 %625 to i64
   %641 = getelementptr inbounds nuw double, ptr %639, i64 %640
@@ -55949,7 +55949,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i639: ; preds = %652, %649, %648
-  %.0.i.i.i640 = phi i64 [ %654, %652 ], [ 0, %648 ], [ 1, %649 ]
+  %.0.i.i.i640 = phi i64 [ 0, %648 ], [ %654, %652 ], [ 1, %649 ]
   %655 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i640
   %656 = zext nneg i32 %589 to i64
   %657 = getelementptr inbounds nuw double, ptr %655, i64 %656
@@ -55981,7 +55981,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i650
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i650: ; preds = %666, %663, %662
-  %.0.i.i.i651 = phi i64 [ %668, %666 ], [ 0, %662 ], [ 1, %663 ]
+  %.0.i.i.i651 = phi i64 [ 0, %662 ], [ %668, %666 ], [ 1, %663 ]
   %gep1291 = getelementptr [3 x double], ptr %invariant.gep1265, i64 %.0.i.i.i651
   %669 = getelementptr i8, ptr %gep1291, i64 88
   %670 = load double, ptr %669, align 8
@@ -56015,7 +56015,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659: ; preds = %680, %677, %676
-  %.0.i.i.i660 = phi i64 [ %682, %680 ], [ 0, %676 ], [ 1, %677 ]
+  %.0.i.i.i660 = phi i64 [ 0, %676 ], [ %682, %680 ], [ 1, %677 ]
   %683 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i660
   %684 = zext nneg i32 %625 to i64
   %685 = getelementptr inbounds nuw double, ptr %683, i64 %684
@@ -56057,7 +56057,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i669: ; preds = %703, %700, %699
-  %.0.i.i.i670 = phi i64 [ %705, %703 ], [ 0, %699 ], [ 1, %700 ]
+  %.0.i.i.i670 = phi i64 [ 0, %699 ], [ %705, %703 ], [ 1, %700 ]
   %706 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i670
   %707 = zext nneg i32 %690 to i64
   %708 = getelementptr inbounds nuw double, ptr %706, i64 %707
@@ -56098,7 +56098,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i679
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i679: ; preds = %723, %720, %719
-  %.0.i.i.i680 = phi i64 [ %725, %723 ], [ 0, %719 ], [ 1, %720 ]
+  %.0.i.i.i680 = phi i64 [ 0, %719 ], [ %725, %723 ], [ 1, %720 ]
   %726 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i680
   %727 = zext nneg i32 %712 to i64
   %728 = getelementptr inbounds nuw double, ptr %726, i64 %727
@@ -56134,7 +56134,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i690
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i690: ; preds = %739, %736, %735
-  %.0.i.i.i691 = phi i64 [ %741, %739 ], [ 0, %735 ], [ 1, %736 ]
+  %.0.i.i.i691 = phi i64 [ 0, %735 ], [ %741, %739 ], [ 1, %736 ]
   %gep1285 = getelementptr [3 x double], ptr %invariant.gep1271, i64 %.0.i.i.i691
   %742 = getelementptr i8, ptr %gep1285, i64 16
   %743 = load double, ptr %742, align 8
@@ -56168,7 +56168,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i699
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i699: ; preds = %753, %750, %749
-  %.0.i.i.i700 = phi i64 [ %755, %753 ], [ 0, %749 ], [ 1, %750 ]
+  %.0.i.i.i700 = phi i64 [ 0, %749 ], [ %755, %753 ], [ 1, %750 ]
   %756 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i700
   %757 = zext nneg i32 %690 to i64
   %758 = getelementptr inbounds nuw double, ptr %756, i64 %757
@@ -56203,7 +56203,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i709: ; preds = %769, %766, %765
-  %.0.i.i.i710 = phi i64 [ %771, %769 ], [ 0, %765 ], [ 1, %766 ]
+  %.0.i.i.i710 = phi i64 [ 0, %765 ], [ %771, %769 ], [ 1, %766 ]
   %772 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i710
   %773 = zext nneg i32 %712 to i64
   %774 = getelementptr inbounds nuw double, ptr %772, i64 %773
@@ -56235,19 +56235,19 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720: ; preds = %783, %780, %779
-  %.0.i.i.i721 = phi i64 [ %785, %783 ], [ 0, %779 ], [ 1, %780 ]
+  %.0.i.i.i721 = phi i64 [ 0, %779 ], [ %785, %783 ], [ 1, %780 ]
   %gep1287 = getelementptr [3 x double], ptr %invariant.gep1271, i64 %.0.i.i.i721
   %786 = getelementptr i8, ptr %gep1287, i64 88
   %787 = load double, ptr %786, align 8
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602: ; preds = %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659, %671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599, %570, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592, %482
-  %.sroa.9165.4 = phi double [ 0.000000e+00, %482 ], [ %585, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ 0.000000e+00, %570 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %686, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ 0.000000e+00, %671 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %787, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.5164.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i591, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i591, %570 ], [ %.0.i.i591, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i645, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i645, %671 ], [ %.0.i.i645, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i711, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i711, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.0163.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i575, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i575, %570 ], [ %.0.i.i575, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i641, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i641, %671 ], [ %.0.i.i641, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i701, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i701, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.13172.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i571, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i571, %570 ], [ %.0.i.i571, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i631, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i631, %671 ], [ %.0.i.i631, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i685, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i685, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.7169.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i561, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i561, %570 ], [ %.0.i.i561, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i615, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i615, %671 ], [ %.0.i.i615, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i681, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i681, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
-  %.sroa.0166.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i545, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i545, %570 ], [ %.0.i.i545, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i611, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i611, %671 ], [ %.0.i.i611, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i671, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.9165.4 = phi double [ 0.000000e+00, %482 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %585, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ 0.000000e+00, %570 ], [ %686, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ 0.000000e+00, %671 ], [ %787, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.5164.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i645, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i591, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i591, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i591, %570 ], [ %.0.i.i645, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i645, %671 ], [ %.0.i.i711, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i711, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.0163.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i641, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i575, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i575, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i575, %570 ], [ %.0.i.i641, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i641, %671 ], [ %.0.i.i701, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i701, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.13172.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i631, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i571, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i571, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i571, %570 ], [ %.0.i.i631, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i631, %671 ], [ %.0.i.i685, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i685, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.7169.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i615, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i561, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i561, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i561, %570 ], [ %.0.i.i615, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i615, %671 ], [ %.0.i.i681, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i681, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
+  %.sroa.0166.4 = phi double [ 0.000000e+00, %482 ], [ %.0.i.i611, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit652 ], [ %.0.i.i545, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit592 ], [ %.0.i.i545, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i599 ], [ %.0.i.i545, %570 ], [ %.0.i.i611, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i659 ], [ %.0.i.i611, %671 ], [ %.0.i.i671, %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i720 ], [ %.0.i.i671, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit712 ]
   %788 = fmul double %.sroa.7169.4, %.sroa.0166.4
   %789 = fmul double %.sroa.13172.4, %788
   %790 = getelementptr inbounds nuw %struct.Stencil, ptr %47, i64 %indvars.iv1314
@@ -56309,7 +56309,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i729: ; preds = %818, %815, %814
-  %.0.i.i.i730 = phi i64 [ %820, %818 ], [ 0, %814 ], [ 1, %815 ]
+  %.0.i.i.i730 = phi i64 [ 0, %814 ], [ %820, %818 ], [ 1, %815 ]
   %821 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i730
   %822 = zext nneg i32 %805 to i64
   %823 = getelementptr inbounds nuw double, ptr %821, i64 %822
@@ -56350,7 +56350,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i739: ; preds = %838, %835, %834
-  %.0.i.i.i740 = phi i64 [ %840, %838 ], [ 0, %834 ], [ 1, %835 ]
+  %.0.i.i.i740 = phi i64 [ 0, %834 ], [ %840, %838 ], [ 1, %835 ]
   %841 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i740
   %842 = zext nneg i32 %827 to i64
   %843 = getelementptr inbounds nuw double, ptr %841, i64 %842
@@ -56391,7 +56391,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i749
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i749: ; preds = %858, %855, %854
-  %.0.i.i.i750 = phi i64 [ %860, %858 ], [ 0, %854 ], [ 1, %855 ]
+  %.0.i.i.i750 = phi i64 [ 0, %854 ], [ %860, %858 ], [ 1, %855 ]
   %861 = getelementptr inbounds [2 x double], ptr %43, i64 %.0.i.i.i750
   %862 = zext nneg i32 %847 to i64
   %863 = getelementptr inbounds nuw double, ptr %861, i64 %862
@@ -56426,7 +56426,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i759
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i759: ; preds = %874, %871, %870
-  %.0.i.i.i760 = phi i64 [ %876, %874 ], [ 0, %870 ], [ 1, %871 ]
+  %.0.i.i.i760 = phi i64 [ 0, %870 ], [ %876, %874 ], [ 1, %871 ]
   %877 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i760
   %878 = zext nneg i32 %805 to i64
   %879 = getelementptr inbounds nuw double, ptr %877, i64 %878
@@ -56461,7 +56461,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i769
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i769: ; preds = %890, %887, %886
-  %.0.i.i.i770 = phi i64 [ %892, %890 ], [ 0, %886 ], [ 1, %887 ]
+  %.0.i.i.i770 = phi i64 [ 0, %886 ], [ %892, %890 ], [ 1, %887 ]
   %893 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i770
   %894 = zext nneg i32 %827 to i64
   %895 = getelementptr inbounds nuw double, ptr %893, i64 %894
@@ -56496,7 +56496,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i779
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i779: ; preds = %906, %903, %902
-  %.0.i.i.i780 = phi i64 [ %908, %906 ], [ 0, %902 ], [ 1, %903 ]
+  %.0.i.i.i780 = phi i64 [ 0, %902 ], [ %908, %906 ], [ 1, %903 ]
   %909 = getelementptr inbounds [2 x double], ptr %44, i64 %.0.i.i.i780
   %910 = zext nneg i32 %847 to i64
   %911 = getelementptr inbounds nuw double, ptr %909, i64 %910
@@ -56657,7 +56657,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i789
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i789: ; preds = %1005, %1002, %1001
-  %.0.i.i.i790 = phi i64 [ %1007, %1005 ], [ 0, %1001 ], [ 1, %1002 ]
+  %.0.i.i.i790 = phi i64 [ 0, %1001 ], [ %1007, %1005 ], [ 1, %1002 ]
   %1008 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i790
   %1009 = sext i32 %988 to i64
   %1010 = getelementptr double, ptr %1008, i64 %1009
@@ -56705,7 +56705,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i797
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i797: ; preds = %1031, %1028, %1027
-  %.0.i.i.i798 = phi i64 [ %1033, %1031 ], [ 0, %1027 ], [ 1, %1028 ]
+  %.0.i.i.i798 = phi i64 [ 0, %1027 ], [ %1033, %1031 ], [ 1, %1028 ]
   %1034 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i798
   %1035 = sext i32 %1015 to i64
   %1036 = getelementptr double, ptr %1034, i64 %1035
@@ -56758,7 +56758,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i806
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i806: ; preds = %1060, %1057, %1055
-  %.0.i.i.i807 = phi i64 [ %1063, %1060 ], [ 0, %1055 ], [ 1, %1057 ]
+  %.0.i.i.i807 = phi i64 [ 0, %1055 ], [ %1063, %1060 ], [ 1, %1057 ]
   %1064 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i807
   %1065 = sext i32 %1042 to i64
   %1066 = getelementptr double, ptr %1064, i64 %1065
@@ -56802,7 +56802,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i815
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i815: ; preds = %1083, %1080, %1079
-  %.0.i.i.i816 = phi i64 [ %1085, %1083 ], [ 0, %1079 ], [ 1, %1080 ]
+  %.0.i.i.i816 = phi i64 [ 0, %1079 ], [ %1085, %1083 ], [ 1, %1080 ]
   %1086 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i816
   %1087 = sext i32 %988 to i64
   %1088 = getelementptr double, ptr %1086, i64 %1087
@@ -56846,7 +56846,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i824
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i824: ; preds = %1105, %1102, %1101
-  %.0.i.i.i825 = phi i64 [ %1107, %1105 ], [ 0, %1101 ], [ 1, %1102 ]
+  %.0.i.i.i825 = phi i64 [ 0, %1101 ], [ %1107, %1105 ], [ 1, %1102 ]
   %1108 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i825
   %1109 = sext i32 %1015 to i64
   %1110 = getelementptr double, ptr %1108, i64 %1109
@@ -56893,7 +56893,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i833
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i833: ; preds = %1129, %1126, %1124
-  %.0.i.i.i834 = phi i64 [ %1132, %1129 ], [ 0, %1124 ], [ 1, %1126 ]
+  %.0.i.i.i834 = phi i64 [ 0, %1124 ], [ %1132, %1129 ], [ 1, %1126 ]
   %1133 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i834
   %1134 = sext i32 %1042 to i64
   %1135 = getelementptr double, ptr %1133, i64 %1134
@@ -56995,7 +56995,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i841
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i841: ; preds = %1190, %1187, %1186
-  %.0.i.i.i842 = phi i64 [ %1192, %1190 ], [ 0, %1186 ], [ 1, %1187 ]
+  %.0.i.i.i842 = phi i64 [ 0, %1186 ], [ %1192, %1190 ], [ 1, %1187 ]
   %1193 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i842
   %1194 = sext i32 %1173 to i64
   %1195 = getelementptr double, ptr %1193, i64 %1194
@@ -57044,7 +57044,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i850
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i850: ; preds = %1217, %1214, %1213
-  %.0.i.i.i851 = phi i64 [ %1219, %1217 ], [ 0, %1213 ], [ 1, %1214 ]
+  %.0.i.i.i851 = phi i64 [ 0, %1213 ], [ %1219, %1217 ], [ 1, %1214 ]
   %1220 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i851
   %1221 = sext i32 %1200 to i64
   %1222 = getelementptr double, ptr %1220, i64 %1221
@@ -57092,7 +57092,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i859
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i859: ; preds = %1243, %1240, %1239
-  %.0.i.i.i860 = phi i64 [ %1245, %1243 ], [ 0, %1239 ], [ 1, %1240 ]
+  %.0.i.i.i860 = phi i64 [ 0, %1239 ], [ %1245, %1243 ], [ 1, %1240 ]
   %1246 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i860
   %1247 = sext i32 %1227 to i64
   %1248 = getelementptr double, ptr %1246, i64 %1247
@@ -57136,7 +57136,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i867
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i867: ; preds = %1265, %1262, %1261
-  %.0.i.i.i868 = phi i64 [ %1267, %1265 ], [ 0, %1261 ], [ 1, %1262 ]
+  %.0.i.i.i868 = phi i64 [ 0, %1261 ], [ %1267, %1265 ], [ 1, %1262 ]
   %1268 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i868
   %1269 = sext i32 %1173 to i64
   %1270 = getelementptr double, ptr %1268, i64 %1269
@@ -57180,7 +57180,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i877
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i877: ; preds = %1287, %1284, %1283
-  %.0.i.i.i878 = phi i64 [ %1289, %1287 ], [ 0, %1283 ], [ 1, %1284 ]
+  %.0.i.i.i878 = phi i64 [ 0, %1283 ], [ %1289, %1287 ], [ 1, %1284 ]
   %1290 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i878
   %1291 = sext i32 %1200 to i64
   %1292 = getelementptr double, ptr %1290, i64 %1291
@@ -57224,7 +57224,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886: ; preds = %1309, %1306, %1305
-  %.0.i.i.i887 = phi i64 [ %1311, %1309 ], [ 0, %1305 ], [ 1, %1306 ]
+  %.0.i.i.i887 = phi i64 [ 0, %1305 ], [ %1311, %1309 ], [ 1, %1306 ]
   %1312 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i887
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split
 
@@ -57268,7 +57268,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i886:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i895
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i895: ; preds = %1333, %1330, %1329
-  %.0.i.i.i896 = phi i64 [ %1335, %1333 ], [ 0, %1329 ], [ 1, %1330 ]
+  %.0.i.i.i896 = phi i64 [ 0, %1329 ], [ %1335, %1333 ], [ 1, %1330 ]
   %1336 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i896
   %1337 = sext i32 %1316 to i64
   %1338 = getelementptr double, ptr %1336, i64 %1337
@@ -57319,7 +57319,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i903
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i903: ; preds = %1362, %1359, %1358
-  %.0.i.i.i904 = phi i64 [ %1364, %1362 ], [ 0, %1358 ], [ 1, %1359 ]
+  %.0.i.i.i904 = phi i64 [ 0, %1358 ], [ %1364, %1362 ], [ 1, %1359 ]
   %1365 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i904
   %1366 = sext i32 %1345 to i64
   %1367 = getelementptr double, ptr %1365, i64 %1366
@@ -57367,7 +57367,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i913
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i913: ; preds = %1388, %1385, %1384
-  %.0.i.i.i914 = phi i64 [ %1390, %1388 ], [ 0, %1384 ], [ 1, %1385 ]
+  %.0.i.i.i914 = phi i64 [ 0, %1384 ], [ %1390, %1388 ], [ 1, %1385 ]
   %1391 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i914
   %1392 = sext i32 %1372 to i64
   %1393 = getelementptr double, ptr %1391, i64 %1392
@@ -57411,7 +57411,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i922
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i922: ; preds = %1410, %1407, %1406
-  %.0.i.i.i923 = phi i64 [ %1412, %1410 ], [ 0, %1406 ], [ 1, %1407 ]
+  %.0.i.i.i923 = phi i64 [ 0, %1406 ], [ %1412, %1410 ], [ 1, %1407 ]
   %1413 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i923
   %1414 = sext i32 %1316 to i64
   %1415 = getelementptr double, ptr %1413, i64 %1414
@@ -57455,7 +57455,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i930
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i930: ; preds = %1432, %1429, %1428
-  %.0.i.i.i931 = phi i64 [ %1434, %1432 ], [ 0, %1428 ], [ 1, %1429 ]
+  %.0.i.i.i931 = phi i64 [ 0, %1428 ], [ %1434, %1432 ], [ 1, %1429 ]
   %1435 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i931
   %1436 = sext i32 %1345 to i64
   %1437 = getelementptr double, ptr %1435, i64 %1436
@@ -57499,7 +57499,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940: ; preds = %1454, %1451, %1450
-  %.0.i.i.i941 = phi i64 [ %1456, %1454 ], [ 0, %1450 ], [ 1, %1451 ]
+  %.0.i.i.i941 = phi i64 [ 0, %1450 ], [ %1456, %1454 ], [ 1, %1451 ]
   %1457 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i941
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split
 
@@ -57543,7 +57543,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i940:
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i949
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i949: ; preds = %1478, %1475, %1474
-  %.0.i.i.i950 = phi i64 [ %1480, %1478 ], [ 0, %1474 ], [ 1, %1475 ]
+  %.0.i.i.i950 = phi i64 [ 0, %1474 ], [ %1480, %1478 ], [ 1, %1475 ]
   %1481 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i950
   %1482 = sext i32 %1461 to i64
   %1483 = getelementptr double, ptr %1481, i64 %1482
@@ -57591,7 +57591,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i958
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i958: ; preds = %1504, %1501, %1500
-  %.0.i.i.i959 = phi i64 [ %1506, %1504 ], [ 0, %1500 ], [ 1, %1501 ]
+  %.0.i.i.i959 = phi i64 [ 0, %1500 ], [ %1506, %1504 ], [ 1, %1501 ]
   %1507 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i959
   %1508 = sext i32 %1488 to i64
   %1509 = getelementptr double, ptr %1507, i64 %1508
@@ -57642,7 +57642,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i966
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i966: ; preds = %1533, %1530, %1529
-  %.0.i.i.i967 = phi i64 [ %1535, %1533 ], [ 0, %1529 ], [ 1, %1530 ]
+  %.0.i.i.i967 = phi i64 [ 0, %1529 ], [ %1535, %1533 ], [ 1, %1530 ]
   %1536 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i967
   %1537 = sext i32 %1516 to i64
   %1538 = getelementptr double, ptr %1536, i64 %1537
@@ -57686,7 +57686,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i976
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i976: ; preds = %1555, %1552, %1551
-  %.0.i.i.i977 = phi i64 [ %1557, %1555 ], [ 0, %1551 ], [ 1, %1552 ]
+  %.0.i.i.i977 = phi i64 [ 0, %1551 ], [ %1557, %1555 ], [ 1, %1552 ]
   %1558 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i977
   %1559 = sext i32 %1461 to i64
   %1560 = getelementptr double, ptr %1558, i64 %1559
@@ -57730,7 +57730,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i985
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i985: ; preds = %1577, %1574, %1573
-  %.0.i.i.i986 = phi i64 [ %1579, %1577 ], [ 0, %1573 ], [ 1, %1574 ]
+  %.0.i.i.i986 = phi i64 [ 0, %1573 ], [ %1579, %1577 ], [ 1, %1574 ]
   %1580 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i986
   %1581 = sext i32 %1488 to i64
   %1582 = getelementptr double, ptr %1580, i64 %1581
@@ -57774,7 +57774,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i993: ; preds = %1599, %1596, %1595
-  %.0.i.i.i994 = phi i64 [ %1601, %1599 ], [ 0, %1595 ], [ 1, %1596 ]
+  %.0.i.i.i994 = phi i64 [ 0, %1595 ], [ %1601, %1599 ], [ 1, %1596 ]
   %1602 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i994
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split
 
@@ -57794,12 +57794,12 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split, %1588, %1585, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987, %1443, %1440, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933, %1298, %1295, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879, %1165
-  %.sroa.030.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i843, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i843, %1295 ], [ %.0.i.i843, %1298 ], [ %.0.i.i890, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i890, %1440 ], [ %.0.i.i890, %1443 ], [ %.0.i.i944, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.0.i.i944, %1585 ], [ %.0.i.i944, %1588 ], [ %.sroa.030.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.733.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i845, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i845, %1295 ], [ %.0.i.i845, %1298 ], [ %.0.i.i905, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i905, %1440 ], [ %.0.i.i905, %1443 ], [ %.0.i.i953, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.0.i.i953, %1585 ], [ %.0.i.i953, %1588 ], [ %.sroa.733.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.1336.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i854, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i854, %1295 ], [ %.0.i.i854, %1298 ], [ %.0.i.i908, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i908, %1440 ], [ %.0.i.i908, %1443 ], [ %.0.i.i968, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.0.i.i968, %1585 ], [ %.0.i.i968, %1588 ], [ %.sroa.1336.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.027.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i869, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i869, %1295 ], [ %.0.i.i869, %1298 ], [ %.0.i.i917, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i917, %1440 ], [ %.0.i.i917, %1443 ], [ %.0.i.i971, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.0.i.i971, %1585 ], [ %.0.i.i971, %1588 ], [ %.sroa.027.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.528.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i872, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i872, %1295 ], [ %.0.i.i872, %1298 ], [ %.0.i.i932, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i932, %1440 ], [ %.0.i.i932, %1443 ], [ %.0.i.i980, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.0.i.i980, %1585 ], [ %.0.i.i980, %1588 ], [ %.sroa.528.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
-  %.sroa.929.5 = phi double [ 0.000000e+00, %1165 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ 0.000000e+00, %1295 ], [ 0.000000e+00, %1298 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ 0.000000e+00, %1440 ], [ 0.000000e+00, %1443 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ 0.000000e+00, %1585 ], [ 0.000000e+00, %1588 ], [ %1606, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.030.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i944, %1585 ], [ %.0.i.i944, %1588 ], [ %.0.i.i843, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i843, %1295 ], [ %.0.i.i843, %1298 ], [ %.0.i.i890, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i890, %1440 ], [ %.0.i.i890, %1443 ], [ %.0.i.i944, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.030.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.733.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i953, %1585 ], [ %.0.i.i953, %1588 ], [ %.0.i.i845, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i845, %1295 ], [ %.0.i.i845, %1298 ], [ %.0.i.i905, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i905, %1440 ], [ %.0.i.i905, %1443 ], [ %.0.i.i953, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.733.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.1336.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i968, %1585 ], [ %.0.i.i968, %1588 ], [ %.0.i.i854, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i854, %1295 ], [ %.0.i.i854, %1298 ], [ %.0.i.i908, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i908, %1440 ], [ %.0.i.i908, %1443 ], [ %.0.i.i968, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.1336.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.027.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i971, %1585 ], [ %.0.i.i971, %1588 ], [ %.0.i.i869, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i869, %1295 ], [ %.0.i.i869, %1298 ], [ %.0.i.i917, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i917, %1440 ], [ %.0.i.i917, %1443 ], [ %.0.i.i971, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.027.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.528.5 = phi double [ 0.000000e+00, %1165 ], [ %.0.i.i980, %1585 ], [ %.0.i.i980, %1588 ], [ %.0.i.i872, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ %.0.i.i872, %1295 ], [ %.0.i.i872, %1298 ], [ %.0.i.i932, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ %.0.i.i932, %1440 ], [ %.0.i.i932, %1443 ], [ %.0.i.i980, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %.sroa.528.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
+  %.sroa.929.5 = phi double [ 0.000000e+00, %1165 ], [ 0.000000e+00, %1585 ], [ 0.000000e+00, %1588 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit879 ], [ 0.000000e+00, %1295 ], [ 0.000000e+00, %1298 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit933 ], [ 0.000000e+00, %1440 ], [ 0.000000e+00, %1443 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit987 ], [ %1606, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888.sink.split ]
   %1607 = fmul double %.sroa.030.5, %.sroa.733.5
   %1608 = fmul double %1607, %.sroa.1336.5
   %1609 = getelementptr inbounds nuw %struct.Stencil, ptr %932, i64 %indvars.iv1376
@@ -57879,7 +57879,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1003
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1003: ; preds = %1645, %1642, %1641
-  %.0.i.i.i1004 = phi i64 [ %1647, %1645 ], [ 0, %1641 ], [ 1, %1642 ]
+  %.0.i.i.i1004 = phi i64 [ 0, %1641 ], [ %1647, %1645 ], [ 1, %1642 ]
   %1648 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i1004
   %1649 = sext i32 %1628 to i64
   %1650 = getelementptr double, ptr %1648, i64 %1649
@@ -57930,7 +57930,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1011
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1011: ; preds = %1674, %1671, %1670
-  %.0.i.i.i1012 = phi i64 [ %1676, %1674 ], [ 0, %1670 ], [ 1, %1671 ]
+  %.0.i.i.i1012 = phi i64 [ 0, %1670 ], [ %1676, %1674 ], [ 1, %1671 ]
   %1677 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1012
   %1678 = sext i32 %1657 to i64
   %1679 = getelementptr double, ptr %1677, i64 %1678
@@ -57980,7 +57980,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1020
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1020: ; preds = %1702, %1699, %1698
-  %.0.i.i.i1021 = phi i64 [ %1704, %1702 ], [ 0, %1698 ], [ 1, %1699 ]
+  %.0.i.i.i1021 = phi i64 [ 0, %1698 ], [ %1704, %1702 ], [ 1, %1699 ]
   %1705 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1021
   %1706 = sext i32 %1686 to i64
   %1707 = getelementptr double, ptr %1705, i64 %1706
@@ -58024,7 +58024,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1030
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1030: ; preds = %1724, %1721, %1720
-  %.0.i.i.i1031 = phi i64 [ %1726, %1724 ], [ 0, %1720 ], [ 1, %1721 ]
+  %.0.i.i.i1031 = phi i64 [ 0, %1720 ], [ %1726, %1724 ], [ 1, %1721 ]
   %1727 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i1031
   %1728 = sext i32 %1628 to i64
   %1729 = getelementptr double, ptr %1727, i64 %1728
@@ -58068,7 +58068,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1038
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1038: ; preds = %1746, %1743, %1742
-  %.0.i.i.i1039 = phi i64 [ %1748, %1746 ], [ 0, %1742 ], [ 1, %1743 ]
+  %.0.i.i.i1039 = phi i64 [ 0, %1742 ], [ %1748, %1746 ], [ 1, %1743 ]
   %1749 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1039
   %1750 = sext i32 %1657 to i64
   %1751 = getelementptr double, ptr %1749, i64 %1750
@@ -58112,7 +58112,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047: ; preds = %1768, %1765, %1764
-  %.0.i.i.i1048 = phi i64 [ %1770, %1768 ], [ 0, %1764 ], [ 1, %1765 ]
+  %.0.i.i.i1048 = phi i64 [ 0, %1764 ], [ %1770, %1768 ], [ 1, %1765 ]
   %1771 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1048
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split
 
@@ -58158,7 +58158,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1047
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1056
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1056: ; preds = %1794, %1791, %1790
-  %.0.i.i.i1057 = phi i64 [ %1796, %1794 ], [ 0, %1790 ], [ 1, %1791 ]
+  %.0.i.i.i1057 = phi i64 [ 0, %1790 ], [ %1796, %1794 ], [ 1, %1791 ]
   %1797 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1057
   %1798 = sext i32 %1777 to i64
   %1799 = getelementptr double, ptr %1797, i64 %1798
@@ -58207,7 +58207,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1066
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1066: ; preds = %1821, %1818, %1817
-  %.0.i.i.i1067 = phi i64 [ %1823, %1821 ], [ 0, %1817 ], [ 1, %1818 ]
+  %.0.i.i.i1067 = phi i64 [ 0, %1817 ], [ %1823, %1821 ], [ 1, %1818 ]
   %1824 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i1067
   %1825 = sext i32 %1804 to i64
   %1826 = getelementptr double, ptr %1824, i64 %1825
@@ -58257,7 +58257,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1074
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1074: ; preds = %1849, %1846, %1845
-  %.0.i.i.i1075 = phi i64 [ %1851, %1849 ], [ 0, %1845 ], [ 1, %1846 ]
+  %.0.i.i.i1075 = phi i64 [ 0, %1845 ], [ %1851, %1849 ], [ 1, %1846 ]
   %1852 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1075
   %1853 = sext i32 %1833 to i64
   %1854 = getelementptr double, ptr %1852, i64 %1853
@@ -58301,7 +58301,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1083
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1083: ; preds = %1871, %1868, %1867
-  %.0.i.i.i1084 = phi i64 [ %1873, %1871 ], [ 0, %1867 ], [ 1, %1868 ]
+  %.0.i.i.i1084 = phi i64 [ 0, %1867 ], [ %1873, %1871 ], [ 1, %1868 ]
   %1874 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1084
   %1875 = sext i32 %1777 to i64
   %1876 = getelementptr double, ptr %1874, i64 %1875
@@ -58345,7 +58345,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1093
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1093: ; preds = %1893, %1890, %1889
-  %.0.i.i.i1094 = phi i64 [ %1895, %1893 ], [ 0, %1889 ], [ 1, %1890 ]
+  %.0.i.i.i1094 = phi i64 [ 0, %1889 ], [ %1895, %1893 ], [ 1, %1890 ]
   %1896 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i1094
   %1897 = sext i32 %1804 to i64
   %1898 = getelementptr double, ptr %1896, i64 %1897
@@ -58389,7 +58389,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101: ; preds = %1915, %1912, %1911
-  %.0.i.i.i1102 = phi i64 [ %1917, %1915 ], [ 0, %1911 ], [ 1, %1912 ]
+  %.0.i.i.i1102 = phi i64 [ 0, %1911 ], [ %1917, %1915 ], [ 1, %1912 ]
   %1918 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1102
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split
 
@@ -58435,7 +58435,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1101
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1110
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1110: ; preds = %1941, %1938, %1937
-  %.0.i.i.i1111 = phi i64 [ %1943, %1941 ], [ 0, %1937 ], [ 1, %1938 ]
+  %.0.i.i.i1111 = phi i64 [ 0, %1937 ], [ %1943, %1941 ], [ 1, %1938 ]
   %1944 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1111
   %1945 = sext i32 %1924 to i64
   %1946 = getelementptr double, ptr %1944, i64 %1945
@@ -58485,7 +58485,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1119
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1119: ; preds = %1969, %1966, %1965
-  %.0.i.i.i1120 = phi i64 [ %1971, %1969 ], [ 0, %1965 ], [ 1, %1966 ]
+  %.0.i.i.i1120 = phi i64 [ 0, %1965 ], [ %1971, %1969 ], [ 1, %1966 ]
   %1972 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1120
   %1973 = sext i32 %1953 to i64
   %1974 = getelementptr double, ptr %1972, i64 %1973
@@ -58534,7 +58534,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1129
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1129: ; preds = %1996, %1993, %1992
-  %.0.i.i.i1130 = phi i64 [ %1998, %1996 ], [ 0, %1992 ], [ 1, %1993 ]
+  %.0.i.i.i1130 = phi i64 [ 0, %1992 ], [ %1998, %1996 ], [ 1, %1993 ]
   %1999 = getelementptr [6 x double], ptr %79, i64 %.0.i.i.i1130
   %2000 = sext i32 %1979 to i64
   %2001 = getelementptr double, ptr %1999, i64 %2000
@@ -58578,7 +58578,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1137
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1137: ; preds = %2018, %2015, %2014
-  %.0.i.i.i1138 = phi i64 [ %2020, %2018 ], [ 0, %2014 ], [ 1, %2015 ]
+  %.0.i.i.i1138 = phi i64 [ 0, %2014 ], [ %2020, %2018 ], [ 1, %2015 ]
   %2021 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1138
   %2022 = sext i32 %1924 to i64
   %2023 = getelementptr double, ptr %2021, i64 %2022
@@ -58622,7 +58622,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1146
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1146: ; preds = %2040, %2037, %2036
-  %.0.i.i.i1147 = phi i64 [ %2042, %2040 ], [ 0, %2036 ], [ 1, %2037 ]
+  %.0.i.i.i1147 = phi i64 [ 0, %2036 ], [ %2042, %2040 ], [ 1, %2037 ]
   %2043 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1147
   %2044 = sext i32 %1953 to i64
   %2045 = getelementptr double, ptr %2043, i64 %2044
@@ -58666,7 +58666,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1156: ; preds = %2062, %2059, %2058
-  %.0.i.i.i1157 = phi i64 [ %2064, %2062 ], [ 0, %2058 ], [ 1, %2059 ]
+  %.0.i.i.i1157 = phi i64 [ 0, %2058 ], [ %2064, %2062 ], [ 1, %2059 ]
   %2065 = getelementptr [6 x double], ptr %0, i64 %.0.i.i.i1157
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split
 
@@ -58686,12 +58686,12 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050
 
 _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050: ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split, %2051, %2048, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149, %1904, %1901, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095, %1757, %1754, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041, %1622
-  %.sroa.015.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i998, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i998, %1754 ], [ %.0.i.i998, %1757 ], [ %.0.i.i1058, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1058, %1901 ], [ %.0.i.i1058, %1904 ], [ %.0.i.i1112, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.0.i.i1112, %2048 ], [ %.0.i.i1112, %2051 ], [ %.sroa.015.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.7.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1013, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1013, %1754 ], [ %.0.i.i1013, %1757 ], [ %.0.i.i1061, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1061, %1901 ], [ %.0.i.i1061, %1904 ], [ %.0.i.i1121, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.0.i.i1121, %2048 ], [ %.0.i.i1121, %2051 ], [ %.sroa.7.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.13.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1022, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1022, %1754 ], [ %.0.i.i1022, %1757 ], [ %.0.i.i1076, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1076, %1901 ], [ %.0.i.i1076, %1904 ], [ %.0.i.i1124, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.0.i.i1124, %2048 ], [ %.0.i.i1124, %2051 ], [ %.sroa.13.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.014.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1025, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1025, %1754 ], [ %.0.i.i1025, %1757 ], [ %.0.i.i1085, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1085, %1901 ], [ %.0.i.i1085, %1904 ], [ %.0.i.i1139, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.0.i.i1139, %2048 ], [ %.0.i.i1139, %2051 ], [ %.sroa.014.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.5.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1040, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1040, %1754 ], [ %.0.i.i1040, %1757 ], [ %.0.i.i1088, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1088, %1901 ], [ %.0.i.i1088, %1904 ], [ %.0.i.i1148, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.0.i.i1148, %2048 ], [ %.0.i.i1148, %2051 ], [ %.sroa.5.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
-  %.sroa.9.5 = phi double [ 0.000000e+00, %1622 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ 0.000000e+00, %1754 ], [ 0.000000e+00, %1757 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ 0.000000e+00, %1901 ], [ 0.000000e+00, %1904 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ 0.000000e+00, %2048 ], [ 0.000000e+00, %2051 ], [ %2069, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.015.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1112, %2048 ], [ %.0.i.i1112, %2051 ], [ %.0.i.i998, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i998, %1754 ], [ %.0.i.i998, %1757 ], [ %.0.i.i1058, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1058, %1901 ], [ %.0.i.i1058, %1904 ], [ %.0.i.i1112, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.015.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.7.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1121, %2048 ], [ %.0.i.i1121, %2051 ], [ %.0.i.i1013, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1013, %1754 ], [ %.0.i.i1013, %1757 ], [ %.0.i.i1061, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1061, %1901 ], [ %.0.i.i1061, %1904 ], [ %.0.i.i1121, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.7.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.13.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1124, %2048 ], [ %.0.i.i1124, %2051 ], [ %.0.i.i1022, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1022, %1754 ], [ %.0.i.i1022, %1757 ], [ %.0.i.i1076, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1076, %1901 ], [ %.0.i.i1076, %1904 ], [ %.0.i.i1124, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.13.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.014.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1139, %2048 ], [ %.0.i.i1139, %2051 ], [ %.0.i.i1025, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1025, %1754 ], [ %.0.i.i1025, %1757 ], [ %.0.i.i1085, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1085, %1901 ], [ %.0.i.i1085, %1904 ], [ %.0.i.i1139, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.014.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.5.5 = phi double [ 0.000000e+00, %1622 ], [ %.0.i.i1148, %2048 ], [ %.0.i.i1148, %2051 ], [ %.0.i.i1040, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ %.0.i.i1040, %1754 ], [ %.0.i.i1040, %1757 ], [ %.0.i.i1088, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ %.0.i.i1088, %1901 ], [ %.0.i.i1088, %1904 ], [ %.0.i.i1148, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %.sroa.5.5.ph, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
+  %.sroa.9.5 = phi double [ 0.000000e+00, %1622 ], [ 0.000000e+00, %2048 ], [ 0.000000e+00, %2051 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1041 ], [ 0.000000e+00, %1754 ], [ 0.000000e+00, %1757 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit1095 ], [ 0.000000e+00, %1901 ], [ 0.000000e+00, %1904 ], [ 0.000000e+00, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1149 ], [ %2069, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050.sink.split ]
   %2070 = fmul double %.sroa.015.5, %.sroa.7.5
   %2071 = fmul double %2070, %.sroa.13.5
   %2072 = getelementptr inbounds nuw %struct.Stencil, ptr %934, i64 %indvars.iv1380
@@ -58760,7 +58760,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1164
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1164: ; preds = %2106, %2103, %2102
-  %.0.i.i.i1165 = phi i64 [ %2108, %2106 ], [ 0, %2102 ], [ 1, %2103 ]
+  %.0.i.i.i1165 = phi i64 [ 0, %2102 ], [ %2108, %2106 ], [ 1, %2103 ]
   %2109 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1165
   %2110 = sext i32 %2089 to i64
   %2111 = getelementptr double, ptr %2109, i64 %2110
@@ -58810,7 +58810,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1173
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1173: ; preds = %2134, %2131, %2130
-  %.0.i.i.i1174 = phi i64 [ %2136, %2134 ], [ 0, %2130 ], [ 1, %2131 ]
+  %.0.i.i.i1174 = phi i64 [ 0, %2130 ], [ %2136, %2134 ], [ 1, %2131 ]
   %2137 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1174
   %2138 = sext i32 %2118 to i64
   %2139 = getelementptr double, ptr %2137, i64 %2138
@@ -58860,7 +58860,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1182
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1182: ; preds = %2162, %2159, %2158
-  %.0.i.i.i1183 = phi i64 [ %2164, %2162 ], [ 0, %2158 ], [ 1, %2159 ]
+  %.0.i.i.i1183 = phi i64 [ 0, %2158 ], [ %2164, %2162 ], [ 1, %2159 ]
   %2165 = getelementptr [5 x double], ptr %82, i64 %.0.i.i.i1183
   %2166 = sext i32 %2146 to i64
   %2167 = getelementptr double, ptr %2165, i64 %2166
@@ -58904,7 +58904,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1191
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1191: ; preds = %2184, %2181, %2180
-  %.0.i.i.i1192 = phi i64 [ %2186, %2184 ], [ 0, %2180 ], [ 1, %2181 ]
+  %.0.i.i.i1192 = phi i64 [ 0, %2180 ], [ %2186, %2184 ], [ 1, %2181 ]
   %2187 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1192
   %2188 = sext i32 %2089 to i64
   %2189 = getelementptr double, ptr %2187, i64 %2188
@@ -58948,7 +58948,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1200
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1200: ; preds = %2206, %2203, %2202
-  %.0.i.i.i1201 = phi i64 [ %2208, %2206 ], [ 0, %2202 ], [ 1, %2203 ]
+  %.0.i.i.i1201 = phi i64 [ 0, %2202 ], [ %2208, %2206 ], [ 1, %2203 ]
   %2209 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1201
   %2210 = sext i32 %2118 to i64
   %2211 = getelementptr double, ptr %2209, i64 %2210
@@ -58992,7 +58992,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1209
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i1209: ; preds = %2228, %2225, %2224
-  %.0.i.i.i1210 = phi i64 [ %2230, %2228 ], [ 0, %2224 ], [ 1, %2225 ]
+  %.0.i.i.i1210 = phi i64 [ 0, %2224 ], [ %2230, %2228 ], [ 1, %2225 ]
   %2231 = getelementptr [5 x double], ptr %0, i64 %.0.i.i.i1210
   %2232 = sext i32 %2146 to i64
   %2233 = getelementptr double, ptr %2231, i64 %2232
@@ -65871,7 +65871,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %85, %96, %_Z1
   br label %_ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit
 
 _ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ; preds = %139, %137, %131, %112, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread
-  %.0.i = phi i1 [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ], [ false, %137 ], [ false, %131 ], [ %spec.select.i.i, %139 ], [ false, %112 ]
+  %.0.i = phi i1 [ false, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread ], [ false, %112 ], [ %spec.select.i.i, %139 ], [ false, %131 ], [ false, %137 ]
   %141 = invoke noundef nonnull align 8 dereferenceable(216) ptr @_ZN7OctNodeI12TreeNodeDataE16ConstNeighborKeyILj1ELj1EE12getNeighborsEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %92)
           to label %.preheader unwind label %.loopexit.split-lp
 
@@ -66366,7 +66366,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i: ; preds = %161, %160, %158
-  %.0.i.i.i = phi i64 [ %163, %161 ], [ 0, %158 ], [ 1, %160 ]
+  %.0.i.i.i = phi i64 [ 0, %158 ], [ %163, %161 ], [ 1, %160 ]
   %164 = getelementptr inbounds [2 x double], ptr %55, i64 %.0.i.i.i
   %165 = zext nneg i32 %152 to i64
   %166 = getelementptr inbounds nuw double, ptr %164, i64 %165
@@ -66400,7 +66400,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i196
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i196: ; preds = %177, %176, %174
-  %.0.i.i.i197 = phi i64 [ %179, %177 ], [ 0, %174 ], [ 1, %176 ]
+  %.0.i.i.i197 = phi i64 [ 0, %174 ], [ %179, %177 ], [ 1, %176 ]
   %180 = getelementptr inbounds [2 x double], ptr %55, i64 %.0.i.i.i197
   %181 = zext nneg i32 %168 to i64
   %182 = getelementptr inbounds nuw double, ptr %180, i64 %181
@@ -66434,7 +66434,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i206
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i206: ; preds = %193, %192, %190
-  %.0.i.i.i207 = phi i64 [ %195, %193 ], [ 0, %190 ], [ 1, %192 ]
+  %.0.i.i.i207 = phi i64 [ 0, %190 ], [ %195, %193 ], [ 1, %192 ]
   %196 = getelementptr inbounds [2 x double], ptr %55, i64 %.0.i.i.i207
   %197 = zext nneg i32 %184 to i64
   %198 = getelementptr inbounds nuw double, ptr %196, i64 %197
@@ -66467,7 +66467,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i216
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i216: ; preds = %208, %207, %205
-  %.0.i.i.i217 = phi i64 [ %210, %208 ], [ 0, %205 ], [ 1, %207 ]
+  %.0.i.i.i217 = phi i64 [ 0, %205 ], [ %210, %208 ], [ 1, %207 ]
   %211 = getelementptr inbounds [2 x double], ptr %59, i64 %.0.i.i.i217
   %212 = zext nneg i32 %152 to i64
   %213 = getelementptr inbounds nuw double, ptr %211, i64 %212
@@ -66500,7 +66500,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i226
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i226: ; preds = %223, %222, %220
-  %.0.i.i.i227 = phi i64 [ %225, %223 ], [ 0, %220 ], [ 1, %222 ]
+  %.0.i.i.i227 = phi i64 [ 0, %220 ], [ %225, %223 ], [ 1, %222 ]
   %226 = getelementptr inbounds [2 x double], ptr %59, i64 %.0.i.i.i227
   %227 = zext nneg i32 %168 to i64
   %228 = getelementptr inbounds nuw double, ptr %226, i64 %227
@@ -66533,7 +66533,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i236
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i236: ; preds = %238, %237, %235
-  %.0.i.i.i237 = phi i64 [ %240, %238 ], [ 0, %235 ], [ 1, %237 ]
+  %.0.i.i.i237 = phi i64 [ 0, %235 ], [ %240, %238 ], [ 1, %237 ]
   %241 = getelementptr inbounds [2 x double], ptr %59, i64 %.0.i.i.i237
   %242 = zext nneg i32 %184 to i64
   %243 = getelementptr inbounds nuw double, ptr %241, i64 %242
@@ -66858,7 +66858,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit243: ; preds = %_
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i249
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i249: ; preds = %407, %406, %404
-  %.0.i.i.i250 = phi i64 [ %409, %407 ], [ 0, %404 ], [ 1, %406 ]
+  %.0.i.i.i250 = phi i64 [ 0, %404 ], [ %409, %407 ], [ 1, %406 ]
   %410 = getelementptr [5 x double], ptr %292, i64 %.0.i.i.i250
   %411 = sext i32 %397 to i64
   %412 = getelementptr double, ptr %410, i64 %411
@@ -66895,7 +66895,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i257
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i257: ; preds = %426, %425, %423
-  %.0.i.i.i258 = phi i64 [ %428, %426 ], [ 0, %423 ], [ 1, %425 ]
+  %.0.i.i.i258 = phi i64 [ 0, %423 ], [ %428, %426 ], [ 1, %425 ]
   %429 = getelementptr [5 x double], ptr %292, i64 %.0.i.i.i258
   %430 = sext i32 %416 to i64
   %431 = getelementptr double, ptr %429, i64 %430
@@ -66932,7 +66932,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i266
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i266: ; preds = %445, %444, %442
-  %.0.i.i.i267 = phi i64 [ %447, %445 ], [ 0, %442 ], [ 1, %444 ]
+  %.0.i.i.i267 = phi i64 [ 0, %442 ], [ %447, %445 ], [ 1, %444 ]
   %448 = getelementptr [5 x double], ptr %292, i64 %.0.i.i.i267
   %449 = sext i32 %435 to i64
   %450 = getelementptr double, ptr %448, i64 %449
@@ -66967,7 +66967,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i275
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i275: ; preds = %462, %461, %459
-  %.0.i.i.i276 = phi i64 [ %464, %462 ], [ 0, %459 ], [ 1, %461 ]
+  %.0.i.i.i276 = phi i64 [ 0, %459 ], [ %464, %462 ], [ 1, %461 ]
   %465 = getelementptr [5 x double], ptr %6, i64 %.0.i.i.i276
   %466 = sext i32 %397 to i64
   %467 = getelementptr double, ptr %465, i64 %466
@@ -67002,7 +67002,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i284
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i284: ; preds = %479, %478, %476
-  %.0.i.i.i285 = phi i64 [ %481, %479 ], [ 0, %476 ], [ 1, %478 ]
+  %.0.i.i.i285 = phi i64 [ 0, %476 ], [ %481, %479 ], [ 1, %478 ]
   %482 = getelementptr [5 x double], ptr %6, i64 %.0.i.i.i285
   %483 = sext i32 %416 to i64
   %484 = getelementptr double, ptr %482, i64 %483
@@ -67037,7 +67037,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i293
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i293: ; preds = %496, %495, %493
-  %.0.i.i.i294 = phi i64 [ %498, %496 ], [ 0, %493 ], [ 1, %495 ]
+  %.0.i.i.i294 = phi i64 [ 0, %493 ], [ %498, %496 ], [ 1, %495 ]
   %499 = getelementptr [5 x double], ptr %6, i64 %.0.i.i.i294
   %500 = sext i32 %435 to i64
   %501 = getelementptr double, ptr %499, i64 %500
@@ -67350,7 +67350,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i: ; preds = %148, %147, %145
-  %.0.i.i.i = phi i64 [ %149, %148 ], [ 0, %145 ], [ 1, %147 ]
+  %.0.i.i.i = phi i64 [ 0, %145 ], [ %149, %148 ], [ 1, %147 ]
   %150 = getelementptr inbounds [2 x double], ptr %57, i64 %.0.i.i.i
   %151 = zext nneg i32 %139 to i64
   %152 = getelementptr inbounds nuw double, ptr %150, i64 %151
@@ -67384,7 +67384,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i151
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i151: ; preds = %163, %162, %160
-  %.0.i.i.i152 = phi i64 [ %164, %163 ], [ 0, %160 ], [ 1, %162 ]
+  %.0.i.i.i152 = phi i64 [ 0, %160 ], [ %164, %163 ], [ 1, %162 ]
   %165 = getelementptr inbounds [2 x double], ptr %57, i64 %.0.i.i.i152
   %166 = zext nneg i32 %154 to i64
   %167 = getelementptr inbounds nuw double, ptr %165, i64 %166
@@ -67419,7 +67419,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i161
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i161: ; preds = %179, %178, %176
-  %.0.i.i.i162 = phi i64 [ %180, %179 ], [ 0, %176 ], [ 1, %178 ]
+  %.0.i.i.i162 = phi i64 [ 0, %176 ], [ %180, %179 ], [ 1, %178 ]
   %181 = getelementptr inbounds [2 x double], ptr %57, i64 %.0.i.i.i162
   %182 = zext nneg i32 %170 to i64
   %183 = getelementptr inbounds nuw double, ptr %181, i64 %182
@@ -67688,7 +67688,7 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit168: ; preds = %_
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i174
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i174: ; preds = %316, %315, %313
-  %.0.i.i.i175 = phi i64 [ %317, %316 ], [ 0, %313 ], [ 1, %315 ]
+  %.0.i.i.i175 = phi i64 [ 0, %313 ], [ %317, %316 ], [ 1, %315 ]
   %318 = getelementptr [5 x double], ptr %216, i64 %.0.i.i.i175
   %319 = sext i32 %306 to i64
   %320 = getelementptr double, ptr %318, i64 %319
@@ -67725,7 +67725,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i182
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i182: ; preds = %334, %333, %331
-  %.0.i.i.i183 = phi i64 [ %335, %334 ], [ 0, %331 ], [ 1, %333 ]
+  %.0.i.i.i183 = phi i64 [ 0, %331 ], [ %335, %334 ], [ 1, %333 ]
   %336 = getelementptr [5 x double], ptr %216, i64 %.0.i.i.i183
   %337 = sext i32 %324 to i64
   %338 = getelementptr double, ptr %336, i64 %337
@@ -67763,7 +67763,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueE
   br label %_ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i191
 
 _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE13OffsetToIndexEii.exit.i.i191: ; preds = %353, %352, %350
-  %.0.i.i.i192 = phi i64 [ %354, %353 ], [ 0, %350 ], [ 1, %352 ]
+  %.0.i.i.i192 = phi i64 [ 0, %350 ], [ %354, %353 ], [ 1, %352 ]
   %355 = getelementptr [5 x double], ptr %216, i64 %.0.i.i.i192
   %356 = sext i32 %343 to i64
   %357 = getelementptr double, ptr %355, i64 %356
@@ -69018,7 +69018,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink
   %518 = trunc i8 %517 to i1
   br i1 %518, label %.critedge, label %.critedge264.backedge
 
-.critedge264.backedge:                            ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink.split, %504, %509, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i162, %451, %456, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i156, %486, %494, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i160, %463, %476, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i158, %432, %441, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i154, %409, %422, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i152, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit159, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit161, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit155, %.loopexit
+.critedge264.backedge:                            ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink.split, %504, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i162, %456, %509, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i156, %494, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i160, %476, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i158, %441, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i154, %422, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i152, %432, %409, %463, %451, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit159, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit161, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit155, %486, %.loopexit
   br label %.critedge264, !llvm.loop !924
 
 .critedge:                                        ; preds = %.critedge264, %353, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i136, %373, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread.sink.split, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit137
@@ -69673,9 +69673,9 @@ define linkonce_odr void @_ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E20ConstPo
   br label %.critedge, !llvm.loop !934
 
 .critedge:                                        ; preds = %.lr.ph46, %.lr.ph46.preheader, %..critedge.loopexit_crit_edge, %.preheader
-  %.039.lcssa = phi float [ %25, %.preheader ], [ %45, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph46.preheader ], [ %45, %.lr.ph46 ]
-  %.038.lcssa = phi float [ %25, %.preheader ], [ %.0394358, %..critedge.loopexit_crit_edge ], [ %25, %.lr.ph46.preheader ], [ %.0394358, %.lr.ph46 ]
-  %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader ], [ %44, %..critedge.loopexit_crit_edge ], [ %.0.lcssa, %.lr.ph46.preheader ], [ %44, %.lr.ph46 ]
+  %.039.lcssa = phi float [ %25, %.preheader ], [ %25, %.lr.ph46.preheader ], [ %45, %..critedge.loopexit_crit_edge ], [ %45, %.lr.ph46 ]
+  %.038.lcssa = phi float [ %25, %.preheader ], [ %25, %.lr.ph46.preheader ], [ %.0394358, %..critedge.loopexit_crit_edge ], [ %.0394358, %.lr.ph46 ]
+  %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader ], [ %.0.lcssa, %.lr.ph46.preheader ], [ %44, %..critedge.loopexit_crit_edge ], [ %44, %.lr.ph46 ]
   %47 = load i64, ptr %.1.lcssa, align 8
   %48 = trunc i64 %47 to i32
   %49 = and i32 %48, 31
@@ -69980,9 +69980,9 @@ _ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeData
   %.sroa.6.12.vec.insert69 = insertelement <2 x float> %.sroa.6.8.vec.insert66, float %178, i64 1
   br label %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
 
-_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %149, %145, %102, %107, %131, %139, %114, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %154
-  %.sroa.059.4 = phi <2 x float> [ %.sroa.059.4.vec.insert, %154 ], [ %.sroa.059.379, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ %.sroa.059.379, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.sroa.059.379, %114 ], [ %.sroa.059.379, %139 ], [ %.sroa.059.379, %131 ], [ %.sroa.059.379, %107 ], [ %.sroa.059.379, %102 ], [ %.sroa.059.379, %149 ], [ %.sroa.059.379, %145 ]
-  %.sroa.6.4 = phi <2 x float> [ %.sroa.6.12.vec.insert69, %154 ], [ %.sroa.6.380, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ %.sroa.6.380, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.sroa.6.380, %114 ], [ %.sroa.6.380, %139 ], [ %.sroa.6.380, %131 ], [ %.sroa.6.380, %107 ], [ %.sroa.6.380, %102 ], [ %.sroa.6.380, %149 ], [ %.sroa.6.380, %145 ]
+_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %149, %145, %102, %107, %131, %139, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %114, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit, %154
+  %.sroa.059.4 = phi <2 x float> [ %.sroa.059.379, %145 ], [ %.sroa.059.4.vec.insert, %154 ], [ %.sroa.059.379, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ %.sroa.059.379, %102 ], [ %.sroa.059.379, %114 ], [ %.sroa.059.379, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.sroa.059.379, %139 ], [ %.sroa.059.379, %131 ], [ %.sroa.059.379, %107 ], [ %.sroa.059.379, %149 ]
+  %.sroa.6.4 = phi <2 x float> [ %.sroa.6.380, %145 ], [ %.sroa.6.12.vec.insert69, %154 ], [ %.sroa.6.380, %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit ], [ %.sroa.6.380, %102 ], [ %.sroa.6.380, %114 ], [ %.sroa.6.380, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i ], [ %.sroa.6.380, %139 ], [ %.sroa.6.380, %131 ], [ %.sroa.6.380, %107 ], [ %.sroa.6.380, %149 ]
   br i1 %103, label %102, label %179, !llvm.loop !938
 
 179:                                              ; preds = %_ZNK6OctreeIfE14isValidFEMNodeILi1EL12BoundaryType2EEEbPK7OctNodeI12TreeNodeDataE.exit.thread
@@ -70186,7 +70186,7 @@ _ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %102
   br label %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread
 
 _ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %102, %95, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit
-  %.3 = phi float [ %116, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.243, %95 ], [ %.243, %102 ], [ %.243, %98 ]
+  %.3 = phi float [ %116, %_ZNK14SparseNodeDataIfLi2EEclEPK7OctNodeI12TreeNodeDataE.exit ], [ %.243, %98 ], [ %.243, %95 ], [ %.243, %102 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
   br i1 %exitcond61.not, label %.split45, label %95, !llvm.loop !943
@@ -70983,7 +70983,7 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.loopexit.i.i, !llvm.loop !951
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i108, %.loopexit134.thread, %..loopexit_crit_edge21.i.i.i.i112, %.loopexit134
-  %.pre-phi234 = phi i64 [ %343, %.loopexit134.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i112 ], [ %.pre-phi, %.loopexit134 ], [ %.pre-phi, %.lr.ph.i.i.i.i108 ]
+  %.pre-phi234 = phi i64 [ %343, %.loopexit134.thread ], [ %.pre-phi, %.loopexit134 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i112 ], [ %.pre-phi, %.lr.ph.i.i.i.i108 ]
   store ptr %330, ptr %10, align 8
   %376 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #47
           to label %.noexc113 unwind label %.loopexit.split-lp.loopexit
@@ -71005,7 +71005,7 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.body
 
 .loopexit:                                        ; preds = %369, %.noexc113, %364
-  %.0.i.pn.i.i = phi ptr [ %365, %364 ], [ %379, %.noexc113 ], [ %371, %369 ]
+  %.0.i.pn.i.i = phi ptr [ %379, %.noexc113 ], [ %365, %364 ], [ %371, %369 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %382 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6OctreeIfE8_IsoEdgeESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %21)
@@ -71829,8 +71829,8 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit112: ; preds = 
   br i1 %235, label %_ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit, label %.lr.ph.i.i.i.i116, !llvm.loop !882
 
 _ZNSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit: ; preds = %.lr.ph.i.i.i.i, %.preheader252, %.lr.ph.i.i.i.i116, %.preheader250, %221, %198
-  %.sroa.06.1.i.i121.sink332 = phi ptr [ %204, %198 ], [ %227, %221 ], [ %.sroa.06.0.i.i123, %.preheader250 ], [ %231, %.lr.ph.i.i.i.i116 ], [ %.sroa.06.0.i.i, %.preheader252 ], [ %208, %.lr.ph.i.i.i.i ]
-  %.0207 = phi i64 [ %193, %198 ], [ %216, %221 ], [ %216, %.preheader250 ], [ %216, %.lr.ph.i.i.i.i116 ], [ %193, %.preheader252 ], [ %193, %.lr.ph.i.i.i.i ]
+  %.sroa.06.1.i.i121.sink332 = phi ptr [ %204, %198 ], [ %227, %221 ], [ %.sroa.06.0.i.i, %.preheader252 ], [ %.sroa.06.0.i.i123, %.preheader250 ], [ %231, %.lr.ph.i.i.i.i116 ], [ %208, %.lr.ph.i.i.i.i ]
+  %.0207 = phi i64 [ %193, %198 ], [ %216, %221 ], [ %193, %.preheader252 ], [ %216, %.preheader250 ], [ %216, %.lr.ph.i.i.i.i116 ], [ %193, %.lr.ph.i.i.i.i ]
   %236 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i121.sink332, i64 16
   %237 = load i32, ptr %236, align 4
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i121.sink332, i64 20
@@ -73040,7 +73040,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread: ; p
   %456 = icmp eq i8 %455, 0
   br i1 %456, label %.backedge, label %.critedge
 
-.backedge:                                        ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit155, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i152, %416, %.loopexit, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i154, %431, %426, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i156, %446, %441, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread
+.backedge:                                        ; preds = %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit155, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153, %426, %.loopexit, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i152, %416, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i154, %431, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i156, %446, %441, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit153.thread
   %457 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %458 = load ptr, ptr %457, align 8
   %459 = icmp eq ptr %458, null
@@ -74252,7 +74252,7 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.loopexit.i.i, !llvm.loop !951
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i158, %.loopexit189.thread, %..loopexit_crit_edge21.i.i.i.i162, %.loopexit189
-  %.pre-phi331 = phi i64 [ %451, %.loopexit189.thread ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i162 ], [ %.pre-phi, %.loopexit189 ], [ %.pre-phi, %.lr.ph.i.i.i.i158 ]
+  %.pre-phi331 = phi i64 [ %451, %.loopexit189.thread ], [ %.pre-phi, %.loopexit189 ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i.i162 ], [ %.pre-phi, %.lr.ph.i.i.i.i158 ]
   store ptr %438, ptr %11, align 8
   %484 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #47
           to label %.noexc163 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -74274,7 +74274,7 @@ _ZNSt13unordered_mapIxSt6vectorIN6OctreeIfE8_IsoEdgeESaIS3_EESt4hashIxESt8equal_
   br label %.body
 
 .loopexit:                                        ; preds = %477, %.noexc163, %472
-  %.0.i.pn.i.i = phi ptr [ %473, %472 ], [ %487, %.noexc163 ], [ %479, %477 ]
+  %.0.i.pn.i.i = phi ptr [ %487, %.noexc163 ], [ %473, %472 ], [ %479, %477 ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %490 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 32
@@ -74512,7 +74512,7 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit.thread: ; pred
   br label %.body
 
 .body:                                            ; preds = %.loopexit188, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split, %.loopexit.split-lp.loopexit.split.us.split.us, %488
-  %eh.lpad-body = phi { ptr, i32 } [ %489, %488 ], [ %lpad.loopexit, %.loopexit188 ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit192.us.us, %.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit196, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit199, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit203, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %489, %488 ], [ %lpad.loopexit, %.loopexit188 ], [ %lpad.loopexit192.us.us, %.loopexit.split-lp.loopexit.split.us.split.us ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split ], [ %lpad.loopexit196, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit199, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit203, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %555 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   call void @__clang_call_terminate(ptr %555) #45
   unreachable
@@ -75529,7 +75529,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br i1 %562, label %.invoke, label %_ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 .invoke:                                          ; preds = %803, %561, %.lr.ph705, %410, %518, %229, %343, %767, %730, %681, %632
-  %563 = phi ptr [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.71, %767 ], [ @.str.71, %343 ], [ @.str.71, %229 ], [ @.str.71, %518 ], [ @.str.71, %410 ], [ @.str, %.lr.ph705 ], [ @.str.9, %561 ], [ @.str.71, %803 ]
+  %563 = phi ptr [ @.str.71, %518 ], [ @.str.71, %410 ], [ @.str, %.lr.ph705 ], [ @.str.71, %767 ], [ @.str.71, %343 ], [ @.str.71, %229 ], [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.71, %803 ], [ @.str.9, %561 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %563) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -75600,9 +75600,9 @@ _ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i: ; preds = %582, %.lr.ph.i.i
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1007
 
 _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
-  %.sroa.24.3 = phi ptr [ %580, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.24.1694, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %.sroa.24.1694, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.11.3 = phi ptr [ %579, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %scevgep.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %.sroa.0418.1696, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
-  %.sroa.0418.3 = phi ptr [ %567, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.1696, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %.sroa.0418.1696, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.24.3 = phi ptr [ %.sroa.24.1694, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %580, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.24.1694, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.11.3 = phi ptr [ %scevgep.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %579, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.1696, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
+  %.sroa.0418.3 = phi ptr [ %.sroa.0418.1696, %_ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i ], [ %567, %_ZNSt12_Vector_baseISt6vectorIxSaIxEESaIS2_EE13_M_deallocateEPS2_m.exit36.i ], [ %.sroa.0418.1696, %_ZSt8_DestroyISt6vectorIxSaIxEEEvPT_.exit.i.i.i.i.i ]
   %584 = load ptr, ptr %182, align 8
   %585 = getelementptr inbounds i8, ptr %584, i64 -16
   %.sroa.0417.0.copyload = load i64, ptr %585, align 8
@@ -75644,7 +75644,7 @@ _ZNSt6vectorIS_IxSaIxEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyISt6ve
   br i1 %602, label %._crit_edge, label %595
 
 ._crit_edge:                                      ; preds = %595, %.lr.ph685
-  %.lcssa546 = phi i64 [ %597, %595 ], [ %599, %.lr.ph685 ]
+  %.lcssa546 = phi i64 [ %599, %.lr.ph685 ], [ %597, %595 ]
   %603 = icmp eq i64 %594, %.lcssa546
   br i1 %603, label %._crit_edge.thread, label %761
 
@@ -75767,7 +75767,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxE
   %652 = load i64, ptr %651, align 8
   br label %794
 
-.loopexit495:                                     ; preds = %.lr.ph.i.i.i.i251, %.preheader731, %609, %..loopexit_crit_edge21.i.i.i.i255
+.loopexit495:                                     ; preds = %.lr.ph.i.i.i.i251, %.preheader731, %..loopexit_crit_edge21.i.i.i.i255, %609
   %653 = load i64, ptr %94, align 8
   %.not.not.i.i262 = icmp eq i64 %653, 0
   br i1 %.not.not.i.i262, label %.preheader728, label %658
@@ -75886,7 +75886,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit283:       ; preds = %_ZNSt6vectorIxSaIxE
   %701 = load i64, ptr %700, align 8
   br label %794
 
-.loopexit492:                                     ; preds = %.lr.ph.i.i.i.i264, %.preheader728, %658, %..loopexit_crit_edge21.i.i.i.i268
+.loopexit492:                                     ; preds = %.lr.ph.i.i.i.i264, %.preheader728, %..loopexit_crit_edge21.i.i.i.i268, %658
   %702 = load i64, ptr %98, align 8
   %.not.not.i.i284 = icmp eq i64 %702, 0
   br i1 %.not.not.i.i284, label %.preheader725, label %707
@@ -76274,7 +76274,7 @@ _ZNSt12_Vector_baseISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EEC2EmRKS4_.exit.
 ..loopexit_crit_edge21.i.i.i.i337:                ; preds = %863
   br label %.loopexit486, !llvm.loop !882
 
-.loopexit486:                                     ; preds = %.lr.ph.i.i.i.i333, %.preheader722, %849, %..loopexit_crit_edge21.i.i.i.i337
+.loopexit486:                                     ; preds = %.lr.ph.i.i.i.i333, %.preheader722, %..loopexit_crit_edge21.i.i.i.i337, %849
   %867 = load i64, ptr %108, align 8
   %.not.not.i.i342 = icmp eq i64 %867, 0
   br i1 %.not.not.i.i342, label %.preheader719, label %872
@@ -76327,7 +76327,7 @@ _ZNSt12_Vector_baseISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EEC2EmRKS4_.exit.
 ..loopexit_crit_edge21.i.i.i.i348:                ; preds = %886
   br label %.loopexit483, !llvm.loop !882
 
-.loopexit483:                                     ; preds = %.lr.ph.i.i.i.i344, %.preheader719, %872, %..loopexit_crit_edge21.i.i.i.i348
+.loopexit483:                                     ; preds = %.lr.ph.i.i.i.i344, %.preheader719, %..loopexit_crit_edge21.i.i.i.i348, %872
   %890 = load i64, ptr %112, align 8
   %.not.not.i.i354 = icmp eq i64 %890, 0
   br i1 %.not.not.i.i354, label %.preheader716, label %895
@@ -76387,7 +76387,7 @@ _ZNSt12_Vector_baseISt4pairIi22PlyColorAndValueVertexIfEESaIS3_EEC2EmRKS4_.exit.
   unreachable
 
 _ZNKSt13unordered_mapIxSt4pairIi22PlyColorAndValueVertexIfEESt4hashIxESt8equal_toIxESaIS0_IKxS3_EEE4findERS8_.exit: ; preds = %860, %845, %883, %868, %906, %891, %901, %878, %855
-  %.sroa.06.1.i.i338.sink1162 = phi ptr [ %856, %855 ], [ %879, %878 ], [ %902, %901 ], [ %.sroa.06.0.i.i363, %891 ], [ %908, %906 ], [ %.sroa.06.0.i.i351, %868 ], [ %885, %883 ], [ %.sroa.06.0.i.i340, %845 ], [ %862, %860 ]
+  %.sroa.06.1.i.i338.sink1162 = phi ptr [ %856, %855 ], [ %879, %878 ], [ %902, %901 ], [ %.sroa.06.0.i.i340, %845 ], [ %.sroa.06.0.i.i363, %891 ], [ %908, %906 ], [ %.sroa.06.0.i.i351, %868 ], [ %885, %883 ], [ %862, %860 ]
   %915 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i338.sink1162, i64 16
   %916 = load ptr, ptr %30, align 8
   %917 = getelementptr inbounds %"struct.std::pair.488", ptr %916, i64 %.0157700
@@ -76451,7 +76451,7 @@ _ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0418.3) #44
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader526, %116, %123, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %941, %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, %163, %133, %166, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
+.critedge:                                        ; preds = %.preheader526, %116, %123, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.i, %941, %_ZSt8_DestroyIPSt6vectorIxSaIxEES2_EvT_S4_RSaIT0_E.exit.i, %133, %163, %166, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit, %_ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit
   %942 = add nuw i32 %.0707, 1
   %943 = load i32, ptr %23, align 4
   %944 = add i32 %943, 1
@@ -76691,7 +76691,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %27
   br i1 %exitcond198.not, label %.loopexit137, label %79, !llvm.loop !1016
 
 .loopexit137:                                     ; preds = %79, %73, %74
-  %.5 = phi i1 [ %.2146, %74 ], [ %.2146, %73 ], [ %.4, %79 ]
+  %.5 = phi i1 [ %.2146, %73 ], [ %.2146, %74 ], [ %.4, %79 ]
   %exitcond201.not = icmp eq i64 %.pre228, %indvars.iv202
   br i1 %exitcond201.not, label %._crit_edge, label %73, !llvm.loop !1017
 
@@ -77152,17 +77152,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit131:                 ; preds = %276, %274, %_ZNSt6v
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %56, %54, %_ZNSt6vectorIiSaIiEED2Ev.exit122, %_ZNSt6vectorIiSaIiEED2Ev.exit131
-  %.084 = phi i32 [ %287, %_ZNSt6vectorIiSaIiEED2Ev.exit131 ], [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ], [ 1, %54 ], [ 1, %56 ]
+  %.084 = phi i32 [ %.1, %_ZNSt6vectorIiSaIiEED2Ev.exit122 ], [ %287, %_ZNSt6vectorIiSaIiEED2Ev.exit131 ], [ 1, %54 ], [ 1, %56 ]
   ret i32 %.084
 
 _ZNSt6vectorIiSaIiEED2Ev.exit104.sink.split:      ; preds = %277, %253, %57
-  %.sink = phi ptr [ %59, %57 ], [ %254, %253 ], [ %279, %277 ]
-  %.pn100.ph = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %253 ], [ %278, %277 ]
+  %.sink = phi ptr [ %254, %253 ], [ %59, %57 ], [ %279, %277 ]
+  %.pn100.ph = phi { ptr, i32 } [ %.pn, %253 ], [ %58, %57 ], [ %278, %277 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #44
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit104
 
 _ZNSt6vectorIiSaIiEED2Ev.exit104:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit104.sink.split, %277, %253, %57
-  %.pn100 = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %253 ], [ %278, %277 ], [ %.pn100.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit104.sink.split ]
+  %.pn100 = phi { ptr, i32 } [ %.pn, %253 ], [ %278, %277 ], [ %58, %57 ], [ %.pn100.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit104.sink.split ]
   resume { ptr, i32 } %.pn100
 
 288:                                              ; preds = %146
@@ -78230,8 +78230,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59: ;
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us
 
 _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us: ; preds = %187, %182
-  %191 = phi ptr [ %190, %187 ], [ %183, %182 ]
-  %192 = phi ptr [ %190, %187 ], [ %184, %182 ]
+  %191 = phi ptr [ %183, %182 ], [ %190, %187 ]
+  %192 = phi ptr [ %184, %182 ], [ %190, %187 ]
   %193 = add nuw nsw i32 %.052118.us119.us, 1
   %exitcond136.not = icmp eq i32 %193, 4
   br i1 %exitcond136.not, label %.split.split.us.us, label %182, !llvm.loop !1039
@@ -82427,9 +82427,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.620.i = phi ptr [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #44
   %75 = icmp eq ptr %1, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %75
@@ -82452,7 +82452,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

@@ -145,7 +145,7 @@ define noundef zeroext i1 @_ZN18ruff_python_stdlib4path14is_module_file17he91e82
   br label %23
 
 23:                                               ; preds = %11, %17, %19, %10, %2, %21
-  %.sroa.0.0 = phi i1 [ %22, %21 ], [ false, %2 ], [ false, %10 ], [ true, %19 ], [ true, %17 ], [ true, %11 ]
+  %.sroa.0.0 = phi i1 [ %22, %21 ], [ false, %10 ], [ false, %2 ], [ true, %19 ], [ true, %17 ], [ true, %11 ]
   ret i1 %.sroa.0.0
 }
 

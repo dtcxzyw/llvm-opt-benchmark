@@ -146,8 +146,8 @@ define internal range(i32 -22, 1) i32 @smjpeg_write_header(ptr noundef %0) #0 {
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1145980232) #4
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %51, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ -22, %51 ], [ -22, %39 ]
+.critedge:                                        ; preds = %51, %39, %._crit_edge
+  %.2 = phi i32 [ 0, %._crit_edge ], [ -22, %39 ], [ -22, %51 ]
   ret i32 %.2
 }
 

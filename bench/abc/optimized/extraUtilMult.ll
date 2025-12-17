@@ -602,7 +602,7 @@ Abc_BddUniqueCreateInt.exit22.i:                  ; preds = %207, %225
   br label %Abc_BddUniqueCreate.exit
 
 Abc_BddUniqueCreate.exit:                         ; preds = %139, %100, %157, %Abc_BddUniqueCreateInt.exit22.i
-  %.0.i = phi i32 [ %244, %Abc_BddUniqueCreateInt.exit22.i ], [ %.063, %100 ], [ %175, %157 ], [ %134, %139 ]
+  %.0.i = phi i32 [ %.063, %100 ], [ %244, %Abc_BddUniqueCreateInt.exit22.i ], [ %175, %157 ], [ %134, %139 ]
   %245 = load ptr, ptr %14, align 8, !tbaa !17
   %246 = load i32, ptr %19, align 4, !tbaa !14
   %247 = and i32 %246, %18
@@ -1208,8 +1208,8 @@ Abc_BddPrint.exit:                                ; preds = %96, %104
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %122, %124, %114, %116
-  %.sink122 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
-  %.sink = phi i32 [ 16, %114 ], [ 16, %116 ], [ %119, %122 ], [ %119, %124 ]
+  %.sink122 = phi ptr [ %117, %116 ], [ %115, %114 ], [ %123, %122 ], [ %125, %124 ]
+  %.sink = phi i32 [ 16, %116 ], [ 16, %114 ], [ %119, %122 ], [ %119, %124 ]
   store ptr %.sink122, ptr %35, align 8, !tbaa !34
   store i32 %.sink, ptr %27, align 8, !tbaa !62
   br label %Vec_IntPush.exit

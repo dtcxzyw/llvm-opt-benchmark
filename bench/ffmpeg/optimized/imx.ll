@@ -340,7 +340,7 @@ default.unreachable197:                           ; preds = %bytestream2_get_byt
   br label %.critedge145
 
 .critedge145:                                     ; preds = %bytestream2_get_le16.exit, %.critedge, %4, %149
-  %.096 = phi i32 [ %150, %149 ], [ %8, %4 ], [ %147, %.critedge ], [ -1094995529, %bytestream2_get_le16.exit ]
+  %.096 = phi i32 [ %150, %149 ], [ %147, %.critedge ], [ %8, %4 ], [ -1094995529, %bytestream2_get_le16.exit ]
   ret i32 %.096
 }
 

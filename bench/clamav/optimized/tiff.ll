@@ -257,7 +257,7 @@ fmap_readn.exit95.thread:                         ; preds = %46, %.lr.ph, %fmap_
   br label %74
 
 74:                                               ; preds = %51, %51, %51, %51, %72, %70, %68, %66, %64, %62, %60, %58
-  %.0 = phi i64 [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %57, %51 ], [ %57, %51 ], [ %57, %51 ], [ %57, %51 ]
+  %.0 = phi i64 [ %57, %51 ], [ %73, %72 ], [ %57, %51 ], [ %59, %58 ], [ %61, %60 ], [ %63, %62 ], [ %57, %51 ], [ %57, %51 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ]
   %75 = icmp samesign ugt i64 %.0, 4
   br i1 %75, label %76, label %.thread
 
@@ -329,7 +329,7 @@ fmap_readn.exit100.thread:                        ; preds = %88, %._crit_edge, %
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %13, %8, %18, %fmap_readn.exit, %100, %97, %fmap_readn.exit100.thread, %81, %fmap_readn.exit95.thread, %fmap_readn.exit90.thread, %30, %fmap_readn.exit85.thread, %7
-  %.050 = phi i32 [ 3, %7 ], [ %26, %fmap_readn.exit85.thread ], [ %39, %fmap_readn.exit90.thread ], [ %50, %fmap_readn.exit95.thread ], [ %83, %81 ], [ %92, %fmap_readn.exit100.thread ], [ %98, %97 ], [ 0, %100 ], [ %31, %30 ], [ 0, %fmap_readn.exit ], [ 0, %18 ], [ 0, %8 ], [ 0, %13 ]
+  %.050 = phi i32 [ 3, %7 ], [ %31, %30 ], [ 0, %fmap_readn.exit ], [ %26, %fmap_readn.exit85.thread ], [ %39, %fmap_readn.exit90.thread ], [ %50, %fmap_readn.exit95.thread ], [ %83, %81 ], [ %92, %fmap_readn.exit100.thread ], [ %98, %97 ], [ 0, %100 ], [ 0, %18 ], [ 0, %8 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

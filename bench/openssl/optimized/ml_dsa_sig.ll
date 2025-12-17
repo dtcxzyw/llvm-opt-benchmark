@@ -44,7 +44,7 @@ define internal noalias ptr @ml_dsa_44_newctx(ptr noundef %0, ptr readnone captu
   br label %ml_dsa_newctx.exit
 
 ml_dsa_newctx.exit:                               ; preds = %2, %4, %7
-  %.0.i = phi ptr [ %5, %7 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %2 ], [ %5, %7 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -113,7 +113,7 @@ define internal i32 @ml_dsa_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %37
 
 37:                                               ; preds = %25, %36, %20, %6
-  %.022 = phi i32 [ 0, %6 ], [ 0, %20 ], [ %34, %36 ], [ %34, %25 ]
+  %.022 = phi i32 [ 0, %20 ], [ 0, %6 ], [ %34, %36 ], [ %34, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.022
 }
@@ -341,7 +341,7 @@ ossl_param_is_empty.exit:                         ; preds = %6
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %6, %15, %38, %33, %28, %.critedge52, %ossl_param_is_empty.exit, %2, %41
-  %.032 = phi i32 [ 1, %41 ], [ 0, %15 ], [ 0, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge52 ], [ 0, %28 ], [ 0, %33 ], [ 0, %38 ], [ 1, %6 ]
+  %.032 = phi i32 [ 0, %15 ], [ 0, %2 ], [ 1, %41 ], [ 0, %33 ], [ 0, %28 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %.critedge52 ], [ 0, %38 ], [ 1, %6 ]
   ret i32 %.032
 }
 
@@ -374,7 +374,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_get_ctx_params(ptr noundef %0, ptr n
   br label %14
 
 14:                                               ; preds = %6, %2, %13
-  %.0 = phi i32 [ 1, %13 ], [ 0, %2 ], [ 0, %6 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %13 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -420,7 +420,7 @@ define internal noalias ptr @ml_dsa_65_newctx(ptr noundef %0, ptr readnone captu
   br label %ml_dsa_newctx.exit
 
 ml_dsa_newctx.exit:                               ; preds = %2, %4, %7
-  %.0.i = phi ptr [ %5, %7 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %2 ], [ %5, %7 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -446,7 +446,7 @@ define internal noalias ptr @ml_dsa_87_newctx(ptr noundef %0, ptr readnone captu
   br label %ml_dsa_newctx.exit
 
 ml_dsa_newctx.exit:                               ; preds = %2, %4, %7
-  %.0.i = phi ptr [ %5, %7 ], [ null, %2 ], [ null, %4 ]
+  %.0.i = phi ptr [ null, %2 ], [ %5, %7 ], [ null, %4 ]
   ret ptr %.0.i
 }
 
@@ -540,7 +540,7 @@ set_alg_id_buffer.exit:                           ; preds = %.critedge.thread.i,
   br label %35
 
 35:                                               ; preds = %14, %3, %set_alg_id_buffer.exit, %12
-  %.0 = phi i32 [ 0, %12 ], [ %34, %set_alg_id_buffer.exit ], [ 0, %3 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %12 ], [ %34, %set_alg_id_buffer.exit ], [ 0, %14 ]
   ret i32 %.0
 }
 

@@ -482,7 +482,7 @@ BufferGetPage.exit136:                            ; preds = %233, %239
   br label %251
 
 251:                                              ; preds = %246, %249, %148, %85, %71, %142, %149, %81, %86, %67, %72, %24, %153
-  %.0 = phi i1 [ false, %153 ], [ false, %24 ], [ false, %71 ], [ false, %72 ], [ false, %67 ], [ false, %85 ], [ false, %86 ], [ false, %81 ], [ true, %148 ], [ true, %149 ], [ true, %142 ], [ true, %249 ], [ true, %246 ]
+  %.0 = phi i1 [ false, %24 ], [ false, %81 ], [ false, %153 ], [ true, %142 ], [ false, %67 ], [ false, %71 ], [ false, %72 ], [ false, %85 ], [ false, %86 ], [ true, %148 ], [ true, %149 ], [ true, %249 ], [ true, %246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i1 %.0
 }
@@ -699,7 +699,7 @@ BufferGetPage.exit94:                             ; preds = %75, %81
   br label %br_page_get_freespace.exit
 
 br_page_get_freespace.exit:                       ; preds = %101, %97, %89
-  %103 = phi i64 [ %102, %101 ], [ 0, %97 ], [ 0, %89 ]
+  %103 = phi i64 [ 0, %89 ], [ %102, %101 ], [ 0, %97 ]
   %.not85 = icmp ult i64 %103, %2
   br i1 %.not85, label %114, label %br_page_get_freespace.exit.thread
 
@@ -769,8 +769,8 @@ RelationGetSmgr.exit:                             ; preds = %br_page_get_freespa
   %129 = tail call i32 @RecordAndGetPageWithFreeSpace(ptr noundef %0, i32 noundef %.2, i64 noundef %103, i64 noundef %2) #5
   br label %25
 
-130:                                              ; preds = %69, %66, %113, %RelationGetSmgr.exit
-  %.175.ph = phi i32 [ %.073, %RelationGetSmgr.exit ], [ %.073, %113 ], [ 0, %66 ], [ 0, %69 ]
+130:                                              ; preds = %66, %69, %113, %RelationGetSmgr.exit
+  %.175.ph = phi i32 [ %.073, %RelationGetSmgr.exit ], [ %.073, %113 ], [ 0, %69 ], [ 0, %66 ]
   ret i32 %.175.ph
 }
 
@@ -1303,7 +1303,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %18, %32, %BufferGetPage.exit
-  %.0 = phi i1 [ true, %32 ], [ false, %BufferGetPage.exit ], [ false, %18 ], [ false, %26 ]
+  %.0 = phi i1 [ false, %BufferGetPage.exit ], [ true, %32 ], [ false, %18 ], [ false, %26 ]
   ret i1 %.0
 }
 

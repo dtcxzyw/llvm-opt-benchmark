@@ -344,8 +344,8 @@ _ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS
   br label %_ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit
 
 _ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %30, %46, %.thread, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %68 = phi i32 [ %20, %.thread ], [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %46 ], [ %20, %30 ]
-  %69 = phi ptr [ %21, %.thread ], [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %46 ], [ %21, %30 ]
+  %68 = phi i32 [ %.pre21, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %20, %.thread ], [ %20, %46 ], [ %20, %30 ]
+  %69 = phi ptr [ %.pre20, %_ZN26GrowableArrayWithAllocatorIN13ReplacedNodes12ReplacedNodeE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %21, %.thread ], [ %21, %46 ], [ %21, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
@@ -1253,8 +1253,8 @@ _ZN10Node_Stack4pushEP4Nodej.exit181:             ; preds = %395, %406
   br label %.loopexit253
 
 .loopexit253:                                     ; preds = %.preheader252, %_ZN10Node_Stack4pushEP4Nodej.exit181, %_ZN13ReplacedNodes22collect_nodes_to_cloneERK10Node_StackR16Unique_Node_List.exit
-  %409 = phi ptr [ %.pre340, %_ZN10Node_Stack4pushEP4Nodej.exit181 ], [ %378, %_ZN13ReplacedNodes22collect_nodes_to_cloneERK10Node_StackR16Unique_Node_List.exit ], [ %378, %.preheader252 ]
-  %410 = phi ptr [ %.pre339, %_ZN10Node_Stack4pushEP4Nodej.exit181 ], [ %376, %_ZN13ReplacedNodes22collect_nodes_to_cloneERK10Node_StackR16Unique_Node_List.exit ], [ %386, %.preheader252 ]
+  %409 = phi ptr [ %378, %_ZN13ReplacedNodes22collect_nodes_to_cloneERK10Node_StackR16Unique_Node_List.exit ], [ %.pre340, %_ZN10Node_Stack4pushEP4Nodej.exit181 ], [ %378, %.preheader252 ]
+  %410 = phi ptr [ %376, %_ZN13ReplacedNodes22collect_nodes_to_cloneERK10Node_StackR16Unique_Node_List.exit ], [ %.pre339, %_ZN10Node_Stack4pushEP4Nodej.exit181 ], [ %386, %.preheader252 ]
   %411 = icmp ult ptr %410, %409
   br i1 %411, label %.loopexit260, label %.lr.ph273, !llvm.loop !17
 
@@ -1720,7 +1720,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   br label %_ZNK9VectorSet4testEj.exit.thread
 
 _ZNK9VectorSet4testEj.exit.thread:                ; preds = %613, %597, %585, %656, %_ZNK9VectorSet4testEj.exit, %568, %578
-  %657 = phi i32 [ %569, %568 ], [ %569, %578 ], [ %.pre341, %656 ], [ %569, %_ZNK9VectorSet4testEj.exit ], [ %569, %585 ], [ %569, %597 ], [ %569, %613 ]
+  %657 = phi i32 [ %569, %568 ], [ %569, %578 ], [ %.pre341, %656 ], [ %569, %585 ], [ %569, %_ZNK9VectorSet4testEj.exit ], [ %569, %597 ], [ %569, %613 ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %658 = zext i32 %657 to i64
   %659 = icmp samesign ult i64 %indvars.iv.next334, %658

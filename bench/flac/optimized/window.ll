@@ -1275,7 +1275,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %190, label %180, label %.preheader, !llvm.loop !32
 
 FLAC__window_partial_tukey.exit.sink.split:       ; preds = %.preheader, %.preheader88, %.preheader93, %.preheader98
-  %.3.i.lcssa.sink289 = phi i32 [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.i81.lcssa, %.preheader88 ], [ %.3.lcssa, %.preheader ]
+  %.3.i.lcssa.sink289 = phi i32 [ %.3.i81.lcssa, %.preheader88 ], [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.lcssa, %.preheader ]
   %191 = zext nneg i32 %.3.i.lcssa.sink289 to i64
   %192 = shl nuw nsw i64 %191, 2
   %scevgep = getelementptr i8, ptr %0, i64 %192
@@ -1301,7 +1301,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %6, label %7, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
-  %.tr96.be = phi float [ 0x3FA99999A0000000, %tailrecurse ], [ 0x3FEE666660000000, %7 ], [ 5.000000e-01, %9 ]
+  %.tr96.be = phi float [ 0x3FEE666660000000, %7 ], [ 0x3FA99999A0000000, %tailrecurse ], [ 5.000000e-01, %9 ]
   br label %tailrecurse
 
 7:                                                ; preds = %tailrecurse

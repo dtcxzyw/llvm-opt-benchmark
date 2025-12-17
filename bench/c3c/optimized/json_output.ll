@@ -919,7 +919,7 @@ define internal fastcc void @emit_type_data(ptr noundef captures(none) %0, ptr %
   unreachable
 
 decl_type_to_string.exit:                         ; preds = %2, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27
-  %.0.i = phi ptr [ @.str.36, %8 ], [ @.str.37, %9 ], [ @.str.38, %10 ], [ @.str.39, %11 ], [ @.str.40, %12 ], [ @.str.41, %13 ], [ @.str.42, %14 ], [ @.str.43, %15 ], [ @.str.44, %16 ], [ @.str.45, %17 ], [ @.str.46, %18 ], [ @.str.47, %19 ], [ @.str.48, %20 ], [ @.str.49, %21 ], [ @.str.50, %22 ], [ @.str.51, %23 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.55, %27 ], [ @.str.35, %2 ]
+  %.0.i = phi ptr [ @.str.55, %27 ], [ @.str.36, %8 ], [ @.str.37, %9 ], [ @.str.38, %10 ], [ @.str.39, %11 ], [ @.str.40, %12 ], [ @.str.41, %13 ], [ @.str.42, %14 ], [ @.str.43, %15 ], [ @.str.44, %16 ], [ @.str.45, %17 ], [ @.str.46, %18 ], [ @.str.47, %19 ], [ @.str.48, %20 ], [ @.str.49, %21 ], [ @.str.50, %22 ], [ @.str.51, %23 ], [ @.str.52, %24 ], [ @.str.53, %25 ], [ @.str.54, %26 ], [ @.str.35, %2 ]
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0.i) #6
   %31 = load i64, ptr %5, align 8
   %32 = trunc i64 %31 to i32

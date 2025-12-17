@@ -1646,9 +1646,9 @@ define i32 @ff_opus_rc_dec_laplace(ptr noundef captures(none) %0, i32 noundef %1
   br label %opus_rc_dec_update.exit
 
 opus_rc_dec_update.exit:                          ; preds = %.critedge, %3
-  %.043 = phi i32 [ 0, %3 ], [ %spec.select, %.critedge ]
-  %.041 = phi i32 [ 0, %3 ], [ %spec.select53, %.critedge ]
-  %.0 = phi i32 [ %1, %3 ], [ %.155, %.critedge ]
+  %.043 = phi i32 [ %spec.select, %.critedge ], [ 0, %3 ]
+  %.041 = phi i32 [ %spec.select53, %.critedge ], [ 0, %3 ]
+  %.0 = phi i32 [ %.155, %.critedge ], [ %1, %3 ]
   %30 = add i32 %.0, %.041
   %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 32768)
   %32 = sub nuw nsw i32 32768, %31

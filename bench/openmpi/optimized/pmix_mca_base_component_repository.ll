@@ -592,7 +592,7 @@ pmix_strncpy.exit85:                              ; preds = %153, %156
   br label %170
 
 170:                                              ; preds = %82, %85, %pmix_obj_update.exit64, %139, %138, %pmix_obj_update.exit, %2, %pmix_strncpy.exit85, %pmix_obj_new_tma.exit73, %96, %56, %31, %22
-  %.0 = phi i32 [ 0, %22 ], [ -27, %31 ], [ -29, %56 ], [ 0, %96 ], [ -29, %pmix_obj_new_tma.exit73 ], [ 0, %pmix_strncpy.exit85 ], [ -1, %2 ], [ %59, %pmix_obj_update.exit ], [ -29, %138 ], [ -29, %139 ], [ -29, %pmix_obj_update.exit64 ], [ %59, %85 ], [ %59, %82 ]
+  %.0 = phi i32 [ 0, %pmix_strncpy.exit85 ], [ 0, %22 ], [ -27, %31 ], [ -29, %56 ], [ -1, %2 ], [ 0, %96 ], [ -29, %pmix_obj_new_tma.exit73 ], [ %59, %pmix_obj_update.exit ], [ -29, %pmix_obj_update.exit64 ], [ -29, %138 ], [ -29, %139 ], [ %59, %85 ], [ %59, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -708,7 +708,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   br label %36
 
 36:                                               ; preds = %._crit_edge39, %17, %4
-  %.027 = phi i32 [ 0, %._crit_edge39 ], [ %3, %4 ], [ %16, %17 ]
+  %.027 = phi i32 [ %16, %17 ], [ 0, %._crit_edge39 ], [ %3, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.027
 }
@@ -1442,7 +1442,7 @@ pmix_obj_new_tma.exit118:                         ; preds = %180, %pmix_obj_upda
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %45, %68, %29, %32, %276, %.loopexit134
-  %.0 = phi i32 [ 0, %.loopexit134 ], [ %.2, %276 ], [ -27, %32 ], [ -27, %29 ], [ -47, %68 ], [ -29, %45 ]
+  %.0 = phi i32 [ %.2, %276 ], [ -27, %29 ], [ 0, %.loopexit134 ], [ -47, %68 ], [ -27, %32 ], [ -29, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

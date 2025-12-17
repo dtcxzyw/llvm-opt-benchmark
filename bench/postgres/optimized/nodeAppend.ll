@@ -626,7 +626,7 @@ ExecProcNode.exit:                                ; preds = %ExecAppendAsyncGetN
   br label %.thread
 
 .thread:                                          ; preds = %173, %ExecAppendAsyncRequest.exit.thread.i, %ExecAppendAsyncRequest.exit17.i, %154, %187, %75, %9
-  %.0 = phi ptr [ %11, %9 ], [ %77, %75 ], [ %149, %ExecAppendAsyncRequest.exit17.i ], [ %120, %ExecAppendAsyncRequest.exit.thread.i ], [ %156, %154 ], [ %189, %187 ], [ %171, %173 ]
+  %.0 = phi ptr [ %77, %75 ], [ %11, %9 ], [ %149, %ExecAppendAsyncRequest.exit17.i ], [ %120, %ExecAppendAsyncRequest.exit.thread.i ], [ %156, %154 ], [ %189, %187 ], [ %171, %173 ]
   ret ptr %.0
 }
 
@@ -1194,7 +1194,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   br label %64
 
 64:                                               ; preds = %53, %62, %57, %49
-  %.sink = phi i32 [ %51, %49 ], [ %63, %62 ], [ %60, %57 ], [ %54, %53 ]
+  %.sink = phi i32 [ %51, %49 ], [ %60, %57 ], [ %63, %62 ], [ %54, %53 ]
   store i32 %.sink, ptr %37, align 4
   %65 = load i32, ptr %5, align 4
   %.not62 = icmp eq i32 %.sink, %65
@@ -1237,7 +1237,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
   br label %86
 
 86:                                               ; preds = %77, %81, %mark_invalid_subplans_as_finished.exit, %66
-  %.0 = phi i1 [ false, %66 ], [ false, %mark_invalid_subplans_as_finished.exit ], [ true, %81 ], [ true, %77 ]
+  %.0 = phi i1 [ false, %mark_invalid_subplans_as_finished.exit ], [ false, %66 ], [ true, %81 ], [ true, %77 ]
   tail call void @LWLockRelease(ptr noundef nonnull %3) #6
   ret i1 %.0
 }

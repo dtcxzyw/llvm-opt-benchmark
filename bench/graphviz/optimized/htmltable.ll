@@ -455,7 +455,7 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
   br label %setFill.exit
 
 setFill.exit:                                     ; preds = %89, %95
-  %.0.i = phi i32 [ 1, %95 ], [ %..i, %89 ]
+  %.0.i = phi i32 [ %..i, %89 ], [ 1, %95 ]
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef nonnull @.str.9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %96 = load i8, ptr %79, align 2
@@ -648,7 +648,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %105
   br label %setFill.exit108
 
 setFill.exit108:                                  ; preds = %186, %191
-  %.0.i104 = phi i32 [ 1, %191 ], [ %..i107, %186 ]
+  %.0.i104 = phi i32 [ %..i107, %186 ], [ 1, %191 ]
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef nonnull @.str.9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = load i8, ptr %176, align 2
@@ -1681,7 +1681,7 @@ free_html_tbl.exit:                               ; preds = %rows_free.exit, %._
   br i1 %96, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !162
 
 free_html_text.exit.sink.split:                   ; preds = %73, %._crit_edge31.loopexit.i, %free_html_tbl.exit, %69
-  %.sink = phi ptr [ %71, %69 ], [ %68, %free_html_tbl.exit ], [ %.pre34.i, %._crit_edge31.loopexit.i ], [ %74, %73 ]
+  %.sink = phi ptr [ %68, %free_html_tbl.exit ], [ %71, %69 ], [ %.pre34.i, %._crit_edge31.loopexit.i ], [ %74, %73 ]
   tail call void @free(ptr noundef %.sink) #23
   tail call void @free(ptr noundef %5) #23
   br label %free_html_text.exit
@@ -1777,12 +1777,12 @@ define internal fastcc ptr @portToTbl(ptr noundef readonly captures(ret: address
   br label %portToCell.exit
 
 portToCell.exit:                                  ; preds = %20, %24
-  %.0.i = phi ptr [ %27, %24 ], [ null, %20 ]
+  %.0.i = phi ptr [ null, %20 ], [ %27, %24 ]
   %.not15 = icmp eq ptr %.0.i, null
   br i1 %.not15, label %11, label %portToCell.exit.thread, !llvm.loop !192
 
 portToCell.exit.thread:                           ; preds = %17, %11, %portToCell.exit, %5
-  %.0 = phi ptr [ %0, %5 ], [ %12, %17 ], [ null, %11 ], [ %.0.i, %portToCell.exit ]
+  %.0 = phi ptr [ %0, %5 ], [ %12, %17 ], [ %.0.i, %portToCell.exit ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -2799,7 +2799,7 @@ bitarray_set.exit:                                ; preds = %.lr.ph
   br label %.sink.split278
 
 .sink.split278:                                   ; preds = %130, %127, %133
-  %.sink279 = phi i8 [ %134, %133 ], [ %128, %127 ], [ 1, %130 ]
+  %.sink279 = phi i8 [ %128, %127 ], [ %134, %133 ], [ 1, %130 ]
   %135 = getelementptr inbounds nuw i8, ptr %113, i64 61
   store i8 %.sink279, ptr %135, align 1, !tbaa !106
   br label %136
@@ -2921,9 +2921,9 @@ size_html_cell.exit.sink.split:                   ; preds = %181, %184, %192
   br label %size_html_cell.exit
 
 size_html_cell.exit:                              ; preds = %size_html_cell.exit.sink.split, %165, %187, %192
-  %.sroa.7.0.i = phi double [ %178, %165 ], [ 0.000000e+00, %187 ], [ 0.000000e+00, %192 ], [ %.sroa.7.0.i.ph, %size_html_cell.exit.sink.split ]
-  %.sroa.08.0.i = phi double [ %177, %165 ], [ 0.000000e+00, %187 ], [ 0.000000e+00, %192 ], [ %.sroa.08.0.i.ph, %size_html_cell.exit.sink.split ]
-  %.1.i123 = phi i32 [ %.0.i122, %165 ], [ %.0.i122, %187 ], [ %.0.i122, %192 ], [ 1, %size_html_cell.exit.sink.split ]
+  %.sroa.7.0.i = phi double [ %178, %165 ], [ 0.000000e+00, %192 ], [ 0.000000e+00, %187 ], [ %.sroa.7.0.i.ph, %size_html_cell.exit.sink.split ]
+  %.sroa.08.0.i = phi double [ %177, %165 ], [ 0.000000e+00, %192 ], [ 0.000000e+00, %187 ], [ %.sroa.08.0.i.ph, %size_html_cell.exit.sink.split ]
+  %.1.i123 = phi i32 [ %.0.i122, %165 ], [ %.0.i122, %192 ], [ %.0.i122, %187 ], [ 1, %size_html_cell.exit.sink.split ]
   %194 = getelementptr inbounds nuw i8, ptr %113, i64 66
   %195 = load i16, ptr %194, align 2, !tbaa !239
   %196 = uitofp i16 %195 to double
@@ -3778,10 +3778,10 @@ gv_strdup.exit:                                   ; preds = %15
   br label %72
 
 72:                                               ; preds = %.sink.split, %58, %23
-  %73 = phi double [ %35, %58 ], [ %35, %23 ], [ %.sink, %.sink.split ]
-  %74 = phi double [ %59, %58 ], [ %28, %23 ], [ %59, %.sink.split ]
-  %.0117 = phi double [ %.1118, %58 ], [ %31, %23 ], [ %.1118, %.sink.split ]
-  %.0116 = phi double [ %40, %58 ], [ %40, %23 ], [ 0.000000e+00, %.sink.split ]
+  %73 = phi double [ %35, %23 ], [ %35, %58 ], [ %.sink, %.sink.split ]
+  %74 = phi double [ %28, %23 ], [ %59, %58 ], [ %59, %.sink.split ]
+  %.0117 = phi double [ %31, %23 ], [ %.1118, %58 ], [ %.1118, %.sink.split ]
+  %.0116 = phi double [ %40, %23 ], [ %40, %58 ], [ 0.000000e+00, %.sink.split ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %76 = load i8, ptr %75, align 1, !tbaa !94
   %77 = uitofp i8 %76 to double

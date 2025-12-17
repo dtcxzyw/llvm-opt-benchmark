@@ -956,7 +956,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %.not118, label %._crit_edge, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.lr.ph103, %.lr.ph105, %.lr.ph108, %.loopexit
-  %.1147 = phi i32 [ -100, %.loopexit ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph105 ], [ -100, %.lr.ph103 ]
+  %.1147 = phi i32 [ -100, %.loopexit ], [ -100, %.lr.ph105 ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph103 ]
   br label %.lr.ph110
 
 ._crit_edge:                                      ; preds = %68, %.preheader, %.preheader90, %.preheader92, %.loopexit

@@ -156,7 +156,7 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
   br label %.thread
 
 .thread:                                          ; preds = %10, %39, %58, %23
-  %78 = phi i1 [ true, %39 ], [ true, %58 ], [ false, %23 ], [ false, %10 ]
+  %78 = phi i1 [ false, %23 ], [ true, %39 ], [ true, %58 ], [ false, %10 ]
   %79 = load ptr, ptr %2, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 400
   %81 = load ptr, ptr %80, align 8

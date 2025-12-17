@@ -279,7 +279,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_init(ptr readnone captures(none) 
   br label %53
 
 53:                                               ; preds = %18, %28, %33, %42, %49, %46, %3
-  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ 0, %46 ], [ 0, %3 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %28 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ 0, %3 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

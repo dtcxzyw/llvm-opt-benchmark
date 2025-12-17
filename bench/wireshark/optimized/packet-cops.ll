@@ -1374,7 +1374,7 @@ switch.lookup:                                    ; preds = %67
   br label %cops_c_type_to_str.exit.i
 
 cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77, %75, %73, %72, %70, %69, %66, %64
-  %.0.i.i = phi ptr [ @.str.661, %77 ], [ @.str.670, %64 ], [ @.str.680, %70 ], [ @.str.683, %73 ], [ @.str.684, %75 ], [ %switch.select21.i.i, %66 ], [ %switch.select25.i.i, %69 ], [ %switch.select29.i.i, %72 ], [ %switch.load, %switch.lookup ]
+  %.0.i.i = phi ptr [ @.str.661, %77 ], [ @.str.683, %73 ], [ @.str.670, %64 ], [ %switch.select21.i.i, %66 ], [ @.str.684, %75 ], [ %switch.select29.i.i, %72 ], [ @.str.680, %70 ], [ %switch.select25.i.i, %69 ], [ %switch.load, %switch.lookup ]
   %79 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef %.0227276, i32 noundef %51, i32 noundef %62, ptr noundef nonnull @.str.666, ptr noundef %63, ptr noundef %.0.i.i)
   %80 = load i32, ptr @ett_cops_obj, align 4
   %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
@@ -1448,7 +1448,7 @@ switch.lookup331:                                 ; preds = %89
   br label %cops_c_type_to_str.exit75.i
 
 cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup331, %99, %97, %95, %94, %92, %91, %88, %86
-  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.670, %86 ], [ @.str.680, %92 ], [ @.str.683, %95 ], [ @.str.684, %97 ], [ %switch.select21.i74.i, %88 ], [ %switch.select25.i70.i, %91 ], [ %switch.select29.i66.i, %94 ], [ %switch.load333, %switch.lookup331 ]
+  %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.683, %95 ], [ @.str.670, %86 ], [ %switch.select21.i74.i, %88 ], [ @.str.684, %97 ], [ %switch.select29.i66.i, %94 ], [ @.str.680, %92 ], [ %switch.select25.i70.i, %91 ], [ %switch.load333, %switch.lookup331 ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1
@@ -1893,7 +1893,7 @@ dissect_cops_object.exit:                         ; preds = %108, %110, %115, %1
   br label %351
 
 351:                                              ; preds = %343, %339
-  %352 = phi i1 [ true, %339 ], [ %spec.select, %343 ]
+  %352 = phi i1 [ %spec.select, %343 ], [ true, %339 ]
   %353 = call ptr @find_or_create_conversation(ptr noundef %1)
   %354 = load i32, ptr @proto_cops, align 4
   %355 = call ptr @conversation_get_proto_data(ptr noundef %353, i32 noundef %354)
@@ -2190,7 +2190,7 @@ proto_item_set_generated.exit253:                 ; preds = %466, %.thread265, %
   br label %502
 
 502:                                              ; preds = %dissect_cops_object.exit.thread, %415, %325, %proto_item_set_generated.exit253
-  %.0226 = phi i32 [ %501, %proto_item_set_generated.exit253 ], [ %.0227.lcssa, %325 ], [ %.0227.lcssa, %415 ], [ %.0227276, %dissect_cops_object.exit.thread ]
+  %.0226 = phi i32 [ %501, %proto_item_set_generated.exit253 ], [ %.0227276, %dissect_cops_object.exit.thread ], [ %.0227.lcssa, %325 ], [ %.0227.lcssa, %415 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0226

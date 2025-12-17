@@ -401,7 +401,7 @@ define weak_odr noundef zeroext i1 @_ZN3zmq15generic_mtrie_tINS_6pipe_tEE3addEPK
   br i1 %.not122, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph165, %._crit_edge, %._crit_edge170, %9
-  %108 = phi i16 [ %.pre185, %._crit_edge ], [ %43, %._crit_edge170 ], [ %13, %9 ], [ %72, %.lr.ph165 ]
+  %108 = phi i16 [ %13, %9 ], [ %43, %._crit_edge170 ], [ %.pre185, %._crit_edge ], [ %72, %.lr.ph165 ]
   %109 = icmp eq i16 %108, 1
   br i1 %109, label %110, label %.loopexit.thread205
 
@@ -617,7 +617,7 @@ select.unfold.i.i:                                ; preds = %196, %._crit_edge.t
   br label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit.i.i: ; preds = %200, %select.unfold.i.i
-  %204 = phi i1 [ true, %select.unfold.i.i ], [ %203, %200 ]
+  %204 = phi i1 [ %203, %200 ], [ true, %select.unfold.i.i ]
   %205 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
   store ptr %3, ptr %206, align 8, !tbaa !41
@@ -813,7 +813,7 @@ _ZNSt3setIPN3zmq6pipe_tESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %.thread269
   br i1 %or.cond, label %64, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %49, %54, %72, %46, %47, %22
-  %.0.ph.be = phi i32 [ 0, %22 ], [ 1, %46 ], [ %48, %47 ], [ 0, %72 ], [ 0, %54 ], [ 0, %49 ]
+  %.0.ph.be = phi i32 [ 0, %22 ], [ %48, %47 ], [ 1, %46 ], [ 0, %72 ], [ 0, %54 ], [ 0, %49 ]
   %62 = load ptr, ptr %6, align 8, !tbaa !47
   %63 = icmp eq ptr %62, %6
   br i1 %63, label %.outer._crit_edge, label %.lr.ph183, !llvm.loop !61
@@ -1276,7 +1276,7 @@ _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev
   ret i32 %.0.ph.lcssa170271
 
 246:                                              ; preds = %.loopexit, %.loopexit.split-lp, %211, %225, %172, %189, %146, %87, %36
-  %.pn68 = phi { ptr, i32 } [ %147, %146 ], [ %88, %87 ], [ %37, %36 ], [ %190, %189 ], [ %173, %172 ], [ %226, %225 ], [ %212, %211 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn68 = phi { ptr, i32 } [ %212, %211 ], [ %147, %146 ], [ %37, %36 ], [ %173, %172 ], [ %88, %87 ], [ %190, %189 ], [ %226, %225 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.56)
   %247 = load ptr, ptr %6, align 8, !tbaa !47
   %.not8.i.i73 = icmp eq ptr %247, %6
@@ -1468,7 +1468,7 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.ex
   br i1 %.not.i3, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %.lr.ph.i2, !llvm.loop !72
 
 _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i, %.critedge.i
-  %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
+  %40 = phi i64 [ %26, %.critedge.i ], [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %39, %.lr.ph.i2 ]
   %41 = sub i64 %26, %40
   ret i64 %41
 }

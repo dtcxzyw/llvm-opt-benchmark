@@ -698,7 +698,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -8547,7 +8547,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit.i:           ; preds = %43, %._crit_edge.i.
   br i1 %exitcond.not, label %_ZN6icu_7711MeasureUnit5setToEii.exit, label %5, !llvm.loop !48
 
 _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %.critedge, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i, %27
-  %60 = phi i1 [ true, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i ], [ true, %27 ], [ false, %.critedge ]
+  %60 = phi i1 [ true, %27 ], [ true, %_ZN6icu_7715MeasureUnitImplD2Ev.exit.i ], [ false, %.critedge ]
   ret i1 %60
 }
 
@@ -9343,7 +9343,7 @@ _ZN6icu_7711MeasureUnit5setToEii.exit:            ; preds = %17, %_ZN6icu_7715Me
   br i1 %exitcond.not, label %.loopexit.loopexit, label %17, !llvm.loop !54
 
 .loopexit18:                                      ; preds = %.loopexit, %3, %8
-  %.015 = phi i32 [ 496, %8 ], [ 0, %3 ], [ 496, %.loopexit ]
+  %.015 = phi i32 [ 0, %3 ], [ 496, %8 ], [ 496, %.loopexit ]
   ret i32 %.015
 }
 
@@ -9657,7 +9657,7 @@ define void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 ca
   br i1 %22, label %.lr.ph.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %19, %21
-  %.2.i = phi i32 [ %11, %19 ], [ -1, %21 ]
+  %.2.i = phi i32 [ -1, %21 ], [ %11, %19 ]
   %23 = trunc i32 %.2.i to i8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %23, ptr %24, align 2, !tbaa !23
@@ -9763,7 +9763,7 @@ define void @_ZN6icu_7711MeasureUnit12initCurrencyENS_11StringPieceE(ptr noundef
   br i1 %25, label %.lr.ph.i, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
 
 _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %22, %24
-  %.2.i = phi i32 [ %14, %22 ], [ -1, %24 ]
+  %.2.i = phi i32 [ -1, %24 ], [ %14, %22 ]
   %26 = trunc i32 %.2.i to i8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %26, ptr %27, align 2, !tbaa !23
@@ -9866,7 +9866,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit.i:           ; preds = %53
   br label %101
 
 .body:                                            ; preds = %60, %66
-  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %67, %66 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %67, %66 ], [ %61, %60 ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %51) #20
   resume { ptr, i32 } %eh.lpad-body
 

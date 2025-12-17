@@ -2705,7 +2705,7 @@ define hidden noundef zeroext i1 @_ZN4ring2ec7suite_b11private_key29generate_pri
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %11, %12, %_ZN4ring2ec7suite_b11private_key29check_scalar_big_endian_bytes17h7a3e9280305f9823E.exit
-  %.0 = phi i1 [ false, %_ZN4ring2ec7suite_b11private_key29check_scalar_big_endian_bytes17h7a3e9280305f9823E.exit ], [ true, %12 ], [ true, %11 ]
+  %.0 = phi i1 [ true, %12 ], [ false, %_ZN4ring2ec7suite_b11private_key29check_scalar_big_endian_bytes17h7a3e9280305f9823E.exit ], [ true, %11 ]
   ret i1 %.0
 
 16:                                               ; preds = %12

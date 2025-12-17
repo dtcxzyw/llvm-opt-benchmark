@@ -38,7 +38,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9hasProfMDERKNS_11InstructionE(ptr 
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %1, %5
-  %.0.i.i = phi i1 [ %7, %5 ], [ false, %1 ]
+  %.0.i.i = phi i1 [ false, %1 ], [ %7, %5 ]
   ret i1 %.0.i.i
 }
 
@@ -97,7 +97,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZNK4llvm6MDNode10g
   br label %_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit
 
 _ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit: ; preds = %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i, %23
-  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ %25, %23 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i ]
+  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ %25, %23 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i ]
   ret i1 %.0.i
 }
 
@@ -156,7 +156,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZNK4llvm6MDNode10g
   br label %_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit
 
 _ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit: ; preds = %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i, %23
-  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ %25, %23 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i ]
+  %.0.i = phi i1 [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ %25, %23 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i ]
   ret i1 %.0.i
 }
 
@@ -223,7 +223,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZNK4llvm6MDNode10g
   br label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit
 
 _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit:    ; preds = %1, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i, %27
-  %.0.i.i = phi i1 [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %29, %27 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ false, %1 ]
+  %.0.i.i = phi i1 [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ %29, %27 ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ false, %1 ]
   ret i1 %.0.i.i
 }
 
@@ -289,9 +289,9 @@ _ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit:    ; preds = %_ZN4llvm9StringRefC
   %28 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %28, label %_ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit, label %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread
 
-_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread: ; preds = %1, %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit
-  %.0.i1821 = phi ptr [ %5, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ %5, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ %5, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %5, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ %5, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ null, %1 ]
-  %29 = phi i1 [ false, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ true, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ true, %1 ]
+_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread: ; preds = %1, %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit
+  %.0.i1821 = phi ptr [ %5, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ %5, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ %5, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ %5, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ %5, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ null, %1 ]
+  %29 = phi i1 [ false, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ true, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ true, %1 ]
   %30 = load i8, ptr %0, align 8, !tbaa !16
   switch i8 %30, label %_ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit [
     i8 85, label %31
@@ -352,7 +352,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i13:              ; preds = %_ZNK4llvm6MDNode10g
   br label %_ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit
 
 _ZN4llvm3isaINS_8CallBaseENS_11InstructionEEEbRKT0_.exit: ; preds = %52, %_ZN4llvm9StringRefC2EPKc.exit.i.i13, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i9, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i7, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i16, %31, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit
-  %.0 = phi i1 [ true, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ false, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread ], [ true, %31 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i16 ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i9 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i7 ], [ %54, %52 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit.i.i13 ]
+  %.0 = phi i1 [ true, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit ], [ false, %_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE.exit.thread ], [ true, %31 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i16 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i7 ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i9 ], [ %54, %52 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit.i.i13 ]
   ret i1 %.0
 }
 
@@ -507,14 +507,14 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i: ; preds = %58, %55
   br label %_ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit
 
 _ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i
-  %.0.i.i4.i = phi i32 [ %.0.i.i3.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ %33, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ %.0.i.i3.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ %37, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ], [ %.0.i.i3.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %.0.i.i3.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ]
-  %.neg.i = phi i32 [ -1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ], [ -1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %spec.select.i.neg.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ]
+  %.0.i.i4.i = phi i32 [ %.0.i.i3.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %.0.i.i3.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ], [ %.0.i.i3.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ %.0.i.i3.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ %33, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ %37, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ]
+  %.neg.i = phi i32 [ -1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %spec.select.i.neg.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ], [ -1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ -1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ]
   %67 = add i32 %.neg.i, %.0.i.i4.i
   %68 = tail call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #10
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %_ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit.thread
 
-_ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit.thread: ; preds = %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.i, %_ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit
+_ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %1, %_ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit
   br label %70
 
 70:                                               ; preds = %_ZN4llvm19getNumBranchWeightsERKNS_6MDNodeE.exit, %_ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE.exit.thread
@@ -611,7 +611,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %35, %32
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit
 
 _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit: ; preds = %1, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i
-  %.0.i2 = phi i1 [ %43, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %1 ]
+  %.0.i2 = phi i1 [ %43, %_ZNK4llvm6MDNode10getOperandEj.exit.i ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %1 ]
   ret i1 %.0.i2
 }
 
@@ -695,8 +695,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %28, %31
   %39 = icmp eq i8 %38, 0
   br label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread
 
-_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %_ZNK4llvm6MDNode10getOperandEj.exit
-  %.0 = phi i1 [ %39, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ], [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
+_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %_ZNK4llvm6MDNode10getOperandEj.exit
+  %.0 = phi i1 [ %39, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ], [ false, %1 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
   ret i1 %.0
 }
 
@@ -782,8 +782,8 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit: ; preds = %28, %31
   %spec.select = select i1 %39, i32 2, i32 1
   br label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.thread
 
-_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i
-  %40 = phi i32 [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ 1, %1 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ %spec.select, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit ]
+_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i
+  %40 = phi i32 [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ %spec.select, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit ], [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ 1, %1 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ]
   ret i32 %40
 }
 
@@ -870,8 +870,8 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %32, %29
   br label %_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit
 
 _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
-  %.0.i.i4 = phi i32 [ %.0.i.i3, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %7, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %.0.i.i3, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %11, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ %.0.i.i3, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %.0.i.i3, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
-  %.neg = phi i32 [ -1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ -1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %spec.select.i.neg, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
+  %.0.i.i4 = phi i32 [ %.0.i.i3, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %.0.i.i3, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ %.0.i.i3, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %.0.i.i3, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %7, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %11, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
+  %.neg = phi i32 [ -1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %spec.select.i.neg, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ -1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ -1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
   %41 = add i32 %.neg, %.0.i.i4
   ret i32 %41
 }
@@ -940,8 +940,8 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit:    ; preds = %_ZN4llvm9StringRefC
   %spec.select = select i1 %28, ptr %5, ptr null
   br label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread
 
-_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %1, %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit
-  %29 = phi ptr [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ null, %_ZN4llvm9StringRefC2EPKc.exit.i.i ], [ null, %1 ], [ %spec.select, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ]
+_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %1, %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit
+  %29 = phi ptr [ null, %1 ], [ %spec.select, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ], [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ null, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ null, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ null, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
   ret ptr %29
 }
 
@@ -1037,8 +1037,8 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %33, %30
   br label %_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit
 
 _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
-  %.0.i.i20 = phi i32 [ %.0.i.i19, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %8, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %.0.i.i19, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %12, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ %.0.i.i19, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %.0.i.i19, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
-  %42 = phi i32 [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %spec.select.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
+  %.0.i.i20 = phi i32 [ %.0.i.i19, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %.0.i.i19, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ %.0.i.i19, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %.0.i.i19, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %8, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %12, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
+  %42 = phi i32 [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %spec.select.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
   %43 = sub i32 %.0.i.i20, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1220,8 +1220,8 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i: ; preds = %33, %30
   br label %_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit.i
 
 _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit.i: ; preds = %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i
-  %.0.i.i20.i = phi i32 [ %.0.i.i19.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ %8, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ %.0.i.i19.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ %12, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ], [ %.0.i.i19.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %.0.i.i19.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ]
-  %42 = phi i32 [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %spec.select.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ]
+  %.0.i.i20.i = phi i32 [ %.0.i.i19.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %.0.i.i19.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ], [ %.0.i.i19.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ %.0.i.i19.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ %8, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ %12, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ]
+  %42 = phi i32 [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i ], [ %spec.select.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i.i ]
   %43 = sub i32 %.0.i.i20.i, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1377,8 +1377,8 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit:    ; preds = %_ZN4llvm9StringRefC
   tail call fastcc void @_ZN12_GLOBAL__N_125extractFromBranchWeightMDIjSt9enable_ifILb1EvEEEvPKN4llvm6MDNodeERNS3_15SmallVectorImplIT_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread
 
-_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %2, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %26
-  %.0.i.i5 = phi i1 [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ], [ true, %26 ], [ false, %2 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
+_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %2, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit, %26
+  %.0.i.i5 = phi i1 [ true, %26 ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit ], [ false, %2 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i ]
   ret i1 %.0.i.i5
 }
 
@@ -1449,7 +1449,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i:  ; preds = %_ZN4llvm9StringRefC
   br label %_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit
 
 _ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit: ; preds = %2, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %30
-  %.0.i.i5.i = phi i1 [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ true, %30 ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %2 ]
+  %.0.i.i5.i = phi i1 [ true, %30 ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %2 ]
   ret i1 %.0.i.i5.i
 }
 
@@ -1540,8 +1540,8 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i:  ; preds = %_ZN4llvm9StringRefC
   store i64 %44, ptr %2, align 8, !tbaa !35
   br label %_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit.thread
 
-_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit.thread: ; preds = %3, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %35, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %35 ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %3 ]
+_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit.thread: ; preds = %3, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %35, %38
+  %.0 = phi i1 [ false, %35 ], [ true, %38 ], [ false, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i ], [ false, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i ], [ false, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i ], [ false, %3 ]
   %45 = load ptr, ptr %4, align 8, !tbaa !9
   %46 = icmp eq ptr %45, %5
   br i1 %46, label %_ZN4llvm11SmallVectorIjLj2EED2Ev.exit, label %47
@@ -1676,7 +1676,7 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %48, %45
   br label %_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit
 
 _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
-  %58 = phi i64 [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %57, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
+  %58 = phi i64 [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i ], [ %57, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
   %59 = getelementptr inbounds i8, ptr %0, i64 -24
   %60 = getelementptr inbounds i8, ptr %0, i64 -32
   br label %61
@@ -1791,7 +1791,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit38:            ; preds = %.thread54, %99
   br label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread51
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.thread51:     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread, %_ZNK4llvm6MDNode10getOperandEj.exit38, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35, %_ZN4llvmeqENS_9StringRefES0_.exit32, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit38 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit38 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit32 ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -1810,7 +1810,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightERKNS_11Ins
   br label %_ZNK4llvm11Instruction11getMetadataEj.exit
 
 _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %2, %6
-  %.0.i = phi ptr [ %7, %6 ], [ null, %2 ]
+  %.0.i = phi ptr [ null, %2 ], [ %7, %6 ]
   %8 = tail call noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret i1 %8
 }
@@ -2055,8 +2055,8 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i: ; preds = %90, %87
   br label %_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit
 
 _ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i._ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit_crit_edge, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i
-  %100 = phi i64 [ %.pre130, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %62, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %62, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %62, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ %.pre, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i._ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit_crit_edge ], [ %.pre130, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
-  %101 = phi i64 [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i._ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit_crit_edge ], [ %99, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ]
+  %100 = phi i64 [ %.pre, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i._ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit_crit_edge ], [ %.pre130, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ %.pre130, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ %62, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ %62, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ %62, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
+  %101 = phi i64 [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i._ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE.exit_crit_edge ], [ %99, %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.i ], [ 1, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i.i ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i.i ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i.i ]
   %102 = and i64 %100, 2
   %.not.i.i53 = icmp eq i64 %102, 0
   br i1 %.not.i.i53, label %106, label %103

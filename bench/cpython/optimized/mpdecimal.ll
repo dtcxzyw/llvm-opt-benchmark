@@ -155,7 +155,7 @@ define hidden range(i32 1, 21) i32 @mpd_word_digits(i64 noundef %0) local_unname
   br label %67
 
 67:                                               ; preds = %42, %25, %63, %59, %55, %45, %38, %28, %21, %14, %10
-  %.0 = phi i32 [ %13, %10 ], [ %17, %14 ], [ %24, %21 ], [ %31, %28 ], [ %41, %38 ], [ %48, %45 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ 9, %25 ], [ 14, %42 ]
+  %.0 = phi i32 [ %13, %10 ], [ %17, %14 ], [ %24, %21 ], [ %31, %28 ], [ %66, %63 ], [ %41, %38 ], [ %48, %45 ], [ 9, %25 ], [ %58, %55 ], [ %62, %59 ], [ 14, %42 ]
   ret i32 %.0
 }
 
@@ -308,7 +308,7 @@ define hidden i64 @mpd_msd(i64 noundef %0) local_unnamed_addr #4 {
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %10, %14, %21, %25, %28, %38, %42, %45, %55, %59, %63
-  %.0.i = phi i64 [ %13, %10 ], [ %17, %14 ], [ %24, %21 ], [ %31, %28 ], [ %41, %38 ], [ %48, %45 ], [ %58, %55 ], [ %62, %59 ], [ %66, %63 ], [ 9, %25 ], [ 14, %42 ]
+  %.0.i = phi i64 [ %13, %10 ], [ %17, %14 ], [ %24, %21 ], [ %31, %28 ], [ %66, %63 ], [ %41, %38 ], [ %48, %45 ], [ 9, %25 ], [ %58, %55 ], [ %62, %59 ], [ 14, %42 ]
   %67 = getelementptr i64, ptr @mpd_pow10, i64 %.0.i
   %68 = getelementptr i8, ptr %67, i64 -8
   %69 = load i64, ptr %68, align 8, !tbaa !3
@@ -440,7 +440,7 @@ define hidden range(i32 1, 21) i32 @mpd_exp_digits(i64 noundef %0) local_unnamed
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %11, %15, %22, %26, %29, %39, %43, %46, %56, %60, %64
-  %.0.i = phi i32 [ %14, %11 ], [ %18, %15 ], [ %25, %22 ], [ %32, %29 ], [ %42, %39 ], [ %49, %46 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ 9, %26 ], [ 14, %43 ]
+  %.0.i = phi i32 [ %14, %11 ], [ %18, %15 ], [ %25, %22 ], [ %32, %29 ], [ %67, %64 ], [ %42, %39 ], [ %49, %46 ], [ 9, %26 ], [ %59, %56 ], [ %63, %60 ], [ 14, %43 ]
   ret i32 %.0.i
 }
 
@@ -792,7 +792,7 @@ define hidden i32 @mpd_qresize(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %18
 
 18:                                               ; preds = %12, %3, %16, %14
-  %.0 = phi i32 [ %15, %14 ], [ %17, %16 ], [ 1, %3 ], [ 1, %12 ]
+  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ 1, %3 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -918,7 +918,7 @@ define hidden range(i32 0, 2) i32 @mpd_resize(ptr noundef %0, i64 noundef %1, pt
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %15, %17
-  %.0.i = phi i32 [ %16, %15 ], [ %18, %17 ]
+  %.0.i = phi i32 [ %18, %17 ], [ %16, %15 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %19, label %mpd_qresize.exit.thread
 
@@ -1102,7 +1102,7 @@ define hidden void @mpd_setdigits(ptr noundef captures(none) initializes((16, 24
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %17, %21, %28, %32, %35, %45, %49, %52, %62, %66, %70
-  %.0.i = phi i64 [ %20, %17 ], [ %24, %21 ], [ %31, %28 ], [ %38, %35 ], [ %48, %45 ], [ %55, %52 ], [ %65, %62 ], [ %69, %66 ], [ %73, %70 ], [ 9, %32 ], [ 14, %49 ]
+  %.0.i = phi i64 [ %20, %17 ], [ %24, %21 ], [ %31, %28 ], [ %38, %35 ], [ %73, %70 ], [ %48, %45 ], [ %55, %52 ], [ 9, %32 ], [ %65, %62 ], [ %69, %66 ], [ 14, %49 ]
   %74 = mul i64 %5, 19
   %75 = add i64 %74, -19
   %76 = add i64 %75, %.0.i
@@ -1334,7 +1334,7 @@ define hidden void @mpd_qmaxcoeff(ptr noundef %0, ptr noundef readonly captures(
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %20, %22
-  %.0.i = phi i32 [ %21, %20 ], [ %23, %22 ]
+  %.0.i = phi i32 [ %23, %22 ], [ %21, %20 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %.loopexit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -1592,7 +1592,7 @@ define hidden range(i32 0, 2) i32 @mpd_isodd(ptr noundef readonly captures(none)
   br label %30
 
 30:                                               ; preds = %24, %26, %1, %13
-  %.0 = phi i32 [ %23, %13 ], [ 0, %1 ], [ 0, %24 ], [ %29, %26 ]
+  %.0 = phi i32 [ 0, %1 ], [ %23, %13 ], [ 0, %24 ], [ %29, %26 ]
   ret i32 %.0
 }
 
@@ -1639,7 +1639,7 @@ define hidden range(i32 0, 2) i32 @mpd_iseven(ptr noundef readonly captures(none
   br label %mpd_isodd.exit
 
 mpd_isodd.exit:                                   ; preds = %1, %13, %24, %26
-  %.0.i = phi i32 [ %23, %13 ], [ 0, %1 ], [ 0, %24 ], [ %29, %26 ]
+  %.0.i = phi i32 [ 0, %1 ], [ %23, %13 ], [ 0, %24 ], [ %29, %26 ]
   %30 = xor i32 %.0.i, 1
   ret i32 %30
 }
@@ -1886,7 +1886,7 @@ define internal fastcc void @_ssettriple(ptr noundef captures(none) initializes(
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %27, %31, %38, %42, %45, %55, %59, %62, %72, %76, %80
-  %.0.i.i = phi i64 [ %30, %27 ], [ %34, %31 ], [ %41, %38 ], [ %48, %45 ], [ %58, %55 ], [ %65, %62 ], [ %75, %72 ], [ %79, %76 ], [ %83, %80 ], [ 9, %42 ], [ 14, %59 ]
+  %.0.i.i = phi i64 [ %30, %27 ], [ %34, %31 ], [ %41, %38 ], [ %48, %45 ], [ %83, %80 ], [ %58, %55 ], [ %65, %62 ], [ 9, %42 ], [ %75, %72 ], [ %79, %76 ], [ 14, %59 ]
   %84 = shl nuw nsw i64 19, %12
   %85 = add nsw i64 %84, -19
   %86 = add nuw nsw i64 %85, %.0.i.i
@@ -2013,7 +2013,7 @@ define hidden void @mpd_qfinalize(ptr noundef %0, ptr noundef readonly captures(
   br label %_mpd_rnd_incr.exit.i.i
 
 _mpd_rnd_incr.exit.i.i:                           ; preds = %57, %54, %51, %47, %40, %32, %25
-  %.0.i.i.i = phi i32 [ %27, %25 ], [ %53, %51 ], [ %56, %54 ], [ %66, %57 ], [ %37, %32 ], [ %44, %40 ], [ %50, %47 ]
+  %.0.i.i.i = phi i32 [ %50, %47 ], [ %66, %57 ], [ %27, %25 ], [ %56, %54 ], [ %37, %32 ], [ %44, %40 ], [ %53, %51 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %_mpd_apply_round.exit.i, label %_mpd_rnd_incr.exit.thread24.i.i
 
@@ -2148,7 +2148,7 @@ _mpd_rnd_incr.exit.thread24.i.i:                  ; preds = %_mpd_rnd_incr.exit.
   br label %mpd_setdigits.exit.i.i
 
 mpd_setdigits.exit.i.i:                           ; preds = %147, %143, %139, %129, %126, %122, %112, %109, %105, %98, %94
-  %.0.i.i.i.i = phi i64 [ %97, %94 ], [ %101, %98 ], [ %108, %105 ], [ %115, %112 ], [ %125, %122 ], [ %132, %129 ], [ %142, %139 ], [ %146, %143 ], [ %150, %147 ], [ 9, %109 ], [ 14, %126 ]
+  %.0.i.i.i.i = phi i64 [ %97, %94 ], [ %101, %98 ], [ %108, %105 ], [ %115, %112 ], [ %150, %147 ], [ %125, %122 ], [ %132, %129 ], [ 9, %109 ], [ %142, %139 ], [ %146, %143 ], [ 14, %126 ]
   %151 = mul i64 %82, 19
   %152 = add i64 %151, -19
   %153 = add i64 %152, %.0.i.i.i.i
@@ -2478,7 +2478,7 @@ mpd_minalloc.exit:                                ; preds = %4, %8, %20
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %43, %47, %54, %58, %61, %71, %75, %78, %88, %92, %96
-  %.0.i.i = phi i64 [ %46, %43 ], [ %50, %47 ], [ %57, %54 ], [ %64, %61 ], [ %74, %71 ], [ %81, %78 ], [ %91, %88 ], [ %95, %92 ], [ %99, %96 ], [ 9, %58 ], [ 14, %75 ]
+  %.0.i.i = phi i64 [ %46, %43 ], [ %50, %47 ], [ %57, %54 ], [ %64, %61 ], [ %99, %96 ], [ %74, %71 ], [ %81, %78 ], [ 9, %58 ], [ %91, %88 ], [ %95, %92 ], [ 14, %75 ]
   %100 = shl nuw nsw i64 19, %28
   %101 = add nsw i64 %100, -19
   %102 = add nuw nsw i64 %101, %.0.i.i
@@ -2893,7 +2893,7 @@ mpd_iszero.exit:                                  ; preds = %3
   br i1 %or.cond.not, label %.sink.split, label %_mpd_get_msdigits.exit.thread
 
 _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
-  %.148 = phi i64 [ %29, %27 ], [ %49, %33 ]
+  %.148 = phi i64 [ %49, %33 ], [ %29, %27 ]
   %.not64 = icmp eq i64 %28, 0
   br i1 %.not64, label %57, label %51
 
@@ -3165,7 +3165,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcheck_nan(ptr noundef %0, ptr noundef re
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %28, %26
-  %.0.i.i = phi i32 [ %27, %26 ], [ %29, %28 ]
+  %.0.i.i = phi i32 [ %29, %28 ], [ %27, %26 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -3252,7 +3252,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy(ptr noundef %0, ptr noundef readonl
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %17, %19
-  %.0.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %.0.i = phi i32 [ %20, %19 ], [ %18, %17 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %40, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -3289,7 +3289,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   br label %40
 
 40:                                               ; preds = %mpd_qresize.exit, %3, %mpd_qresize.exit.thread
-  %.0 = phi i32 [ 1, %mpd_qresize.exit.thread ], [ 1, %3 ], [ 0, %mpd_qresize.exit ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %mpd_qresize.exit.thread ], [ 0, %mpd_qresize.exit ]
   ret i32 %.0
 }
 
@@ -3531,7 +3531,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %83, %87, %94, %98, %101, %111, %115, %118, %128, %132, %136
-  %.0.i.i = phi i64 [ %86, %83 ], [ %90, %87 ], [ %97, %94 ], [ %104, %101 ], [ %114, %111 ], [ %121, %118 ], [ %131, %128 ], [ %135, %132 ], [ %139, %136 ], [ 9, %98 ], [ 14, %115 ]
+  %.0.i.i = phi i64 [ %86, %83 ], [ %90, %87 ], [ %97, %94 ], [ %104, %101 ], [ %139, %136 ], [ %114, %111 ], [ %121, %118 ], [ 9, %98 ], [ %131, %128 ], [ %135, %132 ], [ 14, %115 ]
   %140 = mul i64 %.0.lcssa.i, 19
   %141 = add i64 %140, -19
   %142 = add i64 %141, %.0.i.i
@@ -3620,7 +3620,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef r
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %38, %36
-  %.0.i.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %.0.i.i = phi i32 [ %39, %38 ], [ %37, %36 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -3844,7 +3844,7 @@ mpd_setspecial.exit:                              ; preds = %50, %54, %64
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %88, %86
-  %.0.i.i = phi i32 [ %87, %86 ], [ %89, %88 ]
+  %.0.i.i = phi i32 [ %89, %88 ], [ %87, %86 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qmaxcoeff.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -4139,7 +4139,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_cxx(ptr noundef %0, ptr noundef rea
   br label %mpd_qresize_cxx.exit
 
 mpd_qresize_cxx.exit:                             ; preds = %16, %18
-  %.0.i = phi i32 [ %17, %16 ], [ %19, %18 ]
+  %.0.i = phi i32 [ %19, %18 ], [ %17, %16 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %39, label %mpd_qresize_cxx.exit.mpd_qresize_cxx.exit.thread_crit_edge
 
@@ -4176,7 +4176,7 @@ mpd_qresize_cxx.exit.thread:                      ; preds = %mpd_qresize_cxx.exi
   br label %39
 
 39:                                               ; preds = %mpd_qresize_cxx.exit, %2, %mpd_qresize_cxx.exit.thread
-  %.0 = phi i32 [ 1, %mpd_qresize_cxx.exit.thread ], [ 1, %2 ], [ 0, %mpd_qresize_cxx.exit ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %mpd_qresize_cxx.exit.thread ], [ 0, %mpd_qresize_cxx.exit ]
   ret i32 %.0
 }
 
@@ -4255,7 +4255,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_abs(ptr noundef %0, ptr noundef rea
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
-  %.0.i.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %.0.i.i = phi i32 [ %20, %19 ], [ %18, %17 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -4291,7 +4291,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %37, i64 %39, i1 false)
   br label %40
 
-40:                                               ; preds = %mpd_qresize.exit.thread.i, %3
+40:                                               ; preds = %3, %mpd_qresize.exit.thread.i
   %41 = load i8, ptr %0, align 8, !tbaa !19
   %42 = and i8 %41, -2
   store i8 %42, ptr %0, align 8, !tbaa !19
@@ -4336,7 +4336,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_negate(ptr noundef %0, ptr noundef 
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
-  %.0.i.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %.0.i.i = phi i32 [ %20, %19 ], [ %18, %17 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -4372,7 +4372,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %35, ptr align 8 %37, i64 %39, i1 false)
   br label %40
 
-40:                                               ; preds = %mpd_qresize.exit.thread.i, %3
+40:                                               ; preds = %3, %mpd_qresize.exit.thread.i
   %41 = load i8, ptr %0, align 8, !tbaa !19
   %42 = xor i8 %41, 1
   store i8 %42, ptr %0, align 8, !tbaa !19
@@ -4419,7 +4419,7 @@ define hidden range(i32 0, 2) i32 @mpd_qcopy_sign(ptr noundef %0, ptr noundef re
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %22, %20
-  %.0.i.i = phi i32 [ %21, %20 ], [ %23, %22 ]
+  %.0.i.i = phi i32 [ %23, %22 ], [ %21, %20 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -4455,7 +4455,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %40, i64 %42, i1 false)
   br label %43
 
-43:                                               ; preds = %mpd_qresize.exit.thread.i, %4
+43:                                               ; preds = %4, %mpd_qresize.exit.thread.i
   %44 = load i8, ptr %0, align 8, !tbaa !19
   %45 = and i8 %44, -2
   %46 = or disjoint i8 %45, %6
@@ -4638,7 +4638,7 @@ define internal fastcc range(i32 -1, 2) i32 @_mpd_cmp(ptr noundef readonly captu
   br label %85
 
 85:                                               ; preds = %41, %2, %79, %77, %76, %55, %47, %42, %22, %16, %10
-  %.0 = phi i32 [ %15, %10 ], [ %20, %16 ], [ %.neg, %22 ], [ %.neg42, %42 ], [ %51, %47 ], [ %58, %55 ], [ %.neg44, %76 ], [ %78, %77 ], [ %84, %79 ], [ 0, %2 ], [ 0, %41 ]
+  %.0 = phi i32 [ %84, %79 ], [ %15, %10 ], [ %20, %16 ], [ %.neg, %22 ], [ 0, %2 ], [ %.neg42, %42 ], [ %51, %47 ], [ %58, %55 ], [ %.neg44, %76 ], [ %78, %77 ], [ 0, %41 ]
   ret i32 %.0
 }
 
@@ -4955,8 +4955,8 @@ _mpd_cmp_abs.exit51.thread53:                     ; preds = %84, %_mpd_cmp_abs.e
   %132 = select i1 %131, i32 -1, i32 1
   br label %_mpd_cmp_abs.exit
 
-_mpd_cmp_abs.exit:                                ; preds = %119, %107, %90, %75, %71, %69, %68, %60, %59, %83, %130, %_mpd_cmp_abs.exit51.thread53, %_mpd_cmp_abs.exit51, %16, %77, %80
-  %.0 = phi i32 [ %79, %77 ], [ %82, %80 ], [ 1, %16 ], [ %132, %130 ], [ 0, %_mpd_cmp_abs.exit51.thread53 ], [ %.0.i44, %_mpd_cmp_abs.exit51 ], [ -1, %83 ], [ %76, %75 ], [ %..i, %59 ], [ -1, %60 ], [ %.26.i, %68 ], [ 1, %69 ], [ %.27.i, %71 ], [ %.27.i48, %119 ], [ 1, %107 ], [ -1, %90 ]
+_mpd_cmp_abs.exit:                                ; preds = %119, %90, %107, %75, %71, %69, %68, %60, %59, %83, %130, %_mpd_cmp_abs.exit51.thread53, %_mpd_cmp_abs.exit51, %16, %77, %80
+  %.0 = phi i32 [ -1, %83 ], [ %79, %77 ], [ %82, %80 ], [ 1, %16 ], [ %.0.i44, %_mpd_cmp_abs.exit51 ], [ %132, %130 ], [ 0, %_mpd_cmp_abs.exit51.thread53 ], [ %76, %75 ], [ %..i, %59 ], [ %.27.i, %71 ], [ 1, %69 ], [ %.26.i, %68 ], [ -1, %60 ], [ %.27.i48, %119 ], [ -1, %90 ], [ 1, %107 ]
   %133 = shl nuw nsw i8 %6, 1
   %134 = zext nneg i8 %133 to i32
   %135 = sub nsw i32 1, %134
@@ -5044,7 +5044,7 @@ define internal fastcc range(i32 -1, 2) i32 @_mpd_cmp_abs(ptr noundef readonly c
   br label %45
 
 45:                                               ; preds = %39, %27, %26, %10, %9, %2, %43
-  %.0 = phi i32 [ %44, %43 ], [ 0, %2 ], [ %., %9 ], [ -1, %10 ], [ %.26, %26 ], [ 1, %27 ], [ %.27, %39 ]
+  %.0 = phi i32 [ %44, %43 ], [ %., %9 ], [ 0, %2 ], [ 1, %27 ], [ %.26, %26 ], [ -1, %10 ], [ %.27, %39 ]
   ret i32 %.0
 }
 
@@ -5229,7 +5229,7 @@ define hidden range(i32 0, 2) i32 @mpd_qshiftl(ptr noundef %0, ptr noundef reado
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %28, %26
-  %.0.i.i = phi i32 [ %27, %26 ], [ %29, %28 ]
+  %.0.i.i = phi i32 [ %29, %28 ], [ %27, %26 ]
   %.not.i27 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i27, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -5301,7 +5301,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %67, %69
-  %.0.i = phi i32 [ %68, %67 ], [ %70, %69 ]
+  %.0.i = phi i32 [ %70, %69 ], [ %68, %67 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -5335,7 +5335,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.thread.i, %mpd_qresize.exit.i, %14, %mpd_qresize.exit, %mpd_qresize.exit.thread
-  %.0 = phi i32 [ 1, %mpd_qresize.exit.thread ], [ 0, %mpd_qresize.exit ], [ 1, %mpd_qresize.exit.thread.i ], [ 1, %14 ], [ 0, %mpd_qresize.exit.i ]
+  %.0 = phi i32 [ 0, %mpd_qresize.exit ], [ 1, %mpd_qresize.exit.thread ], [ 1, %14 ], [ 1, %mpd_qresize.exit.thread.i ], [ 0, %mpd_qresize.exit.i ]
   ret i32 %.0
 }
 
@@ -5570,7 +5570,7 @@ define internal fastcc i64 @_mpd_get_rnd(ptr noundef readonly captures(none) %0,
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %18, %22, %29, %33, %36, %46, %50, %53, %63, %67, %71
-  %.0.i = phi i64 [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %39, %36 ], [ %49, %46 ], [ %56, %53 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ], [ 9, %33 ], [ 14, %50 ]
+  %.0.i = phi i64 [ %21, %18 ], [ %25, %22 ], [ %32, %29 ], [ %39, %36 ], [ %74, %71 ], [ %49, %46 ], [ %56, %53 ], [ 9, %33 ], [ %66, %63 ], [ %70, %67 ], [ 14, %50 ]
   %75 = add nuw nsw i64 %.0.i, 4294967295
   %76 = and i64 %75, 4294967295
   call fastcc void @_mpd_divmod_pow10(ptr noundef %4, ptr noundef %5, i64 noundef %9, i64 noundef %76)
@@ -5605,7 +5605,7 @@ mpd_word_digits.exit:                             ; preds = %18, %22, %29, %33, 
   br i1 %.not.i17, label %.preheader, label %_mpd_isallzero.exit, !llvm.loop !31
 
 _mpd_isallzero.exit:                              ; preds = %81, %.preheader19, %87, %.preheader, %mpd_word_digits.exit
-  %90 = phi i64 [ %78, %mpd_word_digits.exit ], [ 1, %87 ], [ 0, %.preheader ], [ 1, %81 ], [ 0, %.preheader19 ]
+  %90 = phi i64 [ %78, %mpd_word_digits.exit ], [ 1, %87 ], [ 0, %.preheader ], [ 0, %.preheader19 ], [ 1, %81 ]
   %91 = load i64, ptr %4, align 8, !tbaa !3
   switch i64 %91, label %96 [
     i64 5, label %92
@@ -5673,7 +5673,7 @@ define hidden i64 @mpd_qshiftr(ptr noundef %0, ptr noundef readonly captures(add
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %29, %27
-  %.0.i.i = phi i32 [ %28, %27 ], [ %30, %29 ]
+  %.0.i.i = phi i32 [ %30, %29 ], [ %28, %27 ]
   %.not.i54 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i54, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -5830,7 +5830,7 @@ mpd_zerocoeff.exit:                               ; preds = %52, %58, %70
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %113, %115
-  %.0.i = phi i32 [ %114, %113 ], [ %116, %115 ]
+  %.0.i = phi i32 [ %116, %115 ], [ %114, %113 ]
   %.not48 = icmp eq i32 %.0.i, 0
   br i1 %.not48, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -5867,8 +5867,8 @@ mpd_qresize.exit52:                               ; preds = %100, %98, %96, %84,
   store i64 %130, ptr %131, align 8, !tbaa !7
   br label %mpd_qcopy.exit
 
-mpd_qcopy.exit:                                   ; preds = %15, %mpd_qresize.exit.thread.i, %mpd_qresize.exit.i, %mpd_qresize.exit, %123
-  %.0 = phi i64 [ %.040, %123 ], [ -1, %mpd_qresize.exit ], [ -1, %mpd_qresize.exit.i ], [ 0, %mpd_qresize.exit.thread.i ], [ 0, %15 ]
+mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.thread.i, %15, %mpd_qresize.exit.i, %mpd_qresize.exit, %123
+  %.0 = phi i64 [ %.040, %123 ], [ -1, %mpd_qresize.exit ], [ -1, %mpd_qresize.exit.i ], [ 0, %15 ], [ 0, %mpd_qresize.exit.thread.i ]
   ret i64 %.0
 }
 
@@ -5982,7 +5982,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br label %mpd_qresize.exit118
 
 mpd_qresize.exit118:                              ; preds = %60, %62
-  %.0.i117 = phi i32 [ %61, %60 ], [ %63, %62 ]
+  %.0.i117 = phi i32 [ %63, %62 ], [ %61, %60 ]
   %.not111 = icmp eq i32 %.0.i117, 0
   br i1 %.not111, label %230, label %.preheader125
 
@@ -6160,7 +6160,7 @@ mpd_qresize.exit118:                              ; preds = %60, %62
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %112, %116, %123, %127, %130, %140, %144, %147, %157, %161, %165
-  %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %143, %140 ], [ %150, %147 ], [ %160, %157 ], [ %164, %161 ], [ %168, %165 ], [ 9, %127 ], [ 14, %144 ]
+  %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %168, %165 ], [ %143, %140 ], [ %150, %147 ], [ 9, %127 ], [ %160, %157 ], [ %164, %161 ], [ 14, %144 ]
   %169 = zext nneg i32 %.0.i to i64
   br label %170
 
@@ -6508,7 +6508,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %64, %68, %75, %79, %82, %92, %96, %99, %109, %113, %117
-  %.0.i.i = phi i64 [ %67, %64 ], [ %71, %68 ], [ %78, %75 ], [ %85, %82 ], [ %95, %92 ], [ %102, %99 ], [ %112, %109 ], [ %116, %113 ], [ %120, %117 ], [ 9, %79 ], [ 14, %96 ]
+  %.0.i.i = phi i64 [ %67, %64 ], [ %71, %68 ], [ %78, %75 ], [ %85, %82 ], [ %120, %117 ], [ %95, %92 ], [ %102, %99 ], [ 9, %79 ], [ %112, %109 ], [ %116, %113 ], [ 14, %96 ]
   %121 = mul i64 %.0.lcssa.i, 19
   %122 = add i64 %121, -19
   %123 = add i64 %122, %.0.i.i
@@ -6624,7 +6624,7 @@ mpd_isnormal.exit26:                              ; preds = %mpd_iszero.exit
   br label %mpd_isnormal.exit.thread
 
 mpd_isnormal.exit.thread:                         ; preds = %mpd_isnormal.exit26, %mpd_isnormal.exit, %mpd_iszero.exit, %26, %mpd_iszero.exit21, %10, %5
-  %.0 = phi ptr [ %.str.2..str.1, %5 ], [ @.str.3, %10 ], [ @.str.4, %mpd_iszero.exit21 ], [ @.str.7, %26 ], [ @.str.8, %mpd_iszero.exit ], [ %spec.select, %mpd_isnormal.exit ], [ %spec.select45, %mpd_isnormal.exit26 ]
+  %.0 = phi ptr [ %.str.2..str.1, %5 ], [ @.str.8, %mpd_iszero.exit ], [ %spec.select, %mpd_isnormal.exit ], [ @.str.3, %10 ], [ @.str.7, %26 ], [ @.str.4, %mpd_iszero.exit21 ], [ %spec.select45, %mpd_isnormal.exit26 ]
   ret ptr %.0
 }
 
@@ -6726,7 +6726,7 @@ mpd_seterror.exit:                                ; preds = %12, %15, %27
   br label %mpd_qresize.exit56
 
 mpd_qresize.exit56:                               ; preds = %53, %55
-  %.0.i55 = phi i32 [ %54, %53 ], [ %56, %55 ]
+  %.0.i55 = phi i32 [ %56, %55 ], [ %54, %53 ]
   %.not52 = icmp eq i32 %.0.i55, 0
   br i1 %.not52, label %130, label %.preheader
 
@@ -7185,7 +7185,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br label %mpd_qresize.exit127
 
 mpd_qresize.exit127:                              ; preds = %60, %62
-  %.0.i126 = phi i32 [ %61, %60 ], [ %63, %62 ]
+  %.0.i126 = phi i32 [ %63, %62 ], [ %61, %60 ]
   %.not120 = icmp eq i32 %.0.i126, 0
   br i1 %.not120, label %235, label %.preheader133
 
@@ -7363,7 +7363,7 @@ mpd_qresize.exit127:                              ; preds = %60, %62
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %112, %116, %123, %127, %130, %140, %144, %147, %157, %161, %165
-  %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %143, %140 ], [ %150, %147 ], [ %160, %157 ], [ %164, %161 ], [ %168, %165 ], [ 9, %127 ], [ 14, %144 ]
+  %.0.i = phi i32 [ %115, %112 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %168, %165 ], [ %143, %140 ], [ %150, %147 ], [ 9, %127 ], [ %160, %157 ], [ %164, %161 ], [ 14, %144 ]
   %169 = zext nneg i32 %.0.i to i64
   br label %171
 
@@ -7661,7 +7661,7 @@ mpd_seterror.exit:                                ; preds = %37, %40, %52
   br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread87
 
 mpd_qget_ssize.exit.thread:                       ; preds = %67, %70
-  %.0.i.ph = phi i64 [ -9223372036854775808, %70 ], [ %69, %67 ]
+  %.0.i.ph = phi i64 [ %69, %67 ], [ -9223372036854775808, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %72 = load i64, ptr %3, align 8, !tbaa !15
   %73 = icmp sgt i64 %.0.i.ph, %72
@@ -8083,7 +8083,7 @@ define hidden void @mpd_qshiftn(ptr noundef %0, ptr noundef readonly captures(ad
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %26, %24
-  %.0.i.i = phi i32 [ %25, %24 ], [ %27, %26 ]
+  %.0.i.i = phi i32 [ %27, %26 ], [ %25, %24 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -8171,7 +8171,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i36
 
 mpd_qresize.exit.i36:                             ; preds = %71, %69
-  %.0.i.i37 = phi i32 [ %70, %69 ], [ %72, %71 ]
+  %.0.i.i37 = phi i32 [ %72, %71 ], [ %70, %69 ]
   %.not.i38 = icmp eq i32 %.0.i.i37, 0
   br i1 %.not.i38, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i39
 
@@ -8208,7 +8208,7 @@ mpd_qresize.exit.thread.i34:                      ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %89, i64 %91, i1 false)
   br label %92
 
-92:                                               ; preds = %mpd_qresize.exit.thread.i34, %55
+92:                                               ; preds = %55, %mpd_qresize.exit.thread.i34
   tail call fastcc void @_mpd_cap(ptr noundef %0, ptr noundef nonnull %3)
   %93 = sub i64 0, %2
   %94 = tail call i64 @mpd_qshiftr_inplace(ptr noundef %0, i64 noundef %93)
@@ -8371,7 +8371,7 @@ mpd_seterror.exit:                                ; preds = %22, %25, %37
   br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread56
 
 mpd_qget_ssize.exit.thread:                       ; preds = %52, %55
-  %.0.i.ph = phi i64 [ -9223372036854775808, %55 ], [ %54, %52 ]
+  %.0.i.ph = phi i64 [ %54, %52 ], [ -9223372036854775808, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = load i64, ptr %3, align 8, !tbaa !15
   %58 = icmp sgt i64 %.0.i.ph, %57
@@ -8575,7 +8575,7 @@ mpd_seterror.exit:                                ; preds = %20, %23, %35
   br label %mpd_qresize.exit127
 
 mpd_qresize.exit127:                              ; preds = %60, %62
-  %.0.i126 = phi i32 [ %61, %60 ], [ %63, %62 ]
+  %.0.i126 = phi i32 [ %63, %62 ], [ %61, %60 ]
   %.not120 = icmp eq i32 %.0.i126, 0
   br i1 %.not120, label %233, label %.preheader133
 
@@ -8752,7 +8752,7 @@ mpd_qresize.exit127:                              ; preds = %60, %62
   br label %mpd_word_digits.exit
 
 mpd_word_digits.exit:                             ; preds = %111, %115, %122, %126, %129, %139, %143, %146, %156, %160, %164
-  %.0.i = phi i32 [ %114, %111 ], [ %118, %115 ], [ %125, %122 ], [ %132, %129 ], [ %142, %139 ], [ %149, %146 ], [ %159, %156 ], [ %163, %160 ], [ %167, %164 ], [ 9, %126 ], [ 14, %143 ]
+  %.0.i = phi i32 [ %114, %111 ], [ %118, %115 ], [ %125, %122 ], [ %132, %129 ], [ %167, %164 ], [ %142, %139 ], [ %149, %146 ], [ 9, %126 ], [ %159, %156 ], [ %163, %160 ], [ 14, %143 ]
   %168 = zext nneg i32 %.0.i to i64
   br label %170
 
@@ -9013,7 +9013,7 @@ mpd_iszero.exit:                                  ; preds = %9
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %36, %34
-  %.0.i.i.i = phi i32 [ %35, %34 ], [ %37, %36 ]
+  %.0.i.i.i = phi i32 [ %37, %36 ], [ %35, %34 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %mpd_qcopy_abs.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i
 
@@ -9088,7 +9088,7 @@ mpd_iszero.exit.thread:                           ; preds = %9, %19, %mpd_iszero
   br label %mpd_qresize.exit.i.i23
 
 mpd_qresize.exit.i.i23:                           ; preds = %74, %72
-  %.0.i.i.i24 = phi i32 [ %73, %72 ], [ %75, %74 ]
+  %.0.i.i.i24 = phi i32 [ %75, %74 ], [ %73, %72 ]
   %.not.i.i25 = icmp eq i32 %.0.i.i.i24, 0
   br i1 %.not.i.i25, label %mpd_qcopy_abs.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i26
 
@@ -9213,7 +9213,7 @@ mpd_iszero.exit:                                  ; preds = %9
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %36, %34
-  %.0.i.i.i = phi i32 [ %35, %34 ], [ %37, %36 ]
+  %.0.i.i.i = phi i32 [ %37, %36 ], [ %35, %34 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %mpd_qcopy_abs.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i
 
@@ -9289,7 +9289,7 @@ mpd_iszero.exit.thread:                           ; preds = %9, %19, %mpd_iszero
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %74, %72
-  %.0.i.i = phi i32 [ %73, %72 ], [ %75, %74 ]
+  %.0.i.i = phi i32 [ %75, %74 ], [ %73, %72 ]
   %.not.i21 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i21, label %mpd_qcopy_abs.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -9678,8 +9678,8 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   br label %301
 
 95:                                               ; preds = %69, %31
-  %.0113 = phi ptr [ %.1114, %31 ], [ %9, %69 ]
-  %.0109 = phi ptr [ %.1110, %31 ], [ %.2111, %69 ]
+  %.0113 = phi ptr [ %9, %69 ], [ %.1114, %31 ]
+  %.0109 = phi ptr [ %.2111, %69 ], [ %.1110, %31 ]
   %.0 = zext i1 %32 to i32
   %96 = getelementptr inbounds nuw i8, ptr %.0109, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !7
@@ -9734,7 +9734,7 @@ mpd_seterror.exit:                                ; preds = %73, %76, %88
   br label %mpd_qresize.exit81
 
 mpd_qresize.exit81:                               ; preds = %122, %124
-  %.0.i80 = phi i32 [ %123, %122 ], [ %125, %124 ]
+  %.0.i80 = phi i32 [ %125, %124 ], [ %123, %122 ]
   %.not69 = icmp eq i32 %.0.i80, 0
   br i1 %.not69, label %301, label %mpd_qresize.exit81.thread
 
@@ -9792,7 +9792,7 @@ mpd_qresize.exit81.thread:                        ; preds = %120, %104, %mpd_qre
   br label %mpd_qresize.exit78
 
 mpd_qresize.exit78:                               ; preds = %149, %151
-  %.0.i77 = phi i32 [ %150, %149 ], [ %152, %151 ]
+  %.0.i77 = phi i32 [ %152, %151 ], [ %150, %149 ]
   %.not74 = icmp eq i32 %.0.i77, 0
   br i1 %.not74, label %301, label %mpd_qresize.exit78.thread
 
@@ -10057,7 +10057,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %240, %244, %251, %255, %258, %268, %272, %275, %285, %289, %293
-  %.0.i.i = phi i64 [ %243, %240 ], [ %247, %244 ], [ %254, %251 ], [ %261, %258 ], [ %271, %268 ], [ %278, %275 ], [ %288, %285 ], [ %292, %289 ], [ %296, %293 ], [ 9, %255 ], [ 14, %272 ]
+  %.0.i.i = phi i64 [ %243, %240 ], [ %247, %244 ], [ %254, %251 ], [ %261, %258 ], [ %296, %293 ], [ %271, %268 ], [ %278, %275 ], [ 9, %255 ], [ %288, %285 ], [ %292, %289 ], [ 14, %272 ]
   %297 = mul i64 %231, 19
   %298 = add i64 %297, -19
   %299 = add i64 %298, %.0.i.i
@@ -10654,9 +10654,9 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %53
   store i32 %71, ptr %4, align 4, !tbaa !23
   br label %167
 
-mpd_qcopy.exit.thread:                            ; preds = %29, %mpd_qresize.exit.thread.i, %5
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep29, %5 ], [ %18, %mpd_qresize.exit.thread.i ], [ %18, %29 ]
-  %.0 = phi ptr [ %1, %5 ], [ %10, %mpd_qresize.exit.thread.i ], [ %10, %29 ]
+mpd_qcopy.exit.thread:                            ; preds = %mpd_qresize.exit.thread.i, %29, %5
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep29, %5 ], [ %18, %29 ], [ %18, %mpd_qresize.exit.thread.i ]
+  %.0 = phi ptr [ %1, %5 ], [ %10, %29 ], [ %10, %mpd_qresize.exit.thread.i ]
   %72 = icmp eq ptr %0, %2
   br i1 %72, label %73, label %mpd_qcopy.exit60.thread
 
@@ -10692,7 +10692,7 @@ mpd_qcopy.exit.thread:                            ; preds = %29, %mpd_qresize.ex
   br label %mpd_qresize.exit.i54
 
 mpd_qresize.exit.i54:                             ; preds = %88, %86
-  %.0.i.i55 = phi i32 [ %87, %86 ], [ %89, %88 ]
+  %.0.i.i55 = phi i32 [ %89, %88 ], [ %87, %86 ]
   %.not.i56 = icmp eq i32 %.0.i.i55, 0
   br i1 %.not.i56, label %mpd_qcopy.exit60, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i57
 
@@ -10768,9 +10768,9 @@ mpd_seterror.exit64:                              ; preds = %mpd_qcopy.exit60, %
   store i32 %123, ptr %4, align 4, !tbaa !23
   br label %167
 
-mpd_qcopy.exit60.thread:                          ; preds = %73, %mpd_qresize.exit.thread.i52, %mpd_qcopy.exit.thread
-  %.028.sroa.phi = phi ptr [ %.028.sroa.gep30, %mpd_qcopy.exit.thread ], [ %24, %mpd_qresize.exit.thread.i52 ], [ %24, %73 ]
-  %.028 = phi ptr [ %2, %mpd_qcopy.exit.thread ], [ %12, %mpd_qresize.exit.thread.i52 ], [ %12, %73 ]
+mpd_qcopy.exit60.thread:                          ; preds = %mpd_qresize.exit.thread.i52, %73, %mpd_qcopy.exit.thread
+  %.028.sroa.phi = phi ptr [ %.028.sroa.gep30, %mpd_qcopy.exit.thread ], [ %24, %73 ], [ %24, %mpd_qresize.exit.thread.i52 ]
+  %.028 = phi ptr [ %2, %mpd_qcopy.exit.thread ], [ %12, %73 ], [ %12, %mpd_qresize.exit.thread.i52 ]
   call fastcc void @_mpd_qdiv(i32 noundef 1, ptr noundef %0, ptr noundef %.0, ptr noundef %.028, ptr noundef %3, ptr noundef nonnull %13)
   %124 = load i32, ptr %13, align 4, !tbaa !23
   %125 = and i32 %124, 520
@@ -11291,7 +11291,7 @@ mpd_setspecial.exit:                              ; preds = %119, %123, %135
   br label %mpd_qresize.exit214
 
 mpd_qresize.exit214:                              ; preds = %191, %193
-  %.0.i213 = phi i32 [ %192, %191 ], [ %194, %193 ]
+  %.0.i213 = phi i32 [ %194, %193 ], [ %192, %191 ]
   %.not190 = icmp eq i32 %.0.i213, 0
   br i1 %.not190, label %195, label %mpd_qresize.exit214.mpd_qresize.exit214.thread_crit_edge
 
@@ -11428,8 +11428,8 @@ mpd_del.exit210:                                  ; preds = %251, %248
   br label %255
 
 255:                                              ; preds = %mpd_del.exit210, %.thread, %198
-  %.0132 = phi i64 [ %178, %198 ], [ %254, %mpd_del.exit210 ], [ %178, %.thread ]
-  %.0129 = phi i64 [ %205, %198 ], [ %245, %mpd_del.exit210 ], [ %216, %.thread ]
+  %.0132 = phi i64 [ %178, %198 ], [ %178, %.thread ], [ %254, %mpd_del.exit210 ]
+  %.0129 = phi i64 [ %205, %198 ], [ %216, %.thread ], [ %245, %mpd_del.exit210 ]
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %257 = load ptr, ptr %256, align 8, !tbaa !17
   %258 = icmp sgt i64 %.0132, 1
@@ -11611,7 +11611,7 @@ define hidden void @mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr noundef read
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %39, %37
-  %.0.i.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %40, %39 ], [ %38, %37 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -11823,7 +11823,7 @@ mpd_setspecial.exit67:                            ; preds = %103, %107, %119
   br label %mpd_qresize.exit.i72
 
 mpd_qresize.exit.i72:                             ; preds = %143, %141
-  %.0.i.i73 = phi i32 [ %142, %141 ], [ %144, %143 ]
+  %.0.i.i73 = phi i32 [ %144, %143 ], [ %142, %141 ]
   %.not.i74 = icmp eq i32 %.0.i.i73, 0
   br i1 %.not.i74, label %mpd_qcopy.exit78, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i75
 
@@ -11906,7 +11906,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit78, %
   store i32 %184, ptr %5, align 4, !tbaa !23
   br label %mpd_qcopy.exit
 
-185:                                              ; preds = %mpd_qresize.exit.thread.i70, %127
+185:                                              ; preds = %127, %mpd_qresize.exit.thread.i70
   tail call void @mpd_qfinalize(ptr noundef %1, ptr noundef %4, ptr noundef %5)
   tail call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %18, i64 noundef 0, i64 noundef 0)
   br label %mpd_qcopy.exit
@@ -12087,8 +12087,8 @@ mpd_setspecial.exit89.sink.split:                 ; preds = %237, %271
   br label %mpd_setspecial.exit89
 
 mpd_setspecial.exit89:                            ; preds = %mpd_setspecial.exit89.sink.split, %259, %mpd_setspecial.exit93, %225, %mpd_setspecial.exit85
-  %.sink121 = phi i8 [ %223, %mpd_setspecial.exit85 ], [ %223, %225 ], [ %257, %mpd_setspecial.exit93 ], [ %257, %259 ], [ %.pre.i96, %mpd_setspecial.exit89.sink.split ]
-  %.sink117 = phi i32 [ 16, %mpd_setspecial.exit85 ], [ 16, %225 ], [ 260, %mpd_setspecial.exit93 ], [ 260, %259 ], [ %.sink117.ph, %mpd_setspecial.exit89.sink.split ]
+  %.sink121 = phi i8 [ %257, %259 ], [ %223, %mpd_setspecial.exit85 ], [ %223, %225 ], [ %257, %mpd_setspecial.exit93 ], [ %.pre.i96, %mpd_setspecial.exit89.sink.split ]
+  %.sink117 = phi i32 [ 260, %259 ], [ 16, %mpd_setspecial.exit85 ], [ 16, %225 ], [ 260, %mpd_setspecial.exit93 ], [ %.sink117.ph, %mpd_setspecial.exit89.sink.split ]
   %272 = and i8 %.sink121, -16
   %273 = or disjoint i8 %272, 4
   store i8 %273, ptr %1, align 8, !tbaa !19
@@ -12182,7 +12182,7 @@ define internal fastcc void @_mpd_qdivmod(ptr noundef %0, ptr noundef %1, ptr no
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %44, %42
-  %.0.i.i = phi i32 [ %43, %42 ], [ %45, %44 ]
+  %.0.i.i = phi i32 [ %45, %44 ], [ %43, %42 ]
   %.not.i229 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i229, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -12219,7 +12219,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %60, ptr align 8 %46, i64 %62, i1 false)
   br label %63
 
-63:                                               ; preds = %mpd_qresize.exit.thread.i, %30
+63:                                               ; preds = %30, %mpd_qresize.exit.thread.i
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %., ptr %64, align 8, !tbaa !7
   call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %19, i64 noundef 0, i64 noundef 0)
@@ -12281,7 +12281,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i234
 
 mpd_qresize.exit.i234:                            ; preds = %94, %92
-  %.0.i.i235 = phi i32 [ %93, %92 ], [ %95, %94 ]
+  %.0.i.i235 = phi i32 [ %95, %94 ], [ %93, %92 ]
   %.not.i236 = icmp eq i32 %.0.i.i235, 0
   br i1 %.not.i236, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i237
 
@@ -12318,7 +12318,7 @@ mpd_qresize.exit.thread.i232:                     ; preds = %mpd_qresize.exit.mp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %109, ptr align 8 %96, i64 %111, i1 false)
   br label %mpd_qcopy.exit240.thread
 
-mpd_qcopy.exit240.thread:                         ; preds = %80, %mpd_qresize.exit.thread.i232, %78
+mpd_qcopy.exit240.thread:                         ; preds = %mpd_qresize.exit.thread.i232, %80, %78
   call fastcc void @_settriple(ptr noundef %0, i8 noundef zeroext %19, i64 noundef 0, i64 noundef 0)
   br label %mpd_del.exit
 
@@ -12396,7 +12396,7 @@ mpd_qcopy.exit240.thread:                         ; preds = %80, %mpd_qresize.ex
   br label %mpd_qresize.exit226
 
 mpd_qresize.exit226:                              ; preds = %145, %147
-  %.0.i225 = phi i32 [ %146, %145 ], [ %148, %147 ]
+  %.0.i225 = phi i32 [ %148, %147 ], [ %146, %145 ]
   %.not209 = icmp eq i32 %.0.i225, 0
   br i1 %.not209, label %mpd_qcopy.exit, label %mpd_qresize.exit226.mpd_qresize.exit226.thread_crit_edge
 
@@ -12441,7 +12441,7 @@ mpd_qresize.exit226.thread:                       ; preds = %mpd_qresize.exit226
   br label %mpd_qresize.exit223
 
 mpd_qresize.exit223:                              ; preds = %165, %167
-  %.0.i222 = phi i32 [ %166, %165 ], [ %168, %167 ]
+  %.0.i222 = phi i32 [ %168, %167 ], [ %166, %165 ]
   %.not210 = icmp eq i32 %.0.i222, 0
   br i1 %.not210, label %mpd_qcopy.exit, label %mpd_qresize.exit223.thread-pre-split_crit_edge
 
@@ -12680,7 +12680,7 @@ mpd_qresize.exit220:                              ; preds = %_mpd_real_size.exit
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %252, %256, %263, %267, %270, %280, %284, %287, %297, %301, %305
-  %.0.i.i241 = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %283, %280 ], [ %290, %287 ], [ %300, %297 ], [ %304, %301 ], [ %308, %305 ], [ 9, %267 ], [ 14, %284 ]
+  %.0.i.i241 = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %308, %305 ], [ %283, %280 ], [ %290, %287 ], [ 9, %267 ], [ %300, %297 ], [ %304, %301 ], [ 14, %284 ]
   %309 = mul i64 %.0.lcssa.i, 19
   %310 = add i64 %309, -19
   %311 = add i64 %310, %.0.i.i241
@@ -13582,8 +13582,8 @@ mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %278
 
-mpd_qcopy.exit.thread:                            ; preds = %74, %mpd_qresize.exit.thread.i, %57
-  %.052 = phi ptr [ %1, %57 ], [ %14, %mpd_qresize.exit.thread.i ], [ %14, %74 ]
+mpd_qcopy.exit.thread:                            ; preds = %mpd_qresize.exit.thread.i, %74, %57
+  %.052 = phi ptr [ %1, %57 ], [ %14, %74 ], [ %14, %mpd_qresize.exit.thread.i ]
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %94, align 8, !tbaa !28
   %95 = load i64, ptr %2, align 8, !tbaa !15
@@ -14219,7 +14219,7 @@ _mpd_qexp_check_one.exit:                         ; preds = %75
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %118, %116
-  %.0.i.i = phi i32 [ %117, %116 ], [ %119, %118 ]
+  %.0.i.i = phi i32 [ %119, %118 ], [ %117, %116 ]
   %.not.i50 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i50, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -14253,8 +14253,8 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   %.pr = load i64, ptr %10, align 8, !tbaa !15
   br label %136
 
-136:                                              ; preds = %mpd_qresize.exit.thread.i, %98
-  %137 = phi i64 [ %.pr, %mpd_qresize.exit.thread.i ], [ %102, %98 ]
+136:                                              ; preds = %98, %mpd_qresize.exit.thread.i
+  %137 = phi i64 [ %102, %98 ], [ %.pr, %mpd_qresize.exit.thread.i ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %139 = load i64, ptr %138, align 8, !tbaa !7
   %140 = sub i64 %139, %42
@@ -14367,7 +14367,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %_mpd_get_exp_iterations.exit
 
 _mpd_get_exp_iterations.exit:                     ; preds = %151, %155, %162, %166, %169, %179, %183, %186, %196, %200, %204
-  %.0.i.i52 = phi i64 [ %154, %151 ], [ %158, %155 ], [ %165, %162 ], [ %172, %169 ], [ %182, %179 ], [ %189, %186 ], [ %199, %196 ], [ %203, %200 ], [ %207, %204 ], [ 9, %166 ], [ 14, %183 ]
+  %.0.i.i52 = phi i64 [ %154, %151 ], [ %158, %155 ], [ %165, %162 ], [ %172, %169 ], [ %207, %204 ], [ %182, %179 ], [ %189, %186 ], [ 9, %166 ], [ %199, %196 ], [ %203, %200 ], [ 14, %183 ]
   %208 = add nuw nsw i64 %.0.i.i52, 4294967295
   %209 = and i64 %208, 4294967295
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14541,7 +14541,7 @@ mpd_seterror.exit:                                ; preds = %_mpd_get_exp_iterat
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %251, %255, %262, %266, %269, %279, %283, %286, %296, %300, %304
-  %.0.i.i58 = phi i64 [ %254, %251 ], [ %258, %255 ], [ %265, %262 ], [ %272, %269 ], [ %282, %279 ], [ %289, %286 ], [ %299, %296 ], [ %303, %300 ], [ %307, %304 ], [ 9, %266 ], [ 14, %283 ]
+  %.0.i.i58 = phi i64 [ %254, %251 ], [ %258, %255 ], [ %265, %262 ], [ %272, %269 ], [ %307, %304 ], [ %282, %279 ], [ %289, %286 ], [ 9, %266 ], [ %299, %296 ], [ %303, %300 ], [ 14, %283 ]
   store i64 %.0.i.i58, ptr %24, align 8, !tbaa !11
   call void @mpd_qdiv(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %242)
   call void @mpd_qfma(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull @one, ptr noundef nonnull %10, ptr noundef nonnull %242)
@@ -15219,7 +15219,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph.preheader, %
   br label %mpd_qresize.exit59
 
 mpd_qresize.exit59:                               ; preds = %219, %221
-  %.0.i58 = phi i32 [ %220, %219 ], [ %222, %221 ]
+  %.0.i58 = phi i32 [ %222, %221 ], [ %220, %219 ]
   %.not53 = icmp eq i32 %.0.i58, 0
   br i1 %.not53, label %_mpd_qmul_inf.exit, label %.preheader
 
@@ -15301,7 +15301,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   br label %265
 
 265:                                              ; preds = %249, %263, %261
-  %.042 = phi ptr [ %254, %249 ], [ %262, %261 ], [ %264, %263 ]
+  %.042 = phi ptr [ %264, %263 ], [ %254, %249 ], [ %262, %261 ]
   %266 = icmp eq ptr %.042, null
   br i1 %266, label %.thread82, label %.thread
 
@@ -15335,8 +15335,8 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph88, %.preheader, %272, %142
-  %278 = phi i64 [ %275, %272 ], [ %140, %142 ], [ 0, %.preheader ], [ %140, %.lr.ph88 ]
-  %279 = phi ptr [ %.04281, %272 ], [ %144, %142 ], [ %.pre91, %.preheader ], [ %.pre91, %.lr.ph88 ]
+  %278 = phi i64 [ 0, %.preheader ], [ %140, %142 ], [ %275, %272 ], [ %140, %.lr.ph88 ]
+  %279 = phi ptr [ %.pre91, %.preheader ], [ %144, %142 ], [ %.04281, %272 ], [ %.pre91, %.lr.ph88 ]
   %280 = load i8, ptr %1, align 8, !tbaa !19
   %281 = load i8, ptr %2, align 8, !tbaa !19
   %282 = xor i8 %281, %280
@@ -15507,7 +15507,7 @@ mpd_qresize.exit:                                 ; preds = %_mpd_real_size.exit
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %329, %333, %340, %344, %347, %357, %361, %364, %374, %378, %382
-  %.0.i.i = phi i64 [ %332, %329 ], [ %336, %333 ], [ %343, %340 ], [ %350, %347 ], [ %360, %357 ], [ %367, %364 ], [ %377, %374 ], [ %381, %378 ], [ %385, %382 ], [ 9, %344 ], [ 14, %361 ]
+  %.0.i.i = phi i64 [ %332, %329 ], [ %336, %333 ], [ %343, %340 ], [ %350, %347 ], [ %385, %382 ], [ %360, %357 ], [ %367, %364 ], [ 9, %344 ], [ %377, %374 ], [ %381, %378 ], [ 14, %361 ]
   %386 = mul i64 %317, 19
   %387 = add i64 %386, -19
   %388 = add i64 %387, %.0.i.i
@@ -15852,7 +15852,7 @@ define internal fastcc void @_mpd_apply_round_excess(ptr noundef %0, i64 noundef
   br label %_mpd_rnd_incr.exit
 
 _mpd_rnd_incr.exit:                               ; preds = %4, %11, %19, %26, %30, %33, %36
-  %.0.i14 = phi i32 [ %6, %4 ], [ %32, %30 ], [ %35, %33 ], [ %45, %36 ], [ %16, %11 ], [ %23, %19 ], [ %29, %26 ]
+  %.0.i14 = phi i32 [ %29, %26 ], [ %45, %36 ], [ %6, %4 ], [ %35, %33 ], [ %16, %11 ], [ %23, %19 ], [ %32, %30 ]
   %.not = icmp eq i32 %.0.i14, 0
   br i1 %.not, label %_mpd_rnd_incr.exit.thread, label %_mpd_rnd_incr.exit.thread3
 
@@ -15899,7 +15899,7 @@ _mpd_rnd_incr.exit.thread3._crit_edge:            ; preds = %_mpd_rnd_incr.exit.
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %64, %66
-  %.0.i = phi i32 [ %65, %64 ], [ %67, %66 ]
+  %.0.i = phi i32 [ %67, %66 ], [ %65, %64 ]
   %.not13 = icmp eq i32 %.0.i, 0
   br i1 %.not13, label %_mpd_rnd_incr.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -16027,7 +16027,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %87, %91, %98, %102, %105, %115, %119, %122, %132, %136, %140
-  %.0.i.i = phi i64 [ %90, %87 ], [ %94, %91 ], [ %101, %98 ], [ %108, %105 ], [ %118, %115 ], [ %125, %122 ], [ %135, %132 ], [ %139, %136 ], [ %143, %140 ], [ 9, %102 ], [ 14, %119 ]
+  %.0.i.i = phi i64 [ %90, %87 ], [ %94, %91 ], [ %101, %98 ], [ %108, %105 ], [ %143, %140 ], [ %118, %115 ], [ %125, %122 ], [ 9, %102 ], [ %135, %132 ], [ %139, %136 ], [ 14, %119 ]
   %144 = mul i64 %74, 19
   %145 = add i64 %144, -19
   %146 = add i64 %145, %.0.i.i
@@ -16393,7 +16393,7 @@ mpd_seterror.exit102:                             ; preds = %95, %98, %110
   br label %mpd_exp_digits.exit
 
 mpd_exp_digits.exit:                              ; preds = %139, %143, %150, %154, %157, %167, %171, %174, %184, %188, %192
-  %.0.i.i = phi i64 [ %142, %139 ], [ %146, %143 ], [ %153, %150 ], [ %160, %157 ], [ %170, %167 ], [ %177, %174 ], [ %187, %184 ], [ %191, %188 ], [ %195, %192 ], [ 9, %154 ], [ 14, %171 ]
+  %.0.i.i = phi i64 [ %142, %139 ], [ %146, %143 ], [ %153, %150 ], [ %160, %157 ], [ %195, %192 ], [ %170, %167 ], [ %177, %174 ], [ 9, %154 ], [ %187, %184 ], [ %191, %188 ], [ 14, %171 ]
   %196 = add nuw nsw i64 %.0.i.i, 4294967295
   %197 = and i64 %196, 4294967295
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16927,7 +16927,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   br label %_mpd_get_msdigits.exit
 
 _mpd_get_msdigits.exit:                           ; preds = %95, %86, %93
-  %.2 = phi i64 [ %85, %93 ], [ %92, %86 ], [ %106, %95 ]
+  %.2 = phi i64 [ %92, %86 ], [ %106, %95 ], [ %85, %93 ]
   %107 = icmp ult i64 %.2, 10
   br i1 %107, label %.thread, label %109
 
@@ -17103,7 +17103,7 @@ mpd_minalloc.exit:                                ; preds = %113, %121, %133
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %152, %156, %163, %167, %170, %180, %184, %187, %197, %201, %205
-  %.0.i.i82 = phi i64 [ %155, %152 ], [ %159, %156 ], [ %166, %163 ], [ %173, %170 ], [ %183, %180 ], [ %190, %187 ], [ %200, %197 ], [ %204, %201 ], [ %208, %205 ], [ 9, %167 ], [ 14, %184 ]
+  %.0.i.i82 = phi i64 [ %155, %152 ], [ %159, %156 ], [ %166, %163 ], [ %173, %170 ], [ %208, %205 ], [ %183, %180 ], [ %190, %187 ], [ 9, %167 ], [ %200, %197 ], [ %204, %201 ], [ 14, %184 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0.i.i82, ptr %209, align 8, !tbaa !11
   %210 = icmp ult i64 %114, 401
@@ -17792,7 +17792,7 @@ mpd_seterror.exit114:                             ; preds = %96, %99, %111
   br label %mpd_word_ispow10.exit.i
 
 mpd_word_ispow10.exit.i:                          ; preds = %180, %176, %172, %162, %159, %155, %145, %142, %138, %131, %127
-  %.0.i.i.i = phi i64 [ %130, %127 ], [ %134, %131 ], [ %141, %138 ], [ %148, %145 ], [ %158, %155 ], [ %165, %162 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ 9, %142 ], [ 14, %159 ]
+  %.0.i.i.i = phi i64 [ %130, %127 ], [ %134, %131 ], [ %141, %138 ], [ %148, %145 ], [ %183, %180 ], [ %158, %155 ], [ %165, %162 ], [ 9, %142 ], [ %175, %172 ], [ %179, %176 ], [ 14, %159 ]
   %184 = getelementptr i64, ptr @mpd_pow10, i64 %.0.i.i.i
   %185 = getelementptr i8, ptr %184, i64 -8
   %186 = load i64, ptr %185, align 8, !tbaa !3
@@ -18294,7 +18294,7 @@ define hidden void @mpd_qmax(ptr noundef %0, ptr noundef readonly captures(addre
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -18372,7 +18372,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
-  %.0.i.i39 = phi i32 [ %64, %63 ], [ %66, %65 ]
+  %.0.i.i39 = phi i32 [ %66, %65 ], [ %64, %63 ]
   %.not.i40 = icmp eq i32 %.0.i.i39, 0
   br i1 %.not.i40, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i41
 
@@ -18484,7 +18484,7 @@ _mpd_cmp_numequal.exit:                           ; preds = %100, %96, %88
   br label %mpd_qresize.exit.i51
 
 mpd_qresize.exit.i51:                             ; preds = %128, %126
-  %.0.i.i52 = phi i32 [ %127, %126 ], [ %129, %128 ]
+  %.0.i.i52 = phi i32 [ %129, %128 ], [ %127, %126 ]
   %.not.i53 = icmp eq i32 %.0.i.i52, 0
   br i1 %.not.i53, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i54
 
@@ -18553,7 +18553,7 @@ mpd_qresize.exit.thread.i49:                      ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i62
 
 mpd_qresize.exit.i62:                             ; preds = %165, %163
-  %.0.i.i63 = phi i32 [ %164, %163 ], [ %166, %165 ]
+  %.0.i.i63 = phi i32 [ %166, %165 ], [ %164, %163 ]
   %.not.i64 = icmp eq i32 %.0.i.i63, 0
   br i1 %.not.i64, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i65
 
@@ -18641,7 +18641,7 @@ define hidden void @mpd_qmax_mag(ptr noundef %0, ptr noundef readonly captures(a
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -18719,7 +18719,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
-  %.0.i.i39 = phi i32 [ %64, %63 ], [ %66, %65 ]
+  %.0.i.i39 = phi i32 [ %66, %65 ], [ %64, %63 ]
   %.not.i40 = icmp eq i32 %.0.i.i39, 0
   br i1 %.not.i40, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i41
 
@@ -18863,7 +18863,7 @@ _mpd_cmp_abs.exit.thread72:                       ; preds = %88, %_mpd_cmp_abs.e
   br label %_mpd_cmp_numequal.exit
 
 _mpd_cmp_numequal.exit:                           ; preds = %136, %132, %_mpd_cmp_abs.exit
-  %.0 = phi i32 [ %.0.i46, %_mpd_cmp_abs.exit ], [ %135, %132 ], [ %146, %136 ]
+  %.0 = phi i32 [ %146, %136 ], [ %.0.i46, %_mpd_cmp_abs.exit ], [ %135, %132 ]
   %147 = icmp slt i32 %.0, 0
   br i1 %147, label %_mpd_cmp_numequal.exit.thread, label %_mpd_cmp_numequal.exit.thread76
 
@@ -18900,7 +18900,7 @@ _mpd_cmp_numequal.exit.thread:                    ; preds = %123, %94, %_mpd_cmp
   br label %mpd_qresize.exit.i53
 
 mpd_qresize.exit.i53:                             ; preds = %163, %161
-  %.0.i.i54 = phi i32 [ %162, %161 ], [ %164, %163 ]
+  %.0.i.i54 = phi i32 [ %164, %163 ], [ %162, %161 ]
   %.not.i55 = icmp eq i32 %.0.i.i54, 0
   br i1 %.not.i55, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i56
 
@@ -18970,7 +18970,7 @@ _mpd_cmp_numequal.exit.thread76:                  ; preds = %111, %123, %_mpd_cm
   br label %mpd_qresize.exit.i64
 
 mpd_qresize.exit.i64:                             ; preds = %199, %197
-  %.0.i.i65 = phi i32 [ %198, %197 ], [ %200, %199 ]
+  %.0.i.i65 = phi i32 [ %200, %199 ], [ %198, %197 ]
   %.not.i66 = icmp eq i32 %.0.i.i65, 0
   br i1 %.not.i66, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i67
 
@@ -19059,7 +19059,7 @@ define hidden void @mpd_qmin(ptr noundef %0, ptr noundef readonly captures(addre
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -19137,7 +19137,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
-  %.0.i.i39 = phi i32 [ %64, %63 ], [ %66, %65 ]
+  %.0.i.i39 = phi i32 [ %66, %65 ], [ %64, %63 ]
   %.not.i40 = icmp eq i32 %.0.i.i39, 0
   br i1 %.not.i40, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i41
 
@@ -19249,7 +19249,7 @@ _mpd_cmp_numequal.exit:                           ; preds = %100, %96, %88
   br label %mpd_qresize.exit.i51
 
 mpd_qresize.exit.i51:                             ; preds = %128, %126
-  %.0.i.i52 = phi i32 [ %127, %126 ], [ %129, %128 ]
+  %.0.i.i52 = phi i32 [ %129, %128 ], [ %127, %126 ]
   %.not.i53 = icmp eq i32 %.0.i.i52, 0
   br i1 %.not.i53, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i54
 
@@ -19318,7 +19318,7 @@ mpd_qresize.exit.thread.i49:                      ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i62
 
 mpd_qresize.exit.i62:                             ; preds = %165, %163
-  %.0.i.i63 = phi i32 [ %164, %163 ], [ %166, %165 ]
+  %.0.i.i63 = phi i32 [ %166, %165 ], [ %164, %163 ]
   %.not.i64 = icmp eq i32 %.0.i.i63, 0
   br i1 %.not.i64, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i65
 
@@ -19406,7 +19406,7 @@ define hidden void @mpd_qmin_mag(ptr noundef %0, ptr noundef readonly captures(a
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -19484,7 +19484,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %65, %63
-  %.0.i.i39 = phi i32 [ %64, %63 ], [ %66, %65 ]
+  %.0.i.i39 = phi i32 [ %66, %65 ], [ %64, %63 ]
   %.not.i40 = icmp eq i32 %.0.i.i39, 0
   br i1 %.not.i40, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i41
 
@@ -19628,7 +19628,7 @@ _mpd_cmp_abs.exit.thread72:                       ; preds = %88, %_mpd_cmp_abs.e
   br label %_mpd_cmp_numequal.exit
 
 _mpd_cmp_numequal.exit:                           ; preds = %136, %132, %_mpd_cmp_abs.exit
-  %.0 = phi i32 [ %.0.i46, %_mpd_cmp_abs.exit ], [ %135, %132 ], [ %146, %136 ]
+  %.0 = phi i32 [ %146, %136 ], [ %.0.i46, %_mpd_cmp_abs.exit ], [ %135, %132 ]
   %147 = icmp slt i32 %.0, 0
   br i1 %147, label %_mpd_cmp_numequal.exit.thread, label %_mpd_cmp_numequal.exit.thread76
 
@@ -19665,7 +19665,7 @@ _mpd_cmp_numequal.exit.thread:                    ; preds = %123, %94, %_mpd_cmp
   br label %mpd_qresize.exit.i53
 
 mpd_qresize.exit.i53:                             ; preds = %163, %161
-  %.0.i.i54 = phi i32 [ %162, %161 ], [ %164, %163 ]
+  %.0.i.i54 = phi i32 [ %164, %163 ], [ %162, %161 ]
   %.not.i55 = icmp eq i32 %.0.i.i54, 0
   br i1 %.not.i55, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i56
 
@@ -19735,7 +19735,7 @@ _mpd_cmp_numequal.exit.thread76:                  ; preds = %111, %123, %_mpd_cm
   br label %mpd_qresize.exit.i64
 
 mpd_qresize.exit.i64:                             ; preds = %199, %197
-  %.0.i.i65 = phi i32 [ %198, %197 ], [ %200, %199 ]
+  %.0.i.i65 = phi i32 [ %200, %199 ], [ %198, %197 ]
   %.not.i66 = icmp eq i32 %.0.i.i65, 0
   br i1 %.not.i66, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i67
 
@@ -19991,7 +19991,7 @@ define hidden void @mpd_qnext_minus(ptr noundef %0, ptr noundef readonly capture
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %41, %39
-  %.0.i.i = phi i32 [ %40, %39 ], [ %42, %41 ]
+  %.0.i.i = phi i32 [ %42, %41 ], [ %40, %39 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -20064,7 +20064,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i34
 
 mpd_qresize.exit.i34:                             ; preds = %82, %80
-  %.0.i.i35 = phi i32 [ %81, %80 ], [ %83, %82 ]
+  %.0.i.i35 = phi i32 [ %83, %82 ], [ %81, %80 ]
   %.not.i36 = icmp eq i32 %.0.i.i35, 0
   br i1 %.not.i36, label %mpd_qmaxcoeff.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i37
 
@@ -20183,7 +20183,7 @@ mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.e
   br label %mpd_qresize.exit.i43
 
 mpd_qresize.exit.i43:                             ; preds = %142, %140
-  %.0.i.i44 = phi i32 [ %141, %140 ], [ %143, %142 ]
+  %.0.i.i44 = phi i32 [ %143, %142 ], [ %141, %140 ]
   %.not.i45 = icmp eq i32 %.0.i.i44, 0
   br i1 %.not.i45, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i46
 
@@ -20220,7 +20220,7 @@ mpd_qresize.exit.thread.i41:                      ; preds = %mpd_qresize.exit.mp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %158, ptr align 8 %160, i64 %162, i1 false)
   br label %163
 
-163:                                              ; preds = %mpd_qresize.exit.thread.i41, %112
+163:                                              ; preds = %112, %mpd_qresize.exit.thread.i41
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %119)
   %164 = load i32, ptr %119, align 4, !tbaa !56
   %165 = and i32 %164, 1022
@@ -20346,7 +20346,7 @@ define hidden void @mpd_qnext_plus(ptr noundef %0, ptr noundef readonly captures
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %41, %39
-  %.0.i.i = phi i32 [ %40, %39 ], [ %42, %41 ]
+  %.0.i.i = phi i32 [ %42, %41 ], [ %40, %39 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -20419,7 +20419,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i35
 
 mpd_qresize.exit.i35:                             ; preds = %82, %80
-  %.0.i.i36 = phi i32 [ %81, %80 ], [ %83, %82 ]
+  %.0.i.i36 = phi i32 [ %83, %82 ], [ %81, %80 ]
   %.not.i37 = icmp eq i32 %.0.i.i36, 0
   br i1 %.not.i37, label %mpd_qmaxcoeff.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i38
 
@@ -20541,7 +20541,7 @@ mpd_qmaxcoeff.exit:                               ; preds = %101, %mpd_qresize.e
   br label %mpd_qresize.exit.i44
 
 mpd_qresize.exit.i44:                             ; preds = %144, %142
-  %.0.i.i45 = phi i32 [ %143, %142 ], [ %145, %144 ]
+  %.0.i.i45 = phi i32 [ %145, %144 ], [ %143, %142 ]
   %.not.i46 = icmp eq i32 %.0.i.i45, 0
   br i1 %.not.i46, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i47
 
@@ -20578,7 +20578,7 @@ mpd_qresize.exit.thread.i42:                      ; preds = %mpd_qresize.exit.mp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %160, ptr align 8 %162, i64 %164, i1 false)
   br label %165
 
-165:                                              ; preds = %mpd_qresize.exit.thread.i42, %114
+165:                                              ; preds = %114, %mpd_qresize.exit.thread.i42
   call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %121)
   %166 = load i32, ptr %121, align 4, !tbaa !56
   %167 = and i32 %166, 1022
@@ -20675,7 +20675,7 @@ define hidden void @mpd_qnext_toward(ptr noundef %0, ptr noundef readonly captur
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %28, %26
-  %.0.i.i.i = phi i32 [ %27, %26 ], [ %29, %28 ]
+  %.0.i.i.i = phi i32 [ %29, %28 ], [ %27, %26 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i, label %mpd_qcopy_sign.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i
 
@@ -20901,8 +20901,8 @@ mpd_isinteger.exit.thread131:                     ; preds = %mpd_isinteger.exit
   br label %mpd_isinteger.exit.thread
 
 mpd_isinteger.exit.thread:                        ; preds = %mpd_isinteger.exit.thread131, %20, %65, %63, %52, %17, %mpd_isinteger.exit
-  %.not90130 = phi i1 [ true, %mpd_isinteger.exit ], [ false, %mpd_isinteger.exit.thread131 ], [ true, %17 ], [ false, %52 ], [ false, %63 ], [ false, %65 ], [ false, %20 ]
-  %.0 = phi i8 [ 0, %mpd_isinteger.exit ], [ 0, %mpd_isinteger.exit.thread131 ], [ 0, %17 ], [ %62, %52 ], [ 0, %63 ], [ %68, %65 ], [ 0, %20 ]
+  %.not90130 = phi i1 [ true, %mpd_isinteger.exit ], [ false, %mpd_isinteger.exit.thread131 ], [ true, %17 ], [ false, %20 ], [ false, %52 ], [ false, %63 ], [ false, %65 ]
+  %.0 = phi i8 [ 0, %mpd_isinteger.exit ], [ 0, %mpd_isinteger.exit.thread131 ], [ 0, %17 ], [ 0, %20 ], [ %62, %52 ], [ 0, %63 ], [ %68, %65 ]
   %69 = load i8, ptr %1, align 8, !tbaa !19
   %70 = and i8 %69, 14
   %.not.i111 = icmp eq i8 %70, 0
@@ -21371,7 +21371,7 @@ define internal fastcc range(i32 -2, 2) i32 @_qcheck_pow_one(ptr noundef %0, ptr
   br label %_mpd_cmp_abs.exit.thread
 
 _mpd_cmp_abs.exit:                                ; preds = %39, %36, %22
-  %.0.i = phi i32 [ %.26.i, %22 ], [ %38, %36 ], [ %41, %39 ]
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %.26.i, %22 ]
   %50 = icmp eq i32 %.0.i, 0
   br i1 %50, label %_mpd_cmp_abs.exit.thread42, label %_mpd_cmp_abs.exit.thread
 
@@ -21538,8 +21538,8 @@ mpd_qget_ssize.exit:                              ; preds = %92, %99, %104
   store i8 %128, ptr %0, align 8, !tbaa !19
   br label %_mpd_cmp_abs.exit.thread
 
-_mpd_cmp_abs.exit.thread:                         ; preds = %48, %10, %30, %23, %_mpd_cmp_abs.exit, %123, %121, %113, %85, %78
-  %.0 = phi i32 [ 0, %78 ], [ 0, %85 ], [ -2, %113 ], [ 0, %121 ], [ 0, %123 ], [ %.0.i, %_mpd_cmp_abs.exit ], [ %..i, %48 ], [ 1, %10 ], [ %.27.i, %30 ], [ 1, %23 ]
+_mpd_cmp_abs.exit.thread:                         ; preds = %48, %23, %30, %10, %_mpd_cmp_abs.exit, %123, %121, %113, %85, %78
+  %.0 = phi i32 [ 0, %78 ], [ 0, %85 ], [ 0, %121 ], [ -2, %113 ], [ 0, %123 ], [ %.0.i, %_mpd_cmp_abs.exit ], [ %..i, %48 ], [ 1, %23 ], [ %.27.i, %30 ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -21893,7 +21893,7 @@ _lower_bound_zeta.exit.thread:                    ; preds = %192, %195
   br label %213
 
 _lower_bound_zeta.exit.thread38:                  ; preds = %123, %127, %134, %138, %141, %151, %155, %158, %168, %172, %176, %54, %58, %65, %69, %72, %82, %86, %89, %99, %103, %107
-  %.0.i.ph.in.in = phi i64 [ %57, %54 ], [ %61, %58 ], [ %68, %65 ], [ %75, %72 ], [ %85, %82 ], [ %92, %89 ], [ %102, %99 ], [ %106, %103 ], [ %110, %107 ], [ 9, %69 ], [ 14, %86 ], [ %126, %123 ], [ %130, %127 ], [ %137, %134 ], [ %144, %141 ], [ %154, %151 ], [ %161, %158 ], [ %171, %168 ], [ %175, %172 ], [ %179, %176 ], [ 9, %138 ], [ 14, %155 ]
+  %.0.i.ph.in.in = phi i64 [ 14, %86 ], [ %57, %54 ], [ %61, %58 ], [ %68, %65 ], [ %75, %72 ], [ %110, %107 ], [ %85, %82 ], [ %92, %89 ], [ 9, %69 ], [ %102, %99 ], [ %106, %103 ], [ %126, %123 ], [ %130, %127 ], [ %137, %134 ], [ %144, %141 ], [ %179, %176 ], [ %154, %151 ], [ %161, %158 ], [ 9, %138 ], [ %171, %168 ], [ %175, %172 ], [ 14, %155 ]
   %.0.i.ph.in = add nuw nsw i64 %.0.i.ph.in.in, 4294967295
   %.0.i.ph = and i64 %.0.i.ph.in, 4294967295
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -22075,7 +22075,7 @@ mpd_seterror.exit:                                ; preds = %213, %216, %228
   br label %mpd_exp_digits.exit
 
 mpd_exp_digits.exit:                              ; preds = %252, %256, %263, %267, %270, %280, %284, %287, %297, %301, %305
-  %.0.i.i = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %283, %280 ], [ %290, %287 ], [ %300, %297 ], [ %304, %301 ], [ %308, %305 ], [ 9, %267 ], [ 14, %284 ]
+  %.0.i.i = phi i64 [ %255, %252 ], [ %259, %256 ], [ %266, %263 ], [ %273, %270 ], [ %308, %305 ], [ %283, %280 ], [ %290, %287 ], [ 9, %267 ], [ %300, %297 ], [ %304, %301 ], [ 14, %284 ]
   %309 = add i64 %.0.i40, %36
   %310 = icmp sgt i64 %309, %.0.i.i
   br i1 %310, label %311, label %387
@@ -22196,7 +22196,7 @@ mpd_exp_digits.exit:                              ; preds = %252, %256, %263, %2
   br label %mpd_exp_digits.exit35
 
 mpd_exp_digits.exit35:                            ; preds = %326, %330, %337, %341, %344, %354, %358, %361, %371, %375, %379
-  %.0.i.i34 = phi i64 [ %329, %326 ], [ %333, %330 ], [ %340, %337 ], [ %347, %344 ], [ %357, %354 ], [ %364, %361 ], [ %374, %371 ], [ %378, %375 ], [ %382, %379 ], [ 9, %341 ], [ 14, %358 ]
+  %.0.i.i34 = phi i64 [ %329, %326 ], [ %333, %330 ], [ %340, %337 ], [ %347, %344 ], [ %382, %379 ], [ %357, %354 ], [ %364, %361 ], [ 9, %341 ], [ %374, %371 ], [ %378, %375 ], [ 14, %358 ]
   %383 = add i64 %.0.i40, %36
   %384 = icmp sgt i64 %383, %.0.i.i34
   br i1 %384, label %385, label %387
@@ -22440,7 +22440,7 @@ mpd_setspecial.exit44:                            ; preds = %mpd_qcopy.exit, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, i8 0, i64 24, i1 false)
   br label %280
 
-mpd_qcopy.exit.thread:                            ; preds = %84, %mpd_qresize.exit.thread.i, %.thread
+mpd_qcopy.exit.thread:                            ; preds = %mpd_qresize.exit.thread.i, %84, %.thread
   %126 = call fastcc i64 @_mpd_qget_uint(i32 noundef 0, ptr noundef nonnull readonly %2, ptr noundef nonnull %42)
   %127 = load i32, ptr %42, align 4, !tbaa !56
   %128 = and i32 %127, 256
@@ -22479,7 +22479,7 @@ mpd_qcopy.exit.thread:                            ; preds = %84, %mpd_qresize.ex
   br label %mpd_qresize.exit.i49
 
 mpd_qresize.exit.i49:                             ; preds = %144, %142
-  %.0.i.i50 = phi i32 [ %143, %142 ], [ %145, %144 ]
+  %.0.i.i50 = phi i32 [ %145, %144 ], [ %143, %142 ]
   %.not.i51 = icmp eq i32 %.0.i.i50, 0
   br i1 %.not.i51, label %mpd_qcopy.exit55, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i52
 
@@ -22551,7 +22551,7 @@ mpd_setspecial.exit59:                            ; preds = %mpd_qcopy.exit55, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 24, i1 false)
   br label %280
 
-177:                                              ; preds = %mpd_qresize.exit.thread.i47, %129
+177:                                              ; preds = %129, %mpd_qresize.exit.thread.i47
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -22600,7 +22600,7 @@ mpd_setspecial.exit59:                            ; preds = %mpd_qcopy.exit55, %
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %196, %194
-  %.0.i.i.i = phi i32 [ %195, %194 ], [ %197, %196 ]
+  %.0.i.i.i = phi i32 [ %197, %196 ], [ %195, %194 ]
   %.not.i28.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i28.i, label %mpd_qcopy.exit.i, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i
 
@@ -22963,7 +22963,7 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %40
   %58 = or i32 %57, 512
   br label %83
 
-59:                                               ; preds = %mpd_qresize.exit.thread.i, %5
+59:                                               ; preds = %5, %mpd_qresize.exit.thread.i
   call void @mpd_maxcontext(ptr noundef nonnull %7) #34
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %61 = load i64, ptr %60, align 8, !tbaa !11
@@ -23164,7 +23164,7 @@ define hidden void @mpd_qpowmod(ptr noundef %0, ptr noundef readonly captures(ad
   br label %70
 
 70:                                               ; preds = %68, %66, %63, %58, %53
-  %.0.i = phi ptr [ %1, %53 ], [ %2, %58 ], [ %3, %63 ], [ %1, %66 ], [ %spec.select.i, %68 ]
+  %.0.i = phi ptr [ %1, %53 ], [ %2, %58 ], [ %3, %63 ], [ %spec.select.i, %68 ], [ %1, %66 ]
   %71 = icmp eq ptr %0, %.0.i
   br i1 %71, label %mpd_qcheck_3nans.exit, label %72
 
@@ -23197,7 +23197,7 @@ define hidden void @mpd_qpowmod(ptr noundef %0, ptr noundef readonly captures(ad
   br label %mpd_qresize.exit.i.i
 
 mpd_qresize.exit.i.i:                             ; preds = %86, %84
-  %.0.i.i.i = phi i32 [ %85, %84 ], [ %87, %86 ]
+  %.0.i.i.i = phi i32 [ %87, %86 ], [ %85, %84 ]
   %.not.i.i118 = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i.i118, label %mpd_qcheck_3nans.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i.i
 
@@ -23980,7 +23980,7 @@ mpd_seterror.exit:                                ; preds = %24, %27, %39
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %65, %63
-  %.0.i.i = phi i32 [ %64, %63 ], [ %66, %65 ]
+  %.0.i.i = phi i32 [ %66, %65 ], [ %64, %63 ]
   %.not.i39 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i39, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -24272,7 +24272,7 @@ define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %0, ptr nound
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %19, %17
-  %.0.i.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %.0.i.i = phi i32 [ %20, %19 ], [ %18, %17 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit.preheader, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -24389,7 +24389,7 @@ define hidden void @mpd_qquantize(ptr noundef %0, ptr noundef readonly captures(
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %39, %37
-  %.0.i.i = phi i32 [ %38, %37 ], [ %40, %39 ]
+  %.0.i.i = phi i32 [ %40, %39 ], [ %38, %37 ]
   %.not.i79 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i79, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -24712,7 +24712,7 @@ define internal fastcc range(i32 0, 2) i32 @_mpd_apply_round_fit(ptr noundef %0,
   br label %_mpd_rnd_incr.exit
 
 _mpd_rnd_incr.exit:                               ; preds = %7, %14, %22, %29, %33, %36, %39
-  %.0.i21 = phi i32 [ %9, %7 ], [ %35, %33 ], [ %38, %36 ], [ %48, %39 ], [ %19, %14 ], [ %26, %22 ], [ %32, %29 ]
+  %.0.i21 = phi i32 [ %32, %29 ], [ %48, %39 ], [ %9, %7 ], [ %38, %36 ], [ %19, %14 ], [ %26, %22 ], [ %35, %33 ]
   %.not = icmp eq i32 %.0.i21, 0
   br i1 %.not, label %_mpd_rnd_incr.exit.thread, label %_mpd_rnd_incr.exit.thread24
 
@@ -24759,7 +24759,7 @@ _mpd_rnd_incr.exit.thread24._crit_edge:           ; preds = %_mpd_rnd_incr.exit.
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %67, %69
-  %.0.i = phi i32 [ %68, %67 ], [ %70, %69 ]
+  %.0.i = phi i32 [ %70, %69 ], [ %68, %67 ]
   %.not20 = icmp eq i32 %.0.i, 0
   br i1 %.not20, label %_mpd_rnd_incr.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge
 
@@ -24887,7 +24887,7 @@ mpd_qresize.exit.thread:                          ; preds = %mpd_qresize.exit.mp
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %90, %94, %101, %105, %108, %118, %122, %125, %135, %139, %143
-  %.0.i.i = phi i64 [ %93, %90 ], [ %97, %94 ], [ %104, %101 ], [ %111, %108 ], [ %121, %118 ], [ %128, %125 ], [ %138, %135 ], [ %142, %139 ], [ %146, %143 ], [ 9, %105 ], [ 14, %122 ]
+  %.0.i.i = phi i64 [ %93, %90 ], [ %97, %94 ], [ %104, %101 ], [ %111, %108 ], [ %146, %143 ], [ %121, %118 ], [ %128, %125 ], [ 9, %105 ], [ %138, %135 ], [ %142, %139 ], [ 14, %122 ]
   %147 = mul i64 %77, 19
   %148 = add i64 %147, -19
   %149 = add i64 %148, %.0.i.i
@@ -24942,7 +24942,7 @@ mpd_seterror.exit:                                ; preds = %153, %156, %166
   br label %_mpd_rnd_incr.exit.thread
 
 _mpd_rnd_incr.exit.thread:                        ; preds = %mpd_qresize.exit, %mpd_seterror.exit, %4, %27, %20, %12, %_mpd_rnd_incr.exit, %mpd_setdigits.exit
-  %.1 = phi i32 [ 1, %mpd_setdigits.exit ], [ 1, %_mpd_rnd_incr.exit ], [ 1, %12 ], [ 1, %20 ], [ 1, %27 ], [ 1, %4 ], [ 0, %mpd_seterror.exit ], [ 0, %mpd_qresize.exit ]
+  %.1 = phi i32 [ 1, %4 ], [ 1, %mpd_setdigits.exit ], [ 1, %_mpd_rnd_incr.exit ], [ 1, %12 ], [ 1, %20 ], [ 1, %27 ], [ 0, %mpd_seterror.exit ], [ 0, %mpd_qresize.exit ]
   ret i32 %.1
 }
 
@@ -24990,7 +24990,7 @@ define hidden void @mpd_qreduce(ptr noundef %0, ptr noundef readonly captures(ad
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i37 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i37, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -25059,7 +25059,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i42
 
 mpd_qresize.exit.i42:                             ; preds = %62, %60
-  %.0.i.i43 = phi i32 [ %61, %60 ], [ %63, %62 ]
+  %.0.i.i43 = phi i32 [ %63, %62 ], [ %61, %60 ]
   %.not.i44 = icmp eq i32 %.0.i.i43, 0
   br i1 %.not.i44, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i45
 
@@ -25096,7 +25096,7 @@ mpd_qresize.exit.thread.i40:                      ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %78, ptr align 8 %80, i64 %82, i1 false)
   br label %83
 
-83:                                               ; preds = %mpd_qresize.exit.thread.i40, %46
+83:                                               ; preds = %46, %mpd_qresize.exit.thread.i40
   tail call void @mpd_qfinalize(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %84 = load i8, ptr %0, align 8, !tbaa !19
   %85 = and i8 %84, 14
@@ -25322,7 +25322,7 @@ mpd_seterror.exit:                                ; preds = %34, %37, %49
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %75, %73
-  %.0.i.i = phi i32 [ %74, %73 ], [ %76, %75 ]
+  %.0.i.i = phi i32 [ %76, %75 ], [ %74, %73 ]
   %.not.i88 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i88, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -25754,7 +25754,7 @@ define internal fastcc range(i32 0, 2) i32 @mpd_coeff_isallnine(i64 %.24.val, pt
   br label %mpd_word_isallnine.exit
 
 mpd_word_isallnine.exit:                          ; preds = %12, %16, %23, %27, %30, %40, %44, %47, %57, %61, %65
-  %.0.i.i = phi i64 [ %15, %12 ], [ %19, %16 ], [ %26, %23 ], [ %33, %30 ], [ %43, %40 ], [ %50, %47 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ 9, %27 ], [ 14, %44 ]
+  %.0.i.i = phi i64 [ %15, %12 ], [ %19, %16 ], [ %26, %23 ], [ %33, %30 ], [ %68, %65 ], [ %43, %40 ], [ %50, %47 ], [ 9, %27 ], [ %60, %57 ], [ %64, %61 ], [ 14, %44 ]
   %69 = getelementptr i64, ptr @mpd_pow10, i64 %.0.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = add i64 %70, -1
@@ -25823,7 +25823,7 @@ define internal fastcc void @_mpd_qrescale(ptr noundef %0, ptr noundef readonly 
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i44 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i44, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -26118,7 +26118,7 @@ define internal fastcc void @_mpd_qround_to_integral(i32 noundef range(i32 0, 3)
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %25, %23
-  %.0.i.i = phi i32 [ %24, %23 ], [ %26, %25 ]
+  %.0.i.i = phi i32 [ %26, %25 ], [ %24, %23 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -26193,7 +26193,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %mpd_qresize.exit.i38
 
 mpd_qresize.exit.i38:                             ; preds = %66, %64
-  %.0.i.i39 = phi i32 [ %65, %64 ], [ %67, %66 ]
+  %.0.i.i39 = phi i32 [ %67, %66 ], [ %65, %64 ]
   %.not.i40 = icmp eq i32 %.0.i.i39, 0
   br i1 %.not.i40, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i41
 
@@ -26946,7 +26946,7 @@ mpd_seterror.exit.i:                              ; preds = %183, %171, %168
   br label %_mpd_get_msdigits.exit.i
 
 _mpd_get_msdigits.exit.i:                         ; preds = %216, %214, %209
-  %.05.i = phi i64 [ %207, %214 ], [ %213, %209 ], [ %227, %216 ]
+  %.05.i = phi i64 [ %213, %209 ], [ %227, %216 ], [ %207, %214 ]
   %228 = icmp slt i32 %spec.select.i, 7
   br i1 %228, label %.sink.split.i, label %261
 
@@ -26990,7 +26990,7 @@ _mpd_get_msdigits.exit.i:                         ; preds = %216, %214, %209
   br label %_mpd_get_msdigits.exit99.i
 
 _mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
-  %.1.i = phi i64 [ %234, %241 ], [ %240, %236 ], [ %254, %243 ]
+  %.1.i = phi i64 [ %240, %236 ], [ %254, %243 ], [ %234, %241 ]
   %255 = icmp slt i32 %spec.select83.i, 8
   br i1 %255, label %.sink.split.i, label %261
 
@@ -27008,8 +27008,8 @@ _mpd_get_msdigits.exit99.i:                       ; preds = %243, %241, %236
   br label %261
 
 261:                                              ; preds = %.sink.split.i, %_mpd_get_msdigits.exit99.i, %_mpd_get_msdigits.exit.i
-  %262 = phi i64 [ %230, %_mpd_get_msdigits.exit99.i ], [ %203, %_mpd_get_msdigits.exit.i ], [ %.ph.i, %.sink.split.i ]
-  %.2.i = phi i64 [ %.1.i, %_mpd_get_msdigits.exit99.i ], [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %260, %.sink.split.i ]
+  %262 = phi i64 [ %203, %_mpd_get_msdigits.exit.i ], [ %230, %_mpd_get_msdigits.exit99.i ], [ %.ph.i, %.sink.split.i ]
+  %.2.i = phi i64 [ %.05.i, %_mpd_get_msdigits.exit.i ], [ %.1.i, %_mpd_get_msdigits.exit99.i ], [ %260, %.sink.split.i ]
   %263 = load i64, ptr %117, align 8, !tbaa !7
   br label %.outer
 
@@ -27193,7 +27193,7 @@ mpd_minalloc.exit.i.i:                            ; preds = %292, %280, %276
   br label %_invroot_init_approx.exit.i
 
 _invroot_init_approx.exit.i:                      ; preds = %362, %358, %354, %344, %341, %337, %327, %324, %320, %313, %309
-  %.0.i.i.i.i = phi i64 [ %312, %309 ], [ %316, %313 ], [ %323, %320 ], [ %330, %327 ], [ %340, %337 ], [ %347, %344 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ 9, %324 ], [ 14, %341 ]
+  %.0.i.i.i.i = phi i64 [ %312, %309 ], [ %316, %313 ], [ %323, %320 ], [ %330, %327 ], [ %365, %362 ], [ %340, %337 ], [ %347, %344 ], [ 9, %324 ], [ %357, %354 ], [ %361, %358 ], [ 14, %341 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.0.i.i.i.i, ptr %366, align 8, !tbaa !11
   call void @mpd_maxcontext(ptr noundef nonnull %10) #34
@@ -27592,9 +27592,9 @@ mpd_seterror.exit:                                ; preds = %mpd_qcopy.exit, %43
   store i32 %61, ptr %3, align 4, !tbaa !23
   br label %104
 
-mpd_qcopy.exit.thread:                            ; preds = %19, %mpd_qresize.exit.thread.i, %4
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep19, %4 ], [ %14, %mpd_qresize.exit.thread.i ], [ %14, %19 ]
-  %.0 = phi ptr [ %1, %4 ], [ %8, %mpd_qresize.exit.thread.i ], [ %8, %19 ]
+mpd_qcopy.exit.thread:                            ; preds = %mpd_qresize.exit.thread.i, %19, %4
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep19, %4 ], [ %14, %19 ], [ %14, %mpd_qresize.exit.thread.i ]
+  %.0 = phi ptr [ %1, %4 ], [ %8, %19 ], [ %8, %mpd_qresize.exit.thread.i ]
   call fastcc void @_mpd_qsqrt(ptr noundef %0, ptr noundef %.0, ptr noundef %2, ptr noundef %9)
   %62 = load i32, ptr %9, align 4, !tbaa !23
   %63 = and i32 %62, 520
@@ -27987,7 +27987,7 @@ mpd_seterror.exit116:                             ; preds = %95, %98, %110
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %133, %131
-  %.0.i.i = phi i32 [ %132, %131 ], [ %134, %133 ]
+  %.0.i.i = phi i32 [ %134, %133 ], [ %132, %131 ]
   %.not.i118 = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i118, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -28016,7 +28016,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %144, ptr align 8 %145, i64 %146, i1 false)
   br label %147
 
-147:                                              ; preds = %mpd_qresize.exit.thread.i, %117
+147:                                              ; preds = %117, %mpd_qresize.exit.thread.i
   store i64 0, ptr %19, align 8, !tbaa !7
   %148 = load i64, ptr %35, align 8, !tbaa !7
   %149 = and i64 %148, 1
@@ -28163,7 +28163,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   br label %214
 
 214:                                              ; preds = %212, %.critedge, %203, %205
-  %.0 = phi i64 [ %37, %205 ], [ %37, %203 ], [ %172, %.critedge ], [ %172, %212 ]
+  %.0 = phi i64 [ %37, %203 ], [ %37, %205 ], [ %172, %.critedge ], [ %172, %212 ]
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0, ptr %215, align 8, !tbaa !7
   br label %216
@@ -29050,7 +29050,7 @@ mpd_seterror.exit49:                              ; preds = %45, %48, %60
   br label %mpd_qresize.exit44
 
 mpd_qresize.exit44:                               ; preds = %82, %84
-  %.0.i43 = phi i32 [ %83, %82 ], [ %85, %84 ]
+  %.0.i43 = phi i32 [ %85, %84 ], [ %83, %82 ]
   %.not = icmp eq i32 %.0.i43, 0
   br i1 %.not, label %_coeff_from_u16.exit.thread, label %mpd_qresize.exit44.thread
 
@@ -29113,12 +29113,12 @@ mpd_qresize.exit44.thread:                        ; preds = %80, %._crit_edge, %
   br label %mpd_qresize.exit50.i
 
 mpd_qresize.exit50.i:                             ; preds = %110, %108
-  %.0.i49.i = phi i32 [ %109, %108 ], [ %111, %110 ]
+  %.0.i49.i = phi i32 [ %111, %110 ], [ %109, %108 ]
   %.not44.i = icmp eq i32 %.0.i49.i, 0
   br i1 %.not44.i, label %_coeff_from_u16.exit.thread, label %mpd_qresize.exit50.thread.i
 
 mpd_qresize.exit50.thread.i:                      ; preds = %mpd_qresize.exit50.i, %106, %98, %97
-  %.237.i = phi i64 [ %.pre62.i, %106 ], [ %.pre62.i, %98 ], [ %.pre62.i, %mpd_qresize.exit50.i ], [ %.03556.i, %97 ]
+  %.237.i = phi i64 [ %.pre62.i, %mpd_qresize.exit50.i ], [ %.pre62.i, %106 ], [ %.pre62.i, %98 ], [ %.03556.i, %97 ]
   %112 = load ptr, ptr %89, align 8, !tbaa !17
   %113 = getelementptr i64, ptr %112, i64 %.057.i
   store i64 %96, ptr %113, align 8, !tbaa !3
@@ -29165,12 +29165,12 @@ mpd_qresize.exit50.thread.i:                      ; preds = %mpd_qresize.exit50.
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %132, %130
-  %.0.i.i = phi i32 [ %131, %130 ], [ %133, %132 ]
+  %.0.i.i = phi i32 [ %133, %132 ], [ %131, %130 ]
   %.not47.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not47.i, label %_coeff_from_u16.exit.thread, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.i, %128, %120, %119
-  %.4.i = phi i64 [ %.pre61.i, %128 ], [ %.pre61.i, %120 ], [ %.pre61.i, %mpd_qresize.exit.i ], [ %.136.i, %119 ]
+  %.4.i = phi i64 [ %.pre61.i, %mpd_qresize.exit.i ], [ %.pre61.i, %128 ], [ %.pre61.i, %120 ], [ %.136.i, %119 ]
   %134 = load ptr, ptr %89, align 8, !tbaa !17
   %135 = getelementptr i64, ptr %134, i64 %.1.i
   store i64 %118, ptr %135, align 8, !tbaa !3
@@ -29309,7 +29309,7 @@ _coeff_from_u16.exit.thread58:                    ; preds = %_coeff_from_u16.exi
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %156, %160, %167, %171, %174, %184, %188, %191, %201, %205, %209
-  %.0.i.i53 = phi i64 [ %159, %156 ], [ %163, %160 ], [ %170, %167 ], [ %177, %174 ], [ %187, %184 ], [ %194, %191 ], [ %204, %201 ], [ %208, %205 ], [ %212, %209 ], [ 9, %171 ], [ 14, %188 ]
+  %.0.i.i53 = phi i64 [ %159, %156 ], [ %163, %160 ], [ %170, %167 ], [ %177, %174 ], [ %212, %209 ], [ %187, %184 ], [ %194, %191 ], [ 9, %171 ], [ %204, %201 ], [ %208, %205 ], [ 14, %188 ]
   %213 = mul i64 %.034.i60, 19
   %214 = add i64 %213, -19
   %215 = add i64 %214, %.0.i.i53
@@ -29443,7 +29443,7 @@ mpd_seterror.exit:                                ; preds = %_mpd_importsize.exi
   br label %mpd_qresize.exit29
 
 mpd_qresize.exit29:                               ; preds = %52, %54
-  %.0.i28 = phi i32 [ %53, %52 ], [ %55, %54 ]
+  %.0.i28 = phi i32 [ %55, %54 ], [ %53, %52 ]
   %.not = icmp eq i32 %.0.i28, 0
   br i1 %.not, label %_coeff_from_smaller_base.exit.thread, label %mpd_qresize.exit29.thread
 
@@ -29507,12 +29507,12 @@ mpd_qresize.exit29.thread:                        ; preds = %50, %41, %mpd_qresi
   br label %mpd_qresize.exit52.i
 
 mpd_qresize.exit52.i:                             ; preds = %81, %79
-  %.0.i51.i = phi i32 [ %80, %79 ], [ %82, %81 ]
+  %.0.i51.i = phi i32 [ %82, %81 ], [ %80, %79 ]
   %.not46.i = icmp eq i32 %.0.i51.i, 0
   br i1 %.not46.i, label %_coeff_from_smaller_base.exit.thread, label %mpd_qresize.exit52.thread.i
 
 mpd_qresize.exit52.thread.i:                      ; preds = %mpd_qresize.exit52.i, %77, %69, %68
-  %.239.i = phi i64 [ %.pre64.i, %77 ], [ %.pre64.i, %69 ], [ %.pre64.i, %mpd_qresize.exit52.i ], [ %.03758.i, %68 ]
+  %.239.i = phi i64 [ %.pre64.i, %mpd_qresize.exit52.i ], [ %.pre64.i, %77 ], [ %.pre64.i, %69 ], [ %.03758.i, %68 ]
   %83 = load ptr, ptr %61, align 8, !tbaa !17
   %84 = getelementptr i64, ptr %83, i64 %.059.i
   store i64 %67, ptr %84, align 8, !tbaa !3
@@ -29560,12 +29560,12 @@ mpd_qresize.exit52.thread.i:                      ; preds = %mpd_qresize.exit52.
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %104, %102
-  %.0.i.i = phi i32 [ %103, %102 ], [ %105, %104 ]
+  %.0.i.i = phi i32 [ %105, %104 ], [ %103, %102 ]
   %.not49.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not49.i, label %_coeff_from_smaller_base.exit.thread, label %mpd_qresize.exit.thread.i
 
 mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.i, %100, %92, %91
-  %.4.i = phi i64 [ %.pre63.i, %100 ], [ %.pre63.i, %92 ], [ %.pre63.i, %mpd_qresize.exit.i ], [ %.138.i, %91 ]
+  %.4.i = phi i64 [ %.pre63.i, %mpd_qresize.exit.i ], [ %.pre63.i, %100 ], [ %.pre63.i, %92 ], [ %.138.i, %91 ]
   %106 = load ptr, ptr %61, align 8, !tbaa !17
   %107 = getelementptr i64, ptr %106, i64 %.1.i
   store i64 %90, ptr %107, align 8, !tbaa !3
@@ -29704,7 +29704,7 @@ _coeff_from_smaller_base.exit.thread39:           ; preds = %_coeff_from_smaller
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %128, %132, %139, %143, %146, %156, %160, %163, %173, %177, %181
-  %.0.i.i34 = phi i64 [ %131, %128 ], [ %135, %132 ], [ %142, %139 ], [ %149, %146 ], [ %159, %156 ], [ %166, %163 ], [ %176, %173 ], [ %180, %177 ], [ %184, %181 ], [ 9, %143 ], [ 14, %160 ]
+  %.0.i.i34 = phi i64 [ %131, %128 ], [ %135, %132 ], [ %142, %139 ], [ %149, %146 ], [ %184, %181 ], [ %159, %156 ], [ %166, %163 ], [ 9, %143 ], [ %176, %173 ], [ %180, %177 ], [ 14, %160 ]
   %185 = mul i64 %.036.i41, 19
   %186 = add i64 %185, -19
   %187 = add i64 %186, %.0.i.i34
@@ -30057,7 +30057,7 @@ define internal fastcc range(i32 -1, 1) i32 @_set_uint128_coeff_exp(ptr noundef 
   br label %mpd_qresize.exit
 
 mpd_qresize.exit:                                 ; preds = %30, %32
-  %.0.i = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %.0.i = phi i32 [ %33, %32 ], [ %31, %30 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %111, label %.preheader
 
@@ -30177,7 +30177,7 @@ mpd_qresize.exit:                                 ; preds = %30, %32
   br label %mpd_setdigits.exit
 
 mpd_setdigits.exit:                               ; preds = %50, %54, %61, %65, %68, %78, %82, %85, %95, %99, %103
-  %.0.i.i = phi i64 [ %53, %50 ], [ %57, %54 ], [ %64, %61 ], [ %71, %68 ], [ %81, %78 ], [ %88, %85 ], [ %98, %95 ], [ %102, %99 ], [ %106, %103 ], [ 9, %65 ], [ 14, %82 ]
+  %.0.i.i = phi i64 [ %53, %50 ], [ %57, %54 ], [ %64, %61 ], [ %71, %68 ], [ %106, %103 ], [ %81, %78 ], [ %88, %85 ], [ 9, %65 ], [ %98, %95 ], [ %102, %99 ], [ 14, %82 ]
   %107 = mul nuw nsw i64 %19, 19
   %108 = add nsw i64 %107, -19
   %109 = add nuw nsw i64 %108, %.0.i.i
@@ -30300,8 +30300,8 @@ _coeff_as_uint128.exit:                           ; preds = %mpd_qcmp.exit.i
   store i32 4, ptr %0, align 8, !tbaa !84
   br label %69
 
-.thread:                                          ; preds = %10, %8
-  %.013.i.ph.ph = phi i32 [ 1, %8 ], [ %12, %10 ]
+.thread:                                          ; preds = %8, %10
+  %.013.i.ph.ph = phi i32 [ %12, %10 ], [ 1, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.013.i.ph.ph, ptr %0, align 8, !tbaa !84
   %53 = and i8 %6, 1
@@ -30676,7 +30676,7 @@ define internal fastcc range(i32 -1, 2) i32 @_mpd_basecmp(ptr noundef readonly c
   br i1 %.not.i, label %.loopexit, label %_mpd_isallzero.exit, !llvm.loop !31
 
 _mpd_isallzero.exit:                              ; preds = %57, %.loopexit, %54, %46, %37, %24
-  %.0 = phi i32 [ %., %24 ], [ %.58, %37 ], [ %.59, %46 ], [ %.60, %54 ], [ 0, %.loopexit ], [ 1, %57 ]
+  %.0 = phi i32 [ %., %24 ], [ %.59, %46 ], [ %.58, %37 ], [ %.60, %54 ], [ 0, %.loopexit ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -31090,7 +31090,7 @@ mpd_del.exit95.thread:                            ; preds = %61
   br label %_mpd_get_msdigits.exit.i.i
 
 _mpd_get_msdigits.exit.i.i:                       ; preds = %111, %109, %106
-  %.0.i.i = phi i64 [ %105, %109 ], [ %108, %106 ], [ %121, %111 ]
+  %.0.i.i = phi i64 [ %108, %106 ], [ %121, %111 ], [ %105, %109 ]
   %122 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 72), align 8, !tbaa !3
   %123 = icmp ult i64 %.0.i.i, %122
   br i1 %123, label %124, label %148
@@ -31152,7 +31152,7 @@ _mpd_get_msdigits.exit.i.i:                       ; preds = %111, %109, %106
 154:                                              ; preds = %151
   %155 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 80), align 8, !tbaa !3
   %156 = icmp ult i64 %.0.i.i, %155
-  %.neg17.i.i = select i1 %156, i64 -10, i64 -11
+  %.neg18.i.i = select i1 %156, i64 -10, i64 -11
   br label %mpd_word_digits.exit.i.i
 
 157:                                              ; preds = %151
@@ -31163,7 +31163,7 @@ _mpd_get_msdigits.exit.i.i:                       ; preds = %111, %109, %106
 160:                                              ; preds = %157
   %161 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 96), align 8, !tbaa !3
   %162 = icmp ult i64 %.0.i.i, %161
-  %.neg18.i.i = select i1 %162, i64 -12, i64 -13
+  %.neg19.i.i = select i1 %162, i64 -12, i64 -13
   br label %mpd_word_digits.exit.i.i
 
 163:                                              ; preds = %148
@@ -31179,22 +31179,22 @@ _mpd_get_msdigits.exit.i.i:                       ; preds = %111, %109, %106
 169:                                              ; preds = %166
   %170 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 120), align 8, !tbaa !3
   %171 = icmp ult i64 %.0.i.i, %170
-  %.neg19.i.i = select i1 %171, i64 -15, i64 -16
+  %.neg20.i.i = select i1 %171, i64 -15, i64 -16
   br label %mpd_word_digits.exit.i.i
 
 172:                                              ; preds = %166
   %173 = icmp ult i64 %.0.i.i, %101
-  %.neg20.i.i = select i1 %173, i64 -17, i64 -18
+  %.neg21.i.i = select i1 %173, i64 -17, i64 -18
   br label %mpd_word_digits.exit.i.i
 
 174:                                              ; preds = %163
   %175 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 152), align 8, !tbaa !3
   %176 = icmp ult i64 %.0.i.i, %175
-  %.neg21.i.i = select i1 %176, i64 -19, i64 -20
+  %.neg17.i.i = select i1 %176, i64 -19, i64 -20
   br label %mpd_word_digits.exit.i.i
 
 mpd_word_digits.exit.i.i:                         ; preds = %174, %172, %169, %160, %157, %154, %145, %142, %139, %133, %130
-  %.0.i.neg.i.i = phi i64 [ %.neg.i.i, %130 ], [ %.neg14.i.i, %133 ], [ %.neg15.i.i, %139 ], [ %.neg16.i.i, %145 ], [ %.neg17.i.i, %154 ], [ %.neg18.i.i, %160 ], [ %.neg19.i.i, %169 ], [ %.neg20.i.i, %172 ], [ %.neg21.i.i, %174 ], [ -9, %142 ], [ -14, %157 ]
+  %.0.i.neg.i.i = phi i64 [ %.neg.i.i, %130 ], [ %.neg14.i.i, %133 ], [ %.neg15.i.i, %139 ], [ %.neg16.i.i, %145 ], [ %.neg17.i.i, %174 ], [ %.neg18.i.i, %154 ], [ %.neg19.i.i, %160 ], [ -9, %142 ], [ %.neg20.i.i, %169 ], [ %.neg21.i.i, %172 ], [ -14, %157 ]
   %177 = getelementptr i64, ptr @mpd_pow10, i64 %.0.i.neg.i.i
   %178 = getelementptr i8, ptr %177, i64 152
   %179 = load i64, ptr %178, align 8, !tbaa !3
@@ -31345,7 +31345,7 @@ mpd_qresize.exit.i.i:                             ; preds = %193, %191, %189, %m
   br label %_mpd_qreciprocal_approx.exit.i
 
 _mpd_qreciprocal_approx.exit.i:                   ; preds = %269, %266, %262, %252, %249, %245, %235, %232, %228, %221, %217
-  %.0.i.i.i.i = phi i64 [ %220, %217 ], [ %224, %221 ], [ %231, %228 ], [ %238, %235 ], [ %248, %245 ], [ %255, %252 ], [ %265, %262 ], [ %268, %266 ], [ %272, %269 ], [ 9, %232 ], [ 14, %249 ]
+  %.0.i.i.i.i = phi i64 [ %220, %217 ], [ %224, %221 ], [ %231, %228 ], [ %238, %235 ], [ %272, %269 ], [ %248, %245 ], [ %255, %252 ], [ 9, %232 ], [ %265, %262 ], [ %268, %266 ], [ 14, %249 ]
   %273 = zext i1 %204 to i64
   %274 = shl nuw nsw i64 19, %273
   %275 = add nsw i64 %274, -19
@@ -31792,7 +31792,7 @@ mpd_qtrunc.exit:                                  ; preds = %420, %416, %414, %4
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %466, %464
-  %.0.i.i109 = phi i32 [ %465, %464 ], [ %467, %466 ]
+  %.0.i.i109 = phi i32 [ %467, %466 ], [ %465, %464 ]
   %.not.i110 = icmp eq i32 %.0.i.i109, 0
   br i1 %.not.i110, label %mpd_qcopy.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -31881,7 +31881,7 @@ mpd_del.exit105:                                  ; preds = %495, %492, %451
   br label %mpd_qresize.exit.i116
 
 mpd_qresize.exit.i116:                            ; preds = %510, %508
-  %.0.i.i117 = phi i32 [ %509, %508 ], [ %511, %510 ]
+  %.0.i.i117 = phi i32 [ %511, %510 ], [ %509, %508 ]
   %.not.i118 = icmp eq i32 %.0.i.i117, 0
   br i1 %.not.i118, label %mpd_qcopy.exit.thread, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i119
 
@@ -32346,7 +32346,7 @@ define internal fastcc void @_mpd_qpow_uint(ptr noundef %0, ptr noundef nonnull 
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %26, %24
-  %.0.i.i = phi i32 [ %25, %24 ], [ %27, %26 ]
+  %.0.i.i = phi i32 [ %27, %26 ], [ %25, %24 ]
   %.not.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i, label %mpd_qcopy.exit, label %mpd_qresize.exit.mpd_qresize.exit.thread_crit_edge.i
 
@@ -32382,7 +32382,7 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 %46, i1 false)
   br label %47
 
-47:                                               ; preds = %mpd_qresize.exit.thread.i, %10
+47:                                               ; preds = %10, %mpd_qresize.exit.thread.i
   %48 = lshr i64 %2, 32
   %.not.i29 = icmp eq i64 %48, 0
   %spec.select.i = select i1 %.not.i29, i64 %2, i64 %48
@@ -32734,7 +32734,7 @@ define internal fastcc ptr @_mpd_kmul(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %18
 
 18:                                               ; preds = %.thread, %16, %5, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %5 ], [ %7, %16 ], [ %7, %.thread ]
+  %.0 = phi ptr [ null, %5 ], [ null, %14 ], [ %7, %16 ], [ %7, %.thread ]
   ret ptr %.0
 }
 
@@ -32826,8 +32826,8 @@ _mpd_get_transform_len.exit:                      ; preds = %37
   %47 = icmp eq i64 %46, -1
   br i1 %47, label %.thread122, label %_mpd_get_transform_len.exit.thread
 
-_mpd_get_transform_len.exit.thread:               ; preds = %31, %42, %40, %37, %_mpd_get_transform_len.exit
-  %.0.i8891 = phi i64 [ %46, %_mpd_get_transform_len.exit ], [ 12884901888, %42 ], [ 6442450944, %40 ], [ %15, %37 ], [ %spec.select, %31 ]
+_mpd_get_transform_len.exit.thread:               ; preds = %31, %42, %37, %40, %_mpd_get_transform_len.exit
+  %.0.i8891 = phi i64 [ %46, %_mpd_get_transform_len.exit ], [ %spec.select, %31 ], [ 12884901888, %42 ], [ %15, %37 ], [ 6442450944, %40 ]
   %48 = tail call ptr @mpd_calloc(i64 noundef %.0.i8891, i64 noundef 8) #34
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread122, label %50
@@ -32939,7 +32939,7 @@ mpd_uint_zero.exit:                               ; preds = %.lr.ph129.preheader
   br label %.thread122
 
 .thread122:                                       ; preds = %.thread122.sink.split, %42, %_mpd_get_transform_len.exit.thread, %_mpd_get_transform_len.exit, %84
-  %.1102126 = phi ptr [ null, %84 ], [ null, %_mpd_get_transform_len.exit ], [ null, %_mpd_get_transform_len.exit.thread ], [ null, %42 ], [ %.1102126.ph, %.thread122.sink.split ]
+  %.1102126 = phi ptr [ null, %84 ], [ null, %42 ], [ null, %_mpd_get_transform_len.exit ], [ null, %_mpd_get_transform_len.exit.thread ], [ %.1102126.ph, %.thread122.sink.split ]
   ret ptr %.1102126
 }
 
@@ -33354,7 +33354,7 @@ mpd_uint_zero.exit:                               ; preds = %mpd_uint_zero.exit1
   br label %76
 
 76:                                               ; preds = %11, %14, %mpd_uint_zero.exit, %mpd_uint_zero.exit173, %47, %mpd_uint_zero.exit175, %mpd_uint_zero.exit177, %mpd_uint_zero.exit179, %.critedge, %75, %45
-  %.1 = phi i32 [ 1, %45 ], [ 1, %75 ], [ 0, %.critedge ], [ 0, %mpd_uint_zero.exit179 ], [ 0, %mpd_uint_zero.exit177 ], [ 0, %mpd_uint_zero.exit175 ], [ 0, %47 ], [ 0, %mpd_uint_zero.exit173 ], [ 0, %mpd_uint_zero.exit ], [ 1, %14 ], [ 1, %11 ]
+  %.1 = phi i32 [ 0, %mpd_uint_zero.exit175 ], [ 0, %mpd_uint_zero.exit ], [ 1, %45 ], [ 0, %mpd_uint_zero.exit177 ], [ 0, %.critedge ], [ 0, %mpd_uint_zero.exit179 ], [ 1, %75 ], [ 0, %mpd_uint_zero.exit173 ], [ 0, %47 ], [ 1, %14 ], [ 1, %11 ]
   ret i32 %.1
 }
 

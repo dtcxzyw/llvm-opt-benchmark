@@ -650,9 +650,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %197, %.thread.fold.split405, %.thread.fold.split, %.fold.split287, %.fold.split286, %.fold.split284, %.fold.split, %200
-  %.0238 = phi i8 [ 1, %200 ], [ 0, %197 ], [ 0, %.fold.split ], [ 0, %.fold.split284 ], [ 0, %.fold.split286 ], [ 0, %.fold.split287 ], [ 0, %.thread.fold.split ], [ 0, %.thread.fold.split405 ]
-  %.0237 = phi i32 [ 5, %200 ], [ %.val304.val, %197 ], [ %.val304.val, %.fold.split ], [ %.val304.val, %.fold.split284 ], [ %.val304.val, %.fold.split286 ], [ %.val304.val, %.fold.split287 ], [ %.val304.val, %.thread.fold.split ], [ %.val304.val, %.thread.fold.split405 ]
-  %.0234 = phi i32 [ 4, %200 ], [ 0, %197 ], [ %.val304.val, %.fold.split ], [ 2, %.fold.split284 ], [ 4, %.fold.split286 ], [ 7, %.fold.split287 ], [ 5, %.thread.fold.split ], [ 6, %.thread.fold.split405 ]
+  %.0238 = phi i8 [ 1, %200 ], [ 0, %197 ], [ 0, %.fold.split ], [ 0, %.fold.split284 ], [ 0, %.thread.fold.split405 ], [ 0, %.fold.split286 ], [ 0, %.fold.split287 ], [ 0, %.thread.fold.split ]
+  %.0237 = phi i32 [ 5, %200 ], [ %.val304.val, %197 ], [ %.val304.val, %.fold.split ], [ %.val304.val, %.fold.split284 ], [ %.val304.val, %.thread.fold.split405 ], [ %.val304.val, %.fold.split286 ], [ %.val304.val, %.fold.split287 ], [ %.val304.val, %.thread.fold.split ]
+  %.0234 = phi i32 [ 4, %200 ], [ 0, %197 ], [ %.val304.val, %.fold.split ], [ 2, %.fold.split284 ], [ 6, %.thread.fold.split405 ], [ 4, %.fold.split286 ], [ 7, %.fold.split287 ], [ 5, %.thread.fold.split ]
   %215 = getelementptr i8, ptr %0, i64 24
   %.val305 = load i32, ptr %215, align 8, !tbaa !71
   %216 = icmp sgt i32 %.val305, 31
@@ -855,10 +855,10 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %249, %248, %_ZL19_P
   br label %.critedge283
 
 313:                                              ; preds = %.thread337, %._crit_edge
-  %.3241 = phi i8 [ %.1239.lcssa, %._crit_edge ], [ %.5243, %.thread337 ]
-  %.1235 = phi i32 [ %.0234, %._crit_edge ], [ %302, %.thread337 ]
-  %.0231 = phi i32 [ %.val305, %._crit_edge ], [ %256, %.thread337 ]
-  %.0229 = phi i64 [ %224, %._crit_edge ], [ %309, %.thread337 ]
+  %.3241 = phi i8 [ %.5243, %.thread337 ], [ %.1239.lcssa, %._crit_edge ]
+  %.1235 = phi i32 [ %302, %.thread337 ], [ %.0234, %._crit_edge ]
+  %.0231 = phi i32 [ %256, %.thread337 ], [ %.val305, %._crit_edge ]
+  %.0229 = phi i64 [ %309, %.thread337 ], [ %224, %._crit_edge ]
   %314 = trunc nuw i8 %.3241 to i1
   br i1 %314, label %315, label %343
 
@@ -1111,7 +1111,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit328.thread: ; preds = %393, 
   br label %common.resume
 
 .critedge283:                                     ; preds = %179, %.critedge, %_ZN2cv3MataSERKNS_7MatExprE.exit, %310, %194, %217, %_ZL10_Py_DECREFP7_object.exit, %.critedge293, %318, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20, %_Z17GetNumpyAllocatorv.exit, %185, %71, %52
-  %.0 = phi i1 [ true, %52 ], [ true, %71 ], [ false, %185 ], [ true, %_Z17GetNumpyAllocatorv.exit ], [ true, %20 ], [ false, %194 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %217 ], [ false, %318 ], [ %.17, %.critedge293 ], [ false, %310 ], [ false, %_ZL10_Py_DECREFP7_object.exit ], [ false, %.critedge ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ true, %179 ]
+  %.0 = phi i1 [ false, %185 ], [ true, %52 ], [ true, %71 ], [ false, %_ZL10_Py_DECREFP7_object.exit ], [ true, %20 ], [ true, %_Z17GetNumpyAllocatorv.exit ], [ false, %194 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %217 ], [ false, %318 ], [ %.17, %.critedge293 ], [ false, %310 ], [ false, %.critedge ], [ true, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ true, %179 ]
   ret i1 %.0
 }
 
@@ -1746,13 +1746,13 @@ _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %38, %_Z17GetNumpyAl
   br label %84
 
 84:                                               ; preds = %55, %66, %68, %_ZN14PyAllowThreadsD2Ev.exit
-  %.1 = phi ptr [ %81, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %68 ], [ null, %66 ], [ null, %55 ]
+  %.1 = phi ptr [ %81, %_ZN14PyAllowThreadsD2Ev.exit ], [ null, %66 ], [ null, %68 ], [ null, %55 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %85
 
 .body:                                            ; preds = %21, %31, %42, %77, %75, %73, %71, %69
-  %.pn31.pn = phi { ptr, i32 } [ %70, %69 ], [ %74, %73 ], [ %72, %71 ], [ %78, %77 ], [ %76, %75 ], [ %22, %21 ], [ %43, %42 ], [ %32, %31 ]
+  %.pn31.pn = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ], [ %76, %75 ], [ %74, %73 ], [ %78, %77 ], [ %22, %21 ], [ %43, %42 ], [ %32, %31 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn31.pn
@@ -1879,7 +1879,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
   br label %38
 
 38:                                               ; preds = %31, %3, %35
-  %.011 = phi i1 [ false, %35 ], [ true, %31 ], [ true, %3 ]
+  %.011 = phi i1 [ true, %31 ], [ false, %35 ], [ true, %3 ]
   ret i1 %.011
 }
 
@@ -2091,7 +2091,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %48, %5
   br label %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42
 
 _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit42:        ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit, %.preheader, %44, %41, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread, %3, %57, %13
-  %.0 = phi i1 [ false, %13 ], [ false, %57 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread ], [ false, %41 ], [ false, %44 ], [ true, %.preheader ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
+  %.0 = phi i1 [ false, %57 ], [ false, %13 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread ], [ false, %41 ], [ false, %44 ], [ true, %.preheader ], [ true, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ]
   ret i1 %.0
 }
 
@@ -2318,7 +2318,7 @@ _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; pr
   %79 = call noundef i32 %78(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %47)
   br label %86
 
-80:                                               ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread.i
+80:                                               ; preds = %_ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread.i, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.i
   %81 = load ptr, ptr %2, align 8, !tbaa !53
   %82 = call noundef i32 (ptr, ...) @_Z7failmsgPKcz(ptr noundef nonnull @.str.16, ptr noundef %81)
   br label %88
@@ -2334,7 +2334,7 @@ _ZN12_GLOBAL__N_117canBeSafelyCastedImEEbP7_objectP14_PyArray_Descr.exit.i: ; pr
   br label %88
 
 88:                                               ; preds = %80, %3, %86, %83, %_Z6isBoolP7_object.exit.thread
-  %.016 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not20, %86 ], [ false, %80 ], [ false, %83 ], [ true, %3 ]
+  %.016 = phi i1 [ false, %83 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not20, %86 ], [ false, %80 ], [ true, %3 ]
   ret i1 %.016
 }
 
@@ -2433,7 +2433,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   br label %37
 
 37:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %34, %3, %31, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %31 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %36, %34 ]
+  %.0 = phi i1 [ false, %31 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %36, %34 ]
   ret i1 %.0
 }
 
@@ -2524,7 +2524,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %22, %_ZL
   br label %35
 
 35:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %32, %3, %29, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %29 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %34, %32 ]
+  %.0 = phi i1 [ false, %29 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %34, %32 ]
   ret i1 %.0
 }
 
@@ -2659,7 +2659,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   br label %38
 
 38:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %35, %3, %32, %_Z6isBoolP7_object.exit.thread
-  %.0 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ false, %32 ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %37, %35 ]
+  %.0 = phi i1 [ false, %32 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ true, %3 ], [ true, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ], [ %37, %35 ]
   ret i1 %.0
 }
 
@@ -2805,7 +2805,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit42.thread: ; preds = %33, %_
   br label %53
 
 53:                                               ; preds = %46, %3, %.thread, %49, %_Z6isBoolP7_object.exit.thread
-  %.023 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not31, %.thread ], [ false, %46 ], [ false, %49 ], [ true, %3 ]
+  %.023 = phi i1 [ false, %49 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not31, %.thread ], [ false, %46 ], [ true, %3 ]
   ret i1 %.023
 }
 
@@ -2872,7 +2872,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   br label %.thread
 
 .thread:                                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread, %25
-  %.1 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ]
+  %.1 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ]
   ret i1 %.1
 }
 
@@ -3028,7 +3028,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit44.thread: ; preds = %33, %_
   br label %54
 
 54:                                               ; preds = %46, %3, %.thread, %49, %_Z6isBoolP7_object.exit.thread
-  %.025 = phi i1 [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not33, %.thread ], [ false, %46 ], [ false, %49 ], [ true, %3 ]
+  %.025 = phi i1 [ false, %49 ], [ false, %_Z6isBoolP7_object.exit.thread ], [ %.not33, %.thread ], [ false, %46 ], [ true, %3 ]
   ret i1 %.025
 }
 
@@ -3093,7 +3093,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
   br label %.thread
 
 .thread:                                          ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread, %25
-  %.1 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ]
+  %.1 = phi i1 [ true, %25 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14 ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit14.thread ], [ false, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread ]
   ret i1 %.1
 }
 
@@ -3187,7 +3187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %28, %32, %31, %18
-  %.1 = phi i1 [ false, %18 ], [ false, %31 ], [ false, %32 ], [ true, %28 ]
+  %.1 = phi i1 [ false, %32 ], [ false, %18 ], [ false, %31 ], [ true, %28 ]
   %39 = load ptr, ptr %4, align 8, !tbaa !68
   %40 = icmp eq ptr %39, %8
   br i1 %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
@@ -4459,7 +4459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %122
   br label %common.resume
 
 _ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread: ; preds = %31, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62, %3, %44
-  %.034 = phi i1 [ false, %44 ], [ true, %3 ], [ false, %49 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread76 ], [ true, %31 ]
+  %.034 = phi i1 [ false, %44 ], [ true, %3 ], [ true, %_ZL20convertToRotatedRectP7_objectRN2cv11RotatedRectE.exit.thread76 ], [ false, %49 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62 ], [ true, %31 ]
   ret i1 %.034
 }
 
@@ -4526,7 +4526,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7Ar
   br label %15
 
 15:                                               ; preds = %3, %11, %10
-  %.0 = phi i1 [ true, %10 ], [ %14, %11 ], [ true, %3 ]
+  %.0 = phi i1 [ %14, %11 ], [ true, %10 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -5662,7 +5662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %95,
   resume { ptr, i32 } %.pn42.pn
 
 100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %3, %14
-  %.032 = phi i1 [ false, %14 ], [ true, %3 ], [ false, %19 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ]
+  %.032 = phi i1 [ false, %14 ], [ true, %3 ], [ false, %19 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ]
   ret i1 %.032
 }
 

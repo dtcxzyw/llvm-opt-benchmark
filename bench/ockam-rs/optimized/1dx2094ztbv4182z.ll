@@ -1886,7 +1886,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br i1 %.not.i, label %.loopexit70.i, label %110
 
 98:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i", %76
-  %.sroa.9.1.i = phi ptr [ %75, %76 ], [ %82, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i" ]
+  %.sroa.9.1.i = phi ptr [ %82, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8262640c0f2fdd58E.exit.i.i.i" ], [ %75, %76 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.1.i, ptr %99, align 8, !alias.scope !394, !noalias !443
   store ptr null, ptr %0, align 8, !alias.scope !394, !noalias !443
@@ -2095,8 +2095,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he7251e6a21321395E.exit.thread.i"
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17he7251e6a21321395E.exit.thread.i": ; preds = %175, %171
-  %181 = phi i8 [ %.pre.i.i, %175 ], [ %173, %171 ]
-  %.sroa.4.0.ph.i.i = phi i64 [ %180, %175 ], [ %.sroa.6.1.i.i.i.i, %171 ]
+  %181 = phi i8 [ %173, %171 ], [ %.pre.i.i, %175 ]
+  %.sroa.4.0.ph.i.i = phi i64 [ %.sroa.6.1.i.i.i.i, %171 ], [ %180, %175 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !553

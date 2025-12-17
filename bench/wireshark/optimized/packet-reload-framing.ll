@@ -826,7 +826,7 @@ proto_item_set_generated.exit280:                 ; preds = %proto_item_set_gene
   br label %341
 
 341:                                              ; preds = %.sink.split347, %23, %33, %30, %28, %26, %10, %14, %4
-  %.0226 = phi i32 [ 0, %4 ], [ 0, %14 ], [ 0, %10 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %33 ], [ 0, %23 ], [ %340, %.sink.split347 ]
+  %.0226 = phi i32 [ 0, %4 ], [ 0, %33 ], [ 0, %10 ], [ 0, %26 ], [ 0, %28 ], [ 0, %14 ], [ 0, %23 ], [ 0, %30 ], [ %340, %.sink.split347 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0226

@@ -88,7 +88,7 @@ AsyncFileModeValid.exit.thread:                   ; preds = %8
   br label %25
 
 25:                                               ; preds = %AsyncFileModeValid.exit.thread, %21, %AsyncFileModeValid.exit, %23, %20, %6, %3
-  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %AsyncFileModeValid.exit.thread ], [ null, %23 ], [ null, %20 ], [ null, %AsyncFileModeValid.exit ], [ %15, %21 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %AsyncFileModeValid.exit.thread ], [ null, %AsyncFileModeValid.exit ], [ null, %23 ], [ null, %20 ], [ %15, %21 ]
   ret ptr %.0
 }
 
@@ -257,7 +257,7 @@ define internal fastcc zeroext i1 @RequestAsyncIO(i1 noundef zeroext %0, ptr nou
   br label %65
 
 65:                                               ; preds = %47, %30, %16, %61, %51, %14, %11, %8
-  %.0 = phi i1 [ %15, %14 ], [ %12, %11 ], [ %9, %8 ], [ %32, %30 ], [ false, %16 ], [ false, %61 ], [ true, %51 ], [ true, %47 ]
+  %.0 = phi i1 [ %9, %8 ], [ %15, %14 ], [ %12, %11 ], [ %32, %30 ], [ false, %16 ], [ false, %61 ], [ true, %51 ], [ true, %47 ]
   ret i1 %.0
 }
 
@@ -731,7 +731,7 @@ SDL_GetAsyncIOSize_REAL.exit:                     ; preds = %9
   br label %26
 
 26:                                               ; preds = %9, %24, %7, %4
-  %.0 = phi i1 [ %8, %7 ], [ %5, %4 ], [ %.1.shrunk, %24 ], [ false, %9 ]
+  %.0 = phi i1 [ %5, %4 ], [ %8, %7 ], [ %.1.shrunk, %24 ], [ false, %9 ]
   ret i1 %.0
 }
 

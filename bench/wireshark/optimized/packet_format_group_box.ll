@@ -1433,7 +1433,7 @@ _ZN7QStringD2Ev.exit131:                          ; preds = %231, %_ZN17QArrayDa
   br label %237
 
 237:                                              ; preds = %197, %_ZN7QStringD2Ev.exit115, %205, %_ZN7QStringD2Ev.exit119, %213, %_ZN7QStringD2Ev.exit123, %221, %_ZN7QStringD2Ev.exit127, %229, %_ZN7QStringD2Ev.exit131, %_ZN7QStringD2Ev.exit111, %189, %_ZN7QStringD2Ev.exit107, %181, %_ZN7QStringD2Ev.exit103, %173, %_ZN7QStringD2Ev.exit99, %165, %_ZN7QStringD2Ev.exit95, %157, %_ZN7QStringD2Ev.exit31
-  %.pn.pn = phi { ptr, i32 } [ %192, %_ZN7QStringD2Ev.exit111 ], [ %190, %189 ], [ %184, %_ZN7QStringD2Ev.exit107 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit103 ], [ %174, %173 ], [ %168, %_ZN7QStringD2Ev.exit99 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit95 ], [ %158, %157 ], [ %30, %_ZN7QStringD2Ev.exit31 ], [ %232, %_ZN7QStringD2Ev.exit131 ], [ %230, %229 ], [ %224, %_ZN7QStringD2Ev.exit127 ], [ %222, %221 ], [ %216, %_ZN7QStringD2Ev.exit123 ], [ %214, %213 ], [ %208, %_ZN7QStringD2Ev.exit119 ], [ %206, %205 ], [ %200, %_ZN7QStringD2Ev.exit115 ], [ %198, %197 ]
+  %.pn.pn = phi { ptr, i32 } [ %30, %_ZN7QStringD2Ev.exit31 ], [ %192, %_ZN7QStringD2Ev.exit111 ], [ %190, %189 ], [ %184, %_ZN7QStringD2Ev.exit107 ], [ %182, %181 ], [ %176, %_ZN7QStringD2Ev.exit103 ], [ %174, %173 ], [ %168, %_ZN7QStringD2Ev.exit99 ], [ %166, %165 ], [ %160, %_ZN7QStringD2Ev.exit95 ], [ %158, %157 ], [ %232, %_ZN7QStringD2Ev.exit131 ], [ %230, %229 ], [ %224, %_ZN7QStringD2Ev.exit127 ], [ %222, %221 ], [ %216, %_ZN7QStringD2Ev.exit123 ], [ %214, %213 ], [ %208, %_ZN7QStringD2Ev.exit119 ], [ %206, %205 ], [ %200, %_ZN7QStringD2Ev.exit115 ], [ %198, %197 ]
   resume { ptr, i32 } %.pn.pn
 }
 

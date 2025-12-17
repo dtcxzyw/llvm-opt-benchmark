@@ -796,7 +796,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit267:              ; preds = %99, %_ZNKSt7__cxx11
   br label %.loopexit366
 
 .loopexit366:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit366.loopexit.split.loop.exit, %.loopexit366.loopexit.split.loop.exit530, %.loopexit366.loopexit.split.loop.exit532, %248, %245, %242
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %242 ], [ %.1.i.i.i.i.i, %245 ], [ %.2.i.i.i.i.i, %248 ], [ %249, %.loopexit366.loopexit.split.loop.exit ], [ %250, %.loopexit366.loopexit.split.loop.exit530 ], [ %251, %.loopexit366.loopexit.split.loop.exit532 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %245 ], [ %.029.lcssa.i.i.i.i.i, %242 ], [ %.2.i.i.i.i.i, %248 ], [ %251, %.loopexit366.loopexit.split.loop.exit532 ], [ %250, %.loopexit366.loopexit.split.loop.exit530 ], [ %249, %.loopexit366.loopexit.split.loop.exit ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not350 = icmp eq ptr %227, %.028.i.i.i.i.i
   br i1 %.not350, label %.thread, label %252
 
@@ -1788,8 +1788,8 @@ _ZN3gmx14LogEntryWriterD2Ev.exit296:              ; preds = %720, %_ZNKSt7__cxx1
   br label %783
 
 783:                                              ; preds = %775, %772, %770
-  %storemerge.i = phi i8 [ 0, %772 ], [ %782, %775 ], [ 0, %770 ]
-  %784 = phi ptr [ null, %772 ], [ %774, %775 ], [ null, %770 ]
+  %storemerge.i = phi i8 [ %782, %775 ], [ 0, %772 ], [ 0, %770 ]
+  %784 = phi ptr [ %774, %775 ], [ null, %772 ], [ null, %770 ]
   store i8 %storemerge.i, ptr %40, align 8, !tbaa !488
   %785 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %784, ptr %785, align 8, !tbaa !490
@@ -2090,7 +2090,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit298._crit_edge: ; pred
   br label %.loopexit.split-lp
 
 .thread344:                                       ; preds = %944, %951, %946
-  %963 = phi i1 [ true, %951 ], [ false, %946 ], [ false, %944 ]
+  %963 = phi i1 [ false, %946 ], [ true, %951 ], [ false, %944 ]
   %964 = load ptr, ptr %794, align 8, !tbaa !273
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 416
   %966 = getelementptr inbounds nuw i8, ptr %964, i64 440
@@ -3227,7 +3227,7 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   ret void
 
 .loopexit.split-lp:                               ; preds = %1195, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit357, %.loopexit.split-lp358, %1159, %1161, %1369, %1375, %1459, %1223, %_ZN3gmx14LogEntryWriterD2Ev.exit308, %1378, %1396, %1376, %956, %962, %1055, %933
-  %.merged254 = phi { ptr, i32 } [ %1056, %1055 ], [ %934, %933 ], [ %.pn215, %962 ], [ %957, %956 ], [ %1460, %1459 ], [ %.pn203, %1375 ], [ %1370, %1369 ], [ %1162, %1161 ], [ %1160, %1159 ], [ %1224, %1223 ], [ %1217, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ], [ %1377, %1376 ], [ %.pn211, %1396 ], [ %1379, %1378 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp363, %.loopexit.split-lp.loopexit.split-lp ], [ %1196, %1195 ]
+  %.merged254 = phi { ptr, i32 } [ %934, %933 ], [ %957, %956 ], [ %lpad.loopexit.split-lp363, %.loopexit.split-lp.loopexit.split-lp ], [ %1056, %1055 ], [ %.pn215, %962 ], [ %1217, %_ZN3gmx14LogEntryWriterD2Ev.exit308 ], [ %lpad.loopexit.split-lp360, %.loopexit.split-lp358 ], [ %1460, %1459 ], [ %.pn203, %1375 ], [ %1370, %1369 ], [ %1160, %1159 ], [ %1162, %1161 ], [ %1224, %1223 ], [ %1377, %1376 ], [ %.pn211, %1396 ], [ %1379, %1378 ], [ %lpad.loopexit359, %.loopexit357 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit362, %.loopexit.split-lp.loopexit ], [ %1196, %1195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1575
 
@@ -3242,7 +3242,7 @@ _ZNSt10unique_ptrIN3gmx11StopHandlerESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br label %1577
 
 1577:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit296, %_ZN3gmx14LogEntryWriterD2Ev.exit283, %1576, %702, %680, %660, %655, %553, %551
-  %.merged251 = phi { ptr, i32 } [ %.pn220, %660 ], [ %.pn218, %702 ], [ %.merged252, %1576 ], [ %554, %553 ], [ %.pn188, %680 ], [ %.pn184, %655 ], [ %552, %551 ], [ %606, %_ZN3gmx14LogEntryWriterD2Ev.exit283 ], [ %721, %_ZN3gmx14LogEntryWriterD2Ev.exit296 ]
+  %.merged251 = phi { ptr, i32 } [ %.pn220, %660 ], [ %.pn218, %702 ], [ %.merged252, %1576 ], [ %554, %553 ], [ %721, %_ZN3gmx14LogEntryWriterD2Ev.exit296 ], [ %.pn188, %680 ], [ %.pn184, %655 ], [ %552, %551 ], [ %606, %_ZN3gmx14LogEntryWriterD2Ev.exit283 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %1578
 

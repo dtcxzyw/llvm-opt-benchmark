@@ -182,7 +182,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1530,7 +1530,7 @@ define noundef zeroext i1 @_ZNK6icu_7711FormattableeqERKS0_(ptr noundef nonnull 
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.lr.ph, %74, %.preheader, %58, %41, %36, %9, %10, %16, %22, %91, %66, %87, %83, %4, %2
-  %.017 = phi i1 [ true, %2 ], [ false, %4 ], [ true, %9 ], [ %15, %10 ], [ %21, %16 ], [ %27, %22 ], [ %92, %91 ], [ false, %66 ], [ false, %87 ], [ false, %83 ], [ %40, %36 ], [ false, %41 ], [ %65, %58 ], [ true, %.preheader ], [ %82, %74 ], [ %82, %.lr.ph ]
+  %.017 = phi i1 [ false, %4 ], [ true, %2 ], [ true, %9 ], [ %15, %10 ], [ %21, %16 ], [ %27, %22 ], [ false, %83 ], [ %92, %91 ], [ false, %66 ], [ %65, %58 ], [ false, %41 ], [ false, %87 ], [ %40, %36 ], [ true, %.preheader ], [ %82, %74 ], [ %82, %.lr.ph ]
   ret i1 %.017
 }
 
@@ -3046,7 +3046,7 @@ _ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit: ; preds = %3
   br label %_ZN6icu_77L8setErrorER10UErrorCodeS0_.exit
 
 _ZN6icu_77L8setErrorER10UErrorCodeS0_.exit:       ; preds = %8, %6, %14, %_ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit, %15
-  %.0 = phi ptr [ %19, %15 ], [ null, %_ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit ], [ null, %14 ], [ null, %6 ], [ null, %8 ]
+  %.0 = phi ptr [ %19, %15 ], [ null, %_ZNK6icu_7711Formattable8getArrayERiR10UErrorCode.exit ], [ null, %8 ], [ null, %14 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -3085,7 +3085,7 @@ define ptr @ufmt_getDecNumChars_77(ptr noundef captures(none) %0, ptr noundef wr
   br label %19
 
 19:                                               ; preds = %12, %17, %6, %3
-  %.0 = phi ptr [ @.str, %3 ], [ @.str, %12 ], [ %18, %17 ], [ @.str, %6 ]
+  %.0 = phi ptr [ @.str, %3 ], [ %18, %17 ], [ @.str, %12 ], [ @.str, %6 ]
   ret ptr %.0
 }
 

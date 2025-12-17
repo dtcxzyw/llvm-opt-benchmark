@@ -193,8 +193,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %103
-  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.1, %45 ], [ %_ZL7inverse.1, %51 ], [ %_ZL7inverse.1, %49 ], [ %_ZL7inverse.1, %56 ], [ %_ZL7inverse.1, %59 ], [ %_ZL7inverse.1, %103 ], [ 1, %.backedge ]
-  %.063.be = phi ptr [ %35, %45 ], [ %35, %51 ], [ %47, %49 ], [ %53, %56 ], [ %35, %59 ], [ %35, %103 ], [ %35, %.backedge ]
+  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.1, %45 ], [ %_ZL7inverse.1, %103 ], [ %_ZL7inverse.1, %51 ], [ %_ZL7inverse.1, %49 ], [ %_ZL7inverse.1, %56 ], [ %_ZL7inverse.1, %59 ], [ 1, %.backedge ]
+  %.063.be = phi ptr [ %35, %45 ], [ %35, %103 ], [ %35, %51 ], [ %47, %49 ], [ %53, %56 ], [ %35, %59 ], [ %35, %.backedge ]
   br label %.backedge, !llvm.loop !16
 
 59:                                               ; preds = %52

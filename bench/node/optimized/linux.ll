@@ -159,7 +159,7 @@ calculate_version:                                ; preds = %calculate_version.s
   br label %return
 
 return:                                           ; preds = %if.end22, %if.end8, %entry, %calculate_version
-  %retval.0 = phi i32 [ %add40, %calculate_version ], [ %0, %entry ], [ 0, %if.end8 ], [ 0, %if.end22 ]
+  %retval.0 = phi i32 [ 0, %if.end8 ], [ %add40, %calculate_version ], [ %0, %entry ], [ 0, %if.end22 ]
   ret i32 %retval.0
 }
 
@@ -587,7 +587,7 @@ land.rhs.i.i:                                     ; preds = %while.cond18.i.i
   br i1 %cmp26.i.i, label %while.cond18.i.i, label %watcher_root_RB_NEXT.exit.i
 
 watcher_root_RB_NEXT.exit.i:                      ; preds = %while.cond.i27.i, %land.rhs.i.i, %while.cond18.i.i, %land.lhs.true.i.i
-  %elm.addr.1.i.i = phi ptr [ %7, %land.lhs.true.i.i ], [ %9, %land.rhs.i.i ], [ null, %while.cond18.i.i ], [ %elm.addr.0.i.i, %while.cond.i27.i ]
+  %elm.addr.1.i.i = phi ptr [ %7, %land.lhs.true.i.i ], [ null, %while.cond18.i.i ], [ %9, %land.rhs.i.i ], [ %elm.addr.0.i.i, %while.cond.i27.i ]
   %iterating.i = getelementptr inbounds nuw i8, ptr %watcher_list.052.i, i64 48
   store i32 1, ptr %iterating.i, align 8
   %watchers5.i = getelementptr inbounds nuw i8, ptr %watcher_list.052.i, i64 32
@@ -1191,7 +1191,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end4, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %if.end4 ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 1, %if.then5.i ], [ 0, %entry ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %if.end4 ]
   ret i32 %retval.0
 }
 
@@ -1282,7 +1282,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit
-  %retval.0 = phi i32 [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %entry ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1388,7 +1388,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %if.end ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1491,7 +1491,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %if.end ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1592,7 +1592,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit
-  %retval.0 = phi i32 [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %entry ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1691,7 +1691,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit
-  %retval.0 = phi i32 [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %entry ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1795,7 +1795,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %if.end ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1887,7 +1887,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit
-  %retval.0 = phi i32 [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %entry ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -2005,7 +2005,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end3, %if.then5.i, %if.then3.i, %if.then.i, %uv__iou_get_sqe.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ], [ 0, %if.end3 ], [ 0, %if.end.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.then5.i ], [ 0, %if.end.i ], [ 1, %uv__iou_get_sqe.exit ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -2139,7 +2139,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %return
 
 return:                                           ; preds = %if.then5.i, %if.then3.i, %if.then.i, %if.end12, %entry, %if.then4
-  %retval.0 = phi i32 [ 0, %if.then4 ], [ 0, %entry ], [ 1, %if.end12 ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then4 ], [ 1, %if.end12 ], [ 1, %if.then.i ], [ 1, %if.then3.i ], [ 1, %if.then5.i ]
   ret i32 %retval.0
 }
 
@@ -2417,7 +2417,7 @@ if.end3.i.i:                                      ; preds = %if.end40
   br label %done.i.i
 
 done.i.i:                                         ; preds = %if.end3.i.i, %if.end40
-  %clock_id.0.i.i = phi i64 [ %26, %if.end40 ], [ %spec.select.i.i, %if.end3.i.i ]
+  %clock_id.0.i.i = phi i64 [ %spec.select.i.i, %if.end3.i.i ], [ %26, %if.end40 ]
   %conv.i.i = trunc nuw nsw i64 %clock_id.0.i.i to i32
   %call10.i.i = call i32 @clock_gettime(i32 noundef %conv.i.i, ptr noundef nonnull %t.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call10.i.i, 0
@@ -2770,9 +2770,9 @@ if.end104:                                        ; preds = %if.then99, %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end81, %if.then.i, %if.then29.i, %if.else.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
-  %have_signals.1 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.2, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.end81 ]
-  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.end81 ]
-  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
+  %have_signals.1 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.0117, %if.end81 ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.2, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ]
+  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %nevents.0118, %if.end81 ], [ %nevents.0118, %do.body26.i ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ]
+  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end81 ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.body107.loopexit, label %for.body
@@ -3240,7 +3240,7 @@ if.end9:                                          ; preds = %if.end5
   br label %return
 
 return:                                           ; preds = %if.then, %if.end9, %if.then7
-  %retval.0 = phi i32 [ %sub, %if.then7 ], [ 0, %if.end9 ], [ 0, %if.then ]
+  %retval.0 = phi i32 [ 0, %if.end9 ], [ %sub, %if.then7 ], [ 0, %if.then ]
   ret i32 %retval.0
 }
 
@@ -3570,7 +3570,7 @@ for.end200:                                       ; preds = %for.inc198, %if.end
   br label %return
 
 return:                                           ; preds = %entry, %for.end200, %if.then152, %if.then7
-  %retval.0 = phi i32 [ %sub, %if.then7 ], [ -12, %if.then152 ], [ 0, %for.end200 ], [ -12, %entry ]
+  %retval.0 = phi i32 [ 0, %for.end200 ], [ %sub, %if.then7 ], [ -12, %if.then152 ], [ -12, %entry ]
   ret i32 %retval.0
 }
 
@@ -3921,7 +3921,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %uv__read_proc_meminfo.exit, %if.then3
-  %retval.0 = phi i64 [ %mul, %if.then3 ], [ %mul.i, %uv__read_proc_meminfo.exit ], [ 0, %if.end ]
+  %retval.0 = phi i64 [ %mul.i, %uv__read_proc_meminfo.exit ], [ %mul, %if.then3 ], [ 0, %if.end ]
   ret i64 %retval.0
 }
 
@@ -3976,7 +3976,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %uv__read_proc_meminfo.exit, %if.then3
-  %retval.0 = phi i64 [ %mul, %if.then3 ], [ %mul.i, %uv__read_proc_meminfo.exit ], [ 0, %if.end ]
+  %retval.0 = phi i64 [ %mul.i, %uv__read_proc_meminfo.exit ], [ %mul, %if.then3 ], [ 0, %if.end ]
   ret i64 %retval.0
 }
 
@@ -4312,7 +4312,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %uv_get_free_memory.exit
 
 uv_get_free_memory.exit:                          ; preds = %uv__read_proc_meminfo.exit.i, %if.end.i, %if.then3.i
-  %retval.0.i = phi i64 [ %mul.i, %if.then3.i ], [ %mul.i.i, %uv__read_proc_meminfo.exit.i ], [ 0, %if.end.i ]
+  %retval.0.i = phi i64 [ %mul.i.i, %uv__read_proc_meminfo.exit.i ], [ %mul.i, %if.then3.i ], [ 0, %if.end.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %info.i)
   br label %return
 
@@ -4364,7 +4364,7 @@ if.then3.i16:                                     ; preds = %if.end.i12
   br label %uv_get_total_memory.exit
 
 uv_get_total_memory.exit:                         ; preds = %uv__read_proc_meminfo.exit.i23, %if.then3.i16
-  %retval.0.i15 = phi i64 [ %mul.i19, %if.then3.i16 ], [ %mul.i.i26, %uv__read_proc_meminfo.exit.i23 ]
+  %retval.0.i15 = phi i64 [ %mul.i.i26, %uv__read_proc_meminfo.exit.i23 ], [ %mul.i19, %if.then3.i16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %info.i8)
   %cmp7 = icmp ugt i64 %call2, %retval.0.i15
   br i1 %cmp7, label %if.then8, label %if.end10
@@ -4413,7 +4413,7 @@ if.then3.i38:                                     ; preds = %if.end.i34
   br label %uv_get_free_memory.exit51
 
 uv_get_free_memory.exit51:                        ; preds = %uv__read_proc_meminfo.exit.i46, %if.end.i34, %if.then3.i38
-  %retval.0.i37 = phi i64 [ %mul.i42, %if.then3.i38 ], [ %mul.i.i49, %uv__read_proc_meminfo.exit.i46 ], [ 0, %if.end.i34 ]
+  %retval.0.i37 = phi i64 [ %mul.i.i49, %uv__read_proc_meminfo.exit.i46 ], [ %mul.i42, %if.then3.i38 ], [ 0, %if.end.i34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %info.i30)
   br label %return
 
@@ -4551,7 +4551,7 @@ if.end19:                                         ; preds = %uv__get_cgroup2_cur
   br label %return
 
 return:                                           ; preds = %if.end19, %entry, %uv_get_free_memory.exit51, %uv_get_free_memory.exit
-  %retval.0 = phi i64 [ %retval.0.i, %uv_get_free_memory.exit ], [ %retval.0.i37, %uv_get_free_memory.exit51 ], [ 0, %entry ], [ %spec.select, %if.end19 ]
+  %retval.0 = phi i64 [ %spec.select, %if.end19 ], [ %retval.0.i, %uv_get_free_memory.exit ], [ %retval.0.i37, %uv_get_free_memory.exit51 ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -4740,7 +4740,7 @@ if.end6.i:                                        ; preds = %while.body.i
   br i1 %tobool.not.i, label %if.then16.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %if.end6.i, %if.end6.i.thread
-  %tmp.026.i.be = phi ptr [ %tmp.0.i, %if.end6.i ], [ %tmp.0.i40, %if.end6.i.thread ]
+  %tmp.026.i.be = phi ptr [ %tmp.0.i40, %if.end6.i.thread ], [ %tmp.0.i, %if.end6.i ]
   br label %while.body.i
 
 if.end6.i.thread:                                 ; preds = %if.else.i
@@ -5091,7 +5091,7 @@ do.end37:                                         ; preds = %if.end28, %do.body3
   br label %return
 
 return:                                           ; preds = %if.end13, %init_inotify.exit, %entry, %do.end37, %if.then7
-  %retval.0 = phi i32 [ %sub, %if.then7 ], [ 0, %do.end37 ], [ -22, %entry ], [ %sub.i, %init_inotify.exit ], [ -12, %if.end13 ]
+  %retval.0 = phi i32 [ %sub.i, %init_inotify.exit ], [ -22, %entry ], [ %sub, %if.then7 ], [ 0, %do.end37 ], [ -12, %if.end13 ]
   ret i32 %retval.0
 }
 
@@ -5768,7 +5768,7 @@ if.end470.i.i:                                    ; preds = %if.else468.i.i, %if
   br label %while.end.sink.split.i.i
 
 if.end487.i.i:                                    ; preds = %lor.lhs.false326.i.i, %land.lhs.true322.i.i, %lor.lhs.false81.i.i, %land.lhs.true.i.i
-  %tmp.2.sink.i.i = phi ptr [ %tmp.0.i.i, %lor.lhs.false81.i.i ], [ %tmp.0.i.i, %land.lhs.true.i.i ], [ %tmp.2.i.i, %lor.lhs.false326.i.i ], [ %tmp.2.i.i, %land.lhs.true322.i.i ]
+  %tmp.2.sink.i.i = phi ptr [ %tmp.0.i.i, %land.lhs.true.i.i ], [ %tmp.0.i.i, %lor.lhs.false81.i.i ], [ %tmp.2.i.i, %lor.lhs.false326.i.i ], [ %tmp.2.i.i, %land.lhs.true322.i.i ]
   %rbe_color334.i.i = getelementptr inbounds nuw i8, ptr %tmp.2.sink.i.i, i64 24
   store i32 1, ptr %rbe_color334.i.i, align 8
   %parent.addr.1.in.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i, i64 16

@@ -37306,7 +37306,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -37426,7 +37426,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -37546,7 +37546,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -37630,7 +37630,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -37695,7 +37695,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -37836,7 +37836,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -37920,7 +37920,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -37985,7 +37985,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -38105,7 +38105,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -38225,7 +38225,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -38345,7 +38345,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -38427,7 +38427,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -38492,7 +38492,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -38557,7 +38557,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -38698,7 +38698,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -38780,7 +38780,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -38864,7 +38864,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -39005,7 +39005,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -39125,7 +39125,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -39266,7 +39266,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -39331,7 +39331,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -39415,7 +39415,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -39480,7 +39480,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -39564,7 +39564,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -39648,7 +39648,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -39730,7 +39730,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -39871,7 +39871,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -39936,7 +39936,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -40056,7 +40056,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -40138,7 +40138,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -40279,7 +40279,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -40420,7 +40420,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -40561,7 +40561,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -40702,7 +40702,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %34, %31, %25, %16, %41
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %17, %16 ], [ %26, %25 ], [ %35, %34 ], [ %32, %31 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %41 ], [ %26, %25 ], [ %17, %16 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 41:                                               ; preds = %38, %4
@@ -40822,7 +40822,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -40887,7 +40887,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -40952,7 +40952,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -41093,7 +41093,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -41177,7 +41177,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41242,7 +41242,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -41326,7 +41326,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41410,7 +41410,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41494,7 +41494,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41559,7 +41559,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -41643,7 +41643,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41727,7 +41727,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41811,7 +41811,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -41876,7 +41876,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -41996,7 +41996,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -42061,7 +42061,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -42145,7 +42145,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -42265,7 +42265,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -42406,7 +42406,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -42548,7 +42548,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -42668,7 +42668,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -42733,7 +42733,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -42798,7 +42798,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -42918,7 +42918,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -43059,7 +43059,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -43124,7 +43124,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -43244,7 +43244,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -43364,7 +43364,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -43484,7 +43484,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -43625,7 +43625,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -43707,7 +43707,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -43849,7 +43849,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -43990,7 +43990,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -44131,7 +44131,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -44272,7 +44272,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -44413,7 +44413,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -44533,7 +44533,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -44612,7 +44612,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %23
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %23 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %23 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 23:                                               ; preds = %21, %4
@@ -44696,7 +44696,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -44816,7 +44816,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -44881,7 +44881,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -44965,7 +44965,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -45030,7 +45030,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -45114,7 +45114,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -45255,7 +45255,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %34, %31, %25, %16, %41
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %17, %16 ], [ %26, %25 ], [ %35, %34 ], [ %32, %31 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %41 ], [ %26, %25 ], [ %17, %16 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 41:                                               ; preds = %38, %4
@@ -45396,7 +45396,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -45516,7 +45516,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -45581,7 +45581,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -45665,7 +45665,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -45730,7 +45730,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -45795,7 +45795,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -45860,7 +45860,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -45925,7 +45925,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46009,7 +46009,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -46151,7 +46151,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -46216,7 +46216,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46300,7 +46300,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -46365,7 +46365,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46430,7 +46430,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46571,7 +46571,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -46650,7 +46650,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %23
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %23 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %23 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 23:                                               ; preds = %21, %4
@@ -46715,7 +46715,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46780,7 +46780,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46845,7 +46845,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46910,7 +46910,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -46994,7 +46994,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -47078,7 +47078,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -47198,7 +47198,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -47263,7 +47263,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -47328,7 +47328,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -47470,7 +47470,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -47535,7 +47535,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -47619,7 +47619,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -47703,7 +47703,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -47823,7 +47823,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -47965,7 +47965,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -48107,7 +48107,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -48248,7 +48248,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -48313,7 +48313,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -48455,7 +48455,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -48537,7 +48537,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -48602,7 +48602,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -48743,7 +48743,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -48808,7 +48808,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -48928,7 +48928,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -49069,7 +49069,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -49153,7 +49153,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -49237,7 +49237,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -49357,7 +49357,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -49498,7 +49498,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -49563,7 +49563,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -49683,7 +49683,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -49767,7 +49767,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -49849,7 +49849,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -49933,7 +49933,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -50074,7 +50074,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -50158,7 +50158,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -50278,7 +50278,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -50419,7 +50419,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -50503,7 +50503,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -50587,7 +50587,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -50728,7 +50728,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -50812,7 +50812,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -50877,7 +50877,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -50942,7 +50942,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -51083,7 +51083,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -51167,7 +51167,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -51287,7 +51287,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -51407,7 +51407,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -51472,7 +51472,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -51554,7 +51554,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -51696,7 +51696,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -51837,7 +51837,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -51957,7 +51957,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -52041,7 +52041,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -52106,7 +52106,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -52171,7 +52171,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -52312,7 +52312,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -52377,7 +52377,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -52442,7 +52442,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -52507,7 +52507,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -52627,7 +52627,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -52711,7 +52711,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -52831,7 +52831,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -52915,7 +52915,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -52980,7 +52980,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -53064,7 +53064,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -53148,7 +53148,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -53232,7 +53232,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -53373,7 +53373,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -53514,7 +53514,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -53598,7 +53598,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -53682,7 +53682,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -53824,7 +53824,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -53965,7 +53965,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -54030,7 +54030,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -54095,7 +54095,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -54179,7 +54179,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -54244,7 +54244,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -54328,7 +54328,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -54448,7 +54448,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -54568,7 +54568,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -54652,7 +54652,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -54772,7 +54772,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -54837,7 +54837,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -54957,7 +54957,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -55039,7 +55039,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -55104,7 +55104,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -55169,7 +55169,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -55253,7 +55253,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -55337,7 +55337,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -55421,7 +55421,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -55505,7 +55505,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -55646,7 +55646,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -55787,7 +55787,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -55928,7 +55928,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -55993,7 +55993,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -56077,7 +56077,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -56218,7 +56218,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -56283,7 +56283,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -56424,7 +56424,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -56565,7 +56565,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -56630,7 +56630,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -56714,7 +56714,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -56779,7 +56779,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -56863,7 +56863,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -57004,7 +57004,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -57069,7 +57069,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -57153,7 +57153,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -57273,7 +57273,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -57355,7 +57355,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -57475,7 +57475,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -57559,7 +57559,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -57643,7 +57643,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -57763,7 +57763,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -57905,7 +57905,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -57987,7 +57987,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -58071,7 +58071,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -58153,7 +58153,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -58237,7 +58237,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -58357,7 +58357,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -58499,7 +58499,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -58641,7 +58641,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -58725,7 +58725,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -58790,7 +58790,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -58931,7 +58931,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -58996,7 +58996,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -59116,7 +59116,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -59258,7 +59258,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -59342,7 +59342,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -59462,7 +59462,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -59527,7 +59527,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -59592,7 +59592,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -59674,7 +59674,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -59739,7 +59739,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -59804,7 +59804,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -59945,7 +59945,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -60065,7 +60065,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -60185,7 +60185,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -60269,7 +60269,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -60334,7 +60334,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -60454,7 +60454,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -60519,7 +60519,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -60603,7 +60603,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -60687,7 +60687,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -60752,7 +60752,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -60817,7 +60817,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -60901,7 +60901,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -61043,7 +61043,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -61108,7 +61108,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -61228,7 +61228,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -61312,7 +61312,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -61377,7 +61377,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -61442,7 +61442,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -61526,7 +61526,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -61610,7 +61610,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -61675,7 +61675,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -61740,7 +61740,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -61860,7 +61860,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -61980,7 +61980,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -62064,7 +62064,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -62184,7 +62184,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -62268,7 +62268,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -62388,7 +62388,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -62472,7 +62472,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -62556,7 +62556,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -62621,7 +62621,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -62762,7 +62762,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -62882,7 +62882,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -62947,7 +62947,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63012,7 +63012,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63132,7 +63132,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -63274,7 +63274,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -63339,7 +63339,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63480,7 +63480,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -63564,7 +63564,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -63705,7 +63705,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -63770,7 +63770,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63835,7 +63835,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63900,7 +63900,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -63984,7 +63984,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -64068,7 +64068,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -64152,7 +64152,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -64236,7 +64236,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -64377,7 +64377,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -64518,7 +64518,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %35, %32, %26, %18, %42
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %42 ], [ %19, %18 ], [ %27, %26 ], [ %36, %35 ], [ %33, %32 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %42 ], [ %27, %26 ], [ %19, %18 ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 42:                                               ; preds = %39, %4
@@ -64583,7 +64583,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -64667,7 +64667,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -64749,7 +64749,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %25
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %25 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 25:                                               ; preds = %23, %4
@@ -64814,7 +64814,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -64879,7 +64879,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -64944,7 +64944,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -65064,7 +65064,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -65129,7 +65129,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -65213,7 +65213,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -65297,7 +65297,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -65362,7 +65362,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -65427,7 +65427,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -65492,7 +65492,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %20
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %20 ], [ %15, %14 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %20 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 20:                                               ; preds = %18, %4
@@ -65633,7 +65633,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %34, %31, %25, %16, %41
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %17, %16 ], [ %26, %25 ], [ %35, %34 ], [ %32, %31 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %41 ], [ %26, %25 ], [ %17, %16 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 41:                                               ; preds = %38, %4
@@ -65775,7 +65775,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %36, %33, %27, %18, %43
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %43 ], [ %19, %18 ], [ %28, %27 ], [ %37, %36 ], [ %34, %33 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %34, %33 ], [ %lpad.thr_comm, %43 ], [ %28, %27 ], [ %19, %18 ], [ %37, %36 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 43:                                               ; preds = %40, %4
@@ -65859,7 +65859,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   unreachable
 
 .body.thread:                                     ; preds = %14, %26
-  %eh.lpad-body7 = phi { ptr, i32 } [ %lpad.thr_comm, %26 ], [ %15, %14 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %15, %14 ], [ %lpad.thr_comm, %26 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 26:                                               ; preds = %24, %4
@@ -65979,7 +65979,7 @@ define hidden void @"_ZN181_$LT$protobuf..reflect..acc..v2..singular..SingularFi
   ret void
 
 .body.thread:                                     ; preds = %33, %29, %23, %15, %39
-  %eh.lpad-body6 = phi { ptr, i32 } [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ], [ %30, %29 ]
+  %eh.lpad-body6 = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm, %39 ], [ %16, %15 ], [ %24, %23 ], [ %30, %33 ]
   resume { ptr, i32 } %eh.lpad-body6
 
 39:                                               ; preds = %36, %4
@@ -68031,7 +68031,7 @@ define noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_al
   br label %24
 
 24:                                               ; preds = %10, %14, %21
-  %.sroa.0.0 = phi ptr [ null, %21 ], [ null, %14 ], [ %11, %10 ]
+  %.sroa.0.0 = phi ptr [ null, %14 ], [ null, %21 ], [ %11, %10 ]
   ret ptr %.sroa.0.0
 }
 
@@ -68546,7 +68546,7 @@ define hidden void @_ZN3zip4spec22find_central_directory17h1200ccc6707d31a7E(ptr
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$zip..read..magic_finder..OptimisticMagicFinder$LT$zip..read..magic_finder..Forward$GT$$GT$$GT$17hd9f5a03651ae548cE.exit328", %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i" ], [ %.pn.i, %38 ], [ %.pn222, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$zip..read..magic_finder..OptimisticMagicFinder$LT$zip..read..magic_finder..Forward$GT$$GT$$GT$17hd9f5a03651ae548cE.exit328" ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %38 ], [ %.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i" ], [ %.pn222, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$zip..read..magic_finder..OptimisticMagicFinder$LT$zip..read..magic_finder..Forward$GT$$GT$$GT$17hd9f5a03651ae548cE.exit328" ]
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph.i.lr.ph:                                   ; preds = %43
@@ -68757,7 +68757,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr135dro
   store i64 %125, ptr %54, align 8, !alias.scope !7820, !noalias !7827
   br label %.loopexit
 
-.thread409.loopexit:                              ; preds = %112, %105, %103
+.thread409.loopexit:                              ; preds = %105, %103, %112
   %lpad.loopexit520 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -69032,12 +69032,12 @@ common.resume:                                    ; preds = %"_ZN4core3ptr135dro
   %.pre1011 = load i16, ptr %64, align 2
   br label %.thread443
 
-.thread479.loopexit:                              ; preds = %426, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i.i.i288", %253, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i.i.i", %204, %428
+.thread479.loopexit:                              ; preds = %204, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i.i.i288", %426, %428, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i.i.i", %253
   %lpad.loopexit527 = landingpad { ptr, i32 }
           cleanup
   br label %.thread463
 
-.thread479.loopexit.split-lp:                     ; preds = %.invoke, %270, %267
+.thread479.loopexit.split-lp:                     ; preds = %.invoke, %267, %270
   %lpad.loopexit.split-lp528 = landingpad { ptr, i32 }
           cleanup
   br label %.thread463
@@ -69239,7 +69239,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr135dro
   invoke fastcc void @"_ZN3zip4read12magic_finder38OptimisticMagicFinder$LT$Direction$GT$4next17h7ee2479dd5be2403E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef align 32 dereferenceable(384) %28, ptr noalias noundef align 8 dereferenceable(24) %1)
           to label %256 unwind label %.thread508.loopexit
 
-.thread508.loopexit:                              ; preds = %318, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i", %.backedge, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit282"
+.thread508.loopexit:                              ; preds = %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h4b2c1d8407847b29E.exit.i.i", %.backedge, %318, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit282"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.thread497
@@ -69479,10 +69479,10 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
   %321 = icmp eq i64 %320, -9223372036854775802
   br i1 %321, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit285", label %377
 
-322:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i", %287, %284, %282, %318
-  %.sroa.9373.0.ph = phi i64 [ -9223372036854775808, %318 ], [ %.sroa.6.3..sroa.6.3..sroa.6.8..sroa.045.0.copyload.i.i, %282 ], [ -9223372036854775807, %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ -9223372036854775808, %284 ], [ -9223372036854775808, %287 ]
-  %.sroa.12376.0.ph = phi i64 [ %319, %318 ], [ %283, %282 ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.186 to i64), %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.248 to i64), %284 ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.247 to i64), %287 ]
-  %.sroa.14.0.ph = phi i64 [ %.sink.i267, %318 ], [ 32, %282 ], [ undef, %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ 22, %284 ], [ 36, %287 ]
+322:                                              ; preds = %282, %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i", %287, %284, %318
+  %.sroa.9373.0.ph = phi i64 [ -9223372036854775808, %318 ], [ -9223372036854775808, %284 ], [ -9223372036854775807, %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ -9223372036854775808, %287 ], [ %.sroa.6.3..sroa.6.3..sroa.6.8..sroa.045.0.copyload.i.i, %282 ]
+  %.sroa.12376.0.ph = phi i64 [ %319, %318 ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.248 to i64), %284 ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.186 to i64), %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ ptrtoint (ptr @anon.538f4b9fb8e0e072a3138e5877fc5be2.247 to i64), %287 ], [ %283, %282 ]
+  %.sroa.14.0.ph = phi i64 [ %.sink.i267, %318 ], [ 22, %284 ], [ undef, %"_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h5db399d86701e588E.exit81.i.i" ], [ 36, %287 ], [ 32, %282 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !7975
   %323 = load i64, ptr %22, align 8, !range !7907, !alias.scope !8037, !noundef !8
   %324 = icmp eq i64 %323, -9223372036854775802
@@ -69708,7 +69708,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
           to label %369 unwind label %.thread409.loopexit.split-lp.loopexit.split-lp
 
 .thread497:                                       ; preds = %.thread508.loopexit, %.thread508.loopexit.split-lp, %370, %375
-  %.pn500 = phi { ptr, i32 } [ %371, %370 ], [ %376, %375 ], [ %lpad.loopexit, %.thread508.loopexit ], [ %lpad.loopexit.split-lp, %.thread508.loopexit.split-lp ]
+  %.pn500 = phi { ptr, i32 } [ %376, %375 ], [ %371, %370 ], [ %lpad.loopexit, %.thread508.loopexit ], [ %lpad.loopexit.split-lp, %.thread508.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E"(ptr noalias noundef align 8 dereferenceable(24) %22) #33
           to label %.thread463 unwind label %373
 
@@ -69979,8 +69979,8 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
   br label %.thread463
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E.exit": ; preds = %422, %419, %411, %414, %420, %448, %445, %437, %440, %446, %224, %221, %213, %216, %222, %249, %246, %238, %241, %247, %194, %191, %183, %186, %192
-  %anon.538f4b9fb8e0e072a3138e5877fc5be2.236.sink = phi ptr [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %192 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %186 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %183 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %191 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %194 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %247 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %241 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %238 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %246 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %249 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %222 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %216 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %213 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %221 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %224 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %446 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %440 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %437 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %445 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %448 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %420 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %414 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %411 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %419 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %422 ]
-  %.sink = phi i64 [ 27, %192 ], [ 27, %186 ], [ 27, %183 ], [ 27, %191 ], [ 27, %194 ], [ 38, %247 ], [ 38, %241 ], [ 38, %238 ], [ 38, %246 ], [ 38, %249 ], [ 32, %222 ], [ 32, %216 ], [ 32, %213 ], [ 32, %221 ], [ 32, %224 ], [ 13, %446 ], [ 13, %440 ], [ 13, %437 ], [ 13, %445 ], [ 13, %448 ], [ 27, %420 ], [ 27, %414 ], [ 27, %411 ], [ 27, %419 ], [ 27, %422 ]
+  %anon.538f4b9fb8e0e072a3138e5877fc5be2.236.sink = phi ptr [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %224 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %448 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %249 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %194 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %192 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %186 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %183 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.238, %191 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %247 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %241 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %238 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.233, %246 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %222 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %216 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %213 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.234, %221 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %446 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %440 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %437 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.236, %445 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %420 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %414 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %411 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %419 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.237, %422 ]
+  %.sink = phi i64 [ 32, %224 ], [ 13, %448 ], [ 38, %249 ], [ 27, %194 ], [ 27, %192 ], [ 27, %186 ], [ 27, %183 ], [ 27, %191 ], [ 38, %247 ], [ 38, %241 ], [ 38, %238 ], [ 38, %246 ], [ 32, %222 ], [ 32, %216 ], [ 32, %213 ], [ 32, %221 ], [ 13, %446 ], [ 13, %440 ], [ 13, %437 ], [ 13, %445 ], [ 27, %420 ], [ 27, %414 ], [ 27, %411 ], [ 27, %419 ], [ 27, %422 ]
   store i64 -9223372036854775808, ptr %27, align 8
   store ptr %anon.538f4b9fb8e0e072a3138e5877fc5be2.236.sink, ptr %67, align 8
   store i64 %.sink, ptr %.sroa.6148.0..sroa_idx149, align 8
@@ -69999,7 +69999,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
   br label %.thread463
 
 .thread463:                                       ; preds = %.thread479.loopexit, %.thread479.loopexit.split-lp, %.thread501, %449, %463, %.thread497, %391, %393, %465, %407, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i289", %234, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i", %.thread472, %.thread466
-  %.pn215462 = phi { ptr, i32 } [ %254, %.thread466 ], [ %427, %.thread472 ], [ %235, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i" ], [ %235, %234 ], [ %408, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i289" ], [ %408, %407 ], [ %450, %449 ], [ %464, %463 ], [ %.pn500, %.thread497 ], [ %392, %391 ], [ %394, %393 ], [ %466, %465 ], [ %386, %.thread501 ], [ %lpad.loopexit527, %.thread479.loopexit ], [ %lpad.loopexit.split-lp528, %.thread479.loopexit.split-lp ]
+  %.pn215462 = phi { ptr, i32 } [ %408, %407 ], [ %466, %465 ], [ %427, %.thread472 ], [ %254, %.thread466 ], [ %235, %234 ], [ %235, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i" ], [ %408, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h42c09fc54ba4d087E.exit.i.i.i.i.i.i289" ], [ %450, %449 ], [ %464, %463 ], [ %386, %.thread501 ], [ %.pn500, %.thread497 ], [ %392, %391 ], [ %394, %393 ], [ %lpad.loopexit527, %.thread479.loopexit ], [ %lpad.loopexit.split-lp528, %.thread479.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$zip..spec..Zip32CentralDirectoryEnd$GT$17hfa0dfc1be432c3a3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26) #33
           to label %.thread unwind label %373
 
@@ -70061,7 +70061,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i.i: ; preds = 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$zip..read..magic_finder..OptimisticMagicFinder$LT$zip..read..magic_finder..Forward$GT$$GT$$GT$17hd9f5a03651ae548cE.exit330" unwind label %471
 
 .thread:                                          ; preds = %.thread409.loopexit, %.thread409.loopexit.split-lp.loopexit.split-lp, %.thread409.loopexit.split-lp.loopexit, %203, %.thread463, %.thread405
-  %.pn218404 = phi { ptr, i32 } [ %159, %.thread405 ], [ %lpad.thr_comm.split-lp478, %203 ], [ %.pn215462, %.thread463 ], [ %lpad.loopexit520, %.thread409.loopexit ], [ %lpad.loopexit524, %.thread409.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp525, %.thread409.loopexit.split-lp.loopexit.split-lp ]
+  %.pn218404 = phi { ptr, i32 } [ %159, %.thread405 ], [ %.pn215462, %.thread463 ], [ %lpad.thr_comm.split-lp478, %203 ], [ %lpad.loopexit520, %.thread409.loopexit ], [ %lpad.loopexit524, %.thread409.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp525, %.thread409.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$zip..result..ZipError$GT$$GT$17h53ae3dc4a91b1bc3E"(ptr noalias noundef align 8 dereferenceable(24) %27) #33
           to label %473 unwind label %373
 }
@@ -71553,7 +71553,7 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17h13e7557631b4ff9cE(
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i": ; preds = %39, %35, %26
-  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %26 ], [ %.sroa.07.0.us.us.i.i.i, %35 ]
+  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %35 ], [ %.sroa.07.0.us.us.i.i.i, %26 ]
   %44 = add nuw i64 %.sroa.09.0.us.us.i.i.i, 1
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %_ZN6yara_x7modules2pe19rich_version_toolid17h54a84a76fcb7eb0eE.exit, label %.split.us.split.us.i.i.i
@@ -71703,8 +71703,8 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17h294498389c250fcaE(
   br label %_ZN6yara_x7modules4hash13checksum_data17h414d8207661a577bE.exit
 
 _ZN6yara_x7modules4hash13checksum_data17h414d8207661a577bE.exit: ; preds = %4, %15, %17, %20, %._crit_edge.i
-  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %38, %._crit_edge.i ], [ undef, %15 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %38, %._crit_edge.i ], [ undef, %17 ], [ undef, %15 ], [ undef, %20 ]
+  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i ], [ 0, %17 ], [ 0, %15 ], [ 0, %20 ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.7.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -72032,8 +72032,8 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17h4f40465d0200d746E(
   br label %_ZN6yara_x7modules5macho16ep_for_arch_type17h484d450e8f016519E.exit
 
 _ZN6yara_x7modules5macho16ep_for_arch_type17h484d450e8f016519E.exit: ; preds = %27, %3, %7, %11, %33, %38, %42, %49
-  %.sroa.9.0.i = phi i64 [ undef, %3 ], [ undef, %7 ], [ %.sroa.9.3.i, %49 ], [ undef, %33 ], [ undef, %42 ], [ undef, %38 ], [ undef, %11 ], [ undef, %27 ]
-  %.sroa.0.0.i = phi i64 [ 0, %3 ], [ 0, %7 ], [ %.sroa.0.3.i, %49 ], [ 0, %33 ], [ 0, %42 ], [ 0, %38 ], [ 0, %11 ], [ 0, %27 ]
+  %.sroa.9.0.i = phi i64 [ undef, %7 ], [ undef, %3 ], [ %.sroa.9.3.i, %49 ], [ undef, %33 ], [ undef, %42 ], [ undef, %38 ], [ undef, %11 ], [ undef, %27 ]
+  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %3 ], [ %.sroa.0.3.i, %49 ], [ 0, %33 ], [ 0, %42 ], [ 0, %38 ], [ 0, %11 ], [ 0, %27 ]
   %55 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %56 = insertvalue { i64, i64 } %55, i64 %.sroa.9.0.i, 1
   ret { i64, i64 } %56
@@ -72200,7 +72200,7 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17h5a7c10f1f9f0c7edE(
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i": ; preds = %31, %27, %22
-  %.sroa.0.0.i.us27.i.i.i = phi i64 [ %35, %31 ], [ %.sroa.07.0.us24.i.i.i, %22 ], [ %.sroa.07.0.us24.i.i.i, %27 ]
+  %.sroa.0.0.i.us27.i.i.i = phi i64 [ %35, %31 ], [ %.sroa.07.0.us24.i.i.i, %27 ], [ %.sroa.07.0.us24.i.i.i, %22 ]
   %36 = add nuw i64 %.sroa.09.0.us25.i.i.i, 1
   %37 = icmp eq i64 %36, %16
   br i1 %37, label %_ZN6yara_x7modules2pe12rich_version17hea212ad85db23305E.exit, label %.split.split.us.i.i.i
@@ -72741,8 +72741,8 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17hc6f5a690de9fde0eE(
   br label %_ZN6yara_x7modules5macho19ep_for_arch_subtype17h1b37fbdd63046086E.exit
 
 _ZN6yara_x7modules5macho19ep_for_arch_subtype17h1b37fbdd63046086E.exit: ; preds = %30, %4, %8, %12, %40, %45, %49, %56
-  %.sroa.9.0.i = phi i64 [ undef, %4 ], [ undef, %8 ], [ %.sroa.9.3.i, %56 ], [ undef, %40 ], [ undef, %49 ], [ undef, %45 ], [ undef, %12 ], [ undef, %30 ]
-  %.sroa.0.0.i = phi i64 [ 0, %4 ], [ 0, %8 ], [ %.sroa.0.3.i, %56 ], [ 0, %40 ], [ 0, %49 ], [ 0, %45 ], [ 0, %12 ], [ 0, %30 ]
+  %.sroa.9.0.i = phi i64 [ undef, %8 ], [ undef, %4 ], [ undef, %40 ], [ %.sroa.9.3.i, %56 ], [ undef, %49 ], [ undef, %45 ], [ undef, %12 ], [ undef, %30 ]
+  %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 0, %4 ], [ 0, %40 ], [ %.sroa.0.3.i, %56 ], [ 0, %49 ], [ 0, %45 ], [ 0, %12 ], [ 0, %30 ]
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %63 = insertvalue { i64, i64 } %62, i64 %.sroa.9.0.i, 1
   ret { i64, i64 } %63
@@ -73013,7 +73013,7 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17he40e2e6375d2263fE(
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i": ; preds = %39, %35, %26
-  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %26 ], [ %.sroa.07.0.us.us.i.i.i, %35 ]
+  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %35 ], [ %.sroa.07.0.us.us.i.i.i, %26 ]
   %44 = add nuw i64 %.sroa.09.0.us.us.i.i.i, 1
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %_ZN6yara_x7modules2pe19rich_toolid_version17hfc2249f320a130c4E.exit, label %.split.us.split.us.i.i.i
@@ -73236,8 +73236,8 @@ define internal { i64, i64 } @_ZN4core3ops8function2Fn4call17hf82524687a41818fE(
   br label %_ZN6yara_x7modules4hash8crc_data17h4c7c51c68dd33f0cE.exit
 
 _ZN6yara_x7modules4hash8crc_data17h4c7c51c68dd33f0cE.exit: ; preds = %4, %15, %17, %20, %24
-  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %32, %24 ], [ undef, %15 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %24 ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ undef, %17 ], [ %32, %24 ], [ undef, %15 ], [ undef, %20 ]
+  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %17 ], [ 1, %24 ], [ 0, %15 ], [ 0, %20 ]
   %33 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %34 = insertvalue { i64, i64 } %33, i64 %.sroa.7.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -73602,8 +73602,8 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h34a08e957be
   br label %_ZN6yara_x7modules4hash13checksum_data17h414d8207661a577bE.exit
 
 _ZN6yara_x7modules4hash13checksum_data17h414d8207661a577bE.exit: ; preds = %4, %15, %17, %20, %._crit_edge.i
-  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %38, %._crit_edge.i ], [ undef, %15 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %38, %._crit_edge.i ], [ undef, %17 ], [ undef, %15 ], [ undef, %20 ]
+  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i ], [ 0, %17 ], [ 0, %15 ], [ 0, %20 ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.7.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -74091,7 +74091,7 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h71914c96387
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i": ; preds = %39, %35, %26
-  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %26 ], [ %.sroa.07.0.us.us.i.i.i, %35 ]
+  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %35 ], [ %.sroa.07.0.us.us.i.i.i, %26 ]
   %44 = add nuw i64 %.sroa.09.0.us.us.i.i.i, 1
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %_ZN6yara_x7modules2pe19rich_version_toolid17h54a84a76fcb7eb0eE.exit, label %.split.us.split.us.i.i.i
@@ -74207,8 +74207,8 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h7ffc55c5b06
   br label %_ZN6yara_x7modules5macho19ep_for_arch_subtype17h1b37fbdd63046086E.exit
 
 _ZN6yara_x7modules5macho19ep_for_arch_subtype17h1b37fbdd63046086E.exit: ; preds = %30, %4, %8, %12, %40, %45, %49, %56
-  %.sroa.9.0.i = phi i64 [ undef, %4 ], [ undef, %8 ], [ %.sroa.9.3.i, %56 ], [ undef, %40 ], [ undef, %49 ], [ undef, %45 ], [ undef, %12 ], [ undef, %30 ]
-  %.sroa.0.0.i = phi i64 [ 0, %4 ], [ 0, %8 ], [ %.sroa.0.3.i, %56 ], [ 0, %40 ], [ 0, %49 ], [ 0, %45 ], [ 0, %12 ], [ 0, %30 ]
+  %.sroa.9.0.i = phi i64 [ undef, %8 ], [ undef, %4 ], [ undef, %40 ], [ %.sroa.9.3.i, %56 ], [ undef, %49 ], [ undef, %45 ], [ undef, %12 ], [ undef, %30 ]
+  %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 0, %4 ], [ 0, %40 ], [ %.sroa.0.3.i, %56 ], [ 0, %49 ], [ 0, %45 ], [ 0, %12 ], [ 0, %30 ]
   %62 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %63 = insertvalue { i64, i64 } %62, i64 %.sroa.9.0.i, 1
   ret { i64, i64 } %63
@@ -74369,8 +74369,8 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17h99bb96423f4
   br label %_ZN6yara_x7modules5macho16ep_for_arch_type17h484d450e8f016519E.exit
 
 _ZN6yara_x7modules5macho16ep_for_arch_type17h484d450e8f016519E.exit: ; preds = %27, %3, %7, %11, %33, %38, %42, %49
-  %.sroa.9.0.i = phi i64 [ undef, %3 ], [ undef, %7 ], [ %.sroa.9.3.i, %49 ], [ undef, %33 ], [ undef, %42 ], [ undef, %38 ], [ undef, %11 ], [ undef, %27 ]
-  %.sroa.0.0.i = phi i64 [ 0, %3 ], [ 0, %7 ], [ %.sroa.0.3.i, %49 ], [ 0, %33 ], [ 0, %42 ], [ 0, %38 ], [ 0, %11 ], [ 0, %27 ]
+  %.sroa.9.0.i = phi i64 [ undef, %7 ], [ undef, %3 ], [ %.sroa.9.3.i, %49 ], [ undef, %33 ], [ undef, %42 ], [ undef, %38 ], [ undef, %11 ], [ undef, %27 ]
+  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 0, %3 ], [ %.sroa.0.3.i, %49 ], [ 0, %33 ], [ 0, %42 ], [ 0, %38 ], [ 0, %11 ], [ 0, %27 ]
   %55 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %56 = insertvalue { i64, i64 } %55, i64 %.sroa.9.0.i, 1
   ret { i64, i64 } %56
@@ -74541,7 +74541,7 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17hb0530111af1
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i": ; preds = %31, %27, %22
-  %.sroa.0.0.i.us27.i.i.i = phi i64 [ %35, %31 ], [ %.sroa.07.0.us24.i.i.i, %22 ], [ %.sroa.07.0.us24.i.i.i, %27 ]
+  %.sroa.0.0.i.us27.i.i.i = phi i64 [ %35, %31 ], [ %.sroa.07.0.us24.i.i.i, %27 ], [ %.sroa.07.0.us24.i.i.i, %22 ]
   %36 = add nuw i64 %.sroa.09.0.us25.i.i.i, 1
   %37 = icmp eq i64 %36, %16
   br i1 %37, label %_ZN6yara_x7modules2pe12rich_version17hea212ad85db23305E.exit, label %.split.split.us.i.i.i
@@ -74626,7 +74626,7 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17hb5e43c8d57f
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i": ; preds = %39, %35, %26
-  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %26 ], [ %.sroa.07.0.us.us.i.i.i, %35 ]
+  %.sroa.0.0.i.us.us.i.i.i = phi i64 [ %43, %39 ], [ %.sroa.07.0.us.us.i.i.i, %35 ], [ %.sroa.07.0.us.us.i.i.i, %26 ]
   %44 = add nuw i64 %.sroa.09.0.us.us.i.i.i, 1
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %_ZN6yara_x7modules2pe19rich_toolid_version17hfc2249f320a130c4E.exit, label %.split.us.split.us.i.i.i
@@ -74813,8 +74813,8 @@ define internal { i64, i64 } @_ZN4core3ops8function5FnMut8call_mut17hc1362c05d3d
   br label %_ZN6yara_x7modules4hash8crc_data17h4c7c51c68dd33f0cE.exit
 
 _ZN6yara_x7modules4hash8crc_data17h4c7c51c68dd33f0cE.exit: ; preds = %4, %15, %17, %20, %24
-  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ %32, %24 ], [ undef, %15 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 1, %24 ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0.i = phi i64 [ %13, %4 ], [ undef, %17 ], [ %32, %24 ], [ undef, %15 ], [ undef, %20 ]
+  %.sroa.0.0.i = phi i64 [ 1, %4 ], [ 0, %17 ], [ 1, %24 ], [ 0, %15 ], [ 0, %20 ]
   %33 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %34 = insertvalue { i64, i64 } %33, i64 %.sroa.7.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -75269,8 +75269,8 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %_ZN4core3ops8function6FnOnce9call_once17h5833efadbd7cd5c4E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h5833efadbd7cd5c4E.exit: ; preds = %26, %3, %6, %10, %32, %37, %41, %48
-  %.sroa.9.0.i.i = phi i64 [ undef, %3 ], [ undef, %6 ], [ %.sroa.9.3.i.i, %48 ], [ undef, %32 ], [ undef, %41 ], [ undef, %37 ], [ undef, %10 ], [ undef, %26 ]
-  %.sroa.0.0.i.i = phi i64 [ 0, %3 ], [ 0, %6 ], [ %.sroa.0.3.i.i, %48 ], [ 0, %32 ], [ 0, %41 ], [ 0, %37 ], [ 0, %10 ], [ 0, %26 ]
+  %.sroa.9.0.i.i = phi i64 [ undef, %6 ], [ undef, %3 ], [ %.sroa.9.3.i.i, %48 ], [ undef, %32 ], [ undef, %41 ], [ undef, %37 ], [ undef, %10 ], [ undef, %26 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %6 ], [ 0, %3 ], [ %.sroa.0.3.i.i, %48 ], [ 0, %32 ], [ 0, %41 ], [ 0, %37 ], [ 0, %10 ], [ 0, %26 ]
   %54 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
   %55 = insertvalue { i64, i64 } %54, i64 %.sroa.9.0.i.i, 1
   ret { i64, i64 } %55
@@ -75696,8 +75696,8 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %_ZN4core3ops8function6FnOnce9call_once17habc893843779877eE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17habc893843779877eE.exit: ; preds = %4, %14, %16, %19, %._crit_edge.i.i
-  %.sroa.7.0.i.i = phi i64 [ %12, %4 ], [ %37, %._crit_edge.i.i ], [ undef, %14 ], [ undef, %16 ], [ undef, %19 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i.i ], [ 0, %14 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.7.0.i.i = phi i64 [ %12, %4 ], [ %37, %._crit_edge.i.i ], [ undef, %16 ], [ undef, %14 ], [ undef, %19 ]
+  %.sroa.0.0.i.i = phi i64 [ 1, %4 ], [ 1, %._crit_edge.i.i ], [ 0, %16 ], [ 0, %14 ], [ 0, %19 ]
   %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
   %39 = insertvalue { i64, i64 } %38, i64 %.sroa.7.0.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -75770,7 +75770,7 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i.i.i": ; preds = %30, %26, %21
-  %.sroa.0.0.i.us27.i.i.i.i = phi i64 [ %34, %30 ], [ %.sroa.07.0.us24.i.i.i.i, %21 ], [ %.sroa.07.0.us24.i.i.i.i, %26 ]
+  %.sroa.0.0.i.us27.i.i.i.i = phi i64 [ %34, %30 ], [ %.sroa.07.0.us24.i.i.i.i, %26 ], [ %.sroa.07.0.us24.i.i.i.i, %21 ]
   %35 = add nuw i64 %.sroa.09.0.us25.i.i.i.i, 1
   %36 = icmp eq i64 %35, %15
   br i1 %36, label %_ZN4core3ops8function6FnOnce9call_once17hff10482ad2e998f1E.exit, label %.split.split.us.i.i.i.i
@@ -76384,8 +76384,8 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %_ZN4core3ops8function6FnOnce9call_once17haee87c05d2d9fb3aE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17haee87c05d2d9fb3aE.exit: ; preds = %4, %14, %16, %19, %23
-  %.sroa.7.0.i.i = phi i64 [ %12, %4 ], [ %31, %23 ], [ undef, %14 ], [ undef, %16 ], [ undef, %19 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %4 ], [ 1, %23 ], [ 0, %14 ], [ 0, %16 ], [ 0, %19 ]
+  %.sroa.7.0.i.i = phi i64 [ %12, %4 ], [ undef, %16 ], [ %31, %23 ], [ undef, %14 ], [ undef, %19 ]
+  %.sroa.0.0.i.i = phi i64 [ 1, %4 ], [ 0, %16 ], [ 1, %23 ], [ 0, %14 ], [ 0, %19 ]
   %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
   %33 = insertvalue { i64, i64 } %32, i64 %.sroa.7.0.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -76497,7 +76497,7 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i.i": ; preds = %38, %34, %25
-  %.sroa.0.0.i.us.us.i.i.i.i = phi i64 [ %42, %38 ], [ %.sroa.07.0.us.us.i.i.i.i, %25 ], [ %.sroa.07.0.us.us.i.i.i.i, %34 ]
+  %.sroa.0.0.i.us.us.i.i.i.i = phi i64 [ %42, %38 ], [ %.sroa.07.0.us.us.i.i.i.i, %34 ], [ %.sroa.07.0.us.us.i.i.i.i, %25 ]
   %43 = add nuw i64 %.sroa.09.0.us.us.i.i.i.i, 1
   %44 = icmp eq i64 %43, %16
   br i1 %44, label %_ZN4core3ops8function6FnOnce9call_once17h84d5a43a12c9280dE.exit, label %.split.us.split.us.i.i.i.i
@@ -76928,8 +76928,8 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %_ZN4core3ops8function6FnOnce9call_once17h2dcf8cc27dcf60daE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h2dcf8cc27dcf60daE.exit: ; preds = %29, %4, %7, %11, %39, %44, %48, %55
-  %.sroa.9.0.i.i = phi i64 [ undef, %4 ], [ undef, %7 ], [ %.sroa.9.3.i.i, %55 ], [ undef, %39 ], [ undef, %48 ], [ undef, %44 ], [ undef, %11 ], [ undef, %29 ]
-  %.sroa.0.0.i.i = phi i64 [ 0, %4 ], [ 0, %7 ], [ %.sroa.0.3.i.i, %55 ], [ 0, %39 ], [ 0, %48 ], [ 0, %44 ], [ 0, %11 ], [ 0, %29 ]
+  %.sroa.9.0.i.i = phi i64 [ undef, %7 ], [ undef, %4 ], [ undef, %39 ], [ %.sroa.9.3.i.i, %55 ], [ undef, %48 ], [ undef, %44 ], [ undef, %11 ], [ undef, %29 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %7 ], [ 0, %4 ], [ 0, %39 ], [ %.sroa.0.3.i.i, %55 ], [ 0, %48 ], [ 0, %44 ], [ 0, %11 ], [ 0, %29 ]
   %61 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i, 0
   %62 = insertvalue { i64, i64 } %61, i64 %.sroa.9.0.i.i, 1
   ret { i64, i64 } %62
@@ -77002,7 +77002,7 @@ define internal { i64, i64 } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i.i.i": ; preds = %38, %34, %25
-  %.sroa.0.0.i.us.us.i.i.i.i = phi i64 [ %42, %38 ], [ %.sroa.07.0.us.us.i.i.i.i, %25 ], [ %.sroa.07.0.us.us.i.i.i.i, %34 ]
+  %.sroa.0.0.i.us.us.i.i.i.i = phi i64 [ %42, %38 ], [ %.sroa.07.0.us.us.i.i.i.i, %34 ], [ %.sroa.07.0.us.us.i.i.i.i, %25 ]
   %43 = add nuw i64 %.sroa.09.0.us.us.i.i.i.i, 1
   %44 = icmp eq i64 %43, %16
   br i1 %44, label %_ZN4core3ops8function6FnOnce9call_once17hc1c1d4bd4813225cE.exit, label %.split.us.split.us.i.i.i.i
@@ -78340,11 +78340,11 @@ common.resume.i:                                  ; preds = %85, %70, %54, %39
   br label %93
 
 93:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i", %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i"
-  %.sroa.1668.1.i = phi ptr [ %44, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %75, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %59, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %90, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
-  %.sroa.20.1.i = phi i64 [ %43, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %74, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %58, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %89, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
-  %.sroa.10.0.i = phi i64 [ %16, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %62, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
-  %.sroa.8.0.i = phi i64 [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
-  %.sroa.021.0.i = phi ptr [ %10, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %10, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %20, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %20, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
+  %.sroa.1668.1.i = phi ptr [ %75, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %44, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %59, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %90, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
+  %.sroa.20.1.i = phi i64 [ %74, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %43, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %58, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %89, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
+  %.sroa.10.0.i = phi i64 [ 5, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %16, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %62, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
+  %.sroa.8.0.i = phi i64 [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %19, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ 0, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
+  %.sroa.021.0.i = phi ptr [ %10, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit53.i" ], [ %10, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit.i" ], [ %20, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit49.i" ], [ %20, %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h69167e0fce8e56abE.exit57.i" ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.i, i64 186
   %95 = load i16, ptr %94, align 2, !noalias !9692, !noundef !8
   %96 = zext i16 %95 to i64
@@ -78924,8 +78924,8 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
 22:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6b3081d89559e40E.exit.i"
   unreachable
 
-23:                                               ; preds = %12, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6b3081d89559e40E.exit.i"
-  %.sroa.4.0.i.ph = phi i64 [ %.sroa.8.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6b3081d89559e40E.exit.i" ], [ %10, %12 ]
+23:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6b3081d89559e40E.exit.i", %12
+  %.sroa.4.0.i.ph = phi i64 [ %10, %12 ], [ %.sroa.8.0.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6b3081d89559e40E.exit.i" ]
   %24 = icmp eq i64 %.sroa.3.0, 0
   br i1 %24, label %.loopexit, label %26
 
@@ -79900,7 +79900,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i: ; preds = %40
   br i1 %61, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe90b91dd386cf28E.exit105.thread", label %.lr.ph327
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbe90b91dd386cf28E.exit105.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit132", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit124", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit116", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit108", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit148", %.preheader287, %.preheader285, %.preheader283, %.preheader281, %.preheader279, %.preheader
-  %.sroa.27.6 = phi i64 [ %60, %.preheader ], [ %60, %.preheader279 ], [ %60, %.preheader281 ], [ %60, %.preheader283 ], [ %60, %.preheader285 ], [ %60, %.preheader287 ], [ %129, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit148" ], [ %68, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit108" ], [ %80, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit116" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit124" ], [ %105, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit132" ], [ %118, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit140" ]
+  %.sroa.27.6 = phi i64 [ %60, %.preheader ], [ %60, %.preheader279 ], [ %60, %.preheader281 ], [ %60, %.preheader283 ], [ %60, %.preheader285 ], [ %60, %.preheader287 ], [ %105, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit132" ], [ %129, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit148" ], [ %68, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit108" ], [ %80, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit116" ], [ %93, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit124" ], [ %118, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit140" ]
   %62 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %62, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -80361,7 +80361,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i: ; preds = %41
   br i1 %.not84, label %.thread221, label %68
 
 .thread221:                                       ; preds = %121, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit135", %106, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit125", %90, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit115", %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit105", %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit95", %137, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit145", %.preheader294, %.preheader290, %.preheader285, %.preheader281, %.preheader276, %.preheader
-  %.sroa.27.6 = phi i64 [ %60, %.preheader ], [ %60, %.preheader276 ], [ %60, %.preheader281 ], [ %60, %.preheader285 ], [ %60, %.preheader290 ], [ %60, %.preheader294 ], [ %.sroa.27.0351, %137 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit145" ], [ %.sroa.27.1344, %64 ], [ %71, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit95" ], [ %.sroa.27.2337, %75 ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit105" ], [ %.sroa.27.3330, %90 ], [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit115" ], [ %.sroa.27.4323, %106 ], [ %117, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit125" ], [ %.sroa.27.5318, %121 ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit135" ]
+  %.sroa.27.6 = phi i64 [ %.sroa.27.4323, %106 ], [ %60, %.preheader285 ], [ %60, %.preheader294 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit145" ], [ %60, %.preheader290 ], [ %60, %.preheader ], [ %71, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit95" ], [ %60, %.preheader276 ], [ %102, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit115" ], [ %60, %.preheader281 ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit105" ], [ %.sroa.27.0351, %137 ], [ %.sroa.27.1344, %64 ], [ %.sroa.27.2337, %75 ], [ %.sroa.27.3330, %90 ], [ %117, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit125" ], [ %.sroa.27.5318, %121 ], [ %133, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c935148b3f2f1b8E.exit135" ]
   %67 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %67, ptr %49, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
@@ -80722,9 +80722,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10080
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -80785,9 +80785,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10086
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -80846,9 +80846,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10092
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -80907,9 +80907,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10098
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -80970,9 +80970,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10104
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81033,9 +81033,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10110
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81094,9 +81094,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10116
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81155,9 +81155,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10122
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81216,9 +81216,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10128
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81277,9 +81277,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10134
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81340,9 +81340,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10140
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81403,9 +81403,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10146
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81464,9 +81464,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10152
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81525,9 +81525,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10158
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81586,9 +81586,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10164
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81647,9 +81647,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10170
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81708,9 +81708,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10176
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81769,9 +81769,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10182
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81830,9 +81830,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10188
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81893,9 +81893,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10194
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -81956,9 +81956,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10200
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82017,9 +82017,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10206
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82078,9 +82078,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10212
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82141,9 +82141,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10218
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82202,9 +82202,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10224
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82263,9 +82263,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10230
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82326,9 +82326,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10236
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82387,9 +82387,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10242
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82450,9 +82450,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10248
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82511,9 +82511,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10254
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82572,9 +82572,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10260
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82633,9 +82633,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10266
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82694,9 +82694,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10272
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82757,9 +82757,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10278
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82820,9 +82820,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10284
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82883,9 +82883,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10290
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -82944,9 +82944,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10296
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83005,9 +83005,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10302
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83068,9 +83068,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10308
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83129,9 +83129,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10314
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83190,9 +83190,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10320
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83251,9 +83251,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10326
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83314,9 +83314,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10332
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83375,9 +83375,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10338
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83436,9 +83436,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10344
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83499,9 +83499,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10350
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83560,9 +83560,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10356
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83623,9 +83623,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10362
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83684,9 +83684,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10368
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83747,9 +83747,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10374
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83808,9 +83808,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10380
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83871,9 +83871,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10386
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83934,9 +83934,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10392
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -83995,9 +83995,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10398
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84058,9 +84058,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10404
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84121,9 +84121,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10410
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84182,9 +84182,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10416
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84245,9 +84245,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10422
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84308,9 +84308,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10428
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84371,9 +84371,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10434
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84432,9 +84432,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10440
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84495,9 +84495,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10446
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84556,9 +84556,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10452
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84617,9 +84617,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10458
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84680,9 +84680,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10464
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84741,9 +84741,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10470
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84804,9 +84804,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10476
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84865,9 +84865,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10482
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84926,9 +84926,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10488
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -84987,9 +84987,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10494
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85050,9 +85050,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10500
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85111,9 +85111,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10506
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85172,9 +85172,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10512
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85233,9 +85233,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10518
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85294,9 +85294,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10524
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85355,9 +85355,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10530
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85416,9 +85416,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10536
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85477,9 +85477,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10542
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85540,9 +85540,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10548
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85601,9 +85601,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10554
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85662,9 +85662,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10560
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85725,9 +85725,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10566
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85786,9 +85786,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10572
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85849,9 +85849,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10578
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85912,9 +85912,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10584
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -85973,9 +85973,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10590
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86036,9 +86036,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10596
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86099,9 +86099,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10602
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86162,9 +86162,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10608
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86223,9 +86223,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10614
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86284,9 +86284,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10620
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86347,9 +86347,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10626
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86410,9 +86410,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10632
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86471,9 +86471,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10638
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86534,9 +86534,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10644
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86595,9 +86595,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10650
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86656,9 +86656,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10656
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86717,9 +86717,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10662
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86780,9 +86780,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10668
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86843,9 +86843,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10674
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86904,9 +86904,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10680
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -86965,9 +86965,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10686
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87026,9 +87026,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10692
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87087,9 +87087,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10698
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87148,9 +87148,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10704
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87209,9 +87209,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10710
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87272,9 +87272,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10716
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87333,9 +87333,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10722
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87394,9 +87394,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10728
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87457,9 +87457,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10734
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87520,9 +87520,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10740
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87581,9 +87581,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10746
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87644,9 +87644,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10752
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87705,9 +87705,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10758
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87768,9 +87768,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10764
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87829,9 +87829,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10770
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87892,9 +87892,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10776
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -87953,9 +87953,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10782
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88014,9 +88014,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10788
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88075,9 +88075,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10794
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88138,9 +88138,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10800
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88201,9 +88201,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10806
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88264,9 +88264,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10812
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88325,9 +88325,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10818
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88386,9 +88386,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10824
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88447,9 +88447,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10830
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88508,9 +88508,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10836
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88571,9 +88571,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10842
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88634,9 +88634,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10848
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88695,9 +88695,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10854
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88756,9 +88756,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10860
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88819,9 +88819,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10866
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88880,9 +88880,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10872
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -88941,9 +88941,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10878
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89004,9 +89004,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10884
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89067,9 +89067,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10890
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89128,9 +89128,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10896
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89191,9 +89191,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10902
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89252,9 +89252,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10908
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89313,9 +89313,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10914
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89374,9 +89374,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10920
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89435,9 +89435,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10926
   br label %21
 
-21:                                               ; preds = %17, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %20, %17 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %18, %17 ]
+21:                                               ; preds = %2, %17
+  %.sroa.6.0.i.ph = phi i64 [ %20, %17 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %18, %17 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89498,9 +89498,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10932
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89559,9 +89559,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10938
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89622,9 +89622,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10944
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89685,9 +89685,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10950
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89748,9 +89748,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10956
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89811,9 +89811,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10962
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89872,9 +89872,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10968
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89933,9 +89933,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10974
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -89996,9 +89996,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10980
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90057,9 +90057,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10986
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90118,9 +90118,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10992
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90181,9 +90181,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10998
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90244,9 +90244,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11004
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90307,9 +90307,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11010
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90370,9 +90370,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11016
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90431,9 +90431,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11022
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90492,9 +90492,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11028
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90553,9 +90553,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11034
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90616,9 +90616,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11040
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90677,9 +90677,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11046
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90738,9 +90738,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11052
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90799,9 +90799,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11058
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90860,9 +90860,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11064
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90921,9 +90921,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11070
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -90982,9 +90982,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11076
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91045,9 +91045,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11082
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91108,9 +91108,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11088
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91169,9 +91169,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11094
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91230,9 +91230,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11100
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91293,9 +91293,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11106
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91356,9 +91356,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11112
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91419,9 +91419,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11118
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91482,9 +91482,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11124
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91545,9 +91545,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11130
   br label %24
 
-24:                                               ; preds = %20, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %23, %20 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %21, %20 ]
+24:                                               ; preds = %2, %20
+  %.sroa.6.0.i.ph = phi i64 [ %23, %20 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %21, %20 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91606,9 +91606,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11136
   br label %22
 
-22:                                               ; preds = %18, %2
-  %.sroa.6.0.i.ph = phi i64 [ undef, %2 ], [ %21, %18 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %2 ], [ %19, %18 ]
+22:                                               ; preds = %2, %18
+  %.sroa.6.0.i.ph = phi i64 [ %21, %18 ], [ undef, %2 ]
+  %.sroa.04.0.i.ph = phi i64 [ %19, %18 ], [ 0, %2 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #32
   unreachable
 
@@ -91758,9 +91758,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i: ; preds = %17
   store i64 %18, ptr %0, align 8, !alias.scope !11148
   br label %44
 
-43:                                               ; preds = %17, %14, %13, %37
-  %.sroa.3.0.i.ph = phi i64 [ %40, %37 ], [ undef, %13 ], [ undef, %14 ], [ undef, %17 ]
-  %.sroa.0.0.i.ph = phi i64 [ %38, %37 ], [ 0, %13 ], [ 0, %14 ], [ 0, %17 ]
+43:                                               ; preds = %13, %17, %37, %14
+  %.sroa.3.0.i.ph = phi i64 [ undef, %14 ], [ %40, %37 ], [ undef, %17 ], [ undef, %13 ]
+  %.sroa.0.0.i.ph = phi i64 [ 0, %14 ], [ %38, %37 ], [ 0, %17 ], [ 0, %13 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.0.0.i.ph, i64 %.sroa.3.0.i.ph, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5) #32
   unreachable
 
@@ -91963,9 +91963,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %16
   store i64 %17, ptr %0, align 8, !alias.scope !11152
   br label %42
 
-42:                                               ; preds = %5, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit", %16, %13, %12, %36
-  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %39, %36 ], [ undef, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit" ], [ undef, %5 ]
-  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %37, %36 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit" ], [ -9223372036854775807, %5 ]
+42:                                               ; preds = %5, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit", %16, %36, %13, %12
+  %.sroa.3.0 = phi i64 [ undef, %12 ], [ undef, %16 ], [ %39, %36 ], [ undef, %13 ], [ undef, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %12 ], [ 0, %16 ], [ %37, %36 ], [ 0, %13 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10grow_exact17h4a0233e1ae0c72a7E.exit" ], [ -9223372036854775807, %5 ]
   %43 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %44 = insertvalue { i64, i64 } %43, i64 %.sroa.3.0, 1
   ret { i64, i64 } %44
@@ -92039,9 +92039,9 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !11158
   br label %40
 
-40:                                               ; preds = %36, %5, %9, %12
-  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ undef, %9 ], [ undef, %5 ], [ %39, %36 ]
-  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %37, %36 ]
+40:                                               ; preds = %5, %9, %36, %12
+  %.sroa.6.0.i.ph = phi i64 [ undef, %12 ], [ %39, %36 ], [ undef, %9 ], [ undef, %5 ]
+  %.sroa.04.0.i.ph = phi i64 [ 0, %12 ], [ %37, %36 ], [ 0, %9 ], [ 0, %5 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph, i64 %.sroa.6.0.i.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.538f4b9fb8e0e072a3138e5877fc5be2.349) #32
   unreachable
 
@@ -93352,8 +93352,8 @@ define hidden { i64, ptr } @"_ZN77_$LT$ppmd_rust..decoder_8..Ppmd8Decoder$LT$R$G
   br label %15
 
 .thread:                                          ; preds = %37, %41, %3, %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread, %46
-  %.sroa.8.0 = phi i64 [ %.sroa.8.1, %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread ], [ %48, %46 ], [ 0, %3 ], [ %.sroa.07.025, %41 ], [ %2, %37 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread ], [ 1, %46 ], [ 0, %3 ], [ 0, %41 ], [ 0, %37 ]
+  %.sroa.8.0 = phi i64 [ %48, %46 ], [ 0, %3 ], [ %.sroa.8.1, %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread ], [ %.sroa.07.025, %41 ], [ %2, %37 ]
+  %.sroa.0.0 = phi i64 [ 1, %46 ], [ 0, %3 ], [ %.sroa.0.1, %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread ], [ 0, %41 ], [ 0, %37 ]
   %12 = inttoptr i64 %.sroa.8.0 to ptr
   %13 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %14 = insertvalue { i64, ptr } %13, ptr %12, 1
@@ -93433,7 +93433,7 @@ default.unreachable:                              ; preds = %19
   br label %.thread
 
 _ZN3std2io5error5Error4kind17hbb377db30d849021E.exit: ; preds = %31, %28, %24
-  %.sroa.0.0.i14 = phi i8 [ %spec.select.i.i.i, %24 ], [ %30, %28 ], [ %33, %31 ]
+  %.sroa.0.0.i14 = phi i8 [ %33, %31 ], [ %spec.select.i.i.i, %24 ], [ %30, %28 ]
   %49 = icmp eq i8 %.sroa.0.0.i14, 37
   br i1 %49, label %50, label %_ZN3std2io5error5Error4kind17hbb377db30d849021E.exit.thread
 
@@ -95085,9 +95085,9 @@ define hidden void @"_ZN82_$LT$std..io..Bytes$LT$R$GT$$u20$as$u20$core..iter..tr
   %12 = and i64 %11, 3
   switch i64 %12, label %default.unreachable [
     i64 2, label %17
-    i64 3, label %19
-    i64 0, label %22
-    i64 1, label %27
+    i64 3, label %28
+    i64 0, label %19
+    i64 1, label %24
   ], !prof !11442
 
 default.unreachable:                              ; preds = %.lr.ph.i.i
@@ -95115,33 +95115,33 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br i1 %18, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  %20 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %22 = load i8, ptr %21, align 8, !range !11443, !noalias !11991, !noundef !8
+  %23 = icmp eq i8 %22, 35
+  br i1 %23, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
+
+24:                                               ; preds = %.lr.ph.i.i
+  %25 = getelementptr i8, ptr %10, i64 15
+  %26 = load i8, ptr %25, align 8, !range !11443, !noalias !11991, !noundef !8
+  %27 = icmp eq i8 %26, 35
+  br i1 %27, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
+
+28:                                               ; preds = %.lr.ph.i.i
+  %29 = icmp ult ptr %10, inttoptr (i64 180388626432 to ptr)
+  call void @llvm.assume(i1 %29)
   %.mask.i.i = and i64 %11, -4294967296
-  %21 = icmp eq i64 %.mask.i.i, 150323855360
-  br i1 %21, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
-
-22:                                               ; preds = %.lr.ph.i.i
-  %23 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %25 = load i8, ptr %24, align 8, !range !11443, !noalias !11991, !noundef !8
-  %26 = icmp eq i8 %25, 35
-  br i1 %26, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
-
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr i8, ptr %10, i64 15
-  %29 = load i8, ptr %28, align 8, !range !11443, !noalias !11991, !noundef !8
-  %30 = icmp eq i8 %29, 35
+  %30 = icmp eq i64 %.mask.i.i, 150323855360
   br i1 %30, label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i", label %31
 
-31:                                               ; preds = %27, %22, %19, %17
+31:                                               ; preds = %28, %24, %19, %17
   store i8 1, ptr %0, align 8, !alias.scope !11991, !noalias !11992
   %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !alias.scope !11991, !noalias !11992
   br label %"_ZN43_$LT$R$u20$as$u20$std..io..SpecReadByte$GT$14spec_read_byte17hd968e2263e660098E.exit"
 
-"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i": ; preds = %27, %22, %19, %17
+"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he5e6d49f10df5835E.exit9.i.i": ; preds = %28, %24, %19, %17
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0597c85246a79ee7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !11991
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11988
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !11988
@@ -95293,9 +95293,9 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hd6d6f1ae92a161e6E.exit.i.
   %56 = and i64 %54, 3
   switch i64 %56, label %default.unreachable [
     i64 2, label %68
-    i64 3, label %70
-    i64 0, label %73
-    i64 1, label %78
+    i64 3, label %79
+    i64 0, label %70
+    i64 1, label %75
   ], !prof !11442
 
 default.unreachable:                              ; preds = %55
@@ -95316,8 +95316,8 @@ default.unreachable:                              ; preds = %55
 .noexc.i:                                         ; preds = %61
   unreachable
 
-.loopexit.sink.split.i:                           ; preds = %78, %73, %70, %68, %57
-  %.sroa.05.0.ph.i = phi ptr [ %52, %73 ], [ %52, %70 ], [ %52, %68 ], [ %52, %78 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.186, %57 ]
+.loopexit.sink.split.i:                           ; preds = %79, %75, %70, %68, %57
+  %.sroa.05.0.ph.i = phi ptr [ %52, %79 ], [ %52, %70 ], [ %52, %75 ], [ %52, %68 ], [ @anon.538f4b9fb8e0e072a3138e5877fc5be2.186, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12009
   br label %_ZN3std2io18default_read_exact17hf856571d13940ad8E.exit
 
@@ -95339,27 +95339,27 @@ default.unreachable:                              ; preds = %55
   br i1 %69, label %.thread.i, label %.loopexit.sink.split.i
 
 70:                                               ; preds = %55
-  %71 = icmp ult ptr %52, inttoptr (i64 180388626432 to ptr)
+  %71 = icmp ne ptr %52, null
   call void @llvm.assume(i1 %71)
+  %72 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %73 = load i8, ptr %72, align 8, !range !11443, !noundef !8
+  %74 = icmp eq i8 %73, 35
+  br i1 %74, label %.thread.i, label %.loopexit.sink.split.i
+
+75:                                               ; preds = %55
+  %76 = getelementptr i8, ptr %52, i64 15
+  %77 = load i8, ptr %76, align 8, !range !11443, !noundef !8
+  %78 = icmp eq i8 %77, 35
+  br i1 %78, label %.thread.i, label %.loopexit.sink.split.i
+
+79:                                               ; preds = %55
+  %80 = icmp ult ptr %52, inttoptr (i64 180388626432 to ptr)
+  call void @llvm.assume(i1 %80)
   %.mask.i = and i64 %54, -4294967296
-  %72 = icmp eq i64 %.mask.i, 150323855360
-  br i1 %72, label %.thread.i, label %.loopexit.sink.split.i
-
-73:                                               ; preds = %55
-  %74 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %76 = load i8, ptr %75, align 8, !range !11443, !noundef !8
-  %77 = icmp eq i8 %76, 35
-  br i1 %77, label %.thread.i, label %.loopexit.sink.split.i
-
-78:                                               ; preds = %55
-  %79 = getelementptr i8, ptr %52, i64 15
-  %80 = load i8, ptr %79, align 8, !range !11443, !noundef !8
-  %81 = icmp eq i8 %80, 35
+  %81 = icmp eq i64 %.mask.i, 150323855360
   br i1 %81, label %.thread.i, label %.loopexit.sink.split.i
 
-.thread.i:                                        ; preds = %78, %73, %70, %68
+.thread.i:                                        ; preds = %79, %75, %70, %68
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0597c85246a79ee7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
   br label %82
 
@@ -96272,8 +96272,8 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i: ; preds = %6
   br label %77
 
 77:                                               ; preds = %73, %60
-  %.sroa.6.0.i.ph.i.i = phi i64 [ undef, %60 ], [ %76, %73 ]
-  %.sroa.04.0.i.ph.i.i = phi i64 [ 0, %60 ], [ %74, %73 ]
+  %.sroa.6.0.i.ph.i.i = phi i64 [ %76, %73 ], [ undef, %60 ]
+  %.sroa.04.0.i.ph.i.i = phi i64 [ %74, %73 ], [ 0, %60 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5c9e72494d298ff8E(i64 noundef %.sroa.04.0.i.ph.i.i, i64 %.sroa.6.0.i.ph.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.538f4b9fb8e0e072a3138e5877fc5be2.482) #32
           to label %.noexc.i unwind label %80, !noalias !12117
 
@@ -96349,7 +96349,7 @@ _ZN4core5alloc6layout6Layout6repeat17hd65d76358cebe8e2E.exit.i.i.i: ; preds = %6
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hc0cbe964a3f516adE.exit"
 
 .body.thread:                                     ; preds = %102, %105, %80
-  %eh.lpad-body38 = phi { ptr, i32 } [ %81, %80 ], [ %lpad.phi, %105 ], [ %lpad.phi, %102 ]
+  %eh.lpad-body38 = phi { ptr, i32 } [ %lpad.phi, %102 ], [ %81, %80 ], [ %lpad.phi, %105 ]
   resume { ptr, i32 } %eh.lpad-body38
 
 .loopexit:                                        ; preds = %.lr.ph.i.i
@@ -98489,7 +98489,7 @@ default.unreachable:                              ; preds = %36, %19
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us37.i.i.i"
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us37.i.i.i": ; preds = %84, %.split.us34.i.i.i
-  %.sroa.0.0.i.i.i.us38.i.i.i = phi i64 [ %89, %84 ], [ 0, %.split.us34.i.i.i ]
+  %.sroa.0.0.i.i.i.us38.i.i.i = phi i64 [ 0, %.split.us34.i.i.i ], [ %89, %84 ]
   %90 = add i64 %.sroa.0.0.i.i.i.us38.i.i.i, %.sroa.07.0.us35.i.i.i
   %91 = add nuw i64 %.sroa.09.0.us36.i.i.i, 1
   %92 = icmp eq i64 %91, %32
@@ -98541,7 +98541,7 @@ default.unreachable:                              ; preds = %36, %19
   br i1 %120, label %.preheader.i.i.i, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0ad7bc35756e131E.exit"
 
 .loopexit.i:                                      ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us37.i.i.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us30.i.i.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us23.i.i.i", %36, %.loopexit.i.i
-  %.sroa.3.0.i.ph.i = phi i64 [ %32, %36 ], [ 0, %.loopexit.i.i ], [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us23.i.i.i" ], [ %77, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us30.i.i.i" ], [ %90, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us37.i.i.i" ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %32, %36 ], [ 0, %.loopexit.i.i ], [ %77, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us30.i.i.i" ], [ %53, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us23.i.i.i" ], [ %90, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a556308703a6664E.exit.us37.i.i.i" ]
   %121 = add i64 %.sroa.3.0.i.ph.i, %.sroa.07.0
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb0ad7bc35756e131E.exit"
 
@@ -99126,7 +99126,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$std..collections..hash..map..HashMa
   br i1 %68, label %.split.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hebd91631ed6e8dceE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hebd91631ed6e8dceE.exit: ; preds = %.split.i, %46, %52, %58, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h83caac4b8f61fb79E.exit.i", %._crit_edge.i.i.i.i.i, %.split.us.i, %16
-  %69 = phi i1 [ false, %16 ], [ true, %.split.us.i ], [ false, %._crit_edge.i.i.i.i.i ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h83caac4b8f61fb79E.exit.i" ], [ %.not.not.not.i, %58 ], [ %.not.not.not.i, %52 ], [ %.not.not.not.i, %46 ], [ %.not.not.not.i, %.split.i ]
+  %69 = phi i1 [ true, %.split.us.i ], [ false, %16 ], [ false, %._crit_edge.i.i.i.i.i ], [ %.not.not.not.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h83caac4b8f61fb79E.exit.i" ], [ %.not.not.not.i, %58 ], [ %.not.not.not.i, %52 ], [ %.not.not.not.i, %46 ], [ %.not.not.not.i, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %70
 
@@ -102198,7 +102198,7 @@ define internal fastcc noundef zeroext i1 @"_ZN91_$LT$yara_x..modules..protos..t
   br i1 %brmerge, label %95, label %96
 
 95:                                               ; preds = %89, %77, %54, %39, %24, %11, %10, %23, %38, %53, %67, %76, %9, %22, %37, %52, %65, %75, %83, %96
-  %.sroa.0.0.shrunk = phi i1 [ %97, %96 ], [ false, %83 ], [ false, %75 ], [ false, %65 ], [ false, %52 ], [ false, %37 ], [ false, %22 ], [ false, %9 ], [ false, %76 ], [ false, %67 ], [ false, %53 ], [ false, %38 ], [ false, %23 ], [ false, %10 ], [ false, %11 ], [ false, %24 ], [ false, %39 ], [ false, %54 ], [ false, %77 ], [ %.mux, %89 ]
+  %.sroa.0.0.shrunk = phi i1 [ %97, %96 ], [ false, %10 ], [ false, %77 ], [ false, %83 ], [ false, %75 ], [ false, %65 ], [ false, %52 ], [ false, %37 ], [ false, %22 ], [ false, %9 ], [ false, %76 ], [ false, %67 ], [ false, %53 ], [ false, %38 ], [ false, %23 ], [ %.mux, %89 ], [ false, %11 ], [ false, %24 ], [ false, %39 ], [ false, %54 ]
   ret i1 %.sroa.0.0.shrunk
 
 96:                                               ; preds = %89
@@ -103812,15 +103812,15 @@ default.unreachable:                              ; preds = %.lr.ph, %.lr.ph54
   br i1 %90, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %.split47.us, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32", %.lr.ph.split.split.us
-  %.sroa.018.042.us44.lcssa.sink = phi ptr [ %25, %.lr.ph.split.split.us ], [ %.sroa.018.042, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ %.sroa.018.042.us44, %.split47.us ]
+  %.sroa.018.042.us44.lcssa.sink = phi ptr [ %.sroa.018.042, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ %25, %.lr.ph.split.split.us ], [ %.sroa.018.042.us44, %.split47.us ]
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.018.042.us44.lcssa.sink, i64 36
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread", %.loopexit.sink.split, %4, %.split47.us, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32", %.lr.ph.split.split.us
-  %.sroa.8.0 = phi i64 [ undef, %.lr.ph.split.split.us ], [ undef, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ undef, %.split47.us ], [ undef, %4 ], [ %93, %.loopexit.sink.split ], [ undef, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread" ]
-  %.sroa.0.0 = phi i64 [ 0, %.lr.ph.split.split.us ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ 0, %.split47.us ], [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread" ]
+  %.sroa.8.0 = phi i64 [ undef, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ undef, %.lr.ph.split.split.us ], [ undef, %.split47.us ], [ undef, %4 ], [ %93, %.loopexit.sink.split ], [ undef, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread" ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit32" ], [ 0, %.lr.ph.split.split.us ], [ 0, %.split47.us ], [ 0, %4 ], [ 1, %.loopexit.sink.split ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread" ]
   %94 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %95 = insertvalue { i64, i64 } %94, i64 %.sroa.8.0, 1
   ret { i64, i64 } %95
@@ -104074,7 +104074,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules2pe8valid_on17hf5a95bd4ca4d1
   br label %"_ZN4core3ptr74drop_in_place$LT$alloc..rc..Rc$LT$yara_x..types..structure..Struct$GT$$GT$17h20baa678729807dbE.exit16"
 
 "_ZN4core3ptr74drop_in_place$LT$alloc..rc..Rc$LT$yara_x..types..structure..Struct$GT$$GT$17h20baa678729807dbE.exit16": ; preds = %"_ZN4core3ptr74drop_in_place$LT$alloc..rc..Rc$LT$yara_x..types..structure..Struct$GT$$GT$17h20baa678729807dbE.exit16.sink.split", %39, %26
-  %.sroa.0.1 = phi i8 [ 2, %26 ], [ %.sroa.011.0, %39 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr74drop_in_place$LT$alloc..rc..Rc$LT$yara_x..types..structure..Struct$GT$$GT$17h20baa678729807dbE.exit16.sink.split" ]
+  %.sroa.0.1 = phi i8 [ %.sroa.011.0, %39 ], [ 2, %26 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr74drop_in_place$LT$alloc..rc..Rc$LT$yara_x..types..structure..Struct$GT$$GT$17h20baa678729807dbE.exit16.sink.split" ]
   ret i8 %.sroa.0.1
 
 46:                                               ; preds = %13
@@ -104510,7 +104510,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules2pe12exports_func17h9327d159
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %39, %33, %.thread, %32, %26, %23
-  %.sroa.0.0 = phi i8 [ %spec.select.i.i, %23 ], [ %spec.select.i.i, %26 ], [ %spec.select.i.i, %32 ], [ 2, %.thread ], [ 2, %33 ], [ 2, %39 ]
+  %.sroa.0.0 = phi i8 [ %spec.select.i.i, %32 ], [ %spec.select.i.i, %23 ], [ %spec.select.i.i, %26 ], [ 2, %.thread ], [ 2, %33 ], [ 2, %39 ]
   ret i8 %.sroa.0.0
 
 40:                                               ; preds = %6
@@ -104574,8 +104574,8 @@ define { i64, i64 } @_ZN6yara_x7modules2pe26delayed_import_rva_ordinal17hd6f2b39
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split", %37, %33, %18, %16
-  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %18 ], [ %35, %33 ], [ %35, %37 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %18 ], [ %34, %33 ], [ %34, %37 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.3.0 = phi i64 [ %35, %37 ], [ undef, %16 ], [ undef, %18 ], [ %35, %33 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.0.0 = phi i64 [ %34, %37 ], [ 0, %16 ], [ 0, %18 ], [ %34, %33 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.3.0, 1
   ret { i64, i64 } %25
@@ -104708,8 +104708,8 @@ define { i64, i64 } @_ZN6yara_x7modules2pe23delayed_import_rva_func17h625c560116
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split", %61, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10", %29, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
-  %.sroa.3.0 = phi i64 [ undef, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ undef, %29 ], [ %58, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %58, %61 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ 0, %29 ], [ %59, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %59, %61 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
+  %.sroa.3.0 = phi i64 [ %58, %61 ], [ undef, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ undef, %29 ], [ %58, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
+  %.sroa.0.0 = phi i64 [ %59, %61 ], [ 0, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ 0, %29 ], [ %59, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.3.0, 1
   ret { i64, i64 } %36
@@ -104840,8 +104840,8 @@ define { i64, i64 } @_ZN6yara_x7modules2pe18import_rva_ordinal17he3062752ff3dba0
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split", %37, %33, %18, %16
-  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %18 ], [ %35, %33 ], [ %35, %37 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %18 ], [ %34, %33 ], [ %34, %37 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.3.0 = phi i64 [ %35, %37 ], [ undef, %16 ], [ undef, %18 ], [ %35, %33 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.0.0 = phi i64 [ %34, %37 ], [ 0, %16 ], [ 0, %18 ], [ %34, %33 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
   %24 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %25 = insertvalue { i64, i64 } %24, i64 %.sroa.3.0, 1
   ret { i64, i64 } %25
@@ -104974,8 +104974,8 @@ define { i64, i64 } @_ZN6yara_x7modules2pe15import_rva_func17h41d31ee93b50948aE(
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split", %61, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10", %29, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
-  %.sroa.3.0 = phi i64 [ undef, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ undef, %29 ], [ %58, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %58, %61 ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ 0, %29 ], [ %59, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %59, %61 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
+  %.sroa.3.0 = phi i64 [ %58, %61 ], [ undef, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ undef, %29 ], [ %58, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %.sroa.3.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
+  %.sroa.0.0 = phi i64 [ %59, %61 ], [ 0, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ 0, %29 ], [ %59, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit7.sink.split" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.3.0, 1
   ret { i64, i64 } %36
@@ -105286,7 +105286,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules2pe15imports_ordinal17habbe3
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split", %56, %54, %48, %44
-  %.sroa.0.0 = phi i8 [ %46, %44 ], [ %46, %48 ], [ 2, %54 ], [ 2, %56 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.0.0 = phi i8 [ 2, %56 ], [ %46, %44 ], [ %46, %48 ], [ 2, %54 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
   ret i8 %.sroa.0.0
 
 62:                                               ; preds = %11
@@ -105487,7 +105487,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules2pe12imports_func17h4a5ac2a5
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit12"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit12": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit12.sink.split", %80, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit", %71, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10"
-  %.sroa.0.0 = phi i8 [ 2, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ 2, %71 ], [ %78, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ %78, %80 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit12.sink.split" ]
+  %.sroa.0.0 = phi i8 [ %78, %80 ], [ 2, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit10" ], [ 2, %71 ], [ %78, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit12.sink.split" ]
   ret i8 %.sroa.0.0
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %51, %49, %57
@@ -105958,7 +105958,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules2pe21standard_imports_func17
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit11"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit11": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit11.sink.split", %64, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit", %55, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit9"
-  %.sroa.0.0 = phi i8 [ 2, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit9" ], [ 2, %55 ], [ %62, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ %62, %64 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit11.sink.split" ]
+  %.sroa.0.0 = phi i8 [ %62, %64 ], [ 2, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit9" ], [ 2, %55 ], [ %62, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit" ], [ %.sroa.0.0.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit11.sink.split" ]
   ret i8 %.sroa.0.0
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %35, %33, %41
@@ -106154,7 +106154,7 @@ define { i64, i64 } @_ZN6yara_x7modules2pe19rich_toolid_version17hfc2249f320a130
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i": ; preds = %36, %32, %23
-  %.sroa.0.0.i.us.us.i.i = phi i64 [ %40, %36 ], [ %.sroa.07.0.us.us.i.i, %23 ], [ %.sroa.07.0.us.us.i.i, %32 ]
+  %.sroa.0.0.i.us.us.i.i = phi i64 [ %40, %36 ], [ %.sroa.07.0.us.us.i.i, %32 ], [ %.sroa.07.0.us.us.i.i, %23 ]
   %41 = add nuw i64 %.sroa.09.0.us.us.i.i, 1
   %42 = icmp eq i64 %41, %14
   br i1 %42, label %_ZN6yara_x7modules2pe17rich_version_impl17hc36966515a9ffb15E.exit, label %.split.us.split.us.i.i
@@ -106240,7 +106240,7 @@ define { i64, i64 } @_ZN6yara_x7modules2pe19rich_version_toolid17h54a84a76fcb7eb
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us.us.i.i": ; preds = %36, %32, %23
-  %.sroa.0.0.i.us.us.i.i = phi i64 [ %40, %36 ], [ %.sroa.07.0.us.us.i.i, %23 ], [ %.sroa.07.0.us.us.i.i, %32 ]
+  %.sroa.0.0.i.us.us.i.i = phi i64 [ %40, %36 ], [ %.sroa.07.0.us.us.i.i, %32 ], [ %.sroa.07.0.us.us.i.i, %23 ]
   %41 = add nuw i64 %.sroa.09.0.us.us.i.i, 1
   %42 = icmp eq i64 %41, %14
   br i1 %42, label %_ZN6yara_x7modules2pe17rich_version_impl17hc36966515a9ffb15E.exit, label %.split.us.split.us.i.i
@@ -106316,7 +106316,7 @@ define { i64, i64 } @_ZN6yara_x7modules2pe12rich_version17hea212ad85db23305E(ptr
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8d48119b710e974dE.exit.us26.i.i": ; preds = %28, %24, %19
-  %.sroa.0.0.i.us27.i.i = phi i64 [ %32, %28 ], [ %.sroa.07.0.us24.i.i, %19 ], [ %.sroa.07.0.us24.i.i, %24 ]
+  %.sroa.0.0.i.us27.i.i = phi i64 [ %32, %28 ], [ %.sroa.07.0.us24.i.i, %24 ], [ %.sroa.07.0.us24.i.i, %19 ]
   %33 = add nuw i64 %.sroa.09.0.us25.i.i, 1
   %34 = icmp eq i64 %33, %13
   br i1 %34, label %_ZN6yara_x7modules2pe17rich_version_impl17hc36966515a9ffb15E.exit, label %.split.split.us.i.i
@@ -106434,7 +106434,7 @@ define void @_ZN6yara_x7modules2pe7imphash17h4d2225b5feb1ea72E(ptr dead_on_unwin
           to label %31 unwind label %.loopexit.split-lp137
 
 20:                                               ; preds = %.loopexit136, %.loopexit.split-lp137, %55, %"_ZN4core3ptr73drop_in_place$LT$core..array..iter..IntoIter$LT$$RF$str$C$3_usize$GT$$GT$17h69b5ebf31bd1b951E.exit", %69
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$core..array..iter..IntoIter$LT$$RF$str$C$3_usize$GT$$GT$17h69b5ebf31bd1b951E.exit" ], [ %70, %69 ], [ %56, %55 ], [ %lpad.loopexit138, %.loopexit136 ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp137 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr73drop_in_place$LT$core..array..iter..IntoIter$LT$$RF$str$C$3_usize$GT$$GT$17h69b5ebf31bd1b951E.exit" ], [ %56, %55 ], [ %70, %69 ], [ %lpad.loopexit138, %.loopexit136 ], [ %lpad.loopexit.split-lp139, %.loopexit.split-lp137 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13350)
   %21 = load i32, ptr %15, align 8, !range !9531, !alias.scope !13350, !noundef !8
   %22 = icmp eq i32 %21, 3
@@ -107111,8 +107111,8 @@ define { i64, i64 } @_ZN6yara_x7modules2pe18section_index_name17h304e9b92109317c
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %41, %35, %31, %18, %12, %10
-  %.sroa.4.0 = phi i64 [ undef, %10 ], [ undef, %12 ], [ undef, %18 ], [ %.sroa.4.1, %31 ], [ %.sroa.4.1, %35 ], [ %.sroa.4.1, %41 ]
-  %.sroa.0.0.shrunk = phi i1 [ false, %10 ], [ false, %12 ], [ false, %18 ], [ %.not8, %31 ], [ %.not8, %35 ], [ %.not8, %41 ]
+  %.sroa.4.0 = phi i64 [ undef, %18 ], [ undef, %10 ], [ undef, %12 ], [ %.sroa.4.1, %31 ], [ %.sroa.4.1, %35 ], [ %.sroa.4.1, %41 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %18 ], [ false, %10 ], [ false, %12 ], [ %.not8, %31 ], [ %.not8, %35 ], [ %.not8, %41 ]
   %.sroa.0.0 = zext i1 %.sroa.0.0.shrunk to i64
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
@@ -107578,7 +107578,7 @@ define void @_ZN6yara_x7modules5macho7symhash17h1be14086c85105aeE(ptr dead_on_un
           to label %24 unwind label %22
 
 .thread42:                                        ; preds = %119, %133, %96, %.thread46, %137, %84, %22
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %137 ], [ %85, %84 ], [ %23, %22 ], [ %lpad.thr_comm, %.thread46 ], [ %lpad.phi.i, %96 ], [ %120, %119 ], [ %134, %133 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %137 ], [ %lpad.thr_comm, %.thread46 ], [ %85, %84 ], [ %23, %22 ], [ %lpad.phi.i, %96 ], [ %120, %119 ], [ %134, %133 ]
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$yara_x..wasm..string..RuntimeString$GT$$GT$17h3e09d39efce275deE"(ptr noalias noundef align 8 dereferenceable(24) %17) #33
           to label %138 unwind label %135
 
@@ -107754,7 +107754,7 @@ define void @_ZN6yara_x7modules5macho7symhash17h1be14086c85105aeE(ptr dead_on_un
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$bstr..bstring..BString$GT$$GT$17h8ec554fd9094c28fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
           to label %87 unwind label %137
 
-.thread46:                                        ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h74ccd0f8efb91bafE.exit", %114, %117
+.thread46:                                        ; preds = %117, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h74ccd0f8efb91bafE.exit", %114
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
@@ -109976,7 +109976,7 @@ define noundef range(i8 0, 3) i8 @_ZN6yara_x7modules5macho9has_dylib17hd77cd6b45
   br label %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit"
 
 "_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split", %61, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit", %33, %._crit_edge61
-  %.sroa.0.1 = phi i8 [ 0, %._crit_edge61 ], [ 0, %33 ], [ %.sroa.0.0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit" ], [ %.sroa.0.0, %61 ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0, %61 ], [ 0, %._crit_edge61 ], [ 0, %33 ], [ %.sroa.0.0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit" ], [ %.sroa.0.1.ph, %"_ZN4core3ptr56drop_in_place$LT$yara_x..wasm..string..RuntimeString$GT$17h4dd50537e1344545E.exit.sink.split" ]
   ret i8 %.sroa.0.1
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17h6012658b94c30b8bE.exit.thread"
@@ -110302,8 +110302,8 @@ define { i64, i64 } @_ZN6yara_x7modules5macho19ep_for_arch_subtype17h1b37fbdd630
   br i1 %8, label %11, label %.critedge
 
 .critedge:                                        ; preds = %29, %11, %44, %48, %55, %39, %5, %3
-  %.sroa.9.0 = phi i64 [ undef, %3 ], [ undef, %5 ], [ %.sroa.9.3, %55 ], [ undef, %39 ], [ undef, %48 ], [ undef, %44 ], [ undef, %11 ], [ undef, %29 ]
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 0, %5 ], [ %.sroa.0.3, %55 ], [ 0, %39 ], [ 0, %48 ], [ 0, %44 ], [ 0, %11 ], [ 0, %29 ]
+  %.sroa.9.0 = phi i64 [ undef, %5 ], [ undef, %3 ], [ undef, %39 ], [ %.sroa.9.3, %55 ], [ undef, %48 ], [ undef, %44 ], [ undef, %11 ], [ undef, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 0, %3 ], [ 0, %39 ], [ %.sroa.0.3, %55 ], [ 0, %48 ], [ 0, %44 ], [ 0, %11 ], [ 0, %29 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.9.0, 1
   ret { i64, i64 } %10
@@ -110401,8 +110401,8 @@ define { i64, i64 } @_ZN6yara_x7modules5macho16ep_for_arch_type17h484d450e8f0165
   br i1 %7, label %10, label %.thread
 
 .thread:                                          ; preds = %26, %10, %37, %41, %48, %32, %4, %2
-  %.sroa.9.0 = phi i64 [ undef, %2 ], [ undef, %4 ], [ %.sroa.9.3, %48 ], [ undef, %32 ], [ undef, %41 ], [ undef, %37 ], [ undef, %10 ], [ undef, %26 ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %4 ], [ %.sroa.0.3, %48 ], [ 0, %32 ], [ 0, %41 ], [ 0, %37 ], [ 0, %10 ], [ 0, %26 ]
+  %.sroa.9.0 = phi i64 [ undef, %4 ], [ undef, %2 ], [ %.sroa.9.3, %48 ], [ undef, %32 ], [ undef, %41 ], [ undef, %37 ], [ undef, %10 ], [ undef, %26 ]
+  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 0, %2 ], [ %.sroa.0.3, %48 ], [ 0, %32 ], [ 0, %41 ], [ 0, %37 ], [ 0, %10 ], [ 0, %26 ]
   %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %9 = insertvalue { i64, i64 } %8, i64 %.sroa.9.0, 1
   ret { i64, i64 } %9
@@ -110692,8 +110692,8 @@ define { i64, i64 } @_ZN6yara_x7modules4hash13checksum_data17h414d8207661a577bE(
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %20, %17, %12, %3, %._crit_edge
-  %.sroa.7.0 = phi i64 [ %10, %3 ], [ %38, %._crit_edge ], [ undef, %12 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0 = phi i64 [ %10, %3 ], [ %38, %._crit_edge ], [ undef, %17 ], [ undef, %12 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 1, %._crit_edge ], [ 0, %17 ], [ 0, %12 ], [ 0, %20 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.7.0, 1
   ret { i64, i64 } %16
@@ -110820,8 +110820,8 @@ define { i64, i64 } @_ZN6yara_x7modules4hash8crc_data17h4c7c51c68dd33f0cE(ptr no
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %20, %17, %12, %3, %24
-  %.sroa.7.0 = phi i64 [ %10, %3 ], [ %32, %24 ], [ undef, %12 ], [ undef, %17 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 1, %24 ], [ 0, %12 ], [ 0, %17 ], [ 0, %20 ]
+  %.sroa.7.0 = phi i64 [ %10, %3 ], [ undef, %17 ], [ %32, %24 ], [ undef, %12 ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 0, %17 ], [ 1, %24 ], [ 0, %12 ], [ 0, %20 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.7.0, 1
   ret { i64, i64 } %16

@@ -163,7 +163,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -749,7 +749,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %4, ptr %18, align 8, !tbaa !25
   %19 = icmp sgt i32 %4, 0
-  br i1 %19, label %.lr.ph, label %.critedge236
+  br i1 %19, label %.lr.ph, label %.critedge235
 
 .lr.ph:                                           ; preds = %_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit
   %20 = and i32 %1, 512
@@ -758,7 +758,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %.not220 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.not.i239 = icmp eq ptr %6, null
+  %.not.i238 = icmp eq ptr %6, null
   %25 = and i32 %1, 16384
   %26 = icmp eq i32 %25, 0
   %27 = icmp eq i32 %0, 5
@@ -767,21 +767,21 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.0167260 = phi i32 [ 0, %.lr.ph ], [ %.1190, %.backedge.backedge ]
-  %.not214259 = phi i64 [ 80, %.lr.ph ], [ 104, %.backedge.backedge ]
+  %.0167259 = phi i32 [ 0, %.lr.ph ], [ %.1190, %.backedge.backedge ]
+  %.not214258 = phi i64 [ 80, %.lr.ph ], [ 104, %.backedge.backedge ]
   %30 = load ptr, ptr %2, align 8, !tbaa !21
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.not214259
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.not214258
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %34 = icmp eq i32 %33, -1
   %35 = call i32 @llvm.smin.i32(i32 %33, i32 %4)
   %.1190 = select i1 %34, i32 %4, i32 %35
-  %36 = icmp slt i32 %.0167260, %.1190
+  %36 = icmp slt i32 %.0167259, %.1190
   br i1 %36, label %37, label %.critedge234
 
 37:                                               ; preds = %.backedge
-  %38 = add nsw i32 %.0167260, 1
-  %39 = sext i32 %.0167260 to i64
+  %38 = add nsw i32 %.0167259, 1
+  %39 = sext i32 %.0167259 to i64
   %40 = getelementptr inbounds i8, ptr %3, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !20
   %42 = zext i8 %41 to i32
@@ -841,7 +841,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   br i1 %.not216, label %110, label %79
 
 79:                                               ; preds = %67
-  %80 = add nsw i32 %.0167260, 2
+  %80 = add nsw i32 %.0167259, 2
   %.not217 = icmp eq i32 %80, %.1190
   br i1 %.not217, label %110, label %81
 
@@ -898,7 +898,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   br i1 %21, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %110, %.preheader.backedge
-  %.1187 = phi i32 [ %.6180, %.preheader.backedge ], [ %.0167260, %110 ]
+  %.1187 = phi i32 [ %.6180, %.preheader.backedge ], [ %.0167259, %110 ]
   %.6180 = phi i32 [ %.6180.be, %.preheader.backedge ], [ %.4178, %110 ]
   %.5 = phi i32 [ %.5.be, %.preheader.backedge ], [ %.3173, %110 ]
   br i1 %.not220, label %114, label %111
@@ -906,7 +906,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 111:                                              ; preds = %.preheader
   %112 = call i32 @ucase_getType_77(i32 noundef %.5)
   %113 = icmp eq i32 %112, 0
-  br i1 %113, label %.thread, label %.thread249
+  br i1 %113, label %.thread, label %.thread248
 
 114:                                              ; preds = %.preheader
   %115 = call signext i8 @u_charType_77(i32 noundef %.5)
@@ -914,7 +914,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %117 = shl nuw i32 1, %116
   %118 = and i32 %117, 251792942
   %.not.i = icmp eq i32 %118, 0
-  br i1 %.not.i, label %119, label %.thread249
+  br i1 %.not.i, label %119, label %.thread248
 
 119:                                              ; preds = %114
   %120 = icmp eq i8 %115, 4
@@ -923,11 +923,11 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 121:                                              ; preds = %119
   %122 = call i32 @ucase_getType_77(i32 noundef %.5)
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %.thread, label %.thread249
+  br i1 %.not, label %.thread, label %.thread248
 
 .thread:                                          ; preds = %119, %111, %121
   %123 = icmp eq i32 %.6180, %.1190
-  br i1 %123, label %.thread249, label %124
+  br i1 %123, label %.thread248, label %124
 
 124:                                              ; preds = %.thread
   %125 = add nsw i32 %.6180, 1
@@ -1047,26 +1047,26 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   %.5.be = phi i32 [ %195, %192 ], [ -1, %186 ], [ -1, %182 ], [ -1, %177 ], [ -1, %168 ], [ -1, %166 ], [ -1, %154 ], [ -1, %151 ], [ -1, %136 ], [ -1, %131 ], [ %129, %124 ]
   br label %.preheader, !llvm.loop !26
 
-.thread249:                                       ; preds = %114, %111, %.thread, %121
+.thread248:                                       ; preds = %114, %111, %.thread, %121
   %.6180.lcssa = phi i32 [ %.6180, %114 ], [ %.6180, %111 ], [ %.1190, %.thread ], [ %.6180, %121 ]
   %.2188 = phi i32 [ %.1187, %114 ], [ %.1187, %111 ], [ %.1190, %.thread ], [ %.1187, %121 ]
-  %197 = icmp slt i32 %.0167260, %.2188
+  %197 = icmp slt i32 %.0167259, %.2188
   br i1 %197, label %198, label %.critedge
 
-198:                                              ; preds = %.thread249
+198:                                              ; preds = %.thread248
   %199 = load i32, ptr %7, align 4, !tbaa !13
   %200 = icmp slt i32 %199, 1
-  br i1 %200, label %201, label %.critedge236
+  br i1 %200, label %201, label %.critedge235
 
 201:                                              ; preds = %198
-  %202 = sub nsw i32 %.2188, %.0167260
+  %202 = sub nsw i32 %.2188, %.0167259
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef nonnull %40, i32 noundef %202, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
   br label %.critedge
 
-.critedge:                                        ; preds = %201, %.thread249, %110
-  %.0186 = phi i32 [ %.0167260, %110 ], [ %.2188, %.thread249 ], [ %.2188, %201 ]
-  %.5179 = phi i32 [ %.4178, %110 ], [ %.6180.lcssa, %.thread249 ], [ %.6180.lcssa, %201 ]
-  %.4 = phi i32 [ %.3173, %110 ], [ %.5, %.thread249 ], [ %.5, %201 ]
+.critedge:                                        ; preds = %201, %.thread248, %110
+  %.0186 = phi i32 [ %.0167259, %110 ], [ %.2188, %.thread248 ], [ %.2188, %201 ]
+  %.5179 = phi i32 [ %.4178, %110 ], [ %.6180.lcssa, %.thread248 ], [ %.6180.lcssa, %201 ]
+  %.4 = phi i32 [ %.3173, %110 ], [ %.5, %.thread248 ], [ %.5, %201 ]
   %203 = icmp slt i32 %.0186, %.5179
   br i1 %203, label %204, label %.critedge234
 
@@ -1085,7 +1085,7 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
   br i1 %210, label %211, label %216
 
 211:                                              ; preds = %206
-  br i1 %.not.i239, label %213, label %212
+  br i1 %.not.i238, label %213, label %212
 
 212:                                              ; preds = %211
   call void @_ZN6icu_775Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %6, i32 noundef %208)
@@ -1109,33 +1109,33 @@ _ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit: ; preds = 
 
 _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread: ; preds = %213, %214, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread
 
 _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit: ; preds = %216
   %219 = call noundef signext i8 @_ZN6icu_7712ByteSinkUtil12appendChangeEiPKDsiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %208, ptr noundef %209, i32 noundef %207, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %.not229.not = icmp eq i8 %219, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.not229.not, label %.critedge236, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread
+  br i1 %.not229.not, label %.critedge235, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread
 
 220:                                              ; preds = %204
   %221 = load i32, ptr %7, align 4, !tbaa !13
   %222 = icmp slt i32 %221, 1
-  br i1 %222, label %223, label %.critedge236
+  br i1 %222, label %223, label %.critedge235
 
 223:                                              ; preds = %220
   %224 = sub nsw i32 %.5179, %.0186
   %225 = sext i32 %.0186 to i64
   %226 = getelementptr inbounds i8, ptr %3, i64 %225
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %226, i32 noundef %224, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread: ; preds = %223, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread: ; preds = %223, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
   %.10 = phi i32 [ %207, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %207, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ -1, %223 ]
   %227 = icmp slt i32 %.5179, %.1190
   %or.cond = and i1 %27, %227
   br i1 %or.cond, label %228, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
 
-228:                                              ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread
+228:                                              ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread
   %.10.lobit = ashr i32 %.10, 31
   %spec.select = xor i32 %.10.lobit, %.10
   switch i32 %spec.select, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit [
@@ -1197,8 +1197,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %.198145.i = phi i32 [ %253, %252 ], [ %.097.i, %254 ]
   %256 = phi i1 [ false, %252 ], [ true, %254 ]
   %257 = add nsw i32 %.0101.i, 1
-  %.not.i243 = icmp slt i32 %257, %.1190
-  br i1 %.not.i243, label %258, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
+  %.not.i242 = icmp slt i32 %257, %.1190
+  br i1 %.not.i242, label %258, label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
 
 258:                                              ; preds = %255
   %259 = sext i32 %.0101.i to i64
@@ -1384,8 +1384,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %363, i32 noundef %.095.i, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
   br label %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
 
-_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit: ; preds = %361, %357, %344, %262, %258, %255, %251, %239, %237, %228, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread
-  %.12 = phi i32 [ %.5179, %228 ], [ %.5179, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit241.thread ], [ %.5179, %344 ], [ %.5179, %262 ], [ %.5179, %258 ], [ %.5179, %255 ], [ %.1102.i, %357 ], [ %.1102.i, %361 ], [ %.5179, %237 ], [ %.5179, %239 ], [ %.5179, %251 ]
+_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit: ; preds = %361, %357, %344, %262, %258, %255, %251, %239, %237, %228, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread
+  %.12 = phi i32 [ %.5179, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit240.thread ], [ %.5179, %228 ], [ %.5179, %239 ], [ %.5179, %251 ], [ %.1102.i, %361 ], [ %.5179, %344 ], [ %.5179, %262 ], [ %.5179, %258 ], [ %.5179, %255 ], [ %.1102.i, %357 ], [ %.5179, %237 ]
   %364 = icmp slt i32 %.12, %.1190
   br i1 %364, label %365, label %.critedge234
 
@@ -1397,13 +1397,13 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UE
   %367 = load i32, ptr %7, align 4, !tbaa !13
   %368 = icmp slt i32 %367, 1
   %369 = icmp slt i32 %.1190, %4
-  %or.cond265 = and i1 %368, %369
-  br i1 %or.cond265, label %.backedge.backedge, label %.critedge236
+  %or.cond264 = and i1 %368, %369
+  br i1 %or.cond264, label %.backedge.backedge, label %.critedge235
 
 370:                                              ; preds = %365
   %371 = load i32, ptr %7, align 4, !tbaa !13
   %372 = icmp slt i32 %371, 1
-  br i1 %372, label %373, label %.critedge236
+  br i1 %372, label %373, label %.critedge235
 
 373:                                              ; preds = %370
   %374 = sub nsw i32 %.1190, %.12
@@ -1414,16 +1414,16 @@ _ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UE
 
 .critedge234:                                     ; preds = %373, %.critedge, %_ZN12_GLOBAL__N_117maybeTitleDutchIJEPKhiiiRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %.backedge
   %.old = icmp slt i32 %.1190, %4
-  br i1 %.old, label %.backedge.backedge, label %.critedge236
+  br i1 %.old, label %.backedge.backedge, label %.critedge235
 
 .backedge.backedge:                               ; preds = %.critedge234, %366
   br label %.backedge, !llvm.loop !32
 
-.critedge236:                                     ; preds = %.critedge234, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %366, %198, %220, %370, %_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit
+.critedge235:                                     ; preds = %.critedge234, %366, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit, %198, %220, %370, %_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit.thread
 
-_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit.thread: ; preds = %8, %16, %.critedge236
+_ZN6icu_7736ustrcase_checkTitleAdjustmentOptionsEjR10UErrorCode.exit.thread: ; preds = %16, %8, %.critedge235
   ret void
 }
 
@@ -1619,7 +1619,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva(ptr
   br label %113
 
 113:                                              ; preds = %._crit_edge77, %._crit_edge, %37, %45, %50, %65, %68, %80, %82, %91, %97, %101, %108, %22, %30
-  %.059 = phi i32 [ %28, %22 ], [ %31, %30 ], [ %43, %37 ], [ %111, %108 ], [ -1, %101 ], [ -1, %97 ], [ -1, %91 ], [ -1, %82 ], [ -1, %80 ], [ -1, %68 ], [ -1, %65 ], [ -1, %50 ], [ -1, %45 ], [ -1, %._crit_edge ], [ -1, %._crit_edge77 ]
+  %.059 = phi i32 [ %31, %30 ], [ -1, %45 ], [ %28, %22 ], [ %43, %37 ], [ %111, %108 ], [ -1, %101 ], [ -1, %97 ], [ -1, %91 ], [ -1, %82 ], [ -1, %80 ], [ -1, %68 ], [ -1, %65 ], [ -1, %50 ], [ -1, %._crit_edge ], [ -1, %._crit_edge77 ]
   ret i32 %.059
 }
 
@@ -2004,13 +2004,13 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   call void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5EditsE(i32 noundef %232, i32 noundef %233, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
   br label %.thread
 
-.thread.thread:                                   ; preds = %97, %132, %143
+.thread.thread:                                   ; preds = %143, %97, %132
   %234 = load i32, ptr %8, align 4, !tbaa !13
   br label %.thread300
 
-.thread:                                          ; preds = %64, %102, %117, %120, %134, %148, %152, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268, %81, %37, %220, %222, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270, %93, %52
-  %.3197 = phi i32 [ %31, %52 ], [ %87, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %162, %222 ], [ %162, %220 ], [ %31, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268 ], [ %31, %148 ], [ %31, %117 ], [ %31, %120 ], [ %133, %134 ], [ %31, %102 ], [ %.8202, %152 ], [ %66, %64 ]
-  %.4 = phi i32 [ %31, %52 ], [ %.1340, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %.1340, %222 ], [ %.1340, %220 ], [ %.1340, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268 ], [ %.1340, %148 ], [ %.1340, %117 ], [ %.1340, %120 ], [ %.1340, %134 ], [ %.1340, %102 ], [ %.1340, %152 ], [ %.1340, %64 ]
+.thread:                                          ; preds = %64, %102, %117, %120, %134, %148, %152, %81, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268, %37, %220, %222, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270, %93, %52
+  %.3197 = phi i32 [ %162, %222 ], [ %87, %93 ], [ %66, %81 ], [ %31, %37 ], [ %162, %220 ], [ %31, %52 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268 ], [ %.8202, %152 ], [ %31, %148 ], [ %31, %117 ], [ %31, %120 ], [ %133, %134 ], [ %31, %102 ], [ %66, %64 ]
+  %.4 = phi i32 [ %.1340, %222 ], [ %.1340, %93 ], [ %66, %81 ], [ %.1340, %37 ], [ %.1340, %220 ], [ %31, %52 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit268 ], [ %.1340, %152 ], [ %.1340, %148 ], [ %.1340, %117 ], [ %.1340, %120 ], [ %.1340, %134 ], [ %.1340, %102 ], [ %.1340, %64 ]
   %235 = load i32, ptr %8, align 4, !tbaa !13
   %236 = icmp slt i32 %235, 1
   %.not252 = icmp slt i32 %.3197, %5
@@ -2023,8 +2023,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %.lr.ph
 
 .thread307:                                       ; preds = %64, %37, %213
-  %.2196314 = phi i32 [ %162, %213 ], [ %31, %37 ], [ %66, %64 ]
-  %.2221312 = phi i32 [ %161, %213 ], [ %35, %37 ], [ %69, %64 ]
+  %.2196314 = phi i32 [ %31, %37 ], [ %162, %213 ], [ %66, %64 ]
+  %.2221312 = phi i32 [ %35, %37 ], [ %161, %213 ], [ %69, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %28, label %237, label %239
 
@@ -2594,9 +2594,9 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br label %200
 
 200:                                              ; preds = %197, %194, %195, %199, %198
-  %.4231 = phi i32 [ 0, %198 ], [ 0, %199 ], [ %.1228.lcssa, %195 ], [ %.1228.lcssa, %194 ], [ %.1228.lcssa, %197 ]
-  %.0226 = phi i32 [ 938, %198 ], [ 939, %199 ], [ %91, %195 ], [ %., %194 ], [ %91, %197 ]
-  %.not295 = phi i1 [ true, %198 ], [ true, %199 ], [ true, %195 ], [ %.not281, %194 ], [ true, %197 ]
+  %.4231 = phi i32 [ 0, %198 ], [ 0, %199 ], [ %.1228.lcssa, %197 ], [ %.1228.lcssa, %195 ], [ %.1228.lcssa, %194 ]
+  %.0226 = phi i32 [ 938, %198 ], [ 939, %199 ], [ %91, %197 ], [ %91, %195 ], [ %., %194 ]
+  %.not295 = phi i1 [ true, %198 ], [ true, %199 ], [ true, %197 ], [ true, %195 ], [ %.not281, %194 ]
   br i1 %or.cond308, label %..critedge_crit_edge, label %201
 
 ..critedge_crit_edge:                             ; preds = %200
@@ -2817,8 +2817,8 @@ _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorC
   br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
 
 _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread: ; preds = %.lr.ph331, %275, %302, %304, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread, %265, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
-  %.2238 = phi i32 [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.1237, %265 ], [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.0236, %304 ], [ %.0236, %302 ], [ %.1237, %275 ], [ %.1237, %.lr.ph331 ]
-  %.8 = phi i32 [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.5220.lcssa, %265 ], [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.4219, %304 ], [ %.4219, %302 ], [ %.5220.lcssa, %275 ], [ %.5220.lcssa, %.lr.ph331 ]
+  %.2238 = phi i32 [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.1237, %265 ], [ %.0236, %304 ], [ %.0236, %302 ], [ %.1237, %275 ], [ %.1237, %.lr.ph331 ]
+  %.8 = phi i32 [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.5220.lcssa, %265 ], [ %.4219, %304 ], [ %.4219, %302 ], [ %.5220.lcssa, %275 ], [ %.5220.lcssa, %.lr.ph331 ]
   %305 = icmp slt i32 %.8, %2
   br i1 %305, label %12, label %.critedge310, !llvm.loop !48
 
@@ -3036,7 +3036,7 @@ define noundef i32 @_Z19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFv
   br label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread"
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.thread": ; preds = %42, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit", %60, %10, %38, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %38 ], [ 0, %10 ], [ %.1.i, %60 ], [ %.1.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit" ], [ 0, %42 ]
+  %.0 = phi i32 [ 0, %10 ], [ 0, %23 ], [ 0, %38 ], [ %.1.i, %60 ], [ %.1.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit" ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -3451,8 +3451,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i, %218, %216, %148, %144, %130, %116, %113, %98, %89, %77, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit255.i, %60, %48, %33
-  %.3186.i = phi i32 [ %27, %48 ], [ %83, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %158, %218 ], [ %158, %216 ], [ %27, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit255.i ], [ %27, %144 ], [ %27, %113 ], [ %27, %116 ], [ %129, %130 ], [ %27, %98 ], [ %.8191.i, %148 ], [ %62, %60 ]
-  %.4.i = phi i32 [ %27, %48 ], [ %.1327.i, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %.1327.i, %218 ], [ %.1327.i, %216 ], [ %.1327.i, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit255.i ], [ %.1327.i, %144 ], [ %.1327.i, %113 ], [ %.1327.i, %116 ], [ %.1327.i, %130 ], [ %.1327.i, %98 ], [ %.1327.i, %148 ], [ %.1327.i, %60 ]
+  %.3186.i = phi i32 [ %158, %218 ], [ %83, %89 ], [ %62, %77 ], [ %27, %33 ], [ %158, %216 ], [ %27, %48 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit255.i ], [ %.8191.i, %148 ], [ %27, %144 ], [ %27, %113 ], [ %27, %116 ], [ %129, %130 ], [ %27, %98 ], [ %62, %60 ]
+  %.4.i = phi i32 [ %.1327.i, %218 ], [ %.1327.i, %89 ], [ %62, %77 ], [ %.1327.i, %33 ], [ %.1327.i, %216 ], [ %27, %48 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit255.i ], [ %.1327.i, %148 ], [ %.1327.i, %144 ], [ %.1327.i, %113 ], [ %.1327.i, %116 ], [ %.1327.i, %130 ], [ %.1327.i, %98 ], [ %.1327.i, %60 ]
   %230 = load i32, ptr %7, align 4, !tbaa !13
   %231 = icmp slt i32 %230, 1
   %.not239.i = icmp slt i32 %.3186.i, %4
@@ -3466,8 +3466,8 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %.lr.ph.i
 
 .thread294.i:                                     ; preds = %209, %60, %33
-  %.2185301.i = phi i32 [ %158, %209 ], [ %27, %33 ], [ %62, %60 ]
-  %.2210299.i = phi i32 [ %157, %209 ], [ %31, %33 ], [ %65, %60 ]
+  %.2185301.i = phi i32 [ %27, %33 ], [ %158, %209 ], [ %62, %60 ]
+  %.2210299.i = phi i32 [ %31, %33 ], [ %157, %209 ], [ %65, %60 ]
   store i32 %.1184326.i, ptr %24, align 4, !tbaa !28
   store i32 %.2185301.i, ptr %25, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3513,9 +3513,9 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %or.cond251325.i, label %.lr.ph.i.backedge, label %.thread287.i
 
 .thread287.i:                                     ; preds = %249, %.thread.i, %93, %128, %139, %14
-  %252 = phi i32 [ %19, %14 ], [ %250, %249 ], [ %230, %.thread.i ], [ %26, %93 ], [ %26, %128 ], [ %26, %139 ]
-  %.1184.lcssa.i = phi i32 [ 0, %14 ], [ %.2185301.i, %249 ], [ %.3186.i, %.thread.i ], [ %4, %93 ], [ %4, %128 ], [ %4, %139 ]
-  %.1.lcssa.i = phi i32 [ 0, %14 ], [ %.11.i, %249 ], [ %.4.i, %.thread.i ], [ %.1327.i, %93 ], [ %.1327.i, %128 ], [ %.1327.i, %139 ]
+  %252 = phi i32 [ %19, %14 ], [ %250, %249 ], [ %26, %128 ], [ %26, %139 ], [ %26, %93 ], [ %230, %.thread.i ]
+  %.1184.lcssa.i = phi i32 [ 0, %14 ], [ %.2185301.i, %249 ], [ %4, %128 ], [ %4, %139 ], [ %4, %93 ], [ %.3186.i, %.thread.i ]
+  %.1.lcssa.i = phi i32 [ 0, %14 ], [ %.11.i, %249 ], [ %.1327.i, %128 ], [ %.1327.i, %139 ], [ %.1327.i, %93 ], [ %.4.i, %.thread.i ]
   %253 = sub nsw i32 %.1184.lcssa.i, %.1.lcssa.i
   %254 = icmp slt i32 %252, 1
   %255 = icmp sgt i32 %253, 0
@@ -3650,7 +3650,7 @@ define i32 @ucasemap_utf8FoldCase_77(ptr noundef readonly captures(none) %0, ptr
   br label %_Z19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_.exit
 
 _Z19ucasemap_mapUTF8_77ijPN6icu_7713BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_.exit: ; preds = %6, %21, %36, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.i"
-  %.0.i = phi i32 [ 0, %21 ], [ 0, %36 ], [ 0, %6 ], [ %.1.i.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.i" ]
+  %.0.i = phi i32 [ 0, %6 ], [ 0, %21 ], [ 0, %36 ], [ %.1.i.i, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ19ucasemap_mapUTF8_77ijPNS_13BreakIteratorEPciPKciPFvijS3_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESC_SE_E3$_0vEEiS4_iOT_SE_.exit.i" ]
   ret i32 %.0.i
 }
 

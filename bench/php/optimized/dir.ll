@@ -291,10 +291,10 @@ zend_parse_arg_path.exit:                         ; preds = %18, %zend_parse_arg
   ], !prof !51
 
 31:                                               ; preds = %27, %8, %zend_parse_arg_path.exit
-  %.068.ph = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 15, %27 ]
-  %.067.ph = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %8 ], [ 9, %27 ]
-  %.065.ph = phi ptr [ %10, %zend_parse_arg_path.exit ], [ null, %8 ], [ %28, %27 ]
-  %.0.ph = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %8 ], [ 2, %27 ]
+  %.068.ph = phi i32 [ 15, %27 ], [ 16, %zend_parse_arg_path.exit ], [ 0, %8 ]
+  %.067.ph = phi i32 [ 9, %27 ], [ 9, %zend_parse_arg_path.exit ], [ 1, %8 ]
+  %.065.ph = phi ptr [ %28, %27 ], [ %10, %zend_parse_arg_path.exit ], [ null, %8 ]
+  %.0.ph = phi i32 [ 2, %27 ], [ 1, %zend_parse_arg_path.exit ], [ 0, %8 ]
   call void @zend_wrong_parameter_error(i32 noundef %.067.ph, i32 noundef %.0.ph, ptr noundef null, i32 noundef %.068.ph, ptr noundef %.065.ph) #13
   br label %83
 
@@ -497,7 +497,7 @@ zend_parse_arg_resource.exit:                     ; preds = %14, %11
   br i1 %39, label %.critedge64, label %40
 
 40:                                               ; preds = %35, %.critedge, %24
-  %.0 = phi ptr [ %20, %.critedge ], [ %26, %24 ], [ %38, %35 ]
+  %.0 = phi ptr [ %26, %24 ], [ %20, %.critedge ], [ %38, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 116
   %42 = load i32, ptr %41, align 4, !tbaa !59
   %43 = and i32 %42, 64
@@ -998,7 +998,7 @@ zend_parse_arg_resource.exit:                     ; preds = %14, %11
   br i1 %39, label %.critedge62, label %40
 
 40:                                               ; preds = %35, %.critedge, %24
-  %.0 = phi ptr [ %20, %.critedge ], [ %26, %24 ], [ %38, %35 ]
+  %.0 = phi ptr [ %26, %24 ], [ %20, %.critedge ], [ %38, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 116
   %42 = load i32, ptr %41, align 4, !tbaa !59
   %43 = and i32 %42, 64
@@ -1109,7 +1109,7 @@ zend_parse_arg_resource.exit:                     ; preds = %15, %12
   br i1 %40, label %.critedge68, label %41
 
 41:                                               ; preds = %36, %.critedge, %25
-  %.0 = phi ptr [ %21, %.critedge ], [ %27, %25 ], [ %39, %36 ]
+  %.0 = phi ptr [ %27, %25 ], [ %21, %.critedge ], [ %39, %36 ]
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 116
   %43 = load i32, ptr %42, align 4, !tbaa !59
   %44 = and i32 %43, 64
@@ -1245,10 +1245,10 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
   br i1 %36, label %.critedge, label %.thread, !prof !89
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit, %11
-  %.077128 = phi i32 [ 1, %zend_parse_arg_path.exit ], [ 0, %11 ], [ 2, %zend_parse_arg_long_ex.exit ]
-  %.078127 = phi ptr [ %13, %zend_parse_arg_path.exit ], [ null, %11 ], [ %31, %zend_parse_arg_long_ex.exit ]
-  %.079126 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %11 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.082125 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %11 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  %.077128 = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %11 ], [ 1, %zend_parse_arg_path.exit ]
+  %.078127 = phi ptr [ %31, %zend_parse_arg_long_ex.exit ], [ null, %11 ], [ %13, %zend_parse_arg_path.exit ]
+  %.079126 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %11 ], [ 16, %zend_parse_arg_path.exit ]
+  %.082125 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %11 ], [ 9, %zend_parse_arg_path.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.082125, i32 noundef %.077128, ptr noundef null, i32 noundef %.079126, ptr noundef %.078127) #13
   br label %108
 
@@ -1385,7 +1385,7 @@ zend_string_alloc.exit:                           ; preds = %77, %74
   br label %99
 
 99:                                               ; preds = %77, %69, %zend_string_alloc.exit
-  %.1 = phi i1 [ %.076137, %zend_string_alloc.exit ], [ %.076137, %77 ], [ true, %69 ]
+  %.1 = phi i1 [ %.076137, %77 ], [ %.076137, %zend_string_alloc.exit ], [ true, %69 ]
   %100 = add nuw i64 %.0138, 1
   %101 = load i64, ptr %5, align 8, !tbaa !90
   %102 = icmp ult i64 %100, %101
@@ -1534,11 +1534,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %28
     i8 1, label %.critedge.fold.split
   ], !prof !51
 
-40:                                               ; preds = %36, %9, %zend_parse_arg_path.exit, %zend_parse_arg_long_ex.exit
-  %.079.ph = phi i32 [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 3, %36 ]
-  %.078.ph = phi ptr [ %29, %zend_parse_arg_long_ex.exit ], [ %11, %zend_parse_arg_path.exit ], [ null, %9 ], [ %37, %36 ]
-  %.077.ph = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 16, %zend_parse_arg_path.exit ], [ 0, %9 ], [ 15, %36 ]
-  %.075.ph = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_path.exit ], [ 1, %9 ], [ 9, %36 ]
+40:                                               ; preds = %36, %9, %zend_parse_arg_long_ex.exit, %zend_parse_arg_path.exit
+  %.079.ph = phi i32 [ 3, %36 ], [ 1, %zend_parse_arg_path.exit ], [ 2, %zend_parse_arg_long_ex.exit ], [ 0, %9 ]
+  %.078.ph = phi ptr [ %37, %36 ], [ %11, %zend_parse_arg_path.exit ], [ %29, %zend_parse_arg_long_ex.exit ], [ null, %9 ]
+  %.077.ph = phi i32 [ 15, %36 ], [ 16, %zend_parse_arg_path.exit ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %9 ]
+  %.075.ph = phi i32 [ 9, %36 ], [ 9, %zend_parse_arg_path.exit ], [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %9 ]
   call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.079.ph, ptr noundef null, i32 noundef %.077.ph, ptr noundef %.078.ph) #13
   br label %._crit_edge.thread
 
@@ -1546,7 +1546,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %28
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %.critedge.fold.split, %24, %35
-  %.198 = phi ptr [ null, %24 ], [ null, %35 ], [ %37, %36 ], [ null, %.critedge.fold.split ]
+  %.198 = phi ptr [ null, %35 ], [ null, %24 ], [ %37, %36 ], [ null, %.critedge.fold.split ]
   %41 = icmp eq i64 %25, 0
   br i1 %41, label %42, label %43
 

@@ -57,7 +57,7 @@ define hidden ptr @opj_tcd_create(i32 noundef %0) local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %3, %1, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ %2, %3 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %11 ], [ %2, %3 ]
   ret ptr %.0
 }
 
@@ -340,7 +340,7 @@ define hidden range(i32 0, 2) i32 @opj_alloc_tile_component_data(ptr noundef cap
   br label %24
 
 24:                                               ; preds = %._crit_edge, %5, %15, %22, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %22 ], [ 1, %15 ], [ 1, %5 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %21 ], [ 1, %15 ], [ 1, %22 ], [ 1, %5 ]
   ret i32 %.0
 }
 
@@ -1307,8 +1307,8 @@ opj_tcd_is_band_empty.exit.thread:                ; preds = %._crit_edge, %369, 
   %575 = icmp ult i32 %573, %574
   br i1 %575, label %72, label %.critedge, !llvm.loop !154
 
-.critedge:                                        ; preds = %135, %._crit_edge633, %423, %521, %526, %489, %.preheader, %.thread565, %559, %415, %.thread563, %222, %211, %.thread, %236, %241, %352, %118, %123, %70, %60, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %60 ], [ 0, %70 ], [ 0, %123 ], [ 0, %118 ], [ 0, %211 ], [ 0, %222 ], [ 0, %352 ], [ 0, %241 ], [ 0, %236 ], [ 0, %.thread ], [ 0, %.thread563 ], [ 0, %415 ], [ 0, %559 ], [ 0, %.thread565 ], [ 1, %.preheader ], [ 0, %489 ], [ 0, %526 ], [ 0, %521 ], [ 0, %423 ], [ 0, %135 ], [ 1, %._crit_edge633 ]
+.critedge:                                        ; preds = %135, %._crit_edge633, %423, %521, %526, %489, %.preheader, %559, %.thread565, %415, %.thread563, %222, %211, %.thread, %236, %241, %352, %118, %123, %70, %60, %41
+  %.0 = phi i32 [ 0, %41 ], [ 0, %60 ], [ 0, %70 ], [ 0, %118 ], [ 0, %.thread ], [ 0, %123 ], [ 0, %211 ], [ 0, %222 ], [ 0, %.thread563 ], [ 0, %352 ], [ 0, %236 ], [ 0, %241 ], [ 0, %415 ], [ 0, %.thread565 ], [ 0, %559 ], [ 1, %.preheader ], [ 0, %489 ], [ 0, %521 ], [ 0, %423 ], [ 0, %526 ], [ 0, %135 ], [ 1, %._crit_edge633 ]
   ret i32 %.0
 }
 
@@ -1433,7 +1433,7 @@ define hidden i32 @opj_tcd_get_decoded_tile_size(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !158
 
 .critedge:                                        ; preds = %56, %52, %51, %48, %2
-  %.2 = phi i32 [ 0, %2 ], [ -1, %48 ], [ -1, %51 ], [ -1, %52 ], [ %57, %56 ]
+  %.2 = phi i32 [ 0, %2 ], [ -1, %52 ], [ -1, %51 ], [ -1, %48 ], [ %57, %56 ]
   ret i32 %.2
 }
 
@@ -1627,7 +1627,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_encode_tile(ptr noundef %0, i32 nound
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %111, %.loopexit.loopexit.i, %.preheader.i, %.preheader1.i
-  %117 = phi i32 [ %.pre.i, %.loopexit.loopexit.i ], [ %84, %.preheader1.i ], [ %84, %.preheader.i ], [ %84, %111 ]
+  %117 = phi i32 [ %84, %.preheader.i ], [ %.pre.i, %.loopexit.loopexit.i ], [ %84, %.preheader1.i ], [ %84, %111 ]
   %118 = getelementptr inbounds nuw i8, ptr %.0338.i, i64 1080
   %119 = getelementptr inbounds nuw i8, ptr %.03110.i, i64 112
   %120 = add nuw i32 %.03011.i, 1
@@ -1727,7 +1727,7 @@ opj_tcd_mct_encode.exit:                          ; preds = %.lr.ph.i78, %.prehe
   tail call void @opj_free(ptr noundef nonnull %143) #16
   br i1 %.not42.i.not, label %opj_tcd_mct_encode.exit.thread96, label %opj_tcd_mct_encode.exit.thread
 
-opj_tcd_mct_encode.exit.thread:                   ; preds = %160, %159, %139, %opj_tcd_dc_level_shift_encode.exit, %opj_tcd_mct_encode.exit
+opj_tcd_mct_encode.exit.thread:                   ; preds = %160, %159, %opj_tcd_dc_level_shift_encode.exit, %139, %opj_tcd_mct_encode.exit
   %171 = load ptr, ptr %80, align 8, !tbaa !3
   %172 = load ptr, ptr %171, align 8, !tbaa !17
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -2286,17 +2286,17 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   br i1 %.not256.i.i, label %457, label %456
 
 456:                                              ; preds = %450, %449, %444, %434
-  %.2219.i.i = phi double [ %406, %434 ], [ %406, %444 ], [ %.0217325.i.i, %450 ], [ %.0217325.i.i, %449 ]
-  %.2216.i.i = phi double [ %.0214326.i.i, %434 ], [ %.0214326.i.i, %444 ], [ %406, %450 ], [ %406, %449 ]
-  %.3210.i.i = phi double [ %.0207327.i.i, %434 ], [ %.0207327.i.i, %444 ], [ %406, %450 ], [ %406, %449 ]
-  %.2200.i.i = phi i32 [ %.0198330.i.i, %434 ], [ %.0198330.i.i, %444 ], [ 1, %450 ], [ 1, %449 ]
+  %.2219.i.i = phi double [ %406, %444 ], [ %406, %434 ], [ %.0217325.i.i, %450 ], [ %.0217325.i.i, %449 ]
+  %.2216.i.i = phi double [ %.0214326.i.i, %444 ], [ %.0214326.i.i, %434 ], [ %406, %450 ], [ %406, %449 ]
+  %.3210.i.i = phi double [ %.0207327.i.i, %444 ], [ %.0207327.i.i, %434 ], [ %406, %450 ], [ %406, %449 ]
+  %.2200.i.i = phi i32 [ %.0198330.i.i, %444 ], [ %.0198330.i.i, %434 ], [ 1, %450 ], [ 1, %449 ]
   br label %457
 
 457:                                              ; preds = %456, %450, %447, %444, %434, %421
-  %.1218.ph.i.i = phi double [ %406, %450 ], [ %406, %447 ], [ %.0217325.i.i, %444 ], [ %.0217325.i.i, %434 ], [ %406, %421 ], [ %.2219.i.i, %456 ]
-  %.1215.ph.i.i = phi double [ %.0214326.i.i, %450 ], [ %.0214326.i.i, %447 ], [ %406, %444 ], [ %406, %434 ], [ %.0214326.i.i, %421 ], [ %.2216.i.i, %456 ]
-  %.2209.ph.i.i = phi double [ %.0207327.i.i, %450 ], [ %.0207327.i.i, %447 ], [ %406, %444 ], [ %406, %434 ], [ %.0207327.i.i, %421 ], [ %.3210.i.i, %456 ]
-  %.1199.ph.i.i = phi i32 [ 0, %450 ], [ 0, %447 ], [ %.0198330.i.i, %444 ], [ %.0198330.i.i, %434 ], [ %.0198330.i.i, %421 ], [ %.2200.i.i, %456 ]
+  %.1218.ph.i.i = phi double [ %406, %450 ], [ %406, %447 ], [ %.0217325.i.i, %434 ], [ %.2219.i.i, %456 ], [ %406, %421 ], [ %.0217325.i.i, %444 ]
+  %.1215.ph.i.i = phi double [ %.0214326.i.i, %450 ], [ %.0214326.i.i, %447 ], [ %406, %434 ], [ %.2216.i.i, %456 ], [ %.0214326.i.i, %421 ], [ %406, %444 ]
+  %.2209.ph.i.i = phi double [ %.0207327.i.i, %450 ], [ %.0207327.i.i, %447 ], [ %406, %434 ], [ %.3210.i.i, %456 ], [ %.0207327.i.i, %421 ], [ %406, %444 ]
+  %.1199.ph.i.i = phi i32 [ 0, %450 ], [ 0, %447 ], [ %.0198330.i.i, %434 ], [ %.2200.i.i, %456 ], [ %.0198330.i.i, %421 ], [ %.0198330.i.i, %444 ]
   %458 = add nuw nsw i32 %.0206328.i.i, 1
   %exitcond371.not.i.i = icmp eq i32 %458, 128
   br i1 %exitcond371.not.i.i, label %459, label %404, !llvm.loop !206
@@ -2310,7 +2310,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %459, %392, %391, %380
-  %.1212.i.i = phi double [ %461, %459 ], [ -1.000000e+00, %392 ], [ -1.000000e+00, %391 ], [ -1.000000e+00, %380 ]
+  %.1212.i.i = phi double [ %461, %459 ], [ -1.000000e+00, %392 ], [ -1.000000e+00, %380 ], [ -1.000000e+00, %391 ]
   br i1 %.not, label %469, label %462
 
 462:                                              ; preds = %.thread.i.i
@@ -2908,7 +2908,7 @@ opj_tcd_t2_encode.exit.thread:                    ; preds = %.split65, %.split, 
   br label %opj_tcd_mct_encode.exit.thread96
 
 opj_tcd_mct_encode.exit.thread96:                 ; preds = %181, %183, %142, %opj_tcd_t2_encode.exit.thread, %opj_tcd_t2_encode.exit, %opj_tcd_rate_allocate_encode.exit.thread104, %._crit_edge, %opj_tcd_t1_encode.exit, %opj_tcd_mct_encode.exit
-  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %opj_tcd_mct_encode.exit ], [ 0, %opj_tcd_t1_encode.exit ], [ 0, %opj_tcd_rate_allocate_encode.exit.thread104 ], [ 0, %opj_tcd_t2_encode.exit.thread ], [ 1, %opj_tcd_t2_encode.exit ], [ 0, %142 ], [ 0, %183 ], [ 0, %181 ]
+  %.1 = phi i32 [ 0, %opj_tcd_rate_allocate_encode.exit.thread104 ], [ 1, %opj_tcd_t2_encode.exit ], [ 0, %opj_tcd_t1_encode.exit ], [ 0, %142 ], [ 0, %opj_tcd_mct_encode.exit ], [ 0, %._crit_edge ], [ 0, %opj_tcd_t2_encode.exit.thread ], [ 0, %183 ], [ 0, %181 ]
   ret i32 %.1
 }
 
@@ -3220,7 +3220,7 @@ opj_alloc_tile_component_data.exit:               ; preds = %._crit_edge.i, %183
   %186 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %11, i32 noundef 1, ptr noundef nonnull @.str) #16
   br label %.critedge
 
-opj_alloc_tile_component_data.exit.thread:        ; preds = %168, %177, %184, %150
+opj_alloc_tile_component_data.exit.thread:        ; preds = %168, %184, %177, %150
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %187 = load ptr, ptr %44, align 8, !tbaa !15
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
@@ -4100,7 +4100,7 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   br label %725
 
 725:                                              ; preds = %717, %715, %712
-  %.076.sink.i = phi i32 [ %724, %717 ], [ %.077.i, %715 ], [ %.076.i, %712 ]
+  %.076.sink.i = phi i32 [ %.077.i, %715 ], [ %724, %717 ], [ %.076.i, %712 ]
   store i32 %.076.sink.i, ptr %.4101.us.i, align 4, !tbaa !101
   %726 = getelementptr inbounds nuw i8, ptr %.4101.us.i, i64 4
   %727 = add nuw i32 %.182100.us.i, 1
@@ -4149,8 +4149,8 @@ opj_tcd_mct_decode.exit:                          ; preds = %._crit_edge.i221, %
   %744 = icmp samesign ult i64 %indvars.iv.next.i228, %743
   br i1 %744, label %644, label %.critedge, !llvm.loop !251
 
-.critedge:                                        ; preds = %401, %403, %.loopexit.i, %571, %452, %.critedge.i, %.critedge153.i, %._crit_edge.i221, %.loopexit260, %opj_alloc_tile_component_data.exit, %160, %155, %opj_tcd_mct_decode.exit, %364, %370, %270, %30, %opj_tcd_t1_decode.exit, %opj_tcd_t2_decode.exit
-  %.2 = phi i32 [ 0, %270 ], [ 0, %opj_tcd_t2_decode.exit ], [ 0, %opj_tcd_t1_decode.exit ], [ 0, %30 ], [ 0, %370 ], [ 0, %364 ], [ 1, %opj_tcd_mct_decode.exit ], [ 0, %155 ], [ 0, %160 ], [ 0, %opj_alloc_tile_component_data.exit ], [ 0, %.loopexit260 ], [ 0, %._crit_edge.i221 ], [ 0, %.critedge153.i ], [ 0, %.critedge.i ], [ 0, %452 ], [ 0, %571 ], [ 1, %.loopexit.i ], [ 0, %403 ], [ 0, %401 ]
+.critedge:                                        ; preds = %401, %403, %.loopexit.i, %571, %452, %.critedge.i, %._crit_edge.i221, %.critedge153.i, %.loopexit260, %opj_alloc_tile_component_data.exit, %160, %155, %opj_tcd_mct_decode.exit, %364, %370, %270, %30, %opj_tcd_t1_decode.exit, %opj_tcd_t2_decode.exit
+  %.2 = phi i32 [ 0, %364 ], [ 0, %30 ], [ 0, %.loopexit260 ], [ 0, %opj_tcd_t1_decode.exit ], [ 0, %opj_alloc_tile_component_data.exit ], [ 0, %opj_tcd_t2_decode.exit ], [ 0, %270 ], [ 0, %370 ], [ 1, %opj_tcd_mct_decode.exit ], [ 0, %155 ], [ 0, %160 ], [ 0, %.critedge153.i ], [ 0, %._crit_edge.i221 ], [ 0, %.critedge.i ], [ 0, %452 ], [ 0, %571 ], [ 1, %.loopexit.i ], [ 0, %403 ], [ 0, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.2
 }
@@ -4563,7 +4563,7 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   br i1 %exitcond.not, label %.loopexit, label %190, !llvm.loop !260
 
 .loopexit:                                        ; preds = %190, %._crit_edge.us, %._crit_edge.us180, %._crit_edge.us192, %._crit_edge.us204, %.preheader144.lr.ph, %.preheader145.lr.ph, %.preheader.lr.ph, %.preheader143.lr.ph, %.preheader153, %.preheader151, %.preheader149, %.preheader147, %.preheader146, %140
-  %.1 = phi ptr [ %.0102209, %140 ], [ %.0102209, %.preheader146 ], [ %.0102209, %.preheader147 ], [ %.0102209, %.preheader149 ], [ %.0102209, %.preheader151 ], [ %.0102209, %.preheader153 ], [ %.0102209, %.preheader143.lr.ph ], [ %.0102209, %.preheader.lr.ph ], [ %.0102209, %.preheader145.lr.ph ], [ %.0102209, %.preheader144.lr.ph ], [ %165, %._crit_edge.us204 ], [ %156, %._crit_edge.us192 ], [ %186, %._crit_edge.us180 ], [ %177, %._crit_edge.us ], [ %191, %190 ]
+  %.1 = phi ptr [ %.0102209, %140 ], [ %.0102209, %.preheader146 ], [ %.0102209, %.preheader147 ], [ %.0102209, %.preheader149 ], [ %.0102209, %.preheader151 ], [ %.0102209, %.preheader153 ], [ %.0102209, %.preheader143.lr.ph ], [ %.0102209, %.preheader144.lr.ph ], [ %.0102209, %.preheader145.lr.ph ], [ %.0102209, %.preheader.lr.ph ], [ %177, %._crit_edge.us ], [ %165, %._crit_edge.us204 ], [ %156, %._crit_edge.us192 ], [ %186, %._crit_edge.us180 ], [ %191, %190 ]
   %194 = getelementptr inbounds nuw i8, ptr %.0130206, i64 64
   %195 = getelementptr inbounds nuw i8, ptr %.0129207, i64 112
   %196 = add nuw i32 %.0122208, 1
@@ -4573,8 +4573,8 @@ opj_tcd_get_decoded_tile_size.exit:               ; preds = %82, %47
   %200 = icmp ult i32 %196, %199
   br i1 %200, label %97, label %opj_tcd_get_decoded_tile_size.exit.thread, !llvm.loop !261
 
-opj_tcd_get_decoded_tile_size.exit.thread:        ; preds = %74, %77, %78, %43, %42, %39, %.loopexit, %opj_tcd_get_decoded_tile_size.exit, %3
-  %.0101 = phi i32 [ %.mux, %opj_tcd_get_decoded_tile_size.exit ], [ 1, %3 ], [ 1, %.loopexit ], [ 0, %39 ], [ 0, %42 ], [ 0, %43 ], [ 0, %78 ], [ 0, %77 ], [ 0, %74 ]
+opj_tcd_get_decoded_tile_size.exit.thread:        ; preds = %78, %77, %74, %43, %42, %39, %.loopexit, %opj_tcd_get_decoded_tile_size.exit, %3
+  %.0101 = phi i32 [ %.mux, %opj_tcd_get_decoded_tile_size.exit ], [ 1, %3 ], [ 0, %43 ], [ 1, %.loopexit ], [ 0, %39 ], [ 0, %42 ], [ 0, %74 ], [ 0, %77 ], [ 0, %78 ]
   ret i32 %.0101
 }
 
@@ -4849,7 +4849,7 @@ opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !268
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph92, %.lr.ph97, %.lr.ph102, %.lr.ph107, %94, %.preheader82, %.preheader80, %.preheader78, %.preheader, %.lr.ph113
-  %.167 = phi ptr [ %.066112, %.lr.ph113 ], [ %.066112, %.preheader ], [ %.066112, %.preheader78 ], [ %.066112, %.preheader80 ], [ %.066112, %.preheader82 ], [ %.066112, %94 ], [ %74, %.lr.ph107 ], [ %69, %.lr.ph102 ], [ %89, %.lr.ph97 ], [ %84, %.lr.ph92 ], [ %97, %.lr.ph ]
+  %.167 = phi ptr [ %.066112, %.lr.ph113 ], [ %.066112, %.preheader ], [ %.066112, %.preheader78 ], [ %.066112, %.preheader80 ], [ %.066112, %.preheader82 ], [ %.066112, %94 ], [ %84, %.lr.ph92 ], [ %74, %.lr.ph107 ], [ %69, %.lr.ph102 ], [ %89, %.lr.ph97 ], [ %97, %.lr.ph ]
   %101 = getelementptr inbounds nuw i8, ptr %.070110, i64 64
   %102 = getelementptr inbounds nuw i8, ptr %.069111, i64 112
   %103 = add nuw i32 %.071109, 1
@@ -4858,7 +4858,7 @@ opj_tcd_get_encoder_input_buffer_size.exit.thread: ; preds = %.lr.ph.i
   br i1 %105, label %.lr.ph113, label %.loopexit85, !llvm.loop !269
 
 .loopexit85:                                      ; preds = %.loopexit, %opj_tcd_get_encoder_input_buffer_size.exit, %opj_tcd_get_encoder_input_buffer_size.exit.thread
-  %.065 = phi i32 [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ %spec.select146, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 1, %.loopexit ]
+  %.065 = phi i32 [ %spec.select146, %opj_tcd_get_encoder_input_buffer_size.exit ], [ 0, %opj_tcd_get_encoder_input_buffer_size.exit.thread ], [ 1, %.loopexit ]
   ret i32 %.065
 }
 
@@ -4976,7 +4976,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   br label %89
 
 89:                                               ; preds = %81, %77
-  %.ph = phi i32 [ 0, %77 ], [ %88, %81 ]
+  %.ph = phi i32 [ %88, %81 ], [ 0, %77 ]
   %90 = shl i32 %75, %79
   %.not95 = icmp ugt i32 %51, %90
   br i1 %.not95, label %91, label %99
@@ -4993,7 +4993,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   br label %99
 
 99:                                               ; preds = %91, %89
-  %.ph100 = phi i32 [ 0, %89 ], [ %98, %91 ]
+  %.ph100 = phi i32 [ %98, %91 ], [ 0, %89 ]
   %.not96 = icmp ugt i32 %60, %80
   br i1 %.not96, label %100, label %108
 
@@ -5009,7 +5009,7 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   br label %108
 
 108:                                              ; preds = %100, %99
-  %.ph103 = phi i32 [ 0, %99 ], [ %107, %100 ]
+  %.ph103 = phi i32 [ %107, %100 ], [ 0, %99 ]
   %.not97 = icmp ugt i32 %69, %90
   br i1 %.not97, label %109, label %117
 
@@ -5025,10 +5025,10 @@ define hidden range(i32 0, 2) i32 @opj_tcd_is_subband_area_of_interest(ptr nound
   br label %117
 
 117:                                              ; preds = %8, %109, %108
-  %118 = phi i32 [ %.ph103, %109 ], [ %.ph103, %108 ], [ %60, %8 ]
-  %119 = phi i32 [ %.ph, %109 ], [ %.ph, %108 ], [ %38, %8 ]
-  %120 = phi i32 [ %.ph100, %109 ], [ %.ph100, %108 ], [ %51, %8 ]
-  %121 = phi i32 [ %116, %109 ], [ 0, %108 ], [ %69, %8 ]
+  %118 = phi i32 [ %.ph103, %108 ], [ %.ph103, %109 ], [ %60, %8 ]
+  %119 = phi i32 [ %.ph, %108 ], [ %.ph, %109 ], [ %38, %8 ]
+  %120 = phi i32 [ %.ph100, %108 ], [ %.ph100, %109 ], [ %51, %8 ]
+  %121 = phi i32 [ 0, %108 ], [ %116, %109 ], [ %69, %8 ]
   %122 = icmp eq i32 %16, 1
   %123 = select i1 %122, i32 2, i32 3
   %.0 = tail call i32 @llvm.usub.sat.i32(i32 %119, i32 %123)

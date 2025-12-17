@@ -931,7 +931,7 @@ _ZN5zxing6qrcode22AlignmentPatternFinder17foundPatternCrossERSt6vectorIiSaIiEE.e
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %47, %.noexc, %_ZN5zxing6qrcode22AlignmentPatternFinder17foundPatternCrossERSt6vectorIiSaIiEE.exit, %65, %.critedge6, %.critedge4, %.critedge2, %26, %83
-  %.0 = phi float [ %88, %83 ], [ 0x7FF8000000000000, %26 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge4 ], [ 0x7FF8000000000000, %.critedge6 ], [ 0x7FF8000000000000, %65 ], [ 0x7FF8000000000000, %_ZN5zxing6qrcode22AlignmentPatternFinder17foundPatternCrossERSt6vectorIiSaIiEE.exit ], [ 0x7FF8000000000000, %.noexc ], [ 0x7FF8000000000000, %47 ], [ 0x7FF8000000000000, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
+  %.0 = phi float [ 0x7FF8000000000000, %65 ], [ 0x7FF8000000000000, %26 ], [ 0x7FF8000000000000, %.critedge2 ], [ 0x7FF8000000000000, %.critedge4 ], [ 0x7FF8000000000000, %.critedge6 ], [ %88, %83 ], [ 0x7FF8000000000000, %_ZN5zxing6qrcode22AlignmentPatternFinder17foundPatternCrossERSt6vectorIiSaIiEE.exit ], [ 0x7FF8000000000000, %.noexc ], [ 0x7FF8000000000000, %47 ], [ 0x7FF8000000000000, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ]
   tail call void @_ZdlPv(ptr noundef nonnull %8) #18
   ret float %.0
 }

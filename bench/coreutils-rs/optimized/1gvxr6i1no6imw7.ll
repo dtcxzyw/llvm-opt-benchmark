@@ -785,7 +785,7 @@ define void @_ZN11uu_basename6uu_app17h37a7ad3c5727968aE(ptr noalias noundef wri
   ret void
 
 .body:                                            ; preds = %230, %180, %114, %106, %54, %242, %241, %239, %238, %235
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body83.ph, %235 ], [ %eh.lpad-body47.ph, %238 ], [ %240, %239 ], [ %eh.lpad-body35.ph, %241 ], [ %243, %242 ], [ %55, %54 ], [ %107, %106 ], [ %115, %114 ], [ %181, %180 ], [ %231, %230 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body83.ph, %235 ], [ %181, %180 ], [ %eh.lpad-body47.ph, %238 ], [ %115, %114 ], [ %240, %239 ], [ %107, %106 ], [ %eh.lpad-body35.ph, %241 ], [ %55, %54 ], [ %243, %242 ], [ %231, %230 ]
   resume { ptr, i32 } %.pn
 
 235:                                              ; preds = %185, %189, %217
@@ -800,7 +800,7 @@ define void @_ZN11uu_basename6uu_app17h37a7ad3c5727968aE(ptr noalias noundef wri
   unreachable
 
 238:                                              ; preds = %119, %123, %139, %167
-  %eh.lpad-body47.ph = phi { ptr, i32 } [ %120, %119 ], [ %.pn.i.i, %123 ], [ %.pn.i50, %139 ], [ %168, %167 ]
+  %eh.lpad-body47.ph = phi { ptr, i32 } [ %120, %119 ], [ %.pn.i50, %139 ], [ %.pn.i.i, %123 ], [ %168, %167 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17ha44f4938dbb510ebE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %32) #9
           to label %.body unwind label %236
 
@@ -1007,8 +1007,8 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias noundef w
   ret void
 
 62:                                               ; preds = %53, %52, %51, %49, %43
-  %.sroa.8.0.i = phi i64 [ %.sroa.11.0.copyload, %49 ], [ 1, %51 ], [ 2, %52 ], [ %.sroa.8.0.copyload, %53 ], [ %47, %43 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.10.0.copyload, %49 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.2, %51 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.3, %52 ], [ %.sroa.7.0.copyload, %53 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.1, %43 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.11.0.copyload, %49 ], [ %.sroa.8.0.copyload, %53 ], [ 1, %51 ], [ 2, %52 ], [ %47, %43 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.10.0.copyload, %49 ], [ %.sroa.7.0.copyload, %53 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.2, %51 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.3, %52 ], [ @anon.9bd705c0cf85b3ff099adf8f8acc5f8f.1, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN3std3sys6os_str5bytes5Slice6to_str17hfbea1558dfe8d31cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.8.0.i)
           to label %63 unwind label %.loopexit.split-lp

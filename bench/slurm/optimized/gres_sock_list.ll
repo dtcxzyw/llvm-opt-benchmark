@@ -518,7 +518,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   br i1 %or.cond418.i, label %_can_use_gres_exc_topo.exit.thread.i, label %264
 
 264:                                              ; preds = %258, %255, %251, %249, %248
-  %.1336.i = phi i64 [ %.0335.i, %255 ], [ %.0335.i, %251 ], [ %.0335.i, %249 ], [ %.0335.i, %248 ], [ %262, %258 ]
+  %.1336.i = phi i64 [ %262, %258 ], [ %.0335.i, %255 ], [ %.0335.i, %251 ], [ %.0335.i, %249 ], [ %.0335.i, %248 ]
   %.1336.i.fr = freeze i64 %.1336.i
   %265 = load i32, ptr %103, align 8
   %266 = call zeroext i1 @gres_id_shared(i32 noundef %265) #5
@@ -784,7 +784,7 @@ _can_use_gres_exc_topo.exit.thread3._crit_edge.i: ; preds = %_can_use_gres_exc_t
   br label %.thread33.i
 
 _can_use_gres_exc_topo.exit.thread.i:             ; preds = %.loopexit46.us.i, %327, %326, %.loopexit46.us.thread.i, %313, %312, %310, %258, %246, %_can_use_gres_exc_topo.exit.i, %230, %227, %224, %219, %216, %213, %190, %181, %175
-  %.2329.ph.i = phi i1 [ true, %310 ], [ true, %312 ], [ %.032777.i, %258 ], [ %.032777.i, %246 ], [ %.032777.i, %_can_use_gres_exc_topo.exit.i ], [ %.032777.i, %190 ], [ %.032777.i, %181 ], [ %.032777.i, %175 ], [ %.032777.i, %216 ], [ %.032777.i, %219 ], [ %.032777.i, %213 ], [ %.032777.i, %227 ], [ %.032777.i, %230 ], [ %.032777.i, %224 ], [ %.032777.i, %313 ], [ true, %.loopexit46.us.thread.i ], [ %.032777.i, %326 ], [ %.032777.i, %327 ], [ %.032777.i, %.loopexit46.us.i ]
+  %.2329.ph.i = phi i1 [ %.032777.i, %181 ], [ true, %312 ], [ %.032777.i, %190 ], [ true, %310 ], [ %.032777.i, %258 ], [ %.032777.i, %246 ], [ %.032777.i, %_can_use_gres_exc_topo.exit.i ], [ %.032777.i, %175 ], [ %.032777.i, %224 ], [ %.032777.i, %213 ], [ %.032777.i, %216 ], [ %.032777.i, %219 ], [ %.032777.i, %227 ], [ %.032777.i, %230 ], [ %.032777.i, %313 ], [ true, %.loopexit46.us.thread.i ], [ %.032777.i, %327 ], [ %.032777.i, %326 ], [ %.032777.i, %.loopexit46.us.i ]
   %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
   %360 = load i16, ptr %160, align 8
   %361 = zext i16 %360 to i64
@@ -1347,7 +1347,7 @@ _handle_gres_exc_by_type.exit.us.i:               ; preds = %555
   br label %_handle_gres_exc_by_type.exit.i
 
 _handle_gres_exc_by_type.exit.i:                  ; preds = %617, %614, %607, %606, %598
-  %.04.i = phi i64 [ %storemerge.i, %598 ], [ %.sink.i.i, %607 ], [ %.sink.i.i, %617 ], [ %.sink.i.i, %614 ], [ %spec.select5.i, %606 ]
+  %.04.i = phi i64 [ %spec.select5.i, %606 ], [ %storemerge.i, %598 ], [ %.sink.i.i, %607 ], [ %.sink.i.i, %617 ], [ %.sink.i.i, %614 ]
   %618 = load i64, ptr %522, align 8
   br i1 %3, label %622, label %619
 
@@ -1380,7 +1380,7 @@ _handle_gres_exc_by_type.exit.i:                  ; preds = %617, %614, %607, %6
   br i1 %633, label %.lr.ph.split.i, label %._crit_edge.i157, !llvm.loop !26
 
 ._crit_edge.i157:                                 ; preds = %630, %573, %544
-  %.0.lcssa.i = phi i1 [ %.1.us.us.i, %544 ], [ %.1.us.i162, %573 ], [ %.1.i, %630 ]
+  %.0.lcssa.i = phi i1 [ %.1.us.i162, %573 ], [ %.1.us.us.i, %544 ], [ %.1.i, %630 ]
   br i1 %.0.lcssa.i, label %_build_sock_gres_by_type.exit, label %.critedge10.i
 
 .critedge10.i:                                    ; preds = %._crit_edge.i157, %509
@@ -1501,7 +1501,7 @@ _handle_gres_exc_basic.exit.i:                    ; preds = %677, %674, %671, %6
   br label %_build_sock_gres_by_topo.exit.thread184
 
 _build_sock_gres_by_topo.exit:                    ; preds = %._crit_edge107.i, %_build_sock_gres_by_type.exit
-  %.0109 = phi ptr [ %634, %_build_sock_gres_by_type.exit ], [ %154, %._crit_edge107.i ]
+  %.0109 = phi ptr [ %154, %._crit_edge107.i ], [ %634, %_build_sock_gres_by_type.exit ]
   %.not143 = icmp eq ptr %.0109, null
   br i1 %.not143, label %_build_sock_gres_by_topo.exit.thread, label %_build_sock_gres_by_topo.exit.thread184
 
@@ -1682,7 +1682,7 @@ _sock_gres_log.exit:                              ; preds = %693, %._crit_edge.i
   br label %767
 
 767:                                              ; preds = %.thread, %_sock_gres_log.exit, %38, %34, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %34 ], [ null, %38 ], [ %.1, %_sock_gres_log.exit ], [ %.1, %.thread ]
+  %.0 = phi ptr [ null, %34 ], [ null, %38 ], [ null, %37 ], [ %.1, %_sock_gres_log.exit ], [ %.1, %.thread ]
   ret ptr %.0
 }
 
@@ -1908,7 +1908,7 @@ _pick_core_group.exit.us60.us.us.us.us.loopexit.i: ; preds = %.outer.i.us.us.us.
   br label %_pick_core_group.exit.us60.us.us.us.us.i
 
 _pick_core_group.exit.us60.us.us.us.us.i:         ; preds = %_pick_core_group.exit.us60.us.us.us.us.loopexit.i, %.outer._crit_edge.loopexit.i.us.us.us.us.us.i, %71
-  %.0.ph.lcssa.i.us.us.us.us.us.i = phi i32 [ 0, %71 ], [ %91, %.outer._crit_edge.loopexit.i.us.us.us.us.us.i ], [ %indvars.i, %_pick_core_group.exit.us60.us.us.us.us.loopexit.i ]
+  %.0.ph.lcssa.i.us.us.us.us.us.i = phi i32 [ %91, %.outer._crit_edge.loopexit.i.us.us.us.us.us.i ], [ 0, %71 ], [ %indvars.i, %_pick_core_group.exit.us60.us.us.us.us.loopexit.i ]
   %92 = icmp eq i32 %.0.ph.lcssa.i.us.us.us.us.us.i, %48
   br i1 %92, label %93, label %.critedge.us.us.us.us.us.i
 

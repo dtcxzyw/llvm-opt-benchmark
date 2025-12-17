@@ -4246,7 +4246,7 @@ define hidden noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev20CreateScanlineHelpe
   br label %191
 
 190:                                              ; preds = %176, %172, %168, %164, %160, %156, %146, %142, %138, %134, %130, %126, %116, %112, %108, %104, %100, %96, %86, %82, %78, %74, %70, %66, %56, %52, %48, %44, %40, %36, %26, %22, %18, %14, %10, %6
-  %.082 = phi ptr [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ %27, %26 ], [ %37, %36 ], [ %41, %40 ], [ %45, %44 ], [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %67, %66 ], [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ %83, %82 ], [ %87, %86 ], [ %97, %96 ], [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %127, %126 ], [ %131, %130 ], [ %135, %134 ], [ %139, %138 ], [ %143, %142 ], [ %147, %146 ], [ %157, %156 ], [ %161, %160 ], [ %165, %164 ], [ %169, %168 ], [ %173, %172 ], [ %177, %176 ]
+  %.082 = phi ptr [ %173, %172 ], [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ %27, %26 ], [ %37, %36 ], [ %41, %40 ], [ %45, %44 ], [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %67, %66 ], [ %71, %70 ], [ %75, %74 ], [ %79, %78 ], [ %83, %82 ], [ %87, %86 ], [ %97, %96 ], [ %101, %100 ], [ %105, %104 ], [ %109, %108 ], [ %113, %112 ], [ %117, %116 ], [ %127, %126 ], [ %131, %130 ], [ %135, %134 ], [ %139, %138 ], [ %143, %142 ], [ %147, %146 ], [ %157, %156 ], [ %161, %160 ], [ %165, %164 ], [ %169, %168 ], [ %177, %176 ]
   ret ptr %.082
 
 191:                                              ; preds = %188, %183, %178, %174, %170, %166, %162, %158, %153, %148, %144, %140, %136, %132, %128, %123, %118, %114, %110, %106, %102, %98, %93, %88, %84, %80, %76, %72, %68, %63, %58, %54, %50, %46, %42, %38, %33, %28, %24, %20, %16, %12, %8
@@ -6980,7 +6980,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev12BitDepthCastILNS_8Bi
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %21, %24, %34, %36, %45, %59, %62
-  %.0.i.i.i = phi i16 [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %17, %45 ], [ %63, %62 ], [ %57, %59 ]
+  %.0.i.i.i = phi i16 [ %17, %45 ], [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %63, %62 ], [ %57, %59 ]
   store i16 %.0.i.i.i, ptr %.01833, align 2, !tbaa !313
   %64 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !207
@@ -7063,7 +7063,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds = %77, %80, %90, %92, %101, %115, %118
-  %.0.i.i.i22 = phi i16 [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %73, %101 ], [ %119, %118 ], [ %113, %115 ]
+  %.0.i.i.i22 = phi i16 [ %73, %101 ], [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %119, %118 ], [ %113, %115 ]
   %120 = getelementptr inbounds nuw i8, ptr %.01833, i64 2
   store i16 %.0.i.i.i22, ptr %120, align 2, !tbaa !313
   %121 = getelementptr inbounds nuw i8, ptr %.034, i64 2
@@ -7147,7 +7147,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %134, %137, %147, %149, %158, %172, %175
-  %.0.i.i.i26 = phi i16 [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %130, %158 ], [ %176, %175 ], [ %170, %172 ]
+  %.0.i.i.i26 = phi i16 [ %130, %158 ], [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %176, %175 ], [ %170, %172 ]
   %177 = getelementptr inbounds nuw i8, ptr %.01833, i64 4
   store i16 %.0.i.i.i26, ptr %177, align 2, !tbaa !313
   %178 = getelementptr inbounds nuw i8, ptr %.034, i64 3
@@ -7231,7 +7231,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31: ; preds = %191, %194, %204, %206, %215, %229, %232
-  %.0.i.i.i30 = phi i16 [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %187, %215 ], [ %233, %232 ], [ %227, %229 ]
+  %.0.i.i.i30 = phi i16 [ %187, %215 ], [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %233, %232 ], [ %227, %229 ]
   %234 = getelementptr inbounds nuw i8, ptr %.01833, i64 6
   store i16 %.0.i.i.i30, ptr %234, align 2, !tbaa !313
   %235 = getelementptr inbounds nuw i8, ptr %.034, i64 4
@@ -8120,7 +8120,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev12BitDepthCastILNS_8Bi
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %21, %24, %34, %36, %45, %59, %62
-  %.0.i.i.i = phi i16 [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %17, %45 ], [ %63, %62 ], [ %57, %59 ]
+  %.0.i.i.i = phi i16 [ %17, %45 ], [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %63, %62 ], [ %57, %59 ]
   store i16 %.0.i.i.i, ptr %.01833, align 2, !tbaa !313
   %64 = getelementptr inbounds nuw i8, ptr %.034, i64 2
   %65 = load i16, ptr %64, align 2, !tbaa !313
@@ -8203,7 +8203,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds = %77, %80, %90, %92, %101, %115, %118
-  %.0.i.i.i22 = phi i16 [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %73, %101 ], [ %119, %118 ], [ %113, %115 ]
+  %.0.i.i.i22 = phi i16 [ %73, %101 ], [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %119, %118 ], [ %113, %115 ]
   %120 = getelementptr inbounds nuw i8, ptr %.01833, i64 2
   store i16 %.0.i.i.i22, ptr %120, align 2, !tbaa !313
   %121 = getelementptr inbounds nuw i8, ptr %.034, i64 4
@@ -8287,7 +8287,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %134, %137, %147, %149, %158, %172, %175
-  %.0.i.i.i26 = phi i16 [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %130, %158 ], [ %176, %175 ], [ %170, %172 ]
+  %.0.i.i.i26 = phi i16 [ %130, %158 ], [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %176, %175 ], [ %170, %172 ]
   %177 = getelementptr inbounds nuw i8, ptr %.01833, i64 4
   store i16 %.0.i.i.i26, ptr %177, align 2, !tbaa !313
   %178 = getelementptr inbounds nuw i8, ptr %.034, i64 6
@@ -8371,7 +8371,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31: ; preds = %191, %194, %204, %206, %215, %229, %232
-  %.0.i.i.i30 = phi i16 [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %187, %215 ], [ %233, %232 ], [ %227, %229 ]
+  %.0.i.i.i30 = phi i16 [ %187, %215 ], [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %233, %232 ], [ %227, %229 ]
   %234 = getelementptr inbounds nuw i8, ptr %.01833, i64 6
   store i16 %.0.i.i.i30, ptr %234, align 2, !tbaa !313
   %235 = getelementptr inbounds nuw i8, ptr %.034, i64 8
@@ -9260,7 +9260,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev12BitDepthCastILNS_8Bi
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %21, %24, %34, %36, %45, %59, %62
-  %.0.i.i.i = phi i16 [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %17, %45 ], [ %63, %62 ], [ %57, %59 ]
+  %.0.i.i.i = phi i16 [ %17, %45 ], [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %63, %62 ], [ %57, %59 ]
   store i16 %.0.i.i.i, ptr %.01833, align 2, !tbaa !313
   %64 = getelementptr inbounds nuw i8, ptr %.034, i64 2
   %65 = load i16, ptr %64, align 2, !tbaa !313
@@ -9343,7 +9343,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds = %77, %80, %90, %92, %101, %115, %118
-  %.0.i.i.i22 = phi i16 [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %73, %101 ], [ %119, %118 ], [ %113, %115 ]
+  %.0.i.i.i22 = phi i16 [ %73, %101 ], [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %119, %118 ], [ %113, %115 ]
   %120 = getelementptr inbounds nuw i8, ptr %.01833, i64 2
   store i16 %.0.i.i.i22, ptr %120, align 2, !tbaa !313
   %121 = getelementptr inbounds nuw i8, ptr %.034, i64 4
@@ -9427,7 +9427,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %134, %137, %147, %149, %158, %172, %175
-  %.0.i.i.i26 = phi i16 [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %130, %158 ], [ %176, %175 ], [ %170, %172 ]
+  %.0.i.i.i26 = phi i16 [ %130, %158 ], [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %176, %175 ], [ %170, %172 ]
   %177 = getelementptr inbounds nuw i8, ptr %.01833, i64 4
   store i16 %.0.i.i.i26, ptr %177, align 2, !tbaa !313
   %178 = getelementptr inbounds nuw i8, ptr %.034, i64 6
@@ -9511,7 +9511,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31: ; preds = %191, %194, %204, %206, %215, %229, %232
-  %.0.i.i.i30 = phi i16 [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %187, %215 ], [ %233, %232 ], [ %227, %229 ]
+  %.0.i.i.i30 = phi i16 [ %187, %215 ], [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %233, %232 ], [ %227, %229 ]
   %234 = getelementptr inbounds nuw i8, ptr %.01833, i64 6
   store i16 %.0.i.i.i30, ptr %234, align 2, !tbaa !313
   %235 = getelementptr inbounds nuw i8, ptr %.034, i64 8
@@ -10400,7 +10400,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev12BitDepthCastILNS_8Bi
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %21, %24, %34, %36, %45, %59, %62
-  %.0.i.i.i = phi i16 [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %17, %45 ], [ %63, %62 ], [ %57, %59 ]
+  %.0.i.i.i = phi i16 [ %17, %45 ], [ %31, %24 ], [ %35, %34 ], [ %44, %36 ], [ %22, %21 ], [ %63, %62 ], [ %57, %59 ]
   store i16 %.0.i.i.i, ptr %.01833, align 2, !tbaa !313
   %64 = getelementptr inbounds nuw i8, ptr %.034, i64 2
   %65 = load i16, ptr %64, align 2, !tbaa !313
@@ -10483,7 +10483,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds = %77, %80, %90, %92, %101, %115, %118
-  %.0.i.i.i22 = phi i16 [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %73, %101 ], [ %119, %118 ], [ %113, %115 ]
+  %.0.i.i.i22 = phi i16 [ %73, %101 ], [ %87, %80 ], [ %91, %90 ], [ %100, %92 ], [ %78, %77 ], [ %119, %118 ], [ %113, %115 ]
   %120 = getelementptr inbounds nuw i8, ptr %.01833, i64 2
   store i16 %.0.i.i.i22, ptr %120, align 2, !tbaa !313
   %121 = getelementptr inbounds nuw i8, ptr %.034, i64 4
@@ -10567,7 +10567,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %134, %137, %147, %149, %158, %172, %175
-  %.0.i.i.i26 = phi i16 [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %130, %158 ], [ %176, %175 ], [ %170, %172 ]
+  %.0.i.i.i26 = phi i16 [ %130, %158 ], [ %144, %137 ], [ %148, %147 ], [ %157, %149 ], [ %135, %134 ], [ %176, %175 ], [ %170, %172 ]
   %177 = getelementptr inbounds nuw i8, ptr %.01833, i64 4
   store i16 %.0.i.i.i26, ptr %177, align 2, !tbaa !313
   %178 = getelementptr inbounds nuw i8, ptr %.034, i64 6
@@ -10651,7 +10651,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31: ; preds = %191, %194, %204, %206, %215, %229, %232
-  %.0.i.i.i30 = phi i16 [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %187, %215 ], [ %233, %232 ], [ %227, %229 ]
+  %.0.i.i.i30 = phi i16 [ %187, %215 ], [ %201, %194 ], [ %205, %204 ], [ %214, %206 ], [ %192, %191 ], [ %233, %232 ], [ %227, %229 ]
   %234 = getelementptr inbounds nuw i8, ptr %.01833, i64 6
   store i16 %.0.i.i.i30, ptr %234, align 2, !tbaa !313
   %235 = getelementptr inbounds nuw i8, ptr %.034, i64 8
@@ -12172,7 +12172,7 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %18, %20, %22, %23
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %42, %45, %55, %57, %66, %80, %83
-  %.0.i.i.i = phi i16 [ %52, %45 ], [ %56, %55 ], [ %65, %57 ], [ %43, %42 ], [ %38, %66 ], [ %84, %83 ], [ %78, %80 ]
+  %.0.i.i.i = phi i16 [ %38, %66 ], [ %52, %45 ], [ %56, %55 ], [ %65, %57 ], [ %43, %42 ], [ %84, %83 ], [ %78, %80 ]
   store i16 %.0.i.i.i, ptr %.01845, align 2, !tbaa !313
   %85 = getelementptr inbounds nuw i8, ptr %.046, i64 2
   %86 = load i16, ptr %85, align 2, !tbaa !338
@@ -12292,7 +12292,7 @@ _ZNK9Imath_3_14halfcvfEv.exit23:                  ; preds = %95, %97, %99, %100
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %119, %122, %132, %134, %143, %157, %160
-  %.0.i.i.i26 = phi i16 [ %129, %122 ], [ %133, %132 ], [ %142, %134 ], [ %120, %119 ], [ %115, %143 ], [ %161, %160 ], [ %155, %157 ]
+  %.0.i.i.i26 = phi i16 [ %115, %143 ], [ %129, %122 ], [ %133, %132 ], [ %142, %134 ], [ %120, %119 ], [ %161, %160 ], [ %155, %157 ]
   %162 = getelementptr inbounds nuw i8, ptr %.01845, i64 2
   store i16 %.0.i.i.i26, ptr %162, align 2, !tbaa !313
   %163 = getelementptr inbounds nuw i8, ptr %.046, i64 4
@@ -12413,7 +12413,7 @@ _ZNK9Imath_3_14halfcvfEv.exit31:                  ; preds = %173, %175, %177, %1
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit35
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit35: ; preds = %197, %200, %210, %212, %221, %235, %238
-  %.0.i.i.i34 = phi i16 [ %207, %200 ], [ %211, %210 ], [ %220, %212 ], [ %198, %197 ], [ %193, %221 ], [ %239, %238 ], [ %233, %235 ]
+  %.0.i.i.i34 = phi i16 [ %193, %221 ], [ %207, %200 ], [ %211, %210 ], [ %220, %212 ], [ %198, %197 ], [ %239, %238 ], [ %233, %235 ]
   %240 = getelementptr inbounds nuw i8, ptr %.01845, i64 4
   store i16 %.0.i.i.i34, ptr %240, align 2, !tbaa !313
   %241 = getelementptr inbounds nuw i8, ptr %.046, i64 6
@@ -12534,7 +12534,7 @@ _ZNK9Imath_3_14halfcvfEv.exit39:                  ; preds = %251, %253, %255, %2
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit43
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit43: ; preds = %275, %278, %288, %290, %299, %313, %316
-  %.0.i.i.i42 = phi i16 [ %285, %278 ], [ %289, %288 ], [ %298, %290 ], [ %276, %275 ], [ %271, %299 ], [ %317, %316 ], [ %311, %313 ]
+  %.0.i.i.i42 = phi i16 [ %271, %299 ], [ %285, %278 ], [ %289, %288 ], [ %298, %290 ], [ %276, %275 ], [ %317, %316 ], [ %311, %313 ]
   %318 = getelementptr inbounds nuw i8, ptr %.01845, i64 6
   store i16 %.0.i.i.i42, ptr %318, align 2, !tbaa !313
   %319 = getelementptr inbounds nuw i8, ptr %.046, i64 8
@@ -13554,7 +13554,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev12BitDepthCastILNS_8Bi
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds = %20, %23, %33, %35, %44, %58, %61
-  %.0.i.i.i = phi i16 [ %30, %23 ], [ %34, %33 ], [ %43, %35 ], [ %21, %20 ], [ %16, %44 ], [ %62, %61 ], [ %56, %58 ]
+  %.0.i.i.i = phi i16 [ %16, %44 ], [ %30, %23 ], [ %34, %33 ], [ %43, %35 ], [ %21, %20 ], [ %62, %61 ], [ %56, %58 ]
   store i16 %.0.i.i.i, ptr %.01833, align 2, !tbaa !313
   %63 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   %64 = load float, ptr %63, align 4, !tbaa !302
@@ -13636,7 +13636,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit: ; preds =
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds = %75, %78, %88, %90, %99, %113, %116
-  %.0.i.i.i22 = phi i16 [ %85, %78 ], [ %89, %88 ], [ %98, %90 ], [ %76, %75 ], [ %71, %99 ], [ %117, %116 ], [ %111, %113 ]
+  %.0.i.i.i22 = phi i16 [ %71, %99 ], [ %85, %78 ], [ %89, %88 ], [ %98, %90 ], [ %76, %75 ], [ %117, %116 ], [ %111, %113 ]
   %118 = getelementptr inbounds nuw i8, ptr %.01833, i64 2
   store i16 %.0.i.i.i22, ptr %118, align 2, !tbaa !313
   %119 = getelementptr inbounds nuw i8, ptr %.034, i64 8
@@ -13719,7 +13719,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit23: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds = %131, %134, %144, %146, %155, %169, %172
-  %.0.i.i.i26 = phi i16 [ %141, %134 ], [ %145, %144 ], [ %154, %146 ], [ %132, %131 ], [ %127, %155 ], [ %173, %172 ], [ %167, %169 ]
+  %.0.i.i.i26 = phi i16 [ %127, %155 ], [ %141, %134 ], [ %145, %144 ], [ %154, %146 ], [ %132, %131 ], [ %173, %172 ], [ %167, %169 ]
   %174 = getelementptr inbounds nuw i8, ptr %.01833, i64 4
   store i16 %.0.i.i.i26, ptr %174, align 2, !tbaa !313
   %175 = getelementptr inbounds nuw i8, ptr %.034, i64 12
@@ -13802,7 +13802,7 @@ _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit27: ; preds
   br label %_ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31
 
 _ZN19OpenColorIO_v2_5dev9ConverterILNS_8BitDepthE7EE9CastValueEf.exit31: ; preds = %187, %190, %200, %202, %211, %225, %228
-  %.0.i.i.i30 = phi i16 [ %197, %190 ], [ %201, %200 ], [ %210, %202 ], [ %188, %187 ], [ %183, %211 ], [ %229, %228 ], [ %223, %225 ]
+  %.0.i.i.i30 = phi i16 [ %183, %211 ], [ %197, %190 ], [ %201, %200 ], [ %210, %202 ], [ %188, %187 ], [ %229, %228 ], [ %223, %225 ]
   %230 = getelementptr inbounds nuw i8, ptr %.01833, i64 6
   store i16 %.0.i.i.i30, ptr %230, align 2, !tbaa !313
   %231 = getelementptr inbounds nuw i8, ptr %.034, i64 16

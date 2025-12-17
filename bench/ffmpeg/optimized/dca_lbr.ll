@@ -601,8 +601,8 @@ bytestream2_get_le16.exit162.i:                   ; preds = %bytestream2_get_le1
   tail call void @ff_dca_lbr_flush(ptr noundef nonnull %0) #14
   br label %parse_decoder_init.exit
 
-245:                                              ; preds = %43, %50, %bytestream2_get_le16.exit158.thread.i, %92, %166, %190, %62, %208, %.critedge.i, %241
-  %.0.i204.ph = phi i32 [ -12, %241 ], [ -1094995529, %.critedge.i ], [ -12, %208 ], [ -1163346256, %62 ], [ -1094995529, %190 ], [ -1163346256, %166 ], [ -1163346256, %92 ], [ -1163346256, %bytestream2_get_le16.exit158.thread.i ], [ -1163346256, %50 ], [ -1094995529, %43 ]
+245:                                              ; preds = %43, %50, %bytestream2_get_le16.exit158.thread.i, %92, %166, %190, %62, %208, %241, %.critedge.i
+  %.0.i204.ph = phi i32 [ -1094995529, %.critedge.i ], [ -12, %241 ], [ -12, %208 ], [ -1163346256, %62 ], [ -1094995529, %190 ], [ -1163346256, %166 ], [ -1163346256, %92 ], [ -1163346256, %bytestream2_get_le16.exit158.thread.i ], [ -1163346256, %50 ], [ -1094995529, %43 ]
   store i32 0, ptr %32, align 8, !tbaa !25
   br label %.loopexit369
 
@@ -612,7 +612,7 @@ bytestream2_get_byte.exit.thread:                 ; preds = %22, %bytestream2_ge
   br label %.loopexit369
 
 parse_decoder_init.exit:                          ; preds = %244, %239, %26
-  %.sroa.0.0 = phi ptr [ %24, %26 ], [ %.sroa.0.16, %239 ], [ %.sroa.0.16, %244 ]
+  %.sroa.0.0 = phi ptr [ %24, %26 ], [ %.sroa.0.16, %244 ], [ %.sroa.0.16, %239 ]
   %247 = ptrtoint ptr %.sroa.0.0 to i64
   %248 = sub i64 %17, %247
   %249 = icmp slt i64 %248, 1
@@ -653,9 +653,9 @@ bytestream2_get_byte.exit190.thread:              ; preds = %bytestream2_get_byt
   br label %bytestream2_get_be16.exit
 
 bytestream2_get_be16.exit:                        ; preds = %263, %bytestream2_get_byte.exit190.thread, %256, %253
-  %.0.i189340 = phi i32 [ %252, %253 ], [ %252, %256 ], [ %.0.i189341, %bytestream2_get_byte.exit190.thread ], [ %.0.i189341, %263 ]
-  %.sroa.0.1 = phi ptr [ %16, %253 ], [ %257, %256 ], [ %16, %bytestream2_get_byte.exit190.thread ], [ %264, %263 ]
-  %267 = phi i32 [ 0, %253 ], [ %260, %256 ], [ 0, %bytestream2_get_byte.exit190.thread ], [ %266, %263 ]
+  %.0.i189340 = phi i32 [ %252, %256 ], [ %252, %253 ], [ %.0.i189341, %bytestream2_get_byte.exit190.thread ], [ %.0.i189341, %263 ]
+  %.sroa.0.1 = phi ptr [ %257, %256 ], [ %16, %253 ], [ %16, %bytestream2_get_byte.exit190.thread ], [ %264, %263 ]
+  %267 = phi i32 [ %260, %256 ], [ 0, %253 ], [ 0, %bytestream2_get_byte.exit190.thread ], [ %266, %263 ]
   %268 = ptrtoint ptr %.sroa.0.1 to i64
   %269 = sub i64 %17, %268
   %270 = trunc i64 %269 to i32
@@ -918,9 +918,9 @@ bytestream2_get_byte.exit194.thread:              ; preds = %bytestream2_get_byt
   br label %bytestream2_get_be16.exit201
 
 bytestream2_get_be16.exit201:                     ; preds = %387, %bytestream2_get_byte.exit194.thread, %380, %377
-  %.0.i193348 = phi i32 [ %376, %377 ], [ %376, %380 ], [ %.0.i193349, %bytestream2_get_byte.exit194.thread ], [ %.0.i193349, %387 ]
-  %.sroa.0.4 = phi ptr [ %282, %377 ], [ %381, %380 ], [ %282, %bytestream2_get_byte.exit194.thread ], [ %388, %387 ]
-  %391 = phi i32 [ 0, %377 ], [ %384, %380 ], [ 0, %bytestream2_get_byte.exit194.thread ], [ %390, %387 ]
+  %.0.i193348 = phi i32 [ %376, %380 ], [ %376, %377 ], [ %.0.i193349, %bytestream2_get_byte.exit194.thread ], [ %.0.i193349, %387 ]
+  %.sroa.0.4 = phi ptr [ %381, %380 ], [ %282, %377 ], [ %282, %bytestream2_get_byte.exit194.thread ], [ %388, %387 ]
+  %391 = phi i32 [ %384, %380 ], [ 0, %377 ], [ 0, %bytestream2_get_byte.exit194.thread ], [ %390, %387 ]
   %392 = and i32 %.0.i193348, 127
   %393 = ptrtoint ptr %.sroa.0.4 to i64
   %394 = sub i64 %350, %393
@@ -1306,8 +1306,8 @@ parse_lfe_24.exit.sink.split.i:                   ; preds = %535, %533, %464
   br label %parse_lfe_chunk.exit
 
 parse_lfe_chunk.exit:                             ; preds = %585, %518, %.preheader368, %._crit_edge385, %449, %parse_lfe_24.exit.sink.split.i
-  %601 = phi i32 [ %439, %._crit_edge385 ], [ %439, %449 ], [ %439, %parse_lfe_24.exit.sink.split.i ], [ 0, %.preheader368 ], [ %439, %518 ], [ %439, %585 ]
-  %.0.i207 = phi i32 [ 0, %._crit_edge385 ], [ -1094995529, %449 ], [ -1094995529, %parse_lfe_24.exit.sink.split.i ], [ 0, %.preheader368 ], [ 0, %518 ], [ 0, %585 ]
+  %601 = phi i32 [ %439, %449 ], [ %439, %._crit_edge385 ], [ %439, %parse_lfe_24.exit.sink.split.i ], [ 0, %.preheader368 ], [ %439, %518 ], [ %439, %585 ]
+  %.0.i207 = phi i32 [ -1094995529, %449 ], [ 0, %._crit_edge385 ], [ -1094995529, %parse_lfe_24.exit.sink.split.i ], [ 0, %.preheader368 ], [ 0, %518 ], [ 0, %585 ]
   %602 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %603 = load i32, ptr %602, align 4, !tbaa !85
   %.not.i209 = icmp eq i32 %603, 0
@@ -1399,7 +1399,7 @@ parse_tonal_chunk.exit.loopexit:                  ; preds = %636
   br label %parse_tonal_chunk.exit
 
 parse_tonal_chunk.exit:                           ; preds = %parse_tonal_chunk.exit.loopexit, %619, %parse_lfe_chunk.exit, %604, %622, %thread-pre-split.i
-  %.024.i = phi i32 [ -1094995529, %622 ], [ %.0.i207, %parse_lfe_chunk.exit ], [ -1094995529, %604 ], [ %.0.i207, %thread-pre-split.i ], [ %.0.i207, %619 ], [ %640, %parse_tonal_chunk.exit.loopexit ]
+  %.024.i = phi i32 [ %.0.i207, %parse_lfe_chunk.exit ], [ -1094995529, %622 ], [ -1094995529, %604 ], [ %.0.i207, %thread-pre-split.i ], [ %.0.i207, %619 ], [ %640, %parse_tonal_chunk.exit.loopexit ]
   %641 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %643 = getelementptr i8, ptr %0, i64 28
@@ -1463,7 +1463,7 @@ parse_tonal_chunk.exit:                           ; preds = %parse_tonal_chunk.e
   br label %parse_tonal_group.exit
 
 parse_tonal_group.exit:                           ; preds = %659, %663, %673
-  %.0.i221 = phi i32 [ %675, %673 ], [ 0, %659 ], [ -1094995529, %663 ]
+  %.0.i221 = phi i32 [ 0, %659 ], [ %675, %673 ], [ -1094995529, %663 ]
   %676 = or i32 %.0.i221, %.0165386
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next417, 5
@@ -1630,9 +1630,9 @@ parse_tonal_group.exit:                           ; preds = %659, %663, %673
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %753, %733
-  %.064.i.i.i = phi i32 [ %755, %753 ], [ %735, %733 ]
-  %.062.i.i.i = phi i32 [ %769, %753 ], [ %748, %733 ]
-  %.0.i.i103.i = phi i32 [ %772, %753 ], [ %751, %733 ]
+  %.064.i.i.i = phi i32 [ %735, %733 ], [ %755, %753 ]
+  %.062.i.i.i = phi i32 [ %748, %733 ], [ %769, %753 ]
+  %.0.i.i103.i = phi i32 [ %751, %733 ], [ %772, %753 ]
   %773 = add i32 %.0.i.i103.i, %.064.i.i.i
   %774 = tail call i32 @llvm.umin.i32(i32 %736, i32 %773)
   store i32 %774, ptr %646, align 8, !tbaa !92
@@ -1723,9 +1723,9 @@ parse_vlc.exit.i:                                 ; preds = %776, %get_vlc2.exit
   br label %get_vlc2.exit.i105.i
 
 get_vlc2.exit.i105.i:                             ; preds = %823, %807
-  %.064.i.i106.i = phi i32 [ %825, %823 ], [ %798, %807 ]
-  %.062.i.i107.i = phi i32 [ %839, %823 ], [ %818, %807 ]
-  %.0.i.i108.i = phi i32 [ %842, %823 ], [ %821, %807 ]
+  %.064.i.i106.i = phi i32 [ %798, %807 ], [ %825, %823 ]
+  %.062.i.i107.i = phi i32 [ %818, %807 ], [ %839, %823 ]
+  %.0.i.i108.i = phi i32 [ %821, %807 ], [ %842, %823 ]
   %843 = add i32 %.0.i.i108.i, %.064.i.i106.i
   %844 = tail call i32 @llvm.umin.i32(i32 %736, i32 %843)
   store i32 %844, ptr %646, align 8, !tbaa !92
@@ -1906,9 +1906,9 @@ parse_vlc.exit110.i:                              ; preds = %846, %get_vlc2.exit
   br label %get_vlc2.exit.i.i.i
 
 get_vlc2.exit.i.i.i:                              ; preds = %935, %916
-  %.064.i.i.i.i = phi i32 [ %937, %935 ], [ %917, %916 ]
-  %.062.i.i.i.i = phi i32 [ %951, %935 ], [ %930, %916 ]
-  %.0.i.i.i112.i = phi i32 [ %954, %935 ], [ %933, %916 ]
+  %.064.i.i.i.i = phi i32 [ %917, %916 ], [ %937, %935 ]
+  %.062.i.i.i.i = phi i32 [ %930, %916 ], [ %951, %935 ]
+  %.0.i.i.i112.i = phi i32 [ %933, %916 ], [ %954, %935 ]
   %955 = add i32 %.0.i.i.i112.i, %.064.i.i.i.i
   %956 = tail call i32 @llvm.umin.i32(i32 %918, i32 %955)
   store i32 %956, ptr %646, align 8, !tbaa !92
@@ -2415,9 +2415,9 @@ ensure_bits.exit.i.i:                             ; preds = %1152
   br label %get_vlc2.exit.i.i.i270
 
 get_vlc2.exit.i.i.i270:                           ; preds = %1176, %ensure_bits.exit.i.i
-  %.064.i.i.i.i271 = phi i32 [ %1178, %1176 ], [ %.val.i.i.i, %ensure_bits.exit.i.i ]
-  %.062.i.i.i.i272 = phi i32 [ %1192, %1176 ], [ %1171, %ensure_bits.exit.i.i ]
-  %.0.i.i.i.i273 = phi i32 [ %1195, %1176 ], [ %1174, %ensure_bits.exit.i.i ]
+  %.064.i.i.i.i271 = phi i32 [ %.val.i.i.i, %ensure_bits.exit.i.i ], [ %1178, %1176 ]
+  %.062.i.i.i.i272 = phi i32 [ %1171, %ensure_bits.exit.i.i ], [ %1192, %1176 ]
+  %.0.i.i.i.i273 = phi i32 [ %1174, %ensure_bits.exit.i.i ], [ %1195, %1176 ]
   %1196 = add i32 %.0.i.i.i.i273, %.064.i.i.i.i271
   %1197 = tail call i32 @llvm.umin.i32(i32 %1154, i32 %1196)
   store i32 %1197, ptr %646, align 8, !tbaa !92
@@ -2482,8 +2482,8 @@ parse_ts2_chunk.exit:                             ; preds = %1121, %.loopexit.i
 parse_ts2_chunk.exit.thread:                      ; preds = %1139, %1117, %1107, %parse_ts2_chunk.exit
   br label %parse_grid_1_chunk.exit.thread
 
-parse_grid_1_chunk.exit.thread:                   ; preds = %.lr.ph.split.i, %722, %.lr.ph.split.us.i, %.thread352, %1103, %1098, %1088, %.thread352.thread, %688, %879, %parse_ts2_chunk.exit.thread, %parse_ts2_chunk.exit, %parse_high_res_grid.exit.thread, %parse_ts1_chunk.exit, %.loopexit, %1084
-  %.2167 = phi i32 [ %.1166388, %1084 ], [ %.1166388, %.loopexit ], [ -1, %parse_ts1_chunk.exit ], [ -1, %parse_high_res_grid.exit.thread ], [ -1, %parse_ts2_chunk.exit.thread ], [ %.1166388, %parse_ts2_chunk.exit ], [ -1, %879 ], [ -1, %688 ], [ %.1166388, %.thread352.thread ], [ %.1166388, %.thread352 ], [ -1, %1088 ], [ -1, %1098 ], [ %.1166388, %1103 ], [ -1, %.lr.ph.split.us.i ], [ -1, %722 ], [ -1, %.lr.ph.split.i ]
+parse_grid_1_chunk.exit.thread:                   ; preds = %.lr.ph.split.i, %722, %.lr.ph.split.us.i, %.thread352, %1103, %1088, %1098, %.thread352.thread, %879, %688, %parse_ts2_chunk.exit.thread, %parse_ts2_chunk.exit, %parse_high_res_grid.exit.thread, %parse_ts1_chunk.exit, %.loopexit, %1084
+  %.2167 = phi i32 [ -1, %1088 ], [ %.1166388, %.loopexit ], [ -1, %parse_ts1_chunk.exit ], [ -1, %parse_high_res_grid.exit.thread ], [ %.1166388, %1084 ], [ %.1166388, %1103 ], [ -1, %1098 ], [ %.1166388, %.thread352 ], [ %.1166388, %.thread352.thread ], [ -1, %parse_ts2_chunk.exit.thread ], [ %.1166388, %parse_ts2_chunk.exit ], [ -1, %688 ], [ -1, %879 ], [ -1, %.lr.ph.split.us.i ], [ -1, %722 ], [ -1, %.lr.ph.split.i ]
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
   %1233 = load i32, ptr %326, align 4, !tbaa !27
   %1234 = add nsw i32 %1233, 1
@@ -2509,7 +2509,7 @@ parse_grid_1_chunk.exit.thread:                   ; preds = %.lr.ph.split.i, %72
   br label %.loopexit369
 
 .loopexit369:                                     ; preds = %397, %1239, %305, %272, %1244, %312, %bytestream2_get_byte.exit.thread, %245, %29, %bytestream2_get_be32.exit.thread
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %312 ], [ 0, %1244 ], [ -1094995529, %29 ], [ %.0.i204.ph, %245 ], [ -1094995529, %272 ], [ -1094995529, %305 ], [ -1094995529, %1239 ], [ -1094995529, %397 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_be32.exit.thread ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ %.0.i204.ph, %245 ], [ -1094995529, %312 ], [ -1094995529, %305 ], [ 0, %1244 ], [ -1094995529, %272 ], [ -1094995529, %29 ], [ -1094995529, %1239 ], [ -1094995529, %397 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -3830,7 +3830,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
   br label %44
 
 44:                                               ; preds = %37, %._crit_edge, %39
-  %.037 = phi double [ %43, %39 ], [ 0x3DFB333333699999, %._crit_edge ], [ 0x3E00000000200000, %37 ]
+  %.037 = phi double [ 0x3DFB333333699999, %._crit_edge ], [ %43, %39 ], [ 0x3E00000000200000, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load i32, ptr %45, align 8, !tbaa !39
   %47 = icmp sgt i32 %46, 0
@@ -4078,9 +4078,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @parse_tonal(ptr noundef ca
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %65, %.lr.ph142
-  %.064.i.i = phi i32 [ %67, %65 ], [ %.val140, %.lr.ph142 ]
-  %.062.i.i = phi i32 [ %81, %65 ], [ %60, %.lr.ph142 ]
-  %.0.i.i = phi i32 [ %84, %65 ], [ %63, %.lr.ph142 ]
+  %.064.i.i = phi i32 [ %.val140, %.lr.ph142 ], [ %67, %65 ]
+  %.062.i.i = phi i32 [ %60, %.lr.ph142 ], [ %81, %65 ]
+  %.0.i.i = phi i32 [ %63, %.lr.ph142 ], [ %84, %65 ]
   %85 = add i32 %.0.i.i, %.064.i.i
   %86 = tail call i32 @llvm.umin.i32(i32 %48, i32 %85)
   store i32 %86, ptr %24, align 8, !tbaa !92
@@ -4220,9 +4220,9 @@ get_bitsz.exit103:                                ; preds = %142, %143
   br label %get_vlc2.exit.i107
 
 get_vlc2.exit.i107:                               ; preds = %170, %get_bitsz.exit103
-  %.064.i.i108 = phi i32 [ %172, %170 ], [ %153, %get_bitsz.exit103 ]
-  %.062.i.i109 = phi i32 [ %186, %170 ], [ %165, %get_bitsz.exit103 ]
-  %.0.i.i110 = phi i32 [ %189, %170 ], [ %168, %get_bitsz.exit103 ]
+  %.064.i.i108 = phi i32 [ %153, %get_bitsz.exit103 ], [ %172, %170 ]
+  %.062.i.i109 = phi i32 [ %165, %get_bitsz.exit103 ], [ %186, %170 ]
+  %.0.i.i110 = phi i32 [ %168, %get_bitsz.exit103 ], [ %189, %170 ]
   %190 = add i32 %.0.i.i110, %.064.i.i108
   %191 = tail call i32 @llvm.umin.i32(i32 %48, i32 %190)
   store i32 %191, ptr %24, align 8, !tbaa !92
@@ -4544,7 +4544,7 @@ parse_vlc.exit125:                                ; preds = %parse_vlc.exit119, 
   br i1 %403, label %39, label %.loopexit130, !llvm.loop !188
 
 .loopexit130.sink.split:                          ; preds = %39, %134, %parse_vlc.exit, %.loopexit
-  %.str.25.sink = phi ptr [ @.str.23, %.loopexit ], [ @.str.24, %parse_vlc.exit ], [ @.str.25, %134 ], [ @.str.23, %39 ]
+  %.str.25.sink = phi ptr [ @.str.24, %parse_vlc.exit ], [ @.str.23, %.loopexit ], [ @.str.25, %134 ], [ @.str.23, %39 ]
   %404 = load ptr, ptr %0, align 16, !tbaa !15
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %404, i32 noundef 16, ptr noundef nonnull %.str.25.sink) #12
   br label %.loopexit130
@@ -4626,9 +4626,9 @@ ensure_bits.exit:                                 ; preds = %8
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %33, %ensure_bits.exit
-  %.064.i.i = phi i32 [ %35, %33 ], [ %.val.i, %ensure_bits.exit ]
-  %.062.i.i = phi i32 [ %49, %33 ], [ %28, %ensure_bits.exit ]
-  %.0.i.i = phi i32 [ %52, %33 ], [ %31, %ensure_bits.exit ]
+  %.064.i.i = phi i32 [ %.val.i, %ensure_bits.exit ], [ %35, %33 ]
+  %.062.i.i = phi i32 [ %28, %ensure_bits.exit ], [ %49, %33 ]
+  %.0.i.i = phi i32 [ %31, %ensure_bits.exit ], [ %52, %33 ]
   %53 = add i32 %.0.i.i, %.064.i.i
   %54 = tail call i32 @llvm.umin.i32(i32 %11, i32 %53)
   store i32 %54, ptr %4, align 8, !tbaa !92
@@ -4816,9 +4816,9 @@ ensure_bits.exit108:                              ; preds = %139
   br label %get_vlc2.exit.i109
 
 get_vlc2.exit.i109:                               ; preds = %161, %ensure_bits.exit108
-  %.064.i.i110 = phi i32 [ %163, %161 ], [ %131, %ensure_bits.exit108 ]
-  %.062.i.i111 = phi i32 [ %177, %161 ], [ %156, %ensure_bits.exit108 ]
-  %.0.i.i112 = phi i32 [ %180, %161 ], [ %159, %ensure_bits.exit108 ]
+  %.064.i.i110 = phi i32 [ %131, %ensure_bits.exit108 ], [ %163, %161 ]
+  %.062.i.i111 = phi i32 [ %156, %ensure_bits.exit108 ], [ %177, %161 ]
+  %.0.i.i112 = phi i32 [ %159, %ensure_bits.exit108 ], [ %180, %161 ]
   %181 = add i32 %.0.i.i112, %.064.i.i110
   %182 = tail call i32 @llvm.umin.i32(i32 %85, i32 %181)
   store i32 %182, ptr %4, align 8, !tbaa !92
@@ -4969,8 +4969,8 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
   store i8 %267, ptr %269, align 1, !tbaa !14
   br label %ensure_bits.exit.thread
 
-ensure_bits.exit.thread:                          ; preds = %136, %parse_vlc.exit, %141, %86, %2, %12, %266, %134
-  %.0 = phi i32 [ -1094995529, %134 ], [ 0, %266 ], [ 0, %12 ], [ 0, %2 ], [ 0, %86 ], [ 0, %141 ], [ 0, %parse_vlc.exit ], [ 0, %136 ]
+ensure_bits.exit.thread:                          ; preds = %136, %parse_vlc.exit, %141, %86, %12, %2, %266, %134
+  %.0 = phi i32 [ 0, %266 ], [ 0, %86 ], [ -1094995529, %134 ], [ 0, %12 ], [ 0, %2 ], [ 0, %141 ], [ 0, %parse_vlc.exit ], [ 0, %136 ]
   ret i32 %.0
 }
 
@@ -5224,7 +5224,7 @@ ensure_bits.exit:                                 ; preds = %46
   br label %65
 
 65:                                               ; preds = %31, %39, %ensure_bits.exit
-  %.083 = phi i32 [ %42, %39 ], [ %spec.store.select, %ensure_bits.exit ], [ %33, %31 ]
+  %.083 = phi i32 [ %spec.store.select, %ensure_bits.exit ], [ %42, %39 ], [ %33, %31 ]
   %66 = load i32, ptr %15, align 8, !tbaa !39
   %.not90 = icmp slt i32 %.083, %66
   br i1 %.not90, label %67, label %ensure_bits.exit.thread
@@ -5341,9 +5341,9 @@ ensure_bits.exit.i:                               ; preds = %90
   br label %get_vlc2.exit.i.i
 
 get_vlc2.exit.i.i:                                ; preds = %114, %ensure_bits.exit.i
-  %.064.i.i.i = phi i32 [ %116, %114 ], [ %.val.i.i, %ensure_bits.exit.i ]
-  %.062.i.i.i = phi i32 [ %130, %114 ], [ %109, %ensure_bits.exit.i ]
-  %.0.i.i.i99 = phi i32 [ %133, %114 ], [ %112, %ensure_bits.exit.i ]
+  %.064.i.i.i = phi i32 [ %.val.i.i, %ensure_bits.exit.i ], [ %116, %114 ]
+  %.062.i.i.i = phi i32 [ %109, %ensure_bits.exit.i ], [ %130, %114 ]
+  %.0.i.i.i99 = phi i32 [ %112, %ensure_bits.exit.i ], [ %133, %114 ]
   %134 = add i32 %.0.i.i.i99, %.064.i.i.i
   %135 = tail call i32 @llvm.umin.i32(i32 %92, i32 %134)
   store i32 %135, ptr %11, align 8, !tbaa !92
@@ -5513,9 +5513,9 @@ ensure_bits.exit.i114:                            ; preds = %191
   br label %get_vlc2.exit.i.i116
 
 get_vlc2.exit.i.i116:                             ; preds = %215, %ensure_bits.exit.i114
-  %.064.i.i.i117 = phi i32 [ %217, %215 ], [ %.val.i.i112, %ensure_bits.exit.i114 ]
-  %.062.i.i.i118 = phi i32 [ %231, %215 ], [ %210, %ensure_bits.exit.i114 ]
-  %.0.i.i.i119 = phi i32 [ %234, %215 ], [ %213, %ensure_bits.exit.i114 ]
+  %.064.i.i.i117 = phi i32 [ %.val.i.i112, %ensure_bits.exit.i114 ], [ %217, %215 ]
+  %.062.i.i.i118 = phi i32 [ %210, %ensure_bits.exit.i114 ], [ %231, %215 ]
+  %.0.i.i.i119 = phi i32 [ %213, %ensure_bits.exit.i114 ], [ %234, %215 ]
   %235 = add i32 %.0.i.i.i119, %.064.i.i.i117
   %236 = tail call i32 @llvm.umin.i32(i32 %193, i32 %235)
   store i32 %236, ptr %11, align 8, !tbaa !92
@@ -5695,7 +5695,7 @@ ensure_bits.exit.thread.sink.split:               ; preds = %270, %46
   br label %ensure_bits.exit.thread
 
 ensure_bits.exit.thread:                          ; preds = %65, %304, %320, %43, %267, %ensure_bits.exit.thread.sink.split, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %ensure_bits.exit.thread.sink.split ], [ -1094995529, %65 ], [ -1094995529, %304 ], [ 0, %320 ], [ 0, %43 ], [ 0, %267 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %ensure_bits.exit.thread.sink.split ], [ 0, %43 ], [ 0, %320 ], [ -1094995529, %304 ], [ -1094995529, %65 ], [ 0, %267 ]
   ret i32 %.0
 }
 
@@ -6049,8 +6049,8 @@ ensure_bits.exit:                                 ; preds = %17
   br label %.critedge
 
 .critedge:                                        ; preds = %188, %162, %96, %.critedge.loopexit203.split.loop.exit211, %.critedge.loopexit.split.loop.exit, %182, %._crit_edge144, %._crit_edge, %._crit_edge151
-  %.val = phi i32 [ %.val195, %._crit_edge151 ], [ %.val194, %._crit_edge144 ], [ %.val192, %._crit_edge ], [ %spec.select.i, %182 ], [ %.val113137, %.critedge.loopexit.split.loop.exit ], [ %.val103129, %.critedge.loopexit203.split.loop.exit211 ], [ %.val113138, %96 ], [ %177, %162 ], [ %198, %188 ]
-  %.190 = phi i32 [ %63, %._crit_edge151 ], [ %129, %._crit_edge144 ], [ %158, %._crit_edge ], [ 0, %182 ], [ %204, %.critedge.loopexit.split.loop.exit ], [ %205, %.critedge.loopexit203.split.loop.exit211 ], [ 128, %96 ], [ 128, %162 ], [ %186, %188 ]
+  %.val = phi i32 [ %.val195, %._crit_edge151 ], [ %.val194, %._crit_edge144 ], [ %.val192, %._crit_edge ], [ %spec.select.i, %182 ], [ %.val113137, %.critedge.loopexit.split.loop.exit ], [ %.val103129, %.critedge.loopexit203.split.loop.exit211 ], [ %177, %162 ], [ %.val113138, %96 ], [ %198, %188 ]
+  %.190 = phi i32 [ %63, %._crit_edge151 ], [ %129, %._crit_edge144 ], [ %158, %._crit_edge ], [ 0, %182 ], [ %204, %.critedge.loopexit.split.loop.exit ], [ %205, %.critedge.loopexit203.split.loop.exit211 ], [ 128, %162 ], [ 128, %96 ], [ %186, %188 ]
   %.not97 = icmp ne i32 %4, 0
   %206 = sub nsw i32 %.val7.i, %.val
   %207 = icmp slt i32 %206, 20
@@ -6097,7 +6097,7 @@ ensure_bits.exit:                                 ; preds = %17
   store i32 %228, ptr %226, align 4, !tbaa !28
   br label %ensure_bits.exit.thread
 
-ensure_bits.exit.thread:                          ; preds = %.critedge, %5, %19, %223
+ensure_bits.exit.thread:                          ; preds = %.critedge, %19, %5, %223
   ret void
 }
 
@@ -6266,9 +6266,9 @@ ensure_bits.exit:                                 ; preds = %59
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %83, %ensure_bits.exit
-  %.064.i.i = phi i32 [ %85, %83 ], [ %.val.i, %ensure_bits.exit ]
-  %.062.i.i = phi i32 [ %99, %83 ], [ %78, %ensure_bits.exit ]
-  %.0.i.i = phi i32 [ %102, %83 ], [ %81, %ensure_bits.exit ]
+  %.064.i.i = phi i32 [ %.val.i, %ensure_bits.exit ], [ %85, %83 ]
+  %.062.i.i = phi i32 [ %78, %ensure_bits.exit ], [ %99, %83 ]
+  %.0.i.i = phi i32 [ %81, %ensure_bits.exit ], [ %102, %83 ]
   %103 = add i32 %.0.i.i, %.064.i.i
   %104 = tail call i32 @llvm.umin.i32(i32 %61, i32 %103)
   store i32 %104, ptr %21, align 8, !tbaa !92

@@ -1431,7 +1431,7 @@ _ZN4Luau11LintWarning9parseNameEPKc.exit.thread:  ; preds = %20, %_ZN4Luau11Lint
   br label %24
 
 24:                                               ; preds = %10, %.lr.ph, %7, %_ZN4Luau11LintWarning9parseNameEPKc.exit, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread
-  %.220.ph = phi i64 [ %23, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01841, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread ], [ %.01841, %7 ], [ %.01841, %.lr.ph ], [ %.01841, %10 ]
+  %.220.ph = phi i64 [ %23, %_ZN4Luau11LintWarning9parseNameEPKc.exit ], [ %.01841, %_ZN4Luau11LintWarning9parseNameEPKc.exit.thread ], [ %.01841, %.lr.ph ], [ %.01841, %7 ], [ %.01841, %10 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.040, i64 56
   %.not37 = icmp eq ptr %25, %4
   br i1 %.not37, label %._crit_edge, label %.lr.ph

@@ -281,7 +281,7 @@ _ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.e
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit33.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit33.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13", %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit29", %.thread77, %_ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit41.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit33", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit9", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit17", %79, %69
-  %.sroa.0.0 = phi i1 [ true, %79 ], [ true, %69 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit17" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit9" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit33" ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit41.thread" ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %_ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.exit ], [ false, %.thread77 ], [ %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit29" ], [ false, %3 ]
+  %.sroa.0.0 = phi i1 [ true, %69 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit41.thread" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit33" ], [ true, %79 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit17" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit29" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit9" ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %_ZN16html_to_markdown12html_element11HtmlElement9has_class17h8a168940c18b67f8E.exit ], [ false, %3 ], [ %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13" ], [ false, %.thread77 ]
   ret i1 %.sroa.0.0
 }
 
@@ -413,7 +413,7 @@ define noundef zeroext i1 @"_ZN125_$LT$html_to_markdown..structure..wikipedia..W
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4", %3, %6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %.sroa.0.0 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit" ], [ %7, %6 ], [ %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4" ], [ false, %3 ]
+  %.sroa.0.0 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit" ], [ %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4" ], [ %7, %6 ], [ false, %3 ]
   ret i1 %.sroa.0.0
 }
 
@@ -663,7 +663,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %81, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h238d8b33407f05d5E.exit.i.i", label %"_ZN125_$LT$html_to_markdown..structure..wikipedia..WikipediaCodeHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start28_$u7b$$u7b$closure$u7d$$u7d$17he237fa0f64b16e96E.exit.thread.i"
 
 134:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit16.i.i.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit14.i.i.i.i.i.i", %109, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit12.i.i.i.i.i.i"
-  %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %107, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit12.i.i.i.i.i.i" ], [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit14.i.i.i.i.i.i" ], [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit16.i.i.i.i.i.i" ], [ %110, %109 ]
+  %.sroa.4.0.i.ph.i.i.i.i.i = phi i32 [ %120, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit14.i.i.i.i.i.i" ], [ %132, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit16.i.i.i.i.i.i" ], [ %110, %109 ], [ %107, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc6aa9be66f44abe6E.exit12.i.i.i.i.i.i" ]
   %135 = icmp samesign ult i32 %.sroa.4.0.i.ph.i.i.i.i.i, 1114112
   call void @llvm.assume(i1 %135)
   br i1 %81, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h238d8b33407f05d5E.exit.i.i", label %136
@@ -682,7 +682,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i"
 
 "_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc2e7e57f848f7023E.exit.i.i.i.i": ; preds = %140, %138, %136
-  %.sroa.01.0.i.i.i.i.i = phi i64 [ 1, %136 ], [ %..i.i.i.i.i, %140 ], [ 2, %138 ]
+  %.sroa.01.0.i.i.i.i.i = phi i64 [ 2, %138 ], [ %..i.i.i.i.i, %140 ], [ 1, %136 ]
   %142 = add i64 %.sroa.01.0.i.i.i.i.i, %80
   br label %79
 
@@ -770,9 +770,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %187, label %191, label %.invoke
 
 .invoke:                                          ; preds = %.preheader.i.i.i, %185, %182, %233, %253, %204
-  %188 = phi i64 [ %umax.i35.i.i.i, %204 ], [ %umax.i.i.i.i, %253 ], [ %235, %233 ], [ %183, %182 ], [ %186, %185 ], [ %215, %.preheader.i.i.i ]
-  %189 = phi i64 [ %147, %204 ], [ %147, %253 ], [ %147, %233 ], [ %149, %182 ], [ %147, %185 ], [ %149, %.preheader.i.i.i ]
-  %190 = phi ptr [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %204 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %253 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %233 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %182 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %185 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %.preheader.i.i.i ]
+  %188 = phi i64 [ %umax.i.i.i.i, %253 ], [ %umax.i35.i.i.i, %204 ], [ %183, %182 ], [ %235, %233 ], [ %186, %185 ], [ %215, %.preheader.i.i.i ]
+  %189 = phi i64 [ %147, %253 ], [ %147, %204 ], [ %149, %182 ], [ %147, %233 ], [ %147, %185 ], [ %149, %.preheader.i.i.i ]
+  %190 = phi ptr [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %253 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.7, %204 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %182 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %233 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.5, %185 ], [ @anon.33f6a03c3bc25af8acfd823daedf823c.4, %.preheader.i.i.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %188, i64 noundef %189, ptr noalias noundef readonly align 8 dereferenceable(24) %190) #18
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -920,7 +920,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc7b09f078548ed91E.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h238d8b33407f05d5E.exit.i.i": ; preds = %134, %.split.us.i.i, %180, %133
-  %.sroa.11.3.i.i.i = phi i64 [ %77, %133 ], [ %181, %180 ], [ %246, %.split.us.i.i ], [ %80, %134 ]
+  %.sroa.11.3.i.i.i = phi i64 [ %181, %180 ], [ %77, %133 ], [ %246, %.split.us.i.i ], [ %80, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !169
   %258 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.11.3.i.i.i
   %259 = sub nuw i64 %.val3.i, %.sroa.11.3.i.i.i

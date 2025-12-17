@@ -118,9 +118,9 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
   br label %36
 
 36:                                               ; preds = %33, %30, %.lr.ph
-  %.149 = phi i1 [ true, %.lr.ph ], [ %.04870, %30 ], [ %.04870, %33 ]
-  %.147 = phi i1 [ %.04671, %.lr.ph ], [ %.04671, %30 ], [ %spec.select, %33 ]
-  %.1 = phi i1 [ %.04572, %.lr.ph ], [ true, %30 ], [ %.04572, %33 ]
+  %.149 = phi i1 [ %.04870, %33 ], [ true, %.lr.ph ], [ %.04870, %30 ]
+  %.147 = phi i1 [ %spec.select, %33 ], [ %.04671, %.lr.ph ], [ %.04671, %30 ]
+  %.1 = phi i1 [ %.04572, %33 ], [ %.04572, %.lr.ph ], [ true, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %3, align 4
   %38 = zext i32 %37 to i64
@@ -187,7 +187,7 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
   call void @SDL_UnloadObject_REAL(ptr noundef %60) #5
   br label %.thread
 
-.thread:                                          ; preds = %53, %59, %24, %21, %16, %46, %40
+.thread:                                          ; preds = %59, %53, %24, %21, %16, %46, %40
   %61 = load ptr, ptr %7, align 8
   call void @SDL_UnloadObject_REAL(ptr noundef %61) #5
   store ptr null, ptr %7, align 8
@@ -332,8 +332,8 @@ define hidden zeroext i1 @X11_Vulkan_CreateSurface(ptr noundef readonly captures
   %41 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.17, ptr noundef %40) #5
   br label %.thread
 
-.thread:                                          ; preds = %39, %31, %23
-  %.1.ph = phi i1 [ %24, %23 ], [ %32, %31 ], [ %41, %39 ]
+.thread:                                          ; preds = %39, %23, %31
+  %.1.ph = phi i1 [ %32, %31 ], [ %24, %23 ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
@@ -489,7 +489,7 @@ define hidden zeroext i1 @X11_Vulkan_GetPresentationSupport(ptr noundef readonly
   br label %52
 
 52:                                               ; preds = %46, %48, %34, %36, %9
-  %.0 = phi i1 [ %10, %9 ], [ %43, %36 ], [ %35, %34 ], [ %51, %48 ], [ %47, %46 ]
+  %.0 = phi i1 [ %10, %9 ], [ %35, %34 ], [ %43, %36 ], [ %51, %48 ], [ %47, %46 ]
   ret i1 %.0
 }
 

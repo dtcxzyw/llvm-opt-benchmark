@@ -684,7 +684,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411
 
 .loopexit.split-lp:                               ; preds = %_ZN7mitsuba6Stream4readImEEvRT_.exit.invoke, %132, %173, %178, %192, %205, %222, %238, %239, %_ZN7mitsuba3refINS_6StreamEEaSIS1_EERS2_PS1_.exit, %_ZN7mitsuba6Stream4readImEEvRT_.exit365, %136, %_ZN7mitsuba6Stream4readIsEEvRT_.exit, %150, %164, %183, %212, %230, %246, %255, %.loopexit520, %_ZN7mitsuba6Stream4readImEEvRT_.exit360
-  %.sroa.0452.0.ph = phi ptr [ %130, %132 ], [ %130, %136 ], [ %130, %_ZN7mitsuba6Stream4readIsEEvRT_.exit ], [ %130, %150 ], [ %130, %173 ], [ %130, %178 ], [ %130, %183 ], [ %130, %222 ], [ %130, %230 ], [ %130, %205 ], [ %130, %212 ], [ %130, %238 ], [ %130, %192 ], [ %130, %239 ], [ %.sroa.0452.2, %_ZN7mitsuba3refINS_6StreamEEaSIS1_EERS2_PS1_.exit ], [ %.sroa.0452.2, %246 ], [ %.sroa.0452.2, %255 ], [ %.sroa.0452.2, %.loopexit520 ], [ %.sroa.0452.2, %_ZN7mitsuba6Stream4readImEEvRT_.exit360 ], [ %.sroa.0452.2, %_ZN7mitsuba6Stream4readImEEvRT_.exit365 ], [ %130, %164 ], [ %130, %_ZN7mitsuba6Stream4readImEEvRT_.exit.invoke ]
+  %.sroa.0452.0.ph = phi ptr [ %130, %132 ], [ %130, %136 ], [ %130, %_ZN7mitsuba6Stream4readIsEEvRT_.exit ], [ %130, %150 ], [ %130, %173 ], [ %130, %178 ], [ %130, %183 ], [ %130, %222 ], [ %130, %230 ], [ %130, %164 ], [ %130, %205 ], [ %130, %212 ], [ %130, %_ZN7mitsuba6Stream4readImEEvRT_.exit.invoke ], [ %130, %238 ], [ %130, %192 ], [ %130, %239 ], [ %.sroa.0452.2, %_ZN7mitsuba3refINS_6StreamEEaSIS1_EERS2_PS1_.exit ], [ %.sroa.0452.2, %246 ], [ %.sroa.0452.2, %255 ], [ %.sroa.0452.2, %.loopexit520 ], [ %.sroa.0452.2, %_ZN7mitsuba6Stream4readImEEvRT_.exit360 ], [ %.sroa.0452.2, %_ZN7mitsuba6Stream4readImEEvRT_.exit365 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411
@@ -1555,13 +1555,13 @@ _ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409: ; pre
   br label %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411
 
 _ZN7mitsuba3refINS_6StreamEED2Ev.exit411:         ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409, %262, %.body335, %.body327, %.body321
-  %.sroa.0452.1 = phi ptr [ %130, %.body327 ], [ %.sroa.0452.2, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409 ], [ %130, %262 ], [ %130, %.body335 ], [ %130, %.body321 ], [ %.sroa.0452.2, %.loopexit ], [ %.sroa.0452.0.ph, %.loopexit.split-lp ]
-  %.pn273.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body328, %.body327 ], [ %.pn273.pn.pn.pn, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409 ], [ %263, %262 ], [ %eh.lpad-body336, %.body335 ], [ %eh.lpad-body322, %.body321 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0452.1 = phi ptr [ %130, %.body327 ], [ %130, %.body321 ], [ %.sroa.0452.2, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409 ], [ %130, %262 ], [ %130, %.body335 ], [ %.sroa.0452.2, %.loopexit ], [ %.sroa.0452.0.ph, %.loopexit.split-lp ]
+  %.pn273.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body328, %.body327 ], [ %eh.lpad-body322, %.body321 ], [ %.pn273.pn.pn.pn, %_ZNSt3__110unique_ptrIA_jNS_14default_deleteIS1_EEED2B8ne190000Ev.exit409 ], [ %263, %262 ], [ %eh.lpad-body336, %.body335 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0452.1, i1 noundef zeroext true) #18
   br label %512
 
 512:                                              ; preds = %81, %96, %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411, %157, %155, %.body298, %111, %.body291, %98
-  %.pn273.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn273.pn.pn.pn.pn, %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411 ], [ %158, %157 ], [ %156, %155 ], [ %eh.lpad-body299, %.body298 ], [ %112, %111 ], [ %eh.lpad-body292, %.body291 ], [ %99, %98 ], [ %97, %96 ], [ %82, %81 ]
+  %.pn273.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn273.pn.pn.pn.pn, %_ZN7mitsuba3refINS_6StreamEED2Ev.exit411 ], [ %99, %98 ], [ %158, %157 ], [ %156, %155 ], [ %eh.lpad-body299, %.body298 ], [ %112, %111 ], [ %eh.lpad-body292, %.body291 ], [ %97, %96 ], [ %82, %81 ]
   call void @_ZN7mitsuba10filesystem4pathD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %11) #18
   br label %513
 
@@ -3541,7 +3541,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %242, %239, %239, %.loopexit262, %.loopexit231
-  %.sink224 = phi i32 [ 2, %.loopexit231 ], [ 64, %.loopexit262 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+  %.sink224 = phi i32 [ 64, %.loopexit262 ], [ 2, %.loopexit231 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -3616,7 +3616,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %239, %7, %.thread116
-  %.069 = phi ptr [ %370, %.thread116 ], [ %3, %7 ], [ %.4, %239 ]
+  %.069 = phi ptr [ %3, %7 ], [ %370, %.thread116 ], [ %.4, %239 ]
   ret ptr %.069
 }
 
@@ -3841,7 +3841,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 

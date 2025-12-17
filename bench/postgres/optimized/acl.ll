@@ -554,7 +554,7 @@ aclcopy.exit33:                                   ; preds = %108, %110
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %134, %9, %11, %aclcopy.exit31, %aclcopy.exit
-  %.0 = phi ptr [ %24, %aclcopy.exit ], [ %64, %aclcopy.exit31 ], [ null, %11 ], [ null, %9 ], [ %98, %134 ], [ %139, %.lr.ph ]
+  %.0 = phi ptr [ null, %9 ], [ %24, %aclcopy.exit ], [ %64, %aclcopy.exit31 ], [ null, %11 ], [ %98, %134 ], [ %139, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -1033,7 +1033,7 @@ aclitem_match.exit.thread:                        ; preds = %95, %aclitem_match.
   br i1 %exitcond142.not, label %recursive_revoke.exit, label %.lr.ph116, !llvm.loop !8
 
 recursive_revoke.exit:                            ; preds = %238, %253, %224, %208, %184, %181, %177
-  %.2 = phi ptr [ %.1, %177 ], [ %.1, %181 ], [ %.1, %184 ], [ %.1, %208 ], [ %.1, %224 ], [ %.038.i, %253 ], [ %.038.i, %238 ]
+  %.2 = phi ptr [ %.1, %177 ], [ %.1, %184 ], [ %.1, %181 ], [ %.1, %208 ], [ %.038.i, %253 ], [ %.1, %224 ], [ %.038.i, %238 ]
   ret ptr %.2
 }
 
@@ -1119,7 +1119,7 @@ define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly cap
   br label %24
 
 24:                                               ; preds = %22, %16, %14, %8, %6, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ 1, %16 ], [ %., %22 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %2 ], [ -1, %6 ], [ 1, %8 ], [ -1, %14 ], [ %., %22 ]
   ret i32 %.0
 }
 
@@ -1204,7 +1204,7 @@ define dso_local zeroext i1 @aclequal(ptr noundef readonly captures(address_is_n
   br label %51
 
 51:                                               ; preds = %10, %45, %14, %16, %8
-  %.0 = phi i1 [ true, %8 ], [ false, %16 ], [ false, %14 ], [ %50, %45 ], [ %13, %10 ]
+  %.0 = phi i1 [ %13, %10 ], [ false, %16 ], [ true, %8 ], [ false, %14 ], [ %50, %45 ]
   ret i1 %.0
 }
 
@@ -1383,8 +1383,8 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   br label %124
 
 71:                                               ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %50, %.critedge.i
-  %.157.i = phi i64 [ %.05675.i, %50 ], [ 2, %52 ], [ 4, %53 ], [ 8, %54 ], [ 16, %55 ], [ 32, %56 ], [ 64, %57 ], [ 128, %58 ], [ 256, %59 ], [ 512, %60 ], [ 1024, %61 ], [ 2048, %62 ], [ 4096, %63 ], [ 8192, %64 ], [ 16384, %65 ], [ 1, %.critedge.i ]
-  %.155.i = phi i64 [ %51, %50 ], [ %.05476.i, %52 ], [ %.05476.i, %53 ], [ %.05476.i, %54 ], [ %.05476.i, %55 ], [ %.05476.i, %56 ], [ %.05476.i, %57 ], [ %.05476.i, %58 ], [ %.05476.i, %59 ], [ %.05476.i, %60 ], [ %.05476.i, %61 ], [ %.05476.i, %62 ], [ %.05476.i, %63 ], [ %.05476.i, %64 ], [ %.05476.i, %65 ], [ %.05476.i, %.critedge.i ]
+  %.157.i = phi i64 [ %.05675.i, %50 ], [ 16384, %65 ], [ 2, %52 ], [ 4, %53 ], [ 8, %54 ], [ 16, %55 ], [ 32, %56 ], [ 64, %57 ], [ 128, %58 ], [ 256, %59 ], [ 512, %60 ], [ 1024, %61 ], [ 2048, %62 ], [ 4096, %63 ], [ 8192, %64 ], [ 1, %.critedge.i ]
+  %.155.i = phi i64 [ %51, %50 ], [ %.05476.i, %65 ], [ %.05476.i, %52 ], [ %.05476.i, %53 ], [ %.05476.i, %54 ], [ %.05476.i, %55 ], [ %.05476.i, %56 ], [ %.05476.i, %57 ], [ %.05476.i, %58 ], [ %.05476.i, %59 ], [ %.05476.i, %60 ], [ %.05476.i, %61 ], [ %.05476.i, %62 ], [ %.05476.i, %63 ], [ %.05476.i, %64 ], [ %.05476.i, %.critedge.i ]
   %72 = or i64 %.157.i, %.05377.i
   %.1.i = getelementptr inbounds nuw i8, ptr %.178.i, i64 1
   %73 = load i8, ptr %.1.i, align 1
@@ -1496,7 +1496,7 @@ aclparse.exit:                                    ; preds = %107, %116, %119
   %123 = load ptr, ptr %36, align 8
   br label %126
 
-124:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %89, %87, %95, %104, %102, %113, %111
+124:                                              ; preds = %66, %1, %16, %22, %28, %44, %87, %95, %102, %18, %30, %46, %68, %89, %104, %113, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1945,12 +1945,12 @@ define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_u
 15:                                               ; preds = %2
   br label %.thread44
 
-.thread44:                                        ; preds = %2, %3, %7, %8, %9, %10, %11, %6, %5, %4, %15
-  %.not293552 = phi i1 [ true, %15 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ false, %11 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %7 ], [ false, %3 ], [ false, %2 ]
-  %.0273751 = phi i64 [ 0, %15 ], [ 3584, %4 ], [ 128, %5 ], [ 256, %6 ], [ 12288, %11 ], [ 256, %10 ], [ 512, %9 ], [ 768, %8 ], [ 6, %7 ], [ 262, %3 ], [ 16511, %2 ]
-  %.not3950 = phi i1 [ true, %15 ], [ false, %4 ], [ false, %5 ], [ false, %6 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ true, %3 ], [ true, %2 ]
-  %.0254149 = phi i64 [ 0, %15 ], [ 3072, %4 ], [ 128, %5 ], [ 256, %6 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %3 ], [ 0, %2 ]
-  %16 = phi i32 [ 0, %15 ], [ 2, %4 ], [ 2, %5 ], [ 2, %6 ], [ 1, %11 ], [ 1, %10 ], [ 1, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %3 ], [ 1, %2 ]
+.thread44:                                        ; preds = %2, %11, %3, %7, %8, %9, %10, %5, %4, %6, %15
+  %.not293552 = phi i1 [ true, %15 ], [ false, %6 ], [ false, %4 ], [ false, %5 ], [ false, %10 ], [ false, %9 ], [ false, %8 ], [ false, %7 ], [ false, %3 ], [ false, %11 ], [ false, %2 ]
+  %.0273751 = phi i64 [ 0, %15 ], [ 256, %6 ], [ 3584, %4 ], [ 128, %5 ], [ 256, %10 ], [ 512, %9 ], [ 768, %8 ], [ 6, %7 ], [ 262, %3 ], [ 12288, %11 ], [ 16511, %2 ]
+  %.not3950 = phi i1 [ true, %15 ], [ false, %6 ], [ false, %4 ], [ false, %5 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ true, %3 ], [ true, %11 ], [ true, %2 ]
+  %.0254149 = phi i64 [ 0, %15 ], [ 256, %6 ], [ 3072, %4 ], [ 128, %5 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %3 ], [ 0, %11 ], [ 0, %2 ]
+  %16 = phi i32 [ 0, %15 ], [ 2, %6 ], [ 2, %4 ], [ 2, %5 ], [ 1, %10 ], [ 1, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %3 ], [ 1, %11 ], [ 1, %2 ]
   %17 = shl nuw nsw i32 %16, 4
   %narrow = add nuw nsw i32 %17, 24
   %18 = zext nneg i32 %narrow to i64
@@ -2071,7 +2071,7 @@ define dso_local noundef i64 @acldefault_sql(ptr noundef readonly captures(none)
   unreachable
 
 23:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i32 [ 41, %7 ], [ 37, %8 ], [ 9, %9 ], [ 19, %10 ], [ 21, %11 ], [ 22, %12 ], [ 36, %13 ], [ 27, %14 ], [ 42, %15 ], [ 16, %16 ], [ 17, %17 ], [ 49, %18 ], [ 6, %1 ]
+  %.0 = phi i32 [ 49, %18 ], [ 41, %7 ], [ 37, %8 ], [ 9, %9 ], [ 19, %10 ], [ 21, %11 ], [ 22, %12 ], [ 36, %13 ], [ 27, %14 ], [ 42, %15 ], [ 16, %16 ], [ 17, %17 ], [ 6, %1 ]
   %24 = trunc i64 %6 to i32
   %25 = tail call ptr @acldefault(i32 noundef %.0, i32 noundef %24)
   %26 = ptrtoint ptr %25 to i64
@@ -2343,7 +2343,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
   br i1 %or.cond87, label %.thread, label %22
 
 22:                                               ; preds = %has_privs_of_role.exit.thread, %has_privs_of_role.exit, %12
-  %.060 = phi i64 [ 0, %has_privs_of_role.exit ], [ 0, %12 ], [ %13, %has_privs_of_role.exit.thread ]
+  %.060 = phi i64 [ %13, %has_privs_of_role.exit.thread ], [ 0, %12 ], [ 0, %has_privs_of_role.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2418,7 +2418,7 @@ has_privs_of_role.exit.thread:                    ; preds = %16, %14, %has_privs
   br i1 %.not85, label %61, label %.thread
 
 61:                                               ; preds = %.lr.ph.split, %56
-  %.262 = phi i64 [ 0, %56 ], [ %.161107, %.lr.ph.split ]
+  %.262 = phi i64 [ %.161107, %.lr.ph.split ], [ 0, %56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count131
   br i1 %exitcond.not, label %.lr.ph113, label %.lr.ph.split, !llvm.loop !17
@@ -2519,7 +2519,7 @@ has_privs_of_role.exit89.thread:                  ; preds = %93, %has_privs_of_r
   br i1 %exitcond137.not, label %.thread, label %.lr.ph113.split, !llvm.loop !18
 
 .thread:                                          ; preds = %56, %45, %100, %has_privs_of_role.exit89.thread, %84, %has_privs_of_role.exit89.thread.us, %36, %has_privs_of_role.exit.thread, %10
-  %.0 = phi i64 [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %.060, %36 ], [ %.5.ph.us, %84 ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %99, %has_privs_of_role.exit89.thread ], [ %3, %45 ], [ %60, %56 ]
+  %.0 = phi i64 [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %.060, %36 ], [ %3, %45 ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %.5.ph.us, %84 ], [ %99, %has_privs_of_role.exit89.thread ], [ %60, %56 ]
   ret i64 %.0
 }
 
@@ -3091,7 +3091,7 @@ switch.lookup:                                    ; preds = %65
   br label %101
 
 101:                                              ; preds = %switch.lookup, %.thread61
-  %.3 = phi i64 [ 0, %.thread61 ], [ %91, %switch.lookup ]
+  %.3 = phi i64 [ %91, %switch.lookup ], [ 0, %.thread61 ]
   ret i64 %.3
 }
 
@@ -4026,7 +4026,7 @@ column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_pub
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
-column_privilege_check.exit.thread20:             ; preds = %32, %38
+column_privilege_check.exit.thread20:             ; preds = %38, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
@@ -4158,7 +4158,7 @@ column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_pub
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
-column_privilege_check.exit.thread18:             ; preds = %30, %36
+column_privilege_check.exit.thread18:             ; preds = %36, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
@@ -4239,7 +4239,7 @@ column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_pub
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
-column_privilege_check.exit.thread19:             ; preds = %28, %34
+column_privilege_check.exit.thread19:             ; preds = %34, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
@@ -4318,7 +4318,7 @@ column_privilege_check.exit.thread:               ; preds = %get_role_oid_or_pub
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
-column_privilege_check.exit.thread17:             ; preds = %26, %32
+column_privilege_check.exit.thread17:             ; preds = %32, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
@@ -4385,7 +4385,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
-column_privilege_check.exit.thread18:             ; preds = %24, %30
+column_privilege_check.exit.thread18:             ; preds = %30, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
@@ -4450,7 +4450,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
-column_privilege_check.exit.thread16:             ; preds = %22, %28
+column_privilege_check.exit.thread16:             ; preds = %28, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
@@ -4513,7 +4513,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
-column_privilege_check.exit.thread17:             ; preds = %20, %26
+column_privilege_check.exit.thread17:             ; preds = %26, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
@@ -4574,7 +4574,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
-column_privilege_check.exit.thread15:             ; preds = %18, %24
+column_privilege_check.exit.thread15:             ; preds = %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -4639,7 +4639,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
-column_privilege_check.exit.thread17:             ; preds = %22, %28
+column_privilege_check.exit.thread17:             ; preds = %28, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
@@ -4702,7 +4702,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
-column_privilege_check.exit.thread15:             ; preds = %20, %26
+column_privilege_check.exit.thread15:             ; preds = %26, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
@@ -4763,7 +4763,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
-column_privilege_check.exit.thread16:             ; preds = %18, %24
+column_privilege_check.exit.thread16:             ; preds = %24, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -4822,7 +4822,7 @@ column_privilege_check.exit.thread:               ; preds = %1, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
-column_privilege_check.exit.thread14:             ; preds = %16, %22
+column_privilege_check.exit.thread14:             ; preds = %22, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
@@ -6736,7 +6736,7 @@ has_lo_priv_byid.exit:                            ; preds = %24
   br label %34
 
 34:                                               ; preds = %29, %26, %has_lo_priv_byid.exit
-  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ 1, %26 ], [ %32, %29 ]
+  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ %32, %29 ], [ 1, %26 ]
   ret i64 %.0
 }
 
@@ -6781,7 +6781,7 @@ has_lo_priv_byid.exit:                            ; preds = %14
   br label %24
 
 24:                                               ; preds = %19, %16, %has_lo_priv_byid.exit
-  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ 1, %16 ], [ %22, %19 ]
+  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ %22, %19 ], [ 1, %16 ]
   ret i64 %.0
 }
 
@@ -6828,7 +6828,7 @@ has_lo_priv_byid.exit:                            ; preds = %16
   br label %26
 
 26:                                               ; preds = %21, %18, %has_lo_priv_byid.exit
-  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ 1, %18 ], [ %24, %21 ]
+  %.0 = phi i64 [ 0, %has_lo_priv_byid.exit ], [ %24, %21 ], [ 1, %18 ]
   ret i64 %.0
 }
 
@@ -6983,7 +6983,7 @@ member_can_set_role.exit:                         ; preds = %32
   br label %is_member_of_role.exit.thread
 
 is_member_of_role.exit.thread:                    ; preds = %32, %30, %24, %22, %16, %14, %is_admin_of_role.exit.thread, %member_can_set_role.exit, %has_privs_of_role.exit, %is_member_of_role.exit, %is_admin_of_role.exit, %36
-  %.0 = phi i32 [ 1, %36 ], [ 0, %is_admin_of_role.exit ], [ 0, %is_member_of_role.exit ], [ 0, %has_privs_of_role.exit ], [ 0, %member_can_set_role.exit ], [ 0, %is_admin_of_role.exit.thread ], [ 0, %14 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ]
+  %.0 = phi i32 [ 1, %36 ], [ 0, %is_admin_of_role.exit ], [ 0, %is_member_of_role.exit ], [ 0, %has_privs_of_role.exit ], [ 0, %member_can_set_role.exit ], [ 0, %is_admin_of_role.exit.thread ], [ 0, %24 ], [ 0, %16 ], [ 0, %14 ], [ 0, %22 ], [ 0, %30 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -7511,7 +7511,7 @@ roles_list_append.exit91:                         ; preds = %list_length.exit.th
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %37, %150, %.critedge
-  %.060.lcssa146 = phi ptr [ %.060127.lcssa, %150 ], [ %.060127.lcssa, %.critedge ], [ null, %37 ]
+  %.060.lcssa146 = phi ptr [ %.060127.lcssa, %.critedge ], [ %.060127.lcssa, %150 ], [ null, %37 ]
   %151 = load ptr, ptr @TopMemoryContext, align 8
   %152 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %151, ptr @CurrentMemoryContext, align 8
@@ -7804,8 +7804,8 @@ count_one_bits.exit:                              ; preds = %.preheader
   br i1 %64, label %.lr.ph96, label %.critedge
 
 .critedge.sink.split:                             ; preds = %.lr.ph96, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
-  %.us-phi.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph96 ]
-  %.us-phi65.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph96 ]
+  %.us-phi.sink = phi i32 [ %3, %6 ], [ %3, %9 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %3, %.lr.ph96 ], [ %31, %aclmask_direct.exit ]
+  %.us-phi65.sink = phi i64 [ %7, %6 ], [ %7, %9 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph96 ]
   store i32 %.us-phi.sink, ptr %4, align 4
   store i64 %.us-phi65.sink, ptr %5, align 8
   br label %.critedge
@@ -7870,7 +7870,7 @@ define dso_local i32 @get_rolespec_oid(ptr noundef readonly captures(none) %0, i
   unreachable
 
 get_role_oid.exit:                                ; preds = %5, %17, %15
-  %.0 = phi i32 [ %16, %15 ], [ %18, %17 ], [ %9, %5 ]
+  %.0 = phi i32 [ %18, %17 ], [ %16, %15 ], [ %9, %5 ]
   ret i32 %.0
 }
 
@@ -8124,7 +8124,7 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   br i1 %.not35, label %.loopexit, label %45, !llvm.loop !34
 
 .loopexit:                                        ; preds = %45, %29, %31
-  %.0 = phi ptr [ null, %31 ], [ null, %29 ], [ %.4, %45 ]
+  %.0 = phi ptr [ null, %29 ], [ null, %31 ], [ %.4, %45 ]
   ret ptr %.0
 }
 

@@ -461,7 +461,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   br label %208
 
 208:                                              ; preds = %46, %32, %207, %._crit_edge165
-  %.0 = phi i32 [ %.2122, %207 ], [ %.1121, %._crit_edge165 ], [ 0, %32 ], [ 0, %46 ]
+  %.0 = phi i32 [ 0, %32 ], [ %.2122, %207 ], [ %.1121, %._crit_edge165 ], [ 0, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -535,7 +535,7 @@ define internal range(i32 -2147483648, 1) i32 @deint_vaapi_request_frame(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %13, %22, %1, %24
-  %.0 = phi i32 [ 0, %24 ], [ -541478725, %1 ], [ %11, %22 ], [ -541478725, %13 ]
+  %.0 = phi i32 [ -541478725, %1 ], [ 0, %24 ], [ %11, %22 ], [ -541478725, %13 ]
   ret i32 %.0
 }
 
@@ -692,8 +692,8 @@ switch.lookup:                                    ; preds = %._crit_edge72
   br label %deint_vaapi_mode_name.exit
 
 deint_vaapi_mode_name.exit:                       ; preds = %._crit_edge72, %switch.lookup, %.preheader
-  %31 = phi i32 [ 0, %.preheader ], [ %28, %switch.lookup ], [ %28, %._crit_edge72 ]
-  %.0.i = phi ptr [ @.str.42, %.preheader ], [ %switch.load, %switch.lookup ], [ @.str.42, %._crit_edge72 ]
+  %31 = phi i32 [ %28, %switch.lookup ], [ 0, %.preheader ], [ %28, %._crit_edge72 ]
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.42, %.preheader ], [ @.str.42, %._crit_edge72 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.34, i32 noundef %31, ptr noundef nonnull %.0.i) #6
   %.pre = load i32, ptr %16, align 8, !tbaa !96
   br label %.thread
@@ -778,7 +778,7 @@ deint_vaapi_mode_name.exit67:                     ; preds = %._crit_edge, %switc
   br label %68
 
 68:                                               ; preds = %._crit_edge79, %.thread, %67, %50, %deint_vaapi_mode_name.exit67, %13
-  %.058 = phi i32 [ -5, %13 ], [ -5, %50 ], [ -38, %67 ], [ -22, %deint_vaapi_mode_name.exit67 ], [ %42, %.thread ], [ 0, %._crit_edge79 ]
+  %.058 = phi i32 [ -5, %13 ], [ -22, %deint_vaapi_mode_name.exit67 ], [ -5, %50 ], [ -38, %67 ], [ %42, %.thread ], [ 0, %._crit_edge79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.058
 }

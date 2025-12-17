@@ -2445,7 +2445,7 @@ cond.false.i:                                     ; preds = %if.end.i37
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %init.addr.0.i = phi ptr [ %call11.i, %cond.true.i ], [ %call13.i, %cond.false.i ]
+  %init.addr.0.i = phi ptr [ %call13.i, %cond.false.i ], [ %call11.i, %cond.true.i ]
   %21 = load ptr, ptr %currentIRScope_.i, align 8
   %call16.i = call noundef ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder12.i, ptr noundef %init.addr.0.i, ptr noundef nonnull %17, ptr noundef %21) #13
   br label %_ZN6hermes5irgen11ESTreeIRGen16createNewBindingEPNS_9ScopeDescENS_18JavaScriptDeclKindEPNS_6ESTree4NodeEbPNS_5ValueE.exit
@@ -3563,7 +3563,7 @@ cond.false.i:                                     ; preds = %if.end.i13
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %init.addr.0.i = phi ptr [ %call11.i, %cond.true.i ], [ %call13.i, %cond.false.i ]
+  %init.addr.0.i = phi ptr [ %call13.i, %cond.false.i ], [ %call11.i, %cond.true.i ]
   %19 = load ptr, ptr %currentIRScope_.i, align 8
   %call16.i = tail call noundef ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull align 8 dereferenceable(40) %Builder12.i, ptr noundef %init.addr.0.i, ptr noundef nonnull %15, ptr noundef %19) #13
   br label %_ZN6hermes5irgen11ESTreeIRGen16createNewBindingEPNS_9ScopeDescENS_18JavaScriptDeclKindEPNS_6ESTree4NodeEbPNS_5ValueE.exit
@@ -3983,9 +3983,9 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return.sink.split:                                ; preds = %while.end.loopexit.i.i.i.i.i.i.i.i, %sw.bb3, %while.end.loopexit.i.i.i.i.i.i.i, %sw.bb2
-  %.sink12 = phi ptr [ %.pre.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %2, %sw.bb2 ], [ %.pre.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %11, %sw.bb3 ]
-  %.sink11 = phi i64 [ 16, %while.end.loopexit.i.i.i.i.i.i.i ], [ 16, %sw.bb2 ], [ 48, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ 48, %sw.bb3 ]
-  %.sink10.in = phi ptr [ %base_.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ]
+  %.sink12 = phi ptr [ %2, %sw.bb2 ], [ %.pre.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %11, %sw.bb3 ]
+  %.sink11 = phi i64 [ 16, %sw.bb2 ], [ 16, %while.end.loopexit.i.i.i.i.i.i.i ], [ 48, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ 48, %sw.bb3 ]
+  %.sink10.in = phi ptr [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ]
   %head_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr null, ptr %head_3.i.i.i.i.i.i.i, align 8
   %previous_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__variants, i64 %.sink11

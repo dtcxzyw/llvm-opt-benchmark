@@ -306,7 +306,7 @@ define hidden noundef i32 @_ZN3pmx9ReadIndexEPSii(ptr noundef %0, i32 noundef %1
   br label %19
 
 19:                                               ; preds = %11, %6, %2, %16
-  %.0 = phi i32 [ %18, %16 ], [ -1, %2 ], [ %spec.select, %6 ], [ %spec.select6, %11 ]
+  %.0 = phi i32 [ %spec.select, %6 ], [ %18, %16 ], [ -1, %2 ], [ %spec.select6, %11 ]
   ret i32 %.0
 }
 
@@ -740,7 +740,7 @@ define hidden void @_ZN3pmx22PmxVertexSkinningBDEF14ReadEPSiPNS_10PmxSettingE(pt
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -790,7 +790,7 @@ define hidden void @_ZN3pmx22PmxVertexSkinningBDEF24ReadEPSiPNS_10PmxSettingE(pt
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
-  %.0.i = phi i32 [ %24, %22 ], [ -1, %3 ], [ %spec.select.i, %12 ], [ %spec.select6.i, %17 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ %24, %22 ], [ -1, %3 ], [ %spec.select6.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -828,7 +828,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
   br label %_ZN3pmx9ReadIndexEPSii.exit9
 
 _ZN3pmx9ReadIndexEPSii.exit9:                     ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %27, %32, %37
-  %.0.i6 = phi i32 [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i8, %27 ], [ %spec.select6.i7, %32 ]
+  %.0.i6 = phi i32 [ %spec.select.i8, %27 ], [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i7, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -886,7 +886,7 @@ define hidden void @_ZN3pmx22PmxVertexSkinningBDEF44ReadEPSiPNS_10PmxSettingE(pt
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %18, %23, %28
-  %.0.i = phi i32 [ %30, %28 ], [ -1, %3 ], [ %spec.select.i, %18 ], [ %spec.select6.i, %23 ]
+  %.0.i = phi i32 [ %spec.select.i, %18 ], [ %30, %28 ], [ -1, %3 ], [ %spec.select6.i, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -924,7 +924,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %18, %23, %28
   br label %_ZN3pmx9ReadIndexEPSii.exit16
 
 _ZN3pmx9ReadIndexEPSii.exit16:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %33, %38, %43
-  %.0.i13 = phi i32 [ %45, %43 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i15, %33 ], [ %spec.select6.i14, %38 ]
+  %.0.i13 = phi i32 [ %spec.select.i15, %33 ], [ %45, %43 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i14, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -962,7 +962,7 @@ _ZN3pmx9ReadIndexEPSii.exit16:                    ; preds = %_ZN3pmx9ReadIndexEP
   br label %_ZN3pmx9ReadIndexEPSii.exit20
 
 _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit16, %48, %53, %58
-  %.0.i17 = phi i32 [ %60, %58 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit16 ], [ %spec.select.i19, %48 ], [ %spec.select6.i18, %53 ]
+  %.0.i17 = phi i32 [ %spec.select.i19, %48 ], [ %60, %58 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit16 ], [ %spec.select6.i18, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1000,7 +1000,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   br label %_ZN3pmx9ReadIndexEPSii.exit24
 
 _ZN3pmx9ReadIndexEPSii.exit24:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit20, %63, %68, %73
-  %.0.i21 = phi i32 [ %75, %73 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %spec.select.i23, %63 ], [ %spec.select6.i22, %68 ]
+  %.0.i21 = phi i32 [ %spec.select.i23, %63 ], [ %75, %73 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %spec.select6.i22, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1058,7 +1058,7 @@ define hidden void @_ZN3pmx21PmxVertexSkinningSDEF4ReadEPSiPNS_10PmxSettingE(ptr
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
-  %.0.i = phi i32 [ %24, %22 ], [ -1, %3 ], [ %spec.select.i, %12 ], [ %spec.select6.i, %17 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ %24, %22 ], [ -1, %3 ], [ %spec.select6.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1096,7 +1096,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
   br label %_ZN3pmx9ReadIndexEPSii.exit12
 
 _ZN3pmx9ReadIndexEPSii.exit12:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %27, %32, %37
-  %.0.i9 = phi i32 [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i11, %27 ], [ %spec.select6.i10, %32 ]
+  %.0.i9 = phi i32 [ %spec.select.i11, %27 ], [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i10, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1160,7 +1160,7 @@ define hidden void @_ZN3pmx21PmxVertexSkinningQDEF4ReadEPSiPNS_10PmxSettingE(ptr
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %18, %23, %28
-  %.0.i = phi i32 [ %30, %28 ], [ -1, %3 ], [ %spec.select.i, %18 ], [ %spec.select6.i, %23 ]
+  %.0.i = phi i32 [ %spec.select.i, %18 ], [ %30, %28 ], [ -1, %3 ], [ %spec.select6.i, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1198,7 +1198,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %18, %23, %28
   br label %_ZN3pmx9ReadIndexEPSii.exit16
 
 _ZN3pmx9ReadIndexEPSii.exit16:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %33, %38, %43
-  %.0.i13 = phi i32 [ %45, %43 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i15, %33 ], [ %spec.select6.i14, %38 ]
+  %.0.i13 = phi i32 [ %spec.select.i15, %33 ], [ %45, %43 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i14, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1236,7 +1236,7 @@ _ZN3pmx9ReadIndexEPSii.exit16:                    ; preds = %_ZN3pmx9ReadIndexEP
   br label %_ZN3pmx9ReadIndexEPSii.exit20
 
 _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit16, %48, %53, %58
-  %.0.i17 = phi i32 [ %60, %58 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit16 ], [ %spec.select.i19, %48 ], [ %spec.select6.i18, %53 ]
+  %.0.i17 = phi i32 [ %spec.select.i19, %48 ], [ %60, %58 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit16 ], [ %spec.select6.i18, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1274,7 +1274,7 @@ _ZN3pmx9ReadIndexEPSii.exit20:                    ; preds = %_ZN3pmx9ReadIndexEP
   br label %_ZN3pmx9ReadIndexEPSii.exit24
 
 _ZN3pmx9ReadIndexEPSii.exit24:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit20, %63, %68, %73
-  %.0.i21 = phi i32 [ %75, %73 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %spec.select.i23, %63 ], [ %spec.select6.i22, %68 ]
+  %.0.i21 = phi i32 [ %spec.select.i23, %63 ], [ %75, %73 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit20 ], [ %spec.select6.i22, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1395,7 +1395,7 @@ define hidden void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonn
   unreachable
 
 _ZNSt10unique_ptrIN3pmx22PmxVertexSkinningBDEF1ESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %43, %38, %33, %26, %21
-  %.sink42 = phi ptr [ %25, %21 ], [ %32, %26 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ]
+  %.sink42 = phi ptr [ %42, %38 ], [ %37, %33 ], [ %32, %26 ], [ %25, %21 ], [ %47, %43 ]
   %50 = load ptr, ptr %.sink42, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -1673,7 +1673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %107, %112, %117
-  %.0.i = phi i32 [ %119, %117 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %spec.select.i, %107 ], [ %spec.select6.i, %112 ]
+  %.0.i = phi i32 [ %spec.select.i, %107 ], [ %119, %117 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %spec.select6.i, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1711,7 +1711,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN3pmx9ReadIndexEPSii.exit39
 
 _ZN3pmx9ReadIndexEPSii.exit39:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %122, %127, %132
-  %.0.i36 = phi i32 [ %134, %132 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i38, %122 ], [ %spec.select6.i37, %127 ]
+  %.0.i36 = phi i32 [ %spec.select.i38, %122 ], [ %134, %132 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i37, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1763,7 +1763,7 @@ _ZN3pmx9ReadIndexEPSii.exit39:                    ; preds = %_ZN3pmx9ReadIndexEP
   br label %_ZN3pmx9ReadIndexEPSii.exit43
 
 _ZN3pmx9ReadIndexEPSii.exit43:                    ; preds = %144, %146, %151, %156
-  %.0.i40 = phi i32 [ %158, %156 ], [ -1, %144 ], [ %spec.select.i42, %146 ], [ %spec.select6.i41, %151 ]
+  %.0.i40 = phi i32 [ %spec.select.i42, %146 ], [ %158, %156 ], [ -1, %144 ], [ %spec.select6.i41, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1915,7 +1915,7 @@ define hidden void @_ZN3pmx9PmxIkLink4ReadEPSiPNS_10PmxSettingE(ptr noundef nonn
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2187,7 +2187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, %97, %102, %107
-  %.0.i = phi i32 [ %109, %107 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %spec.select.i, %97 ], [ %spec.select6.i, %102 ]
+  %.0.i = phi i32 [ %spec.select.i, %97 ], [ %109, %107 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %spec.select6.i, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2235,7 +2235,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN3pmx9ReadIndexEPSii.exit49
 
 _ZN3pmx9ReadIndexEPSii.exit49:                    ; preds = %117, %119, %124, %129
-  %.0.i46 = phi i32 [ %131, %129 ], [ -1, %117 ], [ %spec.select.i48, %119 ], [ %spec.select6.i47, %124 ]
+  %.0.i46 = phi i32 [ %spec.select.i48, %119 ], [ %131, %129 ], [ -1, %117 ], [ %spec.select6.i47, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2287,7 +2287,7 @@ _ZN3pmx9ReadIndexEPSii.exit49:                    ; preds = %117, %119, %124, %1
   br label %_ZN3pmx9ReadIndexEPSii.exit53
 
 _ZN3pmx9ReadIndexEPSii.exit53:                    ; preds = %139, %141, %146, %151
-  %.0.i50 = phi i32 [ %153, %151 ], [ -1, %139 ], [ %spec.select.i52, %141 ], [ %spec.select6.i51, %146 ]
+  %.0.i50 = phi i32 [ %spec.select.i52, %141 ], [ %153, %151 ], [ -1, %139 ], [ %spec.select6.i51, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2375,7 +2375,7 @@ _ZN3pmx9ReadIndexEPSii.exit53:                    ; preds = %139, %141, %146, %1
   br label %_ZN3pmx9ReadIndexEPSii.exit57
 
 _ZN3pmx9ReadIndexEPSii.exit57:                    ; preds = %180, %182, %187, %192
-  %.0.i54 = phi i32 [ %194, %192 ], [ -1, %180 ], [ %spec.select.i56, %182 ], [ %spec.select6.i55, %187 ]
+  %.0.i54 = phi i32 [ %spec.select.i56, %182 ], [ %194, %192 ], [ -1, %180 ], [ %spec.select6.i55, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2481,7 +2481,7 @@ define hidden void @_ZN3pmx20PmxMorphVertexOffset4ReadEPSiPNS_10PmxSettingE(ptr 
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2530,7 +2530,7 @@ define hidden void @_ZN3pmx16PmxMorphUVOffset4ReadEPSiPNS_10PmxSettingE(ptr noun
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2579,7 +2579,7 @@ define hidden void @_ZN3pmx18PmxMorphBoneOffset4ReadEPSiPNS_10PmxSettingE(ptr no
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2630,7 +2630,7 @@ define hidden void @_ZN3pmx22PmxMorphMaterialOffset4ReadEPSiPNS_10PmxSettingE(pt
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2697,7 +2697,7 @@ define hidden void @_ZN3pmx19PmxMorphGroupOffset4ReadEPSiPNS_10PmxSettingE(ptr n
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2746,7 +2746,7 @@ define hidden void @_ZN3pmx18PmxMorphFlipOffset4ReadEPSiPNS_10PmxSettingE(ptr no
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2795,7 +2795,7 @@ define hidden void @_ZN3pmx20PmxMorphImplusOffset4ReadEPSiPNS_10PmxSettingE(ptr 
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %9, %14, %19
-  %.0.i = phi i32 [ %21, %19 ], [ -1, %3 ], [ %spec.select.i, %9 ], [ %spec.select6.i, %14 ]
+  %.0.i = phi i32 [ %spec.select.i, %9 ], [ %21, %19 ], [ -1, %3 ], [ %spec.select6.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3408,7 +3408,7 @@ define hidden void @_ZN3pmx15PmxFrameElement4ReadEPSiPNS_10PmxSettingE(ptr nound
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %13, %16, %21, %26
-  %.0.i = phi i32 [ %28, %26 ], [ -1, %13 ], [ %spec.select.i, %16 ], [ %spec.select6.i, %21 ]
+  %.0.i = phi i32 [ %spec.select.i, %16 ], [ %28, %26 ], [ -1, %13 ], [ %spec.select6.i, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3448,7 +3448,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %13, %16, %21, %26
   br label %_ZN3pmx9ReadIndexEPSii.exit9
 
 _ZN3pmx9ReadIndexEPSii.exit9:                     ; preds = %29, %32, %37, %42
-  %.0.i6 = phi i32 [ %44, %42 ], [ -1, %29 ], [ %spec.select.i8, %32 ], [ %spec.select6.i7, %37 ]
+  %.0.i6 = phi i32 [ %spec.select.i8, %32 ], [ %44, %42 ], [ -1, %29 ], [ %spec.select6.i7, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3961,7 +3961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %86, %91, %96
-  %.0.i = phi i32 [ %98, %96 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %spec.select.i, %86 ], [ %spec.select6.i, %91 ]
+  %.0.i = phi i32 [ %spec.select.i, %86 ], [ %98, %96 ], [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %spec.select6.i, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4035,7 +4035,7 @@ define hidden void @_ZN3pmx13PmxJointParam4ReadEPSiPNS_10PmxSettingE(ptr noundef
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
-  %.0.i = phi i32 [ %24, %22 ], [ -1, %3 ], [ %spec.select.i, %12 ], [ %spec.select6.i, %17 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ %24, %22 ], [ -1, %3 ], [ %spec.select6.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4072,7 +4072,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
   br label %_ZN3pmx9ReadIndexEPSii.exit16
 
 _ZN3pmx9ReadIndexEPSii.exit16:                    ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %26, %31, %36
-  %.0.i13 = phi i32 [ %38, %36 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i15, %26 ], [ %spec.select6.i14, %31 ]
+  %.0.i13 = phi i32 [ %spec.select.i15, %26 ], [ %38, %36 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i14, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4348,7 +4348,7 @@ define hidden void @_ZN3pmx18PmxAncherRigidBody4ReadEPSiPNS_10PmxSettingE(ptr no
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
-  %.0.i = phi i32 [ %24, %22 ], [ -1, %3 ], [ %spec.select.i, %12 ], [ %spec.select6.i, %17 ]
+  %.0.i = phi i32 [ %spec.select.i, %12 ], [ %24, %22 ], [ -1, %3 ], [ %spec.select6.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4386,7 +4386,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %3, %12, %17, %22
   br label %_ZN3pmx9ReadIndexEPSii.exit9
 
 _ZN3pmx9ReadIndexEPSii.exit9:                     ; preds = %_ZN3pmx9ReadIndexEPSii.exit, %27, %32, %37
-  %.0.i6 = phi i32 [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select.i8, %27 ], [ %spec.select6.i7, %32 ]
+  %.0.i6 = phi i32 [ %spec.select.i8, %27 ], [ %39, %37 ], [ -1, %_ZN3pmx9ReadIndexEPSii.exit ], [ %spec.select6.i7, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4916,16 +4916,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %43 = load ptr, ptr %7, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %45 = icmp eq ptr %43, %44
-  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %41
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %41
+  %46 = load i64, ptr %44, align 8
+  %47 = add i64 %46, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %47) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.074, label %.sink.split, label %660
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %41
-  %46 = load i64, ptr %44, align 8
-  %47 = add i64 %46, 1
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %47) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.074, label %.sink.split, label %660
 
@@ -5571,7 +5571,7 @@ _ZNSt10unique_ptrIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defa
   br label %_ZN3pmx9ReadIndexEPSii.exit
 
 _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %300, %302, %307, %312
-  %.0.i = phi i32 [ %314, %312 ], [ -1, %300 ], [ %spec.select.i, %302 ], [ %spec.select6.i, %307 ]
+  %.0.i = phi i32 [ %spec.select.i, %302 ], [ %314, %312 ], [ -1, %300 ], [ %spec.select6.i, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6327,14 +6327,14 @@ _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   %659 = icmp slt i64 %indvars.iv.next288, %658
   br i1 %659, label %.lr.ph263, label %._crit_edge264, !llvm.loop !86
 
-.sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %28
-  %.sink = phi ptr [ %26, %28 ], [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.pn81.ph = phi { ptr, i32 } [ %29, %28 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+.sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %28
+  %.sink = phi ptr [ %26, %28 ], [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn81.ph = phi { ptr, i32 } [ %29, %28 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @__cxa_free_exception(ptr %.sink) #22
   br label %660
 
-660:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn81 = phi { ptr, i32 } [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn81.ph, %.sink.split ]
+660:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn81 = phi { ptr, i32 } [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.pn81.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn81
 

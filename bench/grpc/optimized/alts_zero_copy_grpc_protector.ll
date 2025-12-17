@@ -237,7 +237,7 @@ _ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i59: ; preds 
   ret i32 %.0
 
 _ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exit57: ; preds = %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i59, %51, %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i56, %45, %13
-  %.pn49 = phi { ptr, i32 } [ %14, %13 ], [ %46, %45 ], [ %46, %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i56 ], [ %52, %51 ], [ %52, %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i59 ]
+  %.pn49 = phi { ptr, i32 } [ %14, %13 ], [ %46, %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i56 ], [ %46, %45 ], [ %52, %51 ], [ %52, %_ZNKSt14default_deleteIN9grpc_core16GsecKeyInterfaceEEclEPS1_.exit.i59 ]
   resume { ptr, i32 } %.pn49
 }
 
@@ -821,7 +821,7 @@ _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
   br label %91
 
 91:                                               ; preds = %.thread, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread, %87, %90, %83, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit
-  %.041 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit ], [ 8, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread ], [ 0, %87 ], [ 0, %90 ], [ 0, %83 ], [ %82, %.thread ]
+  %.041 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit ], [ 8, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread ], [ %82, %.thread ], [ 0, %87 ], [ 0, %90 ], [ 0, %83 ]
   ret i32 %.041
 }
 

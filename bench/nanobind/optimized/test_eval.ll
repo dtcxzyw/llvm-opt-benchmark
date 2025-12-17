@@ -405,7 +405,7 @@ _ZNK8nanobind6detail8accessorINS0_8str_attrEEcvT_INS_4dictETnNSt9enable_ifIXsr3s
   br label %.body
 
 .body:                                            ; preds = %110, %48
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %49, %48 ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %111, %110 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
   %112 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #14
   %113 = icmp eq i32 %.05, %112

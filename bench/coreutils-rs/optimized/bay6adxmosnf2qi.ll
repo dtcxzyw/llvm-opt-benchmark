@@ -1298,7 +1298,7 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
   br i1 %.not, label %15, label %18
 
 14:                                               ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit32", %15, %3, %49
-  %.0 = phi ptr [ %32, %49 ], [ null, %3 ], [ %16, %15 ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit32" ], [ null, %34 ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %15 ], [ %32, %49 ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit32" ], [ null, %34 ]
   ret ptr %.0
 
 15:                                               ; preds = %8
@@ -1403,7 +1403,7 @@ define hidden noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io.
   br i1 %.not, label %14, label %18
 
 13:                                               ; preds = %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit30", %14, %3, %52
-  %.0 = phi ptr [ %33, %52 ], [ null, %3 ], [ %16, %14 ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit30" ], [ null, %35 ]
+  %.0 = phi ptr [ null, %3 ], [ %16, %14 ], [ %33, %52 ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h91f87a3fef4eec95E.exit30" ], [ null, %35 ]
   ret ptr %.0
 
 14:                                               ; preds = %7
@@ -1788,7 +1788,7 @@ define hidden noundef ptr @_ZN5uu_dd8progress10ProgUpdate14write_io_lines17hc122
   br label %50
 
 50:                                               ; preds = %44, %37, %34, %22, %2
-  %.0 = phi ptr [ %20, %2 ], [ %32, %22 ], [ null, %34 ], [ %43, %37 ], [ %49, %44 ]
+  %.0 = phi ptr [ %32, %22 ], [ null, %34 ], [ %43, %37 ], [ %20, %2 ], [ %49, %44 ]
   ret ptr %.0
 }
 
@@ -1926,7 +1926,7 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb4
   br label %.body
 
 .body:                                            ; preds = %111, %131, %.body.i, %83
-  %eh.lpad-body = phi { ptr, i32 } [ %84, %83 ], [ %112, %111 ], [ %132, %131 ], [ %eh.lpad-body.i, %.body.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %84, %83 ], [ %132, %131 ], [ %112, %111 ], [ %eh.lpad-body.i, %.body.i ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48) #22
           to label %382 unwind label %453
 
@@ -2032,7 +2032,7 @@ default.unreachable:                              ; preds = %.noexc109, %149, %8
   unreachable
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i.i", %116, %115
-  %.08.i.i.i = phi ptr [ null, %116 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i.i" ], [ %spec.select.i.i.i, %115 ]
+  %.08.i.i.i = phi ptr [ %spec.select.i.i.i, %115 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i.i" ], [ null, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !314
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !312
   br label %144
@@ -2099,13 +2099,13 @@ default.unreachable:                              ; preds = %.noexc109, %149, %8
   unreachable
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit57.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i54.i", %136, %135
-  %.08.i.i55.i = phi ptr [ null, %136 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i54.i" ], [ %spec.select.i.i56.i, %135 ]
+  %.08.i.i55.i = phi ptr [ %spec.select.i.i56.i, %135 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i54.i" ], [ null, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !333
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !312
   br label %144
 
 144:                                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit57.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i"
-  %.047.i = phi ptr [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i" ], [ %.08.i.i55.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit57.i" ]
+  %.047.i = phi ptr [ %.08.i.i55.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit57.i" ], [ %.08.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17hf5826e97e849b5fdE.exit.i" ]
   %145 = icmp eq ptr %.047.i, null
   br i1 %145, label %.thread.i, label %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit.thread"
 
@@ -2432,7 +2432,7 @@ default.unreachable:                              ; preds = %.noexc109, %149, %8
           to label %.body unwind label %260
 
 248:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i59.i", %188, %187
-  %.08.i.i60.i = phi ptr [ null, %188 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i59.i" ], [ %spec.select.i.i61.i, %187 ]
+  %.08.i.i60.i = phi ptr [ %spec.select.i.i61.i, %187 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i59.i" ], [ null, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !353
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !312
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !312
@@ -2463,7 +2463,7 @@ default.unreachable:                              ; preds = %.noexc109, %149, %8
   br label %"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$uucore..features..format..num_format..Formatter$GT$3fmt17h8337292aaf9de5edE.exit"
 
 258:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i65.i", %213, %212
-  %.08.i.i66.i = phi ptr [ null, %213 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i65.i" ], [ %spec.select.i.i67.i, %212 ]
+  %.08.i.i66.i = phi ptr [ %spec.select.i.i67.i, %212 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i65.i" ], [ null, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !372
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !312
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !312
@@ -2471,7 +2471,7 @@ default.unreachable:                              ; preds = %.noexc109, %149, %8
   br label %249
 
 259:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i74.i", %238, %237
-  %.08.i.i75.i = phi ptr [ null, %238 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i74.i" ], [ %spec.select.i.i76.i, %237 ]
+  %.08.i.i75.i = phi ptr [ %spec.select.i.i76.i, %237 ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h0957fd4436e7e889E.exit.i.i.i74.i" ], [ null, %238 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !391
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !312
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !312
@@ -3039,7 +3039,7 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats
   br label %25
 
 25:                                               ; preds = %17, %23, %15
-  %.merged = phi { ptr, ptr } [ %24, %23 ], [ %16, %15 ], [ %22, %17 ]
+  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %22, %17 ], [ %24, %23 ]
   ret { ptr, ptr } %.merged
 }
 

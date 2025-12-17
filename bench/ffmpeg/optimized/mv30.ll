@@ -1571,7 +1571,7 @@ default.unreachable:                              ; preds = %558
   unreachable
 
 decode_inter_block.exit.i:                        ; preds = %899, %.loopexit.i.i.i, %610, %587
-  %935 = phi ptr [ %559, %587 ], [ %601, %610 ], [ %668, %.loopexit.i.i.i ], [ %926, %899 ]
+  %935 = phi ptr [ %668, %.loopexit.i.i.i ], [ %559, %587 ], [ %601, %610 ], [ %926, %899 ]
   %indvars.iv.next291.i = add nuw nsw i64 %indvars.iv290.i, 1
   %exitcond293.not.i = icmp eq i64 %indvars.iv.next291.i, 6
   br i1 %exitcond293.not.i, label %.loopexit.i, label %558, !llvm.loop !82
@@ -1608,8 +1608,8 @@ decode_inter_block.exit.i:                        ; preds = %899, %.loopexit.i.i
   br i1 %exitcond297.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %copy_block8.exit.i, %decode_inter_block.exit.i, %.preheader.i
-  %.sroa.5216.4.i = phi i32 [ %944, %.preheader.i ], [ %567, %decode_inter_block.exit.i ], [ %.sroa.5216.2259.i, %copy_block8.exit.i ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2261.i, %.preheader.i ], [ %.sroa.0.5.i, %decode_inter_block.exit.i ], [ %.sroa.0.5.i, %copy_block8.exit.i ]
+  %.sroa.5216.4.i = phi i32 [ %567, %decode_inter_block.exit.i ], [ %944, %.preheader.i ], [ %.sroa.5216.2259.i, %copy_block8.exit.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.5.i, %decode_inter_block.exit.i ], [ %.sroa.0.2261.i, %.preheader.i ], [ %.sroa.0.5.i, %copy_block8.exit.i ]
   %956 = add nsw i32 %spec.store.select.i, 1
   %indvars.iv.next299.i = add nuw nsw i64 %indvars.iv298.i, 16
   %957 = load i32, ptr %327, align 8, !tbaa !64
@@ -1618,7 +1618,7 @@ decode_inter_block.exit.i:                        ; preds = %899, %.loopexit.i.i
   br i1 %.not194.i, label %446, label %._crit_edge.i85, !llvm.loop !84
 
 .critedge.thread.i:                               ; preds = %429, %412, %505, %499, %bytestream2_get_le16.exit197.i, %450
-  %959 = phi i32 [ -1094995529, %450 ], [ -1094995529, %bytestream2_get_le16.exit197.i ], [ -1094995529, %499 ], [ -1094995529, %505 ], [ -12, %429 ], [ -1094995529, %412 ]
+  %959 = phi i32 [ -1094995529, %505 ], [ -1094995529, %450 ], [ -1094995529, %bytestream2_get_le16.exit197.i ], [ -1094995529, %499 ], [ -1094995529, %412 ], [ -12, %429 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %decode_inter.exit.thread
@@ -1665,7 +1665,7 @@ decode_inter.exit:                                ; preds = %._crit_edge.i85, %b
   br label %970
 
 970:                                              ; preds = %decode_inter.exit.thread, %decode_intra.exit.thread, %963, %32, %4, %968, %319
-  %.0 = phi i32 [ %969, %968 ], [ -1094995529, %319 ], [ -1094995529, %4 ], [ %33, %32 ], [ %966, %963 ], [ %.0.i.ph, %decode_intra.exit.thread ], [ %.7.i.ph, %decode_inter.exit.thread ]
+  %.0 = phi i32 [ -1094995529, %319 ], [ -1094995529, %4 ], [ %33, %32 ], [ %.7.i.ph, %decode_inter.exit.thread ], [ %969, %968 ], [ %.0.i.ph, %decode_intra.exit.thread ], [ %966, %963 ]
   ret i32 %.0
 }
 

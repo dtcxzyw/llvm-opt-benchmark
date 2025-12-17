@@ -316,7 +316,7 @@ define internal noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hf9
   unreachable
 
 common.resume.i:                                  ; preds = %45, %24, %20
-  %common.resume.op.i = phi { ptr, i32 } [ %21, %24 ], [ %21, %20 ], [ %46, %45 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %21, %20 ], [ %21, %24 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN12polars_utils4mmap10UNMAP_POOL28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h58755452e6bd4294E.exit.i": ; preds = %30, %25
@@ -835,7 +835,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread10:
   br i1 %24, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread, label %25, !prof !36
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread: ; preds = %4, %_ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread10, %25
-  %.sink = phi i64 [ 7, %25 ], [ 17, %_ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread10 ], [ 17, %4 ]
+  %.sink = phi i64 [ 17, %_ZN4core4iter6traits8iterator8Iterator6reduce17h648c3b9b005fb286E.exit.thread10 ], [ 7, %25 ], [ 17, %4 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -1058,7 +1058,7 @@ define void @_ZN12polars_utils4mmap13MMapSemaphore26new_from_file_with_options17
   invoke void @_ZN3std2fs4File8metadata17hbdb62364c18d62d8E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1)
           to label %25 unwind label %.thread40
 
-.thread40:                                        ; preds = %28, %_ZN3std4sync6poison4once4Once9call_once17hedfe54cdd99d71ecE.exit, %21, %34
+.thread40:                                        ; preds = %28, %21, %_ZN3std4sync6poison4once4Once9call_once17hedfe54cdd99d71ecE.exit, %34
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread37
@@ -1248,7 +1248,7 @@ _ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i: ; preds = %78, %.noe
   resume { ptr, i32 } %.pn36
 
 .thread37:                                        ; preds = %56, %44, %.thread40
-  %.pn36 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread40 ], [ %45, %44 ], [ %57, %56 ]
+  %.pn36 = phi { ptr, i32 } [ %45, %44 ], [ %lpad.thr_comm, %.thread40 ], [ %57, %56 ]
   invoke void @"_ZN4core3ptr34drop_in_place$LT$memmap2..Mmap$GT$17h28b3d4121fb32d27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #22
           to label %89 unwind label %86
 }

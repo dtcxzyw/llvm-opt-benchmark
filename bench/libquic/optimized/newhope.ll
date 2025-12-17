@@ -159,7 +159,7 @@ encode_rec.exit:                                  ; preds = %18
   br label %43
 
 43:                                               ; preds = %41, %encode_rec.exit, %39
-  %.1 = phi i32 [ 0, %39 ], [ 0, %encode_rec.exit ], [ %spec.select, %41 ]
+  %.1 = phi i32 [ 0, %encode_rec.exit ], [ %spec.select, %41 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -253,7 +253,7 @@ decode_rec.exit:                                  ; preds = %12
   br label %34
 
 34:                                               ; preds = %32, %decode_rec.exit, %30
-  %.1 = phi i32 [ 0, %30 ], [ 0, %decode_rec.exit ], [ %spec.select, %32 ]
+  %.1 = phi i32 [ 0, %decode_rec.exit ], [ %spec.select, %32 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

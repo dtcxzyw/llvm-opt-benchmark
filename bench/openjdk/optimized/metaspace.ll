@@ -579,7 +579,7 @@ define hidden noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_
   br label %20
 
 20:                                               ; preds = %18, %19, %14, %10, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %10 ], [ false, %14 ], [ true, %19 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %14 ], [ false, %10 ], [ false, %11 ], [ true, %19 ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -653,7 +653,7 @@ define hidden noundef zeroext i1 @_ZN11MetaspaceGC10can_expandEmb(i64 noundef %0
   br label %26
 
 26:                                               ; preds = %15, %23, %21, %13, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %13 ], [ false, %21 ], [ false, %23 ], [ true, %15 ]
+  %.0 = phi i1 [ false, %23 ], [ false, %13 ], [ false, %11 ], [ false, %21 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -768,7 +768,7 @@ define hidden void @_ZN11MetaspaceGC16compute_new_sizeEv() local_unnamed_addr #0
   br label %_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit
 
 _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
-  %.056 = phi i64 [ 0, %35 ], [ %spec.select, %41 ]
+  %.056 = phi i64 [ %spec.select, %41 ], [ 0, %35 ]
   %43 = load ptr, ptr @_ZN9Metaspace7_tracerE, align 8
   tail call void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %43, i64 noundef %5, i64 noundef %.056, i32 noundef 0) #14
   %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1558,7 +1558,7 @@ _ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit:  ; preds = %.lr.ph.i.i.preheade
   br label %_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeE.exit.thread
 
 _ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeE.exit.thread: ; preds = %15, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit.i, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit, %29, %4, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %4 ], [ %24, %29 ], [ %24, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit ], [ %11, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit.i ], [ %11, %15 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %.thread ], [ %24, %29 ], [ %24, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit ], [ %11, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit.i ], [ %11, %15 ]
   ret ptr %.0
 }
 

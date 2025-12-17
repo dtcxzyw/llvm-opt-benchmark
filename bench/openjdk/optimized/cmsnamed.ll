@@ -38,7 +38,7 @@ define hidden ptr @cmsMLUalloc(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %14
 
 14:                                               ; preds = %2, %11, %10
-  %.0 = phi ptr [ null, %10 ], [ %4, %11 ], [ null, %2 ]
+  %.0 = phi ptr [ %4, %11 ], [ null, %10 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -124,7 +124,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
   br label %43
 
 43:                                               ; preds = %31, %strTo16.exit31, %39, %29
-  %.0 = phi i32 [ %30, %29 ], [ %41, %39 ], [ 0, %strTo16.exit31 ], [ 0, %31 ]
+  %.0 = phi i32 [ %41, %39 ], [ %30, %29 ], [ 0, %strTo16.exit31 ], [ 0, %31 ]
   ret i32 %.0
 }
 
@@ -272,7 +272,7 @@ GrowMLUpool.exit:                                 ; preds = %45
   br label %GrowMLUtable.exit.thread
 
 GrowMLUtable.exit.thread:                         ; preds = %45, %.lr.ph, %12, %10, %._crit_edge, %._crit_edge.loopexit.split.loop.exit17.i, %._crit_edge.thread
-  %.0 = phi i32 [ 1, %._crit_edge.thread ], [ 0, %._crit_edge.loopexit.split.loop.exit17.i ], [ 0, %._crit_edge ], [ 0, %10 ], [ 0, %12 ], [ 0, %.lr.ph ], [ 0, %45 ]
+  %.0 = phi i32 [ 1, %._crit_edge.thread ], [ 0, %._crit_edge ], [ 0, %._crit_edge.loopexit.split.loop.exit17.i ], [ 0, %12 ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %45 ]
   ret i32 %.0
 }
 
@@ -362,7 +362,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   br label %49
 
 49:                                               ; preds = %47, %45, %41, %35, %.lr.ph.i
-  %.123.i = phi i32 [ %38, %35 ], [ %42, %41 ], [ %46, %45 ], [ %48, %47 ], [ %31, %.lr.ph.i ]
+  %.123.i = phi i32 [ %48, %47 ], [ %38, %35 ], [ %42, %41 ], [ %46, %45 ], [ %31, %.lr.ph.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp sgt i8 %51, -65
@@ -424,7 +424,7 @@ decodeUTF8.exit:                                  ; preds = %49
   br label %79
 
 79:                                               ; preds = %77, %75, %71, %65, %.lr.ph.i26
-  %.123.i31 = phi i32 [ %68, %65 ], [ %72, %71 ], [ %76, %75 ], [ %78, %77 ], [ %61, %.lr.ph.i26 ]
+  %.123.i31 = phi i32 [ %78, %77 ], [ %68, %65 ], [ %72, %71 ], [ %76, %75 ], [ %61, %.lr.ph.i26 ]
   %80 = getelementptr inbounds nuw i8, ptr %.02430.i30, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = icmp sgt i8 %81, -65
@@ -452,7 +452,7 @@ decodeUTF8.exit41:                                ; preds = %86, %58
   br label %91
 
 91:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
-  %.0 = phi i32 [ %29, %28 ], [ %89, %decodeUTF8.exit41 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
+  %.0 = phi i32 [ %89, %decodeUTF8.exit41 ], [ %29, %28 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
   ret i32 %.0
 }
 
@@ -620,7 +620,7 @@ cmsMLUfree.exit:                                  ; preds = %53, %56
   br label %cmsMLUalloc.exit.thread
 
 cmsMLUalloc.exit.thread:                          ; preds = %3, %14, %1, %cmsMLUfree.exit, %45
-  %.0 = phi ptr [ null, %cmsMLUfree.exit ], [ %8, %45 ], [ null, %1 ], [ null, %14 ], [ null, %3 ]
+  %.0 = phi ptr [ %8, %45 ], [ null, %1 ], [ null, %cmsMLUfree.exit ], [ null, %14 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -756,7 +756,7 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %49 = phi i64 [ 0, %.preheader.i ], [ %48, %._crit_edge.i ]
+  %49 = phi i64 [ %48, %._crit_edge.i ], [ 0, %.preheader.i ]
   %50 = getelementptr inbounds %struct._cmsMLUentry, ptr %.pre.i, i64 %49
   %.phi.trans.insert67.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.pre68.i = load i32, ptr %.phi.trans.insert67.i, align 4
@@ -823,7 +823,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   br label %_cmsMLUgetWide.exit.thread
 
 _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.i, %25, %65, %_cmsMLUgetWide.exit, %strTo16.exit35, %._crit_edge, %63
-  %.0 = phi i32 [ %64, %63 ], [ %75, %._crit_edge ], [ 0, %strTo16.exit35 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %65 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
+  %.0 = phi i32 [ %75, %._crit_edge ], [ 0, %strTo16.exit35 ], [ %64, %63 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %65 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
   ret i32 %.0
 }
 
@@ -918,7 +918,7 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %49 = phi i64 [ 0, %.preheader.i ], [ %48, %._crit_edge.i ]
+  %49 = phi i64 [ %48, %._crit_edge.i ], [ 0, %.preheader.i ]
   %50 = getelementptr inbounds %struct._cmsMLUentry, ptr %.pre.i, i64 %49
   %.phi.trans.insert67.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.pre68.i = load i32, ptr %.phi.trans.insert67.i, align 4
@@ -967,7 +967,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   br label %_cmsMLUgetWide.exit.thread
 
 _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.i, %25, %66, %_cmsMLUgetWide.exit, %strTo16.exit27, %68, %64
-  %.0 = phi i32 [ %65, %64 ], [ %75, %68 ], [ 0, %strTo16.exit27 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %66 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
+  %.0 = phi i32 [ %75, %68 ], [ 0, %strTo16.exit27 ], [ %65, %64 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %66 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
   ret i32 %.0
 }
 
@@ -1111,9 +1111,9 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %20, %21, %23, %61, %64, %44, %47, %28, %32, %13
-  %.165 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %83, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
-  %.162 = phi i32 [ %15, %13 ], [ 0, %32 ], [ 0, %28 ], [ 0, %47 ], [ 0, %44 ], [ 0, %64 ], [ 0, %61 ], [ 0, %23 ], [ 0, %21 ], [ 0, %20 ]
-  %.1 = phi i32 [ %.06084, %13 ], [ %30, %32 ], [ %30, %28 ], [ %45, %47 ], [ %45, %44 ], [ %62, %64 ], [ %62, %61 ], [ %.pre, %23 ], [ %.pre, %21 ], [ %.pre, %20 ]
+  %.165 = phi ptr [ %.06482, %13 ], [ %.06482, %61 ], [ %.06482, %44 ], [ %.06482, %28 ], [ %40, %32 ], [ %60, %47 ], [ %83, %64 ], [ %.06482, %21 ], [ %25, %23 ], [ null, %20 ]
+  %.162 = phi i32 [ %15, %13 ], [ 0, %61 ], [ 0, %44 ], [ 0, %28 ], [ 0, %32 ], [ 0, %47 ], [ 0, %64 ], [ 0, %21 ], [ 0, %23 ], [ 0, %20 ]
+  %.1 = phi i32 [ %.06084, %13 ], [ %62, %61 ], [ %45, %44 ], [ %30, %28 ], [ %30, %32 ], [ %45, %47 ], [ %62, %64 ], [ %.pre, %21 ], [ %.pre, %23 ], [ %.pre, %20 ]
   %84 = getelementptr inbounds nuw i8, ptr %.06781, i64 4
   %85 = add nuw nsw i32 %.085, 1
   %86 = load i32, ptr %84, align 4
@@ -1218,7 +1218,7 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %49 = phi i64 [ 0, %.preheader.i ], [ %48, %._crit_edge.i ]
+  %49 = phi i64 [ %48, %._crit_edge.i ], [ 0, %.preheader.i ]
   %50 = getelementptr inbounds %struct._cmsMLUentry, ptr %.pre.i, i64 %49
   %.phi.trans.insert67.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.pre68.i = load i32, ptr %.phi.trans.insert67.i, align 4
@@ -1269,7 +1269,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   br label %_cmsMLUgetWide.exit.thread
 
 _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.i, %25, %64, %_cmsMLUgetWide.exit, %strTo16.exit19, %66, %62
-  %.0 = phi i32 [ %63, %62 ], [ %76, %66 ], [ 0, %strTo16.exit19 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %64 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
+  %.0 = phi i32 [ %76, %66 ], [ 0, %strTo16.exit19 ], [ %63, %62 ], [ 0, %_cmsMLUgetWide.exit ], [ 0, %64 ], [ 0, %25 ], [ 0, %._crit_edge.thread.i ]
   ret i32 %.0
 }
 
@@ -1357,7 +1357,7 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %44 = phi i64 [ 0, %.preheader.i ], [ %43, %._crit_edge.i ]
+  %44 = phi i64 [ %43, %._crit_edge.i ], [ 0, %.preheader.i ]
   %45 = getelementptr inbounds %struct._cmsMLUentry, ptr %.pre.i, i64 %44
   %.phi.trans.insert67.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.pre68.i = load i32, ptr %.phi.trans.insert67.i, align 4
@@ -1541,7 +1541,7 @@ cmsFreeNamedColorList.exit:                       ; preds = %26, %27, %.thread
   br label %37
 
 37:                                               ; preds = %7, %5, %._crit_edge, %cmsFreeNamedColorList.exit
-  %.0 = phi ptr [ null, %cmsFreeNamedColorList.exit ], [ %8, %._crit_edge ], [ null, %5 ], [ null, %7 ]
+  %.0 = phi ptr [ %8, %._crit_edge ], [ null, %5 ], [ null, %cmsFreeNamedColorList.exit ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -1674,7 +1674,7 @@ cmsFreeNamedColorList.exit:                       ; preds = %.loopexit.thread, %
   br label %46
 
 46:                                               ; preds = %3, %1, %._crit_edge, %cmsFreeNamedColorList.exit
-  %.0 = phi ptr [ null, %cmsFreeNamedColorList.exit ], [ %11, %._crit_edge ], [ null, %1 ], [ null, %3 ]
+  %.0 = phi ptr [ %11, %._crit_edge ], [ null, %1 ], [ null, %cmsFreeNamedColorList.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1823,7 +1823,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   br label %GrowNamedColorList.exit.thread
 
 GrowNamedColorList.exit.thread:                   ; preds = %21, %20, %4, %77
-  %.030 = phi i32 [ 1, %77 ], [ 0, %4 ], [ 0, %20 ], [ 0, %21 ]
+  %.030 = phi i32 [ 0, %4 ], [ 1, %77 ], [ 0, %20 ], [ 0, %21 ]
   ret i32 %.030
 }
 
@@ -1912,7 +1912,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
   br label %43
 
 43:                                               ; preds = %32, %33, %cmsNamedColorCount.exit, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %cmsNamedColorCount.exit ], [ 1, %33 ], [ 1, %32 ]
+  %.0 = phi i32 [ 0, %cmsNamedColorCount.exit ], [ 0, %7 ], [ 1, %33 ], [ 1, %32 ]
   ret i32 %.0
 }
 
@@ -2254,7 +2254,7 @@ define hidden ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 nounde
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2, %12
-  %.024 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %4 ], [ %5, %.lr.ph ]
+  %.024 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %12 ], [ %5, %.lr.ph ]
   ret ptr %.024
 }
 
@@ -2521,7 +2521,7 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly capture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %14, %3, %1, %79
-  %.048 = phi ptr [ null, %79 ], [ null, %1 ], [ null, %3 ], [ %6, %14 ], [ %6, %19 ]
+  %.048 = phi ptr [ null, %3 ], [ null, %1 ], [ null, %79 ], [ %6, %14 ], [ %6, %19 ]
   ret ptr %.048
 }
 

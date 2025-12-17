@@ -1003,7 +1003,7 @@ dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTC
   br label %dissect_PNPTCP_block.exit
 
 dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
-  %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ], [ %73, %132 ], [ %73, %149 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %201 ], [ %73, %213 ], [ %73, %242 ], [ %73, %dissect_PNPTCP_Option.exit.i ]
+  %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ], [ %73, %132 ], [ %73, %149 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %201 ], [ %73, %213 ], [ %73, %242 ]
   %296 = add i32 %.0.i, %79
   %297 = sub i32 %296, %.02
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %297)

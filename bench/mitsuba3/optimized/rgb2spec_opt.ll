@@ -228,7 +228,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z12LUPDecomposePPdidPi(ptr noundef c
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph85.us, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %20, %.loopexit, %4, %.preheader78
-  %.0 = phi i32 [ 1, %.preheader78 ], [ 1, %4 ], [ 1, %.loopexit ], [ 0, %20 ]
+  %.0 = phi i32 [ 1, %.preheader78 ], [ 1, %4 ], [ 0, %20 ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -594,7 +594,7 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   br label %61
 
 61:                                               ; preds = %57, %17, %17
-  %.039 = phi double [ 6.250000e-01, %17 ], [ 6.250000e-01, %17 ], [ %., %57 ]
+  %.039 = phi double [ 6.250000e-01, %17 ], [ %., %57 ], [ 6.250000e-01, %17 ]
   %62 = getelementptr inbounds nuw double, ptr @lambda_tbl, i64 %indvars.iv62
   store double %21, ptr %62, align 8
   %invariant.gep = getelementptr inbounds nuw double, ptr @rgb_tbl, i64 %indvars.iv62
@@ -1562,7 +1562,7 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %47
 
 47:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %41, %19, %6, %46
-  %.sroa.034.0 = phi ptr [ %0, %46 ], [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ null, %41 ]
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ null, %6 ], [ null, %19 ], [ %0, %46 ], [ null, %41 ]
   ret ptr %.sroa.034.0
 }
 
@@ -1659,8 +1659,8 @@ _ZL11parse_gamutPKc.exit:                         ; preds = %22
   tail call void @exit(i32 noundef -1) #28
   unreachable
 
-select.unfold:                                    ; preds = %22, %9, %10, %14, %16, %18, %20
-  %.0.ph = phi i32 [ 2, %20 ], [ 1, %18 ], [ 5, %16 ], [ 4, %14 ], [ 0, %10 ], [ 0, %9 ], [ 3, %22 ]
+select.unfold:                                    ; preds = %22, %9, %20, %18, %16, %14, %10
+  %.0.ph = phi i32 [ 0, %9 ], [ 0, %10 ], [ 4, %14 ], [ 5, %16 ], [ 1, %18 ], [ 2, %20 ], [ 3, %22 ]
   tail call void @_Z11init_tables5Gamut(i32 noundef %.0.ph)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8

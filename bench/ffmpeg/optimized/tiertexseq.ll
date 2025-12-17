@@ -178,7 +178,7 @@ define internal range(i32 -1094995529, 1) i32 @seq_read_header(ptr noundef %0) #
   br label %seq_init_frame_buffers.exit.thread
 
 seq_init_frame_buffers.exit.thread:               ; preds = %11, %23, %30, %26, %41
-  %.0 = phi i32 [ 0, %41 ], [ -12, %26 ], [ -12, %30 ], [ %24, %23 ], [ -12, %11 ]
+  %.0 = phi i32 [ -12, %30 ], [ 0, %41 ], [ -12, %26 ], [ %24, %23 ], [ -12, %11 ]
   ret i32 %.0
 }
 
@@ -310,7 +310,7 @@ define internal range(i32 -2147483648, 1) i32 @seq_read_packet(ptr noundef reado
   br label %85
 
 85:                                               ; preds = %.sink.split, %69, %65, %26, %17, %9
-  %.0 = phi i32 [ %10, %9 ], [ %20, %17 ], [ -5, %26 ], [ -5, %65 ], [ %77, %69 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -5, %26 ], [ -5, %65 ], [ %10, %9 ], [ %20, %17 ], [ %77, %69 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -486,7 +486,7 @@ seq_fill_buffer.exit:                             ; preds = %47
   br label %seq_fill_buffer.exit.thread
 
 seq_fill_buffer.exit.thread:                      ; preds = %47, %38, %.critedge, %64, %72, %62
-  %.0 = phi i32 [ -1094995529, %62 ], [ 0, %72 ], [ 0, %64 ], [ -1094995529, %.critedge ], [ -1094995529, %38 ], [ -5, %47 ]
+  %.0 = phi i32 [ -1094995529, %62 ], [ 0, %64 ], [ 0, %72 ], [ -1094995529, %.critedge ], [ -1094995529, %38 ], [ -5, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

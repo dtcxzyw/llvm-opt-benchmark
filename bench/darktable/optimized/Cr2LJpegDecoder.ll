@@ -601,9 +601,9 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   unreachable
 
 _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_M_allocateEm.exit.i: ; preds = %111, %105, %101, %111
-  %.sroa.0111.0 = phi i32 [ 1, %105 ], [ 2, %101 ], [ 1, %111 ], [ 1, %111 ]
-  %.sroa.9.0 = phi i32 [ 2, %105 ], [ 2, %101 ], [ 1, %111 ], [ 1, %111 ]
-  %.sroa.14.0 = phi i32 [ 3, %105 ], [ 3, %101 ], [ %41, %111 ], [ %41, %111 ]
+  %.sroa.0111.0 = phi i32 [ 1, %111 ], [ 1, %105 ], [ 2, %101 ], [ 1, %111 ]
+  %.sroa.9.0 = phi i32 [ 1, %111 ], [ 2, %105 ], [ 2, %101 ], [ 1, %111 ]
+  %.sroa.14.0 = phi i32 [ %41, %111 ], [ 3, %105 ], [ 3, %101 ], [ %41, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %112 = zext nneg i32 %.sroa.14.0 to i64
@@ -1153,7 +1153,7 @@ _ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15Baseli
   br label %.body
 
 .body:                                            ; preds = %322, %319, %317, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i, %340, %327
-  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %340 ], [ %lpad.phi, %327 ], [ %318, %317 ], [ %139, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i ], [ %320, %319 ], [ %320, %322 ]
+  %.pn56.pn = phi { ptr, i32 } [ %.pn56, %340 ], [ %lpad.phi, %327 ], [ %139, %_ZNSt6vectorIPKN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEESaIS7_EED2Ev.exit.i ], [ %318, %317 ], [ %320, %319 ], [ %320, %322 ]
   %341 = load ptr, ptr %3, align 8, !tbaa !135
   %.not.i.i.i84 = icmp eq ptr %341, null
   br i1 %.not.i.i.i84, label %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit85, label %342
@@ -1205,7 +1205,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   br label %14
 
 14:                                               ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
-  %.0.i.i.i.i.i = phi ptr [ %10, %.noexc10 ], [ %13, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
+  %.0.i.i.i.i.i = phi ptr [ %13, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc10 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8, !tbaa !173
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 220

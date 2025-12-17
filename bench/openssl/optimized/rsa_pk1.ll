@@ -167,7 +167,7 @@ define range(i32 -2147483648, 2147483638) i32 @RSA_padding_check_PKCS1_type_1(pt
   br label %36
 
 36:                                               ; preds = %5, %34, %33, %29, %.loopexit.thread, %22, %19, %11
-  %.030 = phi i32 [ -1, %11 ], [ -1, %19 ], [ -1, %.loopexit.thread ], [ -1, %29 ], [ -1, %33 ], [ %31, %34 ], [ -1, %22 ], [ -1, %5 ]
+  %.030 = phi i32 [ -1, %22 ], [ -1, %11 ], [ -1, %19 ], [ -1, %.loopexit.thread ], [ -1, %29 ], [ -1, %33 ], [ %31, %34 ], [ -1, %5 ]
   ret i32 %.030
 }
 
@@ -452,7 +452,7 @@ define i32 @RSA_padding_check_PKCS1_type_2(ptr noundef captures(none) %0, i32 no
   br label %113
 
 113:                                              ; preds = %12, %5, %._crit_edge127, %11
-  %.0 = phi i32 [ -1, %11 ], [ %112, %._crit_edge127 ], [ -1, %5 ], [ -1, %12 ]
+  %.0 = phi i32 [ %112, %._crit_edge127 ], [ -1, %11 ], [ -1, %5 ], [ -1, %12 ]
   ret i32 %.0
 }
 

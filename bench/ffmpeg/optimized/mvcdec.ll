@@ -899,7 +899,7 @@ set_4x4_block.exit.i:                             ; preds = %253, %307, %set_4x4
   br i1 %491, label %228, label %decode_mvc2.exit, !llvm.loop !51
 
 decode_mvc2.exit:                                 ; preds = %254, %281, %308, %387, %485, %487, %161, %179, %180, %._crit_edge.thread.i
-  %.0.i = phi i32 [ -1163346256, %179 ], [ -1094995529, %161 ], [ -1094995529, %180 ], [ 0, %._crit_edge.thread.i ], [ -1094995529, %254 ], [ 0, %487 ], [ 0, %485 ], [ -1094995529, %387 ], [ -1094995529, %308 ], [ -1094995529, %281 ]
+  %.0.i = phi i32 [ -1094995529, %180 ], [ -1163346256, %179 ], [ -1094995529, %161 ], [ 0, %._crit_edge.thread.i ], [ -1094995529, %254 ], [ -1094995529, %281 ], [ -1094995529, %308 ], [ 0, %487 ], [ 0, %485 ], [ -1094995529, %387 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %492

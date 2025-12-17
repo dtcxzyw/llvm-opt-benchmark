@@ -2007,7 +2007,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body65
 
 .body65:                                          ; preds = %113, %110, %200
-  %.pn48.pn = phi { ptr, i32 } [ %201, %200 ], [ %111, %113 ], [ %111, %110 ]
+  %.pn48.pn = phi { ptr, i32 } [ %201, %200 ], [ %111, %110 ], [ %111, %113 ]
   br label %202
 
 202:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %.body65
@@ -2357,7 +2357,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body111
 
 .body111:                                         ; preds = %248, %245, %335
-  %.pn51.pn = phi { ptr, i32 } [ %336, %335 ], [ %246, %248 ], [ %246, %245 ]
+  %.pn51.pn = phi { ptr, i32 } [ %336, %335 ], [ %246, %245 ], [ %246, %248 ]
   br label %337
 
 337:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155, %.body111
@@ -2707,7 +2707,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body171
 
 .body171:                                         ; preds = %383, %380, %470
-  %.pn54.pn = phi { ptr, i32 } [ %471, %470 ], [ %381, %383 ], [ %381, %380 ]
+  %.pn54.pn = phi { ptr, i32 } [ %471, %470 ], [ %381, %380 ], [ %381, %383 ]
   br label %472
 
 472:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, %.body171
@@ -3040,7 +3040,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body227
 
 .body227:                                         ; preds = %514, %511, %597
-  %.pn57.pn = phi { ptr, i32 } [ %598, %597 ], [ %512, %514 ], [ %512, %511 ]
+  %.pn57.pn = phi { ptr, i32 } [ %598, %597 ], [ %512, %511 ], [ %512, %514 ]
   %599 = load ptr, ptr %42, align 8, !tbaa !25
   %600 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %601 = icmp eq ptr %599, %600

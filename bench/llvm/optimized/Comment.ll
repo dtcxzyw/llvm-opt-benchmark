@@ -88,7 +88,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment11child_beginEv(ptr nou
   unreachable
 
 20:                                               ; preds = %1, %1, %1, %1, %1, %1, %17, %15, %12, %10, %7, %4
-  %.0 = phi ptr [ %18, %17 ], [ %6, %4 ], [ %9, %7 ], [ %11, %10 ], [ %14, %12 ], [ %16, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.0 = phi ptr [ %18, %17 ], [ %16, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %6, %4 ], [ %9, %7 ], [ %11, %10 ], [ null, %1 ], [ %14, %12 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -151,7 +151,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
   unreachable
 
 29:                                               ; preds = %1, %1, %1, %1, %1, %1, %26, %24, %18, %16, %10, %4
-  %.0 = phi ptr [ %27, %26 ], [ %9, %4 ], [ %15, %10 ], [ %17, %16 ], [ %23, %18 ], [ %25, %24 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %.0 = phi ptr [ %27, %26 ], [ %25, %24 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ %9, %4 ], [ %15, %10 ], [ %17, %16 ], [ null, %1 ], [ %23, %18 ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -282,7 +282,7 @@ _ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21: 
   br label %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21, %42, %50, %58, %64
-  %.028.i.i.i.i.i = phi ptr [ %6, %64 ], [ %.029.lcssa.i.i.i.i.i, %42 ], [ %.1.i.i.i.i.i, %50 ], [ %.2.i.i.i.i.i, %58 ], [ %65, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit ], [ %66, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19 ], [ %67, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %50 ], [ %6, %64 ], [ %.2.i.i.i.i.i, %58 ], [ %.029.lcssa.i.i.i.i.i, %42 ], [ %67, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21 ], [ %66, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19 ], [ %65, %_ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %68 = icmp eq ptr %6, %.028.i.i.i.i.i
   ret i1 %68
 }
@@ -634,7 +634,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit81: ; preds = %82, %97
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %140, %135, %143, %146
-  %.1 = phi ptr [ %148, %146 ], [ null, %143 ], [ %142, %140 ], [ %139, %135 ]
+  %.1 = phi ptr [ null, %143 ], [ %148, %146 ], [ %142, %140 ], [ %139, %135 ]
   %149 = load i16, ptr %2, align 8
   %150 = and i16 %149, -15
   %151 = or disjoint i16 %150, 6
@@ -716,7 +716,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %140, %135, %143
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87: ; preds = %187, %182, %174, %168, %163, %158, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
-  %.0 = phi ptr [ %.1, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ %165, %163 ], [ %162, %158 ], [ %175, %174 ], [ %173, %168 ], [ %188, %187 ], [ %186, %182 ]
+  %.0 = phi ptr [ %.1, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ %162, %158 ], [ %173, %168 ], [ %165, %163 ], [ %175, %174 ], [ %188, %187 ], [ %186, %182 ]
   %.not70 = icmp eq ptr %.0, null
   br i1 %.not70, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread, label %191
 
@@ -1082,7 +1082,7 @@ _ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i: ; preds = %_ZNK5clang17
   br label %_ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i
 
 _ZN5clang8commentsL33lookThroughTypedefOrTypeAliasLocsERNS_7TypeLocE.exit.i: ; preds = %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit52.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit64.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i, %.thread80.i.i, %.thread66.i.i, %.thread52.i.i, %.thread31.i.i, %.thread34.i.i, %.thread.i.i
-  %.fca.1.insert.merged.i.i = phi { ptr, ptr } [ %241, %.thread.i.i ], [ %259, %.thread31.i.i ], [ %289, %.thread52.i.i ], [ %320, %.thread66.i.i ], [ %334, %.thread80.i.i ], [ %.fca.1.insert.i63.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit64.i ], [ %.fca.1.insert.i51.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit52.i ], [ %.fca.1.insert.i.i.i, %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i ], [ %.fca.1.insert.merged.i.i.i, %.thread34.i.i ], [ %.fca.1.insert.merged.i.i.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i ]
+  %.fca.1.insert.merged.i.i = phi { ptr, ptr } [ %241, %.thread.i.i ], [ %.fca.1.insert.i.i.i, %_ZNK5clang17ElaboratedTypeLoc15getNamedTypeLocEv.exit.i ], [ %.fca.1.insert.i51.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit52.i ], [ %.fca.1.insert.i63.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit64.i ], [ %334, %.thread80.i.i ], [ %320, %.thread66.i.i ], [ %289, %.thread52.i.i ], [ %259, %.thread31.i.i ], [ %.fca.1.insert.merged.i.i.i, %.thread34.i.i ], [ %.fca.1.insert.merged.i.i.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_19BlockPointerTypeLocENS_16BlockPointerTypeENS_18PointerLikeLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i.i ]
   %409 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i.i, 0
   %410 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i.i, 1
   %411 = icmp ne ptr %.sroa.082.0114.i, %409
@@ -1208,7 +1208,7 @@ _ZNK5clang15FunctionTypeLoc9getParamsEv.exit:     ; preds = %_ZN5clang8commentsL
   store i16 %472, ptr %2, align 8
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread
 
-_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %423, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %420, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %._crit_edge.i, %176, %152, %189, %166, %118, %116, %112, %108, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %62, %56, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
+_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %423, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %._crit_edge.i, %420, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %176, %152, %166, %189, %118, %116, %112, %108, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %62, %56, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
   %473 = load i16, ptr %2, align 8
   br label %474
 
@@ -1371,8 +1371,8 @@ _ZNK5clang8comments11FullComment11getDeclInfoEv.exit: ; preds = %2, %8
   br i1 %53, label %._crit_edge, label %.lr.ph34
 
 _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit, %32, %._crit_edge
-  %.sroa.3.0 = phi i64 [ %38, %32 ], [ 0, %._crit_edge ], [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
-  %.sroa.0.0 = phi ptr [ %36, %32 ], [ @.str.17, %._crit_edge ], [ @.str.17, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
+  %.sroa.3.0 = phi i64 [ 0, %._crit_edge ], [ %38, %32 ], [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
+  %.sroa.0.0 = phi ptr [ @.str.17, %._crit_edge ], [ %36, %32 ], [ @.str.17, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert

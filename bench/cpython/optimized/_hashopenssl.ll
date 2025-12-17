@@ -633,7 +633,7 @@ _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit,
   br label %54
 
 54:                                               ; preds = %50, %13, %52, %20, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %52 ], [ 0, %11 ], [ 0, %13 ], [ 1, %50 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %20 ], [ 0, %52 ], [ 0, %13 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1675,7 +1675,7 @@ Py_DECREF.exit.i:                                 ; preds = %149, %146, %144
   br label %_hashlib_scrypt_impl.exit
 
 _hashlib_scrypt_impl.exit:                        ; preds = %Py_DECREF.exit.i, %136, %133, %131, %126, %121, %118, %111, %104, %99, %92, %86, %81, %75, %66, %26, %.thread, %17, %57, %47, %37
-  %.058 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %66 ], [ null, %75 ], [ null, %57 ], [ null, %47 ], [ null, %37 ], [ null, %17 ], [ null, %81 ], [ null, %86 ], [ null, %92 ], [ null, %99 ], [ null, %104 ], [ null, %111 ], [ null, %118 ], [ null, %121 ], [ null, %126 ], [ null, %Py_DECREF.exit.i ], [ null, %131 ], [ null, %133 ], [ %134, %136 ]
+  %.058 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %66 ], [ null, %75 ], [ null, %17 ], [ null, %57 ], [ null, %47 ], [ null, %37 ], [ null, %81 ], [ null, %86 ], [ null, %92 ], [ null, %99 ], [ null, %104 ], [ null, %111 ], [ null, %118 ], [ null, %121 ], [ null, %126 ], [ null, %131 ], [ null, %133 ], [ null, %Py_DECREF.exit.i ], [ %134, %136 ]
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !54
   %.not92 = icmp eq ptr %152, null
@@ -2013,7 +2013,7 @@ define internal ptr @_hashlib_hmac_singleshot(ptr noundef %0, ptr noundef %1, i6
   br label %_hashlib_hmac_singleshot_impl.exit
 
 _hashlib_hmac_singleshot_impl.exit:               ; preds = %28, %34, %36, %49, %51
-  %.0.i = phi ptr [ null, %28 ], [ null, %34 ], [ null, %49 ], [ %54, %51 ], [ null, %36 ]
+  %.0.i = phi ptr [ null, %28 ], [ null, %34 ], [ %54, %51 ], [ null, %49 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
@@ -2101,8 +2101,8 @@ define internal ptr @_hashlib_hmac_new(ptr noundef %0, ptr noundef %1, i64 nound
   br label %28
 
 28:                                               ; preds = %22, %21, %25
-  %.026 = phi ptr [ %24, %25 ], [ null, %21 ], [ %24, %22 ]
-  %.0 = phi ptr [ %27, %25 ], [ null, %21 ], [ null, %22 ]
+  %.026 = phi ptr [ %24, %25 ], [ %24, %22 ], [ null, %21 ]
+  %.0 = phi ptr [ %27, %25 ], [ null, %22 ], [ null, %21 ]
   %29 = call ptr @PyModule_GetState(ptr noundef %0) #9
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !45
@@ -2186,7 +2186,7 @@ define internal ptr @_hashlib_hmac_new(ptr noundef %0, ptr noundef %1, i64 nound
   br label %_hashlib_hmac_new_impl.exit
 
 _hashlib_hmac_new_impl.exit:                      ; preds = %67, %.thread45.i, %.thread41.i, %64, %58, %41, %39, %35, %.thread, %16
-  %.027 = phi ptr [ null, %.thread ], [ null, %16 ], [ null, %35 ], [ null, %39 ], [ null, %41 ], [ %56, %64 ], [ %56, %58 ], [ null, %67 ], [ null, %.thread41.i ], [ null, %.thread45.i ]
+  %.027 = phi ptr [ null, %.thread ], [ null, %16 ], [ null, %35 ], [ null, %39 ], [ null, %41 ], [ %56, %58 ], [ %56, %64 ], [ null, %67 ], [ null, %.thread45.i ], [ null, %.thread41.i ]
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !54
   %.not38 = icmp eq ptr %69, null
@@ -3096,8 +3096,8 @@ EVP_hash.exit61:                                  ; preds = %.lr.ph.i
   call void @_Py_Dealloc(ptr noundef nonnull %33) #9
   br label %Py_DECREF.exit52
 
-Py_DECREF.exit52:                                 ; preds = %82, %76, %29, %Py_DECREF.exit.i, %92, %89, %87, %EVP_hash.exit61.thread67, %55, %52, %49, %56, %25
-  %.037 = phi ptr [ null, %25 ], [ %33, %56 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ %33, %EVP_hash.exit61.thread67 ], [ null, %87 ], [ null, %89 ], [ null, %92 ], [ null, %Py_DECREF.exit.i ], [ null, %29 ], [ %33, %76 ], [ %33, %82 ]
+Py_DECREF.exit52:                                 ; preds = %82, %76, %Py_DECREF.exit.i, %29, %92, %89, %87, %EVP_hash.exit61.thread67, %55, %52, %49, %56, %25
+  %.037 = phi ptr [ null, %25 ], [ null, %92 ], [ null, %Py_DECREF.exit.i ], [ %33, %EVP_hash.exit61.thread67 ], [ %33, %56 ], [ null, %49 ], [ null, %52 ], [ null, %55 ], [ null, %87 ], [ null, %89 ], [ null, %29 ], [ %33, %76 ], [ %33, %82 ]
   br i1 %.not, label %94, label %93
 
 93:                                               ; preds = %Py_DECREF.exit52
@@ -3112,7 +3112,7 @@ Py_DECREF.exit52:                                 ; preds = %82, %76, %29, %Py_D
   br label %96
 
 96:                                               ; preds = %94, %95, %16, %23, %14, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %14 ], [ null, %16 ], [ %.037, %95 ], [ %.037, %94 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %14 ], [ null, %23 ], [ null, %16 ], [ %.037, %95 ], [ %.037, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -3157,7 +3157,7 @@ define internal fastcc ptr @py_digest_by_name(ptr noundef %0, ptr noundef %1, i3
   br label %26
 
 26:                                               ; preds = %22, %14
-  %.022 = phi ptr [ %25, %22 ], [ %17, %14 ]
+  %.022 = phi ptr [ %17, %14 ], [ %25, %22 ]
   %.not24 = icmp eq ptr %.022, null
   br i1 %.not24, label %.thread29, label %.thread31
 
@@ -3402,7 +3402,7 @@ define internal fastcc ptr @py_digest_by_digestmod(ptr noundef %0, ptr noundef %
   br label %23
 
 23:                                               ; preds = %21, %.thread, %12, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %12 ], [ null, %.thread ], [ %22, %21 ]
+  %.0 = phi ptr [ null, %.thread ], [ null, %12 ], [ %22, %21 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -3523,7 +3523,7 @@ define internal range(i32 -1, 1) i32 @hashlib_init_evpxoftype(ptr noundef %0) #0
   br label %11
 
 11:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ %.lobit, %9 ]
+  %.0 = phi i32 [ -1, %5 ], [ -1, %1 ], [ %.lobit, %9 ]
   ret i32 %.0
 }
 
@@ -4044,7 +4044,7 @@ EVP_hash.exit24:                                  ; preds = %54, %EVP_hash.exit
   br label %69
 
 69:                                               ; preds = %68, %EVP_hash.exit24, %EVP_hash.exit24.thread, %13, %20, %11, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ null, %11 ], [ null, %13 ], [ null, %68 ], [ @_Py_NoneStruct, %EVP_hash.exit24 ], [ @_Py_NoneStruct, %EVP_hash.exit24.thread ]
+  %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %20 ], [ null, %13 ], [ null, %68 ], [ @_Py_NoneStruct, %EVP_hash.exit24 ], [ @_Py_NoneStruct, %EVP_hash.exit24.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -4304,7 +4304,7 @@ Py_DECREF.exit.i:                                 ; preds = %42, %39, %37
   br label %EVP_copy_impl.exit
 
 EVP_copy_impl.exit:                               ; preds = %2, %Py_DECREF.exit.i.i, %locked_EVP_MD_CTX_copy.exit.i, %Py_DECREF.exit.i
-  %.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ %4, %locked_EVP_MD_CTX_copy.exit.i ], [ null, %Py_DECREF.exit.i.i ], [ null, %2 ]
+  %.0.i = phi ptr [ null, %Py_DECREF.exit.i ], [ %4, %locked_EVP_MD_CTX_copy.exit.i ], [ null, %2 ], [ null, %Py_DECREF.exit.i.i ]
   ret ptr %.0.i
 }
 
@@ -4544,7 +4544,7 @@ Py_DECREF.exit.i:                                 ; preds = %70, %67, %65
   br label %EVPXOF_digest_impl.exit
 
 EVPXOF_digest_impl.exit:                          ; preds = %72, %Py_DECREF.exit.i, %Py_DECREF.exit19.i, %Py_DECREF.exit21.i, %23, %Py_DECREF.exit.thread, %9
-  %.027 = phi ptr [ null, %9 ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit21.i ], [ %24, %72 ], [ null, %Py_DECREF.exit.i ], [ null, %Py_DECREF.exit19.i ], [ null, %23 ]
+  %.027 = phi ptr [ null, %Py_DECREF.exit.thread ], [ null, %9 ], [ null, %Py_DECREF.exit19.i ], [ null, %Py_DECREF.exit21.i ], [ %24, %72 ], [ null, %Py_DECREF.exit.i ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027
 }
@@ -4681,7 +4681,7 @@ locked_EVP_MD_CTX_copy.exit.i:                    ; preds = %51, %47, %_PyMutex_
   br label %EVPXOF_hexdigest_impl.exit
 
 EVPXOF_hexdigest_impl.exit:                       ; preds = %58, %56, %52, %31, %26, %Py_DECREF.exit.thread, %9
-  %.027 = phi ptr [ null, %9 ], [ null, %Py_DECREF.exit.thread ], [ null, %26 ], [ null, %31 ], [ %59, %58 ], [ null, %56 ], [ null, %52 ]
+  %.027 = phi ptr [ null, %Py_DECREF.exit.thread ], [ null, %9 ], [ null, %26 ], [ null, %31 ], [ %59, %58 ], [ null, %56 ], [ null, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027
 }

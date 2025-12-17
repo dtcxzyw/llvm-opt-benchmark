@@ -559,7 +559,7 @@ i915_gem_object_lock.exit:                        ; preds = %228
   br label %.thread37.thread.sink.split
 
 i915_gem_object_lock.exit31:                      ; preds = %269, %i915_gem_object_lock.exit
-  %282 = phi i32 [ %230, %i915_gem_object_lock.exit ], [ %271, %269 ]
+  %282 = phi i32 [ %271, %269 ], [ %230, %i915_gem_object_lock.exit ]
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %284, label %i915_gem_object_lock.exit32
 
@@ -698,7 +698,7 @@ i915_gem_object_lock.exit32:                      ; preds = %314, %i915_gem_obje
   br i1 %352, label %.thread37.thread, label %356
 
 .thread37.thread.sink.split:                      ; preds = %321, %325, %276, %280, %239, %235
-  %.sink = phi ptr [ %203, %235 ], [ %203, %239 ], [ %244, %280 ], [ %244, %276 ], [ %289, %325 ], [ %289, %321 ]
+  %.sink = phi ptr [ %244, %276 ], [ %203, %239 ], [ %203, %235 ], [ %244, %280 ], [ %289, %325 ], [ %289, %321 ]
   store ptr %.sink, ptr %199, align 8
   br label %.thread37.thread
 
@@ -2177,7 +2177,7 @@ define internal i32 @ring_request_alloc(ptr noundef %0) #0 align 16 {
   br label %.thread27
 
 .thread27:                                        ; preds = %151, %66, %53, %50, %41, %89, %71, %97, %179, %1
-  %182 = phi i32 [ 0, %179 ], [ %9, %1 ], [ %91, %89 ], [ %73, %71 ], [ %103, %97 ], [ %69, %66 ], [ %64, %53 ], [ %51, %50 ], [ %43, %41 ], [ %153, %151 ]
+  %182 = phi i32 [ 0, %179 ], [ %9, %1 ], [ %103, %97 ], [ %91, %89 ], [ %73, %71 ], [ %69, %66 ], [ %64, %53 ], [ %51, %50 ], [ %43, %41 ], [ %153, %151 ]
   ret i32 %182
 }
 

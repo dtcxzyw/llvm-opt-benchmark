@@ -726,10 +726,10 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %215
   br i1 %246, label %is_xlogfilename.exit.i.i, label %is_xlogfilename.exit.thread.i.i
 
 is_xlogfilename.exit.i.i:                         ; preds = %243, %239, %235, %231, %227, %225
-  %.sink27.i.i.i = phi i8 [ 0, %225 ], [ 0, %227 ], [ 0, %231 ], [ 1, %235 ], [ 1, %239 ], [ 1, %243 ]
-  %247 = phi i1 [ false, %225 ], [ true, %227 ], [ true, %231 ], [ false, %235 ], [ true, %239 ], [ true, %243 ]
-  %248 = phi i1 [ true, %225 ], [ false, %227 ], [ true, %231 ], [ true, %235 ], [ false, %239 ], [ true, %243 ]
-  %249 = phi i1 [ true, %225 ], [ true, %227 ], [ false, %231 ], [ true, %235 ], [ true, %239 ], [ false, %243 ]
+  %.sink27.i.i.i = phi i8 [ 1, %239 ], [ 1, %235 ], [ 0, %231 ], [ 0, %227 ], [ 0, %225 ], [ 1, %243 ]
+  %247 = phi i1 [ true, %239 ], [ false, %235 ], [ true, %231 ], [ true, %227 ], [ false, %225 ], [ true, %243 ]
+  %248 = phi i1 [ false, %239 ], [ true, %235 ], [ true, %231 ], [ false, %227 ], [ true, %225 ], [ true, %243 ]
+  %249 = phi i1 [ true, %239 ], [ true, %235 ], [ false, %231 ], [ true, %227 ], [ true, %225 ], [ false, %243 ]
   %250 = load i32, ptr @WalSegSz, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -895,9 +895,9 @@ is_xlogfilename.exit.i.i:                         ; preds = %243, %239, %235, %2
   br label %is_xlogfilename.exit.thread.i.i
 
 is_xlogfilename.exit.thread.i.i:                  ; preds = %318, %315, %314, %306, %270, %243, %239, %235, %231, %227, %225, %.lr.ph.i.i
-  %.150.i.i = phi i8 [ %.049116.i.i, %270 ], [ %.049116.i.i, %306 ], [ %.sink27.i.i.i, %318 ], [ %.049116.i.i, %315 ], [ %.049116.i.i, %314 ], [ %.049116.i.i, %.lr.ph.i.i ], [ %.049116.i.i, %225 ], [ %.049116.i.i, %243 ], [ %.049116.i.i, %227 ], [ %.049116.i.i, %231 ], [ %.049116.i.i, %235 ], [ %.049116.i.i, %239 ]
-  %.147.i.i = phi i32 [ %.046117.i.i, %270 ], [ %.046117.i.i, %306 ], [ %.pre.i.i, %318 ], [ %.046117.i.i, %315 ], [ %.046117.i.i, %314 ], [ %.046117.i.i, %.lr.ph.i.i ], [ %.046117.i.i, %225 ], [ %.046117.i.i, %243 ], [ %.046117.i.i, %227 ], [ %.046117.i.i, %231 ], [ %.046117.i.i, %235 ], [ %.046117.i.i, %239 ]
-  %.1.i.i = phi i64 [ %.045118.i.i, %270 ], [ %.045118.i.i, %306 ], [ %259, %318 ], [ %.045118.i.i, %315 ], [ %.045118.i.i, %314 ], [ %.045118.i.i, %.lr.ph.i.i ], [ %.045118.i.i, %225 ], [ %.045118.i.i, %243 ], [ %.045118.i.i, %227 ], [ %.045118.i.i, %231 ], [ %.045118.i.i, %235 ], [ %.045118.i.i, %239 ]
+  %.150.i.i = phi i8 [ %.049116.i.i, %314 ], [ %.049116.i.i, %270 ], [ %.049116.i.i, %306 ], [ %.sink27.i.i.i, %318 ], [ %.049116.i.i, %315 ], [ %.049116.i.i, %.lr.ph.i.i ], [ %.049116.i.i, %225 ], [ %.049116.i.i, %235 ], [ %.049116.i.i, %227 ], [ %.049116.i.i, %231 ], [ %.049116.i.i, %243 ], [ %.049116.i.i, %239 ]
+  %.147.i.i = phi i32 [ %.046117.i.i, %314 ], [ %.046117.i.i, %270 ], [ %.046117.i.i, %306 ], [ %.pre.i.i, %318 ], [ %.046117.i.i, %315 ], [ %.046117.i.i, %.lr.ph.i.i ], [ %.046117.i.i, %225 ], [ %.046117.i.i, %235 ], [ %.046117.i.i, %227 ], [ %.046117.i.i, %231 ], [ %.046117.i.i, %243 ], [ %.046117.i.i, %239 ]
+  %.1.i.i = phi i64 [ %.045118.i.i, %314 ], [ %.045118.i.i, %270 ], [ %.045118.i.i, %306 ], [ %259, %318 ], [ %.045118.i.i, %315 ], [ %.045118.i.i, %.lr.ph.i.i ], [ %.045118.i.i, %225 ], [ %.045118.i.i, %235 ], [ %.045118.i.i, %227 ], [ %.045118.i.i, %231 ], [ %.045118.i.i, %243 ], [ %.045118.i.i, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 0, ptr %219, align 4
   %319 = call ptr @readdir(ptr noundef nonnull %217) #12
@@ -1304,7 +1304,7 @@ define internal noundef zeroext i1 @stop_streaming(i64 noundef %0, i32 noundef %
   br label %35
 
 35:                                               ; preds = %30, %32, %34, %20
-  %.0 = phi i1 [ true, %20 ], [ true, %34 ], [ true, %32 ], [ false, %30 ]
+  %.0 = phi i1 [ true, %20 ], [ true, %32 ], [ true, %34 ], [ false, %30 ]
   ret i1 %.0
 }
 

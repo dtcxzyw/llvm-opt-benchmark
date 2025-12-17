@@ -271,7 +271,7 @@ switch.early.test.i:                              ; preds = %bytestream2_get_be1
   br label %decode_extradata.exit
 
 .critedge.i:                                      ; preds = %84, %switch.early.test.i, %68, %bytestream2_get_be16.exit.i, %bytestream2_get_byte.exit68.i
-  %.sroa.0.1.lcssa.i = phi ptr [ %50, %bytestream2_get_be16.exit.i ], [ %21, %bytestream2_get_byte.exit68.i ], [ %70, %68 ], [ %100, %switch.early.test.i ], [ %86, %84 ]
+  %.sroa.0.1.lcssa.i = phi ptr [ %50, %bytestream2_get_be16.exit.i ], [ %21, %bytestream2_get_byte.exit68.i ], [ %100, %switch.early.test.i ], [ %70, %68 ], [ %86, %84 ]
   %102 = add nuw nsw i32 %.058124.i, 1
   %exitcond135.not.i = icmp eq i32 %102, %38
   br i1 %exitcond135.not.i, label %decode_extradata.exit, label %.lr.ph125.i, !llvm.loop !40
@@ -315,8 +315,8 @@ decode_extradata.exit:                            ; preds = %.critedge.i, %bytes
   br i1 %119, label %.lr.ph.i26, label %parse_nal_units.exit, !llvm.loop !41
 
 parse_nal_units.exit:                             ; preds = %.lr.ph.i26, %106, %115, %114, %103
-  %120 = phi ptr [ %4, %103 ], [ null, %114 ], [ null, %.lr.ph.i26 ], [ null, %106 ], [ %4, %115 ]
-  %121 = phi i32 [ %5, %103 ], [ 0, %114 ], [ 0, %.lr.ph.i26 ], [ 0, %106 ], [ %5, %115 ]
+  %120 = phi ptr [ null, %114 ], [ %4, %103 ], [ null, %.lr.ph.i26 ], [ null, %106 ], [ %4, %115 ]
+  %121 = phi i32 [ 0, %114 ], [ %5, %103 ], [ 0, %.lr.ph.i26 ], [ 0, %106 ], [ %5, %115 ]
   store ptr %120, ptr %2, align 8, !tbaa !42
   store i32 %121, ptr %3, align 4, !tbaa !43
   ret i32 %5
@@ -586,7 +586,7 @@ switch.lookup:                                    ; preds = %121
   br label %142
 
 142:                                              ; preds = %42, %46, %34, %139, %.thread, %10, %49, %45, %33, %25, %9
-  %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %25 ], [ -1094995529, %33 ], [ %43, %45 ], [ %47, %49 ], [ -1094995529, %10 ], [ %.1.ph, %.thread ], [ 0, %139 ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ]
+  %.0 = phi i32 [ -1094995529, %9 ], [ %.1.ph, %.thread ], [ -1094995529, %25 ], [ -1094995529, %33 ], [ -1094995529, %10 ], [ %43, %45 ], [ %47, %49 ], [ 0, %139 ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -548,7 +548,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_122cmMacroFunctionBlocker14
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %23, %21, %13
-  %27 = phi i1 [ false, %13 ], [ %26, %23 ], [ true, %21 ]
+  %27 = phi i1 [ true, %21 ], [ false, %13 ], [ %26, %23 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
@@ -2718,7 +2718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i.i.i: ; preds
   br i1 %102, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !108
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i: ; preds = %99, %97, %93, %89, %80
-  %.0.i.i.i.i.i = phi i32 [ %90, %89 ], [ %94, %93 ], [ %98, %97 ], [ 1, %80 ], [ %101, %99 ]
+  %.0.i.i.i.i.i = phi i32 [ %98, %97 ], [ %90, %89 ], [ %94, %93 ], [ 1, %80 ], [ %101, %99 ]
   %103 = zext i32 %.0.i.i.i.i.i to i64
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %104, ptr %16, align 8, !tbaa !9, !alias.scope !105
@@ -3781,7 +3781,7 @@ _ZN18cmListFileArgumentD2Ev.exit.i.i.i:           ; preds = %_ZNSt6vectorI18cmLi
   br i1 %.not352.i.i.i, label %._crit_edge439.loopexit.i.i.i, label %.lr.ph438.i.i.i
 
 525:                                              ; preds = %453, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i.i.i, %400, %.loopexit.split-lp.i.i.i, %.loopexit354.i.i.i
-  %.pn86.i.i.i = phi { ptr, i32 } [ %401, %400 ], [ %454, %453 ], [ %433, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198.i.i.i ], [ %427, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i.i.i ], [ %421, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit354.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
+  %.pn86.i.i.i = phi { ptr, i32 } [ %401, %400 ], [ %454, %453 ], [ %421, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i.i.i ], [ %433, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198.i.i.i ], [ %427, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i.i.i ], [ %lpad.loopexit.i.i.i, %.loopexit354.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i, %.loopexit.split-lp.i.i.i ]
   %526 = load ptr, ptr %24, align 8, !tbaa !14
   %527 = icmp eq ptr %526, %266
   br i1 %527, label %_ZN18cmListFileArgumentD2Ev.exit202.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i200.i.i.i
@@ -4261,7 +4261,7 @@ _ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit252.i.i.i: ; preds = %689, %_Z
   br i1 %cond1.i.i.i, label %347, label %._crit_edge445.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit219.i.i.i: ; preds = %596, %617, %615, %.loopexit.split-lp361.i.i.i, %.loopexit360.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i217.i.i.i, %592
-  %.pn.i.i.i = phi { ptr, i32 } [ %593, %592 ], [ %593, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i217.i.i.i ], [ %616, %617 ], [ %616, %615 ], [ %lpad.loopexit362.i.i.i, %.loopexit360.i.i.i ], [ %lpad.loopexit.split-lp363.i.i.i, %.loopexit.split-lp361.i.i.i ], [ %593, %596 ]
+  %.pn.i.i.i = phi { ptr, i32 } [ %593, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i217.i.i.i ], [ %593, %592 ], [ %lpad.loopexit.split-lp363.i.i.i, %.loopexit.split-lp361.i.i.i ], [ %616, %615 ], [ %616, %617 ], [ %lpad.loopexit362.i.i.i, %.loopexit360.i.i.i ], [ %593, %596 ]
   call void @_ZN17cmExecutionStatusD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %31) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN18cmListFileFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #26

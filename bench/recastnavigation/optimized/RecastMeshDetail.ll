@@ -317,7 +317,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %41, %45
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1257, %.invoke, %209, %198, %186, %._crit_edge897
-  %.sroa.0720.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %180, %209 ], [ %180, %198 ], [ %180, %186 ], [ null, %._crit_edge897 ], [ %180, %.invoke ], [ null, %.invoke1257 ]
+  %.sroa.0720.3.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %180, %.invoke ], [ null, %.invoke1257 ], [ %180, %209 ], [ %180, %198 ], [ %180, %186 ], [ null, %._crit_edge897 ]
   %lpad.loopexit.split-lp858 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2271,7 +2271,7 @@ _ZL13getHeightDataP9rcContextRK20rcCompactHeightfieldPKtiS5_iR13rcHeightPatchR10
   br label %_ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i
 
 _ZL15distancePtSeg2dPKfS0_S0_.exit.us.i.i:        ; preds = %973, %971, %957
-  %.1.i.us.i.i = phi float [ 1.000000e+00, %973 ], [ %.0.i.us.i.i, %971 ], [ 0.000000e+00, %957 ]
+  %.1.i.us.i.i = phi float [ %.0.i.us.i.i, %971 ], [ 1.000000e+00, %973 ], [ 0.000000e+00, %957 ]
   %974 = call float @llvm.fmuladd.f32(float %.1.i.us.i.i, float %960, float %.val29.us.i.i)
   %975 = fsub float %974, %.val.us.i.i
   %976 = call float @llvm.fmuladd.f32(float %.1.i.us.i.i, float %961, float %.val30.us.i.i)
@@ -2470,8 +2470,8 @@ _ZL13polyMinExtentPKfi.exit.i:                    ; preds = %._crit_edge.us.i.i,
   br label %1087
 
 1087:                                             ; preds = %1086, %1081, %1075, %1072, %1067
-  %.169.i.i = phi float [ %1084, %1086 ], [ %.06894.i.i, %1081 ], [ %.06894.i.i, %1075 ], [ %.06894.i.i, %1072 ], [ %.06894.i.i, %1067 ]
-  %.2.i.i362 = phi i16 [ %1080, %1086 ], [ %.1100.i.i, %1081 ], [ %.1100.i.i, %1075 ], [ %.1100.i.i, %1072 ], [ %.1100.i.i, %1067 ]
+  %.169.i.i = phi float [ %1084, %1086 ], [ %.06894.i.i, %1081 ], [ %.06894.i.i, %1075 ], [ %.06894.i.i, %1067 ], [ %.06894.i.i, %1072 ]
+  %.2.i.i362 = phi i16 [ %1080, %1086 ], [ %.1100.i.i, %1081 ], [ %.1100.i.i, %1075 ], [ %.1100.i.i, %1067 ], [ %.1100.i.i, %1072 ]
   %1088 = add nuw i32 %.06795.i.i, 1
   %1089 = icmp eq i32 %1088, %.07292.i.i
   br i1 %1089, label %1090, label %1094
@@ -2603,7 +2603,7 @@ _ZL9getHeightffffffiRK13rcHeightPatch.exit.i:     ; preds = %1106, %1090, %1037
   br label %_ZL13distancePtSegPKfS0_S0_.exit.i
 
 _ZL13distancePtSegPKfS0_S0_.exit.i:               ; preds = %1162, %1160, %1145
-  %.1.i.i = phi float [ 1.000000e+00, %1162 ], [ %.0.i265.i, %1160 ], [ 0.000000e+00, %1145 ]
+  %.1.i.i = phi float [ %.0.i265.i, %1160 ], [ 1.000000e+00, %1162 ], [ 0.000000e+00, %1145 ]
   %1163 = call float @llvm.fmuladd.f32(float %.1.i.i, float %1128, float %1127)
   %1164 = fsub float %1163, %1147
   %1165 = call float @llvm.fmuladd.f32(float %.1.i.i, float %1133, float %1132)
@@ -3449,7 +3449,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i637: ; preds = %
   br label %_ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i
 
 _ZL15distancePtSeg2dPKfS0_S0_.exit.i.us.i:        ; preds = %1550, %1548, %1536
-  %.1.i.i.us.i = phi float [ 1.000000e+00, %1550 ], [ %.0.i.i.us.i, %1548 ], [ 0.000000e+00, %1536 ]
+  %.1.i.i.us.i = phi float [ %.0.i.i.us.i, %1548 ], [ 1.000000e+00, %1550 ], [ 0.000000e+00, %1536 ]
   %1551 = call float @llvm.fmuladd.f32(float %.1.i.i.us.i, float %1537, float %.val33.pre.i.us.i)
   %1552 = fsub float %1551, %1515
   %1553 = call float @llvm.fmuladd.f32(float %.1.i.i.us.i, float %1538, float %1524)
@@ -3618,8 +3618,8 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit.us.i: ; preds = %1593, %
   br label %1628
 
 1628:                                             ; preds = %1627, %1622, %1616, %1613, %.lr.ph.i274.us.i
-  %.169.i285.us.i = phi float [ %1625, %1627 ], [ %.06894.i279.us.i, %1622 ], [ %.06894.i279.us.i, %1616 ], [ %.06894.i279.us.i, %1613 ], [ %.06894.i279.us.i, %.lr.ph.i274.us.i ]
-  %.2.i286.us.i = phi i16 [ %1621, %1627 ], [ %.1100.i275.us.i, %1622 ], [ %.1100.i275.us.i, %1616 ], [ %.1100.i275.us.i, %1613 ], [ %.1100.i275.us.i, %.lr.ph.i274.us.i ]
+  %.169.i285.us.i = phi float [ %1625, %1627 ], [ %.06894.i279.us.i, %1622 ], [ %.06894.i279.us.i, %1616 ], [ %.06894.i279.us.i, %.lr.ph.i274.us.i ], [ %.06894.i279.us.i, %1613 ]
+  %.2.i286.us.i = phi i16 [ %1621, %1627 ], [ %.1100.i275.us.i, %1622 ], [ %.1100.i275.us.i, %1616 ], [ %.1100.i275.us.i, %.lr.ph.i274.us.i ], [ %.1100.i275.us.i, %1613 ]
   %1629 = add nuw i32 %.06795.i278.us.i, 1
   %1630 = icmp eq i32 %1629, %.07292.i281.us.i
   br i1 %1630, label %1631, label %1635
@@ -4372,7 +4372,7 @@ _ZL8findEdgePKiiii.exit.thread.i.i.i:             ; preds = %1950, %_ZL8findEdge
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit.i.i
 
 _ZL7addEdgeP9rcContextPiRiiiiii.exit.i.i:         ; preds = %1934, %_ZL8findEdgePKiiii.exit.thread.i.i.i, %_ZL8findEdgePKiiii.exit.i.i.i
-  %1960 = phi i32 [ %1921, %_ZL8findEdgePKiiii.exit.i.i.i ], [ %1959, %_ZL8findEdgePKiiii.exit.thread.i.i.i ], [ %1921, %1934 ]
+  %1960 = phi i32 [ %1959, %_ZL8findEdgePKiiii.exit.thread.i.i.i ], [ %1921, %_ZL8findEdgePKiiii.exit.i.i.i ], [ %1921, %1934 ]
   %indvars.iv.next.i317.i = add nuw nsw i64 %indvars.iv.i315.i, 1
   %1961 = trunc nuw nsw i64 %indvars.iv.i315.i to i32
   %exitcond.not.i318.i = icmp eq i64 %indvars.iv.next.i317.i, %wide.trip.count.i314.i
@@ -4803,7 +4803,7 @@ _ZN10rcIntArrayixEi.exit127.i.i:                  ; preds = %2125, %2121, %.noex
   br label %.noexc445
 
 _ZN10rcIntArrayixEi.exit127._crit_edge.i.i:       ; preds = %2132, %2130, %_ZN10rcIntArrayixEi.exit127.i.i
-  %2137 = phi i32 [ %.pre191.i.i, %2132 ], [ -1, %2130 ], [ %.pre191.i.i, %_ZN10rcIntArrayixEi.exit127.i.i ]
+  %2137 = phi i32 [ -1, %2130 ], [ %.pre191.i.i, %2132 ], [ %.pre191.i.i, %_ZN10rcIntArrayixEi.exit127.i.i ]
   %2138 = getelementptr inbounds nuw i8, ptr %2127, i64 8
   %2139 = load i32, ptr %2138, align 4
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %.0100171.i.i, i32 noundef %2128, i32 noundef %2137, i32 noundef %2139)
@@ -5113,7 +5113,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i536: ; preds = %
           to label %_ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchPfRiR10rcIntArraySC_SC_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchPfRiR10rcIntArraySC_SC_.exit: ; preds = %.noexc447, %1459, %1454
-  %.7 = phi i32 [ %.2800803, %1454 ], [ %.2800803, %1459 ], [ %.3, %.noexc447 ]
+  %.7 = phi i32 [ %.2800803, %1459 ], [ %.2800803, %1454 ], [ %.3, %.noexc447 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -5417,8 +5417,8 @@ _ZL15buildPolyDetailP9rcContextPKfiffiRK20rcCompactHeightfieldRK13rcHeightPatchP
   br i1 %2420, label %248, label %.loopexit856, !llvm.loop !52
 
 .loopexit856:                                     ; preds = %._crit_edge921, %.invoke1257, %.invoke, %.preheader855
-  %.sroa.0720.4 = phi ptr [ %180, %.preheader855 ], [ %180, %.invoke ], [ null, %.invoke1257 ], [ %180, %._crit_edge921 ]
-  %.2 = phi i1 [ true, %.preheader855 ], [ false, %.invoke ], [ false, %.invoke1257 ], [ true, %._crit_edge921 ]
+  %.sroa.0720.4 = phi ptr [ %180, %.preheader855 ], [ null, %.invoke1257 ], [ %180, %.invoke ], [ %180, %._crit_edge921 ]
+  %.2 = phi i1 [ true, %.preheader855 ], [ false, %.invoke1257 ], [ false, %.invoke ], [ true, %._crit_edge921 ]
   invoke void @_Z6rcFreePv(ptr noundef %98)
           to label %_ZN14rcScopedDeleteIfED2Ev.exit452 unwind label %2421
 
@@ -5587,7 +5587,7 @@ _ZN10rcIntArrayD2Ev.exit460:                      ; preds = %_ZN10rcIntArrayD2Ev
   unreachable
 
 _ZN10rcIntArrayD2Ev.exit455:                      ; preds = %_ZN10rcIntArrayD2Ev.exit454, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit, %52
-  %.0 = phi i1 [ true, %52 ], [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %.1, %_ZN10rcIntArrayD2Ev.exit454 ]
+  %.0 = phi i1 [ true, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ true, %52 ], [ %.1, %_ZN10rcIntArrayD2Ev.exit454 ]
   %2476 = load i8, ptr %42, align 1
   %2477 = trunc i8 %2476 to i1
   br i1 %2477, label %2478, label %_ZN13rcScopedTimerD2Ev.exit
@@ -5970,7 +5970,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %38, %42
   br i1 %exitcond144.not, label %.loopexit115, label %.lr.ph129, !llvm.loop !57
 
 .loopexit115:                                     ; preds = %.loopexit, %.invoke, %.preheader114
-  %.092 = phi i1 [ true, %.preheader114 ], [ false, %.invoke ], [ true, %.loopexit ]
+  %.092 = phi i1 [ false, %.invoke ], [ true, %.preheader114 ], [ true, %.loopexit ]
   %173 = load i8, ptr %10, align 1
   %174 = trunc i8 %173 to i1
   br i1 %174, label %175, label %_ZN13rcScopedTimerD2Ev.exit109
@@ -6711,10 +6711,10 @@ _ZL15overlapSegSeg2dPKfS0_S0_S0_.exit.thread.i126: ; preds = %202, %179, %167
   br label %_ZL12circumCirclePKfS0_S0_PfRf.exit
 
 _ZL12circumCirclePKfS0_S0_PfRf.exit:              ; preds = %155, %202, %213, %.thread, %96, %94, %60, %40, %84, %37
-  %.sroa.0.1 = phi float [ %.sroa.0.0210, %37 ], [ %.sroa.0.0210, %84 ], [ %.sroa.0.0210, %40 ], [ %82, %60 ], [ %118, %96 ], [ %43, %94 ], [ %235, %213 ], [ %43, %.thread ], [ %.sroa.0.0210, %202 ], [ %.sroa.0.0210, %155 ]
-  %.sroa.26.1 = phi float [ %.sroa.26.0211, %37 ], [ %.sroa.26.0211, %84 ], [ %.sroa.26.0211, %40 ], [ %83, %60 ], [ %119, %96 ], [ %46, %94 ], [ %236, %213 ], [ %46, %.thread ], [ %.sroa.26.0211, %202 ], [ %.sroa.26.0211, %155 ]
-  %.1187 = phi float [ %.0186212, %37 ], [ %.0186212, %84 ], [ %.0186212, %40 ], [ %sqrt.i.i, %60 ], [ %sqrt.i.i109, %96 ], [ 0.000000e+00, %94 ], [ %sqrt.i.i130, %213 ], [ 0.000000e+00, %.thread ], [ %.0186212, %202 ], [ %.0186212, %155 ]
-  %.1 = phi i32 [ %.0103213, %37 ], [ %.0103213, %84 ], [ %.0103213, %40 ], [ %59, %60 ], [ %59, %96 ], [ %59, %94 ], [ %59, %213 ], [ %59, %.thread ], [ %.0103213, %202 ], [ %.0103213, %155 ]
+  %.sroa.0.1 = phi float [ %.sroa.0.0210, %37 ], [ %.sroa.0.0210, %40 ], [ %.sroa.0.0210, %84 ], [ %43, %94 ], [ %82, %60 ], [ %118, %96 ], [ %235, %213 ], [ %43, %.thread ], [ %.sroa.0.0210, %202 ], [ %.sroa.0.0210, %155 ]
+  %.sroa.26.1 = phi float [ %.sroa.26.0211, %37 ], [ %.sroa.26.0211, %40 ], [ %.sroa.26.0211, %84 ], [ %46, %94 ], [ %83, %60 ], [ %119, %96 ], [ %236, %213 ], [ %46, %.thread ], [ %.sroa.26.0211, %202 ], [ %.sroa.26.0211, %155 ]
+  %.1187 = phi float [ %.0186212, %37 ], [ %.0186212, %40 ], [ %.0186212, %84 ], [ 0.000000e+00, %94 ], [ %sqrt.i.i, %60 ], [ %sqrt.i.i109, %96 ], [ %sqrt.i.i130, %213 ], [ 0.000000e+00, %.thread ], [ %.0186212, %202 ], [ %.0186212, %155 ]
+  %.1 = phi i32 [ %.0103213, %37 ], [ %.0103213, %40 ], [ %.0103213, %84 ], [ %59, %94 ], [ %59, %60 ], [ %59, %96 ], [ %59, %213 ], [ %59, %.thread ], [ %.0103213, %202 ], [ %.0103213, %155 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !62
@@ -6851,7 +6851,7 @@ _ZL8findEdgePKiiii.exit.i:                        ; preds = %282, %276
   br i1 %288, label %_ZL8findEdgePKiiii.exit.thread.i, label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
 _ZL8findEdgePKiiii.exit.thread.i:                 ; preds = %286, %_ZL8findEdgePKiiii.exit.thread.thread, %_ZL8findEdgePKiiii.exit.i
-  %289 = phi i32 [ %270, %_ZL8findEdgePKiiii.exit.i ], [ %271, %_ZL8findEdgePKiiii.exit.thread.thread ], [ %270, %286 ]
+  %289 = phi i32 [ %271, %_ZL8findEdgePKiiii.exit.thread.thread ], [ %270, %_ZL8findEdgePKiiii.exit.i ], [ %270, %286 ]
   %290 = shl nsw i32 %253, 2
   %291 = sext i32 %290 to i64
   %292 = getelementptr inbounds i32, ptr %3, i64 %291
@@ -6890,7 +6890,7 @@ _ZL8findEdgePKiiii.exit.thread.i:                 ; preds = %286, %_ZL8findEdgeP
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exitthread-pre-split
 
 ._crit_edge.i142:                                 ; preds = %307, %298
-  %312 = phi i32 [ %.0, %307 ], [ %305, %298 ]
+  %312 = phi i32 [ %305, %298 ], [ %.0, %307 ]
   %313 = icmp eq i32 %312, %.1
   %314 = icmp eq i32 %302, %.0
   %or.cond.i143 = and i1 %314, %313
@@ -7007,7 +7007,7 @@ _ZL8findEdgePKiiii.exit.i167:                     ; preds = %349, %343
   br i1 %355, label %_ZL8findEdgePKiiii.exit.thread.i159, label %_ZL7addEdgeP9rcContextPiRiiiiii.exit168
 
 _ZL8findEdgePKiiii.exit.thread.i159:              ; preds = %353, %_ZL8findEdgePKiiii.exit156.thread.thread, %_ZL8findEdgePKiiii.exit.i167
-  %356 = phi i32 [ %337, %_ZL8findEdgePKiiii.exit.i167 ], [ %338, %_ZL8findEdgePKiiii.exit156.thread.thread ], [ %337, %353 ]
+  %356 = phi i32 [ %338, %_ZL8findEdgePKiiii.exit156.thread.thread ], [ %337, %_ZL8findEdgePKiiii.exit.i167 ], [ %337, %353 ]
   %357 = shl nsw i32 %320, 2
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i32, ptr %3, i64 %358
@@ -7046,7 +7046,7 @@ _ZL8findEdgePKiiii.exit.thread.i159:              ; preds = %353, %_ZL8findEdgeP
   br label %_ZL7addEdgeP9rcContextPiRiiiiii.exit168
 
 ._crit_edge.i170:                                 ; preds = %374, %365
-  %379 = phi i32 [ %.1, %374 ], [ %372, %365 ]
+  %379 = phi i32 [ %372, %365 ], [ %.1, %374 ]
   %380 = icmp eq i32 %379, %.0104
   %381 = icmp eq i32 %369, %.1
   %or.cond.i171 = and i1 %381, %380

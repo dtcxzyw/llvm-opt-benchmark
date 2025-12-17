@@ -787,7 +787,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %196, %188, %._crit_
   br label %324
 
 324:                                              ; preds = %286, %ecp_nistz256_bignum_to_field_elem.exit.thread.i
-  %.0128.i = phi i32 [ 1, %286 ], [ 0, %ecp_nistz256_bignum_to_field_elem.exit.thread.i ]
+  %.0128.i = phi i32 [ 0, %ecp_nistz256_bignum_to_field_elem.exit.thread.i ], [ 1, %286 ]
   br i1 %.not144.i, label %ecp_nistz256_windowed_mul.exit, label %.thread166.i
 
 .thread166.i:                                     ; preds = %324, %166, %162
@@ -798,8 +798,8 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %196, %188, %._crit_
   br label %ecp_nistz256_windowed_mul.exit
 
 ecp_nistz256_windowed_mul.exit:                   ; preds = %324, %.thread166.i
-  %.0128165.i = phi i32 [ %.0128173.i, %.thread166.i ], [ %.0128.i, %324 ]
-  %.2133164.i = phi ptr [ %.2133172.i, %.thread166.i ], [ %.0131.i, %324 ]
+  %.0128165.i = phi i32 [ %.0128.i, %324 ], [ %.0128173.i, %.thread166.i ]
+  %.2133164.i = phi ptr [ %.0131.i, %324 ], [ %.2133172.i, %.thread166.i ]
   call void @BN_CTX_free(ptr noundef %.2133164.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -837,7 +837,7 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %324, %.thread166.i
   br i1 %.not105, label %338, label %337
 
 337:                                              ; preds = %.thread, %333, %325
-  %.078 = phi i32 [ 0, %325 ], [ 1, %333 ], [ 0, %.thread ]
+  %.078 = phi i32 [ 1, %333 ], [ 0, %325 ], [ 0, %.thread ]
   br i1 %.088, label %.thread114, label %.thread122
 
 .thread122:                                       ; preds = %30, %24, %337
@@ -848,8 +848,8 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %324, %.thread166.i
   br label %.thread114
 
 .thread114:                                       ; preds = %21, %.thread122, %337
-  %.078121 = phi i32 [ %.078129, %.thread122 ], [ %.078, %337 ], [ 0, %21 ]
-  %.387120 = phi ptr [ %.387128, %.thread122 ], [ %.084, %337 ], [ null, %21 ]
+  %.078121 = phi i32 [ %.078, %337 ], [ %.078129, %.thread122 ], [ 0, %21 ]
+  %.387120 = phi ptr [ %.084, %337 ], [ %.387128, %.thread122 ], [ null, %21 ]
   call void @BN_CTX_free(ptr noundef %.387120) #7
   br label %338
 

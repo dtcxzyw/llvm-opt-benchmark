@@ -364,7 +364,7 @@ sub_2:                                            ; preds = %sub_1
   br label %60
 
 60:                                               ; preds = %56, %53, %41, %37, %44, %49, %28, %19, %4, %57, %31, %22
-  %.0 = phi i32 [ %59, %57 ], [ %34, %31 ], [ %25, %22 ], [ 43, %4 ], [ 43, %19 ], [ 43, %28 ], [ 27, %53 ], [ 43, %41 ], [ 43, %37 ], [ 27, %44 ], [ 0, %49 ], [ 43, %56 ]
+  %.0 = phi i32 [ 43, %4 ], [ %59, %57 ], [ 0, %49 ], [ 43, %28 ], [ %34, %31 ], [ 43, %19 ], [ %25, %22 ], [ 27, %44 ], [ 27, %53 ], [ 43, %37 ], [ 43, %41 ], [ 43, %56 ]
   ret i32 %.0
 }
 
@@ -758,7 +758,7 @@ socket_close.exit:                                ; preds = %153, %.thread.i
   br label %160
 
 160:                                              ; preds = %.thread131, %.thread, %159, %92, %99, %106, %110, %115, %62, %63, %70, %74, %79, %14, %13
-  %.0 = phi i32 [ 0, %13 ], [ 1, %14 ], [ 0, %79 ], [ 0, %74 ], [ 0, %70 ], [ 0, %63 ], [ 0, %62 ], [ 0, %115 ], [ 0, %110 ], [ 0, %106 ], [ 0, %99 ], [ 0, %92 ], [ %.2137, %159 ], [ 0, %.thread ], [ 0, %.thread131 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %92 ], [ 0, %.thread131 ], [ 1, %14 ], [ 0, %62 ], [ 0, %79 ], [ 0, %74 ], [ 0, %.thread ], [ 0, %70 ], [ 0, %63 ], [ 0, %115 ], [ 0, %110 ], [ %.2137, %159 ], [ 0, %106 ], [ 0, %99 ]
   ret i32 %.0
 }
 
@@ -1614,7 +1614,7 @@ define internal noundef zeroext i1 @cf_socket_conn_is_alive(ptr noundef %0, ptr 
   br label %94
 
 94:                                               ; preds = %57, %58, %65, %69, %74, %36, %37, %44, %48, %53, %16, %17, %24, %28, %33, %3, %7, %93
-  %.0 = phi i1 [ true, %93 ], [ false, %7 ], [ false, %3 ], [ false, %33 ], [ false, %28 ], [ false, %24 ], [ false, %17 ], [ false, %16 ], [ true, %53 ], [ true, %48 ], [ true, %44 ], [ true, %37 ], [ true, %36 ], [ false, %74 ], [ false, %69 ], [ false, %65 ], [ false, %58 ], [ false, %57 ]
+  %.0 = phi i1 [ true, %93 ], [ false, %3 ], [ false, %16 ], [ true, %36 ], [ false, %7 ], [ false, %33 ], [ false, %28 ], [ false, %57 ], [ false, %24 ], [ false, %17 ], [ true, %53 ], [ true, %48 ], [ false, %58 ], [ true, %44 ], [ true, %37 ], [ false, %74 ], [ false, %69 ], [ false, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -1711,7 +1711,7 @@ define internal i32 @cf_socket_query(ptr noundef readonly captures(none) %0, ptr
   br label %53
 
 53:                                               ; preds = %48, %45, %35, %37, %39, %27, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %27 ], [ 0, %39 ], [ 0, %37 ], [ 0, %35 ], [ %52, %48 ], [ 48, %45 ]
+  %.0 = phi i32 [ 0, %35 ], [ 0, %8 ], [ 0, %27 ], [ 0, %39 ], [ 0, %37 ], [ %52, %48 ], [ 48, %45 ]
   ret i32 %.0
 }
 
@@ -1992,7 +1992,7 @@ cf_udp_setup_quic.exit:                           ; preds = %55, %56, %63, %67
   store i32 %54, ptr %108, align 8, !tbaa !122
   br label %153
 
-109:                                              ; preds = %105, %102, %100, %51, %51
+109:                                              ; preds = %100, %105, %102, %51, %51
   %.not66 = icmp eq ptr %1, null
   br i1 %.not66, label %150, label %110
 
@@ -2073,7 +2073,7 @@ cf_udp_setup_quic.exit:                           ; preds = %55, %56, %63, %67
   br label %153
 
 153:                                              ; preds = %cf_udp_setup_quic.exit, %37, %32, %28, %21, %20, %150, %14, %13
-  %.051 = phi i32 [ 0, %13 ], [ %19, %37 ], [ %19, %32 ], [ %19, %28 ], [ %19, %21 ], [ %19, %20 ], [ 7, %cf_udp_setup_quic.exit ], [ 0, %150 ], [ 7, %14 ]
+  %.051 = phi i32 [ 0, %13 ], [ %19, %37 ], [ %19, %32 ], [ %19, %28 ], [ 7, %14 ], [ %19, %21 ], [ %19, %20 ], [ 7, %cf_udp_setup_quic.exit ], [ 0, %150 ]
   ret i32 %.051
 }
 
@@ -2877,7 +2877,7 @@ cf_is_socket.exit:                                ; preds = %5
   br label %cf_is_socket.exit.thread
 
 cf_is_socket.exit.thread:                         ; preds = %5, %cf_is_socket.exit, %11, %21, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 2, %11 ], [ 2, %cf_is_socket.exit ], [ 2, %5 ]
+  %.0 = phi i32 [ 0, %21 ], [ 0, %22 ], [ 2, %11 ], [ 2, %cf_is_socket.exit ], [ 2, %5 ]
   ret i32 %.0
 }
 
@@ -3045,7 +3045,7 @@ set_remote_ip.exit:                               ; preds = %58
   br i1 %90, label %.sink.split, label %94
 
 .sink.split:                                      ; preds = %84, %87, %76, %79
-  %.str.11.sink = phi ptr [ @.str.10, %79 ], [ @.str.10, %76 ], [ @.str.11, %87 ], [ @.str.11, %84 ]
+  %.str.11.sink = phi ptr [ @.str.10, %76 ], [ @.str.10, %79 ], [ @.str.11, %87 ], [ @.str.11, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 156
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %93 = load i32, ptr %92, align 4, !tbaa !123
@@ -3106,7 +3106,7 @@ set_remote_ip.exit:                               ; preds = %58
   br label %tcpnodelay.exit
 
 tcpnodelay.exit:                                  ; preds = %104, %112, %116
-  %.pre = phi i64 [ %.pre.pre164, %104 ], [ %.pre.pre164, %112 ], [ %.pre.pre, %116 ]
+  %.pre = phi i64 [ %.pre.pre164, %104 ], [ %.pre.pre, %116 ], [ %.pre.pre164, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %120
@@ -3552,8 +3552,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %bindlocal.exit.thread148
 
-bindlocal.exit.thread153:                         ; preds = %239, %228, %180, %185, %.thread231.i
-  %.1.ph.i.ph = phi i32 [ 45, %.thread231.i ], [ 45, %185 ], [ %183, %180 ], [ 1, %228 ], [ 1, %239 ]
+bindlocal.exit.thread153:                         ; preds = %239, %228, %185, %180, %.thread231.i
+  %.1.ph.i.ph = phi i32 [ 45, %.thread231.i ], [ %183, %180 ], [ 45, %185 ], [ 1, %228 ], [ 1, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %bindlocal.exit.thread148
 
@@ -3570,7 +3570,7 @@ bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, 
   %spec.store.select = select i1 %310, i32 7, i32 %.0.i130151
   br label %321
 
-.sink.split187:                                   ; preds = %135, %283, %bindlocal.exit
+.sink.split187:                                   ; preds = %283, %135, %bindlocal.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3979,7 +3979,7 @@ define internal fastcc void @tcpkeepalive(ptr noundef %0, i32 noundef %1) unname
   br i1 %77, label %.sink.split, label %80
 
 .sink.split:                                      ; preds = %71, %74, %14, %17
-  %.str.18.sink = phi ptr [ @.str.15, %17 ], [ @.str.15, %14 ], [ @.str.18, %74 ], [ @.str.18, %71 ]
+  %.str.18.sink = phi ptr [ @.str.15, %14 ], [ @.str.15, %17 ], [ @.str.18, %74 ], [ @.str.18, %71 ]
   %78 = tail call ptr @__errno_location() #15
   %79 = load i32, ptr %78, align 4, !tbaa !87
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.18.sink, i32 noundef %1, i32 noundef %79) #13

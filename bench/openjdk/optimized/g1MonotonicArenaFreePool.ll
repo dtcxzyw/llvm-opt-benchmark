@@ -204,10 +204,10 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
   br label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %7, %.preheader, %..critedge.loopexit_crit_edge36, %2
-  %.122 = phi i64 [ 0, %2 ], [ %19, %..critedge.loopexit_crit_edge36 ], [ 0, %.preheader ], [ %19, %7 ]
-  %.120 = phi ptr [ null, %2 ], [ %21, %..critedge.loopexit_crit_edge36 ], [ %4, %.preheader ], [ %21, %7 ]
-  %.118 = phi ptr [ null, %2 ], [ %.01931, %..critedge.loopexit_crit_edge36 ], [ null, %.preheader ], [ %.01931, %7 ]
-  %.1 = phi i64 [ 0, %2 ], [ %18, %..critedge.loopexit_crit_edge36 ], [ 0, %.preheader ], [ %18, %7 ]
+  %.122 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %19, %..critedge.loopexit_crit_edge36 ], [ %19, %7 ]
+  %.120 = phi ptr [ null, %2 ], [ %4, %.preheader ], [ %21, %..critedge.loopexit_crit_edge36 ], [ %21, %7 ]
+  %.118 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %.01931, %..critedge.loopexit_crit_edge36 ], [ %.01931, %7 ]
+  %.1 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %18, %..critedge.loopexit_crit_edge36 ], [ %18, %7 ]
   %25 = getelementptr inbounds nuw i8, ptr %.118, i64 8
   store volatile ptr null, ptr %25, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #8

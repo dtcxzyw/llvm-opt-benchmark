@@ -149,7 +149,7 @@ define dso_local range(i32 -1, 1) i32 @notes_cache_write(ptr noundef %0) local_u
   br label %28
 
 28:                                               ; preds = %23, %17, %15, %12, %1, %4, %7, %10
-  %.0 = phi i32 [ -1, %10 ], [ -1, %7 ], [ -1, %4 ], [ -1, %1 ], [ 0, %12 ], [ -1, %15 ], [ -1, %17 ], [ %.lobit, %23 ]
+  %.0 = phi i32 [ 0, %12 ], [ -1, %15 ], [ %.lobit, %23 ], [ -1, %17 ], [ -1, %1 ], [ -1, %10 ], [ -1, %7 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

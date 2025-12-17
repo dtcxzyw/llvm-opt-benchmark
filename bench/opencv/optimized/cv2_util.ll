@@ -749,7 +749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %67,
   br label %74
 
 74:                                               ; preds = %.loopexit, %.loopexit.split-lp, %73, %41
-  %.pn39 = phi { ptr, i32 } [ %.pn37, %73 ], [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn39 = phi { ptr, i32 } [ %42, %41 ], [ %.pn37, %73 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %75 = load ptr, ptr %5, align 8, !tbaa !44
   %76 = icmp eq ptr %75, %23
   br i1 %76, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
@@ -1609,7 +1609,7 @@ _ZN14PyAllowThreadsD2Ev.exit:                     ; preds = %66, %25
   ret ptr %.0
 
 104:                                              ; preds = %99, %97, %58, %56, %95, %54
-  %.pn29 = phi { ptr, i32 } [ %55, %54 ], [ %96, %95 ], [ %57, %56 ], [ %59, %58 ], [ %98, %97 ], [ %100, %99 ]
+  %.pn29 = phi { ptr, i32 } [ %57, %56 ], [ %96, %95 ], [ %55, %54 ], [ %98, %97 ], [ %59, %58 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn29

@@ -267,10 +267,10 @@ define internal fastcc void @__i915_vma_resource_unhold(ptr noundef %0) unnamed_
   br i1 %135, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %131, %126, %87, %76
-  %.pre-phi = phi i64 [ %93, %87 ], [ %.pre, %76 ], [ %93, %126 ], [ %93, %131 ]
-  %136 = phi ptr [ %83, %87 ], [ %34, %76 ], [ %83, %126 ], [ %83, %131 ]
-  %137 = phi ptr [ %82, %87 ], [ %34, %76 ], [ %82, %126 ], [ %82, %131 ]
-  %138 = phi ptr [ %89, %87 ], [ %78, %76 ], [ %89, %126 ], [ %89, %131 ]
+  %.pre-phi = phi i64 [ %.pre, %76 ], [ %93, %87 ], [ %93, %126 ], [ %93, %131 ]
+  %136 = phi ptr [ %34, %76 ], [ %83, %87 ], [ %83, %126 ], [ %83, %131 ]
+  %137 = phi ptr [ %34, %76 ], [ %82, %87 ], [ %82, %126 ], [ %82, %131 ]
+  %138 = phi ptr [ %78, %76 ], [ %89, %87 ], [ %89, %126 ], [ %89, %131 ]
   %139 = load ptr, ptr %35, align 8
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store volatile ptr %139, ptr %140, align 8
@@ -962,8 +962,8 @@ define dso_local i32 @i915_vma_resource_bind_dep_sync(ptr noundef readonly captu
   %147 = icmp eq ptr %146, null
   br i1 %147, label %.thread12, label %.lr.ph, !llvm.loop !19
 
-.thread12:                                        ; preds = %48, %63, %67, %.loopexit, %.lr.ph, %130, %115, %111, %96, %.thread, %21, %27, %31, %.loopexit20
-  %148 = phi i32 [ 0, %.loopexit20 ], [ 0, %31 ], [ 0, %27 ], [ 0, %21 ], [ 0, %.thread ], [ 0, %96 ], [ 0, %111 ], [ 0, %115 ], [ 0, %130 ], [ %76, %.lr.ph ], [ 0, %.loopexit ], [ 0, %67 ], [ 0, %63 ], [ 0, %48 ]
+.thread12:                                        ; preds = %48, %63, %67, %.loopexit, %.lr.ph, %130, %111, %96, %115, %.thread, %21, %27, %31, %.loopexit20
+  %148 = phi i32 [ 0, %.loopexit20 ], [ 0, %31 ], [ 0, %27 ], [ 0, %21 ], [ 0, %.thread ], [ 0, %111 ], [ 0, %.loopexit ], [ 0, %130 ], [ 0, %115 ], [ 0, %96 ], [ %76, %.lr.ph ], [ 0, %67 ], [ 0, %63 ], [ 0, %48 ]
   ret i32 %148
 }
 
@@ -1029,7 +1029,7 @@ define dso_local void @i915_vma_resource_bind_dep_sync_all(ptr noundef %0) local
   tail call void @mutex_unlock(ptr noundef nonnull %2) #8
   br i1 %31, label %.backedge, label %32
 
-.thread7.thread:                                  ; preds = %.backedge, %10, %1
+.thread7.thread:                                  ; preds = %10, %.backedge, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #8
   ret void
 
@@ -1302,8 +1302,8 @@ define dso_local i32 @i915_vma_resource_bind_dep_await(ptr noundef readonly capt
   %157 = icmp eq ptr %156, null
   br i1 %157, label %.thread12, label %.lr.ph, !llvm.loop !21
 
-.thread12:                                        ; preds = %55, %70, %74, %.loopexit, %83, %140, %125, %121, %106, %.thread, %28, %34, %38, %.loopexit20
-  %158 = phi i32 [ 0, %.loopexit20 ], [ 0, %38 ], [ 0, %34 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %106 ], [ 0, %121 ], [ 0, %125 ], [ 0, %140 ], [ %86, %83 ], [ 0, %.loopexit ], [ 0, %74 ], [ 0, %70 ], [ 0, %55 ]
+.thread12:                                        ; preds = %55, %70, %74, %.loopexit, %83, %140, %121, %106, %125, %.thread, %28, %34, %38, %.loopexit20
+  %158 = phi i32 [ 0, %.loopexit20 ], [ 0, %38 ], [ 0, %34 ], [ 0, %28 ], [ 0, %.thread ], [ 0, %121 ], [ 0, %.loopexit ], [ 0, %140 ], [ 0, %125 ], [ 0, %106 ], [ %86, %83 ], [ 0, %74 ], [ 0, %70 ], [ 0, %55 ]
   ret i32 %158
 }
 

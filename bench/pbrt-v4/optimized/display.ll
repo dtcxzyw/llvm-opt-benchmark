@@ -844,7 +844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.crit
   br label %.critedge43
 
 .body:                                            ; preds = %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %eh.lpad-body = phi { ptr, i32 } [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %58, %57 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %58, %57 ]
   %79 = load ptr, ptr %10, align 8, !tbaa !18
   %80 = icmp eq ptr %79, %42
   br i1 %80, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
@@ -944,7 +944,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %.cr
   br label %.critedge46
 
 .body65:                                          ; preds = %90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i61
-  %eh.lpad-body66 = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i61 ], [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i55 ], [ %91, %90 ]
+  %eh.lpad-body66 = phi { ptr, i32 } [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i55 ], [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i61 ], [ %91, %90 ]
   %112 = load ptr, ptr %12, align 8, !tbaa !18
   %113 = icmp eq ptr %112, %36
   br i1 %113, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
@@ -1060,7 +1060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %.cr
   br label %.critedge49
 
 .body84:                                          ; preds = %133, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i80
-  %eh.lpad-body85 = phi { ptr, i32 } [ %146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i80 ], [ %134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i74 ], [ %134, %133 ]
+  %eh.lpad-body85 = phi { ptr, i32 } [ %134, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i74 ], [ %146, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i80 ], [ %134, %133 ]
   %155 = load ptr, ptr %13, align 8, !tbaa !18
   %156 = icmp eq ptr %155, %39
   br i1 %156, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i90
@@ -1519,7 +1519,7 @@ _ZN4pbrt10IPCChannel10DisconnectEv.exit:          ; preds = %.critedge11
   br label %54
 
 .body:                                            ; preds = %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i
-  %eh.lpad-body = phi { ptr, i32 } [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %24, %23 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i ], [ %24, %23 ]
   %49 = load ptr, ptr %5, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %51 = icmp eq ptr %49, %50
@@ -1924,7 +1924,7 @@ _ZN4pbrt11DisplayItem18ImageChannelBufferD2Ev.exit: ; preds = %_ZNSt6vectorImSaI
   unreachable
 
 .body:                                            ; preds = %153, %.body16, %27, %24
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %27 ], [ %25, %24 ], [ %.pn.pn.pn, %.body16 ], [ %.pn.pn.pn, %153 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn.pn.pn, %153 ], [ %25, %27 ], [ %.pn.pn.pn, %.body16 ]
   %158 = load ptr, ptr %9, align 8, !tbaa !18
   %159 = icmp eq ptr %158, %10
   br i1 %159, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -2288,7 +2288,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
-  %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
+  %.0.i.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
   store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !93
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -4168,12 +4168,12 @@ _ZN4pstd8optionalIN4pbrt16ImageChannelDescEE5valueEv.exit.i.i.i: ; preds = %_ZNS
   unreachable
 
 .body65:                                          ; preds = %222, %219, %217, %164, %.body.i
-  %.pn28 = phi { ptr, i32 } [ %218, %217 ], [ %eh.lpad-body.i.i.i, %164 ], [ %eh.lpad-body.i.i.i, %.body.i ], [ %220, %219 ], [ %220, %222 ]
+  %.pn28 = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i ], [ %218, %217 ], [ %eh.lpad-body.i.i.i, %164 ], [ %220, %219 ], [ %220, %222 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #24
   br label %.body59
 
 .body59:                                          ; preds = %153, %155, %56, %.body65, %.body, %.thread, %58
-  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %.body65 ], [ %59, %58 ], [ %87, %.thread ], [ %.pn, %.body ], [ %57, %56 ], [ %154, %155 ], [ %154, %153 ]
+  %.pn28.pn = phi { ptr, i32 } [ %.pn28, %.body65 ], [ %.pn, %.body ], [ %59, %58 ], [ %87, %.thread ], [ %57, %56 ], [ %154, %155 ], [ %154, %153 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @"_ZZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(208) %5) #24
@@ -4244,7 +4244,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE15allocate_objectIiEEPT_m.exit.i.i.i: ; pr
   br label %_ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i.i: ; preds = %23, %._crit_edge.i.i.i, %14
-  %.0.i.i.i.i2024.i.i = phi ptr [ %20, %23 ], [ %20, %._crit_edge.i.i.i ], [ null, %14 ]
+  %.0.i.i.i.i2024.i.i = phi ptr [ %20, %._crit_edge.i.i.i ], [ %20, %23 ], [ null, %14 ]
   store i64 %13, ptr %10, align 8, !tbaa !161
   store ptr %.0.i.i.i.i2024.i.i, ptr %9, align 8, !tbaa !160
   %.pre12.i.i = load i64, ptr %12, align 8, !tbaa !155
@@ -4816,7 +4816,7 @@ _ZN4pbrt3LogIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvNS_8LogLe
   unreachable
 
 .body:                                            ; preds = %89, %86, %39, %36
-  %.pn = phi { ptr, i32 } [ %37, %39 ], [ %37, %36 ], [ %87, %86 ], [ %87, %89 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %87, %89 ], [ %37, %39 ], [ %87, %86 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #24
   br label %102
 
@@ -5047,7 +5047,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   unreachable
 
 .body10:                                          ; preds = %69, %67, %40, %37
-  %.pn.pn = phi { ptr, i32 } [ %38, %40 ], [ %38, %37 ], [ %.pn, %67 ], [ %.pn, %69 ]
+  %.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %69 ], [ %38, %40 ], [ %.pn, %67 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   br label %.body
 

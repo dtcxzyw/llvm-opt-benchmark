@@ -1204,8 +1204,8 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   unreachable
 
 .sink.split55:                                    ; preds = %35, %28, %40, %33
-  %.sink56 = phi i64 [ %34, %33 ], [ %44, %40 ], [ 0, %28 ], [ 0, %35 ]
-  %.sink.ph = phi i8 [ 0, %33 ], [ 0, %40 ], [ 1, %28 ], [ 1, %35 ]
+  %.sink56 = phi i64 [ 0, %28 ], [ %34, %33 ], [ %44, %40 ], [ 0, %35 ]
+  %.sink.ph = phi i8 [ 1, %28 ], [ 0, %33 ], [ 0, %40 ], [ 1, %35 ]
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
   store i64 %.sink56, ptr %51, align 8

@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @BN_lshift1(ptr noundef %0, ptr noundef readonly capt
   br label %37
 
 37:                                               ; preds = %15, %3, %._crit_edge
-  %.025 = phi i32 [ 1, %._crit_edge ], [ 0, %3 ], [ 0, %15 ]
+  %.025 = phi i32 [ 0, %3 ], [ 1, %._crit_edge ], [ 0, %15 ]
   ret i32 %.025
 }
 

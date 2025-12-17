@@ -501,7 +501,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   ret void
 
 .body:                                            ; preds = %139, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i29, %124, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i, %103
-  %.pn11 = phi { ptr, i32 } [ %104, %103 ], [ %125, %124 ], [ %eh.lpad-body.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i ], [ %140, %139 ], [ %eh.lpad-body.i26, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i29 ]
+  %.pn11 = phi { ptr, i32 } [ %104, %103 ], [ %eh.lpad-body.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i ], [ %125, %124 ], [ %140, %139 ], [ %eh.lpad-body.i26, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit7.i29 ]
   %153 = load ptr, ptr %10, align 8, !tbaa !50
   %.not.i43 = icmp eq ptr %153, null
   br i1 %.not.i43, label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit45, label %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i44
@@ -644,7 +644,7 @@ define noundef range(i32 0, 13) i32 @_ZN4base8internal10JSONParser12GetNextToken
   br label %20
 
 20:                                               ; preds = %7, %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i32 [ 12, %19 ], [ 1, %9 ], [ 2, %10 ], [ 3, %11 ], [ 4, %12 ], [ 5, %13 ], [ 6, %14 ], [ 7, %15 ], [ 8, %16 ], [ 9, %17 ], [ 10, %18 ], [ 11, %1 ], [ 0, %7 ]
+  %.0 = phi i32 [ 12, %19 ], [ 11, %1 ], [ 1, %9 ], [ 2, %10 ], [ 3, %11 ], [ 4, %12 ], [ 5, %13 ], [ 6, %14 ], [ 7, %15 ], [ 8, %16 ], [ 9, %17 ], [ 10, %18 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1325,7 +1325,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser10EatCommentEv(ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader20, %.preheader, %17, %17, %9, %28, %1, %5
-  %.015 = phi i1 [ false, %5 ], [ false, %1 ], [ true, %28 ], [ false, %9 ], [ %.not19.not.not, %17 ], [ %.not19.not.not, %17 ], [ %.not19.not.not, %.preheader ], [ false, %.preheader20 ]
+  %.015 = phi i1 [ false, %1 ], [ false, %5 ], [ true, %28 ], [ false, %9 ], [ %.not19.not.not, %.preheader ], [ %.not19.not.not, %17 ], [ %.not19.not.not, %17 ], [ false, %.preheader20 ]
   ret i1 %.015
 }
 
@@ -2158,14 +2158,14 @@ _ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev.exit: ; preds = %
   br label %.body
 
 _ZNSt10unique_ptrIN4base11StringValueESt14default_deleteIS1_EED2Ev.exit: ; preds = %.noexc10, %5, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_115JSONStringValueESt14default_deleteIS3_EED2Ev.exit
-  %.sink = phi ptr [ %18, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_115JSONStringValueESt14default_deleteIS3_EED2Ev.exit ], [ null, %5 ], [ %28, %.noexc10 ]
+  %.sink = phi ptr [ null, %5 ], [ %18, %_ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_115JSONStringValueESt14default_deleteIS3_EED2Ev.exit ], [ %28, %.noexc10 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !37
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .body:                                            ; preds = %34, %32, %22, %19, %6
-  %.pn = phi { ptr, i32 } [ %7, %6 ], [ %23, %22 ], [ %20, %19 ], [ %35, %34 ], [ %33, %32 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %7, %6 ], [ %23, %22 ], [ %35, %34 ], [ %33, %32 ]
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
@@ -2905,7 +2905,7 @@ _ZN4base16IsValidCharacterEj.exit.thread105:      ; preds = %57, %_ZN4base16IsVa
   br label %.loopexit116
 
 _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %69, %48, %66
-  %78 = phi i32 [ %61, %66 ], [ %55, %48 ], [ %61, %69 ]
+  %78 = phi i32 [ %61, %69 ], [ %61, %66 ], [ %55, %48 ]
   switch i32 %78, label %90 [
     i32 34, label %79
     i32 92, label %118
@@ -3816,7 +3816,7 @@ _ZN4base8internal10JSONParser13StringBuilder6AppendERKc.exit: ; preds = %_ZNSt7_
   br label %.loopexit116
 
 .loopexit116:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %.critedge21, %._crit_edge, %445, %199, %134, %123, %79, %_ZN4base16IsValidCharacterEj.exit.thread105
-  %.2 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread105 ], [ true, %79 ], [ false, %445 ], [ false, %134 ], [ false, %199 ], [ false, %123 ], [ false, %._crit_edge ], [ false, %.critedge21 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
+  %.2 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread105 ], [ true, %79 ], [ false, %445 ], [ false, %.critedge21 ], [ false, %134 ], [ false, %199 ], [ false, %123 ], [ false, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4base8internal10JSONParser13StringBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4306,7 +4306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   br label %_ZN4base16IsValidCharacterEj.exit44.thread50
 
 _ZN4base16IsValidCharacterEj.exit44.thread50:     ; preds = %100, %.critedge40, %.critedge, %31, %35, %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  %.2 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ], [ false, %25 ], [ false, %35 ], [ false, %31 ], [ false, %.critedge ], [ false, %.critedge40 ], [ false, %100 ]
+  %.2 = phi i1 [ false, %100 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ], [ false, %.critedge ], [ false, %25 ], [ false, %.critedge40 ], [ false, %35 ], [ false, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %145
 

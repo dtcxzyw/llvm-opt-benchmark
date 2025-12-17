@@ -300,7 +300,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i
 
 _ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i: ; preds = %124, %105
-  %.0.us.i = phi i16 [ %125, %124 ], [ %123, %105 ]
+  %.0.us.i = phi i16 [ %123, %105 ], [ %125, %124 ]
   %126 = and i16 %.0.us.i, 1023
   %127 = zext nneg i16 %126 to i64
   %128 = getelementptr inbounds nuw i32, ptr %14, i64 %127
@@ -315,8 +315,8 @@ _ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i: ; preds = %124,
   br label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i, %76, %.lr.ph.split.us.i
-  %135 = phi i64 [ %131, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %71, %76 ], [ %71, %.lr.ph.split.us.i ]
-  %.234.us.i = phi double [ %134, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %.03243.us.i, %76 ], [ %.03243.us.i, %.lr.ph.split.us.i ]
+  %135 = phi i64 [ %71, %.lr.ph.split.us.i ], [ %131, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %71, %76 ]
+  %.234.us.i = phi double [ %.03243.us.i, %.lr.ph.split.us.i ], [ %134, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %.03243.us.i, %76 ]
   %136 = add nuw i64 %.03144.us.i, 1
   %exitcond48.not.i = icmp eq i64 %136, %8
   br i1 %exitcond48.not.i, label %.loopexit279, label %.lr.ph.split.us.i, !llvm.loop !43
@@ -355,8 +355,8 @@ _ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i: ; preds = %142
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i, %142, %.lr.ph.split.i
-  %157 = phi i64 [ %153, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %137, %142 ], [ %137, %.lr.ph.split.i ]
-  %.234.i = phi double [ %156, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %.03243.i, %142 ], [ %.03243.i, %.lr.ph.split.i ]
+  %157 = phi i64 [ %137, %.lr.ph.split.i ], [ %153, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %137, %142 ]
+  %.234.i = phi double [ %.03243.i, %.lr.ph.split.i ], [ %156, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %.03243.i, %142 ]
   %158 = add nuw i64 %.03144.i, 1
   %exitcond.not.i = icmp eq i64 %158, %8
   br i1 %exitcond.not.i, label %.loopexit279, label %.lr.ph.split.i, !llvm.loop !43
@@ -444,8 +444,8 @@ _ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218: ; preds = %177
   br label %.critedge.i215
 
 .critedge.i215:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218, %177, %.lr.ph.split.i211
-  %192 = phi i64 [ %188, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %172, %177 ], [ %172, %.lr.ph.split.i211 ]
-  %.234.i216 = phi double [ %191, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %.03243.i213, %177 ], [ %.03243.i213, %.lr.ph.split.i211 ]
+  %192 = phi i64 [ %172, %.lr.ph.split.i211 ], [ %188, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %172, %177 ]
+  %.234.i216 = phi double [ %.03243.i213, %.lr.ph.split.i211 ], [ %191, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %.03243.i213, %177 ]
   %193 = add nuw i64 %.03144.i212, 1
   %exitcond.not.i217 = icmp eq i64 %193, %8
   br i1 %exitcond.not.i217, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219, label %.lr.ph.split.i211, !llvm.loop !43
@@ -1333,8 +1333,8 @@ _ZL29ContextBlockSplitterAddSymbolP20ContextBlockSplitterPN13duckdb_brotli13Memo
   br label %_ZL30BlockSplitterAddSymbolDistanceP21BlockSplitterDistancem.exit47
 
 _ZL30BlockSplitterAddSymbolDistanceP21BlockSplitterDistancem.exit47: ; preds = %269, %253, %243, %._crit_edge69
-  %.284.i39 = phi i8 [ %247, %243 ], [ %.183.i33.lcssa, %._crit_edge69 ], [ %247, %253 ], [ %247, %269 ]
-  %.2.i40 = phi i8 [ %251, %243 ], [ %.177.i35.lcssa, %._crit_edge69 ], [ %251, %253 ], [ %251, %269 ]
+  %.284.i39 = phi i8 [ %.183.i33.lcssa, %._crit_edge69 ], [ %247, %243 ], [ %247, %253 ], [ %247, %269 ]
+  %.2.i40 = phi i8 [ %.177.i35.lcssa, %._crit_edge69 ], [ %251, %243 ], [ %251, %253 ], [ %251, %269 ]
   %270 = add nuw i64 %.180.i3074, 1
   %exitcond102.not = icmp eq i64 %270, %10
   br i1 %exitcond102.not, label %._crit_edge79, label %190, !llvm.loop !104

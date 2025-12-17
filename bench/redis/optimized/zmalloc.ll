@@ -908,13 +908,13 @@ update_zmalloc_stat_alloc.exit:                   ; preds = %update_zmalloc_stat
   br i1 %.not, label %ztrymalloc_usable.exit, label %ztrymalloc_usable.exit.sink.split
 
 ztrymalloc_usable.exit.sink.split:                ; preds = %update_zmalloc_stat_alloc.exit, %50, %zfree.exit35, %ztrymalloc_usable_internal.exit.i, %zfree.exit
-  %.0.i.sink = phi i64 [ 0, %zfree.exit ], [ %.0.i, %ztrymalloc_usable_internal.exit.i ], [ 0, %zfree.exit35 ], [ 0, %50 ], [ %61, %update_zmalloc_stat_alloc.exit ]
-  %.0.ph = phi ptr [ null, %zfree.exit ], [ %.0.i.i, %ztrymalloc_usable_internal.exit.i ], [ null, %zfree.exit35 ], [ null, %50 ], [ %48, %update_zmalloc_stat_alloc.exit ]
+  %.0.i.sink = phi i64 [ 0, %zfree.exit ], [ 0, %50 ], [ 0, %zfree.exit35 ], [ %.0.i, %ztrymalloc_usable_internal.exit.i ], [ %61, %update_zmalloc_stat_alloc.exit ]
+  %.0.ph = phi ptr [ null, %zfree.exit ], [ null, %50 ], [ null, %zfree.exit35 ], [ %.0.i.i, %ztrymalloc_usable_internal.exit.i ], [ %48, %update_zmalloc_stat_alloc.exit ]
   store i64 %.0.i.sink, ptr %2, align 8, !tbaa !5
   br label %ztrymalloc_usable.exit
 
 ztrymalloc_usable.exit:                           ; preds = %ztrymalloc_usable.exit.sink.split, %ztrymalloc_usable_internal.exit.i, %update_zmalloc_stat_alloc.exit, %50, %zfree.exit35, %zfree.exit
-  %.0 = phi ptr [ null, %zfree.exit ], [ null, %zfree.exit35 ], [ null, %50 ], [ %48, %update_zmalloc_stat_alloc.exit ], [ %.0.i.i, %ztrymalloc_usable_internal.exit.i ], [ %.0.ph, %ztrymalloc_usable.exit.sink.split ]
+  %.0 = phi ptr [ null, %50 ], [ %48, %update_zmalloc_stat_alloc.exit ], [ null, %zfree.exit ], [ null, %zfree.exit35 ], [ %.0.i.i, %ztrymalloc_usable_internal.exit.i ], [ %.0.ph, %ztrymalloc_usable.exit.sink.split ]
   ret ptr %.0
 }
 

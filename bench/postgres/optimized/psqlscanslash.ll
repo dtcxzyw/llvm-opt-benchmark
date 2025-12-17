@@ -1214,7 +1214,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br i1 %542, label %.lr.ph172.i, label %.critedge2.i, !llvm.loop !11
 
 .critedge2.i:                                     ; preds = %530, %.lr.ph172.i, %510, %509
-  %543 = phi i32 [ %523, %510 ], [ %.1156.i, %509 ], [ 0, %.lr.ph172.i ], [ %541, %530 ]
+  %543 = phi i32 [ %.1156.i, %509 ], [ %523, %510 ], [ 0, %.lr.ph172.i ], [ %541, %530 ]
   %544 = load ptr, ptr %85, align 8
   %545 = load i64, ptr %86, align 8
   %546 = getelementptr inbounds nuw ptr, ptr %544, i64 %545
@@ -1874,7 +1874,7 @@ define dso_local void @slash_yy_switch_to_buffer(ptr noundef %0, ptr noundef cap
   br label %50
 
 50:                                               ; preds = %32, %31
-  %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
+  %51 = phi ptr [ %25, %31 ], [ %.pre, %32 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53

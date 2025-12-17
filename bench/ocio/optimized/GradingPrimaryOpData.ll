@@ -857,7 +857,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpDat
   br label %92
 
 92:                                               ; preds = %88, %74, %65, %91
-  %.1 = phi i1 [ false, %91 ], [ true, %65 ], [ true, %74 ], [ true, %88 ]
+  %.1 = phi i1 [ false, %91 ], [ true, %74 ], [ true, %65 ], [ true, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %93
 
@@ -1023,7 +1023,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpDat
   br label %35
 
 35:                                               ; preds = %23, %2, %8, %34
-  %.0 = phi i1 [ false, %34 ], [ false, %8 ], [ false, %2 ], [ true, %23 ]
+  %.0 = phi i1 [ false, %34 ], [ false, %2 ], [ false, %8 ], [ true, %23 ]
   ret i1 %.0
 }
 
@@ -1596,7 +1596,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpDat
   br label %20
 
 20:                                               ; preds = %18, %9, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %9 ], [ false, %4 ], [ %19, %18 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ %19, %18 ], [ false, %9 ]
   ret i1 %.0
 }
 

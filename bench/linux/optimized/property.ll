@@ -905,7 +905,7 @@ define internal fastcc zeroext i1 @acpi_enumerate_nondev_subnodes(ptr noundef %0
   br i1 %108, label %18, label %.thread, !llvm.loop !18
 
 .thread:                                          ; preds = %18, %25, %29, %106, %37, %.thread3.loopexit, %4
-  %109 = phi i1 [ false, %4 ], [ false, %37 ], [ %105, %.thread3.loopexit ], [ false, %106 ], [ false, %29 ], [ false, %25 ], [ false, %18 ]
+  %109 = phi i1 [ false, %4 ], [ %105, %.thread3.loopexit ], [ false, %37 ], [ false, %106 ], [ false, %29 ], [ false, %25 ], [ false, %18 ]
   ret i1 %109
 }
 
@@ -1322,7 +1322,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_node_prop_get(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %.critedge, %.critedge.us, %37, %3, %.thread10, %22, %19, %7
-  %68 = phi i32 [ -22, %7 ], [ -22, %22 ], [ -22, %19 ], [ 0, %.thread10 ], [ -22, %3 ], [ 0, %37 ], [ -22, %.critedge.us ], [ -22, %.critedge ]
+  %68 = phi i32 [ -22, %7 ], [ -22, %22 ], [ -22, %19 ], [ 0, %.thread10 ], [ -22, %3 ], [ -22, %.critedge.us ], [ 0, %37 ], [ -22, %.critedge ]
   ret i32 %68
 }
 
@@ -1492,7 +1492,7 @@ select.unfold:                                    ; preds = %19, %17
   %98 = select i1 %95, i1 %97, i1 false
   br i1 %98, label %select.unfold34, label %acpi_parse_string_ref.exit.thread
 
-acpi_parse_string_ref.exit.thread:                ; preds = %83, %92, %79
+acpi_parse_string_ref.exit.thread:                ; preds = %79, %83, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
@@ -1573,7 +1573,7 @@ select.unfold34:                                  ; preds = %88, %92
   br i1 %140, label %.preheader, label %141, !llvm.loop !24
 
 141:                                              ; preds = %.preheader, %.preheader, %134
-  %142 = phi i32 [ %135, %134 ], [ %132, %.preheader ], [ %132, %.preheader ]
+  %142 = phi i32 [ %132, %.preheader ], [ %135, %134 ], [ %132, %.preheader ]
   %143 = icmp ugt i32 %142, 8
   br i1 %143, label %.thread, label %144
 
@@ -1655,7 +1655,7 @@ select.unfold34:                                  ; preds = %88, %92
   %185 = select i1 %182, i1 %184, i1 false
   br i1 %185, label %select.unfold42, label %acpi_parse_string_ref.exit30.thread
 
-acpi_parse_string_ref.exit30.thread:              ; preds = %171, %179, %165
+acpi_parse_string_ref.exit30.thread:              ; preds = %165, %171, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
@@ -1693,7 +1693,7 @@ select.unfold42:                                  ; preds = %175, %179
   br i1 %202, label %.preheader54, label %203, !llvm.loop !24
 
 203:                                              ; preds = %.preheader54, %.preheader54, %196
-  %204 = phi i32 [ %197, %196 ], [ %194, %.preheader54 ], [ %194, %.preheader54 ]
+  %204 = phi i32 [ %194, %.preheader54 ], [ %197, %196 ], [ %194, %.preheader54 ]
   %205 = icmp ugt i32 %204, 8
   br i1 %205, label %.thread, label %206
 
@@ -1757,7 +1757,7 @@ select.unfold42:                                  ; preds = %175, %179
   br i1 %235, label %114, label %.thread, !llvm.loop !26
 
 .thread:                                          ; preds = %.outer, %.loopexit53, %203, %.loopexit, %141, %232, %227, %118, %114, %.preheader54, %.preheader, %28, %25, %19, %5, %acpi_parse_string_ref.exit30.thread, %acpi_parse_string_ref.exit.thread, %106, %101, %select.unfold34, %77, %74, %72, %67, %65, %.thread31, %select.unfold
-  %236 = phi i32 [ 0, %select.unfold34 ], [ 0, %74 ], [ -2, %select.unfold ], [ -2, %65 ], [ -22, %67 ], [ 0, %72 ], [ -2, %77 ], [ -22, %.thread31 ], [ -2, %101 ], [ -2, %106 ], [ -22, %acpi_parse_string_ref.exit.thread ], [ -22, %acpi_parse_string_ref.exit30.thread ], [ -2, %5 ], [ -2, %19 ], [ -2, %25 ], [ -2, %28 ], [ -22, %.preheader ], [ -22, %.preheader54 ], [ -22, %203 ], [ 0, %.loopexit53 ], [ -22, %141 ], [ 0, %.loopexit ], [ -22, %118 ], [ -2, %227 ], [ -22, %114 ], [ -2, %232 ], [ -2, %.outer ]
+  %236 = phi i32 [ 0, %select.unfold34 ], [ 0, %74 ], [ -2, %select.unfold ], [ -2, %65 ], [ -22, %67 ], [ 0, %72 ], [ -2, %77 ], [ -22, %acpi_parse_string_ref.exit.thread ], [ -22, %.thread31 ], [ -2, %101 ], [ -2, %106 ], [ -2, %19 ], [ -2, %28 ], [ -2, %232 ], [ -22, %acpi_parse_string_ref.exit30.thread ], [ -2, %5 ], [ -2, %25 ], [ -22, %.preheader ], [ -22, %.preheader54 ], [ -22, %203 ], [ 0, %.loopexit53 ], [ -22, %141 ], [ 0, %.loopexit ], [ -22, %118 ], [ -2, %227 ], [ -22, %114 ], [ -2, %.outer ]
   ret i32 %236
 }
 
@@ -1890,7 +1890,7 @@ define dso_local ptr @acpi_get_next_subnode(ptr noundef %0, ptr noundef %1) #0 a
   br label %.thread21.thread
 
 .thread21.thread:                                 ; preds = %15, %.thread34, %.thread18, %68, %.thread23, %56, %.thread21, %.thread17, %.thread14
-  %71 = phi ptr [ %35, %.thread14 ], [ %70, %68 ], [ null, %.thread21 ], [ null, %56 ], [ null, %.thread23 ], [ null, %.thread17 ], [ null, %.thread18 ], [ null, %.thread34 ], [ null, %15 ]
+  %71 = phi ptr [ %35, %.thread14 ], [ %70, %68 ], [ null, %.thread21 ], [ null, %56 ], [ null, %.thread23 ], [ null, %.thread17 ], [ null, %.thread34 ], [ null, %.thread18 ], [ null, %15 ]
   ret ptr %71
 }
 
@@ -3441,7 +3441,7 @@ default.unreachable273:                           ; preds = %279, %121
   br i1 %400, label %.preheader, label %.thread55, !llvm.loop !40
 
 .thread55:                                        ; preds = %.critedge68.outer, %.critedge68.backedge, %394, %.preheader, %377, %370, %356, %350, %346, %332, %326, %322, %308, %302, %298, %163, %.thread58.thread, %.loopexit81.thread, %.loopexit, %.thread53, %.thread280, %139, %131, %123, %152, %154, %157, %382, %277, %272, %267, %262, %259
-  %401 = phi i32 [ %212, %259 ], [ -22, %272 ], [ -71, %277 ], [ 0, %382 ], [ %264, %262 ], [ -75, %267 ], [ 1, %152 ], [ 1, %154 ], [ -75, %139 ], [ -75, %131 ], [ -75, %123 ], [ %159, %157 ], [ -22, %.thread280 ], [ -22, %.thread53 ], [ -22, %.loopexit81.thread ], [ -71, %.loopexit ], [ -71, %.thread58.thread ], [ -22, %163 ], [ -75, %302 ], [ -71, %298 ], [ 0, %308 ], [ -75, %326 ], [ -71, %322 ], [ 0, %332 ], [ -75, %350 ], [ -71, %346 ], [ 0, %356 ], [ -71, %370 ], [ 0, %377 ], [ %386, %394 ], [ -71, %.preheader ], [ -22, %.critedge68.backedge ], [ -22, %.critedge68.outer ]
+  %401 = phi i32 [ %212, %259 ], [ -22, %272 ], [ -71, %277 ], [ 0, %382 ], [ %264, %262 ], [ -75, %267 ], [ -22, %.thread280 ], [ -22, %.thread53 ], [ -75, %123 ], [ -75, %139 ], [ -75, %131 ], [ 0, %308 ], [ 1, %154 ], [ -71, %.thread58.thread ], [ 1, %152 ], [ %159, %157 ], [ -22, %163 ], [ -22, %.loopexit81.thread ], [ -71, %.loopexit ], [ -22, %.critedge68.backedge ], [ 0, %332 ], [ -75, %350 ], [ 0, %377 ], [ %386, %394 ], [ -75, %302 ], [ -71, %298 ], [ -75, %326 ], [ -71, %322 ], [ -71, %346 ], [ 0, %356 ], [ -71, %370 ], [ -71, %.preheader ], [ -22, %.critedge68.outer ]
   ret i32 %401
 }
 

@@ -260,7 +260,7 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %143
 
 143:                                              ; preds = %77, %70, %20, %18, %12, %10, %3, %133, %132, %120, %102, %99, %80, %28
-  %.0112 = phi ptr [ %31, %28 ], [ null, %120 ], [ %142, %133 ], [ null, %132 ], [ %104, %102 ], [ null, %99 ], [ %83, %80 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %70 ], [ null, %77 ]
+  %.0112 = phi ptr [ %8, %20 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %31, %28 ], [ null, %120 ], [ %142, %133 ], [ null, %132 ], [ %104, %102 ], [ null, %99 ], [ %83, %80 ], [ null, %70 ], [ null, %77 ]
   ret ptr %.0112
 }
 
@@ -404,7 +404,7 @@ define ptr @Cudd_bddRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %90
 
 90:                                               ; preds = %26, %21, %19, %13, %3, %87, %86, %76, %59, %55
-  %.0 = phi ptr [ %1, %55 ], [ null, %59 ], [ null, %76 ], [ %1, %86 ], [ %71, %87 ], [ %11, %3 ], [ %1, %13 ], [ %8, %19 ], [ %11, %21 ], [ null, %26 ]
+  %.0 = phi ptr [ %71, %87 ], [ %11, %3 ], [ %1, %13 ], [ %8, %19 ], [ %11, %21 ], [ %1, %55 ], [ null, %59 ], [ null, %76 ], [ %1, %86 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -719,7 +719,7 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %188
 
 188:                                              ; preds = %122, %115, %78, %79, %64, %20, %18, %12, %10, %3, %178, %177, %165, %147, %144, %125, %28
-  %.0138 = phi ptr [ %31, %28 ], [ null, %165 ], [ %187, %178 ], [ null, %177 ], [ %149, %147 ], [ null, %144 ], [ %128, %125 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %78 ], [ %89, %79 ], [ null, %64 ], [ null, %115 ], [ null, %122 ]
+  %.0138 = phi ptr [ null, %64 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %31, %28 ], [ %8, %20 ], [ null, %165 ], [ %187, %178 ], [ null, %177 ], [ %149, %147 ], [ null, %144 ], [ %128, %125 ], [ null, %115 ], [ %89, %79 ], [ null, %78 ], [ null, %122 ]
   ret ptr %.0138
 }
 
@@ -977,7 +977,7 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %160
 
 150:                                              ; preds = %126, %142, %146
-  %.0121 = phi ptr [ %145, %142 ], [ %147, %146 ], [ %114, %126 ]
+  %.0121 = phi ptr [ %147, %146 ], [ %145, %142 ], [ %114, %126 ]
   %151 = load i32, ptr %130, align 4, !tbaa !31
   %152 = add i32 %151, -1
   store i32 %152, ptr %130, align 4, !tbaa !31
@@ -999,7 +999,7 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %160
 
 160:                                              ; preds = %156, %159, %113, %77, %78, %63, %31, %23, %21, %13, %149, %141, %125, %15
-  %.0 = phi ptr [ %18, %15 ], [ null, %125 ], [ null, %141 ], [ null, %149 ], [ %5, %13 ], [ %., %21 ], [ %1, %23 ], [ %32, %31 ], [ null, %77 ], [ %75, %78 ], [ null, %63 ], [ null, %113 ], [ %.0121, %159 ], [ %.0121, %156 ]
+  %.0 = phi ptr [ null, %149 ], [ %18, %15 ], [ %., %21 ], [ %5, %13 ], [ null, %141 ], [ %1, %23 ], [ %32, %31 ], [ null, %63 ], [ null, %125 ], [ null, %113 ], [ %75, %78 ], [ null, %77 ], [ %.0121, %159 ], [ %.0121, %156 ]
   ret ptr %.0
 }
 
@@ -1182,7 +1182,7 @@ tailrecurse:                                      ; preds = %54, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %20, %18, %12, %9, %tailrecurse, %49, %88, %87, %73, %70
-  %.083 = phi ptr [ null, %87 ], [ %85, %88 ], [ %.089, %73 ], [ null, %70 ], [ null, %49 ], [ %.085, %54 ], [ %21, %20 ], [ %7, %18 ], [ %.tr102, %12 ], [ %10, %9 ], [ %.tr102, %tailrecurse ]
+  %.083 = phi ptr [ null, %87 ], [ %85, %88 ], [ %.089, %73 ], [ null, %70 ], [ null, %49 ], [ %.085, %54 ], [ %7, %18 ], [ %.tr102, %12 ], [ %10, %9 ], [ %.tr102, %tailrecurse ], [ %21, %20 ]
   ret ptr %.083
 }
 
@@ -1359,12 +1359,12 @@ define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %23, %37
-  %.0.ph = phi i32 [ 1, %37 ], [ 0, %23 ], [ 0, %34 ]
+  %.0.ph = phi i32 [ 0, %23 ], [ 1, %37 ], [ 0, %34 ]
   tail call void @Cudd_IterDerefBdd(ptr noundef %0, ptr noundef %31) #9
   br label %47
 
 47:                                               ; preds = %.sink.split, %9, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %9 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1455,7 +1455,7 @@ define ptr @Cudd_addRestrict(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %49
 
 49:                                               ; preds = %.sink.split, %25, %39, %3
-  %.0 = phi ptr [ null, %3 ], [ %36, %39 ], [ %1, %25 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ %36, %39 ], [ %1, %25 ], [ null, %3 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1662,7 +1662,7 @@ tailrecurse:                                      ; preds = %81, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %20, %18, %12, %9, %tailrecurse, %76, %49, %50, %33, %115, %114, %100, %97
-  %.0 = phi ptr [ null, %114 ], [ %112, %115 ], [ %.0105, %100 ], [ null, %97 ], [ null, %49 ], [ %47, %50 ], [ null, %33 ], [ null, %76 ], [ %63, %81 ], [ %21, %20 ], [ %7, %18 ], [ %.tr121, %12 ], [ %10, %9 ], [ %.tr121, %tailrecurse ]
+  %.0 = phi ptr [ null, %33 ], [ %.0105, %100 ], [ null, %97 ], [ null, %49 ], [ null, %76 ], [ %47, %50 ], [ null, %114 ], [ %112, %115 ], [ %63, %81 ], [ %21, %20 ], [ %7, %18 ], [ %.tr121, %12 ], [ %10, %9 ], [ %.tr121, %tailrecurse ]
   ret ptr %.0
 }
 
@@ -1787,7 +1787,7 @@ define noalias noundef ptr @Cudd_bddCharToVect(ptr noundef %0, ptr noundef %1) l
   br label %.split.thread70
 
 .split.thread70:                                  ; preds = %._crit_edge, %.split, %2, %.thread40, %20
-  %.034 = phi ptr [ null, %20 ], [ null, %.thread40 ], [ null, %2 ], [ %14, %.split ], [ %14, %._crit_edge ]
+  %.034 = phi ptr [ null, %2 ], [ null, %20 ], [ null, %.thread40 ], [ %14, %.split ], [ %14, %._crit_edge ]
   ret ptr %.034
 }
 
@@ -1925,7 +1925,7 @@ tailrecurse.backedge:                             ; preds = %46, %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %17, %3, %51, %44, %41, %80, %79, %63
-  %.0 = phi ptr [ null, %63 ], [ null, %79 ], [ %77, %80 ], [ %42, %41 ], [ %., %44 ], [ null, %51 ], [ %4, %3 ], [ %48, %tailrecurse.backedge ], [ %2, %17 ]
+  %.0 = phi ptr [ %77, %80 ], [ null, %63 ], [ null, %79 ], [ %., %44 ], [ %42, %41 ], [ null, %51 ], [ %4, %3 ], [ %48, %tailrecurse.backedge ], [ %2, %17 ]
   ret ptr %.0
 }
 
@@ -1989,13 +1989,13 @@ define ptr @cuddBddLICompaction(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %20, %13
-  %.sink = phi ptr [ %11, %13 ], [ %11, %20 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.0.ph = phi ptr [ null, %13 ], [ null, %20 ], [ %.0.ph.ph, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %11, %20 ], [ %11, %13 ], [ %.sink.ph, %.sink.split.sink.split ]
+  %.0.ph = phi ptr [ null, %20 ], [ null, %13 ], [ %.0.ph.ph, %.sink.split.sink.split ]
   tail call void @st__free_table(ptr noundef nonnull %.sink) #9
   br label %25
 
 25:                                               ; preds = %.sink.split, %10, %3
-  %.0 = phi ptr [ %8, %3 ], [ null, %10 ], [ %.0.ph, %.sink.split ]
+  %.0 = phi ptr [ null, %10 ], [ %8, %3 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 
@@ -2455,7 +2455,7 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br label %227
 
 227:                                              ; preds = %179, %168, %123, %83, %68, %12, %5, %3, %.thread248, %217, %207, %191, %175, %167, %161, %130, %122, %114, %86, %71, %23
-  %.0 = phi ptr [ %26, %23 ], [ %74, %71 ], [ %89, %86 ], [ null, %114 ], [ %133, %130 ], [ null, %122 ], [ null, %161 ], [ %178, %175 ], [ null, %167 ], [ null, %191 ], [ null, %207 ], [ %226, %.thread248 ], [ null, %217 ], [ %1, %3 ], [ %1, %5 ], [ %2, %12 ], [ null, %68 ], [ null, %83 ], [ null, %123 ], [ null, %168 ], [ null, %179 ]
+  %.0 = phi ptr [ null, %217 ], [ %1, %3 ], [ %1, %5 ], [ %26, %23 ], [ %2, %12 ], [ %74, %71 ], [ null, %68 ], [ %89, %86 ], [ null, %114 ], [ null, %83 ], [ %133, %130 ], [ null, %122 ], [ null, %161 ], [ null, %123 ], [ %178, %175 ], [ null, %167 ], [ null, %168 ], [ null, %191 ], [ null, %207 ], [ %226, %.thread248 ], [ null, %179 ]
   ret ptr %.0
 }
 
@@ -2534,7 +2534,7 @@ Cudd_bddLICompaction.exit:                        ; preds = %34
   br label %49
 
 49:                                               ; preds = %23, %18, %16, %10, %3, %40, %39
-  %.0 = phi ptr [ null, %39 ], [ %35, %40 ], [ %2, %3 ], [ %1, %10 ], [ %5, %16 ], [ %8, %18 ], [ null, %23 ]
+  %.0 = phi ptr [ %35, %40 ], [ %2, %3 ], [ %1, %10 ], [ %5, %16 ], [ %8, %18 ], [ null, %39 ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -2594,7 +2594,7 @@ define ptr @Cudd_SubsetCompress(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %36
 
 36:                                               ; preds = %4, %27, %26, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %26 ], [ %24, %27 ], [ null, %4 ]
+  %.0 = phi ptr [ %24, %27 ], [ null, %16 ], [ null, %26 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -2879,7 +2879,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br label %111
 
 111:                                              ; preds = %107, %110, %109, %108, %31, %34, %33, %32, %16, %14, %5, %106, %99, %79, %75, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %75 ], [ -1, %79 ], [ -1, %106 ], [ -1, %99 ], [ 0, %5 ], [ 1, %14 ], [ 2, %16 ], [ %.pre, %32 ], [ 1, %33 ], [ 2, %34 ], [ %.pre, %31 ], [ %.pre94, %108 ], [ 1, %109 ], [ 2, %110 ], [ %.pre94, %107 ]
+  %.0 = phi i32 [ -1, %99 ], [ 0, %5 ], [ 1, %14 ], [ -1, %26 ], [ 2, %16 ], [ -1, %75 ], [ -1, %79 ], [ -1, %106 ], [ %.pre, %31 ], [ %.pre, %32 ], [ 1, %33 ], [ 2, %34 ], [ %.pre94, %108 ], [ 1, %109 ], [ 2, %110 ], [ %.pre94, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -3099,7 +3099,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %111
 
 111:                                              ; preds = %35, %25, %4, %107, %101, %88, %76, %51, %19
-  %.0 = phi ptr [ %24, %19 ], [ null, %51 ], [ null, %101 ], [ %110, %107 ], [ null, %76 ], [ null, %88 ], [ %1, %4 ], [ null, %25 ], [ null, %35 ]
+  %.0 = phi ptr [ null, %88 ], [ %24, %19 ], [ %1, %4 ], [ null, %25 ], [ null, %51 ], [ null, %101 ], [ %110, %107 ], [ null, %76 ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

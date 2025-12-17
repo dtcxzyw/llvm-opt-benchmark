@@ -305,12 +305,12 @@ _ZNSt6vectorIPN7nanogui6ObjectESaIS2_EED2Ev.exit: ; preds = %_ZN7nanogui3refINS_
   br label %.body
 
 .body:                                            ; preds = %85, %105, %102
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %103, %102 ], [ %103, %105 ]
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %103, %105 ], [ %103, %102 ]
   call void @_ZdlPv(ptr noundef nonnull %82) #18
   br label %106
 
 106:                                              ; preds = %.body, %79, %77, %65, %37, %35
-  %.pn33 = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ], [ %.pn, %.body ], [ %80, %79 ], [ %78, %77 ], [ %66, %65 ]
+  %.pn33 = phi { ptr, i32 } [ %36, %35 ], [ %38, %37 ], [ %.pn, %.body ], [ %66, %65 ], [ %80, %79 ], [ %78, %77 ]
   %107 = load ptr, ptr %11, align 8
   %.not.i41 = icmp eq ptr %107, null
   br i1 %.not.i41, label %_ZN7nanogui3refINS_10RenderPassEED2Ev.exit, label %108

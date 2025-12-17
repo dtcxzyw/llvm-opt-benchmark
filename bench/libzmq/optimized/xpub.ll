@@ -926,10 +926,10 @@ define void @_ZN3zmq6xpub_t15xread_activatedEPNS_6pipe_tE(ptr noundef nonnull al
   br label %65
 
 65:                                               ; preds = %57, %49, %59, %55
-  %.035 = phi i1 [ true, %49 ], [ true, %59 ], [ false, %55 ], [ false, %57 ]
-  %.033.shrunk = phi i1 [ %54, %49 ], [ %64, %59 ], [ false, %55 ], [ false, %57 ]
-  %.032 = phi i64 [ %51, %49 ], [ %62, %59 ], [ 0, %55 ], [ 0, %57 ]
-  %.031 = phi ptr [ %50, %49 ], [ %60, %59 ], [ null, %55 ], [ null, %57 ]
+  %.035 = phi i1 [ true, %49 ], [ true, %59 ], [ false, %57 ], [ false, %55 ]
+  %.033.shrunk = phi i1 [ %54, %49 ], [ %64, %59 ], [ false, %57 ], [ false, %55 ]
+  %.032 = phi i64 [ %51, %49 ], [ %62, %59 ], [ 0, %57 ], [ 0, %55 ]
+  %.031 = phi ptr [ %50, %49 ], [ %60, %59 ], [ null, %57 ], [ null, %55 ]
   br i1 %41, label %71, label %66
 
 66:                                               ; preds = %65
@@ -996,7 +996,7 @@ define void @_ZN3zmq6xpub_t15xread_activatedEPNS_6pipe_tE(ptr noundef nonnull al
   br label %_ZNSt5dequeIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt5dequeIPN3zmq6pipe_tESaIS2_EE9push_backERKS2_.exit: ; preds = %88, %85, %90, %94
-  %.034 = phi i8 [ %97, %94 ], [ %93, %90 ], [ 0, %85 ], [ 0, %88 ]
+  %.034 = phi i8 [ %93, %90 ], [ %97, %94 ], [ 0, %85 ], [ 0, %88 ]
   %98 = load i8, ptr %27, align 1, !tbaa !117, !range !172, !noundef !173
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %104, label %100
@@ -2303,7 +2303,7 @@ _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %256, %218, %98, %70
-  %.pn = phi { ptr, i32 } [ %257, %256 ], [ %219, %218 ], [ %99, %98 ], [ %71, %70 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %257, %256 ], [ %71, %70 ], [ %219, %218 ], [ %99, %98 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
   %308 = load ptr, ptr %7, align 8, !tbaa !195
   %.not8.i.i55 = icmp eq ptr %308, %7
@@ -3271,7 +3271,7 @@ _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %256, %218, %98, %70
-  %.pn = phi { ptr, i32 } [ %257, %256 ], [ %219, %218 ], [ %99, %98 ], [ %71, %70 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %257, %256 ], [ %71, %70 ], [ %219, %218 ], [ %99, %98 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
   %308 = load ptr, ptr %7, align 8, !tbaa !195
   %.not8.i.i55 = icmp eq ptr %308, %7
@@ -4764,7 +4764,7 @@ _ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit:   ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3zmq6pipe_tES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !223
   %57 = load ptr, ptr %.0, align 8, !tbaa !150
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4956,7 +4956,7 @@ _ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_
   br label %_ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPPN3zmq10metadata_tES4_ET0_T_S6_S5_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !159
   %57 = load ptr, ptr %.0, align 8, !tbaa !130
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5146,7 +5146,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !250
   %57 = load ptr, ptr %.0, align 8, !tbaa !124
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5297,7 +5297,7 @@ _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.ex
   br i1 %.not.i3, label %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit, label %.lr.ph.i2, !llvm.loop !272
 
 _ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS2_ESA_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i, %.critedge.i
-  %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
+  %40 = phi i64 [ %26, %.critedge.i ], [ 0, %_ZNSt8_Rb_treeIPN3zmq6pipe_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE5clearEv.exit.i ], [ %39, %.lr.ph.i2 ]
   %41 = sub i64 %26, %40
   ret i64 %41
 }
@@ -5506,7 +5506,7 @@ _ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit26:  ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit:    ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN3zmq6blob_tES3_ET0_T_S5_S4_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !138
   %57 = load ptr, ptr %.0, align 8, !tbaa !145
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

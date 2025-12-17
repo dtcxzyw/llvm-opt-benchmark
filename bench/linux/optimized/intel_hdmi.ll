@@ -675,7 +675,7 @@ define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef 
   br label %52
 
 52:                                               ; preds = %50, %49, %48, %47, %46, %45, %44
-  %53 = phi i32 [ 0, %50 ], [ 4194304, %49 ], [ 16777216, %48 ], [ 2097152, %47 ], [ 0, %46 ], [ 8388608, %45 ], [ 33554432, %44 ]
+  %53 = phi i32 [ 0, %50 ], [ 33554432, %44 ], [ 4194304, %49 ], [ 16777216, %48 ], [ 2097152, %47 ], [ 0, %46 ], [ 8388608, %45 ]
   %54 = and i32 %53, %14
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %60, label %56
@@ -1107,7 +1107,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
   br i1 %103, label %.loopexit, label %.split.split, !llvm.loop !36
 
 .loopexit:                                        ; preds = %83, %76, %67, %60, %100, %51, %48, %.split, %.split6.us, %3
-  %104 = phi i1 [ %.us-phi, %.split6.us ], [ true, %3 ], [ true, %.split ], [ %15, %48 ], [ %53, %51 ], [ %102, %100 ], [ %69, %67 ], [ %56, %60 ], [ %85, %83 ], [ %72, %76 ]
+  %104 = phi i1 [ %.us-phi, %.split6.us ], [ true, %3 ], [ %69, %67 ], [ %53, %51 ], [ true, %.split ], [ %102, %100 ], [ %15, %48 ], [ %56, %60 ], [ %85, %83 ], [ %72, %76 ]
   ret i1 %104
 }
 
@@ -1265,7 +1265,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   br label %40
 
 40:                                               ; preds = %31, %34, %37, %29
-  %41 = phi i8 [ %39, %37 ], [ 0, %29 ], [ 0, %34 ], [ 0, %31 ]
+  %41 = phi i8 [ 0, %31 ], [ %39, %37 ], [ 0, %29 ], [ 0, %34 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 877
   store i8 %41, ptr %42, align 1
   %.val = load ptr, ptr %2, align 8
@@ -2319,8 +2319,8 @@ define internal void @vlv_write_infoframe(ptr noundef readonly captures(none) %0
   br label %.thread2
 
 .thread2:                                         ; preds = %31, %.thread4, %.thread3, %.thread, %39, %38, %36
-  %40 = phi i32 [ %32, %39 ], [ %32, %38 ], [ %32, %36 ], [ %33, %.thread ], [ %34, %.thread3 ], [ %35, %.thread4 ], [ %32, %31 ]
-  %41 = phi i32 [ -1, %39 ], [ -1, %38 ], [ -33554433, %36 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %31 ]
+  %40 = phi i32 [ %32, %39 ], [ %32, %36 ], [ %35, %.thread4 ], [ %32, %31 ], [ %34, %.thread3 ], [ %32, %38 ], [ %33, %.thread ]
+  %41 = phi i32 [ -1, %39 ], [ -33554433, %36 ], [ -4194305, %.thread4 ], [ -2097153, %31 ], [ -16777217, %.thread3 ], [ -1, %38 ], [ -8388609, %.thread ]
   %42 = and i32 %41, %40
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %44 = load ptr, ptr %43, align 8
@@ -2403,7 +2403,7 @@ define internal void @vlv_write_infoframe(ptr noundef readonly captures(none) %0
   br label %76
 
 76:                                               ; preds = %74, %73, %72, %71, %70, %69, %.loopexit
-  %77 = phi i32 [ 0, %74 ], [ 4194304, %73 ], [ 16777216, %72 ], [ 2097152, %71 ], [ 0, %70 ], [ 8388608, %69 ], [ 33554432, %.loopexit ]
+  %77 = phi i32 [ 0, %74 ], [ 33554432, %.loopexit ], [ 4194304, %73 ], [ 16777216, %72 ], [ 2097152, %71 ], [ 0, %70 ], [ 8388608, %69 ]
   %78 = and i32 %42, -196624
   %79 = or i32 %78, %77
   %80 = or disjoint i32 %79, 65536
@@ -2820,8 +2820,8 @@ define internal void @g4x_write_infoframe(ptr noundef readonly captures(none) %0
   br label %.thread2
 
 .thread2:                                         ; preds = %24, %.thread4, %.thread3, %.thread, %32, %31, %29
-  %33 = phi i32 [ %25, %32 ], [ %25, %31 ], [ %25, %29 ], [ %26, %.thread ], [ %27, %.thread3 ], [ %28, %.thread4 ], [ %25, %24 ]
-  %34 = phi i32 [ -1, %32 ], [ -1, %31 ], [ -33554433, %29 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %24 ]
+  %33 = phi i32 [ %25, %32 ], [ %25, %29 ], [ %28, %.thread4 ], [ %25, %24 ], [ %27, %.thread3 ], [ %25, %31 ], [ %26, %.thread ]
+  %34 = phi i32 [ -1, %32 ], [ -33554433, %29 ], [ -4194305, %.thread4 ], [ -2097153, %24 ], [ -16777217, %.thread3 ], [ -1, %31 ], [ -8388609, %.thread ]
   %35 = and i32 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %37 = load ptr, ptr %36, align 8
@@ -2894,7 +2894,7 @@ define internal void @g4x_write_infoframe(ptr noundef readonly captures(none) %0
   br label %59
 
 59:                                               ; preds = %57, %56, %55, %54, %53, %52, %.loopexit
-  %60 = phi i32 [ 0, %57 ], [ 4194304, %56 ], [ 16777216, %55 ], [ 2097152, %54 ], [ 0, %53 ], [ 8388608, %52 ], [ 33554432, %.loopexit ]
+  %60 = phi i32 [ 0, %57 ], [ 33554432, %.loopexit ], [ 4194304, %56 ], [ 16777216, %55 ], [ 2097152, %54 ], [ 0, %53 ], [ 8388608, %52 ]
   %61 = and i32 %35, -196624
   %62 = or i32 %61, %60
   %63 = or disjoint i32 %62, 65536
@@ -3438,8 +3438,8 @@ define internal void @ibx_write_infoframe(ptr noundef readonly captures(none) %0
   br label %.thread2
 
 .thread2:                                         ; preds = %29, %.thread4, %.thread3, %.thread, %37, %36, %34
-  %38 = phi i32 [ %30, %37 ], [ %30, %36 ], [ %30, %34 ], [ %31, %.thread ], [ %32, %.thread3 ], [ %33, %.thread4 ], [ %30, %29 ]
-  %39 = phi i32 [ -1, %37 ], [ -1, %36 ], [ -33554433, %34 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %29 ]
+  %38 = phi i32 [ %30, %37 ], [ %30, %34 ], [ %33, %.thread4 ], [ %30, %29 ], [ %32, %.thread3 ], [ %30, %36 ], [ %31, %.thread ]
+  %39 = phi i32 [ -1, %37 ], [ -33554433, %34 ], [ -4194305, %.thread4 ], [ -2097153, %29 ], [ -16777217, %.thread3 ], [ -1, %36 ], [ -8388609, %.thread ]
   %40 = and i32 %39, %38
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %42 = load ptr, ptr %41, align 8
@@ -3518,7 +3518,7 @@ define internal void @ibx_write_infoframe(ptr noundef readonly captures(none) %0
   br label %70
 
 70:                                               ; preds = %68, %67, %66, %65, %64, %63, %.loopexit
-  %71 = phi i32 [ 0, %68 ], [ 4194304, %67 ], [ 16777216, %66 ], [ 2097152, %65 ], [ 0, %64 ], [ 8388608, %63 ], [ 33554432, %.loopexit ]
+  %71 = phi i32 [ 0, %68 ], [ 33554432, %.loopexit ], [ 4194304, %67 ], [ 16777216, %66 ], [ 2097152, %65 ], [ 0, %64 ], [ 8388608, %63 ]
   %72 = and i32 %40, -196624
   %73 = or i32 %72, %71
   %74 = or disjoint i32 %73, 65536
@@ -3932,8 +3932,8 @@ define internal void @cpt_write_infoframe(ptr noundef readonly captures(none) %0
   br label %38
 
 38:                                               ; preds = %.thread4, %.thread3, %.thread2, %37, %36, %34
-  %39 = phi i32 [ %30, %37 ], [ %30, %36 ], [ %30, %34 ], [ %31, %.thread2 ], [ %32, %.thread3 ], [ %33, %.thread4 ]
-  %40 = phi i32 [ -1, %37 ], [ -1, %36 ], [ -33554433, %34 ], [ -8388609, %.thread2 ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ]
+  %39 = phi i32 [ %30, %37 ], [ %30, %34 ], [ %33, %.thread4 ], [ %32, %.thread3 ], [ %30, %36 ], [ %31, %.thread2 ]
+  %40 = phi i32 [ -1, %37 ], [ -33554433, %34 ], [ -4194305, %.thread4 ], [ -16777217, %.thread3 ], [ -1, %36 ], [ -8388609, %.thread2 ]
   %41 = and i32 %40, %39
   br label %.thread
 
@@ -4016,7 +4016,7 @@ define internal void @cpt_write_infoframe(ptr noundef readonly captures(none) %0
   br label %72
 
 72:                                               ; preds = %70, %69, %68, %67, %66, %65, %.loopexit
-  %73 = phi i32 [ 0, %70 ], [ 4194304, %69 ], [ 16777216, %68 ], [ 2097152, %67 ], [ 0, %66 ], [ 8388608, %65 ], [ 33554432, %.loopexit ]
+  %73 = phi i32 [ 0, %70 ], [ 33554432, %.loopexit ], [ 4194304, %69 ], [ 16777216, %68 ], [ 2097152, %67 ], [ 0, %66 ], [ 8388608, %65 ]
   %74 = and i32 %42, -196609
   %75 = or i32 %74, %73
   %76 = or disjoint i32 %75, 65536
@@ -4566,8 +4566,8 @@ switch.lookup:                                    ; preds = %136
   br label %163
 
 163:                                              ; preds = %switch.lookup, %161, %159, %154, %147, %143, %139, %124, %95, %84, %75, %54
-  %164 = phi ptr [ @.str.40, %54 ], [ @.str.41, %75 ], [ @.str.41, %84 ], [ @.str.41, %95 ], [ @.str.41, %124 ], [ @.str.41, %139 ], [ @.str.41, %143 ], [ @.str.41, %147 ], [ @.str.41, %154 ], [ @.str.41, %159 ], [ @.str.41, %161 ], [ @.str.41, %switch.lookup ]
-  %165 = phi i8 [ %59, %54 ], [ %79, %75 ], [ %87, %84 ], [ %102, %95 ], [ %131, %124 ], [ 1, %139 ], [ %144, %143 ], [ %148, %147 ], [ %155, %154 ], [ %160, %159 ], [ %162, %161 ], [ %switch.masked, %switch.lookup ]
+  %164 = phi ptr [ @.str.40, %54 ], [ @.str.41, %75 ], [ @.str.41, %84 ], [ @.str.41, %95 ], [ @.str.41, %124 ], [ @.str.41, %switch.lookup ], [ @.str.41, %161 ], [ @.str.41, %159 ], [ @.str.41, %139 ], [ @.str.41, %143 ], [ @.str.41, %147 ], [ @.str.41, %154 ]
+  %165 = phi i8 [ %59, %54 ], [ %79, %75 ], [ %87, %84 ], [ %102, %95 ], [ %131, %124 ], [ %switch.masked, %switch.lookup ], [ %162, %161 ], [ %160, %159 ], [ 1, %139 ], [ %144, %143 ], [ %148, %147 ], [ %155, %154 ]
   %166 = zext i8 %165 to i32
   %167 = tail call zeroext i1 @intel_gmbus_is_valid_pin(ptr noundef %55, i32 noundef %166) #15
   br i1 %167, label %177, label %168
@@ -4886,7 +4886,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %.reass10.us, label %49, label %.loopexit
 
 49:                                               ; preds = %47, %45, %43, %41, %.split.us
-  %50 = phi i32 [ 2, %.split.us ], [ 4, %41 ], [ 8, %43 ], [ 12, %45 ], [ 16, %47 ]
+  %50 = phi i32 [ 16, %47 ], [ 2, %.split.us ], [ 4, %41 ], [ 8, %43 ], [ 12, %45 ]
   %51 = load i16, ptr %38, align 4
   %52 = zext i16 %51 to i32
   %53 = add nsw i32 %50, -1
@@ -4925,7 +4925,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %.reass10.us15, label %68, label %.loopexit
 
 68:                                               ; preds = %66, %64, %62, %60, %.split.split.us
-  %69 = phi i32 [ 1, %.split.split.us ], [ 4, %60 ], [ 8, %62 ], [ 12, %64 ], [ 16, %66 ]
+  %69 = phi i32 [ 1, %.split.split.us ], [ 16, %66 ], [ 4, %60 ], [ 8, %62 ], [ 12, %64 ]
   %70 = load i16, ptr %38, align 4
   %71 = zext i16 %70 to i32
   %72 = add nsw i32 %69, -1
@@ -4961,7 +4961,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %.reass10.us21.us, label %85, label %.loopexit
 
 85:                                               ; preds = %83, %81, %79, %.split.split.split.us.split.us
-  %86 = phi i32 [ 1, %.split.split.split.us.split.us ], [ 2, %79 ], [ 12, %81 ], [ 16, %83 ]
+  %86 = phi i32 [ 1, %.split.split.split.us.split.us ], [ 2, %79 ], [ 16, %83 ], [ 12, %81 ]
   %87 = load i16, ptr %38, align 4
   %88 = zext i16 %87 to i32
   %89 = add nsw i32 %86, -1
@@ -4993,7 +4993,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %.reass10.us21.us26, label %102, label %.loopexit
 
 102:                                              ; preds = %100, %98, %96, %.split.split.split.us.split.split.us
-  %103 = phi i32 [ 1, %.split.split.split.us.split.split.us ], [ 2, %96 ], [ 8, %98 ], [ 16, %100 ]
+  %103 = phi i32 [ 1, %.split.split.split.us.split.split.us ], [ 2, %96 ], [ 16, %100 ], [ 8, %98 ]
   %104 = load i16, ptr %38, align 4
   %105 = zext i16 %104 to i32
   %106 = add nsw i32 %103, -1
@@ -5027,7 +5027,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %.reass10.us21, label %122, label %.loopexit
 
 122:                                              ; preds = %120, %118, %116, %114, %.split.split.split.us.split.split
-  %123 = phi i32 [ 1, %.split.split.split.us.split.split ], [ 2, %114 ], [ 8, %116 ], [ 12, %118 ], [ 16, %120 ]
+  %123 = phi i32 [ 1, %.split.split.split.us.split.split ], [ 2, %114 ], [ 16, %120 ], [ 8, %116 ], [ 12, %118 ]
   %124 = load i16, ptr %38, align 4
   %125 = zext i16 %124 to i32
   %126 = add nsw i32 %123, -1
@@ -5077,7 +5077,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %150, label %.loopexit, label %.split.split.split, !llvm.loop !166
 
 .loopexit:                                        ; preds = %49, %47, %66, %68, %83, %85, %102, %100, %122, %120, %141, %143, %5
-  %152 = phi i32 [ 0, %5 ], [ %144, %143 ], [ 0, %141 ], [ %123, %122 ], [ 0, %120 ], [ %103, %102 ], [ 0, %100 ], [ %86, %85 ], [ 0, %83 ], [ %69, %68 ], [ 0, %66 ], [ %50, %49 ], [ 0, %47 ]
+  %152 = phi i32 [ 0, %5 ], [ 0, %83 ], [ %144, %143 ], [ %69, %68 ], [ 0, %120 ], [ 0, %100 ], [ 0, %141 ], [ %123, %122 ], [ %103, %102 ], [ %86, %85 ], [ 0, %66 ], [ 0, %47 ], [ %50, %49 ]
   ret i32 %152
 }
 
@@ -6438,7 +6438,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr noundef readonly cap
   br i1 %.not10, label %.loopexit, label %.thread2
 
 .thread2:                                         ; preds = %32, %36, %59, %35, %56
-  %61 = phi i32 [ %60, %59 ], [ %25, %36 ], [ %25, %56 ], [ %25, %35 ], [ %25, %32 ]
+  %61 = phi i32 [ %25, %32 ], [ %60, %59 ], [ %25, %36 ], [ %25, %56 ], [ %25, %35 ]
   %62 = add nsw i64 %24, -2
   %63 = icmp samesign ugt i64 %24, 9
   br i1 %63, label %23, label %64, !llvm.loop !208
@@ -7705,7 +7705,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr noundef readonly captures(non
   br label %.thread22
 
 .thread22:                                        ; preds = %29, %.thread, %137, %115, %113
-  %140 = phi i32 [ -22, %113 ], [ %129, %137 ], [ 0, %115 ], [ -110, %.thread ], [ -22, %29 ]
+  %140 = phi i32 [ 0, %115 ], [ -22, %113 ], [ %129, %137 ], [ -110, %.thread ], [ -22, %29 ]
   ret i32 %140
 }
 

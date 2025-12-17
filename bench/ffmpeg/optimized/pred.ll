@@ -154,7 +154,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %40
 
 40:                                               ; preds = %35, %5
-  %41 = phi i1 [ false, %5 ], [ %39, %35 ]
+  %41 = phi i1 [ %39, %35 ], [ false, %5 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = add nsw i32 %29, 2
@@ -233,7 +233,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %105
 
 105:                                              ; preds = %95, %84
-  %106 = phi i1 [ false, %84 ], [ %104, %95 ]
+  %106 = phi i1 [ %104, %95 ], [ false, %84 ]
   %107 = shl i32 8, %18
   %108 = add nsw i32 %107, %3
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 20220
@@ -723,7 +723,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond157.not, label %.critedge25.i, label %355, !llvm.loop !130
 
 .critedge25.i:                                    ; preds = %364, %355
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %364 ], [ %.1799.i81, %355 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i81, %355 ], [ %.0796.i, %364 ]
   %366 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %366, label %.lr.ph87, label %._crit_edge88
 
@@ -1221,7 +1221,7 @@ define internal void @intra_pred_2_9(ptr noundef readonly captures(none) %0, ptr
   br label %.thread5.thread
 
 .thread5.thread:                                  ; preds = %.thread5.thread.loopexit.critedge, %608, %.thread5
-  %.3791.i1022 = phi i32 [ %.3791.i10, %608 ], [ %.3791.i10, %.thread5 ], [ %.0788.i, %.thread5.thread.loopexit.critedge ]
+  %.3791.i1022 = phi i32 [ %.3791.i10, %.thread5 ], [ %.3791.i10, %608 ], [ %.0788.i, %.thread5.thread.loopexit.critedge ]
   %.not858.i = icmp eq i32 %.3791.i1022, 0
   br i1 %.not858.i, label %.split122, label %.thread5.thread.thread
 
@@ -1320,7 +1320,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -1403,7 +1403,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 16, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -1891,7 +1891,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond163.not, label %.critedge25.i, label %357, !llvm.loop !130
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i87, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i87, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph93, label %._crit_edge94
 
@@ -2428,7 +2428,7 @@ define internal void @intra_pred_3_9(ptr noundef readonly captures(none) %0, ptr
   br label %.thread5.thread
 
 .thread5.thread:                                  ; preds = %591, %624, %.thread5
-  %.3791.i1027 = phi i32 [ %.3791.i10, %624 ], [ %.3791.i10, %.thread5 ], [ %.0788.i, %591 ]
+  %.3791.i1027 = phi i32 [ %.3791.i10, %.thread5 ], [ %.3791.i10, %624 ], [ %.0788.i, %591 ]
   %.not858.i = icmp eq i32 %.3791.i1027, 0
   br i1 %.not858.i, label %.thread5.thread.thread.loopexit.critedge, label %.thread5.thread.thread
 
@@ -2642,7 +2642,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -2725,7 +2725,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 32, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -3213,7 +3213,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond163.not, label %.critedge25.i, label %357, !llvm.loop !130
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i87, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i87, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph93, label %._crit_edge94
 
@@ -3777,7 +3777,7 @@ define internal void @intra_pred_4_9(ptr noundef readonly captures(none) %0, ptr
   br label %.thread5.thread
 
 .thread5.thread:                                  ; preds = %602, %642, %.thread5
-  %.3791.i1027 = phi i32 [ %.3791.i10, %642 ], [ %.3791.i10, %.thread5 ], [ %.0788.i, %602 ]
+  %.3791.i1027 = phi i32 [ %.3791.i10, %.thread5 ], [ %.3791.i10, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i1027, 0
   br i1 %.not858.i, label %644, label %.thread5.thread.thread
 
@@ -4001,7 +4001,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -4084,7 +4084,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 64, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -4572,7 +4572,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond170.not, label %.critedge25.i, label %357, !llvm.loop !130
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i90, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i90, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph96, label %._crit_edge97
 
@@ -5136,7 +5136,7 @@ define internal void @intra_pred_5_9(ptr noundef readonly captures(none) %0, ptr
   br label %.thread5.thread
 
 .thread5.thread:                                  ; preds = %602, %642, %.thread5
-  %.3791.i1027 = phi i32 [ %.3791.i10, %642 ], [ %.3791.i10, %.thread5 ], [ %.0788.i, %602 ]
+  %.3791.i1027 = phi i32 [ %.3791.i10, %.thread5 ], [ %.3791.i10, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i1027, 0
   br i1 %.not858.i, label %644, label %.thread5.thread.thread
 
@@ -7105,7 +7105,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %40
 
 40:                                               ; preds = %35, %5
-  %41 = phi i1 [ false, %5 ], [ %39, %35 ]
+  %41 = phi i1 [ %39, %35 ], [ false, %5 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = add nsw i32 %29, 2
@@ -7184,7 +7184,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %105
 
 105:                                              ; preds = %95, %84
-  %106 = phi i1 [ false, %84 ], [ %104, %95 ]
+  %106 = phi i1 [ %104, %95 ], [ false, %84 ]
   %107 = shl i32 8, %18
   %108 = add nsw i32 %107, %3
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 20220
@@ -7674,7 +7674,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond156.not, label %.critedge25.i, label %355, !llvm.loop !184
 
 .critedge25.i:                                    ; preds = %364, %355
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %364 ], [ %.1799.i80, %355 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i80, %355 ], [ %.0796.i, %364 ]
   %366 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %366, label %.lr.ph86, label %._crit_edge87
 
@@ -8172,7 +8172,7 @@ define internal void @intra_pred_2_10(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %.thread4.thread.loopexit.critedge, %608, %.thread4
-  %.3791.i921 = phi i32 [ %.3791.i9, %608 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
+  %.3791.i921 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %608 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
   %.not858.i = icmp eq i32 %.3791.i921, 0
   br i1 %.not858.i, label %.split121, label %.thread4.thread.thread
 
@@ -8271,7 +8271,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -8354,7 +8354,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 16, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -8842,7 +8842,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond162.not, label %.critedge25.i, label %357, !llvm.loop !184
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i86, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph92, label %._crit_edge93
 
@@ -9379,7 +9379,7 @@ define internal void @intra_pred_3_10(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %591, %624, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %624 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %591 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %624 ], [ %.0788.i, %591 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %.thread4.thread.thread.loopexit.critedge, label %.thread4.thread.thread
 
@@ -9593,7 +9593,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -9676,7 +9676,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 32, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -10164,7 +10164,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond162.not, label %.critedge25.i, label %357, !llvm.loop !184
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i86, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph92, label %._crit_edge93
 
@@ -10728,7 +10728,7 @@ define internal void @intra_pred_4_10(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %602, %642, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %642 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %602 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %644, label %.thread4.thread.thread
 
@@ -10952,7 +10952,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -11035,7 +11035,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 64, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -11523,7 +11523,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond169.not, label %.critedge25.i, label %357, !llvm.loop !184
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i89, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i89, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph95, label %._crit_edge96
 
@@ -12087,7 +12087,7 @@ define internal void @intra_pred_5_10(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %602, %642, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %642 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %602 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %644, label %.thread4.thread.thread
 
@@ -14056,7 +14056,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %40
 
 40:                                               ; preds = %35, %5
-  %41 = phi i1 [ false, %5 ], [ %39, %35 ]
+  %41 = phi i1 [ %39, %35 ], [ false, %5 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = add nsw i32 %29, 2
@@ -14135,7 +14135,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %105
 
 105:                                              ; preds = %95, %84
-  %106 = phi i1 [ false, %84 ], [ %104, %95 ]
+  %106 = phi i1 [ %104, %95 ], [ false, %84 ]
   %107 = shl i32 8, %18
   %108 = add nsw i32 %107, %3
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 20220
@@ -14625,7 +14625,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond156.not, label %.critedge25.i, label %355, !llvm.loop !234
 
 .critedge25.i:                                    ; preds = %364, %355
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %364 ], [ %.1799.i80, %355 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i80, %355 ], [ %.0796.i, %364 ]
   %366 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %366, label %.lr.ph86, label %._crit_edge87
 
@@ -15123,7 +15123,7 @@ define internal void @intra_pred_2_12(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %.thread4.thread.loopexit.critedge, %608, %.thread4
-  %.3791.i921 = phi i32 [ %.3791.i9, %608 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
+  %.3791.i921 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %608 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
   %.not858.i = icmp eq i32 %.3791.i921, 0
   br i1 %.not858.i, label %.split121, label %.thread4.thread.thread
 
@@ -15222,7 +15222,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -15305,7 +15305,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 16, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -15793,7 +15793,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond162.not, label %.critedge25.i, label %357, !llvm.loop !234
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i86, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph92, label %._crit_edge93
 
@@ -16330,7 +16330,7 @@ define internal void @intra_pred_3_12(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %591, %624, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %624 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %591 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %624 ], [ %.0788.i, %591 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %.thread4.thread.thread.loopexit.critedge, label %.thread4.thread.thread
 
@@ -16544,7 +16544,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -16627,7 +16627,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 32, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -17115,7 +17115,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond162.not, label %.critedge25.i, label %357, !llvm.loop !234
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i86, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph92, label %._crit_edge93
 
@@ -17679,7 +17679,7 @@ define internal void @intra_pred_4_12(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %602, %642, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %642 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %602 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %644, label %.thread4.thread.thread
 
@@ -17903,7 +17903,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -17986,7 +17986,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %109
 
 109:                                              ; preds = %99, %88
-  %110 = phi i1 [ false, %88 ], [ %108, %99 ]
+  %110 = phi i1 [ %108, %99 ], [ false, %88 ]
   %111 = shl i32 64, %20
   %112 = add nsw i32 %111, %3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -18474,7 +18474,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond169.not, label %.critedge25.i, label %357, !llvm.loop !234
 
 .critedge25.i:                                    ; preds = %366, %357
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %366 ], [ %.1799.i89, %357 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i89, %357 ], [ %.0796.i, %366 ]
   %368 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %368, label %.lr.ph95, label %._crit_edge96
 
@@ -19038,7 +19038,7 @@ define internal void @intra_pred_5_12(ptr noundef readonly captures(none) %0, pt
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %602, %642, %.thread4
-  %.3791.i926 = phi i32 [ %.3791.i9, %642 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %602 ]
+  %.3791.i926 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %642 ], [ %.0788.i, %602 ]
   %.not858.i = icmp eq i32 %.3791.i926, 0
   br i1 %.not858.i, label %644, label %.thread4.thread.thread
 
@@ -21007,7 +21007,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %40
 
 40:                                               ; preds = %35, %5
-  %41 = phi i1 [ false, %5 ], [ %39, %35 ]
+  %41 = phi i1 [ %39, %35 ], [ false, %5 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = add nsw i32 %29, 2
@@ -21085,7 +21085,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %104
 
 104:                                              ; preds = %94, %83
-  %105 = phi i1 [ false, %83 ], [ %103, %94 ]
+  %105 = phi i1 [ %103, %94 ], [ false, %83 ]
   %106 = shl i32 8, %18
   %107 = add nsw i32 %106, %3
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 20220
@@ -21574,7 +21574,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond156.not, label %.critedge25.i, label %354, !llvm.loop !284
 
 .critedge25.i:                                    ; preds = %363, %354
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %363 ], [ %.1799.i80, %354 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i80, %354 ], [ %.0796.i, %363 ]
   %365 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %365, label %.lr.ph86, label %._crit_edge87
 
@@ -22067,7 +22067,7 @@ define internal void @intra_pred_2_8(ptr noundef readonly captures(none) %0, ptr
   br label %.thread4.thread
 
 .thread4.thread:                                  ; preds = %.thread4.thread.loopexit.critedge, %601, %.thread4
-  %.3791.i921 = phi i32 [ %.3791.i9, %601 ], [ %.3791.i9, %.thread4 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
+  %.3791.i921 = phi i32 [ %.3791.i9, %.thread4 ], [ %.3791.i9, %601 ], [ %.0788.i, %.thread4.thread.loopexit.critedge ]
   %.not858.i = icmp eq i32 %.3791.i921, 0
   br i1 %.not858.i, label %.split121, label %.thread4.thread.thread
 
@@ -22166,7 +22166,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -22248,7 +22248,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br label %108
 
 108:                                              ; preds = %98, %87
-  %109 = phi i1 [ false, %87 ], [ %107, %98 ]
+  %109 = phi i1 [ %107, %98 ], [ false, %87 ]
   %110 = shl i32 16, %20
   %111 = add nsw i32 %110, %3
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -22737,7 +22737,7 @@ define internal void @intra_pred_3_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond162.not, label %.critedge25.i, label %358, !llvm.loop !284
 
 .critedge25.i:                                    ; preds = %367, %358
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %367 ], [ %.1799.i86, %358 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %358 ], [ %.0796.i, %367 ]
   %369 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %369, label %.lr.ph92, label %._crit_edge93
 
@@ -23468,7 +23468,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -23550,7 +23550,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br label %108
 
 108:                                              ; preds = %98, %87
-  %109 = phi i1 [ false, %87 ], [ %107, %98 ]
+  %109 = phi i1 [ %107, %98 ], [ false, %87 ]
   %110 = shl i32 32, %20
   %111 = add nsw i32 %110, %3
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -24037,7 +24037,7 @@ define internal void @intra_pred_4_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond162.not, label %.critedge25.i, label %356, !llvm.loop !284
 
 .critedge25.i:                                    ; preds = %365, %356
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %365 ], [ %.1799.i86, %356 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i86, %356 ], [ %.0796.i, %365 ]
   %367 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %367, label %.lr.ph92, label %._crit_edge93
 
@@ -24809,7 +24809,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %37, %5
-  %43 = phi i1 [ false, %5 ], [ %41, %37 ]
+  %43 = phi i1 [ %41, %37 ], [ false, %5 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4120
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = add nsw i32 %31, 2
@@ -24891,7 +24891,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br label %108
 
 108:                                              ; preds = %98, %87
-  %109 = phi i1 [ false, %87 ], [ %107, %98 ]
+  %109 = phi i1 [ %107, %98 ], [ false, %87 ]
   %110 = shl i32 64, %20
   %111 = add nsw i32 %110, %3
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 20220
@@ -25378,7 +25378,7 @@ define internal void @intra_pred_5_8(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond169.not, label %.critedge25.i, label %356, !llvm.loop !284
 
 .critedge25.i:                                    ; preds = %365, %356
-  %.1799.i.lcssa = phi i32 [ %.0796.i, %365 ], [ %.1799.i89, %356 ]
+  %.1799.i.lcssa = phi i32 [ %.1799.i89, %356 ], [ %.0796.i, %365 ]
   %367 = icmp sgt i32 %.1799.i.lcssa, -1
   br i1 %367, label %.lr.ph95, label %._crit_edge96
 

@@ -211,7 +211,7 @@ if.then4.i.i26:                                   ; preds = %if.then1
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit31
 
 _ZN4llvh11raw_ostreamlsEPKc.exit31:               ; preds = %if.then.i.i29, %if.then4.i.i26
-  %phi.call.i28 = phi ptr [ %call3.i.i30, %if.then.i.i29 ], [ %call3, %if.then4.i.i26 ]
+  %phi.call.i28 = phi ptr [ %call3, %if.then4.i.i26 ], [ %call3.i.i30, %if.then.i.i29 ]
   %call6 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i28, i64 noundef %aref.coerce1) #19
   %OutBufEnd.i5.i34 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i34, align 8
@@ -309,7 +309,7 @@ if.then4.i.i75:                                   ; preds = %if.then32
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit80
 
 _ZN4llvh11raw_ostreamlsEPKc.exit80:               ; preds = %if.then.i.i78, %if.then4.i.i75
-  %phi.call.i77 = phi ptr [ %call3.i.i79, %if.then.i.i78 ], [ %call.i, %if.then4.i.i75 ]
+  %phi.call.i77 = phi ptr [ %call.i, %if.then4.i.i75 ], [ %call3.i.i79, %if.then.i.i78 ]
   %13 = load i32, ptr %version, align 1
   %conv.i = zext i32 %13 to i64
   %call.i81 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i77, i64 noundef %conv.i) #19
@@ -360,7 +360,7 @@ if.then52:                                        ; preds = %if.then50
   br label %return
 
 return:                                           ; preds = %if.end47, %if.then50, %if.then52, %if.then42, %if.then44, %if.then30, %_ZN4llvh11raw_ostreamlsEPKc.exit80, %if.then23, %if.then25, %if.then13, %if.then15, %if.then, %_ZN4llvh11raw_ostreamlsEPKc.exit47
-  %retval.0 = phi i1 [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit47 ], [ false, %if.then ], [ false, %if.then15 ], [ false, %if.then13 ], [ false, %if.then25 ], [ false, %if.then23 ], [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit80 ], [ false, %if.then30 ], [ false, %if.then44 ], [ false, %if.then42 ], [ false, %if.then52 ], [ false, %if.then50 ], [ true, %if.end47 ]
+  %retval.0 = phi i1 [ false, %if.then50 ], [ false, %if.then ], [ false, %if.then13 ], [ false, %if.then23 ], [ false, %if.then30 ], [ false, %if.then42 ], [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit47 ], [ false, %if.then15 ], [ false, %if.then25 ], [ false, %_ZN4llvh11raw_ostreamlsEPKc.exit80 ], [ false, %if.then44 ], [ false, %if.then52 ], [ true, %if.end47 ]
   ret i1 %retval.0
 }
 
@@ -3058,7 +3058,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %if.then4.i, %if.end.i, %if.then.i
-  %phi.call = phi ptr [ %call3.i, %if.then.i ], [ %this, %if.then4.i ], [ %this, %if.end.i ], [ %this, %entry ]
+  %phi.call = phi ptr [ %this, %if.end.i ], [ %call3.i, %if.then.i ], [ %this, %if.then4.i ], [ %this, %entry ]
   ret ptr %phi.call
 }
 

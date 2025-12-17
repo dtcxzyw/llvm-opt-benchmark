@@ -2707,7 +2707,7 @@ default.unreachable220:                           ; preds = %349, %208
   unreachable
 
 359:                                              ; preds = %349, %353, %352
-  %.sroa.041.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions24timestamp_us_to_datetime17h2cf664b649fa5012E, %352 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ns_to_datetime17h6677ad33b5f1cc92E, %353 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ms_to_datetime17h04c28e3f8d8e94b7E, %349 ]
+  %.sroa.041.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions24timestamp_ns_to_datetime17h6677ad33b5f1cc92E, %353 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_us_to_datetime17h2cf664b649fa5012E, %352 ], [ @_ZN12polars_arrow20temporal_conversions24timestamp_ms_to_datetime17h04c28e3f8d8e94b7E, %349 ]
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %361 = load ptr, ptr %360, align 8, !invariant.load !4, !nonnull !4
   %362 = tail call { ptr, ptr } %361(ptr noundef nonnull align 1 %0)
@@ -2887,7 +2887,7 @@ default.unreachable220:                           ; preds = %349, %208
   unreachable
 
 common.resume:                                    ; preds = %552, %556, %524, %520, %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$chrono_tz..timezones..Tz$C$polars_error..PolarsError$GT$$GT$17h51c613bcff9e1a7dE.exit.i", %400
-  %common.resume.op = phi { ptr, i32 } [ %.pn11.i, %400 ], [ %.pn11.i, %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$chrono_tz..timezones..Tz$C$polars_error..PolarsError$GT$$GT$17h51c613bcff9e1a7dE.exit.i" ], [ %525, %524 ], [ %521, %520 ], [ %557, %556 ], [ %553, %552 ]
+  %common.resume.op = phi { ptr, i32 } [ %521, %520 ], [ %.pn11.i, %"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$chrono_tz..timezones..Tz$C$polars_error..PolarsError$GT$$GT$17h51c613bcff9e1a7dE.exit.i" ], [ %.pn11.i, %400 ], [ %525, %524 ], [ %557, %556 ], [ %553, %552 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e9E.exit: ; preds = %406, %409
@@ -2983,7 +2983,7 @@ _ZN11polars_json4json5write9serialize23timestamp_tz_serializer17hef741ea0db3ee5e
   unreachable
 
 475:                                              ; preds = %208, %469, %468
-  %.sroa.046.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions23duration_us_to_duration17h1c1a7179d863829aE, %468 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ns_to_duration17hf67354d45d733166E, %469 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ms_to_duration17hc31753bf90b944aaE, %208 ]
+  %.sroa.046.0 = phi ptr [ @_ZN12polars_arrow20temporal_conversions23duration_ns_to_duration17hf67354d45d733166E, %469 ], [ @_ZN12polars_arrow20temporal_conversions23duration_us_to_duration17h1c1a7179d863829aE, %468 ], [ @_ZN12polars_arrow20temporal_conversions23duration_ms_to_duration17hc31753bf90b944aaE, %208 ]
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %477 = load ptr, ptr %476, align 8, !invariant.load !4, !nonnull !4
   %478 = tail call { ptr, ptr } %477(ptr noundef nonnull align 1 %0)
@@ -3451,7 +3451,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h8aeea49f8321e41fE.exit: ; preds = 
   br label %common.resume
 
 common.resume:                                    ; preds = %10, %46, %54
-  %common.resume.op = phi { ptr, i32 } [ %47, %54 ], [ %47, %46 ], [ %lpad.phi, %10 ]
+  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %47, %54 ], [ %lpad.phi, %10 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr173drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$streaming_iterator..StreamingIterator$u2b$Item$u20$$u3d$$u20$$u5b$u8$u5d$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h5356afc52648ed8eE.exit": ; preds = %38, %45

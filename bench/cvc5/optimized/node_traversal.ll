@@ -166,7 +166,7 @@ _ZNSt8functionIFbN4cvc58internal12NodeTemplateILb0EEEEEC2ERKS5_.exit: ; preds = 
   ret void
 
 .body:                                            ; preds = %46, %43, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %44, %46 ], [ %44, %43 ]
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %44, %43 ], [ %44, %46 ]
   tail call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEbSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #20
   %51 = load ptr, ptr %0, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %51, null
@@ -479,7 +479,7 @@ define hidden void @_ZN4cvc58internal15NodeDfsIterator18advanceToNextVisitEv(ptr
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %50
   br label %.loopexit39, !llvm.loop !47
 
-.loopexit39:                                      ; preds = %.lr.ph.i.i.i.i, %.preheader, %.noexc, %..loopexit_crit_edge21.i.i.i.i
+.loopexit39:                                      ; preds = %.lr.ph.i.i.i.i, %.preheader, %..loopexit_crit_edge21.i.i.i.i, %.noexc
   %54 = phi ptr [ %.pre, %.noexc ], [ %.pre, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %.preheader ], [ %.pre, %.lr.ph.i.i.i.i ]
   store ptr %54, ptr %3, align 8, !tbaa !3
   %55 = load ptr, ptr %13, align 8, !tbaa !35
@@ -741,7 +741,7 @@ common.resume:                                    ; preds = %160, %151
   resume { ptr, i32 } %common.resume.op
 
 151:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit42, %.loopexit.split-lp43, %129, %86, %63
-  %.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %87, %86 ], [ %130, %129 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %64, %63 ], [ %87, %86 ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp43 ], [ %lpad.loopexit44, %.loopexit42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
@@ -1389,7 +1389,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %27, %29
   unreachable
 
 .body:                                            ; preds = %37, %34, %22, %19
-  %.pn = phi { ptr, i32 } [ %20, %22 ], [ %20, %19 ], [ %35, %34 ], [ %35, %37 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %35, %37 ], [ %20, %22 ], [ %35, %34 ]
   resume { ptr, i32 } %.pn
 }
 

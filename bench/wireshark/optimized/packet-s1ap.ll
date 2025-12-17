@@ -17215,7 +17215,7 @@ s1ap_get_private_data.exit:                       ; preds = %15, %22
   br label %40
 
 40:                                               ; preds = %34, %s1ap_get_private_data.exit
-  %lte_rrc_ue_radio_access_cap_info_nb_handle.sink = phi ptr [ @nr_rrc_ue_radio_access_cap_info_handle, %s1ap_get_private_data.exit ], [ %lte_rrc_ue_radio_access_cap_info_nb_handle.lte_rrc_ue_radio_access_cap_info_handle, %34 ]
+  %lte_rrc_ue_radio_access_cap_info_nb_handle.sink = phi ptr [ %lte_rrc_ue_radio_access_cap_info_nb_handle.lte_rrc_ue_radio_access_cap_info_handle, %34 ], [ @nr_rrc_ue_radio_access_cap_info_handle, %s1ap_get_private_data.exit ]
   %41 = load ptr, ptr %lte_rrc_ue_radio_access_cap_info_nb_handle.sink, align 8
   store volatile ptr %41, ptr %6, align 8
   %.0..0..0..0.21 = load volatile ptr, ptr %6, align 8
@@ -18002,7 +18002,7 @@ s1ap_get_private_data.exit:                       ; preds = %15, %22
   br label %40
 
 40:                                               ; preds = %34, %s1ap_get_private_data.exit
-  %lte_rrc_ue_radio_paging_info_nb_handle.sink = phi ptr [ @nr_rrc_ue_radio_paging_info_handle, %s1ap_get_private_data.exit ], [ %lte_rrc_ue_radio_paging_info_nb_handle.lte_rrc_ue_radio_paging_info_handle, %34 ]
+  %lte_rrc_ue_radio_paging_info_nb_handle.sink = phi ptr [ %lte_rrc_ue_radio_paging_info_nb_handle.lte_rrc_ue_radio_paging_info_handle, %34 ], [ @nr_rrc_ue_radio_paging_info_handle, %s1ap_get_private_data.exit ]
   %41 = load ptr, ptr %lte_rrc_ue_radio_paging_info_nb_handle.sink, align 8
   store volatile ptr %41, ptr %6, align 8
   %.0..0..0..0.21 = load volatile ptr, ptr %6, align 8

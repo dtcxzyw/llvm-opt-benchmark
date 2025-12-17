@@ -807,8 +807,8 @@ Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %84, %86, %75, %77
-  %storemerge = phi ptr [ %76, %75 ], [ %78, %77 ], [ %85, %84 ], [ %87, %86 ]
-  %.sink.i.i.i = phi i32 [ %65, %75 ], [ %65, %77 ], [ %69, %84 ], [ %69, %86 ]
+  %storemerge = phi ptr [ %78, %77 ], [ %76, %75 ], [ %85, %84 ], [ %87, %86 ]
+  %.sink.i.i.i = phi i32 [ %65, %77 ], [ %65, %75 ], [ %69, %84 ], [ %69, %86 ]
   store ptr %storemerge, ptr %24, align 8, !tbaa !65
   store i32 %.sink.i.i.i, ptr %calloc68, align 8, !tbaa !67
   %.pre.i.i = load i32, ptr %23, align 4, !tbaa !68
@@ -1607,47 +1607,47 @@ define void @Saig_BmcInterval(ptr noundef initializes((112, 116)) %0) local_unna
   store i32 %12, ptr %13, align 8, !tbaa !100
   %14 = load i32, ptr %0, align 8, !tbaa !53
   %15 = icmp slt i32 %12, %14
-  br i1 %15, label %.lr.ph59, label %.loopexit
+  br i1 %15, label %.lr.ph61, label %.loopexit
 
-.lr.ph59:                                         ; preds = %1
+.lr.ph61:                                         ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i32, ptr %16, align 8, !tbaa !101
-  %.pre64.pre = load ptr, ptr %17, align 8, !tbaa !61
+  %.pre66.pre = load ptr, ptr %17, align 8, !tbaa !61
   br label %21
 
-21:                                               ; preds = %.lr.ph59, %._crit_edge
-  %.pre64 = phi ptr [ %.pre64.pre, %.lr.ph59 ], [ %.pre6468, %._crit_edge ]
-  %22 = phi i32 [ %.pre, %.lr.ph59 ], [ 0, %._crit_edge ]
-  %23 = phi i32 [ %12, %.lr.ph59 ], [ %129, %._crit_edge ]
+21:                                               ; preds = %.lr.ph61, %._crit_edge59
+  %.pre66 = phi ptr [ %.pre66.pre, %.lr.ph61 ], [ %.pre6670, %._crit_edge59 ]
+  %22 = phi i32 [ %.pre, %.lr.ph61 ], [ 0, %._crit_edge59 ]
+  %23 = phi i32 [ %12, %.lr.ph61 ], [ %129, %._crit_edge59 ]
   %24 = icmp eq i32 %22, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.pre64, i64 48
+  %26 = getelementptr i8, ptr %.pre66, i64 48
   %.val46 = load ptr, ptr %26, align 8, !tbaa !42
   %27 = load ptr, ptr %2, align 8, !tbaa !69
   %28 = getelementptr i8, ptr %27, i64 48
   %.val45 = load ptr, ptr %28, align 8, !tbaa !42
   tail call fastcc void @Saig_BmcObjSetFrame(ptr noundef nonnull %0, ptr noundef %.val46, i32 noundef %23, ptr noundef %.val45)
-  %.pre62 = load i32, ptr %16, align 8, !tbaa !101
-  %.pre63 = load ptr, ptr %17, align 8, !tbaa !61
+  %.pre64 = load i32, ptr %16, align 8, !tbaa !101
+  %.pre65 = load ptr, ptr %17, align 8, !tbaa !61
   br label %29
 
 29:                                               ; preds = %25, %21
-  %.pre6469 = phi ptr [ %.pre63, %25 ], [ %.pre64, %21 ]
-  %30 = phi i32 [ %.pre62, %25 ], [ %22, %21 ]
-  %31 = getelementptr i8, ptr %.pre6469, i64 112
+  %.pre6671 = phi ptr [ %.pre65, %25 ], [ %.pre66, %21 ]
+  %30 = phi i32 [ %.pre64, %25 ], [ %22, %21 ]
+  %31 = getelementptr i8, ptr %.pre6671, i64 112
   %.val57 = load i32, ptr %31, align 8, !tbaa !27
   %32 = icmp slt i32 %30, %.val57
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  br i1 %32, label %.lr.ph, label %._crit_edge59
 
-.lr.ph:                                           ; preds = %29, %.critedge
-  %33 = phi ptr [ %.pre67, %.critedge ], [ %.pre6469, %29 ]
-  %34 = phi i32 [ %125, %.critedge ], [ %30, %29 ]
+.lr.ph:                                           ; preds = %29, %._crit_edge
+  %33 = phi ptr [ %.pre69, %._crit_edge ], [ %.pre6671, %29 ]
+  %34 = phi i32 [ %125, %._crit_edge ], [ %30, %29 ]
   %35 = load ptr, ptr %2, align 8, !tbaa !69
   %36 = getelementptr i8, ptr %35, i64 32
   %.val41 = load ptr, ptr %36, align 8, !tbaa !34
@@ -1749,24 +1749,24 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %89 = getelementptr i8, ptr %88, i64 4
   %.val5255 = load i32, ptr %89, align 4, !tbaa !68
   %90 = icmp sgt i32 %.val5255, 1
-  %.pre67 = load ptr, ptr %17, align 8, !tbaa !61
-  br i1 %90, label %Aig_ManObj.exit.lr.ph, label %.critedge
+  %.pre69 = load ptr, ptr %17, align 8, !tbaa !61
+  br i1 %90, label %.critedge.lr.ph, label %._crit_edge
 
-Aig_ManObj.exit.lr.ph:                            ; preds = %Vec_PtrPush.exit
+.critedge.lr.ph:                                  ; preds = %Vec_PtrPush.exit
   %91 = getelementptr i8, ptr %88, i64 8
   %.val47 = load ptr, ptr %91, align 8, !tbaa !65
-  %92 = getelementptr i8, ptr %.pre67, i64 32
+  %92 = getelementptr i8, ptr %.pre69, i64 32
   %.val49 = load ptr, ptr %92, align 8, !tbaa !34, !nonnull !102, !noundef !102
   %93 = getelementptr i8, ptr %.val49, i64 8
   %.val.i = load ptr, ptr %93, align 8, !tbaa !3
   %94 = load ptr, ptr %20, align 8, !tbaa !63
   %95 = getelementptr i8, ptr %94, i64 8
   %.val.i53 = load ptr, ptr %95, align 8, !tbaa !3
-  br label %Aig_ManObj.exit
+  br label %.critedge
 
-Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %Saig_BmcObjFrame.exit
-  %.val5265 = phi i32 [ %.val5255, %Aig_ManObj.exit.lr.ph ], [ %.val52, %Saig_BmcObjFrame.exit ]
-  %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %Saig_BmcObjFrame.exit ]
+.critedge:                                        ; preds = %.critedge.lr.ph, %Saig_BmcObjFrame.exit
+  %.val5267 = phi i32 [ %.val5255, %.critedge.lr.ph ], [ %.val52, %Saig_BmcObjFrame.exit ]
+  %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %Saig_BmcObjFrame.exit ]
   %96 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
@@ -1787,7 +1787,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %111 = icmp eq i32 %110, -1
   br i1 %111, label %Saig_BmcObjFrame.exit, label %112
 
-112:                                              ; preds = %Aig_ManObj.exit
+112:                                              ; preds = %.critedge
   %113 = load ptr, ptr %2, align 8, !tbaa !69
   %114 = getelementptr i8, ptr %113, i64 32
   %.val20.i = load ptr, ptr %114, align 8, !tbaa !34
@@ -1809,25 +1809,25 @@ Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, 
   %.val52.pre = load i32, ptr %89, align 4, !tbaa !68
   br label %Saig_BmcObjFrame.exit
 
-Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, %Aig_ManObj.exit, %Aig_ManObj.exit.thread.i
-  %.val52 = phi i32 [ %.val5265, %Aig_ManObj.exit.i ], [ %.val5265, %Aig_ManObj.exit ], [ %.val52.pre, %Aig_ManObj.exit.thread.i ]
+Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, %.critedge, %Aig_ManObj.exit.thread.i
+  %.val52 = phi i32 [ %.val5267, %Aig_ManObj.exit.i ], [ %.val5267, %.critedge ], [ %.val52.pre, %Aig_ManObj.exit.thread.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %121 = trunc i64 %indvars.iv.next to i32
   %122 = or disjoint i32 %121, 1
   %123 = icmp slt i32 %122, %.val52
-  br i1 %123, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !103
+  br i1 %123, label %.critedge, label %._crit_edge, !llvm.loop !103
 
-.critedge:                                        ; preds = %Saig_BmcObjFrame.exit, %Vec_PtrPush.exit
+._crit_edge:                                      ; preds = %Saig_BmcObjFrame.exit, %Vec_PtrPush.exit
   %124 = load i32, ptr %16, align 8, !tbaa !101
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %16, align 8, !tbaa !101
-  %126 = getelementptr i8, ptr %.pre67, i64 112
+  %126 = getelementptr i8, ptr %.pre69, i64 112
   %.val = load i32, ptr %126, align 8, !tbaa !27
   %127 = icmp slt i32 %125, %.val
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+  br i1 %127, label %.lr.ph, label %._crit_edge59, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %.critedge, %29
-  %.pre6468 = phi ptr [ %.pre6469, %29 ], [ %.pre67, %.critedge ]
+._crit_edge59:                                    ; preds = %._crit_edge, %29
+  %.pre6670 = phi ptr [ %.pre6671, %29 ], [ %.pre69, %._crit_edge ]
   %128 = load i32, ptr %11, align 4, !tbaa !99
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %11, align 4, !tbaa !99
@@ -1836,7 +1836,7 @@ Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, 
   %131 = icmp slt i32 %129, %130
   br i1 %131, label %21, label %.loopexit, !llvm.loop !105
 
-.loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1
+.loopexit:                                        ; preds = %._crit_edge59, %.lr.ph, %1
   ret void
 }
 
@@ -2550,7 +2550,7 @@ Saig_BmcSetSatNum.exit:                           ; preds = %80, %._crit_edge.i.
   br i1 %.not51, label %.loopexit, label %170, !llvm.loop !115
 
 .loopexit:                                        ; preds = %153, %157, %170, %174
-  %.2.in = phi i64 [ %indvars.iv83, %174 ], [ %indvars.iv83, %170 ], [ %indvars.iv80, %157 ], [ %indvars.iv80, %153 ]
+  %.2.in = phi i64 [ %indvars.iv83, %170 ], [ %indvars.iv83, %174 ], [ %indvars.iv80, %157 ], [ %indvars.iv80, %153 ]
   %.2 = trunc i64 %.2.in to i32
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %183 = load i32, ptr %182, align 8, !tbaa !111
@@ -3240,7 +3240,7 @@ sat_solver_compress.exit:                         ; preds = %141, %._crit_edge, 
   br i1 %173, label %25, label %.critedge, !llvm.loop !132
 
 .critedge:                                        ; preds = %47, %113, %sat_solver_compress.exit, %14, %Saig_BmcDeriveFailed.exit
-  %.044 = phi i32 [ 1, %Saig_BmcDeriveFailed.exit ], [ -1, %14 ], [ 0, %47 ], [ %.0, %113 ], [ -1, %sat_solver_compress.exit ]
+  %.044 = phi i32 [ 1, %Saig_BmcDeriveFailed.exit ], [ -1, %14 ], [ %.0, %113 ], [ 0, %47 ], [ -1, %sat_solver_compress.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
 }
@@ -3650,8 +3650,8 @@ Abc_Clock.exit150:                                ; preds = %139, %Abc_Clock.exi
   br label %193
 
 193:                                              ; preds = %.sink.split, %182, %172
-  %194 = phi i1 [ true, %172 ], [ false, %182 ], [ %.ph, %.sink.split ]
-  %.0 = phi i32 [ 0, %172 ], [ -1, %182 ], [ %.0.ph, %.sink.split ]
+  %194 = phi i1 [ false, %182 ], [ true, %172 ], [ %.ph, %.sink.split ]
+  %.0 = phi i32 [ -1, %182 ], [ 0, %172 ], [ %.0.ph, %.sink.split ]
   %.not131 = icmp eq i32 %10, 0
   br i1 %.not131, label %195, label %264
 

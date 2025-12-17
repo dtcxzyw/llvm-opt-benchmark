@@ -160,7 +160,7 @@ define internal fastcc i32 @prefs_store_ext_helper(ptr noundef %0, ptr noundef %
   br label %31
 
 31:                                               ; preds = %18, %16, %26, %28, %21, %5, %3
-  %.024 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %20, %18 ], [ %15, %16 ], [ %30, %28 ], [ %25, %26 ], [ 0, %21 ]
+  %.024 = phi i32 [ 0, %5 ], [ 0, %3 ], [ %20, %18 ], [ %15, %16 ], [ %30, %28 ], [ %25, %26 ], [ 0, %21 ]
   ret i32 %.024
 }
 
@@ -210,7 +210,7 @@ define hidden noundef zeroext i1 @prefs_store_ext_multiple(ptr noundef %0, ptr n
   br label %17
 
 17:                                               ; preds = %6, %16, %4, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %4 ], [ true, %16 ], [ true, %6 ]
+  %.0 = phi i1 [ false, %4 ], [ false, %2 ], [ true, %16 ], [ true, %6 ]
   ret i1 %.0
 }
 

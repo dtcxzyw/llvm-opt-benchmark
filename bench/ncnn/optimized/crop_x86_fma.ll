@@ -2316,7 +2316,7 @@ _ZN4ncnn3MatD2Ev.exit407:                         ; preds = %1101, %1099, %1107,
   br label %1116
 
 _ZN4ncnn3MataSERKS0_.exit434.thread:              ; preds = %._crit_edge.us.i749, %._crit_edge.us.i, %_ZN4ncnn3MatD2Ev.exit406, %878, %_ZN4ncnn3Mat7releaseEv.exit503, %_ZNK4ncnn3Mat5emptyEv.exit, %406, %_ZN4ncnn3Mat7releaseEv.exit516, %467, %.preheader.lr.ph.i, %455, %_ZNK4ncnn3Mat5emptyEv.exit458, %508, %_ZN4ncnn3Mat7releaseEv.exit513, %570, %.preheader.lr.ph.i739, %557, %_ZN4ncnn3MatD2Ev.exit402, %620, %_ZN4ncnn3Mat7releaseEv.exit510
-  %.3.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit503 ], [ 0, %878 ], [ %.11, %_ZN4ncnn3MatD2Ev.exit406 ], [ 0, %.preheader.lr.ph.i ], [ 0, %467 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit516 ], [ 0, %406 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %455 ], [ 0, %.preheader.lr.ph.i739 ], [ 0, %570 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit513 ], [ 0, %508 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit458 ], [ -100, %557 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit510 ], [ 0, %620 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit402 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i749 ]
+  %.3.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit503 ], [ 0, %878 ], [ %.11, %_ZN4ncnn3MatD2Ev.exit406 ], [ -100, %455 ], [ -100, %557 ], [ 0, %.preheader.lr.ph.i ], [ 0, %467 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit516 ], [ 0, %406 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.preheader.lr.ph.i739 ], [ 0, %570 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit513 ], [ 0, %508 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit458 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit510 ], [ 0, %620 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit402 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i749 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4353,8 +4353,8 @@ _ZN4ncnn3MatD2Ev.exit421:                         ; preds = %2125, %2123, %2131,
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %2140
 
-_ZN4ncnn3MataSERKS0_.exit448.thread:              ; preds = %._crit_edge.us.i762, %_ZN4ncnn3MatD2Ev.exit420, %1900, %_ZN4ncnn3Mat7releaseEv.exit483, %1520, %_ZNK4ncnn3Mat5emptyEv.exit463, %1459, %_ZN4ncnn3Mat7releaseEv.exit496, %1508, %_ZNK4ncnn3Mat5emptyEv.exit464, %1536, %_ZN4ncnn3Mat7releaseEv.exit493, %1598, %.preheader.lr.ph.i752, %1585, %_ZN4ncnn3MatD2Ev.exit416, %1644, %_ZN4ncnn3Mat7releaseEv.exit490
-  %.16.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit483 ], [ 0, %1900 ], [ %.24, %_ZN4ncnn3MatD2Ev.exit420 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit496 ], [ 0, %1459 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit463 ], [ 0, %1520 ], [ -100, %1508 ], [ 0, %.preheader.lr.ph.i752 ], [ 0, %1598 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit493 ], [ 0, %1536 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit464 ], [ -100, %1585 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit490 ], [ 0, %1644 ], [ %.21, %_ZN4ncnn3MatD2Ev.exit416 ], [ 0, %._crit_edge.us.i762 ]
+_ZN4ncnn3MataSERKS0_.exit448.thread:              ; preds = %._crit_edge.us.i762, %_ZN4ncnn3MatD2Ev.exit420, %1900, %_ZN4ncnn3Mat7releaseEv.exit483, %_ZNK4ncnn3Mat5emptyEv.exit463, %1520, %1459, %_ZN4ncnn3Mat7releaseEv.exit496, %1508, %_ZNK4ncnn3Mat5emptyEv.exit464, %1536, %_ZN4ncnn3Mat7releaseEv.exit493, %1598, %.preheader.lr.ph.i752, %1585, %_ZN4ncnn3MatD2Ev.exit416, %1644, %_ZN4ncnn3Mat7releaseEv.exit490
+  %.16.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit483 ], [ 0, %1900 ], [ %.24, %_ZN4ncnn3MatD2Ev.exit420 ], [ -100, %1508 ], [ -100, %1585 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit463 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit496 ], [ 0, %1459 ], [ 0, %1520 ], [ 0, %.preheader.lr.ph.i752 ], [ 0, %1598 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit493 ], [ 0, %1536 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit464 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit490 ], [ 0, %1644 ], [ %.21, %_ZN4ncnn3MatD2Ev.exit416 ], [ 0, %._crit_edge.us.i762 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -5017,7 +5017,7 @@ _ZN4ncnn3MatD2Ev.exit425:                         ; preds = %2413, %2411, %2419,
   br label %2429
 
 2428:                                             ; preds = %_ZN4ncnn3MataSERKS0_.exit448.thread, %_ZN4ncnn3MataSERKS0_.exit434.thread, %_ZN4ncnn3MatD2Ev.exit424
-  %.12 = phi i32 [ %.27, %_ZN4ncnn3MatD2Ev.exit424 ], [ %.3.ph, %_ZN4ncnn3MataSERKS0_.exit434.thread ], [ %.16.ph, %_ZN4ncnn3MataSERKS0_.exit448.thread ]
+  %.12 = phi i32 [ %.27, %_ZN4ncnn3MatD2Ev.exit424 ], [ %.16.ph, %_ZN4ncnn3MataSERKS0_.exit448.thread ], [ %.3.ph, %_ZN4ncnn3MataSERKS0_.exit434.thread ]
   ret i32 %.12
 
 2429:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit425, %2140, %1116
@@ -6680,7 +6680,7 @@ _ZN4ncnn3MatD2Ev.exit362:                         ; preds = %860, %858, %866, %8
   br label %875
 
 _ZN4ncnn3MataSERKS0_.exit382.thread:              ; preds = %._crit_edge.us.i616, %._crit_edge.us.i, %_ZN4ncnn3MatD2Ev.exit361, %637, %_ZN4ncnn3Mat7releaseEv.exit436, %_ZNK4ncnn3Mat5emptyEv.exit, %145, %_ZN4ncnn3Mat7releaseEv.exit449, %226, %.preheader.lr.ph.i, %214, %_ZNK4ncnn3Mat5emptyEv.exit400, %267, %_ZN4ncnn3Mat7releaseEv.exit446, %329, %.preheader.lr.ph.i606, %316, %_ZN4ncnn3MatD2Ev.exit357, %379, %_ZN4ncnn3Mat7releaseEv.exit443
-  %.3.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit436 ], [ 0, %637 ], [ %.11, %_ZN4ncnn3MatD2Ev.exit361 ], [ 0, %.preheader.lr.ph.i ], [ 0, %226 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit449 ], [ 0, %145 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %214 ], [ 0, %.preheader.lr.ph.i606 ], [ 0, %329 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit446 ], [ 0, %267 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit400 ], [ -100, %316 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit443 ], [ 0, %379 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit357 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i616 ]
+  %.3.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit436 ], [ 0, %637 ], [ %.11, %_ZN4ncnn3MatD2Ev.exit361 ], [ -100, %214 ], [ -100, %316 ], [ 0, %.preheader.lr.ph.i ], [ 0, %226 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit449 ], [ 0, %145 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ 0, %.preheader.lr.ph.i606 ], [ 0, %329 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit446 ], [ 0, %267 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit400 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit443 ], [ 0, %379 ], [ %.8, %_ZN4ncnn3MatD2Ev.exit357 ], [ 0, %._crit_edge.us.i ], [ 0, %._crit_edge.us.i616 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8259,8 +8259,8 @@ _ZN4ncnn3MatD2Ev.exit372:                         ; preds = %1655, %1653, %1661,
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %1670
 
-_ZN4ncnn3MataSERKS0_.exit396.thread:              ; preds = %._crit_edge.us.i629, %_ZN4ncnn3MatD2Ev.exit371, %1430, %_ZN4ncnn3Mat7releaseEv.exit416, %1050, %_ZNK4ncnn3Mat5emptyEv.exit405, %969, %_ZN4ncnn3Mat7releaseEv.exit429, %1038, %_ZNK4ncnn3Mat5emptyEv.exit406, %1066, %_ZN4ncnn3Mat7releaseEv.exit426, %1128, %.preheader.lr.ph.i619, %1115, %_ZN4ncnn3MatD2Ev.exit367, %1174, %_ZN4ncnn3Mat7releaseEv.exit423
-  %.16.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit416 ], [ 0, %1430 ], [ %.24, %_ZN4ncnn3MatD2Ev.exit371 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit429 ], [ 0, %969 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit405 ], [ 0, %1050 ], [ -100, %1038 ], [ 0, %.preheader.lr.ph.i619 ], [ 0, %1128 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit426 ], [ 0, %1066 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit406 ], [ -100, %1115 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit423 ], [ 0, %1174 ], [ %.21, %_ZN4ncnn3MatD2Ev.exit367 ], [ 0, %._crit_edge.us.i629 ]
+_ZN4ncnn3MataSERKS0_.exit396.thread:              ; preds = %._crit_edge.us.i629, %_ZN4ncnn3MatD2Ev.exit371, %1430, %_ZN4ncnn3Mat7releaseEv.exit416, %_ZNK4ncnn3Mat5emptyEv.exit405, %1050, %969, %_ZN4ncnn3Mat7releaseEv.exit429, %1038, %_ZNK4ncnn3Mat5emptyEv.exit406, %1066, %_ZN4ncnn3Mat7releaseEv.exit426, %1128, %.preheader.lr.ph.i619, %1115, %_ZN4ncnn3MatD2Ev.exit367, %1174, %_ZN4ncnn3Mat7releaseEv.exit423
+  %.16.ph = phi i32 [ 0, %_ZN4ncnn3Mat7releaseEv.exit416 ], [ 0, %1430 ], [ %.24, %_ZN4ncnn3MatD2Ev.exit371 ], [ -100, %1038 ], [ -100, %1115 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit405 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit429 ], [ 0, %969 ], [ 0, %1050 ], [ 0, %.preheader.lr.ph.i619 ], [ 0, %1128 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit426 ], [ 0, %1066 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit406 ], [ 0, %_ZN4ncnn3Mat7releaseEv.exit423 ], [ 0, %1174 ], [ %.21, %_ZN4ncnn3MatD2Ev.exit367 ], [ 0, %._crit_edge.us.i629 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -8389,7 +8389,7 @@ _ZNK4ncnn3Mat5emptyEv.exit411:                    ; preds = %1702
   br label %1734
 
 1717:                                             ; preds = %.thread664, %1713
-  %.26 = phi i32 [ %1714, %1713 ], [ -100, %.thread664 ]
+  %.26 = phi i32 [ -100, %.thread664 ], [ %1714, %1713 ]
   %1718 = load ptr, ptr %1673, align 8, !tbaa !7
   %.not.i454 = icmp eq ptr %1718, null
   br i1 %.not.i454, label %_ZN4ncnn3MatD2Ev.exit373, label %1719
@@ -8475,7 +8475,7 @@ _ZN4ncnn3MatD2Ev.exit374:                         ; preds = %1736, %1734, %1742,
   br label %1752
 
 1751:                                             ; preds = %_ZN4ncnn3MataSERKS0_.exit396.thread, %_ZN4ncnn3MataSERKS0_.exit382.thread, %_ZN4ncnn3MatD2Ev.exit373
-  %.12 = phi i32 [ %.26, %_ZN4ncnn3MatD2Ev.exit373 ], [ %.3.ph, %_ZN4ncnn3MataSERKS0_.exit382.thread ], [ %.16.ph, %_ZN4ncnn3MataSERKS0_.exit396.thread ]
+  %.12 = phi i32 [ %.26, %_ZN4ncnn3MatD2Ev.exit373 ], [ %.16.ph, %_ZN4ncnn3MataSERKS0_.exit396.thread ], [ %.3.ph, %_ZN4ncnn3MataSERKS0_.exit382.thread ]
   ret i32 %.12
 
 1752:                                             ; preds = %_ZN4ncnn3MatD2Ev.exit374, %1670, %875

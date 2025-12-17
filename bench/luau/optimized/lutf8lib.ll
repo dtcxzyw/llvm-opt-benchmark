@@ -188,8 +188,8 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
   %68 = icmp eq i32 %.036, 0
   br i1 %68, label %.critedge.thread, label %.critedge.thread84
 
-.critedge.thread:                                 ; preds = %31, %.lr.ph, %.preheader, %.critedge
-  %.183 = phi i32 [ %.1, %.critedge ], [ 0, %.preheader ], [ 0, %31 ], [ %.059, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %31, %.preheader, %.critedge
+  %.183 = phi i32 [ %.1, %.critedge ], [ 0, %.preheader ], [ %.059, %.lr.ph ], [ 0, %31 ]
   %69 = add nuw nsw i32 %.183, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %69)
   br label %70
@@ -331,7 +331,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %68 = getelementptr inbounds nuw i8, ptr %.03047, i64 %indvars.iv.i
   br label %69
 
-.loopexit:                                        ; preds = %54, %62, %45
+.loopexit:                                        ; preds = %62, %54, %45
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 
@@ -625,7 +625,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
   br label %66
 
-.thread:                                          ; preds = %58, %50, %41
+.thread:                                          ; preds = %50, %58, %41
   call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
   %65 = add nsw i32 %.02354, 1
   br label %._crit_edge
@@ -788,7 +788,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %48 = icmp slt i8 %47, -64
   br i1 %48, label %_ZL11utf8_decodePKcPi.exit.thread, label %49
 
-_ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %38, %30, %45
+_ZL11utf8_decodePKcPi.exit.thread:                ; preds = %21, %30, %38, %45
   call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.12) #4
   unreachable
 

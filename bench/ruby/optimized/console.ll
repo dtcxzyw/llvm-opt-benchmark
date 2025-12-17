@@ -976,7 +976,7 @@ rb_array_const_ptr.exit27:                        ; preds = %45, %47
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_array_const_ptr.exit, %1, %rb_array_len.exit.thread, %RSTRING_PTR.exit, %rbimpl_RB_TYPE_P_fastpath.exit21, %36, %rbimpl_RB_TYPE_P_fastpath.exit, %rb_array_len.exit, %rb_array_const_ptr.exit27
-  %.0 = phi i64 [ %8, %rb_array_const_ptr.exit27 ], [ 4, %rb_array_len.exit ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 4, %36 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit21 ], [ 4, %RSTRING_PTR.exit ], [ 4, %rb_array_len.exit.thread ], [ 4, %1 ], [ 4, %rb_array_const_ptr.exit ]
+  %.0 = phi i64 [ %8, %rb_array_const_ptr.exit27 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit21 ], [ 4, %rb_array_len.exit ], [ 4, %36 ], [ 4, %RSTRING_PTR.exit ], [ 4, %1 ], [ 4, %rb_array_len.exit.thread ], [ 4, %rb_array_const_ptr.exit ]
   ret i64 %.0
 }
 
@@ -1659,7 +1659,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %26, %36, %rbimpl_RB
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %52, %46, %47, %62
-  %.0 = phi i64 [ %70, %62 ], [ 4, %47 ], [ 4, %46 ], [ 4, %52 ], [ %61, %60 ]
+  %.0 = phi i64 [ 4, %52 ], [ %70, %62 ], [ 4, %46 ], [ 4, %47 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
@@ -2164,7 +2164,7 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
   br label %setattr.exit
 
 setattr.exit:                                     ; preds = %.preheader, %51, %44, %43
-  %.2 = phi i32 [ %53, %51 ], [ %.154, %44 ], [ %.154, %43 ], [ %.154, %.preheader ]
+  %.2 = phi i32 [ %.154, %43 ], [ %53, %51 ], [ %.154, %44 ], [ %.154, %.preheader ]
   %.not35 = icmp eq i32 %.sroa.11.056, -1
   %.not36 = icmp eq i32 %.sroa.11.056, %.sroa.0.0
   %or.cond = or i1 %.not35, %.not36
@@ -2480,8 +2480,8 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   br label %.loopexit
 
 53:                                               ; preds = %33, %41, %45
-  %.3 = phi i32 [ %.12745, %33 ], [ %.12745, %41 ], [ 0, %45 ]
-  %.2 = phi i32 [ 0, %33 ], [ %44, %41 ], [ %.02546, %45 ]
+  %.3 = phi i32 [ 0, %45 ], [ %.12745, %33 ], [ %.12745, %41 ]
+  %.2 = phi i32 [ %.02546, %45 ], [ 0, %33 ], [ %44, %41 ]
   %54 = tail call i64 @rb_io_getbyte(i64 noundef %0) #13
   %55 = icmp eq i64 %54, 4
   br i1 %55, label %.loopexit, label %.lr.ph
@@ -2492,7 +2492,7 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   br label %direct_query.exit.thread
 
 direct_query.exit.thread:                         ; preds = %4, %rbimpl_RB_TYPE_P_fastpath.exit.i, %23, %21, %.loopexit
-  %.0 = phi i64 [ %56, %.loopexit ], [ 4, %21 ], [ 4, %23 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 4, %4 ]
+  %.0 = phi i64 [ 4, %23 ], [ 4, %21 ], [ %56, %.loopexit ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ 4, %4 ]
   ret i64 %.0
 }
 

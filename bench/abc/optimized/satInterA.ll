@@ -1579,7 +1579,7 @@ Vec_IntPush.exit227:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %280, label %.preheader251, label %.loopexit252, !llvm.loop !80
 
 .loopexit252:                                     ; preds = %275, %Vec_IntRemove.exit, %171, %120, %111
-  %.1176 = phi i32 [ %.0175295, %120 ], [ %152, %171 ], [ %.0175295, %111 ], [ %152, %Vec_IntRemove.exit ], [ %152, %275 ]
+  %.1176 = phi i32 [ %.0175295, %120 ], [ %.0175295, %111 ], [ %152, %171 ], [ %152, %Vec_IntRemove.exit ], [ %152, %275 ]
   %281 = icmp sgt i64 %indvars.iv341, 1
   br i1 %281, label %111, label %._crit_edge299, !llvm.loop !81
 
@@ -2160,7 +2160,7 @@ Inta_ManEnqueue.exit80:                           ; preds = %136
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %Inta_ManEnqueue.exit, %Inta_ManCancelUntil.exit, %Inta_ManEnqueue.exit80, %._crit_edge, %160, %155, %120
-  %.062 = phi i32 [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 1, %Inta_ManCancelUntil.exit ], [ 0, %._crit_edge ], [ 0, %Inta_ManEnqueue.exit80 ], [ 0, %Inta_ManEnqueue.exit ], [ 1, %23 ]
+  %.062 = phi i32 [ 1, %Inta_ManCancelUntil.exit ], [ 1, %120 ], [ 0, %155 ], [ 1, %160 ], [ 0, %._crit_edge ], [ 0, %Inta_ManEnqueue.exit80 ], [ 0, %Inta_ManEnqueue.exit ], [ 1, %23 ]
   ret i32 %.062
 }
 
@@ -2298,7 +2298,7 @@ Inta_ManEnqueue.exit:                             ; preds = %35
   br label %70
 
 70:                                               ; preds = %59, %66, %50, %56, %67
-  %.033 = phi i32 [ 1, %67 ], [ 0, %56 ], [ 0, %50 ], [ 0, %66 ], [ 0, %59 ]
+  %.033 = phi i32 [ 1, %67 ], [ 0, %50 ], [ 0, %56 ], [ 0, %66 ], [ 0, %59 ]
   ret i32 %.033
 }
 
@@ -2718,7 +2718,7 @@ Abc_Clock.exit84:                                 ; preds = %Abc_Clock.exit82, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %68, %96, %146
-  %.0.ph = phi ptr [ %35, %146 ], [ null, %96 ], [ null, %68 ]
+  %.0.ph = phi ptr [ null, %96 ], [ null, %68 ], [ %35, %146 ]
   store ptr null, ptr %36, align 8, !tbaa !75
   br label %157
 

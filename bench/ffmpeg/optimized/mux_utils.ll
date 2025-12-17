@@ -99,8 +99,8 @@ define i32 @avformat_query_codec(ptr noundef readonly captures(address_is_null) 
 .critedge:                                        ; preds = %38, %42, %46, %34
   br label %.sink.split
 
-.sink.split:                                      ; preds = %38, %42, %46, %36, %30, %18, %22, %26, %13, %8, %.critedge
-  %.3.ph = phi i32 [ -1163346256, %.critedge ], [ 0, %38 ], [ 0, %42 ], [ 0, %46 ], [ 0, %36 ], [ 0, %30 ], [ 1, %18 ], [ 1, %22 ], [ 1, %26 ], [ %16, %13 ], [ %9, %8 ]
+.sink.split:                                      ; preds = %46, %42, %38, %36, %22, %26, %30, %18, %13, %8, %.critedge
+  %.3.ph = phi i32 [ -1163346256, %.critedge ], [ 0, %46 ], [ 0, %42 ], [ 0, %38 ], [ 0, %36 ], [ 1, %22 ], [ 1, %26 ], [ 0, %30 ], [ 1, %18 ], [ %16, %13 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
@@ -243,7 +243,7 @@ define i32 @ff_format_output_open(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %15
 
 15:                                               ; preds = %6, %3, %10
-  %.0 = phi i32 [ %14, %10 ], [ -22, %3 ], [ 0, %6 ]
+  %.0 = phi i32 [ -22, %3 ], [ %14, %10 ], [ 0, %6 ]
   ret i32 %.0
 }
 

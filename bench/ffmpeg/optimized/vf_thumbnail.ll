@@ -724,7 +724,7 @@ define internal range(i32 -2147483648, 1) i32 @request_frame(ptr noundef %0) #1 
   br label %18
 
 18:                                               ; preds = %17, %.thread, %13
-  %.011 = phi i32 [ %15, %13 ], [ -541478725, %.thread ], [ %spec.select, %17 ]
+  %.011 = phi i32 [ %15, %13 ], [ %spec.select, %17 ], [ -541478725, %.thread ]
   ret i32 %.011
 }
 

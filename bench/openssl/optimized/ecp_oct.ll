@@ -240,7 +240,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_set_compressed_coordinates(ptr no
   br label %118
 
 118:                                              ; preds = %116, %107, %110, %109, %97, %99, %111, %87, %84, %82, %73, %67, %64, %60, %53, %50, %47, %41, %38, %33, %29, %20, %12, %115
-  %.0113 = phi i32 [ 0, %12 ], [ 0, %115 ], [ 0, %111 ], [ 0, %84 ], [ 0, %82 ], [ 0, %87 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ], [ 0, %73 ], [ 0, %64 ], [ 0, %60 ], [ 0, %67 ], [ 0, %33 ], [ 0, %29 ], [ 0, %41 ], [ 0, %38 ], [ 0, %20 ], [ 0, %99 ], [ 0, %97 ], [ 0, %109 ], [ 0, %110 ], [ 0, %107 ], [ %spec.select, %116 ]
+  %.0113 = phi i32 [ 0, %12 ], [ 0, %97 ], [ 0, %115 ], [ 0, %107 ], [ %spec.select, %116 ], [ 0, %111 ], [ 0, %20 ], [ 0, %84 ], [ 0, %82 ], [ 0, %87 ], [ 0, %53 ], [ 0, %50 ], [ 0, %47 ], [ 0, %73 ], [ 0, %64 ], [ 0, %60 ], [ 0, %67 ], [ 0, %33 ], [ 0, %29 ], [ 0, %41 ], [ 0, %38 ], [ 0, %99 ], [ 0, %109 ], [ 0, %110 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0114) #3
   tail call void @BN_CTX_free(ptr noundef %.0115) #3
   br label %119
@@ -399,7 +399,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GFp_simple_point2oct(ptr no
   br label %47
 
 47:                                               ; preds = %44, %43
-  %storemerge.in = phi i32 [ %2, %43 ], [ %spec.select, %44 ]
+  %storemerge.in = phi i32 [ %spec.select, %44 ], [ %2, %43 ]
   %storemerge = trunc nuw nsw i32 %storemerge.in to i8
   store i8 %storemerge, ptr %3, align 1, !tbaa !25
   %48 = tail call i32 @BN_num_bits(ptr noundef %38) #3
@@ -481,7 +481,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GFp_simple_point2oct(ptr no
   br label %75
 
 .sink.split:                                      ; preds = %71, %59, %._crit_edge, %47
-  %.sink = phi i32 [ 227, %47 ], [ 237, %._crit_edge ], [ 245, %59 ], [ 257, %71 ]
+  %.sink = phi i32 [ 245, %59 ], [ 227, %47 ], [ 237, %._crit_edge ], [ 257, %71 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.ossl_ec_GFp_simple_point2oct) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 786691, ptr noundef null) #3
@@ -497,7 +497,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GFp_simple_point2oct(ptr no
   br label %75
 
 75:                                               ; preds = %32, %10, %14, %74, %.thread, %13
-  %.082 = phi i64 [ 0, %74 ], [ 0, %13 ], [ %26, %.thread ], [ 1, %14 ], [ 1, %10 ], [ 0, %32 ]
+  %.082 = phi i64 [ 0, %74 ], [ 0, %13 ], [ %26, %.thread ], [ 1, %10 ], [ 1, %14 ], [ 0, %32 ]
   ret i64 %.082
 }
 

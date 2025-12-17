@@ -91,7 +91,7 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   br label %43
 
 43:                                               ; preds = %21, %26, %41, %40
-  %.0 = phi ptr [ null, %40 ], [ %33, %41 ], [ null, %26 ], [ null, %21 ]
+  %.0 = phi ptr [ %33, %41 ], [ null, %40 ], [ null, %26 ], [ null, %21 ]
   ret ptr %.0
 }
 

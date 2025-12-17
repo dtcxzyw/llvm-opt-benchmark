@@ -539,7 +539,7 @@ define dso_local noundef ptr @parseNodeString() local_unnamed_addr #0 {
   br label %_readAlias.exit
 
 _readAlias.exit:                                  ; preds = %18, %30, %32
-  %.0.i.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ null, %18 ]
+  %.0.i.i = phi ptr [ %33, %32 ], [ %31, %30 ], [ null, %18 ]
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %.0.i.i, ptr %34, align 8
   %35 = call ptr @pg_strtok(ptr noundef nonnull %11) #9
@@ -594,7 +594,7 @@ _readAlias.exit:                                  ; preds = %18, %30, %32
   br label %nullable_string.exit.i
 
 nullable_string.exit.i:                           ; preds = %55, %53, %41
-  %.0.i.i631 = phi ptr [ %54, %53 ], [ %56, %55 ], [ null, %41 ]
+  %.0.i.i631 = phi ptr [ %56, %55 ], [ %54, %53 ], [ null, %41 ]
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.0.i.i631, ptr %57, align 8
   %58 = call ptr @pg_strtok(ptr noundef nonnull %10) #9
@@ -625,7 +625,7 @@ nullable_string.exit.i:                           ; preds = %55, %53, %41
   br label %nullable_string.exit16.i
 
 nullable_string.exit16.i:                         ; preds = %70, %68, %nullable_string.exit.i
-  %.0.i15.i = phi ptr [ %69, %68 ], [ %71, %70 ], [ null, %nullable_string.exit.i ]
+  %.0.i15.i = phi ptr [ %71, %70 ], [ %69, %68 ], [ null, %nullable_string.exit.i ]
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %.0.i15.i, ptr %72, align 8
   %73 = call ptr @pg_strtok(ptr noundef nonnull %10) #9
@@ -656,7 +656,7 @@ nullable_string.exit16.i:                         ; preds = %70, %68, %nullable_
   br label %nullable_string.exit18.i
 
 nullable_string.exit18.i:                         ; preds = %85, %83, %nullable_string.exit16.i
-  %.0.i17.i = phi ptr [ %84, %83 ], [ %86, %85 ], [ null, %nullable_string.exit16.i ]
+  %.0.i17.i = phi ptr [ %86, %85 ], [ %84, %83 ], [ null, %nullable_string.exit16.i ]
   %87 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %.0.i17.i, ptr %87, align 8
   %88 = call ptr @pg_strtok(ptr noundef nonnull %10) #9
@@ -826,7 +826,7 @@ _readRangeVar.exit:                               ; preds = %nullable_string.exi
   br label %nullable_string.exit.i632
 
 nullable_string.exit.i632:                        ; preds = %193, %191, %173
-  %.0.i.i633 = phi ptr [ %192, %191 ], [ %194, %193 ], [ null, %173 ]
+  %.0.i.i633 = phi ptr [ %194, %193 ], [ %192, %191 ], [ null, %173 ]
   %195 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store ptr %.0.i.i633, ptr %195, align 8
   %196 = call ptr @pg_strtok(ptr noundef nonnull %8) #9
@@ -867,7 +867,7 @@ nullable_string.exit.i632:                        ; preds = %193, %191, %173
   br label %_readIntoClause.exit
 
 _readIntoClause.exit:                             ; preds = %nullable_string.exit.i632, %214, %216
-  %.0.i13.i = phi ptr [ %215, %214 ], [ %217, %216 ], [ null, %nullable_string.exit.i632 ]
+  %.0.i13.i = phi ptr [ %217, %216 ], [ %215, %214 ], [ null, %nullable_string.exit.i632 ]
   %218 = getelementptr inbounds nuw i8, ptr %174, i64 48
   store ptr %.0.i13.i, ptr %218, align 8
   %219 = call ptr @pg_strtok(ptr noundef nonnull %8) #9
@@ -1372,9 +1372,9 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 .thread708:                                       ; preds = %364, %540, %467, %367
-  %567 = phi i1 [ false, %540 ], [ false, %467 ], [ true, %367 ], [ false, %364 ]
-  %568 = phi i1 [ false, %540 ], [ true, %467 ], [ false, %367 ], [ false, %364 ]
-  %569 = phi i1 [ true, %540 ], [ false, %467 ], [ false, %367 ], [ false, %364 ]
+  %567 = phi i1 [ false, %364 ], [ false, %467 ], [ false, %540 ], [ true, %367 ]
+  %568 = phi i1 [ false, %364 ], [ true, %467 ], [ false, %540 ], [ false, %367 ]
+  %569 = phi i1 [ false, %364 ], [ false, %467 ], [ true, %540 ], [ false, %367 ]
   %570 = icmp eq i32 %14, 15
   br i1 %570, label %571, label %579
 
@@ -1510,14 +1510,14 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br i1 %609, label %641, label %655
 
 .thread732:                                       ; preds = %.thread833, %563
-  %627 = phi i1 [ false, %563 ], [ %614, %.thread833 ]
-  %628 = phi i1 [ false, %563 ], [ %613, %.thread833 ]
-  %629 = phi i1 [ false, %563 ], [ %612, %.thread833 ]
-  %630 = phi i1 [ false, %563 ], [ %611, %.thread833 ]
-  %631 = phi i1 [ false, %563 ], [ %610, %.thread833 ]
-  %632 = phi i1 [ false, %563 ], [ %609, %.thread833 ]
-  %633 = phi i1 [ false, %563 ], [ %608, %.thread833 ]
-  %634 = phi i1 [ true, %563 ], [ false, %.thread833 ]
+  %627 = phi i1 [ %614, %.thread833 ], [ false, %563 ]
+  %628 = phi i1 [ %613, %.thread833 ], [ false, %563 ]
+  %629 = phi i1 [ %612, %.thread833 ], [ false, %563 ]
+  %630 = phi i1 [ %611, %.thread833 ], [ false, %563 ]
+  %631 = phi i1 [ %610, %.thread833 ], [ false, %563 ]
+  %632 = phi i1 [ %609, %.thread833 ], [ false, %563 ]
+  %633 = phi i1 [ %608, %.thread833 ], [ false, %563 ]
+  %634 = phi i1 [ false, %.thread833 ], [ true, %563 ]
   %635 = icmp eq i32 %14, 11
   br i1 %635, label %636, label %640
 
@@ -1553,17 +1553,17 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 655:                                              ; preds = %.thread732.thread, %641, %640
-  %656 = phi i1 [ %642, %641 ], [ false, %640 ], [ false, %.thread732.thread ]
-  %657 = phi i1 [ %643, %641 ], [ false, %640 ], [ true, %.thread732.thread ]
-  %658 = phi i1 [ %644, %641 ], [ %627, %640 ], [ false, %.thread732.thread ]
-  %659 = phi i1 [ %645, %641 ], [ %628, %640 ], [ %613, %.thread732.thread ]
-  %660 = phi i1 [ %646, %641 ], [ %629, %640 ], [ %612, %.thread732.thread ]
-  %661 = phi i1 [ %647, %641 ], [ %630, %640 ], [ %611, %.thread732.thread ]
-  %662 = phi i1 [ %648, %641 ], [ %631, %640 ], [ %610, %.thread732.thread ]
-  %663 = phi i1 [ true, %641 ], [ false, %640 ], [ false, %.thread732.thread ]
-  %664 = phi i1 [ %649, %641 ], [ %633, %640 ], [ %608, %.thread732.thread ]
-  %665 = phi i1 [ %650, %641 ], [ %634, %640 ], [ false, %.thread732.thread ]
-  %666 = phi i1 [ %651, %641 ], [ %635, %640 ], [ false, %.thread732.thread ]
+  %656 = phi i1 [ false, %.thread732.thread ], [ %642, %641 ], [ false, %640 ]
+  %657 = phi i1 [ true, %.thread732.thread ], [ %643, %641 ], [ false, %640 ]
+  %658 = phi i1 [ false, %.thread732.thread ], [ %644, %641 ], [ %627, %640 ]
+  %659 = phi i1 [ %613, %.thread732.thread ], [ %645, %641 ], [ %628, %640 ]
+  %660 = phi i1 [ %612, %.thread732.thread ], [ %646, %641 ], [ %629, %640 ]
+  %661 = phi i1 [ %611, %.thread732.thread ], [ %647, %641 ], [ %630, %640 ]
+  %662 = phi i1 [ %610, %.thread732.thread ], [ %648, %641 ], [ %631, %640 ]
+  %663 = phi i1 [ false, %.thread732.thread ], [ true, %641 ], [ false, %640 ]
+  %664 = phi i1 [ %608, %.thread732.thread ], [ %649, %641 ], [ %633, %640 ]
+  %665 = phi i1 [ false, %.thread732.thread ], [ %650, %641 ], [ %634, %640 ]
+  %666 = phi i1 [ false, %.thread732.thread ], [ %651, %641 ], [ %635, %640 ]
   br i1 %666, label %667, label %.thread866
 
 667:                                              ; preds = %655
@@ -1585,19 +1585,19 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 .thread866:                                       ; preds = %604, %600, %655, %671
-  %675 = phi i1 [ false, %655 ], [ true, %671 ], [ false, %600 ], [ false, %604 ]
-  %676 = phi i1 [ %665, %655 ], [ %665, %671 ], [ false, %600 ], [ false, %604 ]
-  %677 = phi i1 [ %664, %655 ], [ %664, %671 ], [ %567, %600 ], [ false, %604 ]
-  %678 = phi i1 [ %663, %655 ], [ %663, %671 ], [ false, %600 ], [ false, %604 ]
-  %679 = phi i1 [ false, %655 ], [ false, %671 ], [ false, %600 ], [ true, %604 ]
-  %680 = phi i1 [ %662, %655 ], [ %662, %671 ], [ false, %600 ], [ false, %604 ]
-  %681 = phi i1 [ %661, %655 ], [ %661, %671 ], [ false, %600 ], [ false, %604 ]
-  %682 = phi i1 [ %660, %655 ], [ %660, %671 ], [ %568, %600 ], [ false, %604 ]
-  %683 = phi i1 [ %659, %655 ], [ %659, %671 ], [ %569, %600 ], [ false, %604 ]
-  %684 = phi i1 [ %658, %655 ], [ %658, %671 ], [ %570, %600 ], [ false, %604 ]
-  %685 = phi i1 [ false, %655 ], [ false, %671 ], [ true, %600 ], [ false, %604 ]
-  %686 = phi i1 [ %657, %655 ], [ %657, %671 ], [ false, %600 ], [ false, %604 ]
-  %687 = phi i1 [ %656, %655 ], [ %656, %671 ], [ false, %600 ], [ false, %604 ]
+  %675 = phi i1 [ true, %671 ], [ false, %655 ], [ false, %600 ], [ false, %604 ]
+  %676 = phi i1 [ %665, %671 ], [ %665, %655 ], [ false, %600 ], [ false, %604 ]
+  %677 = phi i1 [ %664, %671 ], [ %664, %655 ], [ %567, %600 ], [ false, %604 ]
+  %678 = phi i1 [ %663, %671 ], [ %663, %655 ], [ false, %600 ], [ false, %604 ]
+  %679 = phi i1 [ false, %671 ], [ false, %655 ], [ false, %600 ], [ true, %604 ]
+  %680 = phi i1 [ %662, %671 ], [ %662, %655 ], [ false, %600 ], [ false, %604 ]
+  %681 = phi i1 [ %661, %671 ], [ %661, %655 ], [ false, %600 ], [ false, %604 ]
+  %682 = phi i1 [ %660, %671 ], [ %660, %655 ], [ %568, %600 ], [ false, %604 ]
+  %683 = phi i1 [ %659, %671 ], [ %659, %655 ], [ %569, %600 ], [ false, %604 ]
+  %684 = phi i1 [ %658, %671 ], [ %658, %655 ], [ %570, %600 ], [ false, %604 ]
+  %685 = phi i1 [ false, %671 ], [ false, %655 ], [ true, %600 ], [ false, %604 ]
+  %686 = phi i1 [ %657, %671 ], [ %657, %655 ], [ false, %600 ], [ false, %604 ]
+  %687 = phi i1 [ %656, %671 ], [ %656, %655 ], [ false, %600 ], [ false, %604 ]
   br i1 %684, label %688, label %692
 
 688:                                              ; preds = %.thread866
@@ -1824,7 +1824,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 .thread737:                                       ; preds = %787, %793, %791
-  %797 = phi i1 [ true, %793 ], [ false, %791 ], [ false, %787 ]
+  %797 = phi i1 [ false, %791 ], [ true, %793 ], [ false, %787 ]
   br i1 %718, label %798, label %802
 
 798:                                              ; preds = %.thread737
@@ -2831,7 +2831,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 .thread758:                                       ; preds = %1203, %1208, %1214, %1212
-  %1218 = phi i1 [ true, %1214 ], [ false, %1212 ], [ false, %1208 ], [ false, %1203 ]
+  %1218 = phi i1 [ false, %1212 ], [ true, %1214 ], [ false, %1208 ], [ false, %1203 ]
   br i1 %721, label %1219, label %1223
 
 1219:                                             ; preds = %.thread758
@@ -3103,7 +3103,7 @@ _readAggref.exit:                                 ; preds = %369, %430, %433
   br label %2119
 
 .thread761:                                       ; preds = %1322, %1328, %1326
-  %1332 = phi i1 [ true, %1328 ], [ false, %1326 ], [ false, %1322 ]
+  %1332 = phi i1 [ false, %1326 ], [ true, %1328 ], [ false, %1322 ]
   br i1 %713, label %1333, label %1337
 
 1333:                                             ; preds = %.thread761
@@ -5202,7 +5202,7 @@ define internal fastcc noundef ptr @_readNamedArgExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -5610,7 +5610,7 @@ define internal fastcc noundef ptr @_readSubPlan() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %29, %31
-  %.0.i = phi ptr [ %30, %29 ], [ %32, %31 ], [ null, %0 ]
+  %.0.i = phi ptr [ %32, %31 ], [ %30, %29 ], [ null, %0 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -6281,7 +6281,7 @@ define internal fastcc noundef ptr @_readXmlExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -6559,7 +6559,7 @@ define internal fastcc noundef ptr @_readJsonExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -6673,7 +6673,7 @@ define internal fastcc noundef ptr @_readJsonTablePath() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -6976,7 +6976,7 @@ define internal fastcc noundef ptr @_readCurrentOfExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -7108,7 +7108,7 @@ define internal fastcc noundef ptr @_readTargetEntry() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -7461,7 +7461,7 @@ define internal fastcc noundef ptr @_readQuery() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %138, %140
-  %.0.i = phi ptr [ %139, %138 ], [ %141, %140 ], [ null, %0 ]
+  %.0.i = phi ptr [ %141, %140 ], [ %139, %138 ], [ null, %0 ]
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %.0.i, ptr %142, align 8
   %143 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -7492,7 +7492,7 @@ nullable_string.exit:                             ; preds = %0, %138, %140
   br label %nullable_string.exit69
 
 nullable_string.exit69:                           ; preds = %nullable_string.exit, %153, %155
-  %.0.i68 = phi ptr [ %154, %153 ], [ %156, %155 ], [ null, %nullable_string.exit ]
+  %.0.i68 = phi ptr [ %156, %155 ], [ %154, %153 ], [ null, %nullable_string.exit ]
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %.0.i68, ptr %157, align 8
   %158 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8047,7 +8047,7 @@ define internal fastcc noundef ptr @_readRoleSpec() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8221,7 +8221,7 @@ define internal fastcc noundef ptr @_readResTarget() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8334,7 +8334,7 @@ define internal fastcc noundef ptr @_readWindowDef() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8365,7 +8365,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit13
 
 nullable_string.exit13:                           ; preds = %nullable_string.exit, %28, %30
-  %.0.i12 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i12 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i12, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8541,7 +8541,7 @@ define internal fastcc noundef ptr @_readRangeTableFuncCol() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8642,7 +8642,7 @@ define internal fastcc noundef ptr @_readColumnDef() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8677,7 +8677,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit40
 
 nullable_string.exit40:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i39 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i39 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i39, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8755,7 +8755,7 @@ nullable_string.exit40:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit42
 
 nullable_string.exit42:                           ; preds = %69, %82, %84
-  %.0.i41 = phi ptr [ %83, %82 ], [ %85, %84 ], [ null, %69 ]
+  %.0.i41 = phi ptr [ %85, %84 ], [ %83, %82 ], [ null, %69 ]
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.0.i41, ptr %86, align 8
   %87 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8896,7 +8896,7 @@ define internal fastcc noundef ptr @_readIndexElem() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8931,7 +8931,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit14
 
 nullable_string.exit14:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i13 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i13 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i13, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -8996,7 +8996,7 @@ define internal fastcc noundef ptr @_readDefElem() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9027,7 +9027,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit10
 
 nullable_string.exit10:                           ; preds = %nullable_string.exit, %28, %30
-  %.0.i9 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i9 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i9, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9143,7 +9143,7 @@ define internal fastcc noundef ptr @_readPartitionElem() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9564,7 +9564,7 @@ define internal fastcc noundef ptr @_readRangeTblEntry() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %156, %167, %169
-  %.0.i = phi ptr [ %168, %167 ], [ %170, %169 ], [ null, %156 ]
+  %.0.i = phi ptr [ %170, %169 ], [ %168, %167 ], [ null, %156 ]
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %.0.i, ptr %171, align 8
   %172 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9623,7 +9623,7 @@ nullable_string.exit:                             ; preds = %156, %167, %169
   br label %nullable_string.exit86
 
 nullable_string.exit86:                           ; preds = %192, %203, %205
-  %.0.i85 = phi ptr [ %204, %203 ], [ %206, %205 ], [ null, %192 ]
+  %.0.i85 = phi ptr [ %206, %205 ], [ %204, %203 ], [ null, %192 ]
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store ptr %.0.i85, ptr %207, align 8
   %208 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9838,7 +9838,7 @@ define internal fastcc noundef ptr @_readWithCheckOption() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9869,7 +9869,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   br label %nullable_string.exit11
 
 nullable_string.exit11:                           ; preds = %nullable_string.exit, %33, %35
-  %.0.i10 = phi ptr [ %34, %33 ], [ %36, %35 ], [ null, %nullable_string.exit ]
+  %.0.i10 = phi ptr [ %36, %35 ], [ %34, %33 ], [ null, %nullable_string.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i10, ptr %37, align 8
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -9994,7 +9994,7 @@ define internal fastcc noundef ptr @_readWindowClause() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10025,7 +10025,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit26
 
 nullable_string.exit26:                           ; preds = %nullable_string.exit, %28, %30
-  %.0.i25 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i25 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i25, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10201,7 +10201,7 @@ define internal fastcc noundef ptr @_readInferClause() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ null, %0 ]
+  %.0.i = phi ptr [ %22, %21 ], [ %20, %19 ], [ null, %0 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i, ptr %23, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10289,7 +10289,7 @@ define internal fastcc noundef ptr @_readCTESearchClause() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %22, %24
-  %.0.i = phi ptr [ %23, %22 ], [ %25, %24 ], [ null, %0 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %23, %22 ], [ null, %0 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i, ptr %26, align 8
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10338,7 +10338,7 @@ define internal fastcc noundef ptr @_readCTECycleClause() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10377,7 +10377,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   br label %nullable_string.exit18
 
 nullable_string.exit18:                           ; preds = %nullable_string.exit, %37, %39
-  %.0.i17 = phi ptr [ %38, %37 ], [ %40, %39 ], [ null, %nullable_string.exit ]
+  %.0.i17 = phi ptr [ %40, %39 ], [ %38, %37 ], [ null, %nullable_string.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.0.i17, ptr %41, align 8
   %42 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10446,7 +10446,7 @@ define internal fastcc noundef ptr @_readCommonTableExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10588,7 +10588,7 @@ define internal fastcc noundef ptr @_readReturningOption() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10651,7 +10651,7 @@ define internal fastcc noundef ptr @_readTriggerTransition() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10728,7 +10728,7 @@ define internal fastcc noundef ptr @_readJsonArgument() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -10775,7 +10775,7 @@ define internal fastcc noundef ptr @_readJsonFuncExpr() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10860,7 +10860,7 @@ define internal fastcc noundef ptr @_readJsonTablePathSpec() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -10960,7 +10960,7 @@ define internal fastcc noundef ptr @_readJsonTableColumn() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -11678,7 +11678,7 @@ define internal fastcc noundef ptr @_readPLAssignStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -11737,7 +11737,7 @@ define internal fastcc noundef ptr @_readCreateSchemaStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -11844,7 +11844,7 @@ define internal fastcc noundef ptr @_readReplicaIdentityStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %13, %26, %28
-  %.0.i = phi ptr [ %27, %26 ], [ %29, %28 ], [ null, %13 ]
+  %.0.i = phi ptr [ %29, %28 ], [ %27, %26 ], [ null, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %30, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -11891,7 +11891,7 @@ define internal fastcc noundef ptr @_readAlterTableCmd() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12004,7 +12004,7 @@ define internal fastcc noundef ptr @_readAlterDomainStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %13, %29, %31
-  %.0.i = phi ptr [ %30, %29 ], [ %32, %31 ], [ null, %13 ]
+  %.0.i = phi ptr [ %32, %31 ], [ %30, %29 ], [ null, %13 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12149,7 +12149,7 @@ define internal fastcc noundef ptr @_readAccessPriv() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12277,7 +12277,7 @@ define internal fastcc noundef ptr @_readCopyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %34, %36
-  %.0.i = phi ptr [ %35, %34 ], [ %37, %36 ], [ null, %0 ]
+  %.0.i = phi ptr [ %37, %36 ], [ %35, %34 ], [ null, %0 ]
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.0.i, ptr %38, align 8
   %39 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12332,7 +12332,7 @@ define internal fastcc noundef ptr @_readVariableSetStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12395,7 +12395,7 @@ define internal fastcc noundef ptr @_readVariableShowStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -12478,7 +12478,7 @@ define internal fastcc noundef ptr @_readCreateStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %45, %47
-  %.0.i = phi ptr [ %46, %45 ], [ %48, %47 ], [ null, %0 ]
+  %.0.i = phi ptr [ %48, %47 ], [ %46, %45 ], [ null, %0 ]
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %.0.i, ptr %49, align 8
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12509,7 +12509,7 @@ nullable_string.exit:                             ; preds = %0, %45, %47
   br label %nullable_string.exit19
 
 nullable_string.exit19:                           ; preds = %nullable_string.exit, %60, %62
-  %.0.i18 = phi ptr [ %61, %60 ], [ %63, %62 ], [ null, %nullable_string.exit ]
+  %.0.i18 = phi ptr [ %63, %62 ], [ %61, %60 ], [ null, %nullable_string.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %.0.i18, ptr %64, align 8
   %65 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12563,7 +12563,7 @@ define internal fastcc noundef ptr @_readConstraint() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12640,7 +12640,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   br label %nullable_string.exit74
 
 nullable_string.exit74:                           ; preds = %nullable_string.exit, %72, %74
-  %.0.i73 = phi ptr [ %73, %72 ], [ %75, %74 ], [ null, %nullable_string.exit ]
+  %.0.i73 = phi ptr [ %75, %74 ], [ %73, %72 ], [ null, %nullable_string.exit ]
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i73, ptr %76, align 8
   %77 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12741,7 +12741,7 @@ nullable_string.exit74:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit76
 
 nullable_string.exit76:                           ; preds = %100, %137, %139
-  %.0.i75 = phi ptr [ %138, %137 ], [ %140, %139 ], [ null, %100 ]
+  %.0.i75 = phi ptr [ %140, %139 ], [ %138, %137 ], [ null, %100 ]
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %.0.i75, ptr %141, align 8
   %142 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12772,7 +12772,7 @@ nullable_string.exit76:                           ; preds = %100, %137, %139
   br label %nullable_string.exit78
 
 nullable_string.exit78:                           ; preds = %nullable_string.exit76, %152, %154
-  %.0.i77 = phi ptr [ %153, %152 ], [ %155, %154 ], [ null, %nullable_string.exit76 ]
+  %.0.i77 = phi ptr [ %155, %154 ], [ %153, %152 ], [ null, %nullable_string.exit76 ]
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %.0.i77, ptr %156, align 8
   %157 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12810,7 +12810,7 @@ nullable_string.exit78:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit80
 
 nullable_string.exit80:                           ; preds = %nullable_string.exit78, %173, %175
-  %.0.i79 = phi ptr [ %174, %173 ], [ %176, %175 ], [ null, %nullable_string.exit78 ]
+  %.0.i79 = phi ptr [ %176, %175 ], [ %174, %173 ], [ null, %nullable_string.exit78 ]
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %.0.i79, ptr %177, align 8
   %178 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12959,7 +12959,7 @@ define internal fastcc noundef ptr @_readCreateTableSpaceStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -12994,7 +12994,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit8
 
 nullable_string.exit8:                            ; preds = %nullable_string.exit, %31, %33
-  %.0.i7 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i7 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i7, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13039,7 +13039,7 @@ define internal fastcc noundef ptr @_readDropTableSpaceStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13087,7 +13087,7 @@ define internal fastcc noundef ptr @_readAlterTableSpaceOptionsStmt() unnamed_ad
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13139,7 +13139,7 @@ define internal fastcc noundef ptr @_readAlterTableMoveAllStmt() unnamed_addr #0
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13180,7 +13180,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit11
 
 nullable_string.exit11:                           ; preds = %nullable_string.exit, %36, %38
-  %.0.i10 = phi ptr [ %37, %36 ], [ %39, %38 ], [ null, %nullable_string.exit ]
+  %.0.i10 = phi ptr [ %39, %38 ], [ %37, %36 ], [ null, %nullable_string.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i10, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13228,7 +13228,7 @@ define internal fastcc noundef ptr @_readCreateExtensionStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13280,7 +13280,7 @@ define internal fastcc noundef ptr @_readAlterExtensionStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13325,7 +13325,7 @@ define internal fastcc noundef ptr @_readAlterExtensionContentsStmt() unnamed_ad
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13382,7 +13382,7 @@ define internal fastcc noundef ptr @_readCreateFdwStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13431,7 +13431,7 @@ define internal fastcc noundef ptr @_readAlterFdwStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13480,7 +13480,7 @@ define internal fastcc noundef ptr @_readCreateForeignServerStmt() unnamed_addr 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13511,7 +13511,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit13
 
 nullable_string.exit13:                           ; preds = %nullable_string.exit, %28, %30
-  %.0.i12 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i12 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i12, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13542,7 +13542,7 @@ nullable_string.exit13:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit15
 
 nullable_string.exit15:                           ; preds = %nullable_string.exit13, %43, %45
-  %.0.i14 = phi ptr [ %44, %43 ], [ %46, %45 ], [ null, %nullable_string.exit13 ]
+  %.0.i14 = phi ptr [ %46, %45 ], [ %44, %43 ], [ null, %nullable_string.exit13 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i14, ptr %47, align 8
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13573,7 +13573,7 @@ nullable_string.exit15:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit17
 
 nullable_string.exit17:                           ; preds = %nullable_string.exit15, %58, %60
-  %.0.i16 = phi ptr [ %59, %58 ], [ %61, %60 ], [ null, %nullable_string.exit15 ]
+  %.0.i16 = phi ptr [ %61, %60 ], [ %59, %58 ], [ null, %nullable_string.exit15 ]
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i16, ptr %62, align 8
   %63 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13625,7 +13625,7 @@ define internal fastcc noundef ptr @_readAlterForeignServerStmt() unnamed_addr #
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13656,7 +13656,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit9
 
 nullable_string.exit9:                            ; preds = %nullable_string.exit, %28, %30
-  %.0.i8 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i8 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i8, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13750,7 +13750,7 @@ define internal fastcc noundef ptr @_readCreateForeignTableStmt() unnamed_addr #
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %45, %47
-  %.0.i = phi ptr [ %46, %45 ], [ %48, %47 ], [ null, %0 ]
+  %.0.i = phi ptr [ %48, %47 ], [ %46, %45 ], [ null, %0 ]
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %.0.i, ptr %49, align 8
   %50 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13781,7 +13781,7 @@ nullable_string.exit:                             ; preds = %0, %45, %47
   br label %nullable_string.exit22
 
 nullable_string.exit22:                           ; preds = %nullable_string.exit, %60, %62
-  %.0.i21 = phi ptr [ %61, %60 ], [ %63, %62 ], [ null, %nullable_string.exit ]
+  %.0.i21 = phi ptr [ %63, %62 ], [ %61, %60 ], [ null, %nullable_string.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %.0.i21, ptr %64, align 8
   %65 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13819,7 +13819,7 @@ nullable_string.exit22:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit24
 
 nullable_string.exit24:                           ; preds = %nullable_string.exit22, %81, %83
-  %.0.i23 = phi ptr [ %82, %81 ], [ %84, %83 ], [ null, %nullable_string.exit22 ]
+  %.0.i23 = phi ptr [ %84, %83 ], [ %82, %81 ], [ null, %nullable_string.exit22 ]
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %.0.i23, ptr %85, align 8
   %86 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13868,7 +13868,7 @@ define internal fastcc noundef ptr @_readCreateUserMappingStmt() unnamed_addr #0
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13924,7 +13924,7 @@ define internal fastcc noundef ptr @_readAlterUserMappingStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -13973,7 +13973,7 @@ define internal fastcc noundef ptr @_readDropUserMappingStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14021,7 +14021,7 @@ define internal fastcc noundef ptr @_readImportForeignSchemaStmt() unnamed_addr 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14052,7 +14052,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit12
 
 nullable_string.exit12:                           ; preds = %nullable_string.exit, %28, %30
-  %.0.i11 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i11 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i11, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14083,7 +14083,7 @@ nullable_string.exit12:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit14
 
 nullable_string.exit14:                           ; preds = %nullable_string.exit12, %43, %45
-  %.0.i13 = phi ptr [ %44, %43 ], [ %46, %45 ], [ null, %nullable_string.exit12 ]
+  %.0.i13 = phi ptr [ %46, %45 ], [ %44, %43 ], [ null, %nullable_string.exit12 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i13, ptr %47, align 8
   %48 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14138,7 +14138,7 @@ define internal fastcc noundef ptr @_readCreatePolicyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14173,7 +14173,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit12
 
 nullable_string.exit12:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i11 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i11 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i11, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14233,7 +14233,7 @@ define internal fastcc noundef ptr @_readAlterPolicyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14290,7 +14290,7 @@ define internal fastcc noundef ptr @_readCreateAmStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14369,7 +14369,7 @@ define internal fastcc noundef ptr @_readCreateTrigStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %25, %27
-  %.0.i = phi ptr [ %26, %25 ], [ %28, %27 ], [ null, %0 ]
+  %.0.i = phi ptr [ %28, %27 ], [ %26, %25 ], [ null, %0 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14471,7 +14471,7 @@ define internal fastcc noundef ptr @_readCreateEventTrigStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14502,7 +14502,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit8
 
 nullable_string.exit8:                            ; preds = %nullable_string.exit, %28, %30
-  %.0.i7 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i7 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i7, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14551,7 +14551,7 @@ define internal fastcc noundef ptr @_readAlterEventTrigStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14619,7 +14619,7 @@ define internal fastcc noundef ptr @_readCreatePLangStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ null, %0 ]
+  %.0.i = phi ptr [ %22, %21 ], [ %20, %19 ], [ null, %0 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %23, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14685,7 +14685,7 @@ define internal fastcc noundef ptr @_readCreateRoleStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14758,7 +14758,7 @@ define internal fastcc noundef ptr @_readAlterRoleSetStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -14977,7 +14977,7 @@ define internal fastcc noundef ptr @_readCreateOpClassStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %19, %21
-  %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ], [ null, %0 ]
+  %.0.i = phi ptr [ %22, %21 ], [ %20, %19 ], [ null, %0 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i, ptr %23, align 8
   %24 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15075,7 +15075,7 @@ define internal fastcc noundef ptr @_readCreateOpFamilyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15120,7 +15120,7 @@ define internal fastcc noundef ptr @_readAlterOpFamilyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15249,7 +15249,7 @@ define internal fastcc noundef ptr @_readCommentStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %25, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15300,7 +15300,7 @@ define internal fastcc noundef ptr @_readSecLabelStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15331,7 +15331,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   br label %nullable_string.exit9
 
 nullable_string.exit9:                            ; preds = %nullable_string.exit, %36, %38
-  %.0.i8 = phi ptr [ %37, %36 ], [ %39, %38 ], [ null, %nullable_string.exit ]
+  %.0.i8 = phi ptr [ %39, %38 ], [ %37, %36 ], [ null, %nullable_string.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i8, ptr %40, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15372,7 +15372,7 @@ define internal fastcc noundef ptr @_readDeclareCursorStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15423,7 +15423,7 @@ define internal fastcc noundef ptr @_readClosePortalStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -15475,7 +15475,7 @@ define internal fastcc noundef ptr @_readFetchStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %22, %24
-  %.0.i = phi ptr [ %23, %22 ], [ %25, %24 ], [ null, %0 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %23, %22 ], [ null, %0 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %26, align 8
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15523,7 +15523,7 @@ define internal fastcc noundef ptr @_readIndexStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15558,7 +15558,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit46
 
 nullable_string.exit46:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i45 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i45 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i45, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15589,7 +15589,7 @@ nullable_string.exit46:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit48
 
 nullable_string.exit48:                           ; preds = %nullable_string.exit46, %46, %48
-  %.0.i47 = phi ptr [ %47, %46 ], [ %49, %48 ], [ null, %nullable_string.exit46 ]
+  %.0.i47 = phi ptr [ %49, %48 ], [ %47, %46 ], [ null, %nullable_string.exit46 ]
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i47, ptr %50, align 8
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15640,7 +15640,7 @@ nullable_string.exit48:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit50
 
 nullable_string.exit50:                           ; preds = %nullable_string.exit48, %76, %78
-  %.0.i49 = phi ptr [ %77, %76 ], [ %79, %78 ], [ null, %nullable_string.exit48 ]
+  %.0.i49 = phi ptr [ %79, %78 ], [ %77, %76 ], [ null, %nullable_string.exit48 ]
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %.0.i49, ptr %80, align 8
   %81 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15798,7 +15798,7 @@ define internal fastcc noundef ptr @_readCreateStatsStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %25, %27
-  %.0.i = phi ptr [ %26, %25 ], [ %28, %27 ], [ null, %0 ]
+  %.0.i = phi ptr [ %28, %27 ], [ %26, %25 ], [ null, %0 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.0.i, ptr %29, align 8
   %30 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15853,7 +15853,7 @@ define internal fastcc noundef ptr @_readStatsElem() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -15967,7 +15967,7 @@ define internal fastcc noundef ptr @_readFunctionParameter() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16106,7 +16106,7 @@ define internal fastcc noundef ptr @_readRenameStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %29, %31
-  %.0.i = phi ptr [ %30, %29 ], [ %32, %31 ], [ null, %0 ]
+  %.0.i = phi ptr [ %32, %31 ], [ %30, %29 ], [ null, %0 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i, ptr %33, align 8
   %34 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16137,7 +16137,7 @@ nullable_string.exit:                             ; preds = %0, %29, %31
   br label %nullable_string.exit16
 
 nullable_string.exit16:                           ; preds = %nullable_string.exit, %44, %46
-  %.0.i15 = phi ptr [ %45, %44 ], [ %47, %46 ], [ null, %nullable_string.exit ]
+  %.0.i15 = phi ptr [ %47, %46 ], [ %45, %44 ], [ null, %nullable_string.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.0.i15, ptr %48, align 8
   %49 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16240,7 +16240,7 @@ define internal fastcc noundef ptr @_readAlterObjectSchemaStmt() unnamed_addr #0
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %24, %26
-  %.0.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ null, %0 ]
+  %.0.i = phi ptr [ %27, %26 ], [ %25, %24 ], [ null, %0 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i, ptr %28, align 8
   %29 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16356,7 +16356,7 @@ define internal fastcc noundef ptr @_readRuleStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16425,7 +16425,7 @@ define internal fastcc noundef ptr @_readNotifyStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16456,7 +16456,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit6
 
 nullable_string.exit6:                            ; preds = %nullable_string.exit, %28, %30
-  %.0.i5 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i5 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i5, ptr %32, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -16497,7 +16497,7 @@ define internal fastcc noundef ptr @_readListenStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -16538,7 +16538,7 @@ define internal fastcc noundef ptr @_readUnlistenStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -16589,7 +16589,7 @@ define internal fastcc noundef ptr @_readTransactionStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16620,7 +16620,7 @@ nullable_string.exit:                             ; preds = %0, %21, %23
   br label %nullable_string.exit12
 
 nullable_string.exit12:                           ; preds = %nullable_string.exit, %36, %38
-  %.0.i11 = phi ptr [ %37, %36 ], [ %39, %38 ], [ null, %nullable_string.exit ]
+  %.0.i11 = phi ptr [ %39, %38 ], [ %37, %36 ], [ null, %nullable_string.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i11, ptr %40, align 8
   %41 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16730,7 +16730,7 @@ define internal fastcc noundef ptr @_readAlterEnumStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16761,7 +16761,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   br label %nullable_string.exit13
 
 nullable_string.exit13:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i12 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i12 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i12, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16792,7 +16792,7 @@ nullable_string.exit13:                           ; preds = %nullable_string.exi
   br label %nullable_string.exit15
 
 nullable_string.exit15:                           ; preds = %nullable_string.exit13, %46, %48
-  %.0.i14 = phi ptr [ %47, %46 ], [ %49, %48 ], [ null, %nullable_string.exit13 ]
+  %.0.i14 = phi ptr [ %49, %48 ], [ %47, %46 ], [ null, %nullable_string.exit13 ]
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %.0.i14, ptr %50, align 8
   %51 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16886,7 +16886,7 @@ define internal fastcc noundef ptr @_readLoadStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -16927,7 +16927,7 @@ define internal fastcc noundef ptr @_readCreatedbStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -16972,7 +16972,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17017,7 +17017,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseRefreshCollStmt() unnamed_
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -17058,7 +17058,7 @@ define internal fastcc noundef ptr @_readAlterDatabaseSetStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17103,7 +17103,7 @@ define internal fastcc noundef ptr @_readDropdbStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17173,7 +17173,7 @@ define internal fastcc noundef ptr @_readClusterStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17425,7 +17425,7 @@ define internal fastcc noundef ptr @_readReindexStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %21, %23
-  %.0.i = phi ptr [ %22, %21 ], [ %24, %23 ], [ null, %0 ]
+  %.0.i = phi ptr [ %24, %23 ], [ %22, %21 ], [ null, %0 ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %25, align 8
   %26 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17474,7 +17474,7 @@ define internal fastcc noundef ptr @_readCreateConversionStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %16, %18
-  %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ], [ null, %0 ]
+  %.0.i = phi ptr [ %19, %18 ], [ %17, %16 ], [ null, %0 ]
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %20, align 8
   %21 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17505,7 +17505,7 @@ nullable_string.exit:                             ; preds = %0, %16, %18
   br label %nullable_string.exit10
 
 nullable_string.exit10:                           ; preds = %nullable_string.exit, %31, %33
-  %.0.i9 = phi ptr [ %32, %31 ], [ %34, %33 ], [ null, %nullable_string.exit ]
+  %.0.i9 = phi ptr [ %34, %33 ], [ %32, %31 ], [ null, %nullable_string.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %.0.i9, ptr %35, align 8
   %36 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17603,7 +17603,7 @@ define internal fastcc noundef ptr @_readCreateTransformStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %22, %24
-  %.0.i = phi ptr [ %23, %22 ], [ %25, %24 ], [ null, %0 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %23, %22 ], [ null, %0 ]
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i, ptr %26, align 8
   %27 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17652,7 +17652,7 @@ define internal fastcc noundef ptr @_readPrepareStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17701,7 +17701,7 @@ define internal fastcc noundef ptr @_readExecuteStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17746,7 +17746,7 @@ define internal fastcc noundef ptr @_readDeallocateStmt() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17931,7 +17931,7 @@ define internal fastcc noundef ptr @_readPublicationObjSpec() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -17980,7 +17980,7 @@ define internal fastcc noundef ptr @_readCreatePublicationStmt() unnamed_addr #0
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18036,7 +18036,7 @@ define internal fastcc noundef ptr @_readAlterPublicationStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18098,7 +18098,7 @@ define internal fastcc noundef ptr @_readCreateSubscriptionStmt() unnamed_addr #
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18129,7 +18129,7 @@ nullable_string.exit:                             ; preds = %0, %13, %15
   br label %nullable_string.exit8
 
 nullable_string.exit8:                            ; preds = %nullable_string.exit, %28, %30
-  %.0.i7 = phi ptr [ %29, %28 ], [ %31, %30 ], [ null, %nullable_string.exit ]
+  %.0.i7 = phi ptr [ %31, %30 ], [ %29, %28 ], [ null, %nullable_string.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i7, ptr %32, align 8
   %33 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18184,7 +18184,7 @@ define internal fastcc noundef ptr @_readAlterSubscriptionStmt() unnamed_addr #0
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %18, %20
-  %.0.i = phi ptr [ %19, %18 ], [ %21, %20 ], [ null, %0 ]
+  %.0.i = phi ptr [ %21, %20 ], [ %19, %18 ], [ null, %0 ]
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %22, align 8
   %23 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18215,7 +18215,7 @@ nullable_string.exit:                             ; preds = %0, %18, %20
   br label %nullable_string.exit10
 
 nullable_string.exit10:                           ; preds = %nullable_string.exit, %33, %35
-  %.0.i9 = phi ptr [ %34, %33 ], [ %36, %35 ], [ null, %nullable_string.exit ]
+  %.0.i9 = phi ptr [ %36, %35 ], [ %34, %33 ], [ null, %nullable_string.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i9, ptr %37, align 8
   %38 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18264,7 +18264,7 @@ define internal fastcc noundef ptr @_readDropSubscriptionStmt() unnamed_addr #0 
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ], [ null, %0 ]
+  %.0.i = phi ptr [ %16, %15 ], [ %14, %13 ], [ null, %0 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i, ptr %17, align 8
   %18 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18872,7 +18872,7 @@ define internal fastcc noundef ptr @_readModifyTable() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %115, %117
-  %.0.i = phi ptr [ %116, %115 ], [ %118, %117 ], [ null, %0 ]
+  %.0.i = phi ptr [ %118, %117 ], [ %116, %115 ], [ null, %0 ]
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr %.0.i, ptr %119, align 8
   %120 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -18903,7 +18903,7 @@ nullable_string.exit:                             ; preds = %0, %115, %117
   br label %nullable_string.exit61
 
 nullable_string.exit61:                           ; preds = %nullable_string.exit, %130, %132
-  %.0.i60 = phi ptr [ %131, %130 ], [ %133, %132 ], [ null, %nullable_string.exit ]
+  %.0.i60 = phi ptr [ %133, %132 ], [ %131, %130 ], [ null, %nullable_string.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %.0.i60, ptr %134, align 8
   %135 = call ptr @pg_strtok(ptr noundef nonnull %1) #9
@@ -21079,7 +21079,7 @@ define internal fastcc noundef ptr @_readNamedTuplestoreScan() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %84, %86
-  %.0.i = phi ptr [ %85, %84 ], [ %87, %86 ], [ null, %0 ]
+  %.0.i = phi ptr [ %87, %86 ], [ %85, %84 ], [ null, %0 ]
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %.0.i, ptr %88, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -21491,7 +21491,7 @@ define internal fastcc noundef ptr @_readCustomScan() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %0, %104, %106
-  %.0.i = phi ptr [ %105, %104 ], [ %107, %106 ], [ null, %0 ]
+  %.0.i = phi ptr [ %107, %106 ], [ %105, %104 ], [ null, %0 ]
   %108 = call ptr @GetCustomScanMethods(ptr noundef %.0.i, i1 noundef zeroext false) #9
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr %108, ptr %109, align 8
@@ -23974,7 +23974,7 @@ define internal fastcc noundef ptr @_readExtensibleNode() unnamed_addr #0 {
   br label %nullable_string.exit
 
 nullable_string.exit:                             ; preds = %12, %14
-  %.0.i = phi ptr [ %13, %12 ], [ %15, %14 ]
+  %.0.i = phi ptr [ %15, %14 ], [ %13, %12 ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %nullable_string.exit.thread, label %18
 

@@ -976,7 +976,7 @@ define range(i32 -1, 1) i32 @H5Tenum_nameof(i64 noundef %0, ptr noundef readonly
   %145 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__enum_nameof, i32 noundef 392, i64 noundef %143, i64 noundef %144, ptr noundef nonnull @.str.31) #10
   br label %H5T__enum_nameof.exit.thread
 
-H5T__enum_nameof.exit.thread:                     ; preds = %.thread75.i, %86, %79, %142, %65
+H5T__enum_nameof.exit.thread:                     ; preds = %.thread75.i, %79, %86, %142, %65
   %146 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %147 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %148 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tenum_nameof, i32 noundef 302, i64 noundef %146, i64 noundef %147, ptr noundef nonnull @.str.22) #10
@@ -1221,7 +1221,7 @@ define range(i32 -1, 1) i32 @H5Tenum_valueof(i64 noundef %0, ptr noundef readonl
   %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__enum_valueof, i32 noundef 504, i64 noundef %129, i64 noundef %130, ptr noundef nonnull @.str.31) #10
   br label %H5T__enum_valueof.exit.thread
 
-H5T__enum_valueof.exit.thread:                    ; preds = %117, %84, %77, %128
+H5T__enum_valueof.exit.thread:                    ; preds = %117, %77, %84, %128
   %132 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
   %133 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %134 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Tenum_valueof, i32 noundef 432, i64 noundef %132, i64 noundef %133, ptr noundef nonnull @.str.25) #10

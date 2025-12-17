@@ -2756,7 +2756,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %331
   br label %359
 
 359:                                              ; preds = %358, %306
-  %.pn157 = phi { ptr, i32 } [ %.pn154.pn, %358 ], [ %307, %306 ]
+  %.pn157 = phi { ptr, i32 } [ %307, %306 ], [ %.pn154.pn, %358 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #25
   br label %.body202
 

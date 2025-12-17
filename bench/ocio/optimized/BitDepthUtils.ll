@@ -143,7 +143,7 @@ define hidden noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_5dev23GetBitdepth
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %.0 = phi i32 [ 8, %1 ], [ 1, %3 ], [ 2, %5 ], [ %., %7 ]
+  %.0 = phi i32 [ 2, %5 ], [ 8, %1 ], [ 1, %3 ], [ %., %7 ]
   ret i32 %.0
 }
 

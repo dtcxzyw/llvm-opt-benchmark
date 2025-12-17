@@ -6371,7 +6371,7 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..item..It
   unreachable
 
 common.resume:                                    ; preds = %130, %51, %74, %97, %120, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %52, %51 ], [ %75, %74 ], [ %98, %97 ], [ %121, %120 ], [ %131, %130 ]
+  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %18, %17 ], [ %98, %97 ], [ %52, %51 ], [ %75, %74 ], [ %131, %130 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr62drop_in_place$LT$toml_edit..array_of_tables..ArrayOfTables$GT$17h3b3bca73e2b642b0E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he97e8ba085e5222bE.llvm.4525295619829394506.exit.i.i", %22
@@ -8905,7 +8905,7 @@ define hidden void @_ZN5serde2de7Visitor12visit_string17h758955d1d92c0fcaE.llvm.
           to label %23 unwind label %21
 
 "_ZN165_$LT$uv_auth..index.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_auth..index..AuthPolicy$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h542e1949ef819077E.exit.sink.split": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i"
-  %.sink = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
+  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %13, align 8, !alias.scope !1943, !noalias !1959
   store i64 2, ptr %0, align 8, !alias.scope !1943, !noalias !1959
@@ -8980,7 +8980,7 @@ define hidden void @_ZN5serde2de7Visitor12visit_string17h905bf50935cb473cE.llvm.
           to label %23 unwind label %21
 
 "_ZN197_$LT$uv_resolver..resolution_mode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_resolver..resolution_mode..ResolutionMode$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h545f05da7da62510E.exit.sink.split": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i"
-  %.sink = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
+  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %13, align 8, !alias.scope !1972, !noalias !1987
   store i64 2, ptr %0, align 8, !alias.scope !1972, !noalias !1987
@@ -9145,7 +9145,7 @@ define hidden void @_ZN5serde2de7Visitor12visit_string17hc6fe0c10153786a7E.llvm.
           to label %23 unwind label %21
 
 "_ZN216_$LT$uv_configuration..trusted_publishing.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$uv_configuration..trusted_publishing..TrustedPublishing$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hf5365f70c7691169E.exit.sink.split": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i"
-  %.sink = phi i8 [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
+  %.sink = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit4.i" ], [ 0, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit.i" ], [ 2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h454b02041dbf6b48E.exit8.i" ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %13, align 8, !alias.scope !2022, !noalias !2037
   store i64 2, ptr %0, align 8, !alias.scope !2022, !noalias !2037
@@ -9516,7 +9516,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_map17h730de8b07b5cff3fE(ptr dead_
   unreachable
 
 common.resume:                                    ; preds = %6, %10, %18
-  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %11, %10 ], [ %7, %6 ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %19, %18 ], [ %7, %6 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr72drop_in_place$LT$$LP$toml_edit..key..Key$C$toml_edit..item..Item$RP$$GT$17hbb54e5a4a2270b10E.llvm.4525295619829394506.exit.i.i": ; preds = %16
@@ -12410,7 +12410,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -12571,7 +12571,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -12732,7 +12732,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -12893,7 +12893,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13054,7 +13054,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13215,7 +13215,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13376,7 +13376,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13537,7 +13537,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13698,7 +13698,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -13859,7 +13859,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25
@@ -14020,7 +14020,7 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.12411732638658174862.e
           to label %common.resume unwind label %44
 
 common.resume:                                    ; preds = %.body28, %.body37
-  %common.resume.op = phi { ptr, i32 } [ %41, %.body37 ], [ %eh.lpad-body29, %.body28 ]
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body29, %.body28 ], [ %41, %.body37 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..Schema$GT$$GT$$GT$17hc6f127a71f40b56bE.exit": ; preds = %25

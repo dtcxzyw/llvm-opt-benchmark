@@ -146,7 +146,7 @@ define internal i32 @dissect_nntp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %53
 
 53:                                               ; preds = %.sink.split, %40, %34, %37
-  %.048 = phi ptr [ %36, %37 ], [ %36, %34 ], [ %42, %40 ], [ %.048.ph, %.sink.split ]
+  %.048 = phi ptr [ %42, %40 ], [ %36, %37 ], [ %36, %34 ], [ %.048.ph, %.sink.split ]
   %.not.i = icmp eq ptr %.048, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %54
 

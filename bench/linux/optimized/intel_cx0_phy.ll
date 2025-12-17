@@ -891,7 +891,7 @@ define dso_local noundef range(i32 0, 18) i32 @intel_cx0_phy_check_hdmi_link_rat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader3, %.preheader, %13, %31
-  %35 = phi i32 [ %34, %31 ], [ 17, %13 ], [ 0, %.preheader ], [ 0, %.preheader3 ]
+  %35 = phi i32 [ %34, %31 ], [ 0, %.preheader ], [ 17, %13 ], [ 0, %.preheader3 ]
   ret i32 %35
 }
 
@@ -1162,7 +1162,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_cx0pll_calc_state(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %35, %.thread6, %25, %159, %142, %104, %68, %64, %29
-  %161 = phi i32 [ -22, %25 ], [ 0, %64 ], [ 0, %68 ], [ -22, %29 ], [ 0, %159 ], [ 0, %104 ], [ -22, %142 ], [ -22, %.thread6 ], [ -22, %35 ], [ -22, %148 ]
+  %161 = phi i32 [ -22, %25 ], [ 0, %64 ], [ 0, %68 ], [ -22, %29 ], [ 0, %159 ], [ 0, %104 ], [ -22, %.thread6 ], [ -22, %142 ], [ -22, %35 ], [ -22, %148 ]
   ret i32 %161
 }
 
@@ -1571,7 +1571,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   br label %94
 
 94:                                               ; preds = %93, %86, %86, %86, %86
-  %95 = phi ptr [ %0, %86 ], [ %0, %86 ], [ %0, %86 ], [ %0, %86 ], [ null, %93 ]
+  %95 = phi ptr [ null, %93 ], [ %0, %86 ], [ %0, %86 ], [ %0, %86 ], [ %0, %86 ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 384
   %97 = load i32, ptr %96, align 8
   %98 = load ptr, ptr %0, align 8
@@ -1592,9 +1592,9 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   br label %100
 
 100:                                              ; preds = %.thread, %._crit_edge, %99, %94, %94, %94, %94
-  %101 = phi ptr [ %98, %94 ], [ %98, %94 ], [ %98, %94 ], [ %98, %94 ], [ %98, %99 ], [ %92, %.thread ], [ %98, %._crit_edge ]
-  %.in = phi i32 [ %97, %94 ], [ %97, %94 ], [ %97, %94 ], [ %97, %94 ], [ %97, %99 ], [ %91, %.thread ], [ %97, %._crit_edge ]
-  %102 = phi ptr [ %0, %94 ], [ %0, %94 ], [ %0, %94 ], [ %0, %94 ], [ null, %99 ], [ %89, %.thread ], [ %.pre, %._crit_edge ]
+  %101 = phi ptr [ %98, %99 ], [ %98, %94 ], [ %98, %94 ], [ %98, %94 ], [ %98, %94 ], [ %92, %.thread ], [ %98, %._crit_edge ]
+  %.in = phi i32 [ %97, %99 ], [ %97, %94 ], [ %97, %94 ], [ %97, %94 ], [ %97, %94 ], [ %91, %.thread ], [ %97, %._crit_edge ]
+  %102 = phi ptr [ null, %99 ], [ %0, %94 ], [ %0, %94 ], [ %0, %94 ], [ %0, %94 ], [ %89, %.thread ], [ %.pre, %._crit_edge ]
   %103 = and i32 %.in, 65536
   %104 = icmp eq i32 %103, 0
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 392

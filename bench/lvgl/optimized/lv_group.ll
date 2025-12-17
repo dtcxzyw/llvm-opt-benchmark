@@ -471,7 +471,7 @@ define void @lv_group_swap_obj(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %lv_group_get_focused.exit
 
 lv_group_get_focused.exit:                        ; preds = %._crit_edge, %17
-  %.0.i = phi ptr [ %18, %17 ], [ null, %._crit_edge ]
+  %.0.i = phi ptr [ null, %._crit_edge ], [ %18, %17 ]
   %19 = icmp eq ptr %.0.i, %0
   br i1 %19, label %.sink.split36, label %20
 
@@ -506,7 +506,7 @@ define ptr @lv_group_get_focused(ptr noundef readonly captures(address_is_null) 
   br label %8
 
 8:                                                ; preds = %2, %1, %6
-  %.0 = phi ptr [ %7, %6 ], [ null, %1 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %1 ], [ %7, %6 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -970,7 +970,7 @@ get_indev.exit86:                                 ; preds = %.lr.ph.i79, %57, %5
   br label %.critedge76
 
 .critedge76:                                      ; preds = %10, %19, %22, %.loopexit, %62, %67, %get_indev.exit86, %get_indev.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.loopexit ], [ true, %62 ], [ true, %67 ], [ false, %get_indev.exit86 ], [ false, %get_indev.exit ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %get_indev.exit86 ], [ true, %67 ], [ false, %get_indev.exit ], [ false, %.loopexit ], [ true, %62 ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
   ret i1 %.0
 }
 

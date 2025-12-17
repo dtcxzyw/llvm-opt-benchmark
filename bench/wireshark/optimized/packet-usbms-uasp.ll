@@ -214,7 +214,7 @@ define internal range(i32 0, 256) i32 @dissect_uasp_descriptor(ptr noundef %0, p
   br label %46
 
 46:                                               ; preds = %15, %29, %38, %39, %40, %42, %44, %32, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ %16, %32 ], [ %16, %44 ], [ %16, %42 ], [ %16, %40 ], [ %16, %39 ], [ %16, %38 ], [ %16, %29 ], [ %16, %15 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ %16, %32 ], [ %16, %44 ], [ %16, %42 ], [ %16, %40 ], [ %16, %39 ], [ %16, %38 ], [ %16, %29 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -253,7 +253,7 @@ define internal i32 @dissect_uasp_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %17, %21, %8, %13
-  %.024 = phi ptr [ @dissect_uasp_iu, %13 ], [ @dissect_uasp_iu, %8 ], [ @dissect_uasp_data, %21 ], [ @dissect_uasp_data, %17 ]
+  %.024 = phi ptr [ @dissect_uasp_iu, %8 ], [ @dissect_uasp_iu, %13 ], [ @dissect_uasp_data, %21 ], [ @dissect_uasp_data, %17 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 35, ptr noundef nonnull @.str.44)
@@ -338,7 +338,7 @@ define internal fastcc ptr @get_uasp_conv_info(ptr noundef captures(none) %0) un
   br label %23
 
 23:                                               ; preds = %20, %4
-  %.016 = phi ptr [ %6, %4 ], [ %spec.select, %20 ]
+  %.016 = phi ptr [ %spec.select, %20 ], [ %6, %4 ]
   ret ptr %.016
 }
 
@@ -697,7 +697,7 @@ get_itlq_nexus.exit127.thread:                    ; preds = %156, %165
   br label %175
 
 175:                                              ; preds = %get_itlq_nexus.exit.thread, %124, %115, %92, %.thread, %170, %151, %132, %127, %17
-  %.0100 = phi ptr [ null, %17 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ %112, %124 ], [ %112, %115 ], [ null, %127 ], [ null, %132 ], [ %.0.i121136, %151 ], [ %.0.i126140, %170 ], [ null, %get_itlq_nexus.exit.thread ]
+  %.0100 = phi ptr [ null, %17 ], [ %.0.i115, %.thread ], [ %.0.i115, %92 ], [ %112, %124 ], [ %112, %115 ], [ null, %get_itlq_nexus.exit.thread ], [ null, %127 ], [ null, %132 ], [ %.0.i121136, %151 ], [ %.0.i126140, %170 ]
   call fastcc void @add_uasp_tag_links(ptr noundef %0, ptr noundef %3, ptr noundef %.0100, i32 noundef %22)
   %176 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %177

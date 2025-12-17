@@ -585,8 +585,8 @@ define internal noundef i32 @dissect_dvmrp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %190, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !13
 
 dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
-  %.sink170.i = phi i32 [ 20, %124 ], [ 16, %133 ], [ 16, %140 ]
-  %.0.ph.i = phi i32 [ 24, %124 ], [ 20, %133 ], [ 20, %140 ]
+  %.sink170.i = phi i32 [ 16, %133 ], [ 20, %124 ], [ 16, %140 ]
+  %.0.ph.i = phi i32 [ 20, %133 ], [ 24, %124 ], [ 20, %140 ]
   %191 = load i32, ptr @hf_netmask, align 4
   %192 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.sink170.i, i32 noundef 4, i32 noundef 0)
   br label %dissect_dvmrp_v3.exit
@@ -855,7 +855,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br i1 %328, label %.lr.ph206.i, label %dissect_dvmrp_v3.exit, !llvm.loop !17
 
 dissect_dvmrp_v3.exit:                            ; preds = %.loopexit.i, %120, %.lr.ph159.i, %325, %193, %dissect_v3_report.exit.sink.split.i, %140, %133, %124, %59, %49, %.preheader.i, %42
-  %.0 = phi i32 [ 8, %42 ], [ 20, %124 ], [ 16, %133 ], [ 16, %140 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 4, %193 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %119, %120 ], [ %.3.lcssa.i, %.loopexit.i ]
+  %.0 = phi i32 [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 8, %42 ], [ 20, %124 ], [ 16, %133 ], [ 16, %140 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ 4, %193 ], [ %119, %120 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %.3.lcssa.i, %.loopexit.i ]
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %.0)
   ret i32 %.0
 }

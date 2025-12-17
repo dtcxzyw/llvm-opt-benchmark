@@ -151,9 +151,9 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   ]
 
 .preheader.backedge:                              ; preds = %.preheader, %49, %34, %29, %24, %43, %40, %39
-  %.171.be = phi ptr [ %.171, %49 ], [ %.171, %24 ], [ %.171, %29 ], [ %.171, %34 ], [ %.171, %39 ], [ %42, %40 ], [ %.171, %43 ], [ %.171, %.preheader ]
-  %.068.be = phi i1 [ %.068, %49 ], [ %.068, %24 ], [ %.068, %29 ], [ %.068, %34 ], [ true, %39 ], [ %.068, %40 ], [ %.068, %43 ], [ %.068, %.preheader ]
-  %.0.be = phi i1 [ %.0, %49 ], [ %.0, %24 ], [ %.0, %29 ], [ %.0, %34 ], [ %.0, %39 ], [ %.0, %40 ], [ %.0, %43 ], [ true, %.preheader ]
+  %.171.be = phi ptr [ %.171, %49 ], [ %.171, %24 ], [ %.171, %29 ], [ %.171, %34 ], [ %.171, %43 ], [ %.171, %39 ], [ %42, %40 ], [ %.171, %.preheader ]
+  %.068.be = phi i1 [ %.068, %49 ], [ %.068, %24 ], [ %.068, %29 ], [ %.068, %34 ], [ %.068, %43 ], [ true, %39 ], [ %.068, %40 ], [ %.068, %.preheader ]
+  %.0.be = phi i1 [ %.0, %49 ], [ %.0, %24 ], [ %.0, %29 ], [ %.0, %34 ], [ %.0, %43 ], [ %.0, %39 ], [ %.0, %40 ], [ true, %.preheader ]
   br label %.preheader, !llvm.loop !7
 
 20:                                               ; preds = %.preheader
@@ -365,8 +365,8 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %91, %._crit_edge, %59, %77, %101, %88, %85, %75, %70, %65, %53, %37, %32, %27, %22, %20, %18
-  %.072 = phi i32 [ 1, %18 ], [ 1, %53 ], [ 0, %20 ], [ 0, %22 ], [ 1, %27 ], [ 1, %32 ], [ 1, %37 ], [ %68, %65 ], [ 1, %70 ], [ 1, %75 ], [ 1, %85 ], [ 1, %101 ], [ 1, %88 ], [ 1, %77 ], [ 0, %59 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 1, %.lr.ph ]
-  %.070 = phi ptr [ null, %18 ], [ %.171, %53 ], [ %.171, %20 ], [ %.171, %22 ], [ %.171, %27 ], [ %.171, %32 ], [ %.171, %37 ], [ %.171, %65 ], [ %.171, %70 ], [ %.3, %75 ], [ %.3, %85 ], [ %.3, %101 ], [ %.3, %88 ], [ %.3, %77 ], [ %.171, %59 ], [ %.3, %._crit_edge ], [ %.3, %91 ], [ %.3, %.lr.ph ]
+  %.072 = phi i32 [ 1, %18 ], [ 1, %53 ], [ 0, %20 ], [ 0, %22 ], [ 1, %27 ], [ 1, %32 ], [ 1, %37 ], [ 1, %77 ], [ %68, %65 ], [ 1, %70 ], [ 1, %75 ], [ 1, %85 ], [ 0, %59 ], [ 1, %101 ], [ 1, %88 ], [ 0, %._crit_edge ], [ 0, %91 ], [ 1, %.lr.ph ]
+  %.070 = phi ptr [ null, %18 ], [ %.171, %53 ], [ %.171, %20 ], [ %.171, %22 ], [ %.171, %27 ], [ %.171, %32 ], [ %.171, %37 ], [ %.3, %77 ], [ %.171, %65 ], [ %.171, %70 ], [ %.3, %75 ], [ %.3, %85 ], [ %.171, %59 ], [ %.3, %101 ], [ %.3, %88 ], [ %.3, %._crit_edge ], [ %.3, %91 ], [ %.3, %.lr.ph ]
   call void @g_free(ptr noundef %.070)
   call void @extcap_base_cleanup(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -559,7 +559,7 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   br label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %9
-  %.lcssa = phi ptr [ %16, %9 ], [ %27, %..critedge.loopexit_crit_edge ], [ %16, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+  %.lcssa = phi ptr [ %16, %9 ], [ %16, %.lr.ph.preheader ], [ %27, %..critedge.loopexit_crit_edge ], [ %27, %.lr.ph ]
   call void @g_strfreev(ptr noundef %.lcssa)
   %31 = load ptr, ptr %4, align 8
   call void @g_strfreev(ptr noundef %31)

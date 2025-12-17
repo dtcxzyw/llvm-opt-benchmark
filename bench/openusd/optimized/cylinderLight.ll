@@ -3129,7 +3129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26: ; preds = %_ZN32
   br label %169
 
 169:                                              ; preds = %115, %165, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26 ], [ true, %165 ], [ true, %115 ]
+  %.0 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit26 ], [ false, %25 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit ], [ true, %165 ], [ true, %115 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19UsdLuxCylinderLightD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   ret i1 %.0
 

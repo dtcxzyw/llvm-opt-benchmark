@@ -1063,7 +1063,7 @@ define dso_local range(i32 0, 4034) i32 @lllp_distribution(ptr noundef %0, i32 n
   br label %_validate_mask.exit
 
 _validate_mask.exit:                              ; preds = %103, %105, %108, %110, %.thread.i, %.critedge.i
-  %.0.i = phi i32 [ %.060.i, %.critedge.i ], [ 4032, %105 ], [ 4032, %103 ], [ 4032, %110 ], [ 4032, %108 ], [ 4032, %.thread.i ]
+  %.0.i = phi i32 [ 4032, %103 ], [ 4032, %.thread.i ], [ %.060.i, %.critedge.i ], [ 4032, %105 ], [ 4032, %110 ], [ 4032, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -1155,7 +1155,7 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   br label %_validate_map.exit
 
 _validate_map.exit:                               ; preds = %164, %166, %169, %171, %.thread.i155, %._crit_edge.i157, %190
-  %.0.i153 = phi i32 [ 4032, %166 ], [ 4032, %164 ], [ 4032, %171 ], [ 4032, %169 ], [ 0, %._crit_edge.i157 ], [ 4032, %190 ], [ 4032, %.thread.i155 ]
+  %.0.i153 = phi i32 [ 4032, %164 ], [ 4032, %169 ], [ 4032, %166 ], [ 4032, %171 ], [ 0, %._crit_edge.i157 ], [ 4032, %190 ], [ 4032, %.thread.i155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1314,8 +1314,8 @@ switch.early.test:                                ; preds = %219
   br label %.critedge
 
 264:                                              ; preds = %249, %247, %244, %241, %233, %238, %225, %230
-  %.sink258 = phi i16 [ 8, %230 ], [ 8, %225 ], [ 4, %238 ], [ 4, %233 ], [ 2, %241 ], [ 2, %244 ], [ 4, %247 ], [ 8, %249 ]
-  %.0113 = phi ptr [ @.str.10, %230 ], [ @.str.10, %225 ], [ @.str.10, %238 ], [ @.str.10, %233 ], [ @.str.10, %241 ], [ @.str.9, %244 ], [ @.str.9, %247 ], [ @.str.9, %249 ]
+  %.sink258 = phi i16 [ 4, %247 ], [ 2, %244 ], [ 2, %241 ], [ 4, %233 ], [ 8, %225 ], [ 8, %230 ], [ 4, %238 ], [ 8, %249 ]
+  %.0113 = phi ptr [ @.str.9, %247 ], [ @.str.9, %244 ], [ @.str.10, %241 ], [ @.str.10, %233 ], [ @.str.10, %225 ], [ @.str.10, %230 ], [ @.str.10, %238 ], [ @.str.9, %249 ]
   %265 = load i16, ptr %66, align 8
   %266 = or i16 %265, %.sink258
   store i16 %266, ptr %66, align 8
@@ -1493,9 +1493,9 @@ switch.early.test:                                ; preds = %219
   br label %_task_layout_lllp_cyclic.exit
 
 .thread.i159:                                     ; preds = %345, %.thread147.i, %333
-  %.not128146.i = phi i1 [ false, %345 ], [ false, %.thread147.i ], [ true, %333 ]
-  %353 = phi i32 [ %340, %345 ], [ %340, %.thread147.i ], [ %336, %333 ]
-  %.094145.i = phi i32 [ %.094150.i, %345 ], [ %.094150.i, %.thread147.i ], [ 0, %333 ]
+  %.not128146.i = phi i1 [ false, %.thread147.i ], [ false, %345 ], [ true, %333 ]
+  %353 = phi i32 [ %340, %.thread147.i ], [ %340, %345 ], [ %336, %333 ]
+  %.094145.i = phi i32 [ %.094150.i, %.thread147.i ], [ %.094150.i, %345 ], [ 0, %333 ]
   %354 = icmp slt i32 %353, %318
   br i1 %354, label %355, label %362
 
@@ -1693,7 +1693,7 @@ switch.early.test:                                ; preds = %219
   br label %457
 
 457:                                              ; preds = %453, %449
-  %.5.us.i = phi i16 [ %456, %453 ], [ %.3101.lcssa.us.i, %449 ]
+  %.5.us.i = phi i16 [ %.3101.lcssa.us.i, %449 ], [ %456, %453 ]
   %458 = load ptr, ptr %18, align 8
   %459 = zext nneg i32 %425 to i64
   %460 = getelementptr inbounds nuw i32, ptr %458, i64 %459
@@ -1769,9 +1769,9 @@ switch.early.test:                                ; preds = %219
   br i1 %498, label %.lr.ph189.split.us.i, label %._crit_edge190.i, !llvm.loop !27
 
 select.unfold152.us.i:                            ; preds = %496, %457, %434, %427, %._crit_edge.us.i
-  %.3105.ph.us.i = phi i16 [ %463, %457 ], [ %.1103172.us.i, %434 ], [ %.1103172.us.i, %427 ], [ %.1103172.us.i, %._crit_edge.us.i ], [ 0, %496 ]
-  %.4.ph.us.i = phi i16 [ %.5.us.i, %457 ], [ %.3101.lcssa.us.i, %434 ], [ %.3101.lcssa.us.i, %427 ], [ %.3101.lcssa.us.i, %._crit_edge.us.i ], [ %.6.us.i, %496 ]
-  %.3.ph.us.i = phi i32 [ %.1175.us.i, %457 ], [ %.1175.us.i, %434 ], [ %.1175.us.i, %427 ], [ %.1175.us.i, %._crit_edge.us.i ], [ %497, %496 ]
+  %.3105.ph.us.i = phi i16 [ %.1103172.us.i, %._crit_edge.us.i ], [ %463, %457 ], [ %.1103172.us.i, %434 ], [ %.1103172.us.i, %427 ], [ 0, %496 ]
+  %.4.ph.us.i = phi i16 [ %.3101.lcssa.us.i, %._crit_edge.us.i ], [ %.5.us.i, %457 ], [ %.3101.lcssa.us.i, %434 ], [ %.3101.lcssa.us.i, %427 ], [ %.6.us.i, %496 ]
+  %.3.ph.us.i = phi i32 [ %.1175.us.i, %._crit_edge.us.i ], [ %.1175.us.i, %457 ], [ %.1175.us.i, %434 ], [ %.1175.us.i, %427 ], [ %497, %496 ]
   %499 = add i16 %.097174.us.i, 1
   %500 = zext i16 %499 to i32
   %501 = icmp slt i32 %500, %388
@@ -2159,7 +2159,7 @@ _lllp_generate_cpu_bind.exit:                     ; preds = %618, %624
   br label %647
 
 647:                                              ; preds = %640, %639, %635, %_lllp_generate_cpu_bind.exit
-  %.4 = phi i32 [ 0, %_lllp_generate_cpu_bind.exit ], [ %.3, %640 ], [ %.3, %639 ], [ 0, %635 ]
+  %.4 = phi i32 [ 0, %_lllp_generate_cpu_bind.exit ], [ %.3, %639 ], [ %.3, %640 ], [ 0, %635 ]
   %648 = load ptr, ptr %27, align 8
   %.not135 = icmp eq ptr %648, null
   br i1 %.not135, label %654, label %649
@@ -2199,7 +2199,7 @@ _lllp_free_masks.exit:                            ; preds = %653, %649
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %654
 
-.critedge:                                        ; preds = %256, %261
+.critedge:                                        ; preds = %261, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %654
 
@@ -2603,9 +2603,9 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nound
   br label %192
 
 .thread:                                          ; preds = %31, %44, %.thread129
-  %.not110128 = phi i1 [ false, %44 ], [ false, %.thread129 ], [ true, %31 ]
-  %52 = phi i32 [ %39, %44 ], [ %39, %.thread129 ], [ %35, %31 ]
-  %.079127 = phi i32 [ %.079132, %44 ], [ %.079132, %.thread129 ], [ 0, %31 ]
+  %.not110128 = phi i1 [ false, %.thread129 ], [ false, %44 ], [ true, %31 ]
+  %52 = phi i32 [ %39, %.thread129 ], [ %39, %44 ], [ %35, %31 ]
+  %.079127 = phi i32 [ %.079132, %.thread129 ], [ %.079132, %44 ], [ 0, %31 ]
   %53 = icmp slt i32 %52, %16
   br i1 %53, label %54, label %61
 

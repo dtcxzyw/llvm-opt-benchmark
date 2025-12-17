@@ -852,7 +852,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit104: ; pred
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit104, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit81, %.loopexit.sink.split, %.preheader138, %.preheader, %192
-  %.9 = phi i1 [ %.3.lcssa, %192 ], [ %.3.lcssa, %.preheader ], [ %.3.lcssa, %.preheader138 ], [ %221, %.loopexit.sink.split ], [ %.3.lcssa, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit81 ], [ %.3.lcssa, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit104 ]
+  %.9 = phi i1 [ %.3.lcssa, %192 ], [ %.3.lcssa, %.preheader138 ], [ %.3.lcssa, %.preheader ], [ %221, %.loopexit.sink.split ], [ %.3.lcssa, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit81 ], [ %.3.lcssa, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit104 ]
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0169, i64 8
   %.sroa.0121.0 = load ptr, ptr %222, align 8, !tbaa !412
   %.not133 = icmp eq ptr %.sroa.0121.0, %44

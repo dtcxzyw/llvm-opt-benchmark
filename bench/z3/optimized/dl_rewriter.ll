@@ -200,7 +200,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i33:          ; preds = %83
   br label %_ZNK4decl13get_decl_kindEv.exit.thread.sink.split
 
 _ZNK4decl13get_decl_kindEv.exit.thread.sink.split: ; preds = %99, %93, %91, %77, %71, %69, %58, %52, %50, %38, %32, %30
-  %.sink = phi ptr [ %26, %30 ], [ %26, %32 ], [ %26, %38 ], [ %46, %50 ], [ %46, %52 ], [ %46, %58 ], [ %65, %69 ], [ %65, %71 ], [ %65, %77 ], [ %87, %91 ], [ %87, %93 ], [ %87, %99 ]
+  %.sink = phi ptr [ %65, %77 ], [ %46, %58 ], [ %26, %38 ], [ %26, %30 ], [ %26, %32 ], [ %46, %50 ], [ %46, %52 ], [ %65, %69 ], [ %65, %71 ], [ %87, %91 ], [ %87, %93 ], [ %87, %99 ]
   store ptr %.sink, ptr %4, align 8, !tbaa !28
   br label %_ZNK4decl13get_decl_kindEv.exit.thread
 

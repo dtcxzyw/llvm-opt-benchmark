@@ -1227,7 +1227,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us, %43, %40
-  %44 = phi ptr [ %33, %40 ], [ %29, %43 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us ]
+  %44 = phi ptr [ %29, %43 ], [ %33, %40 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us ]
   store i64 0, ptr %30, align 8, !tbaa !29
   store i8 0, ptr %44, align 1, !tbaa !24
   %45 = load ptr, ptr %5, align 8, !tbaa !19
@@ -4199,7 +4199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %43
   ret void
 
 442:                                              ; preds = %182, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67, %188, %186, %184, %434, %436, %424, %.body, %422, %420, %418, %416, %68
-  %.pn35 = phi { ptr, i32 } [ %69, %68 ], [ %.pn32.pn7, %436 ], [ %435, %434 ], [ %425, %424 ], [ %.pn.i, %.body ], [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ %417, %416 ], [ %183, %182 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ]
+  %.pn35 = phi { ptr, i32 } [ %69, %68 ], [ %.pn32.pn7, %436 ], [ %435, %434 ], [ %417, %416 ], [ %425, %424 ], [ %.pn.i, %.body ], [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ %183, %182 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ]
   %443 = load ptr, ptr %4, align 8, !tbaa !19
   %444 = icmp eq ptr %443, %18
   br i1 %444, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i129

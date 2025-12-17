@@ -337,7 +337,7 @@ decompress_plain.exit:                            ; preds = %59
   br label %88
 
 88:                                               ; preds = %decompress_plain.exit, %decompress_plain.exit.thread, %decompress_jsc.exit, %22, %26, %85, %86, %10
-  %.017 = phi i32 [ 1, %10 ], [ 1, %26 ], [ 1, %85 ], [ 0, %86 ], [ 1, %22 ], [ 1, %decompress_jsc.exit ], [ 1, %decompress_plain.exit ], [ 1, %decompress_plain.exit.thread ]
+  %.017 = phi i32 [ 1, %10 ], [ 1, %26 ], [ 1, %22 ], [ 1, %85 ], [ 0, %86 ], [ 1, %decompress_jsc.exit ], [ 1, %decompress_plain.exit ], [ 1, %decompress_plain.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
 }

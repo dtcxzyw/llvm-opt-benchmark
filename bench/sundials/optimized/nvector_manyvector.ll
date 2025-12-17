@@ -194,7 +194,7 @@ define void @N_VDestroy_ManyVector(ptr noundef captures(address_is_null) %0) #0 
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %.preheader, %11
-  %24 = phi ptr [ %10, %.preheader ], [ null, %11 ], [ %10, %5 ], [ %19, %.lr.ph ]
+  %24 = phi ptr [ %10, %5 ], [ %10, %.preheader ], [ null, %11 ], [ %19, %.lr.ph ]
   tail call void @free(ptr noundef %24) #12
   %25 = load ptr, ptr %0, align 8, !tbaa !56
   tail call void @free(ptr noundef %25) #12

@@ -1082,7 +1082,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %174, %.lr.ph.split.
   br i1 %222, label %.lr.ph164, label %.critedge2, !llvm.loop !63
 
 .critedge2:                                       ; preds = %._crit_edge165, %.lr.ph168.split.us, %.critedge.thread228, %.critedge
-  %.087233 = phi float [ %.087, %.critedge.thread228 ], [ 1.000000e+00, %.critedge ], [ %.087, %.lr.ph168.split.us ], [ %.087, %._crit_edge165 ]
+  %.087233 = phi float [ 1.000000e+00, %.critedge ], [ %.087, %.critedge.thread228 ], [ %.087, %.lr.ph168.split.us ], [ %.087, %._crit_edge165 ]
   %223 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %224 = load ptr, ptr %223, align 8, !tbaa !38
   %.not.i = icmp eq ptr %224, null

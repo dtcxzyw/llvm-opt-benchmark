@@ -198,13 +198,13 @@ mbedtls_xor_no_simd.exit.i.critedge:              ; preds = %mbedtls_xor_no_simd
   br i1 %78, label %.lr.ph54.i, label %gcm_gen_table.exit, !llvm.loop !19
 
 gcm_gen_table.exit:                               ; preds = %._crit_edge.i, %17, %gcm_set_acceleration.exit.thread.i, %gcm_set_acceleration.exit.i
-  %.0.i = phi i32 [ %18, %17 ], [ 0, %gcm_set_acceleration.exit.i ], [ 0, %gcm_set_acceleration.exit.thread.i ], [ 0, %._crit_edge.i ]
+  %.0.i = phi i32 [ 0, %gcm_set_acceleration.exit.i ], [ %18, %17 ], [ 0, %gcm_set_acceleration.exit.thread.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 79:                                               ; preds = %7, %10, %13, %15, %gcm_gen_table.exit, %4
-  %.0 = phi i32 [ -20, %4 ], [ -20, %7 ], [ -20, %10 ], [ %14, %13 ], [ %16, %15 ], [ %.0.i, %gcm_gen_table.exit ]
+  %.0 = phi i32 [ -20, %4 ], [ %16, %15 ], [ -20, %7 ], [ -20, %10 ], [ %14, %13 ], [ %.0.i, %gcm_gen_table.exit ]
   ret i32 %.0
 }
 
@@ -687,7 +687,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %34, %63, %17, %11, %9, %6, %69
-  %.070 = phi i32 [ 0, %69 ], [ -22, %6 ], [ 0, %9 ], [ -20, %11 ], [ -20, %17 ], [ %68, %63 ], [ %36, %34 ], [ %57, %53 ]
+  %.070 = phi i32 [ %36, %34 ], [ -22, %6 ], [ 0, %9 ], [ -20, %11 ], [ %68, %63 ], [ 0, %69 ], [ -20, %17 ], [ %57, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.070
 }
@@ -973,7 +973,7 @@ define hidden i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %0, i32 noundef %1, i64
   br label %20
 
 20:                                               ; preds = %18, %16, %14, %11
-  %.0 = phi i32 [ %13, %11 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ]
+  %.0 = phi i32 [ %17, %16 ], [ %13, %11 ], [ %15, %14 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -998,8 +998,8 @@ define hidden i32 @mbedtls_gcm_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr 
   %.not24.i = icmp eq i32 %17, 0
   br i1 %.not24.i, label %mbedtls_gcm_crypt_and_tag.exit, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
-mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %10, %14, %16
-  %.0.i.ph = phi i32 [ %17, %16 ], [ %15, %14 ], [ %13, %10 ]
+mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %16, %10, %14
+  %.0.i.ph = phi i32 [ %15, %14 ], [ %13, %10 ], [ %17, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %22
 
@@ -1019,7 +1019,7 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %16
   br label %22
 
 22:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit.thread, %19, %mbedtls_gcm_crypt_and_tag.exit, %21
-  %.0 = phi i32 [ -18, %21 ], [ %18, %mbedtls_gcm_crypt_and_tag.exit ], [ 0, %19 ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ]
+  %.0 = phi i32 [ %18, %mbedtls_gcm_crypt_and_tag.exit ], [ -18, %21 ], [ 0, %19 ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
@@ -1139,8 +1139,8 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %.not24.i = icmp eq i32 %52, 0
   br i1 %.not24.i, label %mbedtls_gcm_crypt_and_tag.exit, label %mbedtls_gcm_crypt_and_tag.exit.thread
 
-mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %29, %49, %51
-  %.0.i.ph = phi i32 [ %52, %51 ], [ %50, %49 ], [ %48, %29 ]
+mbedtls_gcm_crypt_and_tag.exit.thread:            ; preds = %51, %29, %49
+  %.0.i.ph = phi i32 [ %50, %49 ], [ %48, %29 ], [ %52, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread249
 
@@ -1200,8 +1200,8 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %51
   %.not24.i219 = icmp eq i32 %70, 0
   br i1 %.not24.i219, label %mbedtls_gcm_crypt_and_tag.exit220, label %mbedtls_gcm_crypt_and_tag.exit220.thread
 
-mbedtls_gcm_crypt_and_tag.exit220.thread:         ; preds = %65, %67, %69
-  %.0.i217.ph = phi i32 [ %70, %69 ], [ %68, %67 ], [ %66, %65 ]
+mbedtls_gcm_crypt_and_tag.exit220.thread:         ; preds = %69, %65, %67
+  %.0.i217.ph = phi i32 [ %68, %67 ], [ %66, %65 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread249
 
@@ -1410,8 +1410,8 @@ mbedtls_gcm_crypt_and_tag.exit220:                ; preds = %69
   %putchar = call i32 @putchar(i32 10)
   br label %.thread244
 
-.thread249:                                       ; preds = %115, %120, %86, %91, %28, %mbedtls_gcm_crypt_and_tag.exit, %57, %54, %63, %mbedtls_gcm_crypt_and_tag.exit220, %73, %72, %78, %80, %82, %96, %100, %103, %102, %108, %110, %112, %125, %129, %132, %131, %mbedtls_gcm_crypt_and_tag.exit.thread, %mbedtls_gcm_crypt_and_tag.exit220.thread
-  %.3.ph252 = phi i32 [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %.0.i217.ph, %mbedtls_gcm_crypt_and_tag.exit220.thread ], [ %93, %91 ], [ %88, %86 ], [ %122, %120 ], [ %117, %115 ], [ 1, %131 ], [ 1, %132 ], [ %130, %129 ], [ %126, %125 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ 1, %102 ], [ 1, %103 ], [ %101, %100 ], [ %97, %96 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ 1, %72 ], [ 1, %73 ], [ %71, %mbedtls_gcm_crypt_and_tag.exit220 ], [ %64, %63 ], [ 1, %54 ], [ 1, %57 ], [ %53, %mbedtls_gcm_crypt_and_tag.exit ], [ %25, %28 ]
+.thread249:                                       ; preds = %120, %115, %86, %91, %131, %96, %28, %mbedtls_gcm_crypt_and_tag.exit, %54, %63, %mbedtls_gcm_crypt_and_tag.exit220, %72, %78, %80, %100, %102, %108, %110, %129, %112, %125, %82, %57, %73, %103, %132, %mbedtls_gcm_crypt_and_tag.exit.thread, %mbedtls_gcm_crypt_and_tag.exit220.thread
+  %.3.ph252 = phi i32 [ %.0.i217.ph, %mbedtls_gcm_crypt_and_tag.exit220.thread ], [ %.0.i.ph, %mbedtls_gcm_crypt_and_tag.exit.thread ], [ %93, %91 ], [ %88, %86 ], [ %117, %115 ], [ %122, %120 ], [ 1, %132 ], [ 1, %103 ], [ 1, %73 ], [ 1, %57 ], [ %83, %82 ], [ %126, %125 ], [ %113, %112 ], [ %130, %129 ], [ %111, %110 ], [ %109, %108 ], [ 1, %102 ], [ %101, %100 ], [ %81, %80 ], [ %79, %78 ], [ 1, %72 ], [ %71, %mbedtls_gcm_crypt_and_tag.exit220 ], [ %64, %63 ], [ 1, %54 ], [ %53, %mbedtls_gcm_crypt_and_tag.exit ], [ %25, %28 ], [ %97, %96 ], [ 1, %131 ]
   br i1 %.not, label %139, label %138
 
 138:                                              ; preds = %.thread249

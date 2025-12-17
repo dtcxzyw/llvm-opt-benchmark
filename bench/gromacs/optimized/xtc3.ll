@@ -819,7 +819,7 @@ positive_int.exit.thread40.i.i:                   ; preds = %396
   br label %positive_int.exit34.i.i
 
 positive_int.exit34.i.i:                          ; preds = %positive_int.exit.thread40.i.i, %positive_int.exit.i.i, %396
-  %.232.i.i = phi i32 [ %.13146.i.i, %396 ], [ %spec.select.i.i, %positive_int.exit.i.i ], [ %spec.select70.i.i, %positive_int.exit.thread40.i.i ]
+  %.232.i.i = phi i32 [ %.13146.i.i, %396 ], [ %spec.select70.i.i, %positive_int.exit.thread40.i.i ], [ %spec.select.i.i, %positive_int.exit.i.i ]
   %403 = load i32, ptr %indvars.iv.i.sroa.phi.i, align 4, !tbaa !3
   %404 = icmp sgt i32 %403, 0
   br i1 %404, label %positive_int.exit36.i.i, label %405
@@ -842,7 +842,7 @@ positive_int.exit36.thread43.i.i:                 ; preds = %405
   br label %positive_int.exit38.i.i
 
 positive_int.exit38.i.i:                          ; preds = %positive_int.exit36.thread43.i.i, %positive_int.exit36.i.i, %405
-  %.2.i.i = phi i32 [ %.147.i.i, %405 ], [ %spec.select71.i.i, %positive_int.exit36.i.i ], [ %spec.select72.i.i, %positive_int.exit36.thread43.i.i ]
+  %.2.i.i = phi i32 [ %.147.i.i, %405 ], [ %spec.select72.i.i, %positive_int.exit36.thread43.i.i ], [ %spec.select71.i.i, %positive_int.exit36.i.i ]
   br i1 %exitcond.not.i.i, label %412, label %394, !llvm.loop !20
 
 412:                                              ; preds = %positive_int.exit38.i.i
@@ -967,7 +967,7 @@ swapdecide.exit:                                  ; preds = %420, %422, %insert_
   br i1 %exitcond1061.not, label %.preheader926, label %457, !llvm.loop !24
 
 .loopexit939.thread:                              ; preds = %positive_int.exit.i593, %positive_int.exit.i604, %429, %is_quite_large.exit.thread, %positive_int.exit633, %swapdecide.exit
-  %.3897912 = phi i32 [ %.08941019, %positive_int.exit633 ], [ 0, %swapdecide.exit ], [ %.08941019, %is_quite_large.exit.thread ], [ 0, %429 ], [ %.08941019, %positive_int.exit.i604 ], [ %.08941019, %positive_int.exit.i593 ]
+  %.3897912 = phi i32 [ 0, %429 ], [ %.08941019, %positive_int.exit633 ], [ 0, %swapdecide.exit ], [ %.08941019, %is_quite_large.exit.thread ], [ %.08941019, %positive_int.exit.i604 ], [ %.08941019, %positive_int.exit.i593 ]
   call fastcc void @buffer_large(ptr noundef %9, ptr noundef nonnull %0, i32 noundef %.04961021, i32 noundef %2, i32 noundef 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %150, i64 12, i1 false), !tbaa !3
   %.pre = add nsw i32 %.04961021, 3
@@ -1074,12 +1074,12 @@ swapdecide.exit:                                  ; preds = %420, %422, %insert_
   br label %.lr.ph960.preheader
 
 .lr.ph960.preheader:                              ; preds = %is_quite_large.exit, %._crit_edge.loopexit.i653, %.loopexit.i
-  %.04731259 = phi i32 [ %.147491312311240, %.loopexit.i ], [ %.147491312311240, %._crit_edge.loopexit.i653 ], [ 0, %is_quite_large.exit ]
-  %.34931257 = phi i32 [ %483, %.loopexit.i ], [ %483, %._crit_edge.loopexit.i653 ], [ %.04901022, %is_quite_large.exit ]
-  %.34991255 = phi i32 [ %.pre-phi12271241, %.loopexit.i ], [ %.pre-phi12271241, %._crit_edge.loopexit.i653 ], [ %.04961021, %is_quite_large.exit ]
-  %.05021253 = phi i1 [ %482, %.loopexit.i ], [ %482, %._crit_edge.loopexit.i653 ], [ false, %is_quite_large.exit ]
-  %.28961251 = phi i32 [ %.389791112331239, %.loopexit.i ], [ %.389791112331239, %._crit_edge.loopexit.i653 ], [ %.08941019, %is_quite_large.exit ]
-  %.08991249 = phi i32 [ 6, %.loopexit.i ], [ %504, %._crit_edge.loopexit.i653 ], [ %171, %is_quite_large.exit ]
+  %.04731259 = phi i32 [ %.147491312311240, %._crit_edge.loopexit.i653 ], [ %.147491312311240, %.loopexit.i ], [ 0, %is_quite_large.exit ]
+  %.34931257 = phi i32 [ %483, %._crit_edge.loopexit.i653 ], [ %483, %.loopexit.i ], [ %.04901022, %is_quite_large.exit ]
+  %.34991255 = phi i32 [ %.pre-phi12271241, %._crit_edge.loopexit.i653 ], [ %.pre-phi12271241, %.loopexit.i ], [ %.04961021, %is_quite_large.exit ]
+  %.05021253 = phi i1 [ %482, %._crit_edge.loopexit.i653 ], [ %482, %.loopexit.i ], [ false, %is_quite_large.exit ]
+  %.28961251 = phi i32 [ %.389791112331239, %._crit_edge.loopexit.i653 ], [ %.389791112331239, %.loopexit.i ], [ %.08941019, %is_quite_large.exit ]
+  %.08991249 = phi i32 [ %504, %._crit_edge.loopexit.i653 ], [ 6, %.loopexit.i ], [ %171, %is_quite_large.exit ]
   %wide.trip.count1076 = zext nneg i32 %.08991249 to i64
   br label %.lr.ph960
 
@@ -1933,12 +1933,12 @@ insert_value_in_array.exit706:                    ; preds = %.lr.ph998, %838
   br label %877
 
 877:                                              ; preds = %660, %._crit_edge1007, %545, %._crit_edge1015
-  %.1895 = phi i32 [ %.08941019, %._crit_edge1015 ], [ %.28961251, %._crit_edge1007 ], [ 0, %660 ], [ %.28961251, %545 ]
-  %.1505 = phi i32 [ %.05041020, %._crit_edge1015 ], [ %.3507, %._crit_edge1007 ], [ %.05041020, %660 ], [ %.05041020, %545 ]
-  %.2498 = phi i32 [ %.1497.lcssa, %._crit_edge1015 ], [ %875, %._crit_edge1007 ], [ %661, %660 ], [ %.34991255, %545 ]
-  %.2492 = phi i32 [ %.1491.lcssa, %._crit_edge1015 ], [ %876, %._crit_edge1007 ], [ %662, %660 ], [ %.34931257, %545 ]
-  %.1487 = phi i32 [ %.04861023, %._crit_edge1015 ], [ 0, %._crit_edge1007 ], [ 0, %660 ], [ 1, %545 ]
-  %.1476 = phi i32 [ %.04751024, %._crit_edge1015 ], [ %.3478, %._crit_edge1007 ], [ %.04751024, %660 ], [ %.04751024, %545 ]
+  %.1895 = phi i32 [ %.08941019, %._crit_edge1015 ], [ %.28961251, %._crit_edge1007 ], [ %.28961251, %545 ], [ 0, %660 ]
+  %.1505 = phi i32 [ %.05041020, %._crit_edge1015 ], [ %.3507, %._crit_edge1007 ], [ %.05041020, %545 ], [ %.05041020, %660 ]
+  %.2498 = phi i32 [ %.1497.lcssa, %._crit_edge1015 ], [ %875, %._crit_edge1007 ], [ %.34991255, %545 ], [ %661, %660 ]
+  %.2492 = phi i32 [ %.1491.lcssa, %._crit_edge1015 ], [ %876, %._crit_edge1007 ], [ %.34931257, %545 ], [ %662, %660 ]
+  %.1487 = phi i32 [ %.04861023, %._crit_edge1015 ], [ 0, %._crit_edge1007 ], [ 1, %545 ], [ 0, %660 ]
+  %.1476 = phi i32 [ %.04751024, %._crit_edge1015 ], [ %.3478, %._crit_edge1007 ], [ %.04751024, %545 ], [ %.04751024, %660 ]
   %.not = icmp eq i32 %.2492, 0
   br i1 %.not, label %._crit_edge1026, label %139, !llvm.loop !45
 

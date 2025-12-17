@@ -151,7 +151,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %exitcond96.not, label %.thread88, label %.preheader.split, !llvm.loop !3
 
 .thread88:                                        ; preds = %45, %43, %41, %37, %35, %.preheader.split.us, %62, %59, %57, %53, %49, %.preheader.split, %67, %24, %27, %30
-  %.3 = phi i32 [ %31, %30 ], [ %28, %27 ], [ %25, %24 ], [ 0, %67 ], [ %61, %59 ], [ %58, %57 ], [ %56, %53 ], [ %63, %62 ], [ %50, %49 ], [ %48, %.preheader.split ], [ 0, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %37 ], [ %36, %35 ], [ %34, %.preheader.split.us ]
+  %.3 = phi i32 [ %31, %30 ], [ %25, %24 ], [ %28, %27 ], [ 0, %67 ], [ %61, %59 ], [ %58, %57 ], [ %56, %53 ], [ %63, %62 ], [ %50, %49 ], [ %48, %.preheader.split ], [ 0, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %37 ], [ %34, %.preheader.split.us ], [ %36, %35 ]
   call void @wc_HmacFree(ptr noundef nonnull %11) #6
   br label %.preheader23.i
 
@@ -178,7 +178,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %.not91, label %ForceZero.exit86, label %.lr.ph29.i83, !llvm.loop !9
 
 ForceZero.exit86:                                 ; preds = %.lr.ph29.i83, %9, %switch.lookup
-  %.048 = phi i32 [ -232, %9 ], [ -173, %switch.lookup ], [ %.046, %.lr.ph29.i83 ]
+  %.048 = phi i32 [ -173, %switch.lookup ], [ -232, %9 ], [ %.046, %.lr.ph29.i83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.048
@@ -319,7 +319,7 @@ XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !13
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i42, %20, %26, %10, %16
-  %.0 = phi i32 [ -132, %16 ], [ -132, %10 ], [ %33, %26 ], [ %24, %20 ], [ 0, %.preheader.i42 ], [ 0, %.lr.ph35.i ]
+  %.0 = phi i32 [ -132, %10 ], [ -132, %16 ], [ %24, %20 ], [ %33, %26 ], [ 0, %.preheader.i42 ], [ 0, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
@@ -359,7 +359,7 @@ define i32 @wc_PRF_TLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nound
   br label %26
 
 26:                                               ; preds = %24, %.critedge, %17
-  %.134 = phi i32 [ -132, %.critedge ], [ %25, %24 ], [ %23, %17 ]
+  %.134 = phi i32 [ -132, %.critedge ], [ %23, %17 ], [ %25, %24 ]
   ret i32 %.134
 }
 

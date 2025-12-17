@@ -231,9 +231,9 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   br i1 %exitcond266, label %_ZNK6aiMesh15HasVertexColorsEj.exit.thread.split, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !6
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.thread.split: ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit, %_ZNK6aiMesh16HasTextureCoordsEj.exit, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split
-  %.0157343350 = phi ptr [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0157344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %.0153345349 = phi ptr [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0153346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
-  %60 = phi ptr [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %41, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %42, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %.0157343350 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0157344, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0157344, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %.0153345349 = phi ptr [ null, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %.0153346, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %.0153346, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
+  %60 = phi ptr [ %41, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit.preheader.split ], [ %42, %_ZNK6aiMesh16HasTextureCoordsEj.exit ], [ %42, %_ZNK6aiMesh15HasVertexColorsEj.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %62 = load i32, ptr %61, align 8
   %.fr340 = freeze i32 %62

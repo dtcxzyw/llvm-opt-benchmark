@@ -61,7 +61,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11, %12, %10, %9, %9
-  %.074 = phi i32 [ 1, %10 ], [ 2, %11 ], [ 3, %12 ], [ 0, %9 ], [ 0, %9 ]
+  %.074 = phi i32 [ 3, %12 ], [ 1, %10 ], [ 2, %11 ], [ 0, %9 ], [ 0, %9 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
@@ -122,7 +122,7 @@ default.unreachable:                              ; preds = %17
   br label %29
 
 29:                                               ; preds = %26, %22, %18, %17, %24, %23, %20, %19
-  %.0 = phi i32 [ 0, %19 ], [ %21, %20 ], [ 3, %23 ], [ %25, %24 ], [ %.07295, %17 ], [ 1, %18 ], [ 2, %22 ], [ %spec.select, %26 ]
+  %.0 = phi i32 [ 2, %22 ], [ %spec.select, %26 ], [ %25, %24 ], [ %.07295, %17 ], [ 0, %19 ], [ %21, %20 ], [ 1, %18 ], [ 3, %23 ]
   %30 = zext nneg i32 %16 to i64
   %31 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %30
   %32 = load i16, ptr %31, align 2
@@ -226,7 +226,7 @@ define noundef range(i32 0, 15) i32 @_Z6IsCardc(i8 noundef signext %0) local_unn
   br label %15
 
 15:                                               ; preds = %1, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %14 ], [ 3, %2 ], [ 4, %3 ], [ 5, %4 ], [ 6, %5 ], [ 7, %6 ], [ 8, %7 ], [ 9, %8 ], [ 10, %9 ], [ 11, %10 ], [ 12, %11 ], [ 13, %12 ], [ 14, %13 ], [ 2, %1 ]
+  %.0 = phi i32 [ 0, %14 ], [ 14, %13 ], [ 3, %2 ], [ 4, %3 ], [ 5, %4 ], [ 6, %5 ], [ 7, %6 ], [ 8, %7 ], [ 9, %8 ], [ 10, %9 ], [ 11, %10 ], [ 12, %11 ], [ 13, %12 ], [ 2, %1 ]
   ret i32 %.0
 }
 

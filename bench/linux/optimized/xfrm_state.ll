@@ -1471,7 +1471,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
   ]
 
 .split21.us:                                      ; preds = %.split.us.split.us, %54, %54, %54, %54, %39
-  %.us-phi = phi ptr [ %35, %39 ], [ %50, %54 ], [ %50, %54 ], [ %50, %54 ], [ %50, %54 ], [ %24, %.split.us.split.us ]
+  %.us-phi = phi ptr [ %50, %54 ], [ %35, %39 ], [ %50, %54 ], [ %50, %54 ], [ %50, %54 ], [ %24, %.split.us.split.us ]
   %57 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 72
   %58 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %57, i32 1, ptr nonnull elementtype(i32) %57) #15, !srcloc !82
   %59 = icmp eq i32 %58, 0
@@ -1598,9 +1598,9 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
   br i1 %116, label %.loopexit, label %.split.split, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.thread, %28, %110, %43, %8
-  %117 = phi ptr [ %9, %8 ], [ %20, %43 ], [ %20, %110 ], [ %20, %28 ], [ %103, %.thread ]
-  %118 = phi i32 [ %12, %8 ], [ %23, %43 ], [ %23, %110 ], [ %23, %28 ], [ %102, %.thread ]
-  %119 = phi i32 [ %11, %8 ], [ %22, %43 ], [ %22, %110 ], [ %22, %28 ], [ %68, %.thread ]
+  %117 = phi ptr [ %9, %8 ], [ %20, %28 ], [ %20, %43 ], [ %20, %110 ], [ %103, %.thread ]
+  %118 = phi i32 [ %12, %8 ], [ %23, %28 ], [ %23, %43 ], [ %23, %110 ], [ %102, %.thread ]
+  %119 = phi i32 [ %11, %8 ], [ %22, %28 ], [ %22, %43 ], [ %22, %110 ], [ %68, %.thread ]
   %120 = add i32 %10, 1
   %121 = load i32, ptr %6, align 16
   %122 = icmp ugt i32 %120, %121
@@ -2658,7 +2658,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   br label %544
 
 529:                                              ; preds = %519, %517, %507
-  %530 = phi i16 [ %523, %519 ], [ %518, %517 ], [ 0, %507 ]
+  %530 = phi i16 [ 0, %507 ], [ %523, %519 ], [ %518, %517 ]
   %531 = getelementptr inbounds nuw i8, ptr %490, i64 136
   store i16 %530, ptr %531, align 8
   %532 = getelementptr inbounds nuw i8, ptr %490, i64 138
@@ -2745,7 +2745,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   br label %585
 
 570:                                              ; preds = %560, %558, %550
-  %571 = phi i16 [ %564, %560 ], [ %559, %558 ], [ 0, %550 ]
+  %571 = phi i16 [ 0, %550 ], [ %564, %560 ], [ %559, %558 ]
   %572 = getelementptr inbounds nuw i8, ptr %490, i64 136
   store i16 %571, ptr %572, align 8
   %573 = getelementptr inbounds nuw i8, ptr %490, i64 138
@@ -3395,9 +3395,9 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   call void @__rcu_read_unlock() #15
   br label %.thread86
 
-.thread81:                                        ; preds = %469, %.critedge, %488, %916, %918
-  %941 = phi ptr [ null, %918 ], [ null, %.critedge ], [ null, %488 ], [ %490, %916 ], [ %418, %469 ]
-  %942 = phi i32 [ %919, %918 ], [ -3, %.critedge ], [ -12, %488 ], [ -3, %916 ], [ -17, %469 ]
+.thread81:                                        ; preds = %469, %488, %.critedge, %916, %918
+  %941 = phi ptr [ null, %918 ], [ null, %488 ], [ null, %.critedge ], [ %490, %916 ], [ %418, %469 ]
+  %942 = phi i32 [ %919, %918 ], [ -12, %488 ], [ -3, %.critedge ], [ -3, %916 ], [ -17, %469 ]
   %943 = icmp eq i32 %319, 0
   %944 = select i1 %943, i32 %942, i32 -11
   store i32 %944, ptr %5, align 4
@@ -3455,7 +3455,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   br label %.thread86
 
 .thread86:                                        ; preds = %950, %952, %.thread84, %.thread83, %964, %.thread81
-  %968 = phi ptr [ %920, %.thread83 ], [ null, %964 ], [ null, %.thread81 ], [ null, %.thread84 ], [ null, %952 ], [ null, %950 ]
+  %968 = phi ptr [ %920, %.thread83 ], [ null, %964 ], [ null, %.thread84 ], [ null, %.thread81 ], [ null, %952 ], [ null, %950 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !102
   %969 = load volatile i32, ptr %18, align 4
   %970 = icmp eq i32 %969, %25
@@ -3706,7 +3706,7 @@ define dso_local ptr @xfrm_stateonly_find(ptr noundef %0, i32 noundef %1, i32 no
   br label %.thread
 
 .thread:                                          ; preds = %104, %9, %119, %115
-  %121 = phi ptr [ %27, %119 ], [ %27, %115 ], [ null, %9 ], [ null, %104 ]
+  %121 = phi ptr [ %27, %115 ], [ %27, %119 ], [ null, %9 ], [ null, %104 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %10) #15
   ret ptr %121
 }
@@ -4549,7 +4549,7 @@ __xfrm_find_acq_byseq.exit:                       ; preds = %83, %72
   br i1 %105, label %.thread, label %__xfrm_find_acq_byseq.exit.thread
 
 __xfrm_find_acq_byseq.exit.thread:                ; preds = %76, %__xfrm_find_acq_byseq.exit, %102, %92, %36, %32, %31
-  %106 = phi ptr [ null, %32 ], [ null, %31 ], [ null, %36 ], [ %53, %92 ], [ %53, %102 ], [ %53, %__xfrm_find_acq_byseq.exit ], [ null, %76 ]
+  %106 = phi ptr [ null, %31 ], [ null, %32 ], [ null, %36 ], [ %53, %92 ], [ %53, %102 ], [ %53, %__xfrm_find_acq_byseq.exit ], [ null, %76 ]
   switch i8 %10, label %.thread [
     i8 -1, label %107
     i8 108, label %107
@@ -5463,7 +5463,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_state_update(ptr noundef %0
   br label %155
 
 155:                                              ; preds = %88, %89, %154, %149, %94, %78
-  %156 = phi i32 [ -22, %94 ], [ -22, %78 ], [ 0, %149 ], [ 0, %154 ], [ -22, %89 ], [ -22, %88 ]
+  %156 = phi i32 [ 0, %154 ], [ -22, %94 ], [ -22, %78 ], [ 0, %149 ], [ -22, %89 ], [ -22, %88 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %61) #15
   %157 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %158 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %157, i32 -1, ptr nonnull elementtype(i32) %157) #15, !srcloc !79
@@ -5518,7 +5518,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_state_update(ptr noundef %0
   br label %.thread19
 
 .thread19:                                        ; preds = %160, %162, %67, %69, %40, %42, %54, %58, %176
-  %182 = phi i32 [ -3, %58 ], [ %178, %176 ], [ -17, %54 ], [ -17, %42 ], [ -17, %40 ], [ 0, %69 ], [ 0, %67 ], [ %156, %162 ], [ %156, %160 ]
+  %182 = phi i32 [ -3, %58 ], [ -17, %40 ], [ 0, %67 ], [ %178, %176 ], [ -17, %54 ], [ -17, %42 ], [ 0, %69 ], [ %156, %162 ], [ %156, %160 ]
   ret i32 %182
 }
 
@@ -5923,7 +5923,7 @@ define internal fastcc ptr @__xfrm_state_lookup(ptr noundef readonly captures(no
   br i1 %195, label %.loopexit, label %.split, !llvm.loop !115
 
 .loopexit:                                        ; preds = %187, %189, %139, %137, %72
-  %196 = phi ptr [ null, %72 ], [ null, %139 ], [ %91, %137 ], [ null, %189 ], [ %146, %187 ]
+  %196 = phi ptr [ null, %72 ], [ %91, %137 ], [ null, %139 ], [ null, %189 ], [ %146, %187 ]
   ret ptr %196
 }
 
@@ -6131,7 +6131,7 @@ define internal fastcc ptr @__xfrm_state_lookup_byaddr(ptr noundef readonly capt
   br i1 %134, label %.loopexit, label %.split, !llvm.loop !116
 
 .loopexit:                                        ; preds = %126, %128, %77, %75, %6
-  %135 = phi ptr [ null, %6 ], [ null, %77 ], [ %23, %75 ], [ null, %128 ], [ %84, %126 ]
+  %135 = phi ptr [ null, %6 ], [ %23, %75 ], [ null, %77 ], [ null, %128 ], [ %84, %126 ]
   ret ptr %135
 }
 
@@ -7040,7 +7040,7 @@ define dso_local i32 @km_new_mapping(ptr noundef %0, ptr noundef %1, i16 noundef
   br i1 %53, label %.loopexit, label %40, !llvm.loop !123
 
 .loopexit:                                        ; preds = %36, %25, %51, %40
-  %54 = phi i32 [ 0, %51 ], [ %42, %40 ], [ 0, %36 ], [ %27, %25 ]
+  %54 = phi i32 [ %42, %40 ], [ 0, %51 ], [ 0, %36 ], [ %27, %25 ]
   tail call void @__rcu_read_unlock() #15
   br label %55
 
@@ -7904,7 +7904,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br label %169
 
 169:                                              ; preds = %.thread24, %64, %167, %165, %164, %.thread38, %.loopexit, %114, %.thread29, %49, %47, %39, %.thread
-  %170 = phi i32 [ %146, %.loopexit ], [ %168, %167 ], [ 0, %165 ], [ -93, %39 ], [ -93, %.thread ], [ -93, %49 ], [ -93, %47 ], [ -93, %114 ], [ -93, %.thread29 ], [ -93, %164 ], [ -93, %.thread38 ], [ -93, %64 ], [ -93, %.thread24 ]
+  %170 = phi i32 [ %146, %.loopexit ], [ %168, %167 ], [ 0, %165 ], [ -93, %.thread38 ], [ -93, %39 ], [ -93, %.thread ], [ -93, %49 ], [ -93, %47 ], [ -93, %114 ], [ -93, %.thread29 ], [ -93, %164 ], [ -93, %64 ], [ -93, %.thread24 ]
   ret i32 %170
 }
 

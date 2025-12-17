@@ -566,7 +566,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
   br label %34
 
 34:                                               ; preds = %31, %32, %21, %15, %11
-  %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %11 ], [ 1, %32 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %11 ], [ 0, %21 ], [ 1, %32 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
   br label %34
 
 34:                                               ; preds = %31, %32, %21, %15, %11
-  %.0 = phi i32 [ 0, %15 ], [ 0, %21 ], [ 0, %11 ], [ 1, %32 ], [ 1, %31 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %11 ], [ 0, %21 ], [ 1, %32 ], [ 1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

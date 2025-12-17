@@ -957,7 +957,7 @@ drawtext.exit229.i:                               ; preds = %drawtext.exit229.lo
   br label %427
 
 427:                                              ; preds = %425, %296, %285
-  %.4128.ph.i = phi i32 [ %.2126331.i, %296 ], [ %.2126331.i, %285 ], [ %426, %425 ]
+  %.4128.ph.i = phi i32 [ %426, %425 ], [ %.2126331.i, %296 ], [ %.2126331.i, %285 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %428 = load i32, ptr %282, align 8, !tbaa !71
   %429 = zext i32 %428 to i64
@@ -1296,7 +1296,7 @@ filter_have_eof.exit.i:                           ; preds = %filter_have_eof.exi
   br label %create_frame.exit
 
 create_frame.exit:                                ; preds = %61, %597, %.loopexit.i
-  %.0.i = phi i32 [ %598, %597 ], [ %.1.ph.i, %.loopexit.i ], [ -12, %61 ]
+  %.0.i = phi i32 [ -12, %61 ], [ %598, %597 ], [ %.1.ph.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %608
@@ -1337,7 +1337,7 @@ create_frame.exit:                                ; preds = %61, %597, %.loopexi
   br label %608
 
 608:                                              ; preds = %25, %16, %605, %.thread69, %607, %602, %create_frame.exit, %54
-  %.1 = phi i32 [ 0, %54 ], [ %.0.i, %create_frame.exit ], [ 0, %.thread69 ], [ 0, %607 ], [ 0, %602 ], [ %22, %25 ], [ 0, %16 ], [ -1497649742, %605 ]
+  %.1 = phi i32 [ 0, %54 ], [ %.0.i, %create_frame.exit ], [ 0, %.thread69 ], [ 0, %607 ], [ 0, %16 ], [ 0, %602 ], [ %22, %25 ], [ -1497649742, %605 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
@@ -1714,8 +1714,8 @@ drawtext.exit:                                    ; preds = %90, %38, %45, %6
   br i1 %.not36.i302, label %drawtext.exit303, label %122, !llvm.loop !81
 
 drawtext.exit303:                                 ; preds = %159, %107, %114, %drawtext.exit
-  %.1237 = phi i32 [ %.0236, %drawtext.exit ], [ %113, %114 ], [ %113, %107 ], [ %113, %159 ]
-  %.2 = phi i32 [ %.0234, %drawtext.exit ], [ %.3, %114 ], [ %.3, %107 ], [ %.3, %159 ]
+  %.1237 = phi i32 [ %.0236, %drawtext.exit ], [ %113, %107 ], [ %113, %114 ], [ %113, %159 ]
+  %.2 = phi i32 [ %.0234, %drawtext.exit ], [ %.3, %107 ], [ %.3, %114 ], [ %.3, %159 ]
   %162 = and i32 %22, 256
   %.not247 = icmp eq i32 %162, 0
   br i1 %.not247, label %drawtext.exit321, label %163
@@ -1839,7 +1839,7 @@ drawtext.exit303:                                 ; preds = %159, %107, %114, %d
   br i1 %.not36.i320, label %drawtext.exit321, label %191, !llvm.loop !81
 
 drawtext.exit321:                                 ; preds = %228, %176, %183, %drawtext.exit303
-  %.2238 = phi i32 [ %.1237, %drawtext.exit303 ], [ %182, %183 ], [ %182, %176 ], [ %182, %228 ]
+  %.2238 = phi i32 [ %.1237, %drawtext.exit303 ], [ %182, %176 ], [ %182, %183 ], [ %182, %228 ]
   %231 = and i32 %22, 32
   %.not248 = icmp eq i32 %231, 0
   br i1 %.not248, label %drawtext.exit339, label %232
@@ -1945,7 +1945,7 @@ drawtext.exit321:                                 ; preds = %228, %176, %183, %d
   br i1 %.not36.i338, label %drawtext.exit339, label %252, !llvm.loop !81
 
 drawtext.exit339:                                 ; preds = %289, %232, %244, %drawtext.exit321
-  %.3239 = phi i32 [ %.2238, %drawtext.exit321 ], [ %243, %244 ], [ %243, %232 ], [ %243, %289 ]
+  %.3239 = phi i32 [ %.2238, %drawtext.exit321 ], [ %243, %232 ], [ %243, %244 ], [ %243, %289 ]
   %292 = and i32 %22, 1
   %.not249 = icmp eq i32 %292, 0
   br i1 %.not249, label %drawtext.exit375, label %293
@@ -2069,7 +2069,7 @@ drawtext.exit357:                                 ; preds = %347, %297, %303
   br label %358
 
 358:                                              ; preds = %drawtext.exit357, %353, %356
-  %359 = phi ptr [ %355, %353 ], [ %357, %356 ], [ %298, %drawtext.exit357 ]
+  %359 = phi ptr [ %357, %356 ], [ %355, %353 ], [ %298, %drawtext.exit357 ]
   %360 = load i32, ptr %300, align 4, !tbaa !57
   %.not.i358 = icmp slt i32 %299, %360
   %361 = shl nsw i32 %350, 3
@@ -2162,7 +2162,7 @@ drawtext.exit357:                                 ; preds = %347, %297, %303
   br i1 %.not36.i374, label %drawtext.exit375, label %371, !llvm.loop !81
 
 drawtext.exit375:                                 ; preds = %408, %358, %363, %293, %drawtext.exit339
-  %.4240 = phi i32 [ %.3239, %293 ], [ %.3239, %drawtext.exit339 ], [ %362, %363 ], [ %362, %358 ], [ %362, %408 ]
+  %.4240 = phi i32 [ %.3239, %drawtext.exit339 ], [ %.3239, %293 ], [ %362, %358 ], [ %362, %363 ], [ %362, %408 ]
   %411 = and i32 %22, 2
   %.not251 = icmp eq i32 %411, 0
   br i1 %.not251, label %drawtext.exit393, label %412
@@ -2273,7 +2273,7 @@ drawtext.exit375:                                 ; preds = %408, %358, %363, %2
   br i1 %.not36.i392, label %drawtext.exit393, label %429, !llvm.loop !81
 
 drawtext.exit393:                                 ; preds = %466, %._crit_edge, %412, %421, %drawtext.exit375
-  %.5 = phi i32 [ %.4240, %drawtext.exit375 ], [ %420, %421 ], [ %.4240, %412 ], [ %420, %._crit_edge ], [ %420, %466 ]
+  %.5 = phi i32 [ %.4240, %drawtext.exit375 ], [ %.4240, %412 ], [ %420, %._crit_edge ], [ %420, %421 ], [ %420, %466 ]
   %469 = and i32 %22, 4
   %.not254 = icmp eq i32 %469, 0
   br i1 %.not254, label %drawtext.exit411, label %470
@@ -2384,7 +2384,7 @@ drawtext.exit393:                                 ; preds = %466, %._crit_edge, 
   br i1 %.not36.i410, label %drawtext.exit411, label %487, !llvm.loop !81
 
 drawtext.exit411:                                 ; preds = %524, %._crit_edge93, %470, %479, %drawtext.exit393
-  %.6 = phi i32 [ %.5, %drawtext.exit393 ], [ %478, %479 ], [ %.5, %470 ], [ %478, %._crit_edge93 ], [ %478, %524 ]
+  %.6 = phi i32 [ %.5, %drawtext.exit393 ], [ %.5, %470 ], [ %478, %._crit_edge93 ], [ %478, %479 ], [ %478, %524 ]
   %527 = and i32 %22, 16384
   %.not257 = icmp eq i32 %527, 0
   br i1 %.not257, label %drawtext.exit429, label %528
@@ -2498,7 +2498,7 @@ drawtext.exit411:                                 ; preds = %524, %._crit_edge93
   br i1 %.not36.i428, label %drawtext.exit429, label %546, !llvm.loop !81
 
 drawtext.exit429:                                 ; preds = %583, %._crit_edge96, %528, %538, %drawtext.exit411
-  %.7 = phi i32 [ %.6, %drawtext.exit411 ], [ %537, %538 ], [ %.6, %528 ], [ %537, %._crit_edge96 ], [ %537, %583 ]
+  %.7 = phi i32 [ %.6, %drawtext.exit411 ], [ %.6, %528 ], [ %537, %._crit_edge96 ], [ %537, %538 ], [ %537, %583 ]
   %586 = and i32 %22, 1024
   %.not260 = icmp eq i32 %586, 0
   br i1 %.not260, label %drawtext.exit447, label %587
@@ -2609,7 +2609,7 @@ drawtext.exit429:                                 ; preds = %583, %._crit_edge96
   br i1 %.not36.i446, label %drawtext.exit447, label %604, !llvm.loop !81
 
 drawtext.exit447:                                 ; preds = %641, %._crit_edge101, %587, %596, %drawtext.exit429
-  %.8 = phi i32 [ %.7, %drawtext.exit429 ], [ %595, %596 ], [ %.7, %587 ], [ %595, %._crit_edge101 ], [ %595, %641 ]
+  %.8 = phi i32 [ %.7, %drawtext.exit429 ], [ %.7, %587 ], [ %595, %._crit_edge101 ], [ %595, %596 ], [ %595, %641 ]
   %644 = and i32 %22, 2048
   %.not263 = icmp eq i32 %644, 0
   br i1 %.not263, label %drawtext.exit465, label %645
@@ -2720,7 +2720,7 @@ drawtext.exit447:                                 ; preds = %641, %._crit_edge10
   br i1 %.not36.i464, label %drawtext.exit465, label %662, !llvm.loop !81
 
 drawtext.exit465:                                 ; preds = %699, %._crit_edge104, %645, %654, %drawtext.exit447
-  %.9 = phi i32 [ %.8, %drawtext.exit447 ], [ %653, %654 ], [ %.8, %645 ], [ %653, %._crit_edge104 ], [ %653, %699 ]
+  %.9 = phi i32 [ %.8, %drawtext.exit447 ], [ %.8, %645 ], [ %653, %._crit_edge104 ], [ %653, %654 ], [ %653, %699 ]
   %702 = and i32 %22, 32768
   %.not266 = icmp eq i32 %702, 0
   br i1 %.not266, label %drawtext.exit483, label %703
@@ -2834,7 +2834,7 @@ drawtext.exit465:                                 ; preds = %699, %._crit_edge10
   br i1 %.not36.i482, label %drawtext.exit483, label %721, !llvm.loop !81
 
 drawtext.exit483:                                 ; preds = %758, %._crit_edge107, %703, %713, %drawtext.exit465
-  %.10 = phi i32 [ %.9, %drawtext.exit465 ], [ %712, %713 ], [ %.9, %703 ], [ %712, %._crit_edge107 ], [ %712, %758 ]
+  %.10 = phi i32 [ %.9, %drawtext.exit465 ], [ %.9, %703 ], [ %712, %._crit_edge107 ], [ %712, %713 ], [ %712, %758 ]
   %761 = and i32 %22, 8
   %.not269 = icmp eq i32 %761, 0
   br i1 %.not269, label %drawtext.exit501, label %762
@@ -2956,7 +2956,7 @@ av_ts_make_string.exit:                           ; preds = %768, %769
   br i1 %.not36.i500, label %drawtext.exit501, label %786, !llvm.loop !81
 
 drawtext.exit501:                                 ; preds = %823, %av_ts_make_string.exit, %778, %762, %drawtext.exit483
-  %.11 = phi i32 [ %.10, %762 ], [ %.10, %drawtext.exit483 ], [ %777, %778 ], [ %777, %av_ts_make_string.exit ], [ %777, %823 ]
+  %.11 = phi i32 [ %.10, %drawtext.exit483 ], [ %.10, %762 ], [ %777, %av_ts_make_string.exit ], [ %777, %778 ], [ %777, %823 ]
   %826 = and i32 %22, 4096
   %.not270 = icmp eq i32 %826, 0
   br i1 %.not270, label %drawtext.exit520, label %827
@@ -3079,7 +3079,7 @@ av_ts_make_string.exit502:                        ; preds = %832, %833
   br i1 %.not36.i519, label %drawtext.exit520, label %850, !llvm.loop !81
 
 drawtext.exit520:                                 ; preds = %887, %av_ts_make_string.exit502, %842, %827, %drawtext.exit501
-  %.12 = phi i32 [ %.11, %drawtext.exit501 ], [ %.11, %827 ], [ %841, %842 ], [ %841, %av_ts_make_string.exit502 ], [ %841, %887 ]
+  %.12 = phi i32 [ %.11, %drawtext.exit501 ], [ %.11, %827 ], [ %841, %av_ts_make_string.exit502 ], [ %841, %842 ], [ %841, %887 ]
   %890 = and i32 %22, 16
   %.not273 = icmp eq i32 %890, 0
   br i1 %.not273, label %drawtext.exit538, label %891
@@ -3190,7 +3190,7 @@ drawtext.exit520:                                 ; preds = %887, %av_ts_make_st
   br i1 %.not36.i537, label %drawtext.exit538, label %912, !llvm.loop !81
 
 drawtext.exit538:                                 ; preds = %949, %895, %904, %891, %drawtext.exit520
-  %.13 = phi i32 [ %.12, %891 ], [ %.12, %drawtext.exit520 ], [ %903, %904 ], [ %903, %895 ], [ %903, %949 ]
+  %.13 = phi i32 [ %.12, %drawtext.exit520 ], [ %.12, %891 ], [ %903, %895 ], [ %903, %904 ], [ %903, %949 ]
   %952 = and i32 %22, 8192
   %.not274 = icmp eq i32 %952, 0
   br i1 %.not274, label %drawtext.exit556, label %953
@@ -3302,7 +3302,7 @@ drawtext.exit538:                                 ; preds = %949, %895, %904, %8
   br i1 %.not36.i555, label %drawtext.exit556, label %973, !llvm.loop !81
 
 drawtext.exit556:                                 ; preds = %1010, %955, %965, %953, %drawtext.exit538
-  %.14 = phi i32 [ %.13, %drawtext.exit538 ], [ %.13, %953 ], [ %964, %965 ], [ %964, %955 ], [ %964, %1010 ]
+  %.14 = phi i32 [ %.13, %drawtext.exit538 ], [ %.13, %953 ], [ %964, %955 ], [ %964, %965 ], [ %964, %1010 ]
   %1013 = and i32 %22, 512
   %.not277 = icmp eq i32 %1013, 0
   br i1 %.not277, label %drawtext.exit574, label %1014
@@ -3405,7 +3405,7 @@ drawtext.exit556:                                 ; preds = %1010, %955, %965, %
   br i1 %.not36.i573, label %drawtext.exit574, label %1029, !llvm.loop !81
 
 drawtext.exit574:                                 ; preds = %1066, %1016, %1022, %1014, %drawtext.exit556
-  %.15 = phi i32 [ %.14, %1014 ], [ %.14, %drawtext.exit556 ], [ %1021, %1022 ], [ %1021, %1016 ], [ %1021, %1066 ]
+  %.15 = phi i32 [ %.14, %drawtext.exit556 ], [ %.14, %1014 ], [ %1021, %1016 ], [ %1021, %1022 ], [ %1021, %1066 ]
   %1069 = and i32 %22, 65536
   %.not279 = icmp eq i32 %1069, 0
   br i1 %.not279, label %drawtext.exit592, label %1070

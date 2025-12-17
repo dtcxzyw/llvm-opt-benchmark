@@ -1321,8 +1321,8 @@ for.body109.preheader:                            ; preds = %_ZN3irr4core5arrayI
   br label %for.cond114.preheader
 
 for.cond114.preheader:                            ; preds = %if.end102, %for.body109.preheader, %_ZN3irr4core5arrayIsE8set_usedEj.exit
-  %verticesLinkBuffer.sroa.0.2106 = phi ptr [ %call5.i.i.i.i, %for.body109.preheader ], [ %call5.i.i.i.i, %_ZN3irr4core5arrayIsE8set_usedEj.exit ], [ null, %if.end102 ]
-  %verticesLinkBuffer.sroa.19.2105 = phi ptr [ %add.ptr34.i, %for.body109.preheader ], [ %add.ptr34.i, %_ZN3irr4core5arrayIsE8set_usedEj.exit ], [ null, %if.end102 ]
+  %verticesLinkBuffer.sroa.0.2106 = phi ptr [ %call5.i.i.i.i, %_ZN3irr4core5arrayIsE8set_usedEj.exit ], [ %call5.i.i.i.i, %for.body109.preheader ], [ null, %if.end102 ]
+  %verticesLinkBuffer.sroa.19.2105 = phi ptr [ %add.ptr34.i, %_ZN3irr4core5arrayIsE8set_usedEj.exit ], [ %add.ptr34.i, %for.body109.preheader ], [ null, %if.end102 ]
   %87 = load ptr, ptr %_M_finish.i.i602, align 8, !tbaa !111
   %88 = load ptr, ptr %FaceMaterialIndices, align 8, !tbaa !112
   %sub.ptr.lhs.cast.i.i6821304 = ptrtoint ptr %87 to i64
@@ -7021,7 +7021,7 @@ sub_15:                                           ; preds = %sub_01
   br label %if.else.tail
 
 if.else.tail:                                     ; preds = %sub_01, %if.end11.tail, %sub_15
-  %tobool3.not.i32 = phi i32 [ %18, %sub_15 ], [ 0, %if.end11.tail ], [ 0, %sub_01 ]
+  %tobool3.not.i32 = phi i32 [ 0, %sub_01 ], [ %18, %sub_15 ], [ 0, %if.end11.tail ]
   %spec.select = add i32 %tobool3.not.i32, %counter.0
   br label %cleanup18
 
@@ -7044,7 +7044,7 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
   br i1 %cmp9.not, label %return, label %while.cond, !llvm.loop !257
 
 return:                                           ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %_ZN3irr4core6stringIcED2Ev.exit38, %while.cond
-  %retval.5 = phi i1 [ %tobool.not, %while.cond ], [ %tobool.not, %_ZN3irr4core6stringIcED2Ev.exit38 ], [ false, %_ZN3irr4core6stringIcED2Ev.exit ]
+  %retval.5 = phi i1 [ %tobool.not, %_ZN3irr4core6stringIcED2Ev.exit38 ], [ %tobool.not, %while.cond ], [ false, %_ZN3irr4core6stringIcED2Ev.exit ]
   ret i1 %retval.5
 
 unreachable:                                      ; preds = %_ZN3irr4core6stringIcED2Ev.exit
@@ -11924,8 +11924,8 @@ if.end.i29:                                       ; preds = %if.then4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %if.end.i29, %if.then4, %_ZN3irr5scene16CXMeshFileLoader11readBinWordEv.exit, %if.then3
-  %6 = phi ptr [ %add.ptr.i, %_ZN3irr5scene16CXMeshFileLoader11readBinWordEv.exit ], [ %add.ptr.i30, %if.end.i29 ], [ %add.ptr.i, %if.then4 ], [ %2, %if.then3 ], [ %2, %if.then ]
-  %7 = phi i32 [ 1, %_ZN3irr5scene16CXMeshFileLoader11readBinWordEv.exit ], [ %5, %if.end.i29 ], [ 0, %if.then4 ], [ 1, %if.then3 ], [ %1, %if.then ]
+  %6 = phi ptr [ %2, %if.then3 ], [ %add.ptr.i, %_ZN3irr5scene16CXMeshFileLoader11readBinWordEv.exit ], [ %add.ptr.i30, %if.end.i29 ], [ %add.ptr.i, %if.then4 ], [ %2, %if.then ]
+  %7 = phi i32 [ 1, %if.then3 ], [ 1, %_ZN3irr5scene16CXMeshFileLoader11readBinWordEv.exit ], [ %5, %if.end.i29 ], [ 0, %if.then4 ], [ %1, %if.then ]
   %dec = add i32 %7, -1
   store i32 %dec, ptr %BinaryNumCount, align 8, !tbaa !201
   %FloatSize = getelementptr inbounds nuw i8, ptr %this, i64 137

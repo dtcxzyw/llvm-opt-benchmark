@@ -42,7 +42,7 @@ define hidden void @collapse(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %9, %6, %.loopexit.i
-  %.1.i = phi i32 [ 1, %12 ], [ %.014.i, %.loopexit.i ], [ %.014.i, %6 ], [ %.014.i, %9 ]
+  %.1.i = phi i32 [ 1, %12 ], [ %.014.i, %9 ], [ %.014.i, %6 ], [ %.014.i, %.loopexit.i ]
   %14 = add nuw nsw i32 %.0.i, 1
   br label %15
 
@@ -180,7 +180,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %59, %.thread, %62
-  %.26063.ph = phi i32 [ %50, %62 ], [ %52, %.thread ], [ %50, %59 ]
+  %.26063.ph = phi i32 [ %52, %.thread ], [ %50, %62 ], [ %50, %59 ]
   %.sink101 = and i64 %indvars.iv, 4294967295
   %65 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sink101
   store ptr null, ptr %65, align 8

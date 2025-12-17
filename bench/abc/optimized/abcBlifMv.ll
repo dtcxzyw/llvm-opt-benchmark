@@ -1057,7 +1057,7 @@ Vec_AttGrow.exit.i.i10:                           ; preds = %66, %52, %Abc_ObjMv
   br label %Abc_ObjMvVar.exit17
 
 Abc_ObjMvVar.exit17:                              ; preds = %Vec_AttGrow.exit.i.i10, %80
-  %88 = phi ptr [ %.pre19.i.i14, %80 ], [ %78, %Vec_AttGrow.exit.i.i10 ]
+  %88 = phi ptr [ %78, %Vec_AttGrow.exit.i.i10 ], [ %.pre19.i.i14, %80 ]
   %89 = load i32, ptr %88, align 4, !tbaa !44
   br label %Abc_ObjMvVar.exit.thread
 

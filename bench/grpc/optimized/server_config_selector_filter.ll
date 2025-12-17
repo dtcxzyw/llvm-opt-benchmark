@@ -903,7 +903,7 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerC
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126ServerConfigSelectorFilterEED2Ev.exit24.i.i.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126ServerConfigSelectorFilterEED2Ev.exit24.i.i.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherESt14default_deleteIS3_EED2Ev.exit32.i.i.i, %65, %61
-  %.pn14.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn14.pn.i.i.i, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherESt14default_deleteIS3_EED2Ev.exit32.i.i.i ], [ %62, %61 ], [ %62, %65 ]
+  %.pn14.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %62, %61 ], [ %.pn14.pn.i.i.i, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherESt14default_deleteIS3_EED2Ev.exit32.i.i.i ], [ %62, %65 ]
   call void @_ZNSt14_Optional_baseIN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrINS3_20ServerConfigSelectorEEEEELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #30, !noalias !79
   call void @_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #30, !noalias !79
   call void @_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #30, !noalias !79
@@ -1003,7 +1003,7 @@ _ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev.exit.i: ; p
   br label %.body11.i
 
 .body11.i:                                        ; preds = %141, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126ServerConfigSelectorFilterEED2Ev.exit24.i.i.i
-  %.pn.i = phi { ptr, i32 } [ %142, %141 ], [ %.pn14.pn.pn.pn.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126ServerConfigSelectorFilterEED2Ev.exit24.i.i.i ]
+  %.pn.i = phi { ptr, i32 } [ %.pn14.pn.pn.pn.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126ServerConfigSelectorFilterEED2Ev.exit24.i.i.i ], [ %142, %141 ]
   call void @_ZN9grpc_core13RefCountedPtrINS_28ServerConfigSelectorProviderEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30, !noalias !68
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !68
   br label %common.resume

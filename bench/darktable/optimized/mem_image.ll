@@ -207,13 +207,13 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
   br i1 %.not77, label %91, label %.sink.split97
 
 .sink.split97:                                    ; preds = %90, %84, %83, %58, %78, %34, %33, %27, %24, %19, %18
-  %.sink.sink = phi i32 [ -5, %18 ], [ -4, %19 ], [ 22, %24 ], [ -100012, %27 ], [ 12, %33 ], [ 0, %34 ], [ 12, %58 ], [ 0, %78 ], [ 12, %83 ], [ 0, %84 ], [ -6, %90 ]
-  %.0.ph = phi ptr [ null, %18 ], [ null, %19 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ %57, %58 ], [ %57, %78 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ]
+  %.sink.sink = phi i32 [ 0, %34 ], [ 0, %84 ], [ 0, %78 ], [ 12, %83 ], [ -100012, %27 ], [ 12, %33 ], [ 22, %24 ], [ -4, %19 ], [ -5, %18 ], [ 12, %58 ], [ -6, %90 ]
+  %.0.ph = phi ptr [ %32, %34 ], [ %82, %84 ], [ %57, %78 ], [ null, %83 ], [ null, %27 ], [ null, %33 ], [ null, %24 ], [ null, %19 ], [ null, %18 ], [ %57, %58 ], [ null, %90 ]
   store i32 %.sink.sink, ptr %1, align 4, !tbaa !87
   br label %91
 
 91:                                               ; preds = %.sink.split97, %58, %78, %90, %83, %84, %33, %34, %27, %24, %18, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %18 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ], [ %57, %78 ], [ %57, %58 ], [ %.0.ph, %.sink.split97 ]
+  %.0 = phi ptr [ null, %33 ], [ null, %24 ], [ null, %27 ], [ null, %90 ], [ %32, %34 ], [ %82, %84 ], [ null, %19 ], [ %57, %78 ], [ null, %18 ], [ %57, %58 ], [ null, %83 ], [ %.0.ph, %.sink.split97 ]
   ret ptr %.0
 }
 

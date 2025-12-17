@@ -2432,7 +2432,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_
   br label %17
 
 17:                                               ; preds = %16, %15, %8
-  %.0 = phi i32 [ 2, %8 ], [ 0, %15 ], [ %spec.select, %16 ]
+  %.0 = phi i32 [ 2, %8 ], [ %spec.select, %16 ], [ 0, %15 ]
   %18 = load i64, ptr %1, align 8, !tbaa !76
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !77
@@ -2902,7 +2902,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %169, %167, %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit57
 
 _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %189, %187, %177, %.lr.ph211
-  %.1 = phi i32 [ %.050210, %177 ], [ %.050210, %.lr.ph211 ], [ %183, %187 ], [ %183, %189 ]
+  %.1 = phi i32 [ %.050210, %.lr.ph211 ], [ %.050210, %177 ], [ %183, %187 ], [ %183, %189 ]
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.0150.0224, i64 %.052209
   %193 = load i8, ptr %192, align 1, !tbaa !22
   %194 = zext i8 %193 to i64
@@ -3512,7 +3512,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11raw_ostream14prepare_colorsEv(ptr
   br label %_ZN4llvm11raw_ostream5flushEv.exit
 
 _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %19, %14, %12, %7, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %7 ], [ true, %12 ], [ true, %14 ], [ true, %19 ]
+  %.0 = phi i1 [ false, %7 ], [ false, %1 ], [ true, %12 ], [ true, %14 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -4128,8 +4128,8 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %11, %6, %3
   br label %34
 
 34:                                               ; preds = %26, %26, %31
-  %.119 = phi i64 [ %.018, %26 ], [ %.018, %26 ], [ %33, %31 ]
-  %.1 = phi ptr [ %.0, %26 ], [ %.0, %26 ], [ %32, %31 ]
+  %.119 = phi i64 [ %33, %31 ], [ %.018, %26 ], [ %.018, %26 ]
+  %.1 = phi ptr [ %32, %31 ], [ %.0, %26 ], [ %.0, %26 ]
   %.not11 = icmp eq i64 %.119, 0
   br i1 %.not11, label %.loopexit, label %22, !llvm.loop !133
 
@@ -4605,8 +4605,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit
 
 _ZL5getFDN4llvm9StringRefERSt10error_codeNS_3sys2fs19CreationDispositionENS4_10FileAccessENS4_9OpenFlagsE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
-  %.pre-phi = phi ptr [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.pre, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ]
-  %.0.i = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ]
+  %.pre-phi = phi ptr [ %.pre, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
+  %.0.i = phi i32 [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %17, align 8, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5755,8 +5755,8 @@ _ZN4llvm11raw_ostream5flushEv.exit.i:             ; preds = %25, %20, %14
   br label %47
 
 47:                                               ; preds = %44, %39, %39
-  %.119.i = phi i64 [ %.018.i, %39 ], [ %.018.i, %39 ], [ %46, %44 ]
-  %.1.i = phi ptr [ %.0.i, %39 ], [ %.0.i, %39 ], [ %45, %44 ]
+  %.119.i = phi i64 [ %46, %44 ], [ %.018.i, %39 ], [ %.018.i, %39 ]
+  %.1.i = phi ptr [ %45, %44 ], [ %.0.i, %39 ], [ %.0.i, %39 ]
   %.not11.i = icmp eq i64 %.119.i, 0
   br i1 %.not11.i, label %_ZN4llvm11raw_ostream5flushEv.exit, label %35, !llvm.loop !133
 
@@ -6575,7 +6575,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
   br label %_ZN4llvm5ErrorD2Ev.exit7
 
 _ZN4llvm5ErrorD2Ev.exit7:                         ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i, %25, %.lr.ph
-  %storemerge.i = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ null, %25 ], [ %20, %.lr.ph ]
+  %storemerge.i = phi ptr [ null, %25 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i ], [ %20, %.lr.ph ]
   store ptr %storemerge.i, ptr %6, align 8, !tbaa !144, !alias.scope !208
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %31 = load ptr, ptr %4, align 8, !tbaa !144
@@ -6632,7 +6632,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12: ; pr
   br label %.thread
 
 .thread:                                          ; preds = %45, %50, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12
-  %storemerge.i10 = phi ptr [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ null, %50 ], [ %7, %45 ]
+  %storemerge.i10 = phi ptr [ null, %50 ], [ null, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i12 ], [ %7, %45 ]
   store ptr %storemerge.i10, ptr %0, align 8, !tbaa !144, !alias.scope !218
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit19
 

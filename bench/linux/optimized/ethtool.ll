@@ -1143,8 +1143,8 @@ define internal i32 @e1000_set_pauseparam(ptr noundef initializes((14216, 14217)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
-  %spec.select = select i1 %38, i32 1, i32 3
   %spec.select1 = select i1 %38, i32 0, i32 2
+  %spec.select = select i1 %38, i32 1, i32 3
   %39 = select i1 %35, i32 %spec.select1, i32 %spec.select
   %40 = getelementptr i8, ptr %0, i64 4580
   store i32 %39, ptr %40, align 4
@@ -2485,7 +2485,7 @@ reg_pattern_test.exit64.thread:                   ; preds = %.preheader.i63, %re
   br i1 %734, label %.thread71, label %679
 
 .thread71:                                        ; preds = %624, %576, %727, %689, %535, %542, %636, %643
-  %735 = phi i64 [ 1, %535 ], [ 2, %542 ], [ 5, %636 ], [ 6, %643 ], [ 7, %689 ], [ 8, %727 ], [ 3, %576 ], [ 4, %624 ]
+  %735 = phi i64 [ 1, %535 ], [ 2, %542 ], [ 5, %636 ], [ 6, %643 ], [ 8, %727 ], [ 7, %689 ], [ 4, %624 ], [ 3, %576 ]
   call fastcc void @e1000_free_desc_rings(ptr noundef %7)
   store i64 %735, ptr %521, align 8
   br label %1067

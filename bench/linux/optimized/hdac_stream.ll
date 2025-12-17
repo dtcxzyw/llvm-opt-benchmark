@@ -922,7 +922,7 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   br i1 %52, label %53, label %26, !llvm.loop !33
 
 53:                                               ; preds = %49, %38
-  %54 = phi ptr [ %50, %49 ], [ %29, %38 ]
+  %54 = phi ptr [ %29, %38 ], [ %50, %49 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.thread, label %56
 
@@ -939,7 +939,7 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
   br label %.thread
 
 .thread:                                          ; preds = %17, %56, %53
-  %63 = phi ptr [ %54, %56 ], [ null, %53 ], [ null, %17 ]
+  %63 = phi ptr [ null, %53 ], [ %54, %56 ], [ null, %17 ]
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %19) #10
   ret ptr %63
 }
@@ -1594,7 +1594,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   br label %29
 
 29:                                               ; preds = %20, %.split.us.us
-  %30 = phi i32 [ %13, %.split.us.us ], [ %28, %20 ]
+  %30 = phi i32 [ %28, %20 ], [ %13, %.split.us.us ]
   %31 = load ptr, ptr %12, align 8
   %32 = icmp eq ptr %31, %5
   br i1 %32, label %.split5.us.us, label %.split.us.us, !llvm.loop !45
@@ -1639,7 +1639,7 @@ define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) 
   br label %55
 
 55:                                               ; preds = %53, %47, %.split.split.us
-  %56 = phi i32 [ %54, %53 ], [ %39, %47 ], [ %39, %.split.split.us ]
+  %56 = phi i32 [ %54, %53 ], [ %39, %.split.split.us ], [ %39, %47 ]
   %57 = load ptr, ptr %38, align 8
   %58 = icmp eq ptr %57, %5
   br i1 %58, label %.split5, label %.split.split.us, !llvm.loop !45
@@ -1849,7 +1849,7 @@ define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr noundef r
   br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %24, %18, %1
-  %.pre-phi = phi i32 [ %23, %18 ], [ 0, %1 ], [ 0, %24 ]
+  %.pre-phi = phi i32 [ 0, %1 ], [ %23, %18 ], [ 0, %24 ]
   ret i32 %.pre-phi
 }
 

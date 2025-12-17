@@ -292,7 +292,7 @@ define hidden i64 @sk_insert(ptr noundef captures(address_is_null) %0, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %22, %20, %3, %41
-  %.040 = phi i64 [ %43, %41 ], [ 0, %3 ], [ 0, %20 ], [ 0, %22 ]
+  %.040 = phi i64 [ 0, %3 ], [ %43, %41 ], [ 0, %20 ], [ 0, %22 ]
   ret i64 %.040
 }
 
@@ -390,7 +390,7 @@ sk_delete.exit:                                   ; preds = %11, %13
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !19
 
 .loopexit:                                        ; preds = %19, %.preheader, %2, %sk_delete.exit
-  %.09 = phi ptr [ %9, %sk_delete.exit ], [ null, %2 ], [ null, %.preheader ], [ null, %19 ]
+  %.09 = phi ptr [ null, %2 ], [ %9, %sk_delete.exit ], [ null, %.preheader ], [ null, %19 ]
   ret ptr %.09
 }
 
@@ -523,7 +523,7 @@ bsearch.exit.thread.sink.split:                   ; preds = %.critedge, %17
   br label %bsearch.exit.thread
 
 bsearch.exit.thread:                              ; preds = %42, %18, %bsearch.exit.thread.sink.split, %.preheader, %sk_sort.exit, %.critedge, %20, %17, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %17 ], [ 0, %20 ], [ 1, %.critedge ], [ 0, %sk_sort.exit ], [ 0, %.preheader ], [ 1, %bsearch.exit.thread.sink.split ], [ 0, %18 ], [ 0, %42 ]
+  %.0 = phi i32 [ 1, %.critedge ], [ 0, %3 ], [ 1, %17 ], [ 0, %20 ], [ 0, %sk_sort.exit ], [ 0, %.preheader ], [ 1, %bsearch.exit.thread.sink.split ], [ 0, %18 ], [ 0, %42 ]
   ret i32 %.0
 }
 
@@ -670,7 +670,7 @@ define hidden i64 @sk_push(ptr noundef captures(none) %0, ptr noundef %1) local_
   br label %sk_insert.exit
 
 sk_insert.exit:                                   ; preds = %19, %21, %36
-  %.040.i = phi i64 [ %38, %36 ], [ 0, %19 ], [ 0, %21 ]
+  %.040.i = phi i64 [ 0, %21 ], [ %38, %36 ], [ 0, %19 ]
   ret i64 %.040.i
 }
 
@@ -694,7 +694,7 @@ define hidden ptr @sk_pop(ptr noundef captures(address_is_null) %0) local_unname
   br label %sk_delete.exit
 
 sk_delete.exit:                                   ; preds = %6, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %11, %6 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %11, %6 ]
   ret ptr %.0
 }
 

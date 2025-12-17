@@ -134,8 +134,8 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   br label %82
 
 .thread:                                          ; preds = %43, %72
-  %76 = phi i32 [ %64, %72 ], [ %38, %43 ]
-  %77 = phi i32 [ %65, %72 ], [ %41, %43 ]
+  %76 = phi i32 [ %38, %43 ], [ %64, %72 ]
+  %77 = phi i32 [ %41, %43 ], [ %65, %72 ]
   store i32 %77, ptr %39, align 1
   %78 = sext i32 %77 to i64
   %.split9 = getelementptr %struct.bio_vec, ptr %24, i64 %78

@@ -651,7 +651,7 @@ H5O__attr_decode.exit:                            ; preds = %284, %304
   store i32 %326, ptr %324, align 4, !tbaa !39
   br label %331
 
-327:                                              ; preds = %322, %320, %.thread270.i, %.thread304.i
+327:                                              ; preds = %322, %320, %.thread304.i, %.thread270.i
   %328 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %329 = load i64, ptr @H5E_CANTDECODE_g, align 8, !tbaa !10
   %330 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__attr_shared_decode, i32 noundef 75, i64 noundef %328, i64 noundef %329, ptr noundef nonnull @.str.6) #12
@@ -917,7 +917,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_encode(ptr noundef %0, i1
   br label %H5O__attr_encode.exit
 
 H5O__attr_encode.exit:                            ; preds = %168, %167, %21, %169, %18, %5
-  %.0 = phi i32 [ -1, %169 ], [ -1, %21 ], [ 0, %18 ], [ 0, %5 ], [ 0, %167 ], [ 0, %168 ]
+  %.0 = phi i32 [ -1, %169 ], [ 0, %5 ], [ -1, %21 ], [ 0, %18 ], [ 0, %167 ], [ 0, %168 ]
   ret i32 %.0
 }
 
@@ -1323,7 +1323,7 @@ H5O__attr_copy_file.exit:                         ; preds = %26
   br label %.thread
 
 .thread:                                          ; preds = %33, %H5O__attr_copy_file.exit, %39, %7
-  %.0 = phi ptr [ null, %39 ], [ null, %7 ], [ %27, %H5O__attr_copy_file.exit ], [ null, %33 ]
+  %.0 = phi ptr [ null, %39 ], [ null, %33 ], [ null, %7 ], [ %27, %H5O__attr_copy_file.exit ]
   ret ptr %.0
 }
 
@@ -1494,7 +1494,7 @@ define internal range(i32 -1, 1) i32 @H5O__attr_shared_debug(ptr noundef %0, ptr
   br label %38
 
 38:                                               ; preds = %36, %34, %33, %24
-  %.053.i = phi ptr [ %6, %36 ], [ @.str.43, %33 ], [ %6, %34 ], [ @.str.42, %24 ]
+  %.053.i = phi ptr [ %6, %36 ], [ %6, %34 ], [ @.str.43, %33 ], [ @.str.42, %24 ]
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.46, i32 noundef %3, ptr noundef nonnull @.str.40, i32 noundef %4, ptr noundef nonnull @.str.47, ptr noundef nonnull %.053.i) #12
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %41 = load i8, ptr %40, align 8, !tbaa !52, !range !7, !noundef !8

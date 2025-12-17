@@ -265,7 +265,7 @@ parse_maps.exit:                                  ; preds = %43, %88, %._crit_ed
   br i1 %100, label %92, label %.loopexit
 
 .loopexit:                                        ; preds = %98, %92, %parse_maps.exit, %.thread, %parse_maps.exit.thread, %1, %23
-  %.033 = phi i32 [ -12, %23 ], [ -12, %1 ], [ -22, %parse_maps.exit.thread ], [ -12, %.thread ], [ 0, %parse_maps.exit ], [ %99, %98 ], [ 0, %92 ]
+  %.033 = phi i32 [ -12, %1 ], [ -12, %.thread ], [ -22, %parse_maps.exit.thread ], [ -12, %23 ], [ 0, %parse_maps.exit ], [ %99, %98 ], [ 0, %92 ]
   ret i32 %.033
 }
 
@@ -354,7 +354,7 @@ define internal range(i32 -2147483648, 1) i32 @join_query_formats(ptr noundef %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %3, %10
-  %.015 = phi i32 [ %8, %3 ], [ %14, %10 ], [ %., %._crit_edge ], [ %26, %.lr.ph ]
+  %.015 = phi i32 [ %14, %10 ], [ %., %._crit_edge ], [ %8, %3 ], [ %26, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
@@ -863,7 +863,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %250, label %.lr.ph170.i, label %try_push_frame.exit, !llvm.loop !92
 
 .loopexit135.i:                                   ; preds = %130, %186, %196, %._crit_edge166.i, %176, %119
-  %.0101.i = phi i32 [ %214, %._crit_edge166.i ], [ -12, %176 ], [ -12, %119 ], [ -12, %196 ], [ -12, %186 ], [ -22, %130 ]
+  %.0101.i = phi i32 [ -12, %119 ], [ %214, %._crit_edge166.i ], [ -12, %176 ], [ -12, %186 ], [ -12, %196 ], [ -22, %130 ]
   call void @av_frame_free(ptr noundef nonnull %2) #11
   br label %try_push_frame.exit
 
@@ -906,12 +906,12 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br i1 %268, label %.lr.ph172.splitthread-pre-split.i, label %try_push_frame.exit, !llvm.loop !93
 
 try_push_frame.exit:                              ; preds = %265, %.lr.ph170.i, %.preheader.i, %._crit_edge.thread217.i, %235, %.loopexit135.i, %262
-  %.0.i = phi i32 [ %.0101.i, %.loopexit135.i ], [ -12, %._crit_edge.thread217.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ %244, %.lr.ph170.i ], [ 0, %265 ]
+  %.0.i = phi i32 [ -12, %._crit_edge.thread217.i ], [ %.0101.i, %.loopexit135.i ], [ 0, %262 ], [ %244, %235 ], [ 0, %.preheader.i ], [ %244, %.lr.ph170.i ], [ 0, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %72, %.preheader, %24, %try_push_frame.exit, %.split.us, %52
-  %.1 = phi i32 [ 0, %.split.us ], [ %.0.i, %try_push_frame.exit ], [ 0, %52 ], [ %28, %24 ], [ 0, %.preheader ], [ %76, %72 ], [ 0, %14 ]
+  %.1 = phi i32 [ %28, %24 ], [ 0, %.split.us ], [ %.0.i, %try_push_frame.exit ], [ 0, %52 ], [ 0, %.preheader ], [ %76, %72 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
@@ -1406,7 +1406,7 @@ channel_list_pop_ch.exit:                         ; preds = %19, %233, %guess_ma
   br label %241
 
 241:                                              ; preds = %1, %._crit_edge201
-  %.0 = phi i32 [ %.2113268, %._crit_edge201 ], [ -12, %1 ]
+  %.0 = phi i32 [ -12, %1 ], [ %.2113268, %._crit_edge201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

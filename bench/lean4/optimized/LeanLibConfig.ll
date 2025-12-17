@@ -11954,7 +11954,7 @@ lean_dec.exit.i61:                                ; preds = %55, %54, %52, %lean
   br i1 %57, label %34, label %.critedge
 
 .critedge:                                        ; preds = %lean_dec.exit.i, %lean_dec.exit.i61, %34, %lean_nat_lt.exit51
-  %.0 = phi i8 [ 0, %lean_nat_lt.exit51 ], [ 0, %34 ], [ 1, %lean_dec.exit.i61 ], [ 1, %lean_dec.exit.i ]
+  %.0 = phi i8 [ 0, %lean_nat_lt.exit51 ], [ 1, %lean_dec.exit.i61 ], [ 0, %34 ], [ 1, %lean_dec.exit.i ]
   ret i8 %.0
 }
 

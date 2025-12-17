@@ -946,8 +946,8 @@ sw.epilog217.sink.split.loopexit301:              ; preds = %do_action
   br label %sw.epilog217.sink.split
 
 sw.epilog217.sink.split:                          ; preds = %do_action, %sw.epilog217.sink.split.loopexit301, %if.else183
-  %.sink = phi i64 [ 56, %if.else183 ], [ 112, %sw.epilog217.sink.split.loopexit301 ], [ 112, %do_action ]
-  %yyin134.sink = phi ptr [ %yyin134, %if.else183 ], [ @.str.1, %sw.epilog217.sink.split.loopexit301 ], [ @.str, %do_action ]
+  %.sink = phi i64 [ 112, %sw.epilog217.sink.split.loopexit301 ], [ 56, %if.else183 ], [ 112, %do_action ]
+  %yyin134.sink = phi ptr [ @.str.1, %sw.epilog217.sink.split.loopexit301 ], [ %yyin134, %if.else183 ], [ @.str, %do_action ]
   %vtable188 = load ptr, ptr %this, align 8
   %vfn189 = getelementptr inbounds nuw i8, ptr %vtable188, i64 %.sink
   %95 = load ptr, ptr %vfn189, align 8
@@ -973,12 +973,12 @@ return.loopexit302:                               ; preds = %do_action
   br label %return
 
 return:                                           ; preds = %do_action, %return.loopexit302, %return.loopexit274, %return.loopexit246, %return.loopexit201, %return.loopexit, %sw.bb112, %invoke.cont108, %invoke.cont97, %sw.bb84, %invoke.cont82, %sw.bb77, %sw.bb76
-  %retval.0 = phi i32 [ 265, %sw.bb76 ], [ 263, %sw.bb77 ], [ 267, %invoke.cont82 ], [ 269, %sw.bb84 ], [ 266, %invoke.cont97 ], [ 268, %invoke.cont108 ], [ 0, %sw.bb112 ], [ 258, %return.loopexit ], [ 259, %return.loopexit201 ], [ 260, %return.loopexit246 ], [ 261, %return.loopexit274 ], [ 262, %return.loopexit302 ], [ 264, %do_action ]
+  %retval.0 = phi i32 [ 0, %sw.bb112 ], [ 258, %return.loopexit ], [ 259, %return.loopexit201 ], [ 260, %return.loopexit246 ], [ 261, %return.loopexit274 ], [ 262, %return.loopexit302 ], [ 265, %sw.bb76 ], [ 263, %sw.bb77 ], [ 267, %invoke.cont82 ], [ 269, %sw.bb84 ], [ 266, %invoke.cont97 ], [ 268, %invoke.cont108 ], [ 264, %do_action ]
   ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad107, %lpad.i64, %lpad105, %lpad96, %lpad.i49, %lpad94, %lpad81, %lpad.i, %lpad
-  %ref.tmp104.sink = phi ptr [ %ref.tmp80, %lpad ], [ %ref.tmp80, %lpad.i ], [ %ref.tmp80, %lpad81 ], [ %ref.tmp93, %lpad94 ], [ %ref.tmp93, %lpad.i49 ], [ %ref.tmp93, %lpad96 ], [ %ref.tmp104, %lpad105 ], [ %ref.tmp104, %lpad.i64 ], [ %ref.tmp104, %lpad107 ]
-  %.pn26.pn = phi { ptr, i32 } [ %41, %lpad ], [ %40, %lpad.i ], [ %42, %lpad81 ], [ %46, %lpad94 ], [ %45, %lpad.i49 ], [ %47, %lpad96 ], [ %50, %lpad105 ], [ %49, %lpad.i64 ], [ %51, %lpad107 ]
+  %ref.tmp104.sink = phi ptr [ %ref.tmp93, %lpad96 ], [ %ref.tmp80, %lpad81 ], [ %ref.tmp80, %lpad ], [ %ref.tmp80, %lpad.i ], [ %ref.tmp93, %lpad94 ], [ %ref.tmp93, %lpad.i49 ], [ %ref.tmp104, %lpad105 ], [ %ref.tmp104, %lpad.i64 ], [ %ref.tmp104, %lpad107 ]
+  %.pn26.pn = phi { ptr, i32 } [ %47, %lpad96 ], [ %42, %lpad81 ], [ %41, %lpad ], [ %40, %lpad.i ], [ %46, %lpad94 ], [ %45, %lpad.i49 ], [ %50, %lpad105 ], [ %49, %lpad.i64 ], [ %51, %lpad107 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp104.sink) #36
   resume { ptr, i32 } %.pn26.pn
 }
@@ -1572,7 +1572,7 @@ if.end162:                                        ; preds = %if.end156, %if.end1
   br label %return
 
 return:                                           ; preds = %if.then11, %if.end162
-  %retval.0 = phi i32 [ %ret_val.0, %if.end162 ], [ %., %if.then11 ]
+  %retval.0 = phi i32 [ %., %if.then11 ], [ %ret_val.0, %if.end162 ]
   ret i32 %retval.0
 }
 
@@ -1903,7 +1903,7 @@ if.else:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.else
-  %retval.0 = phi i32 [ %conv19, %if.else ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ %conv19, %if.else ], [ 0, %entry ], [ 0, %lor.lhs.false ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2142,7 +2142,7 @@ default.unreachable31:                            ; preds = %if.else
   unreachable
 
 if.end27:                                         ; preds = %if.end21, %entry, %if.then6, %sw.bb23
-  %20 = phi ptr [ %.pre, %if.then6 ], [ %add.ptr, %sw.bb23 ], [ %2, %entry ], [ %17, %if.end21 ]
+  %20 = phi ptr [ %add.ptr, %sw.bb23 ], [ %.pre, %if.then6 ], [ %2, %entry ], [ %17, %if.end21 ]
   %21 = load i8, ptr %20, align 1
   %conv29 = zext i8 %21 to i32
   store i8 0, ptr %20, align 1
@@ -2508,7 +2508,7 @@ if.then13:                                        ; preds = %cond.true5
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then13, %cond.true5
-  %22 = phi ptr [ %.pre, %if.then13 ], [ %8, %cond.true5 ]
+  %22 = phi ptr [ %8, %cond.true5 ], [ %.pre, %if.then13 ]
   %yy_buffer_stack_top24 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %23 = load i64, ptr %yy_buffer_stack_top24, align 8
   %arrayidx25 = getelementptr inbounds ptr, ptr %22, i64 %23

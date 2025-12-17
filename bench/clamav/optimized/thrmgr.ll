@@ -231,11 +231,11 @@ switch.lookup:                                    ; preds = %13
   br label %.loopexit
 
 .thread:                                          ; preds = %79, %75, %._crit_edge215, %.lr.ph228
-  %.9169 = phi i32 [ %.292225, %.lr.ph228 ], [ %.292225, %._crit_edge215 ], [ %.292225, %75 ], [ %84, %79 ]
-  %.8101168 = phi ptr [ %.295224, %.lr.ph228 ], [ %.295224, %._crit_edge215 ], [ %74, %75 ], [ %74, %79 ]
-  %.9111167 = phi i64 [ %.2104223, %.lr.ph228 ], [ %.2104223, %._crit_edge215 ], [ %.2104223, %75 ], [ %81, %79 ]
-  %.9121166 = phi i64 [ %.2114222, %.lr.ph228 ], [ %.2114222, %._crit_edge215 ], [ %.2114222, %75 ], [ %83, %79 ]
-  %.7129165 = phi i64 [ %.2124221, %.lr.ph228 ], [ %.2124221, %._crit_edge215 ], [ %72, %75 ], [ %72, %79 ]
+  %.9169 = phi i32 [ %.292225, %.lr.ph228 ], [ %.292225, %._crit_edge215 ], [ %84, %79 ], [ %.292225, %75 ]
+  %.8101168 = phi ptr [ %.295224, %.lr.ph228 ], [ %.295224, %._crit_edge215 ], [ %74, %79 ], [ %74, %75 ]
+  %.9111167 = phi i64 [ %.2104223, %.lr.ph228 ], [ %.2104223, %._crit_edge215 ], [ %81, %79 ], [ %.2104223, %75 ]
+  %.9121166 = phi i64 [ %.2114222, %.lr.ph228 ], [ %.2114222, %._crit_edge215 ], [ %83, %79 ], [ %.2114222, %75 ]
+  %.7129165 = phi i64 [ %.2124221, %.lr.ph228 ], [ %.2124221, %._crit_edge215 ], [ %72, %79 ], [ %72, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %85 = getelementptr inbounds nuw i8, ptr %.087226, i64 40
@@ -810,7 +810,7 @@ work_queue_new.exit86:                            ; preds = %work_queue_new.exit
   br label %83
 
 83:                                               ; preds = %6, %4, %81, %72, %62, %52, %43, %35, %28, %22, %11, %9
-  %.0 = phi ptr [ null, %22 ], [ null, %28 ], [ null, %35 ], [ null, %43 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ %7, %81 ], [ null, %11 ], [ null, %9 ], [ null, %4 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %22 ], [ null, %28 ], [ null, %35 ], [ null, %43 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ %7, %81 ], [ null, %11 ], [ null, %9 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -1095,8 +1095,8 @@ work_queue_add.exit:                              ; preds = %59, %57
   %88 = call i32 @pthread_cond_signal(ptr noundef nonnull %87) #13
   br label %work_queue_add.exit.thread
 
-work_queue_add.exit.thread:                       ; preds = %48, %.split45.us, %9, %86
-  %.028 = phi i32 [ 1, %86 ], [ 0, %9 ], [ 0, %.split45.us ], [ 0, %48 ]
+work_queue_add.exit.thread:                       ; preds = %.split45.us, %48, %9, %86
+  %.028 = phi i32 [ 0, %9 ], [ 1, %86 ], [ 0, %48 ], [ 0, %.split45.us ]
   %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   %.not36 = icmp eq i32 %89, 0
   br i1 %.not36, label %92, label %90
@@ -1580,7 +1580,7 @@ work_queue_pop.exit30.thread.sink.split.i:        ; preds = %85, %69
   br label %work_queue_pop.exit30.thread.i
 
 work_queue_pop.exit30.thread.i:                   ; preds = %work_queue_pop.exit30.thread.sink.split.i, %85, %work_queue_pop.exit30.i, %work_queue_pop.exit.thread.thread.i, %work_queue_pop.exit.thread.i, %69
-  %.021.i = phi ptr [ %61, %69 ], [ %77, %85 ], [ null, %work_queue_pop.exit30.i ], [ null, %work_queue_pop.exit.thread.thread.i ], [ null, %work_queue_pop.exit.thread.i ], [ %.021.ph.i, %work_queue_pop.exit30.thread.sink.split.i ]
+  %.021.i = phi ptr [ null, %work_queue_pop.exit.thread.thread.i ], [ %61, %69 ], [ null, %work_queue_pop.exit.thread.i ], [ %77, %85 ], [ null, %work_queue_pop.exit30.i ], [ %.021.ph.i, %work_queue_pop.exit30.thread.sink.split.i ]
   %.pre.i.i = load ptr, ptr %11, align 8, !tbaa !26
   %.phi.trans.insert9.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
   %.pre10.i.i = load i32, ptr %.phi.trans.insert9.i.i, align 8, !tbaa !23

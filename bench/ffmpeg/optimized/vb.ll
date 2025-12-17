@@ -541,8 +541,8 @@ default.unreachable:                              ; preds = %bytestream2_get_byt
   unreachable
 
 .loopexit.i:                                      ; preds = %220, %196, %164, %155, %.preheader205.i, %118
-  %.1136295.i = phi i32 [ %.1136296.i, %118 ], [ %.1136.i, %.preheader205.i ], [ %.1136.i, %155 ], [ %.1136.i, %164 ], [ %.1136.i, %196 ], [ %.1136.i, %220 ]
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.1294.i, %118 ], [ %137, %.preheader205.i ], [ %124, %155 ], [ %.sroa.0.6.i, %164 ], [ %.sroa.0.9.i, %196 ], [ %.sroa.0.10.i, %220 ]
+  %.1136295.i = phi i32 [ %.1136.i, %196 ], [ %.1136296.i, %118 ], [ %.1136.i, %.preheader205.i ], [ %.1136.i, %155 ], [ %.1136.i, %164 ], [ %.1136.i, %220 ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.9.i, %196 ], [ %.sroa.0.1294.i, %118 ], [ %137, %.preheader205.i ], [ %124, %155 ], [ %.sroa.0.6.i, %164 ], [ %.sroa.0.10.i, %220 ]
   %223 = shl i32 %.1136295.i, 2
   %224 = getelementptr inbounds nuw i8, ptr %.0123236.i, i64 4
   %225 = getelementptr inbounds nuw i8, ptr %.0122237.i, i64 4
@@ -740,7 +740,7 @@ vb_decode_palette.exit:                           ; preds = %bytestream2_get_be2
   br label %325
 
 325:                                              ; preds = %10, %4, %._crit_edge, %73, %52
-  %.0 = phi i32 [ -1094995529, %52 ], [ -1, %73 ], [ %324, %._crit_edge ], [ -1094995529, %4 ], [ %18, %10 ]
+  %.0 = phi i32 [ %324, %._crit_edge ], [ -1094995529, %4 ], [ -1094995529, %52 ], [ -1, %73 ], [ %18, %10 ]
   ret i32 %.0
 }
 

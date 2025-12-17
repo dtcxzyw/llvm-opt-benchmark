@@ -961,7 +961,7 @@ uninit_graphprint.exit:                           ; preds = %403, %406
   br label %409
 
 409:                                              ; preds = %24, %uninit_graphprint.exit, %28, %18
-  %.0 = phi i32 [ 0, %uninit_graphprint.exit ], [ -12, %28 ], [ -22, %18 ], [ %25, %24 ]
+  %.0 = phi i32 [ -22, %18 ], [ 0, %uninit_graphprint.exit ], [ -12, %28 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.0
 }
@@ -1122,7 +1122,7 @@ init_sections.exit:                               ; preds = %7
   br label %80
 
 68:                                               ; preds = %28, %11, %23, %22, %18, %15
-  %.019 = phi i32 [ -22, %22 ], [ %26, %23 ], [ -22, %18 ], [ -22, %15 ], [ -12, %11 ], [ -12, %28 ]
+  %.019 = phi i32 [ -22, %22 ], [ %26, %23 ], [ -12, %11 ], [ -22, %18 ], [ -22, %15 ], [ -12, %28 ]
   %69 = load ptr, ptr %3, align 8, !tbaa !127
   %.not34 = icmp eq ptr %69, null
   br i1 %.not34, label %73, label %70
@@ -2147,7 +2147,7 @@ sub_0.i:                                          ; preds = %print_streams.exit.
   br label %450
 
 446:                                              ; preds = %.thread.i, %print_streams.exit.i
-  %.1.i = phi i32 [ 0, %print_streams.exit.i ], [ %.3.ph.i, %.thread.i ]
+  %.1.i = phi i32 [ %.3.ph.i, %.thread.i ], [ 0, %print_streams.exit.i ]
   %447 = load i32, ptr @print_graphs, align 4, !tbaa !259
   %.not62.i = icmp eq i32 %447, 0
   br i1 %.not62.i, label %450, label %448
@@ -2192,7 +2192,7 @@ uninit_graphprint.exit.i:                         ; preds = %458, %455
   br label %print_filtergraphs_priv.exit
 
 print_filtergraphs_priv.exit:                     ; preds = %19, %450, %uninit_graphprint.exit.i
-  %.04574.i = phi i32 [ %.045.ph.i, %uninit_graphprint.exit.i ], [ %.045.ph.i, %450 ], [ -12, %19 ]
+  %.04574.i = phi i32 [ %.045.ph.i, %450 ], [ %.045.ph.i, %uninit_graphprint.exit.i ], [ -12, %19 ]
   %462 = call i32 @av_bprint_finalize(ptr noundef nonnull %14, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

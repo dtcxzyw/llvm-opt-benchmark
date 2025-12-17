@@ -368,7 +368,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph91, %._crit_edge, %._crit_edge96, %11
-  %110 = phi i16 [ %.pre108, %._crit_edge ], [ %45, %._crit_edge96 ], [ %15, %11 ], [ %74, %.lr.ph91 ]
+  %110 = phi i16 [ %15, %11 ], [ %45, %._crit_edge96 ], [ %.pre108, %._crit_edge ], [ %74, %.lr.ph91 ]
   %111 = icmp eq i16 %110, 1
   br i1 %111, label %112, label %.loopexit.thread117
 
@@ -901,7 +901,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   br label %193
 
 193:                                              ; preds = %12, %9, %29, %104, %160, %191, %155, %49, %53, %21, %4, %6
-  %.0 = phi i1 [ %8, %6 ], [ false, %4 ], [ false, %12 ], [ false, %9 ], [ false, %21 ], [ %32, %53 ], [ %32, %49 ], [ %32, %155 ], [ %32, %191 ], [ %32, %160 ], [ %32, %104 ], [ %32, %29 ]
+  %.0 = phi i1 [ false, %4 ], [ %8, %6 ], [ false, %9 ], [ false, %12 ], [ false, %21 ], [ %32, %53 ], [ %32, %49 ], [ %32, %155 ], [ %32, %191 ], [ %32, %160 ], [ %32, %104 ], [ %32, %29 ]
   ret i1 %.0
 }
 
@@ -968,8 +968,8 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readon
   %or.cond = select i1 %.not, i1 true, i1 %.not30
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !28
 
-.critedge:                                        ; preds = %25, %20, %.lr.ph, %11, %3
-  %.not.lcssa = phi i1 [ %.not33, %3 ], [ false, %11 ], [ false, %.lr.ph ], [ false, %20 ], [ %.not, %25 ]
+.critedge:                                        ; preds = %25, %20, %11, %.lr.ph, %3
+  %.not.lcssa = phi i1 [ %.not33, %3 ], [ false, %.lr.ph ], [ false, %11 ], [ false, %20 ], [ %.not, %25 ]
   ret i1 %.not.lcssa
 }
 

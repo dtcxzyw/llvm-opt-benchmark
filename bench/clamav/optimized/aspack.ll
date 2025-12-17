@@ -537,7 +537,7 @@ decomp_block.exit.thread214.loopexit:             ; preds = %183
   store ptr %185, ptr %69, align 8
   br label %decomp_block.exit.thread214
 
-decomp_block.exit.thread214:                      ; preds = %.loopexit119.i.i, %241, %133, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %125, %.outer.split.i.i, %145, %206, %decomp_block.exit.thread214.loopexit
+decomp_block.exit.thread214:                      ; preds = %.loopexit119.i.i, %241, %133, %.lr.ph.i.i.i, %.lr.ph.i107.i.i, %.outer.split.i.i, %125, %145, %206, %decomp_block.exit.thread214.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %decomp_block.exit.thread
@@ -627,7 +627,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   %284 = icmp ugt i16 %3, 2
   br i1 %284, label %286, label %299
 
-.critedge211:                                     ; preds = %.loopexit, %82, %89, %92, %94, %63, %105, %decomp_block.exit.thread
+.critedge211:                                     ; preds = %89, %92, %.loopexit, %94, %82, %63, %105, %decomp_block.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #11
   %285 = load ptr, ptr %26, align 8, !tbaa !3
   tail call void @free(ptr noundef %285) #11
@@ -654,7 +654,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   br label %299
 
 299:                                              ; preds = %293, %286, %.critedge
-  %.0162 = phi i16 [ %3, %286 ], [ %3, %.critedge ], [ %spec.select, %293 ]
+  %.0162 = phi i16 [ %spec.select, %293 ], [ %3, %.critedge ], [ %3, %286 ]
   %300 = zext i16 %.0162 to i64
   %301 = mul nuw nsw i64 %300, 36
   %302 = tail call ptr @cli_max_malloc(i64 noundef %301) #11
@@ -1151,7 +1151,7 @@ getbits.exit78.thread:                            ; preds = %37
   br label %.loopexit114
 
 .loopexit114:                                     ; preds = %63, %72, %126, %94, %28, %getbits.exit78.thread, %.loopexit110.thread, %167, %170, %.split.us, %.loopexit
-  %.057 = phi i32 [ 1, %.loopexit ], [ 0, %28 ], [ 0, %.split.us ], [ 0, %170 ], [ 0, %167 ], [ 0, %.loopexit110.thread ], [ 0, %getbits.exit78.thread ], [ 0, %94 ], [ 0, %126 ], [ 0, %72 ], [ 0, %63 ]
+  %.057 = phi i32 [ 0, %28 ], [ 0, %.split.us ], [ 1, %.loopexit ], [ 0, %170 ], [ 0, %167 ], [ 0, %.loopexit110.thread ], [ 0, %getbits.exit78.thread ], [ 0, %72 ], [ 0, %94 ], [ 0, %126 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.057
 }
@@ -1318,8 +1318,8 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   %84 = icmp samesign ult i64 %indvars.iv.next146, %83
   br i1 %84, label %.lr.ph129, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %46, %42, %24, %65, %67, %81, %.preheader, %60
-  %.0 = phi i8 [ 0, %60 ], [ 1, %.preheader ], [ 0, %65 ], [ 0, %67 ], [ 1, %81 ], [ 0, %24 ], [ 0, %42 ], [ 0, %46 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %42, %46, %24, %65, %67, %81, %.preheader, %60
+  %.0 = phi i8 [ 0, %60 ], [ 1, %.preheader ], [ 0, %42 ], [ 1, %81 ], [ 0, %67 ], [ 0, %65 ], [ 0, %24 ], [ 0, %46 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.0
@@ -1432,7 +1432,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
   br label %67
 
 67:                                               ; preds = %63, %59, %55, %51, %47, %34
-  %.045 = phi i8 [ %41, %34 ], [ %., %47 ], [ 11, %51 ], [ 12, %55 ], [ 13, %59 ], [ %.51, %63 ]
+  %.045 = phi i8 [ %41, %34 ], [ %., %47 ], [ 13, %59 ], [ %.51, %63 ], [ 11, %51 ], [ 12, %55 ]
   %68 = zext nneg i8 %.045 to i32
   %69 = add nuw nsw i32 %26, %68
   store i32 %69, ptr %0, align 8, !tbaa !20
@@ -1462,7 +1462,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
   br label %readstream.exit
 
 readstream.exit:                                  ; preds = %14, %67, %34, %84
-  %.0 = phi i32 [ %88, %84 ], [ 0, %34 ], [ 0, %67 ], [ 0, %14 ]
+  %.0 = phi i32 [ %88, %84 ], [ 0, %67 ], [ 0, %34 ], [ 0, %14 ]
   ret i32 %.0
 }
 

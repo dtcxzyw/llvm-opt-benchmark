@@ -480,7 +480,7 @@ Py_DECREF.exit25.i:                               ; preds = %29, %26, %25
   br i1 %.not.i, label %Py_DECREF.exit25.thread.i, label %.lr.ph.i
 
 Py_DECREF.exit25.thread.i:                        ; preds = %Py_DECREF.exit25.i, %24, %21, %.split.i, %_PyMutex_Lock.exit.i
-  %.3.i = phi ptr [ null, %.split.i ], [ null, %21 ], [ null, %24 ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit25.i ]
+  %.3.i = phi ptr [ null, %24 ], [ null, %21 ], [ null, %.split.i ], [ %3, %_PyMutex_Lock.exit.i ], [ %3, %Py_DECREF.exit25.i ]
   tail call void @endgrent() #4
   %31 = cmpxchg ptr @grp_getgrall_impl.getgrall_mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %32 = extractvalue { i8, i1 } %31, 1

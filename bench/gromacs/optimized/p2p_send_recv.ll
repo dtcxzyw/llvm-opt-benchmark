@@ -49,7 +49,7 @@ define noundef i32 @_Z9tMPI_SendPKviP14tmpi_datatype_iiP10tmpi_comm_(ptr noundef
   br label %26
 
 26:                                               ; preds = %20, %23, %18, %9
-  %.0 = phi i32 [ %25, %23 ], [ %19, %18 ], [ %11, %9 ], [ 20, %20 ]
+  %.0 = phi i32 [ %11, %9 ], [ %25, %23 ], [ %19, %18 ], [ 20, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -109,7 +109,7 @@ define noundef i32 @_Z9tMPI_RecvPviP14tmpi_datatype_iiP10tmpi_comm_P12tmpi_statu
   br label %28
 
 28:                                               ; preds = %22, %25, %20, %10
-  %.0 = phi i32 [ %27, %25 ], [ %21, %20 ], [ %12, %10 ], [ 20, %22 ]
+  %.0 = phi i32 [ %12, %10 ], [ %27, %25 ], [ %21, %20 ], [ 20, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -204,7 +204,7 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
   br label %51
 
 51:                                               ; preds = %37, %34, %._crit_edge, %32, %25, %16
-  %.032 = phi i32 [ %spec.select, %._crit_edge ], [ %33, %32 ], [ %26, %25 ], [ %18, %16 ], [ 20, %34 ], [ 20, %37 ]
+  %.032 = phi i32 [ %18, %16 ], [ 20, %34 ], [ %spec.select, %._crit_edge ], [ %33, %32 ], [ %26, %25 ], [ 20, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.032
@@ -255,7 +255,7 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
   br label %28
 
 28:                                               ; preds = %22, %25, %20, %11
-  %.0 = phi i32 [ %27, %25 ], [ %21, %20 ], [ %13, %11 ], [ 20, %22 ]
+  %.0 = phi i32 [ %13, %11 ], [ %27, %25 ], [ %21, %20 ], [ 20, %22 ]
   ret i32 %.0
 }
 
@@ -309,7 +309,7 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
   br label %29
 
 29:                                               ; preds = %23, %26, %21, %11
-  %.0 = phi i32 [ %28, %26 ], [ %22, %21 ], [ %13, %11 ], [ 20, %23 ]
+  %.0 = phi i32 [ %13, %11 ], [ %28, %26 ], [ %22, %21 ], [ 20, %23 ]
   ret i32 %.0
 }
 

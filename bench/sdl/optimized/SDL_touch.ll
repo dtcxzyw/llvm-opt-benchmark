@@ -248,7 +248,7 @@ define hidden ptr @SDL_GetTouchFingers_REAL(i64 noundef %0, ptr noundef writeonl
   br label %30
 
 30:                                               ; preds = %._crit_edge, %29, %6, %4
-  %.026 = phi ptr [ null, %4 ], [ null, %6 ], [ %15, %29 ], [ %15, %._crit_edge ]
+  %.026 = phi ptr [ null, %6 ], [ null, %4 ], [ %15, %29 ], [ %15, %._crit_edge ]
   ret ptr %.026
 }
 
@@ -326,7 +326,7 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %11, %3
   br label %36
 
 36:                                               ; preds = %SDL_GetTouchIndex.exit, %17, %SDL_GetTouchIndex.exit.thread, %23
-  %.0 = phi i32 [ %18, %23 ], [ %12, %SDL_GetTouchIndex.exit ], [ -1, %SDL_GetTouchIndex.exit.thread ], [ -1, %17 ]
+  %.0 = phi i32 [ %12, %SDL_GetTouchIndex.exit ], [ %18, %23 ], [ -1, %SDL_GetTouchIndex.exit.thread ], [ -1, %17 ]
   ret i32 %.0
 }
 

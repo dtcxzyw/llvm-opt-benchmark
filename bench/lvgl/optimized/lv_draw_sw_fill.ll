@@ -279,8 +279,8 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br label %.thread181
 
 .thread181:                                       ; preds = %119, %117, %._crit_edge, %128
-  %141 = phi i1 [ false, %._crit_edge ], [ false, %128 ], [ %101, %117 ], [ %101, %119 ]
-  %.1149183 = phi i1 [ true, %._crit_edge ], [ false, %128 ], [ false, %117 ], [ false, %119 ]
+  %141 = phi i1 [ false, %128 ], [ false, %._crit_edge ], [ %101, %117 ], [ %101, %119 ]
+  %.1149183 = phi i1 [ false, %128 ], [ true, %._crit_edge ], [ false, %117 ], [ false, %119 ]
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   br label %142
 

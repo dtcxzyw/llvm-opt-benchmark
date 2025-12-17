@@ -736,7 +736,7 @@ define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr noundef 
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %15, %3, %13
-  %.012 = phi i32 [ %14, %13 ], [ 0, %3 ], [ 0, %15 ]
+  %.012 = phi i32 [ 0, %3 ], [ %14, %13 ], [ 0, %15 ]
   ret i32 %.012
 }
 
@@ -912,7 +912,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr noundef readonly c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %24, %.preheader40, %10, %19, %17, %.preheader, %29
-  %.025 = phi i32 [ %32, %29 ], [ 1, %.preheader ], [ 1, %19 ], [ 0, %17 ], [ 0, %.preheader40 ], [ 1, %10 ], [ 1, %24 ], [ 1, %22 ]
+  %.025 = phi i32 [ %32, %29 ], [ 1, %10 ], [ 1, %.preheader ], [ 0, %17 ], [ 1, %19 ], [ 0, %.preheader40 ], [ 1, %24 ], [ 1, %22 ]
   ret i32 %.025
 }
 
@@ -996,10 +996,10 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.lr.ph136.preheader, %30, %27
-  %.2 = phi ptr [ %33, %.lr.ph136.preheader ], [ %33, %30 ], [ %.1120138, %27 ], [ %.1120138, %19 ]
-  %.292 = phi i32 [ %31, %.lr.ph136.preheader ], [ %31, %30 ], [ %.191140, %27 ], [ %.191140, %19 ]
-  %.286 = phi i32 [ %34, %.lr.ph136.preheader ], [ %34, %30 ], [ %.185141, %27 ], [ %.185141, %19 ]
-  %.5 = phi i32 [ %36, %.lr.ph136.preheader ], [ %20, %30 ], [ %20, %27 ], [ %20, %19 ]
+  %.2 = phi ptr [ %.1120138, %27 ], [ %33, %.lr.ph136.preheader ], [ %33, %30 ], [ %.1120138, %19 ]
+  %.292 = phi i32 [ %.191140, %27 ], [ %31, %.lr.ph136.preheader ], [ %31, %30 ], [ %.191140, %19 ]
+  %.286 = phi i32 [ %.185141, %27 ], [ %34, %.lr.ph136.preheader ], [ %34, %30 ], [ %.185141, %19 ]
+  %.5 = phi i32 [ %20, %27 ], [ %36, %.lr.ph136.preheader ], [ %20, %30 ], [ %20, %19 ]
   %indvars = trunc i64 %26 to i32
   %37 = sub nsw i32 %indvars, %.286
   %38 = icmp slt i32 %37, %.070

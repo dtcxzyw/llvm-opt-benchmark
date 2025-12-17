@@ -275,8 +275,8 @@ define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %0, ptr noundef
   br label %dsa_to_text.exit
 
 .thread.i:                                        ; preds = %21, %19, %17
-  %.03251.i = phi ptr [ @.str.8, %21 ], [ %spec.select.i, %19 ], [ @.str.9, %17 ]
-  %.031.i = phi ptr [ %22, %21 ], [ null, %19 ], [ null, %17 ]
+  %.03251.i = phi ptr [ @.str.8, %21 ], [ @.str.9, %17 ], [ %spec.select.i, %19 ]
+  %.031.i = phi ptr [ %22, %21 ], [ null, %17 ], [ null, %19 ]
   %25 = and i32 %4, 3
   %.not42.i = icmp eq i32 %25, 0
   br i1 %.not42.i, label %30, label %26
@@ -358,7 +358,7 @@ define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %0, ptr noundef
   br label %dsa_to_text.exit
 
 dsa_to_text.exit:                                 ; preds = %14, %24, %29, %35, %39, %40, %45, %48, %51, %53
-  %.033.i = phi i32 [ 0, %14 ], [ 0, %24 ], [ 0, %29 ], [ 0, %35 ], [ 0, %39 ], [ 1, %53 ], [ 0, %40 ], [ 0, %45 ], [ 0, %48 ], [ 0, %51 ]
+  %.033.i = phi i32 [ 0, %14 ], [ 0, %24 ], [ 0, %29 ], [ 0, %35 ], [ 0, %39 ], [ 0, %40 ], [ 1, %53 ], [ 0, %48 ], [ 0, %45 ], [ 0, %51 ]
   %54 = tail call i32 @BIO_free(ptr noundef nonnull %10) #4
   br label %key2text_encode.exit
 
@@ -950,8 +950,8 @@ define internal fastcc range(i32 0, 2) i32 @dh_to_text(ptr noundef %0, ptr nound
   br label %52
 
 .thread:                                          ; preds = %9, %11, %13
-  %.03756 = phi ptr [ @.str.1, %13 ], [ %spec.select, %11 ], [ @.str.2, %9 ]
-  %.036 = phi ptr [ %14, %13 ], [ null, %11 ], [ null, %9 ]
+  %.03756 = phi ptr [ @.str.1, %13 ], [ @.str.2, %9 ], [ %spec.select, %11 ]
+  %.036 = phi ptr [ %14, %13 ], [ null, %9 ], [ null, %11 ]
   %17 = and i32 %2, 3
   %.not47 = icmp eq i32 %17, 0
   br i1 %.not47, label %22, label %18
@@ -1043,7 +1043,7 @@ define internal fastcc range(i32 0, 2) i32 @dh_to_text(ptr noundef %0, ptr nound
   br label %52
 
 52:                                               ; preds = %48, %43, %40, %37, %32, %51, %31, %27, %21, %16, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 0, %21 ], [ 0, %27 ], [ 0, %31 ], [ 1, %51 ], [ 0, %32 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %48 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %16 ], [ 0, %21 ], [ 0, %27 ], [ 0, %31 ], [ 0, %32 ], [ 0, %43 ], [ 1, %51 ], [ 0, %40 ], [ 0, %37 ], [ 0, %48 ]
   ret i32 %.0
 }
 
@@ -1332,7 +1332,7 @@ ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %106
   br label %116
 
 116:                                              ; preds = %115, %114, %113
-  %.0.i42.i.i = phi ptr [ @.str.28, %114 ], [ @.str.29, %115 ], [ @.str.27, %113 ]
+  %.0.i42.i.i = phi ptr [ @.str.29, %115 ], [ @.str.28, %114 ], [ @.str.27, %113 ]
   %117 = call i64 @EC_POINT_point2buf(ptr noundef nonnull %11, ptr noundef nonnull %111, i32 noundef %110, ptr noundef nonnull %4, ptr noundef nonnull %72) #4
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %ec_param_explicit_gen_to_text.exit.thread.i.i, label %ec_param_explicit_gen_to_text.exit.i.i
@@ -1376,14 +1376,14 @@ ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %116
   br label %ec_param_explicit_curve_to_text.exit.thread.i.i
 
 ec_param_explicit_curve_to_text.exit.thread.i.i:  ; preds = %130, %128, %125, %122, %ec_param_explicit_gen_to_text.exit.i.i, %ec_param_explicit_gen_to_text.exit.thread.i.i, %ec_param_explicit_curve_to_text.exit.i.i, %106, %104, %100, %97, %92, %87, %82, %74
-  %.031.i.i = phi i32 [ 0, %74 ], [ 0, %82 ], [ 1, %130 ], [ 0, %128 ], [ 0, %125 ], [ 0, %122 ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_curve_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %92 ], [ 0, %87 ], [ 0, %106 ], [ 0, %104 ], [ 0, %97 ], [ 0, %100 ]
+  %.031.i.i = phi i32 [ 0, %74 ], [ 0, %82 ], [ 1, %130 ], [ 0, %128 ], [ 0, %125 ], [ 0, %122 ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_curve_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %87 ], [ 0, %92 ], [ 0, %106 ], [ 0, %104 ], [ 0, %97 ], [ 0, %100 ]
   call void @BN_CTX_end(ptr noundef nonnull %72) #4
   call void @BN_CTX_free(ptr noundef nonnull %72) #4
   br label %ec_param_to_text.exit
 
 ec_param_to_text.exit:                            ; preds = %34, %33, %26, %25, %ec_param_explicit_curve_to_text.exit.thread.i.i, %71, %67, %64, %60, %57, %52, %49, %45, %39
-  %.2 = phi i64 [ %.039, %39 ], [ %.039, %52 ], [ %.039, %49 ], [ %.039, %45 ], [ %.039, %57 ], [ %.039, %60 ], [ %.039, %64 ], [ %.039, %67 ], [ %.039, %71 ], [ %.039, %ec_param_explicit_curve_to_text.exit.thread.i.i ], [ 0, %25 ], [ 0, %26 ], [ %.039, %33 ], [ %.039, %34 ]
-  %.038 = phi i32 [ 0, %39 ], [ 0, %52 ], [ 0, %49 ], [ 0, %45 ], [ 0, %57 ], [ 0, %60 ], [ 1, %64 ], [ %70, %67 ], [ 0, %71 ], [ %.031.i.i, %ec_param_explicit_curve_to_text.exit.thread.i.i ], [ 0, %25 ], [ 0, %26 ], [ 0, %33 ], [ 0, %34 ]
+  %.2 = phi i64 [ %.039, %39 ], [ %.039, %ec_param_explicit_curve_to_text.exit.thread.i.i ], [ %.039, %52 ], [ %.039, %49 ], [ %.039, %45 ], [ 0, %26 ], [ %.039, %57 ], [ %.039, %60 ], [ %.039, %64 ], [ %.039, %67 ], [ %.039, %71 ], [ 0, %25 ], [ %.039, %33 ], [ %.039, %34 ]
+  %.038 = phi i32 [ 0, %39 ], [ %.031.i.i, %ec_param_explicit_curve_to_text.exit.thread.i.i ], [ 0, %52 ], [ 0, %49 ], [ 0, %45 ], [ 0, %26 ], [ 0, %57 ], [ 0, %60 ], [ 1, %64 ], [ %70, %67 ], [ 0, %71 ], [ 0, %25 ], [ 0, %33 ], [ 0, %34 ]
   %131 = load ptr, ptr %5, align 8, !tbaa !3
   call void @CRYPTO_clear_free(ptr noundef %131, i64 noundef %.2, ptr noundef nonnull @.str, i32 noundef 375) #4
   %132 = load ptr, ptr %6, align 8, !tbaa !3
@@ -1546,7 +1546,7 @@ switch.lookup:                                    ; preds = %7
   br label %42
 
 42:                                               ; preds = %37, %34, %22, %19, %33, %18, %6
-  %.019 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 0, %33 ], [ 0, %19 ], [ 0, %22 ], [ 0, %34 ], [ %., %37 ]
+  %.019 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 0, %33 ], [ 0, %34 ], [ %., %37 ], [ 0, %19 ], [ 0, %22 ]
   ret i32 %.019
 }
 
@@ -1606,9 +1606,9 @@ define internal fastcc range(i32 0, 2) i32 @rsa_to_text(ptr noundef %0, ptr noun
   br label %24
 
 24:                                               ; preds = %19, %21, %23
-  %.094 = phi ptr [ @.str.40, %23 ], [ null, %21 ], [ @.str.38, %19 ]
-  %.093 = phi ptr [ @.str.39, %23 ], [ null, %21 ], [ @.str.37, %19 ]
-  %.092 = phi ptr [ @.str.9, %23 ], [ @.str.36, %21 ], [ @.str.8, %19 ]
+  %.094 = phi ptr [ null, %21 ], [ @.str.40, %23 ], [ @.str.38, %19 ]
+  %.093 = phi ptr [ null, %21 ], [ @.str.39, %23 ], [ @.str.37, %19 ]
+  %.092 = phi ptr [ @.str.36, %21 ], [ @.str.9, %23 ], [ @.str.8, %19 ]
   call void @RSA_get0_key(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #4
   %25 = call i32 @ossl_rsa_get0_all_params(ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #4
   %26 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %12) #4
@@ -1796,11 +1796,11 @@ define internal fastcc range(i32 0, 2) i32 @rsa_to_text(ptr noundef %0, ptr noun
 128:                                              ; preds = %123, %83, %87, %85, %92, %.loopexit
   br label %.thread
 
-.thread:                                          ; preds = %78, %75, %72, %69, %66, %62, %123, %118, %109, %103, %95, %57, %54, %51, %48, %45, %42, %92, %87, %38, %35, %32, %29, %128, %18, %10
-  %.0100 = phi ptr [ null, %10 ], [ %14, %18 ], [ %14, %29 ], [ %14, %128 ], [ %14, %87 ], [ %14, %92 ], [ %14, %38 ], [ %14, %35 ], [ %14, %32 ], [ %14, %42 ], [ %14, %45 ], [ %14, %48 ], [ %14, %51 ], [ %14, %54 ], [ %14, %57 ], [ %14, %95 ], [ %14, %103 ], [ %14, %109 ], [ %14, %118 ], [ %14, %123 ], [ %14, %62 ], [ %14, %66 ], [ %14, %69 ], [ %14, %72 ], [ %14, %75 ], [ %14, %78 ]
-  %.099 = phi ptr [ null, %10 ], [ %13, %18 ], [ %13, %29 ], [ %13, %128 ], [ %13, %87 ], [ %13, %92 ], [ %13, %38 ], [ %13, %35 ], [ %13, %32 ], [ %13, %42 ], [ %13, %45 ], [ %13, %48 ], [ %13, %51 ], [ %13, %54 ], [ %13, %57 ], [ %13, %95 ], [ %13, %103 ], [ %13, %109 ], [ %13, %118 ], [ %13, %123 ], [ %13, %62 ], [ %13, %66 ], [ %13, %69 ], [ %13, %72 ], [ %13, %75 ], [ %13, %78 ]
-  %.098 = phi i32 [ 0, %10 ], [ 0, %18 ], [ 0, %29 ], [ 1, %128 ], [ 0, %87 ], [ 0, %92 ], [ 0, %38 ], [ 0, %35 ], [ 0, %32 ], [ 0, %42 ], [ 0, %45 ], [ 0, %48 ], [ 0, %51 ], [ 0, %54 ], [ 0, %57 ], [ 0, %95 ], [ 0, %103 ], [ 0, %109 ], [ 0, %118 ], [ 0, %123 ], [ 0, %62 ], [ 0, %66 ], [ 0, %69 ], [ 0, %72 ], [ 0, %75 ], [ 0, %78 ]
-  %.095 = phi ptr [ null, %10 ], [ %12, %18 ], [ %12, %29 ], [ %12, %128 ], [ %12, %87 ], [ %12, %92 ], [ %12, %38 ], [ %12, %35 ], [ %12, %32 ], [ %12, %42 ], [ %12, %45 ], [ %12, %48 ], [ %12, %51 ], [ %12, %54 ], [ %12, %57 ], [ %12, %95 ], [ %12, %103 ], [ %12, %109 ], [ %12, %118 ], [ %12, %123 ], [ %12, %62 ], [ %12, %66 ], [ %12, %69 ], [ %12, %72 ], [ %12, %75 ], [ %12, %78 ]
+.thread:                                          ; preds = %78, %62, %69, %75, %72, %66, %123, %109, %103, %95, %118, %42, %45, %48, %51, %54, %57, %92, %87, %38, %35, %32, %29, %128, %18, %10
+  %.0100 = phi ptr [ null, %10 ], [ %14, %18 ], [ %14, %29 ], [ %14, %128 ], [ %14, %87 ], [ %14, %92 ], [ %14, %42 ], [ %14, %32 ], [ %14, %38 ], [ %14, %35 ], [ %14, %57 ], [ %14, %54 ], [ %14, %51 ], [ %14, %48 ], [ %14, %45 ], [ %14, %118 ], [ %14, %95 ], [ %14, %103 ], [ %14, %109 ], [ %14, %123 ], [ %14, %66 ], [ %14, %72 ], [ %14, %75 ], [ %14, %69 ], [ %14, %62 ], [ %14, %78 ]
+  %.099 = phi ptr [ null, %10 ], [ %13, %18 ], [ %13, %29 ], [ %13, %128 ], [ %13, %87 ], [ %13, %92 ], [ %13, %42 ], [ %13, %32 ], [ %13, %38 ], [ %13, %35 ], [ %13, %57 ], [ %13, %54 ], [ %13, %51 ], [ %13, %48 ], [ %13, %45 ], [ %13, %118 ], [ %13, %95 ], [ %13, %103 ], [ %13, %109 ], [ %13, %123 ], [ %13, %66 ], [ %13, %72 ], [ %13, %75 ], [ %13, %69 ], [ %13, %62 ], [ %13, %78 ]
+  %.098 = phi i32 [ 0, %10 ], [ 0, %18 ], [ 0, %29 ], [ 1, %128 ], [ 0, %87 ], [ 0, %92 ], [ 0, %42 ], [ 0, %32 ], [ 0, %38 ], [ 0, %35 ], [ 0, %57 ], [ 0, %54 ], [ 0, %51 ], [ 0, %48 ], [ 0, %45 ], [ 0, %118 ], [ 0, %95 ], [ 0, %103 ], [ 0, %109 ], [ 0, %123 ], [ 0, %66 ], [ 0, %72 ], [ 0, %75 ], [ 0, %69 ], [ 0, %62 ], [ 0, %78 ]
+  %.095 = phi ptr [ null, %10 ], [ %12, %18 ], [ %12, %29 ], [ %12, %128 ], [ %12, %87 ], [ %12, %92 ], [ %12, %42 ], [ %12, %32 ], [ %12, %38 ], [ %12, %35 ], [ %12, %57 ], [ %12, %54 ], [ %12, %51 ], [ %12, %48 ], [ %12, %45 ], [ %12, %118 ], [ %12, %95 ], [ %12, %103 ], [ %12, %109 ], [ %12, %123 ], [ %12, %66 ], [ %12, %72 ], [ %12, %75 ], [ %12, %69 ], [ %12, %62 ], [ %12, %78 ]
   call void @OPENSSL_sk_free(ptr noundef %.095) #4
   call void @OPENSSL_sk_free(ptr noundef %.099) #4
   call void @OPENSSL_sk_free(ptr noundef %.0100) #4

@@ -256,9 +256,9 @@ bytestream2_get_le16.exit129:                     ; preds = %99, %101
   br label %bytestream2_get_le16.exit
 
 bytestream2_get_le16.exit:                        ; preds = %110, %108, %95, %bytestream2_get_byte.exit120, %107, %bytestream2_get_le16.exit129
-  %.sroa.0.2 = phi ptr [ %.sroa.0.9, %bytestream2_get_le16.exit129 ], [ %.sroa.0.3, %107 ], [ %96, %95 ], [ %25, %bytestream2_get_byte.exit120 ], [ %111, %110 ], [ %25, %108 ]
-  %.296 = phi i32 [ %.094188, %bytestream2_get_le16.exit129 ], [ %.094188, %107 ], [ %98, %95 ], [ 0, %bytestream2_get_byte.exit120 ], [ %113, %110 ], [ 0, %108 ]
-  %.0 = phi i32 [ %.0.i128, %bytestream2_get_le16.exit129 ], [ %79, %107 ], [ %.0.i119, %95 ], [ %.0.i119, %bytestream2_get_byte.exit120 ], [ %79, %110 ], [ %79, %108 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %107 ], [ %.sroa.0.9, %bytestream2_get_le16.exit129 ], [ %25, %bytestream2_get_byte.exit120 ], [ %96, %95 ], [ %111, %110 ], [ %25, %108 ]
+  %.296 = phi i32 [ %.094188, %107 ], [ %.094188, %bytestream2_get_le16.exit129 ], [ 0, %bytestream2_get_byte.exit120 ], [ %98, %95 ], [ %113, %110 ], [ 0, %108 ]
+  %.0 = phi i32 [ %79, %107 ], [ %.0.i128, %bytestream2_get_le16.exit129 ], [ %.0.i119, %bytestream2_get_byte.exit120 ], [ %.0.i119, %95 ], [ %79, %110 ], [ %79, %108 ]
   %114 = zext nneg i32 %78 to i64
   %115 = getelementptr inbounds nuw i8, ptr @bfi_decode_frame.lentab, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !46
@@ -374,8 +374,8 @@ default.unreachable217:                           ; preds = %122
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph178, %.lr.ph183, %bytestream2_get_byte.exit126, %128, %145, %134
-  %.sroa.0.1 = phi ptr [ %132, %128 ], [ %.sroa.0.2, %134 ], [ %.sroa.0.2, %145 ], [ %.sroa.0.7, %bytestream2_get_byte.exit126 ], [ %.sroa.0.2, %.lr.ph183 ], [ %.sroa.0.7, %.lr.ph178 ]
-  %.198 = phi ptr [ %133, %128 ], [ %.097187, %134 ], [ %147, %145 ], [ %.097187, %bytestream2_get_byte.exit126 ], [ %144, %.lr.ph183 ], [ %162, %.lr.ph178 ]
+  %.sroa.0.1 = phi ptr [ %132, %128 ], [ %.sroa.0.2, %145 ], [ %.sroa.0.2, %134 ], [ %.sroa.0.7, %bytestream2_get_byte.exit126 ], [ %.sroa.0.2, %.lr.ph183 ], [ %.sroa.0.7, %.lr.ph178 ]
+  %.198 = phi ptr [ %133, %128 ], [ %147, %145 ], [ %.097187, %134 ], [ %.097187, %bytestream2_get_byte.exit126 ], [ %144, %.lr.ph183 ], [ %162, %.lr.ph178 ]
   %.not113 = icmp eq ptr %.198, %16
   br i1 %.not113, label %.thread165, label %.lr.ph190
 
@@ -412,7 +412,7 @@ default.unreachable217:                           ; preds = %122
   br label %.thread
 
 .thread:                                          ; preds = %82, %127, %4, %._crit_edge196, %36
-  %.091 = phi i32 [ %6, %._crit_edge196 ], [ -1094995529, %36 ], [ %17, %4 ], [ -1094995529, %127 ], [ -1094995529, %82 ]
+  %.091 = phi i32 [ -1094995529, %36 ], [ %17, %4 ], [ %6, %._crit_edge196 ], [ -1094995529, %127 ], [ -1094995529, %82 ]
   ret i32 %.091
 }
 

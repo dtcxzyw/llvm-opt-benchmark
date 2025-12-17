@@ -2054,7 +2054,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   br label %.thread18
 
 .thread18:                                        ; preds = %376, %491, %.thread18.loopexit35, %488, %339, %312
-  %496 = phi i32 [ %342, %339 ], [ -110, %312 ], [ %490, %488 ], [ %495, %.thread18.loopexit35 ], [ -110, %491 ], [ -110, %376 ]
+  %496 = phi i32 [ %490, %488 ], [ -110, %312 ], [ %342, %339 ], [ %495, %.thread18.loopexit35 ], [ -110, %491 ], [ -110, %376 ]
   %497 = and i1 %303, %306
   br i1 %497, label %498, label %.thread23
 
@@ -2065,7 +2065,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   br label %.thread23
 
 .thread23:                                        ; preds = %184, %.thread16, %.loopexit37, %.loopexit, %498, %.thread18, %146, %100
-  %502 = phi i32 [ -95, %146 ], [ -71, %100 ], [ %496, %498 ], [ %496, %.thread18 ], [ -71, %.loopexit ], [ -95, %184 ], [ %267, %.loopexit37 ], [ -95, %.thread16 ]
+  %502 = phi i32 [ -95, %146 ], [ -71, %100 ], [ %496, %498 ], [ %496, %.thread18 ], [ %267, %.loopexit37 ], [ -95, %.thread16 ], [ -71, %.loopexit ], [ -95, %184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %661
 

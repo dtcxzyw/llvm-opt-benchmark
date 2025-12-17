@@ -137,7 +137,7 @@ define i32 @png_sig_cmp(ptr noundef readonly captures(none) %0, i64 noundef %1, 
   br label %16
 
 16:                                               ; preds = %7, %5, %9
-  %.010 = phi i32 [ %15, %9 ], [ -1, %5 ], [ -1, %7 ]
+  %.010 = phi i32 [ -1, %5 ], [ %15, %9 ], [ -1, %7 ]
   ret i32 %.010
 }
 
@@ -1226,7 +1226,7 @@ define range(i32 0, 256) i32 @png_handle_as_unknown(ptr noalias noundef readonly
   br i1 %23, label %15, label %.loopexit, !llvm.loop !110
 
 .loopexit:                                        ; preds = %22, %2, %5, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %5 ], [ 0, %2 ], [ 0, %22 ]
+  %.0 = phi i32 [ 0, %2 ], [ %21, %18 ], [ 0, %5 ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -1284,7 +1284,7 @@ define range(i32 0, 256) i32 @png_chunk_unknown_handling(ptr noalias noundef rea
   br i1 %33, label %25, label %png_handle_as_unknown.exit, !llvm.loop !110
 
 png_handle_as_unknown.exit:                       ; preds = %32, %2, %15, %28
-  %.0.i = phi i32 [ %31, %28 ], [ 0, %15 ], [ 0, %2 ], [ 0, %32 ]
+  %.0.i = phi i32 [ 0, %2 ], [ %31, %28 ], [ 0, %15 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -1369,8 +1369,8 @@ define range(i32 0, 2) i32 @png_xy_from_XYZ(ptr noundef writeonly captures(none)
   br label %png_fp_add.exit.i
 
 png_fp_add.exit.i:                                ; preds = %15, %13, %10
-  %.0.shrunk.i = phi i1 [ false, %13 ], [ %.not15.i.i, %10 ], [ %.not.i.i, %15 ]
-  %.0.i.i = phi i32 [ %8, %13 ], [ %spec.select13.i, %10 ], [ %spec.select15.i, %15 ]
+  %.0.shrunk.i = phi i1 [ false, %13 ], [ %.not.i.i, %15 ], [ %.not15.i.i, %10 ]
+  %.0.i.i = phi i32 [ %8, %13 ], [ %spec.select15.i, %15 ], [ %spec.select13.i, %10 ]
   %18 = icmp sgt i32 %4, 0
   br i1 %18, label %19, label %23
 
@@ -1397,7 +1397,7 @@ png_fp_add.exit.i:                                ; preds = %15, %13, %10
   br label %png_fp_add.exit7.i
 
 png_fp_add.exit7.i:                               ; preds = %27, %23, %21
-  %.0.i4.i = phi i32 [ %22, %21 ], [ %28, %27 ], [ %.0.i.i, %23 ]
+  %.0.i4.i = phi i32 [ %22, %21 ], [ %.0.i.i, %23 ], [ %28, %27 ]
   %.not.i = icmp eq i32 %.0.i4.i, 0
   %or.cond = select i1 %.0.shrunk.i, i1 true, i1 %.not.i
   br i1 %or.cond, label %png_safe_add.exit.thread, label %29
@@ -1477,8 +1477,8 @@ png_fp_add.exit7.i:                               ; preds = %27, %23, %21
   br label %png_fp_add.exit.i53
 
 png_fp_add.exit.i53:                              ; preds = %70, %68, %65
-  %.0.shrunk.i54 = phi i1 [ false, %68 ], [ %.not15.i.i63, %65 ], [ %.not.i.i61, %70 ]
-  %.0.i.i55 = phi i32 [ %63, %68 ], [ %spec.select13.i64, %65 ], [ %spec.select15.i62, %70 ]
+  %.0.shrunk.i54 = phi i1 [ false, %68 ], [ %.not.i.i61, %70 ], [ %.not15.i.i63, %65 ]
+  %.0.i.i55 = phi i32 [ %63, %68 ], [ %spec.select15.i62, %70 ], [ %spec.select13.i64, %65 ]
   %73 = icmp sgt i32 %59, 0
   br i1 %73, label %74, label %78
 
@@ -1505,7 +1505,7 @@ png_fp_add.exit.i53:                              ; preds = %70, %68, %65
   br label %png_fp_add.exit7.i56
 
 png_fp_add.exit7.i56:                             ; preds = %82, %78, %76
-  %.0.i4.i57 = phi i32 [ %77, %76 ], [ %83, %82 ], [ %.0.i.i55, %78 ]
+  %.0.i4.i57 = phi i32 [ %77, %76 ], [ %.0.i.i55, %78 ], [ %83, %82 ]
   br i1 %.0.shrunk.i54, label %png_safe_add.exit.thread, label %84
 
 84:                                               ; preds = %png_fp_add.exit7.i56
@@ -1588,8 +1588,8 @@ png_fp_add.exit7.i56:                             ; preds = %82, %78, %76
   br label %png_fp_add.exit.i78
 
 png_fp_add.exit.i78:                              ; preds = %127, %125, %122
-  %.0.shrunk.i79 = phi i1 [ false, %125 ], [ %.not15.i.i88, %122 ], [ %.not.i.i86, %127 ]
-  %.0.i.i80 = phi i32 [ %120, %125 ], [ %spec.select13.i89, %122 ], [ %spec.select15.i87, %127 ]
+  %.0.shrunk.i79 = phi i1 [ false, %125 ], [ %.not.i.i86, %127 ], [ %.not15.i.i88, %122 ]
+  %.0.i.i80 = phi i32 [ %120, %125 ], [ %spec.select15.i87, %127 ], [ %spec.select13.i89, %122 ]
   %130 = icmp sgt i32 %116, 0
   br i1 %130, label %131, label %135
 
@@ -1616,7 +1616,7 @@ png_fp_add.exit.i78:                              ; preds = %127, %125, %122
   br label %png_fp_add.exit7.i81
 
 png_fp_add.exit7.i81:                             ; preds = %139, %135, %133
-  %.0.i4.i82 = phi i32 [ %134, %133 ], [ %140, %139 ], [ %.0.i.i80, %135 ]
+  %.0.i4.i82 = phi i32 [ %134, %133 ], [ %.0.i.i80, %135 ], [ %140, %139 ]
   br i1 %.0.shrunk.i79, label %png_safe_add.exit.thread, label %141
 
 141:                                              ; preds = %png_fp_add.exit7.i81
@@ -1751,7 +1751,7 @@ png_muldiv.exit114:                               ; preds = %201, %213
   br label %png_safe_add.exit.thread
 
 png_safe_add.exit.thread:                         ; preds = %190, %185, %160, %145, %141, %131, %137, %png_fp_add.exit7.i81, %103, %88, %84, %74, %80, %png_fp_add.exit7.i56, %46, %31, %19, %25, %png_fp_add.exit7.i, %png_muldiv.exit114, %204, %179, %173, %171
-  %.0 = phi i32 [ 1, %171 ], [ 1, %173 ], [ 1, %179 ], [ 0, %png_muldiv.exit114 ], [ 1, %204 ], [ 1, %png_fp_add.exit7.i ], [ 1, %25 ], [ 1, %19 ], [ 1, %31 ], [ 1, %46 ], [ 1, %png_fp_add.exit7.i56 ], [ 1, %80 ], [ 1, %74 ], [ 1, %84 ], [ 1, %88 ], [ 1, %103 ], [ 1, %png_fp_add.exit7.i81 ], [ 1, %137 ], [ 1, %131 ], [ 1, %141 ], [ 1, %145 ], [ 1, %160 ], [ 1, %185 ], [ 1, %190 ]
+  %.0 = phi i32 [ 1, %160 ], [ 1, %204 ], [ 1, %19 ], [ 1, %31 ], [ 1, %46 ], [ 1, %74 ], [ 1, %88 ], [ 1, %103 ], [ 1, %131 ], [ 1, %145 ], [ 1, %171 ], [ 1, %173 ], [ 1, %179 ], [ 0, %png_muldiv.exit114 ], [ 1, %png_fp_add.exit7.i ], [ 1, %25 ], [ 1, %190 ], [ 1, %png_fp_add.exit7.i56 ], [ 1, %80 ], [ 1, %84 ], [ 1, %png_fp_add.exit7.i81 ], [ 1, %137 ], [ 1, %141 ], [ 1, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1781,8 +1781,8 @@ define internal fastcc range(i32 0, 2) i32 @png_safe_add(ptr noundef nonnull cap
   br label %png_fp_add.exit
 
 png_fp_add.exit:                                  ; preds = %11, %6, %9
-  %.0.shrunk = phi i1 [ false, %9 ], [ %.not15.i, %6 ], [ %.not.i, %11 ]
-  %.0.i = phi i32 [ %2, %9 ], [ %spec.select13, %6 ], [ %spec.select15, %11 ]
+  %.0.shrunk = phi i1 [ false, %9 ], [ %.not.i, %11 ], [ %.not15.i, %6 ]
+  %.0.i = phi i32 [ %2, %9 ], [ %spec.select15, %11 ], [ %spec.select13, %6 ]
   %14 = icmp sgt i32 %4, 0
   br i1 %14, label %15, label %19
 
@@ -1809,7 +1809,7 @@ png_fp_add.exit:                                  ; preds = %11, %6, %9
   br label %png_fp_add.exit7
 
 png_fp_add.exit7:                                 ; preds = %17, %19, %23
-  %.0.i4 = phi i32 [ %18, %17 ], [ %24, %23 ], [ %.0.i, %19 ]
+  %.0.i4 = phi i32 [ %18, %17 ], [ %.0.i, %19 ], [ %24, %23 ]
   br i1 %.0.shrunk, label %png_fp_add.exit7.thread, label %25
 
 25:                                               ; preds = %png_fp_add.exit7
@@ -1817,7 +1817,7 @@ png_fp_add.exit7:                                 ; preds = %17, %19, %23
   br label %png_fp_add.exit7.thread
 
 png_fp_add.exit7.thread:                          ; preds = %15, %21, %25, %png_fp_add.exit7
-  %.112 = phi i32 [ 0, %25 ], [ 1, %png_fp_add.exit7 ], [ 1, %21 ], [ 1, %15 ]
+  %.112 = phi i32 [ 1, %png_fp_add.exit7 ], [ 0, %25 ], [ 1, %21 ], [ 1, %15 ]
   ret i32 %.112
 }
 
@@ -2061,7 +2061,7 @@ define range(i32 0, 2) i32 @png_XYZ_from_xy(ptr noundef writeonly captures(none)
   br label %png_fp_sub.exit130
 
 png_fp_sub.exit130:                               ; preds = %93, %110, %112, %116
-  %.0.i127 = phi i32 [ %111, %110 ], [ %117, %116 ], [ %.1258.ph, %112 ], [ %.1258.ph, %93 ]
+  %.0.i127 = phi i32 [ %111, %110 ], [ %.1258.ph, %112 ], [ %117, %116 ], [ %.1258.ph, %93 ]
   %.not.i131 = icmp eq i32 %.0.i127, 0
   br i1 %.not.i131, label %.critedge, label %png_fp_sub.exit130.thread
 
@@ -2159,7 +2159,7 @@ png_muldiv.exit137:                               ; preds = %png_fp_sub.exit130.
   br label %png_fp_sub.exit153
 
 png_fp_sub.exit153:                               ; preds = %143, %158, %160, %164
-  %.0.i150 = phi i32 [ %159, %158 ], [ %165, %164 ], [ %.2259.ph, %160 ], [ %.2259.ph, %143 ]
+  %.0.i150 = phi i32 [ %159, %158 ], [ %.2259.ph, %160 ], [ %165, %164 ], [ %.2259.ph, %143 ]
   %.not.i154 = icmp eq i32 %.0.i150, 0
   br i1 %.not.i154, label %.critedge, label %png_fp_sub.exit153.thread
 
@@ -2232,8 +2232,8 @@ png_muldiv.exit160:                               ; preds = %png_fp_sub.exit153.
   br label %png_fp_sub.exit168
 
 png_fp_sub.exit168:                               ; preds = %199, %194, %197
-  %.3.shrunk = phi i1 [ false, %197 ], [ %.not15.i167, %194 ], [ %.not.i166, %199 ]
-  %.0.i165 = phi i32 [ %.0.i162, %197 ], [ %spec.select358, %194 ], [ %spec.select360, %199 ]
+  %.3.shrunk = phi i1 [ false, %197 ], [ %.not.i166, %199 ], [ %.not15.i167, %194 ]
+  %.0.i165 = phi i32 [ %.0.i162, %197 ], [ %spec.select360, %199 ], [ %spec.select358, %194 ]
   %202 = uitofp nneg i32 %.0260 to double
   %203 = fdiv double 1.000000e+10, %202
   %204 = fadd double %203, 5.000000e-01
@@ -2269,7 +2269,7 @@ png_fp_sub.exit168:                               ; preds = %199, %194, %197
   br label %png_fp_sub.exit174
 
 png_fp_sub.exit174:                               ; preds = %212, %214, %218
-  %.0.i171 = phi i32 [ %213, %212 ], [ %219, %218 ], [ %.0.i165, %214 ]
+  %.0.i171 = phi i32 [ %213, %212 ], [ %.0.i165, %214 ], [ %219, %218 ]
   %220 = icmp slt i32 %.0.i171, 1
   %or.cond5.not = select i1 %.3.shrunk, i1 true, i1 %220
   br i1 %or.cond5.not, label %.critedge, label %221
@@ -2494,8 +2494,8 @@ png_muldiv.exit234:                               ; preds = %339, %355
   store i32 %.sink.i233, ptr %340, align 4, !tbaa !43
   br label %.critedge
 
-.critedge:                                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %png_muldiv.exit137, %png_muldiv.exit160, %42, %58, %70, %76, %82, %96, %132, %144, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_fp_sub.exit174
-  %.082 = phi i32 [ 1, %png_fp_sub.exit174 ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %345 ], [ 1, %144 ], [ 1, %132 ], [ 1, %96 ], [ 1, %82 ], [ 1, %76 ], [ 1, %70 ], [ 1, %58 ], [ 1, %42 ], [ 1, %png_muldiv.exit160 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_fp_sub.exit130 ], [ 1, %119 ], [ 1, %png_fp_sub.exit153 ], [ 1, %166 ], [ 1, %216 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %313 ], [ 1, %328 ]
+.critedge:                                        ; preds = %328, %313, %298, %282, %268, %253, %237, %223, %210, %216, %166, %png_fp_sub.exit153, %119, %png_fp_sub.exit130, %png_muldiv.exit160, %png_muldiv.exit137, %42, %58, %70, %76, %82, %96, %132, %144, %png_muldiv.exit234, %345, %31, %28, %22, %19, %13, %10, %4, %2, %png_fp_sub.exit174
+  %.082 = phi i32 [ 1, %png_fp_sub.exit174 ], [ 1, %2 ], [ 1, %4 ], [ 1, %10 ], [ 1, %13 ], [ 1, %19 ], [ 1, %22 ], [ 1, %28 ], [ 1, %345 ], [ 1, %210 ], [ 1, %223 ], [ 1, %237 ], [ 1, %253 ], [ 1, %268 ], [ 1, %282 ], [ 1, %298 ], [ 1, %166 ], [ 1, %313 ], [ 1, %31 ], [ 0, %png_muldiv.exit234 ], [ 1, %119 ], [ 1, %144 ], [ 1, %132 ], [ 1, %png_muldiv.exit160 ], [ 1, %96 ], [ 1, %82 ], [ 1, %76 ], [ 1, %70 ], [ 1, %58 ], [ 1, %42 ], [ 1, %216 ], [ 1, %328 ], [ 1, %png_muldiv.exit137 ], [ 1, %png_fp_sub.exit130 ], [ 1, %png_fp_sub.exit153 ]
   ret i32 %.082
 }
 
@@ -2931,7 +2931,7 @@ define range(i32 0, 2) i32 @png_icc_check_header(ptr noalias noundef %0, ptr nou
   br label %181
 
 181:                                              ; preds = %160, %160, %179, %156, %155, %134, %133, %130, %103, %78, %56, %30, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %56 ], [ 0, %78 ], [ 0, %103 ], [ 0, %134 ], [ 0, %130 ], [ 0, %179 ], [ 0, %155 ], [ 0, %156 ], [ 0, %133 ], [ 1, %160 ], [ 1, %160 ]
+  %.0 = phi i32 [ 0, %23 ], [ 0, %30 ], [ 0, %56 ], [ 0, %78 ], [ 0, %103 ], [ 0, %134 ], [ 0, %130 ], [ 0, %179 ], [ 0, %133 ], [ 0, %155 ], [ 0, %156 ], [ 1, %160 ], [ 1, %160 ]
   ret i32 %.0
 }
 
@@ -3112,7 +3112,7 @@ have_chromaticities.exit.thread87:                ; preds = %6
   br label %png_muldiv.exit
 
 png_muldiv.exit:                                  ; preds = %24, %35
-  %.184 = phi i32 [ %36, %35 ], [ 0, %24 ]
+  %.184 = phi i32 [ 0, %24 ], [ %36, %35 ]
   %37 = icmp ult i32 %.184, 32769
   %38 = icmp sgt i32 %17, -1
   %or.cond7 = and i1 %38, %37
@@ -3139,7 +3139,7 @@ png_muldiv.exit:                                  ; preds = %24, %35
   br label %png_muldiv.exit55
 
 png_muldiv.exit55:                                ; preds = %39, %50
-  %.182 = phi i32 [ %51, %50 ], [ 0, %39 ]
+  %.182 = phi i32 [ 0, %39 ], [ %51, %50 ]
   %52 = icmp ult i32 %.182, 32769
   %53 = icmp sgt i32 %19, -1
   %or.cond13 = and i1 %53, %52
@@ -3165,7 +3165,7 @@ png_muldiv.exit55:                                ; preds = %39, %50
   br i1 %or.cond116, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
 
 png_muldiv.exit61.thread:                         ; preds = %56, %54
-  %.1113 = phi i32 [ 0, %54 ], [ %65, %56 ]
+  %.1113 = phi i32 [ %65, %56 ], [ 0, %54 ]
   %67 = add nuw nsw i32 %.182, %.184
   %68 = add nuw nsw i32 %67, %.1113
   %69 = icmp samesign ult i32 %68, 32770
@@ -3463,7 +3463,7 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   br label %15
 
 15:                                               ; preds = %.lr.ph, %14, %13, %12, %11, %10
-  %.037 = phi i32 [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 32, %14 ], [ 4, %.lr.ph ]
+  %.037 = phi i32 [ 32, %14 ], [ 132, %10 ], [ 16, %11 ], [ 8, %12 ], [ 264, %13 ], [ 4, %.lr.ph ]
   %16 = and i32 %.03951, 3
   %17 = and i32 %.037, 60
   %18 = or disjoint i32 %17, %16
@@ -3561,9 +3561,9 @@ define range(i32 0, 2) i32 @png_check_fp_number(ptr noundef readonly captures(no
   %exitcond.not = icmp eq i64 %61, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %60, %.lr.ph, %19, %23, %39, %48, %54, %15, %4
-  %.039.lcssa = phi i32 [ %5, %4 ], [ %.03951, %15 ], [ %.03951, %54 ], [ %.03951, %48 ], [ %.03951, %39 ], [ %.03951, %23 ], [ %.03951, %19 ], [ %.03951, %.lr.ph ], [ %.241, %60 ]
-  %.038.lcssa = phi i64 [ %6, %4 ], [ %.03852, %15 ], [ %.03852, %54 ], [ %.03852, %48 ], [ %.03852, %39 ], [ %.03852, %23 ], [ %.03852, %19 ], [ %.03852, %.lr.ph ], [ %1, %60 ]
+.thread:                                          ; preds = %60, %48, %54, %.lr.ph, %19, %23, %39, %15, %4
+  %.039.lcssa = phi i32 [ %5, %4 ], [ %.03951, %15 ], [ %.03951, %39 ], [ %.03951, %23 ], [ %.03951, %19 ], [ %.03951, %.lr.ph ], [ %.03951, %54 ], [ %.03951, %48 ], [ %.241, %60 ]
+  %.038.lcssa = phi i64 [ %6, %4 ], [ %.03852, %15 ], [ %.03852, %39 ], [ %.03852, %23 ], [ %.03852, %19 ], [ %.03852, %.lr.ph ], [ %.03852, %54 ], [ %.03852, %48 ], [ %1, %60 ]
   store i32 %.039.lcssa, ptr %2, align 4, !tbaa !43
   store i64 %.038.lcssa, ptr %3, align 8, !tbaa !42
   %62 = lshr i32 %.039.lcssa, 3
@@ -3682,7 +3682,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   br label %png_pow10.exit
 
 png_pow10.exit:                                   ; preds = %31, %36
-  %.018.i = phi double [ %.3.i, %36 ], [ 1.000000e+00, %31 ]
+  %.018.i = phi double [ 1.000000e+00, %31 ], [ %.3.i, %36 ]
   %38 = fcmp olt double %.018.i, 0x10000000000000
   %39 = fcmp olt double %.018.i, %.0137
   %40 = or i1 %38, %39
@@ -4269,7 +4269,7 @@ define void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef writeonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph68, %.preheader, %._crit_edge56, %._crit_edge.thread
-  %.4 = phi ptr [ %.1.lcssa, %._crit_edge56 ], [ %39, %._crit_edge.thread ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph68 ]
+  %.4 = phi ptr [ %39, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge56 ], [ %.2.lcssa, %.preheader ], [ %38, %.lr.ph68 ]
   store i8 0, ptr %.4, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

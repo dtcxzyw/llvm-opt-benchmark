@@ -1067,8 +1067,8 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br label %.body
 
 .body:                                            ; preds = %101, %50, %47, %103
-  %.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ], [ %48, %50 ], [ %48, %47 ]
-  %.4 = phi i1 [ true, %103 ], [ false, %101 ], [ true, %50 ], [ true, %47 ]
+  %.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ], [ %48, %47 ], [ %48, %50 ]
+  %.4 = phi i1 [ true, %103 ], [ false, %101 ], [ true, %47 ], [ true, %50 ]
   br label %105
 
 105:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit69, %.body
@@ -1153,7 +1153,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73, %116, %96
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %.pn.pn, %116 ], [ %.pn.pn.pn.pn.pn.ph114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73 ], [ %.pn.pn.pn.pn.pn.ph114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %116 ], [ %97, %96 ], [ %.pn.pn.pn.pn.pn.ph114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73 ], [ %.pn.pn.pn.pn.pn.ph114, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %136
 
@@ -1758,8 +1758,8 @@ _ZN2cv6detail5YieldINS_6GArrayINS_5Rect_IiEEEEE5yieldERNS_5GCallEi.exit: ; preds
   br label %.body
 
 .body:                                            ; preds = %70, %48, %45, %72
-  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %46, %48 ], [ %46, %45 ]
-  %.4 = phi i1 [ true, %72 ], [ false, %70 ], [ true, %48 ], [ true, %45 ]
+  %.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %46, %45 ], [ %46, %48 ]
+  %.4 = phi i1 [ true, %72 ], [ false, %70 ], [ true, %45 ], [ true, %48 ]
   %74 = load i64, ptr %12, align 8, !tbaa !47
   %75 = getelementptr inbounds nuw ptr, ptr @constinit.23, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !34
@@ -2414,8 +2414,8 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   br label %.body
 
 .body:                                            ; preds = %102, %51, %48, %104
-  %.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %49, %51 ], [ %49, %48 ]
-  %.4 = phi i1 [ true, %104 ], [ false, %102 ], [ true, %51 ], [ true, %48 ]
+  %.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %49, %48 ], [ %49, %51 ]
+  %.4 = phi i1 [ true, %104 ], [ false, %102 ], [ true, %48 ], [ true, %51 ]
   br label %106
 
 106:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit69, %.body
@@ -3116,14 +3116,14 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4G
   ret ptr %0
 
 112:                                              ; preds = %76, %62
-  %.09 = phi ptr [ %72, %62 ], [ %79, %76 ]
+  %.09 = phi ptr [ %79, %76 ], [ %72, %62 ]
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %112, %60
-  %.09.lpad-body = phi ptr [ %.09, %112 ], [ %31, %60 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %61, %60 ]
+  %.09.lpad-body = phi ptr [ %31, %60 ], [ %.09, %112 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %61, %60 ], [ %113, %112 ]
   br label %114
 
 114:                                              ; preds = %.body, %_ZN2cv4GArgD2Ev.exit23
@@ -3153,7 +3153,7 @@ _ZN2cv4GArgD2Ev.exit23:                           ; preds = %114, %_ZNKSt14defau
   br label %.body15
 
 .body15:                                          ; preds = %90, %87, %123
-  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %88, %90 ], [ %88, %87 ]
+  %.pn = phi { ptr, i32 } [ %124, %123 ], [ %88, %87 ], [ %88, %90 ]
   br label %125
 
 125:                                              ; preds = %_ZN2cv4GArgD2Ev.exit26, %.body15
@@ -3275,8 +3275,8 @@ _ZN2cv4util8any_castIfEEPKT_PKNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4uti
   br i1 %.not.i.i.i19.not, label %.invoke, label %_ZNKSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i20
 
 .invoke:                                          ; preds = %36, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit, %3
-  %37 = phi i64 [ 1, %3 ], [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 3, %36 ]
-  %38 = phi i64 [ %15, %3 ], [ %28, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %28, %36 ]
+  %37 = phi i64 [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 1, %3 ], [ 3, %36 ]
+  %38 = phi i64 [ %28, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %15, %3 ], [ %28, %36 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %37, i64 noundef %38) #24
           to label %.cont unwind label %68
 
@@ -7322,14 +7322,14 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4G
   ret ptr %0
 
 120:                                              ; preds = %84, %77, %63
-  %.010 = phi ptr [ %73, %63 ], [ %80, %77 ], [ %87, %84 ]
+  %.010 = phi ptr [ %87, %84 ], [ %80, %77 ], [ %73, %63 ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %120, %61
-  %.010.lpad-body = phi ptr [ %.010, %120 ], [ %32, %61 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %121, %120 ], [ %62, %61 ]
+  %.010.lpad-body = phi ptr [ %32, %61 ], [ %.010, %120 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %121, %120 ]
   br label %122
 
 122:                                              ; preds = %.body, %_ZN2cv4GArgD2Ev.exit25
@@ -7359,7 +7359,7 @@ _ZN2cv4GArgD2Ev.exit25:                           ; preds = %122, %_ZNKSt14defau
   br label %.body17
 
 .body17:                                          ; preds = %98, %95, %131
-  %.pn = phi { ptr, i32 } [ %132, %131 ], [ %96, %98 ], [ %96, %95 ]
+  %.pn = phi { ptr, i32 } [ %132, %131 ], [ %96, %95 ], [ %96, %98 ]
   br label %133
 
 133:                                              ; preds = %_ZN2cv4GArgD2Ev.exit28, %.body17
@@ -7505,8 +7505,8 @@ _ZN2cv4util8any_castIbEEPKT_PKNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4uti
   br i1 %.not.i.i.i26, label %_ZNKSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i27, label %.invoke
 
 .invoke:                                          ; preds = %45, %37, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit, %3
-  %46 = phi i64 [ 1, %3 ], [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 3, %37 ], [ 4, %45 ]
-  %47 = phi i64 [ %16, %3 ], [ %29, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %29, %37 ], [ %29, %45 ]
+  %46 = phi i64 [ 3, %37 ], [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 1, %3 ], [ 4, %45 ]
+  %47 = phi i64 [ %29, %37 ], [ %29, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %16, %3 ], [ %29, %45 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %46, i64 noundef %47) #24
           to label %.cont unwind label %72
 
@@ -7991,14 +7991,14 @@ _ZN2cv4GArgD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4G
   ret ptr %0
 
 136:                                              ; preds = %98, %.noexc.i.i.i.i, %77, %63
-  %.010 = phi ptr [ %73, %63 ], [ %80, %77 ], [ %87, %.noexc.i.i.i.i ], [ %87, %98 ]
+  %.010 = phi ptr [ %87, %98 ], [ %80, %77 ], [ %73, %63 ], [ %87, %.noexc.i.i.i.i ]
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %61, %102, %104, %136
-  %.010.lpad-body = phi ptr [ %32, %61 ], [ %.010, %136 ], [ %87, %104 ], [ %87, %102 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %137, %136 ], [ %103, %104 ], [ %103, %102 ]
+  %.010.lpad-body = phi ptr [ %87, %102 ], [ %32, %61 ], [ %.010, %136 ], [ %87, %104 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %103, %102 ], [ %62, %61 ], [ %137, %136 ], [ %103, %104 ]
   br label %138
 
 138:                                              ; preds = %.body, %_ZN2cv4GArgD2Ev.exit30
@@ -8028,7 +8028,7 @@ _ZN2cv4GArgD2Ev.exit30:                           ; preds = %138, %_ZNKSt14defau
   br label %.body22
 
 .body22:                                          ; preds = %114, %111, %147
-  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %112, %114 ], [ %112, %111 ]
+  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %112, %111 ], [ %112, %114 ]
   br label %149
 
 149:                                              ; preds = %_ZN2cv4GArgD2Ev.exit33, %.body22
@@ -8143,8 +8143,8 @@ _ZN2cv4util8any_castIfEEPKT_PKNS0_3anyE.exit.thread.i.i.i: ; preds = %_ZN2cv4uti
   br i1 %.not.i.i.i24.not, label %.invoke, label %_ZNKSt6vectorIN2cv4GArgESaIS1_EE2atEm.exit.i25
 
 .invoke:                                          ; preds = %37, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit, %3
-  %38 = phi i64 [ 1, %3 ], [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 3, %37 ]
-  %39 = phi i64 [ %16, %3 ], [ %29, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %29, %37 ]
+  %38 = phi i64 [ 2, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ 1, %3 ], [ 3, %37 ]
+  %39 = phi i64 [ %29, %_ZN2cv6detail11get_in_metaINS_7GOpaqueINS_5Size_IiEEEEEENSt9enable_ifIXntsr15is_nongapi_typeIT_EE5valueENS0_8MetaTypeIS7_E4typeEE4typeERKSt6vectorINS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKSD_INS_4GArgESaISR_EEi.exit ], [ %16, %3 ], [ %29, %37 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %38, i64 noundef %39) #24
           to label %.cont unwind label %72
 

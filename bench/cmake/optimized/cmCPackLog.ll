@@ -723,9 +723,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit125: ; preds = %_ZSt
   br i1 %115, label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit127, label %.invoke176
 
 .invoke176:                                       ; preds = %108, %104, %99, %95, %91, %112
-  %.sink181 = phi i64 [ 8, %112 ], [ 168, %91 ], [ 136, %95 ], [ 40, %99 ], [ 72, %104 ], [ 104, %108 ]
-  %.sink180 = phi i64 [ 200, %112 ], [ 208, %91 ], [ 208, %95 ], [ 200, %99 ], [ 200, %104 ], [ 200, %108 ]
-  %116 = phi i64 [ %114, %112 ], [ %93, %91 ], [ %97, %95 ], [ %102, %99 ], [ %106, %104 ], [ %110, %108 ]
+  %.sink181 = phi i64 [ 104, %108 ], [ 168, %91 ], [ 136, %95 ], [ 40, %99 ], [ 72, %104 ], [ 8, %112 ]
+  %.sink180 = phi i64 [ 200, %108 ], [ 208, %91 ], [ 208, %95 ], [ 200, %99 ], [ 200, %104 ], [ 200, %112 ]
+  %116 = phi i64 [ %110, %108 ], [ %93, %91 ], [ %97, %95 ], [ %102, %99 ], [ %106, %104 ], [ %114, %112 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink181
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink180
   %119 = load ptr, ptr %118, align 8, !tbaa !31

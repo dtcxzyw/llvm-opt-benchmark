@@ -344,7 +344,7 @@ if.then.i.i43:                                    ; preds = %lpad16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad16, %if.then.i.i43, %lpad14.loopexit.split-lp, %lpad14.loopexit
-  %.pn = phi { ptr, i32 } [ %22, %if.then.i.i43 ], [ %lpad.loopexit, %lpad14.loopexit ], [ %lpad.loopexit.split-lp, %lpad14.loopexit.split-lp ], [ %22, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad14.loopexit.split-lp ], [ %22, %if.then.i.i43 ], [ %lpad.loopexit, %lpad14.loopexit ], [ %22, %lpad16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %ehcleanup28
 
@@ -2574,7 +2574,7 @@ if.then.i.i669.1:                                 ; preds = %_ZNSt7__cxx1112basi
   br label %ehcleanup263
 
 ehcleanup263:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673, %lpad192, %if.then.i.i669.1, %if.then.i.i610, %lpad192.thread
-  %.pn322.pn = phi { ptr, i32 } [ %lpad.thr_comm, %lpad192.thread ], [ %lpad.thr_comm.split-lp, %if.then.i.i610 ], [ %.pn322, %if.then.i.i669.1 ], [ %lpad.thr_comm.split-lp, %lpad192 ], [ %.pn322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673 ]
+  %.pn322.pn = phi { ptr, i32 } [ %lpad.thr_comm, %lpad192.thread ], [ %.pn322, %if.then.i.i669.1 ], [ %lpad.thr_comm.split-lp, %if.then.i.i610 ], [ %lpad.thr_comm.split-lp, %lpad192 ], [ %.pn322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %fallback_settings)
   br label %ehcleanup265
 

@@ -647,7 +647,7 @@ _RNvYNvYRINtNtCseG2FYMysgNb_3wax5token5TokenuEINtNtB9_8variance12UnitVarianceNtB
   unreachable
 
 common.resume:                                    ; preds = %47, %37, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ], [ %48, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %42, %41 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 41:                                               ; preds = %30
@@ -893,7 +893,7 @@ _RNvYNvYRNtNtCseG2FYMysgNb_3wax5token5TokenINtNtB8_8variance12UnitVarianceNtBH_1
   unreachable
 
 common.resume:                                    ; preds = %47, %37, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %38, %37 ], [ %48, %47 ]
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %42, %41 ], [ %48, %47 ]
   resume { ptr, i32 } %common.resume.op
 
 41:                                               ; preds = %30

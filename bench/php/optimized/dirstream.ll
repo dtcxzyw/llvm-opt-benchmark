@@ -281,7 +281,7 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %102, %.lr.ph, %zend
   br label %112
 
 112:                                              ; preds = %109, %81, %84, %88, %._crit_edge, %67, %zend_string_equals.exit.thread, %45, %30, %.thread, %21, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %30 ], [ null, %45 ], [ %61, %zend_string_equals.exit.thread ], [ null, %67 ], [ null, %.thread ], [ null, %21 ], [ %87, %84 ], [ %91, %88 ], [ null, %._crit_edge ], [ %111, %109 ], [ null, %81 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %30 ], [ null, %45 ], [ %61, %zend_string_equals.exit.thread ], [ null, %21 ], [ null, %67 ], [ null, %.thread ], [ %87, %84 ], [ %91, %88 ], [ null, %._crit_edge ], [ %111, %109 ], [ null, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -827,7 +827,7 @@ zend_string_alloc.exit:                           ; preds = %110
   br label %169
 
 169:                                              ; preds = %35, %167, %161, %152, %112, %105, %91, %84, %62, %54, %46, %34, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %54 ], [ 0, %62 ], [ 0, %84 ], [ 0, %91 ], [ 0, %105 ], [ 0, %112 ], [ 0, %152 ], [ 0, %161 ], [ 1, %167 ], [ 0, %46 ], [ 0, %34 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %34 ], [ 0, %54 ], [ 0, %62 ], [ 0, %84 ], [ 0, %91 ], [ 0, %105 ], [ 0, %112 ], [ 0, %152 ], [ 0, %161 ], [ 1, %167 ], [ 0, %46 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1191,7 +1191,7 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %128, %.lr.ph155, %1
   br label %.critedge
 
 .critedge:                                        ; preds = %147, %118, %83, %161, %168, %33, %61, %52, %44, %32, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %52 ], [ 0, %61 ], [ 0, %44 ], [ 0, %32 ], [ 0, %33 ], [ 1, %168 ], [ 0, %161 ], [ 0, %147 ], [ 0, %83 ], [ 0, %118 ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %32 ], [ 0, %52 ], [ 0, %61 ], [ 0, %33 ], [ 0, %44 ], [ 1, %168 ], [ 0, %161 ], [ 0, %147 ], [ 0, %83 ], [ 0, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1282,7 +1282,7 @@ define internal range(i64 -1, 4098) i64 @phar_dir_read(ptr noundef readonly capt
   br label %22
 
 22:                                               ; preds = %18, %12, %8, %3
-  %.010 = phi i64 [ -1, %3 ], [ 0, %8 ], [ 4097, %18 ], [ 0, %12 ]
+  %.010 = phi i64 [ 0, %8 ], [ -1, %3 ], [ 4097, %18 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.010

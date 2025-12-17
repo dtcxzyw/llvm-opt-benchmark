@@ -486,7 +486,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio_no_scale(ptr n
   br label %17
 
 17:                                               ; preds = %8, %16, %4
-  %18 = phi i32 [ -22, %4 ], [ 0, %16 ], [ -22, %8 ]
+  %18 = phi i32 [ -22, %4 ], [ -22, %8 ], [ 0, %16 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #11
   br label %19
 
@@ -556,7 +556,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_ratio(ptr noundef ca
   br label %18
 
 18:                                               ; preds = %9, %17, %5
-  %19 = phi i32 [ -22, %5 ], [ 0, %17 ], [ -22, %9 ]
+  %19 = phi i32 [ -22, %5 ], [ -22, %9 ], [ 0, %17 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #11
   br label %20
 
@@ -695,7 +695,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bdi_set_min_bytes(ptr noundef ca
   br label %48
 
 48:                                               ; preds = %39, %47, %35
-  %49 = phi i32 [ -22, %35 ], [ 0, %47 ], [ -22, %39 ]
+  %49 = phi i32 [ -22, %35 ], [ -22, %39 ], [ 0, %47 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @bdi_lock) #11
   br label %50
 
@@ -1007,8 +1007,8 @@ define internal fastcc void @__wb_update_bandwidth(ptr noundef readonly captures
   br label %93
 
 93:                                               ; preds = %87, %74
-  %.in = phi i64 [ %92, %87 ], [ %53, %74 ]
-  %94 = phi i64 [ %83, %87 ], [ %44, %74 ]
+  %.in = phi i64 [ %53, %74 ], [ %92, %87 ]
+  %94 = phi i64 [ %44, %74 ], [ %83, %87 ]
   %95 = lshr i64 %.in, 1
   %96 = icmp ult i64 %94, %95
   %97 = getelementptr inbounds nuw i8, ptr %42, i64 304
@@ -1928,7 +1928,7 @@ define internal fastcc range(i32 -11, 1) i32 @balance_dirty_pages(ptr noundef %0
   br label %.backedge
 
 .thread:                                          ; preds = %434, %424, %423, %446, %378, %386, %391, %382, %82
-  %451 = phi i32 [ 0, %378 ], [ 0, %386 ], [ 0, %391 ], [ 0, %382 ], [ 0, %82 ], [ -11, %423 ], [ 0, %424 ], [ 0, %434 ], [ 0, %446 ]
+  %451 = phi i32 [ 0, %386 ], [ 0, %391 ], [ 0, %382 ], [ 0, %82 ], [ 0, %378 ], [ -11, %423 ], [ 0, %424 ], [ 0, %434 ], [ 0, %446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %451
 }
@@ -2849,7 +2849,7 @@ define dso_local i32 @do_writepages(ptr noundef %0, ptr noundef %1) local_unname
   br label %33, !llvm.loop !66
 
 .thread:                                          ; preds = %40, %48, %45
-  %56 = phi i32 [ -12, %48 ], [ %46, %45 ], [ 0, %40 ]
+  %56 = phi i32 [ %46, %45 ], [ -12, %48 ], [ 0, %40 ]
   %57 = load volatile i64, ptr %12, align 8
   %58 = add i64 %57, 200
   %59 = load volatile i64, ptr @jiffies, align 64

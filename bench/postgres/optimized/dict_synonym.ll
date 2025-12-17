@@ -296,7 +296,7 @@ findwrd.exit89:                                   ; preds = %100, %97
   br label %findwrd.exit.thread
 
 findwrd.exit.thread:                              ; preds = %60, %.critedge.i, %82, %.critedge2.i, %49, %127
-  %.161 = phi i32 [ %139, %127 ], [ %.060139, %49 ], [ %.060139, %.critedge2.i ], [ %.060139, %82 ], [ %.060139, %.critedge.i ], [ %.060139, %60 ]
+  %.161 = phi i32 [ %139, %127 ], [ %.060139, %.critedge2.i ], [ %.060139, %49 ], [ %.060139, %.critedge.i ], [ %.060139, %82 ], [ %.060139, %60 ]
   call void @pfree(ptr noundef nonnull %50) #8
   %140 = call ptr @tsearch_readline(ptr noundef nonnull %2) #8
   %.not69 = icmp eq ptr %140, null
@@ -462,7 +462,7 @@ define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) lo
   br label %55
 
 55:                                               ; preds = %1, %12, %41, %.loopexit
-  %.0 = phi i64 [ %54, %41 ], [ 0, %.loopexit ], [ 0, %12 ], [ 0, %1 ]
+  %.0 = phi i64 [ 0, %.loopexit ], [ %54, %41 ], [ 0, %12 ], [ 0, %1 ]
   ret i64 %.0
 }
 

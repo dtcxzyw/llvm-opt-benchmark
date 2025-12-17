@@ -563,8 +563,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i71:          ; preds = %2
   %spec.select = select i1 %12, i64 4294967306, i64 0
   br label %_ZN4llvm12StringSwitchIN5clang10extractapi20DeclarationFragments12FragmentKindES4_E4CaseENS_13StringLiteralES4_.exit74
 
-_ZN4llvm12StringSwitchIN5clang10extractapi20DeclarationFragments12FragmentKindES4_E4CaseENS_13StringLiteralES4_.exit74: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31, %.thread257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47
-  %.sroa.24.9 = phi i64 [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47 ], [ 0, %.thread257 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ %spec.select297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63 ], [ 0, %2 ]
+_ZN4llvm12StringSwitchIN5clang10extractapi20DeclarationFragments12FragmentKindES4_E4CaseENS_13StringLiteralES4_.exit74: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %.thread257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47
+  %.sroa.24.9 = phi i64 [ 0, %2 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i15 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i71 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i23 ], [ %spec.select297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i63 ], [ 4294967305, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i55 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i47 ], [ 0, %.thread257 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %spec.select.i298 = tail call i64 @llvm.umax.i64(i64 %.sroa.24.9, i64 4294967296)
   %spec.select.i = trunc i64 %spec.select.i298 to i32
   ret i32 %spec.select.i
@@ -2449,7 +2449,7 @@ _ZN5clang10extractapi20DeclarationFragmentsC2ERKS1_.exit235: ; preds = %_ZN5clan
   store ptr %267, ptr %264, align 8, !tbaa !21
   br label %307
 
-_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %217, %196, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type12isObjCIdTypeEv.exit
+_ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, %217, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %196, %_ZNK5clang4Type12isObjCIdTypeEv.exit
   %268 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %269 = load i64, ptr %268, align 8, !tbaa !34
   %270 = and i64 %269, 7
@@ -5220,7 +5220,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %93, %_ZNK5clang8Qua
   br label %_ZNK5clang10ASTContext29getUnqualifiedObjCPointerTypeENS_8QualTypeE.exit
 
 _ZNK5clang10ASTContext29getUnqualifiedObjCPointerTypeENS_8QualTypeE.exit: ; preds = %99, %97, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i, %82, %69, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit25
-  %.sroa.03.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit25 ], [ %.sroa.0.0.copyload.i26, %69 ], [ %.sroa.0.0.copyload.i26, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %101, %99 ], [ %98, %97 ], [ %.sroa.0.0.copyload.i26, %82 ]
+  %.sroa.03.0 = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit25 ], [ %.sroa.0.0.copyload.i26, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %.sroa.0.0.copyload.i26, %69 ], [ %98, %97 ], [ %101, %99 ], [ %.sroa.0.0.copyload.i26, %82 ]
   %102 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #25
   call void @_ZN5clang10extractapi27DeclarationFragmentsBuilder19getFragmentsForTypeENS_8QualTypeERNS_10ASTContextERNS0_20DeclarationFragmentsE(ptr dead_on_unwind nonnull writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 %19, i64 %.sroa.03.0, ptr noundef nonnull align 8 dereferenceable(23216) %102, ptr noundef nonnull align 8 dereferenceable(24) %16)
   %103 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendES1_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %19)
@@ -6212,7 +6212,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %63, %_ZNK5clang8Qua
   br label %_ZNK5clang10ASTContext29getUnqualifiedObjCPointerTypeENS_8QualTypeE.exit
 
 _ZNK5clang10ASTContext29getUnqualifiedObjCPointerTypeENS_8QualTypeE.exit: ; preds = %69, %67, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i, %52, %39, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit13
-  %storemerge = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit13 ], [ %.sroa.0.0.copyload.i14, %39 ], [ %.sroa.0.0.copyload.i14, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %71, %69 ], [ %68, %67 ], [ %.sroa.0.0.copyload.i14, %52 ]
+  %storemerge = phi i64 [ %.sroa.0.0.copyload.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit13 ], [ %.sroa.0.0.copyload.i14, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %.sroa.0.0.copyload.i14, %39 ], [ %68, %67 ], [ %71, %69 ], [ %.sroa.0.0.copyload.i14, %52 ]
   store i64 %storemerge, ptr %15, align 8
   %72 = load i32, ptr %20, align 4
   %73 = and i32 %72, 127
@@ -6615,7 +6615,7 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %54, %_ZNK5clang8Qua
   br label %.thread
 
 .thread:                                          ; preds = %60, %58, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i, %43, %.split18
-  %.sroa.02.0.i = phi i64 [ %.sroa.0.0.copyload.i19, %.split18 ], [ %.sroa.0.0.copyload.i19, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %62, %60 ], [ %59, %58 ], [ %.sroa.0.0.copyload.i19, %43 ]
+  %.sroa.02.0.i = phi i64 [ %.sroa.0.0.copyload.i19, %_ZNK5clang8QualType13getQualifiersEv.exit.thread.i ], [ %.sroa.0.0.copyload.i19, %.split18 ], [ %59, %58 ], [ %62, %60 ], [ %.sroa.0.0.copyload.i19, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6749,7 +6749,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split: ; preds = %_ZSt
   br label %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit
 
 _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i31, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i
-  %.sroa.0156.0238 = phi i64 [ %.sroa.0156.0239, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i31 ], [ %.sroa.0.0.copyload.i, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %.sroa.0156.0238.ph, %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split ]
+  %.sroa.0156.0238 = phi i64 [ %.sroa.0.0.copyload.i, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i ], [ %.sroa.0156.0239, %_ZSt8_DestroyIPN5clang10extractapi20DeclarationFragments8FragmentES3_EvT_S5_RSaIT0_E.exit.i.i31 ], [ %.sroa.0156.0238.ph, %_ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit.sink.split ]
   %106 = load ptr, ptr %14, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !16

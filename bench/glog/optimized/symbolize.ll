@@ -300,7 +300,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51: ; preds = %9
   br i1 %exitcond.not, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, label %.lr.ph.split, !llvm.loop !21
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread: ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37", %46, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51, %106, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47", %89, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %75, %.thread58, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us, %.preheader, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41
-  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ %.5.ph, %.thread58 ], [ false, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %75 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %106 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ false, %46 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
+  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ %.5.ph, %.thread58 ], [ false, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %46 ], [ false, %75 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ false, %106 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
 
@@ -1005,7 +1005,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97: ; preds =
           to label %241 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 241:                                              ; preds = %.loopexit123.thread, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97, %.loopexit123, %.thread, %240, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit69
-  %.0.ph = phi i1 [ true, %240 ], [ false, %.thread ], [ false, %.loopexit123 ], [ true, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97 ], [ true, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit69 ], [ false, %.loopexit123.thread ]
+  %.0.ph = phi i1 [ true, %240 ], [ false, %.loopexit123 ], [ false, %.thread ], [ true, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97 ], [ true, %_ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit69 ], [ false, %.loopexit123.thread ]
   br i1 %.not108, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit99, label %242
 
 242:                                              ; preds = %241
@@ -1020,14 +1020,14 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit97: ; preds =
   unreachable
 
 _ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit99: ; preds = %39, %3, %241, %242
-  %.0107 = phi i1 [ %.0.ph, %241 ], [ %.0.ph, %242 ], [ false, %3 ], [ false, %39 ]
+  %.0107 = phi i1 [ %.0.ph, %242 ], [ %.0.ph, %241 ], [ false, %3 ], [ false, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0107
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %112, %36, %30
-  %.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %37, %36 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit117, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit120, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %37, %36 ], [ %31, %30 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit117, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit120, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp121, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1176,7 +1176,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %68
 
-65:                                               ; preds = %58, %.noexc75, %.noexc76
+65:                                               ; preds = %.noexc75, %58, %.noexc76
   store i32 -1, ptr %0, align 4, !tbaa !23
   br label %220
 
@@ -1636,7 +1636,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit90: ; preds = %switch.
   br label %218
 
 .critedge74:                                      ; preds = %210, %._crit_edge, %193, %198
-  %.sink = phi i32 [ -1, %198 ], [ -1, %193 ], [ -1, %._crit_edge ], [ %214, %210 ]
+  %.sink = phi i32 [ -1, %193 ], [ -1, %._crit_edge ], [ -1, %198 ], [ %214, %210 ]
   store i32 %.sink, ptr %0, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2080,8 +2080,8 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   %.not68.not = icmp samesign ugt i64 %24, %71
   br i1 %.not68.not, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
-.loopexit.thread:                                 ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread, %66
-  %.4.ph = phi i1 [ true, %66 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread ]
+.loopexit.thread:                                 ; preds = %66, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
+  %.4.ph = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread ], [ true, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit31
 

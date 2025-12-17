@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   br label %22
 
 22:                                               ; preds = %20, %14
-  %.041.shrunk62 = phi i1 [ true, %20 ], [ %.041.shrunk, %14 ]
+  %.041.shrunk62 = phi i1 [ %.041.shrunk, %14 ], [ true, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
   %.not50 = icmp eq i32 %24, 0
@@ -280,8 +280,8 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   br label %.thread88
 
 .thread88:                                        ; preds = %.thread100.thread, %.thread111.thread, %.thread111, %.thread82.thread, %.thread72, %.thread82, %32, %44, %52, %55, %51, %35
-  %56 = phi i32 [ %38, %44 ], [ %38, %52 ], [ %38, %55 ], [ %38, %51 ], [ %36, %35 ], [ %34, %32 ], [ 512, %.thread82 ], [ %30, %.thread72 ], [ 512, %.thread82.thread ], [ 512, %.thread111 ], [ 512, %.thread111.thread ], [ %28, %.thread100.thread ]
-  %57 = phi ptr [ %15, %44 ], [ %15, %52 ], [ %15, %55 ], [ %15, %51 ], [ %15, %35 ], [ %15, %32 ], [ %15, %.thread82 ], [ %17, %.thread72 ], [ %17, %.thread82.thread ], [ %15, %.thread111 ], [ %17, %.thread111.thread ], [ %17, %.thread100.thread ]
+  %56 = phi i32 [ 512, %.thread82 ], [ %38, %44 ], [ %38, %52 ], [ %38, %55 ], [ %38, %51 ], [ %36, %35 ], [ %34, %32 ], [ %30, %.thread72 ], [ 512, %.thread82.thread ], [ 512, %.thread111 ], [ 512, %.thread111.thread ], [ %28, %.thread100.thread ]
+  %57 = phi ptr [ %15, %.thread82 ], [ %15, %44 ], [ %15, %52 ], [ %15, %55 ], [ %15, %51 ], [ %15, %35 ], [ %15, %32 ], [ %17, %.thread72 ], [ %17, %.thread82.thread ], [ %15, %.thread111 ], [ %17, %.thread111.thread ], [ %17, %.thread100.thread ]
   %58 = load i32, ptr %57, align 4
   %59 = icmp ugt i32 %56, %58
   br i1 %59, label %60, label %61
@@ -337,7 +337,7 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   br label %84
 
 84:                                               ; preds = %77, %80, %83, %76, %70, %67, %60
-  %.043 = phi i1 [ false, %60 ], [ false, %70 ], [ false, %83 ], [ false, %76 ], [ false, %67 ], [ true, %80 ], [ true, %77 ]
+  %.043 = phi i1 [ false, %60 ], [ false, %70 ], [ false, %67 ], [ false, %83 ], [ false, %76 ], [ true, %80 ], [ true, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.043
 }
@@ -384,7 +384,7 @@ define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef r
   unreachable
 
 19:                                               ; preds = %12, %16, %15
-  %.0 = phi i1 [ false, %15 ], [ %17, %16 ], [ true, %12 ]
+  %.0 = phi i1 [ %17, %16 ], [ false, %15 ], [ true, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4

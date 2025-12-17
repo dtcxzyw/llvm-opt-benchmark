@@ -729,7 +729,7 @@ updateUB.exit:                                    ; preds = %.lr.ph.i291, %.thre
   br label %._crit_edge72.i
 
 ._crit_edge72.i:                                  ; preds = %._crit_edge72.loopexit.i, %.preheader.thread.i, %.preheader.i304
-  %.2.lcssa.i = phi i32 [ 0, %.preheader.i304 ], [ 0, %.preheader.thread.i ], [ %359, %._crit_edge72.loopexit.i ]
+  %.2.lcssa.i = phi i32 [ 0, %.preheader.i304 ], [ %359, %._crit_edge72.loopexit.i ], [ 0, %.preheader.thread.i ]
   %360 = icmp eq i32 %.2.lcssa.i, %.2233505
   br i1 %360, label %.lr.ph81.i, label %361
 
@@ -741,8 +741,8 @@ updateUB.exit:                                    ; preds = %.lr.ph.i291, %.thre
   br i1 %365, label %.lr.ph81.i, label %updateEntry.exit
 
 .lr.ph81.i:                                       ; preds = %358, %.preheader.i304, %._crit_edge72.i, %361
-  %366 = phi i32 [ 0, %361 ], [ 1, %._crit_edge72.i ], [ 1, %.preheader.i304 ], [ 1, %358 ]
-  %.2.lcssa110.i = phi i32 [ %.2.lcssa.i, %361 ], [ %.2233505, %._crit_edge72.i ], [ %.2233505, %.preheader.i304 ], [ %.2233505, %358 ]
+  %366 = phi i32 [ 1, %._crit_edge72.i ], [ 0, %361 ], [ 1, %.preheader.i304 ], [ 1, %358 ]
+  %.2.lcssa110.i = phi i32 [ %.2233505, %._crit_edge72.i ], [ %.2.lcssa.i, %361 ], [ %.2233505, %.preheader.i304 ], [ %.2233505, %358 ]
   %.pre.i = zext nneg i32 %.2.lcssa110.i to i64
   %367 = getelementptr inbounds nuw ptr, ptr %.1219525, i64 %.pre.i
   %368 = load ptr, ptr %367, align 8, !tbaa !36
@@ -876,9 +876,9 @@ pushDown.exit:                                    ; preds = %.lr.ph.i313, %.loop
   br label %checkSymmInfo.exit
 
 checkSymmInfo.exit:                               ; preds = %381, %.checkSymmInfo.exit_crit_edge, %.lr.ph.i335, %.thread353, %405
-  %indvars.iv.next582.pre-phi = phi i64 [ %.pre600, %.checkSymmInfo.exit_crit_edge ], [ %377, %.lr.ph.i335 ], [ %377, %.thread353 ], [ %377, %405 ], [ %377, %381 ]
-  %.3234 = phi i32 [ %.2233505, %.checkSymmInfo.exit_crit_edge ], [ %.050.i, %.lr.ph.i335 ], [ %.050.i, %.thread353 ], [ %.050.i, %405 ], [ %.050.i, %381 ]
-  %.4 = phi i32 [ %.3229506, %.checkSymmInfo.exit_crit_edge ], [ %408, %.lr.ph.i335 ], [ %spec.select437, %.thread353 ], [ %.3229.mux, %405 ], [ %.3229506, %381 ]
+  %indvars.iv.next582.pre-phi = phi i64 [ %.pre600, %.checkSymmInfo.exit_crit_edge ], [ %377, %405 ], [ %377, %.lr.ph.i335 ], [ %377, %.thread353 ], [ %377, %381 ]
+  %.3234 = phi i32 [ %.2233505, %.checkSymmInfo.exit_crit_edge ], [ %.050.i, %405 ], [ %.050.i, %.lr.ph.i335 ], [ %.050.i, %.thread353 ], [ %.050.i, %381 ]
+  %.4 = phi i32 [ %.3229506, %.checkSymmInfo.exit_crit_edge ], [ %.3229.mux, %405 ], [ %408, %.lr.ph.i335 ], [ %spec.select437, %.thread353 ], [ %.3229506, %381 ]
   %413 = icmp sgt i64 %indvars.iv581, 0
   br i1 %413, label %304, label %.loopexit445, !llvm.loop !56
 
@@ -916,14 +916,14 @@ checkSymmInfo.exit:                               ; preds = %381, %.checkSymmInf
   tail call void @free(ptr noundef %145) #9
   br label %433
 
-ddShuffle.exit.thread355:                         ; preds = %.lr.ph.i.i, %.lr.ph.i.i322, %._crit_edge531, %125, %132, %147, %143, %138, %getMatrix.exit272, %getMatrix.exit
-  %.0210375 = phi ptr [ %141, %147 ], [ %141, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %132 ], [ null, %125 ], [ %141, %._crit_edge531 ], [ %141, %.lr.ph.i.i322 ], [ %141, %.lr.ph.i.i ]
-  %.0213373 = phi ptr [ %136, %147 ], [ %136, %143 ], [ %136, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %132 ], [ null, %125 ], [ %.1.lcssa, %._crit_edge531 ], [ %.1528, %.lr.ph.i.i322 ], [ %.1528, %.lr.ph.i.i ]
-  %.0214371 = phi ptr [ %123, %147 ], [ %123, %143 ], [ %123, %138 ], [ %123, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ %123, %132 ], [ %123, %125 ], [ %.1215.lcssa, %._crit_edge531 ], [ %.1215527, %.lr.ph.i.i322 ], [ %.1215527, %.lr.ph.i.i ]
-  %.0216369 = phi ptr [ %126, %147 ], [ %126, %143 ], [ %126, %138 ], [ %126, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %132 ], [ null, %125 ], [ %.1217.lcssa, %._crit_edge531 ], [ %.1217526, %.lr.ph.i.i322 ], [ %.1217526, %.lr.ph.i.i ]
-  %.0218368 = phi ptr [ %110, %147 ], [ %110, %143 ], [ %110, %138 ], [ %110, %getMatrix.exit272 ], [ %110, %getMatrix.exit ], [ %110, %132 ], [ %110, %125 ], [ %.1219.lcssa, %._crit_edge531 ], [ %.1219525, %.lr.ph.i.i322 ], [ %.1219525, %.lr.ph.i.i ]
-  %.0220366 = phi ptr [ null, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %132 ], [ null, %125 ], [ %148, %._crit_edge531 ], [ %148, %.lr.ph.i.i322 ], [ %148, %.lr.ph.i.i ]
-  %.0221364 = phi ptr [ %145, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %132 ], [ null, %125 ], [ %145, %._crit_edge531 ], [ %145, %.lr.ph.i.i322 ], [ %145, %.lr.ph.i.i ]
+ddShuffle.exit.thread355:                         ; preds = %.lr.ph.i.i, %.lr.ph.i.i322, %._crit_edge531, %132, %125, %147, %143, %138, %getMatrix.exit272, %getMatrix.exit
+  %.0210375 = phi ptr [ null, %132 ], [ %141, %147 ], [ %141, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %141, %._crit_edge531 ], [ %141, %.lr.ph.i.i322 ], [ %141, %.lr.ph.i.i ]
+  %.0213373 = phi ptr [ null, %132 ], [ %136, %147 ], [ %136, %143 ], [ %136, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1.lcssa, %._crit_edge531 ], [ %.1528, %.lr.ph.i.i322 ], [ %.1528, %.lr.ph.i.i ]
+  %.0214371 = phi ptr [ %123, %132 ], [ %123, %147 ], [ %123, %143 ], [ %123, %138 ], [ %123, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ %123, %125 ], [ %.1215.lcssa, %._crit_edge531 ], [ %.1215527, %.lr.ph.i.i322 ], [ %.1215527, %.lr.ph.i.i ]
+  %.0216369 = phi ptr [ null, %132 ], [ %126, %147 ], [ %126, %143 ], [ %126, %138 ], [ %126, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %.1217.lcssa, %._crit_edge531 ], [ %.1217526, %.lr.ph.i.i322 ], [ %.1217526, %.lr.ph.i.i ]
+  %.0218368 = phi ptr [ %110, %132 ], [ %110, %147 ], [ %110, %143 ], [ %110, %138 ], [ %110, %getMatrix.exit272 ], [ %110, %getMatrix.exit ], [ %110, %125 ], [ %.1219.lcssa, %._crit_edge531 ], [ %.1219525, %.lr.ph.i.i322 ], [ %.1219525, %.lr.ph.i.i ]
+  %.0220366 = phi ptr [ null, %132 ], [ null, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %148, %._crit_edge531 ], [ %148, %.lr.ph.i.i322 ], [ %148, %.lr.ph.i.i ]
+  %.0221364 = phi ptr [ null, %132 ], [ %145, %147 ], [ null, %143 ], [ null, %138 ], [ null, %getMatrix.exit272 ], [ null, %getMatrix.exit ], [ null, %125 ], [ %145, %._crit_edge531 ], [ %145, %.lr.ph.i.i322 ], [ %145, %.lr.ph.i.i ]
   %417 = load ptr, ptr %.0218368, align 8, !tbaa !36
   %.not.i341 = icmp eq ptr %417, null
   br i1 %.not.i341, label %419, label %418
@@ -991,13 +991,13 @@ freeMatrix.exit343:                               ; preds = %420, %422
   tail call void @free(ptr noundef nonnull %.sink) #9
   br label %.thread432
 
-.thread432:                                       ; preds = %.thread432.sink.split, %107, %getMaxBinomial.exit.thread345, %._crit_edge, %getMaxBinomial.exit, %56, %431
+.thread432:                                       ; preds = %.thread432.sink.split, %getMaxBinomial.exit.thread345, %107, %._crit_edge, %getMaxBinomial.exit, %56, %431
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %432, align 8, !tbaa !59
   br label %433
 
 433:                                              ; preds = %.critedge2, %.thread432, %416
-  %.0 = phi i32 [ 0, %.thread432 ], [ 1, %416 ], [ 1, %.critedge2 ]
+  %.0 = phi i32 [ 1, %416 ], [ 0, %.thread432 ], [ 1, %.critedge2 ]
   ret i32 %.0
 }
 

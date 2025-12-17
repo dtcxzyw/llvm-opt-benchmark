@@ -38829,7 +38829,7 @@ asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %82
   br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %78, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
-  %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
+  %.0.i.i.i = phi i64 [ %81, %78 ], [ 0, %38 ], [ 0, %45 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %36 ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
   %90 = load ptr, ptr %34, align 8
   %.not.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %91
@@ -39451,7 +39451,7 @@ asterix_field_exists.exit.thread:                 ; preds = %.lr.ph.i, %asterix_
   br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %asterix_field_exists.exit.thread, %.lr.ph77, %.preheader67, %._crit_edge.loopexit, %70, %.preheader68, %._crit_edge89, %12, %3
-  %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ 0, %.preheader68 ], [ %69, %70 ], [ 0, %.preheader67 ], [ %55, %._crit_edge.loopexit ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
+  %.053 = phi i32 [ 0, %3 ], [ %14, %12 ], [ %27, %._crit_edge89 ], [ 0, %.preheader68 ], [ %69, %70 ], [ %55, %._crit_edge.loopexit ], [ 0, %.preheader67 ], [ %61, %.lr.ph77 ], [ %.4, %asterix_field_exists.exit.thread ]
   ret i32 %.053
 }
 
@@ -39516,7 +39516,7 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   br label %34
 
 34:                                               ; preds = %33, %22, %22, %22, %22, %22
-  %.2 = phi i1 [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ %.not108.not, %33 ]
+  %.2 = phi i1 [ %.not108.not, %33 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ], [ false, %22 ]
   %35 = load i32, ptr %21, align 4
   %36 = tail call ptr @proto_registrar_get_nth(i32 noundef %35)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -39545,8 +39545,8 @@ define internal fastcc void @asterix_build_subtree(ptr noundef %0, ptr noundef %
   br label %53
 
 53:                                               ; preds = %44, %39, %34
-  %.095 = phi i32 [ %24, %39 ], [ %24, %34 ], [ %spec.select110, %44 ]
-  %.094 = phi i32 [ %30, %39 ], [ %30, %34 ], [ %spec.select111, %44 ]
+  %.095 = phi i32 [ %24, %34 ], [ %spec.select110, %44 ], [ %24, %39 ]
+  %.094 = phi i32 [ %30, %34 ], [ %spec.select111, %44 ], [ %30, %39 ]
   %54 = load ptr, ptr %6, align 8
   %55 = getelementptr ptr, ptr %54, i64 %12
   %56 = load ptr, ptr %55, align 8

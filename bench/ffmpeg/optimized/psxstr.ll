@@ -106,8 +106,8 @@ define internal range(i32 0, 51) i32 @str_probe(ptr noundef readonly captures(no
   br label %49
 
 49:                                               ; preds = %25, %41, %47
-  %.237 = phi i32 [ %42, %41 ], [ %.03547, %47 ], [ %.03547, %25 ]
-  %.133 = phi i32 [ %.03248, %41 ], [ %48, %47 ], [ %.03248, %25 ]
+  %.237 = phi i32 [ %.03547, %25 ], [ %42, %41 ], [ %.03547, %47 ]
+  %.133 = phi i32 [ %.03248, %25 ], [ %.03248, %41 ], [ %48, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %.13149, i64 2352
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %17, %51
@@ -126,7 +126,7 @@ define internal range(i32 0, 51) i32 @str_probe(ptr noundef readonly captures(no
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %29, %25, %43, %21, %.lr.ph, %._crit_edge.thread, %._crit_edge, %1
-  %.0 = phi i32 [ 0, %1 ], [ 50, %._crit_edge ], [ %., %._crit_edge.thread ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %43 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ]
+  %.0 = phi i32 [ 50, %._crit_edge ], [ 0, %1 ], [ %., %._crit_edge.thread ], [ 0, %.lr.ph ], [ 0, %21 ], [ 0, %43 ], [ 0, %25 ], [ 0, %29 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -400,8 +400,8 @@ define internal range(i32 -2147483648, 1) i32 @str_read_packet(ptr noundef %0, p
 .thread.loopexit:                                 ; preds = %16
   br label %.thread
 
-.thread:                                          ; preds = %64, %41, %18, %127, %16, %.thread.loopexit, %92, %83, %119, %116
-  %.1.ph = phi i32 [ %117, %116 ], [ 0, %119 ], [ 0, %83 ], [ -12, %92 ], [ -5, %16 ], [ -12, %41 ], [ %65, %64 ], [ -1094995529, %18 ], [ -5, %127 ], [ %17, %.thread.loopexit ]
+.thread:                                          ; preds = %64, %41, %127, %18, %16, %.thread.loopexit, %92, %83, %116, %119
+  %.1.ph = phi i32 [ 0, %119 ], [ 0, %83 ], [ -5, %16 ], [ %117, %116 ], [ -12, %92 ], [ %65, %64 ], [ -5, %127 ], [ -12, %41 ], [ -1094995529, %18 ], [ %17, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1.ph
 }

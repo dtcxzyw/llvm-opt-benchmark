@@ -1516,7 +1516,7 @@ define internal i32 @dissect_cipmotion(ptr noundef %0, ptr noundef %1, ptr nound
   br label %dissect_var_cont_conn_header.exit
 
 dissect_var_cont_conn_header.exit:                ; preds = %143, %142, %91, %90
-  %.2 = phi i32 [ %.0.i, %90 ], [ %94, %91 ], [ %.2.i, %142 ], [ %149, %143 ]
+  %.2 = phi i32 [ %149, %143 ], [ %94, %91 ], [ %.0.i, %90 ], [ %.2.i, %142 ]
   %.082 = zext i8 %56 to i32
   %.not97 = icmp eq i32 %.084, %.082
   br i1 %.not97, label %152, label %150

@@ -233,8 +233,8 @@ hwloc_utils_check_api_version.exit:               ; preds = %39, %24
   br i1 %70, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %hwloc_utils_check_api_version.exit, %17, %.lr.ph, %hwloc_utils_check_api_version.exit.preheader
-  %.073150 = phi i32 [ -1, %hwloc_utils_check_api_version.exit.preheader ], [ %.174, %hwloc_utils_check_api_version.exit ], [ %.073155, %17 ], [ %.073155, %.lr.ph ]
-  %.078 = phi ptr [ @.str.18, %hwloc_utils_check_api_version.exit.preheader ], [ @.str.18, %hwloc_utils_check_api_version.exit ], [ %14, %17 ], [ %14, %.lr.ph ]
+  %.073150 = phi i32 [ -1, %hwloc_utils_check_api_version.exit.preheader ], [ %.174, %hwloc_utils_check_api_version.exit ], [ %.073155, %.lr.ph ], [ %.073155, %17 ]
+  %.078 = phi ptr [ @.str.18, %hwloc_utils_check_api_version.exit.preheader ], [ @.str.18, %hwloc_utils_check_api_version.exit ], [ %14, %.lr.ph ], [ %14, %17 ]
   %71 = tail call ptr @getenv(ptr noundef nonnull @.str.19) #16
   %.not92 = icmp eq ptr %71, null
   br i1 %.not92, label %72, label %74
@@ -367,7 +367,7 @@ sub_0145:                                         ; preds = %86
   br label %hwloc_get_next_obj_by_type.exit.us
 
 hwloc_get_next_obj_by_type.exit.us:               ; preds = %130, %127
-  %.0.i.us = phi ptr [ %129, %127 ], [ %131, %130 ]
+  %.0.i.us = phi ptr [ %131, %130 ], [ %129, %127 ]
   %.not99.us = icmp eq ptr %.0.i.us, null
   br i1 %.not99.us, label %hwloc_get_next_obj_by_type.exit.thread, label %.split.us
 
@@ -402,7 +402,7 @@ hwloc_get_next_obj_by_type.exit.us:               ; preds = %130, %127
   br label %hwloc_get_next_obj_by_type.exit
 
 hwloc_get_next_obj_by_type.exit:                  ; preds = %137, %142
-  %.0.i = phi ptr [ %144, %142 ], [ %138, %137 ]
+  %.0.i = phi ptr [ %138, %137 ], [ %144, %142 ]
   %.not99 = icmp eq ptr %.0.i, null
   br i1 %.not99, label %hwloc_get_next_obj_by_type.exit.thread, label %.split83
 
@@ -474,7 +474,7 @@ hwloc_get_next_obj_by_type.exit.thread:           ; preds = %hwloc_get_next_obj_
   br label %hwloc_get_next_obj_by_type.exit.i
 
 hwloc_get_next_obj_by_type.exit.i:                ; preds = %174, %169
-  %.0.i.i = phi ptr [ %176, %174 ], [ %170, %169 ]
+  %.0.i.i = phi ptr [ %170, %169 ], [ %176, %174 ]
   %.not.i115 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i115, label %181, label %177
 

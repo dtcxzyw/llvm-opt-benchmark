@@ -233,7 +233,7 @@ define internal void @dsm_postmaster_shutdown(i32 %0, i64 noundef %1) #0 {
   %wide.trip.count = zext i32 %10 to i64
   br label %.lr.ph
 
-dsm_control_segment_sane.exit.thread:             ; preds = %15, %13, %2
+dsm_control_segment_sane.exit.thread:             ; preds = %13, %2, %15
   %23 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
   br i1 %23, label %24, label %53
 
@@ -406,8 +406,8 @@ dsm_control_segment_sane.exit:                    ; preds = %15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @__func__.dsm_cleanup_using_control_segment) #11
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %42, %dsm_control_segment_sane.exit, %9, %13, %15
-  %.sink = phi i32 [ 2, %15 ], [ 2, %13 ], [ 2, %9 ], [ 2, %dsm_control_segment_sane.exit ], [ 3, %42 ], [ 3, %._crit_edge ]
+.sink.split:                                      ; preds = %._crit_edge, %42, %dsm_control_segment_sane.exit, %15, %9, %13
+  %.sink = phi i32 [ 2, %dsm_control_segment_sane.exit ], [ 2, %13 ], [ 2, %9 ], [ 2, %15 ], [ 3, %42 ], [ 3, %._crit_edge ]
   %44 = call zeroext i1 @dsm_impl_op(i32 noundef %.sink, i32 noundef %0, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 15) #11
   br label %45
 

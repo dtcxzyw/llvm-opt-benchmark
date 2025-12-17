@@ -3722,7 +3722,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$parquet..file..writer..Seri
   br label %"_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit"
 
 common.resume:                                    ; preds = %39, %112, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %113, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i" ], [ %113, %112 ], [ %.pn4, %39 ]
+  %common.resume.op = phi { ptr, i32 } [ %113, %112 ], [ %113, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i" ], [ %.pn4, %39 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr552drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$alloc..sync..Arc$LT$parquet..file..metadata..RowGroupMetaData$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..bloom_filter..Sbbf$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..ColumnIndex$GT$$GT$$C$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$parquet..errors..ParquetError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hd7269c304939d6f8E.exit": ; preds = %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$parquet..format..OffsetIndex$GT$$GT$$GT$17h51d2692b5dd2a09bE.exit", %120, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i4.i.i"
@@ -4976,7 +4976,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$influxdb3_write..persister.
   unreachable
 
 common.resume:                                    ; preds = %3, %6, %11
-  %common.resume.op = phi { ptr, i32 } [ %7, %11 ], [ %7, %6 ], [ %4, %3 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %6 ], [ %7, %11 ], [ %4, %3 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr73drop_in_place$LT$datafusion_execution..memory_pool..MemoryReservation$GT$17h3fd8173f6db7cb16E.exit": ; preds = %12, %16
@@ -10435,7 +10435,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$h2..share..RecvStream$GT$17h
   unreachable
 
 common.resume:                                    ; preds = %2, %5, %10
-  %common.resume.op = phi { ptr, i32 } [ %6, %10 ], [ %6, %5 ], [ %3, %2 ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %6, %10 ], [ %3, %2 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr43drop_in_place$LT$h2..share..FlowControl$GT$17h9914de43a7cccc86E.llvm.9135219245553044050.exit": ; preds = %11, %15
@@ -10732,7 +10732,7 @@ default.unreachable12:                            ; preds = %1
   br label %"_ZN4core3ptr346drop_in_place$LT$hyper..common..sync_wrapper..SyncWrapper$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h9694aefac1e6f7b9E.llvm.9135219245553044050.exit"
 
 common.resume:                                    ; preds = %.body5, %98, %86, %90, %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i"
-  %common.resume.op = phi { ptr, i32 } [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ], [ %10, %9 ], [ %87, %90 ], [ %87, %86 ], [ %.pn, %.body5 ], [ %99, %98 ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %10, %9 ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ], [ %87, %90 ], [ %.pn, %.body5 ], [ %99, %98 ]
   resume { ptr, i32 } %common.resume.op
 
 24:                                               ; preds = %1
@@ -11608,7 +11608,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$hyper..body..body..DelayEof$
   unreachable
 
 common.resume:                                    ; preds = %18, %22, %7, %11
-  %common.resume.op = phi { ptr, i32 } [ %8, %11 ], [ %8, %7 ], [ %19, %22 ], [ %19, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %8, %11 ], [ %19, %22 ], [ %19, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %1
@@ -15146,7 +15146,7 @@ define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$parquet..column..pa
   unreachable
 
 "_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..file..statistics..Statistics$GT$$GT$17he43a4e790baaab10E.llvm.9135219245553044050.exit.i": ; preds = %52, %48, %41, %36
-  %.pn.i = phi { ptr, i32 } [ %37, %41 ], [ %37, %36 ], [ %49, %52 ], [ %49, %48 ]
+  %.pn.i = phi { ptr, i32 } [ %37, %36 ], [ %37, %41 ], [ %49, %52 ], [ %49, %48 ]
   resume { ptr, i32 } %.pn.i
 
 48:                                               ; preds = %26
@@ -15293,7 +15293,7 @@ default.unreachable6:                             ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %67, %72, %76, %19, %24, %28
-  %common.resume.op = phi { ptr, i32 } [ %20, %28 ], [ %20, %24 ], [ %20, %19 ], [ %68, %76 ], [ %68, %72 ], [ %68, %67 ]
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %20, %28 ], [ %20, %24 ], [ %68, %76 ], [ %68, %72 ], [ %68, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$parquet..file..statistics..ValueStatistics$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hb708d77724a234daE.llvm.9135219245553044050.exit.sink.split": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$parquet..data_type..ByteArray$GT$$GT$17he6d37ce89891e60cE.llvm.9135219245553044050.exit.i", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$parquet..data_type..FixedLenByteArray$GT$$GT$17hf9155bd0ca794cceE.llvm.9135219245553044050.exit.i"
@@ -15655,7 +15655,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$trace_exporters..export..Asy
   unreachable
 
 common.resume:                                    ; preds = %.body, %34, %39
-  %common.resume.op = phi { ptr, i32 } [ %35, %39 ], [ %35, %34 ], [ %eh.lpad-body, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %35, %39 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr108drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$17hec7ebabcb66c8cedE.exit": ; preds = %"_ZN82_$LT$tokio..sync..mpsc..chan..Tx$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7049615d4288a3e4E.llvm.9135219245553044050.exit.i.i", %43
@@ -18601,7 +18601,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i"
 
 .body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i", %46, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i"
-  %.pn2.i = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i" ], [ %47, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i" ], [ %47, %46 ]
+  %.pn2.i = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i" ], [ %47, %46 ], [ %47, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i" ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %.val27.i = load ptr, ptr %61, align 8, !alias.scope !8209, !noundef !4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -18655,7 +18655,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i"
 
 .body32.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i", %69, %.body.i
-  %.pn4.i = phi { ptr, i32 } [ %.pn2.i, %.body.i ], [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ], [ %70, %69 ]
+  %.pn4.i = phi { ptr, i32 } [ %.pn2.i, %.body.i ], [ %70, %69 ], [ %70, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$parquet..arrow..arrow_writer..byte_array..ByteArrayEncoder$GT$17h860a6a950fe9d258E"(ptr noalias noundef nonnull align 8 dereferenceable(944) %0) #24
           to label %84 unwind label %246
 
@@ -19065,7 +19065,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$parquet..arrow..arr
   unreachable
 
 common.resume:                                    ; preds = %409, %451, %456, %common.resume.sink.split.i, %1429, %1471, %1476, %178, %220, %225
-  %common.resume.op = phi { ptr, i32 } [ %221, %225 ], [ %221, %220 ], [ %.pn16.i, %178 ], [ %452, %456 ], [ %452, %451 ], [ %.pn16.i.i, %409 ], [ %1472, %1476 ], [ %1472, %1471 ], [ %.pn16.i359.i, %1429 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn16.i, %178 ], [ %221, %220 ], [ %221, %225 ], [ %.pn16.i.i, %409 ], [ %.pn16.i359.i, %1429 ], [ %452, %451 ], [ %452, %456 ], [ %1472, %1471 ], [ %1472, %1476 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op
 
 246:                                              ; preds = %178, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit40.i", %.body35.i, %84, %.body32.i, %.body.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i", %33
@@ -19192,7 +19192,7 @@ default.unreachable:                              ; preds = %248
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i.i"
 
 .body.i.i:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1", %277, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i"
-  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i" ], [ %278, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1" ], [ %278, %277 ]
+  %.pn2.i.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i.i" ], [ %278, %277 ], [ %278, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i1" ]
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %.val27.i.i = load ptr, ptr %292, align 8, !alias.scope !8492, !noundef !4
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -19246,7 +19246,7 @@ default.unreachable:                              ; preds = %248
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i.i"
 
 .body32.i.i:                                      ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i.i", %300, %.body.i.i
-  %.pn4.i.i = phi { ptr, i32 } [ %.pn2.i.i, %.body.i.i ], [ %301, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i.i" ], [ %301, %300 ]
+  %.pn4.i.i = phi { ptr, i32 } [ %.pn2.i.i, %.body.i.i ], [ %301, %300 ], [ %301, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..FixedLenByteArrayType$GT$$GT$17h9eb00c0c5fb9b784E"(ptr noalias noundef nonnull align 8 dereferenceable(888) %252) #24
           to label %315 unwind label %479
 
@@ -19662,9 +19662,9 @@ default.unreachable:                              ; preds = %248
   unreachable
 
 common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i", %1115, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i", %983, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i", %851, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i", %720, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i", %588, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i"
-  %.sink498.i = phi i64 [ 120, %588 ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 336, %720 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 392, %851 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 368, %983 ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 336, %1115 ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 392, %1246 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %.sink497.i = phi i64 [ 528, %588 ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 552, %720 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 608, %851 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 584, %983 ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 552, %1115 ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 608, %1246 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
-  %common.resume.op.ph.i = phi { ptr, i32 } [ %589, %588 ], [ %.pn8.i9.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ %721, %720 ], [ %.pn8.i59.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ %852, %851 ], [ %.pn8.i118.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ %984, %983 ], [ %.pn8.i177.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ %1116, %1115 ], [ %.pn8.i236.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ %1247, %1246 ], [ %.pn8.i295.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink498.i = phi i64 [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 368, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 336, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 120, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 120, %588 ], [ 336, %720 ], [ 392, %851 ], [ 368, %983 ], [ 336, %1115 ], [ 392, %1246 ], [ 392, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %.sink497.i = phi i64 [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ 584, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ 552, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ 528, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ 528, %588 ], [ 552, %720 ], [ 608, %851 ], [ 584, %983 ], [ 552, %1115 ], [ 608, %1246 ], [ 608, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %.pn8.i236.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i238.i" ], [ %.pn8.i177.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i179.i" ], [ %.pn8.i118.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i120.i" ], [ %.pn8.i59.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i61.i" ], [ %.pn8.i9.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i.i" ], [ %589, %588 ], [ %721, %720 ], [ %852, %851 ], [ %984, %983 ], [ %1116, %1115 ], [ %1247, %1246 ], [ %.pn8.i295.i, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17h2e4651fbd5565131E.llvm.9135219245553044050.exit33.i297.i" ]
   %477 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink498.i
   call fastcc void @"_ZN4core3ptr64drop_in_place$LT$parquet..file..metadata..ColumnIndexBuilder$GT$17heb3001986e201a24E"(ptr noalias noundef align 8 dereferenceable(104) %477) #24
   %478 = getelementptr inbounds nuw i8, ptr %249, i64 %.sink497.i
@@ -19776,7 +19776,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i12.i"
 
 .body.i3.i:                                       ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i2.i", %506, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i44.i"
-  %.pn2.i4.i = phi { ptr, i32 } [ %.pn.i45.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i44.i" ], [ %507, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i2.i" ], [ %507, %506 ]
+  %.pn2.i4.i = phi { ptr, i32 } [ %.pn.i45.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i44.i" ], [ %507, %506 ], [ %507, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i2.i" ]
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %.val23.i5.i = load ptr, ptr %521, align 8, !alias.scope !8764, !noundef !4
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -19830,7 +19830,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i16.i"
 
 .body28.i.i:                                      ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i14.i", %529, %.body.i3.i
-  %.pn4.i7.i = phi { ptr, i32 } [ %.pn2.i4.i, %.body.i3.i ], [ %530, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i14.i" ], [ %530, %529 ]
+  %.pn4.i7.i = phi { ptr, i32 } [ %.pn2.i4.i, %.body.i3.i ], [ %530, %529 ], [ %530, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i14.i" ]
   %544 = getelementptr inbounds nuw i8, ptr %0, i64 232
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..BoolType$GT$$GT$17h15b0766ae8542d06E"(ptr noalias noundef align 8 dereferenceable(192) %544) #24
           to label %546 unwind label %611
@@ -20153,7 +20153,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i64.i"
 
 .body.i52.i:                                      ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i51.i", %638, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i102.i"
-  %.pn2.i53.i = phi { ptr, i32 } [ %.pn.i103.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i102.i" ], [ %639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i51.i" ], [ %639, %638 ]
+  %.pn2.i53.i = phi { ptr, i32 } [ %.pn.i103.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i102.i" ], [ %639, %638 ], [ %639, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i51.i" ]
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.val23.i54.i = load ptr, ptr %653, align 8, !alias.scope !8906, !noundef !4
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -20207,7 +20207,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i69.i"
 
 .body28.i56.i:                                    ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i67.i", %661, %.body.i52.i
-  %.pn4.i57.i = phi { ptr, i32 } [ %.pn2.i53.i, %.body.i52.i ], [ %662, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i67.i" ], [ %662, %661 ]
+  %.pn4.i57.i = phi { ptr, i32 } [ %.pn2.i53.i, %.body.i52.i ], [ %662, %661 ], [ %662, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i67.i" ]
   %676 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..Int32Type$GT$$GT$17hd7abb9d819ab7a71E"(ptr noalias noundef align 8 dereferenceable(208) %676) #24
           to label %678 unwind label %743
@@ -20531,7 +20531,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i123.i"
 
 .body.i111.i:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i110.i", %771, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i161.i"
-  %.pn2.i112.i = phi { ptr, i32 } [ %.pn.i162.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i161.i" ], [ %772, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i110.i" ], [ %772, %771 ]
+  %.pn2.i112.i = phi { ptr, i32 } [ %.pn.i162.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i161.i" ], [ %772, %771 ], [ %772, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i110.i" ]
   %786 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %.val23.i113.i = load ptr, ptr %786, align 8, !alias.scope !9048, !noundef !4
   %787 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -20585,7 +20585,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i128.i"
 
 .body28.i115.i:                                   ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i126.i", %794, %.body.i111.i
-  %.pn4.i116.i = phi { ptr, i32 } [ %.pn2.i112.i, %.body.i111.i ], [ %795, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i126.i" ], [ %795, %794 ]
+  %.pn4.i116.i = phi { ptr, i32 } [ %.pn2.i112.i, %.body.i111.i ], [ %795, %794 ], [ %795, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i126.i" ]
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..Int64Type$GT$$GT$17hd2cb55003b70a611E"(ptr noalias noundef nonnull align 8 dereferenceable(744) %746) #24
           to label %809 unwind label %874
 
@@ -20906,7 +20906,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i182.i"
 
 .body.i170.i:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i169.i", %901, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i220.i"
-  %.pn2.i171.i = phi { ptr, i32 } [ %.pn.i221.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i220.i" ], [ %902, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i169.i" ], [ %902, %901 ]
+  %.pn2.i171.i = phi { ptr, i32 } [ %.pn.i221.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i220.i" ], [ %902, %901 ], [ %902, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i169.i" ]
   %916 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %.val23.i172.i = load ptr, ptr %916, align 8, !alias.scope !9190, !noundef !4
   %917 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -20960,7 +20960,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i187.i"
 
 .body28.i174.i:                                   ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i185.i", %924, %.body.i170.i
-  %.pn4.i175.i = phi { ptr, i32 } [ %.pn2.i171.i, %.body.i170.i ], [ %925, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i185.i" ], [ %925, %924 ]
+  %.pn4.i175.i = phi { ptr, i32 } [ %.pn2.i171.i, %.body.i170.i ], [ %925, %924 ], [ %925, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i185.i" ]
   %939 = getelementptr inbounds nuw i8, ptr %0, i64 144
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..Int96Type$GT$$GT$17h717de671f37c10a8E"(ptr noalias noundef align 8 dereferenceable(224) %939) #24
           to label %941 unwind label %1006
@@ -21283,7 +21283,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i241.i"
 
 .body.i229.i:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i228.i", %1033, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i279.i"
-  %.pn2.i230.i = phi { ptr, i32 } [ %.pn.i280.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i279.i" ], [ %1034, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i228.i" ], [ %1034, %1033 ]
+  %.pn2.i230.i = phi { ptr, i32 } [ %.pn.i280.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i279.i" ], [ %1034, %1033 ], [ %1034, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i228.i" ]
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.val23.i231.i = load ptr, ptr %1048, align 8, !alias.scope !9332, !noundef !4
   %1049 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -21337,7 +21337,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i246.i"
 
 .body28.i233.i:                                   ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i244.i", %1056, %.body.i229.i
-  %.pn4.i234.i = phi { ptr, i32 } [ %.pn2.i230.i, %.body.i229.i ], [ %1057, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i244.i" ], [ %1057, %1056 ]
+  %.pn4.i234.i = phi { ptr, i32 } [ %.pn2.i230.i, %.body.i229.i ], [ %1057, %1056 ], [ %1057, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i244.i" ]
   %1071 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..FloatType$GT$$GT$17he7ae08d804c12ad3E"(ptr noalias noundef align 8 dereferenceable(208) %1071) #24
           to label %1073 unwind label %1138
@@ -21661,7 +21661,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i300.i"
 
 .body.i288.i:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i287.i", %1166, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i338.i"
-  %.pn2.i289.i = phi { ptr, i32 } [ %.pn.i339.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i338.i" ], [ %1167, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i287.i" ], [ %1167, %1166 ]
+  %.pn2.i289.i = phi { ptr, i32 } [ %.pn.i339.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i338.i" ], [ %1167, %1166 ], [ %1167, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i287.i" ]
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %.val23.i290.i = load ptr, ptr %1181, align 8, !alias.scope !9474, !noundef !4
   %1182 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -21715,7 +21715,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i305.i"
 
 .body28.i292.i:                                   ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i303.i", %1189, %.body.i288.i
-  %.pn4.i293.i = phi { ptr, i32 } [ %.pn2.i289.i, %.body.i288.i ], [ %1190, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i303.i" ], [ %1190, %1189 ]
+  %.pn4.i293.i = phi { ptr, i32 } [ %.pn2.i289.i, %.body.i288.i ], [ %1190, %1189 ], [ %1190, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i303.i" ]
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..DoubleType$GT$$GT$17he1cfde3210206884E"(ptr noalias noundef nonnull align 8 dereferenceable(744) %1141) #24
           to label %1204 unwind label %1269
 
@@ -22037,7 +22037,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$parquet..column..page..PageWriter$GT$$GT$17h5ab8d318fc5d349bE.exit.i363.i"
 
 .body.i347.i:                                     ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i346.i", %1297, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i401.i"
-  %.pn2.i348.i = phi { ptr, i32 } [ %.pn.i402.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i401.i" ], [ %1298, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i346.i" ], [ %1298, %1297 ]
+  %.pn2.i348.i = phi { ptr, i32 } [ %.pn.i402.i, %"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Arc$LT$parquet..file..properties..WriterProperties$GT$$GT$17hf8ebba49bf792452E.exit.i401.i" ], [ %1298, %1297 ], [ %1298, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i346.i" ]
   %1312 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %.val27.i349.i = load ptr, ptr %1312, align 8, !alias.scope !9616, !noundef !4
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -22091,7 +22091,7 @@ common.resume.sink.split.i:                       ; preds = %1246, %"_ZN4core3pt
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$parquet..compression..Codec$GT$$GT$$GT$17h14d385d588bdcf04E.exit.i368.i"
 
 .body32.i351.i:                                   ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i366.i", %1320, %.body.i347.i
-  %.pn4.i352.i = phi { ptr, i32 } [ %.pn2.i348.i, %.body.i347.i ], [ %1321, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i366.i" ], [ %1321, %1320 ]
+  %.pn4.i352.i = phi { ptr, i32 } [ %.pn2.i348.i, %.body.i347.i ], [ %1321, %1320 ], [ %1321, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050.exit.i.i.i.i366.i" ]
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$parquet..column..writer..encoder..ColumnValueEncoderImpl$LT$parquet..data_type..ByteArrayType$GT$$GT$17h9db09a5864cb031fE"(ptr noalias noundef nonnull align 8 dereferenceable(888) %1272) #24
           to label %1335 unwind label %1497
 

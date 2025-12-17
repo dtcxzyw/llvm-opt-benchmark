@@ -270,7 +270,7 @@ rtsp_write_record.exit:                           ; preds = %5
   br label %16
 
 16:                                               ; preds = %rtsp_write_record.exit.thread, %rtsp_write_record.exit, %1, %15
-  %.0 = phi i32 [ -1094995529, %15 ], [ %4, %1 ], [ 0, %rtsp_write_record.exit ], [ 0, %rtsp_write_record.exit.thread ]
+  %.0 = phi i32 [ %4, %1 ], [ -1094995529, %15 ], [ 0, %rtsp_write_record.exit ], [ 0, %rtsp_write_record.exit.thread ]
   ret i32 %.0
 }
 
@@ -318,8 +318,8 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
 
-.thread:                                          ; preds = %18, %23
-  %.2.ph = phi i32 [ %24, %23 ], [ -32, %18 ]
+.thread:                                          ; preds = %23, %18
+  %.2.ph = phi i32 [ -32, %18 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -369,7 +369,7 @@ define internal i32 @rtsp_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.thread, %37, %46, %50, %._crit_edge, %34
-  %.3 = phi i32 [ -1094995529, %34 ], [ -1094995529, %._crit_edge ], [ %45, %37 ], [ %51, %50 ], [ 0, %46 ], [ %.2.ph, %.thread ], [ -32, %26 ]
+  %.3 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %34 ], [ %45, %37 ], [ %51, %50 ], [ 0, %46 ], [ %.2.ph, %.thread ], [ -32, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }

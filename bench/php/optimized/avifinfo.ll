@@ -144,7 +144,7 @@ select.unfold.i:                                  ; preds = %38, %21
   %.not30.i = icmp ugt i32 %40, %17
   br i1 %.not30.i, label %ParseFtyp.exit.thread, label %.preheader.i
 
-ParseFtyp.exit.thread.thread.thread:              ; preds = %36, %25, %._crit_edge.i.i
+ParseFtyp.exit.thread.thread.thread:              ; preds = %36, %._crit_edge.i.i, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
@@ -154,7 +154,7 @@ ParseFtyp.exit.thread.thread:                     ; preds = %.preheader.i, %.lr.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
-ParseFtyp.exit.thread:                            ; preds = %select.unfold.i, %13, %15
+ParseFtyp.exit.thread:                            ; preds = %select.unfold.i, %15, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
@@ -169,7 +169,7 @@ ParseFtyp.exit:                                   ; preds = %8
   br label %42
 
 42:                                               ; preds = %ParseFtyp.exit, %ParseFtyp.exit.thread, %ParseFtyp.exit.thread.thread, %.thread20, %ParseFtyp.exit.thread.thread.thread
-  %43 = phi i32 [ 0, %ParseFtyp.exit.thread.thread.thread ], [ 2, %.thread20 ], [ 1, %ParseFtyp.exit.thread.thread ], [ 3, %ParseFtyp.exit.thread ], [ %spec.select, %ParseFtyp.exit ]
+  %43 = phi i32 [ 0, %ParseFtyp.exit.thread.thread.thread ], [ %spec.select, %ParseFtyp.exit ], [ 2, %.thread20 ], [ 3, %ParseFtyp.exit.thread ], [ 1, %ParseFtyp.exit.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %44
 
@@ -851,21 +851,21 @@ AvifInfoInternalReadBigEndian.exit240.i.i.i.i:    ; preds = %114
   br label %.thread337.i.i.i.i.sink.split
 
 .thread337.i.i.i.i.sink.split:                    ; preds = %243, %145, %183, %222, %240, %255
-  %257 = phi i8 [ %95, %255 ], [ %95, %240 ], [ %95, %222 ], [ %95, %183 ], [ %133, %145 ], [ %95, %243 ]
-  %258 = phi i8 [ %96, %255 ], [ %96, %240 ], [ %211, %222 ], [ %172, %183 ], [ %134, %145 ], [ %96, %243 ]
-  %.sink = phi i64 [ %256, %255 ], [ %241, %240 ], [ %223, %222 ], [ %184, %183 ], [ %146, %145 ], [ %244, %243 ]
-  %.ph = phi i8 [ %97, %255 ], [ %97, %240 ], [ %97, %222 ], [ %97, %183 ], [ %135, %145 ], [ %97, %243 ]
-  %.ph529 = phi i8 [ %98, %255 ], [ %98, %240 ], [ %212, %222 ], [ %173, %183 ], [ %98, %145 ], [ %98, %243 ]
-  %.ph530 = phi i8 [ %99, %255 ], [ %spec.select528, %240 ], [ %99, %222 ], [ %99, %183 ], [ %99, %145 ], [ %99, %243 ]
+  %257 = phi i8 [ %95, %255 ], [ %133, %145 ], [ %95, %240 ], [ %95, %222 ], [ %95, %183 ], [ %95, %243 ]
+  %258 = phi i8 [ %96, %255 ], [ %134, %145 ], [ %96, %240 ], [ %211, %222 ], [ %172, %183 ], [ %96, %243 ]
+  %.sink = phi i64 [ %256, %255 ], [ %146, %145 ], [ %241, %240 ], [ %223, %222 ], [ %184, %183 ], [ %244, %243 ]
+  %.ph = phi i8 [ %97, %255 ], [ %135, %145 ], [ %97, %240 ], [ %97, %222 ], [ %97, %183 ], [ %97, %243 ]
+  %.ph529 = phi i8 [ %98, %255 ], [ %98, %145 ], [ %98, %240 ], [ %212, %222 ], [ %173, %183 ], [ %98, %243 ]
+  %.ph530 = phi i8 [ %99, %255 ], [ %99, %145 ], [ %spec.select528, %240 ], [ %99, %222 ], [ %99, %183 ], [ %99, %243 ]
   tail call void %2(ptr noundef %0, i64 noundef %.sink) #9
   br label %.thread337.i.i.i.i
 
 .thread337.i.i.i.i:                               ; preds = %.thread337.i.i.i.i.sink.split, %._crit_edge.i315.i.i.i.i, %246, %._crit_edge.i300.i.i.i.i, %242, %._crit_edge.i285.i.i.i.i, %228, %._crit_edge.i268.i.i.i.i, %210, %._crit_edge.i187.i.i.i, %171, %._crit_edge.i.i.i.i.i, %132
-  %259 = phi i8 [ %95, %._crit_edge.i315.i.i.i.i ], [ %95, %246 ], [ %95, %._crit_edge.i300.i.i.i.i ], [ %95, %242 ], [ %95, %._crit_edge.i285.i.i.i.i ], [ %95, %228 ], [ %95, %._crit_edge.i268.i.i.i.i ], [ %95, %210 ], [ %95, %._crit_edge.i187.i.i.i ], [ %95, %171 ], [ %133, %._crit_edge.i.i.i.i.i ], [ %133, %132 ], [ %257, %.thread337.i.i.i.i.sink.split ]
-  %260 = phi i8 [ %96, %._crit_edge.i315.i.i.i.i ], [ %96, %246 ], [ %96, %._crit_edge.i300.i.i.i.i ], [ %96, %242 ], [ %96, %._crit_edge.i285.i.i.i.i ], [ %96, %228 ], [ %211, %._crit_edge.i268.i.i.i.i ], [ %211, %210 ], [ %172, %._crit_edge.i187.i.i.i ], [ %172, %171 ], [ %134, %._crit_edge.i.i.i.i.i ], [ %134, %132 ], [ %258, %.thread337.i.i.i.i.sink.split ]
-  %261 = phi i8 [ %97, %._crit_edge.i315.i.i.i.i ], [ %97, %246 ], [ %97, %._crit_edge.i300.i.i.i.i ], [ %97, %242 ], [ %97, %._crit_edge.i285.i.i.i.i ], [ %97, %228 ], [ %97, %._crit_edge.i268.i.i.i.i ], [ %97, %210 ], [ %97, %._crit_edge.i187.i.i.i ], [ %97, %171 ], [ %135, %._crit_edge.i.i.i.i.i ], [ %135, %132 ], [ %.ph, %.thread337.i.i.i.i.sink.split ]
-  %262 = phi i8 [ %98, %._crit_edge.i315.i.i.i.i ], [ %98, %246 ], [ %98, %._crit_edge.i300.i.i.i.i ], [ %98, %242 ], [ %98, %._crit_edge.i285.i.i.i.i ], [ %98, %228 ], [ %212, %._crit_edge.i268.i.i.i.i ], [ %212, %210 ], [ %173, %._crit_edge.i187.i.i.i ], [ %173, %171 ], [ %98, %._crit_edge.i.i.i.i.i ], [ %98, %132 ], [ %.ph529, %.thread337.i.i.i.i.sink.split ]
-  %263 = phi i8 [ %99, %._crit_edge.i315.i.i.i.i ], [ %99, %246 ], [ %99, %._crit_edge.i300.i.i.i.i ], [ %99, %242 ], [ %spec.select528, %._crit_edge.i285.i.i.i.i ], [ %spec.select528, %228 ], [ %99, %._crit_edge.i268.i.i.i.i ], [ %99, %210 ], [ %99, %._crit_edge.i187.i.i.i ], [ %99, %171 ], [ %99, %._crit_edge.i.i.i.i.i ], [ %99, %132 ], [ %.ph530, %.thread337.i.i.i.i.sink.split ]
+  %259 = phi i8 [ %133, %._crit_edge.i.i.i.i.i ], [ %95, %._crit_edge.i315.i.i.i.i ], [ %95, %246 ], [ %95, %._crit_edge.i187.i.i.i ], [ %95, %._crit_edge.i300.i.i.i.i ], [ %95, %242 ], [ %95, %171 ], [ %95, %._crit_edge.i285.i.i.i.i ], [ %95, %228 ], [ %133, %132 ], [ %95, %._crit_edge.i268.i.i.i.i ], [ %95, %210 ], [ %257, %.thread337.i.i.i.i.sink.split ]
+  %260 = phi i8 [ %134, %._crit_edge.i.i.i.i.i ], [ %96, %._crit_edge.i315.i.i.i.i ], [ %96, %246 ], [ %172, %._crit_edge.i187.i.i.i ], [ %96, %._crit_edge.i300.i.i.i.i ], [ %96, %242 ], [ %172, %171 ], [ %96, %._crit_edge.i285.i.i.i.i ], [ %96, %228 ], [ %134, %132 ], [ %211, %._crit_edge.i268.i.i.i.i ], [ %211, %210 ], [ %258, %.thread337.i.i.i.i.sink.split ]
+  %261 = phi i8 [ %135, %._crit_edge.i.i.i.i.i ], [ %97, %._crit_edge.i315.i.i.i.i ], [ %97, %246 ], [ %97, %._crit_edge.i187.i.i.i ], [ %97, %._crit_edge.i300.i.i.i.i ], [ %97, %242 ], [ %97, %171 ], [ %97, %._crit_edge.i285.i.i.i.i ], [ %97, %228 ], [ %135, %132 ], [ %97, %._crit_edge.i268.i.i.i.i ], [ %97, %210 ], [ %.ph, %.thread337.i.i.i.i.sink.split ]
+  %262 = phi i8 [ %98, %._crit_edge.i.i.i.i.i ], [ %98, %._crit_edge.i315.i.i.i.i ], [ %98, %246 ], [ %173, %._crit_edge.i187.i.i.i ], [ %98, %._crit_edge.i300.i.i.i.i ], [ %98, %242 ], [ %173, %171 ], [ %98, %._crit_edge.i285.i.i.i.i ], [ %98, %228 ], [ %98, %132 ], [ %212, %._crit_edge.i268.i.i.i.i ], [ %212, %210 ], [ %.ph529, %.thread337.i.i.i.i.sink.split ]
+  %263 = phi i8 [ %99, %._crit_edge.i.i.i.i.i ], [ %99, %._crit_edge.i315.i.i.i.i ], [ %99, %246 ], [ %99, %._crit_edge.i187.i.i.i ], [ %99, %._crit_edge.i300.i.i.i.i ], [ %99, %242 ], [ %99, %171 ], [ %spec.select528, %._crit_edge.i285.i.i.i.i ], [ %spec.select528, %228 ], [ %99, %132 ], [ %99, %._crit_edge.i268.i.i.i.i ], [ %99, %210 ], [ %.ph530, %.thread337.i.i.i.i.sink.split ]
   %264 = add i32 %.0159.i.i.i.i, 1
   %265 = load i32, ptr %6, align 4, !tbaa !34
   %266 = sub i32 %.0157.i.i.i.i, %265
@@ -889,7 +889,7 @@ ParseIpco.exit.thread206.i.i.i.loopexit665:       ; preds = %.lr.ph.i193.i.i.i
   br label %ParseIpco.exit.thread206.i.i.i
 
 ParseIpco.exit.thread206.i.i.i.loopexit666:       ; preds = %.lr.ph.i.i.i.i, %.preheader.preheader.i.i.i.i, %161
-  %.2.ph.i.ph.i.i.i.ph = phi i32 [ 3, %161 ], [ 4, %.preheader.preheader.i.i.i.i ], [ 2, %.lr.ph.i.i.i.i ]
+  %.2.ph.i.ph.i.i.i.ph = phi i32 [ 4, %.preheader.preheader.i.i.i.i ], [ 2, %.lr.ph.i.i.i.i ], [ 3, %161 ]
   store i8 %96, ptr %43, align 1
   store i8 %95, ptr %45, align 1
   br label %ParseIpco.exit.thread206.i.i.i
@@ -905,19 +905,19 @@ ParseIpco.exit.thread206.i.i.i.loopexit668:       ; preds = %.lr.ph.i291.i.i.i.i
   br label %ParseIpco.exit.thread206.i.i.i
 
 ParseIpco.exit.thread206.i.i.i.loopexit670:       ; preds = %104, %106, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i, %._crit_edge.i.i.i.i.i, %147, %148, %.preheader385.preheader.i.i.i.i, %152, %153, %.preheader384.preheader.i.i.i.i, %._crit_edge.i187.i.i.i, %185, %187, %189, %._crit_edge.i268.i.i.i.i, %226, %._crit_edge.i285.i.i.i.i, %._crit_edge.i300.i.i.i.i, %._crit_edge.i315.i.i.i.i
-  %267 = phi i8 [ %95, %226 ], [ %95, %187 ], [ %95, %153 ], [ %95, %148 ], [ %95, %._crit_edge.i315.i.i.i.i ], [ %95, %._crit_edge.i300.i.i.i.i ], [ %95, %._crit_edge.i285.i.i.i.i ], [ %95, %._crit_edge.i268.i.i.i.i ], [ %133, %._crit_edge.i.i.i.i.i ], [ %95, %106 ], [ %95, %104 ], [ %95, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %95, %147 ], [ %95, %.preheader385.preheader.i.i.i.i ], [ %95, %152 ], [ %95, %.preheader384.preheader.i.i.i.i ], [ %95, %185 ], [ %95, %189 ], [ %95, %._crit_edge.i187.i.i.i ]
-  %268 = phi i8 [ %96, %226 ], [ %96, %187 ], [ %96, %153 ], [ %96, %148 ], [ %96, %._crit_edge.i315.i.i.i.i ], [ %96, %._crit_edge.i300.i.i.i.i ], [ %96, %._crit_edge.i285.i.i.i.i ], [ %211, %._crit_edge.i268.i.i.i.i ], [ %134, %._crit_edge.i.i.i.i.i ], [ %96, %106 ], [ %96, %104 ], [ %96, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %96, %147 ], [ %96, %.preheader385.preheader.i.i.i.i ], [ %96, %152 ], [ %96, %.preheader384.preheader.i.i.i.i ], [ %96, %185 ], [ %96, %189 ], [ %172, %._crit_edge.i187.i.i.i ]
-  %.sink532.ph = phi i8 [ %99, %226 ], [ %99, %187 ], [ %99, %153 ], [ %99, %148 ], [ %99, %._crit_edge.i315.i.i.i.i ], [ %99, %._crit_edge.i300.i.i.i.i ], [ %spec.select528, %._crit_edge.i285.i.i.i.i ], [ %99, %._crit_edge.i268.i.i.i.i ], [ %99, %._crit_edge.i.i.i.i.i ], [ %99, %106 ], [ %99, %104 ], [ %99, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %99, %147 ], [ %99, %.preheader385.preheader.i.i.i.i ], [ %99, %152 ], [ %99, %.preheader384.preheader.i.i.i.i ], [ %99, %185 ], [ %99, %189 ], [ %99, %._crit_edge.i187.i.i.i ]
-  %.sink531.ph = phi i8 [ %98, %226 ], [ %98, %187 ], [ %98, %153 ], [ %98, %148 ], [ %98, %._crit_edge.i315.i.i.i.i ], [ %98, %._crit_edge.i300.i.i.i.i ], [ %98, %._crit_edge.i285.i.i.i.i ], [ %212, %._crit_edge.i268.i.i.i.i ], [ %98, %._crit_edge.i.i.i.i.i ], [ %98, %106 ], [ %98, %104 ], [ %98, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %98, %147 ], [ %98, %.preheader385.preheader.i.i.i.i ], [ %98, %152 ], [ %98, %.preheader384.preheader.i.i.i.i ], [ %98, %185 ], [ %98, %189 ], [ %173, %._crit_edge.i187.i.i.i ]
-  %.2.ph.i.ph.i.i.i.ph671 = phi i32 [ 2, %226 ], [ 2, %187 ], [ 2, %153 ], [ 2, %148 ], [ 2, %._crit_edge.i315.i.i.i.i ], [ 2, %._crit_edge.i300.i.i.i.i ], [ 2, %._crit_edge.i285.i.i.i.i ], [ 2, %._crit_edge.i268.i.i.i.i ], [ 2, %._crit_edge.i.i.i.i.i ], [ 2, %106 ], [ 4, %104 ], [ 4, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ 4, %147 ], [ 4, %.preheader385.preheader.i.i.i.i ], [ 4, %152 ], [ 4, %.preheader384.preheader.i.i.i.i ], [ 4, %185 ], [ 4, %189 ], [ 2, %._crit_edge.i187.i.i.i ]
+  %267 = phi i8 [ %95, %226 ], [ %95, %153 ], [ %133, %._crit_edge.i.i.i.i.i ], [ %95, %187 ], [ %95, %._crit_edge.i315.i.i.i.i ], [ %95, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %95, %._crit_edge.i268.i.i.i.i ], [ %95, %106 ], [ %95, %._crit_edge.i285.i.i.i.i ], [ %95, %104 ], [ %95, %152 ], [ %95, %147 ], [ %95, %189 ], [ %95, %185 ], [ %95, %.preheader384.preheader.i.i.i.i ], [ %95, %.preheader385.preheader.i.i.i.i ], [ %95, %._crit_edge.i300.i.i.i.i ], [ %95, %148 ], [ %95, %._crit_edge.i187.i.i.i ]
+  %268 = phi i8 [ %96, %226 ], [ %96, %153 ], [ %134, %._crit_edge.i.i.i.i.i ], [ %96, %187 ], [ %96, %._crit_edge.i315.i.i.i.i ], [ %96, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %211, %._crit_edge.i268.i.i.i.i ], [ %96, %106 ], [ %96, %._crit_edge.i285.i.i.i.i ], [ %96, %104 ], [ %96, %152 ], [ %96, %147 ], [ %96, %189 ], [ %96, %185 ], [ %96, %.preheader384.preheader.i.i.i.i ], [ %96, %.preheader385.preheader.i.i.i.i ], [ %96, %._crit_edge.i300.i.i.i.i ], [ %96, %148 ], [ %172, %._crit_edge.i187.i.i.i ]
+  %.sink532.ph = phi i8 [ %99, %226 ], [ %99, %153 ], [ %99, %._crit_edge.i.i.i.i.i ], [ %99, %187 ], [ %99, %._crit_edge.i315.i.i.i.i ], [ %99, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %99, %._crit_edge.i268.i.i.i.i ], [ %99, %106 ], [ %spec.select528, %._crit_edge.i285.i.i.i.i ], [ %99, %104 ], [ %99, %152 ], [ %99, %147 ], [ %99, %189 ], [ %99, %185 ], [ %99, %.preheader384.preheader.i.i.i.i ], [ %99, %.preheader385.preheader.i.i.i.i ], [ %99, %._crit_edge.i300.i.i.i.i ], [ %99, %148 ], [ %99, %._crit_edge.i187.i.i.i ]
+  %.sink531.ph = phi i8 [ %98, %226 ], [ %98, %153 ], [ %98, %._crit_edge.i.i.i.i.i ], [ %98, %187 ], [ %98, %._crit_edge.i315.i.i.i.i ], [ %98, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ %212, %._crit_edge.i268.i.i.i.i ], [ %98, %106 ], [ %98, %._crit_edge.i285.i.i.i.i ], [ %98, %104 ], [ %98, %152 ], [ %98, %147 ], [ %98, %189 ], [ %98, %185 ], [ %98, %.preheader384.preheader.i.i.i.i ], [ %98, %.preheader385.preheader.i.i.i.i ], [ %98, %._crit_edge.i300.i.i.i.i ], [ %98, %148 ], [ %173, %._crit_edge.i187.i.i.i ]
+  %.2.ph.i.ph.i.i.i.ph671 = phi i32 [ 2, %226 ], [ 2, %153 ], [ 2, %._crit_edge.i.i.i.i.i ], [ 2, %187 ], [ 2, %._crit_edge.i315.i.i.i.i ], [ 4, %AvifInfoInternalReadBigEndian.exit240.i.i.i.i ], [ 2, %._crit_edge.i268.i.i.i.i ], [ 2, %106 ], [ 2, %._crit_edge.i285.i.i.i.i ], [ 4, %104 ], [ 4, %152 ], [ 4, %147 ], [ 4, %189 ], [ 4, %185 ], [ 4, %.preheader384.preheader.i.i.i.i ], [ 4, %.preheader385.preheader.i.i.i.i ], [ 2, %._crit_edge.i300.i.i.i.i ], [ 2, %148 ], [ 2, %._crit_edge.i187.i.i.i ]
   store i8 %268, ptr %43, align 1
   store i8 %267, ptr %45, align 1
   br label %ParseIpco.exit.thread206.i.i.i
 
 ParseIpco.exit.thread206.i.i.i:                   ; preds = %ParseIpco.exit.thread206.i.i.i.loopexit670, %ParseIpco.exit.thread206.i.i.i.loopexit668, %ParseIpco.exit.thread206.i.i.i.loopexit667, %ParseIpco.exit.thread206.i.i.i.loopexit666, %ParseIpco.exit.thread206.i.i.i.loopexit665, %ParseIpco.exit.thread206.i.i.i.loopexit664, %ParseIpco.exit.thread206.i.i.i.loopexit
-  %.sink532 = phi i8 [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ %spec.select528, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ %.sink532.ph, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
-  %.sink531 = phi i8 [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ %173, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ %212, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ %.sink531.ph, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
-  %.2.ph.i.ph.i.i.i = phi i32 [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %.2.ph.i.ph.i.i.i.ph, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ %.2.ph.i.ph.i.i.i.ph671, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
+  %.sink532 = phi i8 [ %spec.select528, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ %99, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ %.sink532.ph, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
+  %.sink531 = phi i8 [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ %173, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %98, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ %212, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ %.sink531.ph, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
+  %.2.ph.i.ph.i.i.i = phi i32 [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit668 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit664 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit665 ], [ %.2.ph.i.ph.i.i.i.ph, %ParseIpco.exit.thread206.i.i.i.loopexit666 ], [ 2, %ParseIpco.exit.thread206.i.i.i.loopexit667 ], [ %.2.ph.i.ph.i.i.i.ph671, %ParseIpco.exit.thread206.i.i.i.loopexit670 ]
   store i8 %.sink532, ptr %56, align 1
   store i8 %.sink531, ptr %46, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1219,12 +1219,12 @@ ParseIpco.exit.thread.i.i.i:                      ; preds = %ParseIpco.exit.thre
   br i1 %.not132.i.i.i, label %.thread137.i.i, label %90
 
 .loopexit.i.i.loopexit206:                        ; preds = %ParseIpco.exit.i.i.i, %270, %272, %._crit_edge.i165.i.i.i, %._crit_edge.i172.i.i.i
-  %.2.ph.i.ph.i.i.ph207 = phi i32 [ 2, %272 ], [ 2, %._crit_edge.i172.i.i.i ], [ 2, %._crit_edge.i165.i.i.i ], [ %100, %ParseIpco.exit.i.i.i ], [ 4, %270 ]
+  %.2.ph.i.ph.i.i.ph207 = phi i32 [ 2, %._crit_edge.i165.i.i.i ], [ 2, %272 ], [ 2, %._crit_edge.i172.i.i.i ], [ 4, %270 ], [ %100, %ParseIpco.exit.i.i.i ]
   %369 = freeze i32 %.2.ph.i.ph.i.i.ph207
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %294, %292, %.lr.ph.i167.i.i.i, %.lr.ph.i178.i.i.i, %312, %310, %.loopexit.i.i.loopexit206, %343, %341, %ParseIpco.exit.thread206.i.i.i
-  %.2.ph.i.ph.i.i = phi i32 [ 0, %343 ], [ 0, %341 ], [ %.2.ph.i.ph.i.i.i, %ParseIpco.exit.thread206.i.i.i ], [ %369, %.loopexit.i.i.loopexit206 ], [ 4, %310 ], [ 2, %312 ], [ 2, %.lr.ph.i178.i.i.i ], [ 2, %.lr.ph.i167.i.i.i ], [ 4, %292 ], [ 2, %294 ]
+  %.2.ph.i.ph.i.i = phi i32 [ %.2.ph.i.ph.i.i.i, %ParseIpco.exit.thread206.i.i.i ], [ 0, %343 ], [ 0, %341 ], [ 4, %310 ], [ %369, %.loopexit.i.i.loopexit206 ], [ 2, %.lr.ph.i178.i.i.i ], [ 2, %.lr.ph.i167.i.i.i ], [ 2, %312 ], [ 4, %292 ], [ 2, %294 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ParseFile.exit
 
@@ -1439,7 +1439,7 @@ AvifInfoInternalSkip.exit.thread.i.i.i:           ; preds = %446, %._crit_edge.i
   br i1 %.not84.i.i.i, label %.thread137.i.i, label %373
 
 ParseIref.exit.thread147.i.i:                     ; preds = %._crit_edge.i.i90.i.i, %383, %377, %.lr.ph.i.i95.i.i, %406, %404, %432, %430
-  %.2.ph.i86.ph.i.i = phi i32 [ 0, %432 ], [ 0, %430 ], [ 4, %404 ], [ 2, %406 ], [ 2, %.lr.ph.i.i95.i.i ], [ 4, %377 ], [ 2, %._crit_edge.i.i90.i.i ], [ 2, %383 ]
+  %.2.ph.i86.ph.i.i = phi i32 [ 0, %432 ], [ 0, %430 ], [ 2, %406 ], [ 2, %.lr.ph.i.i95.i.i ], [ 4, %404 ], [ 2, %._crit_edge.i.i90.i.i ], [ 2, %383 ], [ 4, %377 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ParseFile.exit
 
@@ -1540,15 +1540,15 @@ ParseFile.exit.thread17.thread:                   ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread56
 
-ParseFile.exit.thread17:                          ; preds = %ParseIref.exit.i.i, %ParseIprp.exit.i.i, %60
-  %.2.ph.i.i.ph = phi i32 [ %61, %60 ], [ %91, %ParseIprp.exit.i.i ], [ %374, %ParseIref.exit.i.i ]
+ParseFile.exit.thread17:                          ; preds = %60, %ParseIprp.exit.i.i, %ParseIref.exit.i.i
+  %.2.ph.i.i.ph = phi i32 [ %374, %ParseIref.exit.i.i ], [ %91, %ParseIprp.exit.i.i ], [ %61, %60 ]
   %.2.ph.i.i.ph.fr = freeze i32 %.2.ph.i.i.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %or.cond.i24 = icmp samesign ult i32 %.2.ph.i.i.ph.fr, 3
+  %or.cond.i23 = icmp samesign ult i32 %.2.ph.i.i.ph.fr, 3
   %473 = icmp eq i32 %.2.ph.i.i.ph.fr, 3
   %.72 = select i1 %473, i32 2, i32 3
-  %spec.select = select i1 %or.cond.i24, i32 1, i32 %.72
+  %spec.select = select i1 %or.cond.i23, i32 1, i32 %.72
   br label %.thread56
 
 ParseFile.exit:                                   ; preds = %.loopexit.i.i, %ParseIref.exit.thread147.i.i
@@ -1575,7 +1575,7 @@ ParseFile.exit:                                   ; preds = %.loopexit.i.i, %Par
   br label %.thread56
 
 .thread56:                                        ; preds = %ParseFile.exit.thread17, %.thread, %464, %ParseFile.exit.thread17.thread, %.thread52, %.thread63, %472, %477, %481
-  %482 = phi i32 [ 0, %481 ], [ %480, %477 ], [ 1, %472 ], [ 1, %.thread63 ], [ 3, %ParseFile.exit.thread17.thread ], [ 2, %.thread52 ], [ %., %464 ], [ %.71, %.thread ], [ %spec.select, %ParseFile.exit.thread17 ]
+  %482 = phi i32 [ 0, %481 ], [ %480, %477 ], [ 1, %.thread63 ], [ %spec.select, %ParseFile.exit.thread17 ], [ 1, %472 ], [ 3, %ParseFile.exit.thread17.thread ], [ %., %464 ], [ 2, %.thread52 ], [ %.71, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1728,8 +1728,8 @@ AvifInfoInternalReadBigEndian.exit125:            ; preds = %.preheader149
   br label %46
 
 46:                                               ; preds = %44, %.thread
-  %47 = phi i1 [ true, %.thread ], [ %.not97, %44 ]
-  %48 = phi i32 [ %43, %.thread ], [ %spec.select, %44 ]
+  %47 = phi i1 [ %.not97, %44 ], [ true, %.thread ]
+  %48 = phi i32 [ %spec.select, %44 ], [ %43, %.thread ]
   %.not98 = icmp ult i32 %36, %48
   br i1 %.not98, label %74, label %49
 
@@ -1808,7 +1808,7 @@ AvifInfoInternalReadBigEndian.exit142:            ; preds = %63
   br label %74
 
 74:                                               ; preds = %58, %46, %49, %AvifInfoInternalReadBigEndian.exit142, %73, %55, %35, %AvifInfoInternalReadBigEndian.exit125, %17, %4, %19, %6
-  %.067 = phi i32 [ 2, %19 ], [ 2, %6 ], [ 4, %4 ], [ 4, %17 ], [ 3, %AvifInfoInternalReadBigEndian.exit125 ], [ 4, %35 ], [ 2, %58 ], [ 4, %46 ], [ 3, %49 ], [ 0, %AvifInfoInternalReadBigEndian.exit142 ], [ 0, %73 ], [ 0, %55 ]
+  %.067 = phi i32 [ 0, %55 ], [ 4, %35 ], [ 3, %AvifInfoInternalReadBigEndian.exit125 ], [ 4, %17 ], [ 2, %19 ], [ 4, %4 ], [ 2, %6 ], [ 3, %49 ], [ 2, %58 ], [ 4, %46 ], [ 0, %AvifInfoInternalReadBigEndian.exit142 ], [ 0, %73 ]
   ret i32 %.067
 }
 
@@ -1994,8 +1994,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @AvifInfoInternalGetItemFeatu
   %82 = icmp samesign ult i64 %indvars.iv.next132, %81
   br i1 %82, label %69, label %.thread96
 
-.thread96:                                        ; preds = %67, %50, %79, %75, %.preheader
-  %.8 = phi i32 [ 1, %.preheader ], [ 1, %79 ], [ 0, %75 ], [ 0, %50 ], [ 0, %67 ]
+.thread96:                                        ; preds = %50, %67, %79, %75, %.preheader
+  %.8 = phi i32 [ 1, %.preheader ], [ 0, %75 ], [ 1, %79 ], [ 0, %67 ], [ 0, %50 ]
   ret i32 %.8
 }
 

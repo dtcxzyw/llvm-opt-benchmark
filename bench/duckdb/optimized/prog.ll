@@ -1691,7 +1691,7 @@ define hidden noundef range(i32 0, 64) i32 @_ZN10duckdb_re24Prog10EmptyFlagsERKN
   br label %24
 
 24:                                               ; preds = %20, %17
-  %.1 = phi i32 [ %.067, %17 ], [ %spec.select36, %20 ]
+  %.1 = phi i32 [ %spec.select36, %20 ], [ %.067, %17 ]
   br i1 %4, label %25, label %37
 
 25:                                               ; preds = %24
@@ -2097,7 +2097,7 @@ define hidden noundef i32 @_ZN10duckdb_re214ByteMapBuilder7RecolorEi(ptr noundef
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit29", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit31", %40, %47, %54
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %40 ], [ %.sroa.050.1.i.i.i, %47 ], [ %spec.select.i.i.i, %54 ], [ %59, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit" ], [ %60, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit29" ], [ %61, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit31" ], [ %.sroa.050.069.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.050.1.i.i.i, %47 ], [ %spec.select.i.i.i, %54 ], [ %.sroa.050.0.lcssa.i.i.i, %40 ], [ %61, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit31" ], [ %60, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit29" ], [ %59, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.loopexit.split.loop.exit" ], [ %.sroa.050.069.i.i.i, %.lr.ph.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %6
   br i1 %.not, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEZN10duckdb_re214ByteMapBuilder7RecolorEiE3$_0ET_SC_SC_T0_.exit.thread", label %62
 
@@ -2926,8 +2926,8 @@ _ZN10duckdb_re214ByteMapBuilder5MergeEv.exit:     ; preds = %175, %_ZNSt6vectorI
   br label %283
 
 .critedge84:                                      ; preds = %_ZN10duckdb_re214ByteMapBuilder5MergeEv.exit, %115, %32, %157, %123
-  %.161 = phi i1 [ %.060181, %157 ], [ %.060181, %123 ], [ %.060181, %32 ], [ %.060181, %115 ], [ true, %_ZN10duckdb_re214ByteMapBuilder5MergeEv.exit ]
-  %.1 = phi i1 [ %.3, %157 ], [ %.059182, %123 ], [ %.059182, %32 ], [ %.059182, %115 ], [ %.3, %_ZN10duckdb_re214ByteMapBuilder5MergeEv.exit ]
+  %.161 = phi i1 [ %.060181, %123 ], [ %.060181, %32 ], [ %.060181, %157 ], [ %.060181, %115 ], [ true, %_ZN10duckdb_re214ByteMapBuilder5MergeEv.exit ]
+  %.1 = phi i1 [ %.059182, %123 ], [ %.059182, %32 ], [ %.3, %157 ], [ %.059182, %115 ], [ %.3, %_ZN10duckdb_re214ByteMapBuilder5MergeEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %271 = load i32, ptr %7, align 8, !tbaa !61
   %272 = sext i32 %271 to i64
@@ -2965,7 +2965,7 @@ _ZN10duckdb_re214ByteMapBuilderD2Ev.exit:         ; preds = %_ZNSt6vectorISt4pai
   br label %283
 
 283:                                              ; preds = %.loopexit.split-lp154, %.loopexit153, %.loopexit.split-lp, %.loopexit, %.loopexit168, %.loopexit.split-lp169, %.loopexit163, %.loopexit.split-lp164, %.loopexit158, %.loopexit.split-lp159, %281
-  %.pn79.pn.pn = phi { ptr, i32 } [ %282, %281 ], [ %lpad.loopexit160, %.loopexit158 ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp159 ], [ %lpad.loopexit165, %.loopexit163 ], [ %lpad.loopexit.split-lp166, %.loopexit.split-lp164 ], [ %lpad.loopexit170, %.loopexit168 ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ], [ %lpad.loopexit155, %.loopexit153 ], [ %lpad.loopexit.split-lp156, %.loopexit.split-lp154 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn79.pn.pn = phi { ptr, i32 } [ %282, %281 ], [ %lpad.loopexit.split-lp166, %.loopexit.split-lp164 ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ], [ %lpad.loopexit.split-lp161, %.loopexit.split-lp159 ], [ %lpad.loopexit160, %.loopexit158 ], [ %lpad.loopexit165, %.loopexit163 ], [ %lpad.loopexit170, %.loopexit168 ], [ %lpad.loopexit.split-lp156, %.loopexit.split-lp154 ], [ %lpad.loopexit155, %.loopexit153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN10duckdb_re214ByteMapBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn79.pn.pn
@@ -3453,8 +3453,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
   br i1 %.not, label %._crit_edge, label %156, !llvm.loop !175
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc80, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0128.0 = phi ptr [ %138, %.noexc80 ], [ %138, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %139, %.noexc80 ], [ %142, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0128.0 = phi ptr [ %138, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %138, %.noexc80 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i = phi ptr [ %142, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %139, %.noexc80 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %162 = load i32, ptr %13, align 8, !tbaa !61
@@ -4183,7 +4183,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %75, %_ZNSt6vectorIi
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit99, %269, %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit
-  %.1.in = phi i32 [ %134, %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit ], [ %134, %269 ], [ %134, %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit99 ], [ %.pre137, %.critedge.sink.split ]
+  %.1.in = phi i32 [ %134, %_ZNK10duckdb_re211SparseArrayIiE9has_indexEi.exit99 ], [ %134, %_ZN10duckdb_re210SparseSetTIvE10insert_newEi.exit ], [ %134, %269 ], [ %.pre137, %.critedge.sink.split ]
   %.1 = lshr i32 %.1.in, 4
   br label %114
 
@@ -6449,7 +6449,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %138, %.critedge.loopexit.split.loop.exit, %81, %89, %96, %103, %110, %117, %124, %127, %3
-  %.0 = phi ptr [ null, %3 ], [ %130, %127 ], [ %126, %124 ], [ %119, %117 ], [ %112, %110 ], [ %105, %103 ], [ %98, %96 ], [ %91, %89 ], [ %84, %81 ], [ %149, %.critedge.loopexit.split.loop.exit ], [ null, %138 ]
+  %.0 = phi ptr [ null, %3 ], [ %91, %89 ], [ %84, %81 ], [ %130, %127 ], [ %126, %124 ], [ %119, %117 ], [ %112, %110 ], [ %105, %103 ], [ %98, %96 ], [ %149, %.critedge.loopexit.split.loop.exit ], [ null, %138 ]
   ret ptr %.0
 }
 
@@ -6970,7 +6970,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEElcNS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us, !llvm.loop !221
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEElcNS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %38, %.split.us, %._crit_edge.i.us
-  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %38 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
+  %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %.fr16, i64 %.0.lcssa.i.i.us
   store i8 %20, ptr %41, align 1, !tbaa !8
   %.not.us = icmp eq i64 %.08.us, 0

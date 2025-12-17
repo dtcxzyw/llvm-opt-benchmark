@@ -329,8 +329,8 @@ define hidden { i8, i8 } @_RNvMs_NtCsjDgxGcjZqad_9utf8parse5typesNtB4_5State7adv
   br label %24
 
 24:                                               ; preds = %27, %18, %17, %15, %4, %14, %12, %11, %9, %8, %7, %6, %23, %22, %21
-  %.sroa.012.0 = phi i8 [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ %., %6 ], [ %.14, %7 ], [ 0, %8 ], [ %.16, %9 ], [ %.17, %11 ], [ %.18, %12 ], [ %.20, %14 ], [ 0, %4 ], [ 3, %15 ], [ 4, %17 ], [ 2, %18 ], [ %.22, %27 ]
-  %.sroa.25.0 = phi i8 [ 6, %21 ], [ 7, %22 ], [ 7, %23 ], [ %.13, %6 ], [ %.14, %7 ], [ %.15, %8 ], [ %.16, %9 ], [ %.17, %11 ], [ %.19, %12 ], [ %.21, %14 ], [ 1, %4 ], [ 4, %15 ], [ 6, %17 ], [ 6, %18 ], [ %.23, %27 ]
+  %.sroa.012.0 = phi i8 [ %.20, %14 ], [ 0, %4 ], [ 4, %17 ], [ %.22, %27 ], [ 2, %18 ], [ %.14, %7 ], [ 3, %15 ], [ 5, %21 ], [ 6, %22 ], [ 7, %23 ], [ %.17, %11 ], [ %.18, %12 ], [ 0, %8 ], [ %.16, %9 ], [ %., %6 ]
+  %.sroa.25.0 = phi i8 [ %.21, %14 ], [ 1, %4 ], [ 6, %17 ], [ %.23, %27 ], [ 6, %18 ], [ %.14, %7 ], [ 4, %15 ], [ 6, %21 ], [ 7, %22 ], [ 7, %23 ], [ %.17, %11 ], [ %.19, %12 ], [ %.15, %8 ], [ %.16, %9 ], [ %.13, %6 ]
   %25 = insertvalue { i8, i8 } poison, i8 %.sroa.012.0, 0
   %26 = insertvalue { i8, i8 } %25, i8 %.sroa.25.0, 1
   ret { i8, i8 } %26
@@ -655,7 +655,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   br label %.thread194
 
-.thread194:                                       ; preds = %44, %50, %38, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit19, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit22.thread, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit19.thread191
+.thread194:                                       ; preds = %50, %44, %38, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit19, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit22.thread, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit19.thread191
   switch i8 %5, label %default.unreachable [
     i8 1, label %.thread194.thread222
     i8 2, label %.thread194.thread
@@ -670,7 +670,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   %78 = icmp eq i8 %75, %77
   br i1 %78, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread196, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread
 
-.thread194.thread:                                ; preds = %21, %15, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit, %.thread194
+.thread194.thread:                                ; preds = %15, %21, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit, %.thread194
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %80 = load i8, ptr %79, align 1, !alias.scope !53, !noalias !56, !noundef !7
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -718,7 +718,7 @@ _RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5_8BufWrite9wr
   store i64 %107, ptr %96, align 8, !alias.scope !58
   br label %162
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread: ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit.thread.thread218, %.thread194.thread, %84, %.thread194.thread222, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread: ; preds = %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit.thread.thread218, %84, %.thread194.thread, %.thread194.thread222, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25
   %.sroa.0.0.copyload = load i32, ptr %0, align 1
   %108 = zext i32 %.sroa.0.0.copyload to i64
   %109 = shl nuw i64 %108, 32
@@ -775,7 +775,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
   %139 = icmp eq i8 %136, %138
   br i1 %139, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201, label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread
 
-_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread: ; preds = %123, %129, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread196, %117, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31
+_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread: ; preds = %129, %123, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit25.thread196, %117, %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31
   %.sroa.04.0.copyload = load i32, ptr %111, align 1
   br label %_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq.exit31.thread201
 
@@ -1340,8 +1340,8 @@ define i32 @_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtNtB7_5attrs5Colo
   br label %21
 
 21:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.05.0 = phi i32 [ 1, %3 ], [ 1, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 1, %11 ], [ 1, %12 ], [ 1, %13 ], [ 1, %14 ], [ 1, %15 ], [ 1, %16 ], [ 1, %17 ], [ 1, %18 ], [ 2, %19 ], [ 1, %20 ], [ 0, %1 ]
-  %.sroa.20.0 = phi i32 [ 0, %3 ], [ 1, %4 ], [ 2, %5 ], [ 3, %6 ], [ 4, %7 ], [ 5, %8 ], [ 6, %9 ], [ 7, %10 ], [ 8, %11 ], [ 9, %12 ], [ 10, %13 ], [ 11, %14 ], [ 12, %15 ], [ 13, %16 ], [ 14, %17 ], [ 15, %18 ], [ %.sroa.43.0.extract.shift, %19 ], [ %.sroa.43.0.extract.shift, %20 ], [ 0, %1 ]
+  %.sroa.05.0 = phi i32 [ 1, %20 ], [ 1, %3 ], [ 1, %4 ], [ 1, %5 ], [ 1, %6 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 1, %11 ], [ 1, %12 ], [ 1, %13 ], [ 1, %14 ], [ 1, %15 ], [ 1, %16 ], [ 1, %17 ], [ 1, %18 ], [ 2, %19 ], [ 0, %1 ]
+  %.sroa.20.0 = phi i32 [ %.sroa.43.0.extract.shift, %20 ], [ 0, %3 ], [ 1, %4 ], [ 2, %5 ], [ 3, %6 ], [ 4, %7 ], [ 5, %8 ], [ 6, %9 ], [ 7, %10 ], [ 8, %11 ], [ 9, %12 ], [ 10, %13 ], [ 11, %14 ], [ 12, %15 ], [ 13, %16 ], [ 14, %17 ], [ 15, %18 ], [ %.sroa.43.0.extract.shift, %19 ], [ 0, %1 ]
   %.sroa.38.0.insert.insert = and i32 %0, -65536
   %.sroa.20.0.insert.ext = shl nuw i32 %.sroa.20.0, 8
   %.sroa.20.0.insert.shift = and i32 %.sroa.20.0.insert.ext, 65280

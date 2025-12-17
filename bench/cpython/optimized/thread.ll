@@ -1125,7 +1125,7 @@ PyThread_init_thread.exit:                        ; preds = %13, %9, %3
   br label %37
 
 37:                                               ; preds = %25, %.thread, %35, %34, %PyThread_init_thread.exit
-  %.0 = phi i32 [ -1, %PyThread_init_thread.exit ], [ -1, %25 ], [ -1, %34 ], [ 0, %35 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %PyThread_init_thread.exit ], [ -1, %25 ], [ 0, %35 ], [ -1, %34 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -1349,7 +1349,7 @@ PyThread_init_thread.exit:                        ; preds = %8, %4, %0
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %12, %PyThread_init_thread.exit
-  %.05 = phi ptr [ null, %12 ], [ null, %PyThread_init_thread.exit ], [ %9, %10 ]
+  %.05 = phi ptr [ null, %12 ], [ %9, %10 ], [ null, %PyThread_init_thread.exit ]
   ret ptr %.05
 }
 
@@ -1458,7 +1458,7 @@ fix_status.exit.us:                               ; preds = %18, %.split.us.spli
   br label %fix_status.exit.us43
 
 fix_status.exit.us43:                             ; preds = %26, %.split.split.us.split
-  %.034.us44 = phi i32 [ %28, %26 ], [ %24, %.split.split.us.split ]
+  %.034.us44 = phi i32 [ %24, %.split.split.us.split ], [ %28, %26 ]
   %.not68 = icmp eq i32 %.034.us44, 4
   br i1 %.not68, label %.split.split.us.split, label %.split40.us.thread
 
@@ -1481,7 +1481,7 @@ fix_status.exit.us43:                             ; preds = %26, %.split.split.u
   br label %fix_status.exit
 
 fix_status.exit:                                  ; preds = %33, %.split.split.split
-  %.034 = phi i32 [ %35, %33 ], [ %31, %.split.split.split ]
+  %.034 = phi i32 [ %31, %.split.split.split ], [ %35, %33 ]
   %.not67 = icmp eq i32 %.034, 4
   br i1 %.not67, label %.split.split.split, label %.split40.us.thread
 
@@ -1496,7 +1496,7 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
   br i1 %38, label %.thread, label %.split40.us.thread
 
 .split40.us.thread:                               ; preds = %fix_status.exit, %fix_status.exit.us43, %fix_status.exit.us, %.split40.us
-  %.us-phi82 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us, %fix_status.exit.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034, %fix_status.exit ]
+  %.us-phi82 = phi i32 [ %.us-phi, %.split40.us ], [ %.034.us44, %fix_status.exit.us43 ], [ %.034.us, %fix_status.exit.us ], [ %.034, %fix_status.exit ]
   br i1 %13, label %39, label %40
 
 39:                                               ; preds = %.split40.us.thread
@@ -1534,7 +1534,7 @@ fix_status.exit:                                  ; preds = %33, %.split.split.s
   br label %47
 
 47:                                               ; preds = %43, %.thread, %45, %39, %42
-  %.0 = phi i32 [ 1, %42 ], [ 1, %39 ], [ 1, %43 ], [ 1, %45 ], [ %., %.thread ]
+  %.0 = phi i32 [ 1, %45 ], [ %., %.thread ], [ 1, %42 ], [ 1, %39 ], [ 1, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -1606,7 +1606,7 @@ define dso_local range(i32 -1, -2147483648) i32 @PyThread_create_key() local_unn
   br label %9
 
 9:                                                ; preds = %3, %0, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %0 ], [ %4, %3 ]
+  %.0 = phi i32 [ -1, %0 ], [ -1, %6 ], [ %4, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
@@ -1833,7 +1833,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_ParseTimeoutArg(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %12, %25, %23, %18
-  %.1 = phi i32 [ -1, %18 ], [ -1, %23 ], [ 0, %25 ], [ -1, %12 ]
+  %.1 = phi i32 [ 0, %25 ], [ -1, %18 ], [ -1, %23 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
@@ -1901,7 +1901,7 @@ define dso_local range(i32 0, 3) i32 @PyThread_acquire_lock_timed_with_retries(p
   br i1 %26, label %.thread36, label %.outer, !llvm.loop !189
 
 .thread36:                                        ; preds = %24, %18, %20
-  %.2 = phi i32 [ %.022, %18 ], [ 2, %20 ], [ 0, %24 ]
+  %.2 = phi i32 [ 2, %20 ], [ %.022, %18 ], [ 0, %24 ]
   ret i32 %.2
 }
 
@@ -2053,7 +2053,7 @@ _Py_NewRef.exit:                                  ; preds = %42, %39, %33
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %28, %25, %23, %19, %16, %14, %8, %0, %_Py_NewRef.exit
-  %.0 = phi ptr [ %9, %_Py_NewRef.exit ], [ null, %0 ], [ null, %8 ], [ null, %14 ], [ null, %16 ], [ null, %19 ], [ null, %23 ], [ null, %25 ], [ null, %28 ]
+  %.0 = phi ptr [ %9, %_Py_NewRef.exit ], [ null, %0 ], [ null, %8 ], [ null, %19 ], [ null, %14 ], [ null, %16 ], [ null, %23 ], [ null, %25 ], [ null, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }

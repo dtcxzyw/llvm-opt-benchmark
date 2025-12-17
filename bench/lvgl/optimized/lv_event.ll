@@ -185,13 +185,13 @@ define range(i32 0, 2) i32 @lv_event_send(ptr noundef %0, ptr noundef %1, i1 nou
   %.not46 = icmp eq i8 %44, 0
   br i1 %.not46, label %45, label %.critedge
 
-45:                                               ; preds = %35, %43, %21, %26, %29
+45:                                               ; preds = %35, %43, %26, %21, %29
   %46 = add nuw i32 %.03652, 1
   %exitcond.not = icmp eq i32 %46, %15
   br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !44
 
 .critedge:                                        ; preds = %45, %18, %43, %38, %10
-  %.135 = phi i32 [ 1, %10 ], [ 1, %38 ], [ 0, %43 ], [ 1, %18 ], [ 1, %45 ]
+  %.135 = phi i32 [ 1, %10 ], [ 0, %43 ], [ 1, %18 ], [ 1, %38 ], [ 1, %45 ]
   br i1 %.not42, label %47, label %cleanup_event_list.exit
 
 47:                                               ; preds = %.critedge
@@ -373,7 +373,7 @@ define noundef zeroext i1 @lv_event_remove_dsc(ptr noundef %0, ptr noundef readn
   br label %.critedge26
 
 .critedge26:                                      ; preds = %6, %4, %19, %10
-  %.not2429 = phi i1 [ true, %19 ], [ true, %10 ], [ false, %4 ], [ false, %6 ]
+  %.not2429 = phi i1 [ true, %10 ], [ true, %19 ], [ false, %4 ], [ false, %6 ]
   ret i1 %.not2429
 }
 
@@ -479,7 +479,7 @@ lv_event_get_dsc.exit:                            ; preds = %3
   br label %cleanup_event_list.exit
 
 cleanup_event_list.exit:                          ; preds = %3, %15, %6, %lv_event_get_dsc.exit
-  %18 = phi i1 [ false, %lv_event_get_dsc.exit ], [ true, %6 ], [ true, %15 ], [ false, %3 ]
+  %18 = phi i1 [ true, %15 ], [ false, %lv_event_get_dsc.exit ], [ true, %6 ], [ false, %3 ]
   ret i1 %18
 }
 

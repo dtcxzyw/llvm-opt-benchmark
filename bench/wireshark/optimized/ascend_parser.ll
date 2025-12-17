@@ -166,7 +166,7 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
   br label %yy_find_shift_action.exit.i
 
 yy_find_shift_action.exit.i:                      ; preds = %62, %59, %49
-  %.0.i.i = phi i16 [ %61, %59 ], [ %64, %62 ], [ %.033.i, %49 ]
+  %.0.i.i = phi i16 [ %64, %62 ], [ %61, %59 ], [ %.033.i, %49 ]
   %65 = icmp ugt i16 %.0.i.i, 205
   br i1 %65, label %66, label %383
 

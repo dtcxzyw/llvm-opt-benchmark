@@ -1194,7 +1194,7 @@ define hidden noundef ptr @uat_find(ptr noundef readonly captures(none) %0) loca
   br i1 %.not, label %.thread, label %6
 
 .thread:                                          ; preds = %13, %6, %7, %1
-  %.2 = phi ptr [ null, %1 ], [ %9, %7 ], [ null, %6 ], [ %9, %13 ]
+  %.2 = phi ptr [ null, %1 ], [ null, %6 ], [ %9, %7 ], [ %9, %13 ]
   ret ptr %.2
 }
 
@@ -1606,7 +1606,7 @@ define hidden noundef zeroext i1 @uat_fld_chk_oid(ptr noundef readnone captures(
   br i1 %36, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %12, %29, %32, %33, %20, %8, %6
-  %.str.21.sink = phi ptr [ @.str.17, %6 ], [ @.str.18, %8 ], [ @.str.20, %20 ], [ @.str.21, %33 ], [ @.str.21, %32 ], [ @.str.21, %29 ], [ @.str.19, %12 ]
+  %.str.21.sink = phi ptr [ @.str.20, %20 ], [ @.str.18, %8 ], [ @.str.17, %6 ], [ @.str.21, %33 ], [ @.str.21, %32 ], [ @.str.21, %29 ], [ @.str.19, %12 ]
   %37 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.21.sink)
   store ptr %37, ptr %5, align 8
   br label %38
@@ -1754,7 +1754,7 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num(i32 noundef range(i32
   br label %.thread13.sink.split.i
 
 .thread13.sink.split.i:                           ; preds = %17, %16, %15, %.thread.i
-  %.str.35.sink.i = phi ptr [ @.str.36, %16 ], [ %18, %17 ], [ @.str.35, %.thread.i ], [ @.str.35, %15 ]
+  %.str.35.sink.i = phi ptr [ %18, %17 ], [ @.str.36, %16 ], [ @.str.35, %.thread.i ], [ @.str.35, %15 ]
   %19 = call noalias ptr @g_strdup(ptr noundef %.str.35.sink.i)
   store ptr %19, ptr %3, align 8
   br label %uat_fld_chk_num_check_result.exit
@@ -1831,7 +1831,7 @@ define internal fastcc noundef zeroext i1 @uat_fld_chk_num64(i32 noundef range(i
   br label %.thread13.sink.split.i
 
 .thread13.sink.split.i:                           ; preds = %17, %16, %15, %.thread.i
-  %.str.35.sink.i = phi ptr [ @.str.36, %16 ], [ %18, %17 ], [ @.str.35, %.thread.i ], [ @.str.35, %15 ]
+  %.str.35.sink.i = phi ptr [ %18, %17 ], [ @.str.36, %16 ], [ @.str.35, %.thread.i ], [ @.str.35, %15 ]
   %19 = call noalias ptr @g_strdup(ptr noundef %.str.35.sink.i)
   store ptr %19, ptr %3, align 8
   br label %uat_fld_chk_num_check_result.exit
@@ -1902,7 +1902,7 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec(ptr noundef readnone captu
   br label %.thread13.sink.split.i
 
 .thread13.sink.split.i:                           ; preds = %19, %18, %17, %.thread.i
-  %.str.35.sink.i = phi ptr [ @.str.36, %18 ], [ %20, %19 ], [ @.str.35, %.thread.i ], [ @.str.35, %17 ]
+  %.str.35.sink.i = phi ptr [ %20, %19 ], [ @.str.36, %18 ], [ @.str.35, %.thread.i ], [ @.str.35, %17 ]
   %21 = call noalias ptr @g_strdup(ptr noundef %.str.35.sink.i)
   store ptr %21, ptr %5, align 8
   br label %uat_fld_chk_num_check_result.exit
@@ -1970,7 +1970,7 @@ define noundef zeroext i1 @uat_fld_chk_num_signed_dec64(ptr noundef readnone cap
   br label %.thread13.sink.split.i
 
 .thread13.sink.split.i:                           ; preds = %19, %18, %17, %.thread.i
-  %.str.35.sink.i = phi ptr [ @.str.36, %18 ], [ %20, %19 ], [ @.str.35, %.thread.i ], [ @.str.35, %17 ]
+  %.str.35.sink.i = phi ptr [ %20, %19 ], [ @.str.36, %18 ], [ @.str.35, %.thread.i ], [ @.str.35, %17 ]
   %21 = call noalias ptr @g_strdup(ptr noundef %.str.35.sink.i)
   store ptr %21, ptr %5, align 8
   br label %uat_fld_chk_num_check_result.exit
@@ -2293,10 +2293,10 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly captures(address) %0, 
   br label %46
 
 46:                                               ; preds = %38, %43, %32
-  %.168 = phi ptr [ %40, %43 ], [ %35, %38 ], [ %14, %32 ]
-  %.066 = phi i32 [ %44, %43 ], [ %39, %38 ], [ %34, %32 ]
-  %.065 = phi i32 [ %39, %43 ], [ %34, %38 ], [ 0, %32 ]
-  %.064 = phi i32 [ %45, %43 ], [ 0, %38 ], [ 0, %32 ]
+  %.168 = phi ptr [ %40, %43 ], [ %14, %32 ], [ %35, %38 ]
+  %.066 = phi i32 [ %44, %43 ], [ %34, %32 ], [ %39, %38 ]
+  %.065 = phi i32 [ %39, %43 ], [ 0, %32 ], [ %34, %38 ]
+  %.064 = phi i32 [ %45, %43 ], [ 0, %32 ], [ 0, %38 ]
   %47 = shl nuw nsw i32 %.065, 3
   %48 = add nuw nsw i32 %47, %.066
   %49 = add nuw nsw i32 %48, %.064

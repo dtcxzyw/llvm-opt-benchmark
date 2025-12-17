@@ -2325,7 +2325,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %58
-  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %45, %44 ], [ %40, %39 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %40, %39 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 58:                                               ; preds = %.body
@@ -2480,7 +2480,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %58
-  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %45, %44 ], [ %40, %39 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %40, %39 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 58:                                               ; preds = %.body
@@ -2635,7 +2635,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %58
-  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %45, %44 ], [ %40, %39 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %40, %39 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 58:                                               ; preds = %.body
@@ -2790,7 +2790,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %58
-  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %45, %44 ], [ %40, %39 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %40, %39 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 58:                                               ; preds = %.body
@@ -2945,7 +2945,7 @@ define hidden void @_ZN16aws_smithy_types12type_erasure15TypeErasedError8downcas
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %58
-  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %45, %44 ], [ %40, %39 ]
+  %eh.lpad-body7 = phi { ptr, i32 } [ %25, %58 ], [ %40, %39 ], [ %45, %44 ]
   resume { ptr, i32 } %eh.lpad-body7
 
 58:                                               ; preds = %.body

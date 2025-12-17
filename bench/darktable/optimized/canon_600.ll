@@ -145,7 +145,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw15canon_600_colorEPii(ptr noundef 
   br i1 %20, label %.thread43, label %25
 
 .thread43.sink.split:                             ; preds = %15, %11, %9
-  %.sink = phi i32 [ -104, %9 ], [ 12, %11 ], [ -50, %15 ]
+  %.sink = phi i32 [ 12, %11 ], [ -104, %9 ], [ -50, %15 ]
   store i32 %.sink, ptr %7, align 4, !tbaa !77
   br label %.thread43
 
@@ -195,7 +195,7 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw15canon_600_colorEPii(ptr noundef 
   br label %44
 
 44:                                               ; preds = %38, %34, %13, %42
-  %.032 = phi i32 [ 1, %42 ], [ 2, %13 ], [ 0, %34 ], [ 2, %38 ]
+  %.032 = phi i32 [ 0, %34 ], [ 1, %42 ], [ 2, %13 ], [ 2, %38 ]
   ret i32 %.032
 }
 
@@ -358,7 +358,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   br i1 %73, label %.thread43.sink.split.i.us, label %.thread43.i.us
 
 .thread43.sink.split.i.us:                        ; preds = %72, %70, %59
-  %.sink.i.us = phi i32 [ -104, %70 ], [ 12, %72 ], [ -50, %59 ]
+  %.sink.i.us = phi i32 [ 12, %72 ], [ -104, %70 ], [ -50, %59 ]
   store i32 %.sink.i.us, ptr %156, align 4, !tbaa !77
   br label %.thread43.i.us
 
@@ -399,7 +399,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   br label %_ZN6LibRaw15canon_600_colorEPii.exit.us
 
 _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %89, %86, %82, %57
-  %.032.i.us = phi i32 [ 1, %89 ], [ 2, %57 ], [ 0, %82 ], [ 2, %86 ]
+  %.032.i.us = phi i32 [ 0, %82 ], [ 1, %89 ], [ 2, %57 ], [ 2, %86 ]
   store i32 %.032.i.us, ptr %indvars.iv120.sroa.phi, align 4, !tbaa !77
   br i1 %142, label %.preheader87.us, label %42, !llvm.loop !85
 
@@ -524,8 +524,8 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %89, %86, %82, %57
   br label %._crit_edge107
 
 ._crit_edge107:                                   ; preds = %.preheader96.lr.ph, %._crit_edge107.loopexit, %17
-  %161 = phi i32 [ %.pre138, %._crit_edge107.loopexit ], [ 0, %17 ], [ 0, %.preheader96.lr.ph ]
-  %162 = phi i32 [ %.pre, %._crit_edge107.loopexit ], [ 0, %17 ], [ 0, %.preheader96.lr.ph ]
+  %161 = phi i32 [ 0, %17 ], [ %.pre138, %._crit_edge107.loopexit ], [ 0, %.preheader96.lr.ph ]
+  %162 = phi i32 [ 0, %17 ], [ %.pre, %._crit_edge107.loopexit ], [ 0, %.preheader96.lr.ph ]
   %163 = or i32 %161, %162
   %.not = icmp eq i32 %163, 0
   br i1 %.not, label %.loopexit, label %164
@@ -606,7 +606,7 @@ define void @_ZN6LibRaw15canon_600_coeffEv(ptr noundef nonnull align 8 captures(
   br label %20
 
 20:                                               ; preds = %1, %19, %17
-  %.1 = phi i32 [ 4, %19 ], [ %.0, %17 ], [ %.0.mux, %1 ]
+  %.1 = phi i32 [ %.0.mux, %1 ], [ 4, %19 ], [ %.0, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 153436
   %22 = load float, ptr %21, align 4, !tbaa !16
   %23 = fcmp reassoc nsz arcp contract afn une float %22, 0.000000e+00
@@ -956,7 +956,7 @@ _ZN6LibRaw18canon_600_fixed_wbEi.exit:            ; preds = %64
   br label %96
 
 96:                                               ; preds = %95, %93, %_ZN6LibRaw18canon_600_fixed_wbEi.exit
-  %.1.i = phi i32 [ 4, %95 ], [ %.0.i17, %93 ], [ %.0.mux.i, %_ZN6LibRaw18canon_600_fixed_wbEi.exit ]
+  %.1.i = phi i32 [ %.0.mux.i, %_ZN6LibRaw18canon_600_fixed_wbEi.exit ], [ 4, %95 ], [ %.0.i17, %93 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 153436
   %98 = load float, ptr %97, align 4, !tbaa !16
   %99 = fcmp reassoc nsz arcp contract afn une float %98, 0.000000e+00

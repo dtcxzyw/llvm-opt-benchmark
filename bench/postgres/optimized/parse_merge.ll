@@ -495,8 +495,8 @@ setNamespaceVisibilityForRTE.exit61.i:            ; preds = %212, %.split.i60.i
   br i1 %.not15.i68.i, label %setNamespaceVisibilityForRTE.exit28.sink.split.i, label %222
 
 setNamespaceVisibilityForRTE.exit28.sink.split.i: ; preds = %.critedge17.i44.i, %.critedge17.i22.i, %.critedge17.i66.i
-  %.lcssa.sink68.i = phi ptr [ %224, %.critedge17.i66.i ], [ %182, %.critedge17.i22.i ], [ %203, %.critedge17.i44.i ]
-  %.sink66.i = phi i8 [ 1, %.critedge17.i66.i ], [ 1, %.critedge17.i22.i ], [ 0, %.critedge17.i44.i ]
+  %.lcssa.sink68.i = phi ptr [ %182, %.critedge17.i22.i ], [ %224, %.critedge17.i66.i ], [ %203, %.critedge17.i44.i ]
+  %.sink66.i = phi i8 [ 1, %.critedge17.i22.i ], [ 1, %.critedge17.i66.i ], [ 0, %.critedge17.i44.i ]
   %227 = getelementptr inbounds nuw i8, ptr %.lcssa.sink68.i, i64 40
   store i8 %.sink66.i, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %.lcssa.sink68.i, i64 41

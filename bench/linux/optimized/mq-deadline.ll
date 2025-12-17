@@ -979,7 +979,7 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   br label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %43, %39, %.lr.ph26, %.lr.ph, %.lr.ph.preheader, %..loopexit.loopexit_crit_edge32, %.preheader, %..loopexit_crit_edge, %..loopexit_crit_edge7, %1
-  %47 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ %18, %..loopexit_crit_edge ], [ true, %.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ true, %.lr.ph.preheader ], [ %18, %.lr.ph ], [ %33, %.lr.ph26 ], [ %33, %39 ], [ %33, %43 ]
+  %47 = phi i1 [ true, %1 ], [ %18, %..loopexit_crit_edge7 ], [ true, %.preheader ], [ %18, %..loopexit_crit_edge ], [ true, %.lr.ph.preheader ], [ %18, %..loopexit.loopexit_crit_edge32 ], [ %18, %.lr.ph ], [ %33, %.lr.ph26 ], [ %33, %39 ], [ %33, %43 ]
   ret i1 %47
 }
 
@@ -1243,7 +1243,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   br i1 %or.cond, label %.thread8, label %.thread9
 
 .thread9:                                         ; preds = %124, %.loopexit
-  %129 = phi ptr [ %114, %.loopexit ], [ %127, %124 ]
+  %129 = phi ptr [ %127, %124 ], [ %114, %.loopexit ]
   store i32 %96, ptr %29, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 0, ptr %130, align 4
@@ -1336,7 +1336,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   br label %.thread8
 
 .thread8:                                         ; preds = %124, %168, %131, %84, %6
-  %190 = phi ptr [ %170, %168 ], [ null, %6 ], [ null, %84 ], [ null, %131 ], [ null, %124 ]
+  %190 = phi ptr [ %170, %168 ], [ null, %6 ], [ null, %84 ], [ null, %124 ], [ null, %131 ]
   ret ptr %190
 }
 

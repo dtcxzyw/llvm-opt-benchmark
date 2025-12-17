@@ -543,7 +543,7 @@ dissect_resp_message.exit.thread:                 ; preds = %102, %183, %197
   br label %.loopexit
 
 dissect_resp_message.exit:                        ; preds = %201, %172, %169, %168, %167, %150, %149, %147, %146, %144, %139, %138, %89, %88, %69, %57, %46, %35, %48, %205
-  %.0.i = phi i32 [ %208, %205 ], [ %54, %48 ], [ %41, %35 ], [ %41, %46 ], [ %64, %57 ], [ %64, %69 ], [ %81, %89 ], [ %81, %88 ], [ %118, %149 ], [ %118, %150 ], [ %118, %138 ], [ %118, %139 ], [ %118, %144 ], [ %118, %146 ], [ %118, %147 ], [ %159, %172 ], [ %159, %169 ], [ %159, %168 ], [ %159, %167 ], [ %202, %201 ]
+  %.0.i = phi i32 [ %118, %147 ], [ %208, %205 ], [ %202, %201 ], [ %54, %48 ], [ %41, %46 ], [ %64, %69 ], [ %41, %35 ], [ %64, %57 ], [ %81, %88 ], [ %81, %89 ], [ %118, %149 ], [ %118, %150 ], [ %118, %138 ], [ %118, %139 ], [ %118, %144 ], [ %118, %146 ], [ %159, %167 ], [ %159, %172 ], [ %159, %169 ], [ %159, %168 ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %210 = icmp eq i32 %.0.i, -1
   br i1 %210, label %.loopexit, label %211
@@ -556,7 +556,7 @@ dissect_resp_message.exit:                        ; preds = %201, %172, %169, %1
   br i1 %214, label %19, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %19, %dissect_resp_message.exit, %211, %6, %dissect_resp_message.exit.thread, %30
-  %.026 = phi i32 [ -1, %30 ], [ -1, %dissect_resp_message.exit.thread ], [ %3, %6 ], [ %.02747, %19 ], [ -1, %dissect_resp_message.exit ], [ %213, %211 ]
+  %.026 = phi i32 [ -1, %dissect_resp_message.exit.thread ], [ -1, %30 ], [ %3, %6 ], [ -1, %dissect_resp_message.exit ], [ %.02747, %19 ], [ %213, %211 ]
   ret i32 %.026
 }
 

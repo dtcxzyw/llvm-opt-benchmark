@@ -1079,7 +1079,7 @@ zend_fcc_addref.exit124.i:                        ; preds = %204, %201
   br label %php_dom_xpath_callback_ns_update_method_handler.exit
 
 php_dom_xpath_callback_ns_update_method_handler.exit: ; preds = %165, %._crit_edge.i, %180, %.thread146.i, %211, %214
-  %.6.i = phi i32 [ -1, %211 ], [ -1, %180 ], [ -1, %165 ], [ 0, %.thread146.i ], [ 0, %._crit_edge.i ], [ 0, %214 ]
+  %.6.i = phi i32 [ -1, %180 ], [ -1, %165 ], [ -1, %211 ], [ 0, %.thread146.i ], [ 0, %._crit_edge.i ], [ 0, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.6.i
 }
@@ -1140,7 +1140,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %15
   br label %24
 
 24:                                               ; preds = %5, %7, %zend_hash_find_ptr.exit, %zend_hash_add_new_ptr.exit
-  %.016 = phi ptr [ %19, %zend_hash_add_new_ptr.exit ], [ %18, %zend_hash_find_ptr.exit ], [ %.pre, %7 ], [ %6, %5 ]
+  %.016 = phi ptr [ %18, %zend_hash_find_ptr.exit ], [ %19, %zend_hash_add_new_ptr.exit ], [ %.pre, %7 ], [ %6, %5 ]
   ret ptr %.016
 }
 
@@ -1175,7 +1175,7 @@ php_dom_xpath_is_callback_name_valid_and_throw.exit: ; preds = %7, %14, %18
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4) #9
   br label %44
 
-20:                                               ; preds = %12, %17, %18
+20:                                               ; preds = %18, %12, %17
   %21 = tail call fastcc ptr @php_dom_xpath_callbacks_ensure_ns(ptr noundef %0, ptr noundef %2)
   %22 = tail call noalias ptr @_emalloc_40() #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
@@ -1757,7 +1757,7 @@ zend_string_release_ex.exit38:                    ; preds = %124, %119, %zval_ge
   br label %125
 
 125:                                              ; preds = %68, %.thread, %zend_string_release_ex.exit38, %zend_string_release_ex.exit, %101, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %101 ], [ -1, %zend_string_release_ex.exit ], [ 0, %zend_string_release_ex.exit38 ], [ 0, %68 ], [ -1, %.thread ]
+  %.0 = phi i32 [ -1, %11 ], [ -1, %.thread ], [ -1, %101 ], [ -1, %zend_string_release_ex.exit ], [ 0, %zend_string_release_ex.exit38 ], [ 0, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

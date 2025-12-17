@@ -405,7 +405,7 @@ define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly captures(a
   call void @pqsignal_fe(i32 noundef 13, ptr noundef %45) #20
   br label %.thread44
 
-.thread44:                                        ; preds = %26, %29, %42
+.thread44:                                        ; preds = %29, %26, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
@@ -1302,7 +1302,7 @@ define internal fastcc void @print_aligned_text(ptr noundef readonly captures(no
   br label %120
 
 120:                                              ; preds = %.loopexit666, %114, %117
-  %.0505 = phi i32 [ %116, %114 ], [ %119, %117 ], [ %.0459874, %.loopexit666 ]
+  %.0505 = phi i32 [ %119, %117 ], [ %116, %114 ], [ %.0459874, %.loopexit666 ]
   br i1 %31, label %._crit_edge689, label %.lr.ph682.preheader
 
 .lr.ph682.preheader:                              ; preds = %120
@@ -1411,8 +1411,8 @@ define internal fastcc void @print_aligned_text(ptr noundef readonly captures(no
   br label %167
 
 167:                                              ; preds = %._crit_edge812, %._crit_edge689, %155, %151, %160
-  %168 = phi ptr [ %.pre813, %160 ], [ %.pre814, %151 ], [ %144, %155 ], [ %144, %._crit_edge689 ], [ %156, %._crit_edge812 ]
-  %.0487 = phi i32 [ %.1488, %160 ], [ 0, %151 ], [ 0, %155 ], [ %146, %._crit_edge689 ], [ %158, %._crit_edge812 ]
+  %168 = phi ptr [ %144, %155 ], [ %144, %._crit_edge689 ], [ %.pre813, %160 ], [ %.pre814, %151 ], [ %156, %._crit_edge812 ]
+  %.0487 = phi i32 [ 0, %155 ], [ %146, %._crit_edge689 ], [ %.1488, %160 ], [ 0, %151 ], [ %158, %._crit_edge812 ]
   %169 = load i32, ptr %168, align 8
   %170 = icmp eq i32 %169, 9
   %171 = icmp ne i32 %.0487, 0
@@ -1485,7 +1485,7 @@ define internal fastcc void @print_aligned_text(ptr noundef readonly captures(no
   br i1 %199, label %.preheader662, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %.preheader662, %._crit_edge694, %193
-  %.2507.ph = phi i32 [ %.3508696, %._crit_edge694 ], [ %.0487, %193 ], [ %.3508696, %.preheader662 ]
+  %.2507.ph = phi i32 [ %.0487, %193 ], [ %.3508696, %._crit_edge694 ], [ %.3508696, %.preheader662 ]
   %.pre = load ptr, ptr %0, align 8
   br label %.thread
 
@@ -1622,8 +1622,8 @@ define internal fastcc void @print_aligned_text(ptr noundef readonly captures(no
   br label %IsPagerNeeded.exit
 
 IsPagerNeeded.exit:                               ; preds = %214, %209, %.loopexit.i, %._crit_edge707, %216
-  %.2642 = phi ptr [ %1, %216 ], [ %252, %.loopexit.i ], [ %1, %._crit_edge707 ], [ %215, %214 ], [ %1, %209 ]
-  %.2486 = phi i1 [ false, %216 ], [ %254, %.loopexit.i ], [ false, %._crit_edge707 ], [ true, %214 ], [ false, %209 ]
+  %.2642 = phi ptr [ %1, %._crit_edge707 ], [ %1, %216 ], [ %252, %.loopexit.i ], [ %215, %214 ], [ %1, %209 ]
+  %.2486 = phi i1 [ false, %._crit_edge707 ], [ false, %216 ], [ %254, %.loopexit.i ], [ true, %214 ], [ false, %209 ]
   %255 = load ptr, ptr %0, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 25
   %257 = load i8, ptr %256, align 1, !range !6, !noundef !7
@@ -1999,8 +1999,8 @@ IsPagerNeeded.exit:                               ; preds = %214, %209, %.loopex
   br i1 %442, label %.lr.ph.i586.us, label %strlen_max_width.exit.us
 
 strlen_max_width.exit.us:                         ; preds = %437, %.lr.ph.i586.us
-  %.025.lcssa.i.us = phi i32 [ %.02533.i.us, %.lr.ph.i586.us ], [ %434, %437 ]
-  %.024.lcssa.i.us = phi ptr [ %.02434.i.us, %.lr.ph.i586.us ], [ %spec.select.i.us, %437 ]
+  %.025.lcssa.i.us = phi i32 [ %434, %437 ], [ %.02533.i.us, %.lr.ph.i586.us ]
+  %.024.lcssa.i.us = phi ptr [ %spec.select.i.us, %437 ], [ %.02434.i.us, %.lr.ph.i586.us ]
   %443 = ptrtoint ptr %.024.lcssa.i.us to i64
   %444 = ptrtoint ptr %430 to i64
   %445 = sub i64 %443, %444
@@ -2112,7 +2112,7 @@ strlen_max_width.exit.thread.us:                  ; preds = %426
   br label %thread-pre-split.us
 
 thread-pre-split.us:                              ; preds = %493, %498
-  %502 = phi i32 [ %.pr.us.pre, %498 ], [ %494, %493 ]
+  %502 = phi i32 [ %494, %493 ], [ %.pr.us.pre, %498 ]
   switch i32 %502, label %509 [
     i32 1, label %506
     i32 2, label %503
@@ -2165,7 +2165,7 @@ thread-pre-split.us:                              ; preds = %493, %498
   br label %._crit_edge817.sink.split
 
 ._crit_edge817.sink.split:                        ; preds = %518, %514, %517
-  %.sink905.in = phi ptr [ %382, %517 ], [ %381, %514 ], [ %., %518 ]
+  %.sink905.in = phi ptr [ %381, %514 ], [ %., %518 ], [ %382, %517 ]
   %.sink905 = load ptr, ptr %.sink905.in, align 8
   %527 = call i32 @fputs(ptr noundef %.sink905, ptr noundef %.2642)
   br label %._crit_edge817
@@ -2288,8 +2288,8 @@ footers_with_default.exit:                        ; preds = %539, %543, %547
   br i1 %exitcond811.not, label %._crit_edge748, label %.lr.ph747, !llvm.loop !27
 
 ._crit_edge748:                                   ; preds = %.lr.ph747, %.loopexit, %208, %570
-  %.0484898 = phi i1 [ false, %208 ], [ %.2486, %570 ], [ %.2486, %.loopexit ], [ %.0484897, %.lr.ph747 ]
-  %.0640896 = phi ptr [ %1, %208 ], [ %.2642, %570 ], [ %.2642, %.loopexit ], [ %.0640895, %.lr.ph747 ]
+  %.0484898 = phi i1 [ false, %208 ], [ %.2486, %.loopexit ], [ %.2486, %570 ], [ %.0484897, %.lr.ph747 ]
+  %.0640896 = phi ptr [ %1, %208 ], [ %.2642, %.loopexit ], [ %.2642, %570 ], [ %.0640895, %.lr.ph747 ]
   call void @free(ptr noundef %.0468872) #20
   call void @free(ptr noundef %.0481866) #20
   call void @free(ptr noundef %.0473870) #20
@@ -2362,7 +2362,7 @@ define internal fastcc void @print_unaligned_vertical(ptr noundef readonly captu
   br label %17
 
 17:                                               ; preds = %8, %12, %15
-  %.043 = phi i8 [ 1, %15 ], [ 0, %12 ], [ %.mux, %8 ]
+  %.043 = phi i8 [ %.mux, %8 ], [ 1, %15 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
@@ -3166,8 +3166,8 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br label %152
 
 152:                                              ; preds = %._crit_edge604, %128, %140, %136, %145
-  %153 = phi ptr [ %.pre606, %145 ], [ %.pre607, %136 ], [ %129, %140 ], [ %129, %128 ], [ %141, %._crit_edge604 ]
-  %.0359 = phi i32 [ %.1360, %145 ], [ 0, %136 ], [ 0, %140 ], [ %131, %128 ], [ %143, %._crit_edge604 ]
+  %153 = phi ptr [ %129, %140 ], [ %129, %128 ], [ %.pre606, %145 ], [ %.pre607, %136 ], [ %141, %._crit_edge604 ]
+  %.0359 = phi i32 [ 0, %140 ], [ %131, %128 ], [ %.1360, %145 ], [ 0, %136 ], [ %143, %._crit_edge604 ]
   %154 = load i32, ptr %153, align 8
   %155 = icmp eq i32 %154, 9
   br i1 %155, label %156, label %.loopexit543
@@ -3191,7 +3191,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br label %163
 
 163:                                              ; preds = %161, %158, %159
-  %.0349 = phi i32 [ %spec.select434, %158 ], [ %spec.select435, %161 ], [ 7, %159 ]
+  %.0349 = phi i32 [ %spec.select435, %161 ], [ 7, %159 ], [ %spec.select434, %158 ]
   %164 = trunc nuw i8 %.0361.lcssa to i1
   %165 = icmp ult i16 %.fr, 2
   %or.cond10 = and i1 %165, %164
@@ -3264,8 +3264,8 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br label %.loopexit543.split.us
 
 .loopexit543.split.us:                            ; preds = %.thread627, %193, %191, %.split.us
-  %195 = phi i32 [ %192, %191 ], [ %192, %193 ], [ %189, %.split.us ], [ %185, %.thread627 ]
-  %spec.select437.pn.us = phi i32 [ %spec.select437.us632, %191 ], [ %spec.select438..0359.us, %193 ], [ %spec.select437.us, %.split.us ], [ %spec.select437.us630, %.thread627 ]
+  %195 = phi i32 [ %192, %193 ], [ %192, %191 ], [ %189, %.split.us ], [ %185, %.thread627 ]
+  %spec.select437.pn.us = phi i32 [ %spec.select438..0359.us, %193 ], [ %spec.select437.us632, %191 ], [ %spec.select437.us, %.split.us ], [ %spec.select437.us630, %.thread627 ]
   %.1346.us = sub i32 %spec.select437.pn.us, %195
   br label %.loopexit543
 
@@ -3668,10 +3668,10 @@ strlen_max_width.exit468:                         ; preds = %strlen_max_width.ex
   br label %.thread520
 
 .thread520:                                       ; preds = %339, %363, %369, %368
-  %.1326528 = phi i32 [ %.1326537, %369 ], [ %.1326, %368 ], [ 0, %363 ], [ %336, %339 ]
-  %.1328527 = phi i32 [ %.1328536, %369 ], [ %.1328, %368 ], [ %337, %363 ], [ %337, %339 ]
-  %.1334526 = phi i1 [ %370, %369 ], [ true, %368 ], [ false, %363 ], [ true, %339 ]
-  %.1340525 = phi i32 [ %.1340534, %369 ], [ %.1340, %368 ], [ %.0339580, %363 ], [ %.0339580, %339 ]
+  %.1326528 = phi i32 [ %.1326, %368 ], [ %.1326537, %369 ], [ 0, %363 ], [ %336, %339 ]
+  %.1328527 = phi i32 [ %.1328, %368 ], [ %.1328536, %369 ], [ %337, %363 ], [ %337, %339 ]
+  %.1334526 = phi i1 [ true, %368 ], [ %370, %369 ], [ false, %363 ], [ true, %339 ]
+  %.1340525 = phi i32 [ %.1340, %368 ], [ %.1340534, %369 ], [ %.0339580, %363 ], [ %.0339580, %339 ]
   %fputc426 = call i32 @fputc(i32 10, ptr %.0512)
   br label %378
 
@@ -6739,8 +6739,8 @@ integer_digits.exit.i:                            ; preds = %117, %additional_nu
   br label %format_numeric_locale.exit
 
 format_numeric_locale.exit:                       ; preds = %159, %86, %74, %80, %72
-  %.041 = phi ptr [ %spec.select, %72 ], [ %75, %80 ], [ %75, %74 ], [ %87, %86 ], [ %115, %159 ]
-  %.040 = phi i1 [ false, %72 ], [ false, %80 ], [ false, %74 ], [ true, %86 ], [ true, %159 ]
+  %.041 = phi ptr [ %spec.select, %72 ], [ %75, %74 ], [ %75, %80 ], [ %87, %86 ], [ %115, %159 ]
+  %.040 = phi i1 [ false, %72 ], [ false, %74 ], [ false, %80 ], [ true, %86 ], [ true, %159 ]
   %165 = load i32, ptr %15, align 4
   %166 = sext i32 %165 to i64
   %167 = mul nsw i64 %166, %65
@@ -6935,7 +6935,7 @@ sub_0:                                            ; preds = %6
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail, %sub_0, %14
-  %.str.26.sink = phi ptr [ %15, %14 ], [ @.str.26, %sub_0 ], [ %spec.select, %.tail ]
+  %.str.26.sink = phi ptr [ %15, %14 ], [ %spec.select, %.tail ], [ @.str.26, %sub_0 ]
   store ptr %.str.26.sink, ptr @thousands_sep, align 8
   ret void
 }
@@ -7214,7 +7214,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr noundef readonly ca
   br label %31
 
 31:                                               ; preds = %29, %26
-  %.0 = phi i32 [ %30, %29 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %26 ], [ %30, %29 ]
   %32 = zext i1 %15 to i32
   %spec.select = add i32 %.0, %32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 0)

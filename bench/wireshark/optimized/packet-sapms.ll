@@ -1767,7 +1767,7 @@ switch.lookup:                                    ; preds = %9
   br label %17
 
 17:                                               ; preds = %switch.lookup, %5, %14, %11
-  %.0 = phi i32 [ 160, %14 ], [ 160, %11 ], [ 67, %5 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 160, %11 ], [ 67, %5 ], [ %switch.load, %switch.lookup ], [ 160, %14 ]
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %22

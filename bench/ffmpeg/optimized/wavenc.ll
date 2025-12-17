@@ -514,9 +514,9 @@ define internal range(i32 -34, 1) i32 @wav_write_packet(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread, %51, %60
-  %68 = phi i32 [ %25, %60 ], [ %25, %51 ], [ %.pre109, %.thread ]
-  %69 = phi i32 [ %26, %60 ], [ %26, %51 ], [ %.pre108, %.thread ]
-  %.181 = phi i32 [ 0, %60 ], [ %52, %51 ], [ 0, %.thread ]
+  %68 = phi i32 [ %.pre109, %.thread ], [ %25, %60 ], [ %25, %51 ]
+  %69 = phi i32 [ %.pre108, %.thread ], [ %26, %60 ], [ %26, %51 ]
+  %.181 = phi i32 [ 0, %.thread ], [ 0, %60 ], [ %52, %51 ]
   %70 = add nsw i32 %69, %.079107
   %.not98 = icmp slt i32 %70, %68
   br i1 %.not98, label %24, label %.loopexit, !llvm.loop !69
@@ -548,7 +548,7 @@ define internal range(i32 -34, 1) i32 @wav_write_packet(ptr noundef %0, ptr noun
   br label %.thread103
 
 .thread103:                                       ; preds = %65, %73, %83
-  %.4 = phi i32 [ 0, %83 ], [ 0, %73 ], [ %66, %65 ]
+  %.4 = phi i32 [ 0, %73 ], [ 0, %83 ], [ %66, %65 ]
   ret i32 %.4
 }
 
@@ -691,7 +691,7 @@ define internal range(i32 -34, 1) i32 @wav_write_trailer(ptr noundef %0) #0 {
   br label %peak_write_chunk.exit
 
 peak_write_chunk.exit:                            ; preds = %36, %.thread.i, %54, %71
-  %.2.i = phi i32 [ %38, %36 ], [ 0, %71 ], [ 0, %54 ], [ -1, %.thread.i ]
+  %.2.i = phi i32 [ %38, %36 ], [ -1, %.thread.i ], [ 0, %71 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %72
@@ -730,7 +730,7 @@ peak_write_chunk.exit:                            ; preds = %36, %.thread.i, %54
   br label %88
 
 88:                                               ; preds = %79, %72, %.thread73, %87
-  %.not70 = phi i1 [ true, %.thread73 ], [ true, %87 ], [ false, %72 ], [ false, %79 ]
+  %.not70 = phi i1 [ true, %87 ], [ true, %.thread73 ], [ false, %72 ], [ false, %79 ]
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %90 = load i64, ptr %89, align 8, !tbaa !55
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 32

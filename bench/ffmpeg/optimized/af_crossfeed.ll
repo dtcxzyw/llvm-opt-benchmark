@@ -196,7 +196,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %41, %14, %49, %22, %51, %46, %35, %25
-  %.1 = phi i32 [ %28, %25 ], [ 0, %35 ], [ %.137, %46 ], [ 0, %51 ], [ 0, %14 ], [ %.036, %22 ], [ -1497649742, %49 ], [ -12, %41 ]
+  %.1 = phi i32 [ 0, %14 ], [ %28, %25 ], [ 0, %35 ], [ %.137, %46 ], [ -1497649742, %49 ], [ 0, %51 ], [ %.036, %22 ], [ -12, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

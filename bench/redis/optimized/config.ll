@@ -560,7 +560,7 @@ define dso_local i32 @configEnumGetValue(ptr noundef readonly captures(none) %0,
   br i1 %.not53, label %._crit_edge.thread, label %.outer, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %._crit_edge, %.preheader.lr.ph, %.preheader35, %4, %6
-  %.026 = phi i32 [ -2147483648, %6 ], [ -2147483648, %4 ], [ 0, %.preheader35 ], [ -2147483648, %.preheader.lr.ph ], [ %.35459, %._crit_edge.thread ], [ -2147483648, %._crit_edge ]
+  %.026 = phi i32 [ -2147483648, %4 ], [ -2147483648, %6 ], [ 0, %.preheader35 ], [ -2147483648, %.preheader.lr.ph ], [ %.35459, %._crit_edge.thread ], [ -2147483648, %._crit_edge ]
   ret i32 %.026
 }
 
@@ -730,7 +730,7 @@ define dso_local void @queueLoadModule(ptr noundef %0, ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %.lr.ph, %21, %24, %28, %32, %36
-  %.0.i = phi i64 [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ %38, %36 ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %38, %36 ], [ %23, %21 ], [ %27, %24 ], [ %31, %28 ], [ %35, %32 ], [ 0, %.lr.ph ]
   %39 = tail call ptr @createRawStringObject(ptr noundef nonnull %16, i64 noundef %.0.i) #26
   %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !61
@@ -885,7 +885,7 @@ lookupConfig.exit:                                ; preds = %24
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %50, %53, %57, %61, %65
-  %.0.i = phi i64 [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %67, %65 ]
+  %.0.i = phi i64 [ %67, %65 ], [ %52, %50 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ]
   %.not151 = icmp eq i64 %.0.i, 0
   br i1 %.not151, label %sdslen.exit.thread, label %68
 
@@ -1043,7 +1043,7 @@ sdslen.exit.thread:                               ; preds = %43, %sdslen.exit, %
   br label %sdslen.exit160
 
 sdslen.exit160:                                   ; preds = %127, %130, %134, %138, %142
-  %.0.i159 = phi i64 [ %129, %127 ], [ %133, %130 ], [ %137, %134 ], [ %141, %138 ], [ %144, %142 ]
+  %.0.i159 = phi i64 [ %144, %142 ], [ %129, %127 ], [ %133, %130 ], [ %137, %134 ], [ %141, %138 ]
   %.not149 = icmp eq i64 %.0.i159, 0
   br i1 %.not149, label %.thread172, label %145
 
@@ -1266,7 +1266,7 @@ sdslen.exit160:                                   ; preds = %127, %130, %134, %1
   store ptr %storemerge, ptr %3, align 8, !tbaa !14
   br label %242
 
-.thread189:                                       ; preds = %sdslen.exit.thread, %39, %184, %176, %.thread, %149, %113, %.thread175
+.thread189:                                       ; preds = %sdslen.exit.thread, %39, %.thread, %.thread175, %184, %176, %113, %149
   %240 = trunc i64 %indvars.iv.next273 to i32
   %.0232270 = trunc i64 %indvars.iv272 to i32
   %241 = load i32, ptr %5, align 4, !tbaa !59
@@ -1631,7 +1631,7 @@ lookupConfig.exit.thread:                         ; preds = %3, %9, %lookupConfi
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %35, %31, %27, %23, %20, %15
-  %.0.i.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %15 ]
+  %.0.i.i = phi i64 [ %37, %35 ], [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ 0, %15 ]
   %38 = call ptr @sdssplitlen(ptr noundef nonnull %1, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %5) #26
   %.pre.i = load i32, ptr %5, align 4, !tbaa !59
   br label %40
@@ -1958,9 +1958,9 @@ allowProtectedAction.exit.thread189:              ; preds = %59, %allowProtected
   br label %101
 
 101:                                              ; preds = %77, %52, %lookupConfig.exit.thread, %39, %.loopexit196, %allowProtectedAction.exit.thread
-  %.2149 = phi i32 [ 1, %allowProtectedAction.exit.thread ], [ %.3150, %.loopexit196 ], [ 1, %39 ], [ 1, %lookupConfig.exit.thread ], [ 1, %52 ], [ 1, %77 ]
-  %.1146 = phi i32 [ %.0145205, %allowProtectedAction.exit.thread ], [ %.0145205, %.loopexit196 ], [ %.0145205, %39 ], [ %.0145205, %lookupConfig.exit.thread ], [ %.0145205, %52 ], [ 1, %77 ]
-  %.2 = phi ptr [ %.0140208, %allowProtectedAction.exit.thread ], [ %.0140208, %.loopexit196 ], [ %44, %39 ], [ %.0140208, %lookupConfig.exit.thread ], [ %.0140208, %52 ], [ %.0140208, %77 ]
+  %.2149 = phi i32 [ 1, %lookupConfig.exit.thread ], [ 1, %allowProtectedAction.exit.thread ], [ 1, %52 ], [ %.3150, %.loopexit196 ], [ 1, %39 ], [ 1, %77 ]
+  %.1146 = phi i32 [ %.0145205, %lookupConfig.exit.thread ], [ %.0145205, %allowProtectedAction.exit.thread ], [ %.0145205, %52 ], [ %.0145205, %.loopexit196 ], [ %.0145205, %39 ], [ 1, %77 ]
+  %.2 = phi ptr [ %.0140208, %lookupConfig.exit.thread ], [ %.0140208, %allowProtectedAction.exit.thread ], [ %.0140208, %52 ], [ %.0140208, %.loopexit196 ], [ %44, %39 ], [ %.0140208, %77 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
   br i1 %exitcond238.not, label %._crit_edge, label %28, !llvm.loop !123
@@ -2052,7 +2052,7 @@ allowProtectedAction.exit.thread189:              ; preds = %59, %allowProtected
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %137, %133, %129, %125, %122, %117
-  %.0.i.i = phi i64 [ %124, %122 ], [ %128, %125 ], [ %132, %129 ], [ %136, %133 ], [ %139, %137 ], [ 0, %117 ]
+  %.0.i.i = phi i64 [ %139, %137 ], [ %124, %122 ], [ %128, %125 ], [ %132, %129 ], [ %136, %133 ], [ 0, %117 ]
   %140 = call ptr @sdssplitlen(ptr noundef nonnull %113, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %3) #26
   %.pre.i = load i32, ptr %3, align 4, !tbaa !59
   br label %142
@@ -2140,7 +2140,7 @@ performInterfaceSet.exit:                         ; preds = %142, %149
   store ptr %175, ptr %5, align 8, !tbaa !14
   br i1 %103, label %208, label %206
 
-.loopexit:                                        ; preds = %.lr.ph216, %.critedge184, %performInterfaceSet.exit, %157, %154
+.loopexit:                                        ; preds = %.lr.ph216, %154, %.critedge184, %performInterfaceSet.exit, %157
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %.lr.ph222.preheader, label %.lr.ph220, !llvm.loop !129
@@ -2216,13 +2216,13 @@ performInterfaceSet.exit:                         ; preds = %142, %149
 205:                                              ; preds = %._crit_edge
   br i1 %103, label %208, label %206
 
-206:                                              ; preds = %191, %199, %172, %205
+206:                                              ; preds = %199, %191, %172, %205
   %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 248), align 8, !tbaa !136
   call void @addReplyErrorObject(ptr noundef %0, ptr noundef %207) #26
   br label %215
 
-208:                                              ; preds = %191, %199, %172, %205
-  %.0140.lcssa276290 = phi ptr [ %.2, %172 ], [ %.2, %205 ], [ %.0140.lcssa277280285288, %199 ], [ %.2, %191 ]
+208:                                              ; preds = %199, %191, %172, %205
+  %.0140.lcssa276290 = phi ptr [ %.2, %172 ], [ %.2, %205 ], [ %.2, %191 ], [ %.0140.lcssa277280285288, %199 ]
   %.not171 = icmp eq ptr %.0140.lcssa276290, null
   br i1 %.not171, label %210, label %209
 
@@ -2390,7 +2390,7 @@ define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(n
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %37, %33, %29, %25, %22, %17
-  %.0.i.i = phi i64 [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %39, %37 ], [ 0, %17 ]
+  %.0.i.i = phi i64 [ %39, %37 ], [ %24, %22 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ 0, %17 ]
   %40 = call ptr @sdssplitlen(ptr noundef nonnull %13, i64 noundef %.0.i.i, ptr noundef nonnull @.str.105, i32 noundef 1, ptr noundef nonnull %7) #26
   %.pre.i = load i32, ptr %7, align 4, !tbaa !59
   br label %42
@@ -2881,7 +2881,7 @@ define dso_local noundef ptr @rewriteConfigReadOldFile(ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %38, %43, %46, %50, %54, %58
-  %.0.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %60, %58 ], [ 0, %38 ]
+  %.0.i = phi i64 [ %60, %58 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ 0, %38 ]
   %61 = call ptr @sdssplitlen(ptr noundef nonnull %33, i64 noundef %.0.i, ptr noundef nonnull @.str.56, i32 noundef 1, ptr noundef nonnull %3) #26
   %62 = load i32, ptr %3, align 4, !tbaa !59
   %63 = icmp sgt i32 %62, 0
@@ -3127,7 +3127,7 @@ rewriteConfigAddLineNumberToOption.exit97:        ; preds = %161, %165
   br label %182
 
 182:                                              ; preds = %29, %16, %._crit_edge, %36, %14
-  %.1 = phi ptr [ null, %14 ], [ %17, %29 ], [ %17, %16 ], [ null, %36 ], [ %17, %._crit_edge ]
+  %.1 = phi ptr [ null, %14 ], [ %17, %16 ], [ %17, %29 ], [ null, %36 ], [ %17, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %183
 
@@ -3508,7 +3508,7 @@ define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %0, ptr
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %23, %26, %30, %34, %38
-  %.0.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ], [ 0, %16 ]
+  %.0.i = phi i64 [ %40, %38 ], [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ 0, %16 ]
   %41 = tail call ptr @sdscatrepr(ptr noundef %18, ptr noundef nonnull %2, i64 noundef %.0.i) #26
   %42 = tail call i32 @rewriteConfigRewriteLine(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %.0)
   br label %rewriteConfigMarkAsProcessed.exit
@@ -3909,7 +3909,7 @@ define dso_local void @rewriteConfigNotifyKeyspaceEventsOption(ptr readnone capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %3, %12, %15, %19, %23, %27
-  %.0.i = phi i64 [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ %29, %27 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %29, %27 ], [ %14, %12 ], [ %18, %15 ], [ %22, %19 ], [ %26, %23 ], [ 0, %3 ]
   %30 = icmp ne i32 %4, 0
   %31 = zext i1 %30 to i32
   %32 = tail call ptr @sdscatrepr(ptr noundef %7, ptr noundef nonnull %5, i64 noundef %.0.i) #26
@@ -4268,7 +4268,7 @@ define dso_local ptr @rewriteConfigGetContentFromState(ptr noundef readonly capt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %16, %19, %23, %27, %31
-  %.0.i = phi i64 [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ], [ %33, %31 ]
+  %.0.i = phi i64 [ %33, %31 ], [ %18, %16 ], [ %22, %19 ], [ %26, %23 ], [ %30, %27 ]
   %34 = icmp eq i64 %.0.i, 0
   br i1 %34, label %sdslen.exit.thread, label %35
 
@@ -4463,7 +4463,7 @@ define dso_local ptr @getConfigDebugInfo() local_unnamed_addr #2 {
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %49, %45, %41, %37, %34
-  %.0.i.i = phi i64 [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %51, %49 ]
+  %.0.i.i = phi i64 [ %51, %49 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ]
   %52 = icmp eq i64 %.0.i.i, 0
   br i1 %52, label %sdslen.exit.thread.i, label %53
 
@@ -4585,7 +4585,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteConfigOverwriteFile(ptr noundef %0
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %27, %31, %34, %37, %40, %43
-  %.0.i = phi i64 [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %44, %43 ], [ 0, %27 ]
+  %.0.i = phi i64 [ %44, %43 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ 0, %27 ]
   %45 = icmp ult i64 %.029.ph, %.0.i
   br i1 %45, label %46, label %76
 
@@ -4623,7 +4623,7 @@ sdslen.exit:                                      ; preds = %27, %31, %34, %37, 
   br label %sdslen.exit35
 
 sdslen.exit35:                                    ; preds = %46, %47, %50, %53, %56, %59
-  %.0.i34 = phi i64 [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ %60, %59 ], [ 0, %46 ]
+  %.0.i34 = phi i64 [ %60, %59 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %58, %56 ], [ 0, %46 ]
   %61 = sub i64 %.0.i34, %.029.ph
   %62 = call i64 @write(i32 noundef %13, ptr noundef nonnull %75, i64 noundef %61) #26
   %63 = icmp slt i64 %62, 1
@@ -4895,7 +4895,7 @@ define dso_local range(i32 -1, 1) i32 @rewriteConfig(ptr noundef readonly captur
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %56, %52, %48, %44, %41
-  %.0.i.i = phi i64 [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ]
+  %.0.i.i = phi i64 [ %58, %56 ], [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ]
   %59 = icmp eq i64 %.0.i.i, 0
   br i1 %59, label %sdslen.exit.thread.i, label %60
 
@@ -5570,7 +5570,7 @@ define internal range(i32 0, 2) i32 @isValidAnnouncedNodename(ptr noundef %0, pt
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %2, %7, %10, %14, %18, %22
-  %.0.i = phi i64 [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ %24, %22 ], [ 0, %2 ]
+  %.0.i = phi i64 [ %24, %22 ], [ %9, %7 ], [ %13, %10 ], [ %17, %14 ], [ %21, %18 ], [ 0, %2 ]
   %25 = trunc i64 %.0.i to i32
   %26 = tail call i32 @isValidAuxString(ptr noundef nonnull %0, i32 noundef %25) #26
   %.not = icmp eq i32 %26, 0
@@ -5793,7 +5793,7 @@ define internal i32 @sdsConfigSet(ptr noundef readonly captures(none) %0, ptr no
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %31, %34, %38, %42, %46
-  %.0.i = phi i64 [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ], [ %48, %46 ]
+  %.0.i = phi i64 [ %48, %46 ], [ %33, %31 ], [ %37, %34 ], [ %41, %38 ], [ %45, %42 ]
   %49 = icmp eq i64 %.0.i, 0
   br i1 %49, label %sdslen.exit.thread, label %50
 
@@ -5907,7 +5907,7 @@ define internal ptr @sdsConfigGet(ptr noundef readonly captures(none) %0) #2 {
   br label %22
 
 22:                                               ; preds = %15, %20, %18
-  %.0 = phi ptr [ %19, %18 ], [ %21, %20 ], [ %14, %15 ]
+  %.0 = phi ptr [ %21, %20 ], [ %19, %18 ], [ %14, %15 ]
   ret ptr %.0
 }
 
@@ -6042,7 +6042,7 @@ configEnumGetValue.exit:                          ; preds = %._crit_edge.thread.
   %29 = icmp eq i32 %.35459.i, -2147483648
   br i1 %29, label %configEnumGetValue.exit.thread, label %configEnumGetValue.exit.thread45
 
-configEnumGetValue.exit.thread:                   ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %4, %10, %configEnumGetValue.exit
+configEnumGetValue.exit.thread:                   ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %10, %4, %configEnumGetValue.exit
   %30 = tail call ptr @sdsnew(ptr noundef nonnull @.str.382) #26
   %31 = load ptr, ptr %7, align 8, !tbaa !56
   %32 = load ptr, ptr %31, align 8, !tbaa !5
@@ -6399,7 +6399,7 @@ define internal i32 @numericConfigSet(ptr noundef readonly captures(none) %0, pt
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %38, %34, %30, %26, %23
-  %.0.i.i = phi i64 [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ], [ %40, %38 ]
+  %.0.i.i = phi i64 [ %40, %38 ], [ %25, %23 ], [ %29, %26 ], [ %33, %30 ], [ %37, %34 ]
   %41 = icmp ugt i64 %.0.i.i, 1
   br i1 %41, label %42, label %sdslen.exit.thread.i
 
@@ -6444,7 +6444,7 @@ default.unreachable.i:                            ; preds = %42
   unreachable
 
 sdslen.exit44.i:                                  ; preds = %58, %54, %50, %46, %43
-  %.0.i43.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ], [ %60, %58 ]
+  %.0.i43.i = phi i64 [ %60, %58 ], [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ]
   %61 = getelementptr i8, ptr %8, i64 %.0.i43.i
   %62 = getelementptr i8, ptr %61, i64 -1
   %63 = load i8, ptr %62, align 1, !tbaa !56
@@ -6492,7 +6492,7 @@ default.unreachable51.i:                          ; preds = %65
   unreachable
 
 sdslen.exit46.i:                                  ; preds = %81, %77, %73, %69, %66
-  %.0.i45.i = phi i64 [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ], [ %83, %81 ]
+  %.0.i45.i = phi i64 [ %83, %81 ], [ %68, %66 ], [ %72, %69 ], [ %76, %73 ], [ %80, %77 ]
   %84 = add i64 %.0.i45.i, -1
   %85 = call i32 @string2ll(ptr noundef nonnull %8, i64 noundef %84, ptr noundef nonnull %7) #26
   %.not35.i = icmp eq i32 %85, 0
@@ -6586,7 +6586,7 @@ sdslen.exit.thread.i:                             ; preds = %86, %sdslen.exit46.
   br label %sdslen.exit48.i
 
 sdslen.exit48.i:                                  ; preds = %125, %121, %117, %113, %110, %105
-  %.0.i47.i = phi i64 [ %112, %110 ], [ %116, %113 ], [ %120, %117 ], [ %124, %121 ], [ %127, %125 ], [ 0, %105 ]
+  %.0.i47.i = phi i64 [ %127, %125 ], [ %112, %110 ], [ %116, %113 ], [ %120, %117 ], [ %124, %121 ], [ 0, %105 ]
   %128 = call i32 @string2ll(ptr noundef nonnull %8, i64 noundef %.0.i47.i, ptr noundef nonnull %7) #26
   %.not38.i = icmp eq i32 %128, 0
   br i1 %.not38.i, label %sdslen.exit48._crit_edge.i, label %sdslen.exit48.i.numericParseString.exit_crit_edge
@@ -6696,7 +6696,7 @@ numericBoundaryCheck.exit:                        ; preds = %150, %163, %._crit_
   store ptr @loadbuf, ptr %3, align 8, !tbaa !14
   br label %setNumericType.exit
 
-172:                                              ; preds = %159, %143, %166
+172:                                              ; preds = %166, %159, %143
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %175 = load ptr, ptr %174, align 8, !tbaa !56
@@ -6887,7 +6887,7 @@ numericBoundaryCheck.exit:                        ; preds = %150, %163, %._crit_
   br label %setNumericType.exit
 
 setNumericType.exit:                              ; preds = %132, %138, %139, %135, %252, %250, %248, %246, %244, %242, %238, %232, %230, %227, %224, %222, %numericBoundaryCheck.exit, %176, %254
-  %.034 = phi i32 [ %258, %254 ], [ 0, %numericBoundaryCheck.exit ], [ 0, %176 ], [ %241, %238 ], [ 1, %222 ], [ 1, %227 ], [ 1, %232 ], [ 1, %244 ], [ 1, %248 ], [ 1, %252 ], [ 1, %250 ], [ 1, %246 ], [ 1, %242 ], [ 1, %230 ], [ 1, %224 ], [ 0, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %132 ]
+  %.034 = phi i32 [ 0, %176 ], [ %258, %254 ], [ 0, %numericBoundaryCheck.exit ], [ 1, %224 ], [ %241, %238 ], [ 1, %222 ], [ 1, %227 ], [ 1, %232 ], [ 1, %244 ], [ 1, %248 ], [ 1, %252 ], [ 1, %250 ], [ 1, %246 ], [ 1, %242 ], [ 1, %230 ], [ 0, %135 ], [ 0, %139 ], [ 0, %138 ], [ 0, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.034
 }
@@ -6984,7 +6984,7 @@ define internal ptr @numericConfigGet(ptr noundef readonly captures(none) %0) #2
   br label %60
 
 48:                                               ; preds = %17, %31, %37, %43, %40, %34, %24, %28, %14, %6
-  %.0 = phi i64 [ %9, %6 ], [ %16, %14 ], [ %19, %17 ], [ %27, %24 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ]
+  %.0 = phi i64 [ %9, %6 ], [ %45, %43 ], [ %16, %14 ], [ %19, %17 ], [ %27, %24 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load i32, ptr %49, align 8, !tbaa !56
   %51 = and i32 %50, 2
@@ -7123,7 +7123,7 @@ define internal void @numericConfigRewrite(ptr noundef readonly captures(none) %
   br label %64
 
 49:                                               ; preds = %18, %32, %38, %44, %41, %35, %25, %29, %15, %7
-  %.0 = phi i64 [ %10, %7 ], [ %17, %15 ], [ %20, %18 ], [ %28, %25 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ]
+  %.0 = phi i64 [ %10, %7 ], [ %46, %44 ], [ %17, %15 ], [ %20, %18 ], [ %28, %25 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load i32, ptr %50, align 8, !tbaa !56
   %52 = and i32 %51, 2
@@ -7795,12 +7795,12 @@ define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr 
   br i1 %exitcond.not.i, label %updateClientOutputBufferLimit.exit, label %.preheader.i, !llvm.loop !229
 
 .loopexit.sink.split.i:                           ; preds = %36, %16, %12
-  %.str.407.sink.i = phi ptr [ @.str.405, %12 ], [ @.str.406, %16 ], [ @.str.407, %36 ]
+  %.str.407.sink.i = phi ptr [ @.str.406, %16 ], [ @.str.405, %12 ], [ @.str.407, %36 ]
   store ptr %.str.407.sink.i, ptr %3, align 8, !tbaa !14
   br label %updateClientOutputBufferLimit.exit
 
 updateClientOutputBufferLimit.exit:               ; preds = %51, %12, %16, %36, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %36 ], [ 0, %.loopexit.sink.split.i ], [ 1, %51 ]
+  %.0.i = phi i32 [ 0, %36 ], [ 0, %12 ], [ 0, %16 ], [ 0, %.loopexit.sink.split.i ], [ 1, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7941,7 +7941,7 @@ define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readno
   br label %43
 
 43:                                               ; preds = %.thread, %41, %7
-  %.0 = phi i32 [ 0, %7 ], [ %42, %41 ], [ 0, %.thread ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %.thread ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -8059,7 +8059,7 @@ define internal range(i32 0, 2) i32 @setConfigBindOption(ptr readnone captures(n
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
+  %.0.i = phi i64 [ %32, %30 ], [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ]
   %.0.i.fr = freeze i64 %.0.i
   %33 = icmp eq i64 %.0.i.fr, 0
   br i1 %33, label %sdslen.exit.thread, label %34
@@ -8332,7 +8332,7 @@ define internal range(i32 0, 2) i32 @setConfigLatencyTrackingInfoPercentilesOutp
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %14, %17, %21, %25, %29
-  %.0.i = phi i64 [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ], [ %31, %29 ]
+  %.0.i = phi i64 [ %31, %29 ], [ %16, %14 ], [ %20, %17 ], [ %24, %21 ], [ %28, %25 ]
   %32 = icmp eq i64 %.0.i, 0
   br i1 %32, label %.thread24.sink.split, label %33
 
@@ -8391,7 +8391,7 @@ sdslen.exit:                                      ; preds = %14, %17, %21, %25, 
   br label %sdslen.exit20
 
 sdslen.exit20:                                    ; preds = %.lr.ph, %44, %47, %51, %55, %59
-  %.0.i19 = phi i64 [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ %61, %59 ], [ 0, %.lr.ph ]
+  %.0.i19 = phi i64 [ %61, %59 ], [ %46, %44 ], [ %50, %47 ], [ %54, %51 ], [ %58, %55 ], [ 0, %.lr.ph ]
   %62 = call i32 @string2d(ptr noundef nonnull %39, i64 noundef %.0.i19, ptr noundef nonnull %5) #26
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %73, label %63

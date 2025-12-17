@@ -237,8 +237,8 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   br label %103
 
 103:                                              ; preds = %101, %99, %87, %85
-  %.120.i = phi i32 [ %86, %85 ], [ %100, %99 ], [ %.01934.i, %101 ], [ %.01934.i, %87 ]
-  %.1.i = phi i32 [ %.035.i, %85 ], [ %.035.i, %99 ], [ %102, %101 ], [ %.035.i, %87 ]
+  %.120.i = phi i32 [ %86, %85 ], [ %.01934.i, %101 ], [ %100, %99 ], [ %.01934.i, %87 ]
+  %.1.i = phi i32 [ %.035.i, %85 ], [ %102, %101 ], [ %.035.i, %99 ], [ %.035.i, %87 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %80, !llvm.loop !53
@@ -251,7 +251,7 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   br label %Ivy_FraigMiterStatus.exit
 
 Ivy_FraigMiterStatus.exit:                        ; preds = %Abc_Clock.exit, %.preheader.i, %.critedge.i
-  %.024.i = phi i32 [ 0, %Abc_Clock.exit ], [ 1, %.preheader.i ], [ %spec.select.i, %.critedge.i ]
+  %.024.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %Abc_Clock.exit ], [ 1, %.preheader.i ]
   %107 = load i32, ptr %20, align 4, !tbaa !19
   %.not.i125 = icmp eq i32 %107, 0
   br i1 %.not.i125, label %Ivy_FraigMiterPrint.exit, label %108
@@ -388,8 +388,8 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   br label %178
 
 178:                                              ; preds = %176, %174, %162, %160
-  %.120.i141 = phi i32 [ %161, %160 ], [ %175, %174 ], [ %.01934.i138, %176 ], [ %.01934.i138, %162 ]
-  %.1.i142 = phi i32 [ %.035.i137, %160 ], [ %.035.i137, %174 ], [ %177, %176 ], [ %.035.i137, %162 ]
+  %.120.i141 = phi i32 [ %161, %160 ], [ %.01934.i138, %176 ], [ %175, %174 ], [ %.01934.i138, %162 ]
+  %.1.i142 = phi i32 [ %.035.i137, %160 ], [ %177, %176 ], [ %.035.i137, %174 ], [ %.035.i137, %162 ]
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i136, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i135
   br i1 %exitcond.not.i144, label %.critedge.i145, label %155, !llvm.loop !53
@@ -402,7 +402,7 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   br label %Ivy_FraigMiterStatus.exit147
 
 Ivy_FraigMiterStatus.exit147:                     ; preds = %Abc_Clock.exit128, %.preheader.i131, %.critedge.i145
-  %.024.i130 = phi i32 [ 0, %Abc_Clock.exit128 ], [ 1, %.preheader.i131 ], [ %spec.select.i146, %.critedge.i145 ]
+  %.024.i130 = phi i32 [ %spec.select.i146, %.critedge.i145 ], [ 0, %Abc_Clock.exit128 ], [ 1, %.preheader.i131 ]
   %182 = load i32, ptr %20, align 4, !tbaa !19
   %.not.i148 = icmp eq i32 %182, 0
   br i1 %.not.i148, label %Ivy_FraigMiterPrint.exit153, label %183
@@ -568,8 +568,8 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   br label %280
 
 280:                                              ; preds = %278, %276, %264, %262
-  %.120.i166 = phi i32 [ %263, %262 ], [ %277, %276 ], [ %.01934.i163, %278 ], [ %.01934.i163, %264 ]
-  %.1.i167 = phi i32 [ %.035.i162, %262 ], [ %.035.i162, %276 ], [ %279, %278 ], [ %.035.i162, %264 ]
+  %.120.i166 = phi i32 [ %263, %262 ], [ %.01934.i163, %278 ], [ %277, %276 ], [ %.01934.i163, %264 ]
+  %.1.i167 = phi i32 [ %.035.i162, %262 ], [ %279, %278 ], [ %.035.i162, %276 ], [ %.035.i162, %264 ]
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i160
   br i1 %exitcond.not.i169, label %.critedge.i170, label %257, !llvm.loop !53
@@ -772,8 +772,8 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   br label %381
 
 381:                                              ; preds = %379, %377, %365, %363
-  %.120.i191 = phi i32 [ %364, %363 ], [ %378, %377 ], [ %.01934.i188, %379 ], [ %.01934.i188, %365 ]
-  %.1.i192 = phi i32 [ %.035.i187, %363 ], [ %.035.i187, %377 ], [ %380, %379 ], [ %.035.i187, %365 ]
+  %.120.i191 = phi i32 [ %364, %363 ], [ %.01934.i188, %379 ], [ %378, %377 ], [ %.01934.i188, %365 ]
+  %.1.i192 = phi i32 [ %.035.i187, %363 ], [ %380, %379 ], [ %.035.i187, %377 ], [ %.035.i187, %365 ]
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i186, 1
   %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, %wide.trip.count.i185
   br i1 %exitcond.not.i194, label %.critedge.i195, label %358, !llvm.loop !53
@@ -786,7 +786,7 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   br label %Ivy_FraigMiterStatus.exit197
 
 Ivy_FraigMiterStatus.exit197:                     ; preds = %Ivy_FraigPerform_int.exit, %.preheader.i181, %.critedge.i195
-  %.024.i180 = phi i32 [ 0, %Ivy_FraigPerform_int.exit ], [ 1, %.preheader.i181 ], [ %spec.select.i196, %.critedge.i195 ]
+  %.024.i180 = phi i32 [ %spec.select.i196, %.critedge.i195 ], [ 0, %Ivy_FraigPerform_int.exit ], [ 1, %.preheader.i181 ]
   %385 = load i32, ptr %20, align 4, !tbaa !19
   %.not.i198 = icmp eq i32 %385, 0
   br i1 %.not.i198, label %Ivy_FraigMiterPrint.exit203, label %386
@@ -879,9 +879,9 @@ Ivy_FraigMiterStatus.exit172.thread.thread:       ; preds = %.critedge.i170, %Iv
   call void @llvm.memset.p0.i64(ptr align 1 %420, i8 0, i64 %419, i1 false)
   br label %Ivy_FraigMiterPrint.exit
 
-Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %218, %Ivy_FraigMiterStatus.exit172, %244, %Ivy_FraigMiterStatus.exit172.thread, %Ivy_FraigMiterStatus.exit172.thread.thread, %415, %202, %Ivy_FraigMiterPrint.exit153, %Abc_Clock.exit.i, %Ivy_FraigMiterStatus.exit, %411
-  %.2104215.sink = phi ptr [ %.3259, %411 ], [ %67, %Ivy_FraigMiterStatus.exit ], [ %67, %Abc_Clock.exit.i ], [ %142, %Ivy_FraigMiterPrint.exit153 ], [ %.2104219, %415 ], [ %.2104219, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0.i178, %Ivy_FraigMiterStatus.exit172.thread ], [ %.0102, %202 ], [ %.1103240, %244 ], [ %.1103240, %Ivy_FraigMiterStatus.exit172 ], [ %.3259, %218 ], [ %.1103240, %.preheader.i156 ]
-  %.0105 = phi i32 [ -1, %411 ], [ %.024.i, %Ivy_FraigMiterStatus.exit ], [ %.024.i, %Abc_Clock.exit.i ], [ %.024.i130, %Ivy_FraigMiterPrint.exit153 ], [ 0, %415 ], [ 0, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ 1, %Ivy_FraigMiterStatus.exit172.thread ], [ -1, %202 ], [ 0, %244 ], [ 1, %Ivy_FraigMiterStatus.exit172 ], [ -1, %218 ], [ 1, %.preheader.i156 ]
+Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %Ivy_FraigMiterStatus.exit172, %218, %244, %Ivy_FraigMiterStatus.exit172.thread, %Ivy_FraigMiterStatus.exit172.thread.thread, %415, %202, %Ivy_FraigMiterPrint.exit153, %Abc_Clock.exit.i, %Ivy_FraigMiterStatus.exit, %411
+  %.2104215.sink = phi ptr [ %142, %Ivy_FraigMiterPrint.exit153 ], [ %.3259, %411 ], [ %67, %Abc_Clock.exit.i ], [ %67, %Ivy_FraigMiterStatus.exit ], [ %.0.i178, %Ivy_FraigMiterStatus.exit172.thread ], [ %.2104219, %415 ], [ %.2104219, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0102, %202 ], [ %.1103240, %244 ], [ %.3259, %218 ], [ %.1103240, %.preheader.i156 ], [ %.1103240, %Ivy_FraigMiterStatus.exit172 ]
+  %.0105 = phi i32 [ %.024.i130, %Ivy_FraigMiterPrint.exit153 ], [ -1, %411 ], [ %.024.i, %Abc_Clock.exit.i ], [ %.024.i, %Ivy_FraigMiterStatus.exit ], [ 1, %Ivy_FraigMiterStatus.exit172.thread ], [ 0, %415 ], [ 0, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ -1, %202 ], [ 0, %244 ], [ -1, %218 ], [ 1, %.preheader.i156 ], [ 1, %Ivy_FraigMiterStatus.exit172 ]
   store ptr %.2104215.sink, ptr %0, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0105
@@ -2581,7 +2581,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit.i, %435, %Ivy_FraigNodesAreEquiv.exit.i, %Ivy_FraigNodesAreEquiv.exit.thread.i, %145, %140, %Ivy_ObjChild1Equiv.exit.i, %Ivy_ObjChild1Equiv.exit
-  %.sink = phi ptr [ %110, %Ivy_ObjChild1Equiv.exit ], [ %444, %435 ], [ %133, %.loopexit.i ], [ %133, %140 ], [ %133, %Ivy_ObjChild1Equiv.exit.i ], [ %133, %145 ], [ %133, %Ivy_FraigNodesAreEquiv.exit.i ], [ %133, %Ivy_FraigNodesAreEquiv.exit.thread.i ]
+  %.sink = phi ptr [ %110, %Ivy_ObjChild1Equiv.exit ], [ %133, %.loopexit.i ], [ %133, %Ivy_ObjChild1Equiv.exit.i ], [ %444, %435 ], [ %133, %145 ], [ %133, %140 ], [ %133, %Ivy_FraigNodesAreEquiv.exit.i ], [ %133, %Ivy_FraigNodesAreEquiv.exit.thread.i ]
   %447 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %.sink, ptr %447, align 8, !tbaa !90
   br label %448
@@ -6001,7 +6001,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   br i1 %51, label %31, label %.critedge, !llvm.loop !204
 
 .critedge:                                        ; preds = %49, %1, %14, %._crit_edge
-  %.024.lcssa49 = phi i32 [ %spec.select, %14 ], [ 0, %._crit_edge ], [ 0, %1 ], [ %spec.select, %49 ]
+  %.024.lcssa49 = phi i32 [ 0, %._crit_edge ], [ %spec.select, %14 ], [ 0, %1 ], [ %spec.select, %49 ]
   ret i32 %.024.lcssa49
 }
 
@@ -6252,7 +6252,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   br i1 %125, label %105, label %Ivy_FraigSelectBestPat.exit, !llvm.loop !204
 
 Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_edge.i, %91
-  %.024.lcssa49.i = phi i32 [ %spec.select.i26, %91 ], [ 0, %._crit_edge.i ], [ 0, %80 ], [ %spec.select.i26, %123 ]
+  %.024.lcssa49.i = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i26, %91 ], [ 0, %80 ], [ %spec.select.i26, %123 ]
   %126 = load ptr, ptr %0, align 8, !tbaa !85
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !10
@@ -6700,7 +6700,7 @@ define void @Ivy_FraigCollectSuper_rec(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %.lr.ph.split, label %tailrecurse.outer._crit_edge
 
 tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %11, %.split.split.us, %.split13, %.lr.ph.split, %21, %24, %4
-  %.tr.lcssa = phi ptr [ %0, %4 ], [ %.tr29, %24 ], [ %.tr29, %21 ], [ %.tr29, %.lr.ph.split ], [ %.val21, %.split13 ], [ %.val22, %.split.split.us ], [ %.tr.ph49, %11 ], [ %.tr.ph49, %.lr.ph.split.us ]
+  %.tr.lcssa = phi ptr [ %.tr29, %24 ], [ %0, %4 ], [ %.tr29, %21 ], [ %.tr29, %.lr.ph.split ], [ %.val21, %.split13 ], [ %.tr.ph49, %11 ], [ %.tr.ph49, %.lr.ph.split.us ], [ %.val22, %.split.split.us ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !47
   %32 = icmp sgt i32 %31, 0
@@ -7048,7 +7048,7 @@ veci_push.exit:                                   ; preds = %14, %64
   br label %.critedge
 
 .critedge:                                        ; preds = %veci_push.exit, %.critedge.loopexit, %9, %4
-  %.029 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %veci_push.exit ], [ %85, %.critedge.loopexit ]
+  %.029 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 1, %veci_push.exit ], [ %85, %.critedge.loopexit ]
   ret i32 %.029
 }
 
@@ -7296,12 +7296,12 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   br label %.sink.split
 
 .sink.split:                                      ; preds = %118, %Vec_PtrGrow.exit.i130, %.Vec_PtrGrow.exit11_crit_edge.i125, %43, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.val105.sink185 = phi i32 [ %.val106, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %.val106, %Vec_PtrGrow.exit.i ], [ %.val106, %43 ], [ %.val105, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %.val105, %Vec_PtrGrow.exit.i130 ], [ %.val105, %118 ]
-  %.sink182 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %33, %Vec_PtrGrow.exit.i ], [ %44, %43 ], [ %.pre.i127, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %108, %Vec_PtrGrow.exit.i130 ], [ %119, %118 ]
-  %.sink180 = phi ptr [ %17, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %17, %Vec_PtrGrow.exit.i ], [ %17, %43 ], [ %91, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %91, %Vec_PtrGrow.exit.i130 ], [ %91, %118 ]
-  %.ph = phi i32 [ %13, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %35, %43 ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
-  %.ph178 = phi i32 [ %14, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %35, %43 ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
-  %.ph179 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %35, %43 ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
+  %.val105.sink185 = phi i32 [ %.val106, %43 ], [ %.val106, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %.val106, %Vec_PtrGrow.exit.i ], [ %.val105, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %.val105, %Vec_PtrGrow.exit.i130 ], [ %.val105, %118 ]
+  %.sink182 = phi ptr [ %44, %43 ], [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %33, %Vec_PtrGrow.exit.i ], [ %.pre.i127, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %108, %Vec_PtrGrow.exit.i130 ], [ %119, %118 ]
+  %.sink180 = phi ptr [ %17, %43 ], [ %17, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %17, %Vec_PtrGrow.exit.i ], [ %91, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ %91, %Vec_PtrGrow.exit.i130 ], [ %91, %118 ]
+  %.ph = phi i32 [ %35, %43 ], [ %13, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
+  %.ph178 = phi i32 [ %35, %43 ], [ %14, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
+  %.ph179 = phi i32 [ %35, %43 ], [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %85, %.Vec_PtrGrow.exit11_crit_edge.i125 ], [ 16, %Vec_PtrGrow.exit.i130 ], [ %110, %118 ]
   %120 = add nsw i32 %.val105.sink185, 1
   store i32 %120, ptr %6, align 4, !tbaa !47
   %121 = sext i32 %.val105.sink185 to i64
@@ -8460,7 +8460,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %47
 
 .thread35:                                        ; preds = %.thread, %.thread36..thread35_crit_edge
-  %.sink = phi i32 [ %.pre54, %.thread36..thread35_crit_edge ], [ %spec.select, %.thread ]
+  %.sink = phi i32 [ %spec.select, %.thread ], [ %.pre54, %.thread36..thread35_crit_edge ]
   %38 = uitofp nneg i32 %.sink to double
   %39 = load ptr, ptr %0, align 8, !tbaa !85
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24

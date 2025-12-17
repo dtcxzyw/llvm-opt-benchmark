@@ -3468,7 +3468,7 @@ define hidden void @"_ZN73_$LT$salsa..input..JarImpl$LT$C$GT$$u20$as$u20$salsa..
   br label %.body
 
 .body:                                            ; preds = %30, %22, %18
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %19, %18 ], [ %31, %30 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %23, %22 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h7a1f85921de6cf58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
           to label %39 unwind label %37
 
@@ -3585,7 +3585,7 @@ define hidden void @"_ZN73_$LT$salsa..input..JarImpl$LT$C$GT$$u20$as$u20$salsa..
   br label %.body
 
 .body:                                            ; preds = %30, %22, %18
-  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %19, %18 ], [ %31, %30 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %23, %22 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h7a1f85921de6cf58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #25
           to label %39 unwind label %37
 
@@ -4398,7 +4398,7 @@ define range(i64 1, -4294967295) i64 @_ZN7ruff_db5files5Files8vendored17h9640ca5
   %43 = shl nuw i64 %42, 32
   br label %122
 
-.thread88:                                        ; preds = %119, %106, %96, %103, %79, %70, %31, %44, %62, %.thread91
+.thread88:                                        ; preds = %.thread91, %119, %62, %31, %44, %106, %96, %103, %79, %70
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -4680,7 +4680,7 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   resume { ptr, i32 } %.pn83
 
 .thread84:                                        ; preds = %52, %55, %123, %113, %.thread88
-  %.pn83 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread88 ], [ %114, %113 ], [ %124, %123 ], [ %53, %55 ], [ %53, %52 ]
+  %.pn83 = phi { ptr, i32 } [ %114, %113 ], [ %lpad.thr_comm, %.thread88 ], [ %124, %123 ], [ %53, %52 ], [ %53, %55 ]
   invoke void @"_ZN4core3ptr127drop_in_place$LT$dashmap..mapref..entry..VacantEntry$LT$ruff_db..vendored..path..VendoredPathBuf$C$ruff_db..files..File$GT$$GT$17hce7baa8b181c6be8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22) #25
           to label %128 unwind label %125
 }
@@ -7074,10 +7074,10 @@ define internal fastcc void @_ZN7ruff_db5files4File16sync_system_path17h1edfa453
           to label %90 unwind label %74
 
 90:                                               ; preds = %70, %88, %107
-  %.sroa.0174.0 = phi i8 [ 0, %107 ], [ 1, %88 ], [ 2, %70 ]
-  %.sroa.0176.0 = phi i128 [ %84, %107 ], [ %89, %88 ], [ %71, %70 ]
-  %.sroa.0178.0 = phi i32 [ %108, %107 ], [ 0, %88 ], [ 0, %70 ]
-  %.sroa.6181.0 = phi i32 [ %109, %107 ], [ undef, %88 ], [ undef, %70 ]
+  %.sroa.0174.0 = phi i8 [ 1, %88 ], [ 0, %107 ], [ 2, %70 ]
+  %.sroa.0176.0 = phi i128 [ %89, %88 ], [ %84, %107 ], [ %71, %70 ]
+  %.sroa.0178.0 = phi i32 [ 0, %88 ], [ %108, %107 ], [ 0, %70 ]
+  %.sroa.6181.0 = phi i32 [ undef, %88 ], [ %109, %107 ], [ undef, %70 ]
   %91 = load i32, ptr %67, align 16, !range !476, !alias.scope !480, !noundef !9
   %.not.i237 = icmp eq i32 %91, 2
   br i1 %.not.i237, label %92, label %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$ruff_db..system..Metadata$C$std..io..error..Error$GT$$GT$17he9ad0a4b8e2b99bbE.exit238"
@@ -10675,7 +10675,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN7ruff_db5files9file_root1_65_$LT$
   unreachable
 
 .thread:                                          ; preds = %38, %35, %41
-  %.pn8 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %lpad.thr_comm.split-lp.i, %35 ], [ %lpad.thr_comm.split-lp18, %38 ]
+  %.pn8 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp18, %38 ], [ %lpad.thr_comm, %41 ], [ %lpad.thr_comm.split-lp.i, %35 ]
   resume { ptr, i32 } %.pn8
 
 41:                                               ; preds = %13, %3

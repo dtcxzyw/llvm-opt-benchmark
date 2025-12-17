@@ -1792,7 +1792,7 @@ define hidden i32 @png_image_begin_read_from_stdio(ptr noundef %0, ptr noundef %
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %2, %17, %15, %10
-  %.0 = phi i32 [ %14, %10 ], [ %16, %15 ], [ %18, %17 ], [ 0, %2 ], [ 0, %8 ]
+  %.0 = phi i32 [ %14, %10 ], [ %18, %17 ], [ %16, %15 ], [ 0, %2 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1958,7 +1958,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br label %50
 
 50:                                               ; preds = %40, %46, %42
-  %.0 = phi i32 [ %45, %42 ], [ %49, %46 ], [ 256, %40 ]
+  %.0 = phi i32 [ %49, %46 ], [ %45, %42 ], [ 256, %40 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.0, i32 256)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %spec.store.select, ptr %51, align 4
@@ -2025,7 +2025,7 @@ define hidden i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef re
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %2, %30, %28, %23, %12
-  %.0 = phi i32 [ %20, %12 ], [ %27, %23 ], [ %29, %28 ], [ %31, %30 ], [ 0, %2 ], [ 0, %21 ]
+  %.0 = phi i32 [ %20, %12 ], [ %31, %30 ], [ %27, %23 ], [ %29, %28 ], [ 0, %2 ], [ 0, %21 ]
   ret i32 %.0
 }
 
@@ -2090,7 +2090,7 @@ define hidden i32 @png_image_begin_read_from_memory(ptr noundef %0, ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %3, %27, %25, %13
-  %.0 = phi i32 [ %24, %13 ], [ %26, %25 ], [ %28, %27 ], [ 0, %3 ], [ 0, %11 ]
+  %.0 = phi i32 [ %24, %13 ], [ %28, %27 ], [ %26, %25 ], [ 0, %3 ], [ 0, %11 ]
   ret i32 %.0
 }
 
@@ -2337,9 +2337,9 @@ define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) 
   br label %40
 
 40:                                               ; preds = %39, %28, %22, %33
-  %.0404 = phi i32 [ %38, %33 ], [ 0, %22 ], [ %31, %28 ], [ %., %39 ]
-  %.0402 = phi i32 [ %31, %33 ], [ 0, %22 ], [ %31, %28 ], [ %., %39 ]
-  %.0400 = phi i32 [ %35, %33 ], [ 0, %22 ], [ %31, %28 ], [ %., %39 ]
+  %.0404 = phi i32 [ %31, %28 ], [ %38, %33 ], [ 0, %22 ], [ %., %39 ]
+  %.0402 = phi i32 [ %31, %28 ], [ %31, %33 ], [ 0, %22 ], [ %., %39 ]
+  %.0400 = phi i32 [ %31, %28 ], [ %35, %33 ], [ 0, %22 ], [ %., %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 1072
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 1146
   %43 = load i16, ptr %42, align 2
@@ -3649,10 +3649,10 @@ png_colormap_compose.exit517:                     ; preds = %693, %699
   unreachable
 
 make_ga_colormap.exit:                            ; preds = %389, %.split619.us, %292, %131, %351
-  %.0394 = phi i32 [ 254, %131 ], [ 256, %351 ], [ 231, %292 ], [ %404, %.split619.us ], [ %372, %389 ]
-  %.0385 = phi i32 [ 1, %131 ], [ %.1386, %351 ], [ 1, %292 ], [ 1, %.split619.us ], [ 1, %389 ]
-  %.0384 = phi i32 [ 2, %131 ], [ 0, %351 ], [ 1, %292 ], [ 4, %.split619.us ], [ 4, %389 ]
-  %.0383 = phi i32 [ 256, %131 ], [ 256, %351 ], [ %289, %292 ], [ %.us-phi620, %.split619.us ], [ %381, %389 ]
+  %.0394 = phi i32 [ 256, %351 ], [ 254, %131 ], [ %404, %.split619.us ], [ 231, %292 ], [ %372, %389 ]
+  %.0385 = phi i32 [ %.1386, %351 ], [ 1, %131 ], [ 1, %.split619.us ], [ 1, %292 ], [ 1, %389 ]
+  %.0384 = phi i32 [ 0, %351 ], [ 2, %131 ], [ 4, %.split619.us ], [ 1, %292 ], [ 4, %389 ]
+  %.0383 = phi i32 [ 256, %351 ], [ 256, %131 ], [ %.us-phi620, %.split619.us ], [ %289, %292 ], [ %381, %389 ]
   %777 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %778 = load i16, ptr %777, align 8
   %.not443 = icmp eq i16 %778, 0
@@ -3669,10 +3669,10 @@ make_ga_colormap.exit:                            ; preds = %389, %.split619.us,
   br label %make_ga_colormap.exit.thread
 
 make_ga_colormap.exit.thread:                     ; preds = %317, %783, %779, %make_ga_colormap.exit
-  %.0383560 = phi i32 [ %.0383, %783 ], [ %.0383, %779 ], [ %.0383, %make_ga_colormap.exit ], [ 256, %317 ]
-  %.0384559 = phi i32 [ %.0384, %783 ], [ %.0384, %779 ], [ %.0384, %make_ga_colormap.exit ], [ 0, %317 ]
-  %.0385558 = phi i32 [ %.0385, %783 ], [ %.0385, %779 ], [ %.0385, %make_ga_colormap.exit ], [ %.1386, %317 ]
-  %.0394557 = phi i32 [ %.0394, %783 ], [ %.0394, %779 ], [ %.0394, %make_ga_colormap.exit ], [ 256, %317 ]
+  %.0383560 = phi i32 [ %.0383, %make_ga_colormap.exit ], [ %.0383, %783 ], [ %.0383, %779 ], [ 256, %317 ]
+  %.0384559 = phi i32 [ %.0384, %make_ga_colormap.exit ], [ %.0384, %783 ], [ %.0384, %779 ], [ 0, %317 ]
+  %.0385558 = phi i32 [ %.0385, %make_ga_colormap.exit ], [ %.0385, %783 ], [ %.0385, %779 ], [ %.1386, %317 ]
+  %.0394557 = phi i32 [ %.0394, %make_ga_colormap.exit ], [ %.0394, %783 ], [ %.0394, %779 ], [ 256, %317 ]
   %784 = icmp eq i32 %.0385558, 1
   br i1 %784, label %make_ga_colormap.exit.thread.thread, label %make_ga_colormap.exit.thread.thread573
 
@@ -3684,16 +3684,16 @@ make_ga_colormap.exit.thread.thread.sink.split:   ; preds = %598, %178, %123
   br label %make_ga_colormap.exit.thread.thread
 
 make_ga_colormap.exit.thread.thread:              ; preds = %619, %148, %265, %make_ga_colormap.exit.thread.thread.sink.split, %make_gray_colormap.exit, %make_ga_colormap.exit.thread
-  %.0394557570 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ 256, %make_gray_colormap.exit ], [ 256, %make_ga_colormap.exit.thread.thread.sink.split ], [ 231, %265 ], [ 231, %148 ], [ 256, %619 ]
-  %.0384559568 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ 0, %make_gray_colormap.exit ], [ %.0384559568.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ 1, %265 ], [ 1, %148 ], [ 3, %619 ]
-  %.0383560566 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ 256, %make_gray_colormap.exit ], [ %.0383560566.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ %219, %265 ], [ %145, %148 ], [ %614, %619 ]
+  %.0394557570 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ 256, %make_gray_colormap.exit ], [ 256, %make_ga_colormap.exit.thread.thread.sink.split ], [ 231, %148 ], [ 231, %265 ], [ 256, %619 ]
+  %.0384559568 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ 0, %make_gray_colormap.exit ], [ %.0384559568.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ 1, %148 ], [ 1, %265 ], [ 3, %619 ]
+  %.0383560566 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ 256, %make_gray_colormap.exit ], [ %.0383560566.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ %145, %148 ], [ %219, %265 ], [ %614, %619 ]
   call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #12
   br label %make_ga_colormap.exit.thread.thread573
 
-make_ga_colormap.exit.thread.thread573:           ; preds = %92, %89, %775, %._crit_edge, %make_ga_colormap.exit.thread, %make_ga_colormap.exit.thread.thread
-  %.0394557569 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ %.0394557570, %make_ga_colormap.exit.thread.thread ], [ 256, %._crit_edge ], [ 256, %775 ], [ 256, %89 ], [ 256, %92 ]
-  %.0384559567 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ %.0384559568, %make_ga_colormap.exit.thread.thread ], [ 0, %._crit_edge ], [ 0, %775 ], [ 0, %89 ], [ 0, %92 ]
-  %.0383560565 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %.0383560566, %make_ga_colormap.exit.thread.thread ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %775 ], [ %65, %89 ], [ %65, %92 ]
+make_ga_colormap.exit.thread.thread573:           ; preds = %92, %89, %._crit_edge, %775, %make_ga_colormap.exit.thread, %make_ga_colormap.exit.thread.thread
+  %.0394557569 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ %.0394557570, %make_ga_colormap.exit.thread.thread ], [ 256, %775 ], [ 256, %._crit_edge ], [ 256, %89 ], [ 256, %92 ]
+  %.0384559567 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ %.0384559568, %make_ga_colormap.exit.thread.thread ], [ 0, %775 ], [ 0, %._crit_edge ], [ 0, %89 ], [ 0, %92 ]
+  %.0383560565 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %.0383560566, %make_ga_colormap.exit.thread.thread ], [ %spec.store.select, %775 ], [ %spec.store.select, %._crit_edge ], [ %65, %89 ], [ %65, %92 ]
   %785 = getelementptr inbounds nuw i8, ptr %8, i64 520
   %786 = load i8, ptr %785, align 8
   %787 = icmp ugt i8 %786, 8
@@ -4180,10 +4180,10 @@ png_image_format.exit:                            ; preds = %16, %18
   br label %91
 
 91:                                               ; preds = %70, %67, %73, %69, %88
-  %.5183 = phi i32 [ %.3181, %69 ], [ %.3181, %73 ], [ %.3181, %88 ], [ %.3181, %67 ], [ 2, %70 ]
-  %.4166 = phi i32 [ %.2164, %69 ], [ %.2164, %73 ], [ %.5167, %88 ], [ %.2164, %67 ], [ %.2164, %70 ]
-  %.5 = phi i32 [ 0, %69 ], [ 0, %73 ], [ %.3159, %88 ], [ 2, %67 ], [ 0, %70 ]
-  %92 = phi i1 [ true, %69 ], [ true, %73 ], [ true, %88 ], [ true, %67 ], [ false, %70 ]
+  %.5183 = phi i32 [ %.3181, %88 ], [ %.3181, %69 ], [ %.3181, %73 ], [ %.3181, %67 ], [ 2, %70 ]
+  %.4166 = phi i32 [ %.5167, %88 ], [ %.2164, %69 ], [ %.2164, %73 ], [ %.2164, %67 ], [ %.2164, %70 ]
+  %.5 = phi i32 [ %.3159, %88 ], [ 0, %69 ], [ 0, %73 ], [ 2, %67 ], [ 0, %70 ]
+  %92 = phi i1 [ true, %88 ], [ true, %69 ], [ true, %73 ], [ true, %67 ], [ false, %70 ]
   %93 = and i32 %.4166, -2
   br label %94
 
@@ -4317,7 +4317,7 @@ png_read_update_info.exit:                        ; preds = %126, %127
   unreachable
 
 138:                                              ; preds = %133, %136, %132
-  %.1171 = phi i32 [ %spec.select222, %132 ], [ %spec.select222, %136 ], [ %spec.select229, %133 ]
+  %.1171 = phi i32 [ %spec.select222, %136 ], [ %spec.select229, %133 ], [ %spec.select222, %132 ]
   %139 = and i32 %.2, 64
   %spec.select225 = or i32 %.1171, %139
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -4360,7 +4360,7 @@ png_read_update_info.exit:                        ; preds = %126, %127
   unreachable
 
 159:                                              ; preds = %153, %157, %151
-  %.6176 = phi i32 [ %.5175.mux, %153 ], [ %.5175, %151 ], [ %149, %157 ]
+  %.6176 = phi i32 [ %.5175, %151 ], [ %.5175.mux, %153 ], [ %149, %157 ]
   %.not217 = icmp eq i32 %.6176, %.2
   br i1 %.not217, label %161, label %160
 
@@ -4449,7 +4449,7 @@ png_read_update_info.exit:                        ; preds = %126, %127
   br label %.loopexit233
 
 .loopexit233:                                     ; preds = %.loopexit, %.loopexit233.sink.split, %.lr.ph237, %.preheader
-  %.0152 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph237 ], [ %193, %.loopexit233.sink.split ], [ 1, %.loopexit ]
+  %.0152 = phi i32 [ 1, %.lr.ph237 ], [ 1, %.preheader ], [ %193, %.loopexit233.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0152
 }
 
@@ -4555,7 +4555,7 @@ set_file_encoding.exit.thread:                    ; preds = %32
   br label %108
 
 set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_sRGB.exit.thread10.i, %26
-  %.0151 = phi i32 [ %6, %26 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ], [ %30, %28 ]
+  %.0151 = phi i32 [ %6, %26 ], [ %30, %28 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ]
   switch i32 %.0151, label %.thread174 [
     i32 3, label %48
     i32 4, label %108
@@ -4658,10 +4658,10 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   br label %.thread
 
 .thread:                                          ; preds = %set_file_encoding.exit, %114, %108, %60
-  %.0169 = phi i32 [ %118, %114 ], [ %109, %108 ], [ %53, %60 ], [ %2, %set_file_encoding.exit ]
-  %.0141168 = phi i32 [ %122, %114 ], [ %110, %108 ], [ %56, %60 ], [ %3, %set_file_encoding.exit ]
-  %.0145167 = phi i32 [ %126, %114 ], [ %111, %108 ], [ %59, %60 ], [ %4, %set_file_encoding.exit ]
-  %.0148166 = phi i32 [ %127, %114 ], [ %112, %108 ], [ %61, %60 ], [ %5, %set_file_encoding.exit ]
+  %.0169 = phi i32 [ %2, %set_file_encoding.exit ], [ %118, %114 ], [ %109, %108 ], [ %53, %60 ]
+  %.0141168 = phi i32 [ %3, %set_file_encoding.exit ], [ %122, %114 ], [ %110, %108 ], [ %56, %60 ]
+  %.0145167 = phi i32 [ %4, %set_file_encoding.exit ], [ %126, %114 ], [ %111, %108 ], [ %59, %60 ]
+  %.0148166 = phi i32 [ %5, %set_file_encoding.exit ], [ %127, %114 ], [ %112, %108 ], [ %61, %60 ]
   br i1 %21, label %128, label %160
 
 128:                                              ; preds = %.thread
@@ -4757,11 +4757,11 @@ set_file_encoding.exit:                           ; preds = %28, %png_gamma_not_
   br label %.thread174
 
 .thread174:                                       ; preds = %set_file_encoding.exit, %113, %62, %134, %137, %161, %160
-  %.2153 = phi i32 [ 1, %161 ], [ 2, %160 ], [ 2, %134 ], [ 1, %137 ], [ 1, %62 ], [ 1, %113 ], [ %.0151, %set_file_encoding.exit ]
-  %.1149 = phi i32 [ %209, %161 ], [ %.0148166, %160 ], [ %.0148166, %134 ], [ %159, %137 ], [ %5, %62 ], [ %5, %113 ], [ %5, %set_file_encoding.exit ]
-  %.1146 = phi i32 [ %206, %161 ], [ %.0145167, %160 ], [ %136, %134 ], [ %156, %137 ], [ %107, %62 ], [ %4, %113 ], [ %4, %set_file_encoding.exit ]
-  %.1142 = phi i32 [ %191, %161 ], [ %.0141168, %160 ], [ %136, %134 ], [ %156, %137 ], [ %92, %62 ], [ %3, %113 ], [ %3, %set_file_encoding.exit ]
-  %.1 = phi i32 [ %176, %161 ], [ %.0169, %160 ], [ %136, %134 ], [ %156, %137 ], [ %77, %62 ], [ %2, %113 ], [ %2, %set_file_encoding.exit ]
+  %.2153 = phi i32 [ %.0151, %set_file_encoding.exit ], [ 1, %161 ], [ 2, %160 ], [ 2, %134 ], [ 1, %137 ], [ 1, %62 ], [ 1, %113 ]
+  %.1149 = phi i32 [ %5, %set_file_encoding.exit ], [ %209, %161 ], [ %.0148166, %160 ], [ %.0148166, %134 ], [ %159, %137 ], [ %5, %62 ], [ %5, %113 ]
+  %.1146 = phi i32 [ %4, %set_file_encoding.exit ], [ %206, %161 ], [ %.0145167, %160 ], [ %136, %134 ], [ %156, %137 ], [ %107, %62 ], [ %4, %113 ]
+  %.1142 = phi i32 [ %3, %set_file_encoding.exit ], [ %191, %161 ], [ %.0141168, %160 ], [ %136, %134 ], [ %156, %137 ], [ %92, %62 ], [ %3, %113 ]
+  %.1 = phi i32 [ %2, %set_file_encoding.exit ], [ %176, %161 ], [ %.0169, %160 ], [ %136, %134 ], [ %156, %137 ], [ %77, %62 ], [ %2, %113 ]
   %.not = icmp eq i32 %.2153, %13
   br i1 %.not, label %213, label %210
 
@@ -4995,7 +4995,7 @@ png_gamma_not_sRGB.exit.thread10.i:               ; preds = %png_gamma_not_sRGB.
   br label %37
 
 .thread:                                          ; preds = %png_gamma_not_sRGB.exit.thread10.i, %3, %5
-  %.1 = phi i32 [ %7, %5 ], [ %2, %3 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ]
+  %.1 = phi i32 [ %2, %3 ], [ %7, %5 ], [ %.pre, %png_gamma_not_sRGB.exit.thread10.i ]
   switch i32 %.1, label %39 [
     i32 3, label %26
     i32 1, label %32
@@ -5872,7 +5872,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br label %172
 
 172:                                              ; preds = %.lr.ph223, %147, %149
-  %storemerge = phi i8 [ %171, %149 ], [ %148, %147 ], [ %130, %.lr.ph223 ]
+  %storemerge = phi i8 [ %148, %147 ], [ %171, %149 ], [ %130, %.lr.ph223 ]
   store i8 %storemerge, ptr %.0190222, align 1
   %173 = getelementptr inbounds nuw i8, ptr %.0191221, i64 2
   %174 = getelementptr inbounds nuw i8, ptr %.0190222, i64 %.0183
@@ -6009,7 +6009,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br label %251
 
 251:                                              ; preds = %244, %243, %.lr.ph.us.us
-  %.0172.us.us.us = phi i16 [ %250, %244 ], [ 0, %243 ], [ %240, %.lr.ph.us.us ]
+  %.0172.us.us.us = phi i16 [ %250, %244 ], [ %240, %.lr.ph.us.us ], [ 0, %243 ]
   %252 = getelementptr inbounds nuw i16, ptr %.0174215.us.us.us, i64 %190
   store i16 %.0172.us.us.us, ptr %252, align 2
   %253 = getelementptr inbounds nuw i8, ptr %.0175214.us.us.us, i64 4
@@ -6110,7 +6110,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   br label %311
 
 311:                                              ; preds = %.lr.ph, %303, %310
-  %.0172 = phi i16 [ %309, %303 ], [ 0, %310 ], [ %300, %.lr.ph ]
+  %.0172 = phi i16 [ %309, %303 ], [ %300, %.lr.ph ], [ 0, %310 ]
   %312 = getelementptr inbounds nuw i16, ptr %.0174215, i64 %190
   store i16 %.0172, ptr %312, align 2
   %313 = getelementptr inbounds nuw i16, ptr %.0174215, i64 %192

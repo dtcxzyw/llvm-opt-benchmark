@@ -266,7 +266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body
 
 .body:                                            ; preds = %.thread, %29, %53
-  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %30, %29 ], [ %24, %.thread ]
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %24, %.thread ], [ %30, %29 ]
   %55 = load ptr, ptr %7, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %57 = icmp eq ptr %55, %56
@@ -2251,8 +2251,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %49
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %137, %117, %97, %77
-  %.014.lpad-body = phi ptr [ %62, %77 ], [ %82, %97 ], [ %102, %117 ], [ %122, %137 ], [ %.014.lpad-body.ph, %.body.sink.split ]
-  %eh.lpad-body = phi { ptr, i32 } [ %78, %77 ], [ %98, %97 ], [ %118, %117 ], [ %138, %137 ], [ %eh.lpad-body.ph, %.body.sink.split ]
+  %.014.lpad-body = phi ptr [ %82, %97 ], [ %122, %137 ], [ %62, %77 ], [ %102, %117 ], [ %.014.lpad-body.ph, %.body.sink.split ]
+  %eh.lpad-body = phi { ptr, i32 } [ %98, %97 ], [ %138, %137 ], [ %78, %77 ], [ %118, %117 ], [ %eh.lpad-body.ph, %.body.sink.split ]
   br label %508
 
 508:                                              ; preds = %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
@@ -2311,8 +2311,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %51
   br label %.body83
 
 .body83:                                          ; preds = %.body83.sink.split, %247, %227, %207, %187
-  %.0.lpad-body = phi ptr [ %172, %187 ], [ %192, %207 ], [ %212, %227 ], [ %232, %247 ], [ %.0.lpad-body.ph, %.body83.sink.split ]
-  %eh.lpad-body84 = phi { ptr, i32 } [ %188, %187 ], [ %208, %207 ], [ %228, %227 ], [ %248, %247 ], [ %eh.lpad-body84.ph, %.body83.sink.split ]
+  %.0.lpad-body = phi ptr [ %192, %207 ], [ %232, %247 ], [ %172, %187 ], [ %212, %227 ], [ %.0.lpad-body.ph, %.body83.sink.split ]
+  %eh.lpad-body84 = phi { ptr, i32 } [ %208, %207 ], [ %248, %247 ], [ %188, %187 ], [ %228, %227 ], [ %eh.lpad-body84.ph, %.body83.sink.split ]
   br label %529
 
 529:                                              ; preds = %.body83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258

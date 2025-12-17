@@ -66,7 +66,7 @@ define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr no
   br label %17
 
 17:                                               ; preds = %14, %12, %11, %8, %5
-  %.0 = phi i32 [ -24832, %5 ], [ -24832, %8 ], [ -24704, %11 ], [ %13, %12 ], [ %16, %14 ]
+  %.0 = phi i32 [ %13, %12 ], [ -24832, %5 ], [ -24832, %8 ], [ -24704, %11 ], [ %16, %14 ]
   ret i32 %.0
 }
 
@@ -241,7 +241,7 @@ calc_a_xor_t.exit:                                ; preds = %55
   br label %70
 
 70:                                               ; preds = %20, %15, %12, %69
-  %.0 = phi i32 [ %.072100, %69 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+  %.0 = phi i32 [ -24832, %20 ], [ -24832, %12 ], [ %.072100, %69 ], [ -24832, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -379,8 +379,8 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread85
 
-.thread85:                                        ; preds = %35, %34, %15, %22, %19, %57
-  %.05588 = phi i32 [ %.4, %57 ], [ -24704, %15 ], [ -25344, %22 ], [ %21, %19 ], [ %37, %35 ], [ %30, %34 ]
+.thread85:                                        ; preds = %35, %34, %22, %15, %19, %57
+  %.05588 = phi i32 [ %.4, %57 ], [ %21, %19 ], [ -25344, %22 ], [ -24704, %15 ], [ %37, %35 ], [ %30, %34 ]
   %58 = load i64, ptr %5, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %58, i1 false)
   store i64 0, ptr %5, align 8, !tbaa !3
@@ -393,7 +393,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br label %.thread81
 
 .thread81:                                        ; preds = %24, %16, %7, %.thread90
-  %.0 = phi i32 [ %.05589, %.thread90 ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %24 ]
+  %.0 = phi i32 [ -24832, %16 ], [ -24832, %7 ], [ %.05589, %.thread90 ], [ -24832, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -541,8 +541,8 @@ mbedtls_nist_kw_setkey.exit:                      ; preds = %16
   %.not72 = icmp eq i32 %18, 0
   br i1 %.not72, label %21, label %mbedtls_nist_kw_setkey.exit.thread
 
-mbedtls_nist_kw_setkey.exit.thread:               ; preds = %16, %13, %._crit_edge, %mbedtls_nist_kw_setkey.exit
-  %.0.i103 = phi i32 [ %18, %mbedtls_nist_kw_setkey.exit ], [ %17, %16 ], [ -24832, %13 ], [ -24832, %._crit_edge ]
+mbedtls_nist_kw_setkey.exit.thread:               ; preds = %13, %._crit_edge, %16, %mbedtls_nist_kw_setkey.exit
+  %.0.i103 = phi i32 [ %18, %mbedtls_nist_kw_setkey.exit ], [ -24832, %13 ], [ -24832, %._crit_edge ], [ %17, %16 ]
   br i1 %.not71, label %.loopexit, label %19
 
 19:                                               ; preds = %mbedtls_nist_kw_setkey.exit.thread
@@ -600,8 +600,8 @@ mbedtls_nist_kw_setkey.exit89:                    ; preds = %41
   %.not77 = icmp eq i32 %43, 0
   br i1 %.not77, label %46, label %mbedtls_nist_kw_setkey.exit89.thread
 
-mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %41, %38, %35, %mbedtls_nist_kw_setkey.exit89
-  %.0.i87106 = phi i32 [ %43, %mbedtls_nist_kw_setkey.exit89 ], [ %42, %41 ], [ -24832, %38 ], [ -24832, %35 ]
+mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %38, %35, %41, %mbedtls_nist_kw_setkey.exit89
+  %.0.i87106 = phi i32 [ %43, %mbedtls_nist_kw_setkey.exit89 ], [ -24832, %38 ], [ -24832, %35 ], [ %42, %41 ]
   br i1 %.not71, label %.loopexit, label %44
 
 44:                                               ; preds = %mbedtls_nist_kw_setkey.exit89.thread
@@ -712,8 +712,8 @@ mbedtls_nist_kw_setkey.exit95:                    ; preds = %68
   %.not62 = icmp eq i32 %70, 0
   br i1 %.not62, label %73, label %mbedtls_nist_kw_setkey.exit95.thread
 
-mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %68, %65, %._crit_edge133, %mbedtls_nist_kw_setkey.exit95
-  %.0.i93111 = phi i32 [ %70, %mbedtls_nist_kw_setkey.exit95 ], [ %69, %68 ], [ -24832, %65 ], [ -24832, %._crit_edge133 ]
+mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %65, %._crit_edge133, %68, %mbedtls_nist_kw_setkey.exit95
+  %.0.i93111 = phi i32 [ %70, %mbedtls_nist_kw_setkey.exit95 ], [ -24832, %65 ], [ -24832, %._crit_edge133 ], [ %69, %68 ]
   br i1 %.not71, label %.loopexit, label %71
 
 71:                                               ; preds = %mbedtls_nist_kw_setkey.exit95.thread
@@ -771,8 +771,8 @@ mbedtls_nist_kw_setkey.exit100:                   ; preds = %93
   %.not66 = icmp eq i32 %95, 0
   br i1 %.not66, label %98, label %mbedtls_nist_kw_setkey.exit100.thread
 
-mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %93, %90, %87, %mbedtls_nist_kw_setkey.exit100
-  %.0.i98114 = phi i32 [ %95, %mbedtls_nist_kw_setkey.exit100 ], [ %94, %93 ], [ -24832, %90 ], [ -24832, %87 ]
+mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %90, %87, %93, %mbedtls_nist_kw_setkey.exit100
+  %.0.i98114 = phi i32 [ %95, %mbedtls_nist_kw_setkey.exit100 ], [ -24832, %90 ], [ -24832, %87 ], [ %94, %93 ]
   br i1 %.not71, label %.loopexit, label %96
 
 96:                                               ; preds = %mbedtls_nist_kw_setkey.exit100.thread
@@ -812,7 +812,7 @@ mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %93, %90, %87, %mbed
   br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %107, %102, %103, %84, %85, %.loopexit116, %56, %32, %33, %mbedtls_nist_kw_setkey.exit100.thread, %96, %mbedtls_nist_kw_setkey.exit95.thread, %71, %mbedtls_nist_kw_setkey.exit89.thread, %44, %mbedtls_nist_kw_setkey.exit.thread, %19
-  %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %33 ], [ 1, %32 ], [ 1, %56 ], [ 1, %.loopexit116 ], [ 1, %85 ], [ 1, %84 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
+  %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ 1, %32 ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ 1, %.loopexit116 ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %84 ], [ 1, %33 ], [ 1, %56 ], [ 1, %85 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %4) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 96) #10
   br i1 %.not71, label %109, label %108

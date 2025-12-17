@@ -1019,16 +1019,16 @@ IDANewtonIC.exit.i:                               ; preds = %568, %.preheader86.
   %.not81.not.i = icmp slt i32 %.072110.i, %589
   br i1 %.not81.not.i, label %.lr.ph111.i, label %.loopexit357
 
-.thread316:                                       ; preds = %238, %220, %216, %201, %266, %252, %.lr.ph.i.i, %444, %424, %IDANewyyp.exit.i.i.i, %.lr.ph84.i.i.i.i
-  %.0.i.ph.ph = phi i32 [ -7, %.lr.ph84.i.i.i.i ], [ -8, %444 ], [ -7, %424 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %.lr.ph.i.i ], [ -7, %266 ], [ -6, %252 ], [ -12, %238 ], [ -8, %220 ], [ -12, %216 ], [ -8, %201 ]
+.thread316:                                       ; preds = %238, %220, %216, %201, %266, %252, %.lr.ph.i.i, %IDANewyyp.exit.i.i.i, %444, %424, %.lr.ph84.i.i.i.i
+  %.0.i.ph.ph = phi i32 [ -7, %424 ], [ -7, %.lr.ph84.i.i.i.i ], [ -7, %.lr.ph.i.i ], [ -6, %252 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -8, %444 ], [ -7, %266 ], [ -12, %238 ], [ -8, %220 ], [ -12, %216 ], [ -8, %201 ]
   %590 = load i64, ptr %192, align 8, !tbaa !79
   %591 = add nsw i64 %590, 1
   store i64 %591, ptr %192, align 8, !tbaa !79
   br label %IDANlsIC.exit.thread324
 
-.loopexit357:                                     ; preds = %260, %.loopexit.i, %IDANewtonIC.exit.i, %277, %568, %300, %342, %.loopexit106.i.i.i, %512, %510, %423, %435, %462, %491
-  %.not279 = phi i1 [ false, %491 ], [ false, %462 ], [ false, %435 ], [ false, %423 ], [ false, %510 ], [ false, %512 ], [ false, %.loopexit106.i.i.i ], [ false, %342 ], [ false, %300 ], [ false, %260 ], [ true, %.loopexit.i ], [ true, %IDANewtonIC.exit.i ], [ false, %277 ], [ false, %568 ]
-  %.0.i.ph = phi i32 [ 1, %491 ], [ 3, %512 ], [ 3, %510 ], [ 1, %423 ], [ 1, %435 ], [ 1, %462 ], [ 2, %342 ], [ 3, %.loopexit106.i.i.i ], [ 1, %300 ], [ 1, %260 ], [ 5, %.loopexit.i ], [ 5, %IDANewtonIC.exit.i ], [ 1, %277 ], [ 4, %568 ]
+.loopexit357:                                     ; preds = %568, %277, %.loopexit.i, %260, %IDANewtonIC.exit.i, %300, %.loopexit106.i.i.i, %342, %512, %462, %423, %435, %510, %491
+  %.not279 = phi i1 [ false, %.loopexit106.i.i.i ], [ false, %300 ], [ false, %491 ], [ false, %512 ], [ false, %510 ], [ false, %435 ], [ false, %423 ], [ false, %462 ], [ false, %342 ], [ false, %568 ], [ false, %277 ], [ true, %.loopexit.i ], [ false, %260 ], [ true, %IDANewtonIC.exit.i ]
+  %.0.i.ph = phi i32 [ 3, %.loopexit106.i.i.i ], [ 1, %300 ], [ 1, %491 ], [ 3, %512 ], [ 1, %462 ], [ 1, %423 ], [ 1, %435 ], [ 3, %510 ], [ 2, %342 ], [ 4, %568 ], [ 1, %277 ], [ 5, %.loopexit.i ], [ 1, %260 ], [ 5, %IDANewtonIC.exit.i ]
   %592 = load i64, ptr %192, align 8, !tbaa !79
   %593 = add nsw i64 %592, 1
   store i64 %593, ptr %192, align 8, !tbaa !79
@@ -1083,7 +1083,7 @@ IDANewtonIC.exit.i:                               ; preds = %568, %.preheader86.
   br label %.lr.ph441
 
 IDANlsIC.exit.thread320:                          ; preds = %.loopexit102.i, %313, %IDALineSrch.exit.i.i, %.preheader374
-  %.4425 = phi double [ %.2445, %.preheader374 ], [ %.4440, %IDALineSrch.exit.i.i ], [ %.4440, %313 ], [ %.4440, %.loopexit102.i ]
+  %.4425 = phi double [ %.2445, %.preheader374 ], [ %.4440, %313 ], [ %.4440, %IDALineSrch.exit.i.i ], [ %.4440, %.loopexit102.i ]
   %621 = load ptr, ptr %195, align 8, !tbaa !80
   %622 = load ptr, ptr %52, align 8, !tbaa !26
   %623 = load ptr, ptr %127, align 8, !tbaa !45
@@ -1563,7 +1563,7 @@ IDASensfnorm.exit.i.i.i:                          ; preds = %841, %._crit_edge.i
   br i1 %885, label %.lr.ph26.i.i.i, label %IDASensLineSrch.exit.i.i
 
 IDASensLineSrch.exit.i.i:                         ; preds = %.lr.ph26.i.i.i, %._crit_edge.i.i.i, %862
-  %886 = phi i32 [ %871, %._crit_edge.i.i.i ], [ %863, %862 ], [ %883, %.lr.ph26.i.i.i ]
+  %886 = phi i32 [ %863, %862 ], [ %871, %._crit_edge.i.i.i ], [ %883, %.lr.ph26.i.i.i ]
   %887 = load double, ptr %122, align 8, !tbaa !42
   %888 = fcmp ugt double %.13.i.i.i, %887
   br i1 %888, label %.preheader.i.i300, label %IDASensNlsIC.exit.thread334
@@ -1651,14 +1651,14 @@ IDASensNewtonIC.exit.i:                           ; preds = %902, %.preheader58.
   br i1 %.not55.i, label %thread-pre-split.i, label %.loopexit
 
 .thread330:                                       ; preds = %729, %711, %._crit_edge.i, %.lr.ph.i.i308, %788, %.lr.ph52.i.i.i.i
-  %.051.i.ph.ph = phi i32 [ -7, %.lr.ph52.i.i.i.i ], [ -8, %788 ], [ -7, %.lr.ph.i.i308 ], [ -6, %._crit_edge.i ], [ -12, %729 ], [ -8, %711 ]
+  %.051.i.ph.ph = phi i32 [ -8, %788 ], [ -7, %.lr.ph.i.i308 ], [ -6, %._crit_edge.i ], [ -7, %.lr.ph52.i.i.i.i ], [ -12, %729 ], [ -8, %711 ]
   %932 = load i64, ptr %690, align 8, !tbaa !85
   %933 = add nsw i64 %932, 1
   store i64 %933, ptr %690, align 8, !tbaa !85
   br label %IDASensNlsIC.exit.thread338
 
-.loopexit:                                        ; preds = %902, %931, %760, %.lr.ph78.i.i, %855, %853, %806, %835
-  %.051.i.ph = phi i32 [ 1, %835 ], [ 1, %806 ], [ 3, %853 ], [ 3, %855 ], [ 3, %.lr.ph78.i.i ], [ 1, %760 ], [ 4, %902 ], [ 1, %931 ]
+.loopexit:                                        ; preds = %931, %902, %760, %.lr.ph78.i.i, %855, %806, %853, %835
+  %.051.i.ph = phi i32 [ 3, %855 ], [ 3, %.lr.ph78.i.i ], [ 1, %760 ], [ 1, %835 ], [ 3, %853 ], [ 1, %806 ], [ 1, %931 ], [ 4, %902 ]
   %934 = load i64, ptr %690, align 8, !tbaa !85
   %935 = add nsw i64 %934, 1
   store i64 %935, ptr %690, align 8, !tbaa !85
@@ -1745,8 +1745,8 @@ IDASensNlsIC.exit.thread334:                      ; preds = %772, %IDASensLineSr
   br i1 %exitcond543.not, label %IDASensNlsIC.exit.thread338, label %.preheader353
 
 IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge457, %IDASensNlsIC.exit.thread334, %.loopexit.thread, %.loopexit, %._crit_edge457.us, %.preheader353.us, %.thread330
-  %.5264 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ -24, %.preheader353.us ], [ 0, %._crit_edge457.us ], [ %.051.i.ph, %.loopexit ], [ 5, %.loopexit.thread ], [ -24, %IDASensNlsIC.exit.thread334 ], [ 0, %._crit_edge457 ]
-  %.6 = phi double [ %.7451, %.thread330 ], [ %.3, %.preheader353.us ], [ %.3, %._crit_edge457.us ], [ %.7451, %.loopexit ], [ %.7451, %.loopexit.thread ], [ %.7451, %IDASensNlsIC.exit.thread334 ], [ %.7451, %._crit_edge457 ]
+  %.5264 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ %.051.i.ph, %.loopexit ], [ 0, %._crit_edge457.us ], [ -24, %.preheader353.us ], [ 5, %.loopexit.thread ], [ 0, %._crit_edge457 ], [ -24, %IDASensNlsIC.exit.thread334 ]
+  %.6 = phi double [ %.7451, %.thread330 ], [ %.7451, %.loopexit.thread ], [ %.3, %._crit_edge457.us ], [ %.3, %.preheader353.us ], [ %.7451, %.loopexit ], [ %.7451, %IDASensNlsIC.exit.thread334 ], [ %.7451, %._crit_edge457 ]
   br i1 %19, label %980, label %982
 
 980:                                              ; preds = %IDASensNlsIC.exit.thread338
@@ -1773,7 +1773,7 @@ IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge457, %ID
   br label %991
 
 991:                                              ; preds = %982, %687, %676, %667, %671, %11, %989, %664, %115, %38, %24, %16, %10, %5
-  %.0 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %115 ], [ %665, %664 ], [ %990, %989 ], [ -22, %11 ], [ 0, %671 ], [ 0, %667 ], [ -8, %676 ], [ -12, %687 ], [ 0, %982 ]
+  %.0 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %11 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %115 ], [ %665, %664 ], [ 0, %667 ], [ -8, %676 ], [ %990, %989 ], [ -12, %687 ], [ 0, %671 ], [ 0, %982 ]
   ret i32 %.0
 }
 
@@ -1858,7 +1858,7 @@ define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef nonnull
   br label %13
 
 13:                                               ; preds = %2, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.0 = phi i32 [ -8, %3 ], [ -12, %4 ], [ -6, %5 ], [ -7, %6 ], [ -14, %7 ], [ -11, %8 ], [ -13, %9 ], [ -4, %10 ], [ -4, %11 ], [ -24, %12 ], [ -99, %2 ]
+  %.0 = phi i32 [ -24, %12 ], [ -8, %3 ], [ -12, %4 ], [ -6, %5 ], [ -7, %6 ], [ -14, %7 ], [ -11, %8 ], [ -13, %9 ], [ -4, %10 ], [ -4, %11 ], [ -99, %2 ]
   ret i32 %.0
 }
 

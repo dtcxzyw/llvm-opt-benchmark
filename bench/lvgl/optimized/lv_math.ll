@@ -91,7 +91,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
   br label %43
 
 43:                                               ; preds = %40, %42, %41
-  %.026 = phi i32 [ -32768, %41 ], [ %.0, %42 ], [ 32768, %40 ]
+  %.026 = phi i32 [ %.0, %42 ], [ -32768, %41 ], [ 32768, %40 ]
   ret i32 %.026
 }
 
@@ -201,7 +201,7 @@ define range(i32 -2097152, 2097152) i32 @lv_cubic_bezier(i32 noundef %0, i32 nou
   br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %.preheader, %70, %58, %55, %53
-  %.1 = phi i32 [ 0, %53 ], [ 1024, %55 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.2, %58 ], [ %.079100, %22 ]
+  %.1 = phi i32 [ 1024, %55 ], [ 0, %53 ], [ %.2, %58 ], [ %.2, %.preheader ], [ %74, %70 ], [ %.079100, %22 ]
   %76 = mul nsw i32 %.1, %19
   %77 = ashr i32 %76, 10
   %78 = add nsw i32 %77, %17
@@ -384,8 +384,8 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %109
 
 89:                                               ; preds = %11, %7, %9
-  %.sink46 = phi i32 [ 24, %9 ], [ 22, %7 ], [ %., %11 ]
-  %.sink43 = phi i32 [ 8, %9 ], [ 7, %7 ], [ %.47, %11 ]
+  %.sink46 = phi i32 [ %., %11 ], [ 22, %7 ], [ 24, %9 ]
+  %.sink43 = phi i32 [ %.47, %11 ], [ 7, %7 ], [ 8, %9 ]
   %90 = lshr i32 %0, %.sink46
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr @lv_sqrt32.sqq_table, i64 %91
@@ -415,7 +415,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %109
 
 109:                                              ; preds = %9, %105, %83
-  %.038 = phi i32 [ %spec.select, %105 ], [ %88, %83 ], [ 65535, %9 ]
+  %.038 = phi i32 [ %88, %83 ], [ %spec.select, %105 ], [ 65535, %9 ]
   ret i32 %.038
 }
 
@@ -667,7 +667,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
   br label %lv_trigo_sin.exit
 
 lv_trigo_sin.exit:                                ; preds = %41, %42, %43
-  %.026.i = phi i32 [ -32768, %42 ], [ %.0.i, %43 ], [ 32768, %41 ]
+  %.026.i = phi i32 [ %.0.i, %43 ], [ -32768, %42 ], [ 32768, %41 ]
   ret i32 %.026.i
 }
 

@@ -312,7 +312,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   br i1 %43, label %.lr.ph, label %.loopexit44, !llvm.loop !6
 
 .loopexit44:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %1, %5
-  %.035 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %10 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
+  %.035 = phi i32 [ 0, %1 ], [ 0, %5 ], [ 1, %10 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
   ret i32 %.035
 }
 
@@ -454,7 +454,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr noundef captures(none) %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %37, %8, %10, %14, %72
-  %.071 = phi i32 [ 1, %72 ], [ 0, %14 ], [ 0, %10 ], [ 0, %8 ], [ 0, %37 ], [ 0, %39 ]
+  %.071 = phi i32 [ 1, %72 ], [ 0, %8 ], [ 0, %14 ], [ 0, %10 ], [ 0, %37 ], [ 0, %39 ]
   ret i32 %.071
 }
 
@@ -804,7 +804,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.preheader, !llvm.loop !8
 
-170:                                              ; preds = %127, %126
+170:                                              ; preds = %126, %127
   %171 = load ptr, ptr %0, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 1784
   %173 = load ptr, ptr %172, align 8
@@ -812,7 +812,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   br label %Region_EndIteration.exit63
 
 Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %170, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
-  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i137143, %170 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
+  %.045 = phi i32 [ 0, %Region_StartIteration.exit ], [ 0, %Region_EndIteration.exit ], [ 0, %10 ], [ 1, %11 ], [ %.035.i137143, %170 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
   ret i32 %.045
 }
 

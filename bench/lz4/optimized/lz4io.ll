@@ -949,7 +949,7 @@ LZ4IO_finalTimeDisplay.exit:                      ; preds = %._crit_edge, %41, %
   br label %60
 
 60:                                               ; preds = %34, %5, %LZ4IO_finalTimeDisplay.exit
-  %.0 = phi i32 [ %1, %34 ], [ %.049.lcssa, %LZ4IO_finalTimeDisplay.exit ], [ %1, %5 ]
+  %.0 = phi i32 [ %.049.lcssa, %LZ4IO_finalTimeDisplay.exit ], [ %1, %34 ], [ %1, %5 ]
   ret i32 %.0
 }
 
@@ -1997,7 +1997,7 @@ thread-pre-split213:                              ; preds = %526, %518
   br label %567
 
 567:                                              ; preds = %6, %.thread217, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %.thread217 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %.thread217 ], [ 1, %26 ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -2087,7 +2087,7 @@ LZ4IO_isStdin.exit.thread:                        ; preds = %1, %LZ4IO_isStdin.e
   br label %50
 
 50:                                               ; preds = %34, %39, %47, %23, %31, %26, %16
-  %.0 = phi ptr [ %17, %16 ], [ null, %26 ], [ null, %31 ], [ null, %23 ], [ null, %47 ], [ null, %39 ], [ %35, %34 ]
+  %.0 = phi ptr [ %17, %16 ], [ null, %23 ], [ null, %26 ], [ null, %31 ], [ null, %47 ], [ null, %39 ], [ %35, %34 ]
   ret ptr %.0
 }
 
@@ -2223,7 +2223,7 @@ LZ4IO_isDevNull.exit.thread:                      ; preds = %LZ4IO_isStdout.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread51, %.thread47, %41, %27, %22, %14, %65, %57, %.loopexit
-  %.3 = phi ptr [ %18, %27 ], [ %18, %22 ], [ %18, %14 ], [ null, %65 ], [ null, %57 ], [ %53, %.loopexit ], [ null, %41 ], [ null, %.thread47 ], [ %13, %.thread51 ]
+  %.3 = phi ptr [ %53, %.loopexit ], [ %18, %27 ], [ %18, %22 ], [ %18, %14 ], [ null, %65 ], [ null, %57 ], [ null, %.thread47 ], [ null, %41 ], [ %13, %.thread51 ]
   ret ptr %.3
 }
 
@@ -4062,7 +4062,7 @@ thread-pre-split215:                              ; preds = %513, %505
   br label %554
 
 554:                                              ; preds = %6, %.thread219, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %.thread219 ], [ 1, %6 ]
+  %.0 = phi i32 [ 0, %.thread219 ], [ 1, %24 ], [ 1, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -4526,7 +4526,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
   br label %LZ4IO_finalTimeDisplay.exit
 
 LZ4IO_finalTimeDisplay.exit:                      ; preds = %59, %43, %._crit_edge, %36, %5
-  %.0 = phi i32 [ %1, %36 ], [ %1, %5 ], [ %.043.lcssa, %._crit_edge ], [ %.043.lcssa, %43 ], [ %.043.lcssa, %59 ]
+  %.0 = phi i32 [ %1, %5 ], [ %1, %36 ], [ %.043.lcssa, %._crit_edge ], [ %.043.lcssa, %43 ], [ %.043.lcssa, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -4839,7 +4839,7 @@ LZ4IO_isDevNull.exit.thread:                      ; preds = %25, %LZ4IO_isDevNul
   br label %UTIL_setFileStat.exit
 
 UTIL_setFileStat.exit:                            ; preds = %34, %LZ4IO_isDevNull.exit.thread, %20, %LZ4IO_isStdout.exit, %LZ4IO_isDevNull.exit, %5
-  %.0 = phi i32 [ 1, %5 ], [ %23, %LZ4IO_isDevNull.exit ], [ %23, %LZ4IO_isStdout.exit ], [ %23, %20 ], [ %23, %LZ4IO_isDevNull.exit.thread ], [ %23, %34 ]
+  %.0 = phi i32 [ 1, %5 ], [ %23, %20 ], [ %23, %LZ4IO_isDevNull.exit ], [ %23, %LZ4IO_isStdout.exit ], [ %23, %LZ4IO_isDevNull.exit.thread ], [ %23, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -6369,7 +6369,7 @@ LZ4IO_getCompressedFileInfo.exit.thread118:       ; preds = %.thread165.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-LZ4IO_getCompressedFileInfo.exit.thread140:       ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %.thread172.i, %.thread168.i, %347, %352, %.loopexit181.i, %480, %484, %477, %452
+LZ4IO_getCompressedFileInfo.exit.thread140:       ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %.thread168.i, %484, %.thread172.i, %.loopexit181.i, %347, %352, %477, %480, %452
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit152.sink.split.sink.split
 
@@ -6521,8 +6521,8 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   %554 = call i32 @fflush(ptr noundef %553)
   br label %.critedge35
 
-.critedge35:                                      ; preds = %551, %.critedge35.sink.split, %20, %61, %58, %.loopexit152, %495
-  %.3 = phi i32 [ 1, %495 ], [ 1, %.loopexit152 ], [ 1, %58 ], [ 1, %61 ], [ 0, %20 ], [ 1, %.critedge35.sink.split ], [ 0, %551 ]
+.critedge35:                                      ; preds = %551, %.critedge35.sink.split, %20, %58, %61, %.loopexit152, %495
+  %.3 = phi i32 [ 1, %495 ], [ 1, %.loopexit152 ], [ 1, %61 ], [ 1, %58 ], [ 0, %20 ], [ 1, %.critedge35.sink.split ], [ 0, %551 ]
   ret i32 %.3
 }
 
@@ -8858,7 +8858,7 @@ thread-pre-split73:                               ; preds = %658, %653
   br label %fseek_u32.exit.thread
 
 fseek_u32.exit.thread:                            ; preds = %518, %672, %506, %fseek_u32.exit.thread63, %.thread54, %697, %704, %700, %LZ4IO_passThrough.exit, %LZ4IO_decodeLegacyStream.exit, %LZ4IO_decompressLZ4F.exit
-  %.1 = phi i64 [ %602, %LZ4IO_passThrough.exit ], [ %.084.i, %LZ4IO_decompressLZ4F.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ -2, %700 ], [ -2, %704 ], [ -2, %697 ], [ -1, %.thread54 ], [ 0, %fseek_u32.exit.thread63 ], [ 0, %506 ], [ -2, %672 ], [ 0, %518 ]
+  %.1 = phi i64 [ %602, %LZ4IO_passThrough.exit ], [ 0, %fseek_u32.exit.thread63 ], [ %.084.i, %LZ4IO_decompressLZ4F.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ -1, %.thread54 ], [ -2, %700 ], [ -2, %704 ], [ -2, %697 ], [ 0, %506 ], [ -2, %672 ], [ 0, %518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }

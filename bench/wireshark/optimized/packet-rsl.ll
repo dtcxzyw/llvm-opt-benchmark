@@ -1316,7 +1316,7 @@ switch.lookup11:                                  ; preds = %5
   br label %18
 
 18:                                               ; preds = %switch.lookup11, %switch.lookup, %11, %9, %13
-  %.0 = phi ptr [ @.str.491, %13 ], [ @.str.489, %9 ], [ @.str.490, %11 ], [ %switch.load, %switch.lookup ], [ %switch.load16, %switch.lookup11 ]
+  %.0 = phi ptr [ %switch.load16, %switch.lookup11 ], [ @.str.489, %9 ], [ @.str.491, %13 ], [ %switch.load, %switch.lookup ], [ @.str.490, %11 ]
   %19 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.493, ptr noundef nonnull %.0)
   br label %20
 
@@ -2592,8 +2592,8 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %165
 
 37:                                               ; preds = %.lr.ph, %27, %23, %22, %18
-  %.0164 = phi i32 [ %21, %18 ], [ 1, %22 ], [ %26, %23 ], [ %35, %27 ], [ 0, %.lr.ph ]
-  %.0163 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 2, %23 ], [ 3, %27 ], [ 1, %.lr.ph ]
+  %.0164 = phi i32 [ %21, %18 ], [ %35, %27 ], [ 1, %22 ], [ %26, %23 ], [ 0, %.lr.ph ]
+  %.0163 = phi i32 [ 1, %18 ], [ 3, %27 ], [ 1, %22 ], [ 2, %23 ], [ 1, %.lr.ph ]
   switch i8 %14, label %53 [
     i8 1, label %38
     i8 8, label %40
@@ -2825,7 +2825,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %158
 
 158:                                              ; preds = %151, %153, %145
-  %.0173 = phi ptr [ %154, %153 ], [ null, %145 ], [ null, %151 ]
+  %.0173 = phi ptr [ %154, %153 ], [ null, %151 ], [ null, %145 ]
   %159 = load i32, ptr @proto_rsl, align 4
   call void @conversation_delete_proto_data(ptr noundef %148, i32 noundef %159)
   %160 = call ptr @wmem_file_scope()
@@ -2839,7 +2839,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %165
 
 165:                                              ; preds = %.thread181, %._crit_edge, %158
-  %.2 = phi i32 [ %.0161.lcssa, %158 ], [ %.0161.lcssa, %._crit_edge ], [ %36, %.thread181 ]
+  %.2 = phi i32 [ %36, %.thread181 ], [ %.0161.lcssa, %158 ], [ %.0161.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3921,7 +3921,7 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 .sink.split:                                      ; preds = %3, %17, %16
-  %hf_rsl_a1_0.sink = phi ptr [ @hf_rsl_a1_1, %16 ], [ @hf_rsl_a1_2, %17 ], [ @hf_rsl_a1_0, %3 ]
+  %hf_rsl_a1_0.sink = phi ptr [ @hf_rsl_a1_2, %17 ], [ @hf_rsl_a1_1, %16 ], [ @hf_rsl_a1_0, %3 ]
   %18 = load i32, ptr %hf_rsl_a1_0.sink, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %18, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0)
   br label %20

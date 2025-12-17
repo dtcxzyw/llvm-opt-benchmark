@@ -84,7 +84,7 @@ define dso_local range(i32 -1, 1) i32 @parse_range_arg(ptr noundef %0, ptr nound
   br label %39
 
 39:                                               ; preds = %19, %33, %35, %38, %31, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %31 ], [ 0, %38 ], [ 0, %35 ], [ 0, %33 ], [ %spec.select56, %19 ]
+  %.0 = phi i32 [ -1, %31 ], [ 0, %33 ], [ -1, %17 ], [ %spec.select56, %19 ], [ 0, %38 ], [ 0, %35 ]
   ret i32 %.0
 }
 
@@ -345,14 +345,14 @@ match_funcname.exit.thread.i:                     ; preds = %.critedge2.i
   br i1 %.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !25
 
 find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, %switch.early.test.i.us.i, %switch.early.test.i.us.i
-  %.232.i = phi ptr [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %66 ], [ %spec.select.i, %.critedge2.i ]
+  %.232.i = phi ptr [ %spec.select.us.i, %66 ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.us.i, %switch.early.test.i.us.i ], [ %spec.select.i, %.critedge2.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i64 0, ptr %5, align 8, !tbaa !4
   %104 = call ptr %1(ptr noundef %2, i64 noundef 0) #8
   %105 = icmp ugt ptr %.232.i, %104
   br i1 %105, label %.lr.ph, label %._crit_edge
 
-.loopexit:                                        ; preds = %.lr.ph.split.i, %match_funcname.exit.thread.i, %.lr.ph.split.us.i, %match_funcname.exit.thread.us.i, %42
+.loopexit:                                        ; preds = %match_funcname.exit.thread.i, %.lr.ph.split.i, %.lr.ph.split.us.i, %match_funcname.exit.thread.us.i, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void (ptr, ...) @die(ptr noundef nonnull @.str.1, ptr noundef %26, i64 noundef %spec.select) #9
   unreachable
@@ -464,7 +464,7 @@ match_funcname.exit.thread:                       ; preds = %match_funcname.exit
   br label %143
 
 143:                                              ; preds = %24, %.critedge, %140
-  %.0 = phi ptr [ %.070.ptr.le, %140 ], [ null, %.critedge ], [ %.070.ptr.le, %24 ]
+  %.0 = phi ptr [ null, %.critedge ], [ %.070.ptr.le, %140 ], [ %.070.ptr.le, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.0
 }
@@ -663,7 +663,7 @@ thread-pre-split:                                 ; preds = %42, %48
   unreachable
 
 .loopexit:                                        ; preds = %54, %37, %41, %50, %14, %18, %79, %61, %33
-  %.0 = phi ptr [ %17, %33 ], [ %81, %79 ], [ %62, %61 ], [ %17, %18 ], [ %0, %14 ], [ %.060, %50 ], [ %36, %41 ], [ %36, %37 ], [ %.060, %54 ]
+  %.0 = phi ptr [ %17, %33 ], [ %62, %61 ], [ %17, %18 ], [ %0, %14 ], [ %.060, %50 ], [ %81, %79 ], [ %36, %41 ], [ %36, %37 ], [ %.060, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -769,7 +769,7 @@ define dso_local ptr @skip_range_arg(ptr noundef %0, ptr noundef readnone captur
   br label %parse_loc.exit
 
 parse_loc.exit:                                   ; preds = %.preheader, %18, %25, %30
-  %.0.i12 = phi ptr [ %31, %30 ], [ %.060.i, %25 ], [ %20, %18 ], [ %.060.i, %.preheader ]
+  %.0.i12 = phi ptr [ %.060.i, %25 ], [ %31, %30 ], [ %20, %18 ], [ %.060.i, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load i8, ptr %.0.i12, align 1, !tbaa !8
   %33 = icmp eq i8 %32, 44
@@ -817,12 +817,12 @@ parse_loc.exit:                                   ; preds = %.preheader, %18, %2
   br label %parse_loc.exit20
 
 parse_loc.exit20:                                 ; preds = %41, %34, %38, %47
-  %.0.i14 = phi ptr [ %48, %47 ], [ %35, %38 ], [ %37, %34 ], [ %35, %41 ]
+  %.0.i14 = phi ptr [ %35, %38 ], [ %48, %47 ], [ %37, %34 ], [ %35, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %parse_range_funcname.exit
 
 parse_range_funcname.exit:                        ; preds = %.critedge.i, %parse_loc.exit, %parse_loc.exit20
-  %.0 = phi ptr [ %.0.i14, %parse_loc.exit20 ], [ %.0.i12, %parse_loc.exit ], [ %spec.select, %.critedge.i ]
+  %.0 = phi ptr [ %.0.i12, %parse_loc.exit ], [ %.0.i14, %parse_loc.exit20 ], [ %spec.select, %.critedge.i ]
   ret ptr %.0
 }
 

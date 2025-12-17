@@ -2334,7 +2334,7 @@ define double @selfRightSpace(ptr noundef readonly captures(none) %0) local_unna
   br label %40
 
 40:                                               ; preds = %13, %18, %22, %24, %25
-  %.0 = phi double [ %39, %25 ], [ 1.800000e+01, %24 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %13 ]
+  %.0 = phi double [ 1.800000e+01, %24 ], [ %39, %25 ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %13 ]
   ret double %.0
 }
 
@@ -3755,7 +3755,7 @@ getsplinepoints.exit:                             ; preds = %.lr.ph.i
   br label %119
 
 119:                                              ; preds = %getsplinepoints.exit, %15, %17, %2, %101
-  %.0 = phi i32 [ 1, %101 ], [ 0, %2 ], [ 0, %17 ], [ 0, %15 ], [ 0, %getsplinepoints.exit ]
+  %.0 = phi i32 [ 1, %101 ], [ 0, %2 ], [ 0, %15 ], [ 0, %17 ], [ 0, %getsplinepoints.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

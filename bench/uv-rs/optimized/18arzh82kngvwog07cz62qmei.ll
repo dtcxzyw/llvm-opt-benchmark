@@ -732,7 +732,7 @@ define internal void @"_ZN4core3ptr101drop_in_place$LT$uv_pep508..Pep508ErrorSou
   unreachable
 
 common.resume.i:                                  ; preds = %174, %142, %84
-  %common.resume.op.i = phi { ptr, i32 } [ %85, %84 ], [ %143, %142 ], [ %175, %174 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %143, %142 ], [ %85, %84 ], [ %175, %174 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h2edcaff4ed133fbeE.exit.i": ; preds = %92, %87
@@ -1127,7 +1127,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i: ; preds = %.lr
   br label %14
 
 .critedge:                                        ; preds = %69, %36, %.noexc34, %.preheader.i.i, %27
-  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %.promoted.i71124, %36 ], [ %34, %69 ]
+  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %36 ], [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %34, %69 ]
   %gepdiff96 = sub nsw i64 %2, %.promoted.i71108
   %39 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !282, !noundef !4
   %40 = load i64, ptr %7, align 8, !range !289, !alias.scope !282, !noundef !4
@@ -1408,7 +1408,7 @@ define hidden void @"_ZN17uv_build_frontend13Pep517Backend14backend_import28_$u7
   unreachable
 
 .body:                                            ; preds = %.body14, %46, %42, %109
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm.split-lp, %46 ], [ %43, %42 ], [ %69, %.body14 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm.split-lp, %46 ], [ %69, %.body14 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6421d5db9f27fe7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #18
           to label %96 unwind label %107
 
@@ -1582,7 +1582,7 @@ define hidden void @"_ZN17uv_build_frontend13Pep517Backend14backend_import28_$u7
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #19
   unreachable
 
-109:                                              ; preds = %47, %58
+109:                                              ; preds = %58, %47
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6421d5db9f27fe7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #18

@@ -394,7 +394,7 @@ define noundef ptr @scram_build_secret(i32 noundef %0, i32 noundef %1, ptr nound
   br label %56
 
 56:                                               ; preds = %7, %13, %16, %19, %53, %52, %45, %38, %31
-  %.0 = phi ptr [ null, %38 ], [ null, %45 ], [ null, %52 ], [ %30, %53 ], [ null, %31 ], [ null, %19 ], [ null, %16 ], [ null, %13 ], [ null, %7 ]
+  %.0 = phi ptr [ null, %31 ], [ null, %38 ], [ null, %45 ], [ null, %52 ], [ %30, %53 ], [ null, %19 ], [ null, %16 ], [ null, %13 ], [ null, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

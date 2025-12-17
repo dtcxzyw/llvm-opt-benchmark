@@ -413,9 +413,9 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %130, %117, %103, %90, %.loopexit.sink.split, %.preheader190, %.preheader, %124, %110, %96, %84
-  %.0172 = phi i32 [ %87, %84 ], [ %99, %96 ], [ -1, %110 ], [ -1, %124 ], [ -1, %.preheader ], [ -1, %.preheader190 ], [ %.0172.ph, %.loopexit.sink.split ], [ %87, %90 ], [ %99, %103 ], [ -1, %117 ], [ -1, %130 ]
-  %.0171 = phi i32 [ 0, %84 ], [ 0, %96 ], [ %113, %110 ], [ %127, %124 ], [ %138, %.preheader ], [ %140, %.preheader190 ], [ %.pre, %.loopexit.sink.split ], [ 0, %90 ], [ 0, %103 ], [ %113, %117 ], [ %127, %130 ]
-  %.1163 = phi i32 [ 0, %84 ], [ 0, %96 ], [ 0, %110 ], [ 0, %124 ], [ 0, %.preheader ], [ 0, %.preheader190 ], [ %.1163.ph, %.loopexit.sink.split ], [ %85, %90 ], [ %97, %103 ], [ %111, %117 ], [ %125, %130 ]
+  %.0172 = phi i32 [ -1, %110 ], [ %87, %84 ], [ %99, %96 ], [ -1, %124 ], [ -1, %.preheader ], [ -1, %.preheader190 ], [ %.0172.ph, %.loopexit.sink.split ], [ -1, %117 ], [ %87, %90 ], [ %99, %103 ], [ -1, %130 ]
+  %.0171 = phi i32 [ %113, %110 ], [ 0, %84 ], [ 0, %96 ], [ %127, %124 ], [ %138, %.preheader ], [ %140, %.preheader190 ], [ %.pre, %.loopexit.sink.split ], [ %113, %117 ], [ 0, %90 ], [ 0, %103 ], [ %127, %130 ]
+  %.1163 = phi i32 [ 0, %110 ], [ 0, %84 ], [ 0, %96 ], [ 0, %124 ], [ 0, %.preheader ], [ 0, %.preheader190 ], [ %.1163.ph, %.loopexit.sink.split ], [ %111, %117 ], [ %85, %90 ], [ %97, %103 ], [ %125, %130 ]
   br i1 %30, label %203, label %209
 
 203:                                              ; preds = %.loopexit

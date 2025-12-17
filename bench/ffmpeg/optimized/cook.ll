@@ -421,8 +421,8 @@ bytestream2_get_be32.exit234:                     ; preds = %116, %120
   br label %.thread
 
 .thread:                                          ; preds = %114, %148, %.threadcondstore.split, %111, %146, %101, %97
-  %.sroa.0.1 = phi ptr [ %.sroa.0.8, %97 ], [ %.sroa.0.8, %101 ], [ %.sroa.0.4, %146 ], [ %.sroa.0.8, %111 ], [ %.sroa.0.8, %114 ], [ %.sroa.0.4, %.threadcondstore.split ], [ %.sroa.0.4, %148 ]
-  %.1 = phi i32 [ %.0205316, %97 ], [ %.0205316, %101 ], [ %125, %146 ], [ %.0205316, %111 ], [ %.0205316, %114 ], [ %125, %.threadcondstore.split ], [ %125, %148 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.8, %97 ], [ %.sroa.0.8, %101 ], [ %.sroa.0.8, %111 ], [ %.sroa.0.4, %148 ], [ %.sroa.0.4, %146 ], [ %.sroa.0.8, %114 ], [ %.sroa.0.4, %.threadcondstore.split ]
+  %.1 = phi i32 [ %.0205316, %97 ], [ %.0205316, %101 ], [ %.0205316, %111 ], [ %125, %148 ], [ %125, %146 ], [ %.0205316, %114 ], [ %125, %.threadcondstore.split ]
   %150 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %150, label %151, label %155
 
@@ -604,7 +604,7 @@ init_gain_table.exit:                             ; preds = %204
   br label %234
 
 234:                                              ; preds = %230, %233, %222, %214, %init_gain_table.exit, %21, %194, %187, %173, %170, %split, %162, %154, %147, %103, %96, %74, %37, %20, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ -1163346256, %37 ], [ -1094995529, %74 ], [ -1163346256, %147 ], [ -1163346256, %96 ], [ -1094995529, %154 ], [ -1163346256, %162 ], [ -1094995529, %split ], [ -1163346256, %170 ], [ -1163346256, %173 ], [ -1094995529, %187 ], [ -1163346256, %103 ], [ -1163346256, %194 ], [ -1094995529, %20 ], [ -22, %21 ], [ %213, %init_gain_table.exit ], [ -12, %214 ], [ %223, %222 ], [ 0, %233 ], [ 0, %230 ]
+  %.0 = phi i32 [ -1094995529, %11 ], [ -1094995529, %20 ], [ -1163346256, %37 ], [ -1094995529, %74 ], [ -1163346256, %147 ], [ -1163346256, %96 ], [ -1094995529, %154 ], [ -1163346256, %162 ], [ -1094995529, %split ], [ -1163346256, %170 ], [ -1163346256, %173 ], [ -1094995529, %187 ], [ -1163346256, %103 ], [ -1163346256, %194 ], [ -22, %21 ], [ -12, %214 ], [ %223, %222 ], [ %213, %init_gain_table.exit ], [ 0, %233 ], [ 0, %230 ]
   ret i32 %.0
 }
 
@@ -1252,7 +1252,7 @@ imlt_gain.exit.i76.i:                             ; preds = %350
   br label %decode_subpacket.exit
 
 decode_subpacket.exit:                            ; preds = %244, %237, %joint_decode.exit.thread.i, %19, %4, %369, %366, %64
-  %.076 = phi i32 [ -1094995529, %64 ], [ %368, %366 ], [ %370, %369 ], [ %9, %4 ], [ %23, %19 ], [ %.0.i.ph.i, %joint_decode.exit.thread.i ], [ %249, %244 ], [ %238, %237 ]
+  %.076 = phi i32 [ %370, %369 ], [ %9, %4 ], [ -1094995529, %64 ], [ %23, %19 ], [ %368, %366 ], [ %.0.i.ph.i, %joint_decode.exit.thread.i ], [ %249, %244 ], [ %238, %237 ]
   ret i32 %.076
 }
 
@@ -1498,7 +1498,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_cook_mlt(ptr noundef 
   br label %24
 
 24:                                               ; preds = %._crit_edge, %1
-  %.0 = phi i32 [ -12, %1 ], [ %., %._crit_edge ]
+  %.0 = phi i32 [ %., %._crit_edge ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -2098,9 +2098,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mono_decode(ptr noundef %0
   br label %get_vlc2.exit.i
 
 get_vlc2.exit.i:                                  ; preds = %65, %44
-  %.064.i.i = phi i32 [ %67, %65 ], [ %38, %44 ]
-  %.062.i.i = phi i32 [ %81, %65 ], [ %60, %44 ]
-  %.0.i.i = phi i32 [ %84, %65 ], [ %63, %44 ]
+  %.064.i.i = phi i32 [ %38, %44 ], [ %67, %65 ]
+  %.062.i.i = phi i32 [ %60, %44 ], [ %81, %65 ]
+  %.0.i.i = phi i32 [ %63, %44 ], [ %84, %65 ]
   %85 = add i32 %.0.i.i, %.064.i.i
   %86 = tail call i32 @llvm.umin.i32(i32 %.fr, i32 %85)
   store i32 %86, ptr %13, align 8, !tbaa !89
@@ -2616,9 +2616,9 @@ expand_category.exit:                             ; preds = %.lr.ph.i23, %catego
   br label %337
 
 337:                                              ; preds = %325, %323, %.lr.ph59.i.i
-  %spec.select.i.i34.i = phi i32 [ %spec.select.i.i.i, %325 ], [ %spec.select.i.i35.i, %323 ], [ %spec.select.i.i35.i, %.lr.ph59.i.i ]
-  %.sink.i.i = phi i32 [ %336, %325 ], [ 0, %323 ], [ 0, %.lr.ph59.i.i ]
-  %.3.i.i = phi i32 [ %.258.i.i, %325 ], [ 1, %323 ], [ %.258.i.i, %.lr.ph59.i.i ]
+  %spec.select.i.i34.i = phi i32 [ %spec.select.i.i35.i, %323 ], [ %spec.select.i.i.i, %325 ], [ %spec.select.i.i35.i, %.lr.ph59.i.i ]
+  %.sink.i.i = phi i32 [ 0, %323 ], [ %336, %325 ], [ 0, %.lr.ph59.i.i ]
+  %.3.i.i = phi i32 [ 1, %323 ], [ %.258.i.i, %325 ], [ %.258.i.i, %.lr.ph59.i.i ]
   %338 = getelementptr inbounds i32, ptr %5, i64 %320
   store i32 %.sink.i.i, ptr %338, align 4, !tbaa !92
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1

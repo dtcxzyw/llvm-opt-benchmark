@@ -421,7 +421,7 @@ define dso_local i32 @generic_hwtstamp_get_lower(ptr noundef %0, ptr noundef %1)
   br label %dev_get_hwtstamp_phylib.exit
 
 dev_get_hwtstamp_phylib.exit:                     ; preds = %38, %35, %32, %.thread, %2
-  %63 = phi i32 [ %62, %.thread ], [ -19, %2 ], [ %39, %38 ], [ %37, %35 ], [ -95, %32 ]
+  %63 = phi i32 [ -19, %2 ], [ %62, %.thread ], [ %39, %38 ], [ %37, %35 ], [ -95, %32 ]
   ret i32 %63
 }
 

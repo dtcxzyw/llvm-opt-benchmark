@@ -1160,7 +1160,7 @@ handle_path_with_trailing_slash.exit.i:           ; preds = %invalidate_ce_fsm.e
   br label %handle_path_with_trailing_slash.exit
 
 handle_path_with_trailing_slash.exit:             ; preds = %.lr.ph.i, %handle_path_with_trailing_slash.exit.i, %16
-  %.0 = phi i64 [ 0, %16 ], [ %.0.lcssa.i.i, %handle_path_with_trailing_slash.exit.i ], [ %.018.i, %.lr.ph.i ]
+  %.0 = phi i64 [ %.0.lcssa.i.i, %handle_path_with_trailing_slash.exit.i ], [ 0, %16 ], [ %.018.i, %.lr.ph.i ]
   %106 = icmp eq i64 %.0, 0
   %107 = load i32, ptr @ignore_case, align 4
   %108 = icmp ne i32 %107, 0
@@ -1365,7 +1365,7 @@ handle_using_dir_name_hash_icase.exit:            ; preds = %handle_using_name_h
   br label %186
 
 186:                                              ; preds = %handle_using_dir_name_hash_icase.exit, %handle_path_with_trailing_slash.exit
-  %.1 = phi i64 [ %.0.i61, %handle_using_dir_name_hash_icase.exit ], [ %.0, %handle_path_with_trailing_slash.exit ]
+  %.1 = phi i64 [ %.0, %handle_path_with_trailing_slash.exit ], [ %.0.i61, %handle_using_dir_name_hash_icase.exit ]
   %.not24 = icmp eq i64 %.1, 0
   br i1 %.not24, label %190, label %.thread
 

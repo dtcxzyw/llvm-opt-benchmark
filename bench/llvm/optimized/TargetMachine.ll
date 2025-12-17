@@ -1004,7 +1004,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit55:      ; preds = %_ZNK4llvm9StringRef
   br label %"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.exit"
 
 "_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.exit": ; preds = %38, %51, %"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.exit.fold.split", %32, %.critedge, %36, %49, %47, %_ZNK4llvm12GlobalObject10getSectionEv.exit49, %54, %_ZNK4llvm9StringRef11starts_withES0_.exit55, %_ZNK4llvm12GlobalObject10getSectionEv.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %26, %28, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %14, %2, %10
-  %.0 = phi i1 [ %13, %10 ], [ false, %2 ], [ true, %14 ], [ %81, %.critedge ], [ %35, %32 ], [ false, %36 ], [ true, %47 ], [ true, %_ZNK4llvm12GlobalObject10getSectionEv.exit49 ], [ %50, %49 ], [ true, %54 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit55 ], [ true, %26 ], [ %31, %28 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ false, %_ZNK4llvm12GlobalObject10getSectionEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ true, %"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.exit.fold.split" ], [ false, %51 ], [ false, %38 ]
+  %.0 = phi i1 [ %13, %10 ], [ false, %2 ], [ true, %14 ], [ %35, %32 ], [ false, %36 ], [ true, %54 ], [ %81, %.critedge ], [ %50, %49 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit55 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ false, %51 ], [ true, %47 ], [ true, %_ZNK4llvm12GlobalObject10getSectionEv.exit49 ], [ true, %"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.exit.fold.split" ], [ %31, %28 ], [ true, %26 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ], [ false, %_ZNK4llvm12GlobalObject10getSectionEv.exit ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %38 ]
   ret i1 %.0
 }
 
@@ -1035,7 +1035,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %5
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %8, %10
-  %14 = phi i1 [ true, %8 ], [ %13, %10 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %4 ]
+  %14 = phi i1 [ %13, %10 ], [ true, %8 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ false, %4 ]
   ret i1 %14
 }
 
@@ -1078,7 +1078,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split: ; preds = %switch.ea
   br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %7, %switch.early.test, %switch.early.test, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split, %2, %10
-  %.0 = phi i1 [ %11, %10 ], [ true, %switch.early.test ], [ true, %2 ], [ true, %switch.early.test ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split ], [ true, %7 ]
+  %.0 = phi i1 [ true, %2 ], [ %11, %10 ], [ true, %7 ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split ], [ true, %switch.early.test ], [ true, %switch.early.test ]
   ret i1 %.0
 }
 
@@ -1286,7 +1286,7 @@ _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split: ; preds =
   br label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
 
 _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %switch.lookup, %9, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i, %35, %33, %29, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %12, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %12 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ %32, %29 ], [ true, %33 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ], [ false, %35 ], [ true, %9 ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split ], [ %switch.masked, %switch.lookup ]
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %12 ], [ %32, %29 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ], [ true, %33 ], [ true, %9 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i ], [ false, %35 ], [ %switch.masked, %switch.lookup ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.fold.split ]
   ret i1 %.0
 }
 
@@ -1542,8 +1542,8 @@ _ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5: ; preds = %_ZNK4llvm9StringRe
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %12, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5
-  %.sroa.09.0 = phi i64 [ %10, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5 ], [ 2147483647, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread ], [ %10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %10, %12 ]
-  %.sroa.4.0 = phi i64 [ %22, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5 ], [ 9223372032559808512, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 0, %12 ]
+  %.sroa.09.0 = phi i64 [ %10, %12 ], [ 0, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread ], [ %10, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5 ], [ 2147483647, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %10, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.4.0 = phi i64 [ 0, %12 ], [ 0, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit.thread ], [ %22, %_ZN4llvm9StringRef14consumeIntegerIiEEbjRT_.exit5 ], [ 9223372032559808512, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   %.sroa.09.0.insert.ext = and i64 %.sroa.09.0, 4294967295
   %.sroa.09.0.insert.insert = or i64 %.sroa.4.0, %.sroa.09.0.insert.ext
   ret i64 %.sroa.09.0.insert.insert
@@ -2378,8 +2378,8 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
   unreachable
 
 58:                                               ; preds = %2, %2, %54, %43, %42, %41, %40, %39, %38, %35, %32, %15, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %5
-  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ %.fca.0.extract, %54 ], [ 16, %2 ], [ 16, %2 ]
-  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ %.fca.1.extract, %54 ], [ 0, %2 ], [ 0, %2 ]
+  %.sroa.077.0 = phi i64 [ %9, %5 ], [ %14, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %31, %15 ], [ %34, %32 ], [ %37, %35 ], [ %.fca.0.extract, %54 ], [ 32, %38 ], [ 64, %39 ], [ 128, %40 ], [ 8192, %41 ], [ 80, %42 ], [ %52, %43 ], [ 16, %2 ], [ 16, %2 ]
+  %.sroa.14.0 = phi i8 [ 0, %5 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ %22, %15 ], [ %.sroa.6.0.copyload.i.i.i.i, %32 ], [ 0, %35 ], [ %.fca.1.extract, %54 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ %53, %43 ], [ 0, %2 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.077.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.14.0, 1
   ret { i64, i8 } %.fca.1.insert

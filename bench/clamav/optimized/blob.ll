@@ -513,7 +513,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
   br label %.thread
 
 .thread:                                          ; preds = %47, %42, %58
-  %61 = phi ptr [ %44, %42 ], [ %57, %58 ], [ %30, %47 ]
+  %61 = phi ptr [ %57, %58 ], [ %44, %42 ], [ %30, %47 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !16
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
@@ -524,7 +524,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %7, %.thread, %46
-  %.0 = phi i32 [ -1, %46 ], [ 0, %.thread ], [ 0, %7 ], [ -1, %54 ]
+  %.0 = phi i32 [ -1, %54 ], [ -1, %46 ], [ 0, %.thread ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -805,7 +805,7 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
   br label %38
 
 38:                                               ; preds = %32, %19, %1, %18, %13
-  %.0 = phi i32 [ 2, %13 ], [ 0, %18 ], [ 1, %1 ], [ %31, %19 ], [ %., %32 ]
+  %.0 = phi i32 [ %31, %19 ], [ 2, %13 ], [ 0, %18 ], [ 1, %1 ], [ %., %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1173,7 +1173,7 @@ define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_nul
   br label %21
 
 21:                                               ; preds = %3, %18, %14, %11
-  %.0 = phi i32 [ -1, %11 ], [ 0, %14 ], [ %20, %18 ], [ 0, %3 ]
+  %.0 = phi i32 [ %20, %18 ], [ -1, %11 ], [ 0, %14 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1319,8 +1319,8 @@ fileblobAddData.exit:                             ; preds = %41
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.31, i64 noundef %39, ptr noundef %47) #17
   br label %53
 
-48:                                               ; preds = %43, %37
-  %49 = phi ptr [ %.pre, %43 ], [ %36, %37 ]
+48:                                               ; preds = %37, %43
+  %49 = phi ptr [ %36, %37 ], [ %.pre, %43 ]
   call void @free(ptr noundef %49) #17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)

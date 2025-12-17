@@ -685,7 +685,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Resu
   br label %"_ZN4core3ptr50drop_in_place$LT$deltalake_mount..error..Error$GT$17h1507470878826f5eE.exit"
 
 common.resume.i.i:                                ; preds = %300, %292, %284, %275, %267, %259, %250, %242, %234, %223, %215, %207, %171, %163, %155, %135, %125, %118, %45, %37
-  %common.resume.op.i.i = phi { ptr, i32 } [ %38, %45 ], [ %38, %37 ], [ %136, %135 ], [ %119, %118 ], [ %126, %125 ], [ %156, %155 ], [ %164, %171 ], [ %164, %163 ], [ %216, %223 ], [ %216, %215 ], [ %208, %207 ], [ %235, %234 ], [ %260, %259 ], [ %285, %284 ], [ %243, %250 ], [ %243, %242 ], [ %268, %275 ], [ %268, %267 ], [ %293, %300 ], [ %293, %292 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %268, %267 ], [ %38, %37 ], [ %126, %125 ], [ %156, %155 ], [ %164, %163 ], [ %216, %215 ], [ %285, %284 ], [ %243, %242 ], [ %38, %45 ], [ %136, %135 ], [ %119, %118 ], [ %164, %171 ], [ %216, %223 ], [ %208, %207 ], [ %235, %234 ], [ %260, %259 ], [ %243, %250 ], [ %268, %275 ], [ %293, %300 ], [ %293, %292 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 54:                                               ; preds = %20
@@ -2153,7 +2153,7 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
           to label %29 unwind label %151
 
 35:                                               ; preds = %75, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i", %77, %.noexc.thread
-  %.2 = phi i1 [ false, %77 ], [ true, %.noexc.thread ], [ true, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i" ], [ false, %75 ]
+  %.2 = phi i1 [ false, %77 ], [ true, %.noexc.thread ], [ false, %75 ], [ true, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i" ]
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2590,11 +2590,11 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   br label %56
 
 168:                                              ; preds = %169, %29
-  %.pn5596 = phi { ptr, i32 } [ %.pn5597, %169 ], [ %.pn53, %29 ]
+  %.pn5596 = phi { ptr, i32 } [ %.pn53, %29 ], [ %.pn5597, %169 ]
   resume { ptr, i32 } %.pn5596
 
 169:                                              ; preds = %.thread, %29
-  %.pn5597 = phi { ptr, i32 } [ %.pn53, %29 ], [ %lpad.thr_comm, %.thread ]
+  %.pn5597 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %.pn53, %29 ]
   invoke void @"_ZN4core3ptr128drop_in_place$LT$std..collections..hash..map..HashMap$LT$deltalake_mount..config..MountConfigKey$C$alloc..string..String$GT$$GT$17h0a198dfe4c0a47f8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #18
           to label %168 unwind label %151
 }

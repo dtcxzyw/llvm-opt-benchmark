@@ -718,7 +718,7 @@ proto_item_set_generated.exit264:                 ; preds = %159, %176, %179
   br label %230
 
 230:                                              ; preds = %223, %226, %5, %5, %._crit_edge, %proto_item_set_generated.exit264, %proto_item_set_generated.exit261, %proto_item_set_generated.exit258, %proto_item_set_generated.exit, %22, %15, %8
-  %.0 = phi i32 [ %14, %8 ], [ %21, %15 ], [ %3, %5 ], [ %3, %5 ], [ %29, %22 ], [ %75, %proto_item_set_generated.exit ], [ %115, %proto_item_set_generated.exit258 ], [ %158, %proto_item_set_generated.exit261 ], [ %204, %proto_item_set_generated.exit264 ], [ %.1.lcssa, %._crit_edge ], [ %229, %226 ], [ %3, %223 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %14, %8 ], [ %21, %15 ], [ %3, %5 ], [ %3, %5 ], [ %29, %22 ], [ %75, %proto_item_set_generated.exit ], [ %115, %proto_item_set_generated.exit258 ], [ %158, %proto_item_set_generated.exit261 ], [ %204, %proto_item_set_generated.exit264 ], [ %229, %226 ], [ %3, %223 ]
   ret i32 %.0
 }
 

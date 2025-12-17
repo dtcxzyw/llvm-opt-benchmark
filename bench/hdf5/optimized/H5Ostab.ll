@@ -134,7 +134,7 @@ define internal ptr @H5O__stab_decode(ptr noundef %0, ptr readnone captures(none
   br label %.thread
 
 .thread:                                          ; preds = %19, %61, %63, %6
-  %.0 = phi ptr [ null, %63 ], [ null, %6 ], [ %17, %61 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %63 ], [ null, %19 ], [ null, %6 ], [ %17, %61 ]
   ret ptr %.0
 }
 
@@ -335,7 +335,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr noundef readonly ca
   br label %.thread27
 
 .thread27:                                        ; preds = %19, %41, %7, %48
-  %.021 = phi ptr [ null, %48 ], [ null, %7 ], [ %17, %41 ], [ null, %19 ]
+  %.021 = phi ptr [ null, %48 ], [ null, %19 ], [ null, %7 ], [ %17, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.021
 }
@@ -405,7 +405,7 @@ define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, p
   br label %47
 
 47:                                               ; preds = %43, %31
-  %.1 = phi i32 [ -1, %43 ], [ 0, %31 ]
+  %.1 = phi i32 [ 0, %31 ], [ -1, %43 ]
   %48 = call i32 @H5HL_unprotect(ptr noundef nonnull %25) #6
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %.thread

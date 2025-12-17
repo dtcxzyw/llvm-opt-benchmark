@@ -2627,14 +2627,14 @@ check_ie.exit633:                                 ; preds = %1262
   br i1 %1291, label %1296, label %.sink.split1114
 
 .sink.split1114.sink.split:                       ; preds = %983, %989, %971, %977
-  %.sink1113.sink = phi i32 [ %972, %971 ], [ %978, %977 ], [ %984, %983 ], [ %990, %989 ]
+  %.sink1113.sink = phi i32 [ %978, %977 ], [ %972, %971 ], [ %984, %983 ], [ %990, %989 ]
   %1292 = load i32, ptr @hf_bssap_extraneous_data, align 4
   %1293 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1292, ptr noundef %0, i32 noundef %.sink1113.sink, i32 noundef -1, i32 noundef 0)
   br label %.sink.split1114
 
 .sink.split1114:                                  ; preds = %.sink.split1114.sink.split, %1289, %1235, %1161, %1127, %1044, %987, %975, %966, %939, %852, %825, %745, %704, %650, %623, %596, %555, %502, %442, %310, %229, %148, %94
-  %hf_bssap_extraneous_data.sink = phi ptr [ @hf_bssap_extraneous_data, %94 ], [ @hf_bssap_extraneous_data, %148 ], [ @hf_bssap_extraneous_data, %229 ], [ @hf_bssap_extraneous_data, %310 ], [ @hf_bssap_extraneous_data, %442 ], [ @hf_bssap_extraneous_data, %502 ], [ @hf_bssap_extraneous_data, %555 ], [ @hf_bssap_extraneous_data, %596 ], [ @hf_bssap_extraneous_data, %623 ], [ @hf_bssap_extraneous_data, %650 ], [ @hf_bssap_extraneous_data, %704 ], [ @hf_bssap_extraneous_data, %745 ], [ @hf_bssap_extraneous_data, %825 ], [ @hf_bssap_extraneous_data, %852 ], [ @hf_bssap_extraneous_data, %939 ], [ @hf_bssap_extraneous_data, %966 ], [ @hf_bssap_conditional_ie, %975 ], [ @hf_bssap_conditional_ie, %987 ], [ @hf_bssap_extraneous_data, %1044 ], [ @hf_bssap_extraneous_data, %1127 ], [ @hf_bssap_extraneous_data, %1161 ], [ @hf_bssap_extraneous_data, %1235 ], [ @hf_bssap_extraneous_data, %1289 ], [ @hf_bssap_conditional_ie, %.sink.split1114.sink.split ]
-  %.71.sink = phi i32 [ %.6, %94 ], [ %.8, %148 ], [ %.11, %229 ], [ %.14, %310 ], [ %.23, %442 ], [ %.26, %502 ], [ %.28, %555 ], [ %.31, %596 ], [ %.32, %623 ], [ %.33, %650 ], [ %.35, %704 ], [ %.38, %745 ], [ %.43, %825 ], [ %.44, %852 ], [ %.50, %939 ], [ %.51, %966 ], [ 1, %975 ], [ 1, %987 ], [ %.55, %1044 ], [ %.64, %1127 ], [ %.66, %1161 ], [ %.69, %1235 ], [ %.71, %1289 ], [ %.sink1113.sink, %.sink.split1114.sink.split ]
+  %hf_bssap_extraneous_data.sink = phi ptr [ @hf_bssap_extraneous_data, %1235 ], [ @hf_bssap_extraneous_data, %1161 ], [ @hf_bssap_extraneous_data, %1127 ], [ @hf_bssap_extraneous_data, %1044 ], [ @hf_bssap_conditional_ie, %987 ], [ @hf_bssap_conditional_ie, %975 ], [ @hf_bssap_extraneous_data, %966 ], [ @hf_bssap_extraneous_data, %939 ], [ @hf_bssap_extraneous_data, %852 ], [ @hf_bssap_extraneous_data, %825 ], [ @hf_bssap_extraneous_data, %745 ], [ @hf_bssap_extraneous_data, %704 ], [ @hf_bssap_extraneous_data, %650 ], [ @hf_bssap_extraneous_data, %623 ], [ @hf_bssap_extraneous_data, %596 ], [ @hf_bssap_extraneous_data, %555 ], [ @hf_bssap_extraneous_data, %502 ], [ @hf_bssap_extraneous_data, %442 ], [ @hf_bssap_extraneous_data, %310 ], [ @hf_bssap_extraneous_data, %229 ], [ @hf_bssap_extraneous_data, %148 ], [ @hf_bssap_extraneous_data, %94 ], [ @hf_bssap_extraneous_data, %1289 ], [ @hf_bssap_conditional_ie, %.sink.split1114.sink.split ]
+  %.71.sink = phi i32 [ %.69, %1235 ], [ %.66, %1161 ], [ %.64, %1127 ], [ %.55, %1044 ], [ 1, %987 ], [ 1, %975 ], [ %.51, %966 ], [ %.50, %939 ], [ %.44, %852 ], [ %.43, %825 ], [ %.38, %745 ], [ %.35, %704 ], [ %.33, %650 ], [ %.32, %623 ], [ %.31, %596 ], [ %.28, %555 ], [ %.26, %502 ], [ %.23, %442 ], [ %.14, %310 ], [ %.11, %229 ], [ %.8, %148 ], [ %.6, %94 ], [ %.71, %1289 ], [ %.sink1113.sink, %.sink.split1114.sink.split ]
   %1294 = load i32, ptr %hf_bssap_extraneous_data.sink, align 4
   %1295 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %1294, ptr noundef %0, i32 noundef %.71.sink, i32 noundef -1, i32 noundef 0)
   br label %1296
@@ -2752,7 +2752,7 @@ define internal noundef zeroext i1 @dissect_bssap_heur(ptr noundef %0, ptr nound
   br label %29
 
 29:                                               ; preds = %21, %23, %25, %27, %4, %16, %14, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %14 ], [ false, %16 ], [ false, %4 ], [ true, %27 ], [ true, %25 ], [ true, %23 ], [ true, %21 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %14 ], [ false, %6 ], [ false, %4 ], [ true, %27 ], [ true, %25 ], [ true, %23 ], [ true, %21 ]
   ret i1 %.0
 }
 

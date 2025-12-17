@@ -107,7 +107,7 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %18, %.loopexit, %32
-  %.3 = phi ptr [ %27, %32 ], [ %27, %.loopexit ], [ null, %18 ], [ null, %20 ]
+  %.3 = phi ptr [ %27, %.loopexit ], [ %27, %32 ], [ null, %18 ], [ null, %20 ]
   ret ptr %.3
 }
 
@@ -282,7 +282,7 @@ define dso_local i64 @bpchar(ptr noundef readonly captures(none) %0) local_unnam
   br label %66
 
 66:                                               ; preds = %.loopexit, %62, %33, %1
-  %.0.in = phi ptr [ %5, %1 ], [ %5, %33 ], [ %57, %62 ], [ %57, %.loopexit ]
+  %.0.in = phi ptr [ %5, %33 ], [ %5, %1 ], [ %57, %62 ], [ %57, %.loopexit ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -360,7 +360,7 @@ define dso_local i64 @bpchar_name(ptr noundef readonly captures(none) %0) local_
   br label %23
 
 23:                                               ; preds = %16, %19
-  %24 = phi i32 [ %18, %16 ], [ %22, %19 ]
+  %24 = phi i32 [ %22, %19 ], [ %18, %16 ]
   %25 = and i8 %6, 1
   %.not25 = icmp eq i8 %25, 0
   %.v = select i1 %.not25, i64 4, i64 1
@@ -1114,7 +1114,7 @@ bcTruelen.exit52:                                 ; preds = %75, %.split.loop.ex
   br label %106
 
 106:                                              ; preds = %87, %97, %88
-  %.0.shrunk = phi i1 [ %96, %88 ], [ %105, %97 ], [ false, %87 ]
+  %.0.shrunk = phi i1 [ %105, %97 ], [ %96, %88 ], [ false, %87 ]
   %107 = load i64, ptr %2, align 8
   %108 = inttoptr i64 %107 to ptr
   %.not42 = icmp eq ptr %5, %108
@@ -1330,7 +1330,7 @@ bcTruelen.exit52:                                 ; preds = %75, %.split.loop.ex
   br label %106
 
 106:                                              ; preds = %87, %97, %88
-  %.0.shrunk = phi i1 [ %96, %88 ], [ %105, %97 ], [ true, %87 ]
+  %.0.shrunk = phi i1 [ %105, %97 ], [ %96, %88 ], [ true, %87 ]
   %107 = load i64, ptr %2, align 8
   %108 = inttoptr i64 %107 to ptr
   %.not42 = icmp eq ptr %5, %108
@@ -2930,7 +2930,7 @@ bcTruelen.exit31:                                 ; preds = %61, %.split.loop.ex
   br label %80
 
 80:                                               ; preds = %78, %76, %bcTruelen.exit31
-  %.0 = phi i32 [ %75, %bcTruelen.exit31 ], [ -1, %76 ], [ %., %78 ]
+  %.0 = phi i32 [ -1, %76 ], [ %75, %bcTruelen.exit31 ], [ %., %78 ]
   ret i32 %.0
 }
 

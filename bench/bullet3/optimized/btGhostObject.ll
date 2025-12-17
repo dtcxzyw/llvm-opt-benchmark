@@ -1100,8 +1100,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z9btRayAabbRK9btVector3S1_S1_
   br label %_Z8btSetMinIfEvRT_RKS0_.exit
 
 _Z8btSetMinIfEvRT_RKS0_.exit:                     ; preds = %129, %117, %101, %113, %115
-  %.2 = phi float [ %.1104106, %115 ], [ %.1104106, %101 ], [ %.1104106, %113 ], [ %127, %129 ], [ %.1104106, %117 ]
-  %.3 = phi float [ %.143107, %115 ], [ %.143107, %101 ], [ %111, %113 ], [ %.143107, %129 ], [ %.143107, %117 ]
+  %.2 = phi float [ %.1104106, %115 ], [ %.1104106, %113 ], [ %.1104106, %101 ], [ %127, %129 ], [ %.1104106, %117 ]
+  %.3 = phi float [ %.143107, %115 ], [ %111, %113 ], [ %.143107, %101 ], [ %.143107, %129 ], [ %.143107, %117 ]
   %130 = shl i32 %.139109, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 3

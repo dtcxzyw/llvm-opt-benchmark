@@ -598,7 +598,7 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   br label %76
 
 76:                                               ; preds = %49, %66, %63, %68, %72
-  %.0113 = phi nsz float [ %71, %68 ], [ %75, %72 ], [ %67, %66 ], [ %., %63 ], [ %., %49 ]
+  %.0113 = phi nsz float [ %., %49 ], [ %71, %68 ], [ %75, %72 ], [ %67, %66 ], [ %., %63 ]
   %77 = load i32, ptr %.0110, align 4, !tbaa !12
   %78 = sitofp i32 %77 to float
   %79 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %9
@@ -662,10 +662,10 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   br label %.thread182
 
 .thread182:                                       ; preds = %.thread172, %103, %99, %106
-  %.2112169 = phi ptr [ %.2112.ph, %106 ], [ %50, %103 ], [ %.0110, %99 ], [ %50, %.thread172 ]
-  %.2118167 = phi ptr [ %.2118.ph, %106 ], [ %105, %103 ], [ %.0116, %99 ], [ %94, %.thread172 ]
-  %.2121165 = phi ptr [ %.2121.ph, %106 ], [ %104, %103 ], [ %.0119, %99 ], [ %93, %.thread172 ]
-  %108 = phi float [ %107, %106 ], [ %.0113, %103 ], [ %.0113, %99 ], [ %.0113, %.thread172 ]
+  %.2112169 = phi ptr [ %.2112.ph, %106 ], [ %.0110, %99 ], [ %50, %103 ], [ %50, %.thread172 ]
+  %.2118167 = phi ptr [ %.2118.ph, %106 ], [ %.0116, %99 ], [ %105, %103 ], [ %94, %.thread172 ]
+  %.2121165 = phi ptr [ %.2121.ph, %106 ], [ %.0119, %99 ], [ %104, %103 ], [ %93, %.thread172 ]
+  %108 = phi float [ %107, %106 ], [ %.0113, %99 ], [ %.0113, %103 ], [ %.0113, %.thread172 ]
   %109 = load i32, ptr %.2112169, align 4, !tbaa !12
   %110 = sitofp i32 %109 to float
   %111 = fadd reassoc nsz arcp contract afn float %82, %110
@@ -1972,7 +1972,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %73
 
 73:                                               ; preds = %70, %4, %2, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12, %8
-  %.0 = phi ptr [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ], [ %0, %4 ], [ %spec.select, %70 ]
+  %.0 = phi ptr [ %0, %4 ], [ %spec.select, %70 ], [ %69, %68 ], [ %65, %64 ], [ %61, %60 ], [ %57, %56 ], [ %53, %52 ], [ %49, %48 ], [ %45, %44 ], [ %41, %40 ], [ %37, %36 ], [ %33, %32 ], [ %29, %28 ], [ %25, %24 ], [ %21, %20 ], [ %17, %16 ], [ %13, %12 ], [ %9, %8 ], [ %0, %2 ]
   ret ptr %.0
 }
 
@@ -2077,7 +2077,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #5 {
   br label %39
 
 39:                                               ; preds = %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5, %3, %1
-  %.0 = phi ptr [ @introspection_linear, %1 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ %., %37 ]
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1496), %35 ], [ %., %37 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1408), %33 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1320), %31 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1232), %29 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1144), %27 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), %25 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 968), %23 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 880), %21 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 792), %19 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 704), %17 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 616), %15 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 528), %13 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 440), %11 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 352), %9 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 264), %7 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 176), %5 ], [ getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 88), %3 ], [ @introspection_linear, %1 ]
   ret ptr %.0
 }
 

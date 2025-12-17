@@ -1749,9 +1749,9 @@ yy_get_next_buffer.exit.thread607:                ; preds = %647, %yy_get_next_b
   br i1 %878, label %.lr.ph31.i592, label %.preheader.outer.backedge
 
 .preheader.outer.backedge:                        ; preds = %._crit_edge.i602, %yy_get_next_buffer.exit.thread607, %yy_try_NUL_trans.exit
-  %.1543.ph.be = phi ptr [ %561, %yy_try_NUL_trans.exit ], [ %874, %yy_get_next_buffer.exit.thread607 ], [ %874, %._crit_edge.i602 ]
-  %.2537.ph.be = phi ptr [ %564, %yy_try_NUL_trans.exit ], [ %876, %yy_get_next_buffer.exit.thread607 ], [ %876, %._crit_edge.i602 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %877, %yy_get_next_buffer.exit.thread607 ], [ %918, %._crit_edge.i602 ]
+  %.1543.ph.be = phi ptr [ %874, %yy_get_next_buffer.exit.thread607 ], [ %561, %yy_try_NUL_trans.exit ], [ %874, %._crit_edge.i602 ]
+  %.2537.ph.be = phi ptr [ %876, %yy_get_next_buffer.exit.thread607 ], [ %564, %yy_try_NUL_trans.exit ], [ %876, %._crit_edge.i602 ]
+  %.3.ph.be = phi i32 [ %877, %yy_get_next_buffer.exit.thread607 ], [ %.021.lcssa.i, %yy_try_NUL_trans.exit ], [ %918, %._crit_edge.i602 ]
   br label %.preheader.outer
 
 .lr.ph31.i592:                                    ; preds = %yy_get_next_buffer.exit.thread607, %._crit_edge.i602
@@ -2108,7 +2108,7 @@ yy_pop_state.exit:                                ; preds = %8
   br label %22
 
 22:                                               ; preds = %3, %switch.lookup, %yy_pop_state.exit
-  %.06 = phi i32 [ %switch.load8, %yy_pop_state.exit ], [ 258, %3 ], [ 258, %switch.lookup ]
+  %.06 = phi i32 [ 258, %3 ], [ %switch.load8, %yy_pop_state.exit ], [ 258, %switch.lookup ]
   ret i32 %.06
 }
 
@@ -2463,8 +2463,8 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %8, %11, %22
   br label %48
 
 48:                                               ; preds = %34, %33
-  %49 = phi i64 [ %41, %34 ], [ %29, %33 ]
-  %50 = phi ptr [ %40, %34 ], [ %25, %33 ]
+  %49 = phi i64 [ %29, %33 ], [ %41, %34 ]
+  %50 = phi ptr [ %25, %33 ], [ %40, %34 ]
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
   store ptr %0, ptr %51, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 28

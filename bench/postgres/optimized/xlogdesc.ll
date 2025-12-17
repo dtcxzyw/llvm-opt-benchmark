@@ -430,7 +430,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br label %56
 
 56:                                               ; preds = %54, %52, %50
-  %.0.us = phi ptr [ @.str.33, %50 ], [ @.str.34, %52 ], [ %.str.36..str.35.us, %54 ]
+  %.0.us = phi ptr [ @.str.34, %52 ], [ @.str.33, %50 ], [ %.str.36..str.35.us, %54 ]
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %58, i64 %33

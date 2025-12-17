@@ -545,8 +545,8 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr noundef captures(n
   br label %136
 
 136:                                              ; preds = %130, %128, %122, %114
-  %.2211.i = phi i32 [ %.1210246.i, %114 ], [ 0, %122 ], [ 0, %130 ], [ 0, %128 ]
-  %.2.i = phi i32 [ %.1208247.i, %114 ], [ %.1208247.i, %122 ], [ 0, %130 ], [ 0, %128 ]
+  %.2211.i = phi i32 [ 0, %128 ], [ %.1210246.i, %114 ], [ 0, %122 ], [ 0, %130 ]
+  %.2.i = phi i32 [ 0, %128 ], [ %.1208247.i, %114 ], [ %.1208247.i, %122 ], [ 0, %130 ]
   %137 = add nuw nsw i32 %.0201248.i, 1
   %exitcond256.not.i = icmp eq i32 %.0201248.i, %113
   br i1 %exitcond256.not.i, label %.loopexit.i, label %.lr.ph250.i, !llvm.loop !51
@@ -595,7 +595,7 @@ define internal fastcc noalias noundef ptr @routesplines_(ptr noundef captures(n
   br label %overlap.exit.i
 
 overlap.exit.i:                                   ; preds = %158, %156, %152, %147, %.loopexit.i
-  %.0.i.i = phi double [ %148, %147 ], [ %153, %152 ], [ %157, %156 ], [ %159, %158 ], [ 0.000000e+00, %.loopexit.i ]
+  %.0.i.i = phi double [ %159, %158 ], [ 0.000000e+00, %.loopexit.i ], [ %148, %147 ], [ %153, %152 ], [ %157, %156 ]
   %160 = load double, ptr %83, align 8, !tbaa !47
   %161 = load double, ptr %80, align 8, !tbaa !48
   %162 = load double, ptr %68, align 8, !tbaa !47
@@ -639,7 +639,7 @@ overlap.exit.i:                                   ; preds = %158, %156, %152, %1
   br label %overlap.exit239.i
 
 overlap.exit239.i:                                ; preds = %180, %178, %174, %169
-  %.0.i235.i = phi double [ %170, %169 ], [ %175, %174 ], [ %179, %178 ], [ %181, %180 ]
+  %.0.i235.i = phi double [ %181, %180 ], [ %179, %178 ], [ %170, %169 ], [ %175, %174 ]
   %182 = fcmp ogt double %.0.i.i, 0.000000e+00
   %183 = fcmp ogt double %.0.i235.i, 0.000000e+00
   %or.cond4.i = and i1 %182, %183
@@ -1396,7 +1396,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br label %.critedge357
 
 .critedge357:                                     ; preds = %514, %73, %55, %351, %418, %521, %.thread492, %469, %439, %.critedge355
-  %.0315 = phi ptr [ null, %.critedge355 ], [ null, %469 ], [ null, %514 ], [ null, %439 ], [ null, %521 ], [ %517, %.thread492 ], [ null, %418 ], [ null, %351 ], [ null, %55 ], [ null, %73 ]
+  %.0315 = phi ptr [ null, %.critedge355 ], [ null, %351 ], [ null, %469 ], [ null, %439 ], [ null, %514 ], [ %517, %.thread492 ], [ null, %521 ], [ null, %418 ], [ null, %55 ], [ null, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

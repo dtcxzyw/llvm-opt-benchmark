@@ -115,7 +115,7 @@ define internal range(i32 -1163346256, 2) i32 @atrac1_decode_init(ptr noundef in
   br label %53
 
 53:                                               ; preds = %25, %20, %15, %30, %35, %14, %9
-  %.0 = phi i32 [ -22, %9 ], [ -1163346256, %14 ], [ 0, %35 ], [ -12, %30 ], [ 1, %15 ], [ 1, %20 ], [ 1, %25 ]
+  %.0 = phi i32 [ -22, %9 ], [ -1163346256, %14 ], [ -12, %30 ], [ 1, %15 ], [ 1, %20 ], [ 0, %35 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -599,8 +599,8 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %283, %._crit_edge.i, %216
-  %.264.lcssa92.i = phi i32 [ %.264.lcssa.i, %283 ], [ %.264.lcssa.i, %._crit_edge.i ], [ %.06278.i, %216 ]
-  %289 = phi i32 [ %218, %283 ], [ %218, %._crit_edge.i ], [ %217, %216 ]
+  %.264.lcssa92.i = phi i32 [ %.264.lcssa.i, %._crit_edge.i ], [ %.264.lcssa.i, %283 ], [ %.06278.i, %216 ]
+  %289 = phi i32 [ %218, %._crit_edge.i ], [ %218, %283 ], [ %217, %216 ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next.i48, 3
   br i1 %exitcond84.not.i, label %290, label %201, !llvm.loop !64
@@ -640,7 +640,7 @@ at1_imdct.exit.i:                                 ; preds = %.lr.ph.i, %at1_imdc
   br label %.thread
 
 .thread:                                          ; preds = %54, %38, %209, %at1_unpack_dequant.exit.thread, %20, %._crit_edge, %19
-  %.0 = phi i32 [ -1094995529, %19 ], [ %305, %._crit_edge ], [ %22, %20 ], [ -1094995529, %at1_unpack_dequant.exit.thread ], [ -1094995529, %209 ], [ -1094995529, %38 ], [ -1094995529, %54 ]
+  %.0 = phi i32 [ -1094995529, %19 ], [ %305, %._crit_edge ], [ %22, %20 ], [ -1094995529, %at1_unpack_dequant.exit.thread ], [ -1094995529, %38 ], [ -1094995529, %209 ], [ -1094995529, %54 ]
   ret i32 %.0
 }
 

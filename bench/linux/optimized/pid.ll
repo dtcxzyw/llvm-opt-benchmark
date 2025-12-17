@@ -1071,7 +1071,7 @@ define dso_local ptr @find_get_task_by_vpid(i32 noundef %0) local_unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %19, %14, %33, %29
-  %35 = phi ptr [ %23, %33 ], [ %23, %29 ], [ null, %14 ], [ null, %19 ]
+  %35 = phi ptr [ null, %19 ], [ %23, %33 ], [ %23, %29 ], [ null, %14 ]
   tail call void @__rcu_read_unlock() #14
   ret ptr %35
 }
@@ -1158,7 +1158,7 @@ define dso_local ptr @get_pid_task(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %4, %2, %22, %18
-  %24 = phi ptr [ %12, %22 ], [ %12, %18 ], [ null, %2 ], [ null, %4 ]
+  %24 = phi ptr [ null, %4 ], [ %12, %22 ], [ %12, %18 ], [ null, %2 ]
   tail call void @__rcu_read_unlock() #14
   ret ptr %24
 }
@@ -1522,8 +1522,8 @@ pidfd_get_pid.exit:                               ; preds = %24, %27
   br label %.thread7
 
 .thread7:                                         ; preds = %30, %35, %41, %45
-  %47 = phi ptr [ %34, %45 ], [ %34, %41 ], [ %34, %35 ], [ null, %30 ]
-  %48 = phi i1 [ false, %45 ], [ false, %41 ], [ true, %35 ], [ true, %30 ]
+  %47 = phi ptr [ %34, %35 ], [ %34, %45 ], [ %34, %41 ], [ null, %30 ]
+  %48 = phi i1 [ true, %35 ], [ false, %45 ], [ false, %41 ], [ true, %30 ]
   tail call void @__rcu_read_unlock() #14
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %50 = load i32, ptr %49, align 4
@@ -1560,7 +1560,7 @@ pidfd_get_pid.exit:                               ; preds = %24, %27
   br label %pidfd_get_pid.exit.thread
 
 pidfd_get_pid.exit.thread:                        ; preds = %2, %60, %.thread11, %64, %63, %pidfd_get_pid.exit
-  %65 = phi ptr [ %47, %64 ], [ %8, %pidfd_get_pid.exit ], [ inttoptr (i64 -3 to ptr), %63 ], [ inttoptr (i64 -3 to ptr), %.thread11 ], [ inttoptr (i64 -3 to ptr), %60 ], [ inttoptr (i64 -9 to ptr), %2 ]
+  %65 = phi ptr [ %47, %64 ], [ %8, %pidfd_get_pid.exit ], [ inttoptr (i64 -3 to ptr), %63 ], [ inttoptr (i64 -3 to ptr), %60 ], [ inttoptr (i64 -3 to ptr), %.thread11 ], [ inttoptr (i64 -9 to ptr), %2 ]
   ret ptr %65
 }
 

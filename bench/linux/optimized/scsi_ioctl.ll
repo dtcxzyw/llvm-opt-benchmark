@@ -1576,7 +1576,7 @@ define internal fastcc i32 @sg_io(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread5
 
 .thread5:                                         ; preds = %45, %38, %36, %79, %63, %32
-  %90 = phi i32 [ %77, %63 ], [ %89, %79 ], [ -22, %32 ], [ -1, %45 ], [ -14, %38 ], [ -90, %36 ]
+  %90 = phi i32 [ -22, %32 ], [ %77, %63 ], [ %89, %79 ], [ -1, %45 ], [ -14, %38 ], [ -90, %36 ]
   tail call void @blk_mq_free_request(ptr noundef %27) #11
   br label %91
 

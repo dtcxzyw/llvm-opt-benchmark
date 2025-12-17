@@ -145,7 +145,7 @@ define hidden i32 @mbedtls_ecdsa_sign_restartable(ptr noundef %0, ptr noundef %1
   br i1 %64, label %30, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %30, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %.preheader, %37, %35, %33
-  %.047 = phi i32 [ -19712, %.preheader ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ -19712, %30 ], [ 0, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ]
+  %.047 = phi i32 [ %34, %33 ], [ -19712, %.preheader ], [ %38, %37 ], [ %36, %35 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ -19712, %30 ], [ 0, %62 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %12) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %13) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %14) #7
@@ -153,7 +153,7 @@ define hidden i32 @mbedtls_ecdsa_sign_restartable(ptr noundef %0, ptr noundef %1
   br label %65
 
 65:                                               ; preds = %22, %25, %11, %18, %.loopexit
-  %.0 = phi i32 [ %.047, %.loopexit ], [ -20352, %18 ], [ -20352, %11 ], [ -19584, %25 ], [ -19584, %22 ]
+  %.0 = phi i32 [ %.047, %.loopexit ], [ -20352, %11 ], [ -20352, %18 ], [ -19584, %25 ], [ -19584, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -461,7 +461,7 @@ derive_mpi.exit.thread51:                         ; preds = %45, %derive_mpi.exi
   br label %derive_mpi.exit.thread
 
 derive_mpi.exit.thread:                           ; preds = %42, %31, %65, %61, %19, %22, %25, %28, %63, %58, %56, %54, %52, %50, %derive_mpi.exit.thread51, %derive_mpi.exit
-  %.030 = phi i32 [ %48, %derive_mpi.exit ], [ %49, %derive_mpi.exit.thread51 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %60, %58 ], [ %64, %63 ], [ -19968, %28 ], [ -19968, %25 ], [ -19968, %22 ], [ -19968, %19 ], [ -19968, %61 ], [ %spec.select, %65 ], [ %44, %42 ], [ %37, %31 ]
+  %.030 = phi i32 [ %spec.select, %65 ], [ %48, %derive_mpi.exit ], [ %49, %derive_mpi.exit.thread51 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %57, %56 ], [ %60, %58 ], [ -19968, %19 ], [ %64, %63 ], [ -19968, %61 ], [ -19968, %28 ], [ -19968, %25 ], [ -19968, %22 ], [ %44, %42 ], [ %37, %31 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %12) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #7
@@ -637,7 +637,7 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br label %30
 
 30:                                               ; preds = %15, %28, %25, %23, %13
-  %.0 = phi i32 [ %14, %13 ], [ %24, %23 ], [ %27, %25 ], [ %spec.select, %28 ], [ -20454, %15 ]
+  %.0 = phi i32 [ %14, %13 ], [ %spec.select, %28 ], [ %24, %23 ], [ %27, %25 ], [ -20454, %15 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

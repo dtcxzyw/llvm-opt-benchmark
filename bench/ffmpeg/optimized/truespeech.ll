@@ -857,7 +857,7 @@ truespeech_save_prevvec.exit:                     ; preds = %.preheader
   br label %493
 
 493:                                              ; preds = %17, %._crit_edge, %16
-  %.0 = phi i32 [ %12, %._crit_edge ], [ -1, %16 ], [ %20, %17 ]
+  %.0 = phi i32 [ -1, %16 ], [ %12, %._crit_edge ], [ %20, %17 ]
   ret i32 %.0
 }
 

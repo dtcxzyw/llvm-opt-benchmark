@@ -4570,8 +4570,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %88
   br label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread237, %.thread, %94
-  %99 = phi i64 [ 0, %.thread ], [ %95, %94 ], [ %87, %.thread237 ], [ %95, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i236 = phi ptr [ null, %.thread ], [ %91, %94 ], [ null, %.thread237 ], [ %91, %.lr.ph.i.i.i.i.i.i.i ]
+  %99 = phi i64 [ 0, %.thread ], [ %87, %.thread237 ], [ %95, %94 ], [ %95, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i236 = phi ptr [ null, %.thread ], [ null, %.thread237 ], [ %91, %94 ], [ %91, %.lr.ph.i.i.i.i.i.i.i ]
   %100 = icmp slt i64 %99, %83
   br i1 %100, label %.lr.ph.i.i.i.i.i.i.i.i, label %.noexc94
 

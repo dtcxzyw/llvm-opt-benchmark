@@ -871,7 +871,7 @@ define dso_local void @mddev_destroy_serial_pool(ptr noundef captures(address) %
   br label %55
 
 55:                                               ; preds = %52, %.critedge.us, %46
-  %56 = phi i32 [ %47, %46 ], [ %20, %.critedge.us ], [ %20, %52 ]
+  %56 = phi i32 [ %20, %52 ], [ %47, %46 ], [ %20, %.critedge.us ]
   %57 = load ptr, ptr %19, align 8
   %58 = icmp eq ptr %57, %14
   br i1 %58, label %.split7.us, label %.split.us, !llvm.loop !13
@@ -2943,7 +2943,7 @@ define dso_local range(i32 0, 2) i32 @sync_page_io(ptr noundef readonly captures
   br label %30
 
 30:                                               ; preds = %.thread2, %.thread, %29, %23
-  %31 = phi i64 [ 96, %29 ], [ 104, %23 ], [ 112, %.thread ], [ 112, %.thread2 ]
+  %31 = phi i64 [ 96, %29 ], [ 112, %.thread2 ], [ 104, %23 ], [ 112, %.thread ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %1
@@ -5669,7 +5669,7 @@ find_pers.exit.thread:                            ; preds = %.split.i42, %.split
   br label %679
 
 679:                                              ; preds = %analyze_sbs.exit, %677, %663, %312, %281, %268, %18, %10, %6, %1
-  %680 = phi i32 [ -22, %268 ], [ -22, %281 ], [ %678, %677 ], [ 0, %663 ], [ -22, %1 ], [ -16, %6 ], [ -16, %10 ], [ -22, %18 ], [ -22, %analyze_sbs.exit ], [ %313, %312 ]
+  %680 = phi i32 [ -22, %268 ], [ -22, %281 ], [ %678, %677 ], [ %313, %312 ], [ 0, %663 ], [ -22, %1 ], [ -16, %6 ], [ -16, %10 ], [ -22, %18 ], [ -22, %analyze_sbs.exit ]
   ret i32 %680
 }
 
@@ -6796,7 +6796,7 @@ define dso_local i32 @md_add_new_disk(ptr noundef %0, ptr noundef readonly captu
   br label %.thread
 
 .thread:                                          ; preds = %298, %252, %244, %283, %237, %231, %230, %228, %224, %222, %216, %215, %198, %.loopexit, %142, %99, %77, %68, %65, %59, %43, %.critedge, %21
-  %299 = phi i32 [ -22, %237 ], [ -22, %21 ], [ -75, %.critedge ], [ %46, %43 ], [ -22, %59 ], [ %66, %68 ], [ 0, %65 ], [ %102, %99 ], [ -22, %142 ], [ %196, %198 ], [ -22, %77 ], [ -16, %.loopexit ], [ %201, %215 ], [ %220, %222 ], [ 0, %216 ], [ %201, %224 ], [ %229, %228 ], [ %201, %230 ], [ %232, %231 ], [ 0, %283 ], [ 0, %244 ], [ %296, %298 ], [ %255, %252 ]
+  %299 = phi i32 [ -22, %237 ], [ %232, %231 ], [ 0, %244 ], [ -22, %21 ], [ -75, %.critedge ], [ %46, %43 ], [ -22, %59 ], [ %66, %68 ], [ 0, %65 ], [ %102, %99 ], [ -22, %142 ], [ %196, %198 ], [ -22, %77 ], [ -16, %.loopexit ], [ %201, %215 ], [ %220, %222 ], [ 0, %216 ], [ %201, %224 ], [ %229, %228 ], [ %201, %230 ], [ 0, %283 ], [ %296, %298 ], [ %255, %252 ]
   ret i32 %299
 }
 
@@ -8667,7 +8667,7 @@ define internal i32 @md_ioctl(ptr noundef %0, i32 %1, i32 noundef %2, i64 nounde
   br label %490
 
 490:                                              ; preds = %.thread30, %487, %485, %475, %470, %460, %417, %385, %383, %381, %379, %377, %367
-  %491 = phi i32 [ %368, %367 ], [ %489, %487 ], [ %486, %485 ], [ %484, %475 ], [ 0, %470 ], [ %461, %460 ], [ %394, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ -19, %377 ], [ -30, %417 ], [ %.ph29, %.thread30 ]
+  %491 = phi i32 [ %368, %367 ], [ %489, %487 ], [ %486, %485 ], [ %484, %475 ], [ 0, %470 ], [ %461, %460 ], [ %.ph29, %.thread30 ], [ %394, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ -19, %377 ], [ -30, %417 ]
   %492 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %493 = load i32, ptr %492, align 8
   %494 = icmp eq i32 %493, 1
@@ -8680,7 +8680,7 @@ define internal i32 @md_ioctl(ptr noundef %0, i32 %1, i32 noundef %2, i64 nounde
   br label %.thread32
 
 .thread32:                                        ; preds = %454, %497, %490
-  %498 = phi i32 [ %491, %497 ], [ %491, %490 ], [ -22, %454 ]
+  %498 = phi i32 [ %491, %490 ], [ %491, %497 ], [ -22, %454 ]
   switch i32 %2, label %.thread32.thread [
     i32 1075054881, label %500
     i32 2344, label %500
@@ -8700,7 +8700,7 @@ define internal i32 @md_ioctl(ptr noundef %0, i32 %1, i32 noundef %2, i64 nounde
   br label %.thread25
 
 .thread25:                                        ; preds = %360, %353, %500, %.thread32.thread, %361
-  %501 = phi i32 [ %498, %500 ], [ %499, %.thread32.thread ], [ %363, %361 ], [ %358, %360 ], [ %354, %353 ]
+  %501 = phi i32 [ %363, %361 ], [ %499, %.thread32.thread ], [ %498, %500 ], [ %358, %360 ], [ %354, %353 ]
   br i1 %345, label %.thread36, label %502
 
 502:                                              ; preds = %.thread25
@@ -10646,8 +10646,8 @@ define dso_local void @md_do_sync(ptr noundef readonly captures(none) %0) #0 ali
   br label %.loopexit51
 
 .loopexit51:                                      ; preds = %486, %.loopexit49, %517, %514, %457
-  %528 = phi i64 [ %346, %457 ], [ %444, %514 ], [ %444, %517 ], [ %444, %.loopexit49 ], [ %444, %486 ]
-  %529 = phi i32 [ %345, %457 ], [ %483, %514 ], [ %483, %517 ], [ %483, %.loopexit49 ], [ %483, %486 ]
+  %528 = phi i64 [ %444, %517 ], [ %444, %.loopexit49 ], [ %346, %457 ], [ %444, %514 ], [ %444, %486 ]
+  %529 = phi i32 [ %483, %517 ], [ %483, %.loopexit49 ], [ %345, %457 ], [ %483, %514 ], [ %483, %486 ]
   %530 = icmp ult i64 %449, %305
   br i1 %530, label %.lr.ph74, label %.thread40
 
@@ -14376,7 +14376,7 @@ cmd_match.exit22:                                 ; preds = %156
   br i1 %195, label %198, label %.thread
 
 .thread:                                          ; preds = %168, %.thread24, %189
-  %196 = phi i32 [ %194, %189 ], [ -16, %.thread24 ], [ %170, %168 ]
+  %196 = phi i32 [ -16, %.thread24 ], [ %194, %189 ], [ %170, %168 ]
   %197 = sext i32 %196 to i64
   br label %239
 
@@ -14474,7 +14474,7 @@ cmd_match.exit22.thread:                          ; preds = %156, %cmd_match.exi
   br label %239
 
 239:                                              ; preds = %164, %.thread, %238, %234, %206, %.critedge18, %9, %3
-  %240 = phi i64 [ -22, %9 ], [ -22, %3 ], [ -16, %.critedge18 ], [ -22, %206 ], [ %2, %234 ], [ %2, %238 ], [ %197, %.thread ], [ -22, %164 ]
+  %240 = phi i64 [ %2, %238 ], [ -22, %9 ], [ -22, %3 ], [ -16, %.critedge18 ], [ -22, %206 ], [ %2, %234 ], [ %197, %.thread ], [ -22, %164 ]
   ret i64 %240
 }
 
@@ -16915,7 +16915,7 @@ define internal i64 @resync_start_store(ptr noundef %0, ptr noundef %1, i64 noun
   br label %59
 
 59:                                               ; preds = %.thread5, %55, %51
-  %60 = phi i64 [ %2, %55 ], [ -16, %51 ], [ %2, %.thread5 ]
+  %60 = phi i64 [ %2, %.thread5 ], [ %2, %55 ], [ -16, %51 ]
   call void @mddev_unlock(ptr noundef %0)
   br label %61
 
@@ -17124,7 +17124,7 @@ define internal i64 @metadata_store(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %95
 
 95:                                               ; preds = %91, %89, %87, %81, %78, %73, %69, %50, %17
-  %96 = phi i64 [ %2, %50 ], [ %2, %69 ], [ -22, %73 ], [ -22, %78 ], [ -22, %81 ], [ -2, %89 ], [ %2, %91 ], [ -16, %17 ], [ -22, %87 ]
+  %96 = phi i64 [ %2, %50 ], [ %2, %69 ], [ -22, %73 ], [ -22, %78 ], [ -22, %81 ], [ -2, %89 ], [ -22, %87 ], [ %2, %91 ], [ -16, %17 ]
   call void @mddev_unlock(ptr noundef %0)
   br label %97
 
@@ -17271,7 +17271,7 @@ define internal i64 @new_dev_store(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %80
 
 80:                                               ; preds = %.thread9, %78, %70, %36, %20, %16, %13, %13, %9, %3
-  %81 = phi i64 [ %37, %36 ], [ %71, %70 ], [ -22, %13 ], [ -22, %13 ], [ -22, %9 ], [ -22, %3 ], [ -22, %16 ], [ -75, %20 ], [ %2, %78 ], [ %77, %.thread9 ]
+  %81 = phi i64 [ %37, %36 ], [ %71, %70 ], [ -75, %20 ], [ -22, %13 ], [ -22, %13 ], [ -22, %9 ], [ -22, %3 ], [ -22, %16 ], [ %2, %78 ], [ %77, %.thread9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %81
 }
@@ -17755,11 +17755,11 @@ split:                                            ; preds = %13
   br label %132
 
 132:                                              ; preds = %127, %106, %86, %84, %79, %77
-  %133 = phi i32 [ %131, %127 ], [ %107, %106 ], [ %85, %84 ], [ %90, %86 ], [ %80, %79 ], [ %78, %77 ]
+  %133 = phi i32 [ %80, %79 ], [ %131, %127 ], [ %78, %77 ], [ %107, %106 ], [ %85, %84 ], [ %90, %86 ]
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.thread14, label %.thread12
 
-.thread14:                                        ; preds = %114, %74, %.thread11, %123, %132
+.thread14:                                        ; preds = %114, %.thread11, %74, %123, %132
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %136 = load i32, ptr %135, align 8
   %137 = icmp eq i32 %136, 1
@@ -17790,7 +17790,7 @@ split:                                            ; preds = %13
   br label %.thread
 
 .thread:                                          ; preds = %.critedge, %.critedge.us, %.split19.us, %146, %.thread12, %71, %65
-  %147 = phi i64 [ %66, %65 ], [ %72, %71 ], [ %2, %146 ], [ %145, %.thread12 ], [ -22, %.split19.us ], [ -22, %.critedge.us ], [ -22, %.critedge ]
+  %147 = phi i64 [ %66, %65 ], [ %72, %71 ], [ %145, %.thread12 ], [ %2, %146 ], [ -22, %.split19.us ], [ -22, %.critedge.us ], [ -22, %.critedge ]
   ret i64 %147
 }
 
@@ -19487,7 +19487,7 @@ cmd_match.exit17:                                 ; preds = %147
   br label %178
 
 cmd_match.exit17.thread:                          ; preds = %147, %15, %cmd_match.exit17
-  %.ph = phi ptr [ null, %15 ], [ %51, %cmd_match.exit17 ], [ %51, %147 ]
+  %.ph = phi ptr [ %51, %cmd_match.exit17 ], [ null, %15 ], [ %51, %147 ]
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %165 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %164) #32
   %166 = sext i32 %165 to i64
@@ -21190,7 +21190,7 @@ md_wakeup_thread.exit:                            ; preds = %43, %50
   br label %.thread
 
 .thread:                                          ; preds = %71, %63, %58, %54, %89, %md_wakeup_thread.exit, %110, %115, %96, %105, %38, %34, %30, %18, %16, %3
-  %116 = phi i64 [ %17, %16 ], [ -16, %3 ], [ -28, %18 ], [ -17, %30 ], [ -22, %34 ], [ -16, %38 ], [ -28, %105 ], [ %2, %96 ], [ %2, %115 ], [ %2, %110 ], [ %2, %md_wakeup_thread.exit ], [ -28, %71 ], [ -22, %63 ], [ -16, %58 ], [ -16, %54 ], [ %90, %89 ]
+  %116 = phi i64 [ -28, %105 ], [ %2, %md_wakeup_thread.exit ], [ %17, %16 ], [ -16, %3 ], [ -28, %18 ], [ -17, %30 ], [ -22, %34 ], [ -16, %38 ], [ %2, %96 ], [ %2, %115 ], [ %2, %110 ], [ -28, %71 ], [ -22, %63 ], [ -16, %58 ], [ -16, %54 ], [ %90, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %116
 }
@@ -22202,7 +22202,7 @@ read_disk_sb.exit:                                ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %145, %164, %read_disk_sb.exit, %193, %186, %89, %56, %._crit_edge, %43
-  %198 = phi i32 [ -22, %read_disk_sb.exit ], [ -22, %43 ], [ -22, %._crit_edge ], [ -22, %56 ], [ -22, %89 ], [ %177, %186 ], [ %197, %193 ], [ -22, %164 ], [ -22, %145 ]
+  %198 = phi i32 [ -22, %read_disk_sb.exit ], [ -22, %43 ], [ -22, %._crit_edge ], [ -22, %56 ], [ -22, %89 ], [ %197, %193 ], [ %177, %186 ], [ -22, %164 ], [ -22, %145 ]
   ret i32 %198
 }
 
@@ -23528,7 +23528,7 @@ read_disk_sb.exit:                                ; preds = %29
   br label %.thread10
 
 .thread10:                                        ; preds = %205, %179, %175, %170, %308, %read_disk_sb.exit, %326, %322, %244, %157, %144, %94, %90, %86, %82, %74, %65, %60, %56, %52, %40, %3
-  %328 = phi i32 [ -22, %74 ], [ -22, %82 ], [ %313, %326 ], [ -22, %308 ], [ -22, %3 ], [ -22, %read_disk_sb.exit ], [ -22, %65 ], [ -22, %60 ], [ -22, %56 ], [ -22, %52 ], [ -22, %40 ], [ -22, %94 ], [ -22, %90 ], [ -22, %86 ], [ -22, %144 ], [ -12, %157 ], [ -22, %244 ], [ -22, %322 ], [ -5, %179 ], [ -22, %175 ], [ -22, %170 ], [ -22, %205 ]
+  %328 = phi i32 [ -22, %74 ], [ -22, %82 ], [ %313, %326 ], [ -22, %308 ], [ -22, %322 ], [ -22, %3 ], [ -22, %read_disk_sb.exit ], [ -22, %65 ], [ -22, %60 ], [ -22, %56 ], [ -22, %52 ], [ -22, %40 ], [ -22, %94 ], [ -22, %90 ], [ -22, %86 ], [ -22, %144 ], [ -22, %170 ], [ -12, %157 ], [ -22, %244 ], [ -5, %179 ], [ -22, %175 ], [ -22, %205 ]
   ret i32 %328
 }
 
@@ -25167,7 +25167,7 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef nonnull %0, 
   br i1 %200, label %.thread25, label %.thread23
 
 .thread23:                                        ; preds = %.thread.thread26, %76, %152, %151, %172, %171, %139, %143, %130, %135, %186, %106, %97, %21, %27, %33, %40, %46, %54, %61, %.thread
-  %201 = phi i32 [ %126, %.thread ], [ -22, %152 ], [ -17, %151 ], [ -22, %172 ], [ -2, %171 ], [ -16, %139 ], [ -16, %143 ], [ -22, %130 ], [ -22, %135 ], [ -1, %186 ], [ %104, %106 ], [ -22, %97 ], [ -22, %21 ], [ -22, %27 ], [ -22, %33 ], [ -22, %40 ], [ -22, %46 ], [ -22, %54 ], [ -22, %61 ], [ -22, %76 ], [ %169, %.thread.thread26 ]
+  %201 = phi i32 [ %126, %.thread ], [ -22, %152 ], [ -17, %151 ], [ -22, %172 ], [ -2, %171 ], [ -16, %139 ], [ -16, %143 ], [ -22, %130 ], [ -22, %135 ], [ -1, %186 ], [ -22, %61 ], [ %104, %106 ], [ -22, %97 ], [ -22, %21 ], [ -22, %27 ], [ -22, %33 ], [ -22, %40 ], [ -22, %46 ], [ -22, %54 ], [ -22, %76 ], [ %169, %.thread.thread26 ]
   %202 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.227, i32 noundef %201) #33
   br label %.thread25
 
@@ -25210,8 +25210,8 @@ define internal fastcc noundef i32 @__md_set_array_info(ptr noundef nonnull %0, 
   %229 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.230, i32 noundef %226) #33
   br label %.thread25
 
-.thread25:                                        ; preds = %.thread.thread, %101, %76, %228, %225, %218, %207, %.thread23, %.thread, %5
-  %230 = phi i32 [ -16, %218 ], [ -16, %207 ], [ -14, %5 ], [ %201, %.thread23 ], [ 0, %.thread ], [ %226, %228 ], [ 0, %225 ], [ %95, %76 ], [ 0, %101 ], [ 0, %.thread.thread ]
+.thread25:                                        ; preds = %.thread.thread, %76, %101, %228, %225, %218, %207, %.thread23, %.thread, %5
+  %230 = phi i32 [ -16, %218 ], [ -16, %207 ], [ -14, %5 ], [ %201, %.thread23 ], [ 0, %.thread ], [ %226, %228 ], [ 0, %225 ], [ 0, %101 ], [ %95, %76 ], [ 0, %.thread.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %230
 }
@@ -25729,7 +25729,7 @@ define internal fastcc i32 @set_bitmap_file(ptr noundef nonnull %0, i32 noundef 
   br label %.thread14
 
 .thread14:                                        ; preds = %.thread9, %.thread10
-  %87 = phi i32 [ 0, %.thread9 ], [ %86, %.thread10 ]
+  %87 = phi i32 [ %86, %.thread10 ], [ 0, %.thread9 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
@@ -25744,7 +25744,7 @@ define internal fastcc i32 @set_bitmap_file(ptr noundef nonnull %0, i32 noundef 
   br label %.thread8
 
 .thread8:                                         ; preds = %71, %83, %27, %28, %62, %41, %91, %.thread14, %70, %18, %14, %10, %6
-  %93 = phi i32 [ -16, %10 ], [ -16, %6 ], [ -16, %18 ], [ -16, %14 ], [ -2, %70 ], [ %87, %.thread14 ], [ %87, %91 ], [ -17, %27 ], [ -17, %28 ], [ %64, %62 ], [ -9, %41 ], [ 0, %83 ], [ 0, %71 ]
+  %93 = phi i32 [ -9, %41 ], [ -16, %10 ], [ -16, %6 ], [ -16, %18 ], [ -16, %14 ], [ -2, %70 ], [ %87, %.thread14 ], [ %87, %91 ], [ 0, %83 ], [ -17, %27 ], [ -17, %28 ], [ %64, %62 ], [ 0, %71 ]
   ret i32 %93
 }
 
@@ -26591,7 +26591,7 @@ define internal noundef i32 @md_seq_show(ptr noundef %0, ptr noundef %1) #0 alig
   br label %.thread14
 
 .thread14:                                        ; preds = %183, %178, %227, %225
-  %228 = phi i64 [ %187, %227 ], [ %187, %225 ], [ %185, %183 ], [ 3, %178 ]
+  %228 = phi i64 [ %187, %225 ], [ %187, %227 ], [ %185, %183 ], [ 3, %178 ]
   %229 = lshr i64 %228, 10
   %230 = mul nuw i64 %229, 1000
   %231 = lshr i64 %167, 10
@@ -26974,7 +26974,7 @@ define internal i32 @add_named_array(ptr noundef %0, ptr readnone captures(none)
   br label %md_alloc_and_put.exit
 
 md_alloc_and_put.exit:                            ; preds = %102, %77, %74, %54, %29, %26, %63, %58, %55, %16
-  %103 = phi i32 [ -7, %16 ], [ -22, %63 ], [ -22, %58 ], [ -22, %55 ], [ %28, %26 ], [ 0, %29 ], [ 0, %54 ], [ %76, %74 ], [ 0, %77 ], [ 0, %102 ]
+  %103 = phi i32 [ -22, %55 ], [ 0, %54 ], [ -7, %16 ], [ -22, %63 ], [ -22, %58 ], [ %28, %26 ], [ 0, %29 ], [ %76, %74 ], [ 0, %77 ], [ 0, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %103

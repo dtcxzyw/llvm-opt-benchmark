@@ -1041,7 +1041,7 @@ define hidden noundef zeroext i16 @de_bssgp_list_of_setup_pfcs(ptr noundef %0, p
   br label %25
 
 25:                                               ; preds = %12, %22, %15
-  %.032 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
+  %.032 = phi i16 [ 0, %15 ], [ %24, %22 ], [ 1, %12 ]
   ret i16 %.032
 }
 
@@ -2447,7 +2447,7 @@ define internal noundef zeroext i16 @de_bssgp_pfc_flow_ctrl(ptr noundef %0, ptr 
   br label %50
 
 50:                                               ; preds = %12, %.split56.us, %15
-  %.0 = phi i16 [ %49, %.split56.us ], [ 0, %15 ], [ 1, %12 ]
+  %.0 = phi i16 [ 0, %15 ], [ %49, %.split56.us ], [ 1, %12 ]
   ret i16 %.0
 }
 
@@ -2828,7 +2828,7 @@ define internal zeroext i16 @de_bssgp_pfcs_to_be_set_up_list(ptr noundef %0, ptr
   br label %61
 
 61:                                               ; preds = %12, %58, %15
-  %.0 = phi i16 [ %60, %58 ], [ %17, %15 ], [ 1, %12 ]
+  %.0 = phi i16 [ %17, %15 ], [ %60, %58 ], [ 1, %12 ]
   ret i16 %.0
 }
 
@@ -3023,7 +3023,7 @@ define internal noundef zeroext i16 @de_bssgp_active_pfcs_list(ptr noundef %0, p
   br label %25
 
 25:                                               ; preds = %12, %22, %15
-  %.032 = phi i16 [ %24, %22 ], [ 0, %15 ], [ 1, %12 ]
+  %.032 = phi i16 [ 0, %15 ], [ %24, %22 ], [ 1, %12 ]
   ret i16 %.032
 }
 

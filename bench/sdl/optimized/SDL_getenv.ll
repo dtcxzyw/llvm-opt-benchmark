@@ -94,7 +94,7 @@ define hidden noundef ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext %0) loc
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !3
 
 .loopexit:                                        ; preds = %21, %.preheader, %7, %9, %1, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %1 ], [ %2, %9 ], [ %2, %7 ], [ %2, %.preheader ], [ %2, %21 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %6 ], [ %2, %9 ], [ %2, %7 ], [ %2, %.preheader ], [ %2, %21 ]
   ret ptr %.0
 }
 
@@ -212,7 +212,7 @@ define hidden ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef readonly captures
   br label %17
 
 17:                                               ; preds = %4, %2, %15
-  %.09 = phi ptr [ %.0, %15 ], [ null, %2 ], [ null, %4 ]
+  %.09 = phi ptr [ null, %2 ], [ %.0, %15 ], [ null, %4 ]
   ret ptr %.09
 }
 
@@ -634,7 +634,7 @@ SDL_GetEnvironment_REAL.exit:                     ; preds = %1, %4
   br label %SDL_GetEnvironmentVariable_REAL.exit
 
 SDL_GetEnvironmentVariable_REAL.exit:             ; preds = %SDL_GetEnvironment_REAL.exit, %7, %18
-  %.09.i = phi ptr [ %.0.i, %18 ], [ null, %SDL_GetEnvironment_REAL.exit ], [ null, %7 ]
+  %.09.i = phi ptr [ null, %SDL_GetEnvironment_REAL.exit ], [ %.0.i, %18 ], [ null, %7 ]
   ret ptr %.09.i
 }
 

@@ -390,7 +390,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   tail call void @kfree(ptr noundef nonnull %72) #8
   br label %.thread50
 
-.thread.thread:                                   ; preds = %117, %118, %30, %21, %18
+.thread.thread:                                   ; preds = %118, %117, %30, %21, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef align 8 dereferenceable(40) %3, i64 40, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1088,19 +1088,19 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   br i1 %560, label %.thread52, label %.thread.split, !llvm.loop !14
 
 .thread78:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit83
-  %561 = phi ptr [ %183, %.loopexit83 ], [ %183, %189 ], [ %183, %193 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
-  %562 = phi i32 [ %415, %.loopexit83 ], [ -12, %189 ], [ -12, %193 ], [ %540, %552 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
+  %561 = phi ptr [ %183, %.loopexit83 ], [ %183, %193 ], [ %183, %189 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
+  %562 = phi i32 [ %415, %.loopexit83 ], [ -12, %193 ], [ -12, %189 ], [ %540, %552 ], [ -22, %.thread.split ], [ -12, %429 ], [ -12, %423 ]
   %563 = call i32 @blk_rq_unmap_user(ptr noundef %561)
   br label %.thread50
 
 .thread50:                                        ; preds = %62, %144, %143, %68, %52, %39, %46, %.thread78
-  %564 = phi i32 [ %562, %.thread78 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -22, %46 ], [ -12, %62 ]
+  %564 = phi i32 [ %562, %.thread78 ], [ -22, %46 ], [ -22, %144 ], [ -22, %143 ], [ -12, %68 ], [ -22, %52 ], [ -22, %39 ], [ -12, %62 ]
   %565 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %565, align 8
   br label %.thread52
 
 .thread52:                                        ; preds = %557, %136, %388, %71, %.thread50
-  %566 = phi i32 [ %564, %.thread50 ], [ 0, %71 ], [ 0, %388 ], [ 0, %136 ], [ 0, %557 ]
+  %566 = phi i32 [ %564, %.thread50 ], [ 0, %71 ], [ 0, %136 ], [ 0, %388 ], [ 0, %557 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %566
 }
@@ -1655,7 +1655,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread20.sink.split, %119, %112, %44, %159
-  %162 = phi ptr [ %160, %159 ], [ inttoptr (i64 -12 to ptr), %119 ], [ inttoptr (i64 -22 to ptr), %112 ], [ inttoptr (i64 -12 to ptr), %44 ], [ %.ph, %.thread20.sink.split ]
+  %162 = phi ptr [ %160, %159 ], [ inttoptr (i64 -12 to ptr), %44 ], [ inttoptr (i64 -12 to ptr), %119 ], [ inttoptr (i64 -22 to ptr), %112 ], [ %.ph, %.thread20.sink.split ]
   %163 = ptrtoint ptr %162 to i64
   %164 = trunc i64 %163 to i32
   br label %175

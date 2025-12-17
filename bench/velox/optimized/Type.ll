@@ -3400,7 +3400,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
   br label %if.then, !llvm.loop !8
 
-if.then:                                          ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
+if.then:                                          ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, %if.end15.i.i
   call void @llvm.trap()
   unreachable
 
@@ -4175,7 +4175,7 @@ sw.bb10.i.i:                                      ; preds = %invoke.cont22
           to label %invoke.cont24 unwind label %lpad16
 
 invoke.cont24:                                    ; preds = %sw.bb7.i.i, %sw.bb.i.i, %sw.bb4.i.i, %sw.bb10.i.i
-  %retval.0.i.i = phi i64 [ %35, %sw.bb.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call6.i.i33, %sw.bb4.i.i ], [ %call2.i.i.i34, %sw.bb10.i.i ]
+  %retval.0.i.i = phi i64 [ %35, %sw.bb.i.i ], [ %call6.i.i33, %sw.bb4.i.i ], [ %conv.i.i.i.i.i, %sw.bb7.i.i ], [ %call2.i.i.i34, %sw.bb10.i.i ]
   %conv = trunc i64 %retval.0.i.i to i8
   %call.i39 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic2atENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %obj, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.21, i64 5))
           to label %invoke.cont28 unwind label %lpad16
@@ -4223,7 +4223,7 @@ sw.default.i.i54.cont:                            ; preds = %sw.default.i.i54.in
   unreachable
 
 invoke.cont30:                                    ; preds = %sw.bb7.i.i47, %sw.bb.i.i52, %sw.bb4.i.i50, %sw.bb10.i.i41
-  %retval.0.i.i46 = phi i64 [ %39, %sw.bb.i.i52 ], [ %conv.i.i.i.i.i49, %sw.bb7.i.i47 ], [ %call6.i.i56, %sw.bb4.i.i50 ], [ %call2.i.i.i58, %sw.bb10.i.i41 ]
+  %retval.0.i.i46 = phi i64 [ %39, %sw.bb.i.i52 ], [ %call6.i.i56, %sw.bb4.i.i50 ], [ %conv.i.i.i.i.i49, %sw.bb7.i.i47 ], [ %call2.i.i.i58, %sw.bb10.i.i41 ]
   %conv32 = trunc i64 %retval.0.i.i46 to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %call5.i.i.i3.i.i.i.i.i62 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #44
@@ -4765,7 +4765,7 @@ _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit246: ; pred
   ret void
 
 ehcleanup107:                                     ; preds = %lpad16, %common.resume.i, %lpad78, %ehcleanup
-  %.pn14 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %64, %lpad78 ], [ %45, %lpad16 ], [ %common.resume.op.i, %common.resume.i ]
+  %.pn14 = phi { ptr, i32 } [ %64, %lpad78 ], [ %.pn, %ehcleanup ], [ %45, %lpad16 ], [ %common.resume.op.i, %common.resume.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %typeName) #41
   br label %ehcleanup109
 
@@ -5845,8 +5845,8 @@ _ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynam
   br label %eh.resume
 
 eh.resume:                                        ; preds = %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit89, %lpad.i51, %lpad34, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit83, %lpad.i34, %lpad22, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit77, %lpad.i17, %lpad10, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit71, %lpad.i, %lpad
-  %ref.tmp33.sink = phi ptr [ %ref.tmp2, %lpad ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit71 ], [ %ref.tmp9, %lpad10 ], [ %ref.tmp9, %lpad.i17 ], [ %ref.tmp9, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit77 ], [ %ref.tmp21, %lpad22 ], [ %ref.tmp21, %lpad.i34 ], [ %ref.tmp21, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit83 ], [ %ref.tmp33, %lpad34 ], [ %ref.tmp33, %lpad.i51 ], [ %ref.tmp33, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit89 ]
-  %.pn9.pn = phi { ptr, i32 } [ %20, %lpad ], [ %0, %lpad.i ], [ %21, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit71 ], [ %25, %lpad10 ], [ %5, %lpad.i17 ], [ %26, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit77 ], [ %30, %lpad22 ], [ %10, %lpad.i34 ], [ %31, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit83 ], [ %35, %lpad34 ], [ %15, %lpad.i51 ], [ %36, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit89 ]
+  %ref.tmp33.sink = phi ptr [ %ref.tmp21, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit83 ], [ %ref.tmp9, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit77 ], [ %ref.tmp2, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit71 ], [ %ref.tmp2, %lpad ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp9, %lpad10 ], [ %ref.tmp9, %lpad.i17 ], [ %ref.tmp21, %lpad22 ], [ %ref.tmp21, %lpad.i34 ], [ %ref.tmp33, %lpad34 ], [ %ref.tmp33, %lpad.i51 ], [ %ref.tmp33, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit89 ]
+  %.pn9.pn = phi { ptr, i32 } [ %31, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit83 ], [ %26, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit77 ], [ %21, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit71 ], [ %20, %lpad ], [ %0, %lpad.i ], [ %25, %lpad10 ], [ %5, %lpad.i17 ], [ %30, %lpad22 ], [ %10, %lpad.i34 ], [ %35, %lpad34 ], [ %15, %lpad.i51 ], [ %36, %_ZNSt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKN5folly7dynamicEEED2Ev.exit89 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp33.sink) #41
   resume { ptr, i32 } %.pn9.pn
 }
@@ -6646,7 +6646,7 @@ _ZNK8facebook5velox4Type7asArrayEv.exit:          ; preds = %if.end3
   br label %return
 
 return:                                           ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit, %entry, %_ZNK8facebook5velox4Type7asArrayEv.exit
-  %retval.0 = phi i1 [ %call8, %_ZNK8facebook5velox4Type7asArrayEv.exit ], [ true, %entry ], [ false, %_ZNKSt9type_infoeqERKS_.exit ], [ false, %if.end.i ]
+  %retval.0 = phi i1 [ true, %entry ], [ %call8, %_ZNK8facebook5velox4Type7asArrayEv.exit ], [ false, %_ZNKSt9type_infoeqERKS_.exit ], [ false, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -8512,7 +8512,7 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit": ; preds = %for.body.i.i.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15", %for.end.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %incdec.ptr.i20.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %__first.sroa.0.069.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType11isOrderableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %__first.sroa.0.069.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %1, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   ret i1 %cmp.i.i
 }
@@ -8637,7 +8637,7 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit": ; preds = %for.body.i.i.i.i, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15", %for.end.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb31.i.i.i.i, %sw.bb38.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %incdec.ptr.i20.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %__first.sroa.0.069.i.i.i.i, %for.body.i.i.i.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %sw.bb31.i.i.i.i ], [ %spec.select.i.i.i.i, %sw.bb38.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i.i, %sw.bb.i.i.i.i ], [ %incdec.ptr.i20.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit15" ], [ %incdec.ptr.i.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit" ], [ %incdec.ptr.i14.i.i.i.i.le, %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIKN8facebook5velox4TypeEESt6vectorIS7_SaIS7_EEEEZNKS4_7RowType12isComparableEvE3$_0EbT_SG_T0_.exit.loopexit.split.loop.exit13" ], [ %__first.sroa.0.069.i.i.i.i, %for.body.i.i.i.i ]
   %cmp.i.i = icmp eq ptr %1, %retval.sroa.0.0.in.sroa.speculated.i.i.i.i
   ret i1 %cmp.i.i
 }
@@ -8881,7 +8881,7 @@ for.inc:                                          ; preds = %land.rhs.i.i, %_ZSt
   br i1 %cmp, label %for.body, label %return, !llvm.loop !74
 
 return:                                           ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %for.inc, %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit15, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %for.inc ], [ false, %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit15 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ true, %for.inc ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ false, %_ZNK8facebook5velox7RowType6nameOfB5cxx11Ej.exit15 ]
   ret i1 %retval.0
 }
 
@@ -9995,7 +9995,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %call26, label %for.cond, label %return
 
 return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call26, %for.cond ], [ %call26, %for.body ]
+  %retval.0 = phi i1 [ false, %if.end ], [ false, %entry ], [ true, %for.cond.preheader ], [ %call26, %for.cond ], [ %call26, %for.body ]
   ret i1 %retval.0
 }
 
@@ -11690,7 +11690,7 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i53
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i53, %lpad13.body, %if.then.i.i, %lpad.i
-  %.pn = phi { ptr, i32 } [ %7, %if.then.i.i ], [ %7, %lpad.i ], [ %14, %lpad13.body ], [ %14, %if.then.i.i53 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad.i ], [ %14, %if.then.i.i53 ], [ %7, %if.then.i.i ], [ %14, %lpad13.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #41
   br label %eh.resume
 
@@ -14452,8 +14452,8 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return:                                           ; preds = %init.end.i422, %if.then.i.i.i.i.i.i428, %if.else.i.i.i.i.i.i430, %init.end.i407, %if.then.i.i.i.i.i.i413, %if.else.i.i.i.i.i.i415, %init.end.i392, %if.then.i.i.i.i.i.i398, %if.else.i.i.i.i.i.i400, %init.end.i377, %if.then.i.i.i.i.i.i383, %if.else.i.i.i.i.i.i385, %init.end.i362, %if.then.i.i.i.i.i.i368, %if.else.i.i.i.i.i.i370, %init.end.i347, %if.then.i.i.i.i.i.i353, %if.else.i.i.i.i.i.i355, %init.end.i332, %if.then.i.i.i.i.i.i338, %if.else.i.i.i.i.i.i340, %init.end.i317, %if.then.i.i.i.i.i.i323, %if.else.i.i.i.i.i.i325, %init.end.i302, %if.then.i.i.i.i.i.i308, %if.else.i.i.i.i.i.i310, %init.end.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %sw.bb19
-  %_M_impl.i.i.i.i.i.i.i.i.sink = phi ptr [ %_M_impl.i.i.i.i.i.i.i.i, %sw.bb19 ], [ %3, %if.else.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i ], [ %3, %init.end.i ], [ %12, %if.else.i.i.i.i.i.i310 ], [ %12, %if.then.i.i.i.i.i.i308 ], [ %12, %init.end.i302 ], [ %21, %if.else.i.i.i.i.i.i325 ], [ %21, %if.then.i.i.i.i.i.i323 ], [ %21, %init.end.i317 ], [ %30, %if.else.i.i.i.i.i.i340 ], [ %30, %if.then.i.i.i.i.i.i338 ], [ %30, %init.end.i332 ], [ %39, %if.else.i.i.i.i.i.i355 ], [ %39, %if.then.i.i.i.i.i.i353 ], [ %39, %init.end.i347 ], [ %48, %if.else.i.i.i.i.i.i370 ], [ %48, %if.then.i.i.i.i.i.i368 ], [ %48, %init.end.i362 ], [ %57, %if.else.i.i.i.i.i.i385 ], [ %57, %if.then.i.i.i.i.i.i383 ], [ %57, %init.end.i377 ], [ %66, %if.else.i.i.i.i.i.i400 ], [ %66, %if.then.i.i.i.i.i.i398 ], [ %66, %init.end.i392 ], [ %75, %if.else.i.i.i.i.i.i415 ], [ %75, %if.then.i.i.i.i.i.i413 ], [ %75, %init.end.i407 ], [ %84, %if.else.i.i.i.i.i.i430 ], [ %84, %if.then.i.i.i.i.i.i428 ], [ %84, %init.end.i422 ]
-  %call5.i.i.i3.i.i.i.i.i.i.sink = phi ptr [ %call5.i.i.i3.i.i.i.i.i.i, %sw.bb19 ], [ %4, %if.else.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ], [ %4, %init.end.i ], [ %13, %if.else.i.i.i.i.i.i310 ], [ %13, %if.then.i.i.i.i.i.i308 ], [ %13, %init.end.i302 ], [ %22, %if.else.i.i.i.i.i.i325 ], [ %22, %if.then.i.i.i.i.i.i323 ], [ %22, %init.end.i317 ], [ %31, %if.else.i.i.i.i.i.i340 ], [ %31, %if.then.i.i.i.i.i.i338 ], [ %31, %init.end.i332 ], [ %40, %if.else.i.i.i.i.i.i355 ], [ %40, %if.then.i.i.i.i.i.i353 ], [ %40, %init.end.i347 ], [ %49, %if.else.i.i.i.i.i.i370 ], [ %49, %if.then.i.i.i.i.i.i368 ], [ %49, %init.end.i362 ], [ %58, %if.else.i.i.i.i.i.i385 ], [ %58, %if.then.i.i.i.i.i.i383 ], [ %58, %init.end.i377 ], [ %67, %if.else.i.i.i.i.i.i400 ], [ %67, %if.then.i.i.i.i.i.i398 ], [ %67, %init.end.i392 ], [ %76, %if.else.i.i.i.i.i.i415 ], [ %76, %if.then.i.i.i.i.i.i413 ], [ %76, %init.end.i407 ], [ %85, %if.else.i.i.i.i.i.i430 ], [ %85, %if.then.i.i.i.i.i.i428 ], [ %85, %init.end.i422 ]
+  %_M_impl.i.i.i.i.i.i.i.i.sink = phi ptr [ %_M_impl.i.i.i.i.i.i.i.i, %sw.bb19 ], [ %75, %init.end.i407 ], [ %66, %init.end.i392 ], [ %57, %init.end.i377 ], [ %48, %init.end.i362 ], [ %39, %init.end.i347 ], [ %30, %init.end.i332 ], [ %21, %init.end.i317 ], [ %12, %init.end.i302 ], [ %3, %init.end.i ], [ %3, %if.else.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i ], [ %12, %if.else.i.i.i.i.i.i310 ], [ %12, %if.then.i.i.i.i.i.i308 ], [ %21, %if.else.i.i.i.i.i.i325 ], [ %21, %if.then.i.i.i.i.i.i323 ], [ %30, %if.else.i.i.i.i.i.i340 ], [ %30, %if.then.i.i.i.i.i.i338 ], [ %39, %if.else.i.i.i.i.i.i355 ], [ %39, %if.then.i.i.i.i.i.i353 ], [ %48, %if.else.i.i.i.i.i.i370 ], [ %48, %if.then.i.i.i.i.i.i368 ], [ %57, %if.else.i.i.i.i.i.i385 ], [ %57, %if.then.i.i.i.i.i.i383 ], [ %66, %if.else.i.i.i.i.i.i400 ], [ %66, %if.then.i.i.i.i.i.i398 ], [ %75, %if.else.i.i.i.i.i.i415 ], [ %75, %if.then.i.i.i.i.i.i413 ], [ %84, %if.else.i.i.i.i.i.i430 ], [ %84, %if.then.i.i.i.i.i.i428 ], [ %84, %init.end.i422 ]
+  %call5.i.i.i3.i.i.i.i.i.i.sink = phi ptr [ %call5.i.i.i3.i.i.i.i.i.i, %sw.bb19 ], [ %76, %init.end.i407 ], [ %67, %init.end.i392 ], [ %58, %init.end.i377 ], [ %49, %init.end.i362 ], [ %40, %init.end.i347 ], [ %31, %init.end.i332 ], [ %22, %init.end.i317 ], [ %13, %init.end.i302 ], [ %4, %init.end.i ], [ %4, %if.else.i.i.i.i.i.i ], [ %4, %if.then.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i310 ], [ %13, %if.then.i.i.i.i.i.i308 ], [ %22, %if.else.i.i.i.i.i.i325 ], [ %22, %if.then.i.i.i.i.i.i323 ], [ %31, %if.else.i.i.i.i.i.i340 ], [ %31, %if.then.i.i.i.i.i.i338 ], [ %40, %if.else.i.i.i.i.i.i355 ], [ %40, %if.then.i.i.i.i.i.i353 ], [ %49, %if.else.i.i.i.i.i.i370 ], [ %49, %if.then.i.i.i.i.i.i368 ], [ %58, %if.else.i.i.i.i.i.i385 ], [ %58, %if.then.i.i.i.i.i.i383 ], [ %67, %if.else.i.i.i.i.i.i400 ], [ %67, %if.then.i.i.i.i.i.i398 ], [ %76, %if.else.i.i.i.i.i.i415 ], [ %76, %if.then.i.i.i.i.i.i413 ], [ %85, %if.else.i.i.i.i.i.i430 ], [ %85, %if.then.i.i.i.i.i.i428 ], [ %85, %init.end.i422 ]
   store ptr %_M_impl.i.i.i.i.i.i.i.i.sink, ptr %agg.result, align 8
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i.i.i.i.i.sink, ptr %_M_refcount.i.i.i, align 8
@@ -15584,7 +15584,7 @@ if.end6:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end6, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %if.end ], [ %call7, %if.end6 ]
+  %retval.0 = phi i1 [ true, %if.end ], [ true, %entry ], [ %call7, %if.end6 ]
   ret i1 %retval.0
 }
 
@@ -15803,67 +15803,67 @@ ehcleanup92.thread:                               ; preds = %init
   br label %cleanup.done
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %arrayinit.endOfInit.0 = phi ptr [ %ref.tmp, %invoke.cont ], [ %arrayinit.element, %invoke.cont3 ]
+  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element, %invoke.cont3 ], [ %ref.tmp, %invoke.cont ]
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup92
 
 lpad6:                                            ; preds = %invoke.cont7, %invoke.cont5
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element, %invoke.cont5 ], [ %arrayinit.element8, %invoke.cont7 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element8, %invoke.cont7 ], [ %arrayinit.element, %invoke.cont5 ]
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup90
 
 lpad11:                                           ; preds = %invoke.cont12, %invoke.cont10
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element8, %invoke.cont10 ], [ %arrayinit.element13, %invoke.cont12 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element13, %invoke.cont12 ], [ %arrayinit.element8, %invoke.cont10 ]
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup89
 
 lpad16:                                           ; preds = %invoke.cont17, %invoke.cont15
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.element13, %invoke.cont15 ], [ %arrayinit.element18, %invoke.cont17 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.element18, %invoke.cont17 ], [ %arrayinit.element13, %invoke.cont15 ]
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup88
 
 lpad21:                                           ; preds = %invoke.cont22, %invoke.cont20
-  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.element18, %invoke.cont20 ], [ %arrayinit.element23, %invoke.cont22 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.element23, %invoke.cont22 ], [ %arrayinit.element18, %invoke.cont20 ]
   %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup87
 
 lpad26:                                           ; preds = %invoke.cont27, %invoke.cont25
-  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.element23, %invoke.cont25 ], [ %arrayinit.element28, %invoke.cont27 ]
+  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.element28, %invoke.cont27 ], [ %arrayinit.element23, %invoke.cont25 ]
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup86
 
 lpad31:                                           ; preds = %invoke.cont32, %invoke.cont30
-  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.element28, %invoke.cont30 ], [ %arrayinit.element33, %invoke.cont32 ]
+  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.element33, %invoke.cont32 ], [ %arrayinit.element28, %invoke.cont30 ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup85
 
 lpad36:                                           ; preds = %invoke.cont37, %invoke.cont35
-  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.element33, %invoke.cont35 ], [ %arrayinit.element38, %invoke.cont37 ]
+  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.element38, %invoke.cont37 ], [ %arrayinit.element33, %invoke.cont35 ]
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup84
 
 lpad41:                                           ; preds = %invoke.cont42, %invoke.cont40
-  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.element38, %invoke.cont40 ], [ %arrayinit.element43, %invoke.cont42 ]
+  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.element43, %invoke.cont42 ], [ %arrayinit.element38, %invoke.cont40 ]
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup83
 
 lpad46:                                           ; preds = %invoke.cont47, %invoke.cont45
-  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.element43, %invoke.cont45 ], [ %arrayinit.element48, %invoke.cont47 ]
+  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.element48, %invoke.cont47 ], [ %arrayinit.element43, %invoke.cont45 ]
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup82
 
 lpad51:                                           ; preds = %invoke.cont63, %invoke.cont61, %invoke.cont59, %invoke.cont57, %invoke.cont55, %invoke.cont54, %invoke.cont52, %invoke.cont50
-  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.element60, %invoke.cont61 ], [ %arrayinit.element60, %invoke.cont59 ], [ %arrayinit.element56, %invoke.cont57 ], [ %arrayinit.element56, %invoke.cont55 ], [ %arrayinit.element53, %invoke.cont54 ], [ %arrayinit.element53, %invoke.cont52 ], [ %arrayinit.element48, %invoke.cont50 ], [ %arrayinit.element64, %invoke.cont63 ]
+  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.element64, %invoke.cont63 ], [ %arrayinit.element60, %invoke.cont61 ], [ %arrayinit.element60, %invoke.cont59 ], [ %arrayinit.element56, %invoke.cont57 ], [ %arrayinit.element56, %invoke.cont55 ], [ %arrayinit.element53, %invoke.cont54 ], [ %arrayinit.element53, %invoke.cont52 ], [ %arrayinit.element48, %invoke.cont50 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup81
@@ -18522,7 +18522,7 @@ cleanup.sink.split.sink.split:                    ; preds = %if.then.i.i.i.i9, %
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  %.sink121 = phi ptr [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i43 ], [ %45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i88 ], [ %.sink124, %cleanup.sink.split.sink.split ]
+  %.sink121 = phi ptr [ %29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i43 ], [ %45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i88 ], [ %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.sink124, %cleanup.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i92 = load ptr, ptr %.sink121, align 8
   %vfn3.i.i.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i92, i64 24
   %55 = load ptr, ptr %vfn3.i.i.i.i.i.i93, align 8
@@ -18698,7 +18698,7 @@ if.end18.i:                                       ; preds = %while.end.i
   br i1 %cmp.i.not, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SM_EEEEESS_ImmERKT_NSO_8PrefetchE.exit, label %for.body.i, !llvm.loop !213
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEPvEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SM_EEEEESS_ImmERKT_NSO_8PrefetchE.exit: ; preds = %if.end18.i, %while.end.i, %land.rhs.i.i.i, %if.end.i.i.i.i
-  %lnot.i = phi i1 [ true, %if.end.i.i.i.i ], [ true, %land.rhs.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
+  %lnot.i = phi i1 [ true, %land.rhs.i.i.i ], [ true, %if.end.i.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
   ret i1 %lnot.i
 }
 
@@ -18925,7 +18925,7 @@ if.end18.i:                                       ; preds = %while.end.i
   br i1 %cmp.i.not, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SL_EEEEESR_ImmERKT_NSN_8PrefetchE.exit, label %for.body.i, !llvm.loop !218
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10shared_ptrIKN8facebook5velox13ISerializableEERKNS_7dynamicEEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SL_EEEEESR_ImmERKT_NSN_8PrefetchE.exit: ; preds = %if.end18.i, %while.end.i, %land.rhs.i.i.i, %if.end.i.i.i.i
-  %lnot.i = phi i1 [ true, %if.end.i.i.i.i ], [ true, %land.rhs.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
+  %lnot.i = phi i1 [ true, %land.rhs.i.i.i ], [ true, %if.end.i.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
   ret i1 %lnot.i
 }
 
@@ -19150,7 +19150,7 @@ if.end18.i:                                       ; preds = %while.end.i
   br i1 %cmp.i.not, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SM_EEEEESS_ImmERKT_NSO_8PrefetchE.exit, label %for.body.i, !llvm.loop !223
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteISE_EERKNS_7dynamicEEEvvvEEE8findImplIS9_EENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKS9_SM_EEEEESS_ImmERKT_NSO_8PrefetchE.exit: ; preds = %if.end18.i, %while.end.i, %land.rhs.i.i.i, %if.end.i.i.i.i
-  %lnot.i = phi i1 [ true, %if.end.i.i.i.i ], [ true, %land.rhs.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
+  %lnot.i = phi i1 [ true, %land.rhs.i.i.i ], [ true, %if.end.i.i.i.i ], [ false, %while.end.i ], [ false, %if.end18.i ]
   ret i1 %lnot.i
 }
 
@@ -24083,8 +24083,8 @@ if.then33.i.i:                                    ; preds = %if.else11.i.i
   unreachable
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else11.i.i
-  %.pn.i.i = phi i64 [ 1, %if.else.i.i ], [ 1, %if.then.i.i ], [ %shl.i.i, %if.else11.i.i ]
-  %desiredCapacity.addr.0.pn.i.i = phi i64 [ %spec.select.i.i, %if.else.i.i ], [ 2, %if.then.i.i ], [ %conv26.i.i, %if.else11.i.i ]
+  %.pn.i.i = phi i64 [ 1, %if.then.i.i ], [ 1, %if.else.i.i ], [ %shl.i.i, %if.else11.i.i ]
+  %desiredCapacity.addr.0.pn.i.i = phi i64 [ 2, %if.then.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %conv26.i.i, %if.else11.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %conv, i64 noundef %conv4, i64 noundef %conv.i, i64 noundef %.pn.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i)
   br label %if.end
 
@@ -29600,8 +29600,8 @@ lpad:                                             ; preds = %if.end25
   resume { ptr, i32 } %8
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISF_Lb1EEE.exit, %land.rhs.i.i.i, %if.end25, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSG_10_Hash_nodeISE_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSG_10_Hash_nodeISE_Lb1EEEmRKT_m.exit ], [ %call28, %if.end25 ], [ %__it.sroa.0.026, %land.rhs.i.i.i ], [ %__it.sroa.0.026, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ]
-  %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSG_10_Hash_nodeISE_Lb1EEEmRKT_m.exit ], [ 1, %if.end25 ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSG_10_Hash_nodeISE_Lb1EEEmRKT_m.exit ], [ %__it.sroa.0.026, %land.rhs.i.i.i ], [ %__it.sroa.0.026, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ]
+  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4TypeEEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSG_10_Hash_nodeISE_Lb1EEEmRKT_m.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -31853,8 +31853,8 @@ lpad:                                             ; preds = %if.end25
   resume { ptr, i32 } %8
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISO_Lb1EEE.exit, %land.rhs.i.i.i, %if.end25, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSB_13TypeParameterESaISG_EEEEESaISN_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSP_18_Mod_range_hashingENSP_20_Default_ranged_hashENSP_20_Prime_rehash_policyENSP_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSP_10_Hash_nodeISN_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSB_13TypeParameterESaISG_EEEEESaISN_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSP_18_Mod_range_hashingENSP_20_Default_ranged_hashENSP_20_Prime_rehash_policyENSP_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSP_10_Hash_nodeISN_Lb1EEEmRKT_m.exit ], [ %call28, %if.end25 ], [ %__it.sroa.0.026, %land.rhs.i.i.i ], [ %__it.sroa.0.026, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ]
-  %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSB_13TypeParameterESaISG_EEEEESaISN_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSP_18_Mod_range_hashingENSP_20_Default_ranged_hashENSP_20_Prime_rehash_policyENSP_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSP_10_Hash_nodeISN_Lb1EEEmRKT_m.exit ], [ 1, %if.end25 ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %if.end25 ], [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSB_13TypeParameterESaISG_EEEEESaISN_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSP_18_Mod_range_hashingENSP_20_Default_ranged_hashENSP_20_Prime_rehash_policyENSP_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSP_10_Hash_nodeISN_Lb1EEEmRKT_m.exit ], [ %__it.sroa.0.026, %land.rhs.i.i.i ], [ %__it.sroa.0.026, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ]
+  %retval.sroa.4.0 = phi i8 [ 1, %if.end25 ], [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSB_13TypeParameterESaISG_EEEEESaISN_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSP_18_Mod_range_hashingENSP_20_Default_ranged_hashENSP_20_Prime_rehash_policyENSP_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSP_10_Hash_nodeISN_Lb1EEEmRKT_m.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -32822,8 +32822,8 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISC_Lb1EEE.exit, %land.rhs.i.i.i, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N8facebook5velox8TypeKindEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSD_10_Hash_nodeISB_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSD_10_Hash_nodeISB_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N8facebook5velox8TypeKindEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ %__it.sroa.0.025, %land.rhs.i.i.i ], [ %__it.sroa.0.025, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ]
-  %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSD_10_Hash_nodeISB_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N8facebook5velox8TypeKindEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N8facebook5velox8TypeKindEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSD_10_Hash_nodeISB_Lb1EEEmRKT_m.exit ], [ %__it.sroa.0.025, %land.rhs.i.i.i ], [ %__it.sroa.0.025, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ]
+  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairISA_N8facebook5velox8TypeKindEENS_10_AllocNodeISaINS_10_Hash_nodeISG_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSO_.exit ], [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS5_EEPNSD_10_Hash_nodeISB_Lb1EEEmRKT_m.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -33172,7 +33172,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox8TypeKindEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -33844,7 +33844,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox10OpaqueTypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -35369,7 +35369,7 @@ _ZNKSt8__detail15_Hash_code_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GL
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS9_Lb0EEE.exit, %for.inc, %for.body, %for.cond.preheader, %_ZNKSt8__detail15_Hash_code_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS3_.exit
-  %retval.sroa.0.1 = phi ptr [ %call18, %_ZNKSt8__detail15_Hash_code_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS3_.exit ], [ null, %for.cond.preheader ], [ %retval.sroa.0.08, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS9_Lb0EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.08, %for.body ]
+  %retval.sroa.0.1 = phi ptr [ %call18, %_ZNKSt8__detail15_Hash_code_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS3_.exit ], [ null, %for.cond.preheader ], [ null, %for.inc ], [ %retval.sroa.0.08, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS3_RKNS_16_Hash_node_valueIS9_Lb0EEE.exit ], [ %retval.sroa.0.08, %for.body ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -35441,7 +35441,7 @@ _ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119Opa
   br i1 %cmp.not.i, label %for.cond.i, label %return, !llvm.loop !450
 
 return:                                           ; preds = %if.end3.i, %_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE.exit.i, %for.cond.i, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb0EEE.exit.i, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end3.i ], [ null, %_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %__p.0.i, %for.cond.i ], [ %__p.0.i, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb0EEE.exit.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end3.i ], [ null, %_ZNKSt10_HashtableISt10type_indexSt4pairIKS0_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSA_16_Hash_node_valueIS8_Lb0EEE.exit.i ], [ %__p.0.i, %_ZNKSt8__detail15_Hashtable_baseISt10type_indexSt4pairIKS1_N8facebook5velox12_GLOBAL__N_119OpaqueSerdeRegistry5EntryEENS_10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb0EEE.exit.i ], [ %__p.0.i, %for.cond.i ]
   ret ptr %retval.0
 }
 
@@ -43033,7 +43033,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -43156,8 +43156,8 @@ lpad:                                             ; preds = %_ZNSt8__detail12_No
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit, %land.rhs.i.i.i, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit
-  %retval.sroa.0.0 = phi ptr [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %__it.sroa.0.024, %land.rhs.i.i.i ], [ %__it.sroa.0.024, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
-  %retval.sroa.4.0 = phi i8 [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
+  %retval.sroa.0.0 = phi ptr [ %call28, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ %6, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ %__it.sroa.0.024, %land.rhs.i.i.i ], [ %__it.sroa.0.024, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
+  %retval.sroa.4.0 = phi i8 [ 1, %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_NS_10_AllocNodeISaINS_10_Hash_nodeIS9_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSH_.exit ], [ 0, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS5_EEPNS7_10_Hash_nodeIS5_Lb1EEEmRKT_m.exit ], [ 0, %land.rhs.i.i.i ], [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS6_EEbRKT_RKNS_16_Hash_node_valueIS6_Lb1EEE.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -43675,7 +43675,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIKN8facebook5velox19CustomTypeFactoriesESt14default_deleteISD_EEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISH_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -43744,7 +43744,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN8facebook5velox4TypeEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISF_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 
@@ -43873,7 +43873,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISO_Lb1EEE.exit, %for.inc, %land.rhs.i.i.i, %if.then, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit
-  %retval.sroa.0.1 = phi ptr [ %5, %if.then.i ], [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ null, %if.then ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ], [ null, %for.inc ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit ], [ %5, %if.then.i ], [ null, %if.then ], [ null, %for.inc ], [ %retval.sroa.0.010, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St8functionIFSt10shared_ptrIKN8facebook5velox4TypeEERKSt6vectorINSC_13TypeParameterESaISH_EEEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISO_Lb1EEE.exit ], [ %retval.sroa.0.010, %land.rhs.i.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

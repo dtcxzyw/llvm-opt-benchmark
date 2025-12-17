@@ -896,7 +896,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZN5zxing8ArrayRefI
   br label %354
 
 354:                                              ; preds = %.loopexit214, %.loopexit.split-lp215, %.loopexit208, %.loopexit.split-lp209, %.loopexit, %.loopexit.split-lp, %285, %341
-  %.pn72.pn.pn = phi { ptr, i32 } [ %286, %285 ], [ %342, %341 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit208 ], [ %lpad.loopexit.split-lp211, %.loopexit.split-lp209 ], [ %lpad.loopexit216, %.loopexit214 ], [ %lpad.loopexit.split-lp217, %.loopexit.split-lp215 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp211, %.loopexit.split-lp209 ], [ %286, %285 ], [ %342, %341 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit210, %.loopexit208 ], [ %lpad.loopexit216, %.loopexit214 ], [ %lpad.loopexit.split-lp217, %.loopexit.split-lp215 ]
   %355 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %356 = load i32, ptr %355, align 8, !tbaa !24
   %357 = add i32 %356, -1
@@ -1042,8 +1042,8 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread: ; preds = %139, %134, %9
   call void %406(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0167.2199) #18
   br label %_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit136
 
-_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit136: ; preds = %54, %56, %403, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90
-  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %.pn78.pn.pn, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90 ], [ %.pn78.pn.pn200, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread ], [ %.pn78.pn.pn200, %403 ], [ %57, %56 ], [ %55, %54 ]
+_ZN5zxing3RefIN2cv13wechat_qrcode9ImgSourceEED2Ev.exit136: ; preds = %56, %54, %403, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn78.pn.pn, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90 ], [ %.pn78.pn.pn200, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit90.thread ], [ %.pn78.pn.pn200, %403 ], [ %55, %54 ]
   %407 = load ptr, ptr %7, align 8, !tbaa !51
   %408 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %409 = load ptr, ptr %408, align 8, !tbaa !48
@@ -1102,7 +1102,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6ResultEEES3_EvT_S5_RSaIT0_E.exit.i145: ; preds =
   br label %.body
 
 .body:                                            ; preds = %426, %422, %52, %50
-  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %.pn78.pn.pn.pn, %422 ], [ %.pn78.pn.pn.pn, %426 ]
+  %.pn78.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ], [ %.pn78.pn.pn.pn, %422 ], [ %.pn78.pn.pn.pn, %426 ]
   call void @_ZdlPv(ptr noundef nonnull %22) #16
   resume { ptr, i32 } %.pn78.pn.pn.pn.pn
 
@@ -1594,7 +1594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN5z
   br label %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit39
 
 _ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit39:     ; preds = %209, %205, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit31, %161
-  %.pn15.pn = phi { ptr, i32 } [ %164, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit31 ], [ %162, %161 ], [ %.pn15, %205 ], [ %.pn15, %209 ]
+  %.pn15.pn = phi { ptr, i32 } [ %162, %161 ], [ %164, %_ZN5zxing3RefINS_9BinarizerEED2Ev.exit31 ], [ %.pn15, %205 ], [ %.pn15, %209 ]
   %213 = load ptr, ptr %6, align 8, !tbaa !109
   %.not.i40 = icmp eq ptr %213, null
   br i1 %.not.i40, label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29, label %214
@@ -1621,7 +1621,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29.sink.split: ; preds = %160, %219
   br label %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29
 
 _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29:  ; preds = %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29.sink.split, %214, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit39, %155, %152
-  %.pn15.pn.pn = phi { ptr, i32 } [ %153, %152 ], [ %153, %155 ], [ %.pn15.pn, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit39 ], [ %.pn15.pn, %214 ], [ %.pn15.pn.pn.ph, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29.sink.split ]
+  %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %_ZN5zxing3RefINS_12BinaryBitmapEED2Ev.exit39 ], [ %.pn15.pn, %214 ], [ %153, %152 ], [ %153, %155 ], [ %.pn15.pn.pn.ph, %_ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit29.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %223 = load ptr, ptr %5, align 8, !tbaa !6
   %224 = icmp eq ptr %223, %10

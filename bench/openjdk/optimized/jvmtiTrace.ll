@@ -354,9 +354,9 @@ sub_0178:                                         ; preds = %74
   br label %.thread153
 
 .thread153:                                       ; preds = %.thread153.sink.split, %sub_0178, %sub_1, %sub_0, %90, %87, %84, %81, %.tail, %74, %.tail177, %100, %102
-  %.not127159 = phi i1 [ false, %100 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_0 ], [ true, %sub_1 ], [ true, %sub_0178 ], [ false, %.thread153.sink.split ]
-  %.0111.ph158 = phi i32 [ %.0111.ph, %100 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_0 ], [ 9, %sub_1 ], [ 9, %sub_0178 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
-  %.not131.ph157 = phi i1 [ %73, %100 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_0 ], [ true, %sub_1 ], [ true, %sub_0178 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
+  %.not127159 = phi i1 [ false, %100 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ true, %sub_0 ], [ true, %sub_0178 ], [ false, %.thread153.sink.split ]
+  %.0111.ph158 = phi i32 [ %.0111.ph, %100 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_1 ], [ 9, %sub_0 ], [ 9, %sub_0178 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
+  %.not131.ph157 = phi i1 [ %73, %100 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ true, %sub_0 ], [ true, %sub_0178 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
   %104 = load i32, ptr @_ZN10JvmtiTrace19_max_function_indexE, align 4
   %.not129184 = icmp slt i32 %104, 0
   br i1 %.not129184, label %.loopexit181, label %.lr.ph188
@@ -424,9 +424,9 @@ sub_0178:                                         ; preds = %74
   %.pre = load i32, ptr @_ZN10JvmtiTrace19_max_function_indexE, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %124, %121, %118, %115, %130
-  %135 = phi i32 [ %108, %115 ], [ %.pre, %130 ], [ %108, %118 ], [ %108, %121 ], [ %108, %124 ]
-  %.1108 = phi i32 [ %116, %115 ], [ %.0107185, %130 ], [ %.0107185, %118 ], [ %.0107185, %121 ], [ %.0107185, %124 ]
+.critedge:                                        ; preds = %118, %124, %121, %115, %130
+  %135 = phi i32 [ %108, %115 ], [ %.pre, %130 ], [ %108, %121 ], [ %108, %124 ], [ %108, %118 ]
+  %.1108 = phi i32 [ %116, %115 ], [ %.0107185, %130 ], [ %.0107185, %121 ], [ %.0107185, %124 ], [ %.0107185, %118 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %136 = sext i32 %135 to i64
   %.not129.not = icmp slt i64 %indvars.iv, %136
@@ -440,8 +440,8 @@ sub_0178:                                         ; preds = %74
 138:                                              ; preds = %.loopexit181
   br i1 %.not131.ph157, label %141, label %.thread239
 
-.thread239:                                       ; preds = %87, %90, %138
-  %.0111151237244 = phi i32 [ %.0111.ph158, %138 ], [ 24, %90 ], [ 24, %87 ]
+.thread239:                                       ; preds = %90, %87, %138
+  %.0111151237244 = phi i32 [ %.0111.ph158, %138 ], [ 24, %87 ], [ 24, %90 ]
   %139 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not173 = icmp eq ptr %139, null
   br i1 %.not173, label %141, label %140
@@ -506,15 +506,15 @@ sub_0178:                                         ; preds = %74
   %.pre210 = load i32, ptr @_ZN10JvmtiTrace16_max_event_indexE, align 4
   br label %.critedge140
 
-.critedge140:                                     ; preds = %153, %150, %146, %159
-  %164 = phi i32 [ %145, %153 ], [ %145, %150 ], [ %145, %146 ], [ %.pre210, %159 ]
+.critedge140:                                     ; preds = %146, %153, %150, %159
+  %164 = phi i32 [ %145, %146 ], [ %145, %153 ], [ %145, %150 ], [ %.pre210, %159 ]
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %165 = sext i32 %164 to i64
   %.not132.not = icmp slt i64 %indvars.iv207, %165
   br i1 %.not132.not, label %144, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.critedge140, %141, %.loopexit181
-  %.0111151231 = phi i32 [ %.0111151237245, %141 ], [ %.0111.ph158, %.loopexit181 ], [ %.0111151237245, %.critedge140 ]
+  %.0111151231 = phi i32 [ %.0111.ph158, %.loopexit181 ], [ %.0111151237245, %141 ], [ %.0111151237245, %.critedge140 ]
   %166 = load i8, ptr @_ZN10JvmtiTrace3_onE, align 1
   %167 = trunc i8 %166 to i1
   %168 = and i32 %.0111151231, 9
@@ -531,7 +531,7 @@ sub_0178:                                         ; preds = %74
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.19)
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %99, %97, %171, %169, %.loopexit
+.loopexit.thread:                                 ; preds = %97, %99, %171, %169, %.loopexit
   %172 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %173 = icmp ult ptr %172, %34
   br i1 %173, label %.lr.ph199, label %._crit_edge200, !llvm.loop !10
@@ -658,7 +658,7 @@ define hidden noundef nonnull ptr @_ZN10JvmtiTrace9enum_nameEPPKcPKii(ptr nounde
   br label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %3
-  %.08 = phi ptr [ @.str.20, %3 ], [ @.str.20, %.._crit_edge.loopexit_crit_edge ], [ %4, %.lr.ph.preheader ], [ %8, %.lr.ph ]
+  %.08 = phi ptr [ @.str.20, %3 ], [ %4, %.lr.ph.preheader ], [ @.str.20, %.._crit_edge.loopexit_crit_edge ], [ %8, %.lr.ph ]
   ret ptr %.08
 }
 
@@ -720,7 +720,7 @@ define hidden noundef ptr @_ZN10JvmtiTrace20safe_get_thread_nameEP6Thread(ptr no
   br label %34
 
 34:                                               ; preds = %.thread, %27, %20, %20, %1, %32, %8
-  %.0 = phi ptr [ %33, %32 ], [ %12, %8 ], [ @.str.21, %1 ], [ @.str.22, %20 ], [ @.str.22, %20 ], [ @.str.21, %27 ], [ @.str.23, %.thread ]
+  %.0 = phi ptr [ %12, %8 ], [ @.str.21, %1 ], [ @.str.22, %20 ], [ @.str.21, %27 ], [ %33, %32 ], [ @.str.22, %20 ], [ @.str.23, %.thread ]
   ret ptr %.0
 }
 

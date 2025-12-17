@@ -455,9 +455,9 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %109
 
 109:                                              ; preds = %76, %108, %107, %106, %105
-  %110 = phi i1 [ false, %108 ], [ false, %105 ], [ true, %106 ], [ true, %107 ], [ true, %76 ]
-  %.0246 = phi i32 [ 0, %108 ], [ 0, %105 ], [ 8, %106 ], [ 4, %107 ], [ 12, %76 ]
-  %.0245.in = phi ptr [ @hf_mint_router_type_unknown, %108 ], [ @hf_mint_router_type_helo, %105 ], [ @hf_mint_router_type_lsp, %106 ], [ @hf_mint_router_type_psnp, %107 ], [ @hf_mint_router_type_csnp, %76 ]
+  %110 = phi i1 [ false, %108 ], [ true, %107 ], [ false, %105 ], [ true, %106 ], [ true, %76 ]
+  %.0246 = phi i32 [ 0, %108 ], [ 4, %107 ], [ 0, %105 ], [ 8, %106 ], [ 12, %76 ]
+  %.0245.in = phi ptr [ @hf_mint_router_type_unknown, %108 ], [ @hf_mint_router_type_psnp, %107 ], [ @hf_mint_router_type_helo, %105 ], [ @hf_mint_router_type_lsp, %106 ], [ @hf_mint_router_type_csnp, %76 ]
   %.0245 = load i32, ptr %.0245.in, align 4
   %111 = icmp ugt i8 %94, 12
   br i1 %111, label %112, label %118
@@ -608,7 +608,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.lr.ph, %187, %132, %.loopexit, %163, %118, %56, %72, %42, %52, %195, %149
-  %.0 = phi i32 [ %199, %195 ], [ %55, %52 ], [ %50, %42 ], [ %75, %72 ], [ %70, %56 ], [ %162, %149 ], [ %.1, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.5, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
+  %.0 = phi i32 [ %199, %195 ], [ %55, %52 ], [ %50, %42 ], [ %75, %72 ], [ %70, %56 ], [ %162, %149 ], [ %174, %163 ], [ %.5, %.loopexit ], [ %.1, %118 ], [ %135, %132 ], [ %185, %187 ], [ %183, %.lr.ph ]
   %200 = load i32, ptr @ett_mint, align 4
   tail call void @tree_expanded_set(i32 noundef %200, i1 noundef zeroext true)
   %201 = load i32, ptr @ett_mint_ethshim, align 4

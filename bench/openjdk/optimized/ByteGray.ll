@@ -2041,8 +2041,8 @@ define hidden void @ByteGrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %101, label %133, label %102
 
 102:                                              ; preds = %100, %90, %91
-  %.090 = phi i32 [ %96, %91 ], [ %18, %90 ], [ 0, %100 ]
-  %.089 = phi i32 [ %99, %91 ], [ %.0101, %90 ], [ 0, %100 ]
+  %.090 = phi i32 [ %18, %90 ], [ %96, %91 ], [ 0, %100 ]
+  %.089 = phi i32 [ %.0101, %90 ], [ %99, %91 ], [ 0, %100 ]
   %.not131 = icmp eq i32 %.4111, 0
   br i1 %.not131, label %121, label %103
 

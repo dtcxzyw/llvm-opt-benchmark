@@ -558,8 +558,8 @@ define dso_local i32 @io_sq_offload_create(ptr noundef %0, ptr noundef readonly 
   br label %93
 
 93:                                               ; preds = %85, %.thread12, %78
-  %94 = phi i1 [ true, %85 ], [ true, %.thread12 ], [ false, %78 ]
-  %95 = phi ptr [ %83, %85 ], [ %79, %.thread12 ], [ %79, %78 ]
+  %94 = phi i1 [ false, %78 ], [ true, %85 ], [ true, %.thread12 ]
+  %95 = phi ptr [ %79, %78 ], [ %83, %85 ], [ %79, %.thread12 ]
   %96 = icmp ugt ptr %95, inttoptr (i64 -4096 to ptr)
   br i1 %96, label %.thread13, label %100
 
@@ -699,12 +699,12 @@ define dso_local i32 @io_sq_offload_create(ptr noundef %0, ptr noundef readonly 
   br label %.thread44
 
 .thread44:                                        ; preds = %133, %164, %.thread13, %.thread31, %168
-  %175 = phi i32 [ %.ph33, %.thread31 ], [ -22, %168 ], [ %166, %164 ], [ %99, %.thread13 ], [ -6, %133 ]
+  %175 = phi i32 [ %99, %.thread13 ], [ %.ph33, %.thread31 ], [ -22, %168 ], [ %166, %164 ], [ -6, %133 ]
   tail call void @io_sq_thread_finish(ptr noundef %0)
   br label %.thread
 
 .thread:                                          ; preds = %133, %164, %23, %6, %168, %17, %.thread44, %18
-  %176 = phi i32 [ %175, %.thread44 ], [ -22, %18 ], [ -22, %17 ], [ 0, %168 ], [ -6, %6 ], [ %24, %23 ], [ 0, %164 ], [ 0, %133 ]
+  %176 = phi i32 [ %24, %23 ], [ %175, %.thread44 ], [ 0, %164 ], [ -22, %18 ], [ 0, %168 ], [ -22, %17 ], [ -6, %6 ], [ 0, %133 ]
   ret i32 %176
 }
 

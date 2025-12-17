@@ -818,7 +818,7 @@ _ZN5Eigen12SparseVectorIdLi0EiED2Ev.exit:         ; preds = %271, %274
   br label %.body70
 
 .body70:                                          ; preds = %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77, %264, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i, %101, %277
-  %.pn41.pn = phi { ptr, i32 } [ %278, %277 ], [ %102, %101 ], [ %159, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %265, %264 ], [ %238, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ]
+  %.pn41.pn = phi { ptr, i32 } [ %278, %277 ], [ %159, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %238, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ], [ %102, %101 ], [ %265, %264 ]
   call void @_ZN5Eigen12SparseVectorIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %279
 
@@ -1132,7 +1132,7 @@ _ZN5Eigen8internal17CompressedStorageIdiED2Ev.exit: ; preds = %121, %124
   br label %161
 
 161:                                              ; preds = %.thread136, %_ZN5Eigen8internal17CompressedStorageIdiED2Ev.exit, %152
-  %.086 = phi i1 [ true, %_ZN5Eigen8internal17CompressedStorageIdiED2Ev.exit ], [ %or.cond.not, %152 ], [ %or.cond.not, %.thread136 ]
+  %.086 = phi i1 [ true, %_ZN5Eigen8internal17CompressedStorageIdiED2Ev.exit ], [ %or.cond.not, %.thread136 ], [ %or.cond.not, %152 ]
   %162 = load ptr, ptr %5, align 8, !tbaa !60
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %164 = load ptr, ptr %163, align 8, !tbaa !47
@@ -1205,7 +1205,7 @@ _ZN5Eigen3RefIKNS_12SparseMatrixIdLi0EiEELi0ENS_11OuterStrideILin1EEEED2Ev.exit:
   ret ptr %0
 
 195:                                              ; preds = %150, %129
-  %.pn95.pn.pn = phi { ptr, i32 } [ %151, %150 ], [ %.pn, %129 ]
+  %.pn95.pn.pn = phi { ptr, i32 } [ %.pn, %129 ], [ %151, %150 ]
   call void @_ZN5Eigen3RefIKNS_12SparseMatrixIdLi0EiEELi0ENS_11OuterStrideILin1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(137) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn95.pn.pn
@@ -1939,7 +1939,7 @@ _ZN5Eigen12SparseVectorIdLi0EiED2Ev.exit:         ; preds = %269, %272
   br label %.body70
 
 .body70:                                          ; preds = %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77, %262, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i, %100, %275
-  %.pn41.pn = phi { ptr, i32 } [ %276, %275 ], [ %101, %100 ], [ %158, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %263, %262 ], [ %236, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ]
+  %.pn41.pn = phi { ptr, i32 } [ %276, %275 ], [ %158, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %236, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ], [ %101, %100 ], [ %263, %262 ]
   call void @_ZN5Eigen12SparseVectorIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %277
 
@@ -3310,7 +3310,7 @@ _ZN5Eigen12SparseVectorIdLi0EiED2Ev.exit:         ; preds = %270, %273
   br label %.body70
 
 .body70:                                          ; preds = %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77, %263, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i, %101, %276
-  %.pn41.pn = phi { ptr, i32 } [ %277, %276 ], [ %102, %101 ], [ %159, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %264, %263 ], [ %237, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ]
+  %.pn41.pn = phi { ptr, i32 } [ %277, %276 ], [ %159, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %237, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ], [ %102, %101 ], [ %264, %263 ]
   call void @_ZN5Eigen12SparseVectorIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %278
 
@@ -3933,7 +3933,7 @@ _ZN5Eigen12SparseVectorIdLi0EiED2Ev.exit:         ; preds = %270, %273
   br label %.body70
 
 .body70:                                          ; preds = %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77, %263, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i, %100, %276
-  %.pn41.pn = phi { ptr, i32 } [ %277, %276 ], [ %101, %100 ], [ %158, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %264, %263 ], [ %237, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ]
+  %.pn41.pn = phi { ptr, i32 } [ %277, %276 ], [ %158, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i ], [ %237, %_ZN5Eigen8internal12scoped_arrayIdED2Ev.exit31.i77 ], [ %101, %100 ], [ %264, %263 ]
   call void @_ZN5Eigen12SparseVectorIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   br label %278
 
@@ -4227,7 +4227,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   br label %_ZNK5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE8nonZerosEv.exit.i.i
 
 _ZNK5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE8nonZerosEv.exit.i.i: ; preds = %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i, %24
-  %.0.in.i.i.i = phi i32 [ %28, %24 ], [ %30, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i ]
+  %.0.in.i.i.i = phi i32 [ %30, %_ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEElRKNS_9DenseBaseIT_EE.exit.i.i.i.i.i.i ], [ %28, %24 ]
   %.0.i.i.i = sext i32 %.0.in.i.i.i to i64
   br label %_ZN5Eigen20SparseCompressedBaseINS_5BlockINS_12SparseMatrixIdLi0EiEELin1ELi1ELb1EEEE13InnerIteratorC2ERKS5_l.exit.i
 

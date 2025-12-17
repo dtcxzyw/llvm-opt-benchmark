@@ -977,7 +977,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h4104819548f84ce0E.exit: ; preds = %23
           to label %.thread unwind label %60
 
 .thread26:                                        ; preds = %.body, %62, %.thread
-  %.pn.pn12 = phi { ptr, i32 } [ %.pn.pn13, %.thread ], [ %63, %62 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn12 = phi { ptr, i32 } [ %.pn.pn13, %.thread ], [ %eh.lpad-body, %.body ], [ %63, %62 ]
   resume { ptr, i32 } %.pn.pn12
 
 .thread:                                          ; preds = %65, %.thread33
@@ -1110,7 +1110,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %34, %32, %.body.i
-  %common.resume.op.i = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ], [ %eh.lpad-body.i, %.body.i ]
+  %common.resume.op.i = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ], [ %eh.lpad-body.i, %.body.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 39:                                               ; preds = %32
@@ -1266,7 +1266,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
           to label %.critedge.i unwind label %53, !noalias !168
 
 .critedge.thread.i:                               ; preds = %55, %.critedge.i, %38
-  %eh.lpad-body1624.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %55 ], [ %lpad.thr_comm.split-lp.i, %.critedge.i ], [ %39, %38 ]
+  %eh.lpad-body1624.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %.critedge.i ], [ %lpad.thr_comm.split-lp.i, %55 ], [ %39, %38 ]
   resume { ptr, i32 } %eh.lpad-body1624.i
 
 55:                                               ; preds = %.critedge.i
@@ -1391,7 +1391,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   unreachable
 
 common.resume.i:                                  ; preds = %14, %8, %5
-  %common.resume.op.i = phi { ptr, i32 } [ %9, %14 ], [ %9, %8 ], [ %6, %5 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %9, %8 ], [ %9, %14 ], [ %6, %5 ]
   resume { ptr, i32 } %common.resume.op.i
 
 23:                                               ; preds = %5
@@ -1536,7 +1536,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
           to label %.critedge.i unwind label %50, !noalias !242
 
 "_ZN4core3ptr68drop_in_place$LT$ui..components..button..icon_button..IconButton$GT$17h0f2781ac50ac0993E.exit.i": ; preds = %52, %.critedge.i, %35
-  %eh.lpad-body1725.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %.critedge.i ], [ %lpad.thr_comm.split-lp.i, %52 ], [ %36, %35 ]
+  %eh.lpad-body1725.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %52 ], [ %lpad.thr_comm.split-lp.i, %.critedge.i ], [ %36, %35 ]
   resume { ptr, i32 } %eh.lpad-body1725.i
 
 52:                                               ; preds = %.critedge.i
@@ -1944,7 +1944,7 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
+  %.sroa.05.0 = phi ptr [ %spec.select, %4 ], [ null, %2 ]
   ret ptr %.sroa.05.0
 }
 
@@ -2935,7 +2935,7 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h67a3f05c22a5d2baE.llvm.2785141808299720148.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h67a3f05c22a5d2baE.llvm.2785141808299720148.exit": ; preds = %3, %11
-  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
+  %.sroa.05.0.i = phi ptr [ %spec.select.i, %11 ], [ null, %3 ]
   ret ptr %.sroa.05.0.i
 }
 
@@ -3393,7 +3393,7 @@ define hidden { i64, i64 } @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu
   unreachable
 
 common.resume:                                    ; preds = %41, %47, %18, %24
-  %common.resume.op = phi { ptr, i32 } [ %19, %24 ], [ %19, %18 ], [ %42, %47 ], [ %42, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %19, %24 ], [ %42, %47 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$gpui..window..FocusHandle$GT$$GT$17h0294a5bf17d62805E.llvm.2785141808299720148.exit": ; preds = %14, %25, %30

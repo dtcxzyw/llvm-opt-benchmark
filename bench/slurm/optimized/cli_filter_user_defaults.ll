@@ -193,7 +193,7 @@ _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.cr
   br i1 %91, label %.lr.ph.i38, label %_trim.exit41, !llvm.loop !11
 
 _trim.exit41:                                     ; preds = %.lr.ph.i38, %.critedge.i35, %70
-  %92 = phi ptr [ %62, %.critedge.i35 ], [ %62, %70 ], [ %82, %.lr.ph.i38 ]
+  %92 = phi ptr [ %62, %70 ], [ %62, %.critedge.i35 ], [ %82, %.lr.ph.i38 ]
   br label %93
 
 93:                                               ; preds = %93, %_trim.exit41

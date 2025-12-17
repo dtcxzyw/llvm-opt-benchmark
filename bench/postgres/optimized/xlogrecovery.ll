@@ -2033,8 +2033,8 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %or.cond9.i, label %132, label %.thread139.i
 
 132:                                              ; preds = %128, %123, %100, %95
-  %.sink157.i = phi i32 [ 1, %123 ], [ 3, %95 ], [ 1, %100 ], [ 1, %128 ]
-  %.055.i = phi i8 [ 0, %123 ], [ 1, %95 ], [ 0, %100 ], [ 0, %128 ]
+  %.sink157.i = phi i32 [ 1, %100 ], [ 1, %123 ], [ 3, %95 ], [ 1, %128 ]
+  %.055.i = phi i8 [ 0, %100 ], [ 0, %123 ], [ 1, %95 ], [ 0, %128 ]
   store i32 %.sink157.i, ptr @currentSource, align 4
   %.not.i = icmp eq i32 %.sink157.i, %86
   br i1 %.not.i, label %.thread139.i, label %133
@@ -2526,7 +2526,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   unreachable
 
 .thread.i:                                        ; preds = %330, %327, %321, %287, %251
-  %.251.i = phi i1 [ %.049.i, %251 ], [ %.049.i, %287 ], [ true, %330 ], [ %.049.i, %327 ], [ %.049.i, %321 ]
+  %.251.i = phi i1 [ %.049.i, %251 ], [ true, %330 ], [ %.049.i, %327 ], [ %.049.i, %287 ], [ %.049.i, %321 ]
   %341 = load ptr, ptr @XLogRecoveryCtl, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 80
   %343 = load volatile i32, ptr %342, align 8
@@ -2558,7 +2558,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   br label %WaitForWALToBecomeAvailable.exit
 
 WaitForWALToBecomeAvailable.exit.thread71:        ; preds = %234, %.split76.us.i.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i
-  %.3.i.ph.i = phi i32 [ %.us-phi77.i.i, %.split76.us.i.i ], [ %.us-phi92.i.i, %234 ], [ %.3.i.ph.ph.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i ]
+  %.3.i.ph.i = phi i32 [ %.us-phi92.i.i, %234 ], [ %.us-phi77.i.i, %.split76.us.i.i ], [ %.3.i.ph.ph.i, %XLogFileReadAnyTLI.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.3.i.ph.i, ptr @readFile, align 4
   %.pr73.pr.pre = load i32, ptr @readSource, align 4
@@ -2580,7 +2580,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALT
   br label %.thread74
 
 .thread74:                                        ; preds = %WaitForWALToBecomeAvailable.exit.thread71, %58, %WaitForWALToBecomeAvailable.exit.thread71.thread144, %353
-  %.sink = phi i32 [ %358, %353 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread144 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
+  %.sink = phi i32 [ 8192, %WaitForWALToBecomeAvailable.exit.thread71.thread144 ], [ %358, %353 ], [ 8192, %58 ], [ 8192, %WaitForWALToBecomeAvailable.exit.thread71 ]
   store i32 %.sink, ptr @readLen, align 4
   store i32 %15, ptr @readOff, align 4
   %359 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
@@ -2635,7 +2635,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALT
   br label %emode_for_corrupt_record.exit
 
 emode_for_corrupt_record.exit:                    ; preds = %384, %387, %390
-  %.0.i = phi i32 [ 15, %390 ], [ %11, %384 ], [ 14, %387 ]
+  %.0.i = phi i32 [ %11, %384 ], [ 15, %390 ], [ 14, %387 ]
   %391 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #22
   br i1 %391, label %392, label %408
 
@@ -2661,7 +2661,7 @@ emode_for_corrupt_record.exit:                    ; preds = %384, %387, %390
   br label %emode_for_corrupt_record.exit65
 
 emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
-  %.0.i64 = phi i32 [ 15, %402 ], [ %11, %396 ], [ 14, %399 ]
+  %.0.i64 = phi i32 [ %11, %396 ], [ 15, %402 ], [ 14, %399 ]
   %403 = call zeroext i1 @errstart(i32 noundef %.0.i64, ptr noundef null) #22
   br i1 %403, label %404, label %408
 
@@ -2724,7 +2724,7 @@ emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
   br label %emode_for_corrupt_record.exit68
 
 emode_for_corrupt_record.exit68:                  ; preds = %424, %428, %431
-  %.0.i67 = phi i32 [ 15, %431 ], [ %11, %424 ], [ 14, %428 ]
+  %.0.i67 = phi i32 [ %11, %424 ], [ 15, %431 ], [ 14, %428 ]
   %432 = call zeroext i1 @errstart(i32 noundef %.0.i67, ptr noundef null) #22
   br i1 %432, label %433, label %436
 
@@ -2766,7 +2766,7 @@ emode_for_corrupt_record.exit68:                  ; preds = %424, %428, %431
   br i1 %449, label %._crit_edge, label %WaitForWALToBecomeAvailable.exit
 
 WaitForWALToBecomeAvailable.exit:                 ; preds = %313, %87, %447, %439, %64, %437, %350
-  %.0 = phi i32 [ %438, %437 ], [ -1, %350 ], [ -2, %64 ], [ -2, %439 ], [ -1, %447 ], [ -2, %87 ], [ -2, %313 ]
+  %.0 = phi i32 [ -1, %350 ], [ %438, %437 ], [ -2, %64 ], [ -1, %447 ], [ -2, %439 ], [ -2, %87 ], [ -2, %313 ]
   ret i32 %.0
 }
 
@@ -2841,8 +2841,8 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %26, label %.sink.split, label %28
 
 .sink.split:                                      ; preds = %25, %21, %16, %11, %6
-  %.str.183.sink = phi ptr [ @.str.179, %6 ], [ @.str.180, %11 ], [ @.str.181, %16 ], [ @.str.182, %21 ], [ @.str.183, %25 ]
-  %.sink = phi i32 [ 4074, %6 ], [ 4084, %11 ], [ 4090, %16 ], [ 4098, %21 ], [ 4104, %25 ]
+  %.str.183.sink = phi ptr [ @.str.182, %21 ], [ @.str.181, %16 ], [ @.str.180, %11 ], [ @.str.179, %6 ], [ @.str.183, %25 ]
+  %.sink = phi i32 [ 4098, %21 ], [ 4090, %16 ], [ 4084, %11 ], [ 4074, %6 ], [ 4104, %25 ]
   %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.183.sink) #22
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__.ReadCheckpointRecord) #22
   br label %28
@@ -2942,7 +2942,7 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
   br label %emode_for_corrupt_record.exit
 
 emode_for_corrupt_record.exit:                    ; preds = %43, %47, %50
-  %.0.i = phi i32 [ 15, %50 ], [ %1, %43 ], [ 14, %47 ]
+  %.0.i = phi i32 [ %1, %43 ], [ 15, %50 ], [ 14, %47 ]
   %51 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #22
   br i1 %51, label %52, label %90
 
@@ -2987,7 +2987,7 @@ emode_for_corrupt_record.exit:                    ; preds = %43, %47, %50
   br label %emode_for_corrupt_record.exit50
 
 emode_for_corrupt_record.exit50:                  ; preds = %59, %74, %77
-  %.0.i49 = phi i32 [ 15, %77 ], [ %1, %59 ], [ 14, %74 ]
+  %.0.i49 = phi i32 [ %1, %59 ], [ 15, %77 ], [ 14, %74 ]
   %78 = call zeroext i1 @errstart(i32 noundef %.0.i49, ptr noundef null) #22
   br i1 %78, label %79, label %89
 
@@ -3679,7 +3679,7 @@ getRecordTimestamp.exit.i:                        ; preds = %190, %190, %190, %1
   br i1 %.029.i, label %203, label %recoveryStopsBefore.exit
 
 203:                                              ; preds = %202, %201, %199, %getRecordTimestamp.exit.thread.i
-  %.0364041.i = phi i64 [ %195, %199 ], [ %195, %202 ], [ %195, %201 ], [ 0, %getRecordTimestamp.exit.thread.i ]
+  %.0364041.i = phi i64 [ %195, %199 ], [ %195, %202 ], [ 0, %getRecordTimestamp.exit.thread.i ], [ %195, %201 ]
   store i1 false, ptr @recoveryStopAfter, align 1
   store i32 %.031.i, ptr @recoveryStopXid, align 4
   store i64 %.0364041.i, ptr @recoveryStopTime, align 8
@@ -3810,7 +3810,7 @@ recoveryApplyDelay.exit:                          ; preds = %260, %.lr.ph.i, %.p
   call fastcc void @recoveryPausesHere(i1 noundef zeroext false)
   br label %recoveryApplyDelay.exit.thread
 
-recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %223, %recoveryStopsBefore.exit, %recoveryApplyDelay.exit, %270
+recoveryApplyDelay.exit.thread:                   ; preds = %233, %229, %236, %223, %recoveryStopsBefore.exit, %recoveryApplyDelay.exit, %270
   %271 = load ptr, ptr @xlogreader, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @rm_redo_error_callback, ptr %90, align 8
@@ -3894,8 +3894,8 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   unreachable
 
 .thread.i:                                        ; preds = %278, %297, %282, %recoveryApplyDelay.exit.thread
-  %.2 = phi i32 [ %.142, %282 ], [ %.142, %recoveryApplyDelay.exit.thread ], [ %.040.i, %297 ], [ %.142, %278 ]
-  %.0.i26 = phi i1 [ false, %282 ], [ false, %recoveryApplyDelay.exit.thread ], [ true, %297 ], [ false, %278 ]
+  %.2 = phi i32 [ %.142, %282 ], [ %.142, %recoveryApplyDelay.exit.thread ], [ %.142, %278 ], [ %.040.i, %297 ]
+  %.0.i26 = phi i1 [ false, %282 ], [ false, %recoveryApplyDelay.exit.thread ], [ false, %278 ], [ true, %297 ]
   %310 = load ptr, ptr @XLogRecoveryCtl, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 96
   %312 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #22, !srcloc !10
@@ -4506,7 +4506,7 @@ recoveryStopsAfter.exit:                          ; preds = %601, %541, %513, %A
   %.not20 = icmp eq ptr %612, null
   br i1 %.not20, label %.loopexit, label %94, !llvm.loop !24
 
-recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTimestamp.exit.i32, %586, %596, %594, %587, %589, %533, %535, %610, %211, %212, %205, %206, %140, %142, %131
+recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTimestamp.exit.i32, %586, %596, %594, %587, %535, %589, %610, %533, %211, %212, %205, %206, %142, %140, %131
   %613 = load i8, ptr @reachedConsistency, align 1, !range !4, !noundef !5
   %614 = trunc nuw i8 %613 to i1
   br i1 %614, label %618, label %615
@@ -5526,7 +5526,7 @@ SetPromoteIsTriggered.exit:                       ; preds = %22, %28
   br label %37
 
 37:                                               ; preds = %4, %6, %0, %SetPromoteIsTriggered.exit
-  %.0 = phi i1 [ true, %SetPromoteIsTriggered.exit ], [ true, %0 ], [ false, %6 ], [ false, %4 ]
+  %.0 = phi i1 [ true, %0 ], [ true, %SetPromoteIsTriggered.exit ], [ false, %6 ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -5835,8 +5835,8 @@ define dso_local noundef zeroext i1 @check_recovery_target_time(ptr noundef read
   store ptr %41, ptr @GUC_check_errdetail_string, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %35, %27, %30, %38
-  %.014.ph = phi i1 [ false, %38 ], [ false, %30 ], [ false, %27 ], [ true, %35 ]
+.sink.split:                                      ; preds = %35, %38, %30, %27
+  %.014.ph = phi i1 [ false, %38 ], [ false, %27 ], [ false, %30 ], [ true, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5850,7 +5850,7 @@ define dso_local noundef zeroext i1 @check_recovery_target_time(ptr noundef read
   br label %42
 
 42:                                               ; preds = %.sink.split, %3, %15, %18, %21, %24
-  %.014 = phi i1 [ false, %24 ], [ false, %21 ], [ false, %18 ], [ false, %15 ], [ true, %3 ], [ %.014.ph, %.sink.split ]
+  %.014 = phi i1 [ true, %3 ], [ false, %15 ], [ false, %24 ], [ false, %21 ], [ false, %18 ], [ %.014.ph, %.sink.split ]
   ret i1 %.014
 }
 
@@ -5919,7 +5919,7 @@ define dso_local noundef zeroext i1 @check_recovery_target_timeline(ptr noundef 
   br label %19
 
 17:                                               ; preds = %10, %7, %3
-  %.07 = phi i32 [ 0, %3 ], [ 1, %7 ], [ 2, %10 ]
+  %.07 = phi i32 [ 2, %10 ], [ 0, %3 ], [ 1, %7 ]
   %18 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #22
   store i32 %.07, ptr %18, align 4
   store ptr %18, ptr %1, align 8
@@ -6395,7 +6395,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef 
   unreachable
 
 50:                                               ; preds = %42, %37, %40, %17
-  %.0 = phi i32 [ -1, %17 ], [ %35, %40 ], [ %35, %37 ], [ -1, %42 ]
+  %.0 = phi i32 [ -1, %17 ], [ %35, %37 ], [ %35, %40 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

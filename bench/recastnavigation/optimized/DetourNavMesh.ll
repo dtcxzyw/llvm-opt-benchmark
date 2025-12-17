@@ -334,7 +334,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
   br label %136
 
 136:                                              ; preds = %._crit_edge, %40, %2
-  %.014 = phi i32 [ -2147483644, %2 ], [ -2147483644, %40 ], [ %., %._crit_edge ]
+  %.014 = phi i32 [ %., %._crit_edge ], [ -2147483644, %40 ], [ -2147483644, %2 ]
   ret i32 %.014
 }
 
@@ -777,8 +777,8 @@ default.unreachable:                              ; preds = %.preheader
   unreachable
 
 230:                                              ; preds = %227, %225, %222, %220, %217, %215, %212, %210
-  %.019.i142 = phi i32 [ %211, %210 ], [ %213, %212 ], [ %208, %215 ], [ %218, %217 ], [ %221, %220 ], [ %223, %222 ], [ %208, %225 ], [ %228, %227 ]
-  %.0.i143 = phi i32 [ %209, %210 ], [ %214, %212 ], [ %216, %215 ], [ %219, %217 ], [ %209, %220 ], [ %224, %222 ], [ %226, %225 ], [ %229, %227 ]
+  %.019.i142 = phi i32 [ %228, %227 ], [ %211, %210 ], [ %213, %212 ], [ %208, %215 ], [ %218, %217 ], [ %221, %220 ], [ %223, %222 ], [ %208, %225 ]
+  %.0.i143 = phi i32 [ %229, %227 ], [ %209, %210 ], [ %214, %212 ], [ %216, %215 ], [ %219, %217 ], [ %209, %220 ], [ %224, %222 ], [ %226, %225 ]
   %231 = load i32, ptr %54, align 8
   %232 = mul i32 %.019.i142, -1918454973
   %233 = mul i32 %.0.i143, -669632447
@@ -821,7 +821,7 @@ default.unreachable:                              ; preds = %.preheader
   br label %254
 
 254:                                              ; preds = %250, %245, %241, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %251, %250 ], [ %.01621.i.i, %245 ], [ %.01621.i.i, %241 ], [ %.01621.i.i, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ %251, %250 ], [ %.01621.i.i, %.lr.ph.i.i ], [ %.01621.i.i, %245 ], [ %.01621.i.i, %241 ]
   %255 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %255, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
@@ -877,7 +877,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %262
   br label %_ZNK9dtNavMesh9getTileAtEiii.exit
 
 _ZNK9dtNavMesh9getTileAtEiii.exit:                ; preds = %74, %80, %262, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, %105, %86, %12, %9, %6
-  %.0124 = phi i32 [ -2147483647, %6 ], [ -2147483646, %9 ], [ -2147483640, %12 ], [ -2147483644, %86 ], [ -2147483644, %105 ], [ 1073741824, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ 1073741824, %262 ], [ -2147483644, %80 ], [ -2147483520, %74 ]
+  %.0124 = phi i32 [ -2147483644, %105 ], [ -2147483647, %6 ], [ -2147483646, %9 ], [ -2147483640, %12 ], [ 1073741824, %262 ], [ -2147483644, %86 ], [ 1073741824, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ -2147483644, %80 ], [ -2147483520, %74 ]
   ret i32 %.0124
 }
 
@@ -2899,9 +2899,9 @@ _Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit:        ; preds = %119
   br label %142
 
 138:                                              ; preds = %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit
-  %139 = phi i1 [ %132, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %126, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
-  %140 = phi ptr [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
-  %141 = phi i1 [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ], [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ]
+  %139 = phi i1 [ %126, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %132, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
+  %140 = phi ptr [ %124, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %130, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
+  %141 = phi i1 [ false, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit.thread ], [ %spec.select16.i, %_Z20dtOverlapQuantBoundsPKtS0_S0_S0_.exit ]
   %or.cond3 = or i1 %139, %141
   br i1 %or.cond3, label %142, label %144
 
@@ -3081,8 +3081,8 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit110: ; preds = %6
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
 _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %234, %238, %243, %178
-  %249 = phi ptr [ %179, %178 ], [ %.pre, %243 ], [ %179, %238 ], [ %179, %234 ]
-  %.1100 = phi i32 [ %.099146, %178 ], [ %246, %243 ], [ %.099146, %238 ], [ %.099146, %234 ]
+  %249 = phi ptr [ %179, %178 ], [ %.pre, %243 ], [ %179, %234 ], [ %179, %238 ]
+  %.1100 = phi i32 [ %.099146, %178 ], [ %246, %243 ], [ %.099146, %234 ], [ %.099146, %238 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %251 = load i32, ptr %250, align 4
@@ -3196,7 +3196,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr noundef non
   br label %31
 
 31:                                               ; preds = %27, %22, %18, %.lr.ph
-  %.1 = phi i32 [ %28, %27 ], [ %.01621, %22 ], [ %.01621, %18 ], [ %.01621, %.lr.ph ]
+  %.1 = phi i32 [ %28, %27 ], [ %.01621, %.lr.ph ], [ %.01621, %22 ], [ %.01621, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
@@ -3303,7 +3303,7 @@ define noundef i32 @_ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei(ptr n
   br label %53
 
 53:                                               ; preds = %49, %44, %40, %.lr.ph.i
-  %.1.i = phi i32 [ %50, %49 ], [ %.01621.i, %44 ], [ %.01621.i, %40 ], [ %.01621.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %50, %49 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %44 ], [ %.01621.i, %40 ]
   %54 = getelementptr inbounds nuw i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -3360,7 +3360,7 @@ define noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPPK10dtMeshTilei(ptr noundef no
   br label %31
 
 31:                                               ; preds = %27, %22, %18, %.lr.ph
-  %.1 = phi i32 [ %28, %27 ], [ %.01621, %22 ], [ %.01621, %18 ], [ %.01621, %.lr.ph ]
+  %.1 = phi i32 [ %28, %27 ], [ %.01621, %.lr.ph ], [ %.01621, %22 ], [ %.01621, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %.022, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
@@ -3479,7 +3479,7 @@ define noundef ptr @_ZNK9dtNavMesh12getTileByRefEj(ptr noundef nonnull readonly 
   br label %25
 
 25:                                               ; preds = %13, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %., %13 ]
+  %.0 = phi ptr [ null, %2 ], [ %., %13 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3599,7 +3599,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh19getTileAn
   br label %43
 
 43:                                               ; preds = %33, %17, %29, %5, %4, %36
-  %.0 = phi i32 [ 1073741824, %36 ], [ -2147483648, %4 ], [ -2147483640, %5 ], [ -2147483640, %29 ], [ -2147483640, %17 ], [ -2147483640, %33 ]
+  %.0 = phi i32 [ -2147483648, %4 ], [ -2147483640, %5 ], [ -2147483640, %17 ], [ 1073741824, %36 ], [ -2147483640, %29 ], [ -2147483640, %33 ]
   ret i32 %.0
 }
 
@@ -3654,7 +3654,7 @@ define noundef zeroext i1 @_ZNK9dtNavMesh14isValidPolyRefEj(ptr noundef nonnull 
   br label %34
 
 34:                                               ; preds = %31, %15, %27, %3, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %27 ], [ false, %15 ], [ %.not8, %31 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ %.not8, %31 ], [ false, %15 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -3796,7 +3796,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
   br label %81
 
 81:                                               ; preds = %77, %72, %68, %.lr.ph.i
-  %.1.i = phi i32 [ %78, %77 ], [ %.01621.i, %72 ], [ %.01621.i, %68 ], [ %.01621.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %78, %77 ], [ %.01621.i, %.lr.ph.i ], [ %.01621.i, %72 ], [ %.01621.i, %68 ]
   %82 = getelementptr inbounds nuw i8, ptr %.022.i, i64 96
   %.0.i = load ptr, ptr %82, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -3995,8 +3995,8 @@ default.unreachable:                              ; preds = %147
   unreachable
 
 173:                                              ; preds = %170, %168, %165, %163, %160, %158, %155, %153
-  %.019.i98 = phi i32 [ %154, %153 ], [ %156, %155 ], [ %150, %158 ], [ %161, %160 ], [ %164, %163 ], [ %166, %165 ], [ %150, %168 ], [ %171, %170 ]
-  %.0.i99 = phi i32 [ %152, %153 ], [ %157, %155 ], [ %159, %158 ], [ %162, %160 ], [ %152, %163 ], [ %167, %165 ], [ %169, %168 ], [ %172, %170 ]
+  %.019.i98 = phi i32 [ %171, %170 ], [ %154, %153 ], [ %156, %155 ], [ %150, %158 ], [ %161, %160 ], [ %164, %163 ], [ %166, %165 ], [ %150, %168 ]
+  %.0.i99 = phi i32 [ %172, %170 ], [ %152, %153 ], [ %157, %155 ], [ %159, %158 ], [ %162, %160 ], [ %152, %163 ], [ %167, %165 ], [ %169, %168 ]
   %174 = load i32, ptr %35, align 8
   %175 = mul i32 %.019.i98, -1918454973
   %176 = mul i32 %.0.i99, -669632447
@@ -4039,7 +4039,7 @@ default.unreachable:                              ; preds = %147
   br label %197
 
 197:                                              ; preds = %193, %188, %184, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %194, %193 ], [ %.01621.i.i, %188 ], [ %.01621.i.i, %184 ], [ %.01621.i.i, %.lr.ph.i.i ]
+  %.1.i.i = phi i32 [ %194, %193 ], [ %.01621.i.i, %.lr.ph.i.i ], [ %.01621.i.i, %188 ], [ %.01621.i.i, %184 ]
   %198 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 96
   %.0.i.i = load ptr, ptr %198, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
@@ -4239,7 +4239,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit116: ; preds = %._crit_edge.i
   br label %289
 
 289:                                              ; preds = %17, %6, %4, %279
-  %.075 = phi i32 [ 1073741824, %279 ], [ -2147483640, %4 ], [ -2147483640, %6 ], [ -2147483640, %17 ]
+  %.075 = phi i32 [ -2147483640, %4 ], [ -2147483640, %6 ], [ 1073741824, %279 ], [ -2147483640, %17 ]
   ret i32 %.075
 }
 
@@ -4431,7 +4431,7 @@ _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %17
   br i1 %60, label %43, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %43, %.preheader, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit, %17, %13, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit
-  %.0 = phi i32 [ -2147483640, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit ], [ -2147483647, %13 ], [ -2147483646, %17 ], [ -2147483640, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ 1073741824, %.preheader ], [ 1073741824, %43 ]
+  %.0 = phi i32 [ -2147483640, %_ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit ], [ -2147483640, %_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile.exit ], [ -2147483647, %13 ], [ -2147483646, %17 ], [ 1073741824, %.preheader ], [ 1073741824, %43 ]
   ret i32 %.0
 }
 
@@ -4569,7 +4569,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh33getOffMes
   br label %82
 
 82:                                               ; preds = %37, %34, %18, %30, %6, %5, %.loopexit
-  %.025 = phi i32 [ 1073741824, %.loopexit ], [ -2147483648, %5 ], [ -2147483640, %6 ], [ -2147483640, %30 ], [ -2147483640, %18 ], [ -2147483640, %34 ], [ -2147483648, %37 ]
+  %.025 = phi i32 [ -2147483648, %5 ], [ -2147483640, %6 ], [ -2147483640, %18 ], [ -2147483640, %34 ], [ 1073741824, %.loopexit ], [ -2147483640, %30 ], [ -2147483648, %37 ]
   ret i32 %.025
 }
 
@@ -4661,7 +4661,7 @@ define noundef ptr @_ZNK9dtNavMesh25getOffMeshConnectionByRefEj(ptr noundef nonn
   br label %58
 
 58:                                               ; preds = %34, %31, %15, %27, %3, %2, %53
-  %.0 = phi ptr [ %57, %53 ], [ null, %2 ], [ null, %3 ], [ null, %27 ], [ null, %15 ], [ null, %31 ], [ null, %34 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %15 ], [ null, %31 ], [ %57, %53 ], [ null, %27 ], [ null, %34 ]
   ret ptr %.0
 }
 
@@ -4727,7 +4727,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh12setPolyFla
   br label %41
 
 41:                                               ; preds = %32, %16, %28, %4, %3, %35
-  %.0 = phi i32 [ 1073741824, %35 ], [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %28 ], [ -2147483640, %16 ], [ -2147483640, %32 ]
+  %.0 = phi i32 [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %16 ], [ 1073741824, %35 ], [ -2147483640, %28 ], [ -2147483640, %32 ]
   ret i32 %.0
 }
 
@@ -4792,7 +4792,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh12getPolyFl
   br label %42
 
 42:                                               ; preds = %32, %16, %28, %4, %3, %35
-  %.0 = phi i32 [ 1073741824, %35 ], [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %28 ], [ -2147483640, %16 ], [ -2147483640, %32 ]
+  %.0 = phi i32 [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %16 ], [ 1073741824, %35 ], [ -2147483640, %28 ], [ -2147483640, %32 ]
   ret i32 %.0
 }
 
@@ -4860,7 +4860,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh11setPolyAre
   br label %45
 
 45:                                               ; preds = %32, %16, %28, %4, %3, %35
-  %.0 = phi i32 [ 1073741824, %35 ], [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %28 ], [ -2147483640, %16 ], [ -2147483640, %32 ]
+  %.0 = phi i32 [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %16 ], [ 1073741824, %35 ], [ -2147483640, %28 ], [ -2147483640, %32 ]
   ret i32 %.0
 }
 
@@ -4926,7 +4926,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK9dtNavMesh11getPolyAr
   br label %43
 
 43:                                               ; preds = %32, %16, %28, %4, %3, %35
-  %.0 = phi i32 [ 1073741824, %35 ], [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %28 ], [ -2147483640, %16 ], [ -2147483640, %32 ]
+  %.0 = phi i32 [ -2147483648, %3 ], [ -2147483640, %4 ], [ -2147483640, %16 ], [ 1073741824, %35 ], [ -2147483640, %28 ], [ -2147483640, %32 ]
   ret i32 %.0
 }
 

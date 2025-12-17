@@ -627,7 +627,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph61, %22, %.lr.ph.preheader, %2, %6
-  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ %8, %.lr.ph61 ], [ %8, %.lr.ph.loopexit ], [ %8, %10 ]
+  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ 0, %2 ], [ %8, %.lr.ph.preheader ], [ %8, %.lr.ph.loopexit ], [ %8, %22 ], [ %8, %.lr.ph61 ], [ %8, %10 ]
   %.0.i35.shrunk45 = zext i16 %.0.i35.shrunk45.shrunk to i32
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1357,7 +1357,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(addre
   br i1 %37, label %27, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %36, %32, %22, %18, %23, %.preheader33, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %.preheader33 ], [ null, %23 ], [ null, %22 ], [ %15, %18 ], [ null, %36 ], [ %29, %32 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %23 ], [ null, %.preheader33 ], [ %15, %18 ], [ null, %22 ], [ %29, %32 ], [ null, %36 ]
   ret ptr %.0
 }
 
@@ -1554,7 +1554,7 @@ lv_obj_get_index_by_type.exit.thread:             ; preds = %.preheader27.i
   br i1 %exitcond.not.i18, label %lv_obj_get_child_by_type.exit, label %34, !llvm.loop !69
 
 lv_obj_get_child_by_type.exit:                    ; preds = %43, %39, %lv_obj_get_index_by_type.exit.thread27, %lv_obj_get_index_by_type.exit.thread, %.preheader33.i, %.thread, %lv_obj_get_index_by_type.exit
-  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ null, %lv_obj_get_index_by_type.exit.thread27 ], [ %36, %39 ], [ null, %43 ]
+  %.0 = phi ptr [ null, %lv_obj_get_index_by_type.exit ], [ null, %.thread ], [ null, %.preheader33.i ], [ null, %lv_obj_get_index_by_type.exit.thread27 ], [ null, %lv_obj_get_index_by_type.exit.thread ], [ %36, %39 ], [ null, %43 ]
   ret ptr %.0
 }
 
@@ -1740,7 +1740,7 @@ lv_obj_get_child.exit:                            ; preds = %lv_obj_get_child_co
   br label %.loopexit
 
 .loopexit:                                        ; preds = %lv_obj_get_child.exit, %._crit_edge, %5, %19, %.critedge
-  %.027 = phi i32 [ 0, %.critedge ], [ %20, %19 ], [ 2, %5 ], [ 2, %._crit_edge ], [ 2, %lv_obj_get_child.exit ]
+  %.027 = phi i32 [ %20, %19 ], [ 0, %.critedge ], [ 2, %5 ], [ 2, %._crit_edge ], [ 2, %lv_obj_get_child.exit ]
   ret i32 %.027
 }
 

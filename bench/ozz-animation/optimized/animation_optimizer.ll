@@ -352,7 +352,7 @@ _ZNKSt3mapIiN3ozz9animation7offline18AnimationOptimizer7SettingESt4lessIiENS0_12
   br label %_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder19ComputeScaleForwardEii.exit.i
 
 _ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder19ComputeScaleForwardEii.exit.i: ; preds = %134, %_ZNKSt3mapIiN3ozz9animation7offline18AnimationOptimizer7SettingESt4lessIiENS0_12StdAllocatorISt4pairIKiS4_EEEE4findERS9_.exit.i.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN3ozz9animation7offline18AnimationOptimizer7SettingEESt10_Select1stIS7_ESt4lessIiENS2_12StdAllocatorIS7_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %125
-  %.sroa.0.0.i.i.i = phi <2 x float> [ %.sroa.0.0.copyload3.i.i.i, %134 ], [ %.sroa.0.0.copyload.i.i.i, %_ZNKSt3mapIiN3ozz9animation7offline18AnimationOptimizer7SettingESt4lessIiENS0_12StdAllocatorISt4pairIKiS4_EEEE4findERS9_.exit.i.i.i ], [ %.sroa.0.0.copyload.i.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN3ozz9animation7offline18AnimationOptimizer7SettingEESt10_Select1stIS7_ESt4lessIiENS2_12StdAllocatorIS7_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ %.sroa.0.0.copyload.i.i.i, %125 ]
+  %.sroa.0.0.i.i.i = phi <2 x float> [ %.sroa.0.0.copyload3.i.i.i, %134 ], [ %.sroa.0.0.copyload.i.i.i, %_ZNKSt3mapIiN3ozz9animation7offline18AnimationOptimizer7SettingESt4lessIiENS0_12StdAllocatorISt4pairIKiS4_EEEE4findERS9_.exit.i.i.i ], [ %.sroa.0.0.copyload.i.i.i, %125 ], [ %.sroa.0.0.copyload.i.i.i, %_ZNKSt8_Rb_treeIiSt4pairIKiN3ozz9animation7offline18AnimationOptimizer7SettingEESt10_Select1stIS7_ESt4lessIiENS2_12StdAllocatorIS7_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ]
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.i.i.i, i64 1
   %136 = fmul float %126, %.sroa.0.4.vec.extract.i.i
   store float %136, ptr %91, align 4, !tbaa !48
@@ -1186,7 +1186,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
   br i1 %556, label %.lr.ph44.i, label %._crit_edge45.loopexit.i, !llvm.loop !110
 
 557:                                              ; preds = %547, %481, %468, %447, %420
-  %.pn62.pn.i = phi { ptr, i32 } [ %421, %420 ], [ %548, %547 ], [ %482, %481 ], [ %469, %468 ], [ %448, %447 ]
+  %.pn62.pn.i = phi { ptr, i32 } [ %482, %481 ], [ %421, %420 ], [ %469, %468 ], [ %448, %447 ], [ %548, %547 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %18) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !67
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %17) #16
@@ -1247,7 +1247,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
   br i1 %587, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115PositionAdapterEEET_RKSB_RKT0_f.exit, label %562
 
 .body:                                            ; preds = %557, %293
-  %.pn67.pn.i = phi { ptr, i32 } [ %294, %293 ], [ %.pn62.pn.i, %557 ]
+  %.pn67.pn.i = phi { ptr, i32 } [ %.pn62.pn.i, %557 ], [ %294, %293 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1294
@@ -1901,7 +1901,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   br i1 %893, label %.lr.ph43.i, label %._crit_edge44.loopexit.i, !llvm.loop !136
 
 894:                                              ; preds = %884, %818, %805, %784, %749
-  %.pn62.pn.i124 = phi { ptr, i32 } [ %750, %749 ], [ %885, %884 ], [ %819, %818 ], [ %806, %805 ], [ %785, %784 ]
+  %.pn62.pn.i124 = phi { ptr, i32 } [ %819, %818 ], [ %750, %749 ], [ %806, %805 ], [ %785, %784 ], [ %885, %884 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !112
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %11) #16
@@ -1969,7 +1969,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   br i1 %930, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit, label %899
 
 .body142:                                         ; preds = %894, %622
-  %.pn67.pn.i125 = phi { ptr, i32 } [ %623, %622 ], [ %.pn62.pn.i124, %894 ]
+  %.pn67.pn.i125 = phi { ptr, i32 } [ %.pn62.pn.i124, %894 ], [ %623, %622 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1294
@@ -2624,7 +2624,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
   br i1 %1228, label %.lr.ph44.i178, label %._crit_edge45.loopexit.i184, !llvm.loop !149
 
 1229:                                             ; preds = %1219, %1153, %1140, %1119, %1092
-  %.pn62.pn.i207 = phi { ptr, i32 } [ %1093, %1092 ], [ %1220, %1219 ], [ %1154, %1153 ], [ %1141, %1140 ], [ %1120, %1119 ]
+  %.pn62.pn.i207 = phi { ptr, i32 } [ %1154, %1153 ], [ %1093, %1092 ], [ %1141, %1140 ], [ %1120, %1119 ], [ %1220, %1219 ]
   call void @_ZNSt13_Bvector_baseIN3ozz12StdAllocatorIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !138
   call void @_ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #16
@@ -2685,7 +2685,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
   br i1 %1259, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation8ScaleKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_112ScaleAdapterEEET_RKSB_RKT0_f.exit, label %1234
 
 .body241:                                         ; preds = %1229, %965
-  %.pn67.pn.i208 = phi { ptr, i32 } [ %966, %965 ], [ %.pn62.pn.i207, %1229 ]
+  %.pn67.pn.i208 = phi { ptr, i32 } [ %.pn62.pn.i207, %1229 ], [ %966, %965 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1294
@@ -2774,7 +2774,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
   unreachable
 
 1294:                                             ; preds = %.body, %.body241, %.body142, %263
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %264, %263 ], [ %.pn67.pn.i, %.body ], [ %.pn67.pn.i208, %.body241 ], [ %.pn67.pn.i125, %.body142 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %264, %263 ], [ %.pn67.pn.i125, %.body142 ], [ %.pn67.pn.i, %.body ], [ %.pn67.pn.i208, %.body241 ]
   call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilderD2Ev(ptr %.sroa.0249.0) #16
   resume { ptr, i32 } %.pn.pn.pn.pn
 
@@ -3896,7 +3896,7 @@ _ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1
   br label %_ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPSt4pairImmES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit
-  %.0 = phi ptr [ %56, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %56, %_ZNSt11_Deque_baseISt4pairImmEN3ozz12StdAllocatorIS1_EEE17_M_deallocate_mapEPPS1_m.exit ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !79
   %73 = load ptr, ptr %.0, align 8, !tbaa !77
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24

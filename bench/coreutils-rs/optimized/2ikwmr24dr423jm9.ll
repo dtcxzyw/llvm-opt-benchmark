@@ -304,7 +304,7 @@ define void @_ZN11uu_printenv6uu_app17hcee3ae203cd052a3E(ptr noalias noundef wri
   ret void
 
 .body:                                            ; preds = %76, %69, %35, %86, %85, %81
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %eh.lpad-body21.ph, %85 ], [ %87, %86 ], [ %36, %35 ], [ %70, %69 ], [ %77, %76 ]
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %70, %69 ], [ %eh.lpad-body21.ph, %85 ], [ %36, %35 ], [ %87, %86 ], [ %77, %76 ]
   resume { ptr, i32 } %.pn
 
 81:                                               ; preds = %73

@@ -170,7 +170,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
   br label %21
 
 21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  %.0 = phi ptr [ null, %5 ], [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -1017,7 +1017,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %116, %115, %114, %9
   br label %184
 
 184:                                              ; preds = %48, %60, %89, %124, %91, %182, %180, %80, %46
-  %.pn126.pn.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %49, %48 ], [ %.pn, %60 ], [ %183, %182 ], [ %181, %180 ], [ %81, %80 ], [ %90, %89 ], [ %92, %91 ], [ %125, %124 ]
+  %.pn126.pn.pn.pn.pn = phi { ptr, i32 } [ %47, %46 ], [ %.pn, %60 ], [ %49, %48 ], [ %81, %80 ], [ %183, %182 ], [ %181, %180 ], [ %90, %89 ], [ %92, %91 ], [ %125, %124 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn126.pn.pn.pn.pn
@@ -1380,7 +1380,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %63, %54
   ret ptr %1
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %46, %75, %88
-  %.pn51 = phi { ptr, i32 } [ %47, %46 ], [ %76, %75 ], [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn51 = phi { ptr, i32 } [ %76, %75 ], [ %47, %46 ], [ %89, %88 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn51

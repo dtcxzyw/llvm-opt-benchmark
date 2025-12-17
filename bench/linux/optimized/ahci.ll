@@ -291,7 +291,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   br label %.thread68
 
 .thread68:                                        ; preds = %44, %40, %36, %59, %55, %70, %63, %53
-  %75 = phi i32 [ %74, %70 ], [ %69, %63 ], [ 5, %53 ], [ %spec.select, %55 ], [ %spec.select34, %59 ], [ 5, %36 ], [ 5, %40 ], [ 5, %44 ]
+  %75 = phi i32 [ %spec.select, %55 ], [ %spec.select34, %59 ], [ 5, %53 ], [ %74, %70 ], [ %69, %63 ], [ 5, %36 ], [ 5, %40 ], [ 5, %44 ]
   %76 = call i32 @pcim_enable_device(ptr noundef %0) #13
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread33

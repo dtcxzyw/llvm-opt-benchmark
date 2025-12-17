@@ -229,7 +229,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br label %149
 
 95:                                               ; preds = %86, %83, %73, %70, %60, %57, %82, %69, %56, %.critedge
-  %.1 = phi ptr [ %.0101.lcssa, %.critedge ], [ %.0101.lcssa, %56 ], [ %.0101.lcssa, %69 ], [ %.0101.lcssa, %82 ], [ %58, %57 ], [ %61, %60 ], [ %71, %70 ], [ %74, %73 ], [ %84, %83 ], [ %87, %86 ]
+  %.1 = phi ptr [ %.0101.lcssa, %.critedge ], [ %.0101.lcssa, %82 ], [ %.0101.lcssa, %69 ], [ %74, %73 ], [ %84, %83 ], [ %87, %86 ], [ %58, %57 ], [ %.0101.lcssa, %56 ], [ %61, %60 ], [ %71, %70 ]
   %96 = add i32 %2, -37
   %or.cond = icmp ult i32 %96, -35
   br i1 %or.cond, label %97, label %.preheader137.preheader
@@ -321,7 +321,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   store ptr %.5.lcssa, ptr %1, align 8, !tbaa !11
   br label %149
 
-select.unfold:                                    ; preds = %124, %119, %121
+select.unfold:                                    ; preds = %124, %121, %119
   %.not131 = icmp eq ptr %1, null
   br i1 %.not131, label %147, label %.preheader
 
@@ -346,7 +346,7 @@ select.unfold:                                    ; preds = %124, %119, %121
   br label %149
 
 149:                                              ; preds = %._crit_edge, %138, %97, %98, %93, %94, %80, %81, %67, %68, %54, %55, %44, %45, %35, %36, %26, %27, %147
-  %.0 = phi i64 [ -1, %147 ], [ 0, %27 ], [ 0, %26 ], [ 0, %36 ], [ 0, %35 ], [ 0, %45 ], [ 0, %44 ], [ 0, %55 ], [ 0, %54 ], [ 0, %68 ], [ 0, %67 ], [ 0, %81 ], [ 0, %80 ], [ 0, %94 ], [ 0, %93 ], [ 0, %98 ], [ 0, %97 ], [ %.0102.lcssa, %138 ], [ %.0102.lcssa, %._crit_edge ]
+  %.0 = phi i64 [ 0, %93 ], [ 0, %97 ], [ -1, %147 ], [ 0, %98 ], [ 0, %80 ], [ 0, %26 ], [ 0, %35 ], [ 0, %44 ], [ 0, %54 ], [ 0, %67 ], [ 0, %27 ], [ 0, %36 ], [ 0, %45 ], [ 0, %55 ], [ 0, %68 ], [ 0, %81 ], [ 0, %94 ], [ %.0102.lcssa, %138 ], [ %.0102.lcssa, %._crit_edge ]
   ret i64 %.0
 }
 
@@ -409,7 +409,7 @@ define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef writeonly captures
   br label %25
 
 25:                                               ; preds = %19, %21, %23
-  %.020 = phi i64 [ 9223372036854775807, %23 ], [ %spec.select, %19 ], [ -9223372036854775808, %21 ]
+  %.020 = phi i64 [ 9223372036854775807, %23 ], [ -9223372036854775808, %21 ], [ %spec.select, %19 ]
   ret i64 %.020
 }
 

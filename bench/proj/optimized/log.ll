@@ -40,7 +40,7 @@ define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %9, %2
-  %.0 = phi i1 [ false, %2 ], [ %10, %9 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %2 ]
   ret i1 %.0
 }
 

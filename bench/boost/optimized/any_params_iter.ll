@@ -100,7 +100,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %13
   br label %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i
 
 _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %13
-  %.sink.i = phi i64 [ 0, %13 ], [ %spec.select.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
+  %.sink.i = phi i64 [ %spec.select.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ 0, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink.i, ptr %19, align 8, !tbaa !17
   br label %_ZN5boost4urls6detail10query_iter6rewindEv.exit
@@ -141,7 +141,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %5
   br label %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread
 
 _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %5
-  %.sink = phi i64 [ 0, %5 ], [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sink = phi i64 [ %spec.select, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %5 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sink, ptr %16, align 8, !tbaa !17
   br label %17
@@ -912,7 +912,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br label %.loopexit87
 
 .loopexit87:                                      ; preds = %24, %68, %62, %.loopexit, %74, %._crit_edge, %30
-  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %33, %30 ], [ %49, %._crit_edge ], [ %1, %62 ], [ %1, %68 ], [ %1, %24 ]
+  %.0 = phi i64 [ %93, %.loopexit ], [ %77, %74 ], [ %49, %._crit_edge ], [ %33, %30 ], [ %1, %68 ], [ %1, %62 ], [ %1, %24 ]
   ret i64 %.0
 }
 

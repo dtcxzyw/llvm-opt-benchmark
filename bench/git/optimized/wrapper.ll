@@ -1231,7 +1231,7 @@ define dso_local range(i32 -1, -2147483648) i32 @git_mkstemps_mode(ptr noundef c
   br label %36
 
 36:                                               ; preds = %.thread, %.loopexit, %16, %9
-  %.023 = phi i32 [ -1, %9 ], [ -1, %16 ], [ -1, %.loopexit ], [ %.2.ph, %.thread ]
+  %.023 = phi i32 [ -1, %9 ], [ -1, %16 ], [ %.2.ph, %.thread ], [ -1, %.loopexit ]
   ret i32 %.023
 }
 
@@ -1303,7 +1303,7 @@ handle_nonblock.exit.i:                           ; preds = %17
   br label %25
 
 25:                                               ; preds = %3, %._crit_edge, %19
-  %.0 = phi i32 [ -1, %19 ], [ 0, %._crit_edge ], [ -1, %3 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ -1, %19 ], [ -1, %3 ]
   ret i32 %.0
 }
 

@@ -394,8 +394,8 @@ BufFileFlush.exit:                                ; preds = %5, %12
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %35, %31, %25
-  %36 = phi i64 [ 0, %35 ], [ %28, %31 ], [ %28, %25 ]
-  %37 = phi i32 [ %32, %35 ], [ %30, %31 ], [ %30, %25 ]
+  %36 = phi i64 [ %28, %31 ], [ 0, %35 ], [ %28, %25 ]
+  %37 = phi i32 [ %30, %31 ], [ %32, %35 ], [ %30, %25 ]
   %38 = load ptr, ptr %17, align 8
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds i32, ptr %38, i64 %39
@@ -886,8 +886,8 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   unreachable
 
 43:                                               ; preds = %5, %7
-  %.047 = phi i32 [ %9, %7 ], [ %1, %5 ]
-  %.0 = phi i64 [ %16, %7 ], [ %2, %5 ]
+  %.047 = phi i32 [ %1, %5 ], [ %9, %7 ]
+  %.0 = phi i64 [ %2, %5 ], [ %16, %7 ]
   %44 = icmp slt i64 %.0, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1000,7 +1000,7 @@ select.unfold._crit_edge:                         ; preds = %.lr.ph72.preheader.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.lr.ph72.preheader, %select.unfold._crit_edge, %5, %96, %68
-  %.051 = phi i32 [ 0, %68 ], [ 0, %96 ], [ -1, %5 ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph72.preheader ], [ -1, %.lr.ph.preheader ]
+  %.051 = phi i32 [ 0, %96 ], [ -1, %5 ], [ 0, %68 ], [ -1, %select.unfold._crit_edge ], [ -1, %.lr.ph72.preheader ], [ -1, %.lr.ph.preheader ]
   ret i32 %.051
 }
 
@@ -1203,9 +1203,9 @@ define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32
   unreachable
 
 47:                                               ; preds = %28, %32
-  %.166 = phi i32 [ %29, %28 ], [ %.06581, %32 ]
-  %.164 = phi i32 [ %spec.select, %28 ], [ %.06382, %32 ]
-  %.1 = phi i64 [ 1073741824, %28 ], [ %2, %32 ]
+  %.166 = phi i32 [ %.06581, %32 ], [ %29, %28 ]
+  %.164 = phi i32 [ %.06382, %32 ], [ %spec.select, %28 ]
+  %.1 = phi i64 [ %2, %32 ], [ 1073741824, %28 ]
   %.0 = add i32 %.083, -1
   %.not = icmp slt i32 %.0, %1
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !14

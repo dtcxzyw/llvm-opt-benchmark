@@ -181,7 +181,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br i1 %103, label %104, label %.thread208
 
 104:                                              ; preds = %102, %100, %92
-  %.0158.neg = phi i8 [ 7, %92 ], [ 6, %100 ], [ 5, %102 ]
+  %.0158.neg = phi i8 [ 6, %100 ], [ 7, %92 ], [ 5, %102 ]
   %105 = mul nuw nsw i32 %98, 6
   %106 = add nuw nsw i32 %105, 6
   %107 = icmp slt i32 %.2150227, %106
@@ -340,7 +340,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br i1 %209, label %210, label %.thread208
 
 210:                                              ; preds = %208, %206, %198
-  %.1159 = phi i8 [ 39, %198 ], [ 75, %206 ], [ 111, %208 ]
+  %.1159 = phi i8 [ 75, %206 ], [ 39, %198 ], [ 111, %208 ]
   %211 = getelementptr inbounds nuw i8, ptr %199, i64 1
   store ptr %211, ptr %5, align 8, !tbaa !37
   store i8 15, ptr %199, align 1, !tbaa !34
@@ -439,7 +439,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br i1 %266, label %267, label %.thread208
 
 267:                                              ; preds = %265, %263, %256
-  %.0152 = phi ptr [ @dvb_encode_rle2, %256 ], [ @dvb_encode_rle4, %263 ], [ @dvb_encode_rle8, %265 ]
+  %.0152 = phi ptr [ @dvb_encode_rle4, %263 ], [ @dvb_encode_rle2, %256 ], [ @dvb_encode_rle8, %265 ]
   %268 = load ptr, ptr %5, align 8, !tbaa !37
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 1
   store ptr %269, ptr %5, align 8, !tbaa !37
@@ -567,7 +567,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   br label %.thread208
 
 .thread208:                                       ; preds = %104, %102, %208, %301, %267, %265, %254, %.loopexit, %._crit_edge229, %40, %21, %10, %342
-  %.0 = phi i32 [ %358, %342 ], [ -22, %10 ], [ -1397118274, %21 ], [ -1397118274, %40 ], [ -1397118274, %._crit_edge229 ], [ -1397118274, %.loopexit ], [ %299, %267 ], [ %317, %301 ], [ -1397118274, %254 ], [ -22, %265 ], [ -22, %208 ], [ -1397118274, %104 ], [ -22, %102 ]
+  %.0 = phi i32 [ -22, %10 ], [ %358, %342 ], [ -1397118274, %21 ], [ -1397118274, %40 ], [ -1397118274, %._crit_edge229 ], [ -1397118274, %.loopexit ], [ -22, %208 ], [ %299, %267 ], [ %317, %301 ], [ -1397118274, %254 ], [ -22, %265 ], [ -1397118274, %104 ], [ -22, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -622,7 +622,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   br label %22
 
 22:                                               ; preds = %17, %.sink.split
-  %.25.us = phi ptr [ %21, %.sink.split ], [ %.4256.us, %17 ]
+  %.25.us = phi ptr [ %.4256.us, %17 ], [ %21, %.sink.split ]
   %23 = getelementptr inbounds nuw i8, ptr %.25.us, i64 1
   store i8 -16, ptr %.25.us, align 1, !tbaa !34
   %24 = getelementptr inbounds i8, ptr %.0276429.us, i64 %12
@@ -775,9 +775,9 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   br label %98
 
 98:                                               ; preds = %.thread362.us, %80
-  %.16268.us = phi ptr [ %.1253421.us, %80 ], [ %.15267.ph.us, %.thread362.us ]
-  %.15242.us = phi i32 [ %84, %80 ], [ %96, %.thread362.us ]
-  %.15.us = phi i32 [ %85, %80 ], [ %97, %.thread362.us ]
+  %.16268.us = phi ptr [ %.15267.ph.us, %.thread362.us ], [ %.1253421.us, %80 ]
+  %.15242.us = phi i32 [ %96, %.thread362.us ], [ %84, %80 ]
+  %.15.us = phi i32 [ %97, %.thread362.us ], [ %85, %80 ]
   %99 = lshr i32 %71, 4
   %100 = and i32 %99, 3
   %101 = shl i32 %100, %.15.us
@@ -843,9 +843,9 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   br label %134
 
 134:                                              ; preds = %.thread376.us, %111
-  %.19271.us = phi ptr [ %.16268.us, %111 ], [ %.18270.ph.us, %.thread376.us ]
-  %.18245.us = phi i32 [ %115, %111 ], [ %132, %.thread376.us ]
-  %.18.us = phi i32 [ %116, %111 ], [ %133, %.thread376.us ]
+  %.19271.us = phi ptr [ %.18270.ph.us, %.thread376.us ], [ %.16268.us, %111 ]
+  %.18245.us = phi i32 [ %132, %.thread376.us ], [ %115, %111 ]
+  %.18.us = phi i32 [ %133, %.thread376.us ], [ %116, %111 ]
   %135 = shl i32 %34, %.18.us
   %136 = or i32 %135, %.18245.us
   %137 = add nsw i32 %.18.us, -2
@@ -913,9 +913,9 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   br label %169
 
 169:                                              ; preds = %.thread339.us, %151
-  %.11263.us = phi ptr [ %.1253421.us, %151 ], [ %.10262.ph.us, %.thread339.us ]
-  %.10237.us = phi i32 [ %155, %151 ], [ %167, %.thread339.us ]
-  %.10.us = phi i32 [ %156, %151 ], [ %168, %.thread339.us ]
+  %.11263.us = phi ptr [ %.10262.ph.us, %.thread339.us ], [ %.1253421.us, %151 ]
+  %.10237.us = phi i32 [ %167, %.thread339.us ], [ %155, %151 ]
+  %.10.us = phi i32 [ %168, %.thread339.us ], [ %156, %151 ]
   %170 = and i32 %44, 3
   %171 = shl i32 %170, %.10.us
   %172 = or i32 %171, %.10237.us
@@ -1354,10 +1354,10 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
   br label %.thread312.us
 
 .thread312.us:                                    ; preds = %130, %128, %120, %115, %106, %100, %92, %86, %74, %68, %59, %58, %.thread305.us
-  %.3215.us = phi ptr [ %132, %130 ], [ %129, %128 ], [ %124, %120 ], [ %117, %115 ], [ %112, %106 ], [ %104, %100 ], [ %97, %92 ], [ %90, %86 ], [ %82, %74 ], [ %72, %68 ], [ %62, %59 ], [ %.1213328.us, %58 ], [ %57, %.thread305.us ]
-  %.2196.us = phi i32 [ 0, %130 ], [ 208, %128 ], [ 0, %120 ], [ %119, %115 ], [ 0, %106 ], [ %105, %100 ], [ 0, %92 ], [ %91, %86 ], [ 0, %74 ], [ %73, %68 ], [ 0, %59 ], [ %54, %58 ], [ %spec.select.us, %.thread305.us ]
-  %.2.us = phi i32 [ 4, %130 ], [ 0, %128 ], [ 4, %120 ], [ 0, %115 ], [ 4, %106 ], [ 0, %100 ], [ 4, %92 ], [ 0, %86 ], [ 4, %74 ], [ 0, %68 ], [ 4, %59 ], [ 0, %58 ], [ %spec.select324.us, %.thread305.us ]
-  %.0190.us = phi i32 [ 2, %130 ], [ 2, %128 ], [ %40, %120 ], [ %40, %115 ], [ %40, %106 ], [ %40, %100 ], [ %40, %92 ], [ %40, %86 ], [ %64, %74 ], [ %64, %68 ], [ 1, %59 ], [ 1, %58 ], [ 1, %.thread305.us ]
+  %.3215.us = phi ptr [ %132, %130 ], [ %129, %128 ], [ %124, %120 ], [ %117, %115 ], [ %112, %106 ], [ %104, %100 ], [ %97, %92 ], [ %90, %86 ], [ %82, %74 ], [ %72, %68 ], [ %62, %59 ], [ %57, %.thread305.us ], [ %.1213328.us, %58 ]
+  %.2196.us = phi i32 [ 0, %130 ], [ 208, %128 ], [ 0, %120 ], [ %119, %115 ], [ 0, %106 ], [ %105, %100 ], [ 0, %92 ], [ %91, %86 ], [ 0, %74 ], [ %73, %68 ], [ 0, %59 ], [ %spec.select.us, %.thread305.us ], [ %54, %58 ]
+  %.2.us = phi i32 [ 4, %130 ], [ 0, %128 ], [ 4, %120 ], [ 0, %115 ], [ 4, %106 ], [ 0, %100 ], [ 4, %92 ], [ 0, %86 ], [ 4, %74 ], [ 0, %68 ], [ 4, %59 ], [ %spec.select324.us, %.thread305.us ], [ 0, %58 ]
+  %.0190.us = phi i32 [ 2, %130 ], [ 2, %128 ], [ %40, %120 ], [ %40, %115 ], [ %40, %106 ], [ %40, %100 ], [ %40, %92 ], [ %40, %86 ], [ %64, %74 ], [ %64, %68 ], [ 1, %59 ], [ 1, %.thread305.us ], [ 1, %58 ]
   %133 = add nuw nsw i32 %.0190.us, %.0192331.us
   %134 = icmp slt i32 %133, %4
   br i1 %134, label %26, label %._crit_edge.us, !llvm.loop !59

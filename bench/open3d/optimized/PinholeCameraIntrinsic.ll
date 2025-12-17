@@ -208,7 +208,7 @@ define noundef zeroext i1 @_ZN6open3d6camera22PinholeCameraIntrinsic20ConvertFro
   br label %33
 
 32:                                               ; preds = %16, %21, %8
-  %.010 = phi i1 [ false, %21 ], [ false, %8 ], [ true, %16 ]
+  %.010 = phi i1 [ false, %8 ], [ false, %21 ], [ true, %16 ]
   ret i1 %.010
 
 33:                                               ; preds = %31, %26

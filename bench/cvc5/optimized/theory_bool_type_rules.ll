@@ -1273,7 +1273,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit87:            ; preds = %_ZN4cvc58internal8T
   ret void
 
 .body:                                            ; preds = %122, %215, %186, %217, %213, %52, %314
-  %.pn29 = phi { ptr, i32 } [ %.pn23.pn, %314 ], [ %214, %213 ], [ %53, %52 ], [ %216, %215 ], [ %123, %122 ], [ %218, %217 ], [ %187, %186 ]
+  %.pn29 = phi { ptr, i32 } [ %.pn23.pn, %314 ], [ %53, %52 ], [ %214, %213 ], [ %123, %122 ], [ %216, %215 ], [ %218, %217 ], [ %187, %186 ]
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #13
   br label %396
 

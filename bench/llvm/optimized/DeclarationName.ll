@@ -353,7 +353,7 @@ _ZNK4llvm9StringRef7compareES0_.exit.loopexit:    ; preds = %_ZN4llvm9StringRef1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZNK4llvm9StringRef7compareES0_.exit.loopexit, %._crit_edge, %97, %81, %.thread.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
-  %.2 = phi i32 [ %83, %81 ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ 0, %.thread.i ], [ %100, %._crit_edge ], [ %99, %97 ], [ %spec.select.i75.le, %_ZNK4llvm9StringRef7compareES0_.exit.loopexit ]
+  %.2 = phi i32 [ 0, %.thread.i ], [ %spec.select.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i ], [ %83, %81 ], [ %100, %._crit_edge ], [ %99, %97 ], [ %spec.select.i75.le, %_ZNK4llvm9StringRef7compareES0_.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4llvm9StringRef7compareES0_.exit119
@@ -496,7 +496,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112: ; preds = %_ZNK5clang15Decl
   unreachable
 
 _ZNK4llvm9StringRef7compareES0_.exit119:          ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit53, %112, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86, %168, %.thread.i118, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82, %44, %47, %46, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99, %_ZNK4llvm9StringRef7compareES0_.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit49
-  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ %144, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ %59, %47 ], [ %45, %44 ], [ 1, %46 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %170, %168 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ 0, %.thread.i118 ], [ %118, %112 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
+  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit49 ], [ %45, %44 ], [ %.2, %_ZNK4llvm9StringRef7compareES0_.exit ], [ 1, %46 ], [ %spec.select.i116, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i112 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit82 ], [ %170, %168 ], [ %144, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit99 ], [ 0, %.thread.i118 ], [ %59, %47 ], [ %118, %112 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit86 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit53 ]
   ret i32 %.0
 }
 
@@ -527,7 +527,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %3
   br label %13
 
 13:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit, %.thread, %10
-  %.1 = phi i32 [ %12, %10 ], [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ 0, %.thread ]
+  %.1 = phi i32 [ %spec.select, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit ], [ %12, %10 ], [ 0, %.thread ]
   ret i32 %.1
 }
 

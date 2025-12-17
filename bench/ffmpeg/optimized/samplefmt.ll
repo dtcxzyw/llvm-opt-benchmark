@@ -88,7 +88,7 @@ define i32 @av_get_packed_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %2, %1, %6
-  %.0 = phi i32 [ %9, %6 ], [ -1, %1 ], [ %0, %2 ]
+  %.0 = phi i32 [ -1, %1 ], [ %9, %6 ], [ %0, %2 ]
   ret i32 %.0
 }
 
@@ -260,7 +260,7 @@ av_sample_fmt_is_planar.exit:                     ; preds = %5
   br label %av_sample_fmt_is_planar.exit.thread
 
 av_sample_fmt_is_planar.exit.thread:              ; preds = %5, %20, %23, %15, %av_sample_fmt_is_planar.exit, %41
-  %.0 = phi i32 [ %43, %41 ], [ -22, %av_sample_fmt_is_planar.exit ], [ -22, %15 ], [ -22, %23 ], [ -22, %20 ], [ -22, %5 ]
+  %.0 = phi i32 [ -22, %av_sample_fmt_is_planar.exit ], [ -22, %15 ], [ %43, %41 ], [ -22, %23 ], [ -22, %20 ], [ -22, %5 ]
   ret i32 %.0
 }
 
@@ -369,7 +369,7 @@ av_samples_get_buffer_size.exit:                  ; preds = %25
   br i1 %exitcond.not, label %av_samples_get_buffer_size.exit.thread, label %.lr.ph.split, !llvm.loop !19
 
 av_samples_get_buffer_size.exit.thread:           ; preds = %.lr.ph.split, %51, %7, %22, %25, %17, %av_sample_fmt_is_planar.exit.i, %46, %av_samples_get_buffer_size.exit
-  %.0.i2936 = phi i32 [ %42, %46 ], [ %42, %av_samples_get_buffer_size.exit ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %17 ], [ -22, %25 ], [ -22, %22 ], [ -22, %7 ], [ %42, %51 ], [ %42, %.lr.ph.split ]
+  %.0.i2936 = phi i32 [ %42, %av_samples_get_buffer_size.exit ], [ %42, %46 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %17 ], [ -22, %25 ], [ -22, %22 ], [ -22, %7 ], [ %42, %51 ], [ %42, %.lr.ph.split ]
   ret i32 %.0.i2936
 }
 
@@ -552,7 +552,7 @@ av_get_bytes_per_sample.exit.i:                   ; preds = %.lr.ph.split.i, %73
   br i1 %exitcond.not.i32, label %av_samples_set_silence.exit, label %91, !llvm.loop !20
 
 av_samples_set_silence.exit:                      ; preds = %91, %6, %21, %24, %16, %av_sample_fmt_is_planar.exit.i, %43, %av_samples_get_buffer_size.exit, %83
-  %.0 = phi i32 [ %.0.i2936.i.ph, %83 ], [ %41, %av_samples_get_buffer_size.exit ], [ -12, %43 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %16 ], [ -22, %24 ], [ -22, %21 ], [ -22, %6 ], [ %69, %91 ]
+  %.0 = phi i32 [ %41, %av_samples_get_buffer_size.exit ], [ %.0.i2936.i.ph, %83 ], [ -12, %43 ], [ -22, %av_sample_fmt_is_planar.exit.i ], [ -22, %16 ], [ -22, %24 ], [ -22, %21 ], [ -22, %6 ], [ %69, %91 ]
   ret i32 %.0
 }
 
@@ -583,9 +583,9 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
   %14 = icmp sgt i32 %3, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %av_get_bytes_per_sample.exit, %5, %av_get_bytes_per_sample.exit.thread
-  %15 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %5 ], [ 1, %av_get_bytes_per_sample.exit ]
-  %16 = phi i32 [ %13, %av_get_bytes_per_sample.exit.thread ], [ 0, %5 ], [ %13, %av_get_bytes_per_sample.exit ]
+.lr.ph:                                           ; preds = %5, %av_get_bytes_per_sample.exit, %av_get_bytes_per_sample.exit.thread
+  %15 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %av_get_bytes_per_sample.exit ], [ 1, %5 ]
+  %16 = phi i32 [ %13, %av_get_bytes_per_sample.exit.thread ], [ %13, %av_get_bytes_per_sample.exit ], [ 0, %5 ]
   %17 = mul nsw i32 %16, %1
   %18 = icmp eq i32 %4, 0
   %19 = icmp eq i32 %4, 5
@@ -674,8 +674,8 @@ av_get_bytes_per_sample.exit:                     ; preds = %7
   br label %av_get_bytes_per_sample.exit.thread
 
 av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sample.exit, %7
-  %17 = phi i32 [ 0, %7 ], [ %16, %av_get_bytes_per_sample.exit ]
-  %18 = phi i32 [ 1, %7 ], [ %11, %av_get_bytes_per_sample.exit ]
+  %17 = phi i32 [ %16, %av_get_bytes_per_sample.exit ], [ 0, %7 ]
+  %18 = phi i32 [ %11, %av_get_bytes_per_sample.exit ], [ 1, %7 ]
   %19 = mul nsw i32 %17, %4
   %20 = mul nsw i32 %17, %2
   %21 = mul nsw i32 %17, %3

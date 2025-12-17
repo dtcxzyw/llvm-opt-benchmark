@@ -587,7 +587,7 @@ define internal range(i32 -2147483648, 8191) i32 @read_access_unit(ptr noundef %
   br label %.thread115.i
 
 .thread115.i:                                     ; preds = %211, %210, %204, %202, %198, %194
-  %212 = phi i1 [ true, %210 ], [ true, %211 ], [ false, %204 ], [ false, %202 ], [ false, %198 ], [ false, %194 ]
+  %212 = phi i1 [ false, %204 ], [ true, %210 ], [ true, %211 ], [ false, %202 ], [ false, %198 ], [ false, %194 ]
   %213 = getelementptr inbounds nuw i8, ptr %155, i64 356
   %214 = load i32, ptr %213, align 4, !tbaa !87
   %215 = icmp sgt i32 %214, 2
@@ -699,7 +699,7 @@ define internal range(i32 -2147483648, 8191) i32 @read_access_unit(ptr noundef %
 269:                                              ; preds = %.thread119.i
   br label %read_major_sync.exit.thread294.sink.split
 
-read_major_sync.exit.thread:                      ; preds = %60, %66, %73, %77, %81, %87, %93, %105, %108, %161, %174, %95
+read_major_sync.exit.thread:                      ; preds = %174, %60, %66, %73, %77, %81, %87, %93, %105, %108, %161, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -709,7 +709,7 @@ read_major_sync.exit.thread294.sink.split:        ; preds = %.thread119.i, %269
   store i32 %.sink, ptr %270, align 8, !tbaa !91
   br label %read_major_sync.exit.thread294
 
-read_major_sync.exit.thread294:                   ; preds = %read_major_sync.exit.thread294.sink.split, %265, %.thread119.i, %236
+read_major_sync.exit.thread294:                   ; preds = %read_major_sync.exit.thread294.sink.split, %236, %265, %.thread119.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %272
 
@@ -1570,7 +1570,7 @@ mlp_channel_layout_subset.exit.thread.i:          ; preds = %.mlp_channel_layout
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %799, %785, %782
-  %811 = phi i8 [ %810, %799 ], [ %783, %782 ], [ %783, %785 ]
+  %811 = phi i8 [ %783, %782 ], [ %810, %799 ], [ %783, %785 ]
   %.not99.i = icmp sgt i8 %811, -1
   br i1 %.not99.i, label %844, label %812
 
@@ -2239,8 +2239,8 @@ read_channel_params.exit.i:                       ; preds = %.read_channel_param
   br i1 %.not109.not.i, label %1075, label %read_channel_params.exit.thread.i, !llvm.loop !128
 
 read_channel_params.exit.thread.i:                ; preds = %read_channel_params.exit.i, %1129, %1109, %1211, %1147, %1139, %.loopexit.i262
-  %.286.i = phi i32 [ -1094995529, %1211 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ], [ 0, %.loopexit.i262 ], [ %1130, %1129 ], [ %1110, %1109 ], [ 0, %read_channel_params.exit.i ]
-  %.3.i = phi i32 [ %1094, %1211 ], [ %1094, %1147 ], [ %1094, %1139 ], [ %.083.i, %.loopexit.i262 ], [ %1094, %1129 ], [ %1094, %1109 ], [ %.4.i, %read_channel_params.exit.i ]
+  %.286.i = phi i32 [ -1094995529, %1139 ], [ -1094995529, %1211 ], [ -1094995529, %1147 ], [ 0, %.loopexit.i262 ], [ %1110, %1109 ], [ %1130, %1129 ], [ 0, %read_channel_params.exit.i ]
+  %.3.i = phi i32 [ %1094, %1139 ], [ %1094, %1211 ], [ %1094, %1147 ], [ %.083.i, %.loopexit.i262 ], [ %1094, %1109 ], [ %1094, %1129 ], [ %.4.i, %read_channel_params.exit.i ]
   br label %1220
 
 1220:                                             ; preds = %1258, %read_channel_params.exit.thread.i
@@ -2949,7 +2949,7 @@ read_restart_header.exit.thread:                  ; preds = %548, %read_decoding
   br label %.thread326
 
 .thread326:                                       ; preds = %1554, %1521, %1376, %1620, %1319, %1608, %18, %4, %.thread, %.loopexit, %286
-  %.0 = phi i32 [ -1094995529, %.thread ], [ -1094995529, %.loopexit ], [ %23, %286 ], [ -1094995529, %4 ], [ -1094995529, %18 ], [ %1610, %1608 ], [ -1094995529, %1319 ], [ %23, %1620 ], [ -1094995529, %1376 ], [ -1094995529, %1521 ], [ -1094995529, %1554 ]
+  %.0 = phi i32 [ %23, %286 ], [ -1094995529, %4 ], [ -1094995529, %.thread ], [ -1094995529, %18 ], [ -1094995529, %.loopexit ], [ %1610, %1608 ], [ -1094995529, %1319 ], [ -1094995529, %1376 ], [ %23, %1620 ], [ -1094995529, %1521 ], [ -1094995529, %1554 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3244,7 +3244,7 @@ fill_noise_buffer.exit:                           ; preds = %57, %50
   br label %128
 
 128:                                              ; preds = %122, %._crit_edge, %127, %24, %20
-  %.0 = phi i32 [ -1094995529, %20 ], [ 0, %127 ], [ -1094995529, %24 ], [ %104, %._crit_edge ], [ %123, %122 ]
+  %.0 = phi i32 [ -1094995529, %20 ], [ -1094995529, %24 ], [ %104, %._crit_edge ], [ 0, %127 ], [ %123, %122 ]
   ret i32 %.0
 }
 
@@ -3494,7 +3494,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_filter_params(ptr nou
   br i1 %exitcond84.not, label %.critedge, label %.split, !llvm.loop !153
 
 .critedge:                                        ; preds = %.split, %.split.us.preheader, %110, %.thread, %83, %91, %45, %41, %21
-  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %41 ], [ 0, %45 ], [ -1094995529, %91 ], [ -1094995529, %83 ], [ -1094995529, %.thread ], [ 0, %110 ], [ 0, %.split.us.preheader ], [ 0, %.split ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %41 ], [ 0, %45 ], [ -1094995529, %83 ], [ -1094995529, %.thread ], [ -1094995529, %91 ], [ 0, %110 ], [ 0, %.split.us.preheader ], [ 0, %.split ]
   ret i32 %.0
 }
 

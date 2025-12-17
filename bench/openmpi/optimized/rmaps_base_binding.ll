@@ -661,8 +661,8 @@ bind_generic.exit:                                ; preds = %.thread.i, %227
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %356, ptr noundef nonnull @.str.2, i32 noundef 412) #6
   br label %bind_multiple.exit
 
-bind_multiple.exit:                               ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i74, %348, %352, %.thread78.i, %247, %300, %252, %._crit_edge.i, %.critedge.i, %bind_generic.exit, %72, %70, %70, %56, %58, %64, %32, %35, %41, %39, %39, %25, %25
-  %.057 = phi i32 [ 0, %25 ], [ 0, %25 ], [ 0, %35 ], [ %40, %41 ], [ %40, %39 ], [ 0, %32 ], [ %40, %39 ], [ 0, %64 ], [ 0, %58 ], [ 0, %56 ], [ %71, %70 ], [ %71, %70 ], [ %71, %72 ], [ -1, %bind_generic.exit ], [ 0, %._crit_edge.i ], [ -43, %.critedge.i ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit.i74 ], [ 0, %348 ], [ 0, %352 ], [ 0, %.thread78.i ], [ 0, %247 ], [ -43, %300 ], [ -43, %252 ]
+bind_multiple.exit:                               ; preds = %hwloc_get_obj_inside_cpuset_by_type.exit.i74, %348, %352, %.thread78.i, %300, %247, %252, %._crit_edge.i, %.critedge.i, %bind_generic.exit, %72, %70, %70, %56, %58, %64, %32, %35, %41, %39, %39, %25, %25
+  %.057 = phi i32 [ %40, %39 ], [ 0, %25 ], [ 0, %56 ], [ %71, %72 ], [ -43, %.critedge.i ], [ 0, %25 ], [ 0, %35 ], [ %40, %41 ], [ %40, %39 ], [ 0, %32 ], [ 0, %64 ], [ 0, %58 ], [ %71, %70 ], [ %71, %70 ], [ -1, %bind_generic.exit ], [ 0, %._crit_edge.i ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit.i74 ], [ 0, %348 ], [ 0, %352 ], [ 0, %.thread78.i ], [ -43, %300 ], [ 0, %247 ], [ -43, %252 ]
   ret i32 %.057
 }
 
@@ -886,7 +886,7 @@ hwloc_get_obj_inside_cpuset_by_type.exit68:       ; preds = %108
   br label %hwloc_get_obj_inside_cpuset_by_type.exit68.thread
 
 hwloc_get_obj_inside_cpuset_by_type.exit68.thread: ; preds = %112, %101, %94, %hwloc_get_obj_inside_cpuset_by_type.exit68, %21, %.critedge, %.loopexit
-  %.050 = phi i32 [ -2, %.loopexit ], [ -43, %.critedge ], [ -2, %21 ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit68 ], [ 0, %94 ], [ 0, %101 ], [ 0, %112 ]
+  %.050 = phi i32 [ -43, %.critedge ], [ -2, %.loopexit ], [ -2, %21 ], [ 0, %hwloc_get_obj_inside_cpuset_by_type.exit68 ], [ 0, %94 ], [ 0, %101 ], [ 0, %112 ]
   ret i32 %.050
 }
 

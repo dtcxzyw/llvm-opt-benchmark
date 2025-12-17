@@ -112,7 +112,7 @@ define dso_local noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr nound
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %20, %6
-  %23 = phi i1 [ false, %6 ], [ %spec.select, %20 ]
+  %23 = phi i1 [ %spec.select, %20 ], [ false, %6 ]
   %24 = zext i1 %23 to i8
   store i8 %24, ptr @_ZL18g_insideScrollArea, align 1
   store i8 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 56), align 4
@@ -302,7 +302,7 @@ _ZL16addGfxCmdScissoriiii.exit:                   ; preds = %0, %3
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %23, %37, %40, %42
-  %45 = phi i1 [ false, %40 ], [ false, %37 ], [ %44, %42 ], [ false, %23 ]
+  %45 = phi i1 [ false, %40 ], [ %44, %42 ], [ false, %37 ], [ false, %23 ]
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %47, label %54
@@ -550,7 +550,7 @@ define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef readonly ca
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
-  %21 = phi i1 [ false, %2 ], [ false, %15 ], [ %spec.select, %18 ]
+  %21 = phi i1 [ false, %2 ], [ %spec.select, %18 ], [ false, %15 ]
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %30
@@ -780,7 +780,7 @@ define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr noundef readonly captu
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
-  %21 = phi i1 [ false, %2 ], [ false, %15 ], [ %spec.select, %18 ]
+  %21 = phi i1 [ false, %2 ], [ %spec.select, %18 ], [ false, %15 ]
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %30
@@ -1008,7 +1008,7 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef readonly ca
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %20, %17, %13, %3
-  %23 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %13 ], [ %spec.select, %20 ]
+  %23 = phi i1 [ false, %3 ], [ %spec.select, %20 ], [ false, %13 ], [ false, %17 ]
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %32
@@ -1184,7 +1184,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit27:           ; preds = %_ZL20addGfxCmdRound
   br i1 %2, label %_ZL20addGfxCmdRoundedRectfffffj.exit27.thread, label %_ZL20addGfxCmdRoundedRectfffffj.exit27.thread33
 
 _ZL20addGfxCmdRoundedRectfffffj.exit27.thread:    ; preds = %75, %_ZL20addGfxCmdRoundedRectfffffj.exit27
-  %107 = phi i32 [ %77, %75 ], [ %71, %_ZL20addGfxCmdRoundedRectfffffj.exit27 ]
+  %107 = phi i32 [ %71, %_ZL20addGfxCmdRoundedRectfffffj.exit27 ], [ %77, %75 ]
   %108 = icmp ugt i32 %107, 4999
   br i1 %108, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %109
 
@@ -1307,7 +1307,7 @@ define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef reado
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %21, %18, %4
-  %24 = phi i1 [ false, %4 ], [ false, %18 ], [ %spec.select, %21 ]
+  %24 = phi i1 [ false, %4 ], [ %spec.select, %21 ], [ false, %18 ]
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %26, label %33
@@ -1408,7 +1408,7 @@ _ZL17addGfxCmdTriangleiiiiij.exit.sink.split:     ; preds = %_ZL11buttonLogicjb.
   br label %_ZL17addGfxCmdTriangleiiiiij.exit
 
 _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.exit, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
-  %66 = phi i32 [ %51, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ], [ %49, %_ZL11buttonLogicjb.exit ]
+  %66 = phi i32 [ %49, %_ZL11buttonLogicjb.exit ], [ %51, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ]
   %67 = icmp ugt i32 %66, 4999
   br i1 %3, label %68, label %87
 
@@ -1495,7 +1495,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
 _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %87, %68
-  %110 = phi i32 [ %66, %87 ], [ %66, %68 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
+  %110 = phi i32 [ %66, %68 ], [ %66, %87 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
   %.not = icmp eq ptr %1, null
   %111 = icmp ugt i32 %110, 4999
   %or.cond65 = select i1 %.not, i1 true, i1 %111
@@ -1747,7 +1747,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %22
   br label %_Z6inRectiiiib.exit
 
 _Z6inRectiiiib.exit:                              ; preds = %58, %54, %_ZL20addGfxCmdRoundedRectfffffj.exit
-  %61 = phi i1 [ false, %_ZL20addGfxCmdRoundedRectfffffj.exit ], [ false, %54 ], [ %spec.select, %58 ]
+  %61 = phi i1 [ false, %_ZL20addGfxCmdRoundedRectfffffj.exit ], [ %spec.select, %58 ], [ false, %54 ]
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 16), align 4
   %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %63, label %70
@@ -1904,7 +1904,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit69
 
 _ZL20addGfxCmdRoundedRectfffffj.exit69:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split, %109, %105
-  %.06383 = phi i1 [ %.not108, %105 ], [ false, %109 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
+  %.06383 = phi i1 [ false, %109 ], [ %.not108, %105 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
   %128 = tail call float @log10f(float noundef %4) #15
   %129 = tail call float @llvm.ceil.f32(float %128)
   %130 = fptosi float %129 to i32

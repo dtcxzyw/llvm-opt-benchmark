@@ -357,8 +357,8 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %80, %.lr.ph.split.split.us, %23, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i, %10
-  %.sroa.15.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.15.3, %23 ], [ %.sroa.15.5, %.lr.ph.split.split.us ], [ %.sroa.15.5, %80 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ %.sroa.15.5, %.invoke ]
-  %.sroa.041.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.041.3, %23 ], [ %.sroa.041.5, %.lr.ph.split.split.us ], [ %.sroa.041.5, %80 ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ %.sroa.041.5, %.invoke ]
+  %.sroa.15.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.15.3, %23 ], [ %.sroa.15.5, %.lr.ph.split.split.us ], [ %.sroa.15.5, %80 ], [ %.sroa.15.5, %.invoke ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
+  %.sroa.041.0.ph.ph = phi ptr [ null, %10 ], [ %.sroa.041.3, %23 ], [ %.sroa.041.5, %.lr.ph.split.split.us ], [ %.sroa.041.5, %80 ], [ %.sroa.041.5, %.invoke ], [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
   %lpad.loopexit.split-lp53 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21
@@ -407,14 +407,14 @@ _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES
   br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit24, label %.invoke
 
 .invoke:                                          ; preds = %74, %72, %.thread
-  %.sink91.sroa.phi = phi ptr [ %.sink91.sroa.gep, %.thread ], [ %.sink91.sroa.gep102, %72 ], [ %.sink91.sroa.gep103, %74 ]
-  %.sink91.sroa.phi104 = phi ptr [ %.sink91.sroa.gep105, %.thread ], [ %.sink91.sroa.gep106, %72 ], [ %.sink91.sroa.gep107, %74 ]
-  %.sink91.sroa.phi108 = phi ptr [ %.sink91.sroa.gep109, %.thread ], [ %.sink91.sroa.gep110, %72 ], [ %.sink91.sroa.gep111, %74 ]
-  %.sink91.sroa.phi112 = phi ptr [ %.sink91.sroa.gep113, %.thread ], [ %.sink91.sroa.gep114, %72 ], [ %.sink91.sroa.gep115, %74 ]
-  %.sink91.sroa.phi116 = phi ptr [ %.sink91.sroa.gep117, %.thread ], [ %.sink91.sroa.gep118, %72 ], [ %.sink91.sroa.gep119, %74 ]
-  %.sink91 = phi ptr [ %4, %.thread ], [ %4, %72 ], [ %3, %74 ]
-  %.sink88 = phi i64 [ 73, %.thread ], [ 73, %72 ], [ 74, %74 ]
-  %79 = phi ptr [ @.str.1, %.thread ], [ @.str.1, %72 ], [ @.str.2, %74 ]
+  %.sink91.sroa.phi = phi ptr [ %.sink91.sroa.gep, %72 ], [ %.sink91.sroa.gep102, %.thread ], [ %.sink91.sroa.gep103, %74 ]
+  %.sink91.sroa.phi104 = phi ptr [ %.sink91.sroa.gep105, %72 ], [ %.sink91.sroa.gep106, %.thread ], [ %.sink91.sroa.gep107, %74 ]
+  %.sink91.sroa.phi108 = phi ptr [ %.sink91.sroa.gep109, %72 ], [ %.sink91.sroa.gep110, %.thread ], [ %.sink91.sroa.gep111, %74 ]
+  %.sink91.sroa.phi112 = phi ptr [ %.sink91.sroa.gep113, %72 ], [ %.sink91.sroa.gep114, %.thread ], [ %.sink91.sroa.gep115, %74 ]
+  %.sink91.sroa.phi116 = phi ptr [ %.sink91.sroa.gep117, %72 ], [ %.sink91.sroa.gep118, %.thread ], [ %.sink91.sroa.gep119, %74 ]
+  %.sink91 = phi ptr [ %4, %72 ], [ %4, %.thread ], [ %3, %74 ]
+  %.sink88 = phi i64 [ 73, %72 ], [ 73, %.thread ], [ 74, %74 ]
+  %79 = phi ptr [ @.str.1, %72 ], [ @.str.1, %.thread ], [ @.str.2, %74 ]
   store ptr @.str, ptr %.sink91, align 8
   store ptr @__func__._Z10_DoTBBTestbim, ptr %.sink91.sroa.phi, align 8
   store i64 %.sink88, ptr %.sink91.sroa.phi104, align 8
@@ -453,9 +453,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNK32pxrInternal_v
   ret double %83
 
 _ZNSt5_BindIFPFimmiRKSt6vectorIiSaIiEEESt12_PlaceholderILi1EES7_ILi2EES7_ILi3EES2_EED2Ev.exit21: ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %67, %65
-  %.sroa.15.1 = phi ptr [ %.sroa.15.5, %65 ], [ %.sroa.15.5, %67 ], [ %.sroa.15.5, %.loopexit ], [ %.sroa.15.3, %.loopexit.split-lp.loopexit ], [ %.sroa.15.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.041.1 = phi ptr [ %.sroa.041.5, %65 ], [ %.sroa.041.5, %67 ], [ %.sroa.041.5, %.loopexit ], [ %.sroa.041.3, %.loopexit.split-lp.loopexit ], [ %.sroa.041.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %.us-phi62, %65 ], [ %.us-phi62, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit52, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp53, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.5, %67 ], [ %.sroa.15.5, %65 ], [ %.sroa.15.5, %.loopexit ], [ %.sroa.15.3, %.loopexit.split-lp.loopexit ], [ %.sroa.15.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.041.1 = phi ptr [ %.sroa.041.5, %67 ], [ %.sroa.041.5, %65 ], [ %.sroa.041.5, %.loopexit ], [ %.sroa.041.3, %.loopexit.split-lp.loopexit ], [ %.sroa.041.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %.us-phi62, %67 ], [ %.us-phi62, %65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit52, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp53, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i27 = icmp eq ptr %.sroa.041.1, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIiSaIiEED2Ev.exit28, label %88
 
@@ -1236,8 +1236,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %exitcond.not.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread, label %43, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit: ; preds = %43, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i, %.lr.ph.i, %36
-  %74 = phi i8 [ %38, %36 ], [ %38, %.lr.ph.i ], [ %73, %43 ], [ %46, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
-  %75 = phi i8 [ %39, %36 ], [ %39, %.lr.ph.i ], [ %59, %43 ], [ %45, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ]
+  %74 = phi i8 [ %38, %36 ], [ %38, %.lr.ph.i ], [ %46, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %73, %43 ]
+  %75 = phi i8 [ %39, %36 ], [ %39, %.lr.ph.i ], [ %45, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i ], [ %59, %43 ]
   %76 = load ptr, ptr %31, align 32
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load atomic i8, ptr %77 monotonic, align 1
@@ -1746,8 +1746,8 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %118, %117, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, %69, %68, %56
-  %.pre-phi.i = phi i64 [ %63, %68 ], [ %63, %69 ], [ %63, %56 ], [ %112, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %112, %117 ], [ %112, %118 ]
-  %122 = phi i64 [ %59, %68 ], [ %59, %69 ], [ %59, %56 ], [ %109, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %109, %117 ], [ %109, %118 ]
+  %.pre-phi.i = phi i64 [ %63, %56 ], [ %63, %68 ], [ %63, %69 ], [ %112, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %112, %117 ], [ %112, %118 ]
+  %122 = phi i64 [ %59, %56 ], [ %59, %68 ], [ %59, %69 ], [ %109, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %109, %117 ], [ %109, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %123 = icmp ult i64 %122, %.pre-phi.i
   br i1 %123, label %124, label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_12start_reduceINS1_13blocked_rangeImEENS1_18lambda_reduce_bodyIS8_iZN32pxrInternal_v0_24__pxrReserved__19WorkParallelReduceNIRZ16_DoSignatureTestvE1FRZ16_DoSignatureTestvE1BiEET1_RKSG_mOT_OT0_mE13Work_Body_TBBSE_EEKNS1_16auto_partitionerEEES8_EEvRSJ_RSL_RNS1_14execution_dataE.exit
@@ -1829,8 +1829,8 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.thread.i.i, label %139, !llvm.loop !19
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i, %139, %.lr.ph.i.i.i, %132
-  %170 = phi i8 [ %134, %132 ], [ %134, %.lr.ph.i.i.i ], [ %169, %139 ], [ %142, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i ]
-  %171 = phi i8 [ %135, %132 ], [ %135, %.lr.ph.i.i.i ], [ %155, %139 ], [ %141, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i ]
+  %170 = phi i8 [ %134, %132 ], [ %134, %.lr.ph.i.i.i ], [ %142, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i ], [ %169, %139 ]
+  %171 = phi i8 [ %135, %132 ], [ %135, %.lr.ph.i.i.i ], [ %141, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i.i ], [ %155, %139 ]
   %172 = load ptr, ptr %130, align 32
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load atomic i8, ptr %173 monotonic, align 1

@@ -818,7 +818,7 @@ define internal i32 @dissect_batadv_plugin(ptr noundef %0, ptr noundef %1, ptr n
   br label %dissect_batadv_iv_ogm_v15.exit.i.i
 
 dissect_batadv_iv_ogm_v15.exit.i.i:               ; preds = %110, %33
-  %.0.i.i.i = phi i32 [ %113, %110 ], [ %100, %33 ]
+  %.0.i.i.i = phi i32 [ %100, %33 ], [ %113, %110 ]
   %.not.i.i = icmp eq i32 %.0.i.i.i, -1
   br i1 %.not.i.i, label %dissect_batadv_v15.exit, label %24, !llvm.loop !6
 
@@ -1240,7 +1240,7 @@ dissect_batadv_elp_v15.exit.sink.split.i.i:       ; preds = %283, %281, %277
   br label %dissect_batadv_ogm2_v15.exit.i.i
 
 dissect_batadv_ogm2_v15.exit.i.i:                 ; preds = %375, %308
-  %.0.i.i46.i = phi i32 [ %378, %375 ], [ %365, %308 ]
+  %.0.i.i46.i = phi i32 [ %365, %308 ], [ %378, %375 ]
   %.not.i47.i = icmp eq i32 %.0.i.i46.i, -1
   br i1 %.not.i47.i, label %dissect_batadv_v15.exit, label %299, !llvm.loop !8
 
@@ -3156,7 +3156,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   br label %dissect_batadv_vis_v6.exit.sink.split.i
 
 dissect_batadv_vis_v6.exit.sink.split.i:          ; preds = %1070, %1068, %1064, %962, %958, %858, %854
-  %.sink.i = phi ptr [ %0, %1070 ], [ %855, %858 ], [ %855, %854 ], [ %959, %962 ], [ %959, %958 ], [ %1065, %1068 ], [ %1065, %1064 ]
+  %.sink.i = phi ptr [ %959, %958 ], [ %855, %854 ], [ %0, %1070 ], [ %855, %858 ], [ %959, %962 ], [ %1065, %1068 ], [ %1065, %1064 ]
   %1073 = tail call i32 @call_data_dissector(ptr noundef %.sink.i, ptr noundef %1, ptr noundef %2)
   br label %dissect_batadv_batman.exit
 

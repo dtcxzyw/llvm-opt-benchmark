@@ -367,7 +367,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
   br label %55
 
 55:                                               ; preds = %1, %52, %4, %3
-  %.047 = phi i32 [ 3, %3 ], [ 4, %4 ], [ %spec.select, %52 ], [ 2, %1 ]
+  %.047 = phi i32 [ %spec.select, %52 ], [ 3, %3 ], [ 4, %4 ], [ 2, %1 ]
   ret i32 %.047
 }
 
@@ -593,9 +593,9 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
   br label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5, %_ZNK15NativeMovRegMem17instruction_startEv.exit, %53, %54, %101
-  %105 = phi i32 [ %52, %101 ], [ %52, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 5, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ %52, %53 ], [ 6, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ %52, %54 ], [ 4, %1 ]
-  %.047.i4 = phi i32 [ %spec.select.i, %101 ], [ %spec.select.i, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ %spec.select.i, %53 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ %spec.select.i, %54 ], [ 2, %1 ]
-  %.047.i.i = phi i64 [ %104, %101 ], [ 2, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ 3, %53 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ 4, %54 ], [ 2, %1 ]
+  %105 = phi i32 [ %52, %101 ], [ %52, %54 ], [ %52, %53 ], [ %52, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 5, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ 6, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ 4, %1 ]
+  %.047.i4 = phi i32 [ %spec.select.i, %101 ], [ %spec.select.i, %54 ], [ %spec.select.i, %53 ], [ %spec.select.i, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ 2, %1 ]
+  %.047.i.i = phi i64 [ %104, %101 ], [ 4, %54 ], [ 3, %53 ], [ 2, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ 2, %1 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %108 = load i8, ptr %107, align 1
@@ -721,7 +721,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr noundef nonnull readonly a
   br label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %3, %4, %52
-  %.047.i.i = phi i64 [ 3, %3 ], [ 4, %4 ], [ %55, %52 ], [ 2, %1 ]
+  %.047.i.i = phi i64 [ %55, %52 ], [ 3, %3 ], [ 4, %4 ], [ 2, %1 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
@@ -868,7 +868,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
   br label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
-  %.047.i.i = phi i64 [ 3, %4 ], [ 4, %5 ], [ %56, %53 ], [ 2, %1 ]
+  %.047.i.i = phi i64 [ %56, %53 ], [ 3, %4 ], [ 4, %5 ], [ 2, %1 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
@@ -994,7 +994,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr noundef nonnull readonly
   br label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %3, %4, %52
-  %.047.i.i = phi i64 [ 3, %3 ], [ 4, %4 ], [ %55, %52 ], [ 2, %1 ]
+  %.047.i.i = phi i64 [ %55, %52 ], [ 3, %3 ], [ 4, %4 ], [ 2, %1 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
@@ -1128,7 +1128,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
   br label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
-  %.047.i.i = phi i64 [ 3, %4 ], [ 4, %5 ], [ %56, %53 ], [ 2, %1 ]
+  %.047.i.i = phi i64 [ %56, %53 ], [ 3, %4 ], [ 4, %5 ], [ 2, %1 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)

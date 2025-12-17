@@ -608,7 +608,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$polars_row..encode.
   unreachable
 
 "_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit": ; preds = %.body3, %28, %.body, %20
-  %.pn = phi { ptr, i32 } [ %11, %20 ], [ %11, %.body ], [ %17, %28 ], [ %17, %.body3 ]
+  %.pn = phi { ptr, i32 } [ %11, %.body ], [ %11, %20 ], [ %17, %28 ], [ %17, %.body3 ]
   resume { ptr, i32 } %.pn
 
 28:                                               ; preds = %.body3
@@ -2029,7 +2029,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   unreachable
 
 .body.i:                                          ; preds = %28, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %29, %28 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_arrow..array..list..ListArray$LT$i32$GT$$GT$17h4c40a2b1b220437dE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5) #19
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h63c44cf563feebe4E.exit" unwind label %32, !noalias !159
 
@@ -2076,7 +2076,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   ret { ptr, ptr } %45
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h63c44cf563feebe4E.exit": ; preds = %39, %.body.i, %46, %50
-  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %46 ], [ %47, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 46:                                               ; preds = %2
@@ -2175,7 +2175,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   unreachable
 
 .body.i:                                          ; preds = %28, %25
-  %eh.lpad-body.i = phi { ptr, i32 } [ %26, %25 ], [ %29, %28 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %29, %28 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$17h8a6261ce26352e14E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5) #19
           to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h63c44cf563feebe4E.exit" unwind label %32, !noalias !186
 
@@ -2222,7 +2222,7 @@ define internal { ptr, ptr } @"_ZN92_$LT$polars_arrow..array..list..ListArray$LT
   ret { ptr, ptr } %45
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h63c44cf563feebe4E.exit": ; preds = %39, %.body.i, %46, %50
-  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %50 ], [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
+  %eh.lpad-body8 = phi { ptr, i32 } [ %47, %46 ], [ %47, %50 ], [ %eh.lpad-body.i, %.body.i ], [ %40, %39 ]
   resume { ptr, i32 } %eh.lpad-body8
 
 46:                                               ; preds = %2
@@ -2987,7 +2987,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   br i1 %63, label %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hff8456c46239b532E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hff8456c46239b532E.exit: ; preds = %19, %23, %27, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h962c21958d9ac8c0E.exit.i"
-  %64 = phi i1 [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h962c21958d9ac8c0E.exit.i" ], [ true, %19 ], [ true, %23 ], [ false, %27 ]
+  %64 = phi i1 [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h962c21958d9ac8c0E.exit.i" ], [ true, %23 ], [ true, %19 ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 }
@@ -3225,8 +3225,8 @@ define hidden void @_ZN10polars_row6encode25convert_columns_amortized17h7d559d95
           to label %95 unwind label %93
 
 92:                                               ; preds = %.loopexit, %.loopexit.split-lp, %116, %93
-  %.pn = phi { ptr, i32 } [ %117, %116 ], [ %94, %93 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.sroa.0.2 = phi i1 [ false, %116 ], [ true, %93 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %117, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.2 = phi i1 [ true, %93 ], [ false, %116 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$polars_row..encode..EncodeScratches$GT$17h47fa208a01cf136eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %14) #19
           to label %83 unwind label %132
 
@@ -3347,7 +3347,7 @@ define hidden void @_ZN10polars_row6encode25convert_columns_amortized17h7d559d95
   unreachable
 
 134:                                              ; preds = %.thread, %83
-  %.pn.pn46 = phi { ptr, i32 } [ %.pn, %83 ], [ %82, %.thread ]
+  %.pn.pn46 = phi { ptr, i32 } [ %82, %.thread ], [ %.pn, %83 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he31c2637f108f7acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #19
           to label %135 unwind label %132
 
@@ -3386,7 +3386,7 @@ define hidden void @_ZN10polars_row6encode25convert_columns_amortized17hd27ff042
   br i1 %17, label %138, label %137
 
 18:                                               ; preds = %125, %5
-  %.sroa.02.0 = phi i8 [ 1, %5 ], [ 0, %125 ]
+  %.sroa.02.0 = phi i8 [ 0, %125 ], [ 1, %5 ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$polars_row..widths..RowWidths$GT$17hddc9b2ea1dd11fd0E.exit"
@@ -3938,7 +3938,7 @@ define hidden void @_ZN10polars_row6encode21list_num_column_bytes17h7e07e4d0e36b
   unreachable
 
 .body:                                            ; preds = %87, %76
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %88, %87 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %77, %76 ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17hc1b4c27cb907b869E"(ptr nonnull %64, ptr nonnull @anon.459c09280cdf7fb00d09ba3eea879c16.36) #19
           to label %39 unwind label %94
 
@@ -4191,7 +4191,7 @@ define hidden void @_ZN10polars_row6encode21list_num_column_bytes17hc3a7e28c0c85
   unreachable
 
 .body:                                            ; preds = %87, %76
-  %eh.lpad-body = phi { ptr, i32 } [ %77, %76 ], [ %88, %87 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %77, %76 ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17hc1b4c27cb907b869E"(ptr nonnull %64, ptr nonnull @anon.459c09280cdf7fb00d09ba3eea879c16.35) #19
           to label %39 unwind label %94
 

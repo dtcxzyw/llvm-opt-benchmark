@@ -622,7 +622,7 @@ b2SolveSimplex2.exit.thread:                      ; preds = %._crit_edge, %117, 
   br label %b2ComputeSimplexSearchDirection.exit
 
 b2ComputeSimplexSearchDirection.exit:             ; preds = %136, %137, %148, %150
-  %.sroa.09.0.i = phi <2 x float> [ %.sroa.01.4.vec.insert.i.i, %137 ], [ %.sroa.01.4.vec.insert.i22.i, %148 ], [ %.sroa.01.4.vec.insert.i26.i, %150 ], [ zeroinitializer, %136 ]
+  %.sroa.09.0.i = phi <2 x float> [ %.sroa.01.4.vec.insert.i26.i, %150 ], [ %.sroa.01.4.vec.insert.i.i, %137 ], [ %.sroa.01.4.vec.insert.i22.i, %148 ], [ zeroinitializer, %136 ]
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.09.0.i, i64 0
   %foldExtExtBinop274 = fmul <2 x float> %.sroa.09.0.i, %.sroa.09.0.i
   %152 = extractelement <2 x float> %foldExtExtBinop274, i64 0
@@ -1667,7 +1667,7 @@ b2SolveSimplex2.exit.thread.thread239:            ; preds = %182
   br label %b2SolveSimplex2.exit
 
 b2SolveSimplex2.exit:                             ; preds = %157, %192
-  %193 = phi i32 [ %173, %157 ], [ %.pr238, %192 ]
+  %193 = phi i32 [ %.pr238, %192 ], [ %173, %157 ]
   switch i32 %193, label %b2ComputeSimplexClosestPoint.exit [
     i32 3, label %.critedge103.loopexit
     i32 2, label %b2SolveSimplex2.exit._crit_edge
@@ -1758,7 +1758,7 @@ b2ComputeSimplexClosestPoint.exit:                ; preds = %b2SolveSimplex2.exi
   br label %b2ComputeSimplexWitnessPoints.exit
 
 b2ComputeSimplexWitnessPoints.exit:               ; preds = %209, %210, %213
-  %.sroa.0236.0 = phi <2 x float> [ undef, %209 ], [ %212, %210 ], [ %.sroa.05.4.vec.insert.i31.i, %213 ]
+  %.sroa.0236.0 = phi <2 x float> [ undef, %209 ], [ %.sroa.05.4.vec.insert.i31.i, %213 ], [ %212, %210 ]
   %.sroa.0.4.vec.extract.i213 = extractelement <2 x float> %.sroa.036.0.lcssa, i64 1
   %foldExtExtBinop310 = fmul <2 x float> %.sroa.036.0.lcssa, %.sroa.036.0.lcssa
   %226 = extractelement <2 x float> %foldExtExtBinop310, i64 0
@@ -1817,7 +1817,7 @@ b2Normalize.exit221:                              ; preds = %b2ComputeSimplexWit
   store i8 1, ptr %255, align 4, !tbaa !69
   br label %.critedge103
 
-.critedge103.loopexit:                            ; preds = %153, %151, %b2SolveSimplex2.exit
+.critedge103.loopexit:                            ; preds = %151, %153, %b2SolveSimplex2.exit
   store i32 %115, ptr %88, align 4
   br label %.critedge103
 
@@ -3088,7 +3088,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   br label %194
 
 194:                                              ; preds = %4, %159, %123, %92
-  %.0 = phi float [ %122, %92 ], [ %158, %123 ], [ %193, %159 ], [ 0.000000e+00, %4 ]
+  %.0 = phi float [ %193, %159 ], [ %122, %92 ], [ %158, %123 ], [ 0.000000e+00, %4 ]
   ret float %.0
 }
 

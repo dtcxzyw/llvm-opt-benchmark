@@ -1219,7 +1219,7 @@ apply_film_grain_8.exit:                          ; preds = %apply_grain_row_8.e
   br label %669
 
 669:                                              ; preds = %49, %668, %667, %666, %apply_film_grain_8.exit
-  %.054 = phi i32 [ 0, %apply_film_grain_8.exit ], [ 0, %666 ], [ 0, %667 ], [ 0, %668 ], [ -1094995529, %49 ]
+  %.054 = phi i32 [ 0, %668 ], [ 0, %apply_film_grain_8.exit ], [ 0, %666 ], [ 0, %667 ], [ -1094995529, %49 ]
   ret i32 %.054
 }
 
@@ -2728,7 +2728,7 @@ switch.early.test335:                             ; preds = %249
   br i1 %.not313, label %399, label %.loopexit563, !llvm.loop !106
 
 .loopexit563:                                     ; preds = %410, %.critedge333, %279, %._crit_edge578
-  %.sroa.63.8 = phi i32 [ %311, %279 ], [ %338, %._crit_edge578 ], [ %372, %.critedge333 ], [ %424, %410 ]
+  %.sroa.63.8 = phi i32 [ %372, %.critedge333 ], [ %338, %._crit_edge578 ], [ %311, %279 ], [ %424, %410 ]
   br i1 %.not305, label %427, label %429
 
 427:                                              ; preds = %.loopexit563
@@ -3032,7 +3032,7 @@ switch.early.test335:                             ; preds = %249
   br i1 %639, label %610, label %.loopexit559, !llvm.loop !109
 
 .loopexit559:                                     ; preds = %621, %571, %466, %._crit_edge595
-  %.sroa.63.17 = phi i32 [ %498, %466 ], [ %535, %._crit_edge595 ], [ %605, %571 ], [ %635, %621 ]
+  %.sroa.63.17 = phi i32 [ %535, %._crit_edge595 ], [ %498, %466 ], [ %605, %571 ], [ %635, %621 ]
   br i1 %453, label %452, label %.loopexit561, !llvm.loop !110
 
 .loopexit561.sink.split:                          ; preds = %429, %427
@@ -3350,7 +3350,7 @@ switch.early.test335:                             ; preds = %249
   %exitcond671.not = icmp eq i32 %.0274620, %20
   br i1 %exitcond671.not, label %.loopexit565, label %23, !llvm.loop !117
 
-.thread:                                          ; preds = %.critedge333, %839, %249, %206, %switch.early.test, %switch.early.test, %switch.early.test335, %switch.early.test335, %251, %23, %265, %811, %399, %560, %610
+.thread:                                          ; preds = %.critedge333, %839, %249, %206, %switch.early.test, %switch.early.test, %251, %switch.early.test335, %switch.early.test335, %23, %811, %265, %399, %560, %610
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
@@ -3371,7 +3371,7 @@ ff_aom_uninit_film_grain_params.exit:             ; preds = %853
   br label %.loopexit565
 
 .loopexit565:                                     ; preds = %850, %13, %3, %ff_aom_uninit_film_grain_params.exit
-  %.0 = phi i32 [ -1094995529, %ff_aom_uninit_film_grain_params.exit ], [ -1094995529, %3 ], [ 0, %13 ], [ 0, %850 ]
+  %.0 = phi i32 [ -1094995529, %3 ], [ 0, %13 ], [ -1094995529, %ff_aom_uninit_film_grain_params.exit ], [ 0, %850 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

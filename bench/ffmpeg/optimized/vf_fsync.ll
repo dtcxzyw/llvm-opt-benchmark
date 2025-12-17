@@ -82,7 +82,7 @@ buf_fill.exit:                                    ; preds = %13, %28
   br label %32
 
 32:                                               ; preds = %buf_fill.exit, %8, %1
-  %.0 = phi i32 [ -12, %1 ], [ %11, %8 ], [ %., %buf_fill.exit ]
+  %.0 = phi i32 [ -12, %1 ], [ %., %buf_fill.exit ], [ %11, %8 ]
   ret i32 %.0
 }
 
@@ -384,7 +384,7 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   br label %buf_reload.exit.thread
 
 123:                                              ; preds = %av_strnlen.exit.loopexit.i116, %68
-  %.0.lcssa.i.i118 = phi i32 [ %82, %av_strnlen.exit.loopexit.i116 ], [ 0, %68 ]
+  %.0.lcssa.i.i118 = phi i32 [ 0, %68 ], [ %82, %av_strnlen.exit.loopexit.i116 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.12, i32 noundef %.0.lcssa.i.i118) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
@@ -429,7 +429,7 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   br label %buf_reload.exit.thread
 
 buf_reload.exit.thread:                           ; preds = %62, %57, %buf_fill.exit.i, %133, %13, %.critedge96, %127, %120, %122, %137, %118, %107, %94
-  %.1 = phi i32 [ 0, %137 ], [ 0, %133 ], [ -1094995529, %94 ], [ %119, %118 ], [ -12, %107 ], [ 0, %13 ], [ 0, %122 ], [ 0, %120 ], [ %129, %127 ], [ -1497649742, %.critedge96 ], [ %50, %buf_fill.exit.i ], [ -1, %57 ], [ -1, %62 ]
+  %.1 = phi i32 [ 0, %13 ], [ -1497649742, %.critedge96 ], [ 0, %120 ], [ 0, %137 ], [ %129, %127 ], [ 0, %133 ], [ -1094995529, %94 ], [ %119, %118 ], [ -12, %107 ], [ %50, %buf_fill.exit.i ], [ 0, %122 ], [ -1, %57 ], [ -1, %62 ]
   ret i32 %.1
 }
 

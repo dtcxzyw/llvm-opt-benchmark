@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
   br i1 %exitcond35.not, label %.loopexit, label %.preheader26, !llvm.loop !14
 
 .loopexit:                                        ; preds = %33, %0, %3, %6, %9, %28, %20
-  %.0 = phi i32 [ 0, %28 ], [ 0, %20 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %33 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %20 ], [ 0, %0 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 1, %33 ]
   tail call void @ossl_sa_free(ptr noundef %1) #4
   ret i32 %.0
 }
@@ -183,8 +183,8 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
   br i1 %.not14, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %9, %.preheader, %20, %0, %3, %6
-  %.010 = phi ptr [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %20 ], [ %4, %.preheader ], [ %4, %9 ]
-  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %9 ], [ 0, %.preheader ], [ 0, %20 ]
+  %.010 = phi ptr [ null, %0 ], [ %4, %6 ], [ %4, %3 ], [ %4, %20 ], [ %4, %.preheader ], [ %4, %9 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %6 ], [ 0, %3 ], [ 1, %9 ], [ 0, %.preheader ], [ 0, %20 ]
   tail call void @ossl_sa_free(ptr noundef %.010) #4
   ret i32 %.0
 }

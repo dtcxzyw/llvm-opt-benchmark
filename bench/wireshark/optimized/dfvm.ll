@@ -1180,7 +1180,7 @@ indent.exit271.i:                                 ; preds = %186, %183
   unreachable
 
 append_op_args.exit:                              ; preds = %.lr.ph.i250.i, %116, %indent.exit, %60, %61, %indent.exit.i, %indent.exit240.i, %indent.exit242.i, %indent.exit244.i, %indent.exit246.i, %indent.exit249.i, %111, %indent.exit253.i, %indent.exit255.i, %indent.exit257.i, %139, %140, %141, %142, %143, %144, %145, %146, %147, %148, %149, %150, %151, %152, %indent.exit259.i, %indent.exit261.i, %indent.exit263.i, %indent.exit265.i, %indent.exit267.i, %indent.exit269.i, %indent.exit271.i, %188, %191, %192
-  %.2 = phi ptr [ %.04143, %indent.exit ], [ %.04143, %60 ], [ %.04143, %61 ], [ %.04143, %indent.exit.i ], [ %.04143, %indent.exit240.i ], [ %.04143, %indent.exit242.i ], [ %.04143, %indent.exit244.i ], [ %.04143, %indent.exit246.i ], [ %.04143, %indent.exit249.i ], [ %115, %111 ], [ %.04143, %indent.exit253.i ], [ %.04143, %indent.exit255.i ], [ %.04143, %indent.exit257.i ], [ %.04143, %139 ], [ %.04143, %140 ], [ %.04143, %141 ], [ %.04143, %142 ], [ %.04143, %143 ], [ %.04143, %144 ], [ %.04143, %145 ], [ %.04143, %146 ], [ %.04143, %147 ], [ %.04143, %148 ], [ %.04143, %149 ], [ %.04143, %150 ], [ %.04143, %151 ], [ %.04143, %152 ], [ %.04143, %indent.exit259.i ], [ %.04143, %indent.exit261.i ], [ %.04143, %indent.exit263.i ], [ %.04143, %indent.exit265.i ], [ %.04143, %indent.exit267.i ], [ %.04143, %indent.exit269.i ], [ %.04143, %indent.exit271.i ], [ %.04143, %188 ], [ %.04143, %191 ], [ %.04143, %192 ], [ %.04143, %116 ], [ %123, %.lr.ph.i250.i ]
+  %.2 = phi ptr [ %.04143, %indent.exit ], [ %.04143, %60 ], [ %.04143, %61 ], [ %.04143, %indent.exit.i ], [ %.04143, %indent.exit240.i ], [ %.04143, %indent.exit242.i ], [ %.04143, %indent.exit244.i ], [ %.04143, %indent.exit246.i ], [ %.04143, %indent.exit249.i ], [ %115, %111 ], [ %.04143, %192 ], [ %.04143, %indent.exit253.i ], [ %.04143, %indent.exit255.i ], [ %.04143, %indent.exit257.i ], [ %.04143, %139 ], [ %.04143, %140 ], [ %.04143, %141 ], [ %.04143, %142 ], [ %.04143, %143 ], [ %.04143, %144 ], [ %.04143, %145 ], [ %.04143, %146 ], [ %.04143, %147 ], [ %.04143, %148 ], [ %.04143, %149 ], [ %.04143, %150 ], [ %.04143, %151 ], [ %.04143, %152 ], [ %.04143, %indent.exit259.i ], [ %.04143, %indent.exit261.i ], [ %.04143, %indent.exit263.i ], [ %.04143, %indent.exit265.i ], [ %.04143, %indent.exit267.i ], [ %.04143, %indent.exit269.i ], [ %.04143, %indent.exit271.i ], [ %.04143, %188 ], [ %.04143, %191 ], [ %.04143, %116 ], [ %123, %.lr.ph.i250.i ]
   tail call void @g_free(ptr noundef %52)
   tail call void @g_free(ptr noundef %53)
   tail call void @g_free(ptr noundef %54)
@@ -1976,7 +1976,7 @@ try_value_string.exit.thread.i:                   ; preds = %216, %213
   br label %267
 
 try_value_string.exit.i:                          ; preds = %259, %244, %239, %236, %226, %218
-  %.0.i.i = phi ptr [ %222, %218 ], [ %230, %226 ], [ %238, %236 ], [ %242, %239 ], [ %247, %244 ], [ %263, %259 ]
+  %.0.i.i = phi ptr [ %263, %259 ], [ %222, %218 ], [ %230, %226 ], [ %238, %236 ], [ %242, %239 ], [ %247, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not16.i = icmp eq ptr %.0.i.i, null
   br i1 %.not16.i, label %267, label %265
@@ -4655,7 +4655,7 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i345, %1497
   unreachable
 
 stack_pop.exit:                                   ; preds = %25, %1505, %1506, %1437, %.lr.ph12.i325, %1413, %.lr.ph12.i, %.lr.ph.i313, %1347, %.lr.ph.i311, %1332, %._crit_edge.split.us.split.us58.i.i583, %._crit_edge.split.split.us.us.i.i564, %.lr.ph.i.i310, %1226, %._crit_edge.split.us.split.us58.i.i545, %._crit_edge.split.split.us.us.i.i526, %._crit_edge.split.us.split.us58.i.i507, %._crit_edge.split.split.us.us.i.i488, %._crit_edge.split.us.split.us58.i.i469, %._crit_edge.split.split.us.us.i.i450, %._crit_edge.split.us.split.us58.i.i431, %._crit_edge.split.split.us.us.i.i412, %._crit_edge.split.us.split.us58.i.i393, %._crit_edge.split.split.us.us.i.i374, %._crit_edge.split.us.split.us58.i.i, %._crit_edge.split.split.us.us.i.i, %152, %check_exists_finfos.exit.thread.i, %check_exists_finfos.exit.i, %check_exists_finfos.exit.thread.us.i204, %56, %check_exists_finfos.exit.thread.us.i, %38, %1429, %1405, %.lr.ph.us55.i.i578, %.lr.ph.us.i.i559, %.lr.ph.us55.i.i540, %.lr.ph.us.i.i521, %.lr.ph.us55.i.i502, %.lr.ph.us.i.i483, %.lr.ph.us55.i.i464, %.lr.ph.us.i.i445, %.lr.ph.us55.i.i426, %.lr.ph.us.i.i407, %.lr.ph.us55.i.i388, %.lr.ph.us.i.i369, %.lr.ph.us55.i.i, %.lr.ph.us.i.i, %1421, %1397, %1338, %1323, %1301, %1255, %1220, %802, %756, %710, %664, %618, %572, %526, %480, %434, %388, %342, %296, %.thread.i, %48, %33, %146, %72, %79, %88, %95, %104, %114, %stack_push.exit, %mk_slice.exit, %mk_length.exit, %mk_value_string.exit, %mk_binary.exit, %mk_binary.exit237, %mk_binary.exit255, %mk_binary.exit273, %mk_binary.exit291, %mk_binary.exit309, %set_push.exit, %set_push.exit320, %1417, %1441, %1446, %mk_minus.exit, %1482
-  %.1160 = phi i8 [ %78, %72 ], [ %87, %79 ], [ %94, %88 ], [ %103, %95 ], [ %.0159984, %104 ], [ %129, %114 ], [ %.0159984, %stack_push.exit ], [ %.0159984, %mk_slice.exit ], [ %.0159984, %mk_length.exit ], [ %271, %mk_value_string.exit ], [ %.0159984, %mk_binary.exit ], [ %.0159984, %mk_binary.exit237 ], [ %.0159984, %mk_binary.exit255 ], [ %.0159984, %mk_binary.exit273 ], [ %.0159984, %mk_binary.exit291 ], [ %.0159984, %mk_binary.exit309 ], [ %.0159984, %set_push.exit ], [ %.0159984, %set_push.exit320 ], [ %1420, %1417 ], [ %1445, %1441 ], [ %.0159984, %1446 ], [ %.0159984, %mk_minus.exit ], [ %1483, %1482 ], [ %.0159984, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %296 ], [ 0, %342 ], [ 1, %388 ], [ 0, %434 ], [ 1, %480 ], [ 0, %526 ], [ 1, %572 ], [ 0, %618 ], [ 1, %664 ], [ 0, %710 ], [ 1, %756 ], [ 0, %802 ], [ 0, %1220 ], [ 1, %1255 ], [ 0, %1301 ], [ 1, %1323 ], [ 0, %1338 ], [ 1, %1397 ], [ 0, %1421 ], [ 0, %.lr.ph.us.i.i ], [ 1, %.lr.ph.us55.i.i ], [ 0, %.lr.ph.us.i.i369 ], [ 1, %.lr.ph.us55.i.i388 ], [ 0, %.lr.ph.us.i.i407 ], [ 1, %.lr.ph.us55.i.i426 ], [ 0, %.lr.ph.us.i.i445 ], [ 1, %.lr.ph.us55.i.i464 ], [ 0, %.lr.ph.us.i.i483 ], [ 1, %.lr.ph.us55.i.i502 ], [ 0, %.lr.ph.us.i.i521 ], [ 1, %.lr.ph.us55.i.i540 ], [ 0, %.lr.ph.us.i.i559 ], [ 1, %.lr.ph.us55.i.i578 ], [ 0, %1405 ], [ 1, %1429 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 1, %38 ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %56 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159984, %152 ], [ 1, %._crit_edge.split.split.us.us.i.i ], [ 0, %._crit_edge.split.us.split.us58.i.i ], [ 1, %._crit_edge.split.split.us.us.i.i374 ], [ 0, %._crit_edge.split.us.split.us58.i.i393 ], [ 1, %._crit_edge.split.split.us.us.i.i412 ], [ 0, %._crit_edge.split.us.split.us58.i.i431 ], [ 1, %._crit_edge.split.split.us.us.i.i450 ], [ 0, %._crit_edge.split.us.split.us58.i.i469 ], [ 1, %._crit_edge.split.split.us.us.i.i488 ], [ 0, %._crit_edge.split.us.split.us58.i.i507 ], [ 1, %._crit_edge.split.split.us.us.i.i526 ], [ 0, %._crit_edge.split.us.split.us58.i.i545 ], [ 1, %.lr.ph.i.i310 ], [ 0, %1226 ], [ 1, %._crit_edge.split.split.us.us.i.i564 ], [ 0, %._crit_edge.split.us.split.us58.i.i583 ], [ 1, %1332 ], [ 0, %.lr.ph.i311 ], [ 0, %1347 ], [ 1, %.lr.ph.i313 ], [ 0, %.lr.ph12.i ], [ 1, %1413 ], [ 1, %.lr.ph12.i325 ], [ 0, %1437 ], [ 1, %1506 ], [ 0, %1505 ], [ %.0159984, %25 ]
+  %.1160 = phi i8 [ %78, %72 ], [ %87, %79 ], [ %94, %88 ], [ %103, %95 ], [ %.0159984, %104 ], [ %129, %114 ], [ %.0159984, %stack_push.exit ], [ %.0159984, %mk_slice.exit ], [ %.0159984, %mk_length.exit ], [ %271, %mk_value_string.exit ], [ %.0159984, %mk_binary.exit ], [ %.0159984, %mk_binary.exit237 ], [ %.0159984, %mk_binary.exit255 ], [ %.0159984, %mk_binary.exit273 ], [ %.0159984, %mk_binary.exit291 ], [ %.0159984, %mk_binary.exit309 ], [ %.0159984, %set_push.exit ], [ %.0159984, %set_push.exit320 ], [ %1420, %1417 ], [ %1445, %1441 ], [ %.0159984, %1446 ], [ %.0159984, %mk_minus.exit ], [ %1483, %1482 ], [ %.0159984, %146 ], [ 0, %33 ], [ 0, %48 ], [ 0, %.thread.i ], [ 1, %296 ], [ 0, %342 ], [ 1, %388 ], [ 0, %434 ], [ 1, %480 ], [ 0, %526 ], [ 1, %572 ], [ 0, %618 ], [ 1, %664 ], [ 0, %710 ], [ 1, %756 ], [ 0, %802 ], [ 0, %1220 ], [ 1, %1255 ], [ 0, %1301 ], [ 1, %1323 ], [ 0, %1338 ], [ 1, %1397 ], [ 0, %1421 ], [ 0, %._crit_edge.split.us.split.us58.i.i507 ], [ 1, %.lr.ph.us55.i.i578 ], [ 1, %.lr.ph.i.i310 ], [ 0, %._crit_edge.split.us.split.us58.i.i545 ], [ 1, %._crit_edge.split.split.us.us.i.i488 ], [ 0, %._crit_edge.split.us.split.us58.i.i469 ], [ 0, %.lr.ph.us.i.i559 ], [ 1, %.lr.ph.us55.i.i540 ], [ 0, %1405 ], [ 1, %1429 ], [ 1, %38 ], [ 1, %._crit_edge.split.split.us.us.i.i526 ], [ 1, %._crit_edge.split.split.us.us.i.i564 ], [ 0, %._crit_edge.split.us.split.us58.i.i583 ], [ 1, %1332 ], [ 0, %1347 ], [ 0, %._crit_edge.split.us.split.us58.i.i431 ], [ 1, %._crit_edge.split.split.us.us.i.i450 ], [ 0, %.lr.ph12.i ], [ 0, %1437 ], [ 0, %.lr.ph.us.i.i ], [ 1, %.lr.ph.us55.i.i ], [ 0, %.lr.ph.us.i.i369 ], [ 1, %.lr.ph.us55.i.i388 ], [ 0, %.lr.ph.us.i.i407 ], [ 1, %.lr.ph.us55.i.i426 ], [ 0, %.lr.ph.us.i.i445 ], [ 1, %.lr.ph.us55.i.i464 ], [ 0, %.lr.ph.us.i.i483 ], [ 1, %.lr.ph.us55.i.i502 ], [ 0, %.lr.ph.us.i.i521 ], [ 1, %56 ], [ 0, %check_exists_finfos.exit.thread.i ], [ %.0159984, %152 ], [ 1, %._crit_edge.split.split.us.us.i.i ], [ 0, %._crit_edge.split.us.split.us58.i.i ], [ 1, %._crit_edge.split.split.us.us.i.i374 ], [ 0, %._crit_edge.split.us.split.us58.i.i393 ], [ 1, %._crit_edge.split.split.us.us.i.i412 ], [ 0, %check_exists_finfos.exit.thread.us.i ], [ 0, %check_exists_finfos.exit.thread.us.i204 ], [ 1, %check_exists_finfos.exit.i ], [ 0, %1226 ], [ 0, %.lr.ph.i311 ], [ 1, %.lr.ph.i313 ], [ 1, %1413 ], [ 1, %.lr.ph12.i325 ], [ 0, %1505 ], [ 1, %1506 ], [ %.0159984, %25 ]
   %1508 = add i32 %.1, 1
   %1509 = icmp slt i32 %1508, %18
   br i1 %1509, label %.preheader, label %._crit_edge, !llvm.loop !28
@@ -4739,7 +4739,7 @@ define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none)
   br label %dfvm_get_raw_fvalue.exit.us.i.us.us
 
 dfvm_get_raw_fvalue.exit.us.i.us.us:              ; preds = %32, %.lr.ph.split.us.i.us.us
-  %.020.us.i.us.us = phi ptr [ %40, %32 ], [ null, %.lr.ph.split.us.i.us.us ]
+  %.020.us.i.us.us = phi ptr [ null, %.lr.ph.split.us.i.us.us ], [ %40, %32 ]
   tail call void @df_cell_append(ptr noundef %13, ptr noundef %.020.us.i.us.us)
   %indvars.iv.next6.i.us.us = add nuw nsw i64 %indvars.iv5.i.us.us, 1
   %41 = load i32, ptr %20, align 8
@@ -4962,16 +4962,16 @@ drange_contains_layer.exit.thread.sink.split.i:   ; preds = %70, %51
   br label %drange_contains_layer.exit.thread.i
 
 drange_contains_layer.exit.thread.i:              ; preds = %53, %drange_contains_layer.exit.thread.sink.split.i, %52, %51
-  %73 = phi i32 [ %44, %51 ], [ %44, %52 ], [ %.pre, %drange_contains_layer.exit.thread.sink.split.i ], [ %44, %53 ]
-  %.127.i = phi i1 [ false, %51 ], [ false, %52 ], [ true, %drange_contains_layer.exit.thread.sink.split.i ], [ false, %53 ]
-  %.1.i = phi i32 [ %.036.i, %51 ], [ %49, %52 ], [ %.1.ph.i, %drange_contains_layer.exit.thread.sink.split.i ], [ %49, %53 ]
+  %73 = phi i32 [ %44, %52 ], [ %44, %51 ], [ %.pre, %drange_contains_layer.exit.thread.sink.split.i ], [ %44, %53 ]
+  %.127.i = phi i1 [ false, %52 ], [ false, %51 ], [ true, %drange_contains_layer.exit.thread.sink.split.i ], [ false, %53 ]
+  %.1.i = phi i32 [ %49, %52 ], [ %.036.i, %51 ], [ %.1.ph.i, %drange_contains_layer.exit.thread.sink.split.i ], [ %49, %53 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next.i, %74
   br i1 %75, label %.lr.ph.split.i, label %filter_refs_fvalues.exit, !llvm.loop !31
 
 filter_refs_fvalues.exit:                         ; preds = %drange_contains_layer.exit.thread.i, %drange_contains_layer.exit.thread.us.i, %24, %16, %20, %13
-  %.0 = phi i1 [ %15, %13 ], [ false, %20 ], [ false, %16 ], [ true, %24 ], [ true, %drange_contains_layer.exit.thread.us.i ], [ true, %drange_contains_layer.exit.thread.i ]
+  %.0 = phi i1 [ %15, %13 ], [ false, %16 ], [ false, %20 ], [ true, %24 ], [ true, %drange_contains_layer.exit.thread.us.i ], [ true, %drange_contains_layer.exit.thread.i ]
   ret i1 %.0
 }
 
@@ -5124,7 +5124,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %.critedge19, label %42
 
-.loopexit:                                        ; preds = %22, %33, %42, %.preheader.i, %.preheader1.i, %.preheader4.i
+.loopexit:                                        ; preds = %22, %33, %42, %.preheader4.i, %.preheader.i, %.preheader1.i
   %51 = getelementptr inbounds nuw i8, ptr %.01611, i64 8
   %.016 = load ptr, ptr %51, align 8
   %.not.not = icmp eq ptr %.016, null
@@ -5142,7 +5142,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
   br i1 %.not, label %.lr.ph15.splitthread-pre-split, label %.critedge19, !llvm.loop !37
 
 .critedge19:                                      ; preds = %.critedge, %.lr.ph8.i, %.lr.ph12.i, %.lr.ph15, %1
-  %.not8 = phi i1 [ false, %1 ], [ false, %.lr.ph15 ], [ true, %.lr.ph12.i ], [ true, %.lr.ph8.i ], [ false, %.critedge ]
+  %.not8 = phi i1 [ false, %1 ], [ false, %.lr.ph15 ], [ true, %.lr.ph8.i ], [ true, %.lr.ph12.i ], [ false, %.critedge ]
   ret i1 %.not8
 }
 
@@ -5328,7 +5328,7 @@ define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly captur
   br label %31
 
 29:                                               ; preds = %20, %6, %25, %14, %8
-  %.0 = phi ptr [ %13, %8 ], [ %19, %14 ], [ %26, %25 ], [ @.str.98, %6 ], [ @.str.99, %20 ]
+  %.0 = phi ptr [ %13, %8 ], [ @.str.98, %6 ], [ %19, %14 ], [ %26, %25 ], [ @.str.99, %20 ]
   %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.100, ptr noundef %.0)
   br label %31
 
@@ -5710,7 +5710,7 @@ define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr 
   br i1 %34, label %.critedge, label %26
 
 .critedge:                                        ; preds = %6, %17, %.lr.ph8, %26, %.lr.ph12, %.preheader4, %.preheader1, %.preheader
-  %.027 = phi i1 [ false, %.preheader ], [ false, %.preheader1 ], [ false, %.preheader4 ], [ %34, %.lr.ph12 ], [ %34, %26 ], [ %25, %.lr.ph8 ], [ %25, %17 ], [ false, %6 ]
+  %.027 = phi i1 [ false, %.preheader4 ], [ false, %.preheader ], [ false, %.preheader1 ], [ %25, %17 ], [ %34, %26 ], [ %34, %.lr.ph12 ], [ %25, %.lr.ph8 ], [ false, %6 ]
   ret i1 %.027
 }
 

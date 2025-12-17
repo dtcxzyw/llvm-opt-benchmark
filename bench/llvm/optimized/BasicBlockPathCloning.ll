@@ -1628,7 +1628,7 @@ _ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i: ; preds 
   br i1 %.not133.i, label %.loopexit.i, label %720
 
 .loopexit.i:                                      ; preds = %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i, %_ZN4llvm8DebugLocD2Ev.exit.i, %589
-  %.155.i = phi ptr [ %587, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %587, %589 ], [ %680, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i ], [ %680, %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i ]
+  %.155.i = phi ptr [ %587, %589 ], [ %587, %_ZN4llvm8DebugLocD2Ev.exit.i ], [ %680, %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i ], [ %680, %_ZN4llvm17MachineBasicBlock9addLiveInERKNS0_16RegisterMaskPairE.exit.i ]
   %748 = getelementptr inbounds nuw i8, ptr %.056184.i, i64 4
   %.not59.i = icmp eq ptr %748, %563
   br i1 %.not59.i, label %.loopexit135.i, label %.lr.ph186.i

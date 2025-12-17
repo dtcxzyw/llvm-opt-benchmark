@@ -376,8 +376,8 @@ _ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit: ; preds = %84, %38
   %107 = getelementptr inbounds nuw i8, ptr %.061109, i64 16
   br label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
 
-_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread: ; preds = %86, %_ZN6vectorIN3sat8elim_eqs3binELb0EjE9push_backEOS2_.exit, %81, %_ZN3sat6solver11assign_unitENS_7literalE.exit, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
-  %.465 = phi ptr [ %107, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit ], [ %.061109, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %.061109, %81 ], [ %.061109, %_ZN6vectorIN3sat8elim_eqs3binELb0EjE9push_backEOS2_.exit ], [ %.061109, %86 ]
+_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread: ; preds = %_ZN6vectorIN3sat8elim_eqs3binELb0EjE9push_backEOS2_.exit, %81, %_ZN3sat6solver11assign_unitENS_7literalE.exit, %86, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
+  %.465 = phi ptr [ %107, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit ], [ %.061109, %86 ], [ %.061109, %_ZN3sat6solver11assign_unitENS_7literalE.exit ], [ %.061109, %81 ], [ %.061109, %_ZN6vectorIN3sat8elim_eqs3binELb0EjE9push_backEOS2_.exit ]
   %108 = getelementptr inbounds nuw i8, ptr %.057110, i64 16
   %.not67 = icmp eq ptr %108, %32
   br i1 %.not67, label %._crit_edge, label %38, !llvm.loop !192
@@ -853,8 +853,8 @@ _ZSt4sortIPN3sat7literalEEvT_S3_.exit:            ; preds = %_ZSt25__unguarded_l
   br label %159
 
 159:                                              ; preds = %150, %148, %155
-  %.sroa.0146.1.ph = phi i32 [ %145, %155 ], [ %.sroa.0146.0187, %148 ], [ %145, %150 ]
-  %.2122.ph = phi i32 [ %158, %155 ], [ %.0120188, %148 ], [ %.0120188, %150 ]
+  %.sroa.0146.1.ph = phi i32 [ %.sroa.0146.0187, %148 ], [ %145, %155 ], [ %145, %150 ]
+  %.2122.ph = phi i32 [ %.0120188, %148 ], [ %158, %155 ], [ %.0120188, %150 ]
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
   br i1 %exitcond225.not, label %._crit_edge191, label %143, !llvm.loop !213
@@ -1079,8 +1079,8 @@ _ZN3sat8elim_eqs18drat_delete_clauseEv.exit139:   ; preds = %241, %235, %230
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %251
 
-251:                                              ; preds = %._crit_edge.thread, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139, %249, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137
-  %.1108.ph = phi ptr [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138 ], [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137 ], [ %246, %249 ], [ %246, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139 ], [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %38, %._crit_edge.thread ]
+251:                                              ; preds = %._crit_edge.thread, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139, %249, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138
+  %.1108.ph = phi ptr [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit137 ], [ %246, %249 ], [ %246, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit139 ], [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit138 ], [ %.0107194, %_ZN3sat8elim_eqs18drat_delete_clauseEv.exit ], [ %38, %._crit_edge.thread ]
   %252 = getelementptr inbounds nuw i8, ptr %.0195, i64 8
   %.not = icmp eq ptr %252, %15
   br i1 %.not, label %._crit_edge198, label %22, !llvm.loop !218
@@ -2121,7 +2121,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3sat7literalEN9__gnu_cxx5__
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us, !llvm.loop !233
 
 _ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %39 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %39 ]
   %42 = getelementptr inbounds nuw %"class.sat::literal", ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %.sroa.01.0.copyload.us, ptr %42, align 4, !tbaa !18
   %.not.us = icmp eq i64 %.013.us, 0

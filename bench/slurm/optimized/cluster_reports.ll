@@ -2883,8 +2883,8 @@ define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) 
   br label %127
 
 127:                                              ; preds = %115, %76, %63, %46, %88, %105, %123, %95, %96, %56
-  %.1104 = phi i32 [ %.0103150, %123 ], [ 1, %105 ], [ %.0103150, %96 ], [ %.0103150, %95 ], [ 1, %88 ], [ 1, %56 ], [ %.0103150, %46 ], [ %spec.select134, %63 ], [ %spec.select135, %76 ], [ %spec.select136, %115 ]
-  %.1 = phi i32 [ %.0151, %123 ], [ %.0151, %105 ], [ %.0151, %96 ], [ %.0151, %95 ], [ %.0151, %88 ], [ %.0151, %56 ], [ 1, %46 ], [ %.0151, %63 ], [ %.0151, %76 ], [ %.0151, %115 ]
+  %.1104 = phi i32 [ %.0103150, %123 ], [ 1, %56 ], [ %spec.select134, %63 ], [ 1, %105 ], [ %.0103150, %96 ], [ %.0103150, %95 ], [ 1, %88 ], [ %spec.select136, %115 ], [ %spec.select135, %76 ], [ %.0103150, %46 ]
+  %.1 = phi i32 [ %.0151, %123 ], [ %.0151, %56 ], [ %.0151, %63 ], [ %.0151, %105 ], [ %.0151, %96 ], [ %.0151, %95 ], [ %.0151, %88 ], [ %.0151, %115 ], [ %.0151, %76 ], [ 1, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
@@ -3480,7 +3480,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   br label %.sink.split262
 
 .sink.split262:                                   ; preds = %.lr.ph193, %.lr.ph193, %229, %230, %231, %232, %233, %234
-  %.sroa.0.0.lcssa.sink = phi i64 [ %.sroa.28.0.lcssa, %234 ], [ %.sroa.20.0.lcssa, %233 ], [ %.sroa.16.0.lcssa, %232 ], [ %.sroa.2447.0.lcssa, %231 ], [ %.sroa.12.0.lcssa, %230 ], [ %.sroa.8.0.lcssa, %229 ], [ %.sroa.0.0.lcssa, %.lr.ph193 ], [ %.sroa.0.0.lcssa, %.lr.ph193 ]
+  %.sroa.0.0.lcssa.sink = phi i64 [ %.sroa.0.0.lcssa, %.lr.ph193 ], [ %.sroa.28.0.lcssa, %234 ], [ %.sroa.20.0.lcssa, %233 ], [ %.sroa.16.0.lcssa, %232 ], [ %.sroa.2447.0.lcssa, %231 ], [ %.sroa.12.0.lcssa, %230 ], [ %.sroa.8.0.lcssa, %229 ], [ %.sroa.0.0.lcssa, %.lr.ph193 ]
   call void @sreport_set_usage_col_width(ptr noundef nonnull %226, i64 noundef %.sroa.0.0.lcssa.sink) #9
   br label %235
 

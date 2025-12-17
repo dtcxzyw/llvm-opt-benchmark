@@ -615,7 +615,7 @@ define hidden void @_tr_flush_block(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not17.i, label %31, label %detect_data_type.exit
 
 detect_data_type.exit:                            ; preds = %17, %31, %.preheader.i, %22, %25, %28
-  %.014.i = phi i32 [ 1, %28 ], [ 1, %25 ], [ 1, %22 ], [ 1, %.preheader.i ], [ 0, %31 ], [ 0, %17 ]
+  %.014.i = phi i32 [ 1, %25 ], [ 1, %22 ], [ 1, %28 ], [ 1, %.preheader.i ], [ 0, %31 ], [ 0, %17 ]
   store i32 %.014.i, ptr %10, align 8, !tbaa !37
   br label %34
 
@@ -2423,7 +2423,7 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %200, %225, %37, %58
-  %storemerge191.sink = phi i32 [ %59, %58 ], [ %57, %37 ], [ %229, %225 ], [ %224, %200 ]
+  %storemerge191.sink = phi i32 [ %57, %37 ], [ %59, %58 ], [ %229, %225 ], [ %224, %200 ]
   store i32 %storemerge191.sink, ptr %8, align 4, !tbaa !24
   br label %230
 
@@ -3027,7 +3027,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %285, %309, %219, %243, %150, %174
-  %storemerge244.sink = phi i32 [ %178, %174 ], [ %173, %150 ], [ %247, %243 ], [ %242, %219 ], [ %313, %309 ], [ %308, %285 ]
+  %storemerge244.sink = phi i32 [ %173, %150 ], [ %242, %219 ], [ %178, %174 ], [ %247, %243 ], [ %313, %309 ], [ %308, %285 ]
   store i32 %storemerge244.sink, ptr %9, align 4, !tbaa !24
   br label %.loopexit
 

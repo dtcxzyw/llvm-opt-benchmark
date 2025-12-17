@@ -707,7 +707,7 @@ SlabFindNextBlockListIndex.exit:                  ; preds = %40, %.split.loop.ex
   br label %dclist_push_head.exit
 
 dclist_push_head.exit:                            ; preds = %61, %65
-  %66 = phi ptr [ %58, %65 ], [ %63, %61 ]
+  %66 = phi ptr [ %63, %61 ], [ %58, %65 ]
   store ptr %66, ptr %53, align 8
   store ptr %58, ptr %52, align 8
   store ptr %52, ptr %66, align 8

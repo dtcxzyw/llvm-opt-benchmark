@@ -53,7 +53,7 @@ define void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_message17h
           to label %_ZN8protobuf18coded_input_stream16CodedInputStream28merge_message_no_depth_check17hd6cd7fbdc9a20d12E.exit.i unwind label %30
 
 _ZN8protobuf18coded_input_stream16CodedInputStream28merge_message_no_depth_check17hd6cd7fbdc9a20d12E.exit.i: ; preds = %24, %.noexc13, %.noexc12, %.noexc
-  %.sroa.0.0.i.i = phi ptr [ %13, %.noexc ], [ %19, %.noexc12 ], [ %23, %.noexc13 ], [ null, %24 ]
+  %.sroa.0.0.i.i = phi ptr [ %23, %.noexc13 ], [ %13, %.noexc ], [ %19, %.noexc12 ], [ null, %24 ]
   %25 = load i32, ptr %5, align 8
   %26 = add i32 %25, -1
   store i32 %26, ptr %5, align 8

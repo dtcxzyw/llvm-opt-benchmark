@@ -350,7 +350,7 @@ _ZN4pbrt3XYZixEi.exit.split.us.i.i:               ; preds = %80, %_ZNK4pbrt3XYZi
   br label %_ZNK4pbrt3XYZixEi.exit.us.i.i
 
 _ZNK4pbrt3XYZixEi.exit.us.i.i:                    ; preds = %91, %90, %_ZN4pbrt3XYZixEi.exit.split.us.i.i
-  %.0.in.i.us.i.i.sroa.speculated = phi float [ %.sroa.091.4.vec.extract, %90 ], [ %.fca.1.extract23, %91 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.us.i.i ]
+  %.0.in.i.us.i.i.sroa.speculated = phi float [ %.fca.1.extract23, %91 ], [ %.sroa.091.4.vec.extract, %90 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.us.i.i ]
   %92 = fmul float %88, %.0.in.i.us.i.i.sroa.speculated
   %93 = fadd float %86, %92
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
@@ -375,7 +375,7 @@ _ZN4pbrt3XYZixEi.exit.split.us21.i.i:             ; preds = %80, %_ZNK4pbrt3XYZi
   br label %_ZNK4pbrt3XYZixEi.exit.us23.i.i
 
 _ZNK4pbrt3XYZixEi.exit.us23.i.i:                  ; preds = %99, %98, %_ZN4pbrt3XYZixEi.exit.split.us21.i.i
-  %.0.in.i.us24.i.i.sroa.speculated = phi float [ %.sroa.091.4.vec.extract, %98 ], [ %.fca.1.extract23, %99 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.us21.i.i ]
+  %.0.in.i.us24.i.i.sroa.speculated = phi float [ %.fca.1.extract23, %99 ], [ %.sroa.091.4.vec.extract, %98 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.us21.i.i ]
   %100 = fmul float %96, %.0.in.i.us24.i.i.sroa.speculated
   %101 = fadd float %94, %100
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -383,9 +383,9 @@ _ZNK4pbrt3XYZixEi.exit.us23.i.i:                  ; preds = %99, %98, %_ZN4pbrt3
   br i1 %exitcond.not.i.i, label %.split.i.i, label %_ZN4pbrt3XYZixEi.exit.split.us21.i.i, !llvm.loop !37
 
 .split.i.i:                                       ; preds = %_ZNK4pbrt3XYZixEi.exit.us23.i.i, %_ZNK4pbrt3XYZixEi.exit.us.i.i, %_ZNK4pbrt3XYZixEi.exit.i.i
-  %102 = phi float [ %112, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %103 = phi float [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %93, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
-  %104 = phi float [ %83, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %83, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %101, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %102 = phi float [ %81, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %112, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %81, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %103 = phi float [ %93, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %82, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
+  %104 = phi float [ %83, %_ZNK4pbrt3XYZixEi.exit.us.i.i ], [ %83, %_ZNK4pbrt3XYZixEi.exit.i.i ], [ %101, %_ZNK4pbrt3XYZixEi.exit.us23.i.i ]
   %indvars.iv.next43.i.i = add nuw nsw i64 %indvars.iv42.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next43.i.i, 3
   br i1 %exitcond45.not.i.i, label %113, label %80, !llvm.loop !38
@@ -408,7 +408,7 @@ _ZN4pbrt3XYZixEi.exit.split.i.i:                  ; preds = %80, %_ZNK4pbrt3XYZi
   br label %_ZNK4pbrt3XYZixEi.exit.i.i
 
 _ZNK4pbrt3XYZixEi.exit.i.i:                       ; preds = %110, %109, %_ZN4pbrt3XYZixEi.exit.split.i.i
-  %.0.in.i.i.i.sroa.speculated = phi float [ %.sroa.091.4.vec.extract, %109 ], [ %.fca.1.extract23, %110 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.i.i ]
+  %.0.in.i.i.i.sroa.speculated = phi float [ %.fca.1.extract23, %110 ], [ %.sroa.091.4.vec.extract, %109 ], [ %.sroa.091.0.vec.extract, %_ZN4pbrt3XYZixEi.exit.split.i.i ]
   %111 = fmul float %107, %.0.in.i.i.i.sroa.speculated
   %112 = fadd float %105, %111
   %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
@@ -567,7 +567,7 @@ _ZN4pstd8optionalIN4pbrt12SquareMatrixILi3EEEED2Ev.exit.i85: ; preds = %143
   br label %153
 
 153:                                              ; preds = %.body, %.body87
-  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body88, %.body87 ], [ %eh.lpad-body, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body88, %.body87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %154
 
@@ -4652,7 +4652,7 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; pred
   br label %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS1_.exit: ; preds = %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i, %72, %42, %39, %18, %14, %6, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit, %23, %4
-  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %26, %23 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %6 ], [ %41, %39 ], [ %47, %42 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
+  %.0 = phi float [ %154, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit ], [ %5, %4 ], [ %47, %42 ], [ %26, %23 ], [ 0.000000e+00, %6 ], [ %71, %_ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit ], [ %22, %18 ], [ 0.000000e+00, %14 ], [ %41, %39 ], [ %113, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i ], [ 0.000000e+00, %72 ]
   ret float %.0
 }
 

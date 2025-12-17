@@ -98,7 +98,7 @@ define internal range(i32 0, 2) i32 @test_bio_addr_copy_dup(i32 noundef %0) #0 {
   br label %make_dummy_addr.exit
 
 make_dummy_addr.exit:                             ; preds = %11, %12, %15, %20
-  %.011.i = phi ptr [ null, %11 ], [ null, %20 ], [ null, %12 ], [ %13, %15 ]
+  %.011.i = phi ptr [ null, %11 ], [ null, %12 ], [ null, %20 ], [ %13, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @.str.3, ptr noundef %.011.i) #5
   %.not = icmp eq i32 %21, 0
@@ -213,7 +213,7 @@ make_dummy_addr.exit:                             ; preds = %11, %12, %15, %20
   br label %bio_addr_is_eq.exit
 
 bio_addr_is_eq.exit:                              ; preds = %35, %37, %40, %43, %46, %50, %53, %70
-  %.024.i = phi i32 [ %.0.i23, %70 ], [ 1, %35 ], [ 0, %37 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %50 ], [ 1, %53 ]
+  %.024.i = phi i32 [ 0, %43 ], [ 1, %35 ], [ 0, %37 ], [ 0, %40 ], [ 0, %46 ], [ 0, %50 ], [ %.0.i23, %70 ], [ 1, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %71 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @.str.6, i32 noundef %.024.i) #5
@@ -222,8 +222,8 @@ bio_addr_is_eq.exit:                              ; preds = %35, %37, %40, %43, 
   br label %72
 
 72:                                               ; preds = %bio_addr_is_eq.exit, %32, %27, %24
-  %.016 = phi ptr [ %25, %27 ], [ %25, %24 ], [ %33, %32 ], [ %.1, %bio_addr_is_eq.exit ]
-  %.015 = phi i32 [ 0, %27 ], [ 0, %24 ], [ 0, %32 ], [ %spec.select, %bio_addr_is_eq.exit ]
+  %.016 = phi ptr [ %33, %32 ], [ %.1, %bio_addr_is_eq.exit ], [ %25, %27 ], [ %25, %24 ]
+  %.015 = phi i32 [ 0, %32 ], [ %spec.select, %bio_addr_is_eq.exit ], [ 0, %27 ], [ 0, %24 ]
   call void @BIO_ADDR_free(ptr noundef %.011.i) #5
   call void @BIO_ADDR_free(ptr noundef %.016) #5
   br label %73

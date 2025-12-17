@@ -146,7 +146,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12FloatsDifferEffib(fl
   br label %56
 
 56:                                               ; preds = %14, %20, %13, %50
-  %.1 = phi i1 [ %55, %50 ], [ true, %13 ], [ true, %20 ], [ %spec.select, %14 ]
+  %.1 = phi i1 [ %55, %50 ], [ %spec.select, %14 ], [ true, %13 ], [ true, %20 ]
   ret i1 %.1
 }
 
@@ -550,7 +550,7 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %21
   br i1 %exitcond33, label %.critedge20, label %.preheader, !llvm.loop !17
 
 .critedge20:                                      ; preds = %.critedge, %21, %8, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit
-  %35 = phi i1 [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit ], [ false, %8 ], [ false, %21 ], [ true, %.critedge ]
+  %35 = phi i1 [ false, %21 ], [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit ], [ false, %8 ], [ true, %.critedge ]
   ret i1 %35
 }
 
@@ -622,7 +622,7 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_.exit: ; preds = %22
   br i1 %exitcond33, label %.critedge20, label %.preheader, !llvm.loop !19
 
 .critedge20:                                      ; preds = %.critedge, %22, %9, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIdEEbT_.exit, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_.exit
-  %36 = phi i1 [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIdEEbT_.exit ], [ false, %9 ], [ false, %22 ], [ true, %.critedge ]
+  %36 = phi i1 [ false, %22 ], [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIdEEbT_.exit ], [ false, %9 ], [ true, %.critedge ]
   ret i1 %36
 }
 
@@ -765,7 +765,7 @@ define hidden noundef double @_ZN19OpenColorIO_v2_5dev15ClampToNormHalfEd(double
   br label %8
 
 8:                                                ; preds = %3, %1, %5, %7
-  %.0 = phi double [ 6.550400e+04, %7 ], [ %0, %5 ], [ -6.550400e+04, %1 ], [ 0.000000e+00, %3 ]
+  %.0 = phi double [ %0, %5 ], [ 0.000000e+00, %3 ], [ 6.550400e+04, %7 ], [ -6.550400e+04, %1 ]
   ret double %.0
 }
 
@@ -1601,7 +1601,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev11HalfsDifferEN9Imath_
   br label %42
 
 42:                                               ; preds = %24, %38, %36, %31, %21
-  %.0 = phi i1 [ %.not15, %21 ], [ %32, %31 ], [ %37, %36 ], [ %41, %38 ], [ true, %24 ]
+  %.0 = phi i1 [ %.not15, %21 ], [ %41, %38 ], [ %32, %31 ], [ %37, %36 ], [ true, %24 ]
   ret i1 %.0
 }
 

@@ -342,18 +342,18 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.sroa.0.2.ph, i64 %41, i1 false)
   br label %56
 
-42:                                               ; preds = %27, %35, %37
-  %.sink91 = phi i32 [ %28, %27 ], [ %36, %35 ], [ %39, %37 ]
+42:                                               ; preds = %37, %27, %35
+  %.sink91 = phi i32 [ %39, %37 ], [ %28, %27 ], [ %36, %35 ]
   %43 = call ptr @pgtypes_alloc(i64 noundef 20) #12
   %.not65.not = icmp eq ptr %43, null
   br i1 %.not65.not, label %.critedge, label %44
 
 44:                                               ; preds = %42
   %45 = ptrtoint ptr %.sroa.0.182 to i64
-  %.sroa.0.0.insert.mask = and i64 %45, -4294967296
-  %.sroa.0.0.insert.ext = zext i32 %.sink91 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
-  %.sroa.0.2.ph74 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
+  %.sroa.0.0.insert.mask42 = and i64 %45, -4294967296
+  %.sroa.0.0.insert.ext41 = zext i32 %.sink91 to i64
+  %.sroa.0.0.insert.insert43 = or disjoint i64 %.sroa.0.0.insert.mask42, %.sroa.0.0.insert.ext41
+  %.sroa.0.2.ph74 = inttoptr i64 %.sroa.0.0.insert.insert43 to ptr
   %46 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %43, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %.sink91) #12
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %43, i64 %47, i1 false)
@@ -391,7 +391,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !5
 
 .critedge:                                        ; preds = %._crit_edge, %48, %42
-  %.4 = phi i32 [ -1, %42 ], [ -1, %48 ], [ 0, %._crit_edge ]
+  %.4 = phi i32 [ -1, %48 ], [ -1, %42 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.4
 }
@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23
-  %.0188 = phi ptr [ @.str.10, %23 ], [ %.str.11..str.12, %25 ], [ @.str.13, %27 ], [ %.str.14..str.15, %29 ]
+  %.0188 = phi ptr [ @.str.13, %27 ], [ %.str.11..str.12, %25 ], [ @.str.10, %23 ], [ %.str.14..str.15, %29 ]
   %32 = load i8, ptr %2, align 1
   %.not.not253 = icmp eq i8 %32, 0
   br i1 %.not.not253, label %.critedge, label %.lr.ph
@@ -958,7 +958,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   br label %250
 
 250:                                              ; preds = %147, %.critedge246, %97, %.critedge242, %245, %243, %238, %232, %228, %.thread326, %19, %10
-  %.0185 = phi i32 [ -1, %.thread326 ], [ -1, %228 ], [ -1, %232 ], [ -1, %238 ], [ -1, %243 ], [ 0, %245 ], [ -1, %19 ], [ -1, %10 ], [ -1, %.critedge242 ], [ -1, %97 ], [ -1, %.critedge246 ], [ -1, %147 ]
+  %.0185 = phi i32 [ -1, %.thread326 ], [ -1, %228 ], [ -1, %232 ], [ -1, %238 ], [ -1, %243 ], [ 0, %245 ], [ -1, %97 ], [ -1, %.critedge242 ], [ -1, %10 ], [ -1, %19 ], [ -1, %.critedge246 ], [ -1, %147 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0185

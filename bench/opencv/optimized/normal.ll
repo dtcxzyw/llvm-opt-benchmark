@@ -808,7 +808,7 @@ default.unreachable103:                           ; preds = %73
   unreachable
 
 118:                                              ; preds = %115, %112, %103, %107, %77, %89
-  %.sink = phi ptr [ %101, %103 ], [ %101, %107 ], [ %75, %77 ], [ %75, %89 ], [ %111, %112 ], [ %111, %115 ]
+  %.sink = phi ptr [ %75, %89 ], [ %111, %112 ], [ %101, %103 ], [ %101, %107 ], [ %75, %77 ], [ %111, %115 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.sink, ptr %119, align 8, !tbaa !30
   %120 = load ptr, ptr %.sink, align 8, !tbaa !3
@@ -1063,7 +1063,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv4rgbd15RgbdNormalsImpl8val
   resume { ptr, i32 } %.pn
 
 54:                                               ; preds = %28, %41, %45, %7, %15, %20
-  %.015 = phi i1 [ false, %20 ], [ false, %15 ], [ false, %7 ], [ false, %41 ], [ false, %28 ], [ %48, %45 ]
+  %.015 = phi i1 [ false, %7 ], [ false, %20 ], [ false, %15 ], [ %48, %45 ], [ false, %41 ], [ false, %28 ]
   ret i1 %.015
 }
 
@@ -2517,7 +2517,7 @@ _ZN2cvmlIfLi3ELi3ELi1EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %102
 
 102:                                              ; preds = %98, %100
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ]
+  %.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %101, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %155
@@ -2539,7 +2539,7 @@ _ZN2cvmlIfLi3ELi3ELi1EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %109
 
 109:                                              ; preds = %105, %107
-  %.pn40.pn = phi { ptr, i32 } [ %108, %107 ], [ %106, %105 ]
+  %.pn40.pn = phi { ptr, i32 } [ %106, %105 ], [ %108, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %155
@@ -3976,7 +3976,7 @@ _ZN2cvmlIdLi3ELi3ELi1EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %101
 
 101:                                              ; preds = %97, %99
-  %.pn.pn = phi { ptr, i32 } [ %100, %99 ], [ %98, %97 ]
+  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %100, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %154
@@ -3998,7 +3998,7 @@ _ZN2cvmlIdLi3ELi3ELi1EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br label %108
 
 108:                                              ; preds = %104, %106
-  %.pn40.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
+  %.pn40.pn = phi { ptr, i32 } [ %105, %104 ], [ %107, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %154
@@ -7419,7 +7419,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %785, %787
   br label %794
 
 794:                                              ; preds = %788, %790, %792, %721, %720, %715, %634, %212
-  %.pn143.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn.pn.pn, %634 ], [ %213, %212 ], [ %722, %721 ], [ %.pn120, %720 ], [ %.pn111.pn.pn.pn.pn.pn.pn, %715 ], [ %793, %792 ], [ %791, %790 ], [ %789, %788 ]
+  %.pn143.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn.pn.pn, %634 ], [ %.pn111.pn.pn.pn.pn.pn.pn, %715 ], [ %213, %212 ], [ %722, %721 ], [ %.pn120, %720 ], [ %789, %788 ], [ %793, %792 ], [ %791, %790 ]
   %795 = load ptr, ptr %25, align 8, !tbaa !166
   %.not.i.i.i278 = icmp eq ptr %795, null
   br i1 %.not.i.i.i278, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit279, label %796
@@ -10705,7 +10705,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %802, %804
   br label %811
 
 811:                                              ; preds = %805, %807, %809, %738, %737, %732, %650, %216
-  %.pn143.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn.pn.pn, %650 ], [ %217, %216 ], [ %739, %738 ], [ %.pn120, %737 ], [ %.pn111.pn.pn.pn.pn.pn.pn, %732 ], [ %810, %809 ], [ %808, %807 ], [ %806, %805 ]
+  %.pn143.pn = phi { ptr, i32 } [ %.pn134.pn.pn.pn.pn.pn.pn.pn, %650 ], [ %.pn111.pn.pn.pn.pn.pn.pn, %732 ], [ %217, %216 ], [ %739, %738 ], [ %.pn120, %737 ], [ %806, %805 ], [ %810, %809 ], [ %808, %807 ]
   %812 = load ptr, ptr %25, align 8, !tbaa !166
   %.not.i.i.i278 = icmp eq ptr %812, null
   br i1 %.not.i.i.i278, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit279, label %813

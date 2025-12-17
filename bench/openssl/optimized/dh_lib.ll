@@ -141,8 +141,8 @@ define internal fastcc ptr @dh_new_intern(ptr noundef %0, ptr noundef %1) unname
   br i1 %.not40, label %.sink.split, label %42
 
 .sink.split:                                      ; preds = %39, %24, %18
-  %.sink47 = phi i32 [ 100, %18 ], [ 109, %24 ], [ 125, %39 ]
-  %.sink = phi i32 [ 524326, %18 ], [ 524326, %24 ], [ 786693, %39 ]
+  %.sink47 = phi i32 [ 109, %24 ], [ 100, %18 ], [ 125, %39 ]
+  %.sink = phi i32 [ 524326, %24 ], [ 524326, %18 ], [ 786693, %39 ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink47, ptr noundef nonnull @__func__.dh_new_intern) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.sink, ptr noundef null) #7
@@ -153,7 +153,7 @@ define internal fastcc ptr @dh_new_intern(ptr noundef %0, ptr noundef %1) unname
   br label %42
 
 42:                                               ; preds = %34, %39, %2, %41, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %41 ], [ null, %2 ], [ %3, %39 ], [ %3, %34 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %9 ], [ null, %41 ], [ %3, %39 ], [ %3, %34 ]
   ret ptr %.0
 }
 

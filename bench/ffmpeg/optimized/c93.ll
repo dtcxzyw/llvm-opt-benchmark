@@ -699,7 +699,7 @@ draw_n_color.exit227.loopexit:                    ; preds = %.split29.i
   br i1 %242, label %.preheader342.split, label %.split.us, !llvm.loop !52
 
 .split.us:                                        ; preds = %draw_n_color.exit227.loopexit341.us, %draw_n_color.exit227.loopexit340.us, %draw_n_color.exit227.loopexit
-  %.us-phi = phi ptr [ %.sroa.0.20, %draw_n_color.exit227.loopexit ], [ %.sroa.0.19.us, %draw_n_color.exit227.loopexit340.us ], [ %.sroa.0.21.us, %draw_n_color.exit227.loopexit341.us ]
+  %.us-phi = phi ptr [ %.sroa.0.19.us, %draw_n_color.exit227.loopexit340.us ], [ %.sroa.0.20, %draw_n_color.exit227.loopexit ], [ %.sroa.0.21.us, %draw_n_color.exit227.loopexit341.us ]
   br i1 %201, label %.preheader342, label %copy_block.exit.thread, !llvm.loop !53
 
 .preheader346:                                    ; preds = %bytestream2_get_byte.exit179, %.preheader346
@@ -728,7 +728,7 @@ bytestream2_get_byte.exit179.thread:              ; preds = %62, %bytestream2_ge
   br label %320
 
 copy_block.exit.thread:                           ; preds = %.preheader346, %.split.us, %.split29.us.us.i, %.split406, %.split406.us.split.us420, %.split406.us.split.us.us.us, %100, %bytestream2_get_le16.exit.thread, %bytestream2_get_le16.exit, %bytestream2_get_byte.exit179
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %bytestream2_get_byte.exit179 ], [ %75, %bytestream2_get_le16.exit ], [ %36, %bytestream2_get_le16.exit.thread ], [ %.sroa.0.17535540543, %100 ], [ %.sroa.0.18.us.us.us.us, %.split406.us.split.us.us.us ], [ %spec.select, %.split406.us.split.us420 ], [ %.sroa.0.18, %.split406 ], [ %.sroa.0.16, %.split29.us.us.i ], [ %.us-phi, %.split.us ], [ %279, %.preheader346 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %bytestream2_get_byte.exit179 ], [ %75, %bytestream2_get_le16.exit ], [ %36, %bytestream2_get_le16.exit.thread ], [ %.us-phi, %.split.us ], [ %.sroa.0.17535540543, %100 ], [ %.sroa.0.18.us.us.us.us, %.split406.us.split.us.us.us ], [ %spec.select, %.split406.us.split.us420 ], [ %.sroa.0.18, %.split406 ], [ %.sroa.0.16, %.split29.us.us.i ], [ %279, %.preheader346 ]
   %281 = lshr i32 %.2160, 4
   %282 = getelementptr inbounds nuw i8, ptr %.0144438, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -808,7 +808,7 @@ bytestream2_get_be24.exit:                        ; preds = %291, %295
   br label %320
 
 320:                                              ; preds = %.thread329, %.loopexit, %24, %4, %319
-  %.0 = phi i32 [ %10, %319 ], [ %22, %4 ], [ %27, %24 ], [ %317, %.loopexit ], [ -1094995529, %.thread329 ]
+  %.0 = phi i32 [ %10, %319 ], [ %22, %4 ], [ -1094995529, %.thread329 ], [ %27, %24 ], [ %317, %.loopexit ]
   ret i32 %.0
 }
 

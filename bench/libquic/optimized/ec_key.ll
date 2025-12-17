@@ -294,7 +294,7 @@ define hidden noundef ptr @EC_KEY_copy(ptr noundef %0, ptr noundef %1) local_unn
   br label %57
 
 57:                                               ; preds = %46, %35, %32, %18, %8, %50, %5
-  %.0 = phi ptr [ null, %5 ], [ %0, %50 ], [ null, %8 ], [ null, %18 ], [ null, %32 ], [ null, %35 ], [ null, %46 ]
+  %.0 = phi ptr [ null, %5 ], [ null, %32 ], [ null, %8 ], [ null, %18 ], [ %0, %50 ], [ null, %35 ], [ null, %46 ]
   ret ptr %.0
 }
 
@@ -324,7 +324,7 @@ define hidden noundef ptr @EC_KEY_dup(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %4, %1, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %1 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %7 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -591,9 +591,9 @@ define hidden range(i32 0, 2) i32 @EC_KEY_check_key(ptr noundef readonly capture
   br label %51
 
 51:                                               ; preds = %28, %46, %11, %50, %45, %36, %27, %18, %10
-  %.031 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %36 ], [ 0, %45 ], [ 0, %50 ], [ 0, %27 ], [ 0, %18 ], [ 1, %46 ], [ 1, %28 ]
-  %.030 = phi ptr [ null, %10 ], [ null, %11 ], [ %12, %36 ], [ %12, %45 ], [ %12, %50 ], [ %12, %27 ], [ %12, %18 ], [ %12, %46 ], [ %12, %28 ]
-  %.0 = phi ptr [ null, %10 ], [ null, %11 ], [ null, %36 ], [ %39, %45 ], [ %39, %50 ], [ null, %27 ], [ null, %18 ], [ %39, %46 ], [ null, %28 ]
+  %.031 = phi i32 [ 0, %10 ], [ 0, %11 ], [ 0, %36 ], [ 0, %45 ], [ 0, %50 ], [ 0, %18 ], [ 0, %27 ], [ 1, %46 ], [ 1, %28 ]
+  %.030 = phi ptr [ null, %10 ], [ null, %11 ], [ %12, %36 ], [ %12, %45 ], [ %12, %50 ], [ %12, %18 ], [ %12, %27 ], [ %12, %46 ], [ %12, %28 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %11 ], [ null, %36 ], [ %39, %45 ], [ %39, %50 ], [ null, %18 ], [ null, %27 ], [ %39, %46 ], [ null, %28 ]
   tail call void @BN_CTX_free(ptr noundef %.030) #9
   tail call void @EC_POINT_free(ptr noundef %.0) #9
   br label %52
@@ -691,14 +691,14 @@ define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key_affine_coordinates(ptr 
   br label %37
 
 37:                                               ; preds = %35, %33, %22, %25, %17, %13, %32
-  %.0 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %32 ], [ 0, %33 ], [ 0, %25 ], [ 0, %22 ], [ %36, %35 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %32 ], [ %36, %35 ], [ 0, %22 ], [ 0, %33 ], [ 0, %25 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %11) #9
   tail call void @BN_CTX_free(ptr noundef nonnull %11) #9
   tail call void @EC_POINT_free(ptr noundef %15) #9
   br label %38
 
 38:                                               ; preds = %10, %37, %9
-  %.038 = phi i32 [ %.0, %37 ], [ 0, %9 ], [ 0, %10 ]
+  %.038 = phi i32 [ 0, %9 ], [ %.0, %37 ], [ 0, %10 ]
   ret i32 %.038
 }
 

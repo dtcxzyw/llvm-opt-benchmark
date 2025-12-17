@@ -622,7 +622,7 @@ _Py_NewRef.exit:                                  ; preds = %15, %12, %9
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %23, %20, %_Py_NewRef.exit, %.thread, %9
-  %.1.shrunk = phi i1 [ false, %9 ], [ false, %.thread ], [ %18, %_Py_NewRef.exit ], [ %18, %20 ], [ %18, %23 ]
+  %.1.shrunk = phi i1 [ false, %.thread ], [ false, %9 ], [ %18, %_Py_NewRef.exit ], [ %18, %20 ], [ %18, %23 ]
   %.1 = zext i1 %.1.shrunk to i32
   ret i32 %.1
 }
@@ -1061,7 +1061,7 @@ _Py_NewRef.exit.sink.split:                       ; preds = %25, %22
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit.sink.split, %25, %22
-  %.2 = phi ptr [ @_Py_FalseStruct, %22 ], [ @_Py_TrueStruct, %25 ], [ %_Py_TrueStruct.sink, %_Py_NewRef.exit.sink.split ]
+  %.2 = phi ptr [ @_Py_TrueStruct, %25 ], [ @_Py_FalseStruct, %22 ], [ %_Py_TrueStruct.sink, %_Py_NewRef.exit.sink.split ]
   call void @PyMem_Free(ptr noundef nonnull %13) #13
   br label %29
 
@@ -1369,7 +1369,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not83, label %.preheader, label %54
 
 .preheader:                                       ; preds = %.thread95, %._crit_edge, %44
-  %.17297134 = phi i64 [ -1, %44 ], [ -1, %.thread95 ], [ %41, %._crit_edge ]
+  %.17297134 = phi i64 [ -1, %44 ], [ %41, %._crit_edge ], [ -1, %.thread95 ]
   br label %.lr.ph115
 
 ._crit_edge116:                                   ; preds = %.lr.ph115
@@ -1727,7 +1727,7 @@ Py_DECREF.exit:                                   ; preds = %.split80, %95, %98
   br label %Py_XDECREF.exit120
 
 Py_XDECREF.exit120:                               ; preds = %.critedge.split, %72, %75, %93, %90, %.split78, %Py_DECREF.exit, %._crit_edge.thread, %._crit_edge
-  %.477 = phi ptr [ %15, %._crit_edge.thread ], [ %15, %._crit_edge ], [ null, %Py_DECREF.exit ], [ %15, %.split78 ], [ %15, %90 ], [ %15, %93 ], [ null, %75 ], [ null, %72 ], [ null, %.critedge.split ]
+  %.477 = phi ptr [ %15, %._crit_edge ], [ %15, %._crit_edge.thread ], [ null, %Py_DECREF.exit ], [ %15, %93 ], [ %15, %.split78 ], [ %15, %90 ], [ null, %75 ], [ null, %72 ], [ null, %.critedge.split ]
   call void @PyMem_RawFree(ptr noundef nonnull %41) #13
   br label %99
 
@@ -1737,7 +1737,7 @@ Py_XDECREF.exit120:                               ; preds = %.critedge.split, %7
   br label %100
 
 100:                                              ; preds = %11, %16, %Py_DECREF.exit109, %99, %27, %Py_DECREF.exit111, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %16 ], [ null, %11 ], [ null, %Py_DECREF.exit111 ], [ null, %Py_DECREF.exit109 ], [ %.4, %99 ], [ %15, %27 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %2 ], [ null, %11 ], [ null, %16 ], [ null, %Py_DECREF.exit111 ], [ null, %Py_DECREF.exit109 ], [ %.4, %99 ], [ %15, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

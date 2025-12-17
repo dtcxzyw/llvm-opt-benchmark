@@ -226,7 +226,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br label %.critedge15
 
 .thread16:                                        ; preds = %55, %53, %.critedge, %32, %.split, %.split.us, %14, %.critedge.us, %20
-  %.us-phi = phi i32 [ -22, %20 ], [ -19, %.critedge.us ], [ -19, %14 ], [ -61, %.split.us ], [ -12, %55 ], [ -22, %53 ], [ -19, %.critedge ], [ -19, %32 ], [ -61, %.split ]
+  %.us-phi = phi i32 [ -61, %.split.us ], [ -22, %20 ], [ -19, %.critedge.us ], [ -19, %14 ], [ -19, %.critedge ], [ -19, %32 ], [ -61, %.split ], [ -12, %55 ], [ -22, %53 ]
   %82 = load ptr, ptr %2, align 8
   %83 = icmp eq ptr %82, %2
   br i1 %83, label %.thread, label %.preheader
@@ -246,7 +246,7 @@ define dso_local range(i32 -61, 1) i32 @acpi_extract_power_resources(ptr noundef
   br i1 %89, label %.thread, label %.preheader, !llvm.loop !5
 
 .thread:                                          ; preds = %.critedge15, %.preheader, %3, %.thread16
-  %90 = phi i32 [ %.us-phi, %.thread16 ], [ 0, %3 ], [ %.us-phi, %.preheader ], [ 0, %.critedge15 ]
+  %90 = phi i32 [ 0, %3 ], [ %.us-phi, %.thread16 ], [ %.us-phi, %.preheader ], [ 0, %.critedge15 ]
   ret i32 %90
 }
 

@@ -1247,7 +1247,7 @@ define void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde
   br label %.critedge
 
 .thread50:                                        ; preds = %.invoke, %54, %65, %55, %46, %43, %24, %26, %6
-  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ true, %65 ], [ false, %54 ], [ true, %.invoke ]
+  %.0.ph = phi i1 [ true, %6 ], [ true, %26 ], [ true, %24 ], [ true, %43 ], [ true, %46 ], [ true, %55 ], [ false, %54 ], [ true, %.invoke ], [ true, %65 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %84

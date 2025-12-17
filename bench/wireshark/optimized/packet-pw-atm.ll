@@ -568,7 +568,7 @@ proto_item_set_hidden.exit130:                    ; preds = %78, %75, %74, %72, 
   br label %90
 
 90:                                               ; preds = %85, %.thread, %87
-  %.0105 = phi i32 [ %spec.select123, %87 ], [ %63, %.thread ], [ %spec.select, %85 ]
+  %.0105 = phi i32 [ %spec.select123, %87 ], [ %spec.select, %85 ], [ %63, %.thread ]
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %.0105, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %92 = load i32, ptr %19, align 4
   %93 = and i32 %92, 8
@@ -776,7 +776,7 @@ define internal range(i32 -2147483648, 5) i32 @dissect_cell_header(ptr noundef %
   unreachable
 
 pw_cell_header_size.exit:                         ; preds = %20, %20, %24, %25, %26
-  %.0.i = phi i32 [ 1, %24 ], [ 3, %25 ], [ 4, %20 ], [ 4, %20 ], [ 4, %26 ]
+  %.0.i = phi i32 [ 4, %20 ], [ 1, %24 ], [ 3, %25 ], [ 4, %20 ], [ 4, %26 ]
   %.not287 = icmp slt i32 %19, %.0.i
   br i1 %.not287, label %pw_cell_header_size.exit268.thread275, label %30
 
@@ -1695,8 +1695,8 @@ pw_cell_size.exit.thread32.i:                     ; preds = %39
   br label %pw_cell_size.exit28.i
 
 pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.thread32.i, %pw_cell_size.exit.thread.i
-  %42 = phi i32 [ %40, %pw_cell_size.exit.thread.i ], [ %41, %pw_cell_size.exit.thread32.i ]
-  %.0.i27.neg.i = phi i32 [ -49, %pw_cell_size.exit.thread.i ], [ -51, %pw_cell_size.exit.thread32.i ]
+  %42 = phi i32 [ %41, %pw_cell_size.exit.thread32.i ], [ %40, %pw_cell_size.exit.thread.i ]
+  %.0.i27.neg.i = phi i32 [ -51, %pw_cell_size.exit.thread32.i ], [ -49, %pw_cell_size.exit.thread.i ]
   %.neg39.i = mul i32 %.0.i27.neg.i, %42
   %43 = icmp eq i32 %42, 0
   %storemerge.i = sub i32 3, %.fr118
@@ -1989,7 +1989,7 @@ define internal i32 @dissect_n1_cw(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not74, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %45, %43, %40, %37
-  %.sink86 = phi i32 [ 8, %37 ], [ 512, %40 ], [ 4, %43 ], [ 1024, %45 ]
+  %.sink86 = phi i32 [ 8, %37 ], [ 4, %43 ], [ 512, %40 ], [ 1024, %45 ]
   %46 = or i32 %30, %.sink86
   store i32 %46, ptr %12, align 4
   br label %47

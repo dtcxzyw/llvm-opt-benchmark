@@ -1209,7 +1209,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; p
   br i1 %57, label %.sink.split, label %339
 
 .sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %47, %41, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %41 ], [ 21, %47 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
+  %.sink = phi i32 [ 21, %47 ], [ 21, %41 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
   store i8 1, ptr %0, align 4
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %338, align 4
@@ -2749,7 +2749,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit: ; p
   br i1 %57, label %.sink.split, label %339
 
 .sink.split:                                      ; preds = %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit, %47, %41, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %41 ], [ 21, %47 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
+  %.sink = phi i32 [ 21, %47 ], [ 21, %41 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread139 ], [ 0, %_ZN5cxx208expectedIN8WasmEdge4Host4WASI8EVPollerE14__wasi_errno_tED2Ev.exit ]
   store i8 1, ptr %0, align 4
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %338, align 4
@@ -2920,7 +2920,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i21, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %.lr.ph.i
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %83, %57, %49, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ 21, %49 ], [ 0, %57 ], [ 0, %83 ]
+  %.sink = phi i32 [ 21, %49 ], [ 21, %25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 0, %57 ], [ 0, %83 ]
   store i8 1, ptr %0, align 4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %87, align 4
@@ -2966,7 +2966,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc8
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc8
-  %.0.i.i.i.i.i.ph = phi ptr [ %13, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %10, %.noexc8 ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %10, %.noexc8 ], [ %13, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -3116,7 +3116,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %.not.i13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %.lr.ph.i
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %.lr.ph.i, %41, %37, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ 21, %37 ], [ 0, %41 ], [ 0, %.lr.ph.i ]
+  %.sink = phi i32 [ 21, %37 ], [ 21, %25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19 ], [ 0, %41 ], [ 0, %.lr.ph.i ]
   store i8 1, ptr %0, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %61, align 4
@@ -3284,7 +3284,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i21, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %.lr.ph.i
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %83, %57, %49, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ 21, %49 ], [ 0, %57 ], [ 0, %83 ]
+  %.sink = phi i32 [ 21, %49 ], [ 21, %25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 0, %57 ], [ 0, %83 ]
   store i8 1, ptr %0, align 4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %87, align 4
@@ -3395,7 +3395,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %.not.i13, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %.lr.ph.i
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %.lr.ph.i, %41, %37, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ 21, %37 ], [ 0, %41 ], [ 0, %.lr.ph.i ]
+  %.sink = phi i32 [ 21, %37 ], [ 21, %25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread19 ], [ 0, %41 ], [ 0, %.lr.ph.i ]
   store i8 1, ptr %0, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %61, align 4
@@ -3479,7 +3479,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %38, %37, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ 28, %37 ], [ %spec.select, %38 ]
+  %.sink = phi i32 [ 28, %37 ], [ %spec.select, %38 ], [ 21, %25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread16 ]
   store i8 1, ptr %0, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %41, align 4
@@ -3563,7 +3563,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %39, %38, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ 28, %38 ], [ %spec.select, %39 ]
+  %.sink = phi i32 [ 28, %38 ], [ %spec.select, %39 ], [ 21, %26 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread18 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -4040,8 +4040,8 @@ _ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_
   %98 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %92, ptr noundef nonnull %.0.i.i.i.i5, ptr noundef nonnull %.sroa.06.1.i.i)
           to label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit unwind label %100
 
-_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %13, %18, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
-  %.sroa.014.0.insert.insert = phi i32 [ 524288, %18 ], [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i ], [ 524288, %13 ], [ 524288, %.lr.ph.i.i.i.i ]
+_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %13, %..loopexit_crit_edge21.i.i.i.i, %18, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i
+  %.sroa.014.0.insert.insert = phi i32 [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 524288, %18 ], [ 1, %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_14_Node_iteratorIS8_Lb0ELb0EEE.exit.i ], [ 524288, %13 ], [ 524288, %.lr.ph.i.i.i.i ]
   %99 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   ret i32 %.sroa.014.0.insert.insert
 
@@ -4251,7 +4251,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %36, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ %spec.select, %36 ]
+  %.sink = phi i32 [ 21, %25 ], [ %spec.select, %36 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -4528,7 +4528,7 @@ define void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12Callin
   br label %13
 
 13:                                               ; preds = %6, %8
-  %.sink = phi i32 [ %spec.select, %8 ], [ 28, %6 ]
+  %.sink = phi i32 [ 28, %6 ], [ %spec.select, %8 ]
   store i8 1, ptr %0, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %14, align 4
@@ -4736,7 +4736,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %36, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ %spec.select, %36 ]
+  %.sink = phi i32 [ 21, %25 ], [ %spec.select, %36 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -5004,7 +5004,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14_
   br label %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread
 
 _ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit.thread: ; preds = %14, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %7, %10
-  %.sink = phi i32 [ 28, %10 ], [ 28, %7 ], [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ %spec.select, %14 ]
+  %.sink = phi i32 [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ %spec.select, %14 ], [ 28, %10 ], [ 28, %7 ]
   store i8 1, ptr %0, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %19, align 4
@@ -5259,7 +5259,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %53, %._crit_edge, %43, %31, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %29 ], [ 21, %31 ], [ 21, %43 ], [ %spec.select75, %._crit_edge ], [ 21, %53 ]
+  %.sink = phi i32 [ 21, %43 ], [ %spec.select75, %._crit_edge ], [ 21, %31 ], [ 28, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56 ], [ 21, %53 ]
   store i8 1, ptr %0, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %74, align 4
@@ -5452,7 +5452,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %34, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ %spec.select, %34 ]
+  %.sink = phi i32 [ 21, %26 ], [ %spec.select, %34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -5499,7 +5499,7 @@ define linkonce_odr hidden i32 @_ZNK8WasmEdge4Host4WASI7Environ16fdPrestatDirNam
   br i1 %22, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit, !llvm.loop !16
 
 _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmPhET1_T_T0_SC_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %14, %11, %8, %6
-  %.sroa.69.sroa.0.0 = phi i32 [ 524288, %6 ], [ 1835008, %8 ], [ 2424832, %11 ], [ 1, %14 ], [ 1, %.lr.ph.i.i.i.i.i.i.i ]
+  %.sroa.69.sroa.0.0 = phi i32 [ 2424832, %11 ], [ 524288, %6 ], [ 1835008, %8 ], [ 1, %14 ], [ 1, %.lr.ph.i.i.i.i.i.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
@@ -5659,7 +5659,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %36, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ %spec.select, %36 ]
+  %.sink = phi i32 [ 21, %25 ], [ %spec.select, %36 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -5915,7 +5915,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %53, %._crit_edge, %43, %31, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %29 ], [ 21, %31 ], [ 21, %43 ], [ %spec.select75, %._crit_edge ], [ 21, %53 ]
+  %.sink = phi i32 [ 21, %43 ], [ %spec.select75, %._crit_edge ], [ 21, %31 ], [ 28, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread56 ], [ 21, %53 ]
   store i8 1, ptr %0, align 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %74, align 4
@@ -6170,7 +6170,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %._crit_edge, %42, %30, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %28 ], [ 21, %30 ], [ 21, %42 ], [ %spec.select73, %._crit_edge ], [ 21, %52 ]
+  %.sink = phi i32 [ 21, %42 ], [ %spec.select73, %._crit_edge ], [ 21, %30 ], [ 28, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54 ], [ 21, %52 ]
   store i8 1, ptr %0, align 4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %73, align 4
@@ -6372,7 +6372,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %44, %39, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %39 ], [ %spec.select, %44 ]
+  %.sink = phi i32 [ 21, %39 ], [ %spec.select, %44 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread25 ]
   store i8 1, ptr %0, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %50, align 4
@@ -6662,10 +6662,10 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   br label %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13
 
 _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13: ; preds = %62, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit, %57
-  %.pre-phi79 = phi i64 [ %.pre78, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %54, %57 ], [ %54, %62 ]
-  %70 = phi ptr [ %.pre76, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %51, %57 ], [ %51, %62 ]
-  %.sroa.06.1.i.i4143 = phi ptr [ %.sroa.06.1.i.i, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %.sroa.06.1.i.i4144, %57 ], [ %.sroa.06.1.i.i4144, %62 ]
-  %.sroa.06.1.i.i9 = phi ptr [ %.sroa.06.0.i.i11, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %58, %57 ], [ %64, %62 ]
+  %.pre-phi79 = phi i64 [ %54, %57 ], [ %.pre78, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %54, %62 ]
+  %70 = phi ptr [ %51, %57 ], [ %.pre76, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %51, %62 ]
+  %.sroa.06.1.i.i4143 = phi ptr [ %.sroa.06.1.i.i4144, %57 ], [ %.sroa.06.1.i.i, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %.sroa.06.1.i.i4144, %62 ]
+  %.sroa.06.1.i.i9 = phi ptr [ %58, %57 ], [ %.sroa.06.0.i.i11, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit13.loopexit ], [ %64, %62 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %72 = getelementptr inbounds ptr, ptr %70, i64 %.pre-phi79
   %73 = load ptr, ptr %72, align 8
@@ -6947,8 +6947,8 @@ _ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeE
   store ptr null, ptr %4, align 8
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit
 
-_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %15, %.lr.ph.i.i.i.i4, %46, %20, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39, %.thread, %..loopexit_crit_edge21.i.i.i.i8, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i
-  %.sroa.033.0.insert.insert = phi i32 [ 524288, %20 ], [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39 ], [ 524288, %.thread ], [ 524288, %..loopexit_crit_edge21.i.i.i.i8 ], [ 1, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit ], [ 1, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i ], [ 524288, %46 ], [ 524288, %.lr.ph.i.i.i.i4 ], [ 524288, %15 ], [ 524288, %.lr.ph.i.i.i.i ]
+_ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.lr.ph.i.i.i.i, %15, %.lr.ph.i.i.i.i4, %46, %..loopexit_crit_edge21.i.i.i.i, %20, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39, %..loopexit_crit_edge21.i.i.i.i8, %.thread, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i
+  %.sroa.033.0.insert.insert = phi i32 [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread39 ], [ 524288, %..loopexit_crit_edge21.i.i.i.i ], [ 524288, %20 ], [ 1, %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit ], [ 524288, %..loopexit_crit_edge21.i.i.i.i8 ], [ 524288, %.thread ], [ 1, %_ZNSt19_Node_insert_returnINSt8__detail14_Node_iteratorISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0ELb0EEESt12_Node_handleIiSA_SaINS0_10_Hash_nodeISA_Lb0EEEEEED2Ev.exit ], [ 1, %_ZNSt19_Node_handle_commonISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaINSt8__detail10_Hash_nodeIS8_Lb0EEEEE8_M_resetEv.exit.i.i ], [ 524288, %15 ], [ 524288, %46 ], [ 524288, %.lr.ph.i.i.i.i4 ], [ 524288, %.lr.ph.i.i.i.i ]
   %201 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   ret i32 %.sroa.033.0.insert.insert
 
@@ -7040,7 +7040,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %40, %29, %27, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %27 ], [ 21, %29 ], [ %spec.select, %40 ]
+  %.sink = phi i32 [ 21, %29 ], [ %spec.select, %40 ], [ 28, %27 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread21 ]
   store i8 1, ptr %0, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %46, align 4
@@ -7354,7 +7354,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %36, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ %spec.select, %36 ]
+  %.sink = phi i32 [ 21, %25 ], [ %spec.select, %36 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread13 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -7611,7 +7611,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %._crit_edge, %42, %30, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54, %7
-  %.sink = phi i32 [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %28 ], [ 21, %30 ], [ 21, %42 ], [ %spec.select73, %._crit_edge ], [ 21, %52 ]
+  %.sink = phi i32 [ 21, %42 ], [ %spec.select73, %._crit_edge ], [ 21, %30 ], [ 28, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread54 ], [ 21, %52 ]
   store i8 1, ptr %0, align 4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %73, align 4
@@ -7804,7 +7804,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %34, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ %spec.select, %34 ]
+  %.sink = phi i32 [ 21, %26 ], [ %spec.select, %34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -7997,9 +7997,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %89
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit13: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12, %83, %70, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.014.0 = phi i32 [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.315.0 = phi i32 [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.014.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.315.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
   %.sroa.315.0.insert.shift = shl nuw i32 %.sroa.315.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -8099,7 +8099,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %46, %42, %30, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %28 ], [ 21, %30 ], [ 21, %42 ], [ %spec.select, %46 ]
+  %.sink = phi i32 [ 21, %42 ], [ %spec.select, %46 ], [ 21, %30 ], [ 28, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread28 ]
   store i8 1, ptr %0, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %52, align 4
@@ -8292,9 +8292,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %91
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit15: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14, %85, %72, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %72 ], [ %.sroa.3.0.extract.shift, %85 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.016.0 = phi i32 [ %18, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %18, %72 ], [ %18, %85 ], [ %18, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.317.0 = phi i32 [ %.sroa.317.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.317.0.extract.shift, %72 ], [ %.sroa.317.0.extract.shift, %85 ], [ %.sroa.317.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %72 ], [ %.sroa.3.0.extract.shift, %85 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ]
+  %.sroa.016.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %18, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %18, %72 ], [ %18, %85 ], [ %18, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ]
+  %.sroa.317.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.317.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.317.0.extract.shift, %72 ], [ %.sroa.317.0.extract.shift, %85 ], [ %.sroa.317.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i14 ]
   %.sroa.317.0.insert.shift = shl nuw i32 %.sroa.317.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -8401,7 +8401,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14_
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %46, %38, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit, %34, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %30 ], [ 28, %34 ], [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ 21, %38 ], [ %spec.select, %46 ]
+  %.sink = phi i32 [ 21, %38 ], [ %spec.select, %46 ], [ 28, %_ZN8WasmEdge4Host12_GLOBAL__N_14castI17__wasi_fstflags_tEEN5cxx208expectedIT_14__wasi_errno_tEEm.exit ], [ 28, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31 ], [ 28, %34 ]
   store i8 1, ptr %0, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %54, align 4
@@ -8594,9 +8594,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %93
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit17: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16, %87, %74, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %74 ], [ %.sroa.3.0.extract.shift, %87 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.018.0 = phi i32 [ %20, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %20, %74 ], [ %20, %87 ], [ %20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.319.0 = phi i32 [ %.sroa.319.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.319.0.extract.shift, %74 ], [ %.sroa.319.0.extract.shift, %87 ], [ %.sroa.319.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %74 ], [ %.sroa.3.0.extract.shift, %87 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ]
+  %.sroa.018.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %20, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %20, %74 ], [ %20, %87 ], [ %20, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ]
+  %.sroa.319.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.319.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.319.0.extract.shift, %74 ], [ %.sroa.319.0.extract.shift, %87 ], [ %.sroa.319.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i16 ]
   %.sroa.319.0.insert.shift = shl nuw i32 %.sroa.319.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -8702,7 +8702,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %48, %44, %33, %31, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %31 ], [ 21, %33 ], [ 21, %44 ], [ %spec.select, %48 ]
+  %.sink = phi i32 [ 21, %44 ], [ %spec.select, %48 ], [ 21, %33 ], [ 28, %31 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread36 ]
   store i8 1, ptr %0, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %54, align 4
@@ -9083,9 +9083,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit40: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39, %168, %155, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33
-  %.sroa.042.0 = phi i32 [ %31, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %31, %155 ], [ %31, %168 ], [ %31, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ]
-  %.sroa.4.0 = phi i32 [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %.sroa.4.0.extract.shift, %155 ], [ %.sroa.4.0.extract.shift, %168 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ]
-  %.sroa.443.0 = phi i32 [ %.sroa.443.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %.sroa.443.0.extract.shift, %155 ], [ %.sroa.443.0.extract.shift, %168 ], [ %.sroa.443.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ]
+  %.sroa.042.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %31, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %31, %155 ], [ %31, %168 ], [ %31, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ]
+  %.sroa.4.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %.sroa.4.0.extract.shift, %155 ], [ %.sroa.4.0.extract.shift, %168 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ]
+  %.sroa.443.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i16 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.443.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit33 ], [ %.sroa.443.0.extract.shift, %155 ], [ %.sroa.443.0.extract.shift, %168 ], [ %.sroa.443.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i39 ]
   %.sroa.443.0.insert.shift = shl nuw i32 %.sroa.443.0, 16
   %.sroa.4.0.insert.ext = shl nuw i32 %.sroa.4.0, 8
   %.sroa.4.0.insert.shift = and i32 %.sroa.4.0.insert.ext, 65280
@@ -9765,10 +9765,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31, %225, %212, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25
-  %.sroa.435.0 = phi i16 [ %.sroa.435.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.435.2, %212 ], [ %.sroa.435.2, %225 ], [ %.sroa.435.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.034.0 = phi i8 [ %.sroa.034.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.034.2, %212 ], [ %.sroa.034.2, %225 ], [ %.sroa.034.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.6.0 = phi i16 [ %.sroa.6.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.6.1, %212 ], [ %.sroa.6.1, %225 ], [ %.sroa.6.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.4.sroa.0.0 = phi i24 [ %.sroa.4.sroa.0.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.4.sroa.0.1, %212 ], [ %.sroa.4.sroa.0.1, %225 ], [ %.sroa.4.sroa.0.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ], [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.435.0 = phi i16 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.435.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.435.2, %212 ], [ %.sroa.435.2, %225 ], [ %.sroa.435.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ]
+  %.sroa.034.0 = phi i8 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.034.2, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.034.2, %212 ], [ %.sroa.034.2, %225 ], [ %.sroa.034.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ]
+  %.sroa.6.0 = phi i16 [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.6.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.6.1, %212 ], [ %.sroa.6.1, %225 ], [ %.sroa.6.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ]
+  %.sroa.4.sroa.0.0 = phi i24 [ undef, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.4.sroa.0.1, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25 ], [ %.sroa.4.sroa.0.1, %212 ], [ %.sroa.4.sroa.0.1, %225 ], [ %.sroa.4.sroa.0.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31 ]
   %.sroa.6.0.insert.ext = zext i16 %.sroa.6.0 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 48
   %.sroa.435.0.insert.ext = zext i16 %.sroa.435.0 to i64
@@ -9879,7 +9879,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %50, %45, %40, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37, %9
-  %.sink = phi i32 [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %29 ], [ 21, %40 ], [ 21, %45 ], [ %spec.select, %50 ]
+  %.sink = phi i32 [ 21, %45 ], [ %spec.select, %50 ], [ 21, %40 ], [ 21, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread37 ]
   store i8 1, ptr %0, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %56, align 4
@@ -10072,9 +10072,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %92
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit14: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13, %86, %73, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.018.0 = phi i32 [ %19, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %19, %73 ], [ %19, %86 ], [ %19, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %73 ], [ %.sroa.3.0.extract.shift, %86 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.319.0 = phi i32 [ %.sroa.319.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.319.0.extract.shift, %73 ], [ %.sroa.319.0.extract.shift, %86 ], [ %.sroa.319.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.018.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %19, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %19, %73 ], [ %19, %86 ], [ %19, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %73 ], [ %.sroa.3.0.extract.shift, %86 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ]
+  %.sroa.319.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.319.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.319.0.extract.shift, %73 ], [ %.sroa.319.0.extract.shift, %86 ], [ %.sroa.319.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i13 ]
   %.sroa.319.0.insert.shift = shl nuw i32 %.sroa.319.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -10161,7 +10161,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %34, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ %spec.select, %34 ]
+  %.sink = phi i32 [ 21, %26 ], [ %spec.select, %34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -10354,9 +10354,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %89
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit13: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12, %83, %70, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.014.0 = phi i32 [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.315.0 = phi i32 [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.014.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.315.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
   %.sroa.315.0.insert.shift = shl nuw i32 %.sroa.315.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -10458,7 +10458,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %45, %41, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, %9
-  %.sink = phi i32 [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %30 ], [ 21, %41 ], [ %spec.select, %45 ]
+  %.sink = phi i32 [ 21, %41 ], [ %spec.select, %45 ], [ 21, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30 ]
   store i8 1, ptr %0, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %51, align 4
@@ -10839,9 +10839,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %.pn
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit39: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38, %167, %154, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32
-  %.sroa.041.0 = phi i32 [ %30, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %30, %154 ], [ %30, %167 ], [ %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ]
-  %.sroa.4.0 = phi i32 [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %.sroa.4.0.extract.shift, %154 ], [ %.sroa.4.0.extract.shift, %167 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ]
-  %.sroa.442.0 = phi i32 [ %.sroa.442.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %.sroa.442.0.extract.shift, %154 ], [ %.sroa.442.0.extract.shift, %167 ], [ %.sroa.442.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ]
+  %.sroa.041.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %30, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %30, %154 ], [ %30, %167 ], [ %30, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ]
+  %.sroa.4.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %.sroa.4.0.extract.shift, %154 ], [ %.sroa.4.0.extract.shift, %167 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ]
+  %.sroa.442.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i15 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.442.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit32 ], [ %.sroa.442.0.extract.shift, %154 ], [ %.sroa.442.0.extract.shift, %167 ], [ %.sroa.442.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i38 ]
   %.sroa.442.0.insert.shift = shl nuw i32 %.sroa.442.0, 16
   %.sroa.4.0.insert.ext = shl nuw i32 %.sroa.4.0, 8
   %.sroa.4.0.insert.shift = and i32 %.sroa.4.0.insert.ext, 65280
@@ -10945,7 +10945,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %47, %44, %39, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %39 ], [ 44, %44 ], [ %spec.select, %47 ]
+  %.sink = phi i32 [ 44, %44 ], [ %spec.select, %47 ], [ 21, %39 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34 ]
   store i8 1, ptr %0, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %52, align 4
@@ -11160,9 +11160,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %100
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit22: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21, %94, %81, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %19
-  %.sroa.027.0 = phi i32 [ 0, %19 ], [ %27, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %27, %81 ], [ %27, %94 ], [ %27, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ]
-  %.sroa.5.0 = phi i32 [ 0, %19 ], [ %.sroa.5.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.5.0.extract.shift, %81 ], [ %.sroa.5.0.extract.shift, %94 ], [ %.sroa.5.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ]
-  %.sroa.528.0 = phi i32 [ 28, %19 ], [ %.sroa.528.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.528.0.extract.shift, %81 ], [ %.sroa.528.0.extract.shift, %94 ], [ %.sroa.528.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ]
+  %.sroa.027.0 = phi i32 [ 0, %19 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %27, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %27, %81 ], [ %27, %94 ], [ %27, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ]
+  %.sroa.5.0 = phi i32 [ 0, %19 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.5.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.5.0.extract.shift, %81 ], [ %.sroa.5.0.extract.shift, %94 ], [ %.sroa.5.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ]
+  %.sroa.528.0 = phi i32 [ 28, %19 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i12 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.528.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.528.0.extract.shift, %81 ], [ %.sroa.528.0.extract.shift, %94 ], [ %.sroa.528.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i21 ]
   %.sroa.528.0.insert.shift = shl nuw i32 %.sroa.528.0, 16
   %.sroa.5.0.insert.ext = shl nuw i32 %.sroa.5.0, 8
   %.sroa.5.0.insert.shift = and i32 %.sroa.5.0.insert.ext, 65280
@@ -11249,7 +11249,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %34, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ %spec.select, %34 ]
+  %.sink = phi i32 [ 21, %26 ], [ %spec.select, %34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread15 ]
   store i8 1, ptr %0, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %42, align 4
@@ -11442,9 +11442,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %89
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit13: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12, %83, %70, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.014.0 = phi i32 [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %.sroa.315.0 = phi i32 [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ], [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+  %.sroa.3.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.3.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.3.0.extract.shift, %70 ], [ %.sroa.3.0.extract.shift, %83 ], [ %.sroa.3.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.014.0 = phi i32 [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %16, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %16, %70 ], [ %16, %83 ], [ %16, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
+  %.sroa.315.0 = phi i32 [ 28, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.315.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.315.0.extract.shift, %70 ], [ %.sroa.315.0.extract.shift, %83 ], [ %.sroa.315.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i12 ]
   %.sroa.315.0.insert.shift = shl nuw i32 %.sroa.315.0, 16
   %.sroa.3.0.insert.ext = shl nuw i32 %.sroa.3.0, 8
   %.sroa.3.0.insert.shift = and i32 %.sroa.3.0.insert.ext, 65280
@@ -11586,7 +11586,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %33, %25, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14, %5
-  %.sink = phi i32 [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %25 ], [ %spec.select, %33 ]
+  %.sink = phi i32 [ 21, %25 ], [ %spec.select, %33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %5 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread14 ]
   store i8 1, ptr %0, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %41, align 4
@@ -12129,7 +12129,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %48, %46, %37, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ 21, %37 ], [ 28, %46 ], [ %spec.select, %48 ]
+  %.sink = phi i32 [ 28, %46 ], [ %spec.select, %48 ], [ 21, %37 ], [ 21, %26 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread27 ]
   store i8 1, ptr %0, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %54, align 4
@@ -12666,10 +12666,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread, %7, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %81, %94, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
-  %.sroa.4.sroa.0.035 = phi i64 [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.4.0.extract.shift, %81 ], [ %.sroa.4.0.extract.shift, %94 ], [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
-  %.sroa.6.034 = phi i64 [ %.sroa.6.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.6.0.extract.shift, %81 ], [ %.sroa.6.0.extract.shift, %94 ], [ %.sroa.6.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
-  %.sroa.024.033 = phi i64 [ %28, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %28, %81 ], [ %28, %94 ], [ %28, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
-  %.sroa.425.032 = phi i16 [ %.sroa.425.0.extract.trunc, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.425.0.extract.trunc, %81 ], [ %.sroa.425.0.extract.trunc, %94 ], [ %.sroa.425.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ 8, %7 ], [ %19, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.4.sroa.0.035 = phi i64 [ %.sroa.4.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ %.sroa.4.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.4.0.extract.shift, %81 ], [ %.sroa.4.0.extract.shift, %94 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.6.034 = phi i64 [ %.sroa.6.0.extract.shift, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ %.sroa.6.0.extract.shift, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.6.0.extract.shift, %81 ], [ %.sroa.6.0.extract.shift, %94 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.024.033 = phi i64 [ %28, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ %28, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %28, %81 ], [ %28, %94 ], [ 0, %7 ], [ 0, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
+  %.sroa.425.032 = phi i16 [ %.sroa.425.0.extract.trunc, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11 ], [ %.sroa.425.0.extract.trunc, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ], [ %.sroa.425.0.extract.trunc, %81 ], [ %.sroa.425.0.extract.trunc, %94 ], [ 8, %7 ], [ %19, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread ]
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not.i.i.i13 = icmp eq ptr %100, null
@@ -12979,7 +12979,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %48, %46, %37, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ 21, %37 ], [ 28, %46 ], [ %spec.select, %48 ]
+  %.sink = phi i32 [ 28, %46 ], [ %spec.select, %48 ], [ 21, %37 ], [ 21, %26 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread29 ]
   store i8 1, ptr %0, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %54, align 4
@@ -13239,7 +13239,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %60, %._crit_edge, %52, %46, %34, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, %9
-  %.sink = phi i32 [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %30 ], [ 21, %34 ], [ 21, %46 ], [ 21, %52 ], [ %spec.select87, %._crit_edge ], [ 21, %60 ]
+  %.sink = phi i32 [ 21, %52 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67 ], [ 21, %46 ], [ 21, %34 ], [ %spec.select87, %._crit_edge ], [ 28, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %9 ], [ 21, %60 ]
   store i8 1, ptr %0, align 4
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %81, align 4
@@ -13524,7 +13524,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %74, %._crit_edge, %66, %62, %56, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ 21, %56 ], [ 21, %62 ], [ 21, %66 ], [ %spec.select109, %._crit_edge ], [ 21, %74 ]
+  %.sink = phi i32 [ 21, %66 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread87 ], [ 21, %62 ], [ 21, %56 ], [ %spec.select109, %._crit_edge ], [ 28, %52 ], [ 21, %43 ], [ 21, %32 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %74 ]
   store i8 1, ptr %0, align 4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %95, align 4
@@ -13790,7 +13790,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %57, %._crit_edge, %47, %35, %33, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %.sroa.258.0.extract.shift, %29 ], [ 28, %33 ], [ 21, %35 ], [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %57 ]
+  %.sink = phi i32 [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %35 ], [ 28, %33 ], [ %.sroa.258.0.extract.shift, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %57 ]
   store i8 1, ptr %0, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %79, align 4
@@ -14083,7 +14083,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %74, %._crit_edge, %66, %60, %58, %54, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ %.sroa.277.0.extract.shift, %54 ], [ 28, %58 ], [ 21, %60 ], [ 21, %66 ], [ %spec.select110, %._crit_edge ], [ 21, %74 ]
+  %.sink = phi i32 [ 21, %66 ], [ %spec.select110, %._crit_edge ], [ 21, %60 ], [ 28, %58 ], [ %.sroa.277.0.extract.shift, %54 ], [ 28, %52 ], [ 21, %43 ], [ 21, %32 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88 ], [ 21, %74 ]
   store i8 1, ptr %0, align 4
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %98, align 4
@@ -14416,7 +14416,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %40, %32, %31, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %30, %28 ], [ 28, %31 ], [ 21, %32 ], [ %spec.select, %40 ]
+  %.sink = phi i32 [ 21, %32 ], [ %spec.select, %40 ], [ 28, %31 ], [ %30, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30 ]
   store i8 1, ptr %0, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %48, align 4
@@ -15011,8 +15011,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
   br label %.loopexit221
 
 .loopexit221:                                     ; preds = %127, %.lr.ph.i68, %.lr.ph.i72, %.loopexit
-  %.sink220 = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i72 ], [ 0, %.lr.ph.i68 ], [ 0, %127 ]
-  %.sink = phi i32 [ %spec.select, %.loopexit ], [ 16777237, %.lr.ph.i72 ], [ 16777237, %.lr.ph.i68 ], [ 16777237, %127 ]
+  %.sink220 = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i68 ], [ 0, %.lr.ph.i72 ], [ 0, %127 ]
+  %.sink = phi i32 [ %spec.select, %.loopexit ], [ 16777237, %.lr.ph.i68 ], [ 16777237, %.lr.ph.i72 ], [ 16777237, %127 ]
   store i8 %.sink220, ptr %0, align 4
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %259, align 4
@@ -15378,7 +15378,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %50, %49, %40, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, %7, %64, %63
-  %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %29 ], [ 21, %40 ], [ 28, %49 ], [ 21, %50 ], [ 21, %54 ]
+  %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %50 ], [ 28, %49 ], [ 21, %40 ], [ 21, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %54 ]
   store i8 1, ptr %0, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %69, align 4
@@ -15610,7 +15610,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %50, %49, %40, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41, %7, %64, %63
-  %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %29 ], [ 21, %40 ], [ 28, %49 ], [ 21, %50 ], [ 21, %54 ]
+  %.sink = phi i32 [ 0, %64 ], [ %.sroa.229.0.extract.shift, %63 ], [ 21, %50 ], [ 28, %49 ], [ 21, %40 ], [ 21, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %7 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread41 ], [ 21, %54 ]
   store i8 1, ptr %0, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %69, align 4
@@ -15973,7 +15973,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %46, %37, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ 21, %37 ], [ 28, %46 ], [ %spec.select, %52 ]
+  %.sink = phi i32 [ 28, %46 ], [ %spec.select, %52 ], [ 21, %37 ], [ 21, %26 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ]
   store i8 1, ptr %0, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %58, align 4
@@ -16103,7 +16103,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %46, %37, %26, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %6
-  %.sink = phi i32 [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %26 ], [ 21, %37 ], [ 28, %46 ], [ %spec.select, %52 ]
+  %.sink = phi i32 [ 28, %46 ], [ %spec.select, %52 ], [ 21, %37 ], [ 21, %26 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ]
   store i8 1, ptr %0, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %58, align 4
@@ -16261,7 +16261,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %60, %._crit_edge, %52, %46, %34, %30, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67, %9
-  %.sink = phi i32 [ 21, %9 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %30 ], [ 21, %34 ], [ 21, %46 ], [ 21, %52 ], [ %spec.select87, %._crit_edge ], [ 21, %60 ]
+  %.sink = phi i32 [ 21, %52 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread67 ], [ 21, %46 ], [ 21, %34 ], [ %spec.select87, %._crit_edge ], [ 28, %30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %9 ], [ 21, %60 ]
   store i8 1, ptr %0, align 4
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %81, align 4
@@ -16478,7 +16478,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %83, %106, %107, %75, %71, %65, %61, %57, %54, %45, %34, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105, %11, %105
-  %.sink = phi i32 [ %.sroa.280.0.extract.shift, %105 ], [ 21, %11 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %34 ], [ 21, %45 ], [ 28, %54 ], [ 28, %57 ], [ 21, %61 ], [ 21, %65 ], [ 21, %71 ], [ 21, %75 ], [ 0, %107 ], [ 0, %106 ], [ 21, %83 ]
+  %.sink = phi i32 [ 21, %75 ], [ %.sroa.280.0.extract.shift, %105 ], [ 21, %71 ], [ 21, %65 ], [ 21, %61 ], [ 0, %106 ], [ 28, %57 ], [ 28, %54 ], [ 21, %45 ], [ 21, %34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %11 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread105 ], [ 0, %107 ], [ 21, %83 ]
   store i8 1, ptr %0, align 4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %110, align 4
@@ -16633,7 +16633,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %57, %._crit_edge, %47, %35, %33, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %.sroa.258.0.extract.shift, %29 ], [ 28, %33 ], [ 21, %35 ], [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %57 ]
+  %.sink = phi i32 [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %35 ], [ 28, %33 ], [ %.sroa.258.0.extract.shift, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %57 ]
   store i8 1, ptr %0, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %79, align 4
@@ -16833,7 +16833,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %78, %._crit_edge, %70, %64, %62, %58, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ %.sroa.281.0.extract.shift, %58 ], [ 28, %62 ], [ 21, %64 ], [ 21, %70 ], [ %spec.select113, %._crit_edge ], [ 21, %78 ]
+  %.sink = phi i32 [ 21, %70 ], [ %spec.select113, %._crit_edge ], [ 21, %64 ], [ 28, %62 ], [ %.sroa.281.0.extract.shift, %58 ], [ 28, %52 ], [ 21, %43 ], [ 21, %32 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92 ], [ 21, %78 ]
   store i8 1, ptr %0, align 4
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %102, align 4
@@ -16951,7 +16951,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %45, %33, %32, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %8, %58, %57
-  %.sink = phi i32 [ 0, %58 ], [ %.sroa.220.0.extract.shift, %57 ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %31, %29 ], [ 28, %32 ], [ 21, %33 ], [ 21, %45 ]
+  %.sink = phi i32 [ 0, %58 ], [ %.sroa.220.0.extract.shift, %57 ], [ 21, %33 ], [ 28, %32 ], [ %31, %29 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %45 ]
   store i8 1, ptr %0, align 4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %61, align 4
@@ -17173,7 +17173,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %48, %39, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, %6, %60, %59
-  %.sink = phi i32 [ 0, %60 ], [ %.sroa.228.0.extract.shift, %59 ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %39 ], [ 21, %48 ], [ 28, %52 ]
+  %.sink = phi i32 [ 0, %60 ], [ %.sroa.228.0.extract.shift, %59 ], [ 21, %48 ], [ 21, %39 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39 ], [ 28, %52 ]
   store i8 1, ptr %0, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %65, align 4
@@ -17293,7 +17293,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %52, %48, %39, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39, %6, %60, %59
-  %.sink = phi i32 [ 0, %60 ], [ %.sroa.228.0.extract.shift, %59 ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %28 ], [ 21, %39 ], [ 21, %48 ], [ 28, %52 ]
+  %.sink = phi i32 [ 0, %60 ], [ %.sroa.228.0.extract.shift, %59 ], [ 21, %48 ], [ 21, %39 ], [ 21, %28 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %6 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread39 ], [ 28, %52 ]
   store i8 1, ptr %0, align 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %65, align 4
@@ -18166,7 +18166,7 @@ _ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8
   %51 = atomicrmw volatile add ptr %45, i32 1 acq_rel, align 4
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %17, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %12, %..loopexit_crit_edge21.i.i.i.i, %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 

@@ -241,7 +241,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.lo
   %.promoted169 = load i32, ptr %59, align 8
   %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %70, i32 noundef %.promoted)
   %.not.i105 = icmp eq i32 %71, 0
-  br i1 %.not.i105, label %.critedge.thread, label %bitstream_getbits.exit.loopexit
+  br i1 %.not.i105, label %.critedge102.thread, label %bitstream_getbits.exit.loopexit
 
 bitstream_getbits.exit.loopexit:                  ; preds = %.lr.ph.i
   %72 = shl i32 %.promoted169, 8
@@ -319,7 +319,7 @@ bitstream_getbits.exit112:                        ; preds = %87, %90, %._crit_ed
   %.0.i109 = phi i8 [ 0, %87 ], [ 0, %90 ], [ %104, %._crit_edge.i107 ]
   %105 = load i32, ptr %62, align 4
   %.not163 = icmp eq i32 %105, 65535
-  br i1 %.not163, label %.critedge.thread, label %select.unfold
+  br i1 %.not163, label %.critedge102.thread, label %select.unfold
 
 106:                                              ; preds = %77
   %107 = icmp eq i32 %80, 0
@@ -367,14 +367,14 @@ bitstream_getbits.exit119:                        ; preds = %.preheader.i113, %.
   br label %.thread333.thread
 
 .thread333.thread:                                ; preds = %111, %106, %bitstream_getbits.exit119
-  %123 = phi ptr [ %ZGFX_MATCH_TABLE.ZGFX_LITERAL_TABLE, %bitstream_getbits.exit119 ], [ @ZGFX_MATCH_TABLE, %106 ], [ @ZGFX_MATCH_TABLE, %111 ]
-  %.0.i116330340361 = phi i1 [ %122, %bitstream_getbits.exit119 ], [ true, %106 ], [ true, %111 ]
-  %.promoted177328342359 = phi i32 [ %119, %bitstream_getbits.exit119 ], [ %80, %106 ], [ %80, %111 ]
-  %.promoted178326344357 = phi i32 [ %117, %bitstream_getbits.exit119 ], [ %78, %106 ], [ %78, %111 ]
-  %.promoted184324346355 = phi i32 [ %121, %bitstream_getbits.exit119 ], [ %82, %106 ], [ %82, %111 ]
-  %.promoted196322348353 = phi i8 [ 1, %bitstream_getbits.exit119 ], [ 0, %106 ], [ 0, %111 ]
-  %124 = phi i32 [ %.557, %bitstream_getbits.exit119 ], [ 2, %106 ], [ 2, %111 ]
-  %125 = phi i64 [ %.558, %bitstream_getbits.exit119 ], [ 14, %106 ], [ 14, %111 ]
+  %123 = phi ptr [ @ZGFX_MATCH_TABLE, %111 ], [ @ZGFX_MATCH_TABLE, %106 ], [ %ZGFX_MATCH_TABLE.ZGFX_LITERAL_TABLE, %bitstream_getbits.exit119 ]
+  %.0.i116330340361 = phi i1 [ true, %111 ], [ true, %106 ], [ %122, %bitstream_getbits.exit119 ]
+  %.promoted177328342359 = phi i32 [ %80, %111 ], [ %80, %106 ], [ %119, %bitstream_getbits.exit119 ]
+  %.promoted178326344357 = phi i32 [ %78, %111 ], [ %78, %106 ], [ %117, %bitstream_getbits.exit119 ]
+  %.promoted184324346355 = phi i32 [ %82, %111 ], [ %82, %106 ], [ %121, %bitstream_getbits.exit119 ]
+  %.promoted196322348353 = phi i8 [ 0, %111 ], [ 0, %106 ], [ 1, %bitstream_getbits.exit119 ]
+  %124 = phi i32 [ 2, %111 ], [ 2, %106 ], [ %.557, %bitstream_getbits.exit119 ]
+  %125 = phi i64 [ 14, %111 ], [ 14, %106 ], [ %.558, %bitstream_getbits.exit119 ]
   %.promoted190351 = load i32, ptr %57, align 8
   %126 = load ptr, ptr %3, align 8
   %.promoted424 = load i32, ptr %59, align 8
@@ -410,7 +410,7 @@ bitstream_getbits.exit119:                        ; preds = %.preheader.i113, %.
   %137 = shl i32 %.185208, %136
   %138 = and i32 %136, 255
   %139 = icmp ult i32 %131, %138
-  br i1 %139, label %.critedge.thread.loopexit164.loopexit388, label %.preheader.i120
+  br i1 %139, label %.critedge102.thread.loopexit164.loopexit388, label %.preheader.i120
 
 .preheader.i120:                                  ; preds = %135
   %140 = icmp ult i32 %.promoted176182207, %138
@@ -419,12 +419,12 @@ bitstream_getbits.exit119:                        ; preds = %.preheader.i113, %.
 .lr.ph.i124.preheader:                            ; preds = %.preheader.i120
   %141 = tail call i32 @tvb_reported_length_remaining(ptr noundef %126, i32 noundef %.promoted174195205)
   %.not.i125529 = icmp eq i32 %141, 0
-  br i1 %.not.i125529, label %.critedge.thread.loopexit164.loopexit, label %.lr.ph533
+  br i1 %.not.i125529, label %.critedge102.thread.loopexit164.loopexit, label %.lr.ph533
 
 .lr.ph.i124:                                      ; preds = %.lr.ph533
   %142 = tail call i32 @tvb_reported_length_remaining(ptr noundef %126, i32 noundef %144)
   %.not.i125 = icmp eq i32 %142, 0
-  br i1 %.not.i125, label %.critedge.thread.loopexit164.loopexit, label %.lr.ph533, !llvm.loop !17
+  br i1 %.not.i125, label %.critedge102.thread.loopexit164.loopexit, label %.lr.ph533, !llvm.loop !17
 
 .lr.ph533:                                        ; preds = %.lr.ph.i124.preheader, %.lr.ph.i124
   %.promoted176180532 = phi i32 [ %148, %.lr.ph.i124 ], [ %.promoted176182207, %.lr.ph.i124.preheader ]
@@ -484,7 +484,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %168, 255
   %170 = icmp ult i32 %159, %169
-  br i1 %170, label %.critedge.thread, label %.preheader.i127
+  br i1 %170, label %.critedge102.thread, label %.preheader.i127
 
 .preheader.i127:                                  ; preds = %164
   %171 = icmp ult i32 %.promoted213, %169
@@ -507,7 +507,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %.lcssa501 = phi i32 [ %178, %.lr.ph.i131 ], [ %.promoted439, %.lr.ph.i131.preheader ]
   store i32 %.lcssa501, ptr %57, align 8
   store i32 %.lcssa503, ptr %59, align 8
-  br label %.critedge.thread
+  br label %.critedge102.thread
 
 .lr.ph546:                                        ; preds = %.lr.ph.i131.preheader, %.lr.ph.i131
   %174 = phi i32 [ %178, %.lr.ph.i131 ], [ %.promoted211, %.lr.ph.i131.preheader ]
@@ -543,7 +543,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
 
 193:                                              ; preds = %184
   %194 = icmp eq i32 %159, %169
-  br i1 %194, label %.critedge.thread, label %.preheader.i134
+  br i1 %194, label %.critedge102.thread, label %.preheader.i134
 
 .preheader.i134:                                  ; preds = %193
   %195 = icmp eq i32 %187, 0
@@ -552,7 +552,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
 .lr.ph.i138:                                      ; preds = %.preheader.i134
   %196 = tail call i32 @tvb_reported_length_remaining(ptr noundef %126, i32 noundef %.promoted214285)
   %.not.i139 = icmp eq i32 %196, 0
-  br i1 %.not.i139, label %.critedge.thread, label %._crit_edge.i135.loopexit
+  br i1 %.not.i139, label %.critedge102.thread, label %._crit_edge.i135.loopexit
 
 ._crit_edge.i135.loopexit:                        ; preds = %.lr.ph.i138
   %197 = add i32 %.promoted214285, 1
@@ -581,7 +581,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %210 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef nonnull %4)
   %211 = load i8, ptr %4, align 1, !range !18, !noundef !19
   %212 = trunc nuw i8 %211 to i1
-  br i1 %212, label %.preheader, label %.critedge.thread
+  br i1 %212, label %.preheader, label %.critedge102.thread
 
 .preheader:                                       ; preds = %209
   %213 = icmp eq i32 %210, 1
@@ -620,7 +620,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %226 = shl i32 %.177248, 1
   %227 = add i8 %.0249, 1
   %228 = icmp eq i32 %225, 0
-  br i1 %228, label %.critedge.thread.loopexit, label %.preheader.i141
+  br i1 %228, label %.critedge102.thread.loopexit, label %.preheader.i141
 
 .preheader.i141:                                  ; preds = %223
   %229 = icmp eq i32 %.promoted219224247, 0
@@ -629,7 +629,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
 .lr.ph.i145.preheader:                            ; preds = %.preheader.i141
   %230 = tail call i32 @tvb_reported_length_remaining(ptr noundef %214, i32 noundef %.promoted217235245)
   %.not.i146 = icmp eq i32 %230, 0
-  br i1 %.not.i146, label %.critedge.thread.loopexit, label %._crit_edge.i142.loopexit
+  br i1 %.not.i146, label %.critedge102.thread.loopexit, label %._crit_edge.i142.loopexit
 
 ._crit_edge.i142.loopexit:                        ; preds = %.lr.ph.i145.preheader
   %231 = shl i32 %.promoted218229246, 8
@@ -654,7 +654,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %237 = add i32 %236, %.177.lcssa
   %238 = load i8, ptr %4, align 1, !range !18, !noundef !19
   %239 = trunc nuw i8 %238 to i1
-  br i1 %239, label %240, label %.critedge.thread
+  br i1 %239, label %240, label %.critedge102.thread
 
 240:                                              ; preds = %200, %._crit_edge
   %.076 = phi i32 [ %237, %._crit_edge ], [ 3, %200 ]
@@ -663,15 +663,15 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %243 = zext i32 %242 to i64
   %244 = sub nsw i64 65536, %243
   %245 = icmp ult i64 %244, %241
-  br i1 %245, label %.critedge.thread, label %246
+  br i1 %245, label %.critedge102.thread, label %246
 
 246:                                              ; preds = %240
   %247 = tail call fastcc zeroext i1 @zgfx_write_from_history(ptr noundef %0, i32 noundef %192, i32 noundef %.076)
-  br i1 %247, label %thread-pre-split, label %.critedge.thread
+  br i1 %247, label %thread-pre-split, label %.critedge102.thread
 
 248:                                              ; preds = %184
   %249 = icmp ult i32 %189, 15
-  br i1 %249, label %.critedge.thread, label %.preheader.i148
+  br i1 %249, label %.critedge102.thread, label %.preheader.i148
 
 .preheader.i148:                                  ; preds = %248
   %250 = icmp ult i32 %187, 15
@@ -694,7 +694,7 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   %.lcssa522 = phi i32 [ %257, %.lr.ph.i152 ], [ %.promoted457, %.lr.ph.i152.preheader ]
   store i32 %.lcssa522, ptr %57, align 8
   store i32 %.lcssa524, ptr %59, align 8
-  br label %.critedge.thread
+  br label %.critedge102.thread
 
 .lr.ph552:                                        ; preds = %.lr.ph.i152.preheader, %.lr.ph.i152
   %253 = phi i32 [ %257, %.lr.ph.i152 ], [ %.promoted214285, %.lr.ph.i152.preheader ]
@@ -724,12 +724,12 @@ bitstream_getbits.exit126:                        ; preds = %.lr.ph533, %.prehea
   store i32 0, ptr %60, align 4
   store i32 0, ptr %59, align 8
   %269 = call fastcc zeroext i1 @zgfx_write_raw(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %267)
-  br i1 %269, label %thread-pre-split, label %.critedge.thread
+  br i1 %269, label %thread-pre-split, label %.critedge102.thread
 
 270:                                              ; preds = %163
   %271 = load i32, ptr %62, align 4
   %.not162 = icmp eq i32 %271, 65535
-  br i1 %.not162, label %.critedge.thread, label %zgfx_write_literal.exit155.thread
+  br i1 %.not162, label %.critedge102.thread, label %zgfx_write_literal.exit155.thread
 
 zgfx_write_literal.exit155.thread:                ; preds = %270
   %272 = getelementptr inbounds nuw i8, ptr %133, i64 12
@@ -768,14 +768,14 @@ select.unfold:                                    ; preds = %bitstream_getbits.e
   store i32 %294, ptr %64, align 4
   br label %thread-pre-split, !llvm.loop !21
 
-.critedge.thread.loopexit:                        ; preds = %223, %.lr.ph.i145.preheader
+.critedge102.thread.loopexit:                     ; preds = %223, %.lr.ph.i145.preheader
   store i32 %224, ptr %57, align 8
   store i32 %.promoted219224247, ptr %60, align 4
   store i32 %225, ptr %58, align 4
   store i32 %.promoted218229246, ptr %59, align 8
-  br label %.critedge.thread
+  br label %.critedge102.thread
 
-.critedge.thread.loopexit164.loopexit:            ; preds = %.lr.ph.i124.preheader, %.lr.ph.i124
+.critedge102.thread.loopexit164.loopexit:         ; preds = %.lr.ph.i124.preheader, %.lr.ph.i124
   %.lcssa465 = phi i32 [ %147, %.lr.ph.i124 ], [ %.lcssa417426, %.lr.ph.i124.preheader ]
   %.lcssa = phi i32 [ %144, %.lr.ph.i124 ], [ %.lcssa414421, %.lr.ph.i124.preheader ]
   store i32 %.lcssa414421, ptr %57, align 8
@@ -784,21 +784,21 @@ select.unfold:                                    ; preds = %bitstream_getbits.e
   store i32 %129, ptr %58, align 4
   store i32 %.lcssa, ptr %57, align 8
   store i32 %.lcssa465, ptr %59, align 8
-  br label %.critedge.thread
+  br label %.critedge102.thread
 
-.critedge.thread.loopexit164.loopexit388:         ; preds = %135
+.critedge102.thread.loopexit164.loopexit388:      ; preds = %135
   store i32 %.lcssa414421, ptr %57, align 8
   store i32 %.lcssa417426, ptr %59, align 8
   store i32 %130, ptr %60, align 4
   store i32 %129, ptr %58, align 4
-  br label %.critedge.thread
+  br label %.critedge102.thread
 
-.critedge.thread:                                 ; preds = %263, %246, %240, %._crit_edge, %209, %270, %bitstream_getbits.exit112, %248, %.lr.ph.i138, %193, %164, %.lr.ph.i, %.critedge.thread.loopexit164.loopexit, %.critedge.thread.loopexit164.loopexit388, %.lr.ph.i152.preheader._crit_edge, %.lr.ph.i131.preheader._crit_edge, %.critedge.thread.loopexit
+.critedge102.thread:                              ; preds = %._crit_edge, %263, %246, %209, %240, %270, %bitstream_getbits.exit112, %248, %.lr.ph.i138, %193, %164, %.lr.ph.i, %.critedge102.thread.loopexit164.loopexit, %.critedge102.thread.loopexit164.loopexit388, %.lr.ph.i152.preheader._crit_edge, %.lr.ph.i131.preheader._crit_edge, %.critedge102.thread.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %thread-pre-split, %52, %.critedge.thread, %49, %zgfx_write_history_buffer_tvb.exit
-  %.075 = phi i1 [ true, %zgfx_write_history_buffer_tvb.exit ], [ false, %49 ], [ false, %.critedge.thread ], [ true, %52 ], [ true, %thread-pre-split ]
+.loopexit:                                        ; preds = %thread-pre-split, %52, %.critedge102.thread, %49, %zgfx_write_history_buffer_tvb.exit
+  %.075 = phi i1 [ true, %zgfx_write_history_buffer_tvb.exit ], [ false, %.critedge102.thread ], [ false, %49 ], [ true, %52 ], [ true, %thread-pre-split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.075
 }
@@ -1122,7 +1122,7 @@ define internal fastcc noundef zeroext i1 @zgfx_write_raw(ptr noundef %0, ptr no
   br label %bitstream_copyraw.exit
 
 bitstream_copyraw.exit:                           ; preds = %48, %13, %8, %31, %52, %3
-  %.033 = phi i1 [ false, %3 ], [ true, %52 ], [ true, %31 ], [ false, %8 ], [ false, %13 ], [ false, %48 ]
+  %.033 = phi i1 [ false, %3 ], [ false, %13 ], [ false, %8 ], [ true, %31 ], [ true, %52 ], [ false, %48 ]
   ret i1 %.033
 }
 

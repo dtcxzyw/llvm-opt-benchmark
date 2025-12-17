@@ -1387,7 +1387,7 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
-select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
+select.unfold:                                    ; preds = %28, %._crit_edge.thread.i.i, %12
   %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
@@ -1400,7 +1400,7 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
   br label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
-  %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
+  %38 = phi i1 [ %37, %33 ], [ true, %select.unfold ]
   %39 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
           to label %.noexc6 unwind label %43
 
@@ -5092,7 +5092,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
   br label %common.resume
 
 common.resume:                                    ; preds = %255, %358, %462, %479, %498, %500, %115, %274, %113, %272, %296, %300, %287, %291, %65, %69, %56, %60
-  %common.resume.op = phi { ptr, i32 } [ %57, %60 ], [ %57, %56 ], [ %66, %69 ], [ %66, %65 ], [ %288, %291 ], [ %288, %287 ], [ %297, %300 ], [ %297, %296 ], [ %.pn79245, %115 ], [ %114, %113 ], [ %.pn77, %255 ], [ %.pn75251, %274 ], [ %273, %272 ], [ %.pn, %462 ], [ %359, %358 ], [ %501, %500 ], [ %499, %498 ], [ %480, %479 ]
+  %common.resume.op = phi { ptr, i32 } [ %297, %296 ], [ %57, %56 ], [ %66, %65 ], [ %288, %287 ], [ %57, %60 ], [ %66, %69 ], [ %288, %291 ], [ %297, %300 ], [ %.pn79245, %115 ], [ %114, %113 ], [ %.pn77, %255 ], [ %.pn75251, %274 ], [ %273, %272 ], [ %.pn, %462 ], [ %359, %358 ], [ %501, %500 ], [ %499, %498 ], [ %480, %479 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri9AllocatorI6CMeshOE19CompactVertexVectorERS2_.exit: ; preds = %52, %55
@@ -6623,7 +6623,7 @@ _ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RK
   br i1 %.not129, label %.loopexit, label %117, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.critedge, %104, %_ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit.loopexit, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %104 ], [ %116, %_ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit.loopexit ], [ %.1, %.critedge ]
+  %.0 = phi i32 [ %116, %_ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit.loopexit ], [ 0, %.preheader ], [ 0, %104 ], [ %.1, %.critedge ]
   %.not.i.i.i66 = icmp eq ptr %.sroa.0113.0, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIbSaIbEED2Ev.exit70, label %143
 
@@ -6752,7 +6752,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit: ; preds = %_ZN3vcg
   br i1 %.not.i25, label %_ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit, label %.lr.ph.i22, !llvm.loop !45
 
 _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit: ; preds = %48, %_ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE9FaceClearERS2_j.exit
-  %51 = phi ptr [ %40, %_ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit ], [ %25, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE9FaceClearERS2_j.exit ], [ %49, %48 ]
+  %51 = phi ptr [ %25, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE9FaceClearERS2_j.exit ], [ %40, %_ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit ], [ %49, %48 ]
   %52 = load ptr, ptr %12, align 8
   %.not4450 = icmp eq ptr %52, %51
   br i1 %.not4450, label %._crit_edge, label %.lr.ph
@@ -9505,7 +9505,7 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_3tri6SmoothI6CMeshO
   br label %172
 
 172:                                              ; preds = %171, %169, %163
-  %.0.i = phi float [ -1.000000e+00, %171 ], [ %167, %169 ], [ 1.000000e+00, %163 ]
+  %.0.i = phi float [ %167, %169 ], [ -1.000000e+00, %171 ], [ 1.000000e+00, %163 ]
   %173 = call noundef float @acosf(float noundef %.0.i) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
 
@@ -9665,7 +9665,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %172, %82
   br label %283
 
 283:                                              ; preds = %282, %280, %274
-  %.0.i89 = phi float [ -1.000000e+00, %282 ], [ %278, %280 ], [ 1.000000e+00, %274 ]
+  %.0.i89 = phi float [ %278, %280 ], [ -1.000000e+00, %282 ], [ 1.000000e+00, %274 ]
   %284 = call noundef float @acosf(float noundef %.0.i89) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit91
 
@@ -12338,7 +12338,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -12655,7 +12655,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %40
 
@@ -15957,7 +15957,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   br label %51
 
 51:                                               ; preds = %50, %48, %42
-  %.0.i = phi float [ -1.000000e+00, %50 ], [ %46, %48 ], [ 1.000000e+00, %42 ]
+  %.0.i = phi float [ %46, %48 ], [ -1.000000e+00, %50 ], [ 1.000000e+00, %42 ]
   %52 = tail call noundef float @acosf(float noundef %.0.i) #27
   %53 = tail call float @llvm.fabs.f32(float %52)
   %.pre = load float, ptr %11, align 4
@@ -16016,7 +16016,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   br label %87
 
 87:                                               ; preds = %86, %84, %78
-  %.0.i69 = phi float [ -1.000000e+00, %86 ], [ %82, %84 ], [ 1.000000e+00, %78 ]
+  %.0.i69 = phi float [ %82, %84 ], [ -1.000000e+00, %86 ], [ 1.000000e+00, %78 ]
   %88 = tail call noundef float @acosf(float noundef %.0.i69) #27
   %89 = tail call float @llvm.fabs.f32(float %88)
   %.pre106 = load float, ptr %10, align 4
@@ -16161,7 +16161,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanCEFlipNS_9MeanC
   br label %189
 
 189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ -1.000000e+00, %188 ], [ %184, %186 ], [ 1.000000e+00, %180 ]
+  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
   %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
   %191 = tail call float @llvm.fabs.f32(float %190)
   %192 = fpext float %191 to double
@@ -16199,7 +16199,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
   br label %213
 
 213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ -1.000000e+00, %212 ], [ %208, %210 ], [ 1.000000e+00, %204 ]
+  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
   %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
   %215 = tail call float @llvm.fabs.f32(float %214)
   %216 = fpext float %215 to double
@@ -16376,7 +16376,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO10MeanC
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -16474,7 +16474,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i48 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i48 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i48) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50
 
@@ -16507,7 +16507,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i61 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i61 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i61) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63
 
@@ -16553,7 +16553,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i74 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i74 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i74) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
@@ -16586,7 +16586,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i87 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i87 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i87) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89
 
@@ -16612,7 +16612,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -18639,7 +18639,7 @@ _ZN3vcg4face3PosI6CFaceOE5NextEEv.exit:           ; preds = %_ZNK3vcg4face3PosI6
   br i1 %or.cond53, label %_ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.thread, label %_ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit, !llvm.loop !217
 
 _ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.thread:   ; preds = %86, %_ZN3vcg4face3PosI6CFaceOE5NextEEv.exit, %44, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread, %37, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit ], [ false, %37 ], [ false, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread ], [ false, %44 ], [ %.not67.not, %_ZN3vcg4face3PosI6CFaceOE5NextEEv.exit ], [ %.not67.not, %86 ]
+  %.0 = phi i1 [ false, %37 ], [ false, %2 ], [ false, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit ], [ false, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread ], [ false, %44 ], [ %.not67.not, %_ZN3vcg4face3PosI6CFaceOE5NextEEv.exit ], [ %.not67.not, %86 ]
   ret i1 %.0
 }
 
@@ -18820,7 +18820,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind noalias w
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !219
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %.0.i = phi i32 [ %15, %14 ], [ %7, %6 ], [ %11, %10 ], [ 1, %2 ], [ %18, %16 ]
   %20 = zext i32 %.0.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EmcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20, i8 noundef signext 0, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -19624,7 +19624,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9NSMCEFlipNS_8NSMCEva
   br label %51
 
 51:                                               ; preds = %50, %48, %42
-  %.0.i = phi float [ -1.000000e+00, %50 ], [ %46, %48 ], [ 1.000000e+00, %42 ]
+  %.0.i = phi float [ %46, %48 ], [ -1.000000e+00, %50 ], [ 1.000000e+00, %42 ]
   %52 = tail call noundef float @acosf(float noundef %.0.i) #27
   %53 = tail call float @llvm.fabs.f32(float %52)
   %.pre = load float, ptr %11, align 4
@@ -19683,7 +19683,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9NSMCEFlipNS_8NSMCEva
   br label %87
 
 87:                                               ; preds = %86, %84, %78
-  %.0.i69 = phi float [ -1.000000e+00, %86 ], [ %82, %84 ], [ 1.000000e+00, %78 ]
+  %.0.i69 = phi float [ %82, %84 ], [ -1.000000e+00, %86 ], [ 1.000000e+00, %78 ]
   %88 = tail call noundef float @acosf(float noundef %.0.i69) #27
   %89 = tail call float @llvm.fabs.f32(float %88)
   %.pre106 = load float, ptr %10, align 4
@@ -19828,7 +19828,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9NSMCEFlipNS_8NSMCEva
   br label %189
 
 189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ -1.000000e+00, %188 ], [ %184, %186 ], [ 1.000000e+00, %180 ]
+  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
   %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
   %191 = tail call float @llvm.fabs.f32(float %190)
   %192 = fpext float %191 to double
@@ -19866,7 +19866,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
   br label %213
 
 213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ -1.000000e+00, %212 ], [ %208, %210 ], [ 1.000000e+00, %204 ]
+  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
   %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
   %215 = tail call float @llvm.fabs.f32(float %214)
   %216 = fpext float %215 to double
@@ -20022,7 +20022,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9NSMCEF
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -20120,7 +20120,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i48 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i48 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i48) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50
 
@@ -20153,7 +20153,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i61 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i61 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i61) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63
 
@@ -20199,7 +20199,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i74 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i74 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i74) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
@@ -20232,7 +20232,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i87 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i87 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i87) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89
 
@@ -20258,7 +20258,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -22430,7 +22430,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9AbsCEFlipNS_8AbsCEva
   br label %51
 
 51:                                               ; preds = %50, %48, %42
-  %.0.i = phi float [ -1.000000e+00, %50 ], [ %46, %48 ], [ 1.000000e+00, %42 ]
+  %.0.i = phi float [ %46, %48 ], [ -1.000000e+00, %50 ], [ 1.000000e+00, %42 ]
   %52 = tail call noundef float @acosf(float noundef %.0.i) #27
   %53 = tail call float @llvm.fabs.f32(float %52)
   %.pre = load float, ptr %11, align 4
@@ -22489,7 +22489,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9AbsCEFlipNS_8AbsCEva
   br label %87
 
 87:                                               ; preds = %86, %84, %78
-  %.0.i69 = phi float [ -1.000000e+00, %86 ], [ %82, %84 ], [ 1.000000e+00, %78 ]
+  %.0.i69 = phi float [ %82, %84 ], [ -1.000000e+00, %86 ], [ 1.000000e+00, %78 ]
   %88 = tail call noundef float @acosf(float noundef %.0.i69) #27
   %89 = tail call float @llvm.fabs.f32(float %88)
   %.pre106 = load float, ptr %10, align 4
@@ -22634,7 +22634,7 @@ define linkonce_odr void @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9AbsCEFlipNS_8AbsCEva
   br label %189
 
 189:                                              ; preds = %188, %186, %180
-  %.0.i74 = phi float [ -1.000000e+00, %188 ], [ %184, %186 ], [ 1.000000e+00, %180 ]
+  %.0.i74 = phi float [ %184, %186 ], [ -1.000000e+00, %188 ], [ 1.000000e+00, %180 ]
   %190 = tail call noundef float @acosf(float noundef %.0.i74) #27
   %191 = tail call float @llvm.fabs.f32(float %190)
   %192 = fpext float %191 to double
@@ -22672,7 +22672,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %189, %163
   br label %213
 
 213:                                              ; preds = %212, %210, %204
-  %.0.i79 = phi float [ -1.000000e+00, %212 ], [ %208, %210 ], [ 1.000000e+00, %204 ]
+  %.0.i79 = phi float [ %208, %210 ], [ -1.000000e+00, %212 ], [ 1.000000e+00, %204 ]
   %214 = tail call noundef float @acosf(float noundef %.0.i79) #27
   %215 = tail call float @llvm.fabs.f32(float %214)
   %216 = fpext float %215 to double
@@ -22828,7 +22828,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri12CurvEdgeFlipI6CMeshO9AbsCEF
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -22926,7 +22926,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i48 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i48 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i48) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50
 
@@ -22959,7 +22959,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit50:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i61 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i61 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i61) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63
 
@@ -23005,7 +23005,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i74 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i74 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i74) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76
 
@@ -23038,7 +23038,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit76:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i87 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i87 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i87) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89
 
@@ -23064,7 +23064,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit89 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit63 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -26314,7 +26314,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO6QEFl
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -26412,7 +26412,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i43 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i43 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i43) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45
 
@@ -26445,7 +26445,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i56 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i56 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i56) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58
 
@@ -26491,7 +26491,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i69 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i69 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i69) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71
 
@@ -26524,7 +26524,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i82 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i82 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i82) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84
 
@@ -26550,7 +26550,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -27796,7 +27796,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO11QRa
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -27894,7 +27894,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i43 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i43 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i43) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45
 
@@ -27927,7 +27927,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i56 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i56 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i56) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58
 
@@ -27973,7 +27973,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i69 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i69 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i69) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71
 
@@ -28006,7 +28006,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i82 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i82 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i82) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84
 
@@ -28032,7 +28032,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -29253,7 +29253,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO15QMe
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -29351,7 +29351,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i43 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i43 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i43) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45
 
@@ -29384,7 +29384,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i56 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i56 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i56) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58
 
@@ -29430,7 +29430,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i69 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i69 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i69) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71
 
@@ -29463,7 +29463,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i82 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i82 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i82) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84
 
@@ -29489,7 +29489,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -30726,7 +30726,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO10MyT
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -30824,7 +30824,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i43 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i43 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i43) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45
 
@@ -30857,7 +30857,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i56 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i56 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i56) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58
 
@@ -30903,7 +30903,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i69 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i69 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i69) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71
 
@@ -30936,7 +30936,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i82 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i82 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i82) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84
 
@@ -30962,7 +30962,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -31065,7 +31065,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri11TriEdgeFlipI6CMeshO10MyTriEFlipE
   br label %68
 
 68:                                               ; preds = %67, %65, %59
-  %.0.i = phi float [ -1.000000e+00, %67 ], [ %63, %65 ], [ 1.000000e+00, %59 ]
+  %.0.i = phi float [ %63, %65 ], [ -1.000000e+00, %67 ], [ 1.000000e+00, %59 ]
   %69 = tail call noundef float @acosf(float noundef %.0.i) #27
   %70 = tail call float @llvm.fabs.f32(float %69)
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -31106,7 +31106,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %2, %68
   br label %94
 
 94:                                               ; preds = %93, %91, %85
-  %.0.i33 = phi float [ -1.000000e+00, %93 ], [ %89, %91 ], [ 1.000000e+00, %85 ]
+  %.0.i33 = phi float [ %89, %91 ], [ -1.000000e+00, %93 ], [ 1.000000e+00, %85 ]
   %95 = tail call noundef float @acosf(float noundef %.0.i33) #27
   %96 = tail call float @llvm.fabs.f32(float %95)
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit35
@@ -32181,7 +32181,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri14PlanarEdgeFlipI6CMeshO11MyT
   br label %52
 
 52:                                               ; preds = %51, %49, %43
-  %.0.i = phi float [ -1.000000e+00, %51 ], [ %47, %49 ], [ 1.000000e+00, %43 ]
+  %.0.i = phi float [ %47, %49 ], [ -1.000000e+00, %51 ], [ 1.000000e+00, %43 ]
   %53 = tail call noundef float @acosf(float noundef %.0.i) #27
   %54 = fmul float %53, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -32279,7 +32279,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %8, %52
   br label %112
 
 112:                                              ; preds = %111, %109, %103
-  %.0.i43 = phi float [ -1.000000e+00, %111 ], [ %107, %109 ], [ 1.000000e+00, %103 ]
+  %.0.i43 = phi float [ %107, %109 ], [ -1.000000e+00, %111 ], [ 1.000000e+00, %103 ]
   %113 = tail call noundef float @acosf(float noundef %.0.i43) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45
 
@@ -32312,7 +32312,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit45:  ; preds = %58, %112
   br label %131
 
 131:                                              ; preds = %130, %128, %122
-  %.0.i56 = phi float [ -1.000000e+00, %130 ], [ %126, %128 ], [ 1.000000e+00, %122 ]
+  %.0.i56 = phi float [ %126, %128 ], [ -1.000000e+00, %130 ], [ 1.000000e+00, %122 ]
   %132 = tail call noundef float @acosf(float noundef %.0.i56) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58
 
@@ -32358,7 +32358,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %160
 
 160:                                              ; preds = %159, %157, %151
-  %.0.i69 = phi float [ -1.000000e+00, %159 ], [ %155, %157 ], [ 1.000000e+00, %151 ]
+  %.0.i69 = phi float [ %155, %157 ], [ -1.000000e+00, %159 ], [ 1.000000e+00, %151 ]
   %161 = tail call noundef float @acosf(float noundef %.0.i69) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71
 
@@ -32391,7 +32391,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit71:  ; preds = %136, %160
   br label %179
 
 179:                                              ; preds = %178, %176, %170
-  %.0.i82 = phi float [ -1.000000e+00, %178 ], [ %174, %176 ], [ 1.000000e+00, %170 ]
+  %.0.i82 = phi float [ %174, %176 ], [ -1.000000e+00, %178 ], [ 1.000000e+00, %170 ]
   %180 = tail call noundef float @acosf(float noundef %.0.i82) #27
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84
 
@@ -32417,7 +32417,7 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84:  ; preds = %_ZN3vcg5AngleIfEET_
   br label %.critedge
 
 .critedge:                                        ; preds = %189, %184, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %184 ], [ %193, %189 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit ], [ false, %184 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit84 ], [ false, %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit58 ], [ %193, %189 ]
   ret i1 %.0
 }
 
@@ -33705,7 +33705,7 @@ _ZN3vcg3tri12ForEachTetraI6CMeshOZNS0_6SmoothIS2_E23AccumulateLaplacianInfoERS2_
   br label %97
 
 97:                                               ; preds = %96, %94, %88
-  %.0.i = phi float [ -1.000000e+00, %96 ], [ %92, %94 ], [ 1.000000e+00, %88 ]
+  %.0.i = phi float [ %92, %94 ], [ -1.000000e+00, %96 ], [ 1.000000e+00, %88 ]
   %98 = call noundef float @acosf(float noundef %.0.i) #27
   %99 = fpext float %98 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
@@ -36069,7 +36069,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %20, %_ZStltI
   br label %31
 
 31:                                               ; preds = %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit, %5
-  %32 = phi i1 [ true, %5 ], [ %30, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ]
+  %32 = phi i1 [ %30, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit ], [ true, %5 ]
   %33 = call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #30
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %3, align 8
@@ -37596,7 +37596,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE13IsValidHandleIbEEbRKS2_RKNS0_7TriMeshINS_6vertex
   br i1 %.not.i14, label %_ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E24PerVertexAttributeHandleIT_EE.exit, label %.lr.ph.i13, !llvm.loop !440
 
 _ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E24PerVertexAttributeHandleIT_EE.exit: ; preds = %166, %._crit_edge104, %157
-  %168 = phi ptr [ %.lcssa83, %._crit_edge104 ], [ %.pre121, %157 ], [ %.lcssa83, %166 ]
+  %168 = phi ptr [ %.pre121, %157 ], [ %.lcssa83, %._crit_edge104 ], [ %.lcssa83, %166 ]
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 808
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 792
@@ -37639,7 +37639,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshIN
   br i1 %.not.i18, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerEdgeAttributeHandleIT_EE.exit, label %.lr.ph.i16, !llvm.loop !441
 
 _ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerEdgeAttributeHandleIT_EE.exit: ; preds = %187, %_ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E24PerVertexAttributeHandleIT_EE.exit, %181
-  %189 = phi ptr [ %168, %_ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E24PerVertexAttributeHandleIT_EE.exit ], [ %.pre122, %181 ], [ %168, %187 ]
+  %189 = phi ptr [ %.pre122, %181 ], [ %168, %_ZN3vcg3tri9AllocatorI6CMeshOE24DeletePerVertexAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E24PerVertexAttributeHandleIT_EE.exit ], [ %168, %187 ]
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 856
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 840
@@ -37682,7 +37682,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_
   br i1 %.not.i22, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerFaceAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerFaceAttributeHandleIT_EE.exit, label %.lr.ph.i20, !llvm.loop !442
 
 _ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerFaceAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerFaceAttributeHandleIT_EE.exit: ; preds = %208, %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerEdgeAttributeHandleIT_EE.exit, %202
-  %210 = phi ptr [ %189, %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerEdgeAttributeHandleIT_EE.exit ], [ %.pre123, %202 ], [ %189, %208 ]
+  %210 = phi ptr [ %.pre123, %202 ], [ %189, %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerEdgeAttributeIbEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESF_SF_E22PerEdgeAttributeHandleIT_EE.exit ], [ %189, %208 ]
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 952
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 936
@@ -39248,9 +39248,9 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3v
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.620.i = phi ptr [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
+  %.2.i = phi i1 [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #26
   %75 = icmp eq ptr %1, %.620.i
   %or.cond.i = select i1 %.2.i, i1 true, i1 %75
@@ -39273,7 +39273,7 @@ _ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i: ; p
   br i1 %81, label %.body.thread.i, label %.preheader.i
 
 .body.thread.i:                                   ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i, %.body.i, %.body.thread724.i
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i = phi { ptr, i32 } [ %55, %.body.thread724.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %.body.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn723.i
 
 __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit.i

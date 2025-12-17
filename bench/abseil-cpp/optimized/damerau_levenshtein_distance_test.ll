@@ -2349,7 +2349,7 @@ _ZN7testing15AssertionResultD2Ev.exit298:         ; preds = %616, %_ZNKSt14defau
   br i1 %.not89, label %551, label %552
 
 624:                                              ; preds = %_ZN7testing7MessageD2Ev.exit280, %_ZN7testing7MessageD2Ev.exit293, %_ZN7testing7MessageD2Ev.exit254, %_ZN7testing7MessageD2Ev.exit267, %_ZN7testing7MessageD2Ev.exit228, %_ZN7testing7MessageD2Ev.exit241, %_ZN7testing7MessageD2Ev.exit215, %_ZN7testing7MessageD2Ev.exit202, %_ZN7testing7MessageD2Ev.exit189, %_ZN7testing7MessageD2Ev.exit176, %_ZN7testing7MessageD2Ev.exit163, %_ZN7testing7MessageD2Ev.exit150, %_ZN7testing7MessageD2Ev.exit137, %_ZN7testing7MessageD2Ev.exit124, %_ZN7testing7MessageD2Ev.exit115
-  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn85.pn, %_ZN7testing7MessageD2Ev.exit215 ], [ %.pn82.pn, %_ZN7testing7MessageD2Ev.exit202 ], [ %.pn79.pn, %_ZN7testing7MessageD2Ev.exit189 ], [ %.pn76.pn, %_ZN7testing7MessageD2Ev.exit176 ], [ %.pn73.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %.pn70.pn, %_ZN7testing7MessageD2Ev.exit150 ], [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit137 ], [ %.pn64.pn, %_ZN7testing7MessageD2Ev.exit124 ], [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit115 ], [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit241 ], [ %.pn104.pn, %_ZN7testing7MessageD2Ev.exit228 ], [ %.pn100.pn, %_ZN7testing7MessageD2Ev.exit267 ], [ %.pn97.pn, %_ZN7testing7MessageD2Ev.exit254 ], [ %.pn93.pn, %_ZN7testing7MessageD2Ev.exit293 ], [ %.pn90.pn, %_ZN7testing7MessageD2Ev.exit280 ]
+  %.pn107.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN7testing7MessageD2Ev.exit115 ], [ %.pn104.pn, %_ZN7testing7MessageD2Ev.exit228 ], [ %.pn97.pn, %_ZN7testing7MessageD2Ev.exit254 ], [ %.pn85.pn, %_ZN7testing7MessageD2Ev.exit215 ], [ %.pn82.pn, %_ZN7testing7MessageD2Ev.exit202 ], [ %.pn79.pn, %_ZN7testing7MessageD2Ev.exit189 ], [ %.pn76.pn, %_ZN7testing7MessageD2Ev.exit176 ], [ %.pn73.pn, %_ZN7testing7MessageD2Ev.exit163 ], [ %.pn70.pn, %_ZN7testing7MessageD2Ev.exit150 ], [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit137 ], [ %.pn64.pn, %_ZN7testing7MessageD2Ev.exit124 ], [ %.pn107.pn, %_ZN7testing7MessageD2Ev.exit241 ], [ %.pn100.pn, %_ZN7testing7MessageD2Ev.exit267 ], [ %.pn93.pn, %_ZN7testing7MessageD2Ev.exit293 ], [ %.pn90.pn, %_ZN7testing7MessageD2Ev.exit280 ]
   resume { ptr, i32 } %.pn107.pn.pn.pn
 }
 
@@ -3335,7 +3335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %123
   br label %.body
 
 .body:                                            ; preds = %52, %33, %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %55, %54 ], [ %53, %52 ], [ %34, %33 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %53, %52 ], [ %34, %33 ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume

@@ -905,7 +905,7 @@ define hidden noundef zeroext i1 @ip_try_dissect(i1 noundef zeroext %0, i32 noun
   br label %19
 
 19:                                               ; preds = %.thread, %.thread16, %11, %8, %18
-  %.0 = phi i1 [ false, %18 ], [ true, %8 ], [ true, %11 ], [ true, %.thread16 ], [ true, %.thread ]
+  %.0 = phi i1 [ true, %11 ], [ true, %8 ], [ false, %18 ], [ true, %.thread16 ], [ true, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -1827,8 +1827,8 @@ export_pdu.exit:                                  ; preds = %proto_item_set_gene
   br i1 %.not5.i488, label %proto_item_set_generated.exit483, label %proto_item_set_generated.exit483.sink.split
 
 proto_item_set_generated.exit483.sink.split:      ; preds = %222, %211, %202
-  %.sink664 = phi ptr [ %204, %202 ], [ %213, %211 ], [ %224, %222 ]
-  %.0437.ph = phi i1 [ true, %202 ], [ false, %211 ], [ true, %222 ]
+  %.sink664 = phi ptr [ %213, %211 ], [ %204, %202 ], [ %224, %222 ]
+  %.0437.ph = phi i1 [ false, %211 ], [ true, %202 ], [ true, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.sink664, i64 28
   %226 = load i32, ptr %225, align 4
   %227 = or i32 %226, 2
@@ -1836,7 +1836,7 @@ proto_item_set_generated.exit483.sink.split:      ; preds = %222, %211, %202
   br label %proto_item_set_generated.exit483
 
 proto_item_set_generated.exit483:                 ; preds = %proto_item_set_generated.exit483.sink.split, %222, %214, %211, %205, %202, %197
-  %.0437 = phi i1 [ true, %197 ], [ true, %202 ], [ false, %205 ], [ false, %211 ], [ true, %214 ], [ true, %222 ], [ %.0437.ph, %proto_item_set_generated.exit483.sink.split ]
+  %.0437 = phi i1 [ true, %214 ], [ true, %222 ], [ true, %197 ], [ true, %202 ], [ false, %205 ], [ false, %211 ], [ %.0437.ph, %proto_item_set_generated.exit483.sink.split ]
   %228 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %230 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 12, i32 noundef 4)
@@ -2541,8 +2541,8 @@ dissect_ip_options.exit:                          ; preds = %521, %508, %500, %4
   br label %596
 
 596:                                              ; preds = %587, %595, %594, %576
-  %.0439 = phi ptr [ %586, %576 ], [ %591, %594 ], [ %591, %595 ], [ null, %587 ]
-  %.0438 = phi ptr [ %585, %576 ], [ null, %594 ], [ null, %595 ], [ null, %587 ]
+  %.0439 = phi ptr [ %586, %576 ], [ %591, %595 ], [ %591, %594 ], [ null, %587 ]
+  %.0438 = phi ptr [ %585, %576 ], [ null, %595 ], [ null, %594 ], [ null, %587 ]
   %597 = load i8, ptr @ip_track_conv_id, align 1, !range !6, !noundef !7
   %598 = trunc nuw i8 %597 to i1
   br i1 %598, label %599, label %proto_item_set_generated.exit535
@@ -2768,7 +2768,7 @@ define internal noundef zeroext i1 @dissect_ip_heur(ptr noundef %0, ptr noundef 
   br label %31
 
 31:                                               ; preds = %25, %21, %13, %11, %4, %29, %18
-  %.0 = phi i1 [ true, %18 ], [ true, %29 ], [ false, %4 ], [ false, %11 ], [ false, %13 ], [ false, %21 ], [ false, %25 ]
+  %.0 = phi i1 [ true, %29 ], [ false, %4 ], [ false, %11 ], [ true, %18 ], [ false, %13 ], [ false, %21 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -3353,12 +3353,12 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .backedge:                                        ; preds = %164, %177, %32, %._crit_edge275, %87, %._crit_edge, %121, %77, %75, %23
-  %.0217.be = phi i32 [ %18, %23 ], [ %36, %32 ], [ %.2.lcssa, %._crit_edge275 ], [ %91, %87 ], [ %.3.lcssa, %._crit_edge ], [ %125, %121 ], [ %159, %164 ], [ %172, %177 ], [ %27, %77 ], [ %27, %75 ]
+  %.0217.be = phi i32 [ %18, %23 ], [ %172, %177 ], [ %36, %32 ], [ %.2.lcssa, %._crit_edge275 ], [ %91, %87 ], [ %.3.lcssa, %._crit_edge ], [ %125, %121 ], [ %159, %164 ], [ %27, %77 ], [ %27, %75 ]
   %185 = icmp slt i32 %.0217.be, %6
   br i1 %185, label %14, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.backedge, %4, %182, %175, %162, %119, %85, %30
-  %.0217257 = phi i32 [ %.0217286, %182 ], [ %.0217286, %175 ], [ %.0217286, %162 ], [ %.0217286, %119 ], [ %.0217286, %85 ], [ %.0217286, %30 ], [ 6, %4 ], [ %.0217.be, %.backedge ]
+  %.0217257 = phi i32 [ %.0217286, %85 ], [ %.0217286, %30 ], [ %.0217286, %182 ], [ %.0217286, %175 ], [ %.0217286, %162 ], [ %.0217286, %119 ], [ 6, %4 ], [ %.0217.be, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0217257
 }

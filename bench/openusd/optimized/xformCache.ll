@@ -386,8 +386,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %38, %82, %79,
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   br label %86
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %14, %12, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %36
-  %.016 = phi ptr [ %37, %36 ], [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %12 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %14 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %14, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %12, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %36
+  %.016 = phi ptr [ %37, %36 ], [ %83, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %12 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCache7_GetCtmERKNS_7UsdPrimEE8IDENTITY, %14 ]
   ret ptr %.016
 
 86:                                               ; preds = %84, %30
@@ -1510,7 +1510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.backedge: ; preds = %_ZN3
   call void @_ZdlPvm(ptr noundef nonnull %134, i64 noundef 64) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.backedge
 
-.critedge:                                        ; preds = %63, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %103, %_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_9UsdObjectES2_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+.critedge:                                        ; preds = %63, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit, %103, %_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_9UsdObjectES2_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %139 = load ptr, ptr %41, align 8
   %140 = ptrtoint ptr %139 to i64
   %141 = and i64 %140, 7

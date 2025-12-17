@@ -497,7 +497,7 @@ define dso_local range(i32 -22, 1) i32 @copy_bpf_fprog_from_user(ptr noundef %0,
   br label %43
 
 43:                                               ; preds = %.thread, %42, %37, %32
-  %44 = phi i32 [ 0, %42 ], [ -22, %32 ], [ -14, %37 ], [ %.ph, %.thread ]
+  %44 = phi i32 [ %.ph, %.thread ], [ 0, %42 ], [ -22, %32 ], [ -14, %37 ]
   ret i32 %44
 }
 
@@ -1497,7 +1497,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
   br label %.thread13
 
 .thread13:                                        ; preds = %57, %.preheader, %19, %26, %30, %34, %38, %44, %51, %70, %74, %.loopexit16, %136
-  %137 = phi i64 [ -22, %136 ], [ -12, %74 ], [ -22, %.loopexit16 ], [ -12, %70 ], [ -22, %51 ], [ -22, %44 ], [ -22, %38 ], [ -22, %34 ], [ -22, %30 ], [ -22, %26 ], [ -22, %19 ], [ -22, %.preheader ], [ -22, %57 ]
+  %137 = phi i64 [ -22, %136 ], [ -22, %.loopexit16 ], [ -12, %74 ], [ -12, %70 ], [ -22, %51 ], [ -22, %44 ], [ -22, %38 ], [ -22, %34 ], [ -22, %30 ], [ -22, %26 ], [ -22, %19 ], [ -22, %.preheader ], [ -22, %57 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 1
@@ -1892,7 +1892,7 @@ __sk_attach_prog.exit:                            ; preds = %32, %8
   br label %__sk_attach_prog.exit.thread
 
 __sk_attach_prog.exit.thread:                     ; preds = %42, %44, %45, %28, %57, %__sk_attach_prog.exit, %5
-  %58 = phi i32 [ %7, %5 ], [ -12, %__sk_attach_prog.exit ], [ -12, %57 ], [ 0, %28 ], [ 0, %45 ], [ 0, %44 ], [ 0, %42 ]
+  %58 = phi i32 [ %7, %5 ], [ -12, %57 ], [ -12, %__sk_attach_prog.exit ], [ 0, %28 ], [ 0, %45 ], [ 0, %44 ], [ 0, %42 ]
   ret i32 %58
 }
 
@@ -5330,7 +5330,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_push_data(i64 noundef %0
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %31, %306, %304, %50, %14, %5
-  %327 = phi i64 [ -22, %5 ], [ 0, %14 ], [ -12, %50 ], [ 0, %304 ], [ 0, %306 ], [ -22, %31 ]
+  %327 = phi i64 [ -22, %5 ], [ 0, %14 ], [ 0, %306 ], [ -12, %50 ], [ 0, %304 ], [ -22, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5788,7 +5788,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_msg_pop_data(i64 noundef %0,
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %118, %287, %285, %34, %5
-  %308 = phi i64 [ -22, %5 ], [ -22, %34 ], [ 0, %285 ], [ 0, %287 ], [ -12, %118 ], [ -22, %28 ]
+  %308 = phi i64 [ 0, %287 ], [ -22, %5 ], [ -22, %34 ], [ -12, %118 ], [ 0, %285 ], [ -22, %28 ]
   ret i64 %308
 }
 
@@ -7113,9 +7113,9 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   br label %345
 
 345:                                              ; preds = %335, %318, %138
-  %346 = phi ptr [ %56, %138 ], [ %51, %318 ], [ %336, %335 ]
-  %347 = phi ptr [ %58, %138 ], [ %49, %318 ], [ %337, %335 ]
-  %348 = phi ptr [ %60, %138 ], [ %47, %318 ], [ %338, %335 ]
+  %346 = phi ptr [ %51, %318 ], [ %56, %138 ], [ %336, %335 ]
+  %347 = phi ptr [ %49, %318 ], [ %58, %138 ], [ %337, %335 ]
+  %348 = phi ptr [ %47, %318 ], [ %60, %138 ], [ %338, %335 ]
   %349 = and i64 %3, 32
   %350 = icmp eq i64 %349, 0
   br i1 %350, label %351, label %.thread16
@@ -7137,10 +7137,10 @@ define dso_local range(i64 -2147483648, 1) i64 @bpf_skb_adjust_room(i64 noundef 
   br label %.thread16
 
 .thread16:                                        ; preds = %230, %225, %219, %214, %212, %207, %174, %.thread9, %121, %105, %89, %356, %351, %345
-  %361 = phi i32 [ 0, %356 ], [ 0, %351 ], [ 0, %345 ], [ -22, %230 ], [ -114, %225 ], [ -22, %219 ], [ -22, %214 ], [ -524, %212 ], [ %210, %207 ], [ -524, %174 ], [ %124, %.thread9 ], [ %122, %121 ], [ -524, %105 ], [ -22, %89 ]
-  %362 = phi ptr [ %348, %356 ], [ %348, %351 ], [ %348, %345 ], [ %47, %230 ], [ %47, %225 ], [ %47, %219 ], [ %47, %214 ], [ %47, %212 ], [ %47, %207 ], [ %47, %174 ], [ %60, %.thread9 ], [ %60, %121 ], [ %60, %105 ], [ %60, %89 ]
-  %363 = phi ptr [ %347, %356 ], [ %347, %351 ], [ %347, %345 ], [ %49, %230 ], [ %49, %225 ], [ %49, %219 ], [ %49, %214 ], [ %49, %212 ], [ %49, %207 ], [ %49, %174 ], [ %58, %.thread9 ], [ %58, %121 ], [ %58, %105 ], [ %58, %89 ]
-  %364 = phi ptr [ %346, %356 ], [ %346, %351 ], [ %346, %345 ], [ %51, %230 ], [ %51, %225 ], [ %51, %219 ], [ %51, %214 ], [ %51, %212 ], [ %51, %207 ], [ %51, %174 ], [ %56, %.thread9 ], [ %56, %121 ], [ %56, %105 ], [ %56, %89 ]
+  %361 = phi i32 [ 0, %345 ], [ 0, %356 ], [ 0, %351 ], [ -22, %230 ], [ -114, %225 ], [ -22, %219 ], [ -22, %214 ], [ -524, %212 ], [ %210, %207 ], [ -524, %174 ], [ %124, %.thread9 ], [ %122, %121 ], [ -524, %105 ], [ -22, %89 ]
+  %362 = phi ptr [ %348, %345 ], [ %348, %356 ], [ %348, %351 ], [ %47, %230 ], [ %47, %225 ], [ %47, %219 ], [ %47, %214 ], [ %47, %212 ], [ %47, %207 ], [ %47, %174 ], [ %60, %.thread9 ], [ %60, %121 ], [ %60, %105 ], [ %60, %89 ]
+  %363 = phi ptr [ %347, %345 ], [ %347, %356 ], [ %347, %351 ], [ %49, %230 ], [ %49, %225 ], [ %49, %219 ], [ %49, %214 ], [ %49, %212 ], [ %49, %207 ], [ %49, %174 ], [ %58, %.thread9 ], [ %58, %121 ], [ %58, %105 ], [ %58, %89 ]
+  %364 = phi ptr [ %346, %345 ], [ %346, %356 ], [ %346, %351 ], [ %51, %230 ], [ %51, %225 ], [ %51, %219 ], [ %51, %214 ], [ %51, %212 ], [ %51, %207 ], [ %51, %174 ], [ %56, %.thread9 ], [ %56, %121 ], [ %56, %105 ], [ %56, %89 ]
   %365 = load ptr, ptr %364, align 8
   %366 = load ptr, ptr %363, align 8
   %367 = getelementptr inbounds nuw i8, ptr %6, i64 188
@@ -10804,9 +10804,9 @@ bpf_sock_ops_get_syn.exit:                        ; preds = %20, %34, %54, %84, 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %.0, i64 %122, i1 false)
   br label %bpf_sock_ops_get_syn.exit.thread
 
-bpf_sock_ops_get_syn.exit.thread:                 ; preds = %74, %105, %118, %bpf_sock_ops_get_syn.exit
-  %123 = phi i32 [ %120, %118 ], [ %116, %bpf_sock_ops_get_syn.exit ], [ -2, %105 ], [ -2, %74 ]
-  %124 = phi i32 [ %121, %118 ], [ 0, %bpf_sock_ops_get_syn.exit ], [ 0, %105 ], [ 0, %74 ]
+bpf_sock_ops_get_syn.exit.thread:                 ; preds = %105, %74, %118, %bpf_sock_ops_get_syn.exit
+  %123 = phi i32 [ %120, %118 ], [ %116, %bpf_sock_ops_get_syn.exit ], [ -2, %74 ], [ -2, %105 ]
+  %124 = phi i32 [ %121, %118 ], [ 0, %bpf_sock_ops_get_syn.exit ], [ 0, %74 ], [ 0, %105 ]
   %125 = sext i32 %124 to i64
   %126 = getelementptr i8, ptr %9, i64 %125
   %127 = sub i32 %10, %124
@@ -11058,7 +11058,7 @@ define dso_local range(i64 -97, 10) i64 @bpf_skb_fib_lookup(i64 noundef %0, i64 
   br label %26
 
 26:                                               ; preds = %24, %22
-  %27 = phi i32 [ %25, %24 ], [ %23, %22 ]
+  %27 = phi i32 [ %23, %22 ], [ %25, %24 ]
   %28 = icmp ne i32 %27, 0
   %29 = select i1 %28, i1 true, i1 %20
   br i1 %29, label %.thread, label %30
@@ -12429,7 +12429,7 @@ define dso_local range(i64 0, 2) i64 @bpf_skb_ecn_set_ce(i64 noundef %0, i64 %1,
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread13, %129, %.thread7, %18, %242, %235, %231, %218, %207, %204, %185, %.loopexit, %109, %103, %79, %.loopexit21
-  %248 = phi i64 [ 0, %.loopexit21 ], [ 0, %79 ], [ 0, %109 ], [ 0, %218 ], [ 0, %185 ], [ 0, %.loopexit ], [ 1, %207 ], [ %206, %204 ], [ 0, %231 ], [ 1, %242 ], [ 1, %235 ], [ 0, %103 ], [ 0, %18 ], [ 0, %.thread7 ], [ 0, %129 ], [ 0, %.thread13 ]
+  %248 = phi i64 [ 0, %.loopexit21 ], [ 0, %79 ], [ 0, %109 ], [ 0, %218 ], [ 0, %185 ], [ 0, %.loopexit ], [ 1, %207 ], [ %206, %204 ], [ 0, %231 ], [ 1, %242 ], [ 1, %235 ], [ 0, %103 ], [ 0, %.thread7 ], [ 0, %18 ], [ 0, %129 ], [ 0, %.thread13 ]
   ret i64 %248
 }
 
@@ -12993,7 +12993,7 @@ define dso_local i64 @bpf_sock_ops_load_hdr_opt(i64 noundef %0, i64 noundef %1, 
   br i1 %118, label %.split17.us, label %119
 
 119:                                              ; preds = %117, %.split.us
-  %120 = phi i64 [ %114, %117 ], [ 1, %.split.us ]
+  %120 = phi i64 [ 1, %.split.us ], [ %114, %117 ]
   %121 = getelementptr i8, ptr %105, i64 %120
   %122 = icmp ult ptr %121, %96
   br i1 %122, label %.split.us, label %.thread14, !llvm.loop !143
@@ -13051,7 +13051,7 @@ define dso_local i64 @bpf_sock_ops_load_hdr_opt(i64 noundef %0, i64 noundef %1, 
   br i1 %150, label %.thread14, label %153
 
 .thread14:                                        ; preds = %125, %143, %129, %133, %138, %.split, %119, %111, %107, %.split.us, %94, %.split17.us
-  %151 = phi ptr [ %.us-phi18, %.split17.us ], [ inttoptr (i64 -42 to ptr), %94 ], [ inttoptr (i64 -42 to ptr), %119 ], [ inttoptr (i64 -14 to ptr), %107 ], [ inttoptr (i64 -14 to ptr), %111 ], [ inttoptr (i64 -42 to ptr), %.split.us ], [ inttoptr (i64 -42 to ptr), %125 ], [ inttoptr (i64 -42 to ptr), %143 ], [ inttoptr (i64 -14 to ptr), %129 ], [ inttoptr (i64 -14 to ptr), %133 ], [ inttoptr (i64 -14 to ptr), %138 ], [ inttoptr (i64 -42 to ptr), %.split ]
+  %151 = phi ptr [ %.us-phi18, %.split17.us ], [ inttoptr (i64 -42 to ptr), %94 ], [ inttoptr (i64 -14 to ptr), %111 ], [ inttoptr (i64 -42 to ptr), %119 ], [ inttoptr (i64 -42 to ptr), %.split.us ], [ inttoptr (i64 -14 to ptr), %107 ], [ inttoptr (i64 -42 to ptr), %125 ], [ inttoptr (i64 -42 to ptr), %143 ], [ inttoptr (i64 -14 to ptr), %129 ], [ inttoptr (i64 -14 to ptr), %133 ], [ inttoptr (i64 -14 to ptr), %138 ], [ inttoptr (i64 -42 to ptr), %.split ]
   %152 = ptrtoint ptr %151 to i64
   br label %161
 
@@ -13172,7 +13172,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   br i1 %68, label %.split16.us, label %69
 
 69:                                               ; preds = %67, %.split.us
-  %70 = phi i64 [ %63, %67 ], [ 1, %.split.us ]
+  %70 = phi i64 [ 1, %.split.us ], [ %63, %67 ]
   %71 = getelementptr i8, ptr %54, i64 %70
   %72 = icmp ult ptr %71, %41
   br i1 %72, label %.split.us, label %.thread.thread43, !llvm.loop !143
@@ -13246,7 +13246,7 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.split, %83, %79, %60, %56, %.split.us, %.thread.thread43, %.thread, %.split16.us, %32, %25, %16, %12, %5
-  %109 = phi i64 [ 0, %.thread.thread43 ], [ -1, %5 ], [ -22, %12 ], [ -22, %16 ], [ -28, %25 ], [ -22, %32 ], [ -17, %.split16.us ], [ %101, %.thread ], [ -28, %.split.us ], [ -14, %60 ], [ -14, %56 ], [ -28, %.split ], [ -14, %83 ], [ -14, %79 ]
+  %109 = phi i64 [ 0, %.thread.thread43 ], [ -1, %5 ], [ -22, %12 ], [ -22, %16 ], [ -28, %25 ], [ -22, %32 ], [ -17, %.split16.us ], [ %101, %.thread ], [ -14, %56 ], [ -28, %.split.us ], [ -14, %60 ], [ -28, %.split ], [ -14, %83 ], [ -14, %79 ]
   ret i64 %109
 }
 
@@ -16184,7 +16184,7 @@ sk_filter_func_proto.exit.fold.split:             ; preds = %2
   br label %sk_filter_func_proto.exit
 
 sk_filter_func_proto.exit:                        ; preds = %2, %sk_filter_func_proto.exit.fold.split, %33, %30, %27, %26, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %34 = phi ptr [ @bpf_skb_ecn_set_ce_proto, %16 ], [ @bpf_get_listener_sock_proto, %15 ], [ @bpf_tcp_sock_proto, %14 ], [ @bpf_skc_lookup_tcp_proto, %13 ], [ @bpf_sk_release_proto, %12 ], [ @bpf_sk_lookup_udp_proto, %11 ], [ @bpf_sk_lookup_tcp_proto, %10 ], [ @bpf_sk_ancestor_cgroup_id_proto, %9 ], [ @bpf_sk_cgroup_id_proto, %8 ], [ @bpf_skb_ancestor_cgroup_id_proto, %7 ], [ @bpf_skb_cgroup_id_proto, %6 ], [ @bpf_skb_event_output_proto, %5 ], [ @bpf_sk_storage_delete_proto, %4 ], [ @bpf_sk_storage_get_proto, %3 ], [ @bpf_sk_fullsock_proto, %2 ], [ @bpf_get_socket_uid_proto, %19 ], [ @bpf_get_socket_cookie_proto, %18 ], [ @bpf_skb_load_bytes_relative_proto, %17 ], [ null, %26 ], [ %28, %27 ], [ %32, %30 ], [ @bpf_ktime_get_coarse_ns_proto, %33 ], [ @bpf_skb_load_bytes_proto, %sk_filter_func_proto.exit.fold.split ]
+  %34 = phi ptr [ @bpf_sk_fullsock_proto, %2 ], [ @bpf_skb_ecn_set_ce_proto, %16 ], [ @bpf_get_listener_sock_proto, %15 ], [ @bpf_tcp_sock_proto, %14 ], [ @bpf_skc_lookup_tcp_proto, %13 ], [ @bpf_sk_release_proto, %12 ], [ @bpf_sk_lookup_udp_proto, %11 ], [ @bpf_sk_lookup_tcp_proto, %10 ], [ @bpf_sk_ancestor_cgroup_id_proto, %9 ], [ @bpf_sk_cgroup_id_proto, %8 ], [ @bpf_skb_ancestor_cgroup_id_proto, %7 ], [ @bpf_skb_cgroup_id_proto, %6 ], [ @bpf_skb_event_output_proto, %5 ], [ @bpf_sk_storage_delete_proto, %4 ], [ @bpf_sk_storage_get_proto, %3 ], [ @bpf_skb_load_bytes_proto, %sk_filter_func_proto.exit.fold.split ], [ @bpf_get_socket_uid_proto, %19 ], [ @bpf_get_socket_cookie_proto, %18 ], [ @bpf_skb_load_bytes_relative_proto, %17 ], [ null, %26 ], [ %28, %27 ], [ %32, %30 ], [ @bpf_ktime_get_coarse_ns_proto, %33 ]
   ret ptr %34
 }
 
@@ -23732,7 +23732,7 @@ define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 nounde
   br label %29
 
 29:                                               ; preds = %26, %23, %21, %18, %15, %13, %12, %7, %5
-  %30 = phi i1 [ %14, %13 ], [ false, %5 ], [ false, %7 ], [ true, %21 ], [ false, %12 ], [ false, %15 ], [ %20, %18 ], [ %25, %23 ], [ %28, %26 ]
+  %30 = phi i1 [ %14, %13 ], [ false, %5 ], [ false, %7 ], [ true, %21 ], [ false, %12 ], [ false, %15 ], [ %20, %18 ], [ %28, %26 ], [ %25, %23 ]
   ret i1 %30
 }
 
@@ -24028,7 +24028,7 @@ define dso_local i64 @bpf_skc_to_tcp_timewait_sock(i64 noundef %0, i64 %1, i64 %
   br label %.thread
 
 .thread:                                          ; preds = %8, %.thread.sink.split, %5
-  %16 = phi i64 [ 0, %5 ], [ %spec.select, %.thread.sink.split ], [ 0, %8 ]
+  %16 = phi i64 [ 0, %5 ], [ 0, %8 ], [ %spec.select, %.thread.sink.split ]
   ret i64 %16
 }
 
@@ -24054,7 +24054,7 @@ define dso_local i64 @bpf_skc_to_tcp_request_sock(i64 noundef %0, i64 %1, i64 %2
   br label %.thread
 
 .thread:                                          ; preds = %8, %.thread.sink.split, %5
-  %16 = phi i64 [ 0, %5 ], [ %spec.select, %.thread.sink.split ], [ 0, %8 ]
+  %16 = phi i64 [ 0, %5 ], [ 0, %8 ], [ %spec.select, %.thread.sink.split ]
   ret i64 %16
 }
 
@@ -26371,7 +26371,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @bpf_skb_net_hdr_pop(ptr no
   br label %.thread
 
 .thread:                                          ; preds = %15, %17, %67, %58
-  %68 = phi i32 [ 0, %67 ], [ 0, %58 ], [ -12, %17 ], [ -12, %15 ]
+  %68 = phi i32 [ 0, %58 ], [ 0, %67 ], [ -12, %17 ], [ -12, %15 ]
   ret i32 %68
 }
 
@@ -26556,7 +26556,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
   store i32 %117, ptr %116, align 8
   br label %118
 
-118:                                              ; preds = %96, %91, %108, %109
+118:                                              ; preds = %96, %109, %91, %108
   %119 = load ptr, ptr %4, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %121 = load i32, ptr %120, align 4
@@ -26584,7 +26584,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
   br label %138
 
 138:                                              ; preds = %.thread8, %127, %118, %49, %44, %37
-  %139 = phi i32 [ -524, %44 ], [ %52, %49 ], [ 0, %127 ], [ 0, %118 ], [ -22, %37 ], [ %79, %.thread8 ]
+  %139 = phi i32 [ -524, %44 ], [ %52, %49 ], [ -22, %37 ], [ 0, %127 ], [ 0, %118 ], [ %79, %.thread8 ]
   ret i32 %139
 }
 
@@ -27415,7 +27415,7 @@ define internal fastcc i32 @__bpf_getsockopt(ptr noundef %0, i32 noundef %1, i32
   br label %48
 
 48:                                               ; preds = %42, %38, %36
-  %49 = phi i32 [ %47, %42 ], [ -22, %36 ], [ -22, %38 ]
+  %49 = phi i32 [ %47, %42 ], [ -22, %38 ], [ -22, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %sol_tcp_sockopt.exit
 
@@ -27454,7 +27454,7 @@ define internal fastcc i32 @__bpf_getsockopt(ptr noundef %0, i32 noundef %1, i32
   br label %sol_tcp_sockopt.exit
 
 sol_tcp_sockopt.exit:                             ; preds = %33, %29, %34, %48, %50, %.thread.i, %58, %67, %52
-  %70 = phi i32 [ %54, %52 ], [ %49, %48 ], [ -22, %29 ], [ -22, %34 ], [ -22, %50 ], [ 0, %67 ], [ -22, %58 ], [ -22, %.thread.i ], [ -22, %33 ]
+  %70 = phi i32 [ -22, %58 ], [ %54, %52 ], [ -22, %.thread.i ], [ %49, %48 ], [ -22, %29 ], [ -22, %34 ], [ -22, %50 ], [ 0, %67 ], [ -22, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 
@@ -27521,8 +27521,8 @@ sol_tcp_sockopt.exit:                             ; preds = %33, %29, %34, %48, 
   br label %.thread
 
 .thread:                                          ; preds = %99, %5, %18
-  %102 = phi i32 [ 0, %18 ], [ 0, %5 ], [ %spec.select, %99 ]
-  %103 = phi i32 [ -22, %18 ], [ -22, %5 ], [ %100, %99 ]
+  %102 = phi i32 [ %spec.select, %99 ], [ 0, %18 ], [ 0, %5 ]
+  %103 = phi i32 [ %100, %99 ], [ -22, %18 ], [ -22, %5 ]
   %104 = icmp slt i32 %102, %4
   br i1 %104, label %105, label %110
 
@@ -27873,7 +27873,7 @@ define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %188, %184, %173, %170, %134, %132, %94, %93, %92, %91, %89, %16, %12, %4
-  %191 = phi i32 [ 2, %91 ], [ 3, %92 ], [ 4, %93 ], [ 8, %132 ], [ -19, %4 ], [ 5, %16 ], [ 1, %89 ], [ 4, %94 ], [ 6, %134 ], [ 7, %173 ], [ 7, %170 ], [ 5, %12 ], [ 0, %184 ], [ 0, %188 ], [ 4, %55 ]
+  %191 = phi i32 [ 2, %91 ], [ 3, %92 ], [ 4, %93 ], [ 8, %132 ], [ 4, %55 ], [ -19, %4 ], [ 5, %16 ], [ 1, %89 ], [ 4, %94 ], [ 6, %134 ], [ 7, %173 ], [ 7, %170 ], [ 5, %12 ], [ 0, %184 ], [ 0, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %191
@@ -28157,7 +28157,7 @@ define internal fastcc noundef range(i32 -19, 10) i32 @bpf_ipv6_fib_lookup(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %170, %166, %155, %152, %143, %117, %115, %99, %98, %97, %94, %90, %84, %81, %26, %22, %17, %13, %4
-  %173 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 2, %97 ], [ 8, %115 ], [ 4, %13 ], [ 4, %4 ], [ -19, %17 ], [ 5, %26 ], [ 4, %90 ], [ 1, %94 ], [ 6, %117 ], [ 9, %143 ], [ 7, %155 ], [ 7, %152 ], [ 5, %22 ], [ 4, %81 ], [ 4, %84 ], [ 0, %166 ], [ 0, %170 ], [ 4, %60 ]
+  %173 = phi i32 [ 4, %99 ], [ 3, %98 ], [ 2, %97 ], [ 8, %115 ], [ 4, %60 ], [ 4, %13 ], [ 4, %4 ], [ -19, %17 ], [ 5, %26 ], [ 4, %90 ], [ 1, %94 ], [ 6, %117 ], [ 9, %143 ], [ 7, %155 ], [ 7, %152 ], [ 5, %22 ], [ 4, %81 ], [ 4, %84 ], [ 0, %166 ], [ 0, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %173
@@ -28247,7 +28247,7 @@ define internal fastcc ptr @__bpf_skc_lookup(ptr noundef %0, i32 noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %30, %32, %33, %22, %20, %12, %9, %7
-  %34 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %22 ], [ null, %9 ], [ %26, %33 ], [ null, %7 ], [ %26, %32 ], [ %26, %30 ]
+  %34 = phi ptr [ null, %12 ], [ %21, %20 ], [ null, %22 ], [ null, %9 ], [ null, %7 ], [ %26, %33 ], [ %26, %32 ], [ %26, %30 ]
   ret ptr %34
 }
 
@@ -28322,7 +28322,7 @@ define internal fastcc ptr @sk_lookup(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %54
 
 54:                                               ; preds = %44, %39, %24, %22
-  %55 = phi ptr [ %27, %24 ], [ %53, %44 ], [ %23, %22 ], [ %40, %39 ]
+  %55 = phi ptr [ %27, %24 ], [ %40, %39 ], [ %53, %44 ], [ %23, %22 ]
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %.thread, label %56
 
@@ -28920,7 +28920,7 @@ define internal fastcc noundef ptr @bpf_get_skb_set_tunnel_proto(i32 noundef ran
   br label %16
 
 16:                                               ; preds = %11, %4
-  %17 = phi ptr [ %15, %11 ], [ null, %4 ]
+  %17 = phi ptr [ null, %4 ], [ %15, %11 ]
   ret ptr %17
 }
 

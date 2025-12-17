@@ -896,8 +896,8 @@ opj_jp2_apply_cdef.exit:                          ; preds = %._crit_edge83.i, %3
   store ptr null, ptr %12, align 8, !tbaa !20
   br label %opj_jp2_check_color.exit.thread
 
-opj_jp2_check_color.exit.thread:                  ; preds = %175, %._crit_edge156.i, %._crit_edge, %.critedge180.thread184.i, %40, %48, %.split.us.i, %.critedge182.i, %8, %opj_jp2_apply_cdef.exit, %267, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %267 ], [ 1, %opj_jp2_apply_cdef.exit ], [ 1, %8 ], [ 0, %.critedge182.i ], [ 0, %.split.us.i ], [ 0, %48 ], [ 0, %40 ], [ 0, %.critedge180.thread184.i ], [ 0, %._crit_edge ], [ 0, %._crit_edge156.i ], [ 0, %175 ]
+opj_jp2_check_color.exit.thread:                  ; preds = %175, %._crit_edge156.i, %._crit_edge, %48, %.split.us.i, %.critedge182.i, %.critedge180.thread184.i, %40, %8, %opj_jp2_apply_cdef.exit, %267, %3
+  %.0 = phi i32 [ 1, %3 ], [ 0, %48 ], [ 1, %8 ], [ 1, %267 ], [ 1, %opj_jp2_apply_cdef.exit ], [ 0, %40 ], [ 0, %.critedge180.thread184.i ], [ 0, %.critedge182.i ], [ 0, %.split.us.i ], [ 0, %._crit_edge ], [ 0, %._crit_edge156.i ], [ 0, %175 ]
   ret i32 %.0
 }
 
@@ -1232,7 +1232,7 @@ switch.lookup219:                                 ; preds = %93
   br i1 %134, label %126, label %.critedge, !llvm.loop !104
 
 .critedge.sink.split:                             ; preds = %93, %._crit_edge175, %98, %switch.lookup219
-  %.str.3.sink = phi ptr [ @.str.3, %93 ], [ @.str.4, %switch.lookup219 ], [ @.str.5, %98 ], [ @.str.6, %._crit_edge175 ]
+  %.str.3.sink = phi ptr [ @.str.5, %98 ], [ @.str.3, %93 ], [ @.str.4, %switch.lookup219 ], [ @.str.6, %._crit_edge175 ]
   %135 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull %.str.3.sink) #6
   br label %.critedge
 
@@ -1248,7 +1248,7 @@ switch.lookup219:                                 ; preds = %93
   br label %141
 
 141:                                              ; preds = %14, %4, %.critedge, %111, %103, %33, %24, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %.critedge ], [ 0, %111 ], [ 0, %103 ], [ 0, %33 ], [ 0, %24 ], [ 0, %4 ], [ 0, %14 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 1, %.critedge ], [ 0, %111 ], [ 0, %103 ], [ 0, %33 ], [ 0, %24 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -1500,8 +1500,8 @@ opj_jp2_exec.exit30:                              ; preds = %47
   %53 = tail call i32 @opj_j2k_start_compress(ptr noundef %52, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %opj_jp2_setup_header_writing.exit.thread
 
-opj_jp2_setup_header_writing.exit.thread:         ; preds = %33, %27, %24, %20, %opj_jp2_exec.exit30, %opj_jp2_setup_header_writing.exit, %opj_jp2_exec.exit, %4, %51
-  %.0 = phi i32 [ %53, %51 ], [ 0, %4 ], [ 0, %opj_jp2_exec.exit ], [ 0, %opj_jp2_setup_header_writing.exit ], [ 0, %opj_jp2_exec.exit30 ], [ 0, %20 ], [ 0, %24 ], [ 0, %27 ], [ 0, %33 ]
+opj_jp2_setup_header_writing.exit.thread:         ; preds = %20, %24, %27, %33, %opj_jp2_exec.exit30, %opj_jp2_setup_header_writing.exit, %opj_jp2_exec.exit, %4, %51
+  %.0 = phi i32 [ %53, %51 ], [ 0, %opj_jp2_setup_header_writing.exit ], [ 0, %opj_jp2_exec.exit ], [ 0, %4 ], [ 0, %opj_jp2_exec.exit30 ], [ 0, %33 ], [ 0, %27 ], [ 0, %24 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -1667,7 +1667,7 @@ opj_jp2_exec.exit58:                              ; preds = %30
   br label %68
 
 68:                                               ; preds = %46, %49, %63, %60, %opj_jp2_exec.exit58, %opj_jp2_exec.exit, %4, %44, %38
-  %.0 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %4 ], [ 0, %opj_jp2_exec.exit ], [ 0, %opj_jp2_exec.exit58 ], [ %48, %60 ], [ %48, %63 ], [ %48, %49 ], [ %48, %46 ]
+  %.0 = phi i32 [ 0, %38 ], [ 0, %44 ], [ 0, %opj_jp2_exec.exit58 ], [ 0, %opj_jp2_exec.exit ], [ 0, %4 ], [ %48, %60 ], [ %48, %63 ], [ %48, %49 ], [ %48, %46 ]
   ret i32 %.0
 }
 
@@ -2086,16 +2086,16 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_header_procedure(ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %118, %.preheader119
-  %.081.ph.ph = phi i32 [ %.182, %118 ], [ 1024, %.preheader119 ]
-  %.076.ph.ph = phi ptr [ %.177, %118 ], [ %7, %.preheader119 ]
+.outer.outer:                                     ; preds = %117, %.preheader119
+  %.081.ph.ph = phi i32 [ %.182, %117 ], [ 1024, %.preheader119 ]
+  %.076.ph.ph = phi ptr [ %.177, %117 ], [ %7, %.preheader119 ]
   br label %.outer
 
 12:                                               ; preds = %3
   %13 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.26) #6
-  br label %143
+  br label %142
 
-14:                                               ; preds = %.outer, %77
+14:                                               ; preds = %.outer, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i64 @opj_stream_read_data(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %2) #6
   %16 = and i64 %15, 4294967295
@@ -2106,7 +2106,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_header_procedure(ptr noundef %
   call void @opj_read_bytes_LE(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 4) #6
   call void @opj_read_bytes_LE(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 4) #6
   %18 = load i32, ptr %6, align 4, !tbaa !122
-  switch i32 %18, label %35 [
+  switch i32 %18, label %34 [
     i32 0, label %19
     i32 1, label %27
   ]
@@ -2124,266 +2124,266 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_header_procedure(ptr noundef %
   %25 = trunc i64 %20 to i32
   %26 = add i32 %25, 8
   store i32 %26, ptr %6, align 4, !tbaa !122
-  br label %35
+  br label %34
 
 27:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = call i64 @opj_stream_read_data(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %2) #6
   %29 = and i64 %28, 4294967295
   %cond = icmp eq i64 %29, 8
-  br i1 %cond, label %30, label %.critedge.i
+  br i1 %cond, label %30, label %.loopexit120
 
 30:                                               ; preds = %27
   call void @opj_read_bytes_LE(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 4) #6
   %31 = load i32, ptr %5, align 4, !tbaa !46
   %.not28.i = icmp eq i32 %31, 0
-  br i1 %.not28.i, label %34, label %32
+  br i1 %.not28.i, label %.critedge.i, label %32
 
 32:                                               ; preds = %30
   %33 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.38) #6
-  br label %.critedge.i
+  br label %.loopexit120
 
-34:                                               ; preds = %30
+.critedge.i:                                      ; preds = %30
   call void @opj_read_bytes_LE(ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %35
+  br label %34
 
-.critedge.i:                                      ; preds = %27, %32
+.loopexit120:                                     ; preds = %27, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-35:                                               ; preds = %34, %24, %17
-  %.1 = phi i32 [ 8, %17 ], [ 8, %24 ], [ 16, %34 ]
+34:                                               ; preds = %.critedge.i, %24, %17
+  %.1 = phi i32 [ 8, %17 ], [ 16, %.critedge.i ], [ 8, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %36 = load i32, ptr %10, align 4, !tbaa !124
-  %37 = icmp eq i32 %36, 1785737827
-  br i1 %37, label %38, label %45
+  %35 = load i32, ptr %10, align 4, !tbaa !124
+  %36 = icmp eq i32 %35, 1785737827
+  br i1 %36, label %37, label %44
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %11, align 4, !tbaa !125
-  %40 = and i32 %39, 4
-  %.not102 = icmp eq i32 %40, 0
-  br i1 %.not102, label %43, label %41
+37:                                               ; preds = %34
+  %38 = load i32, ptr %11, align 4, !tbaa !125
+  %39 = and i32 %38, 4
+  %.not102 = icmp eq i32 %39, 0
+  br i1 %.not102, label %42, label %40
 
-41:                                               ; preds = %38
-  %42 = or i32 %39, 8
-  store i32 %42, ptr %11, align 4, !tbaa !125
+40:                                               ; preds = %37
+  %41 = or i32 %38, 8
+  store i32 %41, ptr %11, align 4, !tbaa !125
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-43:                                               ; preds = %38
-  %44 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.27) #6
+42:                                               ; preds = %37
+  %43 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.27) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-45:                                               ; preds = %35
-  %46 = load i32, ptr %6, align 4, !tbaa !122
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %50
+44:                                               ; preds = %34
+  %45 = load i32, ptr %6, align 4, !tbaa !122
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %49
 
-48:                                               ; preds = %45
-  %49 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.28) #6
+47:                                               ; preds = %44
+  %48 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.28) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-50:                                               ; preds = %45
-  %51 = icmp ult i32 %46, %.1
-  br i1 %51, label %52, label %.preheader
+49:                                               ; preds = %44
+  %50 = icmp ult i32 %45, %.1
+  br i1 %50, label %51, label %.preheader
 
-52:                                               ; preds = %50
-  %53 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.29, i32 noundef %46, i32 noundef %36) #6
+51:                                               ; preds = %49
+  %52 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.29, i32 noundef %45, i32 noundef %35) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-54:                                               ; preds = %.preheader
+53:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %opj_jp2_find_handler.exit, label %.preheader, !llvm.loop !126
 
-.preheader:                                       ; preds = %50, %54
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %50 ]
-  %55 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_header, i64 %indvars.iv.i
-  %56 = load i32, ptr %55, align 16, !tbaa !127
-  %57 = icmp eq i32 %56, %36
-  br i1 %57, label %opj_jp2_find_handler.exit, label %54
+.preheader:                                       ; preds = %49, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %49 ]
+  %54 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_header, i64 %indvars.iv.i
+  %55 = load i32, ptr %54, align 16, !tbaa !127
+  %56 = icmp eq i32 %55, %35
+  br i1 %56, label %opj_jp2_find_handler.exit, label %53
 
-opj_jp2_find_handler.exit:                        ; preds = %54, %.preheader
-  %.0.i103 = phi ptr [ %55, %.preheader ], [ null, %54 ]
-  br label %59
+opj_jp2_find_handler.exit:                        ; preds = %53, %.preheader
+  %.0.i103 = phi ptr [ %54, %.preheader ], [ null, %53 ]
+  br label %58
 
-58:                                               ; preds = %59
+57:                                               ; preds = %58
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 6
-  br i1 %exitcond.not.i106, label %opj_jp2_img_find_handler.exit, label %59, !llvm.loop !129
+  br i1 %exitcond.not.i106, label %opj_jp2_img_find_handler.exit, label %58, !llvm.loop !129
 
-59:                                               ; preds = %58, %opj_jp2_find_handler.exit
-  %indvars.iv.i104 = phi i64 [ 0, %opj_jp2_find_handler.exit ], [ %indvars.iv.next.i105, %58 ]
-  %60 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_img_header, i64 %indvars.iv.i104
-  %61 = load i32, ptr %60, align 16, !tbaa !127
-  %62 = icmp eq i32 %61, %36
-  br i1 %62, label %64, label %58
+58:                                               ; preds = %57, %opj_jp2_find_handler.exit
+  %indvars.iv.i104 = phi i64 [ 0, %opj_jp2_find_handler.exit ], [ %indvars.iv.next.i105, %57 ]
+  %59 = getelementptr inbounds nuw %struct.opj_jp2_header_handler, ptr @jp2_img_header, i64 %indvars.iv.i104
+  %60 = load i32, ptr %59, align 16, !tbaa !127
+  %61 = icmp eq i32 %60, %35
+  br i1 %61, label %63, label %57
 
-opj_jp2_img_find_handler.exit:                    ; preds = %58
-  %63 = sub i32 %46, %.1
+opj_jp2_img_find_handler.exit:                    ; preds = %57
+  %62 = sub i32 %45, %.1
   %.not = icmp eq ptr %.0.i103, null
-  br i1 %.not, label %123, label %.thread210
+  br i1 %.not, label %122, label %.thread211
 
-64:                                               ; preds = %59
-  %65 = sub i32 %46, %.1
-  %66 = icmp eq ptr %.0.i103, null
-  br i1 %66, label %67, label %.thread210
+63:                                               ; preds = %58
+  %64 = sub i32 %45, %.1
+  %65 = icmp eq ptr %.0.i103, null
+  br i1 %65, label %66, label %.thread211
 
-67:                                               ; preds = %64
-  %68 = lshr i32 %36, 24
-  %69 = lshr i32 %36, 16
-  %70 = and i32 %69, 255
-  %71 = lshr i32 %36, 8
-  %72 = and i32 %71, 255
-  %73 = and i32 %36, 255
-  %74 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %73) #6
-  %75 = load i32, ptr %11, align 4, !tbaa !125
-  %76 = and i32 %75, 4
-  %.not97 = icmp eq i32 %76, 0
-  br i1 %.not97, label %77, label %.thread210
+66:                                               ; preds = %63
+  %67 = lshr i32 %35, 24
+  %68 = lshr i32 %35, 16
+  %69 = and i32 %68, 255
+  %70 = lshr i32 %35, 8
+  %71 = and i32 %70, 255
+  %72 = and i32 %35, 255
+  %73 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %67, i32 noundef %69, i32 noundef %71, i32 noundef %72) #6
+  %74 = load i32, ptr %11, align 4, !tbaa !125
+  %75 = and i32 %74, 4
+  %.not97 = icmp eq i32 %75, 0
+  br i1 %.not97, label %76, label %.thread211
 
-77:                                               ; preds = %67
-  %78 = load i32, ptr %10, align 4, !tbaa !124
-  %79 = lshr i32 %78, 24
-  %80 = lshr i32 %78, 16
-  %81 = and i32 %80, 255
-  %82 = lshr i32 %78, 8
-  %83 = and i32 %82, 255
-  %84 = and i32 %78, 255
-  %85 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %79, i32 noundef %81, i32 noundef %83, i32 noundef %84) #6
-  %86 = load i32, ptr %11, align 4, !tbaa !125
-  %87 = or i32 %86, 2147483647
-  store i32 %87, ptr %11, align 4, !tbaa !125
-  %88 = zext i32 %65 to i64
-  %89 = call i64 @opj_stream_skip(ptr noundef %1, i64 noundef %88, ptr noundef %2) #6
-  %.not98 = icmp eq i64 %89, %88
-  br i1 %.not98, label %14, label %90, !llvm.loop !130
+76:                                               ; preds = %66
+  %77 = load i32, ptr %10, align 4, !tbaa !124
+  %78 = lshr i32 %77, 24
+  %79 = lshr i32 %77, 16
+  %80 = and i32 %79, 255
+  %81 = lshr i32 %77, 8
+  %82 = and i32 %81, 255
+  %83 = and i32 %77, 255
+  %84 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %78, i32 noundef %80, i32 noundef %82, i32 noundef %83) #6
+  %85 = load i32, ptr %11, align 4, !tbaa !125
+  %86 = or i32 %85, 2147483647
+  store i32 %86, ptr %11, align 4, !tbaa !125
+  %87 = zext i32 %64 to i64
+  %88 = call i64 @opj_stream_skip(ptr noundef %1, i64 noundef %87, ptr noundef %2) #6
+  %.not98 = icmp eq i64 %88, %87
+  br i1 %.not98, label %14, label %89, !llvm.loop !130
 
-90:                                               ; preds = %77
-  %91 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.32) #6
+89:                                               ; preds = %76
+  %90 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.32) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-.thread210:                                       ; preds = %opj_jp2_img_find_handler.exit, %67, %64
-  %92 = phi i32 [ %65, %64 ], [ %65, %67 ], [ %63, %opj_jp2_img_find_handler.exit ]
-  %.080 = phi ptr [ %60, %67 ], [ %.0.i103, %64 ], [ %.0.i103, %opj_jp2_img_find_handler.exit ]
-  %93 = zext i32 %92 to i64
-  %94 = call i64 @opj_stream_get_number_byte_left(ptr noundef %1) #6
-  %95 = icmp slt i64 %94, %93
-  br i1 %95, label %96, label %108
+.thread211:                                       ; preds = %opj_jp2_img_find_handler.exit, %66, %63
+  %91 = phi i32 [ %64, %66 ], [ %64, %63 ], [ %62, %opj_jp2_img_find_handler.exit ]
+  %.080 = phi ptr [ %.0.i103, %63 ], [ %59, %66 ], [ %.0.i103, %opj_jp2_img_find_handler.exit ]
+  %92 = zext i32 %91 to i64
+  %93 = call i64 @opj_stream_get_number_byte_left(ptr noundef %1) #6
+  %94 = icmp slt i64 %93, %92
+  br i1 %94, label %95, label %107
 
-96:                                               ; preds = %.thread210
-  %97 = load i32, ptr %6, align 4, !tbaa !122
-  %98 = load i32, ptr %10, align 4, !tbaa !124
-  %99 = lshr i32 %98, 24
-  %100 = lshr i32 %98, 16
-  %101 = and i32 %100, 255
-  %102 = lshr i32 %98, 8
-  %103 = and i32 %102, 255
-  %104 = and i32 %98, 255
-  %105 = call i64 @opj_stream_get_number_byte_left(ptr noundef %1) #6
-  %106 = trunc i64 %105 to i32
-  %107 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %97, i32 noundef %99, i32 noundef %101, i32 noundef %103, i32 noundef %104, i32 noundef %92, i32 noundef %106) #6
+95:                                               ; preds = %.thread211
+  %96 = load i32, ptr %6, align 4, !tbaa !122
+  %97 = load i32, ptr %10, align 4, !tbaa !124
+  %98 = lshr i32 %97, 24
+  %99 = lshr i32 %97, 16
+  %100 = and i32 %99, 255
+  %101 = lshr i32 %97, 8
+  %102 = and i32 %101, 255
+  %103 = and i32 %97, 255
+  %104 = call i64 @opj_stream_get_number_byte_left(ptr noundef %1) #6
+  %105 = trunc i64 %104 to i32
+  %106 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %96, i32 noundef %98, i32 noundef %100, i32 noundef %102, i32 noundef %103, i32 noundef %91, i32 noundef %105) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-108:                                              ; preds = %.thread210
-  %109 = icmp ugt i32 %92, %.081.ph.ph
-  br i1 %109, label %110, label %113
+107:                                              ; preds = %.thread211
+  %108 = icmp ugt i32 %91, %.081.ph.ph
+  br i1 %108, label %109, label %112
 
-110:                                              ; preds = %108
-  %111 = call ptr @opj_realloc(ptr noundef %.076.ph.ph, i64 noundef %93) #6
-  %.not99.not = icmp eq ptr %111, null
-  br i1 %.not99.not, label %.thread, label %113
+109:                                              ; preds = %107
+  %110 = call ptr @opj_realloc(ptr noundef %.076.ph.ph, i64 noundef %92) #6
+  %.not99.not = icmp eq ptr %110, null
+  br i1 %.not99.not, label %.thread, label %112
 
-.thread:                                          ; preds = %110
+.thread:                                          ; preds = %109
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  %112 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.34) #6
-  br label %143
+  %111 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.34) #6
+  br label %142
 
-113:                                              ; preds = %110, %108
-  %.182 = phi i32 [ %.081.ph.ph, %108 ], [ %92, %110 ]
-  %.177 = phi ptr [ %.076.ph.ph, %108 ], [ %111, %110 ]
-  %114 = call i64 @opj_stream_read_data(ptr noundef %1, ptr noundef %.177, i64 noundef %93, ptr noundef %2) #6
-  %115 = trunc i64 %114 to i32
-  %.not100 = icmp eq i32 %92, %115
-  br i1 %.not100, label %118, label %116
+112:                                              ; preds = %109, %107
+  %.182 = phi i32 [ %.081.ph.ph, %107 ], [ %91, %109 ]
+  %.177 = phi ptr [ %.076.ph.ph, %107 ], [ %110, %109 ]
+  %113 = call i64 @opj_stream_read_data(ptr noundef %1, ptr noundef %.177, i64 noundef %92, ptr noundef %2) #6
+  %114 = trunc i64 %113 to i32
+  %.not100 = icmp eq i32 %91, %114
+  br i1 %.not100, label %117, label %115
 
-116:                                              ; preds = %113
-  %117 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.35) #6
+115:                                              ; preds = %112
+  %116 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.35) #6
   call void @opj_free(ptr noundef %.177) #6
-  br label %143
+  br label %142
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !131
-  %121 = call i32 %120(ptr noundef %0, ptr noundef %.177, i32 noundef %92, ptr noundef %2) #6
-  %.not101 = icmp eq i32 %121, 0
-  br i1 %.not101, label %122, label %.outer.outer, !llvm.loop !130
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !131
+  %120 = call i32 %119(ptr noundef %0, ptr noundef %.177, i32 noundef %91, ptr noundef %2) #6
+  %.not101 = icmp eq i32 %120, 0
+  br i1 %.not101, label %121, label %.outer.outer, !llvm.loop !130
 
-122:                                              ; preds = %118
+121:                                              ; preds = %117
   call void @opj_free(ptr noundef %.177) #6
-  br label %143
+  br label %142
 
-123:                                              ; preds = %opj_jp2_img_find_handler.exit
-  %124 = load i32, ptr %11, align 4, !tbaa !125
-  %125 = and i32 %124, 1
-  %.not93 = icmp eq i32 %125, 0
-  br i1 %.not93, label %126, label %128
+122:                                              ; preds = %opj_jp2_img_find_handler.exit
+  %123 = load i32, ptr %11, align 4, !tbaa !125
+  %124 = and i32 %123, 1
+  %.not93 = icmp eq i32 %124, 0
+  br i1 %.not93, label %125, label %127
 
-126:                                              ; preds = %123
-  %127 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.36) #6
+125:                                              ; preds = %122
+  %126 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.36) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-128:                                              ; preds = %123
-  %129 = and i32 %124, 2
-  %.not94 = icmp eq i32 %129, 0
-  br i1 %.not94, label %130, label %132
+127:                                              ; preds = %122
+  %128 = and i32 %123, 2
+  %.not94 = icmp eq i32 %128, 0
+  br i1 %.not94, label %129, label %131
 
-130:                                              ; preds = %128
-  %131 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.37) #6
+129:                                              ; preds = %127
+  %130 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.37) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-132:                                              ; preds = %128
-  %133 = or i32 %124, 2147483647
-  store i32 %133, ptr %11, align 4, !tbaa !125
-  %134 = zext i32 %63 to i64
-  %135 = call i64 @opj_stream_skip(ptr noundef %1, i64 noundef %134, ptr noundef %2) #6
-  %.not95 = icmp eq i64 %135, %134
-  br i1 %.not95, label %.outer, label %136, !llvm.loop !130
+131:                                              ; preds = %127
+  %132 = or i32 %123, 2147483647
+  store i32 %132, ptr %11, align 4, !tbaa !125
+  %133 = zext i32 %62 to i64
+  %134 = call i64 @opj_stream_skip(ptr noundef %1, i64 noundef %133, ptr noundef %2) #6
+  %.not95 = icmp eq i64 %134, %133
+  br i1 %.not95, label %.outer, label %135, !llvm.loop !130
 
-136:                                              ; preds = %132
-  %137 = load i32, ptr %11, align 4, !tbaa !125
-  %138 = and i32 %137, 8
-  %.not96 = icmp eq i32 %138, 0
-  br i1 %.not96, label %141, label %139
+135:                                              ; preds = %131
+  %136 = load i32, ptr %11, align 4, !tbaa !125
+  %137 = and i32 %136, 8
+  %.not96 = icmp eq i32 %137, 0
+  br i1 %.not96, label %140, label %138
 
-139:                                              ; preds = %136
-  %140 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.32) #6
+138:                                              ; preds = %135
+  %139 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.32) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-141:                                              ; preds = %136
-  %142 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.32) #6
+140:                                              ; preds = %135
+  %141 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.32) #6
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-.outer:                                           ; preds = %.outer.outer, %132
+.outer:                                           ; preds = %.outer.outer, %131
   br label %14
 
-.loopexit:                                        ; preds = %14, %22, %.critedge.i
+.loopexit:                                        ; preds = %14, %.loopexit120, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @opj_free(ptr noundef %.076.ph.ph) #6
-  br label %143
+  br label %142
 
-143:                                              ; preds = %.thread, %.loopexit, %141, %139, %130, %126, %122, %116, %96, %90, %52, %48, %43, %41, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %41 ], [ 0, %43 ], [ 0, %48 ], [ 0, %52 ], [ 0, %96 ], [ 0, %116 ], [ 0, %122 ], [ 0, %90 ], [ 1, %139 ], [ 0, %141 ], [ 0, %130 ], [ 0, %126 ], [ 1, %.loopexit ], [ 0, %.thread ]
+142:                                              ; preds = %.thread, %.loopexit, %140, %138, %129, %125, %121, %115, %95, %89, %51, %47, %42, %40, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %40 ], [ 0, %42 ], [ 0, %47 ], [ 0, %51 ], [ 0, %95 ], [ 0, %115 ], [ 0, %121 ], [ 0, %.thread ], [ 0, %89 ], [ 1, %138 ], [ 0, %140 ], [ 0, %129 ], [ 0, %125 ], [ 1, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -2609,7 +2609,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_jp2h(ptr noundef %0, ptr nound
   br label %38
 
 .critedge.i:                                      ; preds = %26, %24, %22
-  %.str.28.sink.i = phi ptr [ @.str.51, %22 ], [ @.str.38, %24 ], [ @.str.28, %26 ]
+  %.str.28.sink.i = phi ptr [ @.str.38, %24 ], [ @.str.51, %22 ], [ @.str.28, %26 ]
   %37 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 1, ptr noundef nonnull %.str.28.sink.i) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
@@ -2687,7 +2687,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_jp2h(ptr noundef %0, ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %70, %._crit_edge.thread, %42, %38, %10
-  %.025 = phi i32 [ 0, %10 ], [ 0, %42 ], [ 0, %38 ], [ 0, %._crit_edge.thread ], [ 1, %70 ], [ 0, %48 ]
+  %.025 = phi i32 [ 0, %10 ], [ 0, %42 ], [ 1, %70 ], [ 0, %38 ], [ 0, %._crit_edge.thread ], [ 0, %48 ]
   ret i32 %.025
 }
 
@@ -3037,7 +3037,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_colr(ptr noundef %0, ptr nound
   br label %91
 
 91:                                               ; preds = %75, %87, %89, %._crit_edge, %.thread95, %.thread, %32, %20, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %20 ], [ 0, %32 ], [ 0, %.thread ], [ 0, %.thread95 ], [ 1, %._crit_edge ], [ 1, %89 ], [ 1, %87 ], [ 1, %75 ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %20 ], [ 0, %32 ], [ 0, %.thread95 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %89 ], [ 1, %87 ], [ 1, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3256,7 +3256,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_pclr(ptr noundef captures(none
   br i1 %83, label %.preheader, label %.critedge, !llvm.loop !148
 
 .critedge:                                        ; preds = %81, %64, %27, %24, %4, %40, %37, %34, %22, %14
-  %.072 = phi i32 [ 0, %14 ], [ 0, %22 ], [ 0, %40 ], [ 0, %37 ], [ 0, %34 ], [ 0, %4 ], [ 0, %24 ], [ 0, %27 ], [ 0, %64 ], [ 1, %81 ]
+  %.072 = phi i32 [ 0, %24 ], [ 0, %4 ], [ 0, %14 ], [ 0, %22 ], [ 0, %27 ], [ 0, %40 ], [ 0, %37 ], [ 0, %34 ], [ 0, %64 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.072
 }
@@ -3438,7 +3438,7 @@ define internal range(i32 0, 2) i32 @opj_jp2_read_cdef(ptr noundef captures(none
   br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !150
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %24, %4, %30, %22, %16, %10
-  %.030 = phi i32 [ 0, %10 ], [ 0, %16 ], [ 0, %22 ], [ 0, %30 ], [ 0, %4 ], [ 0, %24 ], [ 1, %31 ], [ 1, %.lr.ph ]
+  %.030 = phi i32 [ 0, %4 ], [ 0, %10 ], [ 0, %16 ], [ 0, %22 ], [ 0, %24 ], [ 0, %30 ], [ 1, %31 ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.030
 }

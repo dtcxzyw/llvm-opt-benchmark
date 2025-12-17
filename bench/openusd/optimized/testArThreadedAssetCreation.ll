@@ -580,7 +580,7 @@ _ZNSt6threadD2Ev.exit.i:                          ; preds = %_ZNSt8functionIFvRK
   unreachable
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EED2Ev.exit46.i: ; preds = %113, %109, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %.pn13.i = phi { ptr, i32 } [ %110, %109 ], [ %110, %113 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit58.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp59.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn13.i = phi { ptr, i32 } [ %110, %113 ], [ %110, %109 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit58.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp59.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %.sroa.0.0.copyload.i.i47.i = load i64, ptr %16, align 8
   %.not.i48.i = icmp eq i64 %.sroa.0.0.copyload.i.i47.i, 0
   br i1 %.not.i48.i, label %_ZNSt6threadD2Ev.exit49.i, label %118

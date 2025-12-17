@@ -205,7 +205,7 @@ switch.lookup4:                                   ; preds = %5
   br label %9
 
 9:                                                ; preds = %3, %5, %switch.lookup4, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load6, %switch.lookup4 ], [ 2, %5 ], [ 2, %3 ]
+  %.0 = phi i32 [ %switch.load6, %switch.lookup4 ], [ %switch.load, %switch.lookup ], [ 2, %5 ], [ 2, %3 ]
   ret i32 %.0
 }
 
@@ -238,7 +238,7 @@ switch.lookup2:                                   ; preds = %8
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 _ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %6, %8, %switch.lookup2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load4, %switch.lookup2 ], [ 2, %8 ], [ 2, %6 ]
+  %.0.i = phi i32 [ %switch.load4, %switch.lookup2 ], [ %switch.load, %switch.lookup ], [ 2, %8 ], [ 2, %6 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.0.i)
   ret ptr %12
 }
@@ -275,7 +275,7 @@ switch.lookup2:                                   ; preds = %9
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 _ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit: ; preds = %7, %9, %switch.lookup2, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %switch.load4, %switch.lookup2 ], [ 2, %9 ], [ 2, %7 ]
+  %.0.i = phi i32 [ %switch.load4, %switch.lookup2 ], [ %switch.load, %switch.lookup ], [ 2, %9 ], [ 2, %7 ]
   %13 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN4Type15get_simple_typeE11eSimpleType(i32 noundef %.0.i)
   ret ptr %13
 }
@@ -329,7 +329,7 @@ define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4Type
   br label %32
 
 32:                                               ; preds = %15, %23, %7, %4, %30
-  %.0 = phi i1 [ false, %30 ], [ false, %4 ], [ true, %7 ], [ true, %23 ], [ true, %15 ]
+  %.0 = phi i1 [ false, %4 ], [ true, %7 ], [ false, %30 ], [ true, %23 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -373,7 +373,7 @@ define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4Type
   br label %23
 
 23:                                               ; preds = %14, %6, %3, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %3 ], [ true, %6 ], [ true, %14 ]
+  %.0 = phi i1 [ false, %3 ], [ true, %6 ], [ false, %21 ], [ true, %14 ]
   ret i1 %.0
 }
 
@@ -783,7 +783,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %common.resume
 
 common.resume:                                    ; preds = %108, %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ %14, %13 ], [ %.pn.pn.pn.pn, %108 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %14, %13 ], [ %.pn.pn.pn.pn, %108 ]
   resume { ptr, i32 } %common.resume.op
 
 switch.lookup:                                    ; preds = %11

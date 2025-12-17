@@ -566,13 +566,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h99983868967527ebE.exit: ; p
   br label %27
 
 27:                                               ; preds = %26, %.thread156
-  %.sroa.087.2170 = phi i64 [ 1, %26 ], [ 2, %.thread156 ]
-  %.sroa.081.0151169 = phi ptr [ %17, %26 ], [ inttoptr (i64 1 to ptr), %.thread156 ]
-  %.sroa.382.0152168 = phi i64 [ %18, %26 ], [ 0, %.thread156 ]
-  %.sroa.03.1153167 = phi ptr [ %17, %26 ], [ null, %.thread156 ]
-  %.sroa.3.1154166 = phi ptr [ %22, %26 ], [ %.sroa.3.1154.ph, %.thread156 ]
-  %.sroa.0.1155165 = phi ptr [ %21, %26 ], [ %.sroa.0.1155.ph, %.thread156 ]
-  %.sroa.53.i.sroa.4.0 = phi i64 [ %18, %26 ], [ undef, %.thread156 ]
+  %.sroa.087.2170 = phi i64 [ 2, %.thread156 ], [ 1, %26 ]
+  %.sroa.081.0151169 = phi ptr [ inttoptr (i64 1 to ptr), %.thread156 ], [ %17, %26 ]
+  %.sroa.382.0152168 = phi i64 [ 0, %.thread156 ], [ %18, %26 ]
+  %.sroa.03.1153167 = phi ptr [ null, %.thread156 ], [ %17, %26 ]
+  %.sroa.3.1154166 = phi ptr [ %.sroa.3.1154.ph, %.thread156 ], [ %22, %26 ]
+  %.sroa.0.1155165 = phi ptr [ %.sroa.0.1155.ph, %.thread156 ], [ %21, %26 ]
+  %.sroa.53.i.sroa.4.0 = phi i64 [ undef, %.thread156 ], [ %18, %26 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i32, ptr %.in, align 8, !noundef !4
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 48

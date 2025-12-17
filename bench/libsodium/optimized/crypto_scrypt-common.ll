@@ -105,7 +105,7 @@ decode64_uint32.exit31:                           ; preds = %34, %37
   br label %46
 
 46:                                               ; preds = %decode64_uint32.exit.thread, %decode64_uint32.exit31, %decode64_uint32.exit, %12, %4, %6, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %6 ], [ null, %4 ], [ null, %12 ], [ null, %decode64_uint32.exit ], [ %.2.i30, %decode64_uint32.exit31 ], [ null, %decode64_uint32.exit.thread ]
+  %.0 = phi ptr [ null, %12 ], [ null, %4 ], [ null, %decode64_uint32.exit ], [ %.2.i30, %decode64_uint32.exit31 ], [ null, %9 ], [ null, %6 ], [ null, %decode64_uint32.exit.thread ]
   ret ptr %.0
 }
 
@@ -245,7 +245,7 @@ encode64.exit:                                    ; preds = %42, %encode64_uint3
   br label %70
 
 70:                                               ; preds = %encode64.exit, %32, %27, %12, %69
-  %.0 = phi ptr [ %4, %69 ], [ null, %12 ], [ null, %27 ], [ null, %32 ], [ null, %encode64.exit ]
+  %.0 = phi ptr [ null, %12 ], [ null, %27 ], [ null, %32 ], [ %4, %69 ], [ null, %encode64.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -428,7 +428,7 @@ encode64.exit:                                    ; preds = %58
   br label %encode64_uint32.exit.thread
 
 encode64_uint32.exit.thread:                      ; preds = %.lr.ph.i, %.lr.ph.i59, %encode64_uint32.exit.i, %.lr.ph.i.i, %encode64.exit, %encode64_uint32.exit65, %encode64_uint32.exit, %14, %7, %85
-  %.0 = phi ptr [ %5, %85 ], [ null, %7 ], [ null, %14 ], [ null, %encode64_uint32.exit ], [ null, %encode64_uint32.exit65 ], [ null, %encode64.exit ], [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ null, %.lr.ph.i59 ], [ null, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %14 ], [ null, %7 ], [ null, %encode64_uint32.exit65 ], [ %5, %85 ], [ null, %encode64_uint32.exit ], [ null, %encode64.exit ], [ null, %.lr.ph.i59 ], [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

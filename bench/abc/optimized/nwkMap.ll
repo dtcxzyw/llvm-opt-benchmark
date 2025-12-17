@@ -541,7 +541,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %Vec_PtrPush.exit, %4
-  %.0 = phi ptr [ %.val, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val42.pre, %.loopexit.loopexit ], [ %.034, %48 ]
+  %.0 = phi ptr [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val, %4 ], [ %.val42.pre, %.loopexit.loopexit ], [ %.034, %48 ]
   ret ptr %.0
 }
 
@@ -1018,7 +1018,7 @@ Vec_PtrFree.exit:                                 ; preds = %39, %40
   br label %41
 
 41:                                               ; preds = %Vec_PtrStart.exit, %Vec_PtrFree.exit, %30
-  %.0 = phi ptr [ %32, %Vec_PtrFree.exit ], [ null, %30 ], [ null, %Vec_PtrStart.exit ]
+  %.0 = phi ptr [ null, %30 ], [ %32, %Vec_PtrFree.exit ], [ null, %Vec_PtrStart.exit ]
   ret ptr %.0
 }
 

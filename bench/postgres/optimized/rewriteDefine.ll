@@ -979,7 +979,7 @@ define internal zeroext i1 @setRuleCheckAsUser_walker(ptr noundef %0, ptr nounde
   br label %11
 
 11:                                               ; preds = %2, %9, %7
-  %.0 = phi i1 [ false, %7 ], [ %10, %9 ], [ false, %2 ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %7 ], [ false, %2 ]
   ret i1 %.0
 }
 

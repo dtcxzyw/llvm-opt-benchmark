@@ -577,7 +577,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit: ; pred
   br label %75
 
 75:                                               ; preds = %70, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit, %34, %25, %14
-  %.0 = phi i32 [ -1, %14 ], [ -1, %34 ], [ -1, %25 ], [ 0, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit ], [ -1, %70 ]
+  %.0 = phi i32 [ -1, %14 ], [ -1, %25 ], [ -1, %34 ], [ 0, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit ], [ -1, %70 ]
   ret i32 %.0
 
 76:                                               ; preds = %65, %27
@@ -1136,7 +1136,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   br label %74
 
 74:                                               ; preds = %.thread, %49, %63, %37
-  %.5 = phi i32 [ %.04171, %37 ], [ %73, %63 ], [ %.04171, %49 ], [ %.243.ph, %.thread ]
+  %.5 = phi i32 [ %.243.ph, %.thread ], [ %.04171, %37 ], [ %73, %63 ], [ %.04171, %49 ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 32
   %76 = icmp ne ptr %75, %9
   %77 = icmp slt i32 %.5, %2
@@ -1186,7 +1186,7 @@ define noundef range(i32 0, 2) i32 @_ZN3zmq15socket_poller_t14adjust_timeoutERNS
   br label %21
 
 21:                                               ; preds = %19, %9, %12, %5, %17
-  %.0 = phi i32 [ 1, %17 ], [ 0, %5 ], [ 1, %12 ], [ 1, %9 ], [ %., %19 ]
+  %.0 = phi i32 [ 1, %9 ], [ 0, %5 ], [ 1, %17 ], [ %., %19 ], [ 1, %12 ]
   ret i32 %.0
 }
 
@@ -1383,7 +1383,7 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread:
   br label %84
 
 84:                                               ; preds = %18, %27, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread, %29, %26, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %26 ], [ -1, %29 ], [ %.6, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread ], [ -1, %18 ], [ -1, %27 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %26 ], [ -1, %18 ], [ -1, %29 ], [ %.6, %_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit.thread ], [ -1, %27 ]
   ret i32 %.0
 }
 

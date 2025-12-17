@@ -165,7 +165,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge74, %._c
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit46
 
 _ZNSt6vectorIfSaIfEED2Ev.exit46:                  ; preds = %57, %55
-  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %.pn64, %57 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn64, %57 ], [ %56, %55 ]
   resume { ptr, i32 } %.pn.pn
 }
 

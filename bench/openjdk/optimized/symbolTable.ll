@@ -537,7 +537,7 @@ define hidden void @_ZN11SymbolTable10symbols_doEP13SymbolClosure(ptr noundef %0
   br i1 %39, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %23, %16
-  %indvars.iv.next.pre-phi.i = phi i64 [ %24, %23 ], [ %.pre.i, %16 ], [ %24, %.lr.ph.i ]
+  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %16 ], [ %24, %23 ], [ %24, %.lr.ph.i ]
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13_shared_table, i64 8), align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i, %41
@@ -603,7 +603,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   br i1 %75, label %.lr.ph.i8, label %.loopexit.i6, !llvm.loop !12
 
 .loopexit.i6:                                     ; preds = %.lr.ph.i8, %59, %52
-  %indvars.iv.next.pre-phi.i7 = phi i64 [ %60, %59 ], [ %.pre.i10, %52 ], [ %60, %.lr.ph.i8 ]
+  %indvars.iv.next.pre-phi.i7 = phi i64 [ %.pre.i10, %52 ], [ %60, %59 ], [ %60, %.lr.ph.i8 ]
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL21_dynamic_shared_table, i64 8), align 8
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i7, %77
@@ -802,7 +802,7 @@ define hidden void @_ZN11SymbolTable17shared_symbols_doEP13SymbolClosure(ptr nou
   br i1 %38, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %22, %15
-  %indvars.iv.next.pre-phi.i = phi i64 [ %23, %22 ], [ %.pre.i, %15 ], [ %23, %.lr.ph.i ]
+  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %15 ], [ %23, %22 ], [ %23, %.lr.ph.i ]
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13_shared_table, i64 8), align 8
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i, %40
@@ -868,7 +868,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   br i1 %74, label %.lr.ph.i7, label %.loopexit.i5, !llvm.loop !12
 
 .loopexit.i5:                                     ; preds = %.lr.ph.i7, %58, %51
-  %indvars.iv.next.pre-phi.i6 = phi i64 [ %59, %58 ], [ %.pre.i9, %51 ], [ %59, %.lr.ph.i7 ]
+  %indvars.iv.next.pre-phi.i6 = phi i64 [ %.pre.i9, %51 ], [ %59, %58 ], [ %59, %.lr.ph.i7 ]
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL21_dynamic_shared_table, i64 8), align 8
   %76 = zext i32 %75 to i64
   %77 = icmp samesign ult i64 %indvars.iv.next.pre-phi.i6, %76
@@ -1234,7 +1234,7 @@ _Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13: ; preds =
   br label %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit24
 
 _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit24: ; preds = %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit ], [ null, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13 ], [ %83, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22 ], [ %33, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i ], [ %106, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19 ], [ %56, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit ], [ %83, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i22 ], [ null, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.thread.i13 ], [ %33, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit.i ], [ %106, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i19 ], [ %56, %_Z37symbol_equals_compact_hashtable_entryP6SymbolPKci.exit29.i ]
   ret ptr %.0
 }
 
@@ -2685,7 +2685,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_
   br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %16
-  %indvars.iv.next.pre-phi = phi i64 [ %29, %28 ], [ %.pre, %16 ], [ %29, %.lr.ph ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %16 ], [ %29, %28 ], [ %29, %.lr.ph ]
   %50 = load i32, ptr %3, align 8
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %51
@@ -4262,7 +4262,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2
 .backedge:                                        ; preds = %85, %84
   br label %18, !llvm.loop !39
 
-.thread:                                          ; preds = %79, %77
+.thread:                                          ; preds = %77, %79
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   store volatile i64 %19, ptr %12, align 8
   %87 = icmp eq i64 %.039, 0
@@ -4710,7 +4710,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %33, %35
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %37, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit, %13, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %18
-  %.0 = phi ptr [ %19, %18 ], [ %12, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %14, %13 ], [ %.0.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit ], [ %.0.i.i, %37 ]
+  %.0 = phi ptr [ %14, %13 ], [ %19, %18 ], [ %12, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %.0.i.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit ], [ %.0.i.i, %37 ]
   ret ptr %.0
 }
 
@@ -5091,7 +5091,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE13InternalTableC2Em.ex
   br label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE15try_resize_lockEP6Thread.exit.thread
 
 _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE15try_resize_lockEP6Thread.exit.thread: ; preds = %7, %14, %3, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE13InternalTableC2Em.exit, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE13InternalTableC2Em.exit ], [ false, %3 ], [ false, %14 ], [ false, %7 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %25 ], [ true, %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE13InternalTableC2Em.exit ], [ false, %14 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -5629,8 +5629,8 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
   br label %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit
 
 _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit: ; preds = %72, %.preheader.i.i.i, %96
-  %.sroa.7.7 = phi i32 [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i, %96 ], [ %.sroa.7.2, %72 ]
-  %.sroa.13.7 = phi ptr [ %82, %.preheader.i.i.i ], [ %82, %96 ], [ %.sroa.13.2, %72 ]
+  %.sroa.7.7 = phi i32 [ %.0.i.i.i.i, %96 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.7.2, %72 ]
+  %.sroa.13.7 = phi ptr [ %82, %96 ], [ %82, %.preheader.i.i.i ], [ %.sroa.13.2, %72 ]
   %97 = sext i32 %.sroa.0.2 to i64
   %98 = getelementptr inbounds ptr, ptr %.sroa.13.7, i64 %97
   store ptr %.061, ptr %98, align 8
@@ -5820,7 +5820,7 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit44: ; preds = %._crit_ed
   br label %_ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4NodeELS2_11EED2Ev.exit: ; preds = %35, %21, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44, %.loopexit.thread.i.i.i
-  %.1 = phi i64 [ %162, %.loopexit.thread.i.i.i ], [ %162, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %.066, %21 ], [ %.066, %35 ]
+  %.1 = phi i64 [ %162, %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit44 ], [ %162, %.loopexit.thread.i.i.i ], [ %.066, %21 ], [ %.066, %35 ]
   %exitcond70.not = icmp eq i64 %24, %3
   br i1 %exitcond70.not, label %._crit_edge68, label %21, !llvm.loop !55
 

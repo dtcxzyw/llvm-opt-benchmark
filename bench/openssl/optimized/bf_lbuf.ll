@@ -48,7 +48,7 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0121195 = phi ptr [ %.0125, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.0121195 = phi ptr [ %20, %.lr.ph ], [ %.0125, %.lr.ph.preheader ]
   %19 = load i8, ptr %.0121195, align 1, !tbaa !18
   %.not = icmp eq i8 %19, 10
   %20 = getelementptr inbounds nuw i8, ptr %.0121195, i64 1
@@ -212,9 +212,9 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %98
 
 98:                                               ; preds = %93, %.critedge4
-  %.3139.ph = phi i32 [ %.1137, %.critedge4 ], [ %97, %93 ]
-  %.3134.ph = phi i32 [ %.1132, %.critedge4 ], [ %94, %93 ]
-  %.3128.ph = phi ptr [ %.1126, %.critedge4 ], [ %96, %93 ]
+  %.3139.ph = phi i32 [ %97, %93 ], [ %.1137, %.critedge4 ]
+  %.3134.ph = phi i32 [ %94, %93 ], [ %.1132, %.critedge4 ]
+  %.3128.ph = phi ptr [ %96, %93 ], [ %.1126, %.critedge4 ]
   %99 = icmp sgt i32 %.3139.ph, 0
   %100 = select i1 %.not, i1 %99, i1 false
   br i1 %100, label %.lr.ph.preheader, label %101, !llvm.loop !26
@@ -243,7 +243,7 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %64, %62, %.thread168, %90, %88, %101, %102, %6, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %6 ], [ %110, %102 ], [ %.3134.ph, %101 ], [ %92, %90 ], [ %.1132, %88 ], [ %.1132, %.thread168 ], [ %.2133, %62 ], [ %66, %64 ]
+  %.0 = phi i32 [ %.3134.ph, %101 ], [ 0, %3 ], [ 0, %6 ], [ 0, %10 ], [ %110, %102 ], [ %.1132, %.thread168 ], [ %92, %90 ], [ %.1132, %88 ], [ %.2133, %62 ], [ %66, %64 ]
   ret i32 %.0
 }
 
@@ -491,7 +491,7 @@ define internal i64 @linebuffer_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %.thread
 
 .thread:                                          ; preds = %31, %34, %94, %12, %14, %56, %69, %._crit_edge, %104, %27, %18, %47, %41, %100, %59, %52, %37, %29, %23, %7, %76
-  %.0 = phi i64 [ %77, %76 ], [ 0, %7 ], [ 0, %23 ], [ 0, %29 ], [ 0, %37 ], [ 0, %52 ], [ 0, %59 ], [ 0, %100 ], [ %105, %104 ], [ %13, %12 ], [ %17, %14 ], [ %28, %27 ], [ %21, %18 ], [ 1, %47 ], [ 1, %41 ], [ %58, %56 ], [ %70, %69 ], [ %93, %._crit_edge ], [ %spec.select, %94 ], [ 1, %34 ], [ 1, %31 ]
+  %.0 = phi i64 [ 0, %59 ], [ 0, %100 ], [ %77, %76 ], [ 0, %7 ], [ 0, %23 ], [ 0, %29 ], [ 0, %37 ], [ 0, %52 ], [ %105, %104 ], [ %13, %12 ], [ %17, %14 ], [ %28, %27 ], [ %21, %18 ], [ 1, %47 ], [ 1, %41 ], [ %58, %56 ], [ %70, %69 ], [ %93, %._crit_edge ], [ %spec.select, %94 ], [ 1, %34 ], [ 1, %31 ]
   ret i64 %.0
 }
 
@@ -525,7 +525,7 @@ define internal range(i32 0, 2) i32 @linebuffer_new(ptr noundef writeonly captur
   br label %14
 
 14:                                               ; preds = %1, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 1, %8 ], [ 0, %1 ]
+  %.0 = phi i32 [ 1, %8 ], [ 0, %7 ], [ 0, %1 ]
   ret i32 %.0
 }
 

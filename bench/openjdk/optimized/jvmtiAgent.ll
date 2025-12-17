@@ -679,7 +679,7 @@ _ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread51.i: ; preds = %_ZL12load_libra
   br label %106
 
 106:                                              ; preds = %97, %92, %88, %59
-  %.03953.i = phi ptr [ null, %59 ], [ %.03952.i, %97 ], [ %.03952.i, %92 ], [ %82, %88 ]
+  %.03953.i = phi ptr [ null, %59 ], [ %.03952.i, %97 ], [ %82, %88 ], [ %.03952.i, %92 ]
   %107 = call noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %4, i64 noundef 1) #12
   %108 = icmp eq ptr %107, null
   br i1 %108, label %109, label %116
@@ -879,7 +879,7 @@ _ZL16convert_to_jplisP10JvmtiAgent.exit.i:        ; preds = %196, %195
   br label %_ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit
 
 _ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit: ; preds = %56, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i, %81, %109, %115, %171, %174, %175, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i
-  %.0.i = phi i1 [ false, %56 ], [ false, %81 ], [ false, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i ], [ true, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i ], [ true, %175 ], [ false, %109 ], [ false, %115 ], [ false, %171 ], [ false, %174 ]
+  %.0.i = phi i1 [ true, %175 ], [ false, %115 ], [ false, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i ], [ false, %56 ], [ false, %81 ], [ true, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i ], [ false, %109 ], [ false, %171 ], [ false, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL19invoke_Agent_OnLoadP10JvmtiAgent.exit
@@ -1238,7 +1238,7 @@ define internal fastcc noundef ptr @_ZL12load_libraryP10JvmtiAgentPPKcmb(ptr nou
   br label %_ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit
 
 _ZL29load_agent_from_absolute_pathP10JvmtiAgentb.exit: ; preds = %22, %20, %.thread.i, %16, %11, %8
-  %23 = phi ptr [ %9, %8 ], [ null, %11 ], [ %21, %20 ], [ null, %22 ], [ null, %.thread.i ], [ %17, %16 ]
+  %23 = phi ptr [ null, %11 ], [ %9, %8 ], [ %21, %20 ], [ null, %22 ], [ %17, %16 ], [ null, %.thread.i ]
   ret ptr %23
 }
 

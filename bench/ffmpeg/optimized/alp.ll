@@ -51,7 +51,7 @@ define internal range(i32 0, 100) i32 @alp_probe(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %9, %5, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %1 ], [ %., %9 ]
   ret i32 %.0
 }
 
@@ -166,7 +166,7 @@ define internal range(i32 -2147483648, 1) i32 @alp_read_header(ptr noundef %0) #
   br label %61
 
 61:                                               ; preds = %40, %37, %17, %16, %11, %7, %1, %49, %36
-  %.0 = phi i32 [ -1163346256, %36 ], [ 0, %49 ], [ -1094995529, %1 ], [ -1094995529, %7 ], [ %14, %11 ], [ -5, %16 ], [ -1094995529, %17 ], [ -12, %37 ], [ -1094995529, %40 ]
+  %.0 = phi i32 [ -1094995529, %17 ], [ -1094995529, %1 ], [ -1094995529, %7 ], [ %14, %11 ], [ -5, %16 ], [ -1163346256, %36 ], [ -12, %37 ], [ 0, %49 ], [ -1094995529, %40 ]
   ret i32 %.0
 }
 
@@ -313,7 +313,7 @@ define internal range(i32 -22, 1) i32 @alp_write_init(ptr noundef %0) #1 {
   br i1 %or.cond, label %26, label %.sink.split17
 
 .sink.split17:                                    ; preds = %24, %20, %10
-  %.str.17.sink = phi ptr [ @.str.15, %10 ], [ @.str.16, %20 ], [ @.str.17, %24 ]
+  %.str.17.sink = phi ptr [ @.str.16, %20 ], [ @.str.15, %10 ], [ @.str.17, %24 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.17.sink) #5
   br label %26
 

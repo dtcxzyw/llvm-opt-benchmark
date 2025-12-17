@@ -109,7 +109,7 @@ define range(i32 0, 2) i32 @stb__clex_iswhite(i32 noundef %0) local_unnamed_addr
   br label %5
 
 5:                                                ; preds = %1, %1, %1, %1, %2
-  %6 = phi i32 [ 1, %1 ], [ %4, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
+  %6 = phi i32 [ %4, %2 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
   ret i32 %6
 }
 
@@ -210,7 +210,7 @@ define range(i32 -1, 256) i32 @stb__clex_parse_char(ptr noundef %0, ptr noundef 
   br label %21
 
 21:                                               ; preds = %5, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i32 [ %20, %17 ], [ 39, %9 ], [ 34, %10 ], [ 9, %11 ], [ 12, %12 ], [ 10, %13 ], [ 13, %14 ], [ 0, %15 ], [ -1, %16 ], [ 92, %5 ]
+  %.0 = phi i32 [ %20, %17 ], [ 92, %5 ], [ 39, %9 ], [ 34, %10 ], [ 9, %11 ], [ 12, %12 ], [ 10, %13 ], [ 13, %14 ], [ 0, %15 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -266,8 +266,8 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
   br label %29
 
 29:                                               ; preds = %.thread, %27
-  %.341 = phi ptr [ %28, %27 ], [ %19, %.thread ]
-  %.033 = phi i8 [ %14, %27 ], [ %20, %.thread ]
+  %.341 = phi ptr [ %19, %.thread ], [ %28, %27 ]
+  %.033 = phi i8 [ %20, %.thread ], [ %14, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %.03651, i64 1
   %31 = icmp ugt ptr %30, %12
   br i1 %31, label %32, label %38
@@ -418,7 +418,7 @@ stb__clex_iswhite.exit.thread:                    ; preds = %14, %14, %14, %14, 
   br i1 %.not195, label %.backedge222, label %.lr.ph267, !llvm.loop !31
 
 .backedge222:                                     ; preds = %.lr.ph249, %.lr.ph249, %41, %.lr.ph267, %.lr.ph267, %24, %.preheader, %.preheader221, %37
-  %.lcssa265.sink = phi ptr [ %38, %37 ], [ %15, %.preheader221 ], [ %15, %.preheader ], [ %22, %.lr.ph267 ], [ %22, %.lr.ph267 ], [ %scevgep314, %24 ], [ %39, %.lr.ph249 ], [ %39, %.lr.ph249 ], [ %scevgep314, %41 ]
+  %.lcssa265.sink = phi ptr [ %22, %.lr.ph267 ], [ %38, %37 ], [ %15, %.preheader221 ], [ %15, %.preheader ], [ %22, %.lr.ph267 ], [ %scevgep314, %24 ], [ %scevgep314, %41 ], [ %39, %.lr.ph249 ], [ %39, %.lr.ph249 ]
   store ptr %.lcssa265.sink, ptr %3, align 8
   %.not243 = icmp eq ptr %.lcssa265.sink, %11
   br i1 %.not243, label %._crit_edge, label %.lr.ph
@@ -1025,8 +1025,8 @@ switch.early.test291:                             ; preds = %.lr.ph287
   br label %278
 
 278:                                              ; preds = %276, %.thread.i
-  %.341.i = phi ptr [ %277, %276 ], [ %269, %.thread.i ]
-  %.033.i = phi i8 [ %264, %276 ], [ %270, %.thread.i ]
+  %.341.i = phi ptr [ %269, %.thread.i ], [ %277, %276 ]
+  %.033.i = phi i8 [ %270, %.thread.i ], [ %264, %276 ]
   %279 = getelementptr inbounds nuw i8, ptr %.03651.i, i64 1
   %280 = icmp ugt ptr %279, %262
   br i1 %280, label %281, label %286
@@ -1239,7 +1239,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
   br label %stb__clex_parse_string.exit
 
 stb__clex_parse_string.exit:                      ; preds = %._crit_edge.i, %281, %271, %.thread210, %.critedge207, %305, %315, %320, %._crit_edge288, %73, %359, %355, %330, %251, %246, %236, %228, %223, %213, %204, %195, %185, %175, %165, %155, %145, %140, %131, %126, %117, %112, %107, %98, %93, %83, %._crit_edge
-  %.2 = phi i32 [ 0, %._crit_edge ], [ 1, %83 ], [ 1, %93 ], [ 1, %98 ], [ 1, %107 ], [ 1, %112 ], [ 1, %117 ], [ 1, %126 ], [ 1, %131 ], [ 1, %140 ], [ 1, %145 ], [ 1, %155 ], [ 1, %165 ], [ 1, %175 ], [ 1, %185 ], [ 1, %195 ], [ 1, %204 ], [ 1, %213 ], [ 1, %223 ], [ 1, %228 ], [ 1, %236 ], [ 1, %246 ], [ 1, %251 ], [ 1, %330 ], [ 1, %355 ], [ 1, %359 ], [ 1, %73 ], [ 1, %._crit_edge288 ], [ 1, %320 ], [ 1, %315 ], [ 1, %305 ], [ 1, %.critedge207 ], [ 1, %.thread210 ], [ 1, %271 ], [ 1, %281 ], [ 1, %._crit_edge.i ]
+  %.2 = phi i32 [ 1, %.thread210 ], [ 0, %._crit_edge ], [ 1, %.critedge207 ], [ 1, %83 ], [ 1, %93 ], [ 1, %98 ], [ 1, %107 ], [ 1, %112 ], [ 1, %117 ], [ 1, %126 ], [ 1, %131 ], [ 1, %140 ], [ 1, %145 ], [ 1, %155 ], [ 1, %165 ], [ 1, %175 ], [ 1, %185 ], [ 1, %195 ], [ 1, %204 ], [ 1, %213 ], [ 1, %223 ], [ 1, %228 ], [ 1, %236 ], [ 1, %246 ], [ 1, %251 ], [ 1, %305 ], [ 1, %._crit_edge288 ], [ 1, %330 ], [ 1, %355 ], [ 1, %359 ], [ 1, %73 ], [ 1, %320 ], [ 1, %315 ], [ 1, %271 ], [ 1, %281 ], [ 1, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }

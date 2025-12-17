@@ -803,7 +803,7 @@ define hidden void @_ZN9indicatif5multi10MultiState7suspend17h23a859b79bdb4127E.
   unreachable
 
 common.resume:                                    ; preds = %29, %13
-  %common.resume.op = phi { ptr, i32 } [ %14, %13 ], [ %30, %29 ]
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd695a76c89d63fcbE.llvm.8124630272768993320.exit": ; preds = %4
@@ -1000,7 +1000,7 @@ define hidden void @_ZN9indicatif5multi10MultiState7suspend17hbfeda8517474d2bdE.
   unreachable
 
 .thread18:                                        ; preds = %47, %.thread14, %23
-  %.pn13 = phi { ptr, i32 } [ %24, %23 ], [ %eh.lpad-body517, %.thread14 ], [ %48, %47 ]
+  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body517, %.thread14 ], [ %24, %23 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn13
 
 .thread14:                                        ; preds = %18, %.thread21
@@ -1027,7 +1027,7 @@ define hidden void @_ZN9indicatif5multi13MultiProgress7suspend17h55bbb55c8deb8d3
   invoke void @_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock15write_contended17hf98ef931bc9462c4E(ptr noundef nonnull align 4 %8)
           to label %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.8124630272768993320.exit unwind label %.thread23
 
-.thread23:                                        ; preds = %10, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.8124630272768993320.exit, %14, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.10365180485683109762.exit.i
+.thread23:                                        ; preds = %10, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.10365180485683109762.exit.i, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.llvm.8124630272768993320.exit, %14
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread19
@@ -1156,7 +1156,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.13937331920422269825.exit
   unreachable
 
 .thread:                                          ; preds = %.thread19, %"_ZN4core3ptr76drop_in_place$LT$uu_mv..move_files_into_dir..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64a30ecfb671658bE.llvm.8124630272768993320.exit"
-  %.pn18 = phi { ptr, i32 } [ %49, %"_ZN4core3ptr76drop_in_place$LT$uu_mv..move_files_into_dir..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64a30ecfb671658bE.llvm.8124630272768993320.exit" ], [ %eh.lpad-body22, %.thread19 ]
+  %.pn18 = phi { ptr, i32 } [ %eh.lpad-body22, %.thread19 ], [ %49, %"_ZN4core3ptr76drop_in_place$LT$uu_mv..move_files_into_dir..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64a30ecfb671658bE.llvm.8124630272768993320.exit" ]
   resume { ptr, i32 } %.pn18
 
 .thread19:                                        ; preds = %24, %.thread23

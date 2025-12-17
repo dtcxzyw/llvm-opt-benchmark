@@ -1381,7 +1381,7 @@ define hidden void @av1_read_sequence_header(ptr noundef %0, ptr noundef %1, ptr
   br label %96
 
 96:                                               ; preds = %87, %91, %93
-  %.sink = phi i8 [ %95, %93 ], [ 2, %91 ], [ 2, %87 ]
+  %.sink = phi i8 [ 2, %91 ], [ %95, %93 ], [ 2, %87 ]
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 59
   store i8 %.sink, ptr %97, align 1
   %98 = load i32, ptr %75, align 8
@@ -2071,7 +2071,7 @@ thread-pre-split:                                 ; preds = %155
   br label %206
 
 206:                                              ; preds = %202, %200, %195, %20, %25
-  %.sink975 = phi i8 [ 1, %25 ], [ 1, %20 ], [ %205, %202 ], [ 1, %200 ], [ 1, %195 ]
+  %.sink975 = phi i8 [ 1, %20 ], [ 1, %25 ], [ %205, %202 ], [ 1, %200 ], [ 1, %195 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 49014
   store i8 %.sink975, ptr %207, align 2
   %208 = load i8, ptr %5, align 4
@@ -2350,7 +2350,7 @@ thread-pre-split:                                 ; preds = %155
   br label %351
 
 351:                                              ; preds = %332, %347, %341, %348
-  %.sink978 = phi i32 [ %350, %348 ], [ 0, %341 ], [ 0, %347 ], [ 0, %332 ]
+  %.sink978 = phi i32 [ 0, %347 ], [ %350, %348 ], [ 0, %341 ], [ 0, %332 ]
   %352 = getelementptr inbounds nuw i32, ptr %330, i64 %indvars.iv891
   store i32 %.sink978, ptr %352, align 4
   %indvars.iv.next892 = add nuw nsw i64 %indvars.iv891, 1
@@ -2932,7 +2932,7 @@ set_planes_to_neutral_grey.exit:                  ; preds = %.loopexit41.i, %._c
   br label %.thread818
 
 .thread818:                                       ; preds = %628, %651, %631
-  %.0575820 = phi i1 [ false, %651 ], [ true, %631 ], [ true, %628 ]
+  %.0575820 = phi i1 [ true, %631 ], [ false, %651 ], [ true, %628 ]
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 48608
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 48928
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 48008
@@ -3404,7 +3404,7 @@ get_primary_ref_frame_buf.exit709.thread:         ; preds = %get_ref_frame_map_i
   br label %frame_might_allow_ref_frame_mvs.exit.thread
 
 frame_might_allow_ref_frame_mvs.exit.thread:      ; preds = %873, %877, %880, %884
-  %storemerge = phi i8 [ %887, %884 ], [ 0, %880 ], [ 0, %877 ], [ 0, %873 ]
+  %storemerge = phi i8 [ %887, %884 ], [ 0, %873 ], [ 0, %880 ], [ 0, %877 ]
   store i8 %storemerge, ptr %608, align 2
   %888 = getelementptr inbounds nuw i8, ptr %0, i64 48928
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 48672
@@ -3967,7 +3967,7 @@ read_delta_q.exit45.i:                            ; preds = %1156, %read_delta_q
   br label %setup_quantization.exit
 
 setup_quantization.exit:                          ; preds = %1171, %1176, %1178
-  %.sink.i = phi i32 [ %1177, %1176 ], [ 0, %1178 ], [ %1174, %1171 ]
+  %.sink.i = phi i32 [ 0, %1178 ], [ %1177, %1176 ], [ %1174, %1171 ]
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 67500
   store i32 %.sink.i, ptr %1181, align 4
   %1182 = load i32, ptr %937, align 8
@@ -6996,7 +6996,7 @@ setup_bool_decoder.exit.split.us.us.i:            ; preds = %setup_bool_decoder.
   br label %decode_tiles_row_mt.exit
 
 decode_tiles_row_mt.exit:                         ; preds = %.sink.split.i173, %787, %615, %611, %600, %.sink.split.i147, %538, %422, %418, %410, %.sink.split.i, %350, %97, %93, %88
-  %.0.i143.sink = phi ptr [ %1, %97 ], [ %1, %93 ], [ %1, %88 ], [ %.0153.i, %350 ], [ %359, %.sink.split.i ], [ %1, %422 ], [ %1, %418 ], [ %1, %410 ], [ %.0109.i, %538 ], [ %547, %.sink.split.i147 ], [ %1, %615 ], [ %1, %611 ], [ %1, %600 ], [ %.0166.i, %787 ], [ %796, %.sink.split.i173 ]
+  %.0.i143.sink = phi ptr [ %359, %.sink.split.i ], [ %547, %.sink.split.i147 ], [ %1, %93 ], [ %.0153.i, %350 ], [ %1, %88 ], [ %1, %97 ], [ %1, %418 ], [ %.0109.i, %538 ], [ %1, %410 ], [ %1, %422 ], [ %1, %611 ], [ %.0166.i, %787 ], [ %1, %600 ], [ %1, %615 ], [ %796, %.sink.split.i173 ]
   store ptr %.0.i143.sink, ptr %3, align 8
   br i1 %.not.i136, label %set_planes_to_neutral_grey.exit, label %797
 
@@ -7064,7 +7064,7 @@ decode_tiles_row_mt.exit:                         ; preds = %.sink.split.i173, %
   br i1 %838, label %.lr.ph.i185, label %.loopexit41.i, !llvm.loop !21
 
 .loopexit41.i:                                    ; preds = %.lr.ph.i185, %823, %815
-  %839 = phi i32 [ %827, %823 ], [ %816, %815 ], [ %837, %.lr.ph.i185 ]
+  %839 = phi i32 [ %816, %815 ], [ %827, %823 ], [ %837, %.lr.ph.i185 ]
   br i1 %exitcond.not.i184, label %set_planes_to_neutral_grey.exit, label %815, !llvm.loop !22
 
 840:                                              ; preds = %._crit_edge.i187, %.preheader.i186
@@ -8317,7 +8317,7 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
   br label %mem_get_varsize.exit.i.us.us
 
 mem_get_varsize.exit.i.us.us:                     ; preds = %90, %88, %80, %77, %76
-  %.0.i.i.us.us = phi i64 [ %92, %90 ], [ %89, %88 ], [ %87, %80 ], [ %79, %77 ], [ -1, %76 ]
+  %.0.i.i.us.us = phi i64 [ %79, %77 ], [ %92, %90 ], [ %89, %88 ], [ %87, %80 ], [ -1, %76 ]
   %93 = add nsw i64 %.0.i.i.us.us, 1
   %94 = getelementptr inbounds i8, ptr %.5126.us.us, i64 %50
   %95 = ptrtoint ptr %94 to i64
@@ -8388,7 +8388,7 @@ get_ls_tile_buffer.exit.us.us:                    ; preds = %98, %99
   br label %mem_get_varsize.exit
 
 mem_get_varsize.exit:                             ; preds = %104, %105, %108, %110, %118
-  %.0.i = phi i64 [ %107, %105 ], [ %109, %108 ], [ %117, %110 ], [ %120, %118 ], [ -1, %104 ]
+  %.0.i = phi i64 [ %120, %118 ], [ %107, %105 ], [ %109, %108 ], [ %117, %110 ], [ -1, %104 ]
   %121 = getelementptr inbounds i8, ptr %.0123124, i64 %43
   %122 = getelementptr inbounds i8, ptr %121, i64 %.0.i
   %123 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
@@ -8487,7 +8487,7 @@ mem_get_varsize.exit:                             ; preds = %104, %105, %108, %1
   br label %mem_get_varsize.exit.i
 
 mem_get_varsize.exit.i:                           ; preds = %160, %152, %150, %147, %146
-  %.0.i.i = phi i64 [ %149, %147 ], [ %151, %150 ], [ %159, %152 ], [ %162, %160 ], [ -1, %146 ]
+  %.0.i.i = phi i64 [ %162, %160 ], [ %149, %147 ], [ %151, %150 ], [ %159, %152 ], [ -1, %146 ]
   %163 = lshr i64 %.0.i.i, %54
   %164 = icmp eq i64 %163, 1
   br i1 %164, label %.thread54.i, label %172
@@ -8524,9 +8524,9 @@ mem_get_varsize.exit.i:                           ; preds = %160, %152, %150, %1
   br label %get_ls_tile_buffer.exit
 
 get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thread63.i, %178, %._crit_edge.i
-  %.sink207 = phi ptr [ %174, %178 ], [ %174, %.thread63.i ], [ %169, %.thread54.i ], [ null, %._crit_edge.i ]
-  %.0455162.sink.i = phi i64 [ %173, %178 ], [ %173, %.thread63.i ], [ %171, %.thread54.i ], [ 0, %._crit_edge.i ]
-  %.05359.i = phi i64 [ %173, %178 ], [ %173, %.thread63.i ], [ 0, %.thread54.i ], [ 0, %._crit_edge.i ]
+  %.sink207 = phi ptr [ %174, %.thread63.i ], [ %174, %178 ], [ %169, %.thread54.i ], [ null, %._crit_edge.i ]
+  %.0455162.sink.i = phi i64 [ %173, %.thread63.i ], [ %173, %178 ], [ %171, %.thread54.i ], [ 0, %._crit_edge.i ]
+  %.05359.i = phi i64 [ %173, %.thread63.i ], [ %173, %178 ], [ 0, %.thread54.i ], [ 0, %._crit_edge.i ]
   %179 = getelementptr inbounds i8, ptr %.5126, i64 %50
   %gep196 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep195.sink, i64 %indvars.iv158
   store ptr %.sink207, ptr %gep196, align 8
@@ -8624,7 +8624,7 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
   br label %mem_get_varsize.exit.i96
 
 mem_get_varsize.exit.i96:                         ; preds = %219, %211, %209, %206, %205
-  %.0.i.i97 = phi i64 [ %208, %206 ], [ %210, %209 ], [ %218, %211 ], [ %221, %219 ], [ -1, %205 ]
+  %.0.i.i97 = phi i64 [ %221, %219 ], [ %208, %206 ], [ %210, %209 ], [ %218, %211 ], [ -1, %205 ]
   %222 = lshr i64 %.0.i.i97, %198
   %223 = icmp eq i64 %222, 1
   %or.cond = select i1 %40, i1 %223, i1 false
@@ -8662,9 +8662,9 @@ mem_get_varsize.exit.i96:                         ; preds = %219, %211, %209, %2
   br label %get_ls_tile_buffer.exit112
 
 get_ls_tile_buffer.exit112:                       ; preds = %.thread54.i110, %.thread63.i108, %237, %._crit_edge.i103
-  %.sink208 = phi ptr [ %233, %237 ], [ %233, %.thread63.i108 ], [ %228, %.thread54.i110 ], [ null, %._crit_edge.i103 ]
-  %.0455162.sink.i101 = phi i64 [ %232, %237 ], [ %232, %.thread63.i108 ], [ %230, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
-  %.05359.i102 = phi i64 [ %232, %237 ], [ %232, %.thread63.i108 ], [ 0, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
+  %.sink208 = phi ptr [ %233, %.thread63.i108 ], [ %233, %237 ], [ %228, %.thread54.i110 ], [ null, %._crit_edge.i103 ]
+  %.0455162.sink.i101 = phi i64 [ %232, %.thread63.i108 ], [ %232, %237 ], [ %230, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
+  %.05359.i102 = phi i64 [ %232, %.thread63.i108 ], [ %232, %237 ], [ 0, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
   %238 = getelementptr inbounds i8, ptr %.7135, i64 %193
   %gep202 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep201.sink, i64 %indvars.iv169
   store ptr %.sink208, ptr %gep202, align 8
@@ -8778,7 +8778,7 @@ define internal fastcc void @get_tile_buffers(ptr noundef %0, ptr noundef %1, pt
   br label %mem_get_varsize.exit.i.us
 
 mem_get_varsize.exit.i.us:                        ; preds = %45, %43, %35, %32, %31
-  %.0.i.i.us = phi i64 [ %47, %45 ], [ %44, %43 ], [ %42, %35 ], [ %34, %32 ], [ -1, %31 ]
+  %.0.i.i.us = phi i64 [ %34, %32 ], [ %47, %45 ], [ %44, %43 ], [ %42, %35 ], [ -1, %31 ]
   %48 = add nsw i64 %.0.i.i.us, 1
   %49 = getelementptr inbounds i8, ptr %.13032.us, i64 %26
   %50 = ptrtoint ptr %49 to i64
@@ -9339,7 +9339,7 @@ set_cb_buffer.exit.us.i:                          ; preds = %159
   br i1 %.not17.i.i, label %222, label %parse_tile_row_mt.exit
 
 parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %set_cb_buffer.exit.us.i, %._crit_edge50.i, %204, %219
-  %.not.sink.i = phi i32 [ 1, %._crit_edge50.i ], [ 1, %204 ], [ 0, %219 ], [ 1, %set_cb_buffer.exit.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %222 ]
+  %.not.sink.i = phi i32 [ 1, %204 ], [ 1, %._crit_edge50.i ], [ 0, %219 ], [ 1, %set_cb_buffer.exit.us.i ], [ 1, %.lr.ph.i.i ], [ 0, %222 ]
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %6, i32 noundef %.not.sink.i) #17
   %226 = load ptr, ptr %45, align 32
   %227 = call i32 @pthread_mutex_lock(ptr noundef %226) #17
@@ -9508,10 +9508,10 @@ parse_tile_row_mt.exit:                           ; preds = %222, %.lr.ph.i.i, %
   br label %324
 
 324:                                              ; preds = %323, %318, %314, %294, %288
-  %.292.us.i = phi i32 [ %.191103.us.i, %288 ], [ %spec.select.us.i, %323 ], [ %spec.select.us.i, %318 ], [ %spec.select.us.i, %314 ], [ %.191103.us.i, %294 ]
-  %.289.us.i = phi i32 [ %.188104.us.i, %288 ], [ %312, %323 ], [ %spec.select100.us.i, %318 ], [ %spec.select100.us.i, %314 ], [ %.188104.us.i, %294 ]
-  %.284.us.i = phi i32 [ %.183106.us.i, %288 ], [ %.086113.us.i, %323 ], [ %.183106.us.i, %318 ], [ %.183106.us.i, %314 ], [ %.183106.us.i, %294 ]
-  %.2.us.i = phi i32 [ %.1107.us.i, %288 ], [ %indvars121.i, %323 ], [ %.1107.us.i, %318 ], [ %.1107.us.i, %314 ], [ %.1107.us.i, %294 ]
+  %.292.us.i = phi i32 [ %.191103.us.i, %288 ], [ %.191103.us.i, %294 ], [ %spec.select.us.i, %323 ], [ %spec.select.us.i, %318 ], [ %spec.select.us.i, %314 ]
+  %.289.us.i = phi i32 [ %.188104.us.i, %288 ], [ %.188104.us.i, %294 ], [ %312, %323 ], [ %spec.select100.us.i, %318 ], [ %spec.select100.us.i, %314 ]
+  %.284.us.i = phi i32 [ %.183106.us.i, %288 ], [ %.183106.us.i, %294 ], [ %.086113.us.i, %323 ], [ %.183106.us.i, %318 ], [ %.183106.us.i, %314 ]
+  %.2.us.i = phi i32 [ %.1107.us.i, %288 ], [ %.1107.us.i, %294 ], [ %indvars121.i, %323 ], [ %.1107.us.i, %318 ], [ %.1107.us.i, %314 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %277, %lftr.wideiv.i
@@ -10198,7 +10198,7 @@ is_inter_block.exit33.i:                          ; preds = %is_inter_block.exit
   br label %av1_get_ext_tx_set_type.exit.i
 
 av1_get_ext_tx_set_type.exit.i:                   ; preds = %89, %87, %84
-  %.0.i.i = phi i8 [ %85, %84 ], [ %88, %87 ], [ %95, %89 ]
+  %.0.i.i = phi i8 [ %95, %89 ], [ %85, %84 ], [ %88, %87 ]
   %96 = zext i8 %.0.i.i to i64
   %97 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_used, i64 %96
   %98 = zext i8 %.137.i to i64
@@ -10209,7 +10209,7 @@ av1_get_ext_tx_set_type.exit.i:                   ; preds = %89, %87, %84
   br label %av1_get_tx_type.exit
 
 av1_get_tx_type.exit:                             ; preds = %24, %38, %43, %av1_get_ext_tx_set_type.exit.i
-  %.0.i = phi i8 [ 0, %38 ], [ 0, %24 ], [ %52, %43 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
+  %.0.i = phi i8 [ 0, %24 ], [ 0, %38 ], [ %52, %43 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
   %101 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %15
   %102 = getelementptr i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
@@ -10401,7 +10401,7 @@ is_inter_block.exit33.i:                          ; preds = %is_inter_block.exit
   br label %av1_get_ext_tx_set_type.exit.i
 
 av1_get_ext_tx_set_type.exit.i:                   ; preds = %72, %70, %67
-  %.0.i.i = phi i8 [ %68, %67 ], [ %71, %70 ], [ %78, %72 ]
+  %.0.i.i = phi i8 [ %78, %72 ], [ %68, %67 ], [ %71, %70 ]
   %79 = zext i8 %.0.i.i to i64
   %80 = getelementptr inbounds nuw [16 x i32], ptr @av1_ext_tx_used, i64 %79
   %81 = zext i8 %.137.i to i64
@@ -10412,7 +10412,7 @@ av1_get_ext_tx_set_type.exit.i:                   ; preds = %72, %70, %67
   br label %av1_get_tx_type.exit
 
 av1_get_tx_type.exit:                             ; preds = %7, %21, %26, %av1_get_ext_tx_set_type.exit.i
-  %.0.i = phi i8 [ 0, %21 ], [ 0, %7 ], [ %35, %26 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
+  %.0.i = phi i8 [ 0, %7 ], [ 0, %21 ], [ %35, %26 ], [ %spec.store.select.i, %av1_get_ext_tx_set_type.exit.i ]
   %84 = zext nneg i8 %10 to i32
   %85 = sext i32 %3 to i64
   %86 = getelementptr %struct.macroblockd_plane, ptr %1, i64 %85
@@ -11422,7 +11422,7 @@ av1_is_valid_scale.exit.i.i.i:                    ; preds = %dec_calc_subpel_par
   br label %av1_is_scaled.exit.i.i
 
 av1_is_scaled.exit.i.i:                           ; preds = %219, %av1_is_valid_scale.exit.i.i.i, %dec_calc_subpel_params.exit
-  %not..i.i = phi i1 [ true, %av1_is_valid_scale.exit.i.i.i ], [ true, %dec_calc_subpel_params.exit ], [ %spec.select.i.i, %219 ]
+  %not..i.i = phi i1 [ true, %av1_is_valid_scale.exit.i.i.i ], [ %spec.select.i.i, %219 ], [ true, %dec_calc_subpel_params.exit ]
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %222 = load i32, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 156
@@ -12025,13 +12025,13 @@ define internal fastcc void @decode_partition(ptr noundef %0, ptr noundef %1, i3
   br label %26
 
 26:                                               ; preds = %25, %24, %23, %22, %21, %7
-  %.0.i.ph.i = phi i64 [ 0, %7 ], [ 5, %25 ], [ 4, %24 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ]
+  %.0.i.ph.i = phi i64 [ 0, %7 ], [ 4, %24 ], [ 3, %23 ], [ 2, %22 ], [ 1, %21 ], [ 5, %25 ]
   %27 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @subsize_lookup, i64 18), i64 %.0.i.ph.i
   %28 = load i8, ptr %27, align 1
   br label %get_partition_subsize.exit
 
 get_partition_subsize.exit:                       ; preds = %7, %26
-  %.0.i = phi i8 [ %28, %26 ], [ -1, %7 ]
+  %.0.i = phi i8 [ -1, %7 ], [ %28, %26 ]
   %29 = add nsw i32 %19, %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 49044
   %31 = load i32, ptr %30, align 4
@@ -12941,8 +12941,8 @@ get_partition.exit:                               ; preds = %572, %read_partitio
   %580 = icmp eq i8 %.0, -1
   br i1 %580, label %get_partition_subsize.exit319.thread, label %get_partition.exit.thread
 
-get_partition.exit.thread:                        ; preds = %566, %560, %557, %554, %551, %546, %543, %506, %381, %get_partition.exit
-  %.0334 = phi i8 [ %.0, %get_partition.exit ], [ %.70.i, %566 ], [ 4, %560 ], [ 3, %557 ], [ %.69.i, %554 ], [ 9, %551 ], [ %..i, %546 ], [ 8, %543 ], [ 0, %506 ], [ 0, %381 ]
+get_partition.exit.thread:                        ; preds = %566, %557, %560, %551, %554, %543, %546, %506, %381, %get_partition.exit
+  %.0334 = phi i8 [ %.0, %get_partition.exit ], [ %.70.i, %566 ], [ 3, %557 ], [ 4, %560 ], [ 9, %551 ], [ %.69.i, %554 ], [ 8, %543 ], [ %..i, %546 ], [ 0, %506 ], [ 0, %381 ]
   switch i8 %5, label %get_partition_subsize.exit319.thread [
     i8 0, label %get_partition_subsize.exit319
     i8 3, label %581
@@ -12968,7 +12968,7 @@ get_partition.exit.thread:                        ; preds = %566, %560, %557, %5
   br label %get_partition_subsize.exit319
 
 get_partition_subsize.exit319:                    ; preds = %get_partition.exit.thread, %581, %582, %583, %584, %585
-  %.0.i.ph.i317 = phi i64 [ 0, %get_partition.exit.thread ], [ 5, %585 ], [ 4, %584 ], [ 3, %583 ], [ 2, %582 ], [ 1, %581 ]
+  %.0.i.ph.i317 = phi i64 [ 0, %get_partition.exit.thread ], [ 4, %584 ], [ 3, %583 ], [ 2, %582 ], [ 1, %581 ], [ 5, %585 ]
   %586 = zext i8 %.0334 to i64
   %587 = getelementptr inbounds nuw [6 x i8], ptr @subsize_lookup, i64 %586
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 %.0.i.ph.i317
@@ -12977,7 +12977,7 @@ get_partition_subsize.exit319:                    ; preds = %get_partition.exit.
   br i1 %590, label %get_partition_subsize.exit319.thread, label %599
 
 get_partition_subsize.exit319.thread:             ; preds = %get_partition.exit.thread, %get_partition.exit, %get_partition_subsize.exit319
-  %.0335342 = phi i8 [ %.0334, %get_partition_subsize.exit319 ], [ %.0334, %get_partition.exit.thread ], [ -1, %get_partition.exit ]
+  %.0335342 = phi i8 [ %.0334, %get_partition_subsize.exit319 ], [ -1, %get_partition.exit ], [ %.0334, %get_partition.exit.thread ]
   %591 = getelementptr inbounds nuw i8, ptr %1, i64 10736
   %592 = load ptr, ptr %591, align 16
   %593 = getelementptr inbounds nuw i8, ptr @block_size_wide, i64 %15
@@ -13188,7 +13188,7 @@ get_partition_subsize.exit319.thread:             ; preds = %get_partition.exit.
   br label %get_partition_subsize.exit.i
 
 get_partition_subsize.exit.i:                     ; preds = %681, %674
-  %.0.i.i320 = phi i64 [ %684, %681 ], [ 255, %674 ]
+  %.0.i.i320 = phi i64 [ 255, %674 ], [ %684, %681 ]
   switch i8 %.0335341, label %update_ext_partition_context.exit [
     i8 3, label %685
     i8 0, label %686
@@ -13709,7 +13709,7 @@ is_inter_block.exit:                              ; preds = %decode_mbmi_block.e
   br label %is_inter_block.exit.thread
 
 is_inter_block.exit.thread:                       ; preds = %is_inter_block.exit, %decode_mbmi_block.exit
-  %213 = phi i1 [ true, %decode_mbmi_block.exit ], [ %212, %is_inter_block.exit ]
+  %213 = phi i1 [ %212, %is_inter_block.exit ], [ true, %decode_mbmi_block.exit ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 49016
   %215 = load i8, ptr %214, align 4
   %216 = icmp eq i8 %215, 2
@@ -13967,7 +13967,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   br label %read_tx_size.exit
 
 read_tx_size.exit:                                ; preds = %.lr.ph.i.i.i, %239, %aom_read_symbol_.exit.i.i, %351
-  %360 = phi i8 [ 0, %239 ], [ %263, %aom_read_symbol_.exit.i.i ], [ %.14.i.i, %351 ], [ %.07.i.i.i, %.lr.ph.i.i.i ]
+  %360 = phi i8 [ %.14.i.i, %351 ], [ 0, %239 ], [ %263, %aom_read_symbol_.exit.i.i ], [ %.07.i.i.i, %.lr.ph.i.i.i ]
   %361 = getelementptr inbounds nuw i8, ptr %207, i64 153
   store i8 %360, ptr %361, align 1
   br i1 %213, label %362, label %364
@@ -14018,9 +14018,9 @@ is_inter_block.exit115:                           ; preds = %374
   br label %386
 
 386:                                              ; preds = %is_inter_block.exit115, %is_inter_block.exit115.thread, %is_inter_block.exit115.thread156
-  %387 = phi i64 [ %376, %is_inter_block.exit115.thread156 ], [ %370, %is_inter_block.exit115.thread ], [ %381, %is_inter_block.exit115 ]
-  %.not.i116154 = phi i1 [ false, %is_inter_block.exit115.thread156 ], [ true, %is_inter_block.exit115.thread ], [ %380, %is_inter_block.exit115 ]
-  %388 = phi i8 [ %377, %is_inter_block.exit115.thread156 ], [ %373, %is_inter_block.exit115.thread ], [ %spec.select, %is_inter_block.exit115 ]
+  %387 = phi i64 [ %376, %is_inter_block.exit115.thread156 ], [ %381, %is_inter_block.exit115 ], [ %370, %is_inter_block.exit115.thread ]
+  %.not.i116154 = phi i1 [ false, %is_inter_block.exit115.thread156 ], [ %380, %is_inter_block.exit115 ], [ true, %is_inter_block.exit115.thread ]
+  %388 = phi i8 [ %377, %is_inter_block.exit115.thread156 ], [ %spec.select, %is_inter_block.exit115 ], [ %373, %is_inter_block.exit115.thread ]
   %.not.i.i = icmp eq i8 %366, 0
   br i1 %.not.i.i, label %set_txfm_ctx.exit.i, label %.lr.ph.preheader.i.i118
 
@@ -14089,8 +14089,8 @@ set_txfm_ctxs.exit:                               ; preds = %._crit_edge.us, %.l
   br label %419
 
 419:                                              ; preds = %413, %415, %417
-  %.in = phi ptr [ %404, %415 ], [ %407, %417 ], [ %406, %413 ]
-  %420 = phi i32 [ %416, %415 ], [ %418, %417 ], [ %414, %413 ]
+  %.in = phi ptr [ %407, %417 ], [ %404, %415 ], [ %406, %413 ]
+  %420 = phi i32 [ %418, %417 ], [ %416, %415 ], [ %414, %413 ]
   %421 = load i32, ptr %.in, align 4
   %422 = load i32, ptr %403, align 8
   %423 = tail call signext i16 @av1_dc_quant_QTX(i32 noundef %412, i32 noundef %421, i32 noundef %422) #17
@@ -14797,8 +14797,8 @@ max_block_high.exit:                              ; preds = %max_block_wide.exit
   br label %av1_get_tx_size.exit.us
 
 av1_get_tx_size.exit.us:                          ; preds = %100, %.split.us, %91, %90, %89, %73, %73, %73, %.split183.us
-  %103 = phi ptr [ %50, %.split.us ], [ %50, %100 ], [ %64, %.split183.us ], [ %64, %73 ], [ %64, %73 ], [ %64, %73 ], [ %64, %90 ], [ %64, %89 ], [ %64, %91 ]
-  %phi.call.us = phi i8 [ 0, %.split.us ], [ %102, %100 ], [ 0, %.split183.us ], [ 3, %73 ], [ 3, %73 ], [ 3, %73 ], [ 10, %90 ], [ 9, %89 ], [ %88, %91 ]
+  %103 = phi ptr [ %50, %100 ], [ %50, %.split.us ], [ %64, %.split183.us ], [ %64, %73 ], [ %64, %73 ], [ %64, %73 ], [ %64, %90 ], [ %64, %89 ], [ %64, %91 ]
+  %phi.call.us = phi i8 [ %102, %100 ], [ 0, %.split.us ], [ 0, %.split183.us ], [ 3, %73 ], [ 3, %73 ], [ 3, %73 ], [ 10, %90 ], [ 9, %89 ], [ %88, %91 ]
   %104 = zext i8 %phi.call.us to i64
   %105 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %104
   %106 = load i32, ptr %105, align 4
@@ -15008,7 +15008,7 @@ max_block_high.exit201:                           ; preds = %max_block_wide.exit
   br label %get_vartx_max_txsize.exit.us
 
 get_vartx_max_txsize.exit.us:                     ; preds = %222, %221, %220, %219, %219, %219, %215, %196
-  %.0.shrunk.i.us = phi i8 [ 0, %196 ], [ %218, %215 ], [ %218, %222 ], [ 10, %221 ], [ 9, %220 ], [ 3, %219 ], [ 3, %219 ], [ 3, %219 ]
+  %.0.shrunk.i.us = phi i8 [ %218, %215 ], [ 0, %196 ], [ %218, %222 ], [ 9, %220 ], [ 10, %221 ], [ 3, %219 ], [ 3, %219 ], [ 3, %219 ]
   %223 = zext i8 %.0.shrunk.i.us to i64
   %224 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %223
   %225 = load i32, ptr %224, align 4
@@ -15343,7 +15343,7 @@ define internal fastcc void @decode_reconstruct_tx(ptr noundef %0, ptr noundef %
   br label %av1_get_max_uv_txsize.exit
 
 av1_get_max_uv_txsize.exit:                       ; preds = %.split, %.split, %.split, %31, %32, %33
-  %.0.i.i = phi i8 [ %30, %33 ], [ 10, %31 ], [ 9, %32 ], [ 3, %.split ], [ 3, %.split ], [ 3, %.split ]
+  %.0.i.i = phi i8 [ %30, %33 ], [ 9, %32 ], [ 10, %31 ], [ 3, %.split ], [ 3, %.split ], [ 3, %.split ]
   %34 = zext i8 %5 to i64
   %35 = getelementptr inbounds nuw i8, ptr @block_size_high, i64 %34
   %36 = load i8, ptr %35, align 1
@@ -15423,9 +15423,9 @@ max_block_high.exit102:                           ; preds = %.split87, %78
   br label %max_block_wide.exit
 
 max_block_wide.exit:                              ; preds = %90, %max_block_high.exit102, %50, %av1_get_max_uv_txsize.exit
-  %phi.call88.in = phi i32 [ %53, %50 ], [ %46, %av1_get_max_uv_txsize.exit ], [ %95, %90 ], [ %86, %max_block_high.exit102 ]
-  %96 = phi i8 [ %.0.i.i, %50 ], [ %.0.i.i, %av1_get_max_uv_txsize.exit ], [ %71, %90 ], [ %71, %max_block_high.exit102 ]
-  %phi.call.in = phi i32 [ %.0.i, %50 ], [ %.0.i, %av1_get_max_uv_txsize.exit ], [ %.0.i101, %90 ], [ %.0.i101, %max_block_high.exit102 ]
+  %phi.call88.in = phi i32 [ %46, %av1_get_max_uv_txsize.exit ], [ %53, %50 ], [ %95, %90 ], [ %86, %max_block_high.exit102 ]
+  %96 = phi i8 [ %.0.i.i, %av1_get_max_uv_txsize.exit ], [ %.0.i.i, %50 ], [ %71, %90 ], [ %71, %max_block_high.exit102 ]
+  %phi.call.in = phi i32 [ %.0.i, %av1_get_max_uv_txsize.exit ], [ %.0.i, %50 ], [ %.0.i101, %90 ], [ %.0.i101, %max_block_high.exit102 ]
   %phi.call.in.fr = freeze i32 %phi.call.in
   %phi.call = ashr i32 %phi.call.in.fr, 2
   %phi.call88 = ashr i32 %phi.call88.in, 2
@@ -15926,7 +15926,7 @@ set_cb_buffer.exit:                               ; preds = %94
   br i1 %.not17.i, label %136, label %check_trailing_bits_after_symbol_coder.exit
 
 check_trailing_bits_after_symbol_coder.exit:      ; preds = %set_cb_buffer.exit, %.lr.ph.i, %136, %133, %118, %._crit_edge45
-  %.not.sink = phi i32 [ 1, %._crit_edge45 ], [ 1, %118 ], [ 0, %133 ], [ 0, %136 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.exit ]
+  %.not.sink = phi i32 [ 1, %118 ], [ 1, %._crit_edge45 ], [ 0, %133 ], [ 0, %136 ], [ 1, %.lr.ph.i ], [ 1, %set_cb_buffer.exit ]
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 47824
   call void @aom_merge_corrupted_flag(ptr noundef nonnull %140, i32 noundef %.not.sink) #17
   ret void

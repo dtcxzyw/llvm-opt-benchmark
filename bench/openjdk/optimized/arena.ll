@@ -783,7 +783,7 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker24re
   br label %86
 
 86:                                               ; preds = %24, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %_ZN5Arena17set_size_in_bytesEm.exit, %44
-  %.0 = phi ptr [ null, %44 ], [ %84, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %24 ]
+  %.0 = phi ptr [ %84, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %44 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -906,7 +906,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40: ; preds = %55, %
   br label %_ZN5Arena5AfreeEPvm.exit
 
 _ZN5Arena5AfreeEPvm.exit:                         ; preds = %63, %60, %28, %26, %14, %9, %8, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40, %31, %36, %49
-  %.0 = phi ptr [ %1, %49 ], [ %1, %36 ], [ %1, %31 ], [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40 ], [ null, %8 ], [ null, %9 ], [ null, %14 ], [ %22, %26 ], [ %29, %28 ], [ %.0.i.i39, %60 ], [ %.0.i.i39, %63 ]
+  %.0 = phi ptr [ null, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit40 ], [ null, %14 ], [ %29, %28 ], [ %1, %49 ], [ %1, %31 ], [ %1, %36 ], [ null, %8 ], [ null, %9 ], [ %22, %26 ], [ %.0.i.i39, %60 ], [ %.0.i.i39, %63 ]
   ret ptr %.0
 }
 
@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @_ZNK5Arena8containsEPKv(ptr noundef nonnull re
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16, %21, %11, %6, %2
-  %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %11 ], [ true, %16 ], [ false, %21 ]
+  %.011 = phi i1 [ true, %6 ], [ false, %2 ], [ false, %11 ], [ true, %16 ], [ false, %21 ]
   ret i1 %.011
 }
 

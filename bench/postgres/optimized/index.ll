@@ -194,7 +194,7 @@ define dso_local void @index_check_primary_key(ptr noundef %0, ptr noundef reado
   tail call void @ReleaseSysCache(ptr noundef nonnull %25) #10
   br i1 %36, label %37, label %17
 
-relationHasPrimaryKey.exit.thread:                ; preds = %17, %11, %.lr.ph.i
+relationHasPrimaryKey.exit.thread:                ; preds = %17, %.lr.ph.i, %11
   tail call void @list_free(ptr noundef %12) #10
   br label %44
 
@@ -370,7 +370,7 @@ define dso_local noundef i32 @index_create(ptr noundef %0, ptr noundef %1, i32 n
   br label %53
 
 53:                                               ; preds = %21, %49
-  %54 = phi i1 [ %52, %49 ], [ false, %21 ]
+  %54 = phi i1 [ false, %21 ], [ %52, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 114
   %56 = load i8, ptr %55, align 2
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1275,7 +1275,7 @@ UpdateIndexRelation.exit:                         ; preds = %521, %524
   unreachable
 
 543:                                              ; preds = %537, %536
-  %.0216 = phi i8 [ 112, %536 ], [ %.mux, %537 ]
+  %.0216 = phi i8 [ %.mux, %537 ], [ 112, %536 ]
   %544 = call { i64, i32 } @index_constraint_create(ptr noundef %0, i32 noundef %.0212, i32 noundef %4, ptr noundef nonnull %6, ptr noundef %1, i8 noundef signext %.0216, i16 noundef zeroext %17, i1 noundef zeroext %18, i1 noundef zeroext %19)
   %.not238 = icmp eq ptr %20, null
   br i1 %.not238, label %564, label %545
@@ -3636,7 +3636,7 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr noundef readonly captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %67, %62, %55, %105, %102, %.critedge79, %87, %.critedge, %._crit_edge, %29, %24, %19, %14, %7, %84, %99
-  %.0 = phi i1 [ false, %99 ], [ false, %84 ], [ false, %7 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %29 ], [ false, %._crit_edge ], [ false, %.critedge ], [ false, %87 ], [ false, %.critedge79 ], [ false, %102 ], [ %.not72, %105 ], [ false, %55 ], [ false, %62 ], [ false, %67 ], [ false, %52 ]
+  %.0 = phi i1 [ false, %84 ], [ false, %7 ], [ false, %14 ], [ false, %19 ], [ false, %24 ], [ false, %29 ], [ false, %.critedge ], [ false, %.critedge79 ], [ false, %102 ], [ false, %99 ], [ %.not72, %105 ], [ false, %._crit_edge ], [ false, %87 ], [ false, %55 ], [ false, %62 ], [ false, %67 ], [ false, %52 ]
   ret i1 %.0
 }
 
@@ -3900,8 +3900,8 @@ slot_getattr.exit:                                ; preds = %51, %slot_getsomeat
   br label %slot_getsysattr.exit
 
 slot_getsysattr.exit:                             ; preds = %45, %44, %41, %slot_getattr.exit, %72
-  %.1 = phi ptr [ %.02941, %slot_getattr.exit ], [ %..i, %72 ], [ %.02941, %41 ], [ %.02941, %44 ], [ %.02941, %45 ]
-  %.0 = phi i64 [ %61, %slot_getattr.exit ], [ %79, %72 ], [ %43, %41 ], [ %32, %44 ], [ %49, %45 ]
+  %.1 = phi ptr [ %..i, %72 ], [ %.02941, %slot_getattr.exit ], [ %.02941, %41 ], [ %.02941, %44 ], [ %.02941, %45 ]
+  %.0 = phi i64 [ %79, %72 ], [ %61, %slot_getattr.exit ], [ %43, %41 ], [ %32, %44 ], [ %49, %45 ]
   %87 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %.0, ptr %87, align 8
   %88 = load i8, ptr %6, align 1, !range !4, !noundef !5

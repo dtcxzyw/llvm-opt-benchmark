@@ -68,7 +68,7 @@ define internal range(i32 0, 2) i32 @test_static_sha1() #0 {
   br label %test_static_sha_common.exit
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %6 ], [ 0, %4 ], [ %spec.select.i, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
@@ -110,7 +110,7 @@ define internal range(i32 0, 2) i32 @test_static_sha224() #0 {
   br label %test_static_sha_common.exit
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %6 ], [ 0, %4 ], [ %spec.select.i, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
@@ -152,7 +152,7 @@ define internal range(i32 0, 2) i32 @test_static_sha256() #0 {
   br label %test_static_sha_common.exit
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %6 ], [ 0, %4 ], [ %spec.select.i, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @test_static_sha384() #0 {
   br label %test_static_sha_common.exit
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %6 ], [ 0, %4 ], [ %spec.select.i, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }
@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @test_static_sha512() #0 {
   br label %test_static_sha_common.exit
 
 test_static_sha_common.exit:                      ; preds = %0, %4, %6, %8, %11, %13
-  %.0.i = phi i32 [ 0, %6 ], [ 0, %4 ], [ 0, %0 ], [ 0, %11 ], [ 0, %8 ], [ %spec.select.i, %13 ]
+  %.0.i = phi i32 [ 0, %8 ], [ 0, %0 ], [ 0, %6 ], [ 0, %4 ], [ %spec.select.i, %13 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.i
 }

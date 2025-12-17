@@ -1473,15 +1473,15 @@ _ZN6google8protobuf8isxdigitEc.exit69.thread:     ; preds = %switch.early.test, 
   br label %_ZN6google8protobuf8isxdigitEc.exit, !llvm.loop !60
 
 .sink.split:                                      ; preds = %switch.early.test, %11, %.critedge, %21, %20, %19, %18, %17, %16, %15, %14
-  %.sink = phi i8 [ 8, %14 ], [ 12, %15 ], [ 10, %16 ], [ 13, %17 ], [ 9, %18 ], [ 11, %19 ], [ %13, %20 ], [ %.1, %21 ], [ %10, %.critedge ], [ 7, %11 ], [ %.050, %switch.early.test ]
-  %.153.pn.ph = phi ptr [ %12, %14 ], [ %12, %15 ], [ %12, %16 ], [ %12, %17 ], [ %12, %18 ], [ %12, %19 ], [ %12, %20 ], [ %.5, %21 ], [ %.153, %.critedge ], [ %12, %11 ], [ %.6, %switch.early.test ]
+  %.sink = phi i8 [ %10, %.critedge ], [ 8, %14 ], [ 12, %15 ], [ 10, %16 ], [ 13, %17 ], [ 9, %18 ], [ 11, %19 ], [ %13, %20 ], [ %.1, %21 ], [ 7, %11 ], [ %.050, %switch.early.test ]
+  %.153.pn.ph = phi ptr [ %.153, %.critedge ], [ %12, %14 ], [ %12, %15 ], [ %12, %16 ], [ %12, %17 ], [ %12, %18 ], [ %12, %19 ], [ %12, %20 ], [ %.5, %21 ], [ %12, %11 ], [ %.6, %switch.early.test ]
   %47 = getelementptr inbounds nuw i8, ptr %.155, i64 1
   store i8 %.sink, ptr %.155, align 1, !tbaa !11
   br label %48
 
 48:                                               ; preds = %.sink.split, %switch.early.test74, %11
-  %.256 = phi ptr [ %.155, %11 ], [ %.155, %switch.early.test74 ], [ %47, %.sink.split ]
-  %.153.pn = phi ptr [ %12, %11 ], [ %12, %switch.early.test74 ], [ %.153.pn.ph, %.sink.split ]
+  %.256 = phi ptr [ %.155, %switch.early.test74 ], [ %.155, %11 ], [ %47, %.sink.split ]
+  %.153.pn = phi ptr [ %12, %switch.early.test74 ], [ %12, %11 ], [ %.153.pn.ph, %.sink.split ]
   %.2 = getelementptr inbounds nuw i8, ptr %.153.pn, i64 1
   br label %.critedge, !llvm.loop !61
 
@@ -2174,7 +2174,7 @@ define hidden noundef i32 @_ZN6google8protobuf15strto32_adaptorEPKcPPci(ptr noun
   br label %23
 
 23:                                               ; preds = %10, %3, %21, %18, %15
-  %.0 = phi i32 [ -2147483648, %15 ], [ 2147483647, %18 ], [ %22, %21 ], [ -2147483648, %3 ], [ 2147483647, %10 ]
+  %.0 = phi i32 [ %22, %21 ], [ -2147483648, %3 ], [ -2147483648, %15 ], [ 2147483647, %18 ], [ 2147483647, %10 ]
   ret i32 %.0
 }
 
@@ -2218,7 +2218,7 @@ define hidden noundef i32 @_ZN6google8protobuf16strtou32_adaptorEPKcPPci(ptr nou
   br label %18
 
 18:                                               ; preds = %3, %16, %13
-  %.0 = phi i32 [ -1, %13 ], [ %17, %16 ], [ -1, %3 ]
+  %.0 = phi i32 [ %17, %16 ], [ -1, %13 ], [ -1, %3 ]
   ret i32 %.0
 }
 
@@ -2285,7 +2285,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %13
-  %.025 = phi ptr [ %16, %13 ], [ %29, %31 ], [ %.0, %.preheader ]
+  %.025 = phi ptr [ %29, %31 ], [ %16, %13 ], [ %.0, %.preheader ]
   ret ptr %.025
 }
 
@@ -2349,7 +2349,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %13
-  %.025 = phi ptr [ %16, %13 ], [ %29, %31 ], [ %.0, %.preheader ]
+  %.025 = phi ptr [ %29, %31 ], [ %16, %13 ], [ %.0, %.preheader ]
   ret ptr %.025
 }
 
@@ -2869,7 +2869,7 @@ define hidden void @_ZN6google8protobuf10SimpleItoaB5cxx11Ei(ptr dead_on_unwind 
   br label %_ZN6google8protobuf17FastInt32ToBufferEiPc.exit
 
 _ZN6google8protobuf17FastInt32ToBufferEiPc.exit:  ; preds = %.preheader.i, %15, %33
-  %.025.i = phi ptr [ %18, %15 ], [ %31, %33 ], [ %.0.i, %.preheader.i ]
+  %.025.i = phi ptr [ %31, %33 ], [ %18, %15 ], [ %.0.i, %.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !18
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025.i) #31
@@ -3028,7 +3028,7 @@ define hidden void @_ZN6google8protobuf10SimpleItoaB5cxx11El(ptr dead_on_unwind 
   br label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit
 
 _ZN6google8protobuf17FastInt64ToBufferElPc.exit:  ; preds = %.preheader.i, %15, %33
-  %.025.i = phi ptr [ %18, %15 ], [ %31, %33 ], [ %.0.i, %.preheader.i ]
+  %.025.i = phi ptr [ %31, %33 ], [ %18, %15 ], [ %.0.i, %.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !18
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025.i) #31
@@ -3187,7 +3187,7 @@ define hidden void @_ZN6google8protobuf10SimpleItoaB5cxx11Ex(ptr dead_on_unwind 
   br label %_ZN6google8protobuf17FastInt64ToBufferElPc.exit
 
 _ZN6google8protobuf17FastInt64ToBufferElPc.exit:  ; preds = %.preheader.i, %15, %33
-  %.025.i = phi ptr [ %18, %15 ], [ %31, %33 ], [ %.0.i, %.preheader.i ]
+  %.025.i = phi ptr [ %31, %33 ], [ %18, %15 ], [ %.0.i, %.preheader.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !18
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025.i) #31
@@ -3846,7 +3846,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %77, %72, %67
-  %.pn38.i = phi { ptr, i32 } [ %.pn36.i, %77 ], [ %.pn33.i, %72 ], [ %.pn.i, %67 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %79, %78 ]
+  %.pn38.i = phi { ptr, i32 } [ %.pn33.i, %72 ], [ %.pn36.i, %77 ], [ %.pn.i, %67 ], [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %79, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !77
   resume { ptr, i32 } %.pn38.i
 
@@ -4116,7 +4116,7 @@ _ZN6google8protobuf9CaseEqualENS0_20stringpiece_internal11StringPieceES2_.exit87
   br i1 %99, label %.sink.split, label %100
 
 .sink.split:                                      ; preds = %27, %41, %55, %79, %13, %98, %_ZN6google8protobuf9CaseEqualENS0_20stringpiece_internal11StringPieceES2_.exit87, %94, %96, %.lr.ph.i.i75
-  %.sink = phi i8 [ 1, %.lr.ph.i.i75 ], [ 0, %96 ], [ 0, %94 ], [ 0, %_ZN6google8protobuf9CaseEqualENS0_20stringpiece_internal11StringPieceES2_.exit87 ], [ 0, %98 ], [ 1, %13 ], [ 0, %79 ], [ 1, %55 ], [ 1, %41 ], [ 1, %27 ]
+  %.sink = phi i8 [ 1, %.lr.ph.i.i75 ], [ 0, %96 ], [ 0, %94 ], [ 0, %_ZN6google8protobuf9CaseEqualENS0_20stringpiece_internal11StringPieceES2_.exit87 ], [ 0, %98 ], [ 1, %41 ], [ 1, %13 ], [ 0, %79 ], [ 1, %55 ], [ 1, %27 ]
   store i8 %.sink, ptr %2, align 1, !tbaa !81
   br label %100
 
@@ -4403,8 +4403,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intIiEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !88
 
 _ZN6google8protobuf23safe_parse_positive_intIiEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %33, %35, %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.02740.lcssa.sink.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %41, %39 ], [ 2147483647, %35 ], [ 2147483647, %33 ], [ %.02740.i, %.lr.ph.i ]
-  %43 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %39 ], [ false, %35 ], [ false, %33 ], [ false, %.lr.ph.i ]
+  %.02740.lcssa.sink.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %41, %39 ], [ 2147483647, %33 ], [ %.02740.i, %.lr.ph.i ], [ 2147483647, %35 ]
+  %43 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %39 ], [ false, %33 ], [ false, %.lr.ph.i ], [ false, %35 ]
   store i32 %.02740.lcssa.sink.i, ptr %1, align 4, !tbaa !65
   %44 = icmp eq ptr %26, %11
   br i1 %44, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4453,8 +4453,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %.not.i6, label %.lr.ph.i4, label %_ZN6google8protobuf23safe_parse_negative_intIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !89
 
 _ZN6google8protobuf23safe_parse_negative_intIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i4, %55, %57, %61, %46
-  %.03146.lcssa.sink.i = phi i32 [ 0, %46 ], [ %62, %61 ], [ -2147483648, %57 ], [ -2147483648, %55 ], [ %.03146.i, %.lr.ph.i4 ]
-  %64 = phi i1 [ true, %46 ], [ true, %61 ], [ false, %57 ], [ false, %55 ], [ false, %.lr.ph.i4 ]
+  %.03146.lcssa.sink.i = phi i32 [ 0, %46 ], [ %62, %61 ], [ -2147483648, %55 ], [ %.03146.i, %.lr.ph.i4 ], [ -2147483648, %57 ]
+  %64 = phi i1 [ true, %46 ], [ true, %61 ], [ false, %55 ], [ false, %.lr.ph.i4 ], [ false, %57 ]
   store i32 %.03146.lcssa.sink.i, ptr %1, align 4, !tbaa !65
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
@@ -4628,8 +4628,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intIjEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !90
 
 _ZN6google8protobuf23safe_parse_positive_intIjEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %32, %34, %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.02740.lcssa.sink.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %40, %38 ], [ -1, %34 ], [ -1, %32 ], [ %.02740.i, %.lr.ph.i ]
-  %42 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %38 ], [ false, %34 ], [ false, %32 ], [ false, %.lr.ph.i ]
+  %.02740.lcssa.sink.i = phi i32 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %40, %38 ], [ -1, %32 ], [ %.02740.i, %.lr.ph.i ], [ -1, %34 ]
+  %42 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %38 ], [ false, %32 ], [ false, %.lr.ph.i ], [ false, %34 ]
   store i32 %.02740.lcssa.sink.i, ptr %1, align 4, !tbaa !65
   %43 = icmp eq ptr %25, %10
   br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4814,8 +4814,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !91
 
 _ZN6google8protobuf23safe_parse_positive_intIlEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %32, %34, %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.02740.lcssa.sink.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %41, %40 ], [ 9223372036854775807, %34 ], [ 9223372036854775807, %32 ], [ %.02740.i, %.lr.ph.i ]
-  %43 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %40 ], [ false, %34 ], [ false, %32 ], [ false, %.lr.ph.i ]
+  %.02740.lcssa.sink.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %41, %40 ], [ 9223372036854775807, %32 ], [ %.02740.i, %.lr.ph.i ], [ 9223372036854775807, %34 ]
+  %43 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %40 ], [ false, %32 ], [ false, %.lr.ph.i ], [ false, %34 ]
   store i64 %.02740.lcssa.sink.i, ptr %1, align 8, !tbaa !20
   %44 = icmp eq ptr %26, %11
   br i1 %44, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4864,8 +4864,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %.not.i6, label %.lr.ph.i4, label %_ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !92
 
 _ZN6google8protobuf23safe_parse_negative_intIlEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i4, %54, %56, %62, %46
-  %.03145.lcssa.sink.i = phi i64 [ 0, %46 ], [ %63, %62 ], [ -9223372036854775808, %56 ], [ -9223372036854775808, %54 ], [ %.03145.i, %.lr.ph.i4 ]
-  %65 = phi i1 [ true, %46 ], [ true, %62 ], [ false, %56 ], [ false, %54 ], [ false, %.lr.ph.i4 ]
+  %.03145.lcssa.sink.i = phi i64 [ 0, %46 ], [ %63, %62 ], [ -9223372036854775808, %54 ], [ %.03145.i, %.lr.ph.i4 ], [ -9223372036854775808, %56 ]
+  %65 = phi i1 [ true, %46 ], [ true, %62 ], [ false, %54 ], [ false, %.lr.ph.i4 ], [ false, %56 ]
   store i64 %.03145.lcssa.sink.i, ptr %1, align 8, !tbaa !20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
@@ -5039,8 +5039,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not.i, label %.lr.ph.i, label %_ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit, !llvm.loop !93
 
 _ZN6google8protobuf23safe_parse_positive_intImEEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit: ; preds = %.lr.ph.i, %31, %33, %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.02740.lcssa.sink.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %40, %39 ], [ -1, %33 ], [ -1, %31 ], [ %.02740.i, %.lr.ph.i ]
-  %42 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %39 ], [ false, %33 ], [ false, %31 ], [ false, %.lr.ph.i ]
+  %.02740.lcssa.sink.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %40, %39 ], [ -1, %31 ], [ %.02740.i, %.lr.ph.i ], [ -1, %33 ]
+  %42 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ true, %39 ], [ false, %31 ], [ false, %.lr.ph.i ], [ false, %33 ]
   store i64 %.02740.lcssa.sink.i, ptr %1, align 8, !tbaa !20
   %43 = icmp eq ptr %25, %10
   br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -7114,7 +7114,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit319:     ; preds = %234, %234, %234, %2
   br label %226
 
 .fold.split.loopexit1201:                         ; preds = %219, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us
-  %.13261.ph = phi i32 [ %205, %219 ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ]
+  %.13261.ph = phi i32 [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %205, %219 ]
   br label %.fold.split
 
 .fold.split.loopexit1230:                         ; preds = %234, %_ZN6google8protobuf13ascii_isspaceEc.exit319
@@ -7122,11 +7122,11 @@ _ZN6google8protobuf13ascii_isspaceEc.exit319:     ; preds = %234, %234, %234, %2
   br label %.fold.split
 
 .fold.split:                                      ; preds = %.outer, %.outer.us, %234, %234, %219, %219, %.fold.split.loopexit1230, %.fold.split.loopexit1201, %.preheader, %223
-  %.13261 = phi i32 [ %224, %223 ], [ %.14262.ph, %.preheader ], [ %.13261.ph, %.fold.split.loopexit1201 ], [ %.13261.ph1231, %.fold.split.loopexit1230 ], [ %.14262556.us, %219 ], [ %.14262556.us, %219 ], [ %.14262556, %234 ], [ %.14262556, %234 ], [ %205, %.outer.us ], [ %227, %.outer ]
-  %.3236 = phi i32 [ %.1234339, %223 ], [ %.4237.ph, %.preheader ], [ %.4237.ph355576.us, %.fold.split.loopexit1201 ], [ %.4237.ph355576, %.fold.split.loopexit1230 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576, %234 ], [ %.4237.ph355576, %234 ], [ %.5238.us, %.outer.us ], [ %.5238, %.outer ]
-  %.1230 = phi i32 [ %.0229342, %223 ], [ %.2231.ph, %.preheader ], [ %.2231.ph356577.us, %.fold.split.loopexit1201 ], [ %.2231.ph356577, %.fold.split.loopexit1230 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577, %234 ], [ %.2231.ph356577, %234 ], [ %.3232.us, %.outer.us ], [ %.3232, %.outer ]
-  %.7221 = phi i32 [ %.3217347, %223 ], [ %.8222.ph, %.preheader ], [ %.8222.ph357578.us, %.fold.split.loopexit1201 ], [ %.8222.ph357578, %.fold.split.loopexit1230 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578, %234 ], [ %.8222.ph357578, %234 ], [ %.9223.us, %.outer.us ], [ %.9223, %.outer ]
-  %.13 = phi ptr [ %225, %223 ], [ %.14.ph, %.preheader ], [ %206, %.fold.split.loopexit1201 ], [ %228, %.fold.split.loopexit1230 ], [ %.14557.us, %219 ], [ %.14557.us, %219 ], [ %.14557, %234 ], [ %.14557, %234 ], [ %206, %.outer.us ], [ %228, %.outer ]
+  %.13261 = phi i32 [ %224, %223 ], [ %.14262.ph, %.preheader ], [ %.13261.ph, %.fold.split.loopexit1201 ], [ %205, %.outer.us ], [ %.14262556, %234 ], [ %.14262556.us, %219 ], [ %.13261.ph1231, %.fold.split.loopexit1230 ], [ %.14262556.us, %219 ], [ %.14262556, %234 ], [ %227, %.outer ]
+  %.3236 = phi i32 [ %.1234339, %223 ], [ %.4237.ph, %.preheader ], [ %.4237.ph355576.us, %.fold.split.loopexit1201 ], [ %.5238.us, %.outer.us ], [ %.4237.ph355576, %234 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576, %.fold.split.loopexit1230 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576, %234 ], [ %.5238, %.outer ]
+  %.1230 = phi i32 [ %.0229342, %223 ], [ %.2231.ph, %.preheader ], [ %.2231.ph356577.us, %.fold.split.loopexit1201 ], [ %.3232.us, %.outer.us ], [ %.2231.ph356577, %234 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577, %.fold.split.loopexit1230 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577, %234 ], [ %.3232, %.outer ]
+  %.7221 = phi i32 [ %.3217347, %223 ], [ %.8222.ph, %.preheader ], [ %.8222.ph357578.us, %.fold.split.loopexit1201 ], [ %.9223.us, %.outer.us ], [ %.8222.ph357578, %234 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578, %.fold.split.loopexit1230 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578, %234 ], [ %.9223, %.outer ]
+  %.13 = phi ptr [ %225, %223 ], [ %.14.ph, %.preheader ], [ %206, %.fold.split.loopexit1201 ], [ %206, %.outer.us ], [ %.14557, %234 ], [ %.14557.us, %219 ], [ %228, %.fold.split.loopexit1230 ], [ %.14557.us, %219 ], [ %.14557, %234 ], [ %228, %.outer ]
   switch i32 %.1230, label %default.unreachable [
     i32 0, label %._crit_edge
     i32 1, label %_ZN6google8protobuf13ascii_isspaceEc.exit318
@@ -7177,8 +7177,8 @@ default.unreachable:                              ; preds = %.fold.split
   unreachable
 
 ._crit_edge:                                      ; preds = %265, %268, %263, %.fold.split
-  %.6239 = phi i32 [ %.3236, %.fold.split ], [ %264, %263 ], [ %.pre, %268 ], [ %.pre, %265 ]
-  %276 = phi i32 [ -1, %.fold.split ], [ -3, %263 ], [ -2, %268 ], [ -2, %265 ]
+  %.6239 = phi i32 [ %264, %263 ], [ %.3236, %.fold.split ], [ %.pre, %268 ], [ %.pre, %265 ]
+  %276 = phi i32 [ -3, %263 ], [ -1, %.fold.split ], [ -2, %268 ], [ -2, %265 ]
   %277 = icmp sgt i32 %.13261, 0
   br i1 %277, label %.lr.ph607, label %_ZN6google8protobuf13ascii_isspaceEc.exit318
 
@@ -7218,7 +7218,7 @@ _ZN6google8protobuf13ascii_isspaceEc.exit320.thread: ; preds = %.lr.ph607, %.lr.
   br label %_ZN6google8protobuf13ascii_isspaceEc.exit318
 
 _ZN6google8protobuf13ascii_isspaceEc.exit318:     ; preds = %97, %242, %234, %219, %.lr.ph607, %.preheader.thread, %.preheader.thread829, %._crit_edge, %.critedge.loopexit, %221, %.fold.split, %257, %266
-  %.0245 = phi i32 [ -1, %.fold.split ], [ -1, %257 ], [ -1, %266 ], [ -1, %221 ], [ %.6239, %._crit_edge ], [ %286, %.critedge.loopexit ], [ 0, %.preheader.thread829 ], [ 0, %.preheader.thread ], [ -1, %.lr.ph607 ], [ -1, %219 ], [ -1, %234 ], [ -1, %242 ], [ -1, %97 ]
+  %.0245 = phi i32 [ -1, %221 ], [ -1, %266 ], [ -1, %257 ], [ -1, %.fold.split ], [ %286, %.critedge.loopexit ], [ %.6239, %._crit_edge ], [ 0, %.preheader.thread829 ], [ 0, %.preheader.thread ], [ -1, %242 ], [ -1, %.lr.ph607 ], [ -1, %219 ], [ -1, %234 ], [ -1, %97 ]
   ret i32 %.0245
 }
 
@@ -7554,7 +7554,7 @@ define hidden noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb
   resume { ptr, i32 } %.pn
 
 142:                                              ; preds = %99, %78, %73, %57, %136, %103, %._crit_edge
-  %.199 = phi ptr [ %.098.lcssa, %136 ], [ %.098.lcssa, %._crit_edge ], [ %130, %103 ], [ %75, %73 ], [ %70, %57 ], [ %100, %99 ], [ %96, %78 ]
+  %.199 = phi ptr [ %.098.lcssa, %136 ], [ %.098.lcssa, %._crit_edge ], [ %130, %103 ], [ %70, %57 ], [ %75, %73 ], [ %100, %99 ], [ %96, %78 ]
   %143 = ptrtoint ptr %.199 to i64
   %144 = ptrtoint ptr %2 to i64
   %145 = sub i64 %143, %144
@@ -7562,7 +7562,7 @@ define hidden noundef i32 @_ZN6google8protobuf20Base64EscapeInternalEPKhiPciPKcb
   br label %.critedge
 
 .critedge:                                        ; preds = %142, %55, %76, %101, %71, %97, %10, %6
-  %.095 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %146, %142 ], [ 0, %55 ], [ 0, %76 ], [ 0, %101 ], [ 0, %71 ], [ 0, %97 ]
+  %.095 = phi i32 [ 0, %10 ], [ 0, %6 ], [ %146, %142 ], [ 0, %76 ], [ 0, %101 ], [ 0, %55 ], [ 0, %71 ], [ 0, %97 ]
   ret i32 %.095
 }
 
@@ -7954,8 +7954,8 @@ define hidden noundef range(i32 1, 5) i32 @_ZN6google8protobuf16EncodeAsUTF8Char
   br label %36
 
 36:                                               ; preds = %2, %7, %24, %15
-  %37 = phi i32 [ %12, %7 ], [ %23, %15 ], [ %35, %24 ], [ %0, %2 ]
-  %.0 = phi i32 [ 2, %7 ], [ 3, %15 ], [ 4, %24 ], [ 1, %2 ]
+  %37 = phi i32 [ %35, %24 ], [ %12, %7 ], [ %23, %15 ], [ %0, %2 ]
+  %.0 = phi i32 [ 4, %24 ], [ 2, %7 ], [ 3, %15 ], [ 1, %2 ]
   %38 = tail call noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %37)
   store i32 %38, ptr %3, align 4, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8211,8 +8211,8 @@ define hidden void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112ba
   br label %43
 
 43:                                               ; preds = %24, %25, %31, %41, %37
-  %.155 = phi i8 [ 0, %31 ], [ 0, %37 ], [ 0, %41 ], [ 1, %25 ], [ 1, %24 ]
-  %.4 = phi i64 [ %.5, %31 ], [ %39, %37 ], [ %42, %41 ], [ %26, %25 ], [ %.073, %24 ]
+  %.155 = phi i8 [ 0, %41 ], [ 0, %31 ], [ 0, %37 ], [ 1, %25 ], [ 1, %24 ]
+  %.4 = phi i64 [ %42, %41 ], [ %.5, %31 ], [ %39, %37 ], [ %26, %25 ], [ %.073, %24 ]
   %44 = add nsw i64 %.05771, 1
   br label %.backedge
 
@@ -8244,7 +8244,7 @@ define hidden void @_ZN6google8protobuf22CleanStringLineEndingsEPNSt7__cxx1112ba
   br label %58
 
 .thread80:                                        ; preds = %2, %48, %46
-  %.0.lcssa7883 = phi i64 [ %.0.be, %48 ], [ %.0.be, %46 ], [ 0, %2 ]
+  %.0.lcssa7883 = phi i64 [ %.0.be, %46 ], [ %.0.be, %48 ], [ 0, %2 ]
   %56 = icmp slt i64 %.0.lcssa7883, %4
   br i1 %56, label %57, label %58
 

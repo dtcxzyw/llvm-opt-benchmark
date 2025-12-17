@@ -395,7 +395,7 @@ define internal i32 @ini_key_compare(ptr noundef readonly captures(none) %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %7, %16, %14, %8, %17
-  %.0 = phi i32 [ %24, %17 ], [ -1, %8 ], [ %., %14 ], [ 1, %16 ], [ -1, %7 ]
+  %.0 = phi i32 [ %24, %17 ], [ 1, %16 ], [ %., %14 ], [ -1, %8 ], [ -1, %7 ]
   ret i32 %.0
 }
 
@@ -900,7 +900,7 @@ zend_string_release.exit:                         ; preds = %72, %71, %64, %60, 
   br label %zend_string_release.exit45
 
 zend_string_release.exit45:                       ; preds = %5, %85, %84, %77, %74, %20, %zend_string_release.exit
-  %.0 = phi i32 [ 0, %zend_string_release.exit ], [ -1, %20 ], [ -1, %74 ], [ -1, %77 ], [ -1, %84 ], [ -1, %85 ], [ -1, %5 ]
+  %.0 = phi i32 [ -1, %85 ], [ 0, %zend_string_release.exit ], [ -1, %20 ], [ -1, %74 ], [ -1, %77 ], [ -1, %84 ], [ -1, %5 ]
   ret i32 %.0
 }
 
@@ -1066,7 +1066,7 @@ define dso_local range(i32 -1, 1) i32 @zend_restore_ini_entry(ptr noundef %0, i3
   br label %zend_hash_find_ptr.exit.thread
 
 zend_hash_find_ptr.exit.thread:                   ; preds = %2, %13, %18, %15, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %15 ], [ 0, %18 ], [ 0, %13 ], [ -1, %2 ]
+  %.0 = phi i32 [ 0, %13 ], [ -1, %15 ], [ -1, %8 ], [ 0, %18 ], [ -1, %2 ]
   ret i32 %.0
 }
 
@@ -1128,7 +1128,7 @@ zend_hash_str_find_ptr.exit.thread.sink.split:    ; preds = %14, %11
   br label %zend_hash_str_find_ptr.exit.thread
 
 zend_hash_str_find_ptr.exit.thread:               ; preds = %zend_hash_str_find_ptr.exit.thread.sink.split, %3, %14, %11
-  %.0 = phi i64 [ 0, %11 ], [ 0, %14 ], [ 0, %3 ], [ %18, %zend_hash_str_find_ptr.exit.thread.sink.split ]
+  %.0 = phi i64 [ 0, %14 ], [ 0, %11 ], [ 0, %3 ], [ %18, %zend_hash_str_find_ptr.exit.thread.sink.split ]
   ret i64 %.0
 }
 
@@ -1172,7 +1172,7 @@ zend_hash_str_find_ptr.exit.thread.sink.split:    ; preds = %14, %11
   br label %zend_hash_str_find_ptr.exit.thread
 
 zend_hash_str_find_ptr.exit.thread:               ; preds = %zend_hash_str_find_ptr.exit.thread.sink.split, %3, %14, %11
-  %.0 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %3 ], [ %18, %zend_hash_str_find_ptr.exit.thread.sink.split ]
+  %.0 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %3 ], [ %18, %zend_hash_str_find_ptr.exit.thread.sink.split ]
   ret double %.0
 }
 
@@ -1629,8 +1629,8 @@ smart_str_0.exit:                                 ; preds = %27
   br label %smart_str_free_ex.exit192
 
 71:                                               ; preds = %66, %66, %68, %67
-  %.not20.i = phi i64 [ 2, %67 ], [ 2, %68 ], [ 0, %66 ], [ 0, %66 ]
-  %.1103 = phi i32 [ 8, %67 ], [ 2, %68 ], [ 16, %66 ], [ 16, %66 ]
+  %.not20.i = phi i64 [ 2, %68 ], [ 2, %67 ], [ 0, %66 ], [ 0, %66 ]
+  %.1103 = phi i32 [ 2, %68 ], [ 8, %67 ], [ 16, %66 ], [ 16, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %.1110, i64 2
   %73 = icmp eq ptr %72, %.0112.lcssa
   br i1 %73, label %.critedge125, label %74, !prof !52
@@ -1717,7 +1717,7 @@ smart_str_0.exit:                                 ; preds = %27
   br label %zend_ini_consume_quantity_prefix.exit
 
 zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, %98
-  %.018.i = phi ptr [ %.1.i, %87 ], [ %.1.i, %95 ], [ %97, %96 ], [ %.1.i, %84 ], [ %spec.select.i, %98 ]
+  %.018.i = phi ptr [ %spec.select.i, %98 ], [ %.1.i, %87 ], [ %.1.i, %95 ], [ %97, %96 ], [ %.1.i, %84 ]
   %.not196 = icmp eq ptr %72, %.018.i
   br i1 %.not196, label %117, label %.critedge125, !prof !98
 
@@ -1798,8 +1798,8 @@ zend_ini_consume_quantity_prefix.exit:            ; preds = %84, %87, %95, %96, 
   br label %134
 
 134:                                              ; preds = %124, %132, %130, %128, %117, %123
-  %.0106 = phi i8 [ 0, %123 ], [ 1, %117 ], [ 0, %128 ], [ 1, %130 ], [ 0, %132 ], [ %spec.select128, %124 ]
-  %.0100 = phi i64 [ %119, %123 ], [ %119, %117 ], [ -9223372036854775808, %128 ], [ %119, %130 ], [ %spec.select, %132 ], [ %spec.select129, %124 ]
+  %.0106 = phi i8 [ 1, %130 ], [ 1, %117 ], [ 0, %132 ], [ 0, %123 ], [ %spec.select128, %124 ], [ 0, %128 ]
+  %.0100 = phi i64 [ %119, %130 ], [ %119, %117 ], [ %spec.select, %132 ], [ %119, %123 ], [ %spec.select129, %124 ], [ -9223372036854775808, %128 ]
   %135 = load ptr, ptr %5, align 8, !tbaa !92
   %136 = icmp eq ptr %135, %.2111
   br i1 %136, label %smart_str_0.exit133, label %.preheader, !prof !52
@@ -2027,7 +2027,7 @@ smart_str_free_ex.exit176:                        ; preds = %smart_str_free_ex.e
   br label %smart_str_free_ex.exit192
 
 231:                                              ; preds = %163, %163, %167, %166
-  %.0105 = phi i64 [ 1048576, %166 ], [ 1024, %167 ], [ 1073741824, %163 ], [ 1073741824, %163 ]
+  %.0105 = phi i64 [ 1024, %167 ], [ 1048576, %166 ], [ 1073741824, %163 ], [ 1073741824, %163 ]
   %232 = trunc nuw i8 %.0106 to i1
   br i1 %232, label %248, label %233
 
@@ -2308,7 +2308,7 @@ smart_str_free_ex.exit152:                        ; preds = %smart_str_free_ex.e
   br label %smart_str_free_ex.exit192
 
 smart_str_free_ex.exit192:                        ; preds = %smart_str_free_ex.exit152, %357, %352, %348, %smart_str_free_ex.exit164, %312, %307, %303, %smart_str_free_ex.exit176, %230, %225, %221, %smart_str_0.exit133, %157, %152, %148, %.critedge125, %116, %111, %107, %smart_str_0.exit, %52, %47, %43, %358, %69, %65, %23
-  %.0 = phi i64 [ 0, %23 ], [ %.1101, %358 ], [ 0, %65 ], [ 0, %69 ], [ 0, %43 ], [ 0, %47 ], [ 0, %52 ], [ 0, %smart_str_0.exit ], [ 0, %107 ], [ 0, %111 ], [ 0, %116 ], [ 0, %.critedge125 ], [ 0, %148 ], [ 0, %152 ], [ 0, %157 ], [ 0, %smart_str_0.exit133 ], [ %.0100, %221 ], [ %.0100, %225 ], [ %.0100, %230 ], [ %.0100, %smart_str_free_ex.exit176 ], [ %249, %303 ], [ %249, %307 ], [ %249, %312 ], [ %249, %smart_str_free_ex.exit164 ], [ %.1101, %348 ], [ %.1101, %352 ], [ %.1101, %357 ], [ %.1101, %smart_str_free_ex.exit152 ]
+  %.0 = phi i64 [ 0, %23 ], [ 0, %smart_str_0.exit ], [ 0, %.critedge125 ], [ %249, %smart_str_free_ex.exit164 ], [ %.1101, %358 ], [ 0, %smart_str_0.exit133 ], [ %.0100, %smart_str_free_ex.exit176 ], [ 0, %65 ], [ 0, %69 ], [ 0, %43 ], [ 0, %47 ], [ 0, %52 ], [ 0, %107 ], [ 0, %111 ], [ 0, %116 ], [ 0, %148 ], [ 0, %152 ], [ 0, %157 ], [ %.0100, %221 ], [ %.0100, %225 ], [ %.0100, %230 ], [ %249, %303 ], [ %249, %307 ], [ %249, %312 ], [ %.1101, %348 ], [ %.1101, %352 ], [ %.1101, %357 ], [ %.1101, %smart_str_free_ex.exit152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

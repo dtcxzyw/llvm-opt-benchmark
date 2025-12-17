@@ -1182,7 +1182,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   br label %354
 
 .loopexit:                                        ; preds = %254, %354, %207, %170
-  %.0425.us = phi nsz float [ %213, %207 ], [ %176, %170 ], [ %39, %354 ], [ %79, %254 ]
+  %.0425.us = phi nsz float [ %176, %170 ], [ %213, %207 ], [ %39, %354 ], [ %79, %254 ]
   %342 = fcmp reassoc nsz arcp contract afn une float %.0425.us, 0.000000e+00
   br i1 %342, label %343, label %351
 
@@ -1948,8 +1948,8 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   br i1 %or.cond.us, label %.lr.ph276.us, label %93
 
 ._crit_edge259.us.thread:                         ; preds = %._crit_edge.us.thread, %.preheader240.us
-  %.not229244.us.not385 = phi i1 [ true, %.preheader240.us ], [ false, %._crit_edge.us.thread ]
-  %.1.lcssa.us376 = phi float [ %87, %.preheader240.us ], [ %74, %._crit_edge.us.thread ]
+  %.not229244.us.not385 = phi i1 [ false, %._crit_edge.us.thread ], [ true, %.preheader240.us ]
+  %.1.lcssa.us376 = phi float [ %74, %._crit_edge.us.thread ], [ %87, %.preheader240.us ]
   %92 = icmp sle i32 %66, %30
   %or.cond.us349 = select i1 %92, i1 %45, i1 false
   br i1 %or.cond.us349, label %.preheader237.us.._crit_edge277.us_crit_edge, label %.thread
@@ -2804,7 +2804,7 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   br label %365
 
 .loopexit:                                        ; preds = %260, %365, %211, %172
-  %.0423.us = phi nsz float [ %217, %211 ], [ %178, %172 ], [ %39, %365 ], [ %80, %260 ]
+  %.0423.us = phi nsz float [ %178, %172 ], [ %217, %211 ], [ %39, %365 ], [ %80, %260 ]
   %353 = load float, ptr %8, align 16, !tbaa !18
   %354 = fdiv reassoc nsz arcp contract afn float %353, %.0423.us
   store float %354, ptr %.0428497.us, align 4, !tbaa !18

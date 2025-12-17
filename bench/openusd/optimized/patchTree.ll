@@ -2138,7 +2138,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_
   br label %115
 
 115:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit47, %100, %109, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit, %12
-  %.0 = phi ptr [ %114, %109 ], [ %1, %12 ], [ %56, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit ], [ %91, %100 ], [ %91, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit47 ]
+  %.0 = phi ptr [ %56, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit ], [ %114, %109 ], [ %1, %12 ], [ %91, %100 ], [ %91, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE9push_backEOS4_.exit47 ]
   ret ptr %.0
 }
 
@@ -2395,10 +2395,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit: ; preds = %76, %72, %69, %67, %64, %61, %59, %55
-  %.147 = phi double [ %.04652, %67 ], [ %71, %69 ], [ %71, %76 ], [ %71, %72 ], [ %.04652, %61 ], [ %.04652, %64 ], [ %.04652, %59 ], [ %56, %55 ]
-  %.144 = phi double [ %68, %67 ], [ %.04353, %69 ], [ %73, %76 ], [ %73, %72 ], [ %.04353, %61 ], [ %.04353, %64 ], [ %60, %59 ], [ %.04353, %55 ]
-  %.141 = phi i1 [ true, %67 ], [ true, %69 ], [ true, %76 ], [ true, %72 ], [ false, %61 ], [ true, %64 ], [ false, %59 ], [ false, %55 ]
-  %77 = phi i64 [ 1, %67 ], [ 2, %69 ], [ 3, %76 ], [ 0, %72 ], [ 0, %61 ], [ 3, %64 ], [ 2, %59 ], [ 1, %55 ]
+  %.147 = phi double [ %56, %55 ], [ %.04652, %67 ], [ %71, %69 ], [ %71, %76 ], [ %71, %72 ], [ %.04652, %61 ], [ %.04652, %64 ], [ %.04652, %59 ]
+  %.144 = phi double [ %.04353, %55 ], [ %68, %67 ], [ %.04353, %69 ], [ %73, %76 ], [ %73, %72 ], [ %.04353, %61 ], [ %.04353, %64 ], [ %60, %59 ]
+  %.141 = phi i1 [ false, %55 ], [ true, %67 ], [ true, %69 ], [ true, %76 ], [ true, %72 ], [ false, %61 ], [ true, %64 ], [ false, %59 ]
+  %77 = phi i64 [ 1, %55 ], [ 1, %67 ], [ 2, %69 ], [ 3, %76 ], [ 0, %72 ], [ 0, %61 ], [ 3, %64 ], [ 2, %59 ]
   %78 = getelementptr inbounds nuw i8, ptr %.02256, i64 4
   %79 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode::Child", ptr %78, i64 %77
   %80 = load i32, ptr %79, align 4
@@ -2431,7 +2431,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   br label %93
 
 93:                                               ; preds = %28, %._crit_edge, %.split.us, %13
-  %.0 = phi i32 [ %14, %13 ], [ %83, %.split.us ], [ %92, %._crit_edge ], [ %29, %28 ]
+  %.0 = phi i32 [ %14, %13 ], [ %92, %._crit_edge ], [ %83, %.split.us ], [ %29, %28 ]
   ret i32 %.0
 }
 

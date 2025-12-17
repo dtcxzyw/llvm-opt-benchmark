@@ -2787,8 +2787,8 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %208, %230, %41, %62
-  %.sink11.sink = phi i16 [ %59, %41 ], [ %40, %62 ], [ %227, %208 ], [ %207, %230 ]
-  %.sink23 = phi i32 [ %61, %41 ], [ %63, %62 ], [ %229, %208 ], [ %231, %230 ]
+  %.sink11.sink = phi i16 [ %40, %62 ], [ %59, %41 ], [ %227, %208 ], [ %207, %230 ]
+  %.sink23 = phi i32 [ %63, %62 ], [ %61, %41 ], [ %229, %208 ], [ %231, %230 ]
   store i16 %.sink11.sink, ptr %11, align 8
   store i32 %.sink23, ptr %10, align 4
   br label %232
@@ -3451,8 +3451,8 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr noundef readonly capt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %310, %335, %242, %267, %171, %196
-  %.sink24.sink = phi i16 [ %194, %171 ], [ %200, %196 ], [ %265, %242 ], [ %271, %267 ], [ %333, %310 ], [ %339, %335 ]
-  %.sink43 = phi i32 [ %195, %171 ], [ %201, %196 ], [ %266, %242 ], [ %272, %267 ], [ %334, %310 ], [ %340, %335 ]
+  %.sink24.sink = phi i16 [ %271, %267 ], [ %200, %196 ], [ %194, %171 ], [ %265, %242 ], [ %333, %310 ], [ %339, %335 ]
+  %.sink43 = phi i32 [ %272, %267 ], [ %201, %196 ], [ %195, %171 ], [ %266, %242 ], [ %334, %310 ], [ %340, %335 ]
   store i16 %.sink24.sink, ptr %14, align 8
   store i32 %.sink43, ptr %13, align 4
   br label %.loopexit

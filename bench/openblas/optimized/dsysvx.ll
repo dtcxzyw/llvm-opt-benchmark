@@ -105,7 +105,7 @@ define void @dsysvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not164, label %.thread180, label %.thread170
 
 .thread170.sink.split:                            ; preds = %50, %47, %44, %41, %38, %35, %32, %30, %26
-  %.sink = phi i32 [ -1, %26 ], [ -2, %30 ], [ -3, %32 ], [ -4, %35 ], [ -6, %38 ], [ -8, %41 ], [ -11, %44 ], [ -13, %47 ], [ -18, %50 ]
+  %.sink = phi i32 [ -1, %26 ], [ -3, %32 ], [ -6, %38 ], [ -11, %44 ], [ -13, %47 ], [ -8, %41 ], [ -4, %35 ], [ -2, %30 ], [ -18, %50 ]
   store i32 %.sink, ptr %19, align 4, !tbaa !3
   br label %.thread170
 

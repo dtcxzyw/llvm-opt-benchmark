@@ -160,7 +160,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %29, %27, %23
   br label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %._crit_edge57.loopexit, %.preheader46
-  %56 = phi i16 [ %.pre, %._crit_edge57.loopexit ], [ %10, %.preheader46 ]
+  %56 = phi i16 [ %10, %.preheader46 ], [ %.pre, %._crit_edge57.loopexit ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %57 = zext i16 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next78, %57
@@ -304,7 +304,7 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   br label %43
 
 43:                                               ; preds = %._crit_edge93, %._crit_edge
-  %.not161 = phi i1 [ false, %._crit_edge93 ], [ true, %._crit_edge ]
+  %.not161 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge93 ]
   br i1 %9, label %.lr.ph96.preheader, label %.preheader
 
 .lr.ph96.preheader:                               ; preds = %43
@@ -561,9 +561,9 @@ Kit_DsdNtkObj.exit:                               ; preds = %13
   %66 = load i32, ptr %65, align 4, !tbaa !16
   br label %67
 
-67:                                               ; preds = %39, %41, %60, %62
-  %.ph = phi ptr [ %57, %62 ], [ %57, %60 ], [ %36, %41 ], [ %36, %39 ]
-  %.096.ph = phi i32 [ %66, %62 ], [ %61, %60 ], [ %45, %41 ], [ %40, %39 ]
+67:                                               ; preds = %41, %39, %62, %60
+  %.ph = phi ptr [ %57, %60 ], [ %57, %62 ], [ %36, %39 ], [ %36, %41 ]
+  %.096.ph = phi i32 [ %61, %60 ], [ %66, %62 ], [ %40, %39 ], [ %45, %41 ]
   %68 = getelementptr inbounds nuw i32, ptr %.ph, i64 %24
   %69 = load i32, ptr %68, align 4, !tbaa !16
   %70 = xor i32 %.096.ph, -1

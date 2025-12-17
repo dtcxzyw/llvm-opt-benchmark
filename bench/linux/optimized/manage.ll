@@ -674,7 +674,7 @@ define dso_local range(i32 3, 1) i32 @irq_set_affinity_locked(ptr noundef %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %65, %67, %68, %53, %38, %17
-  %69 = phi i32 [ 0, %17 ], [ %39, %68 ], [ %39, %53 ], [ %39, %38 ], [ %39, %67 ], [ %39, %65 ]
+  %69 = phi i32 [ 0, %17 ], [ %39, %68 ], [ %39, %38 ], [ %39, %53 ], [ %39, %67 ], [ %39, %65 ]
   %70 = load ptr, ptr %6, align 8
   %71 = load i32, ptr %70, align 8
   %72 = or i32 %71, 4096
@@ -1217,7 +1217,7 @@ define dso_local zeroext i1 @disable_hardirq(i32 noundef %0) #1 align 16 {
   br label %37
 
 37:                                               ; preds = %36, %32, %11
-  %38 = phi i1 [ %35, %32 ], [ true, %11 ], [ false, %36 ]
+  %38 = phi i1 [ false, %36 ], [ %35, %32 ], [ true, %11 ]
   ret i1 %38
 }
 
@@ -2921,7 +2921,7 @@ define internal fastcc i32 @__setup_irq(i32 noundef %0, ptr noundef nonnull %1, 
   br label %393
 
 393:                                              ; preds = %390, %342, %8, %3
-  %394 = phi i32 [ %391, %390 ], [ 0, %342 ], [ -38, %3 ], [ -19, %8 ]
+  %394 = phi i32 [ -19, %8 ], [ %391, %390 ], [ 0, %342 ], [ -38, %3 ]
   ret i32 %394
 }
 

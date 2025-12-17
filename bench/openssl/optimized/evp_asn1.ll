@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set_octetstring(ptr noundef %0, ptr nounde
   br label %10
 
 10:                                               ; preds = %3, %9, %8
-  %.0 = phi i32 [ 1, %9 ], [ 0, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %9 ], [ 0, %3 ]
   ret i32 %.0
 }
 

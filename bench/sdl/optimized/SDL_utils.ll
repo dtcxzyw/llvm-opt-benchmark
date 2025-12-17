@@ -152,8 +152,8 @@ define hidden void @SDL_CalculateFraction(float noundef %0, ptr noundef writeonl
   br label %.thread
 
 .thread:                                          ; preds = %13, %11, %20
-  %.04969.lcssa.sink = phi i32 [ %.049..045, %20 ], [ %5, %11 ], [ %.04969.lcssa..04571.lcssa, %13 ]
-  %.04670.lcssa.sink = phi i32 [ %.046..052, %20 ], [ %7, %11 ], [ %.04670.lcssa..05268.lcssa, %13 ]
+  %.04969.lcssa.sink = phi i32 [ %.04969.lcssa..04571.lcssa, %13 ], [ %5, %11 ], [ %.049..045, %20 ]
+  %.04670.lcssa.sink = phi i32 [ %.04670.lcssa..05268.lcssa, %13 ], [ %7, %11 ], [ %.046..052, %20 ]
   store i32 %.04969.lcssa.sink, ptr %1, align 4
   store i32 %.04670.lcssa.sink, ptr %2, align 4
   ret void
@@ -471,7 +471,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread51
 
-.thread45:                                        ; preds = %21, %27, %31
+.thread45:                                        ; preds = %27, %21, %31
   %35 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.2) #10
   %36 = icmp eq i64 %35, %24
   br i1 %36, label %37, label %.thread62
@@ -489,7 +489,7 @@ define hidden i32 @SDL_URIToLocal(ptr noundef %0, ptr noundef writeonly captures
   br i1 %40, label %.thread51, label %SDL_URIDecode.exit
 
 .thread51:                                        ; preds = %10, %12, %.thread59, %37
-  %.13154 = phi ptr [ %41, %37 ], [ %34, %.thread59 ], [ %.030, %12 ], [ %.030, %10 ]
+  %.13154 = phi ptr [ %34, %.thread59 ], [ %41, %37 ], [ %.030, %12 ], [ %.030, %10 ]
   %42 = load i8, ptr %.13154, align 1
   %43 = icmp eq i8 %42, 47
   %.5.v = select i1 %43, i64 1, i64 -1
@@ -602,9 +602,9 @@ switch.early.test.i:                              ; preds = %59
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %84, %75, %55, %51
-  %.183.i = phi i32 [ %58, %55 ], [ %.08296.i, %51 ], [ %87, %84 ], [ %.08296.i, %75 ], [ %88, %.loopexit.loopexit.i ]
-  %.180.i = phi i32 [ 0, %55 ], [ 1, %51 ], [ 0, %84 ], [ 2, %75 ], [ 0, %.loopexit.loopexit.i ]
-  %.1.i = phi i8 [ %.07898.i, %55 ], [ 0, %51 ], [ %83, %84 ], [ %83, %75 ], [ %.07898.i, %.loopexit.loopexit.i ]
+  %.183.i = phi i32 [ %88, %.loopexit.loopexit.i ], [ %58, %55 ], [ %.08296.i, %51 ], [ %87, %84 ], [ %.08296.i, %75 ]
+  %.180.i = phi i32 [ 0, %.loopexit.loopexit.i ], [ 0, %55 ], [ 1, %51 ], [ 0, %84 ], [ 2, %75 ]
+  %.1.i = phi i8 [ %.07898.i, %.loopexit.loopexit.i ], [ %.07898.i, %55 ], [ 0, %51 ], [ %83, %84 ], [ %83, %75 ]
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %89 = icmp samesign ult i64 %indvars.iv.next110.i, %49
   %90 = icmp slt i32 %.183.i, %47
@@ -618,8 +618,8 @@ switch.early.test.i:                              ; preds = %59
   store i8 0, ptr %93, align 1
   br label %SDL_URIDecode.exit
 
-SDL_URIDecode.exit:                               ; preds = %19, %16, %._crit_edge.i, %.thread51, %.thread62, %37, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %37 ], [ -1, %.thread62 ], [ %.082.lcssa.i, %._crit_edge.i ], [ -1, %.thread51 ], [ -1, %16 ], [ -1, %19 ]
+SDL_URIDecode.exit:                               ; preds = %16, %19, %._crit_edge.i, %.thread51, %.thread62, %37, %8
+  %.0 = phi i32 [ -1, %8 ], [ -1, %.thread62 ], [ -1, %37 ], [ -1, %.thread51 ], [ %.082.lcssa.i, %._crit_edge.i ], [ -1, %19 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -682,7 +682,7 @@ define hidden ptr @SDL_GetPersistentString(ptr noundef %0) local_unnamed_addr #3
   br label %17
 
 17:                                               ; preds = %.critedge, %7, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ @.str.3, %3 ], [ %.3, %.critedge ], [ null, %7 ]
+  %.0 = phi ptr [ @.str.3, %3 ], [ null, %1 ], [ %.3, %.critedge ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -784,7 +784,7 @@ switch.lookup:                                    ; preds = %28
   br label %37
 
 37:                                               ; preds = %switch.lookup, %35, %23
-  %.0107.lcssa.sink = phi ptr [ %.0107, %23 ], [ %4, %35 ], [ %switch.load, %switch.lookup ]
+  %.0107.lcssa.sink = phi ptr [ %4, %35 ], [ %switch.load, %switch.lookup ], [ %.0107, %23 ]
   %38 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %.0107.lcssa.sink) #10
   %.not124 = icmp eq ptr %38, null
   br i1 %.not124, label %.thread, label %.thread132
@@ -891,8 +891,8 @@ switch.lookup:                                    ; preds = %28
   %80 = add i64 %.neg, %74
   br label %.thread137
 
-.thread137:                                       ; preds = %63, %75, %71
-  %.4 = phi i64 [ %.1101.lcssa, %71 ], [ %80, %75 ], [ %.1101.lcssa, %63 ]
+.thread137:                                       ; preds = %63, %71, %75
+  %.4 = phi i64 [ %80, %75 ], [ %.1101.lcssa, %71 ], [ %.1101.lcssa, %63 ]
   %81 = add i64 %.4, -1
   %82 = icmp ugt i64 %81, 1
   br i1 %82, label %.lr.ph161, label %.thread

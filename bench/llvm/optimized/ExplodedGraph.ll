@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento13ExplodedGraph23isInterestin
   br label %_ZN4llvm3isaIN5clang11DeclRefExprENS1_10MemberExprEJNS1_15ObjCIvarRefExprENS1_18ArraySubscriptExprEEPKNS1_4ExprEEEbRKT2_.exit
 
 _ZN4llvm3isaIN5clang11DeclRefExprENS1_10MemberExprEJNS1_15ObjCIvarRefExprENS1_18ArraySubscriptExprEEPKNS1_4ExprEEEbRKT2_.exit: ; preds = %8, %5, %5, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %5 ], [ %spec.select.i.i.i, %8 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %1 ], [ true, %5 ], [ true, %5 ], [ %spec.select.i.i.i, %8 ]
   ret i1 %.0
 }
 
@@ -306,7 +306,7 @@ _ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit.thread: ; preds = %24, %_ZNK5clan
   br label %_ZNK5clang4ento12ExplodedNode10pred_beginEv.exit
 
 _ZNK5clang4ento12ExplodedNode10pred_beginEv.exit: ; preds = %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit.thread, %35
-  %39 = phi ptr [ %.pre, %35 ], [ %7, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit.thread ]
+  %39 = phi ptr [ %7, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit.thread ], [ %.pre, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %41 = load i64, ptr %40, align 8, !tbaa !32
   %42 = and i64 %41, 1
@@ -344,7 +344,7 @@ _ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38.thread: ; preds = %44, %_ZNK5cl
   br label %_ZNK5clang4ento12ExplodedNode10succ_beginEv.exit
 
 _ZNK5clang4ento12ExplodedNode10succ_beginEv.exit: ; preds = %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38.thread, %55
-  %59 = phi ptr [ %.pre152, %55 ], [ %23, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38.thread ]
+  %59 = phi ptr [ %23, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38.thread ], [ %.pre152, %55 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load i64, ptr %60, align 8, !tbaa !32
   %62 = and i64 %61, 1
@@ -532,13 +532,13 @@ _ZN5clang4ento13ExplodedGraph23isInterestingLValueExprEPKNS_4ExprE.exit.thread14
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75: ; preds = %.critedge29, %145, %125, %125, %125, %125, %111, %117, %_ZN5clang4ento13ExplodedGraph23isInterestingLValueExprEPKNS_4ExprE.exit.thread144, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit58, %_ZNK4llvm12ImmutableMapIPvS1_NS_16ImutKeyValueInfoIS1_S1_EEEneERKS4_.exit, %113
-  %.4 = phi i1 [ false, %113 ], [ false, %_ZNK4llvm12ImmutableMapIPvS1_NS_16ImutKeyValueInfoIS1_S1_EEEneERKS4_.exit ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit58 ], [ false, %117 ], [ false, %_ZN5clang4ento13ExplodedGraph23isInterestingLValueExprEPKNS_4ExprE.exit.thread144 ], [ false, %111 ], [ false, %125 ], [ false, %125 ], [ false, %125 ], [ false, %125 ], [ false, %145 ], [ %spec.select, %.critedge29 ]
+  %.4 = phi i1 [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit58 ], [ false, %113 ], [ false, %_ZNK4llvm12ImmutableMapIPvS1_NS_16ImutKeyValueInfoIS1_S1_EEEneERKS4_.exit ], [ false, %117 ], [ false, %125 ], [ false, %125 ], [ false, %_ZN5clang4ento13ExplodedGraph23isInterestingLValueExprEPKNS_4ExprE.exit.thread144 ], [ false, %111 ], [ false, %125 ], [ false, %125 ], [ false, %145 ], [ %spec.select, %.critedge29 ]
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %101) #19
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %98) #19
   br label %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread122
 
 _ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread122: ; preds = %87, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75, %94, %88, %_ZNK5clang4ento12ExplodedNode10succ_beginEv.exit, %_ZNK5clang4ento12ExplodedNode10pred_beginEv.exit, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread, %2, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit47, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38 ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit47 ], [ false, %2 ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread ], [ false, %_ZNK5clang4ento12ExplodedNode10pred_beginEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode10succ_beginEv.exit ], [ %.not27, %87 ], [ %.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75 ], [ false, %94 ], [ false, %88 ]
+  %.0 = phi i1 [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit38 ], [ false, %_ZNK5clang4ento12ExplodedNode10succ_beginEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit47 ], [ false, %_ZNK5clang4ento12ExplodedNode10pred_beginEv.exit ], [ false, %2 ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread ], [ %.not27, %87 ], [ %.4, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75 ], [ false, %88 ], [ false, %94 ]
   ret i1 %.0
 }
 
@@ -566,7 +566,7 @@ define dso_local void @_ZN5clang4ento13ExplodedGraph11collectNodeEPNS0_12Explode
   br label %_ZN5clang4ento12ExplodedNode10pred_beginEv.exit
 
 _ZN5clang4ento12ExplodedNode10pred_beginEv.exit:  ; preds = %2, %9
-  %13 = phi ptr [ %.pre, %9 ], [ %8, %2 ]
+  %13 = phi ptr [ %8, %2 ], [ %.pre, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 1
@@ -587,7 +587,7 @@ _ZN5clang4ento12ExplodedNode10pred_beginEv.exit:  ; preds = %2, %9
   br label %_ZN5clang4ento12ExplodedNode10succ_beginEv.exit
 
 _ZN5clang4ento12ExplodedNode10succ_beginEv.exit:  ; preds = %_ZN5clang4ento12ExplodedNode10pred_beginEv.exit, %20
-  %24 = phi ptr [ %.pre15, %20 ], [ %19, %_ZN5clang4ento12ExplodedNode10pred_beginEv.exit ]
+  %24 = phi ptr [ %19, %_ZN5clang4ento12ExplodedNode10pred_beginEv.exit ], [ %.pre15, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %26 = ptrtoint ptr %24 to i64
   %27 = and i64 %26, -5
@@ -1009,7 +1009,7 @@ define dso_local noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup3endEv(ptr 
   br label %14
 
 14:                                               ; preds = %7, %12, %1
-  %.0 = phi ptr [ null, %1 ], [ %13, %12 ], [ %11, %7 ]
+  %.0 = phi ptr [ null, %1 ], [ %11, %7 ], [ %13, %12 ]
   ret ptr %.0
 }
 
@@ -1138,7 +1138,7 @@ _ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit9: ; preds = %47, %52
   br label %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread16
 
 _ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread16: ; preds = %63, %61, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit9, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread, %1, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit
-  %74 = phi i1 [ false, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit ], [ false, %1 ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread ], [ false, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit9 ], [ %73, %63 ], [ true, %61 ]
+  %74 = phi i1 [ false, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit ], [ false, %_ZNK5clang4ento12ExplodedNode9pred_sizeEv.exit.thread ], [ false, %1 ], [ false, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit9 ], [ %73, %63 ], [ true, %61 ]
   ret i1 %74
 }
 
@@ -1270,7 +1270,7 @@ _ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit: ;
   br label %_ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit.thread94
 
 _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit.thread94: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit.thread99, %_ZNK5clang12ProgramPoint5getAsINS_11CallExitEndEEESt8optionalIT_Ev.exit.thread109, %_ZNK5clang12ProgramPoint5getAsINS_15PostInitializerEEESt8optionalIT_Ev.exit.thread114, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit, %12, %26, %26, %26, %_ZL35findTopAutosynthesizedParentContextPKN5clang15LocationContextE.exit
-  %.016 = phi ptr [ %11, %_ZL35findTopAutosynthesizedParentContextPKN5clang15LocationContextE.exit ], [ %31, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit.thread99 ], [ %33, %_ZNK5clang12ProgramPoint5getAsINS_11CallExitEndEEESt8optionalIT_Ev.exit.thread109 ], [ %35, %_ZNK5clang12ProgramPoint5getAsINS_15PostInitializerEEESt8optionalIT_Ev.exit.thread114 ], [ null, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit ], [ %.sroa.072.0.copyload, %12 ], [ %.sroa.072.0.copyload, %26 ], [ %.sroa.072.0.copyload, %26 ], [ %.sroa.072.0.copyload, %26 ]
+  %.016 = phi ptr [ %11, %_ZL35findTopAutosynthesizedParentContextPKN5clang15LocationContextE.exit ], [ null, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit ], [ %31, %_ZNK5clang12ProgramPoint5getAsINS_9BlockEdgeEEESt8optionalIT_Ev.exit.thread99 ], [ %.sroa.072.0.copyload, %26 ], [ %35, %_ZNK5clang12ProgramPoint5getAsINS_15PostInitializerEEESt8optionalIT_Ev.exit.thread114 ], [ %33, %_ZNK5clang12ProgramPoint5getAsINS_11CallExitEndEEESt8optionalIT_Ev.exit.thread109 ], [ %.sroa.072.0.copyload, %12 ], [ %.sroa.072.0.copyload, %26 ], [ %.sroa.072.0.copyload, %26 ]
   ret ptr %.016
 }
 
@@ -1352,7 +1352,7 @@ _ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit: ; preds = %8, %11
   %or.cond = icmp ult i32 %36, -2
   br i1 %or.cond, label %.thread28, label %.thread
 
-.thread:                                          ; preds = %27, %29, %29, %29, %32, %.lr.ph
+.thread:                                          ; preds = %27, %32, %29, %29, %29, %.lr.ph
   %37 = getelementptr inbounds nuw i8, ptr %.01532, i64 72
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
@@ -1382,7 +1382,7 @@ _ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit24: ; preds = %43, %46
   br i1 %.not, label %.thread28, label %.lr.ph, !llvm.loop !94
 
 .thread28:                                        ; preds = %.thread, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit24, %32, %29, %1, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit
-  %51 = phi ptr [ null, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit ], [ null, %1 ], [ null, %.thread ], [ %28, %29 ], [ %28, %32 ], [ null, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit24 ]
+  %51 = phi ptr [ null, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit ], [ null, %1 ], [ null, %.thread ], [ %28, %32 ], [ %28, %29 ], [ null, %_ZNK5clang4ento12ExplodedNode12getFirstSuccEv.exit24 ]
   ret ptr %51
 }
 
@@ -4326,7 +4326,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEE11skipSubTree
   br i1 %.not.i.i1.i22, label %.backedge, label %.lr.ph.i20, !llvm.loop !173
 
 .backedge:                                        ; preds = %221, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit60, %211, %104, %.lr.ph.i20, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEE11skipSubTreeEv.exit
-  %107 = phi i32 [ 0, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEE11skipSubTreeEv.exit ], [ 0, %104 ], [ %97, %.lr.ph.i20 ], [ %.pr68105143, %221 ], [ 0, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit60 ], [ 0, %211 ]
+  %107 = phi i32 [ 0, %104 ], [ 0, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEE11skipSubTreeEv.exit ], [ %97, %.lr.ph.i20 ], [ 0, %211 ], [ %.pr68105143, %221 ], [ 0, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit60 ]
   br label %43, !llvm.loop !174
 
 108:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEneERKS4_.exit16.thread
@@ -4453,7 +4453,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit.thr
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit: ; preds = %141, %155, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i
-  %.pr99 = phi i32 [ %140, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %154, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pr98, %155 ], [ %.pr98, %141 ]
+  %.pr99 = phi i32 [ %154, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %140, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pr98, %141 ], [ %.pr98, %155 ]
   %.not.i.i.i24 = icmp eq i32 %.pr99, 0
   br i1 %.not.i.i.i24, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit, label %167
 
@@ -4585,7 +4585,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit60.t
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPvS2_EEEppEv.exit60: ; preds = %195, %209, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i58, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i51
-  %.pr68105 = phi i32 [ %194, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i58 ], [ %208, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i51 ], [ %.pr68107, %209 ], [ %.pr68107, %195 ]
+  %.pr68105 = phi i32 [ %208, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i51 ], [ %194, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i58 ], [ %.pr68107, %195 ], [ %.pr68107, %209 ]
   %.not.i.i.i26 = icmp eq i32 %.pr68105, 0
   br i1 %.not.i.i.i26, label %.backedge, label %221
 
@@ -4644,7 +4644,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exi
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit36
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit36: ; preds = %108, %.critedge, %232, %231, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %232 ], [ true, %231 ], [ false, %.critedge ], [ false, %108 ]
+  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit ], [ true, %231 ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEEeqERKS4_.exit.thread ], [ %.not9.i.i.i.i.i.i.i35, %232 ], [ false, %.critedge ], [ false, %108 ]
   %236 = load ptr, ptr %6, align 8, !tbaa !3
   %237 = icmp eq ptr %236, %40
   br i1 %237, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPvS2_EEED2Ev.exit, label %238

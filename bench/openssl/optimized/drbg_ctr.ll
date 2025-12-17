@@ -272,7 +272,7 @@ define internal i32 @drbg_ctr_get_ctx_params(ptr noundef %0, ptr noundef %1) #0 
   br label %34
 
 34:                                               ; preds = %30, %32, %11, %7, %2
-  %.020 = phi i32 [ 0, %2 ], [ 1, %7 ], [ 0, %11 ], [ %.0, %32 ], [ %.0, %30 ]
+  %.020 = phi i32 [ 0, %2 ], [ 0, %11 ], [ 1, %7 ], [ %.0, %32 ], [ %.0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.020
 }
@@ -362,7 +362,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef rea
   br label %.thread
 
 .thread:                                          ; preds = %12, %18, %24, %29, %32
-  %.032 = phi i32 [ %spec.select, %32 ], [ 0, %29 ], [ 0, %24 ], [ 0, %18 ], [ 0, %12 ]
+  %.032 = phi i32 [ %spec.select, %32 ], [ 0, %18 ], [ 0, %29 ], [ 0, %24 ], [ 0, %12 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !20
   %.not42 = icmp eq ptr %35, null
   br i1 %.not42, label %38, label %36
@@ -510,7 +510,7 @@ inc_128.exit:                                     ; preds = %11
   br label %19
 
 19:                                               ; preds = %inc_128.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ %18, %inc_128.exit ]
+  %.0 = phi i32 [ %18, %inc_128.exit ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -557,8 +557,8 @@ inc_128.exit:                                     ; preds = %13
   br label %24
 
 24:                                               ; preds = %21, %5
-  %.058 = phi i64 [ %spec.select, %21 ], [ 0, %5 ]
-  %.054 = phi ptr [ %spec.select74, %21 ], [ %3, %5 ]
+  %.058 = phi i64 [ 0, %5 ], [ %spec.select, %21 ]
+  %.054 = phi ptr [ %3, %5 ], [ %spec.select74, %21 ]
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 84
   br label %26
 
@@ -962,7 +962,7 @@ ctr_BCC_final.exit.i:                             ; preds = %ctr_BCC_blocks.exit
   %or.cond5.i = select i1 %141, i1 true, i1 %143
   br i1 %or.cond5.i, label %ctr_df.exit.thread, label %ctr_df.exit
 
-ctr_df.exit.thread:                               ; preds = %ctr_BCC_init.exit.i, %97, %95, %93, %68, %ctr_BCC_final.exit.i, %120, %128, %137, %ctr_BCC_blocks.exit.i.i
+ctr_df.exit.thread:                               ; preds = %ctr_BCC_final.exit.i, %120, %128, %68, %ctr_BCC_init.exit.i, %137, %97, %95, %93, %ctr_BCC_blocks.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %204
 
@@ -1126,7 +1126,7 @@ ctr_XOR.exit:                                     ; preds = %159, %192, %._crit_
   br label %204
 
 204:                                              ; preds = %ctr_df.exit.thread, %200, %ctr_XOR.exit, %37
-  %.042 = phi i32 [ 0, %37 ], [ 0, %ctr_XOR.exit ], [ %spec.select, %200 ], [ 0, %ctr_df.exit.thread ]
+  %.042 = phi i32 [ 0, %37 ], [ 0, %ctr_XOR.exit ], [ 0, %ctr_df.exit.thread ], [ %spec.select, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1297,7 +1297,7 @@ ctr_BCC_blocks.exit56:                            ; preds = %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ctr_BCC_blocks.exit56, %ctr_BCC_blocks.exit, %._crit_edge, %61, %3
-  %.031 = phi i32 [ 1, %3 ], [ 1, %61 ], [ 1, %._crit_edge ], [ 0, %ctr_BCC_blocks.exit ], [ 0, %ctr_BCC_blocks.exit56 ]
+  %.031 = phi i32 [ 1, %._crit_edge ], [ 1, %3 ], [ 1, %61 ], [ 0, %ctr_BCC_blocks.exit ], [ 0, %ctr_BCC_blocks.exit56 ]
   ret i32 %.031
 }
 
@@ -1545,7 +1545,7 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   br i1 %113, label %167, label %.thread43.i
 
 .thread43.i:                                      ; preds = %.thread42.i, %109
-  %114 = phi ptr [ %105, %.thread42.i ], [ %.pre.i, %109 ]
+  %114 = phi ptr [ %.pre.i, %109 ], [ %105, %.thread42.i ]
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %116 = load ptr, ptr %115, align 8, !tbaa !18
   %117 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %114, ptr noundef %116, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #7
@@ -1648,8 +1648,8 @@ define internal fastcc i32 @drbg_ctr_set_ctx_params_locked(ptr noundef %0, ptr n
   br label %drbg_ctr_init.exit.thread
 
 167:                                              ; preds = %.thread.i, %133, %118, %.thread43.i, %.thread42.i, %109
-  %.sink44.i = phi i32 [ 575, %109 ], [ 575, %.thread42.i ], [ 583, %118 ], [ 583, %.thread43.i ], [ 602, %133 ], [ 608, %.thread.i ]
-  %.sink.i = phi i32 [ 524294, %109 ], [ 524294, %.thread42.i ], [ 208, %118 ], [ 208, %.thread43.i ], [ 524294, %133 ], [ 205, %.thread.i ]
+  %.sink44.i = phi i32 [ 602, %133 ], [ 583, %.thread43.i ], [ 575, %.thread42.i ], [ 575, %109 ], [ 583, %118 ], [ 608, %.thread.i ]
+  %.sink.i = phi i32 [ 524294, %133 ], [ 208, %.thread43.i ], [ 524294, %.thread42.i ], [ 524294, %109 ], [ 208, %118 ], [ 205, %.thread.i ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink44.i, ptr noundef nonnull @__func__.drbg_ctr_init) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #7
@@ -1665,7 +1665,7 @@ drbg_ctr_init.exit.thread:                        ; preds = %160, %153, %144, %8
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %95, %46, %51, %56, %88, %30, %27, %19, %drbg_ctr_init.exit.thread
-  %.0 = phi i32 [ %170, %drbg_ctr_init.exit.thread ], [ 0, %19 ], [ 0, %27 ], [ 0, %30 ], [ 0, %88 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %95 ], [ 0, %167 ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %19 ], [ 0, %27 ], [ %170, %drbg_ctr_init.exit.thread ], [ 0, %30 ], [ 0, %88 ], [ 0, %56 ], [ 0, %51 ], [ 0, %95 ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

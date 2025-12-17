@@ -47,19 +47,19 @@ define i32 @Abc_TruthNpnCountUnique(ptr noundef captures(none) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = add i32 %3, -1
-  br label %.loopexit.i
+  br label %.critedge.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.backedge, %1
-  %.012.i = phi i32 [ %4, %1 ], [ %5, %.loopexit.i.backedge ]
+.critedge.i:                                      ; preds = %.critedge.i.backedge, %1
+  %.012.i = phi i32 [ %4, %1 ], [ %5, %.critedge.i.backedge ]
   %5 = add i32 %.012.i, 1
   %6 = and i32 %.012.i, 1
   %.not.not.i = icmp eq i32 %6, 0
-  br i1 %.not.not.i, label %.preheader.i, label %.loopexit.i.backedge
+  br i1 %.not.not.i, label %.preheader.i, label %.critedge.i.backedge
 
-.loopexit.i.backedge:                             ; preds = %.lr.ph.i, %.loopexit.i
-  br label %.loopexit.i, !llvm.loop !10
+.critedge.i.backedge:                             ; preds = %.lr.ph.i, %.critedge.i
+  br label %.critedge.i
 
-.preheader.i:                                     ; preds = %.loopexit.i
+.preheader.i:                                     ; preds = %.critedge.i
   %.not15.i = icmp ult i32 %5, 9
   br i1 %.not15.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i
 
@@ -67,13 +67,13 @@ define i32 @Abc_TruthNpnCountUnique(ptr noundef captures(none) %0) local_unnamed
   %8 = add nuw nsw i32 %.01116.i, 2
   %9 = mul nuw nsw i32 %8, %8
   %.not.i = icmp ugt i32 %9, %5
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %7
   %.01116.i = phi i32 [ %8, %7 ], [ 3, %.preheader.i ]
   %10 = urem i32 %5, %.01116.i
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit.i.backedge, label %7, !llvm.loop !10
+  br i1 %11, label %.critedge.i.backedge, label %7
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %12 = sext i32 %5 to i64
@@ -87,9 +87,9 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
 
 .lr.ph:                                           ; preds = %Abc_PrimeCudd.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !14
+  %20 = load i32, ptr %19, align 4, !tbaa !13
   %21 = icmp sgt i32 %20, 0
   %wide.trip.count.i = zext nneg i32 %20 to i64
   %22 = sext i32 %20 to i64
@@ -103,68 +103,68 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %43
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next73, %43 ]
   %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv72
-  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
   br label %.lr.ph.i49.us
 
 .lr.ph.i49.us:                                    ; preds = %.lr.ph.i49.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i49.us ]
   %.010.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %35, %.lr.ph.i49.us ]
   %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.us
-  %27 = load i64, ptr %26, align 8, !tbaa !17
+  %27 = load i64, ptr %26, align 8, !tbaa !16
   %28 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %29 = urem i32 %28, 7
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr inbounds nuw i32, ptr @Abc_TruthHashKey.s_BigPrimes, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !19
+  %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = zext i32 %32 to i64
   %34 = mul i64 %27, %33
   %35 = add i64 %34, %.010.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Abc_TruthHashKey.exit.loopexit.us, label %.lr.ph.i49.us, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %Abc_TruthHashKey.exit.loopexit.us, label %.lr.ph.i49.us, !llvm.loop !19
 
 .lr.ph.i51.us:                                    ; preds = %Abc_TruthHashKey.exit.loopexit.us, %39
   %.014.i.us = phi i32 [ %.0.i.us, %39 ], [ %.012.i50.us, %Abc_TruthHashKey.exit.loopexit.us ]
   %36 = sext i32 %.014.i.us to i64
   %37 = getelementptr inbounds ptr, ptr %18, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !15
+  %38 = load ptr, ptr %37, align 8, !tbaa !14
   %bcmp.i.us = tail call i32 @bcmp(ptr %38, ptr %25, i64 %23)
   %.not11.i.us = icmp eq i32 %bcmp.i.us, 0
   br i1 %.not11.i.us, label %Abc_TruthHashLookup.exit.us, label %39
 
 39:                                               ; preds = %.lr.ph.i51.us
   %40 = getelementptr inbounds i32, ptr %15, i64 %36
-  %.0.i.us = load i32, ptr %40, align 4, !tbaa !19
+  %.0.i.us = load i32, ptr %40, align 4, !tbaa !18
   %.not.i52.us = icmp eq i32 %.0.i.us, -1
-  br i1 %.not.i52.us, label %.loopexit.us, label %.lr.ph.i51.us, !llvm.loop !21
+  br i1 %.not.i52.us, label %.loopexit.us, label %.lr.ph.i51.us, !llvm.loop !20
 
 Abc_TruthHashLookup.exit.us:                      ; preds = %.lr.ph.i51.us
-  store ptr null, ptr %24, align 8, !tbaa !15
+  store ptr null, ptr %24, align 8, !tbaa !14
   br label %43
 
 .loopexit.us:                                     ; preds = %39, %Abc_TruthHashKey.exit.loopexit.us
   %41 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv72
-  store i32 %.012.i50.us, ptr %41, align 4, !tbaa !19
+  store i32 %.012.i50.us, ptr %41, align 4, !tbaa !18
   %42 = trunc nuw nsw i64 %indvars.iv72 to i32
-  store i32 %42, ptr %46, align 4, !tbaa !19
+  store i32 %42, ptr %46, align 4, !tbaa !18
   br label %43
 
 43:                                               ; preds = %.loopexit.us, %Abc_TruthHashLookup.exit.us
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !22
+  br i1 %exitcond76.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !21
 
 Abc_TruthHashKey.exit.loopexit.us:                ; preds = %.lr.ph.i49.us
   %44 = urem i64 %35, %12
   %sext.us = shl i64 %44, 32
   %45 = ashr exact i64 %sext.us, 30
   %46 = getelementptr inbounds i8, ptr %14, i64 %45
-  %.012.i50.us = load i32, ptr %46, align 4, !tbaa !19
+  %.012.i50.us = load i32, ptr %46, align 4, !tbaa !18
   %.not13.i.us = icmp eq i32 %.012.i50.us, -1
   br i1 %.not13.i.us, label %.loopexit.us, label %.lr.ph.i51.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.promoted = load i32, ptr %14, align 4, !tbaa !19
+  %.promoted = load i32, ptr %14, align 4, !tbaa !18
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %Abc_TruthHashKey.exit
 
@@ -176,31 +176,31 @@ Abc_TruthHashKey.exit:                            ; preds = %.lr.ph.split, %57
   br i1 %.not13.i, label %.loopexit, label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %Abc_TruthHashKey.exit
-  %48 = load ptr, ptr %47, align 8, !tbaa !15
+  %48 = load ptr, ptr %47, align 8, !tbaa !14
   br label %49
 
 49:                                               ; preds = %53, %.lr.ph.i51
   %.014.i = phi i32 [ %.0415962, %.lr.ph.i51 ], [ %.0.i, %53 ]
   %50 = sext i32 %.014.i to i64
   %51 = getelementptr inbounds ptr, ptr %18, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !15
+  %52 = load ptr, ptr %51, align 8, !tbaa !14
   %bcmp.i = tail call i32 @bcmp(ptr %52, ptr %48, i64 %23)
   %.not11.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not11.i, label %Abc_TruthHashLookup.exit, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i32, ptr %15, i64 %50
-  %.0.i = load i32, ptr %54, align 4, !tbaa !19
+  %.0.i = load i32, ptr %54, align 4, !tbaa !18
   %.not.i52 = icmp eq i32 %.0.i, -1
-  br i1 %.not.i52, label %.loopexit, label %49, !llvm.loop !21
+  br i1 %.not.i52, label %.loopexit, label %49, !llvm.loop !20
 
 Abc_TruthHashLookup.exit:                         ; preds = %49
-  store ptr null, ptr %47, align 8, !tbaa !15
+  store ptr null, ptr %47, align 8, !tbaa !14
   br label %57
 
 .loopexit:                                        ; preds = %53, %Abc_TruthHashKey.exit
   %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  store i32 %.0415962, ptr %55, align 4, !tbaa !19
+  store i32 %.0415962, ptr %55, align 4, !tbaa !18
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   br label %57
 
@@ -208,7 +208,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
   %.0415961 = phi i32 [ %.0415962, %Abc_TruthHashLookup.exit ], [ %56, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %Abc_TruthHashKey.exit, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.thread, label %Abc_TruthHashKey.exit, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %43, %Abc_PrimeCudd.exit
   %.not = icmp eq ptr %14, null
@@ -232,7 +232,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
 
 .lr.ph66:                                         ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !13
+  %63 = load ptr, ptr %62, align 8, !tbaa !12
   %wide.trip.count80 = zext nneg i32 %3 to i64
   br label %64
 
@@ -240,7 +240,7 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
   %indvars.iv77 = phi i64 [ 1, %.lr.ph66 ], [ %indvars.iv.next78, %71 ]
   %.064 = phi i32 [ 1, %.lr.ph66 ], [ %.1, %71 ]
   %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv77
-  %66 = load ptr, ptr %65, align 8, !tbaa !15
+  %66 = load ptr, ptr %65, align 8, !tbaa !14
   %.not47 = icmp eq ptr %66, null
   br i1 %.not47, label %71, label %67
 
@@ -248,14 +248,14 @@ Abc_TruthHashLookup.exit:                         ; preds = %49
   %68 = add nsw i32 %.064, 1
   %69 = sext i32 %.064 to i64
   %70 = getelementptr inbounds ptr, ptr %63, i64 %69
-  store ptr %66, ptr %70, align 8, !tbaa !15
+  store ptr %66, ptr %70, align 8, !tbaa !14
   br label %71
 
 71:                                               ; preds = %64, %67
   %.1 = phi i32 [ %68, %67 ], [ %.064, %64 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge67, label %64, !llvm.loop !23
+  br i1 %exitcond81.not, label %._crit_edge67, label %64, !llvm.loop !22
 
 ._crit_edge67:                                    ; preds = %71, %60
   %.0.lcssa = phi i32 [ 1, %60 ], [ %.1, %71 ]
@@ -274,9 +274,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Abc_TruthCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !15
-  %4 = load ptr, ptr %1, align 8, !tbaa !15
-  %5 = load i32, ptr @nWords, align 4, !tbaa !19
+  %3 = load ptr, ptr %0, align 8, !tbaa !14
+  %4 = load ptr, ptr %1, align 8, !tbaa !14
+  %5 = load i32, ptr @nWords, align 4, !tbaa !18
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
   %8 = tail call i32 @memcmp(ptr noundef %3, ptr noundef %4, i64 noundef %7) #20
@@ -289,10 +289,10 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !14
-  store i32 %3, ptr @nWords, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !13
+  store i32 %3, ptr @nWords, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %8 = sext i32 %7 to i64
@@ -302,8 +302,8 @@ define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unn
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %11 = load ptr, ptr %4, align 8, !tbaa !13
-  %12 = load i32, ptr @nWords, align 4, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !12
+  %12 = load i32, ptr @nWords, align 4, !tbaa !18
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
   %wide.trip.count = zext nneg i32 %9 to i64
@@ -314,8 +314,8 @@ define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unn
   %.017 = phi i32 [ 1, %.lr.ph ], [ %.1, %24 ]
   %16 = getelementptr ptr, ptr %11, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
-  %19 = load ptr, ptr %16, align 8, !tbaa !15
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %19 = load ptr, ptr %16, align 8, !tbaa !14
   %bcmp = tail call i32 @bcmp(ptr %18, ptr %19, i64 %14)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %24, label %20
@@ -324,14 +324,14 @@ define i32 @Abc_TruthNpnCountUniqueSort(ptr noundef captures(none) %0) local_unn
   %21 = add nsw i32 %.017, 1
   %22 = sext i32 %.017 to i64
   %23 = getelementptr inbounds ptr, ptr %11, i64 %22
-  store ptr %19, ptr %23, align 8, !tbaa !15
+  store ptr %19, ptr %23, align 8, !tbaa !14
   br label %24
 
 24:                                               ; preds = %15, %20
   %.1 = phi i32 [ %21, %20 ], [ %.017, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %24, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %.1, %24 ]
@@ -355,7 +355,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %0, i64 %wide.trip.count, i1 false), !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %0, i64 %wide.trip.count, i1 false), !tbaa !24
   br label %._crit_edge
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -363,10 +363,10 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0
   %6 = trunc i64 %indvars.iv to i8
   %7 = add i8 %6, 97
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  store i8 %7, ptr %8, align 1, !tbaa !25
+  store i8 %7, ptr %8, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split.preheader
   %9 = and i32 %2, 31
@@ -383,7 +383,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0
 16:                                               ; preds = %._crit_edge, %16
   %indvars.iv26 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next27, %16 ]
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv26
-  %18 = load i8, ptr %17, align 1, !tbaa !25
+  %18 = load i8, ptr %17, align 1, !tbaa !24
   %19 = sext i8 %18 to i32
   %20 = add nsw i32 %19, 31
   %21 = and i32 %20, 31
@@ -396,7 +396,7 @@ define void @Abc_TruthNpnPrint(ptr noundef readonly captures(address_is_null) %0
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %25, ptr noundef nonnull %27)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge22, label %16, !llvm.loop !27
+  br i1 %exitcond30.not, label %._crit_edge22, label %16, !llvm.loop !26
 
 ._crit_edge22.critedge:                           ; preds = %3
   %29 = and i32 %2, 31
@@ -435,10 +435,10 @@ define void @Abc_TruthNpnPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %12, label %Abc_Clock.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = load i64, ptr %6, align 8, !tbaa !28
+  %14 = load i64, ptr %6, align 8, !tbaa !27
   %.neg247 = mul i64 %14, -1000000
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !30
+  %16 = load i64, ptr %15, align 8, !tbaa !29
   %.neg = sdiv i64 %16, -1000
   %.neg248 = add i64 %.neg, %.neg247
   br label %Abc_Clock.exit
@@ -466,7 +466,7 @@ switch.lookup:                                    ; preds = %18
   %24 = load i32, ptr %23, align 8, !tbaa !3
   %25 = icmp eq i32 %24, 1
   %26 = select i1 %25, ptr @.str.2, ptr @.str.19
-  %27 = load i32, ptr %0, align 8, !tbaa !31
+  %27 = load i32, ptr %0, align 8, !tbaa !30
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef nonnull %.0213, i32 noundef %24, ptr noundef nonnull %26, i32 noundef %27)
   br label %.fold.split
 
@@ -499,11 +499,11 @@ switch.lookup:                                    ; preds = %18
 37:                                               ; preds = %35
   %38 = trunc nuw nsw i64 %indvars.iv359 to i32
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %38)
-  %40 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %41 = load ptr, ptr %34, align 8, !tbaa !13
+  %40 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %41 = load ptr, ptr %34, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv359
-  %43 = load ptr, ptr %42, align 8, !tbaa !15
-  %44 = load i32, ptr %0, align 8, !tbaa !31
+  %43 = load ptr, ptr %42, align 8, !tbaa !14
+  %44 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %40, ptr noundef %43, i32 noundef %44) #19
   %putchar226 = call i32 @putchar(i32 10)
   %.pre = load i32, ptr %31, align 8, !tbaa !3
@@ -514,7 +514,7 @@ switch.lookup:                                    ; preds = %18
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next360, %46
-  br i1 %47, label %35, label %.loopexit, !llvm.loop !34
+  br i1 %47, label %35, label %.loopexit, !llvm.loop !33
 
 48:                                               ; preds = %30
   switch i32 %1, label %294 [
@@ -540,16 +540,16 @@ switch.lookup:                                    ; preds = %18
 
 .critedge238.us:                                  ; preds = %.lr.ph267, %.critedge238.us
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %.critedge238.us ], [ 0, %.lr.ph267 ]
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
+  %53 = load ptr, ptr %52, align 8, !tbaa !12
   %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv317
-  %55 = load ptr, ptr %54, align 8, !tbaa !15
-  %56 = load i32, ptr %0, align 8, !tbaa !31
+  %55 = load ptr, ptr %54, align 8, !tbaa !14
+  %56 = load i32, ptr %0, align 8, !tbaa !30
   %57 = call i32 @Abc_TtCanonicizePhase(ptr noundef %55, i32 noundef %56) #19
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %58 = load i32, ptr %49, align 8, !tbaa !3
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next318, %59
-  br i1 %60, label %.critedge238.us, label %.loopexit, !llvm.loop !35
+  br i1 %60, label %.critedge238.us, label %.loopexit, !llvm.loop !34
 
 .preheader257:                                    ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -563,16 +563,16 @@ switch.lookup:                                    ; preds = %18
 
 .critedge236.us:                                  ; preds = %.lr.ph269, %.critedge236.us
   %indvars.iv323 = phi i64 [ %indvars.iv.next324, %.critedge236.us ], [ 0, %.lr.ph269 ]
-  %65 = load ptr, ptr %64, align 8, !tbaa !13
+  %65 = load ptr, ptr %64, align 8, !tbaa !12
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv323
-  %67 = load ptr, ptr %66, align 8, !tbaa !15
-  %68 = load i32, ptr %0, align 8, !tbaa !31
+  %67 = load ptr, ptr %66, align 8, !tbaa !14
+  %68 = load i32, ptr %0, align 8, !tbaa !30
   %69 = call i32 @Abc_TtCanonicize(ptr noundef %67, i32 noundef %68, ptr noundef nonnull %10) #19
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %70 = load i32, ptr %61, align 8, !tbaa !3
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next324, %71
-  br i1 %72, label %.critedge236.us, label %.loopexit, !llvm.loop !36
+  br i1 %72, label %.critedge236.us, label %.loopexit, !llvm.loop !35
 
 .preheader255:                                    ; preds = %48
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -586,18 +586,18 @@ switch.lookup:                                    ; preds = %18
 
 .critedge234.us:                                  ; preds = %.lr.ph271, %.critedge234.us
   %indvars.iv329 = phi i64 [ %indvars.iv.next330, %.critedge234.us ], [ 0, %.lr.ph271 ]
-  %77 = load i32, ptr %0, align 8, !tbaa !31
+  %77 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %77) #19
-  %78 = load ptr, ptr %76, align 8, !tbaa !13
+  %78 = load ptr, ptr %76, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv329
-  %80 = load ptr, ptr %79, align 8, !tbaa !15
-  %81 = load i32, ptr %0, align 8, !tbaa !31
+  %80 = load ptr, ptr %79, align 8, !tbaa !14
+  %81 = load i32, ptr %0, align 8, !tbaa !30
   %82 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %80, i32 noundef %81, ptr noundef nonnull %10) #19
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %83 = load i32, ptr %73, align 8, !tbaa !3
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next330, %84
-  br i1 %85, label %.critedge234.us, label %.loopexit, !llvm.loop !37
+  br i1 %85, label %.critedge234.us, label %.loopexit, !llvm.loop !36
 
 .preheader253:                                    ; preds = %48
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -611,18 +611,18 @@ switch.lookup:                                    ; preds = %18
 
 .critedge232.us:                                  ; preds = %.lr.ph273, %.critedge232.us
   %indvars.iv335 = phi i64 [ %indvars.iv.next336, %.critedge232.us ], [ 0, %.lr.ph273 ]
-  %90 = load i32, ptr %0, align 8, !tbaa !31
+  %90 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %90) #19
-  %91 = load ptr, ptr %89, align 8, !tbaa !13
+  %91 = load ptr, ptr %89, align 8, !tbaa !12
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv335
-  %93 = load ptr, ptr %92, align 8, !tbaa !15
-  %94 = load i32, ptr %0, align 8, !tbaa !31
+  %93 = load ptr, ptr %92, align 8, !tbaa !14
+  %94 = load i32, ptr %0, align 8, !tbaa !30
   %95 = call i32 @luckyCanonicizer_final_fast(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %10) #19
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %96 = load i32, ptr %86, align 8, !tbaa !3
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next336, %97
-  br i1 %98, label %.critedge232.us, label %.loopexit, !llvm.loop !38
+  br i1 %98, label %.critedge232.us, label %.loopexit, !llvm.loop !37
 
 .preheader251:                                    ; preds = %48
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -636,22 +636,22 @@ switch.lookup:                                    ; preds = %18
 
 .critedge230.us:                                  ; preds = %.lr.ph275, %.critedge230.us
   %indvars.iv341 = phi i64 [ %indvars.iv.next342, %.critedge230.us ], [ 0, %.lr.ph275 ]
-  %103 = load i32, ptr %0, align 8, !tbaa !31
+  %103 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %103) #19
-  %104 = load ptr, ptr %102, align 8, !tbaa !13
+  %104 = load ptr, ptr %102, align 8, !tbaa !12
   %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv341
-  %106 = load ptr, ptr %105, align 8, !tbaa !15
-  %107 = load i32, ptr %0, align 8, !tbaa !31
+  %106 = load ptr, ptr %105, align 8, !tbaa !14
+  %107 = load i32, ptr %0, align 8, !tbaa !30
   %108 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %106, ptr noundef nonnull %7, i32 noundef %107, ptr noundef nonnull %10) #19
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %109 = load i32, ptr %99, align 8, !tbaa !3
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next342, %110
-  br i1 %111, label %.critedge230.us, label %.loopexit, !llvm.loop !39
+  br i1 %111, label %.critedge230.us, label %.loopexit, !llvm.loop !38
 
 112:                                              ; preds = %48
   %113 = call i32 @Abc_TruthNpnCountUnique(ptr noundef %0)
-  %114 = load i32, ptr %0, align 8, !tbaa !31
+  %114 = load i32, ptr %0, align 8, !tbaa !30
   %115 = call ptr @setPermInfoPtr(i32 noundef %114) #19
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i32, ptr %116, align 8, !tbaa !3
@@ -664,40 +664,40 @@ switch.lookup:                                    ; preds = %18
 
 .critedge228.us:                                  ; preds = %.lr.ph278, %.critedge228.us
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.critedge228.us ], [ 0, %.lr.ph278 ]
-  %120 = load ptr, ptr %119, align 8, !tbaa !13
+  %120 = load ptr, ptr %119, align 8, !tbaa !12
   %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv347
-  %122 = load ptr, ptr %121, align 8, !tbaa !15
-  %123 = load i32, ptr %0, align 8, !tbaa !31
+  %122 = load ptr, ptr %121, align 8, !tbaa !14
+  %123 = load i32, ptr %0, align 8, !tbaa !30
   call void @simpleMinimal(ptr noundef %122, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %123) #19
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %124 = load i32, ptr %116, align 8, !tbaa !3
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next348, %125
-  br i1 %126, label %.critedge228.us, label %._crit_edge279, !llvm.loop !40
+  br i1 %126, label %.critedge228.us, label %._crit_edge279, !llvm.loop !39
 
 .lr.ph278.split:                                  ; preds = %.lr.ph278, %Abc_TruthNpnPrint.exit
   %indvars.iv344 = phi i64 [ %indvars.iv.next345, %Abc_TruthNpnPrint.exit ], [ 0, %.lr.ph278 ]
   %127 = trunc nuw nsw i64 %indvars.iv344 to i32
   %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %127)
-  %129 = load ptr, ptr %119, align 8, !tbaa !13
+  %129 = load ptr, ptr %119, align 8, !tbaa !12
   %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv344
-  %131 = load ptr, ptr %130, align 8, !tbaa !15
-  %132 = load i32, ptr %0, align 8, !tbaa !31
+  %131 = load ptr, ptr %130, align 8, !tbaa !14
+  %132 = load i32, ptr %0, align 8, !tbaa !30
   call void @simpleMinimal(ptr noundef %131, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %115, i32 noundef %132) #19
-  %133 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %134 = load ptr, ptr %119, align 8, !tbaa !13
+  %133 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %134 = load ptr, ptr %119, align 8, !tbaa !12
   %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv344
-  %136 = load ptr, ptr %135, align 8, !tbaa !15
-  %137 = load i32, ptr %0, align 8, !tbaa !31
+  %136 = load ptr, ptr %135, align 8, !tbaa !14
+  %137 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %133, ptr noundef %136, i32 noundef %137) #19
-  %138 = load i32, ptr %0, align 8, !tbaa !31
+  %138 = load i32, ptr %0, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph.i, label %._crit_edge22.critedge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph278.split
   %wide.trip.count.i = zext nneg i32 %138 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 16 %10, i64 %wide.trip.count.i, i1 false), !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 16 %10, i64 %wide.trip.count.i, i1 false), !tbaa !24
   %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 122)
   %141 = add nsw i32 %138, -1
   %142 = zext nneg i32 %141 to i64
@@ -706,14 +706,14 @@ switch.lookup:                                    ; preds = %18
 143:                                              ; preds = %143, %.lr.ph.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next27.i, %143 ]
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv26.i
-  %145 = load i8, ptr %144, align 1, !tbaa !25
+  %145 = load i8, ptr %144, align 1, !tbaa !24
   %146 = sext i8 %145 to i32
   %147 = icmp eq i64 %indvars.iv26.i, %142
   %148 = select i1 %147, ptr @.str.2, ptr @.str.3
   %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %146, ptr noundef nonnull %148)
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next27.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %Abc_TruthNpnPrint.exit, label %143, !llvm.loop !27
+  br i1 %exitcond30.not.i, label %Abc_TruthNpnPrint.exit, label %143, !llvm.loop !26
 
 ._crit_edge22.critedge.i:                         ; preds = %.lr.ph278.split
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 122)
@@ -727,7 +727,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %152 = load i32, ptr %116, align 8, !tbaa !3
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next345, %153
-  br i1 %154, label %.lr.ph278.split, label %._crit_edge279, !llvm.loop !40
+  br i1 %154, label %.lr.ph278.split, label %._crit_edge279, !llvm.loop !39
 
 ._crit_edge279:                                   ; preds = %Abc_TruthNpnPrint.exit, %.critedge228.us, %112
   call void @freePermInfoPtr(ptr noundef %115) #19
@@ -737,130 +737,130 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %.lr.ph275.split ], [ 0, %.lr.ph275 ]
   %155 = trunc nuw nsw i64 %indvars.iv338 to i32
   %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %155)
-  %157 = load i32, ptr %0, align 8, !tbaa !31
+  %157 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %157) #19
-  %158 = load ptr, ptr %102, align 8, !tbaa !13
+  %158 = load ptr, ptr %102, align 8, !tbaa !12
   %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv338
-  %160 = load ptr, ptr %159, align 8, !tbaa !15
-  %161 = load i32, ptr %0, align 8, !tbaa !31
+  %160 = load ptr, ptr %159, align 8, !tbaa !14
+  %161 = load i32, ptr %0, align 8, !tbaa !30
   %162 = call i32 @Kit_TruthSemiCanonicize(ptr noundef %160, ptr noundef nonnull %7, i32 noundef %161, ptr noundef nonnull %10) #19
-  %163 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %164 = load ptr, ptr %102, align 8, !tbaa !13
+  %163 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %164 = load ptr, ptr %102, align 8, !tbaa !12
   %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv338
-  %166 = load ptr, ptr %165, align 8, !tbaa !15
-  %167 = load i32, ptr %0, align 8, !tbaa !31
+  %166 = load ptr, ptr %165, align 8, !tbaa !14
+  %167 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %163, ptr noundef %166, i32 noundef %167) #19
-  %168 = load i32, ptr %0, align 8, !tbaa !31
+  %168 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %162, i32 noundef %168)
   %putchar224 = call i32 @putchar(i32 10)
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %169 = load i32, ptr %99, align 8, !tbaa !3
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next339, %170
-  br i1 %171, label %.lr.ph275.split, label %.loopexit, !llvm.loop !39
+  br i1 %171, label %.lr.ph275.split, label %.loopexit, !llvm.loop !38
 
 .lr.ph273.split:                                  ; preds = %.lr.ph273, %.lr.ph273.split
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %.lr.ph273.split ], [ 0, %.lr.ph273 ]
   %172 = trunc nuw nsw i64 %indvars.iv332 to i32
   %173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %172)
-  %174 = load i32, ptr %0, align 8, !tbaa !31
+  %174 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %174) #19
-  %175 = load ptr, ptr %89, align 8, !tbaa !13
+  %175 = load ptr, ptr %89, align 8, !tbaa !12
   %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv332
-  %177 = load ptr, ptr %176, align 8, !tbaa !15
-  %178 = load i32, ptr %0, align 8, !tbaa !31
+  %177 = load ptr, ptr %176, align 8, !tbaa !14
+  %178 = load i32, ptr %0, align 8, !tbaa !30
   %179 = call i32 @luckyCanonicizer_final_fast(ptr noundef %177, i32 noundef %178, ptr noundef nonnull %10) #19
-  %180 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %181 = load ptr, ptr %89, align 8, !tbaa !13
+  %180 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %181 = load ptr, ptr %89, align 8, !tbaa !12
   %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv332
-  %183 = load ptr, ptr %182, align 8, !tbaa !15
-  %184 = load i32, ptr %0, align 8, !tbaa !31
+  %183 = load ptr, ptr %182, align 8, !tbaa !14
+  %184 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %180, ptr noundef %183, i32 noundef %184) #19
-  %185 = load i32, ptr %0, align 8, !tbaa !31
+  %185 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %179, i32 noundef %185)
   %putchar223 = call i32 @putchar(i32 10)
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %186 = load i32, ptr %86, align 8, !tbaa !3
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next333, %187
-  br i1 %188, label %.lr.ph273.split, label %.loopexit, !llvm.loop !38
+  br i1 %188, label %.lr.ph273.split, label %.loopexit, !llvm.loop !37
 
 .lr.ph271.split:                                  ; preds = %.lr.ph271, %.lr.ph271.split
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %.lr.ph271.split ], [ 0, %.lr.ph271 ]
   %189 = trunc nuw nsw i64 %indvars.iv326 to i32
   %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %189)
-  %191 = load i32, ptr %0, align 8, !tbaa !31
+  %191 = load i32, ptr %0, align 8, !tbaa !30
   call void @resetPCanonPermArray(ptr noundef nonnull %10, i32 noundef %191) #19
-  %192 = load ptr, ptr %76, align 8, !tbaa !13
+  %192 = load ptr, ptr %76, align 8, !tbaa !12
   %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv326
-  %194 = load ptr, ptr %193, align 8, !tbaa !15
-  %195 = load i32, ptr %0, align 8, !tbaa !31
+  %194 = load ptr, ptr %193, align 8, !tbaa !14
+  %195 = load i32, ptr %0, align 8, !tbaa !30
   %196 = call i32 @luckyCanonicizer_final_fast1(ptr noundef %194, i32 noundef %195, ptr noundef nonnull %10) #19
-  %197 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %198 = load ptr, ptr %76, align 8, !tbaa !13
+  %197 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %198 = load ptr, ptr %76, align 8, !tbaa !12
   %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv326
-  %200 = load ptr, ptr %199, align 8, !tbaa !15
-  %201 = load i32, ptr %0, align 8, !tbaa !31
+  %200 = load ptr, ptr %199, align 8, !tbaa !14
+  %201 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %197, ptr noundef %200, i32 noundef %201) #19
-  %202 = load i32, ptr %0, align 8, !tbaa !31
+  %202 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %196, i32 noundef %202)
   %putchar222 = call i32 @putchar(i32 10)
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %203 = load i32, ptr %73, align 8, !tbaa !3
   %204 = sext i32 %203 to i64
   %205 = icmp slt i64 %indvars.iv.next327, %204
-  br i1 %205, label %.lr.ph271.split, label %.loopexit, !llvm.loop !37
+  br i1 %205, label %.lr.ph271.split, label %.loopexit, !llvm.loop !36
 
 .lr.ph269.split:                                  ; preds = %.lr.ph269, %.lr.ph269.split
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.lr.ph269.split ], [ 0, %.lr.ph269 ]
   %206 = trunc nuw nsw i64 %indvars.iv320 to i32
   %207 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %206)
-  %208 = load ptr, ptr %64, align 8, !tbaa !13
+  %208 = load ptr, ptr %64, align 8, !tbaa !12
   %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv320
-  %210 = load ptr, ptr %209, align 8, !tbaa !15
-  %211 = load i32, ptr %0, align 8, !tbaa !31
+  %210 = load ptr, ptr %209, align 8, !tbaa !14
+  %211 = load i32, ptr %0, align 8, !tbaa !30
   %212 = call i32 @Abc_TtCanonicize(ptr noundef %210, i32 noundef %211, ptr noundef nonnull %10) #19
-  %213 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %214 = load ptr, ptr %64, align 8, !tbaa !13
+  %213 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %214 = load ptr, ptr %64, align 8, !tbaa !12
   %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv320
-  %216 = load ptr, ptr %215, align 8, !tbaa !15
-  %217 = load i32, ptr %0, align 8, !tbaa !31
+  %216 = load ptr, ptr %215, align 8, !tbaa !14
+  %217 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %213, ptr noundef %216, i32 noundef %217) #19
-  %218 = load i32, ptr %0, align 8, !tbaa !31
+  %218 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %212, i32 noundef %218)
   %putchar221 = call i32 @putchar(i32 10)
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %219 = load i32, ptr %61, align 8, !tbaa !3
   %220 = sext i32 %219 to i64
   %221 = icmp slt i64 %indvars.iv.next321, %220
-  br i1 %221, label %.lr.ph269.split, label %.loopexit, !llvm.loop !36
+  br i1 %221, label %.lr.ph269.split, label %.loopexit, !llvm.loop !35
 
 .lr.ph267.split:                                  ; preds = %.lr.ph267, %.lr.ph267.split
   %indvars.iv314 = phi i64 [ %indvars.iv.next315, %.lr.ph267.split ], [ 0, %.lr.ph267 ]
   %222 = trunc nuw nsw i64 %indvars.iv314 to i32
   %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %222)
-  %224 = load ptr, ptr %52, align 8, !tbaa !13
+  %224 = load ptr, ptr %52, align 8, !tbaa !12
   %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv314
-  %226 = load ptr, ptr %225, align 8, !tbaa !15
-  %227 = load i32, ptr %0, align 8, !tbaa !31
+  %226 = load ptr, ptr %225, align 8, !tbaa !14
+  %227 = load i32, ptr %0, align 8, !tbaa !30
   %228 = call i32 @Abc_TtCanonicizePhase(ptr noundef %226, i32 noundef %227) #19
-  %229 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %230 = load ptr, ptr %52, align 8, !tbaa !13
+  %229 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %230 = load ptr, ptr %52, align 8, !tbaa !12
   %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv314
-  %232 = load ptr, ptr %231, align 8, !tbaa !15
-  %233 = load i32, ptr %0, align 8, !tbaa !31
+  %232 = load ptr, ptr %231, align 8, !tbaa !14
+  %233 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %229, ptr noundef %232, i32 noundef %233) #19
-  %234 = load i32, ptr %0, align 8, !tbaa !31
+  %234 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef null, i32 noundef %228, i32 noundef %234)
   %putchar220 = call i32 @putchar(i32 10)
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %235 = load i32, ptr %49, align 8, !tbaa !3
   %236 = sext i32 %235 to i64
   %237 = icmp slt i64 %indvars.iv.next315, %236
-  br i1 %237, label %.lr.ph267.split, label %.loopexit, !llvm.loop !35
+  br i1 %237, label %.lr.ph267.split, label %.loopexit, !llvm.loop !34
 
 238:                                              ; preds = %48
-  %239 = load i32, ptr %0, align 8, !tbaa !31
+  %239 = load i32, ptr %0, align 8, !tbaa !30
   %240 = call ptr @Abc_TtHieManStart(i32 noundef %239, i32 noundef 5) #19
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %242 = load i32, ptr %241, align 8, !tbaa !3
@@ -873,39 +873,39 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 .critedge240.us:                                  ; preds = %.lr.ph264, %.critedge240.us
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.critedge240.us ], [ 0, %.lr.ph264 ]
-  %245 = load ptr, ptr %244, align 8, !tbaa !13
+  %245 = load ptr, ptr %244, align 8, !tbaa !12
   %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv311
-  %247 = load ptr, ptr %246, align 8, !tbaa !15
-  %248 = load i32, ptr %0, align 8, !tbaa !31
+  %247 = load ptr, ptr %246, align 8, !tbaa !14
+  %248 = load i32, ptr %0, align 8, !tbaa !30
   %249 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %247, i32 noundef %248, ptr noundef nonnull %10, i32 noundef 0) #19
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %250 = load i32, ptr %241, align 8, !tbaa !3
   %251 = sext i32 %250 to i64
   %252 = icmp slt i64 %indvars.iv.next312, %251
-  br i1 %252, label %.critedge240.us, label %._crit_edge265, !llvm.loop !41
+  br i1 %252, label %.critedge240.us, label %._crit_edge265, !llvm.loop !40
 
 .lr.ph264.split:                                  ; preds = %.lr.ph264, %.lr.ph264.split
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %.lr.ph264.split ], [ 0, %.lr.ph264 ]
   %253 = trunc nuw nsw i64 %indvars.iv308 to i32
   %254 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %253)
-  %255 = load ptr, ptr %244, align 8, !tbaa !13
+  %255 = load ptr, ptr %244, align 8, !tbaa !12
   %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv308
-  %257 = load ptr, ptr %256, align 8, !tbaa !15
-  %258 = load i32, ptr %0, align 8, !tbaa !31
+  %257 = load ptr, ptr %256, align 8, !tbaa !14
+  %258 = load i32, ptr %0, align 8, !tbaa !30
   %259 = call i32 @Abc_TtCanonicizeHie(ptr noundef %240, ptr noundef %257, i32 noundef %258, ptr noundef nonnull %10, i32 noundef 0) #19
   %putchar219 = call i32 @putchar(i32 10)
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %260 = load i32, ptr %241, align 8, !tbaa !3
   %261 = sext i32 %260 to i64
   %262 = icmp slt i64 %indvars.iv.next309, %261
-  br i1 %262, label %.lr.ph264.split, label %._crit_edge265, !llvm.loop !41
+  br i1 %262, label %.lr.ph264.split, label %._crit_edge265, !llvm.loop !40
 
 ._crit_edge265:                                   ; preds = %.lr.ph264.split, %.critedge240.us, %238
   call void @Abc_TtHieManStop(ptr noundef %240) #19
   br label %.loopexit
 
 263:                                              ; preds = %48
-  %264 = load i32, ptr %0, align 8, !tbaa !31
+  %264 = load i32, ptr %0, align 8, !tbaa !30
   %265 = call ptr @Abc_TtHieManStart(i32 noundef %264, i32 noundef 5) #19
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %267 = load i32, ptr %266, align 8, !tbaa !3
@@ -918,40 +918,40 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 .critedge242.us:                                  ; preds = %.lr.ph, %.critedge242.us
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.critedge242.us ], [ 0, %.lr.ph ]
-  %270 = load ptr, ptr %269, align 8, !tbaa !13
+  %270 = load ptr, ptr %269, align 8, !tbaa !12
   %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv305
-  %272 = load ptr, ptr %271, align 8, !tbaa !15
-  %273 = load i32, ptr %0, align 8, !tbaa !31
+  %272 = load ptr, ptr %271, align 8, !tbaa !14
+  %273 = load i32, ptr %0, align 8, !tbaa !30
   %274 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %272, i32 noundef %273, ptr noundef nonnull %10, i32 noundef 125) #19
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %275 = load i32, ptr %266, align 8, !tbaa !3
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next306, %276
-  br i1 %277, label %.critedge242.us, label %._crit_edge, !llvm.loop !42
+  br i1 %277, label %.critedge242.us, label %._crit_edge, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %278 = trunc nuw nsw i64 %indvars.iv to i32
   %279 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %278)
-  %280 = load ptr, ptr %269, align 8, !tbaa !13
+  %280 = load ptr, ptr %269, align 8, !tbaa !12
   %281 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv
-  %282 = load ptr, ptr %281, align 8, !tbaa !15
-  %283 = load i32, ptr %0, align 8, !tbaa !31
+  %282 = load ptr, ptr %281, align 8, !tbaa !14
+  %283 = load i32, ptr %0, align 8, !tbaa !30
   %284 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %265, ptr noundef %282, i32 noundef %283, ptr noundef nonnull %10, i32 noundef 125) #19
-  %285 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %286 = load ptr, ptr %269, align 8, !tbaa !13
+  %285 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %286 = load ptr, ptr %269, align 8, !tbaa !12
   %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv
-  %288 = load ptr, ptr %287, align 8, !tbaa !15
-  %289 = load i32, ptr %0, align 8, !tbaa !31
+  %288 = load ptr, ptr %287, align 8, !tbaa !14
+  %289 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %285, ptr noundef %288, i32 noundef %289) #19
-  %290 = load i32, ptr %0, align 8, !tbaa !31
+  %290 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %284, i32 noundef %290)
   %putchar218 = call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %291 = load i32, ptr %266, align 8, !tbaa !3
   %292 = sext i32 %291 to i64
   %293 = icmp slt i64 %indvars.iv.next, %292
-  br i1 %293, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
+  br i1 %293, label %.lr.ph.split, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.critedge242.us, %263
   call void @Abc_TtHieManStop(ptr noundef %265) #19
@@ -963,7 +963,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %or.cond3, label %296, label %338
 
 296:                                              ; preds = %294
-  %297 = load i32, ptr %0, align 8, !tbaa !31
+  %297 = load i32, ptr %0, align 8, !tbaa !30
   %298 = call ptr @Abc_TtHieManStart(i32 noundef %297, i32 noundef 5) #19
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %300 = load i32, ptr %299, align 8, !tbaa !3
@@ -992,26 +992,26 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   ]
 
 308:                                              ; preds = %307
-  %309 = load ptr, ptr %302, align 8, !tbaa !13
+  %309 = load ptr, ptr %302, align 8, !tbaa !12
   %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv356
-  %311 = load ptr, ptr %310, align 8, !tbaa !15
-  %312 = load i32, ptr %0, align 8, !tbaa !31
+  %311 = load ptr, ptr %310, align 8, !tbaa !14
+  %312 = load i32, ptr %0, align 8, !tbaa !30
   %313 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %311, i32 noundef %312, ptr noundef nonnull %10, i32 noundef 125) #19
   br label %326
 
 314:                                              ; preds = %307
-  %315 = load ptr, ptr %302, align 8, !tbaa !13
+  %315 = load ptr, ptr %302, align 8, !tbaa !12
   %316 = getelementptr inbounds nuw ptr, ptr %315, i64 %indvars.iv356
-  %317 = load ptr, ptr %316, align 8, !tbaa !15
-  %318 = load i32, ptr %0, align 8, !tbaa !31
+  %317 = load ptr, ptr %316, align 8, !tbaa !14
+  %318 = load i32, ptr %0, align 8, !tbaa !30
   %319 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeAda, ptr noundef %298, ptr noundef %317, i32 noundef %318, ptr noundef nonnull %10, i32 noundef 1199) #19
   br label %326
 
 320:                                              ; preds = %307
-  %321 = load ptr, ptr %302, align 8, !tbaa !13
+  %321 = load ptr, ptr %302, align 8, !tbaa !12
   %322 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv356
-  %323 = load ptr, ptr %322, align 8, !tbaa !15
-  %324 = load i32, ptr %0, align 8, !tbaa !31
+  %323 = load ptr, ptr %322, align 8, !tbaa !14
+  %324 = load i32, ptr %0, align 8, !tbaa !30
   %325 = call i32 @Abc_TtCanonicizeWrap(ptr noundef nonnull @Abc_TtCanonicizeCA, ptr noundef %298, ptr noundef %323, i32 noundef %324, ptr noundef nonnull %10, i32 noundef 1) #19
   br label %326
 
@@ -1020,13 +1020,13 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %.not215, label %334, label %327
 
 327:                                              ; preds = %326
-  %328 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %329 = load ptr, ptr %302, align 8, !tbaa !13
+  %328 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %329 = load ptr, ptr %302, align 8, !tbaa !12
   %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv356
-  %331 = load ptr, ptr %330, align 8, !tbaa !15
-  %332 = load i32, ptr %0, align 8, !tbaa !31
+  %331 = load ptr, ptr %330, align 8, !tbaa !14
+  %332 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %328, ptr noundef %331, i32 noundef %332) #19
-  %333 = load i32, ptr %0, align 8, !tbaa !31
+  %333 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %.1, i32 noundef %333)
   %putchar217 = call i32 @putchar(i32 10)
   br label %334
@@ -1036,7 +1036,7 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   %335 = load i32, ptr %299, align 8, !tbaa !3
   %336 = sext i32 %335 to i64
   %337 = icmp slt i64 %indvars.iv.next357, %336
-  br i1 %337, label %303, label %._crit_edge286, !llvm.loop !43
+  br i1 %337, label %303, label %._crit_edge286, !llvm.loop !42
 
 ._crit_edge286:                                   ; preds = %334, %296
   call void @Abc_TtHieManStop(ptr noundef %298) #19
@@ -1058,40 +1058,40 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
 
 .critedge244.us:                                  ; preds = %.lr.ph281, %.critedge244.us
   %indvars.iv353 = phi i64 [ %indvars.iv.next354, %.critedge244.us ], [ 0, %.lr.ph281 ]
-  %344 = load ptr, ptr %343, align 8, !tbaa !13
+  %344 = load ptr, ptr %343, align 8, !tbaa !12
   %345 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv353
-  %346 = load ptr, ptr %345, align 8, !tbaa !15
-  %347 = load i32, ptr %0, align 8, !tbaa !31
+  %346 = load ptr, ptr %345, align 8, !tbaa !14
+  %347 = load i32, ptr %0, align 8, !tbaa !30
   %348 = call i32 @Abc_TtCanonicizePerm(ptr noundef %346, i32 noundef %347, ptr noundef nonnull %10) #19
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %349 = load i32, ptr %340, align 8, !tbaa !3
   %350 = sext i32 %349 to i64
   %351 = icmp slt i64 %indvars.iv.next354, %350
-  br i1 %351, label %.critedge244.us, label %.loopexit, !llvm.loop !44
+  br i1 %351, label %.critedge244.us, label %.loopexit, !llvm.loop !43
 
 .lr.ph281.split:                                  ; preds = %.lr.ph281, %.lr.ph281.split
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.lr.ph281.split ], [ 0, %.lr.ph281 ]
   %352 = trunc nuw nsw i64 %indvars.iv350 to i32
   %353 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %352)
-  %354 = load ptr, ptr %343, align 8, !tbaa !13
+  %354 = load ptr, ptr %343, align 8, !tbaa !12
   %355 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv350
-  %356 = load ptr, ptr %355, align 8, !tbaa !15
-  %357 = load i32, ptr %0, align 8, !tbaa !31
+  %356 = load ptr, ptr %355, align 8, !tbaa !14
+  %357 = load i32, ptr %0, align 8, !tbaa !30
   %358 = call i32 @Abc_TtCanonicizePerm(ptr noundef %356, i32 noundef %357, ptr noundef nonnull %10) #19
-  %359 = load ptr, ptr @stdout, align 8, !tbaa !32
-  %360 = load ptr, ptr %343, align 8, !tbaa !13
+  %359 = load ptr, ptr @stdout, align 8, !tbaa !31
+  %360 = load ptr, ptr %343, align 8, !tbaa !12
   %361 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv350
-  %362 = load ptr, ptr %361, align 8, !tbaa !15
-  %363 = load i32, ptr %0, align 8, !tbaa !31
+  %362 = load ptr, ptr %361, align 8, !tbaa !14
+  %363 = load i32, ptr %0, align 8, !tbaa !30
   call void @Extra_PrintHex(ptr noundef %359, ptr noundef %362, i32 noundef %363) #19
-  %364 = load i32, ptr %0, align 8, !tbaa !31
+  %364 = load i32, ptr %0, align 8, !tbaa !30
   call void @Abc_TruthNpnPrint(ptr noundef nonnull %10, i32 noundef %358, i32 noundef %364)
   %putchar216 = call i32 @putchar(i32 10)
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %365 = load i32, ptr %340, align 8, !tbaa !3
   %366 = sext i32 %365 to i64
   %367 = icmp slt i64 %indvars.iv.next351, %366
-  br i1 %367, label %.lr.ph281.split, label %.loopexit, !llvm.loop !44
+  br i1 %367, label %.lr.ph281.split, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph267.split, %.critedge238.us, %.lr.ph269.split, %.critedge236.us, %.lr.ph271.split, %.critedge234.us, %.lr.ph273.split, %.critedge232.us, %.lr.ph275.split, %.critedge230.us, %.lr.ph281.split, %.critedge244.us, %.critedge, %.preheader259, %.preheader257, %.preheader255, %.preheader253, %.preheader251, %.preheader249, %.preheader, %._crit_edge279, %._crit_edge265, %._crit_edge286, %338, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1100,10 +1100,10 @@ Abc_TruthNpnPrint.exit:                           ; preds = %143, %._crit_edge22
   br i1 %369, label %Abc_Clock.exit246, label %370
 
 370:                                              ; preds = %.loopexit
-  %371 = load i64, ptr %4, align 8, !tbaa !28
+  %371 = load i64, ptr %4, align 8, !tbaa !27
   %372 = mul nsw i64 %371, 1000000
   %373 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %374 = load i64, ptr %373, align 8, !tbaa !30
+  %374 = load i64, ptr %373, align 8, !tbaa !29
   %375 = sdiv i64 %374, 1000
   %376 = add nsw i64 %375, %372
   br label %Abc_Clock.exit246
@@ -1241,7 +1241,7 @@ define noundef i32 @Abc_NpnTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %Abc_TruthNpnTest.exit
 
 Abc_TruthNpnTest.exit:                            ; preds = %18, %10, %19
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !31
   %22 = tail call i32 @fflush(ptr noundef %21)
   ret i32 0
 }
@@ -1256,7 +1256,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !19
+  %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
@@ -1269,7 +1269,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !31
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -1277,7 +1277,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #12 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !32, !noalias !45
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !31, !noalias !44
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -1359,28 +1359,28 @@ attributes #20 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !6, i64 0}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!4, !8, i64 16}
-!14 = !{!4, !5, i64 4}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 long", !9, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !6, i64 0}
-!19 = !{!5, !5, i64 0}
+!12 = !{!4, !8, i64 16}
+!13 = !{!4, !5, i64 4}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 long", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !11}
 !20 = distinct !{!20, !11}
 !21 = distinct !{!21, !11}
 !22 = distinct !{!22, !11}
 !23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = !{!6, !6, i64 0}
+!24 = !{!6, !6, i64 0}
+!25 = distinct !{!25, !11}
 !26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
-!28 = !{!29, !18, i64 0}
-!29 = !{!"timespec", !18, i64 0, !18, i64 8}
-!30 = !{!29, !18, i64 8}
-!31 = !{!4, !5, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!27 = !{!28, !17, i64 0}
+!28 = !{!"timespec", !17, i64 0, !17, i64 8}
+!29 = !{!28, !17, i64 8}
+!30 = !{!4, !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!33 = distinct !{!33, !11}
 !34 = distinct !{!34, !11}
 !35 = distinct !{!35, !11}
 !36 = distinct !{!36, !11}
@@ -1391,7 +1391,6 @@ attributes #20 = { nounwind willreturn memory(read) }
 !41 = distinct !{!41, !11}
 !42 = distinct !{!42, !11}
 !43 = distinct !{!43, !11}
-!44 = distinct !{!44, !11}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"vprintf: argument 0"}
-!47 = distinct !{!47, !"vprintf"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"vprintf: argument 0"}
+!46 = distinct !{!46, !"vprintf"}

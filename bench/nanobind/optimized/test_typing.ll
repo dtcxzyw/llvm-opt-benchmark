@@ -1123,7 +1123,7 @@ _ZN8nanobind6class_IZL29nanobind_init_test_typing_extRNS_7module_EE7WrapperJEEC2
   br label %.body
 
 .body:                                            ; preds = %369, %342, %340, %338, %336
-  %.pn94.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn.i, %369 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ]
+  %.pn94.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn94.pn.pn.pn.pn.i, %369 ], [ %339, %338 ], [ %343, %342 ], [ %341, %340 ], [ %337, %336 ]
   %370 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %50) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %.05 = extractvalue { ptr, i32 } %.pn94.pn.pn.pn.pn.pn.i, 1

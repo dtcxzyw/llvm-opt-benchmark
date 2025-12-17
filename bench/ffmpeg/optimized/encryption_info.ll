@@ -218,7 +218,7 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !24
 
 .loopexit:                                        ; preds = %47, %25, %23, %5, %2
-  %.041 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %23 ], [ %24, %25 ], [ %24, %47 ]
+  %.041 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %23 ], [ %24, %25 ], [ %24, %47 ]
   ret ptr %.041
 }
 
@@ -319,7 +319,7 @@ define noalias ptr @av_encryption_info_add_side_data(ptr noundef readonly captur
   br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !28
 
 .loopexit:                                        ; preds = %55, %24, %17, %2, %6, %11
-  %.047 = phi ptr [ null, %11 ], [ null, %6 ], [ null, %2 ], [ null, %17 ], [ %23, %24 ], [ %23, %55 ]
+  %.047 = phi ptr [ null, %2 ], [ null, %17 ], [ null, %11 ], [ null, %6 ], [ %23, %24 ], [ %23, %55 ]
   ret ptr %.047
 }
 

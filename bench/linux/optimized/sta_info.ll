@@ -373,7 +373,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %116, label %.loopexit, label %.split11, !prof !9
 
 .loopexit:                                        ; preds = %.split9, %.preheader, %.split9.us.us, %55
-  %117 = phi ptr [ %56, %55 ], [ null, %.split9.us.us ], [ %100, %.preheader ], [ null, %.split9 ]
+  %117 = phi ptr [ %100, %.preheader ], [ %56, %55 ], [ null, %.split9.us.us ], [ null, %.split9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %117
 }
@@ -1269,9 +1269,9 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   br i1 %208, label %184, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %199, %172, %158
-  %209 = phi ptr [ %173, %172 ], [ %159, %158 ], [ %200, %199 ]
-  %210 = phi ptr [ %174, %172 ], [ %160, %158 ], [ %200, %199 ]
-  %211 = phi ptr [ %174, %172 ], [ %161, %158 ], [ %200, %199 ]
+  %209 = phi ptr [ %159, %158 ], [ %173, %172 ], [ %200, %199 ]
+  %210 = phi ptr [ %160, %158 ], [ %174, %172 ], [ %200, %199 ]
+  %211 = phi ptr [ %161, %158 ], [ %174, %172 ], [ %200, %199 ]
   %212 = add nuw nsw i64 %162, 1
   %213 = icmp eq i64 %212, 6
   br i1 %213, label %214, label %158, !llvm.loop !45
@@ -6161,7 +6161,7 @@ define dso_local void @sta_set_sinfo(ptr noundef %0, ptr noundef %1, i1 noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %432, %452, %446
-  %.pre45 = phi i64 [ %459, %452 ], [ %447, %446 ], [ %.pre51, %432 ]
+  %.pre45 = phi i64 [ %447, %446 ], [ %459, %452 ], [ %.pre51, %432 ]
   %460 = getelementptr inbounds nuw i8, ptr %41, i64 44
   %461 = load i8, ptr %460, align 4
   %462 = icmp ne i8 %461, 0
@@ -7679,7 +7679,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhltable_remove(ptr noundef %0, ptr
   br i1 %176, label %.thread15, label %23, !llvm.loop !291
 
 .thread15:                                        ; preds = %.thread16, %172, %159, %165, %169, %156, %155
-  %177 = phi i32 [ 0, %159 ], [ 0, %165 ], [ 0, %169 ], [ 0, %156 ], [ 0, %155 ], [ 0, %172 ], [ %173, %.thread16 ]
+  %177 = phi i32 [ 0, %156 ], [ 0, %155 ], [ 0, %159 ], [ 0, %165 ], [ 0, %169 ], [ %173, %.thread16 ], [ 0, %172 ]
   call void @__rcu_read_unlock() #18
   ret i32 %177
 }
@@ -8292,7 +8292,7 @@ define internal fastcc i32 @rhltable_insert(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %191, label %158, label %.split13.us, !llvm.loop !298
 
 .split13.us:                                      ; preds = %.lr.ph, %.lr.ph24, %.split.us
-  %.us-phi = phi i32 [ %122, %.split.us ], [ %149, %.lr.ph24 ], [ %186, %.lr.ph ]
+  %.us-phi = phi i32 [ %149, %.lr.ph24 ], [ %122, %.split.us ], [ %186, %.lr.ph ]
   %192 = icmp slt i32 %.us-phi, 1
   br i1 %192, label %87, label %193
 
@@ -8479,7 +8479,7 @@ define internal fastcc void @drv_flush_sta(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %39, label %91, label %.thread
 
 .thread:                                          ; preds = %3, %.thread6, %10
-  %40 = phi ptr [ %15, %.thread6 ], [ null, %10 ], [ null, %3 ]
+  %40 = phi ptr [ null, %10 ], [ %15, %.thread6 ], [ null, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 2680
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_drv_flush_sta, i64 8), i32 2) #18
           to label %62 [label %42], !srcloc !65

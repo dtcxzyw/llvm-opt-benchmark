@@ -717,7 +717,7 @@ _ZN5boost6fibers6detail22context_spinlock_queueD2Ev.exit: ; preds = %120, %117, 
   br label %.body
 
 .body:                                            ; preds = %122, %_ZN5boost6fibers6detail22context_spinlock_queueD2Ev.exit, %53, %50
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %53 ], [ %51, %50 ], [ %.pn.pn.pn, %_ZN5boost6fibers6detail22context_spinlock_queueD2Ev.exit ], [ %.pn.pn.pn, %122 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn.pn.pn, %122 ], [ %51, %53 ], [ %.pn.pn.pn, %_ZN5boost6fibers6detail22context_spinlock_queueD2Ev.exit ]
   %128 = load ptr, ptr %12, align 8, !tbaa !35
   %.not.i.i.i36 = icmp eq ptr %128, null
   br i1 %.not.i.i.i36, label %_ZNSt6vectorIjSaIjEED2Ev.exit37, label %129
@@ -1202,7 +1202,7 @@ _ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0
   br label %133
 
 133:                                              ; preds = %.sink.split, %97, %124
-  %.123 = phi ptr [ null, %97 ], [ null, %124 ], [ %.sink83, %.sink.split ]
+  %.123 = phi ptr [ null, %124 ], [ null, %97 ], [ %.sink83, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %134

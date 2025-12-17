@@ -276,7 +276,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_be(ptr noundef capture
   br i1 %.not.i, label %mbedtls_mpi_core_bigendian_to_host.exit, label %.lr.ph.i, !llvm.loop !9
 
 mbedtls_mpi_core_bigendian_to_host.exit:          ; preds = %.lr.ph.i, %18, %11, %4
-  %.0 = phi i32 [ -8, %4 ], [ 0, %11 ], [ 0, %18 ], [ 0, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %11 ], [ -8, %4 ], [ 0, %18 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -340,7 +340,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %25
-  %.1 = phi i32 [ 0, %25 ], [ 0, %._crit_edge ], [ -8, %.lr.ph ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ 0, %25 ], [ -8, %.lr.ph ]
   ret i32 %.1
 }
 
@@ -1049,8 +1049,8 @@ mbedtls_mpi_core_sub.exit.loopexit:               ; preds = %.lr.ph.i
   br label %mbedtls_mpi_core_sub.exit
 
 mbedtls_mpi_core_sub.exit:                        ; preds = %._crit_edge.thread, %mbedtls_mpi_core_sub.exit.loopexit
-  %.0.lcssa97 = phi ptr [ %78, %mbedtls_mpi_core_sub.exit.loopexit ], [ %7, %._crit_edge.thread ]
-  %.0.lcssa.i = phi i64 [ %35, %mbedtls_mpi_core_sub.exit.loopexit ], [ %12, %._crit_edge.thread ]
+  %.0.lcssa97 = phi ptr [ %7, %._crit_edge.thread ], [ %78, %mbedtls_mpi_core_sub.exit.loopexit ]
+  %.0.lcssa.i = phi i64 [ %12, %._crit_edge.thread ], [ %35, %mbedtls_mpi_core_sub.exit.loopexit ]
   %36 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %.0.lcssa.i) #11, !srcloc !12
   %37 = shl i64 %5, 3
   tail call void @mbedtls_ct_memcpy_if(i64 noundef %36, ptr noundef %0, ptr noundef nonnull %.0.lcssa97, ptr noundef null, i64 noundef %37) #11
@@ -1478,7 +1478,7 @@ mbedtls_mpi_core_lt_ct.exit:                      ; preds = %.lr.ph.i30, %mbedtl
   br i1 %105, label %mbedtls_mpi_core_bitlen.exit.thread.split, label %mbedtls_mpi_core_fill_random.exit.split, !llvm.loop !44
 
 mbedtls_mpi_core_fill_random.exit.split:          ; preds = %mbedtls_mpi_core_lt_ct.exit, %mbedtls_mpi_core_shift_r.exit, %mbedtls_mpi_core_bitlen.exit.thread.split, %mbedtls_mpi_core_bitlen.exit.thread
-  %.022.split = phi i32 [ -4, %mbedtls_mpi_core_bitlen.exit.thread ], [ 0, %mbedtls_mpi_core_lt_ct.exit ], [ -14, %mbedtls_mpi_core_shift_r.exit ], [ %50, %mbedtls_mpi_core_bitlen.exit.thread.split ]
+  %.022.split = phi i32 [ -4, %mbedtls_mpi_core_bitlen.exit.thread ], [ -14, %mbedtls_mpi_core_shift_r.exit ], [ 0, %mbedtls_mpi_core_lt_ct.exit ], [ %50, %mbedtls_mpi_core_bitlen.exit.thread.split ]
   ret i32 %.022.split
 }
 

@@ -725,7 +725,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br label %"_ZN174_$LT$ruff_python_formatter..statement..stmt_class_def..FormatStmtClassDef$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtClassDef$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17ha02adbfe1a8481c5E.exit"
 
 "_ZN174_$LT$ruff_python_formatter..statement..stmt_class_def..FormatStmtClassDef$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtClassDef$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17ha02adbfe1a8481c5E.exit": ; preds = %31, %40, %44, %50, %74, %75, %76
-  %.sink.i = phi i32 [ %49, %75 ], [ %73, %76 ], [ %38, %44 ], [ %28, %31 ], [ 4, %50 ], [ 4, %74 ], [ 4, %40 ]
+  %.sink.i = phi i32 [ %49, %75 ], [ %73, %76 ], [ %28, %31 ], [ %38, %44 ], [ 4, %50 ], [ 4, %74 ], [ 4, %40 ]
   store i32 %.sink.i, ptr %0, align 8, !alias.scope !62, !noalias !78
   ret void
 }
@@ -2106,7 +2106,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br label %"_ZN209_$LT$ruff_python_formatter..other..except_handler_except_handler..FormatExceptHandlerExceptHandler$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hf411c48c68efe716E.exit"
 
 "_ZN209_$LT$ruff_python_formatter..other..except_handler_except_handler..FormatExceptHandlerExceptHandler$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..nodes..ExceptHandlerExceptHandler$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hf411c48c68efe716E.exit": ; preds = %35, %62, %87, %34, %61, %86
-  %.lcssa17.sink = phi i32 [ %31, %34 ], [ %58, %61 ], [ %83, %86 ], [ 4, %87 ], [ 4, %62 ], [ 4, %35 ]
+  %.lcssa17.sink = phi i32 [ %31, %34 ], [ %83, %86 ], [ %58, %61 ], [ 4, %87 ], [ 4, %62 ], [ 4, %35 ]
   store i32 %.lcssa17.sink, ptr %0, align 8, !alias.scope !302, !noalias !319
   ret void
 }
@@ -3353,7 +3353,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i
   br label %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit
 
 _ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit: ; preds = %103, %.noexc, %91
-  %.sroa.011.0 = phi i1 [ true, %91 ], [ %105, %103 ], [ true, %.noexc ]
+  %.sroa.011.0 = phi i1 [ true, %91 ], [ true, %.noexc ], [ %105, %103 ]
   br i1 %.not213, label %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263, label %106
 
 106:                                              ; preds = %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit
@@ -3389,7 +3389,7 @@ tailrecurse.i261:                                 ; preds = %.lr.ph.i259
   br label %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263
 
 _ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263: ; preds = %117, %.noexc262, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit
-  %.sroa.012.0 = phi i1 [ true, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit ], [ %119, %117 ], [ true, %.noexc262 ]
+  %.sroa.012.0 = phi i1 [ true, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit ], [ true, %.noexc262 ], [ %119, %117 ]
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %121 = load ptr, ptr %120, align 8, !align !16, !noundef !3
   %.not220 = icmp eq ptr %121, null
@@ -3428,7 +3428,7 @@ tailrecurse.i269:                                 ; preds = %.lr.ph.i267
   br label %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit271
 
 _ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit271: ; preds = %133, %.noexc270, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263
-  %.sroa.067.0 = phi i1 [ true, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263 ], [ %135, %133 ], [ true, %.noexc270 ]
+  %.sroa.067.0 = phi i1 [ true, %_ZN21ruff_python_formatter10expression10expr_slice14is_simple_expr17ha1722bcfc470775eE.exit263 ], [ true, %.noexc270 ], [ %135, %133 ]
   %or.cond = and i1 %.sroa.011.0, %.sroa.012.0
   %spec.select = and i1 %or.cond, %.sroa.067.0
   br i1 %.not, label %138, label %136
@@ -4451,7 +4451,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter10expression1
   br label %30
 
 30:                                               ; preds = %25, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4089f82052297c48E.exit", %26
-  %.sroa.0.0 = phi i8 [ %.10, %26 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4089f82052297c48E.exit" ], [ 1, %25 ]
+  %.sroa.0.0 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4089f82052297c48E.exit" ], [ %.10, %26 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i8 %.sroa.0.0
@@ -8648,7 +8648,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17h
   %80 = call noundef zeroext i1 @_ZN15ruff_python_ast5nodes9Arguments8is_empty17h489f7f83ef03f2a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %79)
   br i1 %80, label %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread11, label %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread
 
-_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread: ; preds = %tailrecurse.i.i, %73, %63, %_ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17heb4ecbe98452c28bE.exit.i, %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit
+_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread: ; preds = %tailrecurse.i.i, %73, %_ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17heb4ecbe98452c28bE.exit.i, %63, %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %81 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %28)
@@ -8932,7 +8932,7 @@ define void @"_ZN175_$LT$ruff_python_formatter..statement..stmt_assign..FormatSt
   br label %_ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit
 
 _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit: ; preds = %99, %114, %118, %122, %126
-  %.sroa.0.0.shrunk.i = phi i1 [ %117, %114 ], [ %121, %118 ], [ %125, %122 ], [ true, %126 ], [ false, %99 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ true, %126 ], [ %117, %114 ], [ %121, %118 ], [ %125, %122 ], [ false, %99 ]
   %127 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$8try_from17h5b95f3765dacaf73E"(ptr noundef nonnull align 8 %102)
   %128 = extractvalue { i64, ptr } %127, 0
   %129 = icmp eq i64 %128, 3
@@ -8986,7 +8986,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d
   br label %_ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit403
 
 _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d4dd391b0d941E.exit403: ; preds = %131, %145, %149, %153, %157
-  %.sroa.0.0.shrunk.i402 = phi i1 [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ true, %157 ], [ false, %131 ]
+  %.sroa.0.0.shrunk.i402 = phi i1 [ true, %157 ], [ %148, %145 ], [ %152, %149 ], [ %156, %153 ], [ false, %131 ]
   %158 = tail call { i64, ptr } @"_ZN126_$LT$ruff_python_ast..expression..StringLike$u20$as$u20$core..convert..TryFrom$LT$$RF$ruff_python_ast..generated..Expr$GT$$GT$8try_from17h5b95f3765dacaf73E"(ptr noundef nonnull align 8 %133)
   %159 = extractvalue { i64, ptr } %158, 0
   %160 = icmp eq i64 %159, 3
@@ -9025,7 +9025,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign22should_inline_comments17ha96d
   br label %180
 
 180:                                              ; preds = %162, %170, %172, %178
-  %.sroa.0.0.i = phi ptr [ null, %162 ], [ null, %170 ], [ %..i, %178 ], [ null, %172 ]
+  %.sroa.0.0.i = phi ptr [ %..i, %178 ], [ null, %170 ], [ null, %172 ], [ null, %162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %181 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
@@ -9098,7 +9098,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %189
   br label %329
 
 .loopexit.split-lp548:                            ; preds = %.loopexit547, %.loopexit.split-lp548.loopexit.split-lp, %.loopexit.split-lp548.loopexit, %.loopexit.split-lp, %.loopexit.split-lp552
-  %.pn = phi { ptr, i32 } [ %lpad.phi555, %.loopexit.split-lp552 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.loopexit549, %.loopexit547 ], [ %lpad.loopexit559, %.loopexit.split-lp548.loopexit ], [ %lpad.loopexit.split-lp560, %.loopexit.split-lp548.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi555, %.loopexit.split-lp552 ], [ %lpad.loopexit549, %.loopexit547 ], [ %lpad.loopexit559, %.loopexit.split-lp548.loopexit ], [ %lpad.loopexit.split-lp560, %.loopexit.split-lp548.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ruff_python_formatter..comments..Comments$GT$17h4052dcd453660b23E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %95) #14
           to label %338 unwind label %269
 
@@ -9757,7 +9757,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   br label %_ZN21ruff_python_formatter9statement11stmt_assign26format_f_string_assignment17h35e6237b501e784bE.exit433
 
 _ZN21ruff_python_formatter9statement11stmt_assign26format_f_string_assignment17h35e6237b501e784bE.exit433: ; preds = %339, %347, %349, %355
-  %.sroa.0.0.i430 = phi ptr [ null, %339 ], [ null, %347 ], [ %..i432, %355 ], [ null, %349 ]
+  %.sroa.0.0.i430 = phi ptr [ %..i432, %355 ], [ null, %347 ], [ null, %349 ], [ null, %339 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %.sroa.0.0.i430, ptr %61, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -9810,7 +9810,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign26format_f_string_assignment17h
   br label %_ZN21ruff_python_formatter9statement11stmt_assign34should_non_inlineable_use_best_fit17hec2cd898c7c4951aE.exit
 
 _ZN21ruff_python_formatter9statement11stmt_assign34should_non_inlineable_use_best_fit17hec2cd898c7c4951aE.exit: ; preds = %363, %370, %374, %378
-  %.sroa.0.0.shrunk.i434 = phi i1 [ %373, %370 ], [ %377, %374 ], [ %381, %378 ], [ false, %363 ]
+  %.sroa.0.0.shrunk.i434 = phi i1 [ %381, %378 ], [ %373, %370 ], [ %377, %374 ], [ false, %363 ]
   %.not379 = xor i1 %.sroa.0.0.shrunk.i434, true
   %382 = load i64, ptr %60, align 8, !range !424
   %.not354 = icmp eq i64 %382, 3
@@ -10216,7 +10216,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   br i1 %.not362, label %496, label %494
 
 .loopexit.split-lp572:                            ; preds = %.loopexit571, %.loopexit.split-lp572.loopexit.split-lp.loopexit, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp572.loopexit, %615, %542
-  %.pn370 = phi { ptr, i32 } [ %543, %542 ], [ %616, %615 ], [ %lpad.loopexit573, %.loopexit571 ], [ %lpad.loopexit576, %.loopexit.split-lp572.loopexit ], [ %lpad.loopexit579, %.loopexit.split-lp572.loopexit.split-lp.loopexit ], [ %lpad.loopexit582, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp583, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn370 = phi { ptr, i32 } [ %616, %615 ], [ %543, %542 ], [ %lpad.loopexit573, %.loopexit571 ], [ %lpad.loopexit576, %.loopexit.split-lp572.loopexit ], [ %lpad.loopexit579, %.loopexit.split-lp572.loopexit.split-lp.loopexit ], [ %lpad.loopexit582, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp583, %.loopexit.split-lp572.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr424drop_in_place$LT$ruff_formatter..format_extensions..Memoized$LT$ruff_formatter..builders..FormatWith$LT$ruff_python_formatter..context..PyFormatContext$C$$LT$ruff_python_formatter..statement..stmt_assign..FormatStatementsLastExpression$u20$as$u20$ruff_formatter..Format$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$17h0e5b022c7d097fc4E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %47) #14
           to label %451 unwind label %269
 
@@ -11403,7 +11403,7 @@ _ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17h
   %74 = call noundef zeroext i1 @_ZN15ruff_python_ast5nodes9Arguments8is_empty17h489f7f83ef03f2a6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %73)
   br i1 %74, label %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread16, label %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread
 
-_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread: ; preds = %tailrecurse.i.i, %67, %57, %_ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17heb4ecbe98452c28bE.exit.i, %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit
+_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit.thread: ; preds = %tailrecurse.i.i, %67, %_ZN21ruff_python_formatter9statement11stmt_assign26has_target_own_parentheses17heb4ecbe98452c28bE.exit.i, %57, %_ZN21ruff_python_formatter9statement11stmt_assign26should_parenthesize_target17hc0c4ecf5e70cb348E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = call { ptr, i8 } @"_ZN21ruff_python_formatter10expression164_$LT$impl$u20$ruff_python_formatter..shared_traits..AsFormat$LT$ruff_python_formatter..context..PyFormatContext$GT$$u20$for$u20$ruff_python_ast..generated..Expr$GT$6format17h4e50c003e272006bE"(ptr noundef nonnull align 8 %29)
   %76 = extractvalue { ptr, i8 } %75, 0

@@ -824,7 +824,7 @@ printdouble.exit:                                 ; preds = %agxbuse.exit.i152, 
   br i1 %exitcond320.not, label %._crit_edge304.loopexit, label %.lr.ph303, !llvm.loop !109
 
 .loopexit:                                        ; preds = %._crit_edge304, %printint.exit, %137
-  %360 = phi ptr [ %247, %printint.exit ], [ %139, %137 ], [ %260, %._crit_edge304 ]
+  %360 = phi ptr [ %139, %137 ], [ %247, %printint.exit ], [ %260, %._crit_edge304 ]
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 120
   %362 = load ptr, ptr %361, align 8, !tbaa !110
   %.not143 = icmp eq ptr %362, null
@@ -1567,7 +1567,7 @@ agxbclear.exit.thread.i224:                       ; preds = %agxbputc.exit.i232,
   br label %agxbuse.exit
 
 agxbuse.exit:                                     ; preds = %133, %agxbclear.exit.thread.i224, %113, %agxbclear.exit.thread.i
-  %.sink = phi ptr [ %114, %113 ], [ %4, %agxbclear.exit.thread.i ], [ %134, %133 ], [ %4, %agxbclear.exit.thread.i224 ]
+  %.sink = phi ptr [ %4, %agxbclear.exit.thread.i ], [ %114, %113 ], [ %134, %133 ], [ %4, %agxbclear.exit.thread.i224 ]
   %135 = call i32 @agset(ptr noundef nonnull %.0176528, ptr noundef nonnull @.str.11, ptr noundef %.sink) #18
   %136 = getelementptr inbounds nuw i8, ptr %.0176528, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !33

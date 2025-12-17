@@ -913,7 +913,7 @@ default.unreachable162:                           ; preds = %3
   unreachable
 
 106:                                              ; preds = %3, %99, %XXH_readLE32_align.exit134, %XXH_readLE32_align.exit143, %XXH_readLE32_align.exit152
-  %.11.sink168 = phi i32 [ %67, %XXH_readLE32_align.exit134 ], [ %39, %XXH_readLE32_align.exit143 ], [ %18, %XXH_readLE32_align.exit152 ], [ %105, %99 ], [ %0, %3 ]
+  %.11.sink168 = phi i32 [ %18, %XXH_readLE32_align.exit152 ], [ %67, %XXH_readLE32_align.exit134 ], [ %39, %XXH_readLE32_align.exit143 ], [ %105, %99 ], [ %0, %3 ]
   %107 = lshr i32 %.11.sink168, 15
   %108 = xor i32 %107, %.11.sink168
   %109 = mul i32 %108, -2048144777
@@ -1436,7 +1436,7 @@ default.unreachable389:                           ; preds = %3
   unreachable
 
 304:                                              ; preds = %3, %297, %XXH_readLE64_align.exit321, %XXH_readLE32_align.exit304, %XXH_readLE64_align.exit339, %XXH_readLE32_align.exit307, %XXH_readLE64_align.exit357, %XXH_readLE32_align.exit310, %XXH_readLE64_align.exit375
-  %.23.sink395 = phi i64 [ %249, %XXH_readLE64_align.exit321 ], [ %205, %XXH_readLE32_align.exit304 ], [ %161, %XXH_readLE64_align.exit339 ], [ %124, %XXH_readLE32_align.exit307 ], [ %87, %XXH_readLE64_align.exit357 ], [ %57, %XXH_readLE32_align.exit310 ], [ %27, %XXH_readLE64_align.exit375 ], [ %303, %297 ], [ %0, %3 ]
+  %.23.sink395 = phi i64 [ %27, %XXH_readLE64_align.exit375 ], [ %249, %XXH_readLE64_align.exit321 ], [ %205, %XXH_readLE32_align.exit304 ], [ %161, %XXH_readLE64_align.exit339 ], [ %124, %XXH_readLE32_align.exit307 ], [ %87, %XXH_readLE64_align.exit357 ], [ %57, %XXH_readLE32_align.exit310 ], [ %303, %297 ], [ %0, %3 ]
   %305 = lshr i64 %.23.sink395, 33
   %306 = xor i64 %305, %.23.sink395
   %307 = mul i64 %306, -4417276706812531889

@@ -220,7 +220,7 @@ define range(i32 0, 2) i32 @CMS_final(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %14
 
 14:                                               ; preds = %10, %8, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %8 ], [ 1, %10 ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 1, %10 ]
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %20, label %.preheader.i
 
@@ -334,7 +334,7 @@ check_content.exit:                               ; preds = %13, %8
   br label %do_free_upto.exit
 
 do_free_upto.exit:                                ; preds = %.preheader.i, %28, %check_content.exit.thread, %check_content.exit, %7
-  %.015 = phi i32 [ 0, %7 ], [ 0, %check_content.exit ], [ 0, %check_content.exit.thread ], [ %.0, %28 ], [ %.0, %.preheader.i ]
+  %.015 = phi i32 [ 0, %7 ], [ 0, %check_content.exit.thread ], [ 0, %check_content.exit ], [ %.0, %28 ], [ %.0, %.preheader.i ]
   ret i32 %.015
 }
 
@@ -493,7 +493,7 @@ check_content.exit:                               ; preds = %15, %10
   br label %do_free_upto.exit
 
 do_free_upto.exit:                                ; preds = %.preheader.i, %30, %check_content.exit.thread, %20, %check_content.exit, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %check_content.exit ], [ 0, %20 ], [ 0, %check_content.exit.thread ], [ %24, %30 ], [ %24, %.preheader.i ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %check_content.exit.thread ], [ 0, %check_content.exit ], [ 0, %20 ], [ %24, %30 ], [ %24, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -604,7 +604,7 @@ check_content.exit:                               ; preds = %6
   br label %check_content.exit.thread199
 
 check_content.exit.thread199:                     ; preds = %19, %23, %check_content.exit
-  %.0131 = phi i32 [ %spec.select, %23 ], [ %5, %check_content.exit ], [ %5, %19 ]
+  %.0131 = phi i32 [ %5, %check_content.exit ], [ %spec.select, %23 ], [ %5, %19 ]
   %28 = tail call ptr @CMS_get0_SignerInfos(ptr noundef %0) #4
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef %28) #4
   %30 = icmp slt i32 %29, 1
@@ -886,7 +886,7 @@ cms_signerinfo_verify_cert.exit.thread:           ; preds = %80, %91, %84
   br label %200
 
 138:                                              ; preds = %.thread204, %126
-  %.1143 = phi ptr [ %3, %126 ], [ %.ph, %.thread204 ]
+  %.1143 = phi ptr [ %.ph, %.thread204 ], [ %3, %126 ]
   %139 = and i32 %.0131, 128
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %.thread206
@@ -994,12 +994,12 @@ cms_get_text_bio.exit.thread:                     ; preds = %146, %cms_get_text_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %113, %106, %172, %.preheader214, %cms_signerinfo_verify_cert.exit.thread, %168, %166, %.thread206, %156, %cms_get_text_bio.exit.thread, %66, %61, %56, %51, %179, %163, %153, %46, %33
-  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %153 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %179 ], [ %.3151, %163 ], [ %.3151, %156 ], [ %.3151, %.thread206 ], [ %.3151, %166 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %56 ], [ %.3151, %168 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %.preheader214 ], [ %.3151, %172 ], [ %.3151, %106 ], [ %.3151, %113 ], [ %.3151, %121 ]
-  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %153 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %179 ], [ 0, %163 ], [ 0, %156 ], [ 0, %.thread206 ], [ 0, %166 ], [ 0, %66 ], [ 0, %61 ], [ 0, %56 ], [ 1, %168 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 1, %.preheader214 ], [ 1, %172 ], [ 0, %106 ], [ 0, %113 ], [ 0, %121 ]
-  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread206 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1145, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1145, %.preheader214 ], [ %.1145, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
-  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ %.1143210, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143209, %.thread206 ], [ %.1143209, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1143210, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143210, %.preheader214 ], [ %.1143210, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
-  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ %.0.i190212, %cms_get_text_bio.exit.thread ], [ %.1141, %179 ], [ %.0.i190212, %163 ], [ %.0.i190212, %156 ], [ null, %.thread206 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1141, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1141, %.preheader214 ], [ %.1141, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
-  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1135270, %153 ], [ %.1135270, %cms_get_text_bio.exit.thread ], [ %.1135270, %179 ], [ %.1135270, %163 ], [ %.1135270, %156 ], [ %.1135270, %.thread206 ], [ %.1135270, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.2, %56 ], [ %.1135270, %168 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135270, %.preheader214 ], [ %.1135270, %172 ], [ %.1135, %106 ], [ %.1135, %113 ], [ %.1135, %121 ]
+  %.0148 = phi i32 [ 0, %33 ], [ %.3151, %46 ], [ %.3151, %51 ], [ %.3151, %cms_signerinfo_verify_cert.exit.thread ], [ %.3151, %153 ], [ %.3151, %cms_get_text_bio.exit.thread ], [ %.3151, %56 ], [ %.3151, %179 ], [ %.3151, %163 ], [ %.3151, %156 ], [ %.3151, %.thread206 ], [ %.3151, %166 ], [ %.3151, %66 ], [ %.3151, %61 ], [ %.3151, %168 ], [ %.3151, %.preheader214 ], [ %.3151, %113 ], [ %.3151, %172 ], [ %.3151, %106 ], [ %.3151, %121 ]
+  %.0146 = phi i32 [ 0, %33 ], [ 0, %46 ], [ 0, %51 ], [ 0, %cms_signerinfo_verify_cert.exit.thread ], [ 0, %153 ], [ 0, %cms_get_text_bio.exit.thread ], [ 0, %56 ], [ 0, %179 ], [ 0, %163 ], [ 0, %156 ], [ 0, %.thread206 ], [ 0, %166 ], [ 0, %66 ], [ 0, %61 ], [ 1, %168 ], [ 1, %.preheader214 ], [ 0, %113 ], [ 1, %172 ], [ 0, %106 ], [ 0, %121 ]
+  %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread206 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ %.1145, %168 ], [ %.1145, %.preheader214 ], [ null, %113 ], [ %.1145, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1143210, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143209, %.thread206 ], [ %.1143209, %166 ], [ null, %66 ], [ null, %61 ], [ %.1143210, %168 ], [ %.1143210, %.preheader214 ], [ null, %113 ], [ %.1143210, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ null, %153 ], [ %.0.i190212, %cms_get_text_bio.exit.thread ], [ null, %56 ], [ %.1141, %179 ], [ %.0.i190212, %163 ], [ %.0.i190212, %156 ], [ null, %.thread206 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ %.1141, %168 ], [ %.1141, %.preheader214 ], [ null, %113 ], [ %.1141, %172 ], [ null, %106 ], [ null, %121 ]
+  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135270, %153 ], [ %.1135270, %cms_get_text_bio.exit.thread ], [ %.2, %56 ], [ %.1135270, %179 ], [ %.1135270, %163 ], [ %.1135270, %156 ], [ %.1135270, %.thread206 ], [ %.1135270, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.1135270, %168 ], [ %.1135270, %.preheader214 ], [ %.1135, %113 ], [ %.1135270, %172 ], [ %.1135, %106 ], [ %.1135, %121 ]
   %180 = and i32 %.0131, 128
   %181 = icmp eq i32 %180, 0
   %or.cond7 = and i1 %15, %181
@@ -1238,8 +1238,8 @@ define ptr @CMS_sign_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not37, label %36, label %37
 
 .sink.split:                                      ; preds = %.lr.ph, %18, %14, %7, %10
-  %.sink44 = phi i32 [ 523, %10 ], [ 523, %7 ], [ 529, %14 ], [ 534, %18 ], [ 542, %.lr.ph ]
-  %.sink = phi i32 [ 524334, %10 ], [ 524334, %7 ], [ 524334, %14 ], [ 99, %18 ], [ 524334, %.lr.ph ]
+  %.sink44 = phi i32 [ 534, %18 ], [ 529, %14 ], [ 523, %7 ], [ 523, %10 ], [ 542, %.lr.ph ]
+  %.sink = phi i32 [ 99, %18 ], [ 524334, %14 ], [ 524334, %7 ], [ 524334, %10 ], [ 524334, %.lr.ph ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink44, ptr noundef nonnull @__func__.CMS_sign_ex) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
@@ -1626,7 +1626,7 @@ cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit: ; preds = %.
   br label %cms_kari_set1_pkey_and_peer.exit.thread81
 
 cms_kari_set1_pkey_and_peer.exit.thread81:        ; preds = %57, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit, %54, %53, %56, %66, %.thread106, %65, %22
-  %.0 = phi i32 [ 0, %22 ], [ 1, %65 ], [ 0, %.thread106 ], [ 0, %66 ], [ 1, %54 ], [ 1, %53 ], [ 0, %56 ], [ %.mux.le, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit ], [ 1, %57 ]
+  %.0 = phi i32 [ 0, %22 ], [ 0, %66 ], [ 1, %65 ], [ 0, %.thread106 ], [ 0, %56 ], [ 1, %54 ], [ 1, %53 ], [ %.mux.le, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit ], [ 1, %57 ]
   ret i32 %.0
 }
 
@@ -1878,7 +1878,7 @@ check_content.exit:                               ; preds = %15, %10
   br label %do_free_upto.exit
 
 do_free_upto.exit:                                ; preds = %.preheader.i, %41, %check_content.exit.thread, %31, %29, %check_content.exit, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %check_content.exit ], [ 0, %29 ], [ 0, %31 ], [ 0, %check_content.exit.thread ], [ %35, %41 ], [ %35, %.preheader.i ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %check_content.exit.thread ], [ 0, %29 ], [ 0, %31 ], [ 1, %check_content.exit ], [ %35, %41 ], [ %35, %.preheader.i ]
   ret i32 %.0
 }
 

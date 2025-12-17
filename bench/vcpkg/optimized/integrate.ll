@@ -3288,7 +3288,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 .body:                                            ; preds = %244, %241, %340
-  %.pn53.pn = phi { ptr, i32 } [ %341, %340 ], [ %242, %244 ], [ %242, %241 ]
+  %.pn53.pn = phi { ptr, i32 } [ %341, %340 ], [ %242, %241 ], [ %242, %244 ]
   %342 = load ptr, ptr %38, align 8, !tbaa !95
   %343 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %344 = icmp eq ptr %342, %343
@@ -3779,7 +3779,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %.body173
 
 .body173:                                         ; preds = %433, %430, %530
-  %.pn57.pn = phi { ptr, i32 } [ %531, %530 ], [ %431, %433 ], [ %431, %430 ]
+  %.pn57.pn = phi { ptr, i32 } [ %531, %530 ], [ %431, %430 ], [ %431, %433 ]
   br label %532
 
 532:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220, %.body173
@@ -4256,7 +4256,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %.body235
 
 .body235:                                         ; preds = %613, %610, %710
-  %.pn61.pn = phi { ptr, i32 } [ %711, %710 ], [ %611, %613 ], [ %611, %610 ]
+  %.pn61.pn = phi { ptr, i32 } [ %711, %710 ], [ %611, %610 ], [ %611, %613 ]
   br label %712
 
 712:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282, %.body235
@@ -4849,7 +4849,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body328
 
 .body328:                                         ; preds = %836, %833, %924
-  %.pn69.pn = phi { ptr, i32 } [ %925, %924 ], [ %834, %836 ], [ %834, %833 ]
+  %.pn69.pn = phi { ptr, i32 } [ %925, %924 ], [ %834, %833 ], [ %834, %836 ]
   %926 = load ptr, ptr %71, align 8, !tbaa !95
   %927 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %928 = icmp eq ptr %926, %927
@@ -6722,7 +6722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br label %.body334
 
 .body334:                                         ; preds = %542, %539, %624
-  %.pn167.pn = phi { ptr, i32 } [ %625, %624 ], [ %540, %542 ], [ %540, %539 ]
+  %.pn167.pn = phi { ptr, i32 } [ %625, %624 ], [ %540, %539 ], [ %540, %542 ]
   %626 = load ptr, ptr %85, align 8, !tbaa !95
   %627 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %628 = icmp eq ptr %626, %627
@@ -7468,7 +7468,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %.body410
 
 .body410:                                         ; preds = %826, %823, %907
-  %.pn177.pn = phi { ptr, i32 } [ %908, %907 ], [ %824, %826 ], [ %824, %823 ]
+  %.pn177.pn = phi { ptr, i32 } [ %908, %907 ], [ %824, %823 ], [ %824, %826 ]
   br label %909
 
 909:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444, %.body410
@@ -8223,7 +8223,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
   br label %.body493
 
 .body493:                                         ; preds = %1113, %1110, %1194
-  %.pn187.pn = phi { ptr, i32 } [ %1195, %1194 ], [ %1111, %1113 ], [ %1111, %1110 ]
+  %.pn187.pn = phi { ptr, i32 } [ %1195, %1194 ], [ %1111, %1110 ], [ %1111, %1113 ]
   br label %1196
 
 1196:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527, %.body493
@@ -8948,7 +8948,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
   br label %.body572
 
 .body572:                                         ; preds = %1385, %1382, %1466
-  %.pn197.pn = phi { ptr, i32 } [ %1467, %1466 ], [ %1383, %1385 ], [ %1383, %1382 ]
+  %.pn197.pn = phi { ptr, i32 } [ %1467, %1466 ], [ %1383, %1382 ], [ %1383, %1385 ]
   br label %1468
 
 1468:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit606, %.body572
@@ -9679,7 +9679,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
   br label %.body653
 
 .body653:                                         ; preds = %1656, %1653, %1737
-  %.pn207.pn = phi { ptr, i32 } [ %1738, %1737 ], [ %1654, %1656 ], [ %1654, %1653 ]
+  %.pn207.pn = phi { ptr, i32 } [ %1738, %1737 ], [ %1654, %1653 ], [ %1654, %1656 ]
   br label %1739
 
 1739:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit687, %.body653

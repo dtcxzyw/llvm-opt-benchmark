@@ -637,7 +637,7 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 64:                                               ; preds = %36, %31, %22, %7, %61, %58
-  %.055 = phi i32 [ %59, %58 ], [ %62, %61 ], [ 0, %7 ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ]
+  %.055 = phi i32 [ 0, %22 ], [ 0, %7 ], [ %59, %58 ], [ 0, %31 ], [ %62, %61 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.055
 }
@@ -769,7 +769,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef read
   br label %16
 
 16:                                               ; preds = %8, %8, %11, %14
-  %.037 = phi i16 [ %13, %11 ], [ %15, %14 ], [ 0, %8 ], [ 0, %8 ]
+  %.037 = phi i16 [ %15, %14 ], [ %13, %11 ], [ 0, %8 ], [ 0, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -834,7 +834,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef read
   br label %59
 
 59:                                               ; preds = %3, %8, %57
-  %.0 = phi i32 [ %58, %57 ], [ 0, %8 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %8 ], [ %58, %57 ], [ 0, %3 ]
   ret i32 %.0
 }
 

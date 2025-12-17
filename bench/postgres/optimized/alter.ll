@@ -458,7 +458,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   unreachable
 
 200:                                              ; preds = %196, %195, %194, %193, %192, %191
-  %.0.i.i = phi ptr [ @.str.10, %192 ], [ @.str.11, %193 ], [ @.str.12, %194 ], [ @.str.13, %195 ], [ @.str.14, %196 ], [ @.str.9, %191 ]
+  %.0.i.i = phi ptr [ @.str.14, %196 ], [ @.str.10, %192 ], [ @.str.11, %193 ], [ @.str.12, %194 ], [ @.str.13, %195 ], [ @.str.9, %191 ]
   %201 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %202 = call i32 @errcode(i32 noundef 290948) #9
   %203 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.0.i.i, ptr noundef %56) #9
@@ -1527,7 +1527,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %72, %71, %58, %56, %51, %48, %45, %42, %74, %14
-  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ 0, %71 ], [ %73, %72 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
+  %.0 = phi i64 [ %15, %14 ], [ %75, %74 ], [ %73, %72 ], [ 0, %71 ], [ %59, %58 ], [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %51 ], [ %57, %56 ]
   ret i64 %.0
 }
 
@@ -1626,7 +1626,7 @@ define internal fastcc void @report_namespace_conflict(i32 noundef range(i32 125
   unreachable
 
 12:                                               ; preds = %3, %8, %7, %6, %5, %4
-  %.0 = phi ptr [ @.str.17, %4 ], [ @.str.18, %5 ], [ @.str.19, %6 ], [ @.str.20, %7 ], [ @.str.21, %8 ], [ @.str.16, %3 ]
+  %.0 = phi ptr [ @.str.21, %8 ], [ @.str.17, %4 ], [ @.str.18, %5 ], [ @.str.19, %6 ], [ @.str.20, %7 ], [ @.str.16, %3 ]
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %14 = tail call i32 @errcode(i32 noundef 290948) #9
   %15 = tail call ptr @get_namespace_name(i32 noundef %2) #9

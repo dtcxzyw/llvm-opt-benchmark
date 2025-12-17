@@ -775,8 +775,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %18
   br label %_ZNK2cv3PtrINS_16ShapeTransformerEE11dynamicCastINS_31ThinPlateSplineShapeTransformerEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_16ShapeTransformerEE11dynamicCastINS_31ThinPlateSplineShapeTransformerEEENS0_IT_EEv.exit: ; preds = %189, %222, %224, %230, %233
-  %235 = phi ptr [ %223, %224 ], [ %223, %233 ], [ %223, %230 ], [ null, %222 ], [ null, %189 ]
-  %.sroa.6.0.i = phi ptr [ null, %224 ], [ %226, %233 ], [ %226, %230 ], [ null, %222 ], [ null, %189 ]
+  %235 = phi ptr [ %223, %230 ], [ %223, %224 ], [ %223, %233 ], [ null, %222 ], [ null, %189 ]
+  %.sroa.6.0.i = phi ptr [ %226, %230 ], [ null, %224 ], [ %226, %233 ], [ null, %222 ], [ null, %189 ]
   store ptr %235, ptr %29, align 8, !tbaa !75, !alias.scope !65
   %236 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %.sroa.6.0.i, ptr %236, align 8, !tbaa !72, !alias.scope !65
@@ -2980,7 +2980,7 @@ define hidden void @_ZN2cv3SCD29buildNormalizedDistanceMatrixERNS_3MatES2_RKSt6v
   br label %71
 
 71:                                               ; preds = %53, %63, %66
-  %.sink = phi i8 [ 0, %63 ], [ %70, %66 ], [ 1, %53 ]
+  %.sink = phi i8 [ %70, %66 ], [ 0, %63 ], [ 1, %53 ]
   %72 = load ptr, ptr %36, align 8, !tbaa !100
   %73 = load ptr, ptr %37, align 8, !tbaa !156
   %74 = load i64, ptr %73, align 8, !tbaa !102
@@ -3811,10 +3811,10 @@ _ZNSt6vectorIfSaIfEED2Ev.exit443.thread:          ; preds = %43
   br label %142
 
 142:                                              ; preds = %139, %.lr.ph939
-  %.1272 = phi i32 [ %.0271934, %.lr.ph939 ], [ %.2276..0271, %139 ]
-  %.3270 = phi i32 [ %.2269935, %.lr.ph939 ], [ %.0271..2276, %139 ]
-  %.1245 = phi float [ %.0244936, %.lr.ph939 ], [ %..0244, %139 ]
-  %.1 = phi float [ %.0243937, %.lr.ph939 ], [ %.0244., %139 ]
+  %.1272 = phi i32 [ %.2276..0271, %139 ], [ %.0271934, %.lr.ph939 ]
+  %.3270 = phi i32 [ %.0271..2276, %139 ], [ %.2269935, %.lr.ph939 ]
+  %.1245 = phi float [ %..0244, %139 ], [ %.0244936, %.lr.ph939 ]
+  %.1 = phi float [ %.0244., %139 ], [ %.0243937, %.lr.ph939 ]
   %indvars.iv.next1037 = add nuw nsw i64 %indvars.iv1036, 1
   %exitcond1041.not = icmp eq i64 %indvars.iv.next1037, %wide.trip.count1040
   br i1 %exitcond1041.not, label %._crit_edge940, label %.lr.ph939, !llvm.loop !168
@@ -4772,13 +4772,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit443:                 ; preds = %480, %479
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit445
 
 _ZNSt6vectorIfSaIfEED2Ev.exit445:                 ; preds = %481, %_ZNSt6vectorIfSaIfEED2Ev.exit443
-  %.sroa.0499.0717 = phi ptr [ %.sroa.0499.072773611841202, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0499.0718797, %481 ]
-  %.sroa.0511.0689 = phi ptr [ %.sroa.0511.069970774611541212, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0511.0690799, %481 ]
-  %.sroa.0525.0663 = phi ptr [ %.sroa.0525.067368071573811781204, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0525.0664801, %481 ]
-  %.sroa.0543.0639 = phi ptr [ %.sroa.0543.064965568670974411601210, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0543.0640803, %481 ]
-  %.sroa.0555.0617 = phi ptr [ %.sroa.0555.062763265968271374011721206, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0555.0618805, %481 ]
-  %.sroa.0578.0597 = phi ptr [ %.sroa.0578.060761163465768471174211661208, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.sroa.0578.0598807, %481 ]
-  %.pn343.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ], [ %.pn343.pn.pn.pn809, %481 ]
+  %.sroa.0499.0717 = phi ptr [ %.sroa.0499.0718797, %481 ], [ %.sroa.0499.072773611841202, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.sroa.0511.0689 = phi ptr [ %.sroa.0511.0690799, %481 ], [ %.sroa.0511.069970774611541212, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.sroa.0525.0663 = phi ptr [ %.sroa.0525.0664801, %481 ], [ %.sroa.0525.067368071573811781204, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.sroa.0543.0639 = phi ptr [ %.sroa.0543.0640803, %481 ], [ %.sroa.0543.064965568670974411601210, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.sroa.0555.0617 = phi ptr [ %.sroa.0555.0618805, %481 ], [ %.sroa.0555.062763265968271374011721206, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.sroa.0578.0597 = phi ptr [ %.sroa.0578.0598807, %481 ], [ %.sroa.0578.060761163465768471174211661208, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
+  %.pn343.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn809, %481 ], [ %.pn343.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit443 ]
   %.not.i.i.i446 = icmp eq ptr %.sroa.0499.0717, null
   br i1 %.not.i.i.i446, label %_ZNSt6vectorIfSaIfEED2Ev.exit447, label %482
 
@@ -4794,12 +4794,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit445:                 ; preds = %481, %_ZNSt6vectorI
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit447
 
 _ZNSt6vectorIfSaIfEED2Ev.exit447:                 ; preds = %482, %_ZNSt6vectorIfSaIfEED2Ev.exit445
-  %.sroa.0511.0688 = phi ptr [ %.sroa.0511.0689, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.sroa.0511.0689820, %482 ]
-  %.sroa.0525.0662 = phi ptr [ %.sroa.0525.0663, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.sroa.0525.0663822, %482 ]
-  %.sroa.0543.0638 = phi ptr [ %.sroa.0543.0639, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.sroa.0543.0639824, %482 ]
-  %.sroa.0555.0616 = phi ptr [ %.sroa.0555.0617, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.sroa.0555.0617826, %482 ]
-  %.sroa.0578.0596 = phi ptr [ %.sroa.0578.0597, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.sroa.0578.0597828, %482 ]
-  %.pn343.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ], [ %.pn343.pn.pn.pn.pn830, %482 ]
+  %.sroa.0511.0688 = phi ptr [ %.sroa.0511.0689820, %482 ], [ %.sroa.0511.0689, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
+  %.sroa.0525.0662 = phi ptr [ %.sroa.0525.0663822, %482 ], [ %.sroa.0525.0663, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
+  %.sroa.0543.0638 = phi ptr [ %.sroa.0543.0639824, %482 ], [ %.sroa.0543.0639, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
+  %.sroa.0555.0616 = phi ptr [ %.sroa.0555.0617826, %482 ], [ %.sroa.0555.0617, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
+  %.sroa.0578.0596 = phi ptr [ %.sroa.0578.0597828, %482 ], [ %.sroa.0578.0597, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
+  %.pn343.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn830, %482 ], [ %.pn343.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit445 ]
   %.not.i.i.i448 = icmp eq ptr %.sroa.0511.0688, null
   br i1 %.not.i.i.i448, label %_ZNSt6vectorIiSaIiEED2Ev.exit449, label %483
 
@@ -4814,11 +4814,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit447:                 ; preds = %482, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit449
 
 _ZNSt6vectorIiSaIiEED2Ev.exit449:                 ; preds = %483, %_ZNSt6vectorIfSaIfEED2Ev.exit447
-  %.sroa.0525.0661 = phi ptr [ %.sroa.0525.0662, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ], [ %.sroa.0525.0662840, %483 ]
-  %.sroa.0543.0637 = phi ptr [ %.sroa.0543.0638, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ], [ %.sroa.0543.0638842, %483 ]
-  %.sroa.0555.0615 = phi ptr [ %.sroa.0555.0616, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ], [ %.sroa.0555.0616844, %483 ]
-  %.sroa.0578.0595 = phi ptr [ %.sroa.0578.0596, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ], [ %.sroa.0578.0596846, %483 ]
-  %.pn343.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ], [ %.pn343.pn.pn.pn.pn.pn848, %483 ]
+  %.sroa.0525.0661 = phi ptr [ %.sroa.0525.0662840, %483 ], [ %.sroa.0525.0662, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ]
+  %.sroa.0543.0637 = phi ptr [ %.sroa.0543.0638842, %483 ], [ %.sroa.0543.0638, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ]
+  %.sroa.0555.0615 = phi ptr [ %.sroa.0555.0616844, %483 ], [ %.sroa.0555.0616, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ]
+  %.sroa.0578.0595 = phi ptr [ %.sroa.0578.0596846, %483 ], [ %.sroa.0578.0596, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ]
+  %.pn343.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn848, %483 ], [ %.pn343.pn.pn.pn.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit447 ]
   %.not.i.i.i450 = icmp eq ptr %.sroa.0525.0661, null
   br i1 %.not.i.i.i450, label %_ZNSt6vectorIiSaIiEED2Ev.exit451, label %484
 
@@ -4832,10 +4832,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit449:                 ; preds = %483, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit451
 
 _ZNSt6vectorIiSaIiEED2Ev.exit451:                 ; preds = %484, %_ZNSt6vectorIiSaIiEED2Ev.exit449
-  %.sroa.0543.0636 = phi ptr [ %.sroa.0543.0637, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ], [ %.sroa.0543.0637857, %484 ]
-  %.sroa.0555.0614 = phi ptr [ %.sroa.0555.0615, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ], [ %.sroa.0555.0615859, %484 ]
-  %.sroa.0578.0594 = phi ptr [ %.sroa.0578.0595, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ], [ %.sroa.0578.0595861, %484 ]
-  %.pn343.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ], [ %.pn343.pn.pn.pn.pn.pn.pn863, %484 ]
+  %.sroa.0543.0636 = phi ptr [ %.sroa.0543.0637857, %484 ], [ %.sroa.0543.0637, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ]
+  %.sroa.0555.0614 = phi ptr [ %.sroa.0555.0615859, %484 ], [ %.sroa.0555.0615, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ]
+  %.sroa.0578.0594 = phi ptr [ %.sroa.0578.0595861, %484 ], [ %.sroa.0578.0595, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ]
+  %.pn343.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn863, %484 ], [ %.pn343.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit449 ]
   %.not.i.i.i452 = icmp eq ptr %.sroa.0543.0636, null
   br i1 %.not.i.i.i452, label %_ZNSt6vectorIiSaIiEED2Ev.exit453, label %485
 
@@ -4848,9 +4848,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit451:                 ; preds = %484, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit453
 
 _ZNSt6vectorIiSaIiEED2Ev.exit453:                 ; preds = %485, %_ZNSt6vectorIiSaIiEED2Ev.exit451
-  %.sroa.0555.0613 = phi ptr [ %.sroa.0555.0614, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ], [ %.sroa.0555.0614871, %485 ]
-  %.sroa.0578.0593 = phi ptr [ %.sroa.0578.0594, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ], [ %.sroa.0578.0594873, %485 ]
-  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn875, %485 ]
+  %.sroa.0555.0613 = phi ptr [ %.sroa.0555.0614871, %485 ], [ %.sroa.0555.0614, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ]
+  %.sroa.0578.0593 = phi ptr [ %.sroa.0578.0594873, %485 ], [ %.sroa.0578.0594, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ]
+  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn875, %485 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit451 ]
   %.not.i.i.i454 = icmp eq ptr %.sroa.0555.0613, null
   br i1 %.not.i.i.i454, label %_ZNSt6vectorIiSaIiEED2Ev.exit455, label %486
 
@@ -4862,8 +4862,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit453:                 ; preds = %485, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit455
 
 _ZNSt6vectorIiSaIiEED2Ev.exit455:                 ; preds = %486, %_ZNSt6vectorIiSaIiEED2Ev.exit453
-  %.sroa.0578.0592 = phi ptr [ %.sroa.0578.0593, %_ZNSt6vectorIiSaIiEED2Ev.exit453 ], [ %.sroa.0578.0593882, %486 ]
-  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit453 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn884, %486 ]
+  %.sroa.0578.0592 = phi ptr [ %.sroa.0578.0593882, %486 ], [ %.sroa.0578.0593, %_ZNSt6vectorIiSaIiEED2Ev.exit453 ]
+  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn884, %486 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit453 ]
   %.not.i.i.i456 = icmp eq ptr %.sroa.0578.0592, null
   br i1 %.not.i.i.i456, label %_ZNSt6vectorIiSaIiEED2Ev.exit457, label %487
 
@@ -4874,7 +4874,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit455:                 ; preds = %486, %_ZNSt6vectorI
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit457
 
 _ZNSt6vectorIiSaIiEED2Ev.exit457:                 ; preds = %487, %_ZNSt6vectorIiSaIiEED2Ev.exit455
-  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit455 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn890, %487 ]
+  %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn890, %487 ], [ %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit455 ]
   resume { ptr, i32 } %.pn343.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

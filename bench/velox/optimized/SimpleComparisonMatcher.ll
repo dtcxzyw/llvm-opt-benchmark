@@ -3609,8 +3609,8 @@ cond.false:                                       ; preds = %entry, %_ZSteqIcEN9
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i unwind label %lpad.i.i, !noalias !50
 
 common.resume:                                    ; preds = %lpad, %lpad.i6, %lpad.i.i, %lpad.i5.i, %lpad.i8.i, %lpad.i
-  %op.sink = phi ptr [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i8.i ], [ %ref.tmp.i, %lpad.i5.i ], [ %ref.tmp.i, %lpad.i.i ], [ %op, %lpad.i6 ], [ %op, %lpad ]
-  %common.resume.op = phi { ptr, i32 } [ %5, %lpad.i ], [ %4, %lpad.i8.i ], [ %3, %lpad.i5.i ], [ %1, %lpad.i.i ], [ %6, %lpad.i6 ], [ %10, %lpad ]
+  %op.sink = phi ptr [ %ref.tmp.i, %lpad.i.i ], [ %ref.tmp.i, %lpad.i ], [ %ref.tmp.i, %lpad.i8.i ], [ %ref.tmp.i, %lpad.i5.i ], [ %op, %lpad.i6 ], [ %op, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %5, %lpad.i ], [ %4, %lpad.i8.i ], [ %3, %lpad.i5.i ], [ %6, %lpad.i6 ], [ %10, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %op.sink) #18
   resume { ptr, i32 } %common.resume.op
 
@@ -3723,7 +3723,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %8
 
 8:                                                ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread6
-  %9 = phi i1 [ %cmp48, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread6 ], [ %cmp2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread ], [ %spec.select, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17 ]
+  %9 = phi i1 [ %cmp48, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread6 ], [ %spec.select, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17 ], [ %cmp2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %op) #18
   ret i1 %9
 
@@ -4160,7 +4160,7 @@ for.body.i:                                       ; preds = %land.lhs.true, %for
   br i1 %call6.i, label %for.cond.i, label %return
 
 return:                                           ; preds = %for.cond.i, %for.body.i, %land.lhs.true, %entry, %dynamic_cast.end, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %dynamic_cast.end ], [ false, %entry ], [ true, %land.lhs.true ], [ %call6.i, %for.body.i ], [ %call6.i, %for.cond.i ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %land.lhs.true ], [ false, %dynamic_cast.end ], [ false, %if.then ], [ %call6.i, %for.body.i ], [ %call6.i, %for.cond.i ]
   ret i1 %retval.0
 }
 
@@ -5930,7 +5930,7 @@ _ZNK8facebook5velox7variant5valueIiEERKDav.exit.i: ; preds = %if.then12.i
   br label %_ZNRSt8optionalIlE5valueEv.exit
 
 _ZNRSt8optionalIlE5valueEv.exit:                  ; preds = %if.then6.i, %_ZNK8facebook5velox7variant5valueIlEERKDav.exit.i, %_ZNK8facebook5velox7variant5valueIiEERKDav.exit.i
-  %retval.sroa.0.0.i = phi i64 [ %call9.i, %if.then6.i ], [ %9, %_ZNK8facebook5velox7variant5valueIlEERKDav.exit.i ], [ %conv.i.i.i.i.i.i, %_ZNK8facebook5velox7variant5valueIiEERKDav.exit.i ]
+  %retval.sroa.0.0.i = phi i64 [ %conv.i.i.i.i.i.i, %_ZNK8facebook5velox7variant5valueIiEERKDav.exit.i ], [ %call9.i, %if.then6.i ], [ %9, %_ZNK8facebook5velox7variant5valueIlEERKDav.exit.i ]
   %11 = add i64 %retval.sroa.0.0.i, 1
   %or.cond1 = icmp ult i64 %11, 3
   br i1 %or.cond1, label %if.then9, label %return
@@ -5941,8 +5941,8 @@ if.then9:                                         ; preds = %_ZNRSt8optionalIlE5
   store i64 %retval.sroa.0.0.i, ptr %12, align 8
   br label %return
 
-return:                                           ; preds = %if.then12.i, %entry, %dynamic_cast.end.i, %if.else.i, %if.then1.i, %_ZNRSt8optionalIlE5valueEv.exit, %if.then9
-  %retval.0 = phi i1 [ true, %if.then9 ], [ false, %_ZNRSt8optionalIlE5valueEv.exit ], [ false, %if.then1.i ], [ false, %if.else.i ], [ false, %dynamic_cast.end.i ], [ false, %entry ], [ false, %if.then12.i ]
+return:                                           ; preds = %entry, %if.else.i, %if.then12.i, %if.then1.i, %dynamic_cast.end.i, %_ZNRSt8optionalIlE5valueEv.exit, %if.then9
+  %retval.0 = phi i1 [ true, %if.then9 ], [ false, %_ZNRSt8optionalIlE5valueEv.exit ], [ false, %dynamic_cast.end.i ], [ false, %if.then1.i ], [ false, %if.then12.i ], [ false, %if.else.i ], [ false, %entry ]
   ret i1 %retval.0
 }
 

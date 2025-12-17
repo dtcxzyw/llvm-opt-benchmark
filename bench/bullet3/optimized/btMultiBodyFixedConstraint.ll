@@ -344,7 +344,7 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdAEv(p
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %4 ], [ -1, %14 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
   ret i32 %.04
 }
 
@@ -390,7 +390,7 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdBEv(p
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %11, %4, %14
-  %.04 = phi i32 [ -1, %14 ], [ -1, %4 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
+  %.04 = phi i32 [ -1, %4 ], [ -1, %14 ], [ -1, %11 ], [ %22, %.thread.sink.split ]
   ret i32 %.04
 }
 

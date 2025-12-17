@@ -1382,7 +1382,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit146:            ; preds = %_ZN4cvc58internal7I
   unreachable
 
 .body:                                            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit146, %70, %54
-  %.pn83.pn.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %55, %54 ], [ %.pn83.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit146 ]
+  %.pn83.pn.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %71, %70 ], [ %.pn83.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %337
 
@@ -4164,7 +4164,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit69:           ; preds = %139, %137
   unreachable
 
 .body55:                                          ; preds = %.body60, %151, %99
-  %.pn24 = phi { ptr, i32 } [ %152, %151 ], [ %100, %99 ], [ %eh.lpad-body61, %.body60 ]
+  %.pn24 = phi { ptr, i32 } [ %100, %99 ], [ %152, %151 ], [ %eh.lpad-body61, %.body60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit72 unwind label %158
@@ -4357,7 +4357,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit90:             ; preds = %196, %194
   unreachable
 
 .body79:                                          ; preds = %.body84, %201, %170
-  %.pn29 = phi { ptr, i32 } [ %202, %201 ], [ %171, %170 ], [ %eh.lpad-body85, %.body84 ]
+  %.pn29 = phi { ptr, i32 } [ %171, %170 ], [ %202, %201 ], [ %eh.lpad-body85, %.body84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %16)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit93 unwind label %208
@@ -4636,7 +4636,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit13:           ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit15:           ; preds = %50, %44, %42
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ], [ %51, %50 ]
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ], [ %51, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %56)
@@ -4979,7 +4979,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit32:           ; preds = %72, %70
   br label %77
 
 77:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit30, %_ZN4cvc58internal9BitVectorD2Ev.exit31, %_ZN4cvc58internal9BitVectorD2Ev.exit32
-  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19, %_ZN4cvc58internal9BitVectorD2Ev.exit32 ], [ %.pn17, %_ZN4cvc58internal9BitVectorD2Ev.exit31 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit30 ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit30 ], [ %.pn19, %_ZN4cvc58internal9BitVectorD2Ev.exit32 ], [ %.pn17, %_ZN4cvc58internal9BitVectorD2Ev.exit31 ]
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %78)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit33 unwind label %79
@@ -5150,7 +5150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit44.us: ; pr
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.us
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.us: ; preds = %59, %67, %65, %63, %52
-  %.0.i.i.us = phi i32 [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ 1, %52 ], [ %61, %59 ]
+  %.0.i.i.us = phi i32 [ %64, %63 ], [ %68, %67 ], [ %66, %65 ], [ 1, %52 ], [ %61, %59 ]
   %69 = zext i32 %.0.i.i.us to i64
   store ptr %26, ptr %6, align 8, !tbaa !66, !alias.scope !74
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %69, i8 noundef signext 0)
@@ -5510,7 +5510,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit80:           ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %130
-  %.pn26.pn = phi { ptr, i32 } [ %131, %130 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn26.pn = phi { ptr, i32 } [ %131, %130 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %.pn24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ], [ %.pn22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   br label %178
 
 178:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit81, %.loopexit

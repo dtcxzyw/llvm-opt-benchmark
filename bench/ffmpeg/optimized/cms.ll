@@ -133,7 +133,7 @@ av_cmp_q.exit.thread43:                           ; preds = %24, %21
   br label %av_cmp_q.exit29
 
 av_cmp_q.exit29:                                  ; preds = %44, %51, %54, %57
-  %.0.i25 = phi i32 [ %50, %44 ], [ %59, %57 ], [ 0, %51 ], [ -2147483648, %54 ]
+  %.0.i25 = phi i32 [ %50, %44 ], [ 0, %51 ], [ %59, %57 ], [ -2147483648, %54 ]
   %60 = icmp slt i32 %.0.i25, 1
   br label %av_cmp_q.exit.thread
 
@@ -411,8 +411,8 @@ ff_prim_equal.exit.thread48:                      ; preds = %166, %163, %ff_q_eq
   tail call void @abort() #16
   unreachable
 
-av_cmp_q.exit.thread:                             ; preds = %186, %183, %180, %ff_prim_equal.exit.thread48, %106, %116, %120, %130, %70, %80, %84, %94, %142, %152, %156, %166, %10, %24, %29, %av_cmp_q.exit29, %1, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ false, %29 ], [ %60, %av_cmp_q.exit29 ], [ false, %24 ], [ false, %10 ], [ false, %166 ], [ false, %156 ], [ false, %152 ], [ false, %142 ], [ false, %94 ], [ false, %84 ], [ false, %80 ], [ false, %70 ], [ false, %130 ], [ false, %120 ], [ false, %116 ], [ false, %106 ], [ %187, %186 ], [ true, %180 ], [ false, %183 ], [ false, %ff_prim_equal.exit.thread48 ]
+av_cmp_q.exit.thread:                             ; preds = %186, %183, %180, %ff_prim_equal.exit.thread48, %120, %106, %94, %84, %70, %166, %156, %142, %152, %80, %116, %130, %10, %24, %29, %av_cmp_q.exit29, %1, %5
+  %.0 = phi i1 [ %60, %av_cmp_q.exit29 ], [ false, %1 ], [ false, %120 ], [ false, %5 ], [ false, %29 ], [ false, %106 ], [ false, %94 ], [ false, %10 ], [ false, %24 ], [ false, %130 ], [ false, %116 ], [ false, %80 ], [ false, %152 ], [ false, %142 ], [ false, %156 ], [ false, %166 ], [ false, %70 ], [ false, %84 ], [ false, %183 ], [ true, %180 ], [ %187, %186 ], [ false, %ff_prim_equal.exit.thread48 ]
   ret i1 %.0
 }
 
@@ -1052,10 +1052,10 @@ softclip.exit104:                                 ; preds = %3
   br label %softclip.exit107
 
 softclip.exit107:                                 ; preds = %softclip.exit104, %258, %263
-  %283 = phi float [ %259, %263 ], [ %257, %softclip.exit104 ], [ %259, %258 ]
-  %284 = phi float [ %230, %263 ], [ %256, %softclip.exit104 ], [ %230, %258 ]
-  %285 = phi float [ %231, %263 ], [ %257, %softclip.exit104 ], [ %231, %258 ]
-  %.0.i105 = phi nsz float [ %282, %263 ], [ 0.000000e+00, %softclip.exit104 ], [ %192, %258 ]
+  %283 = phi float [ %257, %softclip.exit104 ], [ %259, %263 ], [ %259, %258 ]
+  %284 = phi float [ %256, %softclip.exit104 ], [ %230, %263 ], [ %230, %258 ]
+  %285 = phi float [ %257, %softclip.exit104 ], [ %231, %263 ], [ %231, %258 ]
+  %.0.i105 = phi nsz float [ 0.000000e+00, %softclip.exit104 ], [ %282, %263 ], [ %192, %258 ]
   %286 = tail call nsz float @llvm.maxnum.f32(float %.0.i105, float %284)
   %287 = fmul nsz float %.sroa.0108.sroa.4.0.copyload, %283
   %288 = tail call nsz float @llvm.fmuladd.f32(float %.sroa.0108.sroa.0.0.copyload, float %285, float %287)
@@ -2777,7 +2777,7 @@ define internal fastcc zeroext i1 @ingamut(<2 x float> %0, float %1, ptr noundef
   br label %111
 
 111:                                              ; preds = %29, %3, %19
-  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ %spec.select, %29 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %19 ], [ %spec.select, %29 ]
   ret i1 %.0
 }
 
@@ -3058,9 +3058,9 @@ ingamut.exit:                                     ; preds = %91
 164:                                              ; preds = %ingamut.exit
   br label %.thread
 
-.thread:                                          ; preds = %164, %ingamut.exit, %91, %81
-  %165 = phi float [ %.sroa.03.4.vec.extract.i.i106, %164 ], [ %.sroa.03.4.vec.extract.i.i106, %81 ], [ %.sroa.03.4.vec.extract.i.i106, %91 ], [ %.038.i103, %ingamut.exit ]
-  %166 = phi float [ %.0.i104, %164 ], [ %.0.i104, %81 ], [ %.0.i104, %91 ], [ %.sroa.03.4.vec.extract.i.i106, %ingamut.exit ]
+.thread:                                          ; preds = %164, %ingamut.exit, %81, %91
+  %165 = phi float [ %.sroa.03.4.vec.extract.i.i106, %91 ], [ %.sroa.03.4.vec.extract.i.i106, %164 ], [ %.sroa.03.4.vec.extract.i.i106, %81 ], [ %.038.i103, %ingamut.exit ]
+  %166 = phi float [ %.0.i104, %91 ], [ %.0.i104, %164 ], [ %.0.i104, %81 ], [ %.sroa.03.4.vec.extract.i.i106, %ingamut.exit ]
   %167 = fadd nsz float %165, %166
   %168 = fmul nsz float %167, 5.000000e-01
   %.sroa.022.4.vec.insert37.i110 = insertelement <2 x float> %.sroa.022.1.i105.fr, float %168, i64 1
@@ -3204,9 +3204,9 @@ ingamut.exit141:                                  ; preds = %191
 264:                                              ; preds = %ingamut.exit141
   br label %.thread154
 
-.thread154:                                       ; preds = %264, %ingamut.exit141, %191, %181
-  %265 = phi float [ %.sroa.03.4.vec.extract.i.i122, %264 ], [ %.sroa.03.4.vec.extract.i.i122, %181 ], [ %.sroa.03.4.vec.extract.i.i122, %191 ], [ %.038.i119, %ingamut.exit141 ]
-  %266 = phi float [ %.0.i120, %264 ], [ %.0.i120, %181 ], [ %.0.i120, %191 ], [ %.sroa.03.4.vec.extract.i.i122, %ingamut.exit141 ]
+.thread154:                                       ; preds = %264, %ingamut.exit141, %181, %191
+  %265 = phi float [ %.sroa.03.4.vec.extract.i.i122, %191 ], [ %.sroa.03.4.vec.extract.i.i122, %264 ], [ %.sroa.03.4.vec.extract.i.i122, %181 ], [ %.038.i119, %ingamut.exit141 ]
+  %266 = phi float [ %.0.i120, %191 ], [ %.0.i120, %264 ], [ %.0.i120, %181 ], [ %.sroa.03.4.vec.extract.i.i122, %ingamut.exit141 ]
   %267 = fadd nsz float %265, %266
   %268 = fmul nsz float %267, 5.000000e-01
   %.sroa.022.4.vec.insert37.i126 = insertelement <2 x float> %.sroa.022.1.i121.fr, float %268, i64 1

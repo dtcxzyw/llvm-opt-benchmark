@@ -4510,7 +4510,7 @@ pmix_pointer_array_get_item.exit218:              ; preds = %173
   br label %186
 
 186:                                              ; preds = %.thread224, %.thread230, %.thread236, %.thread242, %.thread248, %.thread254, %.thread260, %.thread, %.thread266, %23, %23, %13, %181, %181, %11, %9
-  %.0 = phi i32 [ %10, %9 ], [ %10, %11 ], [ %.0165221, %.thread ], [ %26, %23 ], [ %.1227, %.thread224 ], [ %.2233, %.thread230 ], [ %.3239, %.thread236 ], [ %.4245, %.thread242 ], [ %.5251, %.thread248 ], [ %.6257, %.thread254 ], [ %.8263, %.thread260 ], [ %.10268, %.thread266 ], [ %184, %181 ], [ %26, %23 ], [ -46, %13 ], [ %184, %181 ]
+  %.0 = phi i32 [ %10, %11 ], [ %10, %9 ], [ %.0165221, %.thread ], [ %26, %23 ], [ %184, %181 ], [ %.1227, %.thread224 ], [ %.2233, %.thread230 ], [ %.3239, %.thread236 ], [ %.4245, %.thread242 ], [ %.5251, %.thread248 ], [ %.6257, %.thread254 ], [ %26, %23 ], [ %.8263, %.thread260 ], [ %.10268, %.thread266 ], [ -46, %13 ], [ %184, %181 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -4954,7 +4954,7 @@ pmix_pointer_array_get_item.exit206:              ; preds = %192
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %192, %13, %.thread, %.thread214, %.thread220, %.thread226, %.thread232, %.thread238, %.thread244, %pmix_pointer_array_get_item.exit, %21, %11, %pmix_pointer_array_get_item.exit206, %200, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.1211, %.thread ], [ %.2217, %.thread214 ], [ %.3223, %.thread220 ], [ %.4229, %.thread226 ], [ %.5235, %.thread232 ], [ %.7241, %.thread238 ], [ %.8247, %.thread244 ], [ %24, %21 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -46, %11 ], [ %203, %200 ], [ -16, %pmix_pointer_array_get_item.exit206 ], [ -16, %13 ], [ -16, %192 ]
+  %.0 = phi i32 [ %10, %9 ], [ -46, %11 ], [ %24, %21 ], [ %.1211, %.thread ], [ %.2217, %.thread214 ], [ %.3223, %.thread220 ], [ %.4229, %.thread226 ], [ %.5235, %.thread232 ], [ -16, %pmix_pointer_array_get_item.exit ], [ %.7241, %.thread238 ], [ %.8247, %.thread244 ], [ %203, %200 ], [ -16, %pmix_pointer_array_get_item.exit206 ], [ -16, %13 ], [ -16, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -5068,7 +5068,7 @@ switch.lookup:                                    ; preds = %16
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !76
 
 .loopexit:                                        ; preds = %36, %43, %.preheader, %41, %23, %switch.lookup, %34, %18
-  %.035 = phi i32 [ -27, %18 ], [ -29, %34 ], [ %22, %switch.lookup ], [ %22, %23 ], [ %40, %41 ], [ 0, %.preheader ], [ %40, %43 ], [ %40, %36 ]
+  %.035 = phi i32 [ -27, %18 ], [ %40, %41 ], [ -29, %34 ], [ %22, %23 ], [ %22, %switch.lookup ], [ 0, %.preheader ], [ %40, %43 ], [ %40, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035
@@ -5195,7 +5195,7 @@ switch.lookup:                                    ; preds = %23
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %55, %.preheader, %43, %32, %switch.lookup, %17, %53, %49, %25
-  %.037 = phi i32 [ -27, %25 ], [ -20, %49 ], [ -63, %53 ], [ -50, %17 ], [ %29, %switch.lookup ], [ %29, %32 ], [ %42, %43 ], [ 0, %.preheader ], [ %42, %55 ], [ %42, %.lr.ph ]
+  %.037 = phi i32 [ %42, %43 ], [ -27, %25 ], [ -50, %17 ], [ %29, %32 ], [ -20, %49 ], [ -63, %53 ], [ %29, %switch.lookup ], [ 0, %.preheader ], [ %42, %55 ], [ %42, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.037

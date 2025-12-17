@@ -490,12 +490,12 @@ define dso_local i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unna
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_pmi2_cmd) #7
   br label %136
 
-.thread:                                          ; preds = %.split157.us, %93, %83, %78, %.split107.us, %43, %33, %28
+.thread:                                          ; preds = %93, %.split157.us, %83, %78, %43, %.split107.us, %33, %28
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   br label %136
 
 136:                                              ; preds = %132, %135, %.thread, %117, %107
-  %.0 = phi i32 [ -1, %117 ], [ -1, %107 ], [ -1, %.thread ], [ %.064, %135 ], [ %.064, %132 ]
+  %.0 = phi i32 [ -1, %.thread ], [ -1, %107 ], [ -1, %117 ], [ %.064, %135 ], [ %.064, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -583,7 +583,7 @@ define internal i32 @_handle_fullinit(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %16, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %15, %13, %10
-  %.str.34.sink = phi ptr [ @.str.30, %10 ], [ @.str.32, %13 ], [ @.str.34, %15 ]
+  %.str.34.sink = phi ptr [ @.str.32, %13 ], [ @.str.30, %10 ], [ @.str.34, %15 ]
   %17 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull %.str.34.sink) #7
   br label %18
 
@@ -1272,7 +1272,7 @@ define internal i32 @_handle_spawn(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %42
 
 42:                                               ; preds = %34, %41, %20, %29, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %29 ], [ -1, %20 ], [ %16, %41 ], [ %16, %34 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %20 ], [ -1, %29 ], [ %16, %41 ], [ %16, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

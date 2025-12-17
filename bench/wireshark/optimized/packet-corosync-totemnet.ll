@@ -192,8 +192,8 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   %44 = tail call i32 @call_dissector(ptr noundef %43, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.thread, %8, %.critedge
-  %.7 = phi i32 [ %44, %.critedge ], [ %31, %.thread ], [ %17, %8 ]
+.critedge.thread:                                 ; preds = %8, %.thread, %.critedge
+  %.7 = phi i32 [ %44, %.critedge ], [ %17, %8 ], [ %31, %.thread ]
   ret i32 %.7
 }
 

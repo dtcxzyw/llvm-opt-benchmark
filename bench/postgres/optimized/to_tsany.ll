@@ -1018,10 +1018,10 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.loopexit.loopexit, %19
-  %.pre-phi = phi i64 [ %.pre82, %..loopexit_crit_edge ], [ %21, %.loopexit.loopexit ], [ %21, %19 ]
-  %40 = phi i32 [ %18, %..loopexit_crit_edge ], [ %.pre79, %.loopexit.loopexit ], [ %18, %19 ]
-  %41 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %34, %.loopexit.loopexit ], [ %.pre, %19 ]
-  %.148 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %32, %.loopexit.loopexit ], [ %.04776, %19 ]
+  %.pre-phi = phi i64 [ %.pre82, %..loopexit_crit_edge ], [ %21, %19 ], [ %21, %.loopexit.loopexit ]
+  %40 = phi i32 [ %18, %..loopexit_crit_edge ], [ %18, %19 ], [ %.pre79, %.loopexit.loopexit ]
+  %41 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %.pre, %19 ], [ %34, %.loopexit.loopexit ]
+  %.148 = phi i32 [ %.04776, %..loopexit_crit_edge ], [ %.04776, %19 ], [ %32, %.loopexit.loopexit ]
   %42 = getelementptr inbounds %struct.ParsedWord, ptr %41, i64 %.pre-phi
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i16, ptr %43, align 8
@@ -1112,9 +1112,9 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br label %.critedge2, !llvm.loop !10
 
 .critedge2:                                       ; preds = %.lr.ph63, %.lr.ph103, %.lr.ph63.preheader, %..critedge2.loopexit_crit_edge, %55
-  %98 = phi i32 [ %47, %55 ], [ %96, %..critedge2.loopexit_crit_edge ], [ %47, %.lr.ph63.preheader ], [ %75, %.lr.ph103 ], [ %96, %.lr.ph63 ]
-  %99 = phi i32 [ %48, %55 ], [ %96, %..critedge2.loopexit_crit_edge ], [ %48, %.lr.ph63.preheader ], [ %74, %.lr.ph103 ], [ %96, %.lr.ph63 ]
-  %.2.lcssa = phi i32 [ %.170, %55 ], [ %95, %..critedge2.loopexit_crit_edge ], [ %.170, %.lr.ph63.preheader ], [ %.262101, %.lr.ph103 ], [ %95, %.lr.ph63 ]
+  %98 = phi i32 [ %47, %55 ], [ %47, %.lr.ph63.preheader ], [ %96, %..critedge2.loopexit_crit_edge ], [ %75, %.lr.ph103 ], [ %96, %.lr.ph63 ]
+  %99 = phi i32 [ %48, %55 ], [ %48, %.lr.ph63.preheader ], [ %96, %..critedge2.loopexit_crit_edge ], [ %74, %.lr.ph103 ], [ %96, %.lr.ph63 ]
+  %.2.lcssa = phi i32 [ %.170, %55 ], [ %.170, %.lr.ph63.preheader ], [ %95, %..critedge2.loopexit_crit_edge ], [ %.262101, %.lr.ph103 ], [ %95, %.lr.ph63 ]
   %.not56 = icmp eq i32 %.05069, 0
   br i1 %.not56, label %101, label %100
 

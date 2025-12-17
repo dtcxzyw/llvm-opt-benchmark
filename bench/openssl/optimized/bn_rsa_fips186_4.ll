@@ -119,7 +119,7 @@ bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit: ; preds = %48
   br label %bn_rsa_fips186_5_aux_prime_min_size.exit
 
 bn_rsa_fips186_5_aux_prime_min_size.exit:         ; preds = %39, %54, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit, %46, %48, %44, %41, %29
-  %.069 = phi i32 [ 0, %29 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %41 ], [ %55, %54 ], [ 0, %39 ]
+  %.069 = phi i32 [ 0, %29 ], [ 0, %44 ], [ 0, %bn_rsa_fips186_5_aux_prime_max_sum_size_for_prob_primes.exit ], [ 0, %41 ], [ %55, %54 ], [ 0, %48 ], [ 0, %46 ], [ 0, %39 ]
   br i1 %.not, label %56, label %57
 
 56:                                               ; preds = %bn_rsa_fips186_5_aux_prime_min_size.exit

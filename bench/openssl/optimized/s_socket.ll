@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @init_client(ptr noundef captures(none) %0, ptr nound
   br label %120
 
 120:                                              ; preds = %11, %118, %18
-  %.082 = phi i32 [ 0, %18 ], [ %.072, %118 ], [ 0, %11 ]
+  %.082 = phi i32 [ %.072, %118 ], [ 0, %18 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.082
@@ -589,9 +589,9 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %.thread144, label %.thread
 
-.thread144:                                       ; preds = %70, %63, %67, %40, %55, %58, %66
-  %.0116.ph.sink = phi i32 [ 10, %67 ], [ %42, %40 ], [ %42, %55 ], [ %42, %58 ], [ %42, %66 ], [ 2, %63 ], [ 2, %70 ]
-  %.2106151 = phi i32 [ %spec.select139, %67 ], [ %.1105, %40 ], [ %.1105, %55 ], [ %.1105, %58 ], [ %spec.select, %66 ], [ %.1105, %63 ], [ %.1105, %70 ]
+.thread144:                                       ; preds = %70, %63, %55, %58, %66, %67, %40
+  %.0116.ph.sink = phi i32 [ 2, %63 ], [ %42, %40 ], [ %42, %55 ], [ %42, %58 ], [ %42, %66 ], [ 10, %67 ], [ 2, %70 ]
+  %.2106151 = phi i32 [ %.1105, %63 ], [ %.1105, %40 ], [ %.1105, %55 ], [ %.1105, %58 ], [ %spec.select, %66 ], [ %spec.select139, %67 ], [ %.1105, %70 ]
   %74 = call i32 @BIO_socket(i32 noundef %.0116.ph.sink, i32 noundef %44, i32 noundef %46, i32 noundef 0) #9
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %.critedge158, label %.thread
@@ -787,7 +787,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %148
 
 148:                                              ; preds = %.critedge158, %.thread153, %77, %87
-  %.0103 = phi i32 [ 0, %77 ], [ 0, %87 ], [ %.2.ph, %.thread153 ], [ 0, %.critedge158 ]
+  %.0103 = phi i32 [ 0, %77 ], [ 0, %.critedge158 ], [ 0, %87 ], [ %.2.ph, %.thread153 ]
   %149 = icmp eq i32 %3, 1
   br i1 %149, label %150, label %152
 
@@ -802,7 +802,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br label %154
 
 154:                                              ; preds = %11, %152, %19
-  %.0 = phi i32 [ %.0103, %152 ], [ 0, %19 ], [ 0, %11 ]
+  %.0 = phi i32 [ 0, %19 ], [ %.0103, %152 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }

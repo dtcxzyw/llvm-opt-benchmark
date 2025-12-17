@@ -380,7 +380,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.s
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit: ; preds = %28, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit24, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit26, %52, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %66
-  %.028.i.i.i.i = phi ptr [ %25, %66 ], [ %.029.lcssa.i.i.i.i, %52 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %67, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %68, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit24 ], [ %69, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %.02946.i.i.i.i, %28 ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %25, %66 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %52 ], [ %69, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit26 ], [ %67, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %68, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit24 ], [ %.02946.i.i.i.i, %28 ]
   %70 = icmp ne ptr %.028.i.i.i.i, %25
   br label %71
 
@@ -811,8 +811,8 @@ _ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLo
   br label %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread33
 
 _ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread33: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit, %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread, %12
-  %.sroa.8.0 = phi i32 [ 0, %12 ], [ %.sroa.9.2.i, %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit ], [ 0, %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %.sroa.019.0 = phi ptr [ null, %12 ], [ %.sroa.012.2.i, %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit ], [ null, %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.sroa.8.0 = phi i32 [ 0, %12 ], [ %.sroa.9.2.i, %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %.sroa.019.0 = phi ptr [ null, %12 ], [ %.sroa.012.2.i, %_ZL23emitConstantSizeRepstosRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoE.exit ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %_ZNK4llvm19X86SelectionDAGInfo25isBaseRegConflictPossibleERNS_12SelectionDAGENS_8ArrayRefItEE.exit.thread ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.8.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1041,7 +1041,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit: ; preds = %63, 
   br label %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i
 
 _ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %106, %105, %104, %101
-  %.sroa.01.0.i.i = phi i16 [ %109, %106 ], [ 6, %104 ], [ 7, %105 ], [ 5, %101 ]
+  %.sroa.01.0.i.i = phi i16 [ %109, %106 ], [ 7, %105 ], [ 6, %104 ], [ 5, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %110 = zext nneg i16 %.sroa.01.0.i.i to i64
   %111 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %110
@@ -1305,8 +1305,8 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i: ; preds = %220, %_ZN4llvm23S
   br label %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit
 
 _ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit: ; preds = %82, %86, %98, %.thread9.i, %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i, %_ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i
-  %.sroa.9.1.i = phi i32 [ %.fca.1.extract94.i, %82 ], [ %.fca.1.extract87.i, %98 ], [ 0, %86 ], [ 0, %.thread9.i ], [ %.fca.1.extract.i, %_ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i ], [ %.fca.1.extract60.i, %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ]
-  %.sroa.05.1.i = phi ptr [ %.fca.0.extract93.i, %82 ], [ %.fca.0.extract86.i, %98 ], [ null, %86 ], [ null, %.thread9.i ], [ %.fca.0.extract.i, %_ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i ], [ %.fca.0.extract59.i, %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ]
+  %.sroa.9.1.i = phi i32 [ %.fca.1.extract94.i, %82 ], [ %.fca.1.extract87.i, %98 ], [ 0, %.thread9.i ], [ 0, %86 ], [ %.fca.1.extract.i, %_ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i ], [ %.fca.1.extract60.i, %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ]
+  %.sroa.05.1.i = phi ptr [ %.fca.0.extract93.i, %82 ], [ %.fca.0.extract86.i, %98 ], [ null, %.thread9.i ], [ null, %86 ], [ %.fca.0.extract.i, %_ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit.i ], [ %.fca.0.extract59.i, %_ZL17getOptimalRepTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1318,8 +1318,8 @@ _ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLoc
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %61, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit, %63, %13, %29
-  %.sroa.9.0 = phi i32 [ 0, %29 ], [ 0, %13 ], [ %.fca.1.extract6, %61 ], [ %.sroa.9.1.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ 0, %63 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %.sroa.036.0 = phi ptr [ null, %29 ], [ null, %13 ], [ %.fca.0.extract5, %61 ], [ %.sroa.05.1.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ null, %63 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
+  %.sroa.9.0 = phi i32 [ 0, %13 ], [ 0, %29 ], [ %.sroa.9.1.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ %.fca.1.extract6, %61 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %63 ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %.sroa.036.0 = phi ptr [ null, %13 ], [ null, %29 ], [ %.sroa.05.1.i, %_ZL22emitConstantSizeRepmovRN4llvm12SelectionDAGERKNS_12X86SubtargetERKNS_5SDLocENS_7SDValueES8_S8_mNS_3EVTENS_5AlignEbbNS_18MachinePointerInfoESB_.exit ], [ %.fca.0.extract5, %61 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %63 ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.036.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1359,9 +1359,9 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit: ; preds = %21
   br label %.thread170
 
 .thread170:                                       ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit, %21, %21, %9
-  %26 = phi i32 [ 26, %9 ], [ 26, %21 ], [ 26, %21 ], [ %., %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
-  %27 = phi i32 [ 25, %9 ], [ 25, %21 ], [ 25, %21 ], [ %.173, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
-  %28 = phi i32 [ 32, %9 ], [ 32, %21 ], [ 32, %21 ], [ %.174, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
+  %26 = phi i32 [ %., %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ], [ 26, %21 ], [ 26, %21 ], [ 26, %9 ]
+  %27 = phi i32 [ %.173, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ], [ 25, %21 ], [ 25, %21 ], [ 25, %9 ]
+  %28 = phi i32 [ %.174, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ], [ 32, %21 ], [ 32, %21 ], [ 32, %9 ]
   %.sroa.0135.0.copyload = load ptr, ptr %7, align 8, !tbaa !317
   %.sroa.2136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2136.0.copyload = load i32, ptr %.sroa.2136.0..sroa_idx, align 8, !tbaa !318
@@ -1648,7 +1648,7 @@ _ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit: ; preds = %9, %22, %22, %25
   br label %37
 
 37:                                               ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit, %36, %35, %34
-  %.0 = phi i32 [ 51, %36 ], [ 3, %34 ], [ 22, %35 ], [ 2, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
+  %.0 = phi i32 [ 51, %36 ], [ 22, %35 ], [ 3, %34 ], [ 2, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit ]
   %38 = select i1 %29, i32 54, i32 25
   %39 = select i1 %29, i32 55, i32 26
   %.sroa.0141.0.copyload = load ptr, ptr %6, align 8, !tbaa !317

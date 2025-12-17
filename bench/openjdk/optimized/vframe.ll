@@ -1164,11 +1164,11 @@ _ZNK11MonitorInfo5ownerEv.exit53:                 ; preds = %163
   %176 = icmp eq i32 %175, 2
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 64
   %178 = load volatile ptr, ptr %177, align 8
-  br i1 %176, label %179, label %198
+  br i1 %176, label %179, label %195
 
 179:                                              ; preds = %174
   %180 = icmp eq ptr %178, inttoptr (i64 1 to ptr)
-  br i1 %180, label %181, label %195
+  br i1 %180, label %181, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit
 
 181:                                              ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %170, i64 1720
@@ -1192,24 +1192,24 @@ _ZNK11MonitorInfo5ownerEv.exit53:                 ; preds = %163
   %194 = icmp eq ptr %193, %183
   br i1 %194, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %189, !llvm.loop !13
 
-195:                                              ; preds = %179
-  %196 = load volatile ptr, ptr %177, align 8
-  %197 = icmp eq ptr %170, %196
-  br i1 %197, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76
+195:                                              ; preds = %174
+  %196 = icmp eq ptr %170, %178
+  br i1 %196, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %197
 
-198:                                              ; preds = %174
-  %199 = icmp eq ptr %170, %178
-  br i1 %199, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit
+197:                                              ; preds = %195
+  %198 = call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %170, ptr noundef %178) #11
+  br i1 %198, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76
 
-_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit: ; preds = %198
-  %200 = call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %170, ptr noundef %178) #11
+_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit: ; preds = %179
+  %199 = load volatile ptr, ptr %177, align 8
+  %200 = icmp eq ptr %170, %199
   br i1 %200, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread, label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76
 
-_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76: ; preds = %189, %195, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit, %167
+_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76: ; preds = %189, %197, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit, %167
   br label %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread
 
-_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread: ; preds = %191, %198, %195, %_ZNK11MonitorInfo5ownerEv.exit53, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76, %163
-  %.0 = phi ptr [ @.str.15, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76 ], [ @.str.14, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit ], [ @.str.14, %_ZNK11MonitorInfo5ownerEv.exit53 ], [ @.str.14, %163 ], [ @.str.14, %195 ], [ @.str.14, %198 ], [ @.str.14, %191 ]
+_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread: ; preds = %191, %195, %197, %_ZNK11MonitorInfo5ownerEv.exit53, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76, %163
+  %.0 = phi ptr [ @.str.15, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit.thread76 ], [ @.str.14, %_ZNK13ObjectMonitor10is_enteredEP10JavaThread.exit ], [ @.str.14, %_ZNK11MonitorInfo5ownerEv.exit53 ], [ @.str.14, %163 ], [ @.str.14, %197 ], [ @.str.14, %195 ], [ @.str.14, %191 ]
   %201 = load ptr, ptr %121, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit60, label %_ZNK11MonitorInfo5ownerEv.exit55
@@ -1251,7 +1251,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit60:            ; preds = %_ZNK13ObjectMonitor
   br label %_ZNK6HandleclEv.exit.thread
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %159, %140, %_ZNK11MonitorInfo5ownerEv.exit, %_ZNK11MonitorInfo5ownerEv.exit52, %_ZN6HandleC2EP6ThreadP7oopDesc.exit60, %_ZNK11MonitorInfo11owner_klassEv.exit, %158
-  %.1 = phi i1 [ %.04479, %_ZNK11MonitorInfo11owner_klassEv.exit ], [ %.04479, %158 ], [ true, %_ZN6HandleC2EP6ThreadP7oopDesc.exit60 ], [ %.04479, %_ZNK11MonitorInfo5ownerEv.exit52 ], [ %.04479, %_ZNK11MonitorInfo5ownerEv.exit ], [ %.04479, %140 ], [ %.04479, %159 ]
+  %.1 = phi i1 [ %.04479, %_ZNK11MonitorInfo11owner_klassEv.exit ], [ %.04479, %158 ], [ %.04479, %_ZNK11MonitorInfo5ownerEv.exit ], [ true, %_ZN6HandleC2EP6ThreadP7oopDesc.exit60 ], [ %.04479, %_ZNK11MonitorInfo5ownerEv.exit52 ], [ %.04479, %140 ], [ %.04479, %159 ]
   %218 = icmp sgt i64 %indvars.iv, 1
   br i1 %218, label %118, label %.loopexit, !llvm.loop !14
 
@@ -1933,7 +1933,7 @@ _ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i:
   br label %103
 
 103:                                              ; preds = %_ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i, %60
-  %.017.i = phi ptr [ %102, %_ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i ], [ %spec.select.i, %60 ]
+  %.017.i = phi ptr [ %spec.select.i, %60 ], [ %102, %_ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i ]
   %104 = add nuw nsw i32 %.020.i, %33
   %105 = shl nuw nsw i32 %104, 1
   %106 = load i32, ptr %16, align 8
@@ -2107,7 +2107,7 @@ _ZNK6vframe11stack_chunkEv.exit15.thread:         ; preds = %149
   br label %_ZL31create_stack_value_from_oop_mapRK17InterpreterOopMapiPKlP17stackChunkOopDesc.exit.us.i
 
 _ZL31create_stack_value_from_oop_mapRK17InterpreterOopMapiPKlP17stackChunkOopDesc.exit.us.i: ; preds = %188, %182
-  %phi.call.us.i = phi ptr [ %183, %182 ], [ %185, %188 ]
+  %phi.call.us.i = phi ptr [ %185, %188 ], [ %183, %182 ]
   %192 = load ptr, ptr %36, align 8
   %193 = load i32, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
@@ -2226,7 +2226,7 @@ _ZNK17stackChunkOopDesc26interpreter_frame_local_atERK5framei.exit.i: ; preds = 
   br label %_ZL31create_stack_value_from_oop_mapRK17InterpreterOopMapiPKlP17stackChunkOopDesc.exit.i35
 
 _ZL31create_stack_value_from_oop_mapRK17InterpreterOopMapiPKlP17stackChunkOopDesc.exit.i35: ; preds = %257, %251
-  %phi.call.i = phi ptr [ %252, %251 ], [ %254, %257 ]
+  %phi.call.i = phi ptr [ %254, %257 ], [ %252, %251 ]
   %261 = load ptr, ptr %36, align 8
   %262 = load i32, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 4
@@ -2800,7 +2800,7 @@ _ZNK5frame14is_first_frameEv.exit.thread14:       ; preds = %86, %97, %_ZNK5fram
   br label %102
 
 102:                                              ; preds = %_ZNK5frame14is_first_frameEv.exit.thread, %97, %25, %79, %_ZNK5frame14is_first_frameEv.exit.thread14, %.critedge, %13
-  %.0 = phi i1 [ true, %13 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ true, %25 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
+  %.0 = phi i1 [ true, %13 ], [ true, %25 ], [ true, %.critedge ], [ true, %_ZNK5frame14is_first_frameEv.exit.thread14 ], [ true, %79 ], [ false, %97 ], [ false, %_ZNK5frame14is_first_frameEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -4633,7 +4633,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286822ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %17, %21
-  %.0.i.i = phi ptr [ null, %2 ], [ %20, %21 ], [ %20, %17 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %20, %17 ], [ %20, %21 ]
   ret ptr %.0.i.i
 }
 
@@ -4807,7 +4807,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -4997,7 +4997,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm286790ES_E19oop_load_in_heap_atEP7oopDescl.exit: ; preds = %2, %8, %11
-  %.0.i.i = phi ptr [ null, %2 ], [ %10, %11 ], [ %10, %8 ]
+  %.0.i.i = phi ptr [ null, %2 ], [ %10, %8 ], [ %10, %11 ]
   ret ptr %.0.i.i
 }
 
@@ -5129,7 +5129,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 
@@ -5216,7 +5216,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
-  %.0.i.i = phi ptr [ null, %1 ], [ %6, %7 ], [ %6, %4 ]
+  %.0.i.i = phi ptr [ null, %1 ], [ %6, %4 ], [ %6, %7 ]
   ret ptr %.0.i.i
 }
 

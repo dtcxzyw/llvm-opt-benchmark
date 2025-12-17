@@ -307,17 +307,17 @@ zend_parse_arg_long_ex.exit:                      ; preds = %36
   %42 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %37, ptr noundef nonnull %7, i32 noundef 4) #11
   br i1 %42, label %44, label %.critedge, !prof !49
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit103, %24, %zend_parse_arg_str_ex.exit, %13
-  %.088119 = phi i32 [ 9, %zend_parse_arg_long_ex.exit103 ], [ %.96, %24 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %13 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  %.089118 = phi i32 [ 0, %zend_parse_arg_long_ex.exit103 ], [ %., %24 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %13 ], [ 0, %zend_parse_arg_long_ex.exit ]
-  %.090117 = phi ptr [ %29, %zend_parse_arg_long_ex.exit103 ], [ %22, %24 ], [ %15, %zend_parse_arg_str_ex.exit ], [ null, %13 ], [ %37, %zend_parse_arg_long_ex.exit ]
-  %.091116 = phi i32 [ 3, %zend_parse_arg_long_ex.exit103 ], [ 2, %24 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %13 ], [ 4, %zend_parse_arg_long_ex.exit ]
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %24, %zend_parse_arg_long_ex.exit103, %13
+  %.088119 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %13 ], [ 9, %zend_parse_arg_str_ex.exit ], [ %.96, %24 ], [ 9, %zend_parse_arg_long_ex.exit103 ]
+  %.089118 = phi i32 [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %13 ], [ 4, %zend_parse_arg_str_ex.exit ], [ %., %24 ], [ 0, %zend_parse_arg_long_ex.exit103 ]
+  %.090117 = phi ptr [ %37, %zend_parse_arg_long_ex.exit ], [ null, %13 ], [ %15, %zend_parse_arg_str_ex.exit ], [ %22, %24 ], [ %29, %zend_parse_arg_long_ex.exit103 ]
+  %.091116 = phi i32 [ 4, %zend_parse_arg_long_ex.exit ], [ 0, %13 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %24 ], [ 3, %zend_parse_arg_long_ex.exit103 ]
   %43 = load ptr, ptr %8, align 8, !tbaa !42
   call void @zend_wrong_parameter_error(i32 noundef %.088119, i32 noundef %.091116, ptr noundef %43, i32 noundef %.089118, ptr noundef %.090117) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %104
 
-44:                                               ; preds = %zend_parse_arg_long_ex.exit, %26, %35, %.thread120
+44:                                               ; preds = %zend_parse_arg_long_ex.exit, %35, %26, %.thread120
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %45 = load ptr, ptr %9, align 8, !tbaa !31
   %46 = getelementptr i8, ptr %45, i64 -8
@@ -572,12 +572,12 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %.pre = load ptr, ptr %9, align 8, !tbaa !42
   br label %.critedge
 
-.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %30, %25, %zend_parse_arg_str_ex.exit, %14
-  %41 = phi ptr [ %31, %30 ], [ %26, %25 ], [ null, %zend_parse_arg_str_ex.exit ], [ null, %14 ], [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ]
-  %.088122 = phi i32 [ %.98, %30 ], [ %.96, %25 ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %14 ], [ 9, %zend_parse_arg_long_ex.exit..critedge_crit_edge ]
-  %.089121 = phi i32 [ %.97, %30 ], [ %., %25 ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %14 ], [ 0, %zend_parse_arg_long_ex.exit..critedge_crit_edge ]
-  %.090120 = phi ptr [ %28, %30 ], [ %23, %25 ], [ %16, %zend_parse_arg_str_ex.exit ], [ null, %14 ], [ %35, %zend_parse_arg_long_ex.exit..critedge_crit_edge ]
-  %.091119 = phi i32 [ 3, %30 ], [ 2, %25 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %14 ], [ 4, %zend_parse_arg_long_ex.exit..critedge_crit_edge ]
+.critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %zend_parse_arg_str_ex.exit, %25, %30, %14
+  %41 = phi ptr [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ null, %14 ], [ null, %zend_parse_arg_str_ex.exit ], [ %26, %25 ], [ %31, %30 ]
+  %.088122 = phi i32 [ 9, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ 1, %14 ], [ 9, %zend_parse_arg_str_ex.exit ], [ %.96, %25 ], [ %.98, %30 ]
+  %.089121 = phi i32 [ 0, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ 0, %14 ], [ 4, %zend_parse_arg_str_ex.exit ], [ %., %25 ], [ %.97, %30 ]
+  %.090120 = phi ptr [ %35, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ null, %14 ], [ %16, %zend_parse_arg_str_ex.exit ], [ %23, %25 ], [ %28, %30 ]
+  %.091119 = phi i32 [ 4, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ 0, %14 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %25 ], [ 3, %30 ]
   call void @zend_wrong_parameter_error(i32 noundef %.088122, i32 noundef %.091119, ptr noundef %41, i32 noundef %.089121, ptr noundef %.090120) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %118
@@ -819,11 +819,11 @@ zend_parse_arg_str_ex.exit:                       ; preds = %12
   br label %24
 
 24:                                               ; preds = %11, %zend_parse_arg_str_ex.exit, %22
-  %25 = phi ptr [ null, %11 ], [ null, %zend_parse_arg_str_ex.exit ], [ %23, %22 ]
-  %.063 = phi ptr [ null, %11 ], [ %13, %zend_parse_arg_str_ex.exit ], [ %20, %22 ]
-  %.062 = phi i32 [ 0, %11 ], [ 4, %zend_parse_arg_str_ex.exit ], [ %., %22 ]
-  %.061 = phi i32 [ 0, %11 ], [ 1, %zend_parse_arg_str_ex.exit ], [ 2, %22 ]
-  %.060 = phi i32 [ 1, %11 ], [ 9, %zend_parse_arg_str_ex.exit ], [ %.69, %22 ]
+  %25 = phi ptr [ null, %11 ], [ %23, %22 ], [ null, %zend_parse_arg_str_ex.exit ]
+  %.063 = phi ptr [ null, %11 ], [ %20, %22 ], [ %13, %zend_parse_arg_str_ex.exit ]
+  %.062 = phi i32 [ 0, %11 ], [ %., %22 ], [ 4, %zend_parse_arg_str_ex.exit ]
+  %.061 = phi i32 [ 0, %11 ], [ 2, %22 ], [ 1, %zend_parse_arg_str_ex.exit ]
+  %.060 = phi i32 [ 1, %11 ], [ %.69, %22 ], [ 9, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.060, i32 noundef %.061, ptr noundef %25, i32 noundef %.062, ptr noundef %.063) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %80
@@ -1121,7 +1121,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef initi
   br label %pdo_attr_lval.exit
 
 pdo_attr_lval.exit:                               ; preds = %25, %26, %33, %35
-  %.0.i = phi i64 [ 6, %26 ], [ 6, %25 ], [ %34, %33 ], [ %36, %35 ]
+  %.0.i = phi i64 [ 6, %25 ], [ 6, %26 ], [ %34, %33 ], [ %36, %35 ]
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 88), align 8, !tbaa !115
   %.not33 = icmp eq ptr %37, null
   br i1 %.not33, label %40, label %38
@@ -1186,7 +1186,7 @@ pdo_attr_lval.exit:                               ; preds = %25, %26, %33, %35
   br label %pdo_attr_lval.exit42
 
 pdo_attr_lval.exit42:                             ; preds = %55, %62, %64
-  %.0.i41 = phi i64 [ 60, %55 ], [ %63, %62 ], [ %65, %64 ]
+  %.0.i41 = phi i64 [ %65, %64 ], [ 60, %55 ], [ %63, %62 ]
   %66 = trunc i64 %.0.i41 to i32
   %67 = mul i32 %66, 1000
   br label %68
@@ -1618,7 +1618,7 @@ define internal fastcc ptr @make_filename_safe(ptr noundef %0) unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %19, %15, %17, %9, %1, %.thread, %11
-  %.0 = phi ptr [ %12, %11 ], [ %20, %.thread ], [ null, %1 ], [ null, %9 ], [ null, %19 ], [ null, %15 ], [ %16, %17 ]
+  %.0 = phi ptr [ null, %1 ], [ %12, %11 ], [ null, %9 ], [ %20, %.thread ], [ null, %19 ], [ null, %15 ], [ %16, %17 ]
   ret ptr %.0
 }
 
@@ -1780,7 +1780,7 @@ pdo_attr_lval.exit:                               ; preds = %20, %22
   %26 = tail call i32 @_pdo_sqlite_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 189)
   br label %37
 
-pdo_attr_lval.exit.thread:                        ; preds = %4, %13, %pdo_attr_lval.exit
+pdo_attr_lval.exit.thread:                        ; preds = %13, %4, %pdo_attr_lval.exit
   %27 = load ptr, ptr %7, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1950,7 +1950,7 @@ define internal noundef zeroext i1 @pdo_sqlite_set_attr(ptr noundef readonly cap
   br label %22
 
 22:                                               ; preds = %3, %15, %7, %17, %9
-  %.0 = phi i1 [ true, %9 ], [ true, %17 ], [ false, %7 ], [ false, %15 ], [ false, %3 ]
+  %.0 = phi i1 [ false, %15 ], [ true, %9 ], [ false, %7 ], [ true, %17 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

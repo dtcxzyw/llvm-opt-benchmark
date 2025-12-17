@@ -1114,7 +1114,7 @@ thread-pre-split.i65:                             ; preds = %85
   br i1 %.not20.i67, label %safe_read.exit62, label %75
 
 safe_read.exit62:                                 ; preds = %72, %66, %91, %85, %89, %70
-  %.047.in = phi i64 [ %71, %70 ], [ %90, %89 ], [ %.0.i63, %85 ], [ %74, %91 ], [ %.0.i55, %66 ], [ %55, %72 ]
+  %.047.in = phi i64 [ %90, %89 ], [ %71, %70 ], [ %74, %91 ], [ %.0.i63, %85 ], [ %55, %72 ], [ %.0.i55, %66 ]
   %.047 = trunc i64 %.047.in to i32
   %92 = icmp slt i32 %.047, 0
   br i1 %92, label %.loopexit.sink.split, label %93
@@ -1201,7 +1201,7 @@ safe_read.exit78:                                 ; preds = %117, %123, %121
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %94, %93, %126, %.loopexit.sink.split, %3
-  %.048 = phi i32 [ 0, %3 ], [ %.048.ph, %.loopexit.sink.split ], [ %.04688, %41 ], [ %98, %94 ], [ %.04688, %93 ], [ %98, %126 ]
+  %.048 = phi i32 [ %.048.ph, %.loopexit.sink.split ], [ 0, %3 ], [ %.04688, %41 ], [ %98, %94 ], [ %98, %126 ], [ %.04688, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
@@ -1538,7 +1538,7 @@ fcgi_is_allowed.exit:                             ; preds = %.preheader.split.i,
   %.not33 = icmp eq i32 %90, 0
   br i1 %.not33, label %.lr.ph, label %.loopexit90
 
-.loopexit79:                                      ; preds = %72, %66, %68, %56, %49
+.loopexit79:                                      ; preds = %72, %68, %66, %56, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %96
@@ -2408,7 +2408,7 @@ safe_write.exit.thread:                           ; preds = %460, %safe_write.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %fcgi_close.exit59.backedge
 
-.loopexit:                                        ; preds = %159, %safe_read.exit154.i, %189, %273, %.lr.ph289.i, %safe_read.exit.thread.sink.split.i, %safe_read.exit170.i, %251, %safe_read.exit162.i, %348, %._crit_edge.i, %safe_read.exit.i
+.loopexit:                                        ; preds = %159, %safe_read.exit154.i, %189, %273, %.lr.ph289.i, %safe_read.exit.thread.sink.split.i, %safe_read.exit170.i, %251, %safe_read.exit162.i, %._crit_edge.i, %348, %safe_read.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %463 = load i32, ptr %21, align 8, !tbaa !61
@@ -2478,7 +2478,7 @@ fcgi_close.exit59.backedge:                       ; preds = %.thread16.i58, %482
   br label %fcgi_close.exit59
 
 .loopexit90:                                      ; preds = %124, %.preheader, %.backedge, %93, %91, %fcgi_close.exit59.thread
-  %.1 = phi i32 [ %462, %fcgi_close.exit59.thread ], [ -1, %91 ], [ -1, %93 ], [ -1, %.backedge ], [ -1, %.preheader ], [ -1, %124 ]
+  %.1 = phi i32 [ %462, %fcgi_close.exit59.thread ], [ -1, %.backedge ], [ -1, %91 ], [ -1, %93 ], [ -1, %.preheader ], [ -1, %124 ]
   ret i32 %.1
 }
 
@@ -3104,7 +3104,7 @@ safe_write.exit124.thread:                        ; preds = %212, %safe_write.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %127, %158, %214, %fcgi_make_header.exit, %61, %81, %83, %safe_write.exit124.thread, %216, %79, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1, %79 ], [ %3, %216 ], [ %3, %safe_write.exit124.thread ], [ %3, %83 ], [ %3, %81 ], [ %3, %61 ], [ -1, %fcgi_make_header.exit ], [ -1, %214 ], [ -1, %158 ], [ -1, %127 ]
+  %.0 = phi i32 [ %3, %61 ], [ -1, %79 ], [ 0, %4 ], [ %3, %216 ], [ %3, %safe_write.exit124.thread ], [ %3, %83 ], [ %3, %81 ], [ -1, %fcgi_make_header.exit ], [ -1, %214 ], [ -1, %158 ], [ -1, %127 ]
   ret i32 %.0
 }
 
@@ -3408,7 +3408,7 @@ define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr nou
   br label %fcgi_hash_del.exit
 
 fcgi_hash_del.exit:                               ; preds = %51, %46, %27, %4, %72
-  %.0 = phi ptr [ %76, %72 ], [ null, %4 ], [ null, %27 ], [ null, %46 ], [ null, %51 ]
+  %.0 = phi ptr [ null, %4 ], [ %76, %72 ], [ null, %27 ], [ null, %46 ], [ null, %51 ]
   ret ptr %.0
 }
 
@@ -3831,7 +3831,7 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr noundef captures
   br i1 %85, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %30, %36, %54, %79, %3
-  %.048 = phi i32 [ 1, %3 ], [ 1, %79 ], [ 0, %54 ], [ 0, %36 ], [ 0, %30 ], [ 0, %12 ]
+  %.048 = phi i32 [ 1, %3 ], [ 1, %79 ], [ 0, %30 ], [ 0, %36 ], [ 0, %54 ], [ 0, %12 ]
   ret i32 %.048
 }
 

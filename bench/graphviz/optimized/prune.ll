@@ -602,7 +602,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0,
   br label %41
 
 41:                                               ; preds = %2, %._crit_edge, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %12 ], [ 0, %2 ]
   ret i32 %.0
 }
 

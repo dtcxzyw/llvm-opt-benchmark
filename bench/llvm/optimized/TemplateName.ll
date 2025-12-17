@@ -794,7 +794,7 @@ switch.lookup:                                    ; preds = %13
   br label %18
 
 18:                                               ; preds = %13, %switch.lookup, %12, %.fold.split, %6
-  %.1 = phi i32 [ %., %6 ], [ 4, %12 ], [ 3, %.fold.split ], [ %switch.load, %switch.lookup ], [ 6, %13 ]
+  %.1 = phi i32 [ %., %6 ], [ 4, %12 ], [ %switch.load, %switch.lookup ], [ 6, %13 ], [ 3, %.fold.split ]
   ret i32 %.1
 }
 
@@ -859,7 +859,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %29, %21, %15
-  %.sroa.03.0.us.be = phi i64 [ %18, %15 ], [ %.sroa.0.0.copyload.i.i.us, %21 ], [ %.sroa.0.0.copyload.i29.i.us, %29 ]
+  %.sroa.03.0.us.be = phi i64 [ %.sroa.0.0.copyload.i29.i.us, %29 ], [ %18, %15 ], [ %.sroa.0.0.copyload.i.i.us, %21 ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -890,7 +890,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %47, %54, %56
-  %.sroa.03.0.be = phi i64 [ %44, %41 ], [ %.sroa.0.0.copyload.i.i, %47 ], [ %.sroa.0.0.copyload.i29.i, %54 ], [ %.sroa.0.0.copyload.i35.i, %56 ]
+  %.sroa.03.0.be = phi i64 [ %.sroa.0.0.copyload.i35.i, %56 ], [ %44, %41 ], [ %.sroa.0.0.copyload.i.i, %47 ], [ %.sroa.0.0.copyload.i29.i, %54 ]
   br label %.split
 
 .critedge.i:                                      ; preds = %.split
@@ -928,7 +928,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   br label %.split.backedge
 
 .split14.us:                                      ; preds = %25, %8, %23, %34, %49, %51
-  %.pre-phi17 = phi i64 [ %33, %51 ], [ %33, %49 ], [ %33, %34 ], [ %7, %23 ], [ %7, %8 ], [ %7, %25 ]
+  %.pre-phi17 = phi i64 [ %33, %34 ], [ %33, %51 ], [ %33, %49 ], [ %7, %23 ], [ %7, %8 ], [ %7, %25 ]
   %.pre-phi = phi i64 [ 0, %34 ], [ %31, %49 ], [ 2, %51 ], [ 2, %25 ], [ 0, %8 ], [ %5, %23 ]
   %58 = icmp eq i64 %.pre-phi, 0
   %59 = inttoptr i64 %.pre-phi17 to ptr
@@ -1003,8 +1003,8 @@ define dso_local { i64, i8 } @_ZNK5clang12TemplateName7desugarEb(ptr noundef non
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %22, %14, %7, %.thread54, %31, %28, %20
-  %.sroa.038.1 = phi i64 [ %.sroa.0.0.copyload.i35, %31 ], [ %.sroa.0.0.copyload.i29, %28 ], [ %.sroa.0.0.copyload.i, %20 ], [ undef, %.thread54 ], [ undef, %7 ], [ %17, %14 ], [ undef, %22 ]
-  %.sroa.5.1 = phi i8 [ 1, %31 ], [ 1, %28 ], [ 1, %20 ], [ 0, %.thread54 ], [ 0, %7 ], [ 1, %14 ], [ 0, %22 ]
+  %.sroa.038.1 = phi i64 [ undef, %22 ], [ %.sroa.0.0.copyload.i35, %31 ], [ %.sroa.0.0.copyload.i29, %28 ], [ %.sroa.0.0.copyload.i, %20 ], [ %17, %14 ], [ undef, %.thread54 ], [ undef, %7 ]
+  %.sroa.5.1 = phi i8 [ 0, %22 ], [ 1, %31 ], [ 1, %28 ], [ 1, %20 ], [ 1, %14 ], [ 0, %.thread54 ], [ 0, %7 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.038.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1110,7 +1110,7 @@ _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %41, %39, %32, %26
-  %.sroa.03.0.i.be = phi i64 [ %29, %26 ], [ %.sroa.0.0.copyload.i.i.i5, %32 ], [ %.sroa.0.0.copyload.i29.i.i, %39 ], [ %.sroa.0.0.copyload.i35.i.i, %41 ]
+  %.sroa.03.0.i.be = phi i64 [ %.sroa.0.0.copyload.i35.i.i, %41 ], [ %29, %26 ], [ %.sroa.0.0.copyload.i.i.i5, %32 ], [ %.sroa.0.0.copyload.i29.i.i, %39 ]
   br label %.split.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
@@ -1119,7 +1119,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
   br label %.thread
 
 .thread:                                          ; preds = %36, %19, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit
-  %44 = phi ptr [ %spec.select79, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ null, %36 ], [ %20, %19 ]
+  %44 = phi ptr [ %spec.select79, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ %20, %19 ], [ null, %36 ]
   %.in.in = load i32, ptr %10, align 8, !noalias !67
   %45 = lshr i32 %.in.in, 3
   %.in = lshr i32 %.in.in, 17
@@ -1182,7 +1182,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
   %.sroa.0.0.copyload.i29.i = load i64, ptr %70, align 8
   br label %.backedge
 
-.thread37:                                        ; preds = %11, %50, %63, %65
+.thread37:                                        ; preds = %11, %63, %50, %65
   %71 = icmp eq i64 %7, 0
   %.0.i.i.i.i = select i1 %71, ptr %10, ptr null
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
@@ -1460,7 +1460,7 @@ define dso_local noundef zeroext range(i8 0, 16) i8 @_ZNK5clang12TemplateName13g
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %34, %30, %24
-  %.sroa.03.0.us.i.be = phi i64 [ %27, %24 ], [ %.sroa.0.0.copyload.i.i.us.i, %30 ], [ %.sroa.0.0.copyload.i29.i.us.i, %34 ]
+  %.sroa.03.0.us.i.be = phi i64 [ %.sroa.0.0.copyload.i29.i.us.i, %34 ], [ %27, %24 ], [ %.sroa.0.0.copyload.i.i.us.i, %30 ]
   br label %.split.us.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread69: ; preds = %17, %32
@@ -1581,7 +1581,7 @@ _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %11
   br i1 %.not, label %_ZNK5clang12TemplateName7getKindEv.exit, label %.lr.ph
 
 _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %.lr.ph, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit29, %53, %58, %_ZN5clang4Decl14getDeclContextEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit.thread, %11, %74, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit, %63
-  %.0 = phi i8 [ %69, %63 ], [ %73, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit ], [ 7, %74 ], [ 6, %11 ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ %55, %53 ], [ %62, %58 ], [ %spec.select74, %_ZN5clang4Decl14getDeclContextEv.exit29 ], [ %76, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ], [ %83, %.lr.ph ]
+  %.0 = phi i8 [ 6, %11 ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ %69, %63 ], [ %73, %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit ], [ 7, %74 ], [ %62, %58 ], [ %.051, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %spec.select74, %_ZN5clang4Decl14getDeclContextEv.exit29 ], [ %55, %53 ], [ %76, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit ], [ %83, %.lr.ph ]
   ret i8 %.0
 }
 
@@ -1692,7 +1692,7 @@ switch.edge.i:                                    ; preds = %4
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %39, %31, %25
-  %.sroa.03.0.us.i.be = phi i64 [ %28, %25 ], [ %.sroa.0.0.copyload.i.i.us.i, %31 ], [ %.sroa.0.0.copyload.i29.i.us.i, %39 ]
+  %.sroa.03.0.us.i.be = phi i64 [ %.sroa.0.0.copyload.i29.i.us.i, %39 ], [ %28, %25 ], [ %.sroa.0.0.copyload.i.i.us.i, %31 ]
   br label %.split.us.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %33
@@ -1773,7 +1773,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %64, %62
   br label %.critedge
 
 .thread:                                          ; preds = %35, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit, %46, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread
-  %.ph = phi ptr [ %.pre-phi226, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread ], [ %.pre-phi226, %46 ], [ null, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ null, %35 ]
+  %.ph = phi ptr [ %.pre-phi226, %46 ], [ %.pre-phi226, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread ], [ null, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ null, %35 ]
   %86 = icmp eq i32 %3, 0
   br i1 %86, label %87, label %88
 
@@ -1883,7 +1883,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %109, %107, %96
   br label %.split.us.i97.backedge
 
 .split.us.i97.backedge:                           ; preds = %133, %129, %123
-  %.sroa.03.0.us.i98.be = phi i64 [ %126, %123 ], [ %.sroa.0.0.copyload.i.i.us.i106, %129 ], [ %.sroa.0.0.copyload.i29.i.us.i108, %133 ]
+  %.sroa.03.0.us.i98.be = phi i64 [ %.sroa.0.0.copyload.i29.i.us.i108, %133 ], [ %126, %123 ], [ %.sroa.0.0.copyload.i.i.us.i106, %129 ]
   br label %.split.us.i97
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit109.thread: ; preds = %116, %131

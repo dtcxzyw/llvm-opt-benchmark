@@ -6308,7 +6308,7 @@ define dso_local i64 @e1000e_read_systim(ptr noundef readonly captures(none) %0,
   br i1 %127, label %.loopexit, label %.split.split, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us, %.thread8.us, %.thread8.us.us, %38
-  %128 = phi i64 [ %45, %38 ], [ %69, %.thread8.us.us ], [ %84, %.thread8.us ], [ %104, %.split.split.us ], [ %119, %.split.split ]
+  %128 = phi i64 [ %45, %38 ], [ %104, %.split.split.us ], [ %69, %.thread8.us.us ], [ %84, %.thread8.us ], [ %119, %.split.split ]
   ret i64 %128
 }
 
@@ -8812,10 +8812,10 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   br label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %35, %19, %..loopexit_crit_edge14, %3
-  %303 = phi i32 [ %9, %3 ], [ %55, %..loopexit_crit_edge14 ], [ %9, %19 ], [ %55, %35 ]
-  %304 = phi i1 [ false, %3 ], [ true, %..loopexit_crit_edge14 ], [ false, %19 ], [ true, %35 ]
-  %305 = phi i32 [ 0, %3 ], [ %290, %..loopexit_crit_edge14 ], [ 0, %19 ], [ %290, %35 ]
-  %306 = phi i32 [ 0, %3 ], [ %291, %..loopexit_crit_edge14 ], [ 0, %19 ], [ %291, %35 ]
+  %303 = phi i32 [ %9, %3 ], [ %9, %19 ], [ %55, %..loopexit_crit_edge14 ], [ %55, %35 ]
+  %304 = phi i1 [ false, %3 ], [ false, %19 ], [ true, %..loopexit_crit_edge14 ], [ true, %35 ]
+  %305 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %290, %..loopexit_crit_edge14 ], [ %290, %35 ]
+  %306 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %291, %..loopexit_crit_edge14 ], [ %291, %35 ]
   %307 = trunc i32 %303 to i16
   store i16 %307, ptr %7, align 2
   %308 = and i32 %303, 65535
@@ -9725,7 +9725,7 @@ define internal void @e1000e_set_rx_mode(ptr noundef %0) #1 align 16 {
   br label %273
 
 273:                                              ; preds = %.critedge, %.critedge.thread, %98, %.loopexit37, %23
-  %274 = phi i32 [ %24, %23 ], [ %24, %.loopexit37 ], [ %24, %98 ], [ %266, %.critedge.thread ], [ %spec.select, %.critedge ]
+  %274 = phi i32 [ %24, %98 ], [ %24, %23 ], [ %24, %.loopexit37 ], [ %spec.select, %.critedge ], [ %266, %.critedge.thread ]
   %275 = load ptr, ptr %2, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 11920
   %277 = load i32, ptr %276, align 16
@@ -9976,7 +9976,7 @@ define internal fastcc void @e1000_init_manageability_pt(ptr noundef readonly ca
   br label %92
 
 92:                                               ; preds = %.loopexit8, %.loopexit10, %44, %20
-  %93 = phi i32 [ %21, %20 ], [ %40, %44 ], [ %89, %.loopexit10 ], [ %88, %.loopexit8 ]
+  %93 = phi i32 [ %21, %20 ], [ %40, %44 ], [ %88, %.loopexit8 ], [ %89, %.loopexit10 ]
   %94 = load ptr, ptr %2, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 11920
   %96 = load i32, ptr %95, align 16
@@ -11770,11 +11770,11 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
   br i1 %99, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %88, %.lr.ph, %84
-  %100 = phi i32 [ %82, %88 ], [ %28, %.lr.ph ], [ %82, %84 ]
-  %101 = phi i32 [ %83, %88 ], [ %27, %.lr.ph ], [ %83, %84 ]
-  %102 = phi i32 [ %58, %88 ], [ %26, %.lr.ph ], [ %58, %84 ]
-  %103 = phi i32 [ %59, %88 ], [ %25, %.lr.ph ], [ %59, %84 ]
-  %104 = phi i32 [ %60, %88 ], [ %24, %.lr.ph ], [ %60, %84 ]
+  %100 = phi i32 [ %28, %.lr.ph ], [ %82, %88 ], [ %82, %84 ]
+  %101 = phi i32 [ %27, %.lr.ph ], [ %83, %88 ], [ %83, %84 ]
+  %102 = phi i32 [ %26, %.lr.ph ], [ %58, %88 ], [ %58, %84 ]
+  %103 = phi i32 [ %25, %.lr.ph ], [ %59, %88 ], [ %59, %84 ]
+  %104 = phi i32 [ %24, %.lr.ph ], [ %60, %88 ], [ %60, %84 ]
   %105 = trunc i32 %100 to i16
   store i16 %105, ptr %5, align 2
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11866,10 +11866,10 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
   br label %.thread
 
 .thread:                                          ; preds = %1, %157, %152, %146, %143, %124, %122
-  %161 = phi i32 [ %100, %157 ], [ %100, %152 ], [ %100, %146 ], [ %100, %143 ], [ %100, %124 ], [ %100, %122 ], [ %7, %1 ]
-  %162 = phi i32 [ %101, %157 ], [ %101, %152 ], [ %101, %146 ], [ %101, %143 ], [ %101, %124 ], [ 0, %122 ], [ 0, %1 ]
-  %163 = phi i32 [ %102, %157 ], [ %102, %152 ], [ %102, %146 ], [ %102, %143 ], [ %102, %124 ], [ %102, %122 ], [ 0, %1 ]
-  %164 = phi i32 [ %103, %157 ], [ %103, %152 ], [ %103, %146 ], [ %103, %143 ], [ %103, %124 ], [ %103, %122 ], [ 0, %1 ]
+  %161 = phi i32 [ %100, %122 ], [ %100, %157 ], [ %100, %152 ], [ %100, %146 ], [ %100, %143 ], [ %100, %124 ], [ %7, %1 ]
+  %162 = phi i32 [ 0, %122 ], [ %101, %157 ], [ %101, %152 ], [ %101, %146 ], [ %101, %143 ], [ %101, %124 ], [ 0, %1 ]
+  %163 = phi i32 [ %102, %122 ], [ %102, %157 ], [ %102, %152 ], [ %102, %146 ], [ %102, %143 ], [ %102, %124 ], [ 0, %1 ]
+  %164 = phi i32 [ %103, %122 ], [ %103, %157 ], [ %103, %152 ], [ %103, %146 ], [ %103, %143 ], [ %103, %124 ], [ 0, %1 ]
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 1200
   %166 = load i8, ptr %165, align 16, !range !29, !noundef !30
   %167 = icmp eq i8 %166, 0
@@ -12282,7 +12282,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   br label %185
 
 185:                                              ; preds = %181, %178
-  %186 = phi i64 [ %184, %181 ], [ 1649268556169, %178 ]
+  %186 = phi i64 [ 1649268556169, %178 ], [ %184, %181 ]
   %187 = load i32, ptr %58, align 4
   %188 = icmp eq i32 %187, 12
   %189 = and i64 %186, -1114113
@@ -13134,7 +13134,7 @@ define internal i32 @e1000e_poll(ptr noundef %0, i32 noundef %1) #1 align 16 {
   br label %160
 
 160:                                              ; preds = %151, %159, %158, %50, %44
-  %161 = phi i32 [ 4000, %159 ], [ 20000, %158 ], [ 4000, %44 ], [ 0, %50 ], [ 70000, %151 ]
+  %161 = phi i32 [ 0, %50 ], [ 4000, %159 ], [ 20000, %158 ], [ 4000, %44 ], [ 70000, %151 ]
   %162 = icmp eq i32 %161, %46
   br i1 %162, label %.thread14, label %163
 
@@ -13550,8 +13550,8 @@ define internal void @e1000_watchdog_task(ptr noundef %0) #1 align 16 {
   br label %44
 
 44:                                               ; preds = %38, %28, %22
-  %45 = phi i8 [ %43, %38 ], [ %37, %28 ], [ %27, %22 ]
-  %46 = phi i32 [ %41, %38 ], [ %31, %28 ], [ %25, %22 ]
+  %45 = phi i8 [ %27, %22 ], [ %43, %38 ], [ %37, %28 ]
+  %46 = phi i32 [ %25, %22 ], [ %41, %38 ], [ %31, %28 ]
   %47 = icmp eq i32 %46, -2
   br i1 %47, label %48, label %.thread
 
@@ -13575,7 +13575,7 @@ define internal void @e1000_watchdog_task(ptr noundef %0) #1 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %18, %58, %52, %48, %44
-  %60 = phi i8 [ %45, %58 ], [ %45, %52 ], [ %45, %48 ], [ %45, %44 ], [ 1, %18 ]
+  %60 = phi i8 [ %45, %44 ], [ %45, %58 ], [ %45, %52 ], [ %45, %48 ], [ 1, %18 ]
   %61 = and i8 %60, 1
   %62 = icmp ne i8 %61, 0
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 352
@@ -16125,7 +16125,7 @@ e1000_tx_map.exit.thread:                         ; preds = %662, %.loopexit21.i
   br label %900
 
 900:                                              ; preds = %.critedge, %e1000_tx_map.exit.thread, %893, %892, %879, %354, %242, %68, %65, %61
-  %901 = phi i32 [ 0, %61 ], [ 0, %65 ], [ 0, %354 ], [ 0, %879 ], [ 0, %893 ], [ 0, %892 ], [ 0, %e1000_tx_map.exit.thread ], [ 16, %242 ], [ 0, %68 ], [ 0, %.critedge ]
+  %901 = phi i32 [ 0, %61 ], [ 0, %65 ], [ 0, %354 ], [ 0, %.critedge ], [ 0, %879 ], [ 0, %893 ], [ 0, %892 ], [ 0, %e1000_tx_map.exit.thread ], [ 16, %242 ], [ 0, %68 ]
   ret i32 %901
 }
 
@@ -18404,7 +18404,7 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   br label %461
 
 461:                                              ; preds = %.thread18, %.thread, %460, %451, %440, %397
-  %462 = phi i32 [ %399, %397 ], [ 0, %460 ], [ 0, %451 ], [ 0, %440 ], [ %148, %.thread ], [ %.ph, %.thread18 ]
+  %462 = phi i32 [ %.ph, %.thread18 ], [ %399, %397 ], [ 0, %460 ], [ 0, %451 ], [ 0, %440 ], [ %148, %.thread ]
   ret i32 %462
 }
 
@@ -20547,8 +20547,8 @@ define internal noundef i32 @e1000e_pm_runtime_idle(ptr noundef %0) #1 align 16 
   br label %35
 
 35:                                               ; preds = %29, %19, %13
-  %36 = phi i8 [ %34, %29 ], [ %28, %19 ], [ %18, %13 ]
-  %37 = phi i32 [ %32, %29 ], [ %22, %19 ], [ %16, %13 ]
+  %36 = phi i8 [ %18, %13 ], [ %34, %29 ], [ %28, %19 ]
+  %37 = phi i32 [ %16, %13 ], [ %32, %29 ], [ %22, %19 ]
   %38 = icmp eq i32 %37, -2
   br i1 %38, label %39, label %.thread
 

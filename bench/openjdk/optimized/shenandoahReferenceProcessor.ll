@@ -300,7 +300,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policy
   br label %12
 
 12:                                               ; preds = %8, %11, %9
-  %_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink = phi ptr [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %9 ], [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %11 ], [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy, %8 ]
+  %_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink = phi ptr [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %11 ], [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19always_clear_policy, %9 ], [ @_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink, ptr %13, align 8
   %14 = load ptr, ptr %_ZZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy.sink, align 8
@@ -2683,7 +2683,7 @@ _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit
   br i1 %.not18, label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread, label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split
 
 _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split: ; preds = %99, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread, %62
-  %.str.23.sink = phi ptr [ @.str.21, %62 ], [ @.str.22, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ @.str.23, %99 ]
+  %.str.23.sink = phi ptr [ @.str.22, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ @.str.21, %62 ], [ @.str.23, %99 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull %.str.23.sink, i64 noundef %5)
   br label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread
 
@@ -2795,7 +2795,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 _ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %61, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, %5, %11, %24, %31, %2
-  %.0 = phi ptr [ %1, %2 ], [ %.0.i.i.i, %31 ], [ %.0.i.i.i, %24 ], [ %1, %11 ], [ %1, %5 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
+  %.0 = phi ptr [ %1, %5 ], [ %1, %2 ], [ %.0.i.i.i, %24 ], [ %.0.i.i.i, %31 ], [ %1, %11 ], [ %56, %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit ], [ %56, %61 ]
   ret ptr %.0
 }
 
@@ -2940,7 +2940,7 @@ _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit
   br i1 %.not20, label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread, label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split
 
 _ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread.sink.split: ; preds = %85, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread
-  %.str.23.sink = phi ptr [ @.str.21, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread ], [ @.str.22, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ @.str.23, %85 ]
+  %.str.23.sink = phi ptr [ @.str.22, %_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc.exit.thread ], [ @.str.21, %_ZNK28ShenandoahReferenceProcessor11is_inactiveIP7oopDescEEbS2_S2_13ReferenceType.exit.thread ], [ @.str.23, %85 ]
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull %.str.23.sink, i64 noundef %5)
   br label %_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType.exit.thread
 

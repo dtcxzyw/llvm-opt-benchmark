@@ -107,7 +107,7 @@ define dso_local void @_ZN15b3BoundSearchCLC2EP11_cl_contextP13_cl_device_idP17_
   br label %24
 
 24:                                               ; preds = %.critedge, %20
-  %25 = phi ptr [ %22, %20 ], [ null, %.critedge ]
+  %25 = phi ptr [ null, %.critedge ], [ %22, %20 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %25, ptr %26, align 8, !tbaa !24
   %27 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
@@ -194,7 +194,7 @@ define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIjEC2EP11_cl_contextP17_cl
   br label %_ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i
 
 _ZNK13b3OpenCLArrayIjE8copyToCLEP7_cl_memmmm.exit.i: ; preds = %22, %19, %.thread.i
-  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %19 ], [ %3, %22 ]
+  %.017.i = phi i64 [ 0, %.thread.i ], [ %3, %22 ], [ %3, %19 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i = icmp ne ptr %28, null
   %29 = load i8, ptr %12, align 8, !range !39

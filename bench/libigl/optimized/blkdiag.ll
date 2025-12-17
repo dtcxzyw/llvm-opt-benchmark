@@ -80,8 +80,8 @@ define weak_odr dso_local void @_ZN3igl7blkdiagIN5Eigen6MatrixIdLin1ELin1ELi0ELi
   unreachable
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i: ; preds = %2, %15, %._crit_edge
-  %20 = phi i64 [ %12, %15 ], [ %12, %._crit_edge ], [ 0, %2 ]
-  %21 = phi i64 [ %11, %15 ], [ %11, %._crit_edge ], [ 0, %2 ]
+  %20 = phi i64 [ %12, %._crit_edge ], [ %12, %15 ], [ 0, %2 ]
+  %21 = phi i64 [ %11, %._crit_edge ], [ %11, %15 ], [ 0, %2 ]
   %22 = mul nsw i64 %21, %20
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %22, i64 noundef %21, i64 noundef %20)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -475,7 +475,7 @@ _ZNK5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE8nonZerosEv.exit: ; 
   br i1 %exitcond.not, label %.loopexit78, label %.lr.ph, !llvm.loop !65
 
 .loopexit78:                                      ; preds = %.lr.ph, %34, %.preheader, %30, %3
-  %50 = phi ptr [ %39, %.preheader ], [ %calloc, %30 ], [ %6, %3 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
+  %50 = phi ptr [ %6, %3 ], [ %39, %.preheader ], [ %calloc, %30 ], [ %calloc, %34 ], [ %39, %.lr.ph ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i64, ptr %52, align 8, !tbaa !63

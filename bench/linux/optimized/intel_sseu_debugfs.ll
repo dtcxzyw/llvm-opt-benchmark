@@ -440,7 +440,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   br i1 %278, label %.loopexit, label %234, !llvm.loop !16
 
 .loopexit:                                        ; preds = %276, %225, %199
-  %279 = phi i8 [ %209, %225 ], [ %200, %199 ], [ %209, %276 ]
+  %279 = phi i8 [ %200, %199 ], [ %209, %225 ], [ %209, %276 ]
   %280 = add nuw nsw i64 %201, 1
   %281 = icmp eq i64 %280, %194
   br i1 %281, label %.loopexit16, label %199, !llvm.loop !17
@@ -617,7 +617,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   br i1 %396, label %.loopexit17, label %.split, !llvm.loop !19
 
 .loopexit17:                                      ; preds = %392, %.split.us, %329, %322
-  %397 = phi i8 [ %332, %329 ], [ %323, %322 ], [ %332, %.split.us ], [ %332, %392 ]
+  %397 = phi i8 [ %323, %322 ], [ %332, %329 ], [ %332, %.split.us ], [ %332, %392 ]
   %398 = add nuw nsw i64 %324, 1
   %399 = icmp eq i64 %398, %317
   br i1 %399, label %.loopexit18, label %322, !llvm.loop !20

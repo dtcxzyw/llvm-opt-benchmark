@@ -364,8 +364,8 @@ define dso_local ptr @xgetaddrinfo_port(ptr noundef %0, i16 noundef zeroext %1) 
   br label %xgetaddrinfo.exit
 
 xgetaddrinfo.exit:                                ; preds = %18, %16
-  %storemerge.i = phi i32 [ 1059, %16 ], [ %spec.select, %18 ]
-  %.sink26.i = phi ptr [ @.str.8, %16 ], [ %.0.i, %18 ]
+  %storemerge.i = phi i32 [ %spec.select, %18 ], [ 1059, %16 ]
+  %.sink26.i = phi ptr [ %.0.i, %18 ], [ @.str.8, %16 ]
   store i32 %storemerge.i, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %19, align 8
@@ -424,8 +424,8 @@ define dso_local ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %.split
 
 .split:                                           ; preds = %15, %13
-  %storemerge = phi i32 [ 1059, %13 ], [ %spec.select, %15 ]
-  %.sink26 = phi ptr [ @.str.8, %13 ], [ %.0, %15 ]
+  %storemerge = phi i32 [ %spec.select, %15 ], [ 1059, %13 ]
+  %.sink26 = phi ptr [ %.0, %15 ], [ @.str.8, %13 ]
   store i32 %storemerge, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %16, align 8
@@ -493,7 +493,7 @@ define internal fastcc ptr @_xgetaddrinfo(ptr noundef %0, ptr noundef %1, ptr no
   br label %28
 
 28:                                               ; preds = %18, %24, %21, %8, %14, %11, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %11 ], [ null, %14 ], [ null, %8 ], [ null, %21 ], [ null, %24 ], [ null, %18 ]
+  %.0 = phi ptr [ %27, %26 ], [ null, %8 ], [ null, %11 ], [ null, %14 ], [ null, %21 ], [ null, %24 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -776,7 +776,7 @@ define dso_local ptr @xgetnameinfo(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 81:                                               ; preds = %77, %36, %25, %31, %28, %3
-  %.0 = phi ptr [ %4, %3 ], [ %21, %28 ], [ %21, %31 ], [ %21, %25 ], [ null, %36 ], [ %37, %77 ]
+  %.0 = phi ptr [ %4, %3 ], [ null, %36 ], [ %21, %25 ], [ %21, %28 ], [ %21, %31 ], [ %37, %77 ]
   ret ptr %.0
 }
 
@@ -828,7 +828,7 @@ define internal fastcc ptr @_getnameinfo(ptr noundef %0) unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %12, %18, %15, %4, %10, %7, %20
-  %.0 = phi ptr [ %21, %20 ], [ null, %7 ], [ null, %10 ], [ null, %4 ], [ null, %15 ], [ null, %18 ], [ null, %12 ]
+  %.0 = phi ptr [ %21, %20 ], [ null, %4 ], [ null, %7 ], [ null, %10 ], [ null, %15 ], [ null, %18 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -873,7 +873,7 @@ define internal range(i32 0, 2) i32 @_name_cache_find(ptr noundef readonly captu
   br label %15
 
 15:                                               ; preds = %2, %6, %11, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %6 ], [ 0, %11 ], [ 0, %2 ]
+  %.0 = phi i32 [ 0, %11 ], [ 1, %14 ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
 

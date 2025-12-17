@@ -302,7 +302,7 @@ make_lpc_coefs.exit.thread:                       ; preds = %.loopexit, %.loopex
   br label %._crit_edge
 
 make_lpc_coefs.exit:                              ; preds = %._crit_edge38.i, %116
-  %118 = phi i32 [ %103, %._crit_edge38.i ], [ %.pre142, %116 ]
+  %118 = phi i32 [ %.pre142, %116 ], [ %103, %._crit_edge38.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %119 = icmp sgt i32 %118, 0
   br i1 %119, label %.lr.ph103, label %._crit_edge

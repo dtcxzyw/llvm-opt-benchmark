@@ -163,7 +163,7 @@ define i32 @u_charName_77(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br label %54
 
 54:                                               ; preds = %5, %7, %52, %21, %16
-  %.048 = phi i32 [ 0, %16 ], [ %22, %21 ], [ %53, %52 ], [ 0, %7 ], [ 0, %5 ]
+  %.048 = phi i32 [ %53, %52 ], [ 0, %16 ], [ %22, %21 ], [ 0, %7 ], [ 0, %5 ]
   ret i32 %.048
 }
 
@@ -391,7 +391,7 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10getAlgNameEPNS_16Algori
   br label %71
 
 71:                                               ; preds = %._crit_edge96, %._crit_edge, %70, %69, %8, %9
-  %.0 = phi i16 [ 0, %9 ], [ 0, %8 ], [ 0, %70 ], [ 0, %69 ], [ %46, %._crit_edge96 ], [ %68, %._crit_edge ]
+  %.0 = phi i16 [ 0, %8 ], [ 0, %9 ], [ 0, %70 ], [ 0, %69 ], [ %46, %._crit_edge96 ], [ %68, %._crit_edge ]
   ret i16 %.0
 }
 
@@ -601,7 +601,7 @@ _ZN6icu_77L10getCharCatEi.exit.i:                 ; preds = %11
   br i1 %17, label %_ZN6icu_77L14getCharCatNameEi.exit, label %_ZN6icu_77L10getCharCatEi.exit.thread.i
 
 _ZN6icu_77L10getCharCatEi.exit.thread.i:          ; preds = %_ZN6icu_77L10getCharCatEi.exit.i, %11, %7, %5
-  %.010.i4.i = phi i8 [ %12, %_ZN6icu_77L10getCharCatEi.exit.i ], [ 30, %7 ], [ 30, %5 ], [ %16, %11 ]
+  %.010.i4.i = phi i8 [ %12, %_ZN6icu_77L10getCharCatEi.exit.i ], [ 30, %5 ], [ 30, %7 ], [ %16, %11 ]
   %18 = zext nneg i8 %.010.i4.i to i64
   %19 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L12charCatNamesE, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !37
@@ -761,7 +761,7 @@ define i32 @u_getISOComment_77(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   br label %17
 
 17:                                               ; preds = %4, %6, %15, %14
-  %.0 = phi i32 [ 0, %14 ], [ %16, %15 ], [ 0, %6 ], [ 0, %4 ]
+  %.0 = phi i32 [ %16, %15 ], [ 0, %14 ], [ 0, %6 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -1209,13 +1209,13 @@ _ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread
   %200 = icmp eq i32 %199, 65535
   br i1 %200, label %.loopexit.sink.split, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %24, %70, %68, %86, %._crit_edge, %36, %38, %.critedge.thread, %.critedge, %83, %15, %18
-  %.sink = phi i32 [ 1, %18 ], [ 1, %15 ], [ 12, %83 ], [ 12, %.critedge ], [ 12, %.critedge.thread ], [ 12, %38 ], [ 12, %36 ], [ 12, %._crit_edge ], [ 12, %86 ], [ 12, %68 ], [ 12, %70 ], [ 12, %24 ]
+.loopexit.sink.split:                             ; preds = %24, %70, %68, %86, %._crit_edge, %36, %38, %.critedge, %.critedge.thread, %83, %15, %18
+  %.sink = phi i32 [ 12, %36 ], [ 1, %15 ], [ 1, %18 ], [ 12, %83 ], [ 12, %.critedge.thread ], [ 12, %.critedge ], [ 12, %38 ], [ 12, %._crit_edge ], [ 12, %70 ], [ 12, %86 ], [ 12, %68 ], [ 12, %24 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us, %.loopexit.sink.split, %._crit_edge, %83, %21, %3, %12
-  %.0 = phi i32 [ 65535, %12 ], [ 65535, %3 ], [ 65535, %21 ], [ %.087, %83 ], [ %199, %._crit_edge ], [ 65535, %.loopexit.sink.split ], [ %.0.i.us, %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us ]
+  %.0 = phi i32 [ 65535, %3 ], [ 65535, %21 ], [ 65535, %12 ], [ %.087, %83 ], [ %199, %._crit_edge ], [ 65535, %.loopexit.sink.split ], [ %.0.i.us, %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1368,7 +1368,7 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit: ; preds = %53
   br label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214
 
 _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread: ; preds = %46, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218, %_ZN6icu_77L8getGroupEPNS_10UCharNamesEj.exit
-  %.0128 = phi i32 [ %1, %_ZN6icu_77L8getGroupEPNS_10UCharNamesEj.exit ], [ %spec.select, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218 ], [ %spec.select, %46 ]
+  %.0128 = phi i32 [ %spec.select, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218 ], [ %1, %_ZN6icu_77L8getGroupEPNS_10UCharNamesEj.exit ], [ %spec.select, %46 ]
   %58 = and i32 %13, 65535
   %59 = icmp eq i32 %.pre-phi, %58
   br i1 %59, label %60, label %68
@@ -1478,7 +1478,7 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192: ; preds = %
   br label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214
 
 _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread: ; preds = %98, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224, %91, %94, %89, %79, %87
-  %.0135 = phi ptr [ %88, %87 ], [ %41, %79 ], [ %41, %89 ], [ %92, %94 ], [ %92, %91 ], [ %92, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224 ], [ %92, %98 ]
+  %.0135 = phi ptr [ %88, %87 ], [ %41, %79 ], [ %41, %89 ], [ %92, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224 ], [ %92, %94 ], [ %92, %91 ], [ %92, %98 ]
   %110 = icmp ult ptr %.0135, %75
   br i1 %110, label %.lr.ph, label %.critedge172
 
@@ -1637,8 +1637,8 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214
 
-_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214: ; preds = %.lr.ph319, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192, %.critedge172, %81, %149, %.sink.split.i211, %161, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit, %160, %64
-  %.2 = phi i8 [ %67, %64 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit ], [ 1, %160 ], [ 1, %161 ], [ %.1.ph.i212, %.sink.split.i211 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192 ], [ 1, %.critedge172 ], [ 0, %81 ], [ %153, %149 ], [ 0, %.lr.ph319 ]
+_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit214: ; preds = %.lr.ph319, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203, %.critedge172, %81, %149, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192, %.sink.split.i211, %161, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit, %160, %64
+  %.2 = phi i8 [ %67, %64 ], [ 1, %160 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit ], [ %.1.ph.i212, %.sink.split.i211 ], [ 1, %161 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203 ], [ 1, %.critedge172 ], [ 0, %81 ], [ %153, %149 ], [ 0, %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192 ], [ 0, %.lr.ph319 ]
   ret i8 %.2
 }
 
@@ -1992,7 +1992,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L12enumAlgNa
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %22, %.thread.sink.split, %19, %15, %12, %6
-  %.0 = phi i8 [ 1, %6 ], [ 1, %12 ], [ 0, %19 ], [ 1, %15 ], [ %.0.ph, %.thread.sink.split ], [ 0, %.loopexit ], [ 1, %22 ]
+  %.0 = phi i8 [ 1, %15 ], [ 1, %6 ], [ 1, %12 ], [ 0, %19 ], [ %.0.ph, %.thread.sink.split ], [ 0, %.loopexit ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.0
 }
@@ -2850,7 +2850,7 @@ _ZN6icu_77L19calcStringSetLengthEPjPKc.exit57.i66.i: ; preds = %_ZN6icu_77L19cal
   br i1 %.not.i60.i, label %_ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i, label %.lr.ph.split.i53.i, !llvm.loop !74
 
 _ZN6icu_77L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit93.i: ; preds = %441, %.lr.ph.split.i53.i, %375, %.lr.ph.split.us.i75.i
-  %.041.lcssa.i61.i = phi i32 [ %.1.us.i81.i, %375 ], [ %.0414.us.i76.i, %.lr.ph.split.us.i75.i ], [ %.1.i59.i, %441 ], [ %.0414.i54.i, %.lr.ph.split.i53.i ]
+  %.041.lcssa.i61.i = phi i32 [ %.1.us.i81.i, %375 ], [ %.0414.us.i76.i, %.lr.ph.split.us.i75.i ], [ %.0414.i54.i, %.lr.ph.split.i53.i ], [ %.1.i59.i, %441 ]
   %spec.select48.i30 = tail call i32 @llvm.smax.i32(i32 %.041.lcssa.i61.i, i32 %spec.select.i28)
   br label %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit.i
 
@@ -2881,7 +2881,7 @@ _ZN6icu_77L24calcGroupNameSetsLengthsEi.exit:     ; preds = %._crit_edge.i27, %4
   br label %447
 
 447:                                              ; preds = %5, %1, %_ZN6icu_77L24calcGroupNameSetsLengthsEi.exit
-  %.0 = phi i8 [ 1, %_ZN6icu_77L24calcGroupNameSetsLengthsEi.exit ], [ 1, %1 ], [ 0, %5 ]
+  %.0 = phi i8 [ 1, %1 ], [ 1, %_ZN6icu_77L24calcGroupNameSetsLengthsEi.exit ], [ 0, %5 ]
   ret i8 %.0
 }
 
@@ -3012,7 +3012,7 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %34, label %47, label %._crit_edge380
 
 ._crit_edge380:                                   ; preds = %16, %31, %27, %23
-  %35 = phi i8 [ 110, %31 ], [ 110, %27 ], [ 110, %23 ], [ %21, %16 ]
+  %35 = phi i8 [ %21, %16 ], [ 110, %31 ], [ 110, %27 ], [ 110, %23 ]
   %36 = zext i8 %18 to i32
   %37 = zext i8 %35 to i32
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -3478,14 +3478,14 @@ define i32 @uchar_swapNames_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %291 = add nsw i32 %.1267, %11
   br label %292
 
-.critedge297:                                     ; preds = %._crit_edge, %261, %287, %234, %164, %137
+.critedge297:                                     ; preds = %261, %287, %234, %164, %137, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %292
 
 292:                                              ; preds = %.critedge297, %5, %13, %.loopexit, %64, %._crit_edge380
-  %.0 = phi i32 [ %291, %.loopexit ], [ 0, %64 ], [ 0, %._crit_edge380 ], [ 0, %13 ], [ 0, %5 ], [ 0, %.critedge297 ]
+  %.0 = phi i32 [ 0, %._crit_edge380 ], [ %291, %.loopexit ], [ 0, %.critedge297 ], [ 0, %64 ], [ 0, %13 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -4269,9 +4269,9 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10expandNameEPNS_10UCharN
   br i1 %.not124, label %.loopexit99, label %.lr.ph, !llvm.loop !117
 
 .loopexit99:                                      ; preds = %.split.us, %.outer, %97, %.split.us189, %.outer.us, %75, %73, %16, %.loopexit102
-  %.079.ph121 = phi ptr [ %4, %.loopexit102 ], [ %4, %16 ], [ %.079.ph180.us, %73 ], [ %.079.ph180.us, %75 ], [ %.281.us, %.outer.us ], [ %.079.ph180.us, %.split.us189 ], [ %.281, %.outer ], [ %.079.ph180, %97 ], [ %.079.ph180, %.split.us ]
-  %.073.ph119 = phi i16 [ %5, %.loopexit102 ], [ %5, %16 ], [ %.073.ph181.us, %73 ], [ %.073.ph181.us, %75 ], [ %.275.us, %.outer.us ], [ %.073.ph181.us, %.split.us189 ], [ %.275, %.outer ], [ %.073.ph181, %97 ], [ %.073.ph181, %.split.us ]
-  %.062117 = phi i16 [ 0, %.loopexit102 ], [ 0, %16 ], [ 0, %75 ], [ %.062126.us, %73 ], [ %.163.us, %.outer.us ], [ %.062126.us, %.split.us189 ], [ %.163, %.outer ], [ %.062.ph183, %97 ], [ %.062.ph183, %.split.us ]
+  %.079.ph121 = phi ptr [ %4, %.loopexit102 ], [ %4, %16 ], [ %.079.ph180.us, %75 ], [ %.281.us, %.outer.us ], [ %.079.ph180.us, %73 ], [ %.079.ph180.us, %.split.us189 ], [ %.079.ph180, %.split.us ], [ %.079.ph180, %97 ], [ %.281, %.outer ]
+  %.073.ph119 = phi i16 [ %5, %.loopexit102 ], [ %5, %16 ], [ %.073.ph181.us, %75 ], [ %.275.us, %.outer.us ], [ %.073.ph181.us, %73 ], [ %.073.ph181.us, %.split.us189 ], [ %.073.ph181, %.split.us ], [ %.073.ph181, %97 ], [ %.275, %.outer ]
+  %.062117 = phi i16 [ 0, %.loopexit102 ], [ 0, %16 ], [ 0, %75 ], [ %.163.us, %.outer.us ], [ %.062126.us, %73 ], [ %.062126.us, %.split.us189 ], [ %.062.ph183, %.split.us ], [ %.062.ph183, %97 ], [ %.163, %.outer ]
   %.not97 = icmp eq i16 %.073.ph119, 0
   br i1 %.not97, label %121, label %120
 
@@ -4668,7 +4668,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   br i1 %.not109.i, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %.lr.ph.i, !llvm.loop !121
 
 _ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit: ; preds = %.split.us.i, %170, %.thread.i, %145, %113, %.loopexit90.i
-  %.068.ph106.i = phi ptr [ %92, %.loopexit90.i ], [ %92, %113 ], [ %92, %145 ], [ %.068.ph139.i, %.split.us.i ], [ %.068.ph139.i, %170 ], [ %.169.i, %.thread.i ]
+  %.068.ph106.i = phi ptr [ %92, %.loopexit90.i ], [ %92, %113 ], [ %92, %145 ], [ %.068.ph139.i, %170 ], [ %.068.ph139.i, %.split.us.i ], [ %.169.i, %.thread.i ]
   %181 = load i8, ptr %.068.ph106.i, align 1, !tbaa !26
   %.not3 = icmp eq i8 %181, 0
   br i1 %.not3, label %182, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
@@ -4688,7 +4688,7 @@ _ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread: 
   br label %.critedge51
 
 .critedge51:                                      ; preds = %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread, %91, %.critedge, %182, %.split.us
-  %.1 = phi i8 [ 0, %.split.us ], [ 0, %182 ], [ 1, %.critedge ], [ 1, %91 ], [ 1, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread ]
+  %.1 = phi i8 [ 0, %182 ], [ 0, %.split.us ], [ 1, %.critedge ], [ 1, %91 ], [ 1, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.1

@@ -261,7 +261,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   br label %.thread1922
 
 .thread1922:                                      ; preds = %.thread1919, %.thread1915, %.thread1918, %.thread1921, %130
-  %137 = phi i32 [ 3000, %130 ], [ %spec.select1956, %.thread1921 ], [ %spec.select1961, %.thread1918 ], [ 3000, %.thread1915 ], [ %spec.select2746, %.thread1919 ]
+  %137 = phi i32 [ 3000, %130 ], [ 3000, %.thread1915 ], [ %spec.select2746, %.thread1919 ], [ %spec.select1956, %.thread1921 ], [ %spec.select1961, %.thread1918 ]
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 38356
   store i32 %137, ptr %138, align 4, !tbaa !67
   br label %139
@@ -396,8 +396,8 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   br label %203
 
 203:                                              ; preds = %199, %193, %190, %.loopexit1998.us
-  %.21370.us = phi nsz float [ %202, %199 ], [ %.113692036.us, %190 ], [ %.113692036.us, %.loopexit1998.us ], [ %196, %193 ]
-  %.21367.us = phi nsz float [ %..11366.us, %199 ], [ %.113662037.us, %190 ], [ %.113662037.us, %.loopexit1998.us ], [ %196, %193 ]
+  %.21370.us = phi nsz float [ %.113692036.us, %.loopexit1998.us ], [ %202, %199 ], [ %.113692036.us, %190 ], [ %196, %193 ]
+  %.21367.us = phi nsz float [ %.113662037.us, %.loopexit1998.us ], [ %..11366.us, %199 ], [ %.113662037.us, %190 ], [ %196, %193 ]
   %indvars.iv.next2355 = add nuw nsw i64 %indvars.iv2354, 1
   %204 = getelementptr inbounds nuw i8, ptr %157, i64 %indvars.iv2354
   %205 = load i8, ptr %204, align 1, !tbaa !77
@@ -2198,9 +2198,9 @@ find_min_book.exit1862:                           ; preds = %1068
   br label %find_min_book.exit1862.thread
 
 find_min_book.exit1862.thread:                    ; preds = %1068, %find_min_book.exit1862, %.lr.ph2191, %1050, %1053, %1057, %1081, %1086
-  %1089 = phi i32 [ %1043, %.lr.ph2191 ], [ %.pre2467, %1086 ], [ %1043, %1081 ], [ %1043, %1057 ], [ %1043, %1053 ], [ %1043, %1050 ], [ %1043, %find_min_book.exit1862 ], [ %1043, %1068 ]
-  %1090 = phi i32 [ %1044, %.lr.ph2191 ], [ %.pre2467, %1086 ], [ %1044, %1081 ], [ %1044, %1057 ], [ %1044, %1053 ], [ %1044, %1050 ], [ %1044, %find_min_book.exit1862 ], [ %1044, %1068 ]
-  %.41400 = phi i32 [ %.313992189, %.lr.ph2191 ], [ %1088, %1086 ], [ %.313992189, %1081 ], [ %.313992189, %1057 ], [ %.313992189, %1053 ], [ %.313992189, %1050 ], [ %.313992189, %find_min_book.exit1862 ], [ %.313992189, %1068 ]
+  %1089 = phi i32 [ %1043, %.lr.ph2191 ], [ %.pre2467, %1086 ], [ %1043, %1081 ], [ %1043, %find_min_book.exit1862 ], [ %1043, %1057 ], [ %1043, %1053 ], [ %1043, %1050 ], [ %1043, %1068 ]
+  %1090 = phi i32 [ %1044, %.lr.ph2191 ], [ %.pre2467, %1086 ], [ %1044, %1081 ], [ %1044, %find_min_book.exit1862 ], [ %1044, %1057 ], [ %1044, %1053 ], [ %1044, %1050 ], [ %1044, %1068 ]
+  %.41400 = phi i32 [ %.313992189, %.lr.ph2191 ], [ %1088, %1086 ], [ %.313992189, %1081 ], [ %.313992189, %find_min_book.exit1862 ], [ %.313992189, %1057 ], [ %.313992189, %1053 ], [ %.313992189, %1050 ], [ %.313992189, %1068 ]
   %1091 = zext nneg i32 %.913302190 to i64
   %1092 = getelementptr inbounds nuw i8, ptr %561, i64 %1091
   %1093 = load i8, ptr %1092, align 1, !tbaa !77
@@ -2237,16 +2237,16 @@ find_min_book.exit1862.thread:                    ; preds = %1068, %find_min_boo
   br label %._crit_edge2163.thread
 
 ._crit_edge2163.thread:                           ; preds = %.preheader1976.lr.ph, %941, %1110, %._crit_edge2163, %938
-  %1111 = phi i32 [ %931, %938 ], [ %1105, %1110 ], [ %931, %._crit_edge2163 ], [ %931, %941 ], [ %931, %.preheader1976.lr.ph ]
-  %1112 = phi i32 [ %932, %938 ], [ %1106, %1110 ], [ %932, %._crit_edge2163 ], [ %932, %941 ], [ %932, %.preheader1976.lr.ph ]
-  %1113 = phi i32 [ %933, %938 ], [ %1107, %1110 ], [ %933, %._crit_edge2163 ], [ %933, %941 ], [ %933, %.preheader1976.lr.ph ]
-  %1114 = phi i32 [ %934, %938 ], [ %1108, %1110 ], [ %934, %._crit_edge2163 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
-  %1115 = phi i32 [ %935, %938 ], [ %1109, %1110 ], [ %934, %._crit_edge2163 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
-  %1116 = phi i32 [ %936, %938 ], [ %1109, %1110 ], [ %934, %._crit_edge2163 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
-  %1117 = phi i32 [ %937, %938 ], [ %1109, %1110 ], [ %934, %._crit_edge2163 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
-  %.51481 = phi i32 [ %.0147622022816, %938 ], [ %.31479.us, %1110 ], [ 0, %._crit_edge2163 ], [ 0, %941 ], [ 0, %.preheader1976.lr.ph ]
-  %.31376 = phi i32 [ %.0137322042814, %938 ], [ %spec.select1744, %1110 ], [ %.0137322042814, %._crit_edge2163 ], [ %.0137322042814, %941 ], [ %.0137322042814, %.preheader1976.lr.ph ]
-  %.41359 = phi i32 [ %.1135622052813, %938 ], [ %spec.select1745, %1110 ], [ 0, %._crit_edge2163 ], [ 0, %941 ], [ 0, %.preheader1976.lr.ph ]
+  %1111 = phi i32 [ %931, %._crit_edge2163 ], [ %931, %938 ], [ %1105, %1110 ], [ %931, %941 ], [ %931, %.preheader1976.lr.ph ]
+  %1112 = phi i32 [ %932, %._crit_edge2163 ], [ %932, %938 ], [ %1106, %1110 ], [ %932, %941 ], [ %932, %.preheader1976.lr.ph ]
+  %1113 = phi i32 [ %933, %._crit_edge2163 ], [ %933, %938 ], [ %1107, %1110 ], [ %933, %941 ], [ %933, %.preheader1976.lr.ph ]
+  %1114 = phi i32 [ %934, %._crit_edge2163 ], [ %934, %938 ], [ %1108, %1110 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
+  %1115 = phi i32 [ %934, %._crit_edge2163 ], [ %935, %938 ], [ %1109, %1110 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
+  %1116 = phi i32 [ %934, %._crit_edge2163 ], [ %936, %938 ], [ %1109, %1110 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
+  %1117 = phi i32 [ %934, %._crit_edge2163 ], [ %937, %938 ], [ %1109, %1110 ], [ %934, %941 ], [ %934, %.preheader1976.lr.ph ]
+  %.51481 = phi i32 [ 0, %._crit_edge2163 ], [ %.0147622022816, %938 ], [ %.31479.us, %1110 ], [ 0, %941 ], [ 0, %.preheader1976.lr.ph ]
+  %.31376 = phi i32 [ %.0137322042814, %._crit_edge2163 ], [ %.0137322042814, %938 ], [ %spec.select1744, %1110 ], [ %.0137322042814, %941 ], [ %.0137322042814, %.preheader1976.lr.ph ]
+  %.41359 = phi i32 [ 0, %._crit_edge2163 ], [ %.1135622052813, %938 ], [ %spec.select1745, %1110 ], [ 0, %941 ], [ 0, %.preheader1976.lr.ph ]
   %1118 = icmp ne i32 %.51481, 0
   %1119 = icmp ne i32 %.41359, 0
   %1120 = select i1 %1118, i1 true, i1 %1119
@@ -2350,8 +2350,8 @@ find_min_book.exit1882.us:                        ; preds = %1159, %1143
   br label %1166
 
 1166:                                             ; preds = %1165, %find_min_book.exit1882.us, %1139
-  %.131443.us = phi i32 [ %.1114412259.us, %1139 ], [ %.0.i1784.us, %1165 ], [ %.0.i1784.us, %find_min_book.exit1882.us ]
-  %.111384.us = phi i32 [ %.913822260.us, %1139 ], [ %spec.select1757.us, %1165 ], [ 1, %find_min_book.exit1882.us ]
+  %.131443.us = phi i32 [ %.1114412259.us, %1139 ], [ %.0.i1784.us, %find_min_book.exit1882.us ], [ %.0.i1784.us, %1165 ]
+  %.111384.us = phi i32 [ %.913822260.us, %1139 ], [ 1, %find_min_book.exit1882.us ], [ %spec.select1757.us, %1165 ]
   %indvars.iv.next2443 = add nuw nsw i64 %indvars.iv2442, 1
   %exitcond2446.not = icmp eq i64 %indvars.iv.next2443, %wide.trip.count2445
   br i1 %exitcond2446.not, label %._crit_edge2263.us, label %1139, !llvm.loop !128
@@ -2831,7 +2831,7 @@ quantize_band_cost_cached.exit1878:               ; preds = %.quantize_band_cost
   br i1 %exitcond2435.not, label %.critedge3, label %.preheader1973, !llvm.loop !133
 
 .critedge3:                                       ; preds = %._crit_edge2222, %1423, %.preheader1973, %1316, %1323, %1247, %.backedge, %1330, %1422, %1332, %1333, %1337, %1346
-  %1426 = phi i32 [ %1354, %1422 ], [ %1186, %1332 ], [ %1186, %1333 ], [ %1186, %1337 ], [ %1186, %1346 ], [ %.pre-phi2487, %1316 ], [ %.pre-phi2487, %1323 ], [ %1225, %1247 ], [ %.pre-phi2487, %.backedge ], [ %.pre-phi2487, %1330 ], [ %.pre2479.pre, %._crit_edge2222 ], [ %1424, %1423 ], [ %1354, %.preheader1973 ]
+  %1426 = phi i32 [ %.pre-phi2487, %1316 ], [ %1186, %1346 ], [ %1354, %1422 ], [ %1186, %1332 ], [ %1186, %1333 ], [ %1186, %1337 ], [ %.pre-phi2487, %1323 ], [ %1225, %1247 ], [ %.pre-phi2487, %.backedge ], [ %.pre-phi2487, %1330 ], [ %1354, %.preheader1973 ], [ %.pre2479.pre, %._crit_edge2222 ], [ %1424, %1423 ]
   %1427 = icmp slt i32 %1426, %1206
   %..i1781 = tail call i32 @llvm.smin.i32(i32 %1426, i32 %1208)
   %.0.i1782 = select i1 %1427, i32 %1206, i32 %..i1781
@@ -3981,7 +3981,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
   br label %.thread637
 
 .thread637:                                       ; preds = %.thread634, %.thread630, %.thread633, %.thread636, %81, %59
-  %.0454 = phi i32 [ %66, %59 ], [ 3000, %81 ], [ %spec.select648, %.thread636 ], [ %spec.select650, %.thread633 ], [ 3000, %.thread630 ], [ %spec.select751, %.thread634 ]
+  %.0454 = phi i32 [ %66, %59 ], [ 3000, %81 ], [ 3000, %.thread630 ], [ %spec.select751, %.thread634 ], [ %spec.select648, %.thread636 ], [ %spec.select650, %.thread633 ]
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 6156
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 5644
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %88, ptr noundef nonnull align 4 dereferenceable(512) %89, i64 512, i1 false)
@@ -4497,8 +4497,8 @@ ff_init_nextband_map.exit:                        ; preds = %._crit_edge.i
   br label %.thread644
 
 .thread644:                                       ; preds = %248, %247, %364, %366, %225, %227, %165, %169
-  %.3460 = phi i32 [ %.1458686, %165 ], [ %171, %169 ], [ %.1458686, %225 ], [ %229, %227 ], [ %.1458686, %364 ], [ %368, %366 ], [ %250, %248 ], [ %.1458686, %247 ]
-  %.2 = phi i32 [ %.1456691, %165 ], [ %.1456691, %169 ], [ %.1456691, %225 ], [ %.1456691, %227 ], [ %.0.i, %364 ], [ %.1456691, %366 ], [ %.1456691, %248 ], [ %.1456691, %247 ]
+  %.3460 = phi i32 [ %368, %366 ], [ %171, %169 ], [ %229, %227 ], [ %.1458686, %165 ], [ %.1458686, %225 ], [ %.1458686, %364 ], [ %.1458686, %247 ], [ %250, %248 ]
+  %.2 = phi i32 [ %.1456691, %366 ], [ %.1456691, %169 ], [ %.1456691, %227 ], [ %.1456691, %165 ], [ %.1456691, %225 ], [ %.0.i, %364 ], [ %.1456691, %247 ], [ %.1456691, %248 ]
   %indvars.iv.next719 = add nuw nsw i64 %indvars.iv718, 1
   %369 = load i32, ptr %126, align 8, !tbaa !68
   %370 = sext i32 %369 to i64
@@ -4637,7 +4637,7 @@ define internal void @mark_pns(ptr noundef readonly captures(none) %0, ptr nound
   br label %.thread421
 
 .thread421:                                       ; preds = %.thread418, %.thread414, %.thread417, %.thread420, %71, %49
-  %.0285 = phi i32 [ %56, %49 ], [ 3000, %71 ], [ %spec.select424, %.thread420 ], [ %spec.select426, %.thread417 ], [ 3000, %.thread414 ], [ %spec.select463, %.thread418 ]
+  %.0285 = phi i32 [ %56, %49 ], [ 3000, %71 ], [ 3000, %.thread414 ], [ %spec.select463, %.thread418 ], [ %spec.select424, %.thread420 ], [ %spec.select426, %.thread417 ]
   %78 = shl nsw i32 %6, 1
   %79 = mul i32 %78, %.0285
   %80 = sdiv i32 %79, %10
@@ -6574,7 +6574,7 @@ put_bits.exit:                                    ; preds = %95, %115
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %.split30.us, %120, %121
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %121 ], [ %.1203.i.lcssa, %120 ], [ %9, %.split30.us ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %120 ], [ %.1203.i.lcssa, %121 ], [ %9, %.split30.us ]
   ret float %.0.i
 }
 
@@ -6849,7 +6849,7 @@ put_bits.exit14:                                  ; preds = %141, %149, %131
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %82, %155, %156
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %156 ], [ %.1203.i.lcssa, %155 ], [ %9, %82 ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %155 ], [ %.1203.i.lcssa, %156 ], [ %9, %82 ]
   ret float %.0.i
 }
 
@@ -7064,7 +7064,7 @@ put_bits.exit:                                    ; preds = %98, %118
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %.split30.us, %123, %124
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %124 ], [ %.1203.i.lcssa, %123 ], [ %9, %.split30.us ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %123 ], [ %.1203.i.lcssa, %124 ], [ %9, %.split30.us ]
   ret float %.0.i
 }
 
@@ -7336,7 +7336,7 @@ put_bits.exit14:                                  ; preds = %144, %152, %134
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %84, %158, %159
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %159 ], [ %.1203.i.lcssa, %158 ], [ %9, %84 ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %158 ], [ %.1203.i.lcssa, %159 ], [ %9, %84 ]
   ret float %.0.i
 }
 
@@ -7780,7 +7780,7 @@ put_sbits.exit:                                   ; preds = %229, %249
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %105, %255, %256
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %256 ], [ %.1203.i.lcssa, %255 ], [ %9, %105 ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %255 ], [ %.1203.i.lcssa, %256 ], [ %9, %105 ]
   ret float %.0.i
 }
 
@@ -8381,7 +8381,7 @@ put_sbits.exit:                                   ; preds = %229, %249
   br label %quantize_and_encode_band_cost_template.exit
 
 quantize_and_encode_band_cost_template.exit:      ; preds = %105, %255, %256
-  %.0.i = phi nsz float [ %.1203.i.lcssa, %256 ], [ %.1203.i.lcssa, %255 ], [ %9, %105 ]
+  %.0.i = phi nsz float [ %.1203.i.lcssa, %255 ], [ %.1203.i.lcssa, %256 ], [ %9, %105 ]
   ret float %.0.i
 }
 

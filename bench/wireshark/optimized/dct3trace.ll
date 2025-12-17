@@ -89,7 +89,7 @@ define hidden range(i32 -1, 2) i32 @dct3trace_open(ptr noundef %0, ptr noundef w
   br label %27
 
 27:                                               ; preds = %13, %17, %18, %19
-  %.0 = phi i32 [ 1, %19 ], [ 0, %18 ], [ 0, %17 ], [ %16, %13 ]
+  %.0 = phi i32 [ 1, %19 ], [ %16, %13 ], [ 0, %18 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -411,8 +411,8 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %hc2b
   br label %.critedge
 
 107:                                              ; preds = %68, %hex2bin.exit
-  %.185 = phi i32 [ %102, %hex2bin.exit ], [ %.084.ph.ph, %68 ]
-  %.178 = phi i8 [ 1, %hex2bin.exit ], [ %.077.ph.ph294, %68 ]
+  %.185 = phi i32 [ %.084.ph.ph, %68 ], [ %102, %hex2bin.exit ]
+  %.178 = phi i8 [ %.077.ph.ph294, %68 ], [ 1, %hex2bin.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.outer.outer, !llvm.loop !6
@@ -535,13 +535,13 @@ hex2bin.exit124:                                  ; preds = %.outer.i113, %hc2b.
   store i32 %spec.select, ptr %2, align 4
   br label %158
 
-.critedge:                                        ; preds = %61, %57, %54, %50, %48, %.split175.us, %hex2bin.exit.thread
+.critedge:                                        ; preds = %.split175.us, %48, %50, %54, %57, %61, %hex2bin.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %158
 
 158:                                              ; preds = %.thread, %.critedge, %.split.us, %.split172.us, %.split172.us.thread, %.split170.us
-  %.1 = phi i1 [ false, %.split170.us ], [ true, %.split172.us.thread ], [ false, %.split172.us ], [ false, %.split.us ], [ false, %.critedge ], [ false, %.thread ]
+  %.1 = phi i1 [ false, %.split170.us ], [ true, %.split172.us.thread ], [ false, %.split172.us ], [ false, %.critedge ], [ false, %.thread ], [ false, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1

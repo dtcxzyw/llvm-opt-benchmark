@@ -170,8 +170,8 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   br label %89
 
 89:                                               ; preds = %87, %79, %69
-  %.2.i = phi i16 [ %.05366.i, %87 ], [ %.05366.i, %69 ], [ 0, %79 ]
-  %.0.i = phi i32 [ %88, %87 ], [ %70, %69 ], [ %70, %79 ]
+  %.2.i = phi i16 [ %.05366.i, %69 ], [ %.05366.i, %87 ], [ 0, %79 ]
+  %.0.i = phi i32 [ %70, %69 ], [ %88, %87 ], [ %70, %79 ]
   %90 = add i16 %.2.i, %trunc.i
   %91 = getelementptr inbounds i8, ptr %.05764.i, i64 -8
   %92 = load i32, ptr %91, align 4, !tbaa !35
@@ -545,7 +545,7 @@ narrow_bpc_get.exit133.thread:                    ; preds = %147, %135
   br label %.critedge
 
 .critedge:                                        ; preds = %170, %narrow_bpc_get.exit133, %narrow_bpc_get.exit, %54, %46, %50, %.critedge127, %.critedge125, %32, %36, %3, %179
-  %.0 = phi i32 [ 1, %179 ], [ 10, %3 ], [ 0, %36 ], [ 0, %32 ], [ 0, %50 ], [ 0, %.critedge125 ], [ 0, %.critedge127 ], [ 10, %46 ], [ 10, %54 ], [ %164, %170 ], [ 0, %narrow_bpc_get.exit133 ], [ 0, %narrow_bpc_get.exit ]
+  %.0 = phi i32 [ 10, %54 ], [ 10, %3 ], [ 0, %32 ], [ 0, %.critedge127 ], [ 1, %179 ], [ 0, %36 ], [ 0, %.critedge125 ], [ 0, %50 ], [ 10, %46 ], [ %164, %170 ], [ 0, %narrow_bpc_get.exit133 ], [ 0, %narrow_bpc_get.exit ]
   ret i32 %.0
 }
 
@@ -606,7 +606,7 @@ define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unn
   br label %34
 
 34:                                               ; preds = %.sink.split, %7, %15, %19
-  %.0 = phi i32 [ %1, %7 ], [ %1, %19 ], [ %1, %15 ], [ %33, %.sink.split ]
+  %.0 = phi i32 [ %1, %19 ], [ %1, %15 ], [ %1, %7 ], [ %33, %.sink.split ]
   ret i32 %.0
 }
 
@@ -722,7 +722,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
   br label %common.ret69
 
 common.ret69:                                     ; preds = %27, %75, %68, %67, %38
-  %common.ret69.op = phi i32 [ %57, %38 ], [ %1, %68 ], [ %80, %75 ], [ %1, %67 ], [ %37, %27 ]
+  %common.ret69.op = phi i32 [ %57, %38 ], [ %37, %27 ], [ %1, %67 ], [ %1, %68 ], [ %80, %75 ]
   ret i32 %common.ret69.op
 
 38:                                               ; preds = %25
@@ -1087,7 +1087,7 @@ conv_str_tonum.exit:                              ; preds = %3, %6
   br label %52
 
 38:                                               ; preds = %.thread, %conv_str_tonum.exit
-  %.028 = phi i32 [ %.0.i, %conv_str_tonum.exit ], [ %29, %.thread ]
+  %.028 = phi i32 [ %29, %.thread ], [ %.0.i, %conv_str_tonum.exit ]
   %39 = trunc i32 %.028 to i16
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %41 = ptrtoint ptr %40 to i64
@@ -1295,7 +1295,7 @@ narrow_forl.exit23:                               ; preds = %narrow_forl.exit20
   br label %narrow_forl.exit.thread
 
 narrow_forl.exit.thread:                          ; preds = %2, %narrow_forl.exit, %narrow_forl.exit20, %narrow_forl.exit23, %22, %24, %.thread
-  %.1 = phi i32 [ 19, %.thread ], [ 14, %24 ], [ 14, %22 ], [ 14, %narrow_forl.exit23 ], [ 14, %narrow_forl.exit20 ], [ 14, %narrow_forl.exit ], [ 14, %2 ]
+  %.1 = phi i32 [ 19, %.thread ], [ 14, %24 ], [ 14, %22 ], [ 14, %narrow_forl.exit ], [ 14, %narrow_forl.exit23 ], [ 14, %narrow_forl.exit20 ], [ 14, %2 ]
   ret i32 %.1
 }
 
@@ -1399,7 +1399,7 @@ narrow_bpc_get.exit:                              ; preds = %23
   br label %62
 
 62:                                               ; preds = %61, %33, %36, %narrow_bpc_get.exit, %3, %11
-  %.034 = phi i32 [ %1, %11 ], [ %1, %3 ], [ %32, %narrow_bpc_get.exit ], [ %1, %61 ], [ %1, %36 ], [ %1, %33 ]
+  %.034 = phi i32 [ %1, %3 ], [ %1, %11 ], [ %32, %narrow_bpc_get.exit ], [ %1, %61 ], [ %1, %36 ], [ %1, %33 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4

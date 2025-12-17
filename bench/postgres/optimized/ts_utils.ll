@@ -293,7 +293,7 @@ define dso_local noundef zeroext i1 @searchstoplist(ptr noundef readonly capture
   br i1 %21, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !7
 
 bsearch.exit:                                     ; preds = %20, %17, %6, %2
-  %22 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %17 ], [ false, %20 ]
+  %22 = phi i1 [ false, %6 ], [ false, %2 ], [ false, %20 ], [ true, %17 ]
   ret i1 %22
 }
 

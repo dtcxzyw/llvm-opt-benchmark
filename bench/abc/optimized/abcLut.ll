@@ -845,11 +845,11 @@ Extra_TruthCopy.exit215.i.i:                      ; preds = %Extra_TruthCopy.exi
   br i1 %.not347.i.i, label %._crit_edge.thread.i.i, label %.lr.ph311.i.i
 
 .lr.ph311.i.i:                                    ; preds = %._crit_edge302.i.i, %Extra_TruthCopy.exit.thread.i.i, %Extra_TruthCopy.exit.i.i
-  %357 = phi i1 [ false, %Extra_TruthCopy.exit.thread.i.i ], [ true, %Extra_TruthCopy.exit.i.i ], [ %355, %._crit_edge302.i.i ]
-  %spec.select.i.i.i301 = phi i32 [ -2147483648, %Extra_TruthCopy.exit.thread.i.i ], [ %spec.select.i.i.i303, %Extra_TruthCopy.exit.i.i ], [ %spec.select.i.i.i302, %._crit_edge302.i.i ]
-  %.pre429.i.i259 = phi i32 [ %.pre429.i.i, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %.pre429.i.i260, %._crit_edge302.i.i ]
-  %358 = phi i32 [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %356, %._crit_edge302.i.i ]
-  %.lcssa297.ph.pn.i.i = phi i32 [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %.lcssa297.i.i, %._crit_edge302.i.i ]
+  %357 = phi i1 [ true, %Extra_TruthCopy.exit.i.i ], [ false, %Extra_TruthCopy.exit.thread.i.i ], [ %355, %._crit_edge302.i.i ]
+  %spec.select.i.i.i301 = phi i32 [ %spec.select.i.i.i303, %Extra_TruthCopy.exit.i.i ], [ -2147483648, %Extra_TruthCopy.exit.thread.i.i ], [ %spec.select.i.i.i302, %._crit_edge302.i.i ]
+  %.pre429.i.i259 = phi i32 [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %.pre429.i.i, %Extra_TruthCopy.exit.thread.i.i ], [ %.pre429.i.i260, %._crit_edge302.i.i ]
+  %358 = phi i32 [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %356, %._crit_edge302.i.i ]
+  %.lcssa297.ph.pn.i.i = phi i32 [ %.fr224, %Extra_TruthCopy.exit.i.i ], [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %.lcssa297.i.i, %._crit_edge302.i.i ]
   %359 = shl nuw nsw i32 1, %.lcssa297.ph.pn.i.i
   %360 = zext i32 %spec.select.i.i.i301 to i64
   %361 = lshr i32 %359, 1
@@ -1625,14 +1625,14 @@ Abc_NodeDecomposeStep.exit.i:                     ; preds = %.loopexit286.thread
   br label %Abc_NodeSuperChoiceLut.exit.thread
 
 Abc_NodeSuperChoiceLut.exit.thread:               ; preds = %617, %Abc_NodeDecomposeStep.exit.i, %._crit_edge.i145, %210, %662, %101, %156, %Abc_NodeLutMap.exit, %116, %661
-  %667 = phi i32 [ %102, %101 ], [ %102, %116 ], [ %102, %Abc_NodeLutMap.exit ], [ %102, %156 ], [ %620, %661 ], [ %620, %662 ], [ %102, %210 ], [ %102, %._crit_edge.i145 ], [ %278, %Abc_NodeDecomposeStep.exit.i ], [ %278, %617 ]
-  %.pre.i.i263 = phi i32 [ %.pre.i.i262, %101 ], [ %.pre.i.i262, %116 ], [ %.pre.i.i262, %Abc_NodeLutMap.exit ], [ %.pre.i.i262, %156 ], [ %.pre.i.i264, %661 ], [ %.pre.i.i264, %662 ], [ %.pre.i.i262, %210 ], [ %.pre.i.i262, %._crit_edge.i145 ], [ %.fr224, %Abc_NodeDecomposeStep.exit.i ], [ %.fr224, %617 ]
-  %.pre429.i.i257 = phi i32 [ %.pre429.i.i256, %101 ], [ %.pre429.i.i256, %116 ], [ %.pre429.i.i256, %Abc_NodeLutMap.exit ], [ %.pre429.i.i256, %156 ], [ %.pre429.i.i258, %661 ], [ %.pre429.i.i258, %662 ], [ %.pre429.i.i256, %210 ], [ %.pre429.i.i256, %._crit_edge.i145 ], [ %.pre429.i.i259, %Abc_NodeDecomposeStep.exit.i ], [ %.pre429.i.i259, %617 ]
-  %668 = phi i32 [ %103, %101 ], [ %103, %116 ], [ %103, %Abc_NodeLutMap.exit ], [ %103, %156 ], [ %621, %661 ], [ %621, %662 ], [ %103, %210 ], [ %103, %._crit_edge.i145 ], [ %358, %Abc_NodeDecomposeStep.exit.i ], [ %358, %617 ]
-  %.198 = phi i32 [ %.097206, %101 ], [ %.097206, %116 ], [ %119, %Abc_NodeLutMap.exit ], [ %119, %156 ], [ %119, %661 ], [ %119, %662 ], [ %119, %210 ], [ %119, %._crit_edge.i145 ], [ %119, %Abc_NodeDecomposeStep.exit.i ], [ %119, %617 ]
-  %.196 = phi i32 [ %.095207, %101 ], [ %.095207, %116 ], [ %.095207, %Abc_NodeLutMap.exit ], [ %.095207, %156 ], [ %159, %661 ], [ %159, %662 ], [ %159, %210 ], [ %159, %._crit_edge.i145 ], [ %159, %Abc_NodeDecomposeStep.exit.i ], [ %159, %617 ]
-  %.194 = phi i32 [ %.093208, %101 ], [ %.093208, %116 ], [ %.093208, %Abc_NodeLutMap.exit ], [ %.093208, %156 ], [ %657, %661 ], [ %657, %662 ], [ %.093208, %210 ], [ %.093208, %._crit_edge.i145 ], [ %.093208, %Abc_NodeDecomposeStep.exit.i ], [ %.093208, %617 ]
-  %.1 = phi i32 [ %.0209, %101 ], [ %.0209, %116 ], [ %.0209, %Abc_NodeLutMap.exit ], [ %.0209, %156 ], [ %.0209, %661 ], [ %666, %662 ], [ %.0209, %210 ], [ %.0209, %._crit_edge.i145 ], [ %.0209, %Abc_NodeDecomposeStep.exit.i ], [ %.0209, %617 ]
+  %667 = phi i32 [ %102, %101 ], [ %102, %116 ], [ %102, %Abc_NodeLutMap.exit ], [ %102, %156 ], [ %620, %662 ], [ %620, %661 ], [ %102, %210 ], [ %102, %._crit_edge.i145 ], [ %278, %Abc_NodeDecomposeStep.exit.i ], [ %278, %617 ]
+  %.pre.i.i263 = phi i32 [ %.pre.i.i262, %101 ], [ %.pre.i.i262, %116 ], [ %.pre.i.i262, %Abc_NodeLutMap.exit ], [ %.pre.i.i262, %156 ], [ %.pre.i.i264, %662 ], [ %.pre.i.i264, %661 ], [ %.pre.i.i262, %210 ], [ %.pre.i.i262, %._crit_edge.i145 ], [ %.fr224, %Abc_NodeDecomposeStep.exit.i ], [ %.fr224, %617 ]
+  %.pre429.i.i257 = phi i32 [ %.pre429.i.i256, %101 ], [ %.pre429.i.i256, %116 ], [ %.pre429.i.i256, %Abc_NodeLutMap.exit ], [ %.pre429.i.i256, %156 ], [ %.pre429.i.i258, %662 ], [ %.pre429.i.i258, %661 ], [ %.pre429.i.i256, %210 ], [ %.pre429.i.i256, %._crit_edge.i145 ], [ %.pre429.i.i259, %Abc_NodeDecomposeStep.exit.i ], [ %.pre429.i.i259, %617 ]
+  %668 = phi i32 [ %103, %101 ], [ %103, %116 ], [ %103, %Abc_NodeLutMap.exit ], [ %103, %156 ], [ %621, %662 ], [ %621, %661 ], [ %103, %210 ], [ %103, %._crit_edge.i145 ], [ %358, %Abc_NodeDecomposeStep.exit.i ], [ %358, %617 ]
+  %.198 = phi i32 [ %.097206, %101 ], [ %.097206, %116 ], [ %119, %Abc_NodeLutMap.exit ], [ %119, %156 ], [ %119, %662 ], [ %119, %661 ], [ %119, %210 ], [ %119, %._crit_edge.i145 ], [ %119, %Abc_NodeDecomposeStep.exit.i ], [ %119, %617 ]
+  %.196 = phi i32 [ %.095207, %101 ], [ %.095207, %116 ], [ %.095207, %Abc_NodeLutMap.exit ], [ %.095207, %156 ], [ %159, %662 ], [ %159, %661 ], [ %159, %210 ], [ %159, %._crit_edge.i145 ], [ %159, %Abc_NodeDecomposeStep.exit.i ], [ %159, %617 ]
+  %.194 = phi i32 [ %.093208, %101 ], [ %.093208, %116 ], [ %.093208, %Abc_NodeLutMap.exit ], [ %.093208, %156 ], [ %657, %662 ], [ %657, %661 ], [ %.093208, %210 ], [ %.093208, %._crit_edge.i145 ], [ %.093208, %Abc_NodeDecomposeStep.exit.i ], [ %.093208, %617 ]
+  %.1 = phi i32 [ %.0209, %101 ], [ %.0209, %116 ], [ %.0209, %Abc_NodeLutMap.exit ], [ %.0209, %156 ], [ %666, %662 ], [ %.0209, %661 ], [ %.0209, %210 ], [ %.0209, %._crit_edge.i145 ], [ %.0209, %Abc_NodeDecomposeStep.exit.i ], [ %.0209, %617 ]
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %669 = load ptr, ptr %64, align 8, !tbaa !48
   %670 = getelementptr i8, ptr %669, i64 4
@@ -2705,7 +2705,7 @@ Vec_IntFind.exit.thread:                          ; preds = %13, %2
   br label %common.ret30
 
 common.ret30:                                     ; preds = %19, %Vec_IntFind.exit, %22
-  %common.ret30.op = phi i64 [ %50, %22 ], [ %16, %Vec_IntFind.exit ], [ %21, %19 ]
+  %common.ret30.op = phi i64 [ %50, %22 ], [ %21, %19 ], [ %16, %Vec_IntFind.exit ]
   ret i64 %common.ret30.op
 
 22:                                               ; preds = %Vec_IntFind.exit.thread
@@ -3448,8 +3448,8 @@ Vec_IntTwoMerge2.exit:                            ; preds = %.lr.ph17.i.i, %.pre
   br label %Vec_IntGrow.exit23thread-pre-split.i
 
 Vec_IntGrow.exit23thread-pre-split.i:             ; preds = %203, %205, %195, %197
-  %storemerge = phi ptr [ %196, %195 ], [ %198, %197 ], [ %204, %203 ], [ %206, %205 ]
-  %.sink.i = phi i32 [ 16, %195 ], [ 16, %197 ], [ %200, %203 ], [ %200, %205 ]
+  %storemerge = phi ptr [ %198, %197 ], [ %196, %195 ], [ %204, %203 ], [ %206, %205 ]
+  %.sink.i = phi i32 [ 16, %197 ], [ 16, %195 ], [ %200, %203 ], [ %200, %205 ]
   store ptr %storemerge, ptr %136, align 8, !tbaa !119
   store i32 %.sink.i, ptr %66, align 8, !tbaa !127
   %.pr.i = load i32, ptr %188, align 4, !tbaa !118

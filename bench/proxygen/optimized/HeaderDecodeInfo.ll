@@ -314,7 +314,7 @@ call.i.i.i.i.noexc.i:                             ; preds = %.noexc.i
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad81, %lpad120.body, %lpad142, %lpad, %lpad.i67, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %16, %lpad.i ], [ %53, %lpad.i67 ], [ %7, %lpad ], [ %24, %lpad81 ], [ %eh.lpad-body, %lpad120.body ], [ %39, %lpad142 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %lpad.i ], [ %53, %lpad.i67 ], [ %7, %lpad ], [ %39, %lpad142 ], [ %24, %lpad81 ], [ %eh.lpad-body, %lpad120.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %call.i.i.i.i.noexc.i, %.noexc.i, %_ZN5folly6detail15reserveInTargetIA28_cNS_5RangeIPKcEEJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i.i
@@ -337,21 +337,16 @@ if.end36:                                         ; preds = %if.then30
 if.then38:                                        ; preds = %if.end36
   switch i8 %spec.select.i.i, label %sw.default [
     i8 3, label %sw.bb
-    i8 6, label %sw.bb41
+    i8 6, label %sw.epilog
     i8 2, label %sw.bb46
     i8 4, label %sw.bb53
-    i8 5, label %sw.epilog
+    i8 5, label %sw.bb61
   ]
 
 sw.bb:                                            ; preds = %if.then38
   %verifier = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call39 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setMethodEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
   br i1 %call39, label %if.end212, label %return
-
-sw.bb41:                                          ; preds = %if.then38
-  %verifier42 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %call44 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setSchemeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier42, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
-  br i1 %call44, label %if.end212, label %return
 
 sw.bb46:                                          ; preds = %if.then38
   %verifier47 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -375,6 +370,14 @@ sw.bb53:                                          ; preds = %if.then38
   %call59 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier7setPathEN5folly5RangeIPKcEEbb(ptr noundef nonnull align 8 dereferenceable(45) %verifier54, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool57, i1 noundef zeroext %tobool58)
   br i1 %call59, label %if.end212, label %return
 
+sw.bb61:                                          ; preds = %if.then38
+  %verifier62 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %strictValidation_64 = getelementptr inbounds nuw i8, ptr %this, i64 127
+  %22 = load i8, ptr %strictValidation_64, align 1
+  %tobool65 = trunc i8 %22 to i1
+  %call66 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier18setUpgradeProtocolEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(45) %verifier62, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool65)
+  br i1 %call66, label %if.end212, label %return
+
 sw.default:                                       ; preds = %if.then38
   call void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA25_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp68, ptr noundef nonnull align 1 dereferenceable(25) @.str.5, ptr noundef nonnull align 8 dereferenceable(16) %nameSp)
   %call70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %parsingError, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68) #20
@@ -382,12 +385,9 @@ sw.default:                                       ; preds = %if.then38
   br label %return
 
 sw.epilog:                                        ; preds = %if.then38
-  %verifier62 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %strictValidation_64 = getelementptr inbounds nuw i8, ptr %this, i64 127
-  %22 = load i8, ptr %strictValidation_64, align 1
-  %tobool65 = trunc i8 %22 to i1
-  %call66 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier18setUpgradeProtocolEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(45) %verifier62, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i, i1 noundef zeroext %tobool65)
-  br i1 %call66, label %if.end212, label %return
+  %verifier42 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %call44 = tail call noundef zeroext i1 @_ZN8proxygen19HTTPRequestVerifier9setSchemeEN5folly5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(45) %verifier42, ptr %cond.i.i.i.i18, ptr %add.ptr.i.i)
+  br i1 %call44, label %if.end212, label %return
 
 if.else:                                          ; preds = %if.end36
   %cmp75 = icmp eq i8 %spec.select.i.i, 7
@@ -635,7 +635,7 @@ for.inc.i:                                        ; preds = %land.lhs.true11.i
   br i1 %cmp3.not.i, label %lor.end, label %for.body.i
 
 lor.end:                                          ; preds = %for.inc.i, %land.lhs.true11.i, %for.body.i, %for.inc.us.i, %land.lhs.true.us.i, %sw.epilog150
-  %47 = phi i1 [ %or.cond1.not.not, %sw.epilog150 ], [ false, %land.lhs.true.us.i ], [ true, %for.inc.us.i ], [ false, %for.body.i ], [ false, %land.lhs.true11.i ], [ true, %for.inc.i ]
+  %47 = phi i1 [ %or.cond1.not.not, %sw.epilog150 ], [ false, %land.lhs.true.us.i ], [ true, %for.inc.us.i ], [ true, %for.inc.i ], [ false, %land.lhs.true11.i ], [ false, %for.body.i ]
   br i1 %tobool152, label %lor.rhs164, label %lor.end170
 
 lor.rhs164:                                       ; preds = %lor.end
@@ -742,11 +742,11 @@ if.else206:                                       ; preds = %if.end180, %land.lh
   call void @_ZN8proxygen11HTTPHeaders3addIRN5folly5RangeIPKcEEEEvNS_14HTTPHeaderCodeEOT_(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i81, i8 noundef zeroext %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(16) %valueSp)
   br label %if.end212
 
-if.end212:                                        ; preds = %sw.bb53, %sw.bb46, %sw.bb41, %sw.bb, %if.then183, %if.then195, %if.else206, %if.then95, %sw.epilog
+if.end212:                                        ; preds = %sw.bb46, %sw.bb53, %sw.bb61, %sw.bb, %if.then183, %if.then195, %if.else206, %if.then95, %sw.epilog
   br label %return
 
-return:                                           ; preds = %sw.bb53, %sw.bb46, %sw.bb41, %sw.bb, %cond.true, %sw.epilog, %cleanup.action, %cond.end, %if.end212, %if.then202, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %invoke.cont143, %invoke.cont121, %if.else108, %if.else103, %invoke.cont82, %sw.default, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit
-  %retval.0 = phi i1 [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %sw.default ], [ true, %if.end212 ], [ false, %invoke.cont82 ], [ false, %if.else103 ], [ false, %if.else108 ], [ false, %if.then202 ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %invoke.cont121 ], [ false, %invoke.cont143 ], [ true, %cond.end ], [ true, %cleanup.action ], [ false, %sw.epilog ], [ true, %cond.true ], [ false, %sw.bb ], [ false, %sw.bb41 ], [ false, %sw.bb46 ], [ false, %sw.bb53 ]
+return:                                           ; preds = %sw.bb46, %sw.bb53, %sw.bb61, %sw.bb, %cond.true, %sw.epilog, %cleanup.action, %cond.end, %if.end212, %if.then202, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %invoke.cont143, %invoke.cont121, %if.else108, %if.else103, %invoke.cont82, %sw.default, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit
+  %retval.0 = phi i1 [ false, %invoke.cont143 ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA28_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %sw.default ], [ true, %if.end212 ], [ true, %cond.true ], [ false, %invoke.cont82 ], [ false, %if.else103 ], [ false, %if.else108 ], [ false, %if.then202 ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA21_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ false, %invoke.cont121 ], [ true, %cond.end ], [ true, %cleanup.action ], [ false, %sw.epilog ], [ false, %sw.bb ], [ false, %sw.bb61 ], [ false, %sw.bb53 ], [ false, %sw.bb46 ]
   ret i1 %retval.0
 }
 
@@ -1007,7 +1007,7 @@ if.then11:                                        ; preds = %_ZNSt11char_traitsI
   br label %return
 
 return:                                           ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14, %if.else, %if.end6.sink.split.i, %if.then9, %if.then11, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ true, %if.then11 ], [ true, %if.then9 ], [ true, %if.end6.sink.split.i ], [ true, %if.else ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14 ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cNS_5RangeIPKcEEEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISD_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSG_EEEE5valueESD_E4typeEDpRKSF_.exit ], [ true, %if.end6.sink.split.i ], [ true, %if.then11 ], [ true, %if.then9 ], [ true, %if.else ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i14 ]
   ret i1 %retval.0
 }
 
@@ -1388,10 +1388,10 @@ sw.default.us.i:                                  ; preds = %sw.bb.us.i
   br i1 %or.cond.i, label %if.then4, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %sw.default.us.i, %sw.bb5.us.i, %sw.bb9.us.i, %sw.bb.us.i, %sw.bb25.us.i, %sw.bb30.us.i, %sw.bb30.us.i, %if.then44.us.i, %sw.bb38.us.i, %sw.bb38.us.i
-  %escape.2.us.i = phi i1 [ false, %sw.bb9.us.i ], [ false, %if.then44.us.i ], [ false, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ]
-  %quote.1.us.i = phi i1 [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.028.us.i, %if.then44.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ %quote.028.us.i, %sw.bb.us.i ], [ %quote.028.us.i, %sw.bb25.us.i ], [ %quote.028.us.i, %sw.bb30.us.i ], [ %quote.028.us.i, %sw.bb30.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.default.us.i ]
-  %state.1.us.i = phi i32 [ 0, %sw.bb9.us.i ], [ 0, %if.then44.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ]
-  %p.1.us.i = phi ptr [ %p.030.us.i, %sw.bb9.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.bb5.us.i ], [ %p.030.us.i, %sw.bb.us.i ], [ %p.030.us.i, %sw.bb25.us.i ], [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.default.us.i ]
+  %escape.2.us.i = phi i1 [ false, %sw.bb30.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.default.us.i ], [ false, %sw.bb38.us.i ], [ false, %sw.bb30.us.i ], [ false, %sw.bb9.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ false, %sw.bb.us.i ], [ false, %sw.bb25.us.i ], [ false, %if.then44.us.i ]
+  %quote.1.us.i = phi i1 [ %quote.028.us.i, %sw.bb30.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.default.us.i ], [ %quote.028.us.i, %sw.bb38.us.i ], [ %quote.028.us.i, %sw.bb30.us.i ], [ %frombool.us.i, %sw.bb9.us.i ], [ %quote.028.us.i, %sw.bb5.us.i ], [ %quote.028.us.i, %sw.bb.us.i ], [ %quote.028.us.i, %sw.bb25.us.i ], [ %quote.028.us.i, %if.then44.us.i ]
+  %state.1.us.i = phi i32 [ 3, %sw.bb30.us.i ], [ 3, %sw.bb38.us.i ], [ 0, %sw.default.us.i ], [ 3, %sw.bb38.us.i ], [ 3, %sw.bb30.us.i ], [ 0, %sw.bb9.us.i ], [ 0, %sw.bb5.us.i ], [ 1, %sw.bb.us.i ], [ 2, %sw.bb25.us.i ], [ 0, %if.then44.us.i ]
+  %p.1.us.i = phi ptr [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.default.us.i ], [ %p.030.us.i, %sw.bb38.us.i ], [ %p.030.us.i, %sw.bb30.us.i ], [ %p.030.us.i, %sw.bb9.us.i ], [ %p.030.us.i, %sw.bb5.us.i ], [ %p.030.us.i, %sw.bb.us.i ], [ %p.030.us.i, %sw.bb25.us.i ], [ %incdec.ptr.us.i, %if.then44.us.i ]
   %incdec.ptr47.us.i = getelementptr inbounds nuw i8, ptr %p.1.us.i, i64 1
   %cmp.not.us.i = icmp eq ptr %incdec.ptr47.us.i, %protocol.coerce1
   br i1 %cmp.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !47
@@ -1886,10 +1886,10 @@ sw.default.us.us:                                 ; preds = %sw.bb.us.us
   br i1 %or.cond20.us.us, label %return, label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %sw.default.us.us, %sw.bb5.us.us, %sw.bb9.us.us, %sw.bb.us.us, %sw.bb25.us.us, %sw.bb30.us.us, %sw.bb30.us.us, %if.then44.us.us, %sw.bb38.us.us, %sw.bb38.us.us
-  %escape.2.us.us = phi i8 [ 0, %sw.bb9.us.us ], [ 0, %if.then44.us.us ], [ 0, %sw.bb38.us.us ], [ %quote.028.us.us, %sw.bb5.us.us ], [ 0, %sw.bb.us.us ], [ 0, %sw.bb25.us.us ], [ 0, %sw.bb30.us.us ], [ 0, %sw.bb30.us.us ], [ 0, %sw.bb38.us.us ], [ 0, %sw.default.us.us ]
-  %quote.1.us.us = phi i8 [ %frombool.us.us, %sw.bb9.us.us ], [ %quote.028.us.us, %if.then44.us.us ], [ %quote.028.us.us, %sw.bb38.us.us ], [ %quote.028.us.us, %sw.bb5.us.us ], [ %quote.028.us.us, %sw.bb.us.us ], [ %quote.028.us.us, %sw.bb25.us.us ], [ %quote.028.us.us, %sw.bb30.us.us ], [ %quote.028.us.us, %sw.bb30.us.us ], [ %quote.028.us.us, %sw.bb38.us.us ], [ %quote.028.us.us, %sw.default.us.us ]
-  %state.1.us.us = phi i32 [ 0, %sw.bb9.us.us ], [ 0, %if.then44.us.us ], [ 3, %sw.bb38.us.us ], [ 0, %sw.bb5.us.us ], [ 1, %sw.bb.us.us ], [ 2, %sw.bb25.us.us ], [ 3, %sw.bb30.us.us ], [ 3, %sw.bb30.us.us ], [ 3, %sw.bb38.us.us ], [ 0, %sw.default.us.us ]
-  %p.1.us.us = phi ptr [ %p.030.us.us, %sw.bb9.us.us ], [ %incdec.ptr.us.us, %if.then44.us.us ], [ %p.030.us.us, %sw.bb38.us.us ], [ %p.030.us.us, %sw.bb5.us.us ], [ %p.030.us.us, %sw.bb.us.us ], [ %p.030.us.us, %sw.bb25.us.us ], [ %p.030.us.us, %sw.bb30.us.us ], [ %p.030.us.us, %sw.bb30.us.us ], [ %p.030.us.us, %sw.bb38.us.us ], [ %p.030.us.us, %sw.default.us.us ]
+  %escape.2.us.us = phi i8 [ 0, %sw.bb30.us.us ], [ 0, %sw.bb38.us.us ], [ 0, %if.then44.us.us ], [ 0, %sw.bb38.us.us ], [ 0, %sw.bb30.us.us ], [ 0, %sw.bb9.us.us ], [ %quote.028.us.us, %sw.bb5.us.us ], [ 0, %sw.bb.us.us ], [ 0, %sw.bb25.us.us ], [ 0, %sw.default.us.us ]
+  %quote.1.us.us = phi i8 [ %quote.028.us.us, %sw.bb30.us.us ], [ %quote.028.us.us, %sw.bb38.us.us ], [ %quote.028.us.us, %if.then44.us.us ], [ %quote.028.us.us, %sw.bb38.us.us ], [ %quote.028.us.us, %sw.bb30.us.us ], [ %frombool.us.us, %sw.bb9.us.us ], [ %quote.028.us.us, %sw.bb5.us.us ], [ %quote.028.us.us, %sw.bb.us.us ], [ %quote.028.us.us, %sw.bb25.us.us ], [ %quote.028.us.us, %sw.default.us.us ]
+  %state.1.us.us = phi i32 [ 3, %sw.bb30.us.us ], [ 3, %sw.bb38.us.us ], [ 0, %if.then44.us.us ], [ 3, %sw.bb38.us.us ], [ 3, %sw.bb30.us.us ], [ 0, %sw.bb9.us.us ], [ 0, %sw.bb5.us.us ], [ 1, %sw.bb.us.us ], [ 2, %sw.bb25.us.us ], [ 0, %sw.default.us.us ]
+  %p.1.us.us = phi ptr [ %p.030.us.us, %sw.bb30.us.us ], [ %p.030.us.us, %sw.bb38.us.us ], [ %incdec.ptr.us.us, %if.then44.us.us ], [ %p.030.us.us, %sw.bb38.us.us ], [ %p.030.us.us, %sw.bb30.us.us ], [ %p.030.us.us, %sw.bb9.us.us ], [ %p.030.us.us, %sw.bb5.us.us ], [ %p.030.us.us, %sw.bb.us.us ], [ %p.030.us.us, %sw.bb25.us.us ], [ %p.030.us.us, %sw.default.us.us ]
   %incdec.ptr47.us.us = getelementptr inbounds nuw i8, ptr %p.1.us.us, i64 1
   %cmp.not.us.us = icmp eq ptr %incdec.ptr47.us.us, %value.coerce1
   br i1 %cmp.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !47
@@ -1952,10 +1952,10 @@ sw.default.us:                                    ; preds = %sw.bb.us
   br i1 %or.cond, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %sw.default.us, %sw.bb5.us, %sw.bb9.us, %sw.bb.us, %sw.bb25.us, %sw.bb30.us, %sw.bb30.us, %if.then44.us, %sw.bb38.us, %sw.bb38.us
-  %escape.2.us = phi i8 [ 0, %sw.bb9.us ], [ 0, %if.then44.us ], [ 0, %sw.bb38.us ], [ %quote.028.us, %sw.bb5.us ], [ 0, %sw.bb.us ], [ 0, %sw.bb25.us ], [ 0, %sw.bb30.us ], [ 0, %sw.bb30.us ], [ 0, %sw.bb38.us ], [ 0, %sw.default.us ]
-  %quote.1.us = phi i8 [ %frombool.us, %sw.bb9.us ], [ %quote.028.us, %if.then44.us ], [ %quote.028.us, %sw.bb38.us ], [ %quote.028.us, %sw.bb5.us ], [ %quote.028.us, %sw.bb.us ], [ %quote.028.us, %sw.bb25.us ], [ %quote.028.us, %sw.bb30.us ], [ %quote.028.us, %sw.bb30.us ], [ %quote.028.us, %sw.bb38.us ], [ %quote.028.us, %sw.default.us ]
-  %state.1.us = phi i32 [ 0, %sw.bb9.us ], [ 0, %if.then44.us ], [ 3, %sw.bb38.us ], [ 0, %sw.bb5.us ], [ 1, %sw.bb.us ], [ 2, %sw.bb25.us ], [ 3, %sw.bb30.us ], [ 3, %sw.bb30.us ], [ 3, %sw.bb38.us ], [ 0, %sw.default.us ]
-  %p.1.us = phi ptr [ %p.030.us, %sw.bb9.us ], [ %incdec.ptr.us, %if.then44.us ], [ %p.030.us, %sw.bb38.us ], [ %p.030.us, %sw.bb5.us ], [ %p.030.us, %sw.bb.us ], [ %p.030.us, %sw.bb25.us ], [ %p.030.us, %sw.bb30.us ], [ %p.030.us, %sw.bb30.us ], [ %p.030.us, %sw.bb38.us ], [ %p.030.us, %sw.default.us ]
+  %escape.2.us = phi i8 [ 0, %sw.bb30.us ], [ 0, %sw.bb38.us ], [ 0, %sw.default.us ], [ 0, %sw.bb38.us ], [ 0, %sw.bb30.us ], [ 0, %sw.bb9.us ], [ %quote.028.us, %sw.bb5.us ], [ 0, %sw.bb.us ], [ 0, %sw.bb25.us ], [ 0, %if.then44.us ]
+  %quote.1.us = phi i8 [ %quote.028.us, %sw.bb30.us ], [ %quote.028.us, %sw.bb38.us ], [ %quote.028.us, %sw.default.us ], [ %quote.028.us, %sw.bb38.us ], [ %quote.028.us, %sw.bb30.us ], [ %frombool.us, %sw.bb9.us ], [ %quote.028.us, %sw.bb5.us ], [ %quote.028.us, %sw.bb.us ], [ %quote.028.us, %sw.bb25.us ], [ %quote.028.us, %if.then44.us ]
+  %state.1.us = phi i32 [ 3, %sw.bb30.us ], [ 3, %sw.bb38.us ], [ 0, %sw.default.us ], [ 3, %sw.bb38.us ], [ 3, %sw.bb30.us ], [ 0, %sw.bb9.us ], [ 0, %sw.bb5.us ], [ 1, %sw.bb.us ], [ 2, %sw.bb25.us ], [ 0, %if.then44.us ]
+  %p.1.us = phi ptr [ %p.030.us, %sw.bb30.us ], [ %p.030.us, %sw.bb38.us ], [ %p.030.us, %sw.default.us ], [ %p.030.us, %sw.bb38.us ], [ %p.030.us, %sw.bb30.us ], [ %p.030.us, %sw.bb9.us ], [ %p.030.us, %sw.bb5.us ], [ %p.030.us, %sw.bb.us ], [ %p.030.us, %sw.bb25.us ], [ %incdec.ptr.us, %if.then44.us ]
   %incdec.ptr47.us = getelementptr inbounds nuw i8, ptr %p.1.us, i64 1
   %cmp.not.us = icmp eq ptr %incdec.ptr47.us, %value.coerce1
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !47
@@ -2023,10 +2023,10 @@ sw.default.us50:                                  ; preds = %sw.bb.us44
   br i1 %or.cond20.us55, label %return, label %for.inc.us59
 
 for.inc.us59:                                     ; preds = %sw.default.us50, %sw.bb5.us48, %sw.bb9.us45, %sw.bb.us44, %sw.bb25.us42, %sw.bb30.us41, %sw.bb30.us41, %if.then44.us39, %sw.bb38.us38, %sw.bb38.us38, %for.body.us33
-  %escape.2.us60 = phi i8 [ 0, %sw.bb9.us45 ], [ 0, %if.then44.us39 ], [ 0, %sw.bb38.us38 ], [ %quote.028.us36, %sw.bb5.us48 ], [ 0, %sw.bb.us44 ], [ 0, %sw.bb25.us42 ], [ 0, %sw.bb30.us41 ], [ 0, %sw.bb30.us41 ], [ 0, %sw.bb38.us38 ], [ 0, %for.body.us33 ], [ 0, %sw.default.us50 ]
-  %quote.1.us61 = phi i8 [ %frombool.us47, %sw.bb9.us45 ], [ %quote.028.us36, %if.then44.us39 ], [ %quote.028.us36, %sw.bb38.us38 ], [ %quote.028.us36, %sw.bb5.us48 ], [ %quote.028.us36, %sw.bb.us44 ], [ %quote.028.us36, %sw.bb25.us42 ], [ %quote.028.us36, %sw.bb30.us41 ], [ %quote.028.us36, %sw.bb30.us41 ], [ %quote.028.us36, %sw.bb38.us38 ], [ %quote.028.us36, %for.body.us33 ], [ %quote.028.us36, %sw.default.us50 ]
-  %state.1.us62 = phi i32 [ 0, %sw.bb9.us45 ], [ 0, %if.then44.us39 ], [ 3, %sw.bb38.us38 ], [ 0, %sw.bb5.us48 ], [ 1, %sw.bb.us44 ], [ 2, %sw.bb25.us42 ], [ 3, %sw.bb30.us41 ], [ 3, %sw.bb30.us41 ], [ 3, %sw.bb38.us38 ], [ %state.029.us35, %for.body.us33 ], [ 0, %sw.default.us50 ]
-  %p.1.us63 = phi ptr [ %p.030.us34, %sw.bb9.us45 ], [ %incdec.ptr.us40, %if.then44.us39 ], [ %p.030.us34, %sw.bb38.us38 ], [ %p.030.us34, %sw.bb5.us48 ], [ %p.030.us34, %sw.bb.us44 ], [ %p.030.us34, %sw.bb25.us42 ], [ %p.030.us34, %sw.bb30.us41 ], [ %p.030.us34, %sw.bb30.us41 ], [ %p.030.us34, %sw.bb38.us38 ], [ %p.030.us34, %for.body.us33 ], [ %p.030.us34, %sw.default.us50 ]
+  %escape.2.us60 = phi i8 [ 0, %for.body.us33 ], [ 0, %sw.bb38.us38 ], [ 0, %sw.bb30.us41 ], [ 0, %sw.bb38.us38 ], [ 0, %sw.bb30.us41 ], [ 0, %sw.bb9.us45 ], [ %quote.028.us36, %sw.bb5.us48 ], [ 0, %sw.bb.us44 ], [ 0, %sw.bb25.us42 ], [ 0, %if.then44.us39 ], [ 0, %sw.default.us50 ]
+  %quote.1.us61 = phi i8 [ %quote.028.us36, %for.body.us33 ], [ %quote.028.us36, %sw.bb38.us38 ], [ %quote.028.us36, %sw.bb30.us41 ], [ %quote.028.us36, %sw.bb38.us38 ], [ %quote.028.us36, %sw.bb30.us41 ], [ %frombool.us47, %sw.bb9.us45 ], [ %quote.028.us36, %sw.bb5.us48 ], [ %quote.028.us36, %sw.bb.us44 ], [ %quote.028.us36, %sw.bb25.us42 ], [ %quote.028.us36, %if.then44.us39 ], [ %quote.028.us36, %sw.default.us50 ]
+  %state.1.us62 = phi i32 [ %state.029.us35, %for.body.us33 ], [ 3, %sw.bb38.us38 ], [ 3, %sw.bb30.us41 ], [ 3, %sw.bb38.us38 ], [ 3, %sw.bb30.us41 ], [ 0, %sw.bb9.us45 ], [ 0, %sw.bb5.us48 ], [ 1, %sw.bb.us44 ], [ 2, %sw.bb25.us42 ], [ 0, %if.then44.us39 ], [ 0, %sw.default.us50 ]
+  %p.1.us63 = phi ptr [ %p.030.us34, %for.body.us33 ], [ %p.030.us34, %sw.bb38.us38 ], [ %p.030.us34, %sw.bb30.us41 ], [ %p.030.us34, %sw.bb38.us38 ], [ %p.030.us34, %sw.bb30.us41 ], [ %p.030.us34, %sw.bb9.us45 ], [ %p.030.us34, %sw.bb5.us48 ], [ %p.030.us34, %sw.bb.us44 ], [ %p.030.us34, %sw.bb25.us42 ], [ %incdec.ptr.us40, %if.then44.us39 ], [ %p.030.us34, %sw.default.us50 ]
   %incdec.ptr47.us64 = getelementptr inbounds nuw i8, ptr %p.1.us63, i64 1
   %cmp.not.us65 = icmp eq ptr %incdec.ptr47.us64, %value.coerce1
   br i1 %cmp.not.us65, label %for.end, label %for.body.us33, !llvm.loop !47
@@ -2035,8 +2035,8 @@ if.end4.us37.unreachabledefault:                  ; preds = %if.end4.us37
   unreachable
 
 for.end:                                          ; preds = %for.inc.us, %for.inc.us59, %for.inc.us.us
-  %escape.0.lcssa = phi i8 [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us60, %for.inc.us59 ], [ %escape.2.us, %for.inc.us ]
-  %state.0.lcssa = phi i32 [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us62, %for.inc.us59 ], [ %state.1.us, %for.inc.us ]
+  %escape.0.lcssa = phi i8 [ %escape.2.us60, %for.inc.us59 ], [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2.us, %for.inc.us ]
+  %state.0.lcssa = phi i32 [ %state.1.us62, %for.inc.us59 ], [ %state.1.us.us, %for.inc.us.us ], [ %state.1.us, %for.inc.us ]
   %tobool48 = trunc nuw i8 %escape.0.lcssa to i1
   br i1 %tobool48, label %return, label %land.rhs
 
@@ -2048,7 +2048,7 @@ land.rhs:                                         ; preds = %entry, %for.end
   br label %return
 
 return:                                           ; preds = %sw.bb30.us, %sw.bb25.us, %sw.default.us, %sw.bb30.us41, %sw.bb25.us42, %sw.default.us50, %sw.bb30.us.us, %sw.bb25.us.us, %sw.default.us.us, %for.end, %land.rhs
-  %retval.0 = phi i1 [ false, %for.end ], [ %4, %land.rhs ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.bb30.us.us ], [ false, %sw.default.us50 ], [ false, %sw.bb25.us42 ], [ false, %sw.bb30.us41 ], [ false, %sw.default.us ], [ false, %sw.bb25.us ], [ false, %sw.bb30.us ]
+  %retval.0 = phi i1 [ %4, %land.rhs ], [ false, %for.end ], [ false, %sw.bb30.us41 ], [ false, %sw.bb30.us.us ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.default.us50 ], [ false, %sw.bb25.us42 ], [ false, %sw.default.us ], [ false, %sw.bb25.us ], [ false, %sw.bb30.us ]
   ret i1 %retval.0
 }
 
@@ -2081,7 +2081,7 @@ land.lhs.true.i.i.i:                              ; preds = %_ZNSt11char_traitsI
   br label %_ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit
 
 _ZN5follyneIPKcEEbRKNS_5RangeIT_EES7_.exit:       ; preds = %entry, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %land.lhs.true.i.i.i
-  %lnot.i = phi i1 [ true, %entry ], [ false, %land.lhs.true.i.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %lnot.i = phi i1 [ true, %entry ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %land.lhs.true.i.i.i ]
   ret i1 %lnot.i
 }
 
@@ -2766,8 +2766,8 @@ if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end21.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ %3, %if.end21.loopexit.i.i ], [ 0, %if.end.i.i ]
-  %4 = phi ptr [ %.pre.i.i, %if.end21.loopexit.i.i ], [ %.pre24.i.i, %if.end.i.i ]
+  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end21.loopexit.i.i ]
+  %4 = phi ptr [ %.pre24.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end21.loopexit.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -2901,8 +2901,8 @@ if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end21.loopexit.i.i, %if.end.i.i
-  %.pre9 = phi i64 [ %3, %if.end21.loopexit.i.i ], [ 0, %if.end.i.i ]
-  %4 = phi ptr [ %.pre.i.i, %if.end21.loopexit.i.i ], [ %.pre24.i.i, %if.end.i.i ]
+  %.pre9 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end21.loopexit.i.i ]
+  %4 = phi ptr [ %.pre24.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end21.loopexit.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
@@ -4086,8 +4086,8 @@ if.end21.loopexit.i.i:                            ; preds = %for.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end21.loopexit.i.i, %if.end.i.i
-  %.pre8 = phi i64 [ %3, %if.end21.loopexit.i.i ], [ 0, %if.end.i.i ]
-  %4 = phi ptr [ %.pre.i.i, %if.end21.loopexit.i.i ], [ %.pre24.i.i, %if.end.i.i ]
+  %.pre8 = phi i64 [ 0, %if.end.i.i ], [ %3, %if.end21.loopexit.i.i ]
+  %4 = phi ptr [ %.pre24.i.i, %if.end.i.i ], [ %.pre.i.i, %if.end21.loopexit.i.i ]
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit16.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i

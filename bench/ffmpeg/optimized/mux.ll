@@ -843,12 +843,12 @@ validate_codec_tag.exit254.i:                     ; preds = %247, %validate_code
   br label %337
 
 .thread275.i:                                     ; preds = %305, %299, %265, %.thread266.i, %148, %125, %93, %70, %41, %31, %25, %12
-  %.0151.i = phi i32 [ %13, %12 ], [ %26, %25 ], [ %307, %305 ], [ -22, %41 ], [ -12, %31 ], [ -12, %299 ], [ -22, %93 ], [ -22, %125 ], [ -22, %70 ], [ -1094995529, %265 ], [ -22, %148 ], [ -22, %.thread266.i ]
+  %.0151.i = phi i32 [ %13, %12 ], [ %26, %25 ], [ %307, %305 ], [ -12, %31 ], [ -12, %299 ], [ -22, %41 ], [ -22, %125 ], [ -22, %70 ], [ -22, %93 ], [ -1094995529, %265 ], [ -22, %148 ], [ -22, %.thread266.i ]
   call void @av_dict_free(ptr noundef nonnull %3) #13
   br label %init_muxer.exit.thread
 
-init_muxer.exit.thread:                           ; preds = %.thread275.i, %333, %330
-  %.0.i.ph = phi i32 [ %328, %330 ], [ %328, %333 ], [ %.0151.i, %.thread275.i ]
+init_muxer.exit.thread:                           ; preds = %.thread275.i, %330, %333
+  %.0.i.ph = phi i32 [ %328, %333 ], [ %328, %330 ], [ %.0151.i, %.thread275.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -962,8 +962,8 @@ init_muxer.exit.thread:                           ; preds = %.thread275.i, %333,
   store i32 -1, ptr %369, align 8, !tbaa !104
   br label %init_pts.exit
 
-init_pts.exit:                                    ; preds = %359, %378, %377, %381, %379, %init_muxer.exit.thread, %337
-  %.0 = phi i32 [ 0, %337 ], [ %.0.i.ph, %init_muxer.exit.thread ], [ 1, %379 ], [ 1, %381 ], [ 1, %377 ], [ 1, %378 ], [ -1094995529, %359 ]
+init_pts.exit:                                    ; preds = %359, %377, %381, %379, %378, %init_muxer.exit.thread, %337
+  %.0 = phi i32 [ %.0.i.ph, %init_muxer.exit.thread ], [ 0, %337 ], [ 1, %378 ], [ 1, %379 ], [ 1, %381 ], [ 1, %377 ], [ -1094995529, %359 ]
   ret i32 %.0
 }
 
@@ -1206,8 +1206,8 @@ deinit_muxer.exit:                                ; preds = %init_pts.exit, %104
   store i32 0, ptr %3, align 8, !tbaa !89
   br label %init_pts.exit.thread
 
-init_pts.exit.thread:                             ; preds = %99, %98, %102, %100, %62, %7, %deinit_muxer.exit
-  %.027 = phi i32 [ %.1, %deinit_muxer.exit ], [ %8, %7 ], [ %6, %62 ], [ %6, %100 ], [ %6, %102 ], [ %6, %98 ], [ %6, %99 ]
+init_pts.exit.thread:                             ; preds = %98, %102, %100, %99, %62, %7, %deinit_muxer.exit
+  %.027 = phi i32 [ %.1, %deinit_muxer.exit ], [ %8, %7 ], [ %6, %62 ], [ %6, %99 ], [ %6, %100 ], [ %6, %102 ], [ %6, %98 ]
   ret i32 %.027
 }
 
@@ -1526,8 +1526,8 @@ define range(i32 -2147483648, 2) i32 @ff_interleave_packet_per_dts(ptr noundef %
   br label %35
 
 35:                                               ; preds = %30, %30, %30, %28, %33, %26
-  %.175 = phi i32 [ %.07496, %26 ], [ %34, %33 ], [ %.07496, %30 ], [ %.07496, %28 ], [ %.07496, %30 ], [ %.07496, %30 ]
-  %.173 = phi i32 [ %27, %26 ], [ %.07297, %33 ], [ %.07297, %30 ], [ %.07297, %28 ], [ %.07297, %30 ], [ %.07297, %30 ]
+  %.175 = phi i32 [ %.07496, %26 ], [ %34, %33 ], [ %.07496, %30 ], [ %.07496, %30 ], [ %.07496, %30 ], [ %.07496, %28 ]
+  %.173 = phi i32 [ %27, %26 ], [ %.07297, %33 ], [ %.07297, %30 ], [ %.07297, %30 ], [ %.07297, %30 ], [ %.07297, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !132
@@ -1610,7 +1610,7 @@ define range(i32 -2147483648, 2) i32 @ff_interleave_packet_per_dts(ptr noundef %
   br label %78
 
 78:                                               ; preds = %77, %39, %36, %._crit_edge
-  %.1 = phi i32 [ %spec.select, %39 ], [ %spec.select, %36 ], [ %spec.select, %._crit_edge ], [ 1, %77 ]
+  %.1 = phi i32 [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %spec.select, %36 ], [ 1, %77 ]
   %79 = icmp ne i32 %.072.lcssa, 0
   %80 = icmp ne i32 %.1, 0
   %or.cond3 = and i1 %79, %80
@@ -1640,7 +1640,7 @@ define range(i32 -2147483648, 2) i32 @ff_interleave_packet_per_dts(ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %47, %._crit_edge104, %44, %78, %5, %95
-  %.0 = phi i32 [ 1, %95 ], [ %6, %5 ], [ 0, %78 ], [ 0, %44 ], [ 0, %._crit_edge104 ], [ 0, %47 ]
+  %.0 = phi i32 [ %6, %5 ], [ 1, %95 ], [ 0, %78 ], [ 0, %44 ], [ 0, %._crit_edge104 ], [ 0, %47 ]
   ret i32 %.0
 }
 
@@ -1791,7 +1791,7 @@ define range(i32 -22, 1) i32 @ff_get_muxer_ts_offset(ptr noundef readonly captur
   br label %23
 
 23:                                               ; preds = %8, %18, %3, %5
-  %.0 = phi i32 [ -22, %5 ], [ -22, %3 ], [ 0, %18 ], [ 0, %8 ]
+  %.0 = phi i32 [ -22, %3 ], [ -22, %5 ], [ 0, %18 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -1933,7 +1933,7 @@ flush_if_needed.exit:                             ; preds = %11, %17, %29, %30, 
   br i1 %.not44, label %63, label %61
 
 61:                                               ; preds = %44, %57, %59
-  %.030 = phi ptr [ %4, %59 ], [ %4, %57 ], [ %1, %44 ]
+  %.030 = phi ptr [ %4, %57 ], [ %4, %59 ], [ %1, %44 ]
   %62 = tail call fastcc i32 @write_packets_common(ptr noundef nonnull %0, ptr noundef nonnull %.030, i32 noundef 0)
   br label %63
 
@@ -1944,7 +1944,7 @@ flush_if_needed.exit:                             ; preds = %11, %17, %29, %30, 
   br label %64
 
 64:                                               ; preds = %40, %48, %5, %flush_if_needed.exit, %38, %63
-  %.032 = phi i32 [ %.1, %63 ], [ %14, %38 ], [ %14, %flush_if_needed.exit ], [ %spec.select, %40 ], [ 1, %5 ], [ %55, %48 ]
+  %.032 = phi i32 [ %.1, %63 ], [ 1, %5 ], [ %55, %48 ], [ %14, %flush_if_needed.exit ], [ %spec.select, %40 ], [ %14, %38 ]
   ret i32 %.032
 }
 
@@ -2065,7 +2065,7 @@ prepare_input_packet.exit.thread:                 ; preds = %26, %29, %prepare_i
   br label %check_bitstream.exit
 
 check_bitstream.exit:                             ; preds = %20, %9, %45, %prepare_input_packet.exit, %56, %54
-  %.0 = phi i32 [ %55, %54 ], [ %57, %56 ], [ %32, %prepare_input_packet.exit ], [ %46, %45 ], [ -22, %9 ], [ -22, %20 ]
+  %.0 = phi i32 [ %57, %56 ], [ %46, %45 ], [ %32, %prepare_input_packet.exit ], [ %55, %54 ], [ -22, %9 ], [ -22, %20 ]
   ret i32 %.0
 }
 
@@ -2103,7 +2103,7 @@ define i32 @av_interleaved_write_frame(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %17, label %11, label %interleaved_write_packet.exit
 
 interleaved_write_packet.exit:                    ; preds = %15, %11, %3, %6
-  %.0 = phi i32 [ %4, %6 ], [ %4, %3 ], [ %13, %11 ], [ %16, %15 ]
+  %.0 = phi i32 [ %4, %3 ], [ %4, %6 ], [ %13, %11 ], [ %16, %15 ]
   ret i32 %.0
 }
 
@@ -2381,7 +2381,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_packets_from_bsfs(pt
   br i1 %36, label %.split.us, label %.lr.ph, !llvm.loop !154
 
 .thread:                                          ; preds = %16, %.lr.ph, %27, %.split.us, %.split.us, %21
-  %.036 = phi i32 [ %8, %21 ], [ 0, %.split.us ], [ 0, %.split.us ], [ %.us-phi, %27 ], [ %33, %.lr.ph ], [ %19, %16 ]
+  %.036 = phi i32 [ %8, %21 ], [ 0, %.split.us ], [ %.us-phi, %27 ], [ 0, %.split.us ], [ %33, %.lr.ph ], [ %19, %16 ]
   ret i32 %.036
 }
 
@@ -2505,7 +2505,7 @@ define range(i32 -2147483648, 2) i32 @ff_stream_add_bitstream_filter(ptr noundef
   br label %46
 
 46:                                               ; preds = %11, %43, %42, %37, %25, %10
-  %.0 = phi i32 [ %23, %25 ], [ %35, %37 ], [ %40, %42 ], [ 1, %43 ], [ -1179861752, %10 ], [ %12, %11 ]
+  %.0 = phi i32 [ -1179861752, %10 ], [ %23, %25 ], [ %35, %37 ], [ %40, %42 ], [ 1, %43 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -2701,7 +2701,7 @@ define internal fastcc i32 @write_uncoded_frame_internal(ptr noundef %0, i32 nou
   br label %av_interleaved_write_frame.exit
 
 av_interleaved_write_frame.exit:                  ; preds = %47, %43, %39, %36, %50, %21, %14
-  %.0 = phi i32 [ -12, %21 ], [ -38, %14 ], [ %51, %50 ], [ %37, %39 ], [ %37, %36 ], [ %48, %47 ], [ %45, %43 ]
+  %.0 = phi i32 [ -38, %14 ], [ -12, %21 ], [ %51, %50 ], [ %37, %36 ], [ %37, %39 ], [ %48, %47 ], [ %45, %43 ]
   ret i32 %.0
 }
 
@@ -3056,7 +3056,7 @@ av_ts_make_string.exit154.i:                      ; preds = %130, %129
   br label %thread-pre-split.i26
 
 thread-pre-split.i26:                             ; preds = %145, %136
-  %.pr165.i = phi i64 [ %142, %145 ], [ %138, %136 ]
+  %.pr165.i = phi i64 [ %138, %136 ], [ %142, %145 ]
   %cond.i = icmp eq i64 %.pr165.i, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !124
@@ -3512,7 +3512,7 @@ compute_muxer_pkt_fields.exit.thread:             ; preds = %257, %268, %frac_ad
   br label %interleaved_write_packet.exit
 
 interleaved_write_packet.exit:                    ; preds = %342, %338, %330, %319, %345
-  %.0 = phi i32 [ %346, %345 ], [ -22, %319 ], [ -22, %330 ], [ %340, %338 ], [ %343, %342 ]
+  %.0 = phi i32 [ -22, %330 ], [ -22, %319 ], [ %346, %345 ], [ %340, %338 ], [ %343, %342 ]
   ret i32 %.0
 }
 

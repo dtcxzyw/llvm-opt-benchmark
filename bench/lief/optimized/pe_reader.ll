@@ -1358,12 +1358,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit278: ; preds = %.lr.
   br label %.body
 
 .body:                                            ; preds = %612, %524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i, %470, %368, %327, %287, %250, %208
-  %.pn93.pn.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %251, %250 ], [ %288, %287 ], [ %328, %327 ], [ %369, %368 ], [ %471, %470 ], [ %525, %524 ], [ %508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %613, %612 ]
+  %.pn93.pn.pn.pn = phi { ptr, i32 } [ %525, %524 ], [ %251, %250 ], [ %288, %287 ], [ %508, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %471, %470 ], [ %328, %327 ], [ %613, %612 ], [ %369, %368 ], [ %209, %208 ]
   %.not.i290 = icmp eq ptr %94, null
   br i1 %.not.i290, label %_ZNSt10unique_ptrIKN4LIEF2PE6BinaryESt14default_deleteIS3_EED2Ev.exit292, label %_ZNKSt14default_deleteIKN4LIEF2PE6BinaryEEclEPS3_.exit.i291
 
 _ZNKSt14default_deleteIKN4LIEF2PE6BinaryEEclEPS3_.exit.i291: ; preds = %210, %397, %427, %584, %.body
-  %.pn93.pn.pn.pn397 = phi { ptr, i32 } [ %.pn93.pn.pn.pn, %.body ], [ %211, %210 ], [ %398, %397 ], [ %428, %427 ], [ %.pn67, %584 ]
+  %.pn93.pn.pn.pn397 = phi { ptr, i32 } [ %.pn93.pn.pn.pn, %.body ], [ %398, %397 ], [ %428, %427 ], [ %.pn67, %584 ], [ %211, %210 ]
   %614 = load ptr, ptr %94, align 8, !tbaa !7
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 24
   %616 = load ptr, ptr %615, align 8

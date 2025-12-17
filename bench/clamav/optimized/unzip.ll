@@ -312,8 +312,8 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not145, label %.thread182, label %.preheader
 
 .preheader:                                       ; preds = %22, %42, %105, %26, %50, %41, %94, %101, %76
-  %.0103177 = phi i32 [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %41 ], [ 26, %76 ], [ 21, %101 ], [ 26, %94 ], [ 1, %22 ], [ 20, %42 ]
-  %.0109176 = phi i1 [ %.not230.not.not.not.not, %105 ], [ false, %50 ], [ false, %26 ], [ false, %41 ], [ %.not230.not.not.not.not, %76 ], [ %.not230.not.not.not.not, %101 ], [ %.not230.not.not.not.not, %94 ], [ false, %42 ], [ false, %22 ]
+  %.0103177 = phi i32 [ 26, %41 ], [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %94 ], [ 26, %76 ], [ 21, %101 ], [ 1, %22 ], [ 20, %42 ]
+  %.0109176 = phi i1 [ false, %41 ], [ %.not230.not.not.not.not, %105 ], [ false, %50 ], [ false, %26 ], [ %.not230.not.not.not.not, %94 ], [ %.not230.not.not.not.not, %76 ], [ %.not230.not.not.not.not, %101 ], [ false, %42 ], [ false, %22 ]
   %.not231 = icmp eq i64 %spec.select, 0
   br i1 %.not231, label %._crit_edge, label %.lr.ph
 
@@ -341,7 +341,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.thread182
 
 .thread182:                                       ; preds = %._crit_edge, %11, %.loopexit, %10, %105
-  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ 20, %11 ], [ %spec.select292, %._crit_edge ]
+  %.7 = phi i32 [ 0, %105 ], [ 0, %.loopexit ], [ 0, %10 ], [ %spec.select292, %._crit_edge ], [ 20, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.7
 }
@@ -508,7 +508,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   br label %99
 
 99:                                               ; preds = %.thread, %98
-  %100 = phi i32 [ %94, %98 ], [ %92, %.thread ]
+  %100 = phi i32 [ %92, %.thread ], [ %94, %98 ]
   %101 = load i16, ptr %50, align 1, !tbaa !58
   %102 = zext i16 %101 to i32
   %103 = add i32 %100, %102
@@ -589,8 +589,8 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   br label %.thread3
 
 .thread3:                                         ; preds = %._crit_edge, %115, %112, %85, %61, %.thread19
-  %.011 = phi i32 [ %106, %._crit_edge ], [ %103, %.thread19 ], [ %108, %115 ], [ %108, %112 ], [ %72, %85 ], [ %33, %61 ]
-  %.0979 = phi i32 [ 0, %._crit_edge ], [ 1, %.thread19 ], [ %.245, %115 ], [ %.245, %112 ], [ 1, %85 ], [ 1, %61 ]
+  %.011 = phi i32 [ %103, %.thread19 ], [ %106, %._crit_edge ], [ %108, %115 ], [ %108, %112 ], [ %72, %85 ], [ %33, %61 ]
+  %.0979 = phi i32 [ 1, %.thread19 ], [ 0, %._crit_edge ], [ %.245, %115 ], [ %.245, %112 ], [ 1, %85 ], [ 1, %61 ]
   %137 = getelementptr i8, ptr %0, i64 16
   %.val.i119 = load ptr, ptr %137, align 8, !tbaa !59
   %138 = getelementptr i8, ptr %0, i64 72
@@ -607,7 +607,7 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread3, %11, %.critedge
-  %146 = phi i32 [ 0, %.critedge ], [ 0, %11 ], [ %spec.select50, %.thread3 ]
+  %146 = phi i32 [ 0, %11 ], [ 0, %.critedge ], [ %spec.select50, %.thread3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %146
 }
@@ -1208,7 +1208,7 @@ zinitkey.exit:                                    ; preds = %zinitkey.exit.loope
   %132 = icmp eq i32 %122, %131
   br i1 %132, label %select.unfold, label %204
 
-select.unfold:                                    ; preds = %128, %123, %110, %104
+select.unfold:                                    ; preds = %104, %128, %110, %123
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %133 = load ptr, ptr %42, align 8, !tbaa !83
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.44, ptr noundef %133) #13
@@ -1342,7 +1342,7 @@ select.unfold:                                    ; preds = %128, %123, %110, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %175, %188, %185, %180
-  %.0103 = phi i32 [ %193, %188 ], [ 12, %185 ], [ 19, %180 ], [ 14, %175 ], [ 14, %170 ]
+  %.0103 = phi i32 [ 19, %180 ], [ %193, %188 ], [ 12, %185 ], [ 14, %175 ], [ 14, %170 ]
   %196 = call i32 @close(i32 noundef %138) #13
   %197 = load ptr, ptr %15, align 8, !tbaa !12
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
@@ -1359,7 +1359,7 @@ select.unfold:                                    ; preds = %128, %123, %110, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %200, %141, %202
-  %.1.ph = phi i32 [ %.0103, %202 ], [ 17, %141 ], [ 10, %200 ]
+  %.1.ph = phi i32 [ 17, %141 ], [ %.0103, %202 ], [ 10, %200 ]
   call void @free(ptr noundef %136) #13
   br label %203
 
@@ -1368,7 +1368,7 @@ select.unfold:                                    ; preds = %128, %123, %110, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %215
 
-204:                                              ; preds = %104, %110, %123, %128
+204:                                              ; preds = %123, %110, %128, %104
   br i1 %41, label %205, label %208
 
 205:                                              ; preds = %204
@@ -1432,7 +1432,7 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not, label %179, label %28
 
 28:                                               ; preds = %24, %26
-  %.0143 = phi ptr [ %25, %24 ], [ %27, %26 ]
+  %.0143 = phi ptr [ %27, %26 ], [ %25, %24 ]
   %29 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %.0143, i32 noundef 578, i32 noundef 384) #13
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %32
@@ -1684,8 +1684,8 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %122
 
 122:                                              ; preds = %120, %.thread13, %.thread7, %97
-  %.4137 = phi i32 [ 0, %97 ], [ 14, %.thread13 ], [ 0, %.thread7 ], [ 0, %120 ]
-  %.5 = phi i32 [ 1, %97 ], [ 100, %.thread13 ], [ 0, %.thread7 ], [ %spec.select26, %120 ]
+  %.4137 = phi i32 [ 0, %97 ], [ 14, %.thread13 ], [ 0, %120 ], [ 0, %.thread7 ]
+  %.5 = phi i32 [ 1, %97 ], [ 100, %.thread13 ], [ %spec.select26, %120 ], [ 0, %.thread7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %155
 
@@ -1770,8 +1770,8 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %.thread17
 
 155:                                              ; preds = %42, %.loopexit29, %122, %90
-  %.1134 = phi i32 [ 0, %42 ], [ %.2135, %90 ], [ %.4137, %122 ], [ %.6139, %.loopexit29 ]
-  %.2132 = phi i32 [ %46, %42 ], [ %.3, %90 ], [ %.5, %122 ], [ %.7, %.loopexit29 ]
+  %.1134 = phi i32 [ %.2135, %90 ], [ %.4137, %122 ], [ %.6139, %.loopexit29 ], [ 0, %42 ]
+  %.2132 = phi i32 [ %.3, %90 ], [ %.5, %122 ], [ %.7, %.loopexit29 ], [ %46, %42 ]
   %.not182 = icmp eq i32 %.2132, 0
   br i1 %.not182, label %.thread22, label %.thread17
 
@@ -1811,8 +1811,8 @@ define internal fastcc i32 @unz(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   call void @free(ptr noundef nonnull %.0143) #13
   br label %179
 
-.thread17:                                        ; preds = %57, %153, %41, %154, %155
-  %.113421 = phi i32 [ %.1134, %155 ], [ 14, %57 ], [ 0, %153 ], [ %39, %41 ], [ 0, %154 ]
+.thread17:                                        ; preds = %41, %153, %57, %154, %155
+  %.113421 = phi i32 [ %.1134, %155 ], [ %39, %41 ], [ 0, %153 ], [ 14, %57 ], [ 0, %154 ]
   %172 = call i32 @close(i32 noundef %29) #13
   %173 = load ptr, ptr %16, align 8, !tbaa !12
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 40
@@ -2520,7 +2520,7 @@ define i32 @unzip_search(ptr noundef %0, ptr noundef %1, ptr noundef captures(ad
   br label %60
 
 60:                                               ; preds = %3, %.critedge, %18
-  %.0 = phi i32 [ 0, %18 ], [ %59, %.critedge ], [ 2, %3 ]
+  %.0 = phi i32 [ %59, %.critedge ], [ 0, %18 ], [ 2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -2555,7 +2555,7 @@ define i32 @unzip_search_single(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %15
 
 15:                                               ; preds = %6, %12, %4
-  %.0 = phi i32 [ 2, %4 ], [ 1, %12 ], [ %10, %6 ]
+  %.0 = phi i32 [ 2, %4 ], [ %10, %6 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

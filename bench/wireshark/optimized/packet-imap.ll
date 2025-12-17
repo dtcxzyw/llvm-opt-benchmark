@@ -1028,8 +1028,8 @@ proto_item_set_generated.exit62.i:                ; preds = %482, %479, %proto_i
   br label %imap_match_request.exit
 
 imap_match_request.exit:                          ; preds = %proto_item_set_generated.exit62.i, %.thread73.i, %461, %458, %455, %.thread79.i, %.thread69.i, %.thread76.i, %436, %435, %431, %430, %.thread429, %.thread446
-  %.4393 = phi i8 [ 0, %.thread446 ], [ %.3392.ph, %.thread429 ], [ 0, %430 ], [ 0, %431 ], [ 0, %435 ], [ 0, %436 ], [ 0, %.thread76.i ], [ 0, %.thread69.i ], [ 0, %.thread79.i ], [ 0, %455 ], [ 0, %458 ], [ 0, %461 ], [ 0, %.thread73.i ], [ 0, %proto_item_set_generated.exit62.i ]
-  %.1310 = phi i32 [ %.2311, %.thread446 ], [ %89, %.thread429 ], [ %.2311, %430 ], [ %.2311, %431 ], [ %.2311, %435 ], [ %.2311, %436 ], [ %.2311, %.thread76.i ], [ %.2311, %.thread69.i ], [ %.2311, %.thread79.i ], [ %.2311, %455 ], [ %.2311, %458 ], [ %.2311, %461 ], [ %.2311, %.thread73.i ], [ %.2311, %proto_item_set_generated.exit62.i ]
+  %.4393 = phi i8 [ %.3392.ph, %.thread429 ], [ 0, %.thread446 ], [ 0, %430 ], [ 0, %431 ], [ 0, %435 ], [ 0, %436 ], [ 0, %.thread76.i ], [ 0, %.thread69.i ], [ 0, %.thread79.i ], [ 0, %455 ], [ 0, %458 ], [ 0, %461 ], [ 0, %.thread73.i ], [ 0, %proto_item_set_generated.exit62.i ]
+  %.1310 = phi i32 [ %89, %.thread429 ], [ %.2311, %.thread446 ], [ %.2311, %430 ], [ %.2311, %431 ], [ %.2311, %435 ], [ %.2311, %436 ], [ %.2311, %.thread76.i ], [ %.2311, %.thread69.i ], [ %.2311, %.thread79.i ], [ %.2311, %455 ], [ %.2311, %458 ], [ %.2311, %461 ], [ %.2311, %.thread73.i ], [ %.2311, %proto_item_set_generated.exit62.i ]
   %486 = load i32, ptr %7, align 4
   %487 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %486)
   br i1 %487, label %88, label %._crit_edge, !llvm.loop !11

@@ -402,7 +402,7 @@ _ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit: ; preds
   br label %91
 
 68:                                               ; preds = %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit, %22, %17
-  %.0 = phi ptr [ %3, %17 ], [ %23, %22 ], [ %47, %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit ]
+  %.0 = phi ptr [ %23, %22 ], [ %3, %17 ], [ %47, %_ZN7rocksdb13CachableEntryINS_5BlockEE10TransferToEPNS_9CleanableE.exit ]
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %70, null

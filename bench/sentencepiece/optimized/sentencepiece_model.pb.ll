@@ -2112,16 +2112,16 @@ define noundef ptr @_ZN13sentencepiece11TrainerSpec14_InternalParseEPKcPN6google
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %select.unfold503
+  br label %select.unfold511
 
-select.unfold503:                                 ; preds = %select.unfold503.backedge, %3
-  %.0460 = phi ptr [ %1, %3 ], [ %.0460.be, %select.unfold503.backedge ]
+select.unfold511:                                 ; preds = %select.unfold511.backedge, %3
+  %.0460 = phi ptr [ %1, %3 ], [ %.0460.be, %select.unfold511.backedge ]
   %69 = load i32, ptr %4, align 4, !tbaa !78
   %70 = load ptr, ptr %2, align 8, !tbaa !85
   %71 = icmp ult ptr %.0460, %70
   br i1 %71, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread468, label %72, !prof !10
 
-72:                                               ; preds = %select.unfold503
+72:                                               ; preds = %select.unfold511
   %73 = load ptr, ptr %5, align 8, !tbaa !86
   %74 = ptrtoint ptr %.0460 to i64
   %75 = ptrtoint ptr %73 to i64
@@ -2147,8 +2147,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %72
   %86 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %86, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread468
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread468: ; preds = %select.unfold503, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.7465471 = phi ptr [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0460, %select.unfold503 ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread468: ; preds = %select.unfold511, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
+  %.7465471 = phi ptr [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.0460, %select.unfold511 ]
   %87 = load i8, ptr %.7465471, align 1, !tbaa !67
   %88 = zext i8 %87 to i32
   %89 = icmp sgt i8 %87, -1
@@ -2337,12 +2337,12 @@ _ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit: ; preds = %1
 155:                                              ; preds = %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit
   %156 = load ptr, ptr %2, align 8, !tbaa !85
   %157 = icmp ult ptr %154, %156
-  br i1 %157, label %158, label %select.unfold503.backedge
+  br i1 %157, label %158, label %select.unfold511.backedge
 
 158:                                              ; preds = %155
   %159 = load i8, ptr %154, align 1, !tbaa !67
   %160 = icmp eq i8 %159, 10
-  br i1 %160, label %107, label %select.unfold503.backedge, !llvm.loop !103
+  br i1 %160, label %107, label %select.unfold511.backedge, !llvm.loop !103
 
 161:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %162 = and i32 %.0459475, 255
@@ -2370,7 +2370,7 @@ _ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit: ;
   %174 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %.0.i.i.i166)
   %175 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %174, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not108.not = icmp eq ptr %175, null
-  br i1 %.not108.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not108.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 176:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %177 = and i32 %.0459475, 255
@@ -2422,7 +2422,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %191, %18
   %200 = or i32 %199, 16777216
   store i32 %200, ptr %7, align 8, !tbaa !11
   store i32 %197, ptr %62, align 8, !tbaa !49
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 201:                                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread
   %202 = load ptr, ptr %8, align 8, !tbaa !3
@@ -2444,7 +2444,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %191, %18
 _ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit: ; preds = %205, %209
   %.0.i.i170 = phi ptr [ %208, %205 ], [ %210, %209 ]
   tail call void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 3, i64 noundef %.0.i168483, ptr noundef %.0.i.i170)
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 211:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %212 = and i32 %.0459475, 255
@@ -2478,7 +2478,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175.thread: ; preds = %214, 
   %.0.i173.ph = phi i32 [ %225, %226 ], [ %219, %214 ]
   %.0.i.i174.ph = phi ptr [ %227, %226 ], [ %218, %214 ]
   store i32 %.0.i173.ph, ptr %61, align 4, !tbaa !53
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175: ; preds = %220
   %228 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %225)
@@ -2487,7 +2487,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175: ; preds = %220
   %231 = trunc i64 %230 to i32
   store i32 %231, ptr %61, align 4, !tbaa !53
   %.not106 = icmp eq ptr %229, null
-  br i1 %.not106, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not106, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 232:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %233 = and i32 %.0459475, 255
@@ -2598,12 +2598,12 @@ _ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit: ; 
 285:                                              ; preds = %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit
   %286 = load ptr, ptr %2, align 8, !tbaa !85
   %287 = icmp ult ptr %284, %286
-  br i1 %287, label %288, label %select.unfold503.backedge
+  br i1 %287, label %288, label %select.unfold511.backedge
 
 288:                                              ; preds = %285
   %289 = load i8, ptr %284, align 1, !tbaa !67
   %290 = icmp eq i8 %289, 42
-  br i1 %290, label %237, label %select.unfold503.backedge, !llvm.loop !105
+  br i1 %290, label %237, label %select.unfold511.backedge, !llvm.loop !105
 
 291:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %292 = and i32 %.0459475, 255
@@ -2637,7 +2637,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192.thread: ; preds = %294, 
   %.0.i190.ph = phi i32 [ %305, %306 ], [ %299, %294 ]
   %.0.i.i191.ph = phi ptr [ %307, %306 ], [ %298, %294 ]
   store i32 %.0.i190.ph, ptr %56, align 8, !tbaa !106
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192: ; preds = %300
   %308 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %305)
@@ -2646,7 +2646,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192: ; preds = %300
   %311 = trunc i64 %310 to i32
   store i32 %311, ptr %56, align 8, !tbaa !106
   %.not104 = icmp eq ptr %309, null
-  br i1 %.not104, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not104, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 312:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %313 = and i32 %.0459475, 255
@@ -2674,7 +2674,7 @@ _ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit: ;
   %325 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %.0.i.i.i194)
   %326 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %325, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not103.not = icmp eq ptr %326, null
-  br i1 %.not103.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not103.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 327:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %328 = and i32 %.0459475, 255
@@ -2688,7 +2688,7 @@ _ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit: ;
   %.0.copyload.i2.i = load float, ptr %.0.i165476, align 1
   store float %.0.copyload.i2.i, ptr %54, align 8, !tbaa !54
   %333 = getelementptr inbounds nuw i8, ptr %.0.i165476, i64 4
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 334:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %335 = and i32 %.0459475, 255
@@ -2727,7 +2727,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199.thread: ; preds = %342, 
   %.0.i197.ph = phi i64 [ %352, %351 ], [ %343, %342 ]
   %.0.i.i198.ph = phi ptr [ %353, %351 ], [ %341, %342 ]
   store i64 %.0.i197.ph, ptr %53, align 8, !tbaa !107
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199: ; preds = %344
   %354 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %350)
@@ -2735,7 +2735,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199: ; preds = %344
   %356 = extractvalue { ptr, i64 } %354, 1
   store i64 %356, ptr %53, align 8, !tbaa !107
   %.not102 = icmp eq ptr %355, null
-  br i1 %.not102, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not102, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 357:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %358 = and i32 %.0459475, 255
@@ -2769,7 +2769,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204.thread: ; preds = %360, 
   %.0.i202.ph = phi i32 [ %371, %372 ], [ %365, %360 ]
   %.0.i.i203.ph = phi ptr [ %373, %372 ], [ %364, %360 ]
   store i32 %.0.i202.ph, ptr %52, align 4, !tbaa !108
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204: ; preds = %366
   %374 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %371)
@@ -2778,7 +2778,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204: ; preds = %366
   %377 = trunc i64 %376 to i32
   store i32 %377, ptr %52, align 4, !tbaa !108
   %.not101 = icmp eq ptr %375, null
-  br i1 %.not101, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not101, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 378:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %379 = and i32 %.0459475, 255
@@ -2812,7 +2812,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209.thread: ; preds = %381, 
   %.0.i207.ph = phi i32 [ %392, %393 ], [ %386, %381 ]
   %.0.i.i208.ph = phi ptr [ %394, %393 ], [ %385, %381 ]
   store i32 %.0.i207.ph, ptr %51, align 8, !tbaa !109
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209: ; preds = %387
   %395 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %392)
@@ -2821,7 +2821,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209: ; preds = %387
   %398 = trunc i64 %397 to i32
   store i32 %398, ptr %51, align 8, !tbaa !109
   %.not100 = icmp eq ptr %396, null
-  br i1 %.not100, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not100, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 399:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %400 = and i32 %.0459475, 255
@@ -2855,7 +2855,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214.thread: ; preds = %402, 
   %.0.i212.ph = phi i32 [ %413, %414 ], [ %407, %402 ]
   %.0.i.i213.ph = phi ptr [ %415, %414 ], [ %406, %402 ]
   store i32 %.0.i212.ph, ptr %50, align 4, !tbaa !55
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214: ; preds = %408
   %416 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %413)
@@ -2864,7 +2864,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214: ; preds = %408
   %419 = trunc i64 %418 to i32
   store i32 %419, ptr %50, align 4, !tbaa !55
   %.not99 = icmp eq ptr %417, null
-  br i1 %.not99, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not99, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 420:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %421 = and i32 %.0459475, 255
@@ -2878,7 +2878,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214: ; preds = %408
   %.0.copyload.i2.i215 = load float, ptr %.0.i165476, align 1
   store float %.0.copyload.i2.i215, ptr %49, align 8, !tbaa !56
   %426 = getelementptr inbounds nuw i8, ptr %.0.i165476, i64 4
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 427:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %428 = and i32 %.0459475, 255
@@ -2912,7 +2912,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220.thread: ; preds = %430, 
   %.0.i218.ph = phi i32 [ %441, %442 ], [ %435, %430 ]
   %.0.i.i219.ph = phi ptr [ %443, %442 ], [ %434, %430 ]
   store i32 %.0.i218.ph, ptr %48, align 4, !tbaa !57
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220: ; preds = %436
   %444 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %441)
@@ -2921,7 +2921,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220: ; preds = %436
   %447 = trunc i64 %446 to i32
   store i32 %447, ptr %48, align 4, !tbaa !57
   %.not98 = icmp eq ptr %445, null
-  br i1 %.not98, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not98, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 448:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %449 = and i32 %.0459475, 255
@@ -2955,7 +2955,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225.thread: ; preds = %451, 
   %.0.i223.ph = phi i32 [ %462, %463 ], [ %456, %451 ]
   %.0.i.i224.ph = phi ptr [ %464, %463 ], [ %455, %451 ]
   store i32 %.0.i223.ph, ptr %47, align 8, !tbaa !58
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225: ; preds = %457
   %465 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %462)
@@ -2964,7 +2964,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225: ; preds = %457
   %468 = trunc i64 %467 to i32
   store i32 %468, ptr %47, align 8, !tbaa !58
   %.not97 = icmp eq ptr %466, null
-  br i1 %.not97, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not97, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 469:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %470 = and i32 %.0459475, 255
@@ -2998,7 +2998,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230.thread: ; preds = %472, 
   %.0.i228.ph = phi i32 [ %483, %484 ], [ %477, %472 ]
   %.0.i.i229.ph = phi ptr [ %485, %484 ], [ %476, %472 ]
   store i32 %.0.i228.ph, ptr %46, align 4, !tbaa !59
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230: ; preds = %478
   %486 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %483)
@@ -3007,7 +3007,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230: ; preds = %478
   %489 = trunc i64 %488 to i32
   store i32 %489, ptr %46, align 4, !tbaa !59
   %.not96 = icmp eq ptr %487, null
-  br i1 %.not96, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not96, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 490:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %491 = and i32 %.0459475, 255
@@ -3048,7 +3048,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235.thread: ; preds = %498, 
   %510 = icmp ne i64 %.0.i233.ph, 0
   %511 = zext i1 %510 to i8
   store i8 %511, ptr %45, align 4, !tbaa !110
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235: ; preds = %500
   %512 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %506)
@@ -3058,7 +3058,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235: ; preds = %500
   %516 = zext i1 %515 to i8
   store i8 %516, ptr %45, align 4, !tbaa !110
   %.not95 = icmp eq ptr %513, null
-  br i1 %.not95, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not95, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 517:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %518 = and i32 %.0459475, 255
@@ -3092,7 +3092,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240.thread: ; preds = %520, 
   %.0.i238.ph = phi i32 [ %531, %532 ], [ %525, %520 ]
   %.0.i.i239.ph = phi ptr [ %533, %532 ], [ %524, %520 ]
   store i32 %.0.i238.ph, ptr %44, align 8, !tbaa !60
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240: ; preds = %526
   %534 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %531)
@@ -3101,7 +3101,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240: ; preds = %526
   %537 = trunc i64 %536 to i32
   store i32 %537, ptr %44, align 8, !tbaa !60
   %.not94 = icmp eq ptr %535, null
-  br i1 %.not94, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not94, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 538:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %539 = and i32 %.0459475, 255
@@ -3142,7 +3142,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245.thread: ; preds = %546, 
   %558 = icmp ne i64 %.0.i243.ph, 0
   %559 = zext i1 %558 to i8
   store i8 %559, ptr %43, align 1, !tbaa !111
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245: ; preds = %548
   %560 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %554)
@@ -3152,7 +3152,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245: ; preds = %548
   %564 = zext i1 %563 to i8
   store i8 %564, ptr %43, align 1, !tbaa !111
   %.not93 = icmp eq ptr %561, null
-  br i1 %.not93, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !88
+  br i1 %.not93, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !88
 
 565:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %566 = and i32 %.0459475, 255
@@ -3193,7 +3193,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250.thread: ; preds = %573, 
   %585 = icmp ne i64 %.0.i248.ph, 0
   %586 = zext i1 %585 to i8
   store i8 %586, ptr %42, align 1, !tbaa !112
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250: ; preds = %575
   %587 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %581)
@@ -3203,7 +3203,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250: ; preds = %575
   %591 = zext i1 %590 to i8
   store i8 %591, ptr %42, align 1, !tbaa !112
   %.not92 = icmp eq ptr %588, null
-  br i1 %.not92, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not92, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 592:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %593 = and i32 %.0459475, 255
@@ -3244,7 +3244,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255.thread: ; preds = %600, 
   %612 = icmp ne i64 %.0.i253.ph, 0
   %613 = zext i1 %612 to i8
   store i8 %613, ptr %41, align 2, !tbaa !113
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255: ; preds = %602
   %614 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %608)
@@ -3254,7 +3254,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255: ; preds = %602
   %618 = zext i1 %617 to i8
   store i8 %618, ptr %41, align 2, !tbaa !113
   %.not91 = icmp eq ptr %615, null
-  br i1 %.not91, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not91, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 619:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %620 = and i32 %.0459475, 255
@@ -3295,7 +3295,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260.thread: ; preds = %627, 
   %639 = icmp ne i64 %.0.i258.ph, 0
   %640 = zext i1 %639 to i8
   store i8 %640, ptr %40, align 1, !tbaa !114
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260: ; preds = %629
   %641 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %635)
@@ -3305,7 +3305,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260: ; preds = %629
   %645 = zext i1 %644 to i8
   store i8 %645, ptr %40, align 1, !tbaa !114
   %.not90 = icmp eq ptr %642, null
-  br i1 %.not90, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not90, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 646:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %647 = and i32 %.0459475, 255
@@ -3346,7 +3346,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265.thread: ; preds = %654, 
   %666 = icmp ne i64 %.0.i263.ph, 0
   %667 = zext i1 %666 to i8
   store i8 %667, ptr %39, align 1, !tbaa !115
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265: ; preds = %656
   %668 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %662)
@@ -3356,7 +3356,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265: ; preds = %656
   %672 = zext i1 %671 to i8
   store i8 %672, ptr %39, align 1, !tbaa !115
   %.not89 = icmp eq ptr %669, null
-  br i1 %.not89, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !88
+  br i1 %.not89, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !88
 
 673:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %674 = and i32 %.0459475, 255
@@ -3397,7 +3397,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270.thread: ; preds = %681, 
   %693 = icmp ne i64 %.0.i268.ph, 0
   %694 = zext i1 %693 to i8
   store i8 %694, ptr %38, align 2, !tbaa !116
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270: ; preds = %683
   %695 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %689)
@@ -3407,7 +3407,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270: ; preds = %683
   %699 = zext i1 %698 to i8
   store i8 %699, ptr %38, align 2, !tbaa !116
   %.not88 = icmp eq ptr %696, null
-  br i1 %.not88, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not88, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 700:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %701 = and i32 %.0459475, 255
@@ -3518,12 +3518,12 @@ _ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit: ; 
 753:                                              ; preds = %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit
   %754 = load ptr, ptr %2, align 8, !tbaa !85
   %755 = icmp ult ptr %752, %754
-  br i1 %755, label %756, label %select.unfold503.backedge
+  br i1 %755, label %756, label %select.unfold511.backedge
 
 756:                                              ; preds = %753
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %752, ptr noundef nonnull dereferenceable(2) @__const._ZN6google8protobuf8internal9ExpectTagILj242EEEbPKc.buf, i64 2)
   %757 = icmp eq i32 %bcmp.i, 0
-  br i1 %757, label %705, label %select.unfold503.backedge, !llvm.loop !117
+  br i1 %757, label %705, label %select.unfold511.backedge, !llvm.loop !117
 
 758:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %759 = and i32 %.0459475, 255
@@ -3634,12 +3634,12 @@ _ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exi
 811:                                              ; preds = %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit
   %812 = load ptr, ptr %2, align 8, !tbaa !85
   %813 = icmp ult ptr %810, %812
-  br i1 %813, label %814, label %select.unfold503.backedge
+  br i1 %813, label %814, label %select.unfold511.backedge
 
 814:                                              ; preds = %811
   %bcmp.i295 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %810, ptr noundef nonnull dereferenceable(2) @__const._ZN6google8protobuf8internal9ExpectTagILj250EEEbPKc.buf, i64 2)
   %815 = icmp eq i32 %bcmp.i295, 0
-  br i1 %815, label %763, label %select.unfold503.backedge, !llvm.loop !118
+  br i1 %815, label %763, label %select.unfold511.backedge, !llvm.loop !118
 
 816:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %817 = and i32 %.0459475, 255
@@ -3680,7 +3680,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300.thread: ; preds = %824, 
   %836 = icmp ne i64 %.0.i298.ph, 0
   %837 = zext i1 %836 to i8
   store i8 %837, ptr %29, align 8, !tbaa !119
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300: ; preds = %826
   %838 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %832)
@@ -3690,7 +3690,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300: ; preds = %826
   %842 = zext i1 %841 to i8
   store i8 %842, ptr %29, align 8, !tbaa !119
   %.not85 = icmp eq ptr %839, null
-  br i1 %.not85, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not85, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 843:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %844 = and i32 %.0459475, 255
@@ -3731,7 +3731,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305.thread: ; preds = %851, 
   %863 = icmp ne i64 %.0.i303.ph, 0
   %864 = zext i1 %863 to i8
   store i8 %864, ptr %28, align 1, !tbaa !120
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305: ; preds = %853
   %865 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %859)
@@ -3741,7 +3741,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305: ; preds = %853
   %869 = zext i1 %868 to i8
   store i8 %869, ptr %28, align 1, !tbaa !120
   %.not84 = icmp eq ptr %866, null
-  br i1 %.not84, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !88
+  br i1 %.not84, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !88
 
 870:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %871 = and i32 %.0459475, 255
@@ -3782,7 +3782,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310.thread: ; preds = %878, 
   %890 = icmp ne i64 %.0.i308.ph, 0
   %891 = zext i1 %890 to i8
   store i8 %891, ptr %27, align 1, !tbaa !121
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310: ; preds = %880
   %892 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %886)
@@ -3792,7 +3792,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310: ; preds = %880
   %896 = zext i1 %895 to i8
   store i8 %896, ptr %27, align 1, !tbaa !121
   %.not83 = icmp eq ptr %893, null
-  br i1 %.not83, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !88
+  br i1 %.not83, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !88
 
 897:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %898 = and i32 %.0459475, 255
@@ -3833,7 +3833,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315.thread: ; preds = %905, 
   %917 = icmp ne i64 %.0.i313.ph, 0
   %918 = zext i1 %917 to i8
   store i8 %918, ptr %26, align 8, !tbaa !122
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315: ; preds = %907
   %919 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %913)
@@ -3843,7 +3843,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315: ; preds = %907
   %923 = zext i1 %922 to i8
   store i8 %923, ptr %26, align 8, !tbaa !122
   %.not82 = icmp eq ptr %920, null
-  br i1 %.not82, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not82, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 924:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %925 = and i32 %.0459475, 255
@@ -3871,7 +3871,7 @@ _ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit:
   %937 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %.0.i.i.i317)
   %938 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %937, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not81.not = icmp eq ptr %938, null
-  br i1 %.not81.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not81.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 939:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %940 = and i32 %.0459475, 255
@@ -3905,7 +3905,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322.thread: ; preds = %942, 
   %.0.i320.ph = phi i32 [ %953, %954 ], [ %947, %942 ]
   %.0.i.i321.ph = phi ptr [ %955, %954 ], [ %946, %942 ]
   store i32 %.0.i320.ph, ptr %24, align 4, !tbaa !123
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322: ; preds = %948
   %956 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %953)
@@ -3914,7 +3914,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322: ; preds = %948
   %959 = trunc i64 %958 to i32
   store i32 %959, ptr %24, align 4, !tbaa !123
   %.not80 = icmp eq ptr %957, null
-  br i1 %.not80, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not80, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 960:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %961 = and i32 %.0459475, 255
@@ -3948,7 +3948,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327.thread: ; preds = %963, 
   %.0.i325.ph = phi i32 [ %974, %975 ], [ %968, %963 ]
   %.0.i.i326.ph = phi ptr [ %976, %975 ], [ %967, %963 ]
   store i32 %.0.i325.ph, ptr %23, align 4, !tbaa !61
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327: ; preds = %969
   %977 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %974)
@@ -3957,7 +3957,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327: ; preds = %969
   %980 = trunc i64 %979 to i32
   store i32 %980, ptr %23, align 4, !tbaa !61
   %.not79 = icmp eq ptr %978, null
-  br i1 %.not79, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not79, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 981:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %982 = and i32 %.0459475, 255
@@ -3991,7 +3991,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332.thread: ; preds = %984, 
   %.0.i330.ph = phi i32 [ %995, %996 ], [ %989, %984 ]
   %.0.i.i331.ph = phi ptr [ %997, %996 ], [ %988, %984 ]
   store i32 %.0.i330.ph, ptr %22, align 8, !tbaa !62
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332: ; preds = %990
   %998 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %995)
@@ -4000,7 +4000,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332: ; preds = %990
   %1001 = trunc i64 %1000 to i32
   store i32 %1001, ptr %22, align 8, !tbaa !62
   %.not78 = icmp eq ptr %999, null
-  br i1 %.not78, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not78, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 1002:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1003 = and i32 %.0459475, 255
@@ -4034,7 +4034,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337.thread: ; preds = %1005,
   %.0.i335.ph = phi i32 [ %1016, %1017 ], [ %1010, %1005 ]
   %.0.i.i336.ph = phi ptr [ %1018, %1017 ], [ %1009, %1005 ]
   store i32 %.0.i335.ph, ptr %21, align 4, !tbaa !63
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337: ; preds = %1011
   %1019 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %1016)
@@ -4043,7 +4043,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337: ; preds = %1011
   %1022 = trunc i64 %1021 to i32
   store i32 %1022, ptr %21, align 4, !tbaa !63
   %.not77 = icmp eq ptr %1020, null
-  br i1 %.not77, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not77, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 1023:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1024 = and i32 %.0459475, 255
@@ -4071,7 +4071,7 @@ _ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit: ; 
   %1036 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ERKNS1_10LazyStringEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec58_i_give_permission_to_break_this_code_default_unk_surface_E, ptr noundef %.0.i.i.i339)
   %1037 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1036, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not76.not = icmp eq ptr %1037, null
-  br i1 %.not76.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not76.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1038:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1039 = and i32 %.0459475, 255
@@ -4099,7 +4099,7 @@ _ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit: ; pr
   %1051 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ERKNS1_10LazyStringEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_unk_piece_E, ptr noundef %.0.i.i.i341)
   %1052 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1051, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not75.not = icmp eq ptr %1052, null
-  br i1 %.not75.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not75.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1053:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1054 = and i32 %.0459475, 255
@@ -4127,7 +4127,7 @@ _ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit: ; pr
   %1066 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ERKNS1_10LazyStringEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_bos_piece_E, ptr noundef %.0.i.i.i343)
   %1067 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1066, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not74.not = icmp eq ptr %1067, null
-  br i1 %.not74.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not74.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1068:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1069 = and i32 %.0459475, 255
@@ -4155,7 +4155,7 @@ _ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit: ; pr
   %1081 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ERKNS1_10LazyStringEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_eos_piece_E, ptr noundef %.0.i.i.i345)
   %1082 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1081, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not73.not = icmp eq ptr %1082, null
-  br i1 %.not73.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not73.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1083:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1084 = and i32 %.0459475, 255
@@ -4183,7 +4183,7 @@ _ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit: ; pr
   %1096 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ERKNS1_10LazyStringEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(40) @_ZN13sentencepiece11TrainerSpec56_i_give_permission_to_break_this_code_default_pad_piece_E, ptr noundef %.0.i.i.i347)
   %1097 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1096, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not72.not = icmp eq ptr %1097, null
-  br i1 %.not72.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not72.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1098:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1099 = and i32 %.0459475, 255
@@ -4224,7 +4224,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352.thread: ; preds = %1106,
   %1118 = icmp ne i64 %.0.i350.ph, 0
   %1119 = zext i1 %1118 to i8
   store i8 %1119, ptr %14, align 2, !tbaa !124
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352: ; preds = %1108
   %1120 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %1114)
@@ -4234,7 +4234,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352: ; preds = %1108
   %1124 = zext i1 %1123 to i8
   store i8 %1124, ptr %14, align 2, !tbaa !124
   %.not71 = icmp eq ptr %1121, null
-  br i1 %.not71, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not71, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 1125:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1126 = and i32 %.0459475, 255
@@ -4275,7 +4275,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357.thread: ; preds = %1133,
   %1145 = icmp ne i64 %.0.i355.ph, 0
   %1146 = zext i1 %1145 to i8
   store i8 %1146, ptr %13, align 4, !tbaa !125
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357: ; preds = %1135
   %1147 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %1141)
@@ -4285,7 +4285,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357: ; preds = %1135
   %1151 = zext i1 %1150 to i8
   store i8 %1151, ptr %13, align 4, !tbaa !125
   %.not70 = icmp eq ptr %1148, null
-  br i1 %.not70, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !88
+  br i1 %.not70, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !88
 
 1152:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1153 = and i32 %.0459475, 255
@@ -4299,7 +4299,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357: ; preds = %1135
   %.0.copyload.i2.i358 = load float, ptr %.0.i165476, align 1
   store float %.0.copyload.i2.i358, ptr %12, align 8, !tbaa !126
   %1158 = getelementptr inbounds nuw i8, ptr %.0.i165476, i64 4
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 1159:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1160 = and i32 %.0459475, 255
@@ -4338,7 +4338,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363.thread: ; preds = %1167,
   %.0.i361.ph = phi i64 [ %1177, %1176 ], [ %1168, %1167 ]
   %.0.i.i362.ph = phi ptr [ %1178, %1176 ], [ %1166, %1167 ]
   store i64 %.0.i361.ph, ptr %11, align 8, !tbaa !127
-  br label %select.unfold503.backedge
+  br label %select.unfold511.backedge
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363: ; preds = %1169
   %1179 = tail call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef nonnull %.0.i165476, i32 noundef %1175)
@@ -4346,7 +4346,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363: ; preds = %1169
   %1181 = extractvalue { ptr, i64 } %1179, 1
   store i64 %1181, ptr %11, align 8, !tbaa !127
   %.not69 = icmp eq ptr %1180, null
-  br i1 %.not69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !104
+  br i1 %.not69, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !104
 
 1182:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1183 = and i32 %.0459475, 255
@@ -4374,7 +4374,11 @@ _ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cx
   %1195 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.0.i.i.i365)
   %1196 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1195, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not68.not = icmp eq ptr %1196, null
-  br i1 %.not68.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
+  br i1 %.not68.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
+
+select.unfold511.backedge:                        ; preds = %814, %811, %756, %753, %288, %285, %158, %155, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit, %198, %_ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322, %1220, %1155, %423, %330
+  %.0460.be = phi ptr [ %.0.i.i304.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305.thread ], [ %.0.i.i169484, %198 ], [ %1222, %1220 ], [ %1233, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.0.i.i326.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327.thread ], [ %.0.i.i299.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300.thread ], [ %.0.i.i336.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337.thread ], [ %.0.i.i356.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357.thread ], [ %229, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175 ], [ %.0.i.i362.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363.thread ], [ %154, %158 ], [ %309, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192 ], [ %.0.i.i169484, %_ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit ], [ %333, %330 ], [ %355, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199 ], [ %375, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204 ], [ %396, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209 ], [ %417, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214 ], [ %426, %423 ], [ %445, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220 ], [ %466, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225 ], [ %487, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230 ], [ %513, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235 ], [ %535, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240 ], [ %561, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245 ], [ %588, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250 ], [ %615, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255 ], [ %642, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260 ], [ %669, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265 ], [ %696, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270 ], [ %.0.i.i314.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315.thread ], [ %284, %288 ], [ %175, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit ], [ %752, %756 ], [ %839, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300 ], [ %866, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305 ], [ %893, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310 ], [ %920, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315 ], [ %.0.i.i351.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352.thread ], [ %957, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322 ], [ %978, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327 ], [ %999, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332 ], [ %1020, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337 ], [ %1037, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit ], [ %.0.i.i331.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332.thread ], [ %1067, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit ], [ %.0.i.i321.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322.thread ], [ %1097, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit ], [ %1121, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352 ], [ %1148, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357 ], [ %1158, %1155 ], [ %1180, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363 ], [ %.0.i.i309.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310.thread ], [ %1211, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit ], [ %938, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit ], [ %1082, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit ], [ %326, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit ], [ %1052, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit ], [ %1196, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit ], [ %.0.i.i174.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175.thread ], [ %.0.i.i191.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192.thread ], [ %.0.i.i198.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199.thread ], [ %.0.i.i203.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204.thread ], [ %.0.i.i208.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209.thread ], [ %.0.i.i213.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214.thread ], [ %.0.i.i219.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220.thread ], [ %.0.i.i224.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225.thread ], [ %.0.i.i229.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230.thread ], [ %.0.i.i234.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235.thread ], [ %.0.i.i239.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240.thread ], [ %.0.i.i244.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245.thread ], [ %.0.i.i249.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250.thread ], [ %.0.i.i254.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255.thread ], [ %.0.i.i259.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260.thread ], [ %.0.i.i264.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265.thread ], [ %.0.i.i269.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270.thread ], [ %154, %155 ], [ %284, %285 ], [ %752, %753 ], [ %810, %811 ], [ %810, %814 ]
+  br label %select.unfold511, !llvm.loop !128
 
 1197:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %1198 = and i32 %.0459475, 255
@@ -4402,11 +4406,7 @@ _ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx
   %1210 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.0.i.i.i367)
   %1211 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %1210, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not67.not = icmp eq ptr %1211, null
-  br i1 %.not67.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge
-
-select.unfold503.backedge:                        ; preds = %814, %811, %756, %753, %288, %285, %158, %155, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit, %198, %_ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %1220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175, %1155, %423, %330
-  %.0460.be = phi ptr [ %1222, %1220 ], [ %1233, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %229, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175 ], [ %309, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192 ], [ %333, %330 ], [ %355, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199 ], [ %375, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204 ], [ %396, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209 ], [ %417, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214 ], [ %426, %423 ], [ %445, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220 ], [ %466, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225 ], [ %487, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230 ], [ %513, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235 ], [ %535, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240 ], [ %561, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245 ], [ %588, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250 ], [ %615, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255 ], [ %642, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260 ], [ %669, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265 ], [ %696, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270 ], [ %839, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300 ], [ %866, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305 ], [ %893, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310 ], [ %920, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315 ], [ %957, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322 ], [ %978, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327 ], [ %999, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332 ], [ %1020, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337 ], [ %1121, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352 ], [ %1148, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357 ], [ %1158, %1155 ], [ %1180, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363 ], [ %.0.i.i174.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175.thread ], [ %.0.i.i191.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192.thread ], [ %.0.i.i198.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199.thread ], [ %.0.i.i203.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204.thread ], [ %.0.i.i208.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209.thread ], [ %.0.i.i213.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214.thread ], [ %.0.i.i219.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220.thread ], [ %.0.i.i224.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225.thread ], [ %.0.i.i229.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230.thread ], [ %.0.i.i234.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235.thread ], [ %.0.i.i239.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240.thread ], [ %.0.i.i244.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245.thread ], [ %.0.i.i249.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250.thread ], [ %.0.i.i254.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255.thread ], [ %.0.i.i259.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260.thread ], [ %.0.i.i264.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265.thread ], [ %.0.i.i269.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270.thread ], [ %.0.i.i299.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300.thread ], [ %.0.i.i304.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305.thread ], [ %.0.i.i309.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310.thread ], [ %.0.i.i314.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315.thread ], [ %.0.i.i321.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322.thread ], [ %.0.i.i326.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327.thread ], [ %.0.i.i331.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332.thread ], [ %.0.i.i336.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337.thread ], [ %.0.i.i351.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352.thread ], [ %.0.i.i356.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357.thread ], [ %.0.i.i362.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363.thread ], [ %.0.i.i169484, %_ZN13sentencepiece11TrainerSpec22mutable_unknown_fieldsB5cxx11Ev.exit ], [ %.0.i.i169484, %198 ], [ %175, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit ], [ %326, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit ], [ %938, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit ], [ %1037, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit ], [ %1052, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit ], [ %1067, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit ], [ %1082, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit ], [ %1097, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit ], [ %1196, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit ], [ %1211, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit ], [ %154, %155 ], [ %154, %158 ], [ %284, %285 ], [ %284, %288 ], [ %752, %753 ], [ %752, %756 ], [ %810, %811 ], [ %810, %814 ]
-  br label %select.unfold503, !llvm.loop !128
+  br i1 %.not67.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge
 
 1212:                                             ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, %1197, %1182, %1159, %1152, %1125, %1098, %1083, %1068, %1053, %1038, %1023, %1002, %981, %960, %939, %924, %897, %870, %843, %816, %758, %700, %673, %646, %619, %592, %565, %538, %517, %490, %469, %448, %427, %420, %399, %378, %357, %334, %327, %312, %291, %232, %211, %176, %161, %102
   %1213 = and i32 %.0459475, 7
@@ -4429,7 +4429,7 @@ select.unfold503.backedge:                        ; preds = %814, %811, %756, %7
   %1221 = zext i32 %.0459475 to i64
   %1222 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_11MessageLiteEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %68, i64 noundef %1221, ptr noundef nonnull %.0.i165476, ptr noundef nonnull @_ZN13sentencepiece30_TrainerSpec_default_instance_E, ptr noundef nonnull %8, ptr noundef nonnull %2)
   %.not111 = icmp eq ptr %1222, null
-  br i1 %.not111, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !72
+  br i1 %.not111, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !72
 
 1223:                                             ; preds = %1218
   %1224 = load ptr, ptr %8, align 8, !tbaa !3
@@ -4452,10 +4452,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.0.i = phi ptr [ %1230, %1227 ], [ %1232, %1231 ]
   %1233 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %.0459475, ptr noundef %.0.i, ptr noundef nonnull %.0.i165476, ptr noundef nonnull %2)
   %.not110 = icmp eq ptr %1233, null
-  br i1 %.not110, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold503.backedge, !prof !72
+  br i1 %.not110, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %select.unfold511.backedge, !prof !72
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363, %1220, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit, %80, %.thread547
-  %.6464 = phi ptr [ %.0.i165476, %.thread547 ], [ %spec.select, %80 ], [ null, %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363 ], [ null, %1220 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %1220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit, %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit, %80, %.thread547
+  %.6464 = phi ptr [ %spec.select, %80 ], [ %.0.i165476, %.thread547 ], [ null, %_ZN13sentencepiece11TrainerSpec19_internal_add_inputB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_add_accept_languageB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_add_control_symbolsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec34_internal_add_user_defined_symbolsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec43_internal_mutable_pretokenization_delimiterB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_unk_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_input_formatB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_eos_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec32_internal_mutable_required_charsB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec42_internal_mutable_seed_sentencepieces_fileB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_pad_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec27_internal_mutable_bos_pieceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec29_internal_mutable_unk_surfaceB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece11TrainerSpec30_internal_mutable_model_prefixB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit322 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit310 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit315 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit175 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit192 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit199 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit204 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit300 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit209 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit332 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit214 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit363 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit220 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit225 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit327 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit230 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit357 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit235 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit337 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit240 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit352 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit245 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit250 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit255 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit260 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit305 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit265 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit270 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %1220 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.6464
 }
 
@@ -9680,7 +9680,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52.thread: ; preds = %137, %
   store i8 %150, ptr %9, align 2, !tbaa !33
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %179, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52, %179, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit
   %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %179 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit ], [ %82, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %82, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %108, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47.thread ], [ %108, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47 ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52.thread ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit ]
   %.069.be = phi ptr [ %181, %179 ], [ %192, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %62, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ %77, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit ], [ %.0.i.i42.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread ], [ %100, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.0.i.i46.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47.thread ], [ %126, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47 ], [ %.0.i.i51.ph, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52.thread ], [ %152, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ %170, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
@@ -9769,7 +9769,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.not28 = icmp eq ptr %192, null
   br i1 %.not28, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %179, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %26, %.thread90
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52, %179, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %26, %.thread90
   %.sroa.0.2 = phi i32 [ %.sroa.0.0, %.thread90 ], [ %.sroa.0.0, %26 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit ], [ %134, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ %108, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47 ], [ %82, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.sroa.0.0, %179 ]
   %.2 = phi ptr [ %.0.i3780, %.thread90 ], [ %spec.select, %26 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece14NormalizerSpec40_internal_mutable_normalization_rule_tsvB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit52 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit47 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN13sentencepiece14NormalizerSpec38_internal_mutable_precompiled_charsmapB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece14NormalizerSpec22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %179 ]
   %193 = load i32, ptr %6, align 8, !tbaa !11
@@ -11018,6 +11018,10 @@ _ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit: 
   %.not17.not = icmp eq ptr %57, null
   br i1 %.not17.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit
+  %.030.be = phi ptr [ %72, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit ], [ %57, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit ], [ %89, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
+
 58:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %59 = and i32 %.040, 255
   %60 = icmp eq i32 %59, 18
@@ -11082,12 +11086,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.not18 = icmp eq ptr %89, null
   br i1 %.not18, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit
-  %.030.be = phi ptr [ %89, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %57, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit ], [ %72, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %.thread46
-  %.2 = phi ptr [ %.0.i2141, %.thread46 ], [ %spec.select, %21 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %21, %.thread46
+  %.2 = phi ptr [ %spec.select, %21 ], [ %.0.i2141, %.thread46 ], [ null, %_ZN13sentencepiece19SelfTestData_Sample26_internal_mutable_expectedB5cxx11Ev.exit ], [ null, %_ZN13sentencepiece19SelfTestData_Sample23_internal_mutable_inputB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.2
 }
 
@@ -12346,6 +12346,10 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
   %.not10 = icmp eq ptr %127, null
   br i1 %.not10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !72
 
+.backedge:                                        ; preds = %108, %115, %125, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
+  %.027.be = phi ptr [ %127, %125 ], [ %138, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %101, %115 ], [ %101, %108 ]
+  br label %15, !llvm.loop !154
+
 128:                                              ; preds = %123
   %129 = load ptr, ptr %7, align 8, !tbaa !3
   %130 = ptrtoint ptr %129 to i64
@@ -12369,12 +12373,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.not9 = icmp eq ptr %138, null
   br i1 %.not9, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge, !prof !72
 
-.backedge:                                        ; preds = %108, %115, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %125
-  %.027.be = phi ptr [ %127, %125 ], [ %138, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %101, %115 ], [ %101, %108 ]
-  br label %15, !llvm.loop !154
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %125, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %103, %100, %86, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %27, %.thread44
-  %.3 = phi ptr [ %.0.i1438, %.thread44 ], [ %spec.select, %27 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %86 ], [ null, %100 ], [ null, %103 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %125 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %125, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %103, %86, %100, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %27, %.thread44
+  %.3 = phi ptr [ %spec.select, %27 ], [ %.0.i1438, %.thread44 ], [ null, %103 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %100 ], [ null, %86 ], [ null, %125 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -13403,6 +13403,10 @@ _ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.e
   %.not19.not = icmp eq ptr %59, null
   br i1 %.not19.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
+_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %108, %_ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit, %87
+  %.039.be = phi ptr [ %.0.i.i2755, %87 ], [ %110, %108 ], [ %121, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %59, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ %.0.i.i2755, %_ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit ]
+  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
+
 60:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
   %61 = and i32 %.049, 255
   %62 = icmp eq i32 %61, 21
@@ -13534,12 +13538,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.not20 = icmp eq ptr %121, null
   br i1 %.not20, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
-_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %108, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit, %_ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit, %87
-  %.039.be = phi ptr [ %110, %108 ], [ %121, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %59, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ %.0.i.i2755, %87 ], [ %.0.i.i2755, %_ZN13sentencepiece24ModelProto_SentencePiece22mutable_unknown_fieldsB5cxx11Ev.exit ]
-  br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit
-
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %108, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %23, %.thread60
-  %.2 = phi ptr [ %.0.i2450, %.thread60 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %108 ], [ null, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %108, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %23, %.thread60
+  %.2 = phi ptr [ %spec.select, %23 ], [ %.0.i2450, %.thread60 ], [ null, %108 ], [ null, %_ZN13sentencepiece24ModelProto_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %122 = load i32, ptr %7, align 8, !tbaa !11
   %123 = or i32 %122, %.sroa.0.0.ph
   store i32 %123, ptr %7, align 8, !tbaa !11
@@ -15776,7 +15776,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14Norma
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge
 
 _ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge: ; preds = %114, %121, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit81, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece12SelfTestDataEEEPKcPT_S7_.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece11TrainerSpecEEEPKcPT_S7_.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %331
-  %.095.be = phi ptr [ %333, %331 ], [ %344, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %162, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece11TrainerSpecEEEPKcPT_S7_.exit ], [ %212, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit ], [ %262, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece12SelfTestDataEEEPKcPT_S7_.exit ], [ %312, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit81 ], [ %107, %121 ], [ %107, %114 ]
+  %.095.be = phi ptr [ %262, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece12SelfTestDataEEEPKcPT_S7_.exit ], [ %212, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit ], [ %333, %331 ], [ %344, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ %312, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece14NormalizerSpecEEEPKcPT_S7_.exit81 ], [ %162, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN13sentencepiece11TrainerSpecEEEPKcPT_S7_.exit ], [ %107, %121 ], [ %107, %114 ]
   br label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit, !llvm.loop !172
 
 324:                                              ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, %274, %224, %174, %124, %52
@@ -15824,8 +15824,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   %.not20 = icmp eq ptr %344, null
   br i1 %.not20, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev.exit.backedge, !prof !72
 
-_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %331, %314, %311, %297, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i71, %264, %261, %247, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58, %214, %211, %197, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i45, %164, %161, %147, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i32, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %109, %106, %92, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %30, %.thread116
-  %.3 = phi ptr [ %.0.i27106, %.thread116 ], [ %spec.select, %30 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %92 ], [ null, %106 ], [ null, %109 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %331 ], [ null, %314 ], [ null, %311 ], [ null, %297 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i71 ], [ null, %264 ], [ null, %261 ], [ null, %247 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58 ], [ null, %214 ], [ null, %211 ], [ null, %197 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i45 ], [ null, %164 ], [ null, %161 ], [ null, %147 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i32 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %164, %147, %161, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i32, %214, %197, %211, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i45, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit, %314, %297, %311, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i71, %331, %264, %247, %261, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %109, %92, %106, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %30, %.thread116
+  %.3 = phi ptr [ %spec.select, %30 ], [ %.0.i27106, %.thread116 ], [ null, %109 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %106 ], [ null, %92 ], [ null, %147 ], [ null, %161 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i32 ], [ null, %197 ], [ null, %211 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i45 ], [ null, %297 ], [ null, %311 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i71 ], [ null, %247 ], [ null, %261 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i58 ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit ], [ null, %314 ], [ null, %331 ], [ null, %264 ], [ null, %164 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %214 ], [ %.fca.0.extract.i.i, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   ret ptr %.3
 }
 
@@ -16916,7 +16916,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece10ModelProto13IsInitializedEv(ptr 
   br label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 _ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece24ModelProto_SentencePieceEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %12, %47, %39, %31, %23, %1, %52
-  %.0 = phi i1 [ true, %52 ], [ false, %1 ], [ false, %23 ], [ false, %31 ], [ false, %39 ], [ false, %47 ], [ false, %12 ]
+  %.0 = phi i1 [ true, %52 ], [ false, %39 ], [ false, %31 ], [ false, %23 ], [ false, %47 ], [ false, %1 ], [ false, %12 ]
   ret i1 %.0
 }
 

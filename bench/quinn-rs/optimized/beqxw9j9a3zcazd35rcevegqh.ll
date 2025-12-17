@@ -1035,7 +1035,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   unreachable
 
 .body17:                                          ; preds = %106, %.noexc100.i, %88, %78, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %74, %106 ], [ %74, %.noexc100.i ], [ %79, %78 ], [ %89, %88 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %89, %88 ], [ %74, %.noexc100.i ], [ %74, %106 ], [ %79, %78 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$tokio..sync..oneshot..Receiver$LT$bool$GT$$GT$17h533fc8a8728e4a49E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #22
           to label %50 unwind label %144
 
@@ -1051,7 +1051,7 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
           to label %112 unwind label %110
 
 .body:                                            ; preds = %129, %common.ret.sink.split.i, %110
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %122, %common.ret.sink.split.i ], [ %130, %129 ]
+  %.pn = phi { ptr, i32 } [ %130, %129 ], [ %111, %110 ], [ %122, %common.ret.sink.split.i ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$quinn..connection..ConnectionRef$GT$17h1fb2a409590ff0cbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28) #22
           to label %.body17 unwind label %144
 
@@ -1211,7 +1211,7 @@ define void @_ZN5quinn10connection10Connecting9into_0rtt17h450352546c747eb2E(ptr
           to label %12 unwind label %10
 
 .body:                                            ; preds = %.thread, %24, %10, %62
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %62 ], [ %11, %10 ], [ %25, %24 ], [ %lpad.thr_comm, %.thread ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %62 ], [ %lpad.thr_comm, %.thread ], [ %11, %10 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$quinn..connection..Connecting$GT$17h5d12e053415486bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #22
           to label %59 unwind label %60
 
@@ -2187,7 +2187,7 @@ common.resume:                                    ; preds = %69, %64
   br label %142
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %465, %472, %481, %510, %514, %525, %529, %230, %195, %214, %227, %389, %571
-  %.pn = phi { ptr, i32 } [ %231, %230 ], [ %572, %571 ], [ %390, %389 ], [ %lpad.thr_comm.split-lp.i.i, %195 ], [ %228, %227 ], [ %215, %214 ], [ %466, %465 ], [ %473, %472 ], [ %482, %481 ], [ %511, %514 ], [ %511, %510 ], [ %526, %529 ], [ %526, %525 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit186, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit190, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %231, %230 ], [ %572, %571 ], [ %228, %227 ], [ %390, %389 ], [ %526, %529 ], [ %lpad.thr_comm.split-lp.i.i, %195 ], [ %511, %510 ], [ %526, %525 ], [ %473, %472 ], [ %482, %481 ], [ %466, %465 ], [ %511, %514 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit186, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit190, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit192, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17habc9dde8918a8263E"(ptr nonnull %51) #22
           to label %142 unwind label %134
 
@@ -2456,8 +2456,8 @@ _ZN5quinn10connection5State5close17h3a082cc22102f128E.exit.i: ; preds = %229, %2
   br label %236
 
 236:                                              ; preds = %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit.thread180, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdaf6a70f2932f965E.exit", %559, %235
-  %.sroa.5.0 = phi ptr [ null, %235 ], [ undef, %559 ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdaf6a70f2932f965E.exit" ], [ %.sroa.12160.0.ph, %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit.thread180 ]
-  %.sroa.0.0 = phi i64 [ 0, %235 ], [ 1, %559 ], [ 1, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdaf6a70f2932f965E.exit" ], [ 0, %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit.thread180 ]
+  %.sroa.5.0 = phi ptr [ null, %235 ], [ %.sroa.12160.0.ph, %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit.thread180 ], [ undef, %559 ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdaf6a70f2932f965E.exit" ]
+  %.sroa.0.0 = phi i64 [ 0, %235 ], [ 0, %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit.thread180 ], [ 1, %559 ], [ 1, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hdaf6a70f2932f965E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %237 = load i64, ptr %51, align 8, !range !6, !alias.scope !161, !noalias !164, !noundef !7
   %.not.i.i = icmp eq i64 %237, 2
@@ -2739,7 +2739,7 @@ default.unreachable:                              ; preds = %329
   br i1 %344, label %_ZN5quinn10connection5State14drive_transmit17hc39e6fc2d2fca6bfE.exit, label %.backedge.i
 
 _ZN3std2io5error5Error4kind17h2761d6589b03a5dfE.exit.i: ; preds = %340, %337, %333
-  %.sroa.0.0.i.i = phi i8 [ %spec.select.i.i.i.i, %333 ], [ %339, %337 ], [ %342, %340 ]
+  %.sroa.0.0.i.i = phi i8 [ %342, %340 ], [ %spec.select.i.i.i.i, %333 ], [ %339, %337 ]
   %345 = icmp eq i8 %.sroa.0.0.i.i, 13
   br i1 %345, label %346, label %_ZN3std2io5error5Error4kind17h2761d6589b03a5dfE.exit.thread.i
 
@@ -2919,7 +2919,7 @@ thread-pre-split.i:                               ; preds = %"_ZN4core3ptr130dro
   br label %_ZN5quinn10connection5State11drive_timer17h6a2cecf8f2841dc2E.exit
 
 _ZN5quinn10connection5State11drive_timer17h6a2cecf8f2841dc2E.exit: ; preds = %.noexc109, %.noexc106, %354
-  %.sroa.0.0.i100 = phi i1 [ true, %.noexc109 ], [ false, %354 ], [ false, %.noexc106 ]
+  %.sroa.0.0.i100 = phi i1 [ false, %354 ], [ true, %.noexc109 ], [ false, %.noexc106 ]
   %416 = or i1 %.sroa.622.0179, %.sroa.0.0.i100
   call void @llvm.experimental.noalias.scope.decl(metadata !188)
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !188
@@ -3057,7 +3057,7 @@ _ZN5quinn10connection5State11drive_timer17h6a2cecf8f2841dc2E.exit: ; preds = %.n
   ]
 
 .invoke:                                          ; preds = %490, %437, %542, %455
-  %454 = phi ptr [ %425, %455 ], [ %545, %542 ], [ %426, %437 ], [ %., %490 ]
+  %454 = phi ptr [ %545, %542 ], [ %425, %455 ], [ %., %490 ], [ %426, %437 ]
   invoke void @_ZN5tokio4sync6notify6Notify14notify_waiters17h88f79be220ab0135E(ptr noundef nonnull align 8 %454)
           to label %.noexc124 unwind label %.loopexit
 
@@ -4186,7 +4186,7 @@ define void @_ZN5quinn10connection10Connection13send_datagram17hab859922afa14e20
           to label %103 unwind label %91
 
 91:                                               ; preds = %79, %73, %54, %103, %88
-  %.sroa.01.2 = phi i1 [ false, %103 ], [ true, %88 ], [ true, %54 ], [ true, %73 ], [ true, %79 ]
+  %.sroa.01.2 = phi i1 [ true, %79 ], [ false, %103 ], [ true, %88 ], [ true, %54 ], [ true, %73 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #22
@@ -4291,7 +4291,7 @@ default.unreachable24:                            ; preds = %106
           to label %134 unwind label %123
 
 122:                                              ; preds = %106, %120, %119
-  %.sroa.0.0 = phi i64 [ 11, %119 ], [ 12, %120 ], [ 10, %106 ]
+  %.sroa.0.0 = phi i64 [ 12, %120 ], [ 11, %119 ], [ 10, %106 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
@@ -4324,11 +4324,11 @@ default.unreachable24:                            ; preds = %106
   unreachable
 
 .thread:                                          ; preds = %.body.thread, %"_ZN4core3ptr74drop_in_place$LT$quinn_proto..connection..datagrams..SendDatagramError$GT$17h0bf23c9f477ab031E.exit12", %14
-  %.pn516 = phi { ptr, i32 } [ %92, %14 ], [ %.pn, %"_ZN4core3ptr74drop_in_place$LT$quinn_proto..connection..datagrams..SendDatagramError$GT$17h0bf23c9f477ab031E.exit12" ], [ %.pn517, %.body.thread ]
+  %.pn516 = phi { ptr, i32 } [ %.pn517, %.body.thread ], [ %.pn, %"_ZN4core3ptr74drop_in_place$LT$quinn_proto..connection..datagrams..SendDatagramError$GT$17h0bf23c9f477ab031E.exit12" ], [ %92, %14 ]
   resume { ptr, i32 } %.pn516
 
 .body.thread:                                     ; preds = %24, %.body.thread20, %14
-  %.pn517 = phi { ptr, i32 } [ %92, %14 ], [ %lpad.thr_comm, %.body.thread20 ], [ %25, %24 ]
+  %.pn517 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread20 ], [ %92, %14 ], [ %25, %24 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %137 = load ptr, ptr %2, align 8, !alias.scope !340, !nonnull !7, !align !9, !noundef !7
@@ -5954,7 +5954,7 @@ common.resume:                                    ; preds = %.body.thread, %24
           cleanup
   br label %.body.thread
 
-.body.thread17.loopexit.split-lp:                 ; preds = %78, %72, %53, %87, %90, %99, %107
+.body.thread17.loopexit.split-lp:                 ; preds = %53, %72, %87, %90, %99, %107, %78
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -6315,7 +6315,7 @@ common.resume:                                    ; preds = %.body.thread, %23
           cleanup
   br label %.body.thread
 
-.body.thread17.loopexit.split-lp:                 ; preds = %108, %102, %83, %57, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h362e80bdf19b37b9E.exit", %35, %45
+.body.thread17.loopexit.split-lp:                 ; preds = %83, %102, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h362e80bdf19b37b9E.exit", %35, %108, %45, %57
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -6647,7 +6647,7 @@ common.resume:                                    ; preds = %.body, %23
           to label %35 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %127, %94, %98
-  %.pn = phi { ptr, i32 } [ %95, %98 ], [ %95, %94 ], [ %128, %127 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %128, %127 ], [ %95, %98 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #22
           to label %common.resume unwind label %116
 
@@ -7194,7 +7194,7 @@ common.resume:                                    ; preds = %92, %.body, %26
           to label %common.resume unwind label %135
 
 _ZN5quinn10connection5State4wake17hbe58586656adee20E.exit: ; preds = %110, %111, %99, %107, %101
-  %storemerge = phi i64 [ 13, %101 ], [ 13, %107 ], [ 11, %110 ], [ 12, %111 ], [ 10, %99 ]
+  %storemerge = phi i64 [ 13, %107 ], [ 13, %101 ], [ 12, %111 ], [ 11, %110 ], [ 10, %99 ]
   store i64 %storemerge, ptr %0, align 8
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7505,7 +7505,7 @@ define internal fastcc void @_ZN5quinn10connection5State9terminate17hd326df105fc
   br label %"_ZN79_$LT$quinn_proto..connection..ConnectionError$u20$as$u20$core..clone..Clone$GT$5clone17hf50737fff87799faE.exit"
 
 .body:                                            ; preds = %98, %85, %57, %72
-  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %58, %57 ], [ %86, %85 ], [ %99, %98 ]
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %86, %85 ], [ %58, %57 ], [ %99, %98 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$quinn_proto..connection..ConnectionError$GT$17hf8927ef2c403e420E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #22
           to label %143 unwind label %141
 

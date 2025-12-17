@@ -917,7 +917,7 @@ if.end.i.if.end56.loopexit_crit_edge:             ; preds = %if.end.i
   br label %if.end56, !llvm.loop !6
 
 if.end56:                                         ; preds = %land.rhs.i, %land.rhs.i.preheader, %if.end.i.if.end56.loopexit_crit_edge, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52
-  %41 = phi ptr [ %31, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52 ], [ %37, %if.end.i.if.end56.loopexit_crit_edge ], [ %31, %land.rhs.i.preheader ], [ %37, %land.rhs.i ]
+  %41 = phi ptr [ %31, %_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm.exit52 ], [ %31, %land.rhs.i.preheader ], [ %37, %if.end.i.if.end56.loopexit_crit_edge ], [ %37, %land.rhs.i ]
   %write_pos_ = getelementptr inbounds nuw i8, ptr %41, i64 16
   %42 = load i64, ptr %write_pos_, align 8
   %len_ = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -1250,7 +1250,7 @@ sw.default:                                       ; preds = %_ZN4node6crypto7Nod
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.end.i, %sw.bb, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit, %sw.bb5, %if.then, %sw.default, %sw.bb18, %sw.bb15, %sw.bb12, %sw.bb3, %sw.bb1
-  %ret.0 = phi i64 [ 0, %sw.default ], [ %conv, %sw.bb1 ], [ 1, %sw.bb3 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ %conv14, %sw.bb12 ], [ 1, %sw.bb15 ], [ %14, %sw.bb18 ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
+  %ret.0 = phi i64 [ 0, %sw.default ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ %conv, %sw.bb1 ], [ 1, %sw.bb3 ], [ %13, %if.then ], [ %13, %sw.bb5 ], [ %conv14, %sw.bb12 ], [ 1, %sw.bb15 ], [ %14, %sw.bb18 ], [ 1, %_ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit ], [ 1, %sw.bb ], [ 1, %while.end.i ]
   ret i64 %ret.0
 }
 

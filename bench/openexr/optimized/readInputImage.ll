@@ -1240,7 +1240,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %365
   br label %471
 
 471:                                              ; preds = %470, %404, %382, %373, %350, %341
-  %.pn82.pn.pn.pn.i = phi { ptr, i32 } [ %342, %341 ], [ %351, %350 ], [ %.pn.pn.i, %382 ], [ %374, %373 ], [ %.pn82.i, %470 ], [ %405, %404 ]
+  %.pn82.pn.pn.pn.i = phi { ptr, i32 } [ %342, %341 ], [ %374, %373 ], [ %351, %350 ], [ %.pn.pn.i, %382 ], [ %.pn82.i, %470 ], [ %405, %404 ]
   call void @_ZN7Imf_3_413RgbaInputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume

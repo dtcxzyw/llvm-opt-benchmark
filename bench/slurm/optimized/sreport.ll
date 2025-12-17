@@ -1351,7 +1351,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_cluster_rep.exit
 
 160:                                              ; preds = %147, %138, %129
-  %.0.i111 = phi i32 [ %150, %147 ], [ %141, %138 ], [ %132, %129 ]
+  %.0.i111 = phi i32 [ %132, %129 ], [ %150, %147 ], [ %141, %138 ]
   %.not19.i = icmp eq i32 %.0.i111, 0
   br i1 %.not19.i, label %_cluster_rep.exit, label %161
 

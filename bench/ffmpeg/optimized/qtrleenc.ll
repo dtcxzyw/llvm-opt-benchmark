@@ -85,7 +85,7 @@ define internal range(i32 -22, 1) i32 @qtrle_encode_init(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %24, %22, %20, %..thread_crit_edge, %.thread45, %26
-  %29 = phi i32 [ 40, %26 ], [ 40, %.thread45 ], [ %28, %..thread_crit_edge ], [ 16, %20 ], [ 24, %22 ], [ 32, %24 ]
+  %29 = phi i32 [ 40, %.thread45 ], [ 40, %26 ], [ %28, %..thread_crit_edge ], [ 16, %20 ], [ 24, %22 ], [ 32, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i32 %29, ptr %30, align 8, !tbaa !36
   %31 = load i32, ptr %12, align 4, !tbaa !33
@@ -149,7 +149,7 @@ define internal range(i32 -22, 1) i32 @qtrle_encode_init(ptr noundef %0) #0 {
   br label %67
 
 67:                                               ; preds = %1, %52, %51, %47, %17
-  %.0 = phi i32 [ 0, %52 ], [ -12, %51 ], [ -12, %47 ], [ -22, %17 ], [ -22, %1 ]
+  %.0 = phi i32 [ -22, %17 ], [ 0, %52 ], [ -12, %51 ], [ -12, %47 ], [ -22, %1 ]
   ret i32 %.0
 }
 
@@ -466,10 +466,10 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   br label %177
 
 177:                                              ; preds = %175, %168
-  %.3177.i.i = phi i32 [ %.2176.i.i, %168 ], [ %.2176..i.i, %175 ]
-  %.2173.i.i = phi i32 [ %.1172.i.i, %168 ], [ %.1172..i.i, %175 ]
-  %.3170.i.i = phi i32 [ %.2169.i.i, %168 ], [ %..i.i, %175 ]
-  %.2166.i.i = phi i32 [ %.1165.i.i, %168 ], [ %..1165.i.i, %175 ]
+  %.3177.i.i = phi i32 [ %.2176..i.i, %175 ], [ %.2176.i.i, %168 ]
+  %.2173.i.i = phi i32 [ %.1172..i.i, %175 ], [ %.1172.i.i, %168 ]
+  %.3170.i.i = phi i32 [ %..i.i, %175 ], [ %.2169.i.i, %168 ]
+  %.2166.i.i = phi i32 [ %..1165.i.i, %175 ], [ %.1165.i.i, %168 ]
   %178 = load i32, ptr %116, align 8, !tbaa !45
   %.not192.i.i = icmp eq i32 %178, 0
   br i1 %.not192.i.i, label %179, label %183
@@ -767,7 +767,7 @@ encode_frame.exit:                                ; preds = %qtrle_encode_line.e
   br label %335
 
 335:                                              ; preds = %4, %334, %327
-  %.0 = phi i32 [ %325, %327 ], [ 0, %334 ], [ %10, %4 ]
+  %.0 = phi i32 [ 0, %334 ], [ %325, %327 ], [ %10, %4 ]
   ret i32 %.0
 }
 

@@ -458,8 +458,8 @@ nexttoken.exit.thread:                            ; preds = %.lr.ph120.i, %.preh
   br label %140
 
 nexttoken.exit:                                   ; preds = %110, %137
-  %.1 = phi ptr [ %138, %137 ], [ %.058.lcssa.i, %110 ]
-  %.2.i = phi i32 [ %139, %137 ], [ %114, %110 ]
+  %.1 = phi ptr [ %.058.lcssa.i, %110 ], [ %138, %137 ]
+  %.2.i = phi i32 [ %114, %110 ], [ %139, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %.2.i, ptr %.075.ptr, align 16, !tbaa !19
   %.not86 = icmp eq i32 %.2.i, 0
@@ -1241,13 +1241,13 @@ phrase.exit:                                      ; preds = %.thread499, %207, %
   br label %489
 
 489:                                              ; preds = %486, %481
-  %.174 = phi i64 [ %488, %486 ], [ %484, %481 ]
+  %.174 = phi i64 [ %484, %481 ], [ %488, %486 ]
   %490 = icmp eq i64 %.174, -1
   %491 = select i1 %490, i64 0, i64 %.174
   br label %phrase.exit.thread
 
 phrase.exit.thread:                               ; preds = %140, %340, %354, %344, %358, %.lr.ph, %283, %432, %471, %459, %2, %489
-  %.072 = phi i64 [ %491, %489 ], [ -1, %2 ], [ -1, %459 ], [ -1, %471 ], [ -1, %432 ], [ -1, %283 ], [ -1, %.lr.ph ], [ -1, %358 ], [ -1, %344 ], [ -1, %354 ], [ -1, %340 ], [ -1, %140 ]
+  %.072 = phi i64 [ %491, %489 ], [ -1, %2 ], [ -1, %471 ], [ -1, %459 ], [ -1, %340 ], [ -1, %432 ], [ -1, %283 ], [ -1, %.lr.ph ], [ -1, %358 ], [ -1, %344 ], [ -1, %354 ], [ -1, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.127)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.153)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.171)

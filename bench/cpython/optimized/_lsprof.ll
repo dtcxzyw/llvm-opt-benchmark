@@ -160,7 +160,7 @@ PyObject_TypeCheck.exit24:                        ; preds = %18
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %PyObject_TypeCheck.exit24, %18, %13, %10, %8, %PyObject_TypeCheck.exit.thread
-  %.014 = phi ptr [ %0, %PyObject_TypeCheck.exit.thread ], [ %0, %8 ], [ null, %10 ], [ null, %13 ], [ %16, %18 ], [ %spec.select, %PyObject_TypeCheck.exit24 ]
+  %.014 = phi ptr [ %16, %18 ], [ null, %10 ], [ %0, %8 ], [ %0, %PyObject_TypeCheck.exit.thread ], [ %spec.select, %PyObject_TypeCheck.exit24 ], [ null, %13 ]
   ret ptr %.014
 }
 
@@ -331,7 +331,7 @@ define internal range(i32 -1, 1) i32 @_lsprof_exec(ptr noundef %0) #0 {
   br label %21
 
 21:                                               ; preds = %19, %15, %12, %8, %5, %1
-  %.0 = phi i32 [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ -1, %15 ], [ %.lobit, %19 ]
+  %.0 = phi i32 [ -1, %15 ], [ -1, %1 ], [ -1, %5 ], [ -1, %8 ], [ -1, %12 ], [ %.lobit, %19 ]
   ret i32 %.0
 }
 
@@ -659,7 +659,7 @@ Py_DECREF.exit.i:                                 ; preds = %78, %75, %71
   br label %profiler_init_impl.exit
 
 profiler_init_impl.exit:                          ; preds = %Py_DECREF.exit.i, %Py_XDECREF.exit.i, %44, %39, %32, %12
-  %.048 = phi i32 [ -1, %39 ], [ -1, %44 ], [ -1, %32 ], [ -1, %12 ], [ -1, %Py_XDECREF.exit.i ], [ %..i, %Py_DECREF.exit.i ]
+  %.048 = phi i32 [ -1, %39 ], [ -1, %44 ], [ -1, %12 ], [ -1, %32 ], [ -1, %Py_XDECREF.exit.i ], [ %..i, %Py_DECREF.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }
@@ -788,7 +788,7 @@ pending_exception.exit.i:                         ; preds = %12
   br label %_lsprof_Profiler_getstats_impl.exit
 
 _lsprof_Profiler_getstats_impl.exit:              ; preds = %pending_exception.exit.i, %32, %36, %41, %43, %46
-  %.0.i = phi ptr [ null, %pending_exception.exit.i ], [ null, %32 ], [ null, %41 ], [ null, %43 ], [ null, %46 ], [ %40, %36 ]
+  %.0.i = phi ptr [ null, %46 ], [ null, %pending_exception.exit.i ], [ null, %32 ], [ null, %41 ], [ null, %43 ], [ %40, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %47
 
@@ -1229,7 +1229,7 @@ pending_exception.exit.i:                         ; preds = %Py_DECREF.exit52.i
   br label %_lsprof_Profiler_disable_impl.exit
 
 _lsprof_Profiler_disable_impl.exit:               ; preds = %6, %10, %19, %21, %24, %33, %35, %38, %47, %49, %52, %Py_DECREF.exit52.i, %pending_exception.exit.i
-  %.028.i = phi ptr [ null, %6 ], [ null, %pending_exception.exit.i ], [ @_Py_NoneStruct, %Py_DECREF.exit52.i ], [ null, %10 ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %47 ], [ null, %49 ], [ null, %52 ]
+  %.028.i = phi ptr [ null, %6 ], [ @_Py_NoneStruct, %Py_DECREF.exit52.i ], [ null, %pending_exception.exit.i ], [ null, %52 ], [ null, %38 ], [ null, %24 ], [ null, %10 ], [ null, %19 ], [ null, %21 ], [ null, %33 ], [ null, %35 ], [ null, %47 ], [ null, %49 ]
   ret ptr %.028.i
 }
 
@@ -1424,7 +1424,7 @@ PyObject_TypeCheck.exit24.i.i:                    ; preds = %31
   br i1 %.not.i10.i, label %_lsprof_Profiler__ccall_callback_impl.exit, label %34
 
 34:                                               ; preds = %PyObject_TypeCheck.exit24.i.i, %31, %21, %PyObject_TypeCheck.exit.thread.i.i
-  %.014.i.ph.i = phi ptr [ %29, %PyObject_TypeCheck.exit24.i.i ], [ %29, %31 ], [ %8, %21 ], [ %8, %PyObject_TypeCheck.exit.thread.i.i ]
+  %.014.i.ph.i = phi ptr [ %29, %PyObject_TypeCheck.exit24.i.i ], [ %8, %PyObject_TypeCheck.exit.thread.i.i ], [ %8, %21 ], [ %29, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %.014.i.ph.i, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !74
   tail call fastcc void @ptrace_enter_call(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %.014.i.ph.i)
@@ -1519,7 +1519,7 @@ PyObject_TypeCheck.exit24.i.i:                    ; preds = %31
   br i1 %.not.i9.i, label %_lsprof_Profiler__creturn_callback_impl.exit, label %34
 
 34:                                               ; preds = %PyObject_TypeCheck.exit24.i.i, %31, %21, %PyObject_TypeCheck.exit.thread.i.i
-  %.014.i.ph.i = phi ptr [ %29, %PyObject_TypeCheck.exit24.i.i ], [ %29, %31 ], [ %8, %21 ], [ %8, %PyObject_TypeCheck.exit.thread.i.i ]
+  %.014.i.ph.i = phi ptr [ %29, %PyObject_TypeCheck.exit24.i.i ], [ %8, %PyObject_TypeCheck.exit.thread.i.i ], [ %8, %21 ], [ %29, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !31
   %37 = icmp eq ptr %36, null
@@ -1699,7 +1699,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %62, %19
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %62, %58, %19, %16, %Py_DECREF.exit28, %9, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %9 ], [ -1, %Py_DECREF.exit28 ], [ -1, %16 ], [ -1, %19 ], [ %60, %58 ], [ %60, %62 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
+  %.0 = phi i32 [ %60, %62 ], [ 0, %2 ], [ -1, %Py_DECREF.exit28 ], [ -1, %9 ], [ -1, %16 ], [ -1, %19 ], [ %60, %58 ], [ %.0.ph, %Py_DECREF.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -2236,7 +2236,7 @@ Py_DECREF.exit60.i.i:                             ; preds = %78, %75, %71
   br label %normalizeUserObj.exit.i
 
 normalizeUserObj.exit.i:                          ; preds = %95, %91, %Py_DECREF.exit62.i.i, %53, %50, %44
-  %.0.i.i = phi ptr [ %63, %Py_DECREF.exit62.i.i ], [ %94, %91 ], [ %98, %95 ], [ %48, %44 ], [ %48, %50 ], [ %48, %53 ]
+  %.0.i.i = phi ptr [ %48, %44 ], [ %48, %50 ], [ %63, %Py_DECREF.exit62.i.i ], [ %94, %91 ], [ %98, %95 ], [ %48, %53 ]
   %99 = icmp eq ptr %.0.i.i, null
   br i1 %99, label %100, label %newProfilerEntry.exit
 
@@ -2250,7 +2250,7 @@ normalizeUserObj.exit.i:                          ; preds = %95, %91, %Py_DECREF
   br label %newProfilerEntry.exit.thread
 
 newProfilerEntry.exit:                            ; preds = %18, %21, %86, %normalizeUserObj.exit.i
-  %.0.i23.i = phi ptr [ %.0.i.i, %normalizeUserObj.exit.i ], [ %2, %21 ], [ %2, %18 ], [ %80, %86 ]
+  %.0.i23.i = phi ptr [ %.0.i.i, %normalizeUserObj.exit.i ], [ %2, %18 ], [ %2, %21 ], [ %80, %86 ]
   store ptr %1, ptr %9, align 8, !tbaa !102
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %.0.i23.i, ptr %104, align 8, !tbaa !81

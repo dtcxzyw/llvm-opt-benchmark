@@ -124,8 +124,8 @@ define hidden range(i32 -152, 1) i32 @psa_its_get(i64 noundef %0, i32 noundef %1
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %20, %21, %17, %9, %.thread-pre-split_crit_edge, %14
-  %22 = phi ptr [ %.pr.pre26, %14 ], [ %.pr.pre26, %20 ], [ %.pr.pre26, %21 ], [ %.pr.pre26, %17 ], [ %.pr.pre26, %9 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %.0 = phi i32 [ -146, %14 ], [ 0, %20 ], [ 0, %21 ], [ -146, %17 ], [ -135, %9 ], [ %8, %.thread-pre-split_crit_edge ]
+  %22 = phi ptr [ %.pr.pre26, %14 ], [ %.pr.pre26, %21 ], [ %.pr.pre26, %17 ], [ %.pr.pre26, %20 ], [ %.pr.pre26, %9 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
+  %.0 = phi i32 [ -146, %14 ], [ 0, %21 ], [ -146, %17 ], [ 0, %20 ], [ -135, %9 ], [ %8, %.thread-pre-split_crit_edge ]
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %25, label %23
 

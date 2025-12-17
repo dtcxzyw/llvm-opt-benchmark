@@ -4751,8 +4751,8 @@ define hidden void @_ZN13LIR_Assembler16emit_alloc_arrayEP16LIR_OpAllocArray(ptr
   br label %22
 
 22:                                               ; preds = %18, %2, %19, %20
-  %.sroa.013.0 = phi i32 [ %15, %19 ], [ %15, %20 ], [ %15, %2 ], [ %17, %18 ]
-  %.sroa.015.0 = phi i32 [ %13, %19 ], [ %13, %20 ], [ %17, %2 ], [ %13, %18 ]
+  %.sroa.013.0 = phi i32 [ %15, %20 ], [ %15, %2 ], [ %15, %19 ], [ %17, %18 ]
+  %.sroa.015.0 = phi i32 [ %13, %20 ], [ %17, %2 ], [ %13, %19 ], [ %13, %18 ]
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %24, align 8
@@ -5155,7 +5155,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %53, %56
   br i1 %.not48.i, label %_ZL26select_different_registers8RegisterS_RS_S0_.exit.sink.split, label %_ZL26select_different_registers8RegisterS_RS_S0_.exit
 
 _ZL26select_different_registers8RegisterS_RS_S0_.exit.sink.split: ; preds = %66, %69, %70, %64, %65
-  %.sink.i120.sink = phi ptr [ %.sroa.0127, %64 ], [ %.sroa.0125, %65 ], [ %.sroa.0127, %66 ], [ %.sroa.0125, %69 ], [ %.sroa.0, %70 ]
+  %.sink.i120.sink = phi ptr [ %.sroa.0125, %65 ], [ %.sroa.0127, %64 ], [ %.sroa.0127, %66 ], [ %.sroa.0125, %69 ], [ %.sroa.0, %70 ]
   store i32 %35, ptr %.sink.i120.sink, align 4
   br label %_ZL26select_different_registers8RegisterS_RS_S0_.exit
 

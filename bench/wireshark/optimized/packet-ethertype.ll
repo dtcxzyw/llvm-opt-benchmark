@@ -300,8 +300,8 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br label %44
 
 44:                                               ; preds = %42, %39, %35
-  %.089 = phi i32 [ %16, %39 ], [ %16, %35 ], [ %spec.select105, %42 ]
-  %.088 = phi i32 [ %18, %39 ], [ %18, %35 ], [ %spec.select, %42 ]
+  %.089 = phi i32 [ %16, %35 ], [ %spec.select105, %42 ], [ %16, %39 ]
+  %.088 = phi i32 [ %18, %35 ], [ %spec.select, %42 ], [ %18, %39 ]
   %45 = load i32, ptr %14, align 4
   %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %45, i32 noundef %.089, i32 noundef %.088)
   store volatile ptr %46, ptr %5, align 8

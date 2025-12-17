@@ -4119,13 +4119,13 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split: ; preds = %_ZN
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338
-  %.sroa.0664.1 = phi ptr [ %484, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0664.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.sroa.0659.1 = phi ptr [ %495, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0659.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.sroa.0654.1 = phi ptr [ %storemerge.i.i286715719, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0654.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.sroa.0649.1 = phi ptr [ %storemerge.i.i301722726, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %864, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0649.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.sroa.0644.1 = phi ptr [ %storemerge.i.i316729733, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0644.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.sroa.0639.1 = phi ptr [ %storemerge.i.i331736740, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.sroa.0639.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
-  %.0 = phi double [ %508, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %.0.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0664.1 = phi ptr [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %484, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0664.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0659.1 = phi ptr [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %495, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0659.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0654.1 = phi ptr [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %storemerge.i.i286715719, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0654.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0649.1 = phi ptr [ %864, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %storemerge.i.i301722726, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0649.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0644.1 = phi ptr [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %storemerge.i.i316729733, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0644.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.sroa.0639.1 = phi ptr [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %storemerge.i.i331736740, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.sroa.0639.1.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
+  %.0 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit480 ], [ %508, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit338 ], [ %.0.ph, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit340.sink.split ]
   %911 = load i8, ptr %140, align 1, !tbaa !58, !range !56, !noundef !57
   %912 = trunc nuw i8 %911 to i1
   %913 = load i8, ptr %5, align 1, !range !56
@@ -4280,11 +4280,11 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread: ; preds = %977, %983
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread, %991, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread, %973, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread, %955, %939
-  %.pn140.pn772 = phi { ptr, i32 } [ %978, %991 ], [ %978, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %960, %973 ], [ %960, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %942, %955 ], [ %942, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %940, %939 ]
-  %.sroa.0600.1771 = phi ptr [ %800, %991 ], [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %728, %973 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %664, %955 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %.sroa.0600.0, %939 ]
-  %.sroa.0639.5769 = phi ptr [ %728, %991 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %728, %973 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ null, %955 ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %.sroa.0659.3, %939 ]
-  %.sroa.0644.5767 = phi ptr [ %664, %991 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %664, %973 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %664, %955 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %.sroa.0664.3, %939 ]
-  %.sroa.0654.5765 = phi ptr [ %800, %991 ], [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ null, %973 ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ null, %955 ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %.sroa.0654.3, %939 ]
+  %.pn140.pn772 = phi { ptr, i32 } [ %940, %939 ], [ %960, %973 ], [ %978, %991 ], [ %978, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %960, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %942, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %942, %955 ]
+  %.sroa.0600.1771 = phi ptr [ %.sroa.0600.0, %939 ], [ %728, %973 ], [ %800, %991 ], [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %664, %955 ]
+  %.sroa.0639.5769 = phi ptr [ %.sroa.0659.3, %939 ], [ %728, %973 ], [ %728, %991 ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %728, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ null, %955 ]
+  %.sroa.0644.5767 = phi ptr [ %.sroa.0664.3, %939 ], [ %664, %973 ], [ %664, %991 ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ %664, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ %664, %955 ]
+  %.sroa.0654.5765 = phi ptr [ %.sroa.0654.3, %939 ], [ null, %973 ], [ %800, %991 ], [ %800, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit505.thread ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit499.thread ], [ null, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit491.thread ], [ null, %955 ]
   %995 = getelementptr inbounds nuw i8, ptr %.sroa.0600.1771, i64 8
   %996 = load i32, ptr %995, align 8, !tbaa !3
   %997 = add nsw i32 %996, -1
@@ -4517,24 +4517,24 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread: ; preds = %1103, %1109
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread, %999, %638
-  %.sroa.0664.2 = phi ptr [ %.sroa.0664.0, %638 ], [ %.sroa.0644.5767, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.sroa.0644.5767, %999 ]
-  %.sroa.0659.2 = phi ptr [ %.sroa.0659.0, %638 ], [ %.sroa.0639.5769, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.sroa.0639.5769, %999 ]
-  %.sroa.0654.2 = phi ptr [ %.sroa.0654.0, %638 ], [ %.sroa.0654.5765, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.sroa.0654.5765, %999 ]
-  %.sroa.0649.2 = phi ptr [ %.sroa.0649.0, %638 ], [ null, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ null, %999 ]
-  %.sroa.0644.2 = phi ptr [ %.sroa.0644.0, %638 ], [ %.sroa.0644.5767, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.sroa.0644.5767, %999 ]
-  %.sroa.0639.2 = phi ptr [ %.sroa.0639.0, %638 ], [ %.sroa.0639.5769, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.sroa.0639.5769, %999 ]
-  %.pn144.pn.pn = phi { ptr, i32 } [ %639, %638 ], [ %.pn140.pn772, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ], [ %.pn140.pn772, %999 ]
+  %.sroa.0664.2 = phi ptr [ %.sroa.0644.5767, %999 ], [ %.sroa.0664.0, %638 ], [ %.sroa.0644.5767, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.sroa.0659.2 = phi ptr [ %.sroa.0639.5769, %999 ], [ %.sroa.0659.0, %638 ], [ %.sroa.0639.5769, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.sroa.0654.2 = phi ptr [ %.sroa.0654.5765, %999 ], [ %.sroa.0654.0, %638 ], [ %.sroa.0654.5765, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.sroa.0649.2 = phi ptr [ null, %999 ], [ %.sroa.0649.0, %638 ], [ null, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.sroa.0644.2 = phi ptr [ %.sroa.0644.5767, %999 ], [ %.sroa.0644.0, %638 ], [ %.sroa.0644.5767, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.sroa.0639.2 = phi ptr [ %.sroa.0639.5769, %999 ], [ %.sroa.0639.0, %638 ], [ %.sroa.0639.5769, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
+  %.pn144.pn.pn = phi { ptr, i32 } [ %.pn140.pn772, %999 ], [ %639, %638 ], [ %.pn140.pn772, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit493.thread ]
   %.not.i.i541 = icmp eq ptr %.sroa.0639.2, null
   br i1 %.not.i.i541, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit542, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread, %1117, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485
-  %.pn144.pn.pn818 = phi { ptr, i32 } [ %.pn144.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %1104, %1117 ], [ %1104, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0639.2817 = phi ptr [ %.sroa.0639.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0639.1, %1117 ], [ %.sroa.0639.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0644.2816 = phi ptr [ %.sroa.0644.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0644.1, %1117 ], [ %.sroa.0644.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0649.2815 = phi ptr [ %.sroa.0649.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0649.1, %1117 ], [ %.sroa.0649.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0654.2814 = phi ptr [ %.sroa.0654.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0654.1, %1117 ], [ %.sroa.0654.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0659.2813 = phi ptr [ %.sroa.0659.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0659.1, %1117 ], [ %.sroa.0659.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
-  %.sroa.0664.2812 = phi ptr [ %.sroa.0664.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0664.1, %1117 ], [ %.sroa.0664.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ]
+  %.pn144.pn.pn818 = phi { ptr, i32 } [ %1104, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.pn144.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %1104, %1117 ]
+  %.sroa.0639.2817 = phi ptr [ %.sroa.0639.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0639.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0639.1, %1117 ]
+  %.sroa.0644.2816 = phi ptr [ %.sroa.0644.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0644.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0644.1, %1117 ]
+  %.sroa.0649.2815 = phi ptr [ %.sroa.0649.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0649.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0649.1, %1117 ]
+  %.sroa.0654.2814 = phi ptr [ %.sroa.0654.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0654.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0654.1, %1117 ]
+  %.sroa.0659.2813 = phi ptr [ %.sroa.0659.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0659.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0659.1, %1117 ]
+  %.sroa.0664.2812 = phi ptr [ %.sroa.0664.1, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit538.thread ], [ %.sroa.0664.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0664.1, %1117 ]
   %1121 = getelementptr inbounds nuw i8, ptr %.sroa.0639.2817, i64 8
   %1122 = load i32, ptr %1121, align 8, !tbaa !3
   %1123 = add nsw i32 %1122, -1
@@ -4550,12 +4550,12 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803: ; preds = %_ZN5
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit542
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit542:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803, %1125
-  %.pn144.pn.pn801 = phi { ptr, i32 } [ %.pn144.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.pn144.pn.pn818, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.pn144.pn.pn818, %1125 ]
-  %.sroa.0644.2800 = phi ptr [ %.sroa.0644.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0644.2816, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.sroa.0644.2816, %1125 ]
-  %.sroa.0649.2799 = phi ptr [ %.sroa.0649.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0649.2815, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.sroa.0649.2815, %1125 ]
-  %.sroa.0654.2798 = phi ptr [ %.sroa.0654.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0654.2814, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.sroa.0654.2814, %1125 ]
-  %.sroa.0659.2797 = phi ptr [ %.sroa.0659.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0659.2813, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.sroa.0659.2813, %1125 ]
-  %.sroa.0664.2796 = phi ptr [ %.sroa.0664.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0664.2812, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ], [ %.sroa.0664.2812, %1125 ]
+  %.pn144.pn.pn801 = phi { ptr, i32 } [ %.pn144.pn.pn818, %1125 ], [ %.pn144.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.pn144.pn.pn818, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
+  %.sroa.0644.2800 = phi ptr [ %.sroa.0644.2816, %1125 ], [ %.sroa.0644.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0644.2816, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
+  %.sroa.0649.2799 = phi ptr [ %.sroa.0649.2815, %1125 ], [ %.sroa.0649.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0649.2815, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
+  %.sroa.0654.2798 = phi ptr [ %.sroa.0654.2814, %1125 ], [ %.sroa.0654.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0654.2814, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
+  %.sroa.0659.2797 = phi ptr [ %.sroa.0659.2813, %1125 ], [ %.sroa.0659.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0659.2813, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
+  %.sroa.0664.2796 = phi ptr [ %.sroa.0664.2812, %1125 ], [ %.sroa.0664.2, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485 ], [ %.sroa.0664.2812, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit485.thread803 ]
   %.not.i.i543 = icmp eq ptr %.sroa.0644.2800, null
   br i1 %.not.i.i543, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit544, label %1129
 
@@ -4632,8 +4632,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548:     ; preds = %_ZN5Ipopt8SmartPtrI
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit550
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit550:     ; preds = %636, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548, %1156, %1161
-  %.pn144.pn.pn801837851857865 = phi { ptr, i32 } [ %.pn144.pn.pn801, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548 ], [ %.pn144.pn.pn801, %1156 ], [ %.pn144.pn.pn801, %1161 ], [ %637, %636 ]
-  %.sroa.0664.2796841848859864 = phi ptr [ %.sroa.0664.2796, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548 ], [ %.sroa.0664.2796, %1156 ], [ %.sroa.0664.2796, %1161 ], [ %484, %636 ]
+  %.pn144.pn.pn801837851857865 = phi { ptr, i32 } [ %.pn144.pn.pn801, %1161 ], [ %.pn144.pn.pn801, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548 ], [ %.pn144.pn.pn801, %1156 ], [ %637, %636 ]
+  %.sroa.0664.2796841848859864 = phi ptr [ %.sroa.0664.2796, %1161 ], [ %.sroa.0664.2796, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit548 ], [ %.sroa.0664.2796, %1156 ], [ %484, %636 ]
   %.not.i.i551 = icmp eq ptr %.sroa.0664.2796841848859864, null
   br i1 %.not.i.i551, label %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit221, label %1165
 
@@ -4659,12 +4659,12 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit536:     ; preds = %_ZN5Ipopt8SmartPtrI
   ret i32 %.029
 
 _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit221: ; preds = %634, %935, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit483.thread, %1170, %1165, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit550, %372, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i254, %398, %281, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i235, %304, %226, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i218
-  %.pn144.pn.pn.pn = phi { ptr, i32 } [ %213, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i218 ], [ %213, %226 ], [ %282, %281 ], [ %.pn87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i235 ], [ %.pn87, %304 ], [ %373, %372 ], [ %.pn93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i254 ], [ %.pn93, %398 ], [ %.pn144.pn.pn801837851857865, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit550 ], [ %.pn144.pn.pn801837851857865, %1165 ], [ %.pn144.pn.pn801837851857865, %1170 ], [ %635, %634 ], [ %922, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit483.thread ], [ %922, %935 ]
+  %.pn144.pn.pn.pn = phi { ptr, i32 } [ %.pn93, %398 ], [ %922, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit483.thread ], [ %.pn87, %304 ], [ %213, %226 ], [ %922, %935 ], [ %213, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i218 ], [ %282, %281 ], [ %.pn87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i235 ], [ %373, %372 ], [ %.pn93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i254 ], [ %.pn144.pn.pn801837851857865, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit550 ], [ %.pn144.pn.pn801837851857865, %1165 ], [ %.pn144.pn.pn801837851857865, %1170 ], [ %635, %634 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit187
 
 _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit187: ; preds = %135, %130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193, %115, %110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185, %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit221
-  %.pn144.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn.pn, %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit221 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %.pn.pn960, %110 ], [ %.pn.pn960, %115 ], [ %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %.pn81.pn962, %130 ], [ %.pn81.pn962, %135 ]
+  %.pn144.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn144.pn.pn.pn, %_ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit221 ], [ %.pn.pn960, %115 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185 ], [ %.pn.pn960, %110 ], [ %129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %.pn81.pn962, %130 ], [ %.pn81.pn962, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn144.pn.pn.pn.pn
@@ -5726,7 +5726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %_Z
   ret void
 
 _ZN5Ipopt8SmartPtrINS_11OptionsListEED2Ev.exit133: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207, %414, %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181, %363, %368, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155, %304, %309, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147, %283, %288, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %260, %265, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %239, %244, %313
-  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %314, %313 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %.pn, %239 ], [ %.pn, %244 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn32, %260 ], [ %.pn32, %265 ], [ %.pn36.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ], [ %.pn36.pn, %283 ], [ %.pn36.pn, %288 ], [ %.pn40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155 ], [ %.pn40, %304 ], [ %.pn40, %309 ], [ %362, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %.pn48.pn312, %363 ], [ %.pn48.pn312, %368 ], [ %413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ], [ %.pn44.pn314, %414 ], [ %.pn44.pn314, %419 ]
+  %.pn48.pn.pn.pn = phi { ptr, i32 } [ %.pn40, %309 ], [ %.pn48.pn312, %368 ], [ %314, %313 ], [ %.pn36.pn, %288 ], [ %.pn32, %265 ], [ %.pn, %244 ], [ %.pn44.pn314, %419 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131 ], [ %.pn, %239 ], [ %.pn44.pn314, %414 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ %.pn32, %260 ], [ %413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ], [ %.pn36.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147 ], [ %.pn36.pn, %283 ], [ %362, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181 ], [ %.pn40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155 ], [ %.pn40, %304 ], [ %.pn48.pn312, %363 ]
   %430 = load ptr, ptr %8, align 8, !tbaa !47
   %431 = icmp eq ptr %430, %21
   br i1 %431, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i213
@@ -6125,8 +6125,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br label %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit85
 
 _ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit85: ; preds = %157, %172, %175
-  %179 = phi ptr [ %166, %172 ], [ %166, %175 ], [ null, %157 ]
-  %.not.i.i82149157 = phi i1 [ %.not.i.i82, %172 ], [ %.not.i.i82, %175 ], [ true, %157 ]
+  %179 = phi ptr [ %166, %175 ], [ %166, %172 ], [ null, %157 ]
+  %.not.i.i82149157 = phi i1 [ %.not.i.i82, %175 ], [ %.not.i.i82, %172 ], [ true, %157 ]
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %181 = load ptr, ptr %180, align 8, !tbaa !37, !noalias !289
   %.not.i.i.i.i86 = icmp eq ptr %181, null
@@ -6183,7 +6183,7 @@ _ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev.exit: ; preds = %197, %198, %203
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %207 = load ptr, ptr %1, align 8, !tbaa !277
   invoke void @_ZN5Ipopt16IpoptApplication15IpoptDataObjectEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.2") align 8 %13, ptr noundef nonnull align 8 dereferenceable(90) %207)
-          to label %208 unwind label %356
+          to label %208 unwind label %342
 
 208:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev.exit
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -6248,7 +6248,7 @@ _ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit:      ; preds = %226, %228, %233
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 152
   %240 = load ptr, ptr %239, align 8
   invoke void %240(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.3") align 8 %14, ptr noundef nonnull align 8 dereferenceable(90) %237)
-          to label %241 unwind label %342
+          to label %241 unwind label %344
 
 241:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6313,7 +6313,7 @@ _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit: ; preds = %259, %2
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 144
   %273 = load ptr, ptr %272, align 8
   invoke void %273(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.5") align 8 %15, ptr noundef nonnull align 8 dereferenceable(90) %270)
-          to label %274 unwind label %344
+          to label %274 unwind label %356
 
 274:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -6460,16 +6460,16 @@ _ZN5Ipopt8SmartPtrINS_14IpoptAlgorithmEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtr
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-342:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
+342:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev.exit
   %343 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
 
-344:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
+344:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
   %345 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
 
 346:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit
@@ -6489,27 +6489,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %34
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %352 = load ptr, ptr %16, align 8, !tbaa !47
   %353 = icmp eq ptr %352, %304
-  br i1 %353, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128
+  br i1 %353, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125
-  call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125
   %354 = load i64, ptr %304, align 8, !tbaa !46
   %355 = add i64 %354, 1
   call void @_ZdlPvm(ptr noundef %352, i64 noundef %355) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
 
-356:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14PDSystemSolverEED2Ev.exit
-  %357 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
 
-.thread158:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127, %342, %344, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %356
-  %.pn35.pn.pn161 = phi { ptr, i32 } [ %357, %356 ], [ %347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %345, %344 ], [ %343, %342 ], [ %347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127 ]
+356:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
+  %357 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  br i1 %.not.i.i82149157, label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130, label %.thread158
+
+.thread158:                                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126, %344, %342, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %356
+  %.pn35.pn.pn161 = phi { ptr, i32 } [ %347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126 ], [ %357, %356 ], [ %347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %343, %342 ], [ %345, %344 ]
   %358 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %359 = load i32, ptr %358, align 8, !tbaa !3
   %360 = add nsw i32 %359, -1
@@ -6524,8 +6524,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %_Z
   call void %365(ptr noundef nonnull align 8 dereferenceable(66) %179) #15
   br label %_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130
 
-_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127, %342, %344, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %356, %.thread158, %362
-  %.pn35.pn.pn162 = phi { ptr, i32 } [ %357, %356 ], [ %.pn35.pn.pn161, %.thread158 ], [ %.pn35.pn.pn161, %362 ], [ %347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %345, %344 ], [ %343, %342 ], [ %347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i127 ]
+_ZN5Ipopt8SmartPtrINS_21PDSearchDirCalculatorEED2Ev.exit130: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126, %344, %342, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %356, %.thread158, %362
+  %.pn35.pn.pn162 = phi { ptr, i32 } [ %357, %356 ], [ %.pn35.pn.pn161, %.thread158 ], [ %.pn35.pn.pn161, %362 ], [ %347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128 ], [ %343, %342 ], [ %345, %344 ], [ %347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i126 ]
   %366 = load ptr, ptr %12, align 8, !tbaa !280
   %.not.i.i131 = icmp eq ptr %366, null
   br i1 %.not.i.i131, label %_ZN5Ipopt8SmartPtrINS_14IpoptAlgorithmEED2Ev.exit132, label %367

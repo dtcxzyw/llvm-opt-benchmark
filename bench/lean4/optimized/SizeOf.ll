@@ -1022,8 +1022,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit92
   store ptr %25, ptr %65, align 8, !tbaa !10
   br label %150
 
-66:                                               ; preds = %lean_nat_lt.exit, %43, %42, %40, %lean_inc.exit96
-  %.083.ph = phi ptr [ %25, %lean_inc.exit96 ], [ %25, %40 ], [ %25, %42 ], [ %25, %43 ], [ %3, %lean_nat_lt.exit ]
+66:                                               ; preds = %lean_nat_lt.exit, %lean_inc.exit96, %43, %42, %40
+  %.083.ph = phi ptr [ %25, %40 ], [ %25, %42 ], [ %25, %43 ], [ %3, %lean_nat_lt.exit ], [ %25, %lean_inc.exit96 ]
   %.val113 = load i64, ptr %4, align 8, !tbaa !15
   %67 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Deriving_SizeOf_mkSizeOfHandler___spec__1(ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %0, i64 noundef %.val113, i64 noundef 0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %.083.ph)
   %68 = ptrtoint ptr %67 to i64
@@ -1246,7 +1246,7 @@ lean_alloc_ctor.exit136:                          ; preds = %lean_dec.exit
   br label %150
 
 150:                                              ; preds = %lean_alloc_ctor.exit129, %lean_dec.exit87, %115, %lean_alloc_ctor.exit136, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %60, %lean_alloc_ctor.exit ], [ %67, %lean_dec.exit87 ], [ %109, %lean_alloc_ctor.exit129 ], [ %144, %lean_alloc_ctor.exit136 ], [ %67, %115 ]
+  %.0 = phi ptr [ %60, %lean_alloc_ctor.exit ], [ %109, %lean_alloc_ctor.exit129 ], [ %67, %lean_dec.exit87 ], [ %144, %lean_alloc_ctor.exit136 ], [ %67, %115 ]
   ret ptr %.0
 }
 
@@ -1826,7 +1826,7 @@ lean_dec_ref.exit15:                              ; preds = %50, %49, %47, %_ini
   br label %57
 
 57:                                               ; preds = %.sink.split, %38, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %41, %38 ], [ %.sink32, %.sink.split ]
+  %.0 = phi ptr [ %18, %lean_dec_ref.exit ], [ %41, %38 ], [ %8, %7 ], [ %.sink32, %.sink.split ]
   ret ptr %.0
 }
 

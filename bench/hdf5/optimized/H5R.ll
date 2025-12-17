@@ -399,7 +399,7 @@ define range(i32 -1, 1) i32 @H5Rcreate_object(i64 noundef %0, ptr noundef %1, i6
   br i1 %.072, label %.thread86, label %150, !prof !26
 
 .thread86:                                        ; preds = %39, %32, %19, %.thread95, %.thread91, %147
-  %.1427890 = phi i32 [ %.04170, %147 ], [ -1, %.thread91 ], [ -1, %.thread95 ], [ -1, %19 ], [ -1, %32 ], [ -1, %39 ]
+  %.1427890 = phi i32 [ -1, %.thread95 ], [ %.04170, %147 ], [ -1, %.thread91 ], [ -1, %19 ], [ -1, %32 ], [ -1, %39 ]
   %149 = call i32 @H5E_dump_api_stack() #5
   br label %150
 
@@ -735,7 +735,7 @@ define range(i32 -1, 1) i32 @H5Rcreate_region(i64 noundef %0, ptr noundef %1, i6
   br i1 %.084, label %.thread98, label %164, !prof !26
 
 .thread98:                                        ; preds = %40, %33, %20, %.thread107, %.thread103, %161
-  %.15290102 = phi i32 [ %.05182, %161 ], [ -1, %.thread103 ], [ -1, %.thread107 ], [ -1, %20 ], [ -1, %33 ], [ -1, %40 ]
+  %.15290102 = phi i32 [ -1, %.thread107 ], [ %.05182, %161 ], [ -1, %.thread103 ], [ -1, %20 ], [ -1, %33 ], [ -1, %40 ]
   %163 = call i32 @H5E_dump_api_stack() #5
   br label %164
 
@@ -1030,7 +1030,7 @@ define range(i32 -1, 1) i32 @H5Rcreate_attr(i64 noundef %0, ptr noundef %1, ptr 
   br i1 %.079, label %.thread93, label %158, !prof !26
 
 .thread93:                                        ; preds = %40, %33, %20, %.thread102, %.thread98, %155
-  %.1468597 = phi i32 [ %.04577, %155 ], [ -1, %.thread98 ], [ -1, %.thread102 ], [ -1, %20 ], [ -1, %33 ], [ -1, %40 ]
+  %.1468597 = phi i32 [ -1, %.thread102 ], [ %.04577, %155 ], [ -1, %.thread98 ], [ -1, %20 ], [ -1, %33 ], [ -1, %40 ]
   %157 = call i32 @H5E_dump_api_stack() #5
   br label %158
 

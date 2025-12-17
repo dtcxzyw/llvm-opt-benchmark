@@ -379,7 +379,7 @@ define range(i32 -1, 1) i32 @pqGetInt(ptr noundef writeonly captures(none) %0, i
   br label %34
 
 34:                                               ; preds = %18, %4, %33, %31
-  %.0 = phi i32 [ -1, %31 ], [ 0, %33 ], [ -1, %4 ], [ -1, %18 ]
+  %.0 = phi i32 [ -1, %31 ], [ -1, %4 ], [ 0, %33 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -426,7 +426,7 @@ define range(i32 -1, 1) i32 @pqPutInt(i32 noundef %0, i64 noundef %1, ptr nounde
   br label %16
 
 16:                                               ; preds = %10, %6, %15, %13
-  %.0 = phi i32 [ -1, %13 ], [ 0, %15 ], [ -1, %6 ], [ -1, %10 ]
+  %.0 = phi i32 [ -1, %13 ], [ -1, %6 ], [ 0, %15 ], [ -1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -506,7 +506,7 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
   br label %31
 
 31:                                               ; preds = %2, %29, %28, %16
-  %.033 = phi i32 [ 0, %16 ], [ 0, %28 ], [ -1, %29 ], [ 0, %2 ]
+  %.033 = phi i32 [ -1, %29 ], [ 0, %16 ], [ 0, %28 ], [ 0, %2 ]
   ret i32 %.033
 }
 
@@ -630,7 +630,7 @@ define range(i32 -1, 1) i32 @pqCheckInBufferSpace(i64 noundef %0, ptr noundef %1
   br label %58
 
 58:                                               ; preds = %30, %2, %56, %55, %41
-  %.053 = phi i32 [ 0, %41 ], [ 0, %55 ], [ -1, %56 ], [ 0, %2 ], [ 0, %30 ]
+  %.053 = phi i32 [ -1, %56 ], [ 0, %2 ], [ 0, %41 ], [ 0, %55 ], [ 0, %30 ]
   ret i32 %.053
 }
 
@@ -976,8 +976,8 @@ pqWait.exit.thread66:                             ; preds = %42, %.thread, %50, 
   store i32 %.142, ptr %4, align 4
   br label %pqWait.exit.thread74
 
-pqWait.exit.thread74:                             ; preds = %38, %35, %11, %63, %24, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %24 ], [ %.139, %63 ], [ -1, %11 ], [ %., %38 ], [ -1, %35 ]
+pqWait.exit.thread74:                             ; preds = %35, %38, %11, %63, %24, %14
+  %.0 = phi i32 [ %.139, %63 ], [ 0, %14 ], [ 0, %24 ], [ -1, %11 ], [ -1, %35 ], [ %., %38 ]
   ret i32 %.0
 }
 
@@ -1178,7 +1178,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %65, %57, %82, %.loopexit.loopexit143, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
-  %.051 = phi i32 [ -1, %5 ], [ -1, %.loopexit60 ], [ 1, %86 ], [ -1, %39 ], [ 1, %69 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ %.0.ph, %.loopexit.loopexit143 ], [ -1, %82 ], [ -1, %57 ], [ 1, %65 ], [ 1, %61 ]
+  %.051 = phi i32 [ -1, %5 ], [ 1, %86 ], [ -1, %39 ], [ -1, %.loopexit60 ], [ %71, %70 ], [ 1, %69 ], [ -1, %57 ], [ -1, %82 ], [ 0, %.loopexit.loopexit ], [ %.0.ph, %.loopexit.loopexit143 ], [ 1, %65 ], [ 1, %61 ]
   ret i32 %.051
 }
 
@@ -1269,7 +1269,7 @@ define range(i32 -1, 2) i32 @pqWait(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %pqWaitTimed.exit
 
 pqWaitTimed.exit:                                 ; preds = %3, %6, %8
-  %.0.i = phi i32 [ 1, %8 ], [ -1, %3 ], [ 0, %6 ]
+  %.0.i = phi i32 [ -1, %3 ], [ 1, %8 ], [ 0, %6 ]
   ret i32 %.0.i
 }
 
@@ -1288,7 +1288,7 @@ define range(i32 -1, 2) i32 @pqWaitTimed(i32 noundef %0, i32 noundef %1, ptr nou
   br label %10
 
 10:                                               ; preds = %7, %4, %9
-  %.0 = phi i32 [ 1, %9 ], [ -1, %4 ], [ 0, %7 ]
+  %.0 = phi i32 [ -1, %4 ], [ 1, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -1389,7 +1389,7 @@ PQsocketPoll.exit.us26:                           ; preds = %.split, %30
   br label %PQsocketPoll.exit
 
 PQsocketPoll.exit:                                ; preds = %.split.split, %40
-  %.014.i = phi i32 [ %43, %40 ], [ 0, %.split.split ]
+  %.014.i = phi i32 [ 0, %.split.split ], [ %43, %40 ]
   %44 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.014.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = icmp slt i32 %44, 0
@@ -1402,8 +1402,8 @@ PQsocketPoll.exit:                                ; preds = %.split.split, %40
   br i1 %49, label %.split.split, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %30, %24, %46
-  %50 = phi i32 [ %48, %46 ], [ %26, %24 ], [ %32, %30 ]
-  %.us-phi24 = phi i32 [ %44, %46 ], [ %22, %24 ], [ %28, %30 ]
+  %50 = phi i32 [ %26, %24 ], [ %48, %46 ], [ %32, %30 ]
+  %.us-phi24 = phi i32 [ %22, %24 ], [ %44, %46 ], [ %28, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %51 = call ptr @pg_strerror_r(i32 noundef %50, ptr noundef nonnull %7, i64 noundef 256) #19
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %51)
@@ -1411,7 +1411,7 @@ PQsocketPoll.exit:                                ; preds = %.split.split, %40
   br label %.critedge19
 
 .critedge19:                                      ; preds = %PQsocketPoll.exit.us26, %PQsocketPoll.exit.us, %PQsocketPoll.exit, %16, %.critedge, %4, %15
-  %.014 = phi i32 [ -1, %15 ], [ -1, %4 ], [ %.us-phi24, %.critedge ], [ 0, %16 ], [ %44, %PQsocketPoll.exit ], [ %22, %PQsocketPoll.exit.us ], [ %28, %PQsocketPoll.exit.us26 ]
+  %.014 = phi i32 [ -1, %4 ], [ -1, %15 ], [ %.us-phi24, %.critedge ], [ 0, %16 ], [ %22, %PQsocketPoll.exit.us ], [ %44, %PQsocketPoll.exit ], [ %28, %PQsocketPoll.exit.us26 ]
   ret i32 %.014
 }
 
@@ -1476,7 +1476,7 @@ define i32 @PQsocketPoll(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 nou
   br label %28
 
 28:                                               ; preds = %24, %16, %14, %15
-  %.014 = phi i32 [ 0, %15 ], [ -1, %14 ], [ %27, %24 ], [ 0, %16 ]
+  %.014 = phi i32 [ -1, %14 ], [ 0, %15 ], [ %27, %24 ], [ 0, %16 ]
   %29 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.014) #19
   br label %30
 

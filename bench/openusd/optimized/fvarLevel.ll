@@ -454,7 +454,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -744,7 +744,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
-  %.0.i.i.i = phi ptr [ %20, %19 ], [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %23, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i ], [ %20, %19 ]
   store ptr %.0.i.i.i, ptr %4, align 8
   br label %41
 
@@ -2213,9 +2213,9 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665: ; preds = %412
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
 _ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %409, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665, %443, %436, %430
-  %451 = phi ptr [ %404, %430 ], [ %437, %436 ], [ %444, %443 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %404, %409 ]
-  %452 = phi i32 [ %431, %430 ], [ %438, %436 ], [ %445, %443 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %407, %409 ]
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %430 ], [ %.1.i.i.i, %436 ], [ %.2.i.i.i, %443 ], [ %450, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %449, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %448, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %409 ]
+  %451 = phi ptr [ %437, %436 ], [ %404, %430 ], [ %444, %443 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %404, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %404, %409 ]
+  %452 = phi i32 [ %438, %436 ], [ %431, %430 ], [ %445, %443 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %407, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %407, %409 ]
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %436 ], [ %.029.lcssa.i.i.i, %430 ], [ %.2.i.i.i, %443 ], [ %450, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit665 ], [ %449, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit663 ], [ %448, %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %409 ]
   %453 = icmp eq ptr %.028.i.i.i, %451
   br i1 %453, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread, label %457
 
@@ -2495,7 +2495,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i._
   br label %614
 
 614:                                              ; preds = %609, %607, %611, %612, %.loopexit509
-  %615 = phi i1 [ %608, %607 ], [ true, %.loopexit509 ], [ false, %611 ], [ false, %609 ], [ %.not346, %612 ]
+  %615 = phi i1 [ %608, %607 ], [ false, %609 ], [ %.not346, %612 ], [ true, %.loopexit509 ], [ false, %611 ]
   %616 = load ptr, ptr %7, align 8
   %617 = zext i16 %524 to i64
   %618 = mul nuw nsw i64 %617, 10
@@ -2618,10 +2618,10 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit.thread:          ; preds = %._crit_edge.i.i.i._
   br label %676
 
 676:                                              ; preds = %670, %.thread655
-  %677 = phi i8 [ %669, %.thread655 ], [ %675, %670 ]
-  %.in = phi i16 [ %.pr, %.thread655 ], [ %.fr675, %670 ]
-  %678 = phi i1 [ true, %.thread655 ], [ %673, %670 ]
-  %679 = phi i8 [ 1, %.thread655 ], [ %spec.select671, %670 ]
+  %677 = phi i8 [ %675, %670 ], [ %669, %.thread655 ]
+  %.in = phi i16 [ %.fr675, %670 ], [ %.pr, %.thread655 ]
+  %678 = phi i1 [ %673, %670 ], [ true, %.thread655 ]
+  %679 = phi i8 [ %spec.select671, %670 ], [ 1, %.thread655 ]
   %680 = icmp eq i16 %.in, 1
   %storemerge = select i1 %680, i8 %679, i8 %677
   store i8 %storemerge, ptr %659, align 1

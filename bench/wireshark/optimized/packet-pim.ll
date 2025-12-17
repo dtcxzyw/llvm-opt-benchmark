@@ -571,8 +571,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %._crit_edge731
 
 ._crit_edge731:                                   ; preds = %4, %34, %32, %36
-  %.pre-phi = phi i32 [ %29, %34 ], [ %29, %32 ], [ 13, %36 ], [ %29, %4 ]
-  %.0614 = phi ptr [ @.str.26, %34 ], [ %33, %32 ], [ %38, %36 ], [ @.str.26, %4 ]
+  %.pre-phi = phi i32 [ 13, %36 ], [ %29, %34 ], [ %29, %32 ], [ %29, %4 ]
+  %.0614 = phi ptr [ %38, %36 ], [ @.str.26, %34 ], [ %33, %32 ], [ @.str.26, %4 ]
   %39 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 35, ptr noundef nonnull @.str.276, i32 noundef %28)
   %40 = load ptr, ptr %21, align 8
@@ -1484,7 +1484,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %select.unfold
 
 select.unfold:                                    ; preds = %575, %562, %583, %558
-  %.8 = phi i32 [ %557, %558 ], [ %584, %583 ], [ %571, %562 ], [ %577, %575 ]
+  %.8 = phi i32 [ %584, %583 ], [ %557, %558 ], [ %571, %562 ], [ %577, %575 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %585 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8)
   %586 = icmp sgt i32 %585, 1
@@ -1867,7 +1867,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge263, %112, %64, %107, %176, %187, %59, %69, %103, %105, %95, %97, %80, %90, %85, %52, %22
-  %.0 = phi i32 [ %29, %22 ], [ 8, %52 ], [ 8, %59 ], [ 12, %64 ], [ 16, %107 ], [ 24, %176 ], [ 24, %187 ], [ 8, %69 ], [ 8, %103 ], [ 8, %105 ], [ 8, %95 ], [ 8, %97 ], [ 8, %80 ], [ 8, %90 ], [ 8, %85 ], [ 20, %112 ], [ %.1251.lcssa, %._crit_edge263 ]
+  %.0 = phi i32 [ %29, %22 ], [ 8, %52 ], [ 8, %59 ], [ 12, %64 ], [ 24, %187 ], [ 16, %107 ], [ 8, %85 ], [ 24, %176 ], [ 8, %69 ], [ 8, %103 ], [ 8, %105 ], [ 8, %95 ], [ 8, %97 ], [ 8, %80 ], [ 8, %90 ], [ 20, %112 ], [ %.1251.lcssa, %._crit_edge263 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2025,10 +2025,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %39
 
 39:                                               ; preds = %32, %37, %24, %29
-  %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6 = phi ptr [ @hf_pim_unicast_addr_ipv4, %24 ], [ @hf_pim_unicast_addr_ipv4, %29 ], [ @hf_pim_unicast_addr_ipv6, %32 ], [ @hf_pim_unicast_addr_ipv6, %37 ]
-  %.0377 = phi i32 [ %23, %24 ], [ %23, %29 ], [ 0, %32 ], [ 0, %37 ]
-  %.0374 = phi ptr [ %28, %24 ], [ %30, %29 ], [ %36, %32 ], [ %38, %37 ]
-  %.0371 = phi i32 [ 4, %24 ], [ 4, %29 ], [ 16, %32 ], [ 16, %37 ]
+  %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6 = phi ptr [ @hf_pim_unicast_addr_ipv6, %37 ], [ @hf_pim_unicast_addr_ipv4, %24 ], [ @hf_pim_unicast_addr_ipv4, %29 ], [ @hf_pim_unicast_addr_ipv6, %32 ]
+  %.0377 = phi i32 [ 0, %37 ], [ %23, %24 ], [ %23, %29 ], [ 0, %32 ]
+  %.0374 = phi ptr [ %38, %37 ], [ %28, %24 ], [ %30, %29 ], [ %36, %32 ]
+  %.0371 = phi i32 [ 16, %37 ], [ 4, %24 ], [ 4, %29 ], [ 16, %32 ]
   %40 = load i32, ptr @ett_pim, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %.0374, i32 noundef %40)
   %42 = load i32, ptr @hf_pim_addr_af, align 4
@@ -2191,10 +2191,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %138
 
 138:                                              ; preds = %136, %126
-  %.424 = phi i32 [ 4, %126 ], [ 16, %136 ]
-  %hf_pim_group_ip4.hf_pim_group_ip6 = phi ptr [ @hf_pim_group_ip4, %126 ], [ @hf_pim_group_ip6, %136 ]
-  %.3 = phi ptr [ %.4, %126 ], [ %.5, %136 ]
-  %.1372 = phi i32 [ 8, %126 ], [ 20, %136 ]
+  %.424 = phi i32 [ 16, %136 ], [ 4, %126 ]
+  %hf_pim_group_ip4.hf_pim_group_ip6 = phi ptr [ @hf_pim_group_ip6, %136 ], [ @hf_pim_group_ip4, %126 ]
+  %.3 = phi ptr [ %.5, %136 ], [ %.4, %126 ]
+  %.1372 = phi i32 [ 20, %136 ], [ 8, %126 ]
   %139 = load i32, ptr @ett_pim, align 4
   %140 = call ptr @proto_item_add_subtree(ptr noundef %.3, i32 noundef %139)
   %141 = load i32, ptr @hf_pim_addr_af, align 4
@@ -2264,9 +2264,9 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %181
 
 181:                                              ; preds = %179, %170
-  %.1378 = phi i32 [ %163, %170 ], [ 0, %179 ]
-  %.6 = phi ptr [ %.7, %170 ], [ %.8, %179 ]
-  %.2373 = phi i32 [ 4, %170 ], [ 16, %179 ]
+  %.1378 = phi i32 [ 0, %179 ], [ %163, %170 ]
+  %.6 = phi ptr [ %.8, %179 ], [ %.7, %170 ]
+  %.2373 = phi i32 [ 16, %179 ], [ 4, %170 ]
   %.not390 = icmp eq i8 %156, 0
   br i1 %.not390, label %190, label %182
 
@@ -2413,8 +2413,8 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   br label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %212, %206, %..critedge7.loopexit_crit_edge, %190
-  %.9 = phi ptr [ %.6, %190 ], [ %221, %..critedge7.loopexit_crit_edge ], [ %.6, %206 ], [ %221, %212 ]
-  %.1 = phi i32 [ 0, %190 ], [ %270, %..critedge7.loopexit_crit_edge ], [ 0, %206 ], [ %270, %212 ]
+  %.9 = phi ptr [ %.6, %190 ], [ %.6, %206 ], [ %221, %..critedge7.loopexit_crit_edge ], [ %221, %212 ]
+  %.1 = phi i32 [ 0, %190 ], [ 0, %206 ], [ %270, %..critedge7.loopexit_crit_edge ], [ %270, %212 ]
   %272 = add nuw nsw i32 %.2373, 4
   %273 = add i32 %272, %.1
   br label %274
@@ -2434,7 +2434,7 @@ default.unreachable420:                           ; preds = %18
   br label %276
 
 276:                                              ; preds = %274, %275, %15, %10
-  %.0379 = phi i1 [ false, %10 ], [ false, %15 ], [ true, %275 ], [ true, %274 ]
+  %.0379 = phi i1 [ false, %15 ], [ false, %10 ], [ true, %275 ], [ true, %274 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0379
 }

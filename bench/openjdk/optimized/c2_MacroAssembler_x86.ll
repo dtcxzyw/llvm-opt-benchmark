@@ -2208,10 +2208,10 @@ switch.early.test:                                ; preds = %17
   br label %19
 
 19:                                               ; preds = %18, %switch.early.test, %10, %.thread
-  %.sroa.0158.0 = phi i32 [ %5, %.thread ], [ %4, %10 ], [ %5, %switch.early.test ], [ %4, %18 ]
-  %.sroa.051.0 = phi ptr [ @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii, %.thread ], [ @_ZN9Assembler6vcmppsE11XMMRegisterS0_S0_ii, %10 ], [ @_ZN9Assembler6vcmppsE11XMMRegisterS0_S0_ii, %switch.early.test ], [ @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii, %18 ]
-  %.sroa.062.0 = phi ptr [ @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i, %.thread ], [ @_ZN9Assembler6vminpsE11XMMRegisterS0_S0_i, %10 ], [ @_ZN9Assembler6vmaxpsE11XMMRegisterS0_S0_i, %switch.early.test ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %18 ]
-  %.sroa.086.0 = phi ptr [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %.thread ], [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %10 ], [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %switch.early.test ], [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %18 ]
+  %.sroa.0158.0 = phi i32 [ %4, %10 ], [ %5, %switch.early.test ], [ %5, %.thread ], [ %4, %18 ]
+  %.sroa.051.0 = phi ptr [ @_ZN9Assembler6vcmppsE11XMMRegisterS0_S0_ii, %10 ], [ @_ZN9Assembler6vcmppsE11XMMRegisterS0_S0_ii, %switch.early.test ], [ @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii, %.thread ], [ @_ZN9Assembler6vcmppdE11XMMRegisterS0_S0_ii, %18 ]
+  %.sroa.062.0 = phi ptr [ @_ZN9Assembler6vminpsE11XMMRegisterS0_S0_i, %10 ], [ @_ZN9Assembler6vmaxpsE11XMMRegisterS0_S0_i, %switch.early.test ], [ @_ZN9Assembler6vmaxpdE11XMMRegisterS0_S0_i, %.thread ], [ @_ZN9Assembler6vminpdE11XMMRegisterS0_S0_i, %18 ]
+  %.sroa.086.0 = phi ptr [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %10 ], [ @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_, %switch.early.test ], [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %.thread ], [ @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_, %18 ]
   %20 = load i8, ptr @EnableX86ECoreOpts, align 1
   %.fr = freeze i8 %20
   %21 = trunc i8 %.fr to i1
@@ -2237,7 +2237,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %switch.early.tes
   br label %.thread168
 
 .thread168:                                       ; preds = %19, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %25
-  %.sroa.0158.1 = phi i32 [ %6, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %6, %25 ], [ %.sroa.0158.0, %19 ]
+  %.sroa.0158.1 = phi i32 [ %6, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %.sroa.0158.0, %19 ], [ %6, %25 ]
   %.not6 = xor i1 %24, true
   %.not166 = icmp eq i32 %3, %8
   %.154 = select i1 %.not166, i32 %6, i32 %8
@@ -4555,8 +4555,8 @@ define hidden void @_ZN17C2_MacroAssembler20load_constant_vectorE9BasicType11XMM
   unreachable
 
 _ZN17C2_MacroAssembler22vector_length_encodingEi.exit: ; preds = %.split.i, %.split.i, %.split.i, %17, %18
-  %.not = phi i1 [ false, %17 ], [ false, %18 ], [ true, %.split.i ], [ true, %.split.i ], [ true, %.split.i ]
-  %.0.i = phi i32 [ 1, %17 ], [ 2, %18 ], [ 0, %.split.i ], [ 0, %.split.i ], [ 0, %.split.i ]
+  %.not = phi i1 [ false, %18 ], [ false, %17 ], [ true, %.split.i ], [ true, %.split.i ], [ true, %.split.i ]
+  %.0.i = phi i32 [ 2, %18 ], [ 1, %17 ], [ 0, %.split.i ], [ 0, %.split.i ], [ 0, %.split.i ]
   %21 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %22 = and i64 %21, 262144
   %.not40 = icmp eq i64 %22, 0
@@ -7512,17 +7512,17 @@ define hidden void @_ZN17C2_MacroAssembler16string_indexofC8E8RegisterS0_S0_S0_i
   br label %190
 
 190:                                              ; preds = %174, %181, %155, %164
-  %.sink210.sroa.phi = phi ptr [ %.sink210.sroa.gep, %164 ], [ %.sink210.sroa.gep211, %155 ], [ %.sink210.sroa.gep212, %181 ], [ %.sink210.sroa.gep213, %174 ]
-  %.sink210.sroa.phi214 = phi ptr [ %.sink210.sroa.gep215, %164 ], [ %.sink210.sroa.gep216, %155 ], [ %.sink210.sroa.gep217, %181 ], [ %.sink210.sroa.gep218, %174 ]
-  %.sink210.sroa.phi219 = phi ptr [ %.sink210.sroa.gep220, %164 ], [ %.sink210.sroa.gep221, %155 ], [ %.sink210.sroa.gep222, %181 ], [ %.sink210.sroa.gep223, %174 ]
-  %.sink210.sroa.phi224 = phi ptr [ %.sink210.sroa.gep225, %164 ], [ %.sink210.sroa.gep226, %155 ], [ %.sink210.sroa.gep227, %181 ], [ %.sink210.sroa.gep228, %174 ]
-  %.sink210.sroa.phi229 = phi ptr [ %.sink210.sroa.gep230, %164 ], [ %.sink210.sroa.gep231, %155 ], [ %.sink210.sroa.gep232, %181 ], [ %.sink210.sroa.gep233, %174 ]
-  %.sink210.sroa.phi234 = phi ptr [ %.sink210.sroa.gep235, %164 ], [ %.sink210.sroa.gep236, %155 ], [ %.sink210.sroa.gep237, %181 ], [ %.sink210.sroa.gep238, %174 ]
-  %.sink210.sroa.phi239 = phi ptr [ %.sink210.sroa.gep240, %164 ], [ %.sink210.sroa.gep241, %155 ], [ %.sink210.sroa.gep242, %181 ], [ %.sink210.sroa.gep243, %174 ]
-  %.sink210.sroa.phi244 = phi ptr [ %.sink210.sroa.gep245, %164 ], [ %.sink210.sroa.gep246, %155 ], [ %.sink210.sroa.gep247, %181 ], [ %.sink210.sroa.gep248, %174 ]
-  %.sink210 = phi ptr [ %32, %164 ], [ %32, %155 ], [ %35, %181 ], [ %35, %174 ]
-  %.sink207 = phi i32 [ %4, %164 ], [ %4, %155 ], [ %8, %181 ], [ %8, %174 ]
-  %.sink200 = phi i32 [ %153, %164 ], [ %153, %155 ], [ 0, %181 ], [ 0, %174 ]
+  %.sink210.sroa.phi = phi ptr [ %.sink210.sroa.gep, %155 ], [ %.sink210.sroa.gep211, %164 ], [ %.sink210.sroa.gep212, %181 ], [ %.sink210.sroa.gep213, %174 ]
+  %.sink210.sroa.phi214 = phi ptr [ %.sink210.sroa.gep215, %155 ], [ %.sink210.sroa.gep216, %164 ], [ %.sink210.sroa.gep217, %181 ], [ %.sink210.sroa.gep218, %174 ]
+  %.sink210.sroa.phi219 = phi ptr [ %.sink210.sroa.gep220, %155 ], [ %.sink210.sroa.gep221, %164 ], [ %.sink210.sroa.gep222, %181 ], [ %.sink210.sroa.gep223, %174 ]
+  %.sink210.sroa.phi224 = phi ptr [ %.sink210.sroa.gep225, %155 ], [ %.sink210.sroa.gep226, %164 ], [ %.sink210.sroa.gep227, %181 ], [ %.sink210.sroa.gep228, %174 ]
+  %.sink210.sroa.phi229 = phi ptr [ %.sink210.sroa.gep230, %155 ], [ %.sink210.sroa.gep231, %164 ], [ %.sink210.sroa.gep232, %181 ], [ %.sink210.sroa.gep233, %174 ]
+  %.sink210.sroa.phi234 = phi ptr [ %.sink210.sroa.gep235, %155 ], [ %.sink210.sroa.gep236, %164 ], [ %.sink210.sroa.gep237, %181 ], [ %.sink210.sroa.gep238, %174 ]
+  %.sink210.sroa.phi239 = phi ptr [ %.sink210.sroa.gep240, %155 ], [ %.sink210.sroa.gep241, %164 ], [ %.sink210.sroa.gep242, %181 ], [ %.sink210.sroa.gep243, %174 ]
+  %.sink210.sroa.phi244 = phi ptr [ %.sink210.sroa.gep245, %155 ], [ %.sink210.sroa.gep246, %164 ], [ %.sink210.sroa.gep247, %181 ], [ %.sink210.sroa.gep248, %174 ]
+  %.sink210 = phi ptr [ %32, %155 ], [ %32, %164 ], [ %35, %181 ], [ %35, %174 ]
+  %.sink207 = phi i32 [ %4, %155 ], [ %4, %164 ], [ %8, %181 ], [ %8, %174 ]
+  %.sink200 = phi i32 [ %153, %155 ], [ %153, %164 ], [ 0, %181 ], [ 0, %174 ]
   store i32 %6, ptr %.sink210, align 8
   store i32 %.sink207, ptr %.sink210.sroa.phi, align 4
   store i32 -1, ptr %.sink210.sroa.phi214, align 8
@@ -15654,8 +15654,8 @@ define hidden void @_ZN17C2_MacroAssembler16vector_mask_castE11XMMRegisterS0_9Ba
   unreachable
 
 _ZN17C2_MacroAssembler22vector_length_encodingEi.exit: ; preds = %.split.i, %.split.i, %.split.i, %18, %19
-  %22 = phi i1 [ false, %18 ], [ false, %19 ], [ true, %.split.i ], [ true, %.split.i ], [ true, %.split.i ]
-  %.0.i = phi i32 [ 1, %18 ], [ 2, %19 ], [ 0, %.split.i ], [ 0, %.split.i ], [ 0, %.split.i ]
+  %22 = phi i1 [ false, %19 ], [ false, %18 ], [ true, %.split.i ], [ true, %.split.i ], [ true, %.split.i ]
+  %.0.i = phi i32 [ 2, %19 ], [ 1, %18 ], [ 0, %.split.i ], [ 0, %.split.i ], [ 0, %.split.i ]
   %23 = icmp sgt i32 %12, %9
   br i1 %23, label %24, label %31
 

@@ -343,7 +343,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   br i1 %76, label %.lr.ph.i, label %free_model.exit, !llvm.loop !34
 
 free_model.exit:                                  ; preds = %65, %.lr.ph.i, %57, %13, %6, %._crit_edge57
-  %.0 = phi i32 [ %28, %._crit_edge57 ], [ %11, %6 ], [ %16, %13 ], [ 0, %57 ], [ 0, %.lr.ph.i ], [ 0, %65 ]
+  %.0 = phi i32 [ %16, %13 ], [ %11, %6 ], [ %28, %._crit_edge57 ], [ 0, %57 ], [ 0, %.lr.ph.i ], [ 0, %65 ]
   ret i32 %.0
 }
 
@@ -444,7 +444,7 @@ filter_frame.exit:                                ; preds = %25, %26
   br label %41
 
 41:                                               ; preds = %36, %14, %.critedge27, %.critedge, %40, %filter_frame.exit
-  %.119 = phi i32 [ %.0.i, %filter_frame.exit ], [ 0, %40 ], [ 0, %36 ], [ 0, %14 ], [ %15, %.critedge ], [ -1497649742, %.critedge27 ]
+  %.119 = phi i32 [ 0, %14 ], [ %.0.i, %filter_frame.exit ], [ 0, %40 ], [ %15, %.critedge ], [ 0, %36 ], [ -1497649742, %.critedge27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.119
 }
@@ -589,7 +589,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not65, label %.lr.ph86, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %21, %.critedge, %.critedge67, %61, %.critedge78.preheader, %.critedge67.preheader, %.thread, %12
-  %.0 = phi i32 [ -12, %12 ], [ %57, %.thread ], [ 0, %.critedge67.preheader ], [ 0, %.critedge78.preheader ], [ %.45275, %.critedge67 ], [ %63, %61 ], [ -12, %.critedge ], [ -12, %21 ]
+  %.0 = phi i32 [ -12, %12 ], [ %57, %.thread ], [ 0, %.critedge67.preheader ], [ 0, %.critedge78.preheader ], [ %63, %61 ], [ %.45275, %.critedge67 ], [ -12, %.critedge ], [ -12, %21 ]
   ret i32 %.0
 }
 
@@ -2067,8 +2067,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @open_model(ptr noundef %0,
   br label %rnnoise_model_from_file.exit
 
 rnnoise_model_from_file.exit:                     ; preds = %12, %17, %21, %25, %29, %33, %37, %41, %48, %55, %.thread.i, %.thread816.i, %.thread819.i, %.thread821.i, %.thread824.i, %106, %113, %.thread827.i, %.thread834.i, %163, %.thread842.i, %201, %.thread845.i, %.thread848.i, %226, %233, %.thread851.i, %.thread858.i, %283, %.thread866.i, %321, %.thread869.i, %.thread872.i, %346, %353, %.thread875.i, %.thread882.i, %403, %.thread890.i, %441, %.thread893.i, %.thread896.i, %466, %473, %.thread899.i, %.thread901.i, %.thread904.i, %.thread907.i, %.thread910.i, %525, %532, %.thread913.i, %.thread915.i, %.thread918.i, %.thread921.i, %.thread924.i, %581, %582
-  %583 = phi i1 [ true, %48 ], [ true, %55 ], [ true, %106 ], [ true, %113 ], [ true, %226 ], [ true, %233 ], [ true, %346 ], [ true, %353 ], [ true, %466 ], [ true, %473 ], [ true, %525 ], [ true, %532 ], [ true, %581 ], [ false, %582 ], [ true, %441 ], [ true, %403 ], [ true, %321 ], [ true, %283 ], [ true, %201 ], [ true, %163 ], [ true, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ], [ true, %25 ], [ true, %21 ], [ true, %12 ], [ true, %17 ], [ true, %.thread.i ], [ true, %.thread816.i ], [ true, %.thread819.i ], [ true, %.thread821.i ], [ true, %.thread824.i ], [ true, %.thread827.i ], [ true, %.thread834.i ], [ true, %.thread842.i ], [ true, %.thread845.i ], [ true, %.thread848.i ], [ true, %.thread851.i ], [ true, %.thread858.i ], [ true, %.thread866.i ], [ true, %.thread869.i ], [ true, %.thread872.i ], [ true, %.thread875.i ], [ true, %.thread882.i ], [ true, %.thread890.i ], [ true, %.thread893.i ], [ true, %.thread896.i ], [ true, %.thread899.i ], [ true, %.thread901.i ], [ true, %.thread904.i ], [ true, %.thread907.i ], [ true, %.thread910.i ], [ true, %.thread913.i ], [ true, %.thread915.i ], [ true, %.thread918.i ], [ true, %.thread921.i ], [ true, %.thread924.i ]
-  %.0.i = phi i32 [ -22, %48 ], [ -22, %55 ], [ -22, %106 ], [ -22, %113 ], [ -22, %226 ], [ -22, %233 ], [ -22, %346 ], [ -22, %353 ], [ -22, %466 ], [ -22, %473 ], [ -22, %525 ], [ -22, %532 ], [ -22, %581 ], [ 0, %582 ], [ -22, %441 ], [ -22, %403 ], [ -22, %321 ], [ -22, %283 ], [ -22, %201 ], [ -22, %163 ], [ -12, %41 ], [ -12, %37 ], [ -12, %33 ], [ -12, %29 ], [ -12, %25 ], [ -12, %21 ], [ -1094995529, %12 ], [ -12, %17 ], [ -22, %.thread.i ], [ -12, %.thread816.i ], [ -22, %.thread819.i ], [ -12, %.thread821.i ], [ -22, %.thread824.i ], [ -22, %.thread827.i ], [ -12, %.thread834.i ], [ -12, %.thread842.i ], [ -12, %.thread845.i ], [ -22, %.thread848.i ], [ -22, %.thread851.i ], [ -12, %.thread858.i ], [ -12, %.thread866.i ], [ -12, %.thread869.i ], [ -22, %.thread872.i ], [ -22, %.thread875.i ], [ -12, %.thread882.i ], [ -12, %.thread890.i ], [ -12, %.thread893.i ], [ -22, %.thread896.i ], [ -22, %.thread899.i ], [ -12, %.thread901.i ], [ -22, %.thread904.i ], [ -12, %.thread907.i ], [ -22, %.thread910.i ], [ -22, %.thread913.i ], [ -12, %.thread915.i ], [ -22, %.thread918.i ], [ -12, %.thread921.i ], [ -22, %.thread924.i ]
+  %583 = phi i1 [ true, %12 ], [ true, %48 ], [ true, %55 ], [ true, %106 ], [ true, %113 ], [ true, %226 ], [ true, %233 ], [ true, %346 ], [ true, %353 ], [ true, %466 ], [ true, %473 ], [ true, %525 ], [ true, %532 ], [ true, %581 ], [ false, %582 ], [ true, %.thread924.i ], [ true, %.thread918.i ], [ true, %.thread913.i ], [ true, %.thread910.i ], [ true, %.thread904.i ], [ true, %.thread899.i ], [ true, %.thread896.i ], [ true, %441 ], [ true, %403 ], [ true, %.thread875.i ], [ true, %.thread872.i ], [ true, %321 ], [ true, %283 ], [ true, %.thread851.i ], [ true, %.thread848.i ], [ true, %201 ], [ true, %163 ], [ true, %.thread827.i ], [ true, %.thread824.i ], [ true, %.thread819.i ], [ true, %.thread.i ], [ true, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ], [ true, %25 ], [ true, %21 ], [ true, %17 ], [ true, %.thread816.i ], [ true, %.thread821.i ], [ true, %.thread834.i ], [ true, %.thread842.i ], [ true, %.thread845.i ], [ true, %.thread858.i ], [ true, %.thread866.i ], [ true, %.thread869.i ], [ true, %.thread882.i ], [ true, %.thread890.i ], [ true, %.thread893.i ], [ true, %.thread901.i ], [ true, %.thread907.i ], [ true, %.thread915.i ], [ true, %.thread921.i ]
+  %.0.i = phi i32 [ -1094995529, %12 ], [ -22, %48 ], [ -22, %55 ], [ -22, %106 ], [ -22, %113 ], [ -22, %226 ], [ -22, %233 ], [ -22, %346 ], [ -22, %353 ], [ -22, %466 ], [ -22, %473 ], [ -22, %525 ], [ -22, %532 ], [ -22, %581 ], [ 0, %582 ], [ -22, %.thread924.i ], [ -22, %.thread918.i ], [ -22, %.thread913.i ], [ -22, %.thread910.i ], [ -22, %.thread904.i ], [ -22, %.thread899.i ], [ -22, %.thread896.i ], [ -22, %441 ], [ -22, %403 ], [ -22, %.thread875.i ], [ -22, %.thread872.i ], [ -22, %321 ], [ -22, %283 ], [ -22, %.thread851.i ], [ -22, %.thread848.i ], [ -22, %201 ], [ -22, %163 ], [ -22, %.thread827.i ], [ -22, %.thread824.i ], [ -22, %.thread819.i ], [ -22, %.thread.i ], [ -12, %41 ], [ -12, %37 ], [ -12, %33 ], [ -12, %29 ], [ -12, %25 ], [ -12, %21 ], [ -12, %17 ], [ -12, %.thread816.i ], [ -12, %.thread821.i ], [ -12, %.thread834.i ], [ -12, %.thread842.i ], [ -12, %.thread845.i ], [ -12, %.thread858.i ], [ -12, %.thread866.i ], [ -12, %.thread869.i ], [ -12, %.thread882.i ], [ -12, %.thread890.i ], [ -12, %.thread893.i ], [ -12, %.thread901.i ], [ -12, %.thread907.i ], [ -12, %.thread915.i ], [ -12, %.thread921.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %584 = call i32 @fclose(ptr noundef nonnull %9)
   %585 = load ptr, ptr %1, align 8, !tbaa !30
@@ -2078,7 +2078,7 @@ rnnoise_model_from_file.exit:                     ; preds = %12, %17, %21, %25, 
   br label %587
 
 587:                                              ; preds = %rnnoise_model_from_file.exit, %2, %10
-  %.0 = phi i32 [ -22, %10 ], [ -22, %2 ], [ %., %rnnoise_model_from_file.exit ]
+  %.0 = phi i32 [ %., %rnnoise_model_from_file.exit ], [ -22, %2 ], [ -22, %10 ]
   ret i32 %.0
 }
 
@@ -2957,13 +2957,13 @@ celt_pitch_xcorr.exit.i.i.i:                      ; preds = %celt_inner_prod.exi
   br label %376
 
 376:                                              ; preds = %371, %365, %.preheader.i61.i.i.i
-  %.sroa.10.1.i.i.i = phi i32 [ %.sroa.10.0.i.i.i, %365 ], [ %.sroa.10.0.i.i.i, %.preheader.i61.i.i.i ], [ %.88.i.i.i, %371 ]
-  %.sroa.0.1.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %365 ], [ %.sroa.0.0.i.i.i, %.preheader.i61.i.i.i ], [ %..sroa.0.0.i.i.i, %371 ]
-  %377 = phi i32 [ %361, %365 ], [ %361, %.preheader.i61.i.i.i ], [ %.89.i.i.i, %371 ]
-  %.sroa.6.1.i.i.i.i = phi nsz float [ %.sroa.6.056.i.i.i.i, %365 ], [ %.sroa.6.056.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.0.057.i..158.i.i.i.i, %371 ]
-  %.sroa.0.1.i.i.i.i = phi nsz float [ %.sroa.0.057.i.i.i.i, %365 ], [ %.sroa.0.057.i.i.i.i, %.preheader.i61.i.i.i ], [ %.158.i..sroa.0.057.i.i.i.i, %371 ]
-  %.sroa.029.1.i.i.i.i = phi nsz float [ %.sroa.029.060.i.i.i.i, %365 ], [ %.sroa.029.060.i.i.i.i, %.preheader.i61.i.i.i ], [ %..sroa.029.060.i.i.i.i, %371 ]
-  %.sroa.631.1.i.i.i.i = phi nsz float [ %.sroa.631.061.i.i.i.i, %365 ], [ %.sroa.631.061.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.029.060.i..i.i.i, %371 ]
+  %.sroa.10.1.i.i.i = phi i32 [ %.88.i.i.i, %371 ], [ %.sroa.10.0.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.10.0.i.i.i, %365 ]
+  %.sroa.0.1.i.i.i = phi i32 [ %..sroa.0.0.i.i.i, %371 ], [ %.sroa.0.0.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.0.0.i.i.i, %365 ]
+  %377 = phi i32 [ %.89.i.i.i, %371 ], [ %361, %.preheader.i61.i.i.i ], [ %361, %365 ]
+  %.sroa.6.1.i.i.i.i = phi nsz float [ %.sroa.0.057.i..158.i.i.i.i, %371 ], [ %.sroa.6.056.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.6.056.i.i.i.i, %365 ]
+  %.sroa.0.1.i.i.i.i = phi nsz float [ %.158.i..sroa.0.057.i.i.i.i, %371 ], [ %.sroa.0.057.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.0.057.i.i.i.i, %365 ]
+  %.sroa.029.1.i.i.i.i = phi nsz float [ %..sroa.029.060.i.i.i.i, %371 ], [ %.sroa.029.060.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.029.060.i.i.i.i, %365 ]
+  %.sroa.631.1.i.i.i.i = phi nsz float [ %.sroa.029.060.i..i.i.i, %371 ], [ %.sroa.631.061.i.i.i.i, %.preheader.i61.i.i.i ], [ %.sroa.631.061.i.i.i.i, %365 ]
   %gep.i.i214.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i212.i.i, i64 %indvars.iv63.i.i213.i.i
   %378 = load float, ptr %gep.i.i214.i.i, align 4, !tbaa !25
   %379 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv63.i.i213.i.i
@@ -3036,11 +3036,11 @@ find_best_pitch.exit.preheader.i.i.i:             ; preds = %376
   br label %410
 
 410:                                              ; preds = %408, %404, %398, %.preheader.i68.i.i.i
-  %.sroa.0.3.i.i.i = phi i32 [ %409, %408 ], [ %.sroa.0.2.i.i.i, %398 ], [ %.sroa.0.2.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.0.2.i.i.i, %404 ]
-  %.sroa.6.1.i75.i.i.i = phi nsz float [ %.sroa.0.057.i73.i.i.i, %408 ], [ %.sroa.6.056.i74.i.i.i, %398 ], [ %.sroa.6.056.i74.i.i.i, %.preheader.i68.i.i.i ], [ %.158.i72.i.i.i, %404 ]
-  %.sroa.0.1.i76.i.i.i = phi nsz float [ %.158.i72.i.i.i, %408 ], [ %.sroa.0.057.i73.i.i.i, %398 ], [ %.sroa.0.057.i73.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.0.057.i73.i.i.i, %404 ]
-  %.sroa.029.1.i77.i.i.i = phi nsz float [ %400, %408 ], [ %.sroa.029.060.i71.i.i.i, %398 ], [ %.sroa.029.060.i71.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.029.060.i71.i.i.i, %404 ]
-  %.sroa.631.1.i78.i.i.i = phi nsz float [ %.sroa.029.060.i71.i.i.i, %408 ], [ %.sroa.631.061.i70.i.i.i, %398 ], [ %.sroa.631.061.i70.i.i.i, %.preheader.i68.i.i.i ], [ %400, %404 ]
+  %.sroa.0.3.i.i.i = phi i32 [ %409, %408 ], [ %.sroa.0.2.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.0.2.i.i.i, %398 ], [ %.sroa.0.2.i.i.i, %404 ]
+  %.sroa.6.1.i75.i.i.i = phi nsz float [ %.sroa.0.057.i73.i.i.i, %408 ], [ %.sroa.6.056.i74.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.6.056.i74.i.i.i, %398 ], [ %.158.i72.i.i.i, %404 ]
+  %.sroa.0.1.i76.i.i.i = phi nsz float [ %.158.i72.i.i.i, %408 ], [ %.sroa.0.057.i73.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.0.057.i73.i.i.i, %398 ], [ %.sroa.0.057.i73.i.i.i, %404 ]
+  %.sroa.029.1.i77.i.i.i = phi nsz float [ %400, %408 ], [ %.sroa.029.060.i71.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.029.060.i71.i.i.i, %398 ], [ %.sroa.029.060.i71.i.i.i, %404 ]
+  %.sroa.631.1.i78.i.i.i = phi nsz float [ %.sroa.029.060.i71.i.i.i, %408 ], [ %.sroa.631.061.i70.i.i.i, %.preheader.i68.i.i.i ], [ %.sroa.631.061.i70.i.i.i, %398 ], [ %400, %404 ]
   %gep.i79.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i67.i.i.i, i64 %indvars.iv63.i69.i.i.i
   %411 = load float, ptr %gep.i79.i.i.i, align 4, !tbaa !25
   %412 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv63.i69.i.i.i
@@ -3126,7 +3126,7 @@ find_best_pitch.exit.i.i.i:                       ; preds = %celt_inner_prod.exi
   br label %pitch_search.exit.i.i
 
 pitch_search.exit.i.i:                            ; preds = %453, %441, %find_best_pitch.exit82.i.i.i
-  %.1.neg.i.i.i = phi i32 [ -1, %441 ], [ %..i.i.i, %453 ], [ 0, %find_best_pitch.exit82.i.i.i ]
+  %.1.neg.i.i.i = phi i32 [ %..i.i.i, %453 ], [ -1, %441 ], [ 0, %find_best_pitch.exit82.i.i.i ]
   %458 = shl nsw i32 %.sroa.0.3.i.i.i, 1
   %459 = add i32 %.1.neg.i.i.i, %458
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -3229,7 +3229,7 @@ dual_inner_prod.exit.i.i.i:                       ; preds = %470
   br label %515
 
 515:                                              ; preds = %508, %505
-  %.0130.i.i.i = phi i32 [ %514, %508 ], [ %spec.select..i.i.i, %505 ]
+  %.0130.i.i.i = phi i32 [ %spec.select..i.i.i, %505 ], [ %514, %508 ]
   %516 = sub nsw i32 0, %501
   %517 = sext i32 %516 to i64
   %518 = getelementptr inbounds float, ptr %77, i64 %517
@@ -3288,7 +3288,7 @@ dual_inner_prod.exit172.i.i.i:                    ; preds = %522
   br label %555
 
 555:                                              ; preds = %554, %549, %547, %dual_inner_prod.exit172.i.i.i
-  %.0129.i.i.i = phi nsz float [ %497, %554 ], [ %464, %dual_inner_prod.exit172.i.i.i ], [ 0.000000e+00, %549 ], [ 0.000000e+00, %547 ]
+  %.0129.i.i.i = phi nsz float [ %464, %dual_inner_prod.exit172.i.i.i ], [ %497, %554 ], [ 0.000000e+00, %549 ], [ 0.000000e+00, %547 ]
   %556 = fneg nsz float %.0129.i.i.i
   %557 = call nsz float @llvm.fmuladd.f32(float %495, float 0x3FE6666660000000, float %556)
   %558 = fcmp nsz olt float %557, 0x3FD3333340000000
@@ -4448,7 +4448,7 @@ define internal fastcc void @compute_dense(ptr noundef readonly captures(none) %
   br label %sigmoid_approx.exit
 
 sigmoid_approx.exit:                              ; preds = %.lr.ph68, %34, %36
-  %.0.i.i = phi float [ %54, %36 ], [ 1.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %34 ]
+  %.0.i.i = phi float [ 1.000000e+00, %.lr.ph68 ], [ %54, %36 ], [ 0.000000e+00, %34 ]
   store float %.0.i.i, ptr %30, align 4, !tbaa !25
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -4487,7 +4487,7 @@ sigmoid_approx.exit:                              ; preds = %.lr.ph68, %34, %36
   br label %tansig_approx.exit
 
 tansig_approx.exit:                               ; preds = %.lr.ph66, %58, %60
-  %.0.i = phi nsz float [ %77, %60 ], [ 1.000000e+00, %.lr.ph66 ], [ -1.000000e+00, %58 ]
+  %.0.i = phi nsz float [ 1.000000e+00, %.lr.ph66 ], [ %77, %60 ], [ -1.000000e+00, %58 ]
   store float %.0.i, ptr %55, align 4, !tbaa !25
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
@@ -4608,7 +4608,7 @@ define internal fastcc void @compute_gru(ptr noundef readonly captures(none) %0,
   br label %sigmoid_approx.exit
 
 sigmoid_approx.exit:                              ; preds = %32, %55, %57
-  %.0.i.i = phi float [ %75, %57 ], [ 1.000000e+00, %32 ], [ 0.000000e+00, %55 ]
+  %.0.i.i = phi float [ 1.000000e+00, %32 ], [ %75, %57 ], [ 0.000000e+00, %55 ]
   %76 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
   store float %.0.i.i, ptr %76, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4687,7 +4687,7 @@ sigmoid_approx.exit:                              ; preds = %32, %55, %57
   br label %sigmoid_approx.exit108
 
 sigmoid_approx.exit108:                           ; preds = %89, %115, %117
-  %.0.i.i106 = phi float [ %135, %117 ], [ 1.000000e+00, %89 ], [ 0.000000e+00, %115 ]
+  %.0.i.i106 = phi float [ 1.000000e+00, %89 ], [ %135, %117 ], [ 0.000000e+00, %115 ]
   %136 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv123
   store float %.0.i.i106, ptr %136, align 4, !tbaa !25
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
@@ -4821,7 +4821,7 @@ sigmoid_approx.exit108:                           ; preds = %89, %115, %117
   unreachable
 
 sigmoid_approx.exit111:                           ; preds = %196, %194, %191, %172, %170, %166, %214
-  %.1 = phi nsz float [ %217, %214 ], [ %190, %172 ], [ 1.000000e+00, %166 ], [ 0.000000e+00, %170 ], [ %213, %196 ], [ 1.000000e+00, %191 ], [ -1.000000e+00, %194 ]
+  %.1 = phi nsz float [ %217, %214 ], [ 0.000000e+00, %170 ], [ 1.000000e+00, %166 ], [ %190, %172 ], [ 1.000000e+00, %191 ], [ %213, %196 ], [ -1.000000e+00, %194 ]
   %219 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv133
   %220 = load float, ptr %219, align 4, !tbaa !25
   %221 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv133

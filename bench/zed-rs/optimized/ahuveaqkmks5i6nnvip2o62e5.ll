@@ -343,7 +343,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN4core3ptr87drop_in_place$LT$rayon..vec..SliceDrain$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$17h1073d78c8e903427E.exit"
 
 common.resume:                                    ; preds = %65, %.body
-  %common.resume.op = phi { ptr, i32 } [ %16, %65 ], [ %49, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %49, %.body ], [ %16, %65 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr87drop_in_place$LT$rayon..vec..SliceDrain$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$$GT$17h1073d78c8e903427E.exit": ; preds = %12, %.loopexit

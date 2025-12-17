@@ -550,7 +550,7 @@ define hidden range(i32 0, 2) i32 @xsettings_client_process_event(ptr noundef ca
   br label %39
 
 39:                                               ; preds = %24, %18, %15, %31, %35, %38, %37, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %37 ], [ 1, %38 ], [ 0, %35 ], [ 0, %31 ], [ 0, %15 ], [ 0, %18 ], [ 0, %24 ]
+  %.0 = phi i32 [ 1, %30 ], [ 1, %38 ], [ 0, %37 ], [ 0, %35 ], [ 0, %31 ], [ 0, %15 ], [ 0, %18 ], [ 0, %24 ]
   ret i32 %.0
 }
 
@@ -971,7 +971,7 @@ xsettings_setting_free.exit.i.i:                  ; preds = %209, %207
   br i1 %.not.i118.i, label %parse_settings.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 parse_settings.exit:                              ; preds = %fetch_card8.exit97.i, %xsettings_setting_free.exit.i.i, %.thread, %fetch_card32.exit95.i, %197
-  %210 = phi ptr [ null, %fetch_card32.exit95.i ], [ null, %197 ], [ null, %.thread ], [ null, %xsettings_setting_free.exit.i.i ], [ %.6, %fetch_card8.exit97.i ]
+  %210 = phi ptr [ null, %.thread ], [ null, %fetch_card32.exit95.i ], [ null, %197 ], [ null, %xsettings_setting_free.exit.i.i ], [ %.6, %fetch_card8.exit97.i ]
   store ptr %210, ptr %7, align 8
   br label %211
 
@@ -1132,7 +1132,7 @@ xsettings_setting_equal.exit.thread.i:            ; preds = %xsettings_setting_e
   br label %.thread43.i
 
 .thread43.i:                                      ; preds = %.thread43.critedge.i, %.thread.i21, %.thread49.i, %.thread37.i
-  %.13146.i = phi ptr [ %290, %.thread.i21 ], [ %283, %.thread37.i ], [ %285, %.thread49.i ], [ null, %.thread43.critedge.i ]
+  %.13146.i = phi ptr [ %285, %.thread49.i ], [ %290, %.thread.i21 ], [ %283, %.thread37.i ], [ null, %.thread43.critedge.i ]
   %294 = getelementptr inbounds nuw i8, ptr %.02951.i, i64 8
   %295 = load ptr, ptr %294, align 8
   br label %296
@@ -1344,7 +1344,7 @@ define hidden range(i32 0, 2) i32 @xsettings_setting_equal(ptr noundef readonly 
   br label %49
 
 49:                                               ; preds = %11, %18, %24, %30, %36, %7, %2, %42, %12
-  %.0.shrunk = phi i1 [ %17, %12 ], [ %48, %42 ], [ false, %2 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ %41, %36 ], [ false, %11 ]
+  %.0.shrunk = phi i1 [ %48, %42 ], [ false, %2 ], [ %41, %36 ], [ %17, %12 ], [ false, %7 ], [ false, %30 ], [ false, %24 ], [ false, %18 ], [ false, %11 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1447,7 +1447,7 @@ define hidden range(i32 0, 6) i32 @xsettings_list_insert(ptr noundef captures(no
   br label %22
 
 22:                                               ; preds = %.thread, %2, %20
-  %.0 = phi i32 [ 0, %20 ], [ 1, %2 ], [ 5, %.thread ]
+  %.0 = phi i32 [ 5, %.thread ], [ 0, %20 ], [ 1, %2 ]
   ret i32 %.0
 }
 

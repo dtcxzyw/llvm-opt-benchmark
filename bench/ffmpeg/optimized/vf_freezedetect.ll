@@ -276,7 +276,7 @@ is_frozen.exit:                                   ; preds = %81
   br label %133
 
 133:                                              ; preds = %128, %18, %.critedge73, %122, %123, %.critedge, %132
-  %.1 = phi i32 [ 0, %132 ], [ 0, %128 ], [ 0, %18 ], [ %19, %.critedge ], [ %125, %123 ], [ -12, %122 ], [ -1497649742, %.critedge73 ]
+  %.1 = phi i32 [ 0, %18 ], [ %19, %.critedge ], [ 0, %132 ], [ -12, %122 ], [ 0, %128 ], [ %125, %123 ], [ -1497649742, %.critedge73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }

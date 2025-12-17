@@ -35,7 +35,7 @@ define range(i32 0, 2) i32 @ASN1_check_infinite_end(ptr noundef captures(none) %
   br label %_asn1_check_infinite_end.exit
 
 _asn1_check_infinite_end.exit:                    ; preds = %2, %4, %5, %9, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %4 ], [ 0, %5 ], [ 0, %9 ]
+  %.0.i = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %4 ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.0.i
 }
 
@@ -66,7 +66,7 @@ define range(i32 0, 2) i32 @ASN1_const_check_infinite_end(ptr noundef captures(n
   br label %_asn1_check_infinite_end.exit
 
 _asn1_check_infinite_end.exit:                    ; preds = %2, %4, %5, %9, %13
-  %.0.i = phi i32 [ 1, %13 ], [ 1, %2 ], [ 0, %4 ], [ 0, %5 ], [ 0, %9 ]
+  %.0.i = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %4 ], [ 0, %5 ], [ 0, %9 ]
   ret i32 %.0.i
 }
 
@@ -244,7 +244,7 @@ define range(i32 0, 192) i32 @ASN1_get_object(ptr noundef captures(none) %0, ptr
   %79 = or i32 %.032, %.04963
   br label %80
 
-asn1_get_length.exit.thread:                      ; preds = %21, %._crit_edge.i, %.critedge.i, %45, %68, %35, %28, %16
+asn1_get_length.exit.thread:                      ; preds = %21, %._crit_edge.i, %45, %.critedge.i, %68, %35, %28, %16
   tail call void @ERR_new() #13
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 105, ptr noundef nonnull @__func__.ASN1_get_object) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 123, ptr noundef null) #13
@@ -439,7 +439,7 @@ define range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noundef %0,
   br label %19
 
 19:                                               ; preds = %.loopexit, %3
-  %.022 = phi i32 [ -1, %3 ], [ %spec.select, %.loopexit ]
+  %.022 = phi i32 [ %spec.select, %.loopexit ], [ -1, %3 ]
   ret i32 %.022
 }
 
@@ -486,7 +486,7 @@ define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr 
   br label %20
 
 20:                                               ; preds = %4, %2, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %2 ], [ 0, %4 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %12 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -559,7 +559,7 @@ define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr n
   br label %34
 
 34:                                               ; preds = %27, %30, %5, %26, %13
-  %.024 = phi i32 [ 0, %13 ], [ 0, %26 ], [ 0, %5 ], [ 1, %30 ], [ 1, %27 ]
+  %.024 = phi i32 [ 0, %5 ], [ 0, %13 ], [ 0, %26 ], [ 1, %30 ], [ 1, %27 ]
   ret i32 %.024
 }
 
@@ -617,7 +617,7 @@ ASN1_STRING_copy.exit:                            ; preds = %5
   br label %ASN1_STRING_free.exit
 
 ASN1_STRING_free.exit:                            ; preds = %2, %28, %25, %ASN1_STRING_copy.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ %3, %ASN1_STRING_copy.exit ], [ null, %25 ], [ null, %28 ], [ null, %2 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %28 ], [ %3, %ASN1_STRING_copy.exit ], [ null, %25 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -768,7 +768,7 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph95, %26, %5, %._crit_edge92, %._crit_edge
-  %.066 = phi i32 [ 2, %._crit_edge ], [ 0, %._crit_edge92 ], [ 2, %5 ], [ 1, %26 ], [ 0, %.lr.ph95 ]
+  %.066 = phi i32 [ 1, %26 ], [ 2, %._crit_edge ], [ 0, %._crit_edge92 ], [ 2, %5 ], [ 0, %.lr.ph95 ]
   ret i32 %.066
 }
 

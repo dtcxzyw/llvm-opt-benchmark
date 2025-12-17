@@ -297,7 +297,7 @@ _ZN10duckdb_re26Regexp6WalkerIPS0_E4WalkES2_S2_.exit19: ; preds = %17
           to label %31 unwind label %25
 
 31:                                               ; preds = %27, %30, %21
-  %.1 = phi ptr [ null, %21 ], [ null, %30 ], [ %20, %27 ]
+  %.1 = phi ptr [ null, %30 ], [ null, %21 ], [ %20, %27 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN10duckdb_re26Regexp6WalkerIPS0_EE, i64 16), ptr %3, align 8, !tbaa !22
   invoke void @_ZN10duckdb_re26Regexp6WalkerIPS0_E5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %32 unwind label %45
@@ -594,7 +594,7 @@ switch.lookup:                                    ; preds = %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %switch.lookup, %5, %23, %18, %40, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %_ZN10LogMessageD2Ev.exit, %52, %30
-  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %39, %30 ], [ false, %52 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ false, %40 ], [ %spec.select, %18 ], [ %spec.select20, %23 ], [ true, %5 ], [ %switch.masked, %switch.lookup ], [ true, %49 ], [ %.not19.not, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %52 ], [ true, %1 ], [ %switch.masked, %switch.lookup ], [ true, %49 ], [ true, %5 ], [ %39, %30 ], [ %spec.select, %18 ], [ false, %40 ], [ %spec.select20, %23 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ %.not19.not, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1110,7 +1110,7 @@ _ZN10duckdb_re26Regexp8AllocSubEi.exit129:        ; preds = %._ZN10duckdb_re26Re
   br i1 %165, label %.lr.ph149, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %.lr.ph139, %162, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129, %._crit_edge, %.loopexit132, %51, %58, %28, %10
-  %.095 = phi ptr [ %11, %10 ], [ %29, %28 ], [ %30, %58 ], [ %30, %51 ], [ %89, %.loopexit132 ], [ %30, %._crit_edge ], [ %124, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ], [ %90, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127 ], [ %124, %162 ], [ %90, %.lr.ph139 ]
+  %.095 = phi ptr [ %11, %10 ], [ %30, %51 ], [ %29, %28 ], [ %30, %._crit_edge ], [ %30, %58 ], [ %89, %.loopexit132 ], [ %124, %_ZN10duckdb_re26Regexp8AllocSubEi.exit129 ], [ %90, %_ZN10duckdb_re26Regexp8AllocSubEi.exit127 ], [ %124, %162 ], [ %90, %.lr.ph139 ]
   ret ptr %.095
 
 166:                                              ; preds = %106, %150, %46
@@ -1962,7 +1962,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %135, %_ZNKSt7__cxx1
   br label %152
 
 151:                                              ; preds = %116, %112, %90, %106, %78, %95, %61, %69, %_ZN10LogMessageD2Ev.exit, %126, %._crit_edge, %.loopexit, %10
-  %.0 = phi ptr [ %148, %_ZN10LogMessageD2Ev.exit ], [ %12, %10 ], [ %32, %._crit_edge ], [ %31, %.loopexit ], [ %127, %126 ], [ %63, %61 ], [ %65, %69 ], [ %92, %90 ], [ %102, %106 ], [ %79, %78 ], [ %79, %95 ], [ %124, %116 ], [ %113, %112 ]
+  %.0 = phi ptr [ %148, %_ZN10LogMessageD2Ev.exit ], [ %12, %10 ], [ %32, %._crit_edge ], [ %31, %.loopexit ], [ %127, %126 ], [ %65, %69 ], [ %79, %95 ], [ %63, %61 ], [ %102, %106 ], [ %92, %90 ], [ %79, %78 ], [ %124, %116 ], [ %113, %112 ]
   ret ptr %.0
 
 152:                                              ; preds = %149, %110, %76, %47
@@ -2320,7 +2320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %12
   br label %common.resume
 
 129:                                              ; preds = %.thread, %_ZN10LogMessageD2Ev.exit, %85, %37, %44, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit, %12, %9
-  %.074 = phi ptr [ %11, %9 ], [ %14, %12 ], [ %32, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ %45, %44 ], [ %38, %37 ], [ %116, %_ZN10LogMessageD2Ev.exit ], [ %.1, %85 ], [ %78, %.thread ]
+  %.074 = phi ptr [ %11, %9 ], [ %14, %12 ], [ %32, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ %38, %37 ], [ %45, %44 ], [ %116, %_ZN10LogMessageD2Ev.exit ], [ %.1, %85 ], [ %78, %.thread ]
   ret ptr %.074
 }
 
@@ -3392,7 +3392,7 @@ _ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit26: ; pre
   br label %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit26
-  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN10duckdb_re29WalkStateIPNS0_6RegexpEEES6_ET0_T_S8_S7_.exit26 ], [ %24, %28 ], [ %24, %27 ], [ %24, %31 ], [ %24, %32 ]
   store ptr %.0, ptr %6, align 8, !tbaa !101
   %57 = load ptr, ptr %.0, align 8, !tbaa !42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24

@@ -728,7 +728,7 @@ define internal noundef ptr @H5FD__family_fapl_get(ptr noundef readonly captures
   br label %.thread
 
 .thread:                                          ; preds = %11, %22, %25, %1
-  %.0 = phi ptr [ null, %25 ], [ null, %1 ], [ %9, %22 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %25 ], [ null, %11 ], [ null, %1 ], [ %9, %22 ]
   ret ptr %.0
 }
 
@@ -796,7 +796,7 @@ define internal noundef ptr @H5FD__family_fapl_copy(ptr noundef readonly capture
   br label %.thread
 
 .thread:                                          ; preds = %11, %36, %20, %39, %1
-  %.0 = phi ptr [ null, %39 ], [ null, %1 ], [ %9, %36 ], [ %9, %20 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %39 ], [ null, %11 ], [ null, %1 ], [ %9, %36 ], [ %9, %20 ]
   ret ptr %.0
 }
 
@@ -1034,7 +1034,7 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   br label %117
 
 117:                                              ; preds = %116, %.thread
-  %.1136 = phi i1 [ %59, %116 ], [ true, %.thread ]
+  %.1136 = phi i1 [ true, %.thread ], [ %59, %116 ]
   %118 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull %0) #15
   %119 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store ptr %118, ptr %119, align 8, !tbaa !35
@@ -1198,13 +1198,13 @@ define internal noundef ptr @H5FD__family_open(ptr noundef %0, i32 noundef %1, i
   br label %.preheader
 
 .thread205:                                       ; preds = %181, %191, %169, %207, %204
-  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %169 ], [ null, %191 ], [ null, %181 ]
+  %.1132.ph = phi ptr [ %28, %204 ], [ %28, %207 ], [ null, %181 ], [ null, %169 ], [ null, %191 ]
   %210 = tail call ptr @H5MM_xfree(ptr noundef nonnull %121) #15
   %211 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1140) #15
   %212 = icmp eq ptr %.1132.ph, null
   br i1 %212, label %.preheader, label %.thread205.thread
 
-.preheader:                                       ; preds = %.thread185, %46, %123, %.thread213, %.thread205.thread254, %.thread205
+.preheader:                                       ; preds = %.thread185, %123, %46, %.thread213, %.thread205.thread254, %.thread205
   %213 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %214 = load i32, ptr %213, align 8, !tbaa !37
   %.not228 = icmp eq i32 %214, 0
@@ -1610,12 +1610,12 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(
   br label %92
 
 92:                                               ; preds = %73, %84, %90, %35, %.thread85
-  %.16587 = phi i32 [ -1, %.thread85 ], [ -1, %73 ], [ -1, %84 ], [ -1, %35 ], [ 0, %90 ]
+  %.16587 = phi i32 [ -1, %.thread85 ], [ 0, %90 ], [ -1, %35 ], [ -1, %73 ], [ -1, %84 ]
   %93 = tail call ptr @H5MM_xfree(ptr noundef nonnull %11) #15
   br label %94
 
 94:                                               ; preds = %.thread83, %3, %92
-  %.064 = phi i32 [ %.16587, %92 ], [ 0, %3 ], [ -1, %.thread83 ]
+  %.064 = phi i32 [ %.16587, %92 ], [ -1, %.thread83 ], [ 0, %3 ]
   ret i32 %.064
 }
 
@@ -2079,7 +2079,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr noundef readonly cap
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader24, %2, %._crit_edge, %._crit_edge30
-  %.020 = phi i32 [ -1, %._crit_edge30 ], [ 0, %._crit_edge ], [ 0, %2 ], [ 0, %.preheader24 ]
+  %.020 = phi i32 [ 0, %2 ], [ -1, %._crit_edge30 ], [ 0, %._crit_edge ], [ 0, %.preheader24 ]
   ret i32 %.020
 }
 
@@ -2304,7 +2304,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_delete(ptr noundef %0, i64 no
   br label %.thread70
 
 .thread70:                                        ; preds = %21, %47, %28, %38, %11, %.thread76, %.loopexit
-  %.16974 = phi i32 [ %.187, %.loopexit ], [ -1, %.thread76 ], [ -1, %11 ], [ -1, %38 ], [ -1, %28 ], [ -1, %47 ], [ -1, %21 ]
+  %.16974 = phi i32 [ -1, %.thread76 ], [ %.187, %.loopexit ], [ -1, %21 ], [ -1, %11 ], [ -1, %38 ], [ -1, %28 ], [ -1, %47 ]
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !18
   %95 = icmp sgt i64 %94, -1
@@ -2419,7 +2419,7 @@ define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_file
   br label %.thread
 
 .thread:                                          ; preds = %25, %39, %33, %41, %1
-  %.0 = phi ptr [ null, %41 ], [ null, %1 ], [ %17, %33 ], [ %17, %39 ], [ %17, %25 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %41 ], [ %17, %33 ], [ %17, %39 ], [ %17, %25 ]
   ret ptr %.0
 }
 

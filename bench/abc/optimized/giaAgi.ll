@@ -303,8 +303,8 @@ Agi_ManAppendCo.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %Agi_ManAppendCi.exit.sink.split
 
 Agi_ManAppendCi.exit.sink.split:                  ; preds = %119, %121, %111, %113
-  %.sink45 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %120, %119 ], [ %122, %121 ]
-  %.sink = phi i32 [ 16, %111 ], [ 16, %113 ], [ %116, %119 ], [ %116, %121 ]
+  %.sink45 = phi ptr [ %114, %113 ], [ %112, %111 ], [ %120, %119 ], [ %122, %121 ]
+  %.sink = phi i32 [ 16, %113 ], [ 16, %111 ], [ %116, %119 ], [ %116, %121 ]
   store ptr %.sink45, ptr %.phi.trans.insert.i.i30, align 8, !tbaa !43
   store i32 %.sink, ptr %14, align 8, !tbaa !42
   br label %Agi_ManAppendCi.exit

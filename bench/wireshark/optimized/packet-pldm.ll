@@ -1981,7 +1981,7 @@ define internal fastcc void @ver2str(ptr noundef %0, i32 noundef range(i32 2, 8)
   br label %print_version_field.exit
 
 print_version_field.exit:                         ; preds = %14, %17
-  %.0.i = phi i32 [ %16, %14 ], [ %21, %17 ]
+  %.0.i = phi i32 [ %21, %17 ], [ %16, %14 ]
   %22 = and i32 %.0.i, 255
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr i8, ptr @ver2str.buffer, i64 %23
@@ -2048,7 +2048,7 @@ print_version_field.exit:                         ; preds = %14, %17
   br label %print_version_field.exit79
 
 print_version_field.exit79:                       ; preds = %52, %45, %61
-  %.pn = phi i32 [ %66, %61 ], [ %51, %45 ], [ %60, %52 ]
+  %.pn = phi i32 [ %66, %61 ], [ %60, %52 ], [ %51, %45 ]
   %.1.in = add i32 %.pn, %.0.in
   %.not76 = icmp eq i8 %7, -1
   %67 = and i32 %.1.in, 255
@@ -2099,7 +2099,7 @@ print_version_field.exit79:                       ; preds = %52, %45, %61
   br label %print_version_field.exit81
 
 print_version_field.exit81:                       ; preds = %87, %94
-  %.0.i80 = phi i32 [ %93, %87 ], [ %102, %94 ]
+  %.0.i80 = phi i32 [ %102, %94 ], [ %93, %87 ]
   %103 = add i32 %.0.i80, %78
   br label %107
 

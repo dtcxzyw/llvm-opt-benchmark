@@ -487,7 +487,7 @@ define internal range(i32 -1, 2) i32 @CameraSpecCmp(ptr noundef readonly capture
   br label %69
 
 69:                                               ; preds = %.thread89, %44, %57, %67, %68, %43, %42, %35, %29, %27, %21, %19, %11, %10, %5
-  %.0 = phi i32 [ -1, %5 ], [ 1, %10 ], [ -1, %11 ], [ 1, %19 ], [ -1, %21 ], [ 1, %27 ], [ -1, %29 ], [ 1, %35 ], [ -1, %42 ], [ 1, %43 ], [ 0, %.thread89 ], [ -1, %44 ], [ 1, %57 ], [ -1, %67 ], [ 1, %68 ]
+  %.0 = phi i32 [ -1, %5 ], [ 1, %10 ], [ -1, %11 ], [ 1, %19 ], [ -1, %21 ], [ 1, %27 ], [ -1, %29 ], [ 1, %43 ], [ -1, %42 ], [ 1, %35 ], [ 0, %.thread89 ], [ -1, %44 ], [ 1, %57 ], [ -1, %67 ], [ 1, %68 ]
   ret i32 %.0
 }
 
@@ -1180,7 +1180,7 @@ define hidden zeroext i1 @SDL_GetCameraFormat_REAL(ptr noundef %0, ptr noundef w
   br label %ReleaseCamera.exit
 
 ReleaseCamera.exit:                               ; preds = %33, %19, %6, %3
-  %.0 = phi i1 [ %7, %6 ], [ %4, %3 ], [ %.010, %19 ], [ %.010, %33 ]
+  %.0 = phi i1 [ %4, %3 ], [ %7, %6 ], [ %.010, %19 ], [ %.010, %33 ]
   ret i1 %.0
 }
 
@@ -2335,7 +2335,7 @@ ReleaseCamera.exit:                               ; preds = %9, %24
   br label %ChooseBestCameraSpec.exit
 
 168:                                              ; preds = %164, %._crit_edge.i, %143, %139, %134
-  %.2.ph.i = phi float [ %.0112169.i, %._crit_edge.i ], [ %162, %164 ], [ %.0112169.i, %134 ], [ %.0112169.i, %139 ], [ %.0112169.i, %143 ]
+  %.2.ph.i = phi float [ %.0112169.i, %._crit_edge.i ], [ %162, %164 ], [ %.0112169.i, %139 ], [ %.0112169.i, %143 ], [ %.0112169.i, %134 ]
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count186.i
   br i1 %exitcond187.not.i, label %ChooseBestCameraSpec.exit, label %134, !llvm.loop !18
@@ -2475,7 +2475,7 @@ ChooseBestCameraSpec.exit:                        ; preds = %168, %39, %40, %42,
   br label %ReleaseCamera.exit36
 
 ReleaseCamera.exit36:                             ; preds = %239, %224, %210, %195, %186, %171, %222
-  %.1 = phi ptr [ null, %222 ], [ null, %171 ], [ null, %186 ], [ null, %195 ], [ null, %210 ], [ %5, %224 ], [ %5, %239 ]
+  %.1 = phi ptr [ null, %210 ], [ null, %222 ], [ null, %186 ], [ null, %171 ], [ null, %195 ], [ %5, %224 ], [ %5, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %241
 

@@ -678,7 +678,7 @@ copy_address_wmem.exit140.i:                      ; preds = %246, %copy_address_
   br label %dissect_proxy_v1_header.exit
 
 dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.thread.i, %proxy_v1_get_token_length.exit.i, %proxy_v1_get_token_length.exit133.i, %76, %proxy_v1_get_token_length.exit135.i, %104, %proxy_v1_get_token_length.exit137.i, %129, %proxy_v1_get_token_length.exit139.i, %156, %162, %174, %178, %193, %201, %205, %copy_address_wmem.exit140.i
-  %.0.i = phi i32 [ %168, %162 ], [ %195, %193 ], [ %204, %201 ], [ %181, %178 ], [ %175, %174 ], [ %106, %104 ], [ %98, %proxy_v1_get_token_length.exit135.i ], [ %78, %76 ], [ %70, %proxy_v1_get_token_length.exit133.i ], [ %158, %156 ], [ %150, %proxy_v1_get_token_length.exit139.i ], [ %131, %129 ], [ %123, %proxy_v1_get_token_length.exit137.i ], [ %49, %proxy_v1_get_token_length.exit.i ], [ 0, %is_proxy_v1.exit.thread.i ], [ %30, %copy_address_wmem.exit140.i ], [ %30, %205 ]
+  %.0.i = phi i32 [ %168, %162 ], [ %195, %193 ], [ 0, %is_proxy_v1.exit.thread.i ], [ %204, %201 ], [ %181, %178 ], [ %175, %174 ], [ %106, %104 ], [ %98, %proxy_v1_get_token_length.exit135.i ], [ %78, %76 ], [ %70, %proxy_v1_get_token_length.exit133.i ], [ %158, %156 ], [ %150, %proxy_v1_get_token_length.exit139.i ], [ %131, %129 ], [ %123, %proxy_v1_get_token_length.exit137.i ], [ %49, %proxy_v1_get_token_length.exit.i ], [ %30, %copy_address_wmem.exit140.i ], [ %30, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -879,9 +879,9 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   br label %102
 
 102:                                              ; preds = %97, %91, %71, %51
-  %.not126.i = phi i1 [ true, %97 ], [ false, %51 ], [ false, %71 ], [ true, %91 ]
-  %.0123.i = phi i32 [ %101, %97 ], [ 28, %51 ], [ 52, %71 ], [ 232, %91 ]
-  %.0122.i = phi i32 [ 0, %97 ], [ %70, %51 ], [ %90, %71 ], [ 0, %91 ]
+  %.not126.i = phi i1 [ true, %97 ], [ true, %91 ], [ false, %51 ], [ false, %71 ]
+  %.0123.i = phi i32 [ %101, %97 ], [ 232, %91 ], [ 28, %51 ], [ 52, %71 ]
+  %.0122.i = phi i32 [ 0, %97 ], [ 0, %91 ], [ %70, %51 ], [ %90, %71 ]
   %103 = icmp ugt i32 %.0123.i, %49
   br i1 %103, label %104, label %106
 
@@ -1090,7 +1090,7 @@ is_proxy_v2.exit.thread:                          ; preds = %4, %is_proxy_v2.exi
   %.not12.i = icmp eq i32 %24, 0
   br i1 %.not12.i, label %25, label %is_proxy_v1.exit.thread
 
-is_proxy_v1.exit.thread:                          ; preds = %is_proxy_v2.exit.thread, %15, %17, %21
+is_proxy_v1.exit.thread:                          ; preds = %21, %is_proxy_v2.exit.thread, %15, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
@@ -1132,7 +1132,7 @@ is_proxy_v2.exit:                                 ; preds = %4
   br label %is_proxy_v2.exit.thread
 
 is_proxy_v2.exit.thread:                          ; preds = %4, %is_proxy_v2.exit, %8, %10, %12
-  %.0.i16 = phi i1 [ false, %is_proxy_v2.exit ], [ true, %8 ], [ true, %10 ], [ true, %12 ], [ false, %4 ]
+  %.0.i16 = phi i1 [ true, %12 ], [ false, %is_proxy_v2.exit ], [ true, %8 ], [ true, %10 ], [ false, %4 ]
   ret i1 %.0.i16
 }
 

@@ -655,7 +655,7 @@ define void @_ZN3gmx12ForceElementC2EPNS_19StatePropagatorDataEPNS_10EnergyDataE
   br label %.noexc
 
 .noexc:                                           ; preds = %54, %31
-  %storemerge.i = phi i8 [ 0, %31 ], [ %61, %54 ]
+  %storemerge.i = phi i8 [ %61, %54 ], [ 0, %31 ]
   store i8 %storemerge.i, ptr %52, align 8, !tbaa !209
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %53, ptr %62, align 8, !tbaa !210

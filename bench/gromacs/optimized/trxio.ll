@@ -172,7 +172,7 @@ _ZNRSt8optionalIfE5valueEv.exit12:                ; preds = %14
   br label %36
 
 36:                                               ; preds = %_ZNRSt8optionalIfE5valueEv.exit11, %33, %_ZNRSt8optionalIfE5valueEv.exit12, %35, %32
-  %.0 = phi i32 [ 0, %32 ], [ 1, %35 ], [ -1, %_ZNRSt8optionalIfE5valueEv.exit12 ], [ -1, %33 ], [ -1, %_ZNRSt8optionalIfE5valueEv.exit11 ]
+  %.0 = phi i32 [ 0, %32 ], [ -1, %33 ], [ 1, %35 ], [ -1, %_ZNRSt8optionalIfE5valueEv.exit12 ], [ -1, %_ZNRSt8optionalIfE5valueEv.exit11 ]
   %37 = load ptr, ptr @debug, align 8, !tbaa !4
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %50, label %38
@@ -249,7 +249,7 @@ define noundef zeroext i1 @_Z24trxio_should_print_countPK16gmx_output_env_tP11t_
   br label %19
 
 19:                                               ; preds = %12, %8, %2, %16
-  %20 = phi i1 [ %18, %16 ], [ false, %2 ], [ false, %8 ], [ false, %12 ]
+  %20 = phi i1 [ false, %12 ], [ false, %8 ], [ false, %2 ], [ %18, %16 ]
   ret i1 %20
 }
 
@@ -865,7 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
   ]
 
 .thread:                                          ; preds = %19, %53, %41, %41
-  %.093130 = phi i32 [ %42, %53 ], [ %42, %41 ], [ %42, %41 ], [ 7, %19 ]
+  %.093130 = phi i32 [ %42, %41 ], [ 7, %19 ], [ %42, %53 ], [ %42, %41 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %55 = load i8, ptr %54, align 8, !tbaa !48, !range !32, !noundef !33
   %56 = trunc nuw i8 %55 to i1
@@ -2280,13 +2280,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %199, 
   br label %315
 
 208:                                              ; preds = %162, %51
-  %.188 = phi i1 [ %.087, %51 ], [ %156, %162 ]
+  %.188 = phi i1 [ %156, %162 ], [ %.087, %51 ]
   %209 = load float, ptr %29, align 4, !tbaa !54
   store float %209, ptr %12, align 4, !tbaa !74
   br i1 %.188, label %210, label %.critedge
 
-210:                                              ; preds = %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, %177, %172, %168, %166, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %208
-  %211 = phi float [ %117, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ], [ %209, %208 ], [ %135, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %167, %166 ], [ %171, %168 ], [ %176, %172 ], [ %181, %177 ]
+210:                                              ; preds = %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %166, %168, %172, %177, %208
+  %211 = phi float [ %117, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ], [ %209, %208 ], [ %181, %177 ], [ %176, %172 ], [ %171, %168 ], [ %167, %166 ], [ %135, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
   %212 = load i32, ptr %1, align 8, !tbaa !72
   %213 = and i32 %212, 2
   %.not94 = icmp eq i32 %213, 0
@@ -2297,7 +2297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %199, 
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %217, label %.critedge137.backedge
 
-.critedge137.backedge:                            ; preds = %214, %219, %275, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i110, %270, %266, %259, %224
+.critedge137.backedge:                            ; preds = %214, %219, %266, %259, %275, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i110, %270, %224
   br label %.critedge137
 
 217:                                              ; preds = %214, %210
@@ -2416,7 +2416,7 @@ _Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i110: ; pr
   %282 = call i32 @fflush(ptr noundef %281)
   br label %.critedge137.backedge
 
-.critedge:                                        ; preds = %177, %172, %168, %166, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %257, %208, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
+.critedge:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %166, %168, %172, %177, %257, %208, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
   %283 = load i32, ptr %27, align 4, !tbaa !9
   %284 = icmp slt i32 %283, 20
   %285 = urem i32 %283, 10
@@ -2486,7 +2486,7 @@ _ZL11printincompP11t_trxstatusP10t_trxframe.exit: ; preds = %_ZL9printlastP11t_t
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %235, %242, %246, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
-  %318 = phi i1 [ false, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit ], [ true, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i ], [ true, %246 ], [ true, %242 ], [ true, %235 ], [ %.ph, %.critedge.thread.sink.split ]
+  %318 = phi i1 [ true, %242 ], [ false, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit ], [ true, %235 ], [ true, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i ], [ true, %246 ], [ %.ph, %.critedge.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %318
 }
@@ -3007,7 +3007,7 @@ define noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstat
   br label %_ZL11printincompP11t_trxstatusP10t_trxframe.exit
 
 _ZL11printincompP11t_trxstatusP10t_trxframe.exit: ; preds = %90, %.thread128
-  %.str.43.sink.i = phi ptr [ @.str.43, %.thread128 ], [ %spec.select, %90 ]
+  %.str.43.sink.i = phi ptr [ %spec.select, %90 ], [ @.str.43, %.thread128 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !107
   %93 = load ptr, ptr @stderr, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4

@@ -210,6 +210,10 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   %67 = icmp ult ptr %61, %65
   br i1 %67, label %68, label %.preheader.outer.backedge
 
+.preheader.outer.backedge:                        ; preds = %66, %73, %75, %70
+  %.051.ph.be = phi ptr [ %61, %70 ], [ %76, %75 ], [ %61, %73 ], [ %61, %66 ]
+  br label %.preheader.outer, !llvm.loop !11
+
 68:                                               ; preds = %66
   %69 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
           to label %70 unwind label %.loopexit71.loopexit.split-lp
@@ -224,10 +228,6 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
 73:                                               ; preds = %70
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %71)
           to label %.preheader.outer.backedge unwind label %.loopexit71.loopexit.split-lp
-
-.preheader.outer.backedge:                        ; preds = %73, %70, %66, %75
-  %.051.ph.be = phi ptr [ %76, %75 ], [ %61, %66 ], [ %61, %70 ], [ %61, %73 ]
-  br label %.preheader.outer, !llvm.loop !11
 
 74:                                               ; preds = %59
   br i1 %54, label %75, label %77
@@ -268,7 +268,7 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   ret i1 %.3.in
 
 .loopexit71:                                      ; preds = %.loopexit71.loopexit, %.loopexit71.loopexit.split-lp, %.loopexit.split-lp72, %.loopexit, %.loopexit.split-lp, %57, %46, %33
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %47, %46 ], [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit117, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp118, %.loopexit71.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %58, %57 ], [ %47, %46 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit117, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp118, %.loopexit71.loopexit.split-lp ]
   call void @_ZN6icu_778numparse4impl12ParsedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume

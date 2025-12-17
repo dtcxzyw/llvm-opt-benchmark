@@ -4212,7 +4212,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %27, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ %27, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17Sdf_ParserHelpers12ValueFactoryESt4lessIS7_ESaISt4pairIKS7_S9_EEENS8_12_GLOBAL__N_136_valueFactories_Tf_StaticDataFactoryEEptEv.exit ], [ %27, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ %spec.select.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %42 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpersL15_valueFactoriesB5cxx11E seq_cst, align 8
   %43 = inttoptr i64 %42 to ptr
   %.not.i.i10 = icmp eq i64 %42, 0
@@ -4438,7 +4438,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %21, label %.critedge, label %23
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
+  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8, !alias.scope !7
   %22 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %23
@@ -4595,7 +4595,7 @@ sub_116:                                          ; preds = %sub_015
   br label %44
 
 44:                                               ; preds = %.tail14, %43, %.tail10, %.tail.thread, %.tail, %18, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
-  %.0 = phi i1 [ false, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit ], [ true, %18 ], [ false, %.tail ], [ true, %.tail.thread ], [ false, %.tail10 ], [ true, %.tail14 ], [ true, %43 ]
+  %.0 = phi i1 [ true, %.tail14 ], [ false, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit ], [ true, %18 ], [ false, %.tail ], [ true, %.tail.thread ], [ false, %.tail10 ], [ true, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   ret i1 %.0
 }
@@ -5093,7 +5093,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %29 = phi i1 [ true, %19 ], [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %29 = phi i1 [ %28, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %19 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef nonnull %8, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8
@@ -5447,8 +5447,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE24_M_get_insert_unique_posERS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48, %._crit_edge.thread.i55, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24, %._crit_edge.thread.i31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i, %._crit_edge.thread.i, %100, %59, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34, %88, %47, %18
-  %.sroa.078.0 = phi ptr [ null, %18 ], [ %49, %47 ], [ null, %88 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select, %59 ], [ %spec.select80, %100 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
-  %.sroa.12.0 = phi ptr [ %19, %18 ], [ %49, %47 ], [ %90, %88 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %spec.select79, %59 ], [ %spec.select81, %100 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ]
+  %.sroa.078.0 = phi ptr [ %spec.select, %59 ], [ null, %18 ], [ null, %._crit_edge.thread.i31 ], [ %49, %47 ], [ %1, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ null, %._crit_edge.thread.i ], [ %spec.select80, %100 ], [ null, %88 ], [ %spec.select.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select.i25, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select.i49, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ null, %._crit_edge.thread.i55 ]
+  %.sroa.12.0 = phi ptr [ %spec.select79, %59 ], [ %19, %18 ], [ %.020.lcssa33.i32, %._crit_edge.thread.i31 ], [ %49, %47 ], [ null, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit34 ], [ %.020.lcssa33.i, %._crit_edge.thread.i ], [ %spec.select81, %100 ], [ %90, %88 ], [ %spec.select22.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i ], [ %spec.select22.i26, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i24 ], [ %spec.select22.i50, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5.i48 ], [ %.020.lcssa33.i56, %._crit_edge.thread.i55 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -9018,7 +9018,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -9608,7 +9608,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -10198,7 +10198,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -10788,7 +10788,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -11378,7 +11378,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -11968,7 +11968,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -12558,7 +12558,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -13148,7 +13148,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -13738,7 +13738,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -14328,7 +14328,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -14918,7 +14918,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -15508,7 +15508,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -16098,7 +16098,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -16688,7 +16688,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -17278,7 +17278,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -17868,7 +17868,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -18458,7 +18458,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -19048,7 +19048,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -19638,7 +19638,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -20228,7 +20228,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -20818,7 +20818,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -21408,7 +21408,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -21998,7 +21998,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -22588,7 +22588,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -23178,7 +23178,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -23768,7 +23768,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -24358,7 +24358,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -24948,7 +24948,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -25538,7 +25538,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -26128,7 +26128,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -26718,7 +26718,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -27308,7 +27308,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -27898,7 +27898,7 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEER
   br label %.body.thread
 
 .body.thread:                                     ; preds = %176, %171, %180, %.body68
-  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %171 ], [ %172, %176 ]
+  %.pn52.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn, %.body68 ], [ %.pn111, %180 ], [ %172, %176 ], [ %172, %171 ]
   resume { ptr, i32 } %.pn52.pn.pn.pn.pn
 }
 
@@ -28026,7 +28026,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %21, label %.critedge, label %23
 
 .critedge:                                        ; preds = %2, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %7, %2 ]
+  %.08.lcssa.i.i.i10 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryESt4lessIS5_ESaISt4pairIKS5_S8_EEE11lower_boundERSC_.exit ], [ %7, %2 ]
   store ptr %1, ptr %3, align 8
   %22 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers12ValueFactoryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i10, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   br label %23
@@ -28185,8 +28185,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIbEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -28727,7 +28727,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %.thread
 
 .thread:                                          ; preds = %14, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
-  %24 = phi i1 [ true, %14 ], [ %23, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  %24 = phi i1 [ %23, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ true, %14 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %24, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #26
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
@@ -29313,8 +29313,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIhEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -29503,7 +29503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIhmEESt8optionalIT_ET0_PNS_2
           to label %common.resume unwind label %22
 
 common.resume:                                    ; preds = %68, %71, %28, %38, %10, %20, %common.resume.i.i.i, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %21, %20 ], [ %11, %10 ], [ %39, %38 ], [ %29, %28 ], [ %69, %71 ], [ %69, %68 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %11, %10 ], [ %56, %55 ], [ %29, %28 ], [ %21, %20 ], [ %39, %38 ], [ %69, %71 ], [ %69, %68 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %20
@@ -30410,8 +30410,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIiEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -30600,7 +30600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIimEESt8optionalIT_ET0_PNS_2
           to label %common.resume unwind label %22
 
 common.resume:                                    ; preds = %69, %72, %29, %39, %10, %20, %common.resume.i.i.i, %56
-  %common.resume.op = phi { ptr, i32 } [ %57, %56 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %21, %20 ], [ %11, %10 ], [ %40, %39 ], [ %30, %29 ], [ %70, %72 ], [ %70, %69 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %11, %10 ], [ %57, %56 ], [ %30, %29 ], [ %21, %20 ], [ %40, %39 ], [ %70, %72 ], [ %70, %69 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %20
@@ -31484,8 +31484,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIjEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -31674,7 +31674,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIjmEESt8optionalIT_ET0_PNS_2
           to label %common.resume unwind label %22
 
 common.resume:                                    ; preds = %68, %71, %28, %38, %10, %20, %common.resume.i.i.i, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %21, %20 ], [ %11, %10 ], [ %39, %38 ], [ %29, %28 ], [ %69, %71 ], [ %69, %68 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %11, %10 ], [ %56, %55 ], [ %29, %28 ], [ %21, %20 ], [ %39, %38 ], [ %69, %71 ], [ %69, %68 ]
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %20
@@ -32557,8 +32557,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIlEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -32747,7 +32747,7 @@ define linkonce_odr noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__dedu
           to label %common.resume unwind label %23
 
 common.resume:                                    ; preds = %48, %51, %11, %21, %common.resume.i.i.i, %35
-  %common.resume.op = phi { ptr, i32 } [ %36, %35 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %22, %21 ], [ %12, %11 ], [ %49, %51 ], [ %49, %48 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %36, %35 ], [ %12, %11 ], [ %22, %21 ], [ %49, %51 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %21
@@ -32867,7 +32867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIlEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIlvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES9_SL_.exit: ; preds = %7, %29, %27
-  %.0 = phi i64 [ %28, %27 ], [ %31, %29 ], [ %8, %7 ]
+  %.0 = phi i64 [ %8, %7 ], [ %28, %27 ], [ %31, %29 ]
   ret i64 %.0
 }
 
@@ -33574,8 +33574,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayImEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -33768,7 +33768,7 @@ define linkonce_odr noundef i64 @_ZSt10__do_visitINSt8__detail9__variant21__dedu
           to label %common.resume unwind label %25
 
 common.resume:                                    ; preds = %53, %56, %13, %23, %common.resume.i.i.i, %40
-  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %24, %23 ], [ %14, %13 ], [ %54, %56 ], [ %54, %53 ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %41, %40 ], [ %14, %13 ], [ %24, %23 ], [ %54, %56 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %23
@@ -33897,7 +33897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit: ; preds = %9, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit, %7
-  %.0 = phi i64 [ %8, %7 ], [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ], [ %10, %9 ]
+  %.0 = phi i64 [ %8, %7 ], [ %10, %9 ], [ %36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplImvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES9_SL_.exit ]
   ret i64 %.0
 }
 
@@ -34596,8 +34596,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_8pxr_half4halfE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -34845,7 +34845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIfEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIfvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit: ; preds = %21, %18, %15, %27, %12, %9, %6
-  %.0 = phi float [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %28, %27 ], [ 0x7FF0000000000000, %15 ], [ 0xFFF0000000000000, %18 ], [ 0x7FF8000000000000, %21 ]
+  %.0 = phi float [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0x7FF8000000000000, %21 ], [ %28, %27 ], [ 0xFFF0000000000000, %18 ], [ 0x7FF0000000000000, %15 ]
   ret float %.0
 }
 
@@ -34894,7 +34894,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIfvE11_FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit, %14, %17
-  %.0.i = phi float [ 0x7FF0000000000000, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit ], [ 0xFFF0000000000000, %14 ], [ 0x7FF8000000000000, %17 ]
+  %.0.i = phi float [ 0xFFF0000000000000, %14 ], [ 0x7FF0000000000000, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit ], [ 0x7FF8000000000000, %17 ]
   ret float %.0.i
 }
 
@@ -35569,7 +35569,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIfEELb0EEppEv.exit:
   br label %53
 
 .loopexit.split-lp:                               ; preds = %24, %.noexc24, %40, %.noexc32
-  %.017.ph = phi i64 [ %.11858, %.noexc32 ], [ %.11858, %40 ], [ 0, %.noexc24 ], [ 0, %24 ]
+  %.017.ph = phi i64 [ 0, %24 ], [ 0, %.noexc24 ], [ %.11858, %.noexc32 ], [ %.11858, %40 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt18bad_variant_access
@@ -35642,8 +35642,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIfEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %53, %66, %72, %68, %19, %17
-  %.sink68 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
-  %.merged = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
+  %.sink68 = phi ptr [ %7, %19 ], [ %7, %17 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
+  %.merged = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink68) #26
   resume { ptr, i32 } %.merged
 
@@ -36323,7 +36323,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIdEELb0EEppEv.exit:
   br label %53
 
 .loopexit.split-lp:                               ; preds = %24, %.noexc24, %40, %.noexc32
-  %.017.ph = phi i64 [ %.11858, %.noexc32 ], [ %.11858, %40 ], [ 0, %.noexc24 ], [ 0, %24 ]
+  %.017.ph = phi i64 [ 0, %24 ], [ 0, %.noexc24 ], [ %.11858, %.noexc32 ], [ %.11858, %40 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt18bad_variant_access
@@ -36396,8 +36396,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIdEELb0EEppEv.exit:
   ret void
 
 .body:                                            ; preds = %53, %66, %72, %68, %19, %17
-  %.sink68 = phi ptr [ %7, %17 ], [ %7, %19 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
-  %.merged = phi { ptr, i32 } [ %18, %17 ], [ %20, %19 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
+  %.sink68 = phi ptr [ %7, %19 ], [ %7, %17 ], [ %8, %68 ], [ %8, %72 ], [ %8, %66 ], [ %8, %53 ]
+  %.merged = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ], [ %69, %68 ], [ %73, %72 ], [ %67, %66 ], [ %lpad.phi, %53 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink68) #26
   resume { ptr, i32 } %.merged
 
@@ -36568,7 +36568,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIdEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIdvEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES9_SL_.exit: ; preds = %20, %17, %14, %26, %12, %9, %6
-  %.0 = phi double [ %8, %6 ], [ %11, %9 ], [ %13, %12 ], [ %27, %26 ], [ 0x7FF0000000000000, %14 ], [ 0xFFF0000000000000, %17 ], [ 0x7FF8000000000000, %20 ]
+  %.0 = phi double [ %8, %6 ], [ %11, %9 ], [ %13, %12 ], [ 0x7FF8000000000000, %20 ], [ %27, %26 ], [ 0xFFF0000000000000, %17 ], [ 0x7FF0000000000000, %14 ]
   ret double %.0
 }
 
@@ -36614,7 +36614,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIdvE11_FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit, %14, %17
-  %.0.i = phi double [ 0x7FF0000000000000, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit ], [ 0xFFF0000000000000, %14 ], [ 0x7FF8000000000000, %17 ]
+  %.0.i = phi double [ 0xFFF0000000000000, %14 ], [ 0x7FF0000000000000, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit ], [ 0x7FF8000000000000, %17 ]
   ret double %.0.i
 }
 
@@ -37310,7 +37310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_11SdfTimeCodeEE
   br label %62
 
 .loopexit.split-lp:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit, %.noexc24, %49, %.noexc32
-  %.017.ph = phi i64 [ %.11864, %.noexc32 ], [ %.11864, %49 ], [ 0, %.noexc24 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit ]
+  %.017.ph = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit ], [ 0, %.noexc24 ], [ %.11864, %.noexc32 ], [ %.11864, %49 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt18bad_variant_access
@@ -38124,7 +38124,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeES3_EbT_S4_T0_.exit, !llvm.loop !138
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit
-  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit.thread ], [ %87, %.lr.ph.i.i.i.i ]
+  %90 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %87, %.lr.ph.i.i.i.i ]
   ret i1 %90
 }
 
@@ -38439,7 +38439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyE
   br i1 %.not.i.i.i.i67, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, label %.lr.ph.i.i.i.i65, !llvm.loop !142
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %.lr.ph.i.i.i.i65, %.lr.ph.i.i.i.i51, %.lr.ph.i.i.i.i, %47, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61
-  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61 ], [ %36, %47 ], [ %37, %.lr.ph.i.i.i.i ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %65, %.lr.ph.i.i.i.i65 ]
+  %.0 = phi ptr [ %65, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61 ], [ %36, %47 ], [ %.1, %.lr.ph.i.i.i.i51 ], [ %37, %.lr.ph.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i65 ]
   %74 = load ptr, ptr %35, align 8
   %.not44 = icmp eq ptr %.0, %74
   br i1 %.not44, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split, label %75
@@ -38493,7 +38493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit.sink.split: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE7_DecRefEv.exit ], [ %1, %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE5clearEv.exit
 
@@ -38764,7 +38764,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INSt7__cxx1112basic_stringIcSt11c
   ret void
 
 .body:                                            ; preds = %25, %30, %23, %9
-  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %10, %9 ], [ %26, %25 ], [ %31, %30 ]
+  %.merged = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %26, %25 ], [ %31, %30 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   resume { ptr, i32 } %.merged
 
@@ -38924,8 +38924,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINSt7__cxx1112basic
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -39897,8 +39897,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7TfTokenEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -40573,7 +40573,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_12SdfAssetPathEEERKT_.exit: ;
   ret void
 
 .body:                                            ; preds = %25, %.body.i.i.i.i, %23, %9
-  %.merged = phi { ptr, i32 } [ %24, %23 ], [ %10, %9 ], [ %26, %25 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
+  %.merged = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %26, %25 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #26
@@ -41220,7 +41220,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit4
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit4: ; preds = %2, %22, %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %24 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %23, %22 ], [ true, %17 ], [ false, %2 ]
+  %24 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %17 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %23, %22 ], [ false, %2 ]
   ret i1 %24
 }
 
@@ -41886,7 +41886,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES3_EbT_S4_T0_.exit, !llvm.loop !184
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit.thread, %83, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit
-  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ true, %83 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit.thread ], [ %85, %.lr.ph.i.i.i.i ]
+  %88 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %75 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE11IsIdenticalERKS2_.exit.thread ], [ true, %83 ], [ %85, %.lr.ph.i.i.i.i ]
   ret i1 %88
 }
 
@@ -43543,7 +43543,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exitthread-pre-split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exitthread-pre-split: ; preds = %45, %56, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread, %37, %53, %51
-  %.0.ph = phi ptr [ %52, %53 ], [ %52, %51 ], [ %38, %37 ], [ %55, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread ], [ %55, %56 ], [ %36, %45 ]
+  %.0.ph = phi ptr [ %38, %37 ], [ %52, %51 ], [ %52, %53 ], [ %55, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread ], [ %55, %56 ], [ %36, %45 ]
   %.pr = load ptr, ptr %35, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exit
 
@@ -43602,7 +43602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE7_DecRefEv.ex
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE5clearEv.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE5clearEv.exit.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE7_DecRefEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i
-  %.sink = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE7_DecRefEv.exit ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exit ]
+  %.sink = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.i ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE9_IsUniqueEv.exit.thread.i ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE7_DecRefEv.exit ], [ %1, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE13_AllocateCopyEPS1_mm.exit ]
   store i64 %.sink, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEE5clearEv.exit
 
@@ -43834,7 +43834,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_17SdfPathExpressionEEERKT_.ex
   ret void
 
 .body:                                            ; preds = %26, %31, %24, %10
-  %.merged = phi { ptr, i32 } [ %25, %24 ], [ %11, %10 ], [ %27, %26 ], [ %32, %31 ]
+  %.merged = phi { ptr, i32 } [ %11, %10 ], [ %25, %24 ], [ %27, %26 ], [ %32, %31 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %6) #26
   resume { ptr, i32 } %.merged
 
@@ -46245,7 +46245,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpESaIS4_EERKS1_INS3_19ExpressionReferenceESaIS9_EERKS1_INS2_14SdfPathPatternESaISE_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESR_Lm3ELm4EE4__eqERKSR_SU_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpESaIS4_EERKS1_INS3_19ExpressionReferenceESaIS9_EERKS1_INS2_14SdfPathPatternESaISE_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESR_Lm3ELm4EE4__eqERKSR_SU_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.thread.i.i.i.i.i, %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
-  %52 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ], [ false, %2 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.thread.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i ]
+  %52 = phi i1 [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ false, %2 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.thread.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14SdfPathPatternES2_.exit.i.i.i.i.i ]
   ret i1 %52
 }
 
@@ -46466,7 +46466,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKiRKbEESD_Lm1ELm3EE4__eqERKSD_SG_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKiRKbEESD_Lm1ELm3EE4__eqERKSD_SG_.exit: ; preds = %2, %23, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %31 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %30, %23 ], [ false, %2 ]
+  %31 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %30, %23 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %2 ]
   ret i1 %31
 }
 
@@ -46565,7 +46565,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %_ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS4_EERKS1_INS3_6FnCallESaIS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESM_Lm2ELm3EE4__eqERKSM_SP_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpESaIS4_EERKS1_INS3_6FnCallESaIS9_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESM_Lm2ELm3EE4__eqERKSM_SP_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.thread.i.i.i.i.i, %2, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit
-  %50 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit ], [ false, %2 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.thread.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i ]
+  %50 = phi i1 [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCallESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i ], [ false, %2 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.thread.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22SdfPredicateExpression6FnCallES3_.exit.i.i.i.i.i ]
   ret i1 %50
 }
 
@@ -46642,7 +46642,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %or.cond.not, label %36, label %_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCall4KindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_5FnArgESaISG_EEEESL_Lm2ELm3EE4__eqERKSL_SO_.exit, !llvm.loop !270
 
 _ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression6FnCall4KindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_5FnArgESaISG_EEEESL_Lm2ELm3EE4__eqERKSL_SO_.exit: ; preds = %36, %2, %33, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %42 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ true, %33 ], [ false, %2 ], [ %39, %36 ]
+  %42 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %2 ], [ true, %33 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ %39, %36 ]
   ret i1 %42
 }
 
@@ -46687,26 +46687,26 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 26:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %27 = icmp eq ptr %19, %22
-  br i1 %27, label %28, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i
+  br i1 %27, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i, label %28
 
 28:                                               ; preds = %26
-  %29 = ptrtoint ptr %19 to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
-  br i1 %34, label %36, label %_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm1ELm2EE4__eqERKSD_SG_.exit
+  %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue13_EqualityImplERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  br i1 %29, label %36, label %_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm1ELm2EE4__eqERKSD_SG_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i: ; preds = %26
-  %35 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue13_EqualityImplERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %30 = ptrtoint ptr %19 to i64
+  %31 = and i64 %30, -8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
   br i1 %35, label %36, label %_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm1ELm2EE4__eqERKSD_SG_.exit
 
 36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i, %28, %24
   br label %_ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm1ELm2EE4__eqERKSD_SG_.exit
 
 _ZNSt15__tuple_compareISt5tupleIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__7VtValueEEESD_Lm1ELm2EE4__eqERKSD_SG_.exit: ; preds = %2, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i, %28, %24, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %37 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i ], [ true, %36 ], [ false, %24 ], [ false, %28 ], [ false, %2 ]
+  %37 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %28 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit.i ], [ true, %36 ], [ false, %24 ], [ false, %2 ]
   ret i1 %37
 }
 
@@ -48466,7 +48466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.
   br i1 %or.cond14.not, label %93, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES3_EbT_S4_T0_.exit, !llvm.loop !290
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionES3_EbT_S4_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.thread.i.i.i.i, %85, %77, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit
-  %124 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %77 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.thread.i.i.i.i ], [ true, %85 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit.thread ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.i ]
+  %124 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %77 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE11IsIdenticalERKS2_.exit.thread ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.thread.i.i.i.i ], [ true, %85 ], [ %121, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17SdfPathExpressionES2_.exit.i.i.i.i ]
   ret i1 %124
 }
 
@@ -48648,7 +48648,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvT_S3_.ex
           to label %common.resume unwind label %25
 
 common.resume:                                    ; preds = %75, %53, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %54, %53 ], [ %76, %75 ]
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %24, %23 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %23
@@ -48813,7 +48813,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvT_S3_.ex
   unreachable
 
 _ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i65, %.lr.ph, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i54, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqueEv.exit.thread
-  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqueEv.exit.thread ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %12, %.lr.ph ], [ %64, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i65 ]
+  %.0 = phi ptr [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqueEv.exit.thread ], [ %12, %.lr.ph ], [ %14, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.1, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i54 ], [ %64, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i65 ]
   %81 = load ptr, ptr %11, align 8
   %.not45 = icmp eq ptr %.0, %81
   br i1 %.not45, label %105, label %82
@@ -49325,8 +49325,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -50062,8 +50062,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -50903,8 +50903,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -51656,8 +51656,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec2dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -52471,8 +52471,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -53325,8 +53325,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -54252,8 +54252,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -55182,8 +55182,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec3dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -56106,8 +56106,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4iEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -57054,8 +57054,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4hEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -58124,8 +58124,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4fEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -59100,8 +59100,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfVec4dEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -60064,8 +60064,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuathEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -60978,8 +60978,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatfEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -61959,8 +61959,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_7GfQuatdEEELb0E
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -62934,8 +62934,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix2dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -63844,8 +63844,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix3dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 
@@ -64884,8 +64884,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_10GfMatrix4dEEE
   ret void
 
 .body:                                            ; preds = %30, %43, %49, %45, %18, %16
-  %.sink61 = phi ptr [ %6, %16 ], [ %6, %18 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
-  %.merged = phi { ptr, i32 } [ %17, %16 ], [ %19, %18 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
+  %.sink61 = phi ptr [ %6, %18 ], [ %6, %16 ], [ %7, %45 ], [ %7, %49 ], [ %7, %43 ], [ %7, %30 ]
+  %.merged = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %46, %45 ], [ %50, %49 ], [ %44, %43 ], [ %lpad.phi, %30 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink61) #26
   resume { ptr, i32 } %.merged
 

@@ -191,7 +191,7 @@ define noundef zeroext i1 @_ZNK5faiss15IDSelectorBatch9is_memberEl(ptr noundef n
   br label %_ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit, !llvm.loop !42
 
 _ZNKSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEE5countERKl.exit: ; preds = %39, %.lr.ph.i.i.i.i.i, %21, %22, %26, %34, %..loopexit_crit_edge21.i.i.i.i.i
-  %.sroa.06.1.i.i.i = phi ptr [ null, %26 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ %35, %34 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %21 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
+  %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %21 ], [ %35, %34 ], [ null, %26 ], [ %.sroa.06.0.i.i.i, %22 ], [ null, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
   %.not.i.i = icmp ne ptr %.sroa.06.1.i.i.i, null
   br label %46
 

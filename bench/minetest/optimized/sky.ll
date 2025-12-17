@@ -7734,7 +7734,7 @@ if.end385:                                        ; preds = %if.then360, %if.end
   br label %if.end8.i983
 
 if.end8.i983:                                     ; preds = %if.end385, %_ZN3Sky15m_horizon_blendEv.exit
-  %pointcolor.sroa.0.01223.ph = phi i32 [ %or8.i.i971, %if.end385 ], [ -1, %_ZN3Sky15m_horizon_blendEv.exit ]
+  %pointcolor.sroa.0.01223.ph = phi i32 [ -1, %_ZN3Sky15m_horizon_blendEv.exit ], [ %or8.i.i971, %if.end385 ]
   br i1 %cmp10.i, label %if.end16.i989, label %if.then11.i985
 
 if.then11.i985:                                   ; preds = %if.end8.i983

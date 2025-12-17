@@ -443,8 +443,8 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   br label %.critedge2
 
 .critedge2:                                       ; preds = %45, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit100, %31
-  %.lcssa = phi i64 [ %33, %31 ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit100 ], [ %indvars.iv.next82, %45 ]
-  %.2.lcssa = phi i32 [ %27, %31 ], [ %49, %.critedge2.loopexit.split.loop.exit ], [ %50, %.critedge2.loopexit.split.loop.exit100 ], [ %46, %45 ]
+  %.lcssa = phi i64 [ %33, %31 ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit100 ], [ %indvars.iv81, %.critedge2.loopexit.split.loop.exit ], [ %indvars.iv.next82, %45 ]
+  %.2.lcssa = phi i32 [ %27, %31 ], [ %50, %.critedge2.loopexit.split.loop.exit100 ], [ %49, %.critedge2.loopexit.split.loop.exit ], [ %46, %45 ]
   %51 = load i32, ptr %0, align 8
   %.not58 = icmp slt i32 %.2.lcssa, %51
   br i1 %.not58, label %54, label %52
@@ -1436,7 +1436,7 @@ _client_req_get_val.exit:                         ; preds = %11
   br label %_client_req_get_val.exit.thread
 
 _client_req_get_val.exit.thread:                  ; preds = %7, %3, %_client_req_get_val.exit, %21
-  %23 = phi i1 [ false, %_client_req_get_val.exit ], [ true, %21 ], [ false, %3 ], [ false, %7 ]
+  %23 = phi i1 [ true, %21 ], [ false, %_client_req_get_val.exit ], [ false, %3 ], [ false, %7 ]
   ret i1 %23
 }
 
@@ -1483,7 +1483,7 @@ _client_req_get_val.exit:                         ; preds = %11
   br label %_client_req_get_val.exit.thread
 
 _client_req_get_val.exit.thread:                  ; preds = %7, %3, %_client_req_get_val.exit, %21
-  %24 = phi i1 [ false, %_client_req_get_val.exit ], [ true, %21 ], [ false, %3 ], [ false, %7 ]
+  %24 = phi i1 [ true, %21 ], [ false, %_client_req_get_val.exit ], [ false, %3 ], [ false, %7 ]
   ret i1 %24
 }
 
@@ -1534,7 +1534,7 @@ _client_req_get_val.exit:                         ; preds = %11
   br label %_client_req_get_val.exit.thread
 
 _client_req_get_val.exit.thread:                  ; preds = %7, %3, %_client_req_get_val.exit, %21
-  %23 = phi i1 [ false, %_client_req_get_val.exit ], [ true, %21 ], [ false, %3 ], [ false, %7 ]
+  %23 = phi i1 [ true, %21 ], [ false, %_client_req_get_val.exit ], [ false, %3 ], [ false, %7 ]
   ret i1 %23
 }
 
@@ -1712,8 +1712,8 @@ define dso_local range(i32 -1, 1) i32 @client_resp_send(ptr noundef readonly cap
 .lr.ph83.split.backedge:                          ; preds = %64, %61
   br label %.lr.ph83.split, !llvm.loop !23
 
-.thread:                                          ; preds = %.split85.us, %.loopexit, %.split88.us, %57, %.split71.us, %29, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %29 ], [ -1, %.split71.us ], [ -1, %57 ], [ -1, %.split88.us ], [ 0, %.loopexit ], [ 0, %.split85.us ]
+.thread:                                          ; preds = %.split85.us, %.loopexit, %57, %.split88.us, %29, %.split71.us, %11
+  %.0 = phi i32 [ -1, %29 ], [ -1, %11 ], [ -1, %.split71.us ], [ -1, %.split88.us ], [ -1, %57 ], [ 0, %.loopexit ], [ 0, %.split85.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -1743,7 +1743,7 @@ lpad20:                                           ; preds = %invoke.cont23, %inv
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad20, %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %12, %lpad20 ], [ %9, %lpad6 ], [ %8, %lpad ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad20 ], [ %8, %lpad ], [ %9, %lpad6 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -3563,7 +3563,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i17, %lpad.body, %lpad.i, %if.then.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %10, %lpad.body ], [ %10, %if.then.i.i17 ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %3, %if.then.i.i ], [ %10, %lpad.body ], [ %10, %if.then.i.i17 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFbSt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS5_.exit: ; preds = %entry, %invoke.cont.i

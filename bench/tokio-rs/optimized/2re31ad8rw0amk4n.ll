@@ -223,7 +223,7 @@ default.unreachable:                              ; preds = %0
   br label %_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit
 
 _ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.exit: ; preds = %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %4, %50, %47, %43
-  %.0 = phi i8 [ %spec.select.i.i, %43 ], [ %49, %47 ], [ %52, %50 ], [ 13, %42 ], [ 40, %41 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 1, %40 ], [ 34, %4 ]
+  %.0 = phi i8 [ %52, %50 ], [ %spec.select.i.i, %43 ], [ %49, %47 ], [ 13, %42 ], [ 40, %41 ], [ 1, %40 ], [ 8, %7 ], [ 9, %8 ], [ 28, %9 ], [ 6, %10 ], [ 2, %11 ], [ 3, %12 ], [ 30, %13 ], [ 26, %14 ], [ 12, %15 ], [ 27, %16 ], [ 4, %17 ], [ 35, %18 ], [ 20, %19 ], [ 15, %20 ], [ 18, %21 ], [ 0, %22 ], [ 38, %23 ], [ 24, %24 ], [ 36, %25 ], [ 32, %26 ], [ 33, %27 ], [ 10, %28 ], [ 5, %29 ], [ 7, %30 ], [ 14, %31 ], [ 16, %32 ], [ 11, %33 ], [ 17, %34 ], [ 25, %35 ], [ 19, %36 ], [ 22, %37 ], [ 29, %38 ], [ 31, %39 ], [ 34, %4 ]
   ret i8 %.0
 }
 
@@ -1085,7 +1085,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tok
   br label %18
 
 .loopexit:                                        ; preds = %26, %30, %87, %69, %73, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit", %76, %1
-  %.0 = phi ptr [ null, %1 ], [ %24, %76 ], [ %24, %26 ], [ %24, %30 ], [ %24, %87 ], [ %24, %69 ], [ %24, %73 ], [ null, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit" ]
+  %.0 = phi ptr [ %24, %76 ], [ null, %1 ], [ %24, %26 ], [ %24, %30 ], [ %24, %87 ], [ %24, %69 ], [ %24, %73 ], [ null, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit" ]
   ret ptr %.0
 
 default.unreachable42:                            ; preds = %18
@@ -1479,7 +1479,7 @@ _ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i: ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %119, %.body52, %.body, %.body.thread, %86, %91
-  %common.resume.op = phi { ptr, i32 } [ %87, %91 ], [ %87, %86 ], [ %.pn222, %.body.thread ], [ %.pn, %.body ], [ %eh.lpad-body53, %.body52 ], [ %120, %119 ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %87, %91 ], [ %.pn222, %.body.thread ], [ %.pn, %.body ], [ %eh.lpad-body53, %.body52 ], [ %120, %119 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h06c023400f5cec3eE.exit.i": ; preds = %82
@@ -1492,8 +1492,8 @@ common.resume:                                    ; preds = %119, %.body52, %.bo
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !199
   br label %101
 
-97:                                               ; preds = %_ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h868a3be3a5898d58E.exit"
-  %98 = phi i64 [ %59, %_ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i ], [ %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h868a3be3a5898d58E.exit" ]
+97:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h868a3be3a5898d58E.exit", %_ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i
+  %98 = phi i64 [ %44, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h868a3be3a5898d58E.exit" ], [ %59, %_ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i ]
   store ptr null, ptr %12, align 8
   %99 = icmp ugt i64 %98, %43
   br i1 %99, label %100, label %107
@@ -1513,8 +1513,8 @@ common.resume:                                    ; preds = %119, %.body52, %.bo
   br i1 %103, label %133, label %.thread70
 
 .body:                                            ; preds = %.loopexit82, %.loopexit.split-lp
-  %104 = phi ptr [ %105, %.loopexit82 ], [ %106, %.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit82 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %104 = phi ptr [ %106, %.loopexit.split-lp ], [ %105, %.loopexit82 ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit82 ]
   %.not47 = icmp eq ptr %104, null
   br i1 %.not47, label %common.resume, label %.body.thread
 
@@ -1782,8 +1782,8 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !264
   br label %.thread70
 
-.body.thread:                                     ; preds = %163, %190, %.body64, %.body
-  %.pn222 = phi { ptr, i32 } [ %.pn, %.body ], [ %164, %163 ], [ %191, %190 ], [ %eh.lpad-body65, %.body64 ]
+.body.thread:                                     ; preds = %163, %.body64, %190, %.body
+  %.pn222 = phi { ptr, i32 } [ %.pn, %.body ], [ %164, %163 ], [ %eh.lpad-body65, %.body64 ], [ %191, %190 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #15
           to label %common.resume unwind label %198
 
@@ -1933,7 +1933,7 @@ define void @"_ZN75_$LT$tokio_test..io..Mock$u20$as$u20$tokio..io..async_write..
           to label %common.resume unwind label %63
 
 common.resume:                                    ; preds = %.body62, %233, %228, %99, %104, %61
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %100, %104 ], [ %100, %99 ], [ %.pn.ph, %233 ], [ %eh.lpad-body63, %.body62 ], [ %229, %228 ]
+  %common.resume.op = phi { ptr, i32 } [ %100, %99 ], [ %62, %61 ], [ %100, %104 ], [ %.pn.ph, %233 ], [ %eh.lpad-body63, %.body62 ], [ %229, %228 ]
   resume { ptr, i32 } %common.resume.op
 
 63:                                               ; preds = %61
@@ -2133,12 +2133,12 @@ thread-pre-split94:                               ; preds = %49
   br i1 %134, label %135, label %117
 
 135:                                              ; preds = %117, %111, %111, %123
-  %.sroa.11.0.ph = phi i64 [ %133, %123 ], [ %.051.i, %111 ], [ %.051.i, %111 ], [ %.1.i, %117 ]
+  %.sroa.11.0.ph = phi i64 [ %133, %123 ], [ %.051.i, %111 ], [ %.1.i, %117 ], [ %.051.i, %111 ]
   %136 = icmp eq i64 %.sroa.11.0.ph, 0
   br i1 %136, label %141, label %143
 
 137:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h06c023400f5cec3eE.exit.i", %74, %77
-  %.sroa.11.0 = phi i64 [ %110, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h06c023400f5cec3eE.exit.i" ], [ 47244640259, %74 ], [ 55834574851, %77 ]
+  %.sroa.11.0 = phi i64 [ 47244640259, %74 ], [ 55834574851, %77 ], [ %110, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h06c023400f5cec3eE.exit.i" ]
   %138 = inttoptr i64 %.sroa.11.0 to ptr
   %139 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE(ptr %138)
   %140 = icmp eq i8 %139, 13
@@ -2198,8 +2198,8 @@ thread-pre-split94:                               ; preds = %49
   br label %233
 
 .loopexit.split-lp:                               ; preds = %158, %193
-  %.sink.i109.ph132 = phi i64 [ 0, %158 ], [ 1, %193 ]
-  %.sroa.11.0102.ph133 = phi i64 [ 0, %158 ], [ %.sroa.11.0, %193 ]
+  %.sink.i109.ph132 = phi i64 [ 1, %193 ], [ 0, %158 ]
+  %.sroa.11.0102.ph133 = phi i64 [ %.sroa.11.0, %193 ], [ 0, %158 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %233

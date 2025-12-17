@@ -1309,7 +1309,7 @@ Py_DECREF.exit.thread.i:                          ; preds = %108, %105, %99, %92
   br label %pymain_sys_path_add_path0.exit.i
 
 pymain_sys_path_add_path0.exit.i:                 ; preds = %139, %137, %135
-  %.0.i74.i = phi i1 [ true, %137 ], [ true, %135 ], [ %.not11.i.i, %139 ]
+  %.0.i74.i = phi i1 [ true, %135 ], [ true, %137 ], [ %.not11.i.i, %139 ]
   %141 = load ptr, ptr %8, align 8, !tbaa !37
   %142 = load i32, ptr %141, align 8, !tbaa !30
   %.not.i65.i = icmp sgt i32 %142, -1
@@ -1624,7 +1624,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %127, %116
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %Py_DECREF.exit.sink.split.i, %Py_DECREF.exit66.i, %127, %125, %116, %113, %95, %0
-  %.0104.i = phi ptr [ null, %0 ], [ null, %95 ], [ %.1105.i, %113 ], [ %.1105.i, %116 ], [ %.1105.i, %125 ], [ %.1105.i, %127 ], [ %.1105.i, %Py_DECREF.exit66.i ], [ %.1105.i, %Py_DECREF.exit.sink.split.i ]
+  %.0104.i = phi ptr [ null, %95 ], [ null, %0 ], [ %.1105.i, %113 ], [ %.1105.i, %116 ], [ %.1105.i, %125 ], [ %.1105.i, %127 ], [ %.1105.i, %Py_DECREF.exit66.i ], [ %.1105.i, %Py_DECREF.exit.sink.split.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %265 = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %1) #14
   %.not.i.i96.i = icmp eq i32 %265, 0
@@ -2531,8 +2531,8 @@ pymain_run_startup.exit.thread:                   ; preds = %stdin_is_interactiv
   br label %48
 
 pymain_run_startup.exit:                          ; preds = %pymain_err_print.exit.i, %43, %45, %Py_XDECREF.exit.sink.split.i
-  %.0.ph27 = phi i32 [ %.0.ph29, %pymain_err_print.exit.i ], [ %.0.ph29, %43 ], [ %.0.ph29, %45 ], [ %.0.ph28, %Py_XDECREF.exit.sink.split.i ]
-  %.0.i = phi i32 [ %.0.i.i, %pymain_err_print.exit.i ], [ %.0.i.i, %43 ], [ %.0.i.i, %45 ], [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ]
+  %.0.ph27 = phi i32 [ %.0.ph29, %45 ], [ %.0.ph29, %pymain_err_print.exit.i ], [ %.0.ph29, %43 ], [ %.0.ph28, %Py_XDECREF.exit.sink.split.i ]
+  %.0.i = phi i32 [ %.0.i.i, %45 ], [ %.0.i.i, %pymain_err_print.exit.i ], [ %.0.i.i, %43 ], [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not8 = icmp eq i32 %.0.i, 0
   br i1 %.not8, label %48, label %.thread
@@ -3017,7 +3017,7 @@ Py_XDECREF.exit47.thread121:                      ; preds = %13, %11
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %55, %52, %.thread61, %49, %40
-  %.06078 = phi i32 [ %50, %49 ], [ 0, %40 ], [ 0, %55 ], [ 0, %52 ], [ 0, %.thread61 ]
+  %.06078 = phi i32 [ 0, %40 ], [ %50, %49 ], [ 0, %55 ], [ 0, %52 ], [ 0, %.thread61 ]
   %56 = load i32, ptr %33, align 8, !tbaa !30
   %.not.i.i40 = icmp sgt i32 %56, -1
   br i1 %.not.i.i40, label %57, label %Py_XDECREF.exit41.thread
@@ -3096,7 +3096,7 @@ Py_XDECREF.exit47.thread:                         ; preds = %70, %67, %Py_XDECRE
   br label %Py_XDECREF.exit50
 
 Py_XDECREF.exit50:                                ; preds = %Py_XDECREF.exit47.thread121, %Py_XDECREF.exit47.thread, %72, %75
-  %.06079100111120 = phi i32 [ %.06079100111119, %Py_XDECREF.exit47.thread ], [ %.06079100111119, %72 ], [ %.06079100111119, %75 ], [ %.0.i, %Py_XDECREF.exit47.thread121 ]
+  %.06079100111120 = phi i32 [ %.0.i, %Py_XDECREF.exit47.thread121 ], [ %.06079100111119, %Py_XDECREF.exit47.thread ], [ %.06079100111119, %72 ], [ %.06079100111119, %75 ]
   ret i32 %.06079100111120
 }
 

@@ -1335,7 +1335,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit173: ; 
   br label %262
 
 .critedge126:                                     ; preds = %235, %234, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit168, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit
-  %.2 = phi i1 [ true, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit168 ], [ false, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit ], [ false, %234 ], [ false, %235 ]
+  %.2 = phi i1 [ false, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit ], [ true, %_ZN9grpc_core19AuthorizationEngine8DecisionD2Ev.exit168 ], [ false, %234 ], [ false, %235 ]
   %244 = load ptr, ptr %123, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19AuthorizationEngineEED2Ev.exit.i, label %245

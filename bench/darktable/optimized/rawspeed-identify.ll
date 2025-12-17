@@ -1530,7 +1530,7 @@ _ZNSt10unique_ptrIKN8rawspeed14CameraMetaDataESt14default_deleteIS2_EED2Ev.exit:
   br label %493
 
 475:                                              ; preds = %413, %183, %181
-  %.pn105.pn.pn = phi { ptr, i32 } [ %182, %181 ], [ %184, %183 ], [ %414, %413 ]
+  %.pn105.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %414, %413 ], [ %182, %181 ]
   call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %476 = load ptr, ptr %8, align 8, !tbaa !42
@@ -1558,7 +1558,7 @@ _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit141: ;
   br label %.body
 
 .body:                                            ; preds = %26, %24, %480
-  %.pn105.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn.pn.pn.pn, %480 ], [ %27, %26 ], [ %25, %24 ]
+  %.pn105.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn105.pn.pn.pn.pn, %480 ], [ %25, %24 ], [ %27, %26 ]
   %.091 = extractvalue { ptr, i32 } %.pn105.pn.pn.pn.pn.pn.pn, 1
   call void @_ZNSt10unique_ptrIKN8rawspeed14CameraMetaDataESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1584,7 +1584,7 @@ _ZNSt10unique_ptrIN8rawspeed10RawDecoderESt14default_deleteIS1_EED2Ev.exit141: ;
   br label %499
 
 493:                                              ; preds = %_ZNSt10unique_ptrIKN8rawspeed14CameraMetaDataESt14default_deleteIS2_EED2Ev.exit, %483, %16
-  %.1 = phi i32 [ 2, %16 ], [ 2, %483 ], [ %446, %_ZNSt10unique_ptrIKN8rawspeed14CameraMetaDataESt14default_deleteIS2_EED2Ev.exit ]
+  %.1 = phi i32 [ %446, %_ZNSt10unique_ptrIKN8rawspeed14CameraMetaDataESt14default_deleteIS2_EED2Ev.exit ], [ 2, %16 ], [ 2, %483 ]
   %494 = load ptr, ptr %3, align 8, !tbaa !16
   %495 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %496 = icmp eq ptr %494, %495

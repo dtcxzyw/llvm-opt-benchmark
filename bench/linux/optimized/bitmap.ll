@@ -1151,7 +1151,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %116
 
 116:                                              ; preds = %106, %.loopexit
-  %117 = phi i32 [ %115, %106 ], [ %103, %.loopexit ]
+  %117 = phi i32 [ %103, %.loopexit ], [ %115, %106 ]
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %.thread, label %119
 

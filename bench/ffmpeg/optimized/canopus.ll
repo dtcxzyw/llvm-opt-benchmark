@@ -60,7 +60,7 @@ bytestream2_get_le32.exit18:                      ; preds = %bytestream2_get_le3
   br label %bytestream2_get_le32.exit18.thread
 
 bytestream2_get_le32.exit18.thread:               ; preds = %bytestream2_get_le32.exit, %21, %bytestream2_get_le32.exit18
-  %.sroa.0.140 = phi ptr [ %17, %21 ], [ %17, %bytestream2_get_le32.exit18 ], [ %8, %bytestream2_get_le32.exit ]
+  %.sroa.0.140 = phi ptr [ %17, %bytestream2_get_le32.exit18 ], [ %17, %21 ], [ %8, %bytestream2_get_le32.exit ]
   %27 = icmp eq i64 %2, 24
   br i1 %27, label %42, label %28
 

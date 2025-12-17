@@ -884,7 +884,7 @@ vlv_PLL_is_optimal.exit:                          ; preds = %147, %155
   br i1 %159, label %vlv_PLL_is_optimal.exit.thread11, label %intel_pll_is_valid.exit.thread
 
 vlv_PLL_is_optimal.exit.thread11:                 ; preds = %155, %130, %vlv_PLL_is_optimal.exit
-  %.013 = phi i32 [ %153, %vlv_PLL_is_optimal.exit ], [ 0, %130 ], [ 0, %155 ]
+  %.013 = phi i32 [ 0, %130 ], [ %153, %vlv_PLL_is_optimal.exit ], [ 0, %155 ]
   store i32 1, ptr %2, align 4
   store i32 2, ptr %.sroa.6.0..sroa_idx, align 4
   store i32 %51, ptr %.sroa.8.0..sroa_idx, align 4
@@ -896,9 +896,9 @@ vlv_PLL_is_optimal.exit.thread11:                 ; preds = %155, %130, %vlv_PLL
   store i32 %44, ptr %29, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %.thread.i, %146, %100, %123, %117, %120, %111, %114, %105, %108, %86, %89, %80, %83, %74, %77, %67, %71, %130, %vlv_PLL_is_optimal.exit.thread11, %vlv_PLL_is_optimal.exit, %intel_pll_is_valid.exit, %.preheader
-  %160 = phi i32 [ 1, %vlv_PLL_is_optimal.exit.thread11 ], [ %42, %.preheader ], [ %42, %intel_pll_is_valid.exit ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %130 ], [ %42, %71 ], [ %42, %67 ], [ %42, %77 ], [ %42, %74 ], [ %42, %83 ], [ %42, %80 ], [ %42, %89 ], [ %42, %86 ], [ %42, %108 ], [ %42, %105 ], [ %42, %114 ], [ %42, %111 ], [ %42, %120 ], [ %42, %117 ], [ %42, %123 ], [ %42, %100 ], [ %42, %146 ], [ %42, %.thread.i ]
-  %161 = phi i32 [ %.013, %vlv_PLL_is_optimal.exit.thread11 ], [ %41, %.preheader ], [ %41, %intel_pll_is_valid.exit ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %130 ], [ %41, %71 ], [ %41, %67 ], [ %41, %77 ], [ %41, %74 ], [ %41, %83 ], [ %41, %80 ], [ %41, %89 ], [ %41, %86 ], [ %41, %108 ], [ %41, %105 ], [ %41, %114 ], [ %41, %111 ], [ %41, %120 ], [ %41, %117 ], [ %41, %123 ], [ %41, %100 ], [ %41, %146 ], [ %41, %.thread.i ]
+intel_pll_is_valid.exit.thread:                   ; preds = %146, %.thread.i, %100, %123, %117, %120, %111, %114, %105, %108, %86, %89, %80, %83, %74, %77, %67, %71, %130, %vlv_PLL_is_optimal.exit.thread11, %vlv_PLL_is_optimal.exit, %intel_pll_is_valid.exit, %.preheader
+  %160 = phi i32 [ 1, %vlv_PLL_is_optimal.exit.thread11 ], [ %42, %.preheader ], [ %42, %intel_pll_is_valid.exit ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %130 ], [ %42, %100 ], [ %42, %71 ], [ %42, %67 ], [ %42, %77 ], [ %42, %74 ], [ %42, %83 ], [ %42, %80 ], [ %42, %89 ], [ %42, %86 ], [ %42, %108 ], [ %42, %105 ], [ %42, %114 ], [ %42, %111 ], [ %42, %120 ], [ %42, %117 ], [ %42, %123 ], [ %42, %.thread.i ], [ %42, %146 ]
+  %161 = phi i32 [ %.013, %vlv_PLL_is_optimal.exit.thread11 ], [ %41, %.preheader ], [ %41, %intel_pll_is_valid.exit ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %130 ], [ %41, %100 ], [ %41, %71 ], [ %41, %67 ], [ %41, %77 ], [ %41, %74 ], [ %41, %83 ], [ %41, %80 ], [ %41, %89 ], [ %41, %86 ], [ %41, %108 ], [ %41, %105 ], [ %41, %114 ], [ %41, %111 ], [ %41, %120 ], [ %41, %117 ], [ %41, %123 ], [ %41, %.thread.i ], [ %41, %146 ]
   %162 = icmp sgt i32 %.sroa.13.0, 10
   %163 = select i1 %162, i32 -2, i32 -1
   %164 = add i32 %163, %.sroa.13.0
@@ -2969,10 +2969,10 @@ intel_pll_is_valid.exit:                          ; preds = %164
   br label %intel_pll_is_valid.exit.thread
 
 intel_pll_is_valid.exit.thread:                   ; preds = %135, %164, %158, %161, %152, %155, %146, %149, %129, %132, %123, %126, %120, %113, %117, %172, %168, %intel_pll_is_valid.exit
-  %173 = phi i32 [ %93, %intel_pll_is_valid.exit ], [ %.pre49, %172 ], [ %93, %168 ], [ %93, %117 ], [ %93, %113 ], [ %93, %120 ], [ %93, %126 ], [ %93, %123 ], [ %93, %132 ], [ %93, %129 ], [ %93, %149 ], [ %93, %146 ], [ %93, %155 ], [ %93, %152 ], [ %93, %161 ], [ %93, %158 ], [ %93, %164 ], [ %93, %135 ]
-  %174 = phi i8 [ %96, %intel_pll_is_valid.exit ], [ 1, %172 ], [ %96, %168 ], [ %96, %117 ], [ %96, %113 ], [ %96, %120 ], [ %96, %126 ], [ %96, %123 ], [ %96, %132 ], [ %96, %129 ], [ %96, %149 ], [ %96, %146 ], [ %96, %155 ], [ %96, %152 ], [ %96, %161 ], [ %96, %158 ], [ %96, %164 ], [ %96, %135 ]
-  %175 = phi i32 [ %95, %intel_pll_is_valid.exit ], [ %170, %172 ], [ %95, %168 ], [ %95, %117 ], [ %95, %113 ], [ %95, %120 ], [ %95, %126 ], [ %95, %123 ], [ %95, %132 ], [ %95, %129 ], [ %95, %149 ], [ %95, %146 ], [ %95, %155 ], [ %95, %152 ], [ %95, %161 ], [ %95, %158 ], [ %95, %164 ], [ %95, %135 ]
-  %176 = phi i32 [ %94, %intel_pll_is_valid.exit ], [ %.sroa.0.0, %172 ], [ %94, %168 ], [ %94, %117 ], [ %94, %113 ], [ %94, %120 ], [ %94, %126 ], [ %94, %123 ], [ %94, %132 ], [ %94, %129 ], [ %94, %149 ], [ %94, %146 ], [ %94, %155 ], [ %94, %152 ], [ %94, %161 ], [ %94, %158 ], [ %94, %164 ], [ %94, %135 ]
+  %173 = phi i32 [ %93, %intel_pll_is_valid.exit ], [ %.pre49, %172 ], [ %93, %168 ], [ %93, %117 ], [ %93, %113 ], [ %93, %120 ], [ %93, %135 ], [ %93, %126 ], [ %93, %123 ], [ %93, %132 ], [ %93, %129 ], [ %93, %149 ], [ %93, %146 ], [ %93, %155 ], [ %93, %152 ], [ %93, %161 ], [ %93, %158 ], [ %93, %164 ]
+  %174 = phi i8 [ %96, %intel_pll_is_valid.exit ], [ 1, %172 ], [ %96, %168 ], [ %96, %117 ], [ %96, %113 ], [ %96, %120 ], [ %96, %135 ], [ %96, %126 ], [ %96, %123 ], [ %96, %132 ], [ %96, %129 ], [ %96, %149 ], [ %96, %146 ], [ %96, %155 ], [ %96, %152 ], [ %96, %161 ], [ %96, %158 ], [ %96, %164 ]
+  %175 = phi i32 [ %95, %intel_pll_is_valid.exit ], [ %170, %172 ], [ %95, %168 ], [ %95, %117 ], [ %95, %113 ], [ %95, %120 ], [ %95, %135 ], [ %95, %126 ], [ %95, %123 ], [ %95, %132 ], [ %95, %129 ], [ %95, %149 ], [ %95, %146 ], [ %95, %155 ], [ %95, %152 ], [ %95, %161 ], [ %95, %158 ], [ %95, %164 ]
+  %176 = phi i32 [ %94, %intel_pll_is_valid.exit ], [ %.sroa.0.0, %172 ], [ %94, %168 ], [ %94, %117 ], [ %94, %113 ], [ %94, %120 ], [ %94, %135 ], [ %94, %126 ], [ %94, %123 ], [ %94, %132 ], [ %94, %129 ], [ %94, %149 ], [ %94, %146 ], [ %94, %155 ], [ %94, %152 ], [ %94, %161 ], [ %94, %158 ], [ %94, %164 ]
   %177 = add i32 %.sroa.13.0, -1
   %178 = icmp slt i32 %177, %173
   br i1 %178, label %.loopexit.loopexit, label %92, !llvm.loop !48
@@ -3329,7 +3329,7 @@ vlv_PLL_is_optimal.exit:                          ; preds = %97, %105
   br i1 %109, label %vlv_PLL_is_optimal.exit.thread22, label %intel_pll_is_valid.exit.thread
 
 vlv_PLL_is_optimal.exit.thread22:                 ; preds = %105, %80, %vlv_PLL_is_optimal.exit
-  %.024 = phi i32 [ %103, %vlv_PLL_is_optimal.exit ], [ 0, %80 ], [ 0, %105 ]
+  %.024 = phi i32 [ 0, %80 ], [ %103, %vlv_PLL_is_optimal.exit ], [ 0, %105 ]
   store i32 %.sroa.0.0, ptr %16, align 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   store i32 %48, ptr %.sroa.10.0..sroa_idx, align 4
@@ -3341,9 +3341,9 @@ vlv_PLL_is_optimal.exit.thread22:                 ; preds = %105, %80, %vlv_PLL_
   store i32 %34, ptr %21, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %66, %.thread.i, %96, %72, %63, %80, %vlv_PLL_is_optimal.exit.thread22, %vlv_PLL_is_optimal.exit
-  %110 = phi i32 [ %.024, %vlv_PLL_is_optimal.exit.thread22 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %80 ], [ %42, %63 ], [ %42, %72 ], [ %42, %96 ], [ %42, %.thread.i ], [ %42, %66 ]
-  %111 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread22 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %80 ], [ %41, %63 ], [ %41, %72 ], [ %41, %96 ], [ %41, %.thread.i ], [ %41, %66 ]
+intel_pll_is_valid.exit.thread:                   ; preds = %66, %96, %.thread.i, %72, %63, %80, %vlv_PLL_is_optimal.exit.thread22, %vlv_PLL_is_optimal.exit
+  %110 = phi i32 [ %.024, %vlv_PLL_is_optimal.exit.thread22 ], [ %42, %66 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %80 ], [ %42, %72 ], [ %42, %.thread.i ], [ %42, %63 ], [ %42, %96 ]
+  %111 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread22 ], [ %41, %66 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %80 ], [ %41, %72 ], [ %41, %.thread.i ], [ %41, %63 ], [ %41, %96 ]
   br i1 %40, label %.split53, label %39, !llvm.loop !52
 
 .split53:                                         ; preds = %intel_pll_is_valid.exit.thread
@@ -4081,7 +4081,7 @@ intel_pll_is_valid.exit:                          ; preds = %150
   br label %intel_pll_is_valid.exit.thread
 
 intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %147, %138, %141, %132, %135, %118, %158, %154, %intel_pll_is_valid.exit
-  %159 = phi i32 [ %101, %intel_pll_is_valid.exit ], [ %156, %158 ], [ %101, %154 ], [ %101, %118 ], [ %101, %135 ], [ %101, %132 ], [ %101, %141 ], [ %101, %138 ], [ %101, %147 ], [ %101, %144 ], [ %101, %150 ], [ %101, %121 ]
+  %159 = phi i32 [ %101, %intel_pll_is_valid.exit ], [ %156, %158 ], [ %101, %154 ], [ %101, %121 ], [ %101, %118 ], [ %101, %144 ], [ %101, %150 ], [ %101, %138 ], [ %101, %147 ], [ %101, %132 ], [ %101, %141 ], [ %101, %135 ]
   %160 = add i32 %.sroa.13.0, 1
   %161 = icmp sgt i32 %160, %83
   br i1 %161, label %.loopexit, label %.split39, !llvm.loop !65
@@ -4550,8 +4550,8 @@ intel_pll_is_valid.exit:                          ; preds = %147
   br label %intel_pll_is_valid.exit.thread
 
 intel_pll_is_valid.exit.thread:                   ; preds = %147, %141, %144, %135, %138, %129, %132, %119, %122, %113, %116, %110, %103, %107, %155, %151, %intel_pll_is_valid.exit
-  %156 = phi i32 [ %85, %intel_pll_is_valid.exit ], [ %.pre35, %155 ], [ %85, %151 ], [ %85, %107 ], [ %85, %103 ], [ %85, %110 ], [ %85, %116 ], [ %85, %113 ], [ %85, %122 ], [ %85, %119 ], [ %85, %132 ], [ %85, %129 ], [ %85, %138 ], [ %85, %135 ], [ %85, %144 ], [ %85, %141 ], [ %85, %147 ]
-  %157 = phi i32 [ %86, %intel_pll_is_valid.exit ], [ %153, %155 ], [ %86, %151 ], [ %86, %107 ], [ %86, %103 ], [ %86, %110 ], [ %86, %116 ], [ %86, %113 ], [ %86, %122 ], [ %86, %119 ], [ %86, %132 ], [ %86, %129 ], [ %86, %138 ], [ %86, %135 ], [ %86, %144 ], [ %86, %141 ], [ %86, %147 ]
+  %156 = phi i32 [ %85, %intel_pll_is_valid.exit ], [ %.pre35, %155 ], [ %85, %151 ], [ %85, %107 ], [ %85, %103 ], [ %85, %147 ], [ %85, %110 ], [ %85, %116 ], [ %85, %113 ], [ %85, %122 ], [ %85, %119 ], [ %85, %132 ], [ %85, %129 ], [ %85, %138 ], [ %85, %135 ], [ %85, %144 ], [ %85, %141 ]
+  %157 = phi i32 [ %86, %intel_pll_is_valid.exit ], [ %153, %155 ], [ %86, %151 ], [ %86, %107 ], [ %86, %103 ], [ %86, %147 ], [ %86, %110 ], [ %86, %116 ], [ %86, %113 ], [ %86, %122 ], [ %86, %119 ], [ %86, %132 ], [ %86, %129 ], [ %86, %138 ], [ %86, %135 ], [ %86, %144 ], [ %86, %141 ]
   %158 = add i32 %.sroa.13.0, 1
   %159 = icmp sgt i32 %158, %156
   br i1 %159, label %.loopexit.loopexit, label %84, !llvm.loop !69

@@ -163,7 +163,7 @@ define hidden i32 @ssl3_send_finished(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %72
 
 72:                                               ; preds = %60, %30, %7, %66
-  %.0 = phi i32 [ %71, %66 ], [ 0, %7 ], [ 0, %30 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %7 ], [ %71, %66 ], [ 0, %30 ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -287,7 +287,7 @@ ssl3_take_mac.exit:                               ; preds = %13, %19
   br label %74
 
 74:                                               ; preds = %72, %ssl3_take_mac.exit, %64, %68, %11
-  %.0 = phi i32 [ %12, %11 ], [ 1, %68 ], [ 1, %64 ], [ 0, %ssl3_take_mac.exit ], [ 0, %72 ]
+  %.0 = phi i32 [ 1, %64 ], [ %12, %11 ], [ 1, %68 ], [ 0, %ssl3_take_mac.exit ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -736,7 +736,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @ssl3_get_message(ptr nound
   br label %152
 
 152:                                              ; preds = %.thread113, %.thread, %151, %146, %18
-  %.0 = phi i64 [ -1, %151 ], [ %30, %18 ], [ %148, %146 ], [ %52, %.thread ], [ %113, %.thread113 ]
+  %.0 = phi i64 [ -1, %151 ], [ %30, %18 ], [ %52, %.thread ], [ %113, %.thread113 ], [ %148, %146 ]
   ret i64 %.0
 }
 
@@ -851,7 +851,7 @@ define hidden range(i32 0, 2) i32 @ssl3_cert_verify_hash(ptr noundef %0, ptr nou
   br label %61
 
 61:                                               ; preds = %58, %47, %.thread, %26, %49, %29, %38, %60
-  %.1 = phi i32 [ 0, %26 ], [ 0, %60 ], [ 0, %38 ], [ 0, %29 ], [ 0, %49 ], [ 1, %.thread ], [ 1, %47 ], [ 1, %58 ]
+  %.1 = phi i32 [ 0, %49 ], [ 0, %26 ], [ 0, %60 ], [ 0, %29 ], [ 0, %38 ], [ 1, %.thread ], [ 1, %47 ], [ 1, %58 ]
   ret i32 %.1
 }
 

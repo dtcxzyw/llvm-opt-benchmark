@@ -2042,7 +2042,7 @@ define dso_local noundef ptr @_ZN11HullLibrary10extrudableEf(ptr noundef nonnull
   br label %._crit_edge15
 
 ._crit_edge15:                                    ; preds = %7, %8, %9, %15
-  %.1 = phi ptr [ %.013, %9 ], [ %.013, %8 ], [ %.pre, %15 ], [ %.pre, %7 ]
+  %.1 = phi ptr [ %.013, %8 ], [ %.013, %9 ], [ %.pre, %15 ], [ %.pre, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !70
@@ -2332,10 +2332,10 @@ _ZNK9btVector3eqERKS_.exit.thread:                ; preds = %36
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %86, %139, %178, %135, %4
-  %.sroa.0162.0 = phi i32 [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %9, %178 ], [ %9, %139 ], [ -1, %36 ]
-  %.sroa.5163.0 = phi i32 [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %17, %178 ], [ %17, %139 ], [ -1, %36 ]
-  %.sroa.9164.0 = phi i32 [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %.0165, %178 ], [ %.0, %139 ], [ -1, %36 ]
-  %.sroa.14.0 = phi i32 [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %.0, %178 ], [ %.0165, %139 ], [ -1, %36 ]
+  %.sroa.0162.0 = phi i32 [ -1, %36 ], [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %9, %178 ], [ %9, %139 ]
+  %.sroa.5163.0 = phi i32 [ -1, %36 ], [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %17, %178 ], [ %17, %139 ]
+  %.sroa.9164.0 = phi i32 [ -1, %36 ], [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %.0165, %178 ], [ %.0, %139 ]
+  %.sroa.14.0 = phi i32 [ -1, %36 ], [ -1, %4 ], [ -1, %86 ], [ -1, %135 ], [ %.0, %178 ], [ %.0165, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.5163.0.insert.ext = zext i32 %.sroa.5163.0 to i64
   %.sroa.5163.0.insert.shift = shl nuw i64 %.sroa.5163.0.insert.ext, 32
@@ -2658,7 +2658,7 @@ _Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.threa
   br label %42, !llvm.loop !78
 
 .critedge.sink.split:                             ; preds = %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit109, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us
-  %.1.ph = phi i32 [ %.013.lcssa.i, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us ], [ -1, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread ], [ %.013.lcssa.i, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit109 ]
+  %.1.ph = phi i32 [ -1, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread ], [ %.013.lcssa.i, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us ], [ %.013.lcssa.i, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit109 ]
   store i32 3, ptr %76, align 4, !tbaa !46
   br label %.critedge
 
@@ -3249,7 +3249,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %_ZN20btAlignedObjec
   br label %._crit_edge15.i
 
 ._crit_edge15.i:                                  ; preds = %296, %290, %289, %288
-  %.1.i = phi ptr [ %.013.i, %290 ], [ %.013.i, %289 ], [ %.pre.i224, %296 ], [ %.pre.i224, %288 ]
+  %.1.i = phi ptr [ %.013.i, %289 ], [ %.013.i, %290 ], [ %.pre.i224, %296 ], [ %.pre.i224, %288 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %297, label %288, !llvm.loop !70
@@ -3697,7 +3697,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit268:         ; preds = %_ZN20btAlignedObjec
   br label %567
 
 565:                                              ; preds = %114, %451, %266, %270, %521, %373, %274, %272, %268, %101, %99, %97
-  %.pn160 = phi { ptr, i32 } [ %98, %97 ], [ %102, %101 ], [ %100, %99 ], [ %115, %114 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %275, %274 ], [ %273, %272 ], [ %374, %373 ], [ %522, %521 ], [ %452, %451 ]
+  %.pn160 = phi { ptr, i32 } [ %98, %97 ], [ %102, %101 ], [ %100, %99 ], [ %522, %521 ], [ %115, %114 ], [ %374, %373 ], [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %275, %274 ], [ %273, %272 ], [ %452, %451 ]
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %566
@@ -5084,9 +5084,9 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %27, %_ZNK20btAli
   br label %84
 
 84:                                               ; preds = %73, %81, %83
-  %.0302 = phi float [ %82, %83 ], [ %48, %81 ], [ 0x3F847AE140000000, %73 ]
-  %.0299 = phi float [ %.1300, %83 ], [ %.1300, %81 ], [ 0x3F847AE140000000, %73 ]
-  %.0291 = phi float [ %.1292, %83 ], [ %.1292, %81 ], [ 0x3F847AE140000000, %73 ]
+  %.0302 = phi float [ %48, %81 ], [ %82, %83 ], [ 0x3F847AE140000000, %73 ]
+  %.0299 = phi float [ %.1300, %81 ], [ %.1300, %83 ], [ 0x3F847AE140000000, %73 ]
+  %.0291 = phi float [ %.1292, %81 ], [ %.1292, %83 ], [ 0x3F847AE140000000, %73 ]
   %85 = fsub float %49, %.0291
   %86 = fadd float %49, %.0291
   %87 = fsub float %50, %.0299
@@ -5242,7 +5242,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %27, %_ZNK20btAli
   %exitcond404.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count
   br i1 %exitcond404.not, label %.thread.thread, label %.lr.ph, !llvm.loop !122
 
-.thread:                                          ; preds = %126, %152, %167
+.thread:                                          ; preds = %126, %167, %152
   %.0310369 = phi i32 [ %153, %152 ], [ %153, %167 ], [ 0, %126 ]
   %171 = icmp eq i32 %.0310369, %136
   br i1 %171, label %.thread.thread, label %177
@@ -5442,9 +5442,9 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %177, %181, %_ZN20bt
   br label %.critedge
 
 .critedge:                                        ; preds = %236, %247, %249
-  %.0296 = phi float [ %.1297, %249 ], [ %.1297, %247 ], [ 0x3F847AE140000000, %236 ]
-  %.0294 = phi float [ %.1295, %249 ], [ %.1295, %247 ], [ 0x3F847AE140000000, %236 ]
-  %.0293 = phi float [ %248, %249 ], [ %216, %247 ], [ 0x3F847AE140000000, %236 ]
+  %.0296 = phi float [ %.1297, %247 ], [ %.1297, %249 ], [ 0x3F847AE140000000, %236 ]
+  %.0294 = phi float [ %.1295, %247 ], [ %.1295, %249 ], [ 0x3F847AE140000000, %236 ]
+  %.0293 = phi float [ %216, %247 ], [ %248, %249 ], [ 0x3F847AE140000000, %236 ]
   %250 = fsub float %237, %.0296
   %251 = fadd float %237, %.0296
   %252 = fsub float %238, %.0294

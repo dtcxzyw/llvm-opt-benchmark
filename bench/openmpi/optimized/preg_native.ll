@@ -945,7 +945,7 @@ pmix_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %388
   br i1 %.not.i239, label %pmix_obj_run_destructors.exit240, label %.lr.ph.i237, !llvm.loop !53
 
 pmix_obj_run_destructors.exit240:                 ; preds = %369, %303, %300, %329, %326, %.lr.ph.i237, %410, %403
-  %.0 = phi i32 [ -32, %403 ], [ %.0129, %410 ], [ %.0129, %.lr.ph.i237 ], [ -32, %326 ], [ -32, %329 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
+  %.0 = phi i32 [ -32, %403 ], [ %.0129, %410 ], [ -32, %329 ], [ %.0129, %.lr.ph.i237 ], [ -32, %326 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2125,8 +2125,8 @@ pmix_regex_extract_nodes.exit:                    ; preds = %156, %143, %158
     i32 0, label %.sink.split
   ]
 
-pmix_regex_extract_nodes.exit.thread:             ; preds = %43, %._crit_edge191.i, %._crit_edge.i, %18, %pmix_regex_extract_nodes.exit
-  %.0.i22 = phi i32 [ %.0.i, %pmix_regex_extract_nodes.exit ], [ -27, %43 ], [ -27, %._crit_edge191.i ], [ -27, %._crit_edge.i ], [ -29, %18 ]
+pmix_regex_extract_nodes.exit.thread:             ; preds = %._crit_edge191.i, %._crit_edge.i, %18, %43, %pmix_regex_extract_nodes.exit
+  %.0.i22 = phi i32 [ %.0.i, %pmix_regex_extract_nodes.exit ], [ -27, %._crit_edge191.i ], [ -27, %._crit_edge.i ], [ -29, %18 ], [ -27, %43 ]
   %164 = tail call ptr @PMIx_Error_string(i32 noundef %.0.i22) #18
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %164, ptr noundef nonnull @.str.10, i32 noundef 473) #18
   br label %.sink.split
@@ -2269,12 +2269,12 @@ pmix_regex_extract_ppn.exit.thread:               ; preds = %._crit_edge.i, %17
   br label %57
 
 57:                                               ; preds = %pmix_regex_extract_ppn.exit.thread, %14, %55
-  %.0 = phi i32 [ -32, %55 ], [ -1366, %14 ], [ 0, %pmix_regex_extract_ppn.exit.thread ]
+  %.0 = phi i32 [ -32, %55 ], [ 0, %pmix_regex_extract_ppn.exit.thread ], [ -1366, %14 ]
   call void @free(ptr noundef %7) #18
   br label %58
 
 58:                                               ; preds = %2, %57, %13
-  %.017 = phi i32 [ -27, %13 ], [ %.0, %57 ], [ 0, %2 ]
+  %.017 = phi i32 [ %.0, %57 ], [ -27, %13 ], [ 0, %2 ]
   ret i32 %.017
 }
 
@@ -2618,7 +2618,7 @@ define internal fastcc noundef i32 @regex_parse_value_range(ptr noundef nonnull 
   br label %73
 
 73:                                               ; preds = %._crit_edge116, %.loopexit, %58, %.critedge, %.critedge94
-  %.0 = phi i32 [ -29, %58 ], [ %68, %.loopexit ], [ 0, %._crit_edge116 ], [ -46, %.critedge ], [ -46, %.critedge94 ]
+  %.0 = phi i32 [ -46, %.critedge94 ], [ -29, %58 ], [ %68, %.loopexit ], [ 0, %._crit_edge116 ], [ -46, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

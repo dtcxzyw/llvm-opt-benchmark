@@ -801,7 +801,7 @@ _setup_launcher_argv.exit:                        ; preds = %.lr.ph36.i, %.crite
   unreachable
 
 206:                                              ; preds = %200, %158
-  %.057 = phi ptr [ null, %158 ], [ %194, %200 ]
+  %.057 = phi ptr [ %194, %200 ], [ null, %158 ]
   br i1 %.not72, label %207, label %209
 
 207:                                              ; preds = %206
@@ -1137,7 +1137,7 @@ define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 
   br i1 %.b5458, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %92, %111, %115, %69, %65, %58, %30, %34, %98, %100, %.split61.us, %.split63.us, %.outer._crit_edge
-  %.046 = phi i1 [ true, %.outer._crit_edge ], [ true, %.split63.us ], [ false, %.split61.us ], [ true, %100 ], [ true, %98 ], [ false, %34 ], [ false, %30 ], [ %59, %58 ], [ %59, %65 ], [ %59, %69 ], [ false, %115 ], [ false, %111 ], [ true, %92 ]
+  %.046 = phi i1 [ true, %.outer._crit_edge ], [ false, %.split61.us ], [ true, %.split63.us ], [ true, %98 ], [ true, %100 ], [ %59, %69 ], [ false, %30 ], [ false, %34 ], [ %59, %58 ], [ %59, %65 ], [ false, %115 ], [ false, %111 ], [ true, %92 ]
   %.b = load i1, ptr @command_shutdown, align 4
   %or.cond = and i1 %2, %.b
   br i1 %or.cond, label %134, label %135

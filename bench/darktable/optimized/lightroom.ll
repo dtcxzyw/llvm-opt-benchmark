@@ -542,8 +542,8 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
   br label %dt_image_orientation_to_flip_bits.exit
 
 dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %125, %126, %127, %128, %129
-  %.not274 = phi i1 [ true, %129 ], [ true, %124 ], [ false, %125 ], [ false, %126 ], [ false, %127 ], [ false, %128 ], [ true, %122 ], [ true, %122 ]
-  %.0.i288 = phi i32 [ 0, %129 ], [ 1, %124 ], [ 4, %125 ], [ 5, %126 ], [ %123, %127 ], [ 6, %128 ], [ %123, %122 ], [ %123, %122 ]
+  %.not274 = phi i1 [ true, %129 ], [ false, %128 ], [ false, %127 ], [ true, %122 ], [ true, %124 ], [ false, %125 ], [ false, %126 ], [ true, %122 ]
+  %.0.i288 = phi i32 [ 0, %129 ], [ 6, %128 ], [ %123, %127 ], [ %123, %122 ], [ 1, %124 ], [ 4, %125 ], [ 5, %126 ], [ %123, %122 ]
   %130 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %130, align 8, !tbaa !56
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -1378,7 +1378,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   br label %583
 
 583:                                              ; preds = %26, %30, %38, %50, %.critedge, %582, %42, %20, %21
-  %.0239 = phi i32 [ 0, %21 ], [ 0, %20 ], [ 0, %26 ], [ 0, %30 ], [ 0, %38 ], [ 0, %42 ], [ 0, %50 ], [ 1, %582 ], [ 0, %.critedge ]
+  %.0239 = phi i32 [ 0, %20 ], [ 0, %21 ], [ 0, %26 ], [ 0, %30 ], [ 0, %38 ], [ 0, %42 ], [ 0, %50 ], [ 1, %582 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0239
@@ -4115,7 +4115,7 @@ define internal fastcc range(i32 0, 2) i32 @_read_float(ptr noundef nonnull %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %9, %20
-  %.017 = phi i32 [ %25, %20 ], [ 0, %9 ], [ 0, %14 ]
+  %.017 = phi i32 [ 0, %9 ], [ %25, %20 ], [ 0, %14 ]
   ret i32 %.017
 }
 

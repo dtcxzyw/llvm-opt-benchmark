@@ -1793,7 +1793,7 @@ makeItemKey.exit:                                 ; preds = %693, %696
   br label %makeItemList.exit
 
 makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph.i, %makeItemType.exit16.i522, %637, %.critedge.critedge.i, %list_length.exit.i, %makeItemType.exit16.i, %346, %.preheader.i, %322, %261, %256, %80, %makeItemBinary.exit484, %makeItemBinary.exit494, %makeItemBinary.exit489, %739, %736, %733, %730, %727, %724, %721, %718, %715, %712, %709, %706, %703, %makeItemKey.exit, %691, %makeItemString.exit534, %679, %makeItemNumeric.exit531, %667, %665, %660, %657, %makeItemNumeric.exit528, %makeItemNumeric.exit517, %makeItemUnary.exit514, %makeItemUnary.exit510, %makeItemUnary.exit506, %makeItemUnary.exit502, %makeItemUnary.exit498, %makeItemUnary.exit480, %makeItemType.exit476, %521, %519, %makeItemType.exit474, %512, %makeAny.exit472, %makeAny.exit469, %makeAny.exit, %479, %474, %makeItemType.exit461, %429, %426, %makeItemBinary.exit459, %makeItemBinary.exit457, %makeItemBinary.exit455, %makeItemBinary.exit453, %makeItemBinary.exit451, %makeItemBinary.exit449, %makeItemBinary.exit447, %355, %339, %317, %312, %307, %304, %makeItemType.exit441, %makeItemType.exit439, %makeItemType.exit, %287, %makeItemVariable.exit437, %makeItemString.exit435, %makeItemBinary.exit433, %makeItemUnary.exit431, %makeItemUnary.exit429, %makeItemBinary.exit427, %makeItemBinary.exit425, %makeItemBinary.exit, %197, %makeItemUnary.exit, %186, %183, %180, %177, %174, %171, %168, %makeItemVariable.exit, %makeItemNumeric.exit421, %makeItemNumeric.exit, %makeItemBool.exit418, %makeItemBool.exit, %makeItemString.exit415, %makeItemString.exit, %106, %103, %100, %98, %96, %95, %88
-  %.sroa.048.0 = phi ptr [ %.sroa.048.0.copyload, %80 ], [ %.sroa.048.0.copyload, %88 ], [ %.sroa.048.0.copyload, %95 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %110, %makeItemString.exit ], [ %120, %makeItemString.exit415 ], [ %125, %makeItemBool.exit ], [ %131, %makeItemBool.exit418 ], [ %137, %makeItemNumeric.exit ], [ %148, %makeItemNumeric.exit421 ], [ %159, %makeItemVariable.exit ], [ %170, %168 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %192, %makeItemUnary.exit ], [ %198, %197 ], [ %205, %makeItemBinary.exit ], [ %215, %makeItemBinary.exit425 ], [ %225, %makeItemBinary.exit427 ], [ %233, %makeItemUnary.exit429 ], [ %241, %makeItemUnary.exit431 ], [ %250, %makeItemBinary.exit433 ], [ %260, %256 ], [ %266, %261 ], [ %268, %makeItemString.exit435 ], [ %278, %makeItemVariable.exit437 ], [ %288, %287 ], [ %290, %makeItemType.exit ], [ %295, %makeItemType.exit439 ], [ %300, %makeItemType.exit441 ], [ %306, %304 ], [ %311, %307 ], [ %316, %312 ], [ %321, %317 ], [ %341, %339 ], [ %357, %355 ], [ %362, %makeItemBinary.exit447 ], [ %372, %makeItemBinary.exit449 ], [ %382, %makeItemBinary.exit451 ], [ %392, %makeItemBinary.exit453 ], [ %402, %makeItemBinary.exit455 ], [ %410, %makeItemBinary.exit457 ], [ %420, %makeItemBinary.exit459 ], [ %428, %426 ], [ %433, %429 ], [ %435, %makeItemType.exit461 ], [ %478, %474 ], [ %481, %479 ], [ %483, %makeAny.exit ], [ %492, %makeAny.exit469 ], [ %504, %makeAny.exit472 ], [ %513, %512 ], [ %515, %makeItemType.exit474 ], [ %520, %519 ], [ %522, %521 ], [ %526, %makeItemType.exit476 ], [ %533, %makeItemUnary.exit480 ], [ %543, %makeItemBinary.exit484 ], [ %550, %makeItemBinary.exit489 ], [ %561, %makeItemBinary.exit494 ], [ %576, %makeItemUnary.exit498 ], [ %584, %makeItemUnary.exit502 ], [ %592, %makeItemUnary.exit506 ], [ %600, %makeItemUnary.exit510 ], [ %608, %makeItemUnary.exit514 ], [ %614, %makeItemNumeric.exit517 ], [ %656, %makeItemNumeric.exit528 ], [ %659, %657 ], [ %664, %660 ], [ %666, %665 ], [ null, %667 ], [ %669, %makeItemNumeric.exit531 ], [ %680, %679 ], [ %682, %makeItemString.exit534 ], [ %692, %691 ], [ %694, %makeItemKey.exit ], [ %705, %703 ], [ %708, %706 ], [ %711, %709 ], [ %714, %712 ], [ %717, %715 ], [ %720, %718 ], [ %723, %721 ], [ %726, %724 ], [ %729, %727 ], [ %732, %730 ], [ %735, %733 ], [ %738, %736 ], [ %741, %739 ], [ %325, %322 ], [ %325, %.preheader.i ], [ %343, %346 ], [ %350, %makeItemType.exit16.i ], [ %442, %list_length.exit.i ], [ %442, %.critedge.critedge.i ], [ %625, %637 ], [ %640, %makeItemType.exit16.i522 ], [ %325, %.lr.ph.i ], [ %442, %.lr.ph25.i ]
+  %.sroa.048.0 = phi ptr [ %.sroa.048.0.copyload, %80 ], [ %.sroa.048.0.copyload, %88 ], [ %.sroa.048.0.copyload, %95 ], [ %97, %96 ], [ %99, %98 ], [ %102, %100 ], [ %105, %103 ], [ %108, %106 ], [ %110, %makeItemString.exit ], [ %120, %makeItemString.exit415 ], [ %125, %makeItemBool.exit ], [ %131, %makeItemBool.exit418 ], [ %137, %makeItemNumeric.exit ], [ %148, %makeItemNumeric.exit421 ], [ %159, %makeItemVariable.exit ], [ %170, %168 ], [ %173, %171 ], [ %176, %174 ], [ %179, %177 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %192, %makeItemUnary.exit ], [ %198, %197 ], [ %205, %makeItemBinary.exit ], [ %215, %makeItemBinary.exit425 ], [ %225, %makeItemBinary.exit427 ], [ %233, %makeItemUnary.exit429 ], [ %241, %makeItemUnary.exit431 ], [ %250, %makeItemBinary.exit433 ], [ %260, %256 ], [ %266, %261 ], [ %268, %makeItemString.exit435 ], [ %278, %makeItemVariable.exit437 ], [ %288, %287 ], [ %290, %makeItemType.exit ], [ %295, %makeItemType.exit439 ], [ %300, %makeItemType.exit441 ], [ %306, %304 ], [ %311, %307 ], [ %316, %312 ], [ %321, %317 ], [ %735, %733 ], [ %341, %339 ], [ %357, %355 ], [ %362, %makeItemBinary.exit447 ], [ %372, %makeItemBinary.exit449 ], [ %382, %makeItemBinary.exit451 ], [ %392, %makeItemBinary.exit453 ], [ %402, %makeItemBinary.exit455 ], [ %410, %makeItemBinary.exit457 ], [ %420, %makeItemBinary.exit459 ], [ %428, %426 ], [ %433, %429 ], [ %435, %makeItemType.exit461 ], [ %350, %makeItemType.exit16.i ], [ %478, %474 ], [ %481, %479 ], [ %483, %makeAny.exit ], [ %492, %makeAny.exit469 ], [ %504, %makeAny.exit472 ], [ %513, %512 ], [ %515, %makeItemType.exit474 ], [ %520, %519 ], [ %522, %521 ], [ %526, %makeItemType.exit476 ], [ %533, %makeItemUnary.exit480 ], [ %543, %makeItemBinary.exit484 ], [ %550, %makeItemBinary.exit489 ], [ %561, %makeItemBinary.exit494 ], [ %576, %makeItemUnary.exit498 ], [ %584, %makeItemUnary.exit502 ], [ %592, %makeItemUnary.exit506 ], [ %600, %makeItemUnary.exit510 ], [ %608, %makeItemUnary.exit514 ], [ %614, %makeItemNumeric.exit517 ], [ %442, %.critedge.critedge.i ], [ %656, %makeItemNumeric.exit528 ], [ %659, %657 ], [ %664, %660 ], [ %666, %665 ], [ null, %667 ], [ %669, %makeItemNumeric.exit531 ], [ %680, %679 ], [ %741, %739 ], [ %682, %makeItemString.exit534 ], [ %692, %691 ], [ %738, %736 ], [ %694, %makeItemKey.exit ], [ %705, %703 ], [ %708, %706 ], [ %711, %709 ], [ %714, %712 ], [ %717, %715 ], [ %720, %718 ], [ %723, %721 ], [ %726, %724 ], [ %729, %727 ], [ %732, %730 ], [ %325, %322 ], [ %325, %.preheader.i ], [ %343, %346 ], [ %442, %list_length.exit.i ], [ %625, %637 ], [ %640, %makeItemType.exit16.i522 ], [ %325, %.lr.ph.i ], [ %442, %.lr.ph25.i ]
   %742 = sext i8 %83 to i64
   %743 = sub nsw i64 0, %742
   %744 = getelementptr inbounds %union.YYSTYPE, ptr %.2374, i64 %743
@@ -1843,8 +1843,8 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
   br label %.loopexit561
 
 .loopexit561:                                     ; preds = %.thread551, %50, %256, %261, %32, %.loopexit561.sink.split
-  %.0385 = phi i32 [ %.0385.ph, %.loopexit561.sink.split ], [ 0, %.thread551 ], [ 1, %50 ], [ 1, %256 ], [ 1, %261 ], [ 1, %32 ]
-  %.5359 = phi ptr [ %.5359.ph, %.loopexit561.sink.split ], [ %.1355, %.thread551 ], [ %.1355, %50 ], [ %.1355, %256 ], [ %.1355, %261 ], [ %25, %32 ]
+  %.0385 = phi i32 [ %.0385.ph, %.loopexit561.sink.split ], [ 1, %32 ], [ 1, %50 ], [ 0, %.thread551 ], [ 1, %256 ], [ 1, %261 ]
+  %.5359 = phi ptr [ %.5359.ph, %.loopexit561.sink.split ], [ %25, %32 ], [ %.1355, %50 ], [ %.1355, %.thread551 ], [ %.1355, %256 ], [ %.1355, %261 ]
   %.not411 = icmp eq ptr %.5359, %5
   br i1 %.not411, label %772, label %771
 
@@ -1853,7 +1853,7 @@ makeItemList.exit:                                ; preds = %.lr.ph25.i, %.lr.ph
   br label %772
 
 772:                                              ; preds = %.loopexit561, %771, %567, %569
-  %.0 = phi i32 [ 0, %569 ], [ 0, %567 ], [ %.0385, %771 ], [ %.0385, %.loopexit561 ]
+  %.0 = phi i32 [ %.0385, %771 ], [ 0, %567 ], [ %.0385, %.loopexit561 ], [ 0, %569 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2028,7 +2028,7 @@ makeItemType.exit:                                ; preds = %5, %10
   br label %jspConvertRegexFlags.exit
 
 40:                                               ; preds = %.lr.ph55, %26, %27, %28, %29
-  %.sink68 = phi i32 [ 2, %26 ], [ 4, %27 ], [ 8, %28 ], [ 16, %29 ], [ 1, %.lr.ph55 ]
+  %.sink68 = phi i32 [ 16, %29 ], [ 2, %26 ], [ 4, %27 ], [ 8, %28 ], [ 1, %.lr.ph55 ]
   %41 = or i32 %22, %.sink68
   store i32 %41, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2069,8 +2069,8 @@ makeItemType.exit:                                ; preds = %5, %10
   tail call void @errsave_finish(ptr noundef %4, ptr noundef nonnull @.str.3, i32 noundef 679, ptr noundef nonnull @__func__.jspConvertRegexFlags) #6
   br label %jspConvertRegexFlags.exit
 
-.thread:                                          ; preds = %.lr.ph, %makeItemType.exit, %50, %47
-  %.048.ph = phi i32 [ %.3.i, %50 ], [ %49, %47 ], [ 67, %makeItemType.exit ], [ 67, %.lr.ph ]
+.thread:                                          ; preds = %makeItemType.exit, %.lr.ph, %50, %47
+  %.048.ph = phi i32 [ %.3.i, %50 ], [ %49, %47 ], [ 67, %.lr.ph ], [ 67, %makeItemType.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = load i32, ptr %15, align 8
   %61 = add i32 %60, 1
@@ -2109,7 +2109,7 @@ makeItemType.exit:                                ; preds = %5, %10
   br label %jspConvertRegexFlags.exit
 
 jspConvertRegexFlags.exit:                        ; preds = %76, %57, %55, %.split, %31, %77
-  %.0 = phi i1 [ true, %77 ], [ false, %76 ], [ false, %31 ], [ false, %.split ], [ false, %55 ], [ false, %57 ]
+  %.0 = phi i1 [ false, %.split ], [ true, %77 ], [ false, %76 ], [ false, %31 ], [ false, %55 ], [ false, %57 ]
   ret i1 %.0
 }
 

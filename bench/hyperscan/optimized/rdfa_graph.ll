@@ -606,7 +606,7 @@ _ZN3ue28flat_setItSt4lessItESaItEE6insertERKt.exit: ; preds = %204, %_ZN5boost9c
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.i, %220
-  %.pn.pn = phi { ptr, i32 } [ %221, %220 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %221, %220 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %222 = load i64, ptr %60, align 8
   %.not.i.i.i.i44 = icmp eq i64 %222, 0
   br i1 %.not.i.i.i.i44, label %.thread89, label %223

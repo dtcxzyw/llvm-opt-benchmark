@@ -1752,10 +1752,10 @@ _ZNKSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   br label %.loopexit196
 
 .loopexit196:                                     ; preds = %34, %.lr.ph.i.i.i.i, %.loopexit196.loopexit, %..loopexit_crit_edge21.i.i.i.i
-  %.pre-phi373 = phi i64 [ %.pre372, %.loopexit196.loopexit ], [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i ], [ %37, %34 ]
-  %.pre-phi = phi i64 [ %.pre371, %.loopexit196.loopexit ], [ %35, %..loopexit_crit_edge21.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i ], [ %35, %34 ]
-  %54 = phi ptr [ %.pre370, %.loopexit196.loopexit ], [ %38, %..loopexit_crit_edge21.i.i.i.i ], [ %38, %.lr.ph.i.i.i.i ], [ %38, %34 ]
-  %55 = phi i64 [ %.pre369, %.loopexit196.loopexit ], [ %36, %..loopexit_crit_edge21.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i ], [ %36, %34 ]
+  %.pre-phi373 = phi i64 [ %37, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre372, %.loopexit196.loopexit ], [ %37, %.lr.ph.i.i.i.i ], [ %37, %34 ]
+  %.pre-phi = phi i64 [ %35, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre371, %.loopexit196.loopexit ], [ %35, %.lr.ph.i.i.i.i ], [ %35, %34 ]
+  %54 = phi ptr [ %38, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre370, %.loopexit196.loopexit ], [ %38, %.lr.ph.i.i.i.i ], [ %38, %34 ]
+  %55 = phi i64 [ %36, %..loopexit_crit_edge21.i.i.i.i ], [ %.pre369, %.loopexit196.loopexit ], [ %36, %.lr.ph.i.i.i.i ], [ %36, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %.pre-phi373
@@ -2121,7 +2121,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal9ProofNodeE
   br label %_ZNSt13unordered_mapIPKN4cvc58internal9ProofNodeESt10shared_ptrIS2_ESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit58, !llvm.loop !81
 
 _ZNSt13unordered_mapIPKN4cvc58internal9ProofNodeESt10shared_ptrIS2_ESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEE4findERSC_.exit58: ; preds = %.lr.ph.i.i.i.i49, %183, %167, %.preheader, %..loopexit_crit_edge21.i.i.i.i53, %178, %171
-  %.sroa.06.1.i.i54 = phi ptr [ null, %171 ], [ null, %..loopexit_crit_edge21.i.i.i.i53 ], [ %179, %178 ], [ null, %.preheader ], [ %.sroa.06.0.i.i56, %167 ], [ %185, %183 ], [ null, %.lr.ph.i.i.i.i49 ]
+  %.sroa.06.1.i.i54 = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i53 ], [ null, %.preheader ], [ %179, %178 ], [ null, %171 ], [ %.sroa.06.0.i.i56, %167 ], [ %185, %183 ], [ null, %.lr.ph.i.i.i.i49 ]
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i54, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !49
   %.not.i = icmp eq ptr %192, null
@@ -2668,7 +2668,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit: ; pred
   br label %.body45
 
 .body45:                                          ; preds = %.loopexit190, %.loopexit.split-lp191, %412, %306, %410, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal9ProofNodeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %200
-  %.pn.pn = phi { ptr, i32 } [ %201, %200 ], [ %411, %410 ], [ %163, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal9ProofNodeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %413, %412 ], [ %307, %306 ], [ %lpad.loopexit192, %.loopexit190 ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp191 ]
+  %.pn.pn = phi { ptr, i32 } [ %307, %306 ], [ %163, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4cvc58internal9ProofNodeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %201, %200 ], [ %413, %412 ], [ %411, %410 ], [ %lpad.loopexit192, %.loopexit190 ], [ %lpad.loopexit.split-lp193, %.loopexit.split-lp191 ]
   call void @_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %481
@@ -2838,9 +2838,9 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt10sh
   br label %481
 
 481:                                              ; preds = %479, %440, %.body45, %.body, %.loopexit.split-lp, %.loopexit187
-  %.sroa.21.2 = phi ptr [ %.sroa.21.0.ph290, %.body ], [ %.sroa.21.0.ph290, %.body45 ], [ %.sroa.21.0.ph.lcssa269, %440 ], [ %.sroa.21.0.ph.lcssa269, %479 ], [ %.sroa.11.1284, %.loopexit187 ], [ %.sroa.11.1284, %.loopexit.split-lp ]
-  %.sroa.0153.2 = phi ptr [ %.sroa.0153.0.ph292, %.body ], [ %.sroa.0153.0.ph292, %.body45 ], [ %.sroa.0153.0.ph.lcssa255, %440 ], [ %.sroa.0153.0.ph.lcssa255, %479 ], [ %.sroa.0153.1285, %.loopexit187 ], [ %.sroa.0153.1285, %.loopexit.split-lp ]
-  %.pn18.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.pn, %.body45 ], [ %441, %440 ], [ %480, %479 ], [ %lpad.loopexit, %.loopexit187 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.21.2 = phi ptr [ %.sroa.21.0.ph.lcssa269, %479 ], [ %.sroa.21.0.ph.lcssa269, %440 ], [ %.sroa.21.0.ph290, %.body45 ], [ %.sroa.21.0.ph290, %.body ], [ %.sroa.11.1284, %.loopexit187 ], [ %.sroa.11.1284, %.loopexit.split-lp ]
+  %.sroa.0153.2 = phi ptr [ %.sroa.0153.0.ph.lcssa255, %479 ], [ %.sroa.0153.0.ph.lcssa255, %440 ], [ %.sroa.0153.0.ph292, %.body45 ], [ %.sroa.0153.0.ph292, %.body ], [ %.sroa.0153.1285, %.loopexit187 ], [ %.sroa.0153.1285, %.loopexit.split-lp ]
+  %.pn18.pn = phi { ptr, i32 } [ %480, %479 ], [ %441, %440 ], [ %.pn.pn, %.body45 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit187 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %482 = ptrtoint ptr %.sroa.21.2 to i64
@@ -2850,7 +2850,7 @@ _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt10sh
   br label %_ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EED2Ev.exit118
 
 _ZNSt6vectorIPKN4cvc58internal9ProofNodeESaIS4_EED2Ev.exit118: ; preds = %481, %.body107.thread
-  %.pn18.pn.pn = phi { ptr, i32 } [ %126, %.body107.thread ], [ %.pn18.pn, %481 ]
+  %.pn18.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %481 ], [ %126, %.body107.thread ]
   call void @_ZNSt10_HashtableIPKN4cvc58internal9ProofNodeESt4pairIKS4_St10shared_ptrIS2_EESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn18.pn.pn

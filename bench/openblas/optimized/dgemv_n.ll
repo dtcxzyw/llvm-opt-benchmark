@@ -360,8 +360,8 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br i1 %34, label %32, label %203, !llvm.loop !15
 
 203:                                              ; preds = %32, %202
-  %.0345.lcssa = phi ptr [ %.1346, %202 ], [ %.0345435, %32 ]
-  %.0317.lcssa = phi ptr [ %199, %202 ], [ %.0317437, %32 ]
+  %.0345.lcssa = phi ptr [ %.0345435, %32 ], [ %.1346, %202 ]
+  %.0317.lcssa = phi ptr [ %.0317437, %32 ], [ %199, %202 ]
   switch i64 %20, label %default.unreachable [
     i64 0, label %413
     i64 3, label %204

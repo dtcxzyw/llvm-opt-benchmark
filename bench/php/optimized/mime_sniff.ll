@@ -499,7 +499,7 @@ is_http_token.exit.thread:                        ; preds = %5, %.preheader, %.p
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %5, %is_http_token.exit.thread, %2
-  %.06 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %is_http_token.exit.thread ]
+  %.06 = phi i1 [ true, %2 ], [ false, %is_http_token.exit.thread ], [ true, %5 ]
   ret i1 %.06
 }
 

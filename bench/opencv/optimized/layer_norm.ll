@@ -716,7 +716,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %39, %41, %37
-  %.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %16, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %40, %39 ], [ %40, %41 ]
+  %.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %16, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %40, %41 ], [ %40, %39 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
@@ -1354,7 +1354,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %_ZNSt6vectorIiSaIiE
   ret i1 false
 
 .body69:                                          ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i68, %123, %137, %139, %83
-  %.pn48 = phi { ptr, i32 } [ %84, %83 ], [ %124, %123 ], [ %117, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i68 ], [ %138, %137 ], [ %.pn147, %139 ]
+  %.pn48 = phi { ptr, i32 } [ %.pn147, %139 ], [ %84, %83 ], [ %117, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i68 ], [ %124, %123 ], [ %138, %137 ]
   %.not.i.i.i79 = icmp eq ptr %.sroa.0121.0, null
   br i1 %.not.i.i.i79, label %.body, label %143
 
@@ -1364,7 +1364,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body
 
 .body:                                            ; preds = %143, %.body69, %79, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn48.pn = phi { ptr, i32 } [ %80, %79 ], [ %62, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %.pn48, %.body69 ], [ %.pn48151, %143 ]
+  %.pn48.pn = phi { ptr, i32 } [ %62, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %80, %79 ], [ %.pn48, %.body69 ], [ %.pn48151, %143 ]
   %.not.i.i.i81 = icmp eq ptr %36, null
   br i1 %.not.i.i.i81, label %_ZNSt6vectorIiSaIiEED2Ev.exit82, label %144
 

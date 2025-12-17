@@ -992,9 +992,9 @@ uniq.exit46:                                      ; preds = %uniq.exit.uniq.exit
   br i1 %111, label %82, label %.critedge.i, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %109, %82, %uniq.exit46
-  %.028.lcssa.i = phi i32 [ 0, %uniq.exit46 ], [ %.02833.i, %82 ], [ %.129.i, %109 ]
-  %.0.lcssa.i47 = phi i32 [ 0, %uniq.exit46 ], [ %.035.i, %82 ], [ %.1.i52, %109 ]
-  %.lcssa.i = phi i32 [ %76, %uniq.exit46 ], [ %83, %82 ], [ %110, %109 ]
+  %.028.lcssa.i = phi i32 [ 0, %uniq.exit46 ], [ %.129.i, %109 ], [ %.02833.i, %82 ]
+  %.0.lcssa.i47 = phi i32 [ 0, %uniq.exit46 ], [ %.1.i52, %109 ], [ %.035.i, %82 ]
+  %.lcssa.i = phi i32 [ %76, %uniq.exit46 ], [ %110, %109 ], [ %83, %82 ]
   %112 = icmp slt i32 %.0.lcssa.i47, %.lcssa.i
   br i1 %112, label %.lr.ph44.i, label %exclude_cmds.exit
 
@@ -1443,7 +1443,7 @@ define internal fastcc void @print_cmd_by_category(ptr noundef readonly captures
   br i1 %31, label %.split.i.i, label %drop_prefix.exit.i, !llvm.loop !26
 
 drop_prefix.exit.i:                               ; preds = %22, %21, %27, %.split.i.i
-  %phi.call.i.i = phi ptr [ %scevgep15.i.i, %.split.i.i ], [ %20, %27 ], [ %scevgep.i.i, %21 ], [ %20, %22 ]
+  %phi.call.i.i = phi ptr [ %20, %27 ], [ %scevgep15.i.i, %.split.i.i ], [ %20, %22 ], [ %scevgep.i.i, %21 ]
   store ptr %phi.call.i.i, ptr %19, align 8, !tbaa !47
   %32 = add nsw i32 %.01620.i, 1
   br label %33
@@ -1488,7 +1488,7 @@ extract_cmds.exit:                                ; preds = %33
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %extract_cmds.exit, %._crit_edge53, %43
-  %.0.lcssa77 = phi i32 [ %spec.select, %._crit_edge53 ], [ %spec.select, %43 ], [ 0, %extract_cmds.exit ]
+  %.0.lcssa77 = phi i32 [ %spec.select, %43 ], [ %spec.select, %._crit_edge53 ], [ 0, %extract_cmds.exit ]
   %45 = load ptr, ptr %3, align 8, !tbaa !39
   %.not3656 = icmp eq ptr %45, null
   br i1 %.not3656, label %._crit_edge59, label %.lr.ph58
@@ -1798,7 +1798,7 @@ define dso_local void @list_cmds_by_category(ptr noundef %0, ptr noundef %1) loc
   br i1 %28, label %.split.i, label %drop_prefix.exit, !llvm.loop !26
 
 drop_prefix.exit:                                 ; preds = %18, %19, %.split.i, %24
-  %phi.call.i = phi ptr [ %17, %24 ], [ %scevgep15.i, %.split.i ], [ %17, %19 ], [ %scevgep.i, %18 ]
+  %phi.call.i = phi ptr [ %17, %24 ], [ %scevgep15.i, %.split.i ], [ %scevgep.i, %18 ], [ %17, %19 ]
   %29 = tail call ptr @string_list_append(ptr noundef %0, ptr noundef %phi.call.i) #23
   br label %30
 
@@ -2849,7 +2849,7 @@ define internal range(i32 -1, 1) i32 @git_unknown_cmd_config(ptr noundef %0, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %11, %9, %15
-  %.sink = phi i32 [ %18, %15 ], [ -2, %9 ], [ -1, %11 ], [ -3, %13 ]
+  %.sink = phi i32 [ -2, %9 ], [ -1, %11 ], [ %18, %15 ], [ -3, %13 ]
   store i32 %.sink, ptr %3, align 8, !tbaa !69
   br label %19
 

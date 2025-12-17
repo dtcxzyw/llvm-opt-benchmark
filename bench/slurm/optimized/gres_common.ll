@@ -161,12 +161,12 @@ define dso_local void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0
   br label %64
 
 64:                                               ; preds = %49, %38, %26, %62
-  %.164 = phi ptr [ @.str.4, %62 ], [ %.06385, %26 ], [ %.06385, %38 ], [ %.06385, %49 ]
-  %.162 = phi ptr [ @.str.4, %62 ], [ %.06186, %26 ], [ %.06186, %38 ], [ %.06186, %49 ]
-  %.159 = phi i32 [ %.26083, %62 ], [ %.05887, %26 ], [ %.05887, %38 ], [ %.26083, %49 ]
-  %.156 = phi i1 [ true, %62 ], [ %.05588, %26 ], [ true, %38 ], [ true, %49 ]
-  %.153 = phi i32 [ %.254, %62 ], [ %.05289, %26 ], [ %.05289, %38 ], [ %.254, %49 ]
-  %.1 = phi i1 [ true, %62 ], [ %.05190, %26 ], [ %.05190, %38 ], [ %.05190, %49 ]
+  %.164 = phi ptr [ %.06385, %26 ], [ @.str.4, %62 ], [ %.06385, %38 ], [ %.06385, %49 ]
+  %.162 = phi ptr [ %.06186, %26 ], [ @.str.4, %62 ], [ %.06186, %38 ], [ %.06186, %49 ]
+  %.159 = phi i32 [ %.05887, %26 ], [ %.26083, %62 ], [ %.05887, %38 ], [ %.26083, %49 ]
+  %.156 = phi i1 [ %.05588, %26 ], [ true, %62 ], [ true, %38 ], [ true, %49 ]
+  %.153 = phi i32 [ %.05289, %26 ], [ %.254, %62 ], [ %.05289, %38 ], [ %.254, %49 ]
+  %.1 = phi i1 [ %.05190, %26 ], [ true, %62 ], [ %.05190, %38 ], [ %.05190, %49 ]
   %65 = call ptr @slurm_list_next(ptr noundef %19) #6
   %.not72 = icmp eq ptr %65, null
   br i1 %.not72, label %._crit_edge, label %26
@@ -768,7 +768,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
   br label %78
 
 78:                                               ; preds = %._crit_edge.thread, %76, %9, %5, %15
-  %.036 = phi i1 [ true, %15 ], [ true, %5 ], [ true, %9 ], [ false, %76 ], [ false, %._crit_edge.thread ]
+  %.036 = phi i1 [ false, %._crit_edge.thread ], [ true, %15 ], [ true, %9 ], [ true, %5 ], [ false, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

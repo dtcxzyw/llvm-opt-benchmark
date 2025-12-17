@@ -573,8 +573,8 @@ Mate__switch_to_buffer.exit:                      ; preds = %166, %.thread.i, %1
   br label %254
 
 254:                                              ; preds = %213, %239, %238
-  %255 = phi i64 [ %.pre983, %239 ], [ %.pre984, %238 ], [ %.pre984, %213 ]
-  %256 = phi ptr [ %.pre.i385, %239 ], [ %234, %238 ], [ null, %213 ]
+  %255 = phi i64 [ %.pre984, %238 ], [ %.pre983, %239 ], [ %.pre984, %213 ]
+  %256 = phi ptr [ %234, %238 ], [ %.pre.i385, %239 ], [ null, %213 ]
   %257 = getelementptr ptr, ptr %256, i64 %255
   store ptr %233, ptr %257, align 8
   %258 = load ptr, ptr %55, align 8
@@ -1593,7 +1593,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i400, %915
   br i1 %.not375, label %.backedge.sink.split1273.backedge, label %937
 
 .backedge.sink.split1273.backedge:                ; preds = %yy_try_NUL_trans.exit, %115
-  %.1352.ph.be = phi ptr [ %.1352, %115 ], [ %865, %yy_try_NUL_trans.exit ]
+  %.1352.ph.be = phi ptr [ %865, %yy_try_NUL_trans.exit ], [ %.1352, %115 ]
   br label %.backedge.sink.split1273
 
 937:                                              ; preds = %yy_try_NUL_trans.exit
@@ -2798,7 +2798,7 @@ define hidden void @Mate_push_buffer_state(ptr noundef %0, ptr noundef captures(
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %33, %.thread31
-  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
+  %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37
@@ -3007,7 +3007,7 @@ define hidden noundef ptr @Mate__scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br label %53
 
 53:                                               ; preds = %16, %35, %34
-  %54 = phi ptr [ %.pre.i, %35 ], [ %28, %34 ], [ null, %16 ]
+  %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr ptr, ptr %54, i64 %56
@@ -3039,7 +3039,7 @@ define hidden noundef ptr @Mate__scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br label %Mate__switch_to_buffer.exit
 
 Mate__switch_to_buffer.exit:                      ; preds = %53, %.thread.i, %3, %5, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %3 ], [ %14, %.thread.i ], [ %14, %53 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %5 ], [ %14, %.thread.i ], [ %14, %53 ]
   ret ptr %.0
 }
 
