@@ -571,7 +571,7 @@ define hidden ptr @hb_language_get_default() local_unnamed_addr #6 {
   br label %hb_language_from_string.exit
 
 hb_language_from_string.exit:                     ; preds = %4, %6
-  %.08.i = phi ptr [ %8, %6 ], [ null, %4 ]
+  %.08.i = phi ptr [ null, %4 ], [ %8, %6 ]
   %9 = ptrtoint ptr %.08.i to i64
   %10 = cmpxchg weak ptr @_ZZ23hb_language_get_defaultE16default_language, i64 0, i64 %9 acq_rel monotonic, align 8
   br label %11

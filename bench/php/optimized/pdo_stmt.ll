@@ -1685,7 +1685,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %68, %67, %59, %47
-  %.str.48.sink.i = phi ptr [ @.str.46, %59 ], [ @.str.48, %68 ], [ @.str.45, %67 ], [ @.str.45, %47 ]
+  %.str.48.sink.i = phi ptr [ @.str.46, %59 ], [ @.str.48, %68 ], [ @.str.45, %47 ], [ @.str.45, %67 ]
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull %.str.48.sink.i) #17
   br label %105
 
