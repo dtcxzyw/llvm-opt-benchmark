@@ -82203,7 +82203,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
   br label %21
 
 zend_fetch_dimension_address_inner.exit:          ; preds = %.thread, %30, %37, %40, %43, %45
-  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ @executor_globals, %.thread ], [ @executor_globals, %40 ], [ %44, %43 ], [ @executor_globals, %45 ]
+  %.058.i = phi ptr [ %38, %37 ], [ %33, %30 ], [ %44, %43 ], [ @executor_globals, %40 ], [ @executor_globals, %.thread ], [ @executor_globals, %45 ]
   %54 = getelementptr inbounds nuw i8, ptr %.058.i, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 65280
