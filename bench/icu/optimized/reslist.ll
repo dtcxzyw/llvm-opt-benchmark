@@ -2196,30 +2196,29 @@ define dso_local void @_ZN17IntVectorResource14handlePreWriteEPj(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((12, 16)) %0, ptr noundef captures(none) %1) unnamed_addr #13 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !7
-  %4 = and i32 %3, 15
-  %.not = icmp eq i32 %4, 12
-  br i1 %.not, label %9, label %5
+  %4 = add i32 %3, 4
+  %5 = and i32 %4, 15
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %8, label %6
 
-5:                                                ; preds = %2
-  %6 = add i32 %3, 4
-  %7 = and i32 %6, 15
+6:                                                ; preds = %2
   %reass.sub = add i32 %3, 16
-  %8 = sub i32 %reass.sub, %7
-  store i32 %8, ptr %1, align 4, !tbaa !7
-  br label %9
+  %7 = sub i32 %reass.sub, %5
+  store i32 %7, ptr %1, align 4, !tbaa !7
+  br label %8
 
-9:                                                ; preds = %5, %2
-  %10 = phi i32 [ %8, %5 ], [ %3, %2 ]
-  %11 = lshr i32 %10, 2
-  %12 = or i32 %11, 268435456
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %12, ptr %13, align 4, !tbaa !20
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = load i32, ptr %14, align 8, !tbaa !59
-  %16 = add i32 %15, 4
-  %17 = load i32, ptr %1, align 4, !tbaa !7
-  %18 = add i32 %16, %17
-  store i32 %18, ptr %1, align 4, !tbaa !7
+8:                                                ; preds = %6, %2
+  %9 = phi i32 [ %7, %6 ], [ %3, %2 ]
+  %10 = lshr i32 %9, 2
+  %11 = or i32 %10, 268435456
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %11, ptr %12, align 4, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load i32, ptr %13, align 8, !tbaa !59
+  %15 = add i32 %14, 4
+  %16 = load i32, ptr %1, align 4, !tbaa !7
+  %17 = add i32 %15, %16
+  store i32 %17, ptr %1, align 4, !tbaa !7
   ret void
 }
 
@@ -2684,41 +2683,40 @@ define dso_local void @_ZN17IntVectorResource11handleWriteEP14UNewDataMemoryPj(p
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14BinaryResource11handleWriteEP14UNewDataMemoryPj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #7 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !7
-  %5 = and i32 %4, 15
-  %.not = icmp eq i32 %5, 12
-  br i1 %.not, label %12, label %6
+  %5 = add i32 %4, 4
+  %6 = and i32 %5, 15
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %11, label %7
 
-6:                                                ; preds = %3
-  %7 = add i32 %4, 4
-  %8 = and i32 %7, 15
-  %9 = sub nuw nsw i32 16, %8
-  tail call void @udata_writePadding(ptr noundef %1, i32 noundef %9)
-  %10 = load i32, ptr %2, align 4, !tbaa !7
-  %11 = add i32 %10, %9
-  store i32 %11, ptr %2, align 4, !tbaa !7
-  br label %12
+7:                                                ; preds = %3
+  %8 = sub nuw nsw i32 16, %6
+  tail call void @udata_writePadding(ptr noundef %1, i32 noundef %8)
+  %9 = load i32, ptr %2, align 4, !tbaa !7
+  %10 = add i32 %9, %8
+  store i32 %10, ptr %2, align 4, !tbaa !7
+  br label %11
 
-12:                                               ; preds = %6, %3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !59
-  tail call void @udata_write32(ptr noundef %1, i32 noundef %14)
-  %15 = load i32, ptr %13, align 8, !tbaa !59
-  %.not11 = icmp eq i32 %15, 0
-  br i1 %.not11, label %20, label %16
+11:                                               ; preds = %7, %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = load i32, ptr %12, align 8, !tbaa !59
+  tail call void @udata_write32(ptr noundef %1, i32 noundef %13)
+  %14 = load i32, ptr %12, align 8, !tbaa !59
+  %.not11 = icmp eq i32 %14, 0
+  br i1 %.not11, label %19, label %15
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !62
-  tail call void @udata_writeBlock(ptr noundef %1, ptr noundef %18, i32 noundef %15)
-  %.pre = load i32, ptr %13, align 8, !tbaa !59
-  %19 = add i32 %.pre, 4
-  br label %20
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = load ptr, ptr %16, align 8, !tbaa !62
+  tail call void @udata_writeBlock(ptr noundef %1, ptr noundef %17, i32 noundef %14)
+  %.pre = load i32, ptr %12, align 8, !tbaa !59
+  %18 = add i32 %.pre, 4
+  br label %19
 
-20:                                               ; preds = %16, %12
-  %21 = phi i32 [ %19, %16 ], [ 4, %12 ]
-  %22 = load i32, ptr %2, align 4, !tbaa !7
-  %23 = add i32 %21, %22
-  store i32 %23, ptr %2, align 4, !tbaa !7
+19:                                               ; preds = %15, %11
+  %20 = phi i32 [ %18, %15 ], [ 4, %11 ]
+  %21 = load i32, ptr %2, align 4, !tbaa !7
+  %22 = add i32 %20, %21
+  store i32 %22, ptr %2, align 4, !tbaa !7
   ret void
 }
 

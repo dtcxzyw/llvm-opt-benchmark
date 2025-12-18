@@ -2003,34 +2003,35 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit
 
 if.end.i:                                         ; preds = %if.end
+  %cmp.i.i = icmp eq i64 %1, 0
   %sub.i.i = add i64 %1, 34359738367
-  %5 = and i64 %sub.i.i, 34359738360
-  %cmp.not.i.i.i19.i = icmp eq i64 %5, 34359738360
-  br i1 %cmp.not.i.i.i19.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
   %div.i18.i = lshr i64 %sub.i.i, 3
   %add.i.i = add nuw nsw i64 %div.i18.i, 1
-  %6 = and i64 %add.i.i, 4294967295
+  %5 = and i64 %add.i.i, 4294967295
+  %cmp.not.i.i.i19.i = icmp eq i64 %5, 0
+  %cmp.not.i.i.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp.not.i.i.i19.i
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i
   %size_.i12.i = getelementptr inbounds nuw i8, ptr %params, i64 48
-  %7 = load i64, ptr %size_.i12.i, align 8, !noalias !32
-  %add.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %7
-  %idx.neg15.i = sub nsw i64 0, %6
+  %6 = load i64, ptr %size_.i12.i, align 8, !noalias !32
+  %add.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %6
+  %idx.neg15.i = sub nsw i64 0, %5
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %idx.neg15.i
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #18, !noalias !32
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i, ptr nonnull align 1 %add.ptr16.i, i64 %6, i1 false), !noalias !32
-  %8 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #18, !noalias !32
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 %5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i, ptr nonnull align 1 %add.ptr16.i, i64 %5, i1 false), !noalias !32
+  %7 = ptrtoint ptr %add.ptr.i.i.i to i64
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %if.end.i
   %counter.sroa.0.0.i = phi ptr [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.end.i ]
-  %add.ptr7.i.i.i = phi i64 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %if.end.i ]
+  %add.ptr7.i.i.i = phi i64 [ %7, %if.then.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %if.end.i ]
   %shl.i = shl nuw nsw i32 255, %conv.i
-  %9 = load i8, ptr %counter.sroa.0.0.i, align 1, !noalias !32
-  %10 = trunc i32 %shl.i to i8
-  %11 = xor i8 %10, -1
-  %conv22.i = and i8 %9, %11
+  %8 = load i8, ptr %counter.sroa.0.0.i, align 1, !noalias !32
+  %9 = trunc i32 %shl.i to i8
+  %10 = xor i8 %9, -1
+  %conv22.i = and i8 %8, %10
   store i8 %conv22.i, ptr %counter.sroa.0.0.i, align 1, !noalias !32
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %counter.sroa.0.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %add.ptr7.i.i.i, %sub.ptr.rhs.cast.i.i
@@ -2043,9 +2044,9 @@ _ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit: ; preds
   %current_counter.sroa.0.0 = phi ptr [ %call6.i, %if.then.i ], [ %call26.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.i ]
   %call4 = tail call ptr @BN_new() #17
   %size_.i = getelementptr inbounds nuw i8, ptr %in, i64 16
-  %12 = load i64, ptr %size_.i, align 8
-  %cmp.i25 = icmp eq i64 %12, 0
-  %sub.i = add i64 %12, -1
+  %11 = load i64, ptr %size_.i, align 8
+  %cmp.i25 = icmp eq i64 %11, 0
+  %sub.i = add i64 %11, -1
   %div.i11 = lshr i64 %sub.i, 4
   %add.i = add nuw nsw i64 %div.i11, 1
   %cond.i = select i1 %cmp.i25, i64 0, i64 %add.i
@@ -2065,11 +2066,11 @@ if.end16:                                         ; preds = %if.end11
   br i1 %tobool22.not, label %cleanup66, label %if.end24
 
 if.end24:                                         ; preds = %if.end16
-  %13 = load i64, ptr %size_.i, align 8
-  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %13, ptr noundef nonnull @.str.34, i32 noundef 205) #17
-  %cmp.i.i = icmp eq ptr %call1.i.i, null
-  %cmp2.i.i = icmp ne i64 %13, 0
-  %.not.i.i = and i1 %cmp2.i.i, %cmp.i.i
+  %12 = load i64, ptr %size_.i, align 8
+  %call1.i.i = tail call ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str.34, i32 noundef 205) #17
+  %cmp.i.i27 = icmp eq ptr %call1.i.i, null
+  %cmp2.i.i = icmp ne i64 %12, 0
+  %.not.i.i = and i1 %cmp2.i.i, %cmp.i.i27
   br i1 %.not.i.i, label %do.body5.i.i, label %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
 
 do.body5.i.i:                                     ; preds = %if.end24
@@ -2079,20 +2080,20 @@ do.body5.i.i:                                     ; preds = %if.end24
 
 _ZN4node6crypto10ByteSource7BuilderC2Em.exit:     ; preds = %if.end24
   store ptr %call1.i.i, ptr %buf, align 8
-  %size_.i27 = getelementptr inbounds nuw i8, ptr %buf, i64 8
-  store i64 %13, ptr %size_.i27, align 8
+  %size_.i28 = getelementptr inbounds nuw i8, ptr %buf, i64 8
+  store i64 %12, ptr %size_.i28, align 8
   %call28 = tail call i32 @BN_cmp(ptr noundef %call17, ptr noundef %call4) #17
   %cmp29 = icmp sgt i32 %call28, -1
   br i1 %cmp29, label %if.then30, label %if.end39
 
 if.then30:                                        ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
-  %14 = load ptr, ptr %iv.i, align 8
-  %call33 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %14, ptr noundef %call1.i.i)
+  %13 = load ptr, ptr %iv.i, align 8
+  %call33 = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %in, ptr noundef %13, ptr noundef %call1.i.i)
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit, label %cleanup
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %if.then30
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %call1.i.i, i64 noundef %13) #17
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %call1.i.i, i64 noundef %12) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buf, i8 0, i64 16, i1 false), !noalias !35
   %call37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #17
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #17
@@ -2101,24 +2102,24 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %if.
 if.end39:                                         ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit
   %call41 = tail call i64 @BN_get_word(ptr noundef %call17) #17
   %mul = shl i64 %call41, 4
-  %15 = load ptr, ptr %in, align 8
-  call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp43, ptr noundef %15, i64 noundef %mul) #17
-  %16 = load ptr, ptr %iv.i, align 8
-  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, ptr noundef %16, ptr noundef %call1.i.i)
+  %14 = load ptr, ptr %in, align 8
+  call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp43, ptr noundef %14, i64 noundef %mul) #17
+  %15 = load ptr, ptr %iv.i, align 8
+  %call48 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43, ptr noundef %15, ptr noundef %call1.i.i)
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp43) #17
   %cmp49.not = icmp eq i32 %call48, 0
   br i1 %cmp49.not, label %if.end51, label %cleanup
 
 if.end51:                                         ; preds = %if.end39
   call fastcc void @_ZN4node6crypto12_GLOBAL__N_122BlockWithZeroedCounterERKNS0_15AESCipherConfigE(ptr noalias align 8 %new_counter_block, ptr noundef nonnull align 8 dereferenceable(104) %params)
-  %17 = load ptr, ptr %in, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %17, i64 %mul
-  %18 = load i64, ptr %size_.i, align 8
-  %sub = sub i64 %18, %mul
+  %16 = load ptr, ptr %in, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %16, i64 %mul
+  %17 = load i64, ptr %size_.i, align 8
+  %sub = sub i64 %17, %mul
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp52, ptr noundef %add.ptr, i64 noundef %sub) #17
-  %19 = load ptr, ptr %new_counter_block, align 8
+  %18 = load ptr, ptr %new_counter_block, align 8
   %add.ptr57 = getelementptr inbounds i8, ptr %call1.i.i, i64 %mul
-  %call58 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp52, ptr noundef %19, ptr noundef %add.ptr57)
+  %call58 = call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_115AES_CTR_Cipher2EPNS0_13KeyObjectDataENS0_19WebCryptoCipherModeERKNS0_15AESCipherConfigERKNS0_10ByteSourceEPKhPh(ptr noundef %key_data, i32 noundef %cipher_mode, ptr noundef nonnull align 8 dereferenceable(104) %params, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp52, ptr noundef %18, ptr noundef %add.ptr57)
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp52) #17
   %cmp59 = icmp eq i32 %call58, 0
   br i1 %cmp59, label %if.then60, label %if.end65
@@ -2130,56 +2131,56 @@ if.then60:                                        ; preds = %if.end51
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then60, %if.end51
-  %tobool.not.i.i.i = icmp eq ptr %19, null
+  %tobool.not.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end65
-  call void @_ZdlPv(ptr noundef nonnull %19) #20
+  call void @_ZdlPv(ptr noundef nonnull %18) #20
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i, %if.end65, %if.end39, %if.then30, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
   %retval.3 = phi i32 [ %call48, %if.end39 ], [ %call33, %if.then30 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call58, %if.end65 ], [ %call58, %if.then.i.i.i ]
-  %20 = load ptr, ptr %buf, align 8
-  %21 = load i64, ptr %size_.i27, align 8
-  call void @CRYPTO_clear_free(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str.34, i32 noundef 225) #17
+  %19 = load ptr, ptr %buf, align 8
+  %20 = load i64, ptr %size_.i28, align 8
+  call void @CRYPTO_clear_free(ptr noundef %19, i64 noundef %20, ptr noundef nonnull @.str.34, i32 noundef 225) #17
   br label %cleanup66
 
 cleanup66:                                        ; preds = %if.end16, %cleanup
   %retval.2 = phi i32 [ %retval.3, %cleanup ], [ 2, %if.end16 ]
-  %cmp.not.i32 = icmp eq ptr %call17, null
-  br i1 %cmp.not.i32, label %cleanup67, label %if.then.i33
+  %cmp.not.i33 = icmp eq ptr %call17, null
+  br i1 %cmp.not.i33, label %cleanup67, label %if.then.i34
 
-if.then.i33:                                      ; preds = %cleanup66
+if.then.i34:                                      ; preds = %cleanup66
   call void @BN_free(ptr noundef nonnull %call17) #17
   br label %cleanup67
 
-cleanup67:                                        ; preds = %if.then.i33, %cleanup66, %if.end11, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit
-  %retval.1 = phi i32 [ 2, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit ], [ 2, %if.end11 ], [ %retval.2, %cleanup66 ], [ %retval.2, %if.then.i33 ]
-  %cmp.not.i35 = icmp eq ptr %call4, null
-  br i1 %cmp.not.i35, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38, label %if.then.i36
+cleanup67:                                        ; preds = %if.then.i34, %cleanup66, %if.end11, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit
+  %retval.1 = phi i32 [ 2, %_ZN4node6crypto12_GLOBAL__N_110GetCounterERKNS0_15AESCipherConfigE.exit ], [ 2, %if.end11 ], [ %retval.2, %cleanup66 ], [ %retval.2, %if.then.i34 ]
+  %cmp.not.i36 = icmp eq ptr %call4, null
+  br i1 %cmp.not.i36, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39, label %if.then.i37
 
-if.then.i36:                                      ; preds = %cleanup67
+if.then.i37:                                      ; preds = %cleanup67
   call void @BN_free(ptr noundef nonnull %call4) #17
-  br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38
+  br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39
 
-_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38: ; preds = %cleanup67, %if.then.i36
-  %cmp.not.i39 = icmp eq ptr %current_counter.sroa.0.0, null
-  br i1 %cmp.not.i39, label %cleanup69, label %if.then.i40
+_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39: ; preds = %cleanup67, %if.then.i37
+  %cmp.not.i40 = icmp eq ptr %current_counter.sroa.0.0, null
+  br i1 %cmp.not.i40, label %cleanup69, label %if.then.i41
 
-if.then.i40:                                      ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38
+if.then.i41:                                      ; preds = %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39
   call void @BN_free(ptr noundef nonnull %current_counter.sroa.0.0) #17
   br label %cleanup69
 
-cleanup69:                                        ; preds = %if.then.i40, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ %retval.1, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit38 ], [ %retval.1, %if.then.i40 ]
-  %cmp.not.i43 = icmp eq ptr %call, null
-  br i1 %cmp.not.i43, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit46, label %if.then.i44
+cleanup69:                                        ; preds = %if.then.i41, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39, %entry
+  %retval.0 = phi i32 [ 2, %entry ], [ %retval.1, %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit39 ], [ %retval.1, %if.then.i41 ]
+  %cmp.not.i44 = icmp eq ptr %call, null
+  br i1 %cmp.not.i44, label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47, label %if.then.i45
 
-if.then.i44:                                      ; preds = %cleanup69
+if.then.i45:                                      ; preds = %cleanup69
   call void @BN_free(ptr noundef nonnull %call) #17
-  br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit46
+  br label %_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47
 
-_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit46: ; preds = %cleanup69, %if.then.i44
+_ZNSt10unique_ptrI9bignum_stN4node15FunctionDeleterIS0_XadL_Z7BN_freeEEEEED2Ev.exit47: ; preds = %cleanup69, %if.then.i45
   ret i32 %retval.0
 }
 

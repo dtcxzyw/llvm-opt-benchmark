@@ -540,26 +540,25 @@ define dso_local void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerER
   %117 = and i32 %114, -134217728
   %118 = or disjoint i32 %116, %117
   store i32 %118, ptr %5, align 8
-  %119 = and i32 %114, 134217727
-  %120 = icmp eq i32 %119, 1
-  br i1 %120, label %121, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
+  %119 = icmp eq i32 %116, 0
+  br i1 %119, label %120, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-121:                                              ; preds = %107
+120:                                              ; preds = %107
   tail call void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(68) %1)
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
 .critedge:                                        ; preds = %87, %98
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %0, ptr %122, align 8, !tbaa !64
-  %123 = load i32, ptr %7, align 8
-  %124 = add i32 %123, 1
-  %125 = and i32 %124, 134217727
-  %126 = and i32 %123, -134217728
-  %127 = or disjoint i32 %125, %126
-  store i32 %127, ptr %7, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %0, ptr %121, align 8, !tbaa !64
+  %122 = load i32, ptr %7, align 8
+  %123 = add i32 %122, 1
+  %124 = and i32 %123, 134217727
+  %125 = and i32 %122, -134217728
+  %126 = or disjoint i32 %124, %125
+  store i32 %126, ptr %7, align 8
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %121, %107, %.critedge
+_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %120, %107, %.critedge
   ret void
 }
 
@@ -568,7 +567,7 @@ define dso_local void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %15, label %5
+  br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -578,71 +577,70 @@ define dso_local void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(
   %10 = and i32 %7, -134217728
   %11 = or disjoint i32 %9, %10
   store i32 %11, ptr %6, align 8
-  %12 = and i32 %7, 134217727
-  %13 = icmp eq i32 %12, 1
-  br i1 %13, label %14, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
+  %12 = icmp eq i32 %9, 0
+  br i1 %12, label %13, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(68) %4)
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %5, %14
+_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %5, %13
   store ptr null, ptr %3, align 8, !tbaa !64
-  br label %21
+  br label %20
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load i32, ptr %18, align 8, !tbaa !79
-  %20 = sub i32 %19, %17
-  store i32 %20, ptr %18, align 8, !tbaa !79
-  br label %21
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8, !tbaa !26
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load i32, ptr %17, align 8, !tbaa !79
+  %19 = sub i32 %18, %16
+  store i32 %19, ptr %17, align 8, !tbaa !79
+  br label %20
 
-21:                                               ; preds = %15, %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !88
-  %24 = load ptr, ptr %1, align 8, !tbaa !89
-  store ptr %24, ptr %23, align 8, !tbaa !89
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %23, ptr %25, align 8, !tbaa !88
+20:                                               ; preds = %14, %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %23 = load ptr, ptr %1, align 8, !tbaa !89
+  store ptr %23, ptr %22, align 8, !tbaa !89
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %22, ptr %24, align 8, !tbaa !88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %1, i8 0, i64 16, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !62
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i, label %28
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !62
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i, label %27
 
-28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !60
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %27 to i64
-  %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #21
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %29 = load ptr, ptr %28, align 8, !tbaa !60
+  %30 = ptrtoint ptr %29 to i64
+  %31 = ptrtoint ptr %26 to i64
+  %32 = sub i64 %30, %31
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #21
   br label %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i
 
-_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %28, %21
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !25
-  %36 = icmp eq ptr %35, %26
-  br i1 %36, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit, label %37
+_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i: ; preds = %27, %20
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %35 = icmp eq ptr %34, %25
+  br i1 %35, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit, label %36
 
-37:                                               ; preds = %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i
-  tail call void @free(ptr noundef %35) #20
+36:                                               ; preds = %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i
+  tail call void @free(ptr noundef %34) #20
   br label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit
 
-_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit: ; preds = %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i, %37
+_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit: ; preds = %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EED2Ev.exit.i.i.i.i, %36
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 72) #21
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !90
-  %40 = icmp eq ptr %1, %39
-  br i1 %40, label %41, label %42
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load ptr, ptr %37, align 8, !tbaa !90
+  %39 = icmp eq ptr %1, %38
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit
-  store ptr null, ptr %38, align 8, !tbaa !90
-  br label %42
+40:                                               ; preds = %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit
+  store ptr null, ptr %37, align 8, !tbaa !90
+  br label %41
 
-42:                                               ; preds = %41, %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit
+41:                                               ; preds = %40, %_ZN4llvm11iplist_implINS_12simple_ilistINS_8AliasSetEJEEENS_12ilist_traitsIS2_EEE5eraseEPS2_.exit
   ret void
 }
 
@@ -2030,7 +2028,7 @@ define linkonce_odr hidden void @_ZN4llvm15AliasSetTracker20collapseForwardingIn
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !64
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %26, label %6
+  br i1 %.not, label %25, label %6
 
 6:                                                ; preds = %2
   tail call void @_ZN4llvm15AliasSetTracker20collapseForwardingInERPNS_8AliasSetE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -2052,19 +2050,18 @@ define linkonce_odr hidden void @_ZN4llvm15AliasSetTracker20collapseForwardingIn
   %21 = and i32 %18, -134217728
   %22 = or disjoint i32 %20, %21
   store i32 %22, ptr %17, align 8
-  %23 = and i32 %18, 134217727
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
+  %23 = icmp eq i32 %20, 0
+  br i1 %23, label %24, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-25:                                               ; preds = %6
+24:                                               ; preds = %6
   tail call void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(68) %16)
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %6, %25
+_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %6, %24
   store ptr %9, ptr %1, align 8, !tbaa !189
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit, %2
+25:                                               ; preds = %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit, %2
   ret void
 }
 
@@ -3548,13 +3545,13 @@ _ZNSt6vectorIPN4llvm8AliasSetESaIS2_EED2Ev.exit:  ; preds = %._crit_edge46, %42
   ret ptr %41
 
 .lr.ph45:                                         ; preds = %._crit_edge, %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
-  %.sroa.012.043 = phi ptr [ %68, %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit ], [ %.sroa.020.0.lcssa, %._crit_edge ]
+  %.sroa.012.043 = phi ptr [ %67, %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit ], [ %.sroa.020.0.lcssa, %._crit_edge ]
   %46 = load ptr, ptr %.sroa.012.043, align 8, !tbaa !189
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !64
   %.not = icmp eq ptr %48, null
   %49 = load ptr, ptr %18, align 8, !tbaa !90
-  br i1 %.not, label %66, label %50
+  br i1 %.not, label %65, label %50
 
 50:                                               ; preds = %.lr.ph45
   store ptr %49, ptr %47, align 8, !tbaa !64
@@ -3572,22 +3569,21 @@ _ZNSt6vectorIPN4llvm8AliasSetESaIS2_EED2Ev.exit:  ; preds = %._crit_edge46, %42
   %61 = and i32 %58, -134217728
   %62 = or disjoint i32 %60, %61
   store i32 %62, ptr %57, align 8
-  %63 = and i32 %58, 134217727
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
+  %63 = icmp eq i32 %60, 0
+  br i1 %63, label %64, label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-65:                                               ; preds = %50
+64:                                               ; preds = %50
   tail call void @_ZN4llvm15AliasSetTracker14removeAliasSetEPNS_8AliasSetE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(68) %48)
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-66:                                               ; preds = %.lr.ph45
-  %67 = load ptr, ptr %0, align 8, !tbaa !91
-  tail call void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(68) %49, ptr noundef nonnull align 8 dereferenceable(68) %46, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(656) %67)
+65:                                               ; preds = %.lr.ph45
+  %66 = load ptr, ptr %0, align 8, !tbaa !91
+  tail call void @_ZN4llvm8AliasSet10mergeSetInERS0_RNS_15AliasSetTrackerERNS_14BatchAAResultsE(ptr noundef nonnull align 8 dereferenceable(68) %49, ptr noundef nonnull align 8 dereferenceable(68) %46, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(656) %66)
   br label %_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit
 
-_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %65, %50, %66
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.012.043, i64 8
-  %.not30 = icmp eq ptr %68, %.sroa.9.0.lcssa
+_ZN4llvm8AliasSet7dropRefERNS_15AliasSetTrackerE.exit: ; preds = %64, %50, %65
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.012.043, i64 8
+  %.not30 = icmp eq ptr %67, %.sroa.9.0.lcssa
   br i1 %.not30, label %._crit_edge46.loopexit, label %.lr.ph45
 }
 

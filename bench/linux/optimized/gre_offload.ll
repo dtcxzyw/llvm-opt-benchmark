@@ -681,34 +681,35 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   %150 = phi i16 [ %.pre13, %143 ], [ %140, %.loopexit ]
   %151 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %152 = load ptr, ptr %151, align 8
-  %153 = add i16 %150, 2048
-  %154 = and i16 %153, 30720
-  %155 = and i16 %150, -30721
-  %156 = or disjoint i16 %154, %155
-  store i16 %156, ptr %3, align 2
-  %157 = and i16 %150, 30720
-  %158 = icmp eq i16 %157, 28672
-  br i1 %158, label %159, label %163, !prof !6
+  %153 = lshr i16 %150, 11
+  %154 = add nuw nsw i16 %153, 1
+  %155 = and i16 %154, 15
+  %156 = shl nuw nsw i16 %155, 11
+  %157 = and i16 %150, -30721
+  %158 = or disjoint i16 %156, %157
+  store i16 %158, ptr %3, align 2
+  %159 = icmp eq i16 %155, 15
+  br i1 %159, label %160, label %164, !prof !6
 
-159:                                              ; preds = %149
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %161 = load i16, ptr %160, align 4
-  %162 = or i16 %161, 1
-  store i16 %162, ptr %160, align 4
+160:                                              ; preds = %149
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %162 = load i16, ptr %161, align 4
+  %163 = or i16 %162, 1
+  store i16 %163, ptr %161, align 4
   br label %.thread
 
-163:                                              ; preds = %149
-  %164 = tail call ptr %152(ptr noundef %0, ptr noundef %1) #7
+164:                                              ; preds = %149
+  %165 = tail call ptr %152(ptr noundef %0, ptr noundef %1) #7
   br label %.thread
 
-.thread:                                          ; preds = %69, %71, %24, %26, %163, %159, %91, %75, %45, %41, %35, %32, %2
-  %165 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %159 ], [ 0, %163 ], [ 1, %24 ], [ 1, %26 ], [ 1, %71 ], [ 1, %69 ]
-  %166 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %159 ], [ %164, %163 ], [ null, %24 ], [ null, %26 ], [ null, %71 ], [ null, %69 ]
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %168 = load i16, ptr %167, align 4
-  %169 = or i16 %168, %165
-  store i16 %169, ptr %167, align 4
-  ret ptr %166
+.thread:                                          ; preds = %69, %71, %24, %26, %164, %160, %91, %75, %45, %41, %35, %32, %2
+  %166 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %160 ], [ 0, %164 ], [ 1, %24 ], [ 1, %26 ], [ 1, %71 ], [ 1, %69 ]
+  %167 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %160 ], [ %165, %164 ], [ null, %24 ], [ null, %26 ], [ null, %71 ], [ null, %69 ]
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %169 = load i16, ptr %168, align 4
+  %170 = or i16 %169, %166
+  store i16 %170, ptr %168, align 4
+  ret ptr %167
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

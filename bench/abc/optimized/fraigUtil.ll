@@ -343,9 +343,9 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 
 .preheader:                                       ; preds = %30
   %28 = icmp sgt i32 %41, 0
-  br i1 %28, label %.lr.ph27, label %._crit_edge
+  br i1 %28, label %.lr.ph26, label %._crit_edge
 
-.lr.ph27:                                         ; preds = %.preheader
+.lr.ph26:                                         ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %44
 
@@ -369,66 +369,75 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %43 = icmp slt i64 %indvars.iv.next, %42
   br i1 %43, label %30, label %.preheader, !llvm.loop !37
 
-44:                                               ; preds = %.lr.ph27, %78
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next30, %78 ]
+44:                                               ; preds = %.lr.ph26, %86
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %86 ]
   %45 = load ptr, ptr %29, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv29
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv28
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !30
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
   %.not = icmp eq i64 %51, 0
-  br i1 %.not, label %62, label %52
+  br i1 %.not, label %65, label %52
 
 52:                                               ; preds = %44
   %53 = inttoptr i64 %51 to ptr
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8
-  %56 = add i32 %55, 1024
-  %57 = and i32 %56, 3072
-  %58 = and i32 %55, -3073
-  %59 = or disjoint i32 %57, %58
-  %60 = and i32 %55, 3072
-  %61 = icmp eq i32 %60, 2048
-  %spec.store.select = select i1 %61, i32 %55, i32 %59
-  store i32 %spec.store.select, ptr %54, align 8
-  %.pre32 = load ptr, ptr %29, align 8, !tbaa !24
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre32, i64 %indvars.iv29
-  %.pre33 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
-  br label %62
+  %56 = lshr i32 %55, 10
+  %57 = add nuw nsw i32 %56, 1
+  %58 = and i32 %57, 3
+  %59 = shl nuw nsw i32 %58, 10
+  %60 = and i32 %55, -3073
+  %61 = or disjoint i32 %59, %60
+  store i32 %61, ptr %54, align 8
+  %62 = icmp eq i32 %58, 3
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %52, %44
-  %63 = phi ptr [ %.pre33, %52 ], [ %47, %44 ]
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !31
-  %66 = ptrtoint ptr %65 to i64
-  %67 = and i64 %66, -2
-  %.not23 = icmp eq i64 %67, 0
-  br i1 %.not23, label %78, label %68
+63:                                               ; preds = %52
+  %64 = or disjoint i32 %60, 2048
+  store i32 %64, ptr %54, align 8
+  br label %65
 
-68:                                               ; preds = %62
-  %69 = inttoptr i64 %67 to ptr
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i32, ptr %70, align 8
-  %72 = add i32 %71, 1024
-  %73 = and i32 %72, 3072
-  %74 = and i32 %71, -3073
-  %75 = or disjoint i32 %73, %74
-  %76 = and i32 %71, 3072
-  %77 = icmp eq i32 %76, 2048
-  %spec.store.select24 = select i1 %77, i32 %71, i32 %75
-  store i32 %spec.store.select24, ptr %70, align 8
-  br label %78
+65:                                               ; preds = %63, %52, %44
+  %66 = load ptr, ptr %29, align 8, !tbaa !24
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv28
+  %68 = load ptr, ptr %67, align 8, !tbaa !25
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %70 = load ptr, ptr %69, align 8, !tbaa !31
+  %71 = ptrtoint ptr %70 to i64
+  %72 = and i64 %71, -2
+  %.not23 = icmp eq i64 %72, 0
+  br i1 %.not23, label %86, label %73
 
-78:                                               ; preds = %68, %62
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %79 = load i32, ptr %24, align 4, !tbaa !21
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next30, %80
-  br i1 %81, label %44, label %._crit_edge, !llvm.loop !38
+73:                                               ; preds = %65
+  %74 = inttoptr i64 %72 to ptr
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load i32, ptr %75, align 8
+  %77 = lshr i32 %76, 10
+  %78 = add nuw nsw i32 %77, 1
+  %79 = and i32 %78, 3
+  %80 = shl nuw nsw i32 %79, 10
+  %81 = and i32 %76, -3073
+  %82 = or disjoint i32 %80, %81
+  store i32 %82, ptr %75, align 8
+  %83 = icmp eq i32 %79, 3
+  br i1 %83, label %84, label %86
 
-._crit_edge:                                      ; preds = %78, %Fraig_Dfs.exit, %.preheader
+84:                                               ; preds = %73
+  %85 = or disjoint i32 %81, 2048
+  store i32 %85, ptr %75, align 8
+  br label %86
+
+86:                                               ; preds = %65, %73, %84
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %87 = load i32, ptr %24, align 4, !tbaa !21
+  %88 = sext i32 %87 to i64
+  %89 = icmp slt i64 %indvars.iv.next29, %88
+  br i1 %89, label %44, label %._crit_edge, !llvm.loop !38
+
+._crit_edge:                                      ; preds = %86, %Fraig_Dfs.exit, %.preheader
   tail call void @Fraig_NodeVecFree(ptr noundef nonnull %5) #15
   ret void
 }

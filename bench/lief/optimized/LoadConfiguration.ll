@@ -4924,8 +4924,8 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   %.fca.1.extract.i = extractvalue { ptr, i8 } %54, 1
   %55 = trunc nuw i8 %.fca.1.extract.i to i1
   %56 = icmp ne ptr %.fca.0.extract.i, null
-  %or.cond18.i.not99 = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond18.i.not99, label %57, label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread
+  %or.cond18.i.not95 = select i1 %55, i1 %56, i1 false
+  br i1 %or.cond18.i.not95, label %57, label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread
 
 _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread: ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4956,8 +4956,8 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28: ; preds
   %67 = trunc nuw nsw i64 %66 to i40
   store i40 %67, ptr %6, align 8
   %68 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i, 4294967296
-  %.not71 = icmp eq i64 %68, 0
-  br i1 %.not71, label %_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit, label %69
+  %.not70 = icmp eq i64 %68, 0
+  br i1 %.not70, label %_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit, label %69
 
 69:                                               ; preds = %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28
   %70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4LIEF7logging6Logger8instanceEPKc(ptr noundef nonnull @.str.94) #24
@@ -4998,7 +4998,7 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28: ; preds
   %89 = zext i32 %88 to i64
   %90 = load i64, ptr %43, align 8, !tbaa !3
   %91 = add i64 %90, %89
-  br i1 %87, label %.preheader, label %.preheader76
+  br i1 %87, label %.preheader, label %.preheader75
 
 92:                                               ; preds = %.critedge
   %93 = call i64 @_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh1ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m(ptr noundef nonnull align 8 dereferenceable(215) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(736) %1, i64 noundef %83)
@@ -5020,8 +5020,8 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28: ; preds
   %103 = call i64 @_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh1ENS0_7details4PE64EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m(ptr noundef nonnull align 8 dereferenceable(215) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(736) %1, i64 noundef %83)
   br label %_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit
 
-.preheader76:                                     ; preds = %.critedge.thread, %.preheader76
-  %104 = phi i64 [ %110, %.preheader76 ], [ %90, %.critedge.thread ]
+.preheader75:                                     ; preds = %.critedge.thread, %.preheader75
+  %104 = phi i64 [ %110, %.preheader75 ], [ %90, %.critedge.thread ]
   %105 = load ptr, ptr %4, align 8, !tbaa !12
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
@@ -5030,11 +5030,11 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28: ; preds
   %110 = load i64, ptr %43, align 8
   %111 = icmp ult i64 %110, %91
   %or.cond.i29 = select i1 %109, i1 %111, i1 false
-  br i1 %or.cond.i29, label %.preheader76, label %_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit, !llvm.loop !317
+  br i1 %or.cond.i29, label %.preheader75, label %_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit, !llvm.loop !317
 
-_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit: ; preds = %.preheader76, %.preheader, %102, %92, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28, %76
-  %.sroa.046.sroa.0.3 = phi i64 [ 5, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread ], [ 4294967296, %.preheader ], [ 4, %76 ], [ 5, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28 ], [ %93, %92 ], [ %103, %102 ], [ 4294967296, %.preheader76 ]
-  %.sroa.046.sroa.9.3 = phi i64 [ 0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread ], [ 4294967296, %.preheader ], [ 0, %76 ], [ 0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28 ], [ %93, %92 ], [ %103, %102 ], [ 4294967296, %.preheader76 ]
+_ZN4LIEF2PE17LoadConfiguration24parse_dyn_relocs_entriesILh2ENS0_7details4PE32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERNS0_6ParserERNS_12BinaryStreamERS1_m.exit: ; preds = %.preheader75, %.preheader, %102, %92, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28, %76
+  %.sroa.046.sroa.0.3 = phi i64 [ 5, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread ], [ 4294967296, %.preheader ], [ 4, %76 ], [ 5, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28 ], [ %93, %92 ], [ %103, %102 ], [ 4294967296, %.preheader75 ]
+  %.sroa.046.sroa.9.3 = phi i64 [ 0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28.thread ], [ 4294967296, %.preheader ], [ 0, %76 ], [ 0, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit28 ], [ %93, %92 ], [ %103, %102 ], [ 4294967296, %.preheader75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

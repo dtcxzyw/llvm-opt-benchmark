@@ -3706,7 +3706,7 @@ dissect_dmflag.exit:                              ; preds = %27
 43:                                               ; preds = %40, %dissect_dmflag.exit
   %.081 = phi i32 [ %42, %40 ], [ %35, %dissect_dmflag.exit ]
   %.not = icmp eq i32 %.081, 0
-  br i1 %.not, label %88, label %44
+  br i1 %.not, label %87, label %44
 
 44:                                               ; preds = %43
   %45 = load i32, ptr @hf_reload_diagnosticrequest_extensions, align 4
@@ -3733,10 +3733,10 @@ dissect_dmflag.exit:                              ; preds = %27
   br label %60
 
 60:                                               ; preds = %62, %56
-  %.079 = phi i32 [ 0, %56 ], [ %85, %62 ]
-  %.077 = phi i32 [ 0, %56 ], [ %86, %62 ]
+  %.079 = phi i32 [ 0, %56 ], [ %84, %62 ]
+  %.077 = phi i32 [ 0, %56 ], [ %85, %62 ]
   %61 = icmp ult i32 %.079, %.078
-  br i1 %61, label %62, label %87
+  br i1 %61, label %62, label %86
 
 62:                                               ; preds = %60
   %63 = add i32 %59, %.079
@@ -3759,20 +3759,19 @@ dissect_dmflag.exit:                              ; preds = %27
   %80 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %1, ptr noundef %2, ptr noundef %73, i32 noundef %76, i16 noundef zeroext %77, i16 noundef zeroext 4, i32 noundef %79, i1 noundef zeroext false)
   %81 = add i32 %80, 2
   %82 = and i32 %81, 65535
-  %83 = and i32 %80, 65535
-  %84 = icmp eq i32 %83, 65534
-  %85 = add i32 %82, %.079
-  %86 = add i32 %.077, 1
-  br i1 %84, label %87, label %60
+  %83 = icmp eq i32 %82, 0
+  %84 = add i32 %82, %.079
+  %85 = add i32 %.077, 1
+  br i1 %83, label %86, label %60
 
-87:                                               ; preds = %62, %60
+86:                                               ; preds = %62, %60
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.781, i32 noundef %.077)
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %43
-  %89 = add i32 %.081, 28
-  %90 = and i32 %89, 65535
-  ret i32 %90
+87:                                               ; preds = %86, %43
+  %88 = add i32 %.081, 28
+  %89 = and i32 %88, 65535
+  ret i32 %89
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

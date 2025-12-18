@@ -310,101 +310,100 @@ json_ensure_stack_size.exit.thread31.i:           ; preds = %28, %11
   %45 = add i8 %44, 1
   %46 = and i8 %45, 7
   store i8 %46, ptr %32, align 1, !tbaa !22
-  %47 = and i8 %44, 7
-  %48 = icmp eq i8 %47, 7
-  br i1 %48, label %49, label %json_push.exit.thread
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %json_push.exit.thread
 
-49:                                               ; preds = %30
-  %50 = load i64, ptr %7, align 8, !tbaa !24
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %7, align 8, !tbaa !24
+48:                                               ; preds = %30
+  %49 = load i64, ptr %7, align 8, !tbaa !24
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %7, align 8, !tbaa !24
   br label %json_push.exit.thread
 
 json_push.exit:                                   ; preds = %24, %3
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 1, ptr %52, align 4, !tbaa !23
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 1, ptr %51, align 4, !tbaa !23
   br label %json_push.exit.thread
 
-json_push.exit.thread:                            ; preds = %49, %30, %json_push.exit
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %54 = load i8, ptr %53, align 4, !tbaa !23
-  %.not.i7 = icmp eq i8 %54, 0
-  br i1 %.not.i7, label %55, label %json_write_char.exit
+json_push.exit.thread:                            ; preds = %48, %30, %json_push.exit
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %53 = load i8, ptr %52, align 4, !tbaa !23
+  %.not.i7 = icmp eq i8 %53, 0
+  br i1 %.not.i7, label %54, label %json_write_char.exit
 
-55:                                               ; preds = %json_push.exit.thread
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load i8, ptr %56, align 8, !tbaa !27
-  %.not.i.i8 = icmp eq i8 %57, 0
-  br i1 %.not.i.i8, label %json_undefer.exit.i, label %58
+54:                                               ; preds = %json_push.exit.thread
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load i8, ptr %55, align 8, !tbaa !27
+  %.not.i.i8 = icmp eq i8 %56, 0
+  br i1 %.not.i.i8, label %json_undefer.exit.i, label %57
 
-58:                                               ; preds = %55
+57:                                               ; preds = %54
   tail call fastcc void @json_indent(ptr noundef nonnull %0) #11
   br label %json_undefer.exit.i
 
-json_undefer.exit.i:                              ; preds = %58, %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = getelementptr i8, ptr %0, i64 56
-  %.val.i.i = load i64, ptr %60, align 8, !tbaa !15
-  %61 = getelementptr i8, ptr %0, i64 64
-  %.val5.i.i = load i64, ptr %61, align 8, !tbaa !14
-  %62 = icmp eq i64 %.val.i.i, %.val5.i.i
-  br i1 %62, label %63, label %wbuf_write_char.exit.i
+json_undefer.exit.i:                              ; preds = %57, %54
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %59 = getelementptr i8, ptr %0, i64 56
+  %.val.i.i = load i64, ptr %59, align 8, !tbaa !15
+  %60 = getelementptr i8, ptr %0, i64 64
+  %.val5.i.i = load i64, ptr %60, align 8, !tbaa !14
+  %61 = icmp eq i64 %.val.i.i, %.val5.i.i
+  br i1 %61, label %62, label %wbuf_write_char.exit.i
 
-63:                                               ; preds = %json_undefer.exit.i
+62:                                               ; preds = %json_undefer.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %63
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %65
+.lr.ph.i.i.i:                                     ; preds = %62
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %64
 
-65:                                               ; preds = %73, %.lr.ph.i.i.i
-  %66 = phi i64 [ %.val.i.i, %.lr.ph.i.i.i ], [ %72, %73 ]
-  %.023.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %75, %73 ]
-  %67 = load ptr, ptr %59, align 8, !tbaa !16
-  %68 = load ptr, ptr %64, align 8, !tbaa !13
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.023.i.i.i
-  %70 = sub nuw i64 %66, %.023.i.i.i
-  %71 = call i32 @BIO_write_ex(ptr noundef %67, ptr noundef %69, i64 noundef %70, ptr noundef nonnull %4) #10
-  %.not19.i.i.i = icmp eq i32 %71, 0
-  %72 = load i64, ptr %61, align 8, !tbaa !14
-  br i1 %.not19.i.i.i, label %82, label %73
+64:                                               ; preds = %72, %.lr.ph.i.i.i
+  %65 = phi i64 [ %.val.i.i, %.lr.ph.i.i.i ], [ %71, %72 ]
+  %.023.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %74, %72 ]
+  %66 = load ptr, ptr %58, align 8, !tbaa !16
+  %67 = load ptr, ptr %63, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.023.i.i.i
+  %69 = sub nuw i64 %65, %.023.i.i.i
+  %70 = call i32 @BIO_write_ex(ptr noundef %66, ptr noundef %68, i64 noundef %69, ptr noundef nonnull %4) #10
+  %.not19.i.i.i = icmp eq i32 %70, 0
+  %71 = load i64, ptr %60, align 8, !tbaa !14
+  br i1 %.not19.i.i.i, label %81, label %72
 
-73:                                               ; preds = %65
-  %74 = load i64, ptr %4, align 8, !tbaa !19
-  %75 = add i64 %74, %.023.i.i.i
-  %76 = icmp ult i64 %75, %72
-  br i1 %76, label %65, label %wbuf_flush.exit.i.i, !llvm.loop !20
+72:                                               ; preds = %64
+  %73 = load i64, ptr %4, align 8, !tbaa !19
+  %74 = add i64 %73, %.023.i.i.i
+  %75 = icmp ult i64 %74, %71
+  br i1 %75, label %64, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
-wbuf_flush.exit.i.i:                              ; preds = %73, %63
+wbuf_flush.exit.i.i:                              ; preds = %72, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %wbuf_write_char.exit.i
 
 wbuf_write_char.exit.i:                           ; preds = %wbuf_flush.exit.i.i, %json_undefer.exit.i
-  %77 = phi i64 [ 0, %wbuf_flush.exit.i.i ], [ %.val5.i.i, %json_undefer.exit.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %79 = load ptr, ptr %78, align 8, !tbaa !13
-  %80 = add i64 %77, 1
-  store i64 %80, ptr %61, align 8, !tbaa !14
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %77
-  store i8 %2, ptr %81, align 1, !tbaa !26
+  %76 = phi i64 [ 0, %wbuf_flush.exit.i.i ], [ %.val5.i.i, %json_undefer.exit.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %78 = load ptr, ptr %77, align 8, !tbaa !13
+  %79 = add i64 %76, 1
+  store i64 %79, ptr %60, align 8, !tbaa !14
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %76
+  store i8 %2, ptr %80, align 1, !tbaa !26
   br label %json_write_char.exit
 
-82:                                               ; preds = %65
-  %83 = load ptr, ptr %64, align 8, !tbaa !13
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.023.i.i.i
-  %85 = sub i64 %72, %.023.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %83, ptr align 1 %84, i64 %85, i1 false)
-  store i64 0, ptr %61, align 8, !tbaa !14
+81:                                               ; preds = %64
+  %82 = load ptr, ptr %63, align 8, !tbaa !13
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.023.i.i.i
+  %84 = sub i64 %71, %.023.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr align 1 %83, i64 %84, i1 false)
+  store i64 0, ptr %60, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store i8 1, ptr %53, align 4, !tbaa !23
+  store i8 1, ptr %52, align 4, !tbaa !23
   br label %json_write_char.exit
 
-json_write_char.exit:                             ; preds = %json_push.exit.thread, %wbuf_write_char.exit.i, %82
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %86, align 8, !tbaa !27
+json_write_char.exit:                             ; preds = %json_push.exit.thread, %wbuf_write_char.exit.i, %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %85, align 8, !tbaa !27
   ret void
 }
 

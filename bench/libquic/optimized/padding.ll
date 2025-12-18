@@ -769,7 +769,7 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
 
 15:                                               ; preds = %13
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 138, ptr noundef nonnull @.str, i32 noundef 520) #8
-  br label %98
+  br label %97
 
 16:                                               ; preds = %6, %13, %11
   %.066 = phi i32 [ %12, %11 ], [ %5, %13 ], [ %5, %6 ]
@@ -788,169 +788,168 @@ define hidden range(i32 0, 2) i32 @RSA_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr
 
 27:                                               ; preds = %16
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 122, ptr noundef nonnull @.str, i32 noundef 527) #8
-  br label %98
+  br label %97
 
 28:                                               ; preds = %16
-  %29 = and i32 %19, 7
-  %30 = icmp eq i32 %29, 1
-  %31 = sext i1 %30 to i32
-  %.065 = add nsw i32 %22, %31
-  %.064.idx = zext i1 %30 to i64
+  %29 = icmp eq i32 %21, 0
+  %30 = sext i1 %29 to i32
+  %.065 = add nsw i32 %22, %30
+  %.064.idx = zext i1 %29 to i64
   %.064 = getelementptr inbounds nuw i8, ptr %4, i64 %.064.idx
-  %32 = trunc i64 %10 to i32
-  %33 = add i32 %32, 2
-  %34 = add i32 %33, %.066
-  %35 = icmp slt i32 %.065, %34
-  br i1 %35, label %36, label %37
+  %31 = trunc i64 %10 to i32
+  %32 = add i32 %31, 2
+  %33 = add i32 %32, %.066
+  %34 = icmp slt i32 %.065, %33
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %28
+  call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 113, ptr noundef nonnull @.str, i32 noundef 536) #8
+  br label %97
 
 36:                                               ; preds = %28
-  call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 113, ptr noundef nonnull @.str, i32 noundef 536) #8
-  br label %98
+  %37 = sext i32 %.065 to i64
+  %38 = getelementptr i8, ptr %.064, i64 %37
+  %39 = getelementptr i8, ptr %38, i64 -1
+  %40 = load i8, ptr %39, align 1, !tbaa !6
+  %.not76 = icmp eq i8 %40, -68
+  br i1 %.not76, label %42, label %41
 
-37:                                               ; preds = %28
-  %38 = sext i32 %.065 to i64
-  %39 = getelementptr i8, ptr %.064, i64 %38
-  %40 = getelementptr i8, ptr %39, i64 -1
-  %41 = load i8, ptr %40, align 1, !tbaa !6
-  %.not76 = icmp eq i8 %41, -68
-  br i1 %.not76, label %43, label %42
-
-42:                                               ; preds = %37
+41:                                               ; preds = %36
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 127, ptr noundef nonnull @.str, i32 noundef 540) #8
-  br label %98
+  br label %97
 
-43:                                               ; preds = %37
-  %44 = xor i32 %32, -1
-  %45 = add i32 %.065, %44
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %.064, i64 %46
-  %48 = call noalias ptr @malloc(i64 noundef %46) #9
-  %.not77 = icmp eq ptr %48, null
-  br i1 %.not77, label %49, label %50
+42:                                               ; preds = %36
+  %43 = xor i32 %31, -1
+  %44 = add i32 %.065, %43
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %.064, i64 %45
+  %47 = call noalias ptr @malloc(i64 noundef %45) #9
+  %.not77 = icmp eq ptr %47, null
+  br i1 %.not77, label %48, label %49
 
-49:                                               ; preds = %43
+48:                                               ; preds = %42
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 547) #8
-  br label %98
+  br label %97
 
-50:                                               ; preds = %43
-  %51 = call fastcc i32 @PKCS1_MGF1(ptr noundef nonnull %48, i32 noundef %45, ptr noundef nonnull %47, i32 noundef %32, ptr noundef %spec.select)
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %98, label %.preheader
+49:                                               ; preds = %42
+  %50 = call fastcc i32 @PKCS1_MGF1(ptr noundef nonnull %47, i32 noundef %44, ptr noundef nonnull %46, i32 noundef %31, ptr noundef %spec.select)
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %97, label %.preheader
 
-.preheader:                                       ; preds = %50
-  %53 = icmp sgt i32 %45, 0
-  br i1 %53, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %49
+  %52 = icmp sgt i32 %44, 0
+  br i1 %52, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %45 to i64
+  %wide.trip.count = zext nneg i32 %44 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %54 = getelementptr inbounds nuw i8, ptr %.064, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1, !tbaa !6
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv
-  %57 = load i8, ptr %56, align 1, !tbaa !6
-  %58 = xor i8 %57, %55
-  store i8 %58, ptr %56, align 1, !tbaa !6
+  %53 = getelementptr inbounds nuw i8, ptr %.064, i64 %indvars.iv
+  %54 = load i8, ptr %53, align 1, !tbaa !6
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
+  %56 = load i8, ptr %55, align 1, !tbaa !6
+  %57 = xor i8 %56, %54
+  store i8 %57, ptr %55, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  br i1 %30, label %65, label %59
+  br i1 %29, label %64, label %58
 
-59:                                               ; preds = %._crit_edge
-  %60 = sub nuw nsw i32 8, %21
-  %61 = lshr i32 255, %60
-  %62 = load i8, ptr %48, align 1, !tbaa !6
-  %63 = trunc nuw nsw i32 %61 to i8
-  %64 = and i8 %62, %63
-  store i8 %64, ptr %48, align 1, !tbaa !6
-  br label %65
+58:                                               ; preds = %._crit_edge
+  %59 = sub nuw nsw i32 8, %21
+  %60 = lshr i32 255, %59
+  %61 = load i8, ptr %47, align 1, !tbaa !6
+  %62 = trunc nuw nsw i32 %60 to i8
+  %63 = and i8 %61, %62
+  store i8 %63, ptr %47, align 1, !tbaa !6
+  br label %64
 
-65:                                               ; preds = %59, %._crit_edge
-  %66 = add nsw i32 %45, -1
-  %67 = sext i32 %66 to i64
-  br label %68
+64:                                               ; preds = %58, %._crit_edge
+  %65 = add nsw i32 %44, -1
+  %66 = sext i32 %65 to i64
+  br label %67
 
-68:                                               ; preds = %68, %65
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %68 ], [ 0, %65 ]
-  %69 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv90
-  %70 = load i8, ptr %69, align 1, !tbaa !6
-  %71 = icmp eq i8 %70, 0
-  %72 = icmp slt i64 %indvars.iv90, %67
-  %73 = select i1 %71, i1 %72, i1 false
+67:                                               ; preds = %67, %64
+  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %67 ], [ 0, %64 ]
+  %68 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv90
+  %69 = load i8, ptr %68, align 1, !tbaa !6
+  %70 = icmp eq i8 %69, 0
+  %71 = icmp slt i64 %indvars.iv90, %66
+  %72 = select i1 %70, i1 %71, i1 false
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  br i1 %73, label %68, label %74, !llvm.loop !33
+  br i1 %72, label %67, label %73, !llvm.loop !33
 
-74:                                               ; preds = %68
-  %75 = trunc nuw nsw i64 %indvars.iv90 to i32
-  %76 = add nuw nsw i32 %75, 1
-  %.not79 = icmp eq i8 %70, 1
-  br i1 %.not79, label %78, label %77
+73:                                               ; preds = %67
+  %74 = trunc nuw nsw i64 %indvars.iv90 to i32
+  %75 = add nuw nsw i32 %74, 1
+  %.not79 = icmp eq i8 %69, 1
+  br i1 %.not79, label %77, label %76
 
-77:                                               ; preds = %74
+76:                                               ; preds = %73
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 139, ptr noundef nonnull @.str, i32 noundef 563) #8
-  br label %98
+  br label %97
 
-78:                                               ; preds = %74
-  %79 = icmp slt i32 %.066, 0
-  %80 = sub nsw i32 %45, %76
-  %.not80 = icmp eq i32 %80, %.066
-  %or.cond = select i1 %79, i1 true, i1 %.not80
-  br i1 %or.cond, label %82, label %81
+77:                                               ; preds = %73
+  %78 = icmp slt i32 %.066, 0
+  %79 = sub nsw i32 %44, %75
+  %.not80 = icmp eq i32 %79, %.066
+  %or.cond = select i1 %78, i1 true, i1 %.not80
+  br i1 %or.cond, label %81, label %80
 
-81:                                               ; preds = %78
+80:                                               ; preds = %77
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 138, ptr noundef nonnull @.str, i32 noundef 567) #8
-  br label %98
+  br label %97
 
-82:                                               ; preds = %78
-  %83 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %7, ptr noundef %2, ptr noundef null) #8
-  %.not81 = icmp eq i32 %83, 0
-  br i1 %.not81, label %98, label %84
+81:                                               ; preds = %77
+  %82 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %7, ptr noundef %2, ptr noundef null) #8
+  %.not81 = icmp eq i32 %82, 0
+  br i1 %.not81, label %97, label %83
 
-84:                                               ; preds = %82
-  %85 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull @zeroes, i64 noundef 8) #8
-  %.not82 = icmp eq i32 %85, 0
-  br i1 %.not82, label %98, label %86
+83:                                               ; preds = %81
+  %84 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull @zeroes, i64 noundef 8) #8
+  %.not82 = icmp eq i32 %84, 0
+  br i1 %.not82, label %97, label %85
 
-86:                                               ; preds = %84
-  %87 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %10) #8
-  %.not83 = icmp eq i32 %87, 0
-  br i1 %.not83, label %98, label %88
+85:                                               ; preds = %83
+  %86 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %10) #8
+  %.not83 = icmp eq i32 %86, 0
+  br i1 %.not83, label %97, label %87
 
-88:                                               ; preds = %86
-  %.not84 = icmp eq i32 %45, %76
-  br i1 %.not84, label %94, label %89
+87:                                               ; preds = %85
+  %.not84 = icmp eq i32 %44, %75
+  br i1 %.not84, label %93, label %88
 
-89:                                               ; preds = %88
-  %90 = zext nneg i32 %76 to i64
-  %91 = getelementptr inbounds nuw i8, ptr %48, i64 %90
-  %92 = sext i32 %80 to i64
-  %93 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull %91, i64 noundef %92) #8
-  %.not85 = icmp eq i32 %93, 0
-  br i1 %.not85, label %98, label %94
+88:                                               ; preds = %87
+  %89 = zext nneg i32 %75 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 %89
+  %91 = sext i32 %79 to i64
+  %92 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull %90, i64 noundef %91) #8
+  %.not85 = icmp eq i32 %92, 0
+  br i1 %.not85, label %97, label %93
 
-94:                                               ; preds = %89, %88
-  %95 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #8
-  %.not86 = icmp eq i32 %95, 0
-  br i1 %.not86, label %98, label %96
+93:                                               ; preds = %88, %87
+  %94 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #8
+  %.not86 = icmp eq i32 %94, 0
+  br i1 %.not86, label %97, label %95
 
-96:                                               ; preds = %94
-  %bcmp = call i32 @bcmp(ptr nonnull %8, ptr nonnull %47, i64 %10)
+95:                                               ; preds = %93
+  %bcmp = call i32 @bcmp(ptr nonnull %8, ptr nonnull %46, i64 %10)
   %.not87 = icmp eq i32 %bcmp, 0
-  br i1 %.not87, label %98, label %97
+  br i1 %.not87, label %97, label %96
 
-97:                                               ; preds = %96
+96:                                               ; preds = %95
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 105, ptr noundef nonnull @.str, i32 noundef 584) #8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %96, %97, %94, %89, %82, %84, %86, %50, %81, %77, %49, %42, %36, %27, %15
-  %.068 = phi i32 [ 0, %27 ], [ 0, %36 ], [ 0, %42 ], [ 0, %50 ], [ 0, %77 ], [ 0, %81 ], [ 0, %97 ], [ 0, %15 ], [ 0, %94 ], [ 0, %89 ], [ 0, %86 ], [ 0, %84 ], [ 0, %82 ], [ 0, %49 ], [ 1, %96 ]
-  %.0 = phi ptr [ null, %27 ], [ null, %36 ], [ null, %42 ], [ %48, %50 ], [ %48, %77 ], [ %48, %81 ], [ %48, %97 ], [ null, %15 ], [ %48, %94 ], [ %48, %89 ], [ %48, %86 ], [ %48, %84 ], [ %48, %82 ], [ null, %49 ], [ %48, %96 ]
+97:                                               ; preds = %95, %96, %93, %88, %81, %83, %85, %49, %80, %76, %48, %41, %35, %27, %15
+  %.068 = phi i32 [ 0, %27 ], [ 0, %35 ], [ 0, %41 ], [ 0, %49 ], [ 0, %76 ], [ 0, %80 ], [ 0, %96 ], [ 0, %15 ], [ 0, %93 ], [ 0, %88 ], [ 0, %85 ], [ 0, %83 ], [ 0, %81 ], [ 0, %48 ], [ 1, %95 ]
+  %.0 = phi ptr [ null, %27 ], [ null, %35 ], [ null, %41 ], [ %47, %49 ], [ %47, %76 ], [ %47, %80 ], [ %47, %96 ], [ null, %15 ], [ %47, %93 ], [ %47, %88 ], [ %47, %85 ], [ %47, %83 ], [ %47, %81 ], [ null, %48 ], [ %47, %95 ]
   call void @free(ptr noundef %.0) #8
-  %99 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
+  %98 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.068
@@ -992,7 +991,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
 
 14:                                               ; preds = %12
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 138, ptr noundef nonnull @.str, i32 noundef 623) #8
-  br label %100
+  br label %99
 
 15:                                               ; preds = %6, %12, %10
   %.065 = phi i32 [ %11, %10 ], [ %5, %12 ], [ %5, %6 ]
@@ -1004,7 +1003,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
 
 19:                                               ; preds = %15
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 628) #8
-  br label %100
+  br label %99
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %16, align 8, !tbaa !20
@@ -1013,161 +1012,160 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_PSS_mgf1(ptr noundef %0
   %24 = and i32 %23, 7
   %25 = tail call i32 @RSA_size(ptr noundef nonnull %0) #8
   %26 = zext i32 %25 to i64
-  %27 = and i32 %22, 7
-  %28 = icmp eq i32 %27, 1
-  br i1 %28, label %29, label %32
+  %27 = icmp eq i32 %24, 0
+  br i1 %27, label %28, label %31
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %1, align 1, !tbaa !6
-  %31 = add nsw i64 %26, -1
-  br label %32
+  %30 = add nsw i64 %26, -1
+  br label %31
 
-32:                                               ; preds = %29, %20
-  %.064 = phi i64 [ %31, %29 ], [ %26, %20 ]
-  %.062 = phi ptr [ %30, %29 ], [ %1, %20 ]
-  %33 = icmp eq i32 %.065, -2
-  br i1 %33, label %34, label %42
+31:                                               ; preds = %28, %20
+  %.064 = phi i64 [ %30, %28 ], [ %26, %20 ]
+  %.062 = phi ptr [ %29, %28 ], [ %1, %20 ]
+  %32 = icmp eq i32 %.065, -2
+  br i1 %32, label %33, label %41
 
-34:                                               ; preds = %32
-  %35 = add i64 %9, 2
-  %36 = icmp ult i64 %.064, %35
-  br i1 %36, label %37, label %38
+33:                                               ; preds = %31
+  %34 = add i64 %9, 2
+  %35 = icmp ult i64 %.064, %34
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 114, ptr noundef nonnull @.str, i32 noundef 641) #8
-  br label %100
+  br label %99
 
-38:                                               ; preds = %34
-  %39 = sub i64 %.064, %9
-  %40 = trunc i64 %39 to i32
-  %41 = add i32 %40, -2
-  br label %48
+37:                                               ; preds = %33
+  %38 = sub i64 %.064, %9
+  %39 = trunc i64 %38 to i32
+  %40 = add i32 %39, -2
+  br label %47
 
-42:                                               ; preds = %32
-  %43 = sext i32 %.065 to i64
-  %44 = add i64 %9, 2
-  %45 = add i64 %44, %43
-  %46 = icmp ult i64 %.064, %45
-  br i1 %46, label %47, label %48
+41:                                               ; preds = %31
+  %42 = sext i32 %.065 to i64
+  %43 = add i64 %9, 2
+  %44 = add i64 %43, %42
+  %45 = icmp ult i64 %.064, %44
+  br i1 %45, label %46, label %47
 
-47:                                               ; preds = %42
+46:                                               ; preds = %41
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 114, ptr noundef nonnull @.str, i32 noundef 646) #8
-  br label %100
+  br label %99
 
-48:                                               ; preds = %42, %38
-  %.166 = phi i32 [ %41, %38 ], [ %.065, %42 ]
-  %49 = icmp sgt i32 %.166, 0
-  br i1 %49, label %50, label %56
+47:                                               ; preds = %41, %37
+  %.166 = phi i32 [ %40, %37 ], [ %.065, %41 ]
+  %48 = icmp sgt i32 %.166, 0
+  br i1 %48, label %49, label %55
 
-50:                                               ; preds = %48
-  %51 = zext nneg i32 %.166 to i64
-  %52 = tail call noalias ptr @malloc(i64 noundef %51) #9
-  %.not74 = icmp eq ptr %52, null
-  br i1 %.not74, label %53, label %54
+49:                                               ; preds = %47
+  %50 = zext nneg i32 %.166 to i64
+  %51 = tail call noalias ptr @malloc(i64 noundef %50) #9
+  %.not74 = icmp eq ptr %51, null
+  br i1 %.not74, label %52, label %53
 
-53:                                               ; preds = %50
+52:                                               ; preds = %49
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 652) #8
-  br label %100
+  br label %99
 
-54:                                               ; preds = %50
-  %55 = tail call i32 @RAND_bytes(ptr noundef nonnull %52, i64 noundef %51) #8
-  %.not75 = icmp eq i32 %55, 0
-  br i1 %.not75, label %100, label %56
+53:                                               ; preds = %49
+  %54 = tail call i32 @RAND_bytes(ptr noundef nonnull %51, i64 noundef %50) #8
+  %.not75 = icmp eq i32 %54, 0
+  br i1 %.not75, label %99, label %55
 
-56:                                               ; preds = %54, %48
-  %.1 = phi ptr [ %52, %54 ], [ null, %48 ]
-  %57 = xor i64 %9, -1
-  %58 = add i64 %.064, %57
-  %59 = getelementptr inbounds nuw i8, ptr %.062, i64 %58
+55:                                               ; preds = %53, %47
+  %.1 = phi ptr [ %51, %53 ], [ null, %47 ]
+  %56 = xor i64 %9, -1
+  %57 = add i64 %.064, %56
+  %58 = getelementptr inbounds nuw i8, ptr %.062, i64 %57
   call void @EVP_MD_CTX_init(ptr noundef nonnull %7) #8
-  %60 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %7, ptr noundef %3, ptr noundef null) #8
-  %.not76 = icmp eq i32 %60, 0
-  br i1 %.not76, label %100, label %61
+  %59 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %7, ptr noundef %3, ptr noundef null) #8
+  %.not76 = icmp eq i32 %59, 0
+  br i1 %.not76, label %99, label %60
 
-61:                                               ; preds = %56
-  %62 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull @zeroes, i64 noundef 8) #8
-  %.not77 = icmp eq i32 %62, 0
-  br i1 %.not77, label %100, label %63
+60:                                               ; preds = %55
+  %61 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef nonnull @zeroes, i64 noundef 8) #8
+  %.not77 = icmp eq i32 %61, 0
+  br i1 %.not77, label %99, label %62
 
-63:                                               ; preds = %61
-  %64 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %9) #8
-  %.not78 = icmp eq i32 %64, 0
-  br i1 %.not78, label %100, label %65
+62:                                               ; preds = %60
+  %63 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %9) #8
+  %.not78 = icmp eq i32 %63, 0
+  br i1 %.not78, label %99, label %64
 
-65:                                               ; preds = %63
+64:                                               ; preds = %62
   %.not79 = icmp eq i32 %.166, 0
-  br i1 %.not79, label %69, label %66
+  br i1 %.not79, label %68, label %65
 
-66:                                               ; preds = %65
-  %67 = sext i32 %.166 to i64
-  %68 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %.1, i64 noundef %67) #8
-  %.not80 = icmp eq i32 %68, 0
-  br i1 %.not80, label %100, label %69
+65:                                               ; preds = %64
+  %66 = sext i32 %.166 to i64
+  %67 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %7, ptr noundef %.1, i64 noundef %66) #8
+  %.not80 = icmp eq i32 %67, 0
+  br i1 %.not80, label %99, label %68
 
-69:                                               ; preds = %66, %65
-  %70 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %7, ptr noundef %59, ptr noundef null) #8
-  %.not81 = icmp eq i32 %70, 0
-  br i1 %.not81, label %100, label %71
+68:                                               ; preds = %65, %64
+  %69 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %7, ptr noundef %58, ptr noundef null) #8
+  %.not81 = icmp eq i32 %69, 0
+  br i1 %.not81, label %99, label %70
 
-71:                                               ; preds = %69
-  %72 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
-  %73 = trunc i64 %58 to i32
-  %74 = trunc i64 %9 to i32
-  %75 = call fastcc i32 @PKCS1_MGF1(ptr noundef %.062, i32 noundef %73, ptr noundef %59, i32 noundef %74, ptr noundef %spec.select)
-  %.not82 = icmp eq i32 %75, 0
-  br i1 %.not82, label %76, label %100
+70:                                               ; preds = %68
+  %71 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %7) #8
+  %72 = trunc i64 %57 to i32
+  %73 = trunc i64 %9 to i32
+  %74 = call fastcc i32 @PKCS1_MGF1(ptr noundef %.062, i32 noundef %72, ptr noundef %58, i32 noundef %73, ptr noundef %spec.select)
+  %.not82 = icmp eq i32 %74, 0
+  br i1 %.not82, label %75, label %99
 
-76:                                               ; preds = %71
-  %77 = sext i32 %.166 to i64
-  %78 = add i64 %9, %77
-  %79 = sub i64 %.064, %78
-  %80 = getelementptr i8, ptr %.062, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 -2
-  %82 = load i8, ptr %81, align 1, !tbaa !6
-  %83 = xor i8 %82, 1
-  store i8 %83, ptr %81, align 1, !tbaa !6
-  br i1 %49, label %84, label %.loopexit
+75:                                               ; preds = %70
+  %76 = sext i32 %.166 to i64
+  %77 = add i64 %9, %76
+  %78 = sub i64 %.064, %77
+  %79 = getelementptr i8, ptr %.062, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 -2
+  %81 = load i8, ptr %80, align 1, !tbaa !6
+  %82 = xor i8 %81, 1
+  store i8 %82, ptr %80, align 1, !tbaa !6
+  br i1 %48, label %83, label %.loopexit
 
-84:                                               ; preds = %76
-  %85 = getelementptr i8, ptr %80, i64 -1
+83:                                               ; preds = %75
+  %84 = getelementptr i8, ptr %79, i64 -1
   %wide.trip.count = zext nneg i32 %.166 to i64
-  br label %86
+  br label %85
 
-86:                                               ; preds = %84, %86
-  %indvars.iv = phi i64 [ 0, %84 ], [ %indvars.iv.next, %86 ]
-  %.087 = phi ptr [ %85, %84 ], [ %89, %86 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv
-  %88 = load i8, ptr %87, align 1, !tbaa !6
-  %89 = getelementptr inbounds nuw i8, ptr %.087, i64 1
-  %90 = load i8, ptr %.087, align 1, !tbaa !6
-  %91 = xor i8 %90, %88
-  store i8 %91, ptr %.087, align 1, !tbaa !6
+85:                                               ; preds = %83, %85
+  %indvars.iv = phi i64 [ 0, %83 ], [ %indvars.iv.next, %85 ]
+  %.087 = phi ptr [ %84, %83 ], [ %88, %85 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv
+  %87 = load i8, ptr %86, align 1, !tbaa !6
+  %88 = getelementptr inbounds nuw i8, ptr %.087, i64 1
+  %89 = load i8, ptr %.087, align 1, !tbaa !6
+  %90 = xor i8 %89, %87
+  store i8 %90, ptr %.087, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !34
 
-.loopexit:                                        ; preds = %86, %76
-  br i1 %28, label %97, label %92
+.loopexit:                                        ; preds = %85, %75
+  br i1 %27, label %96, label %91
 
-92:                                               ; preds = %.loopexit
+91:                                               ; preds = %.loopexit
   %narrow = sub nuw nsw i32 8, %24
-  %93 = lshr i32 255, %narrow
-  %94 = load i8, ptr %.062, align 1, !tbaa !6
-  %95 = trunc nuw nsw i32 %93 to i8
-  %96 = and i8 %94, %95
-  store i8 %96, ptr %.062, align 1, !tbaa !6
-  br label %97
+  %92 = lshr i32 255, %narrow
+  %93 = load i8, ptr %.062, align 1, !tbaa !6
+  %94 = trunc nuw nsw i32 %92 to i8
+  %95 = and i8 %93, %94
+  store i8 %95, ptr %.062, align 1, !tbaa !6
+  br label %96
 
-97:                                               ; preds = %92, %.loopexit
-  %98 = getelementptr i8, ptr %.062, i64 %.064
-  %99 = getelementptr i8, ptr %98, i64 -1
-  store i8 -68, ptr %99, align 1, !tbaa !6
-  br label %100
+96:                                               ; preds = %91, %.loopexit
+  %97 = getelementptr i8, ptr %.062, i64 %.064
+  %98 = getelementptr i8, ptr %97, i64 -1
+  store i8 -68, ptr %98, align 1, !tbaa !6
+  br label %99
 
-100:                                              ; preds = %71, %69, %66, %56, %61, %63, %54, %97, %53, %47, %37, %19, %14
-  %.068 = phi i32 [ 0, %19 ], [ 0, %37 ], [ 0, %71 ], [ 1, %97 ], [ 0, %69 ], [ 0, %66 ], [ 0, %63 ], [ 0, %61 ], [ 0, %56 ], [ 0, %54 ], [ 0, %53 ], [ 0, %47 ], [ 0, %14 ]
-  %.061 = phi ptr [ null, %19 ], [ null, %37 ], [ %.1, %71 ], [ %.1, %97 ], [ %.1, %69 ], [ %.1, %66 ], [ %.1, %63 ], [ %.1, %61 ], [ %.1, %56 ], [ %52, %54 ], [ null, %53 ], [ null, %47 ], [ null, %14 ]
+99:                                               ; preds = %70, %68, %65, %55, %60, %62, %53, %96, %52, %46, %36, %19, %14
+  %.068 = phi i32 [ 0, %19 ], [ 0, %36 ], [ 0, %70 ], [ 1, %96 ], [ 0, %68 ], [ 0, %65 ], [ 0, %62 ], [ 0, %60 ], [ 0, %55 ], [ 0, %53 ], [ 0, %52 ], [ 0, %46 ], [ 0, %14 ]
+  %.061 = phi ptr [ null, %19 ], [ null, %36 ], [ %.1, %70 ], [ %.1, %96 ], [ %.1, %68 ], [ %.1, %65 ], [ %.1, %62 ], [ %.1, %60 ], [ %.1, %55 ], [ %51, %53 ], [ null, %52 ], [ null, %46 ], [ null, %14 ]
   call void @free(ptr noundef %.061) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.068

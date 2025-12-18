@@ -38696,8 +38696,8 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = add i32 %.031.i, 2
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %15)
   %17 = zext i8 %16 to i32
-  %18 = or disjoint i32 %14, %17
-  %19 = add nuw nsw i32 %18, 65533
+  %18 = add nuw nsw i32 %17, 65533
+  %19 = add nuw nsw i32 %18, %14
   %20 = load i32, ptr @proto_asterix, align 4
   %21 = and i32 %19, 65535
   %22 = add nuw nsw i32 %21, 3
@@ -38711,7 +38711,7 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = load i32, ptr @hf_asterix_length, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0)
   %31 = add i32 %.031.i, 3
-  %.not.i.i = icmp eq i32 %18, 3
+  %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %dissect_asterix_data_block.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i

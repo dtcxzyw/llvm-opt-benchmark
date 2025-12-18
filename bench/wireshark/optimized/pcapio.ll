@@ -1037,7 +1037,7 @@ pcapng_count_string_option.exit121:               ; preds = %pcapng_count_string
   %88 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %8, ptr %88, align 4
   %89 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 16, ptr noundef %9, ptr noundef %12)
-  br i1 %89, label %90, label %182
+  br i1 %89, label %90, label %181
 
 90:                                               ; preds = %pcapng_count_string_option.exit121
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -1076,7 +1076,7 @@ pcapng_count_string_option.exit121:               ; preds = %pcapng_count_string
 pcapng_write_string_option.exit.thread:           ; preds = %98, %94, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %182
+  br label %181
 
 105:                                              ; preds = %91, %100, %102, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1117,7 +1117,7 @@ pcapng_write_string_option.exit.thread:           ; preds = %98, %94, %102
 pcapng_write_string_option.exit128.thread:        ; preds = %113, %109, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %182
+  br label %181
 
 120:                                              ; preds = %106, %115, %117, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1158,7 +1158,7 @@ pcapng_write_string_option.exit128.thread:        ; preds = %113, %109, %117
 pcapng_write_string_option.exit132.thread:        ; preds = %128, %124, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %182
+  br label %181
 
 135:                                              ; preds = %121, %130, %132, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -1170,11 +1170,11 @@ pcapng_write_string_option.exit132.thread:        ; preds = %128, %124, %132
   %137 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 8, ptr %137, align 2
   %138 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %9, ptr noundef %12)
-  br i1 %138, label %139, label %182
+  br i1 %138, label %139, label %181
 
 139:                                              ; preds = %136
   %140 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 8, ptr noundef %9, ptr noundef %12)
-  br i1 %140, label %141, label %182
+  br i1 %140, label %141, label %181
 
 141:                                              ; preds = %139, %135
   br i1 %.not95, label %149, label %142
@@ -1184,24 +1184,24 @@ pcapng_write_string_option.exit132.thread:        ; preds = %128, %124, %132
   %143 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 1, ptr %143, align 2
   %144 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %9, ptr noundef %12)
-  br i1 %144, label %145, label %182
+  br i1 %144, label %145, label %181
 
 145:                                              ; preds = %142
   %146 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %21, i64 noundef 1, ptr noundef %9, ptr noundef %12)
-  br i1 %146, label %147, label %182
+  br i1 %146, label %147, label %181
 
 147:                                              ; preds = %145
   %148 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %25, i64 noundef 3, ptr noundef %9, ptr noundef %12)
-  br i1 %148, label %149, label %182
+  br i1 %148, label %149, label %181
 
 149:                                              ; preds = %147, %141
-  br i1 %.not96, label %172, label %150
+  br i1 %.not96, label %171, label %150
 
 150:                                              ; preds = %149
   %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %152 = add i64 %151, -1
   %or.cond105 = icmp ult i64 %152, 65533
-  br i1 %or.cond105, label %153, label %172
+  br i1 %or.cond105, label %153, label %171
 
 153:                                              ; preds = %150
   store i16 11, ptr %23, align 2
@@ -1210,56 +1210,55 @@ pcapng_write_string_option.exit132.thread:        ; preds = %128, %124, %132
   %156 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 %155, ptr %156, align 2
   %157 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %9, ptr noundef %12)
-  br i1 %157, label %158, label %182
+  br i1 %157, label %158, label %181
 
 158:                                              ; preds = %153
   %159 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %25, i64 noundef 1, ptr noundef %9, ptr noundef %12)
-  br i1 %159, label %160, label %182
+  br i1 %159, label %160, label %181
 
 160:                                              ; preds = %158
   %161 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %sext = shl i64 %161, 32
   %162 = ashr exact i64 %sext, 32
   %163 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %162, ptr noundef %9, ptr noundef %12)
-  br i1 %163, label %164, label %182
+  br i1 %163, label %164, label %181
 
 164:                                              ; preds = %160
   %165 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
-  %166 = and i64 %165, 3
-  %.not102 = icmp eq i64 %166, 3
-  br i1 %.not102, label %172, label %167
+  %166 = add i64 %165, 1
+  %167 = and i64 %166, 3
+  %.not102 = icmp eq i64 %167, 0
+  br i1 %.not102, label %171, label %168
 
-167:                                              ; preds = %164
-  %168 = add i64 %165, 1
-  %169 = and i64 %168, 3
-  %170 = sub nuw nsw i64 4, %169
-  %171 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %170, ptr noundef %9, ptr noundef %12)
-  br i1 %171, label %172, label %182
+168:                                              ; preds = %164
+  %169 = sub nuw nsw i64 4, %167
+  %170 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %169, ptr noundef %9, ptr noundef %12)
+  br i1 %170, label %171, label %181
 
-172:                                              ; preds = %164, %167, %150, %149
-  %173 = call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 12, ptr noundef %5, ptr noundef %9, ptr noundef %12)
-  br i1 %173, label %174, label %182
+171:                                              ; preds = %164, %168, %150, %149
+  %172 = call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 12, ptr noundef %5, ptr noundef %9, ptr noundef %12)
+  br i1 %172, label %173, label %181
 
-174:                                              ; preds = %172
-  %175 = call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 15, ptr noundef %6, ptr noundef %9, ptr noundef %12)
-  br i1 %175, label %176, label %182
+173:                                              ; preds = %171
+  %174 = call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 15, ptr noundef %6, ptr noundef %9, ptr noundef %12)
+  br i1 %174, label %175, label %181
 
-176:                                              ; preds = %174
-  br i1 %.not98, label %180, label %177
+175:                                              ; preds = %173
+  br i1 %.not98, label %179, label %176
 
-177:                                              ; preds = %176
+176:                                              ; preds = %175
   store i16 0, ptr %23, align 2
-  %178 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i16 0, ptr %178, align 2
-  %179 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %9, ptr noundef %12)
-  br i1 %179, label %180, label %182
+  %177 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  store i16 0, ptr %177, align 2
+  %178 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %23, i64 noundef 4, ptr noundef %9, ptr noundef %12)
+  br i1 %178, label %179, label %181
 
-180:                                              ; preds = %177, %176
-  %181 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %24, i64 noundef 4, ptr noundef %9, ptr noundef %12)
-  br label %182
+179:                                              ; preds = %176, %175
+  %180 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %24, i64 noundef 4, ptr noundef %9, ptr noundef %12)
+  br label %181
 
-182:                                              ; preds = %pcapng_write_string_option.exit132.thread, %pcapng_write_string_option.exit128.thread, %pcapng_write_string_option.exit.thread, %177, %174, %172, %167, %160, %158, %153, %147, %145, %142, %139, %136, %pcapng_count_string_option.exit121, %180
-  %.087 = phi i1 [ %181, %180 ], [ false, %174 ], [ false, %172 ], [ false, %167 ], [ false, %160 ], [ false, %158 ], [ false, %153 ], [ false, %147 ], [ false, %145 ], [ false, %142 ], [ false, %139 ], [ false, %136 ], [ false, %pcapng_write_string_option.exit132.thread ], [ false, %pcapng_write_string_option.exit128.thread ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %pcapng_count_string_option.exit121 ], [ false, %177 ]
+181:                                              ; preds = %pcapng_write_string_option.exit132.thread, %pcapng_write_string_option.exit128.thread, %pcapng_write_string_option.exit.thread, %176, %173, %171, %168, %160, %158, %153, %147, %145, %142, %139, %136, %pcapng_count_string_option.exit121, %179
+  %.087 = phi i1 [ %180, %179 ], [ false, %173 ], [ false, %171 ], [ false, %168 ], [ false, %160 ], [ false, %158 ], [ false, %153 ], [ false, %147 ], [ false, %145 ], [ false, %142 ], [ false, %139 ], [ false, %136 ], [ false, %pcapng_write_string_option.exit132.thread ], [ false, %pcapng_write_string_option.exit128.thread ], [ false, %pcapng_write_string_option.exit.thread ], [ false, %pcapng_count_string_option.exit121 ], [ false, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

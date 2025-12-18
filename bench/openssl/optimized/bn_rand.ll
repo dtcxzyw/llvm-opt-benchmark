@@ -27,21 +27,21 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %12 = icmp ne i32 %3, -1
   %13 = icmp ne i32 %4, 0
   %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %90, label %14
+  br i1 %or.cond, label %89, label %14
 
 14:                                               ; preds = %11
   tail call void @BN_zero_ex(ptr noundef %1) #5
-  br label %91
+  br label %90
 
 15:                                               ; preds = %7
   %16 = icmp slt i32 %2, 0
-  br i1 %16, label %90, label %17
+  br i1 %16, label %89, label %17
 
 17:                                               ; preds = %15
   %18 = icmp eq i32 %2, 1
   %19 = icmp sgt i32 %3, 0
   %or.cond3 = and i1 %18, %19
-  br i1 %or.cond3, label %90, label %20
+  br i1 %or.cond3, label %89, label %20
 
 20:                                               ; preds = %17
   %21 = add nuw i32 %2, 7
@@ -51,7 +51,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %25 = zext nneg i32 %22 to i64
   %26 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 43) #5
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %89, label %28
+  br i1 %27, label %88, label %28
 
 28:                                               ; preds = %20
   %29 = icmp eq i32 %0, 0
@@ -60,12 +60,12 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 30:                                               ; preds = %28
   %31 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %9, ptr noundef nonnull %26, i64 noundef %25, i32 noundef %5) #5
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %89, label %35
+  br i1 %32, label %88, label %35
 
 .thread:                                          ; preds = %28
   %33 = tail call i32 @RAND_bytes_ex(ptr noundef %9, ptr noundef nonnull %26, i64 noundef %25, i32 noundef %5) #5
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %89, label %.thread75
+  br i1 %34, label %88, label %.thread75
 
 35:                                               ; preds = %30
   %36 = icmp eq i32 %0, 1
@@ -124,7 +124,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 
 56:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %89
+  br label %88
 
 .thread75:                                        ; preds = %.thread, %.thread76, %35
   %57 = icmp sgt i32 %3, -1
@@ -132,75 +132,74 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 
 .thread75._crit_edge:                             ; preds = %.thread75
   %.pre = load i8, ptr %26, align 1, !tbaa !3
-  br label %77
+  br label %76
 
 58:                                               ; preds = %.thread75
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %72, label %59
+  br i1 %.not, label %71, label %59
 
 59:                                               ; preds = %58
-  %60 = and i32 %2, 7
-  %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %66
+  %60 = icmp eq i32 %23, 0
+  br i1 %60, label %61, label %65
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %64 = load i8, ptr %63, align 1, !tbaa !3
-  %65 = or i8 %64, -128
-  store i8 %65, ptr %63, align 1, !tbaa !3
-  br label %77
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = or i8 %63, -128
+  store i8 %64, ptr %62, align 1, !tbaa !3
+  br label %76
 
-66:                                               ; preds = %59
-  %67 = add nsw i32 %23, -1
-  %68 = shl nuw nsw i32 3, %67
-  %69 = load i8, ptr %26, align 1, !tbaa !3
-  %70 = trunc i32 %68 to i8
-  %71 = or i8 %69, %70
-  br label %77
+65:                                               ; preds = %59
+  %66 = add nsw i32 %23, -1
+  %67 = shl nuw nsw i32 3, %66
+  %68 = load i8, ptr %26, align 1, !tbaa !3
+  %69 = trunc nuw i32 %67 to i8
+  %70 = or i8 %68, %69
+  br label %76
 
-72:                                               ; preds = %58
-  %73 = shl nuw nsw i32 1, %23
-  %74 = load i8, ptr %26, align 1, !tbaa !3
-  %75 = trunc nuw i32 %73 to i8
-  %76 = or i8 %74, %75
-  br label %77
+71:                                               ; preds = %58
+  %72 = shl nuw nsw i32 1, %23
+  %73 = load i8, ptr %26, align 1, !tbaa !3
+  %74 = trunc nuw i32 %72 to i8
+  %75 = or i8 %73, %74
+  br label %76
 
-77:                                               ; preds = %.thread75._crit_edge, %72, %66, %62
-  %78 = phi i8 [ %.pre, %.thread75._crit_edge ], [ %76, %72 ], [ %71, %66 ], [ 1, %62 ]
-  %79 = trunc i32 %24 to i8
-  %80 = xor i8 %79, -1
-  %81 = and i8 %78, %80
-  store i8 %81, ptr %26, align 1, !tbaa !3
+76:                                               ; preds = %.thread75._crit_edge, %71, %65, %61
+  %77 = phi i8 [ %.pre, %.thread75._crit_edge ], [ %75, %71 ], [ %70, %65 ], [ 1, %61 ]
+  %78 = trunc i32 %24 to i8
+  %79 = xor i8 %78, -1
+  %80 = and i8 %77, %79
+  store i8 %80, ptr %26, align 1, !tbaa !3
   %.not72 = icmp eq i32 %4, 0
-  br i1 %.not72, label %87, label %82
+  br i1 %.not72, label %86, label %81
 
-82:                                               ; preds = %77
-  %83 = getelementptr i8, ptr %26, i64 %25
-  %84 = getelementptr i8, ptr %83, i64 -1
-  %85 = load i8, ptr %84, align 1, !tbaa !3
-  %86 = or i8 %85, 1
-  store i8 %86, ptr %84, align 1, !tbaa !3
-  br label %87
+81:                                               ; preds = %76
+  %82 = getelementptr i8, ptr %26, i64 %25
+  %83 = getelementptr i8, ptr %82, i64 -1
+  %84 = load i8, ptr %83, align 1, !tbaa !3
+  %85 = or i8 %84, 1
+  store i8 %85, ptr %83, align 1, !tbaa !3
+  br label %86
 
-87:                                               ; preds = %82, %77
-  %88 = call ptr @BN_bin2bn(ptr noundef nonnull %26, i32 noundef %22, ptr noundef %1) #5
-  %.not73 = icmp ne ptr %88, null
+86:                                               ; preds = %81, %76
+  %87 = call ptr @BN_bin2bn(ptr noundef nonnull %26, i32 noundef %22, ptr noundef %1) #5
+  %.not73 = icmp ne ptr %87, null
   %spec.select = zext i1 %.not73 to i32
-  br label %89
+  br label %88
 
-89:                                               ; preds = %56, %.thread, %87, %30, %20
-  %.066 = phi i32 [ 0, %20 ], [ 0, %30 ], [ 0, %56 ], [ %spec.select, %87 ], [ 0, %.thread ]
+88:                                               ; preds = %56, %.thread, %86, %30, %20
+  %.066 = phi i32 [ 0, %20 ], [ 0, %30 ], [ 0, %56 ], [ %spec.select, %86 ], [ 0, %.thread ]
   call void @CRYPTO_clear_free(ptr noundef %26, i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 91) #5
-  br label %91
+  br label %90
 
-90:                                               ; preds = %15, %17, %11
+89:                                               ; preds = %15, %17, %11
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__func__.bnrand) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 118, ptr noundef null) #5
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %89, %14
-  %.065 = phi i32 [ 0, %90 ], [ 1, %14 ], [ %.066, %89 ]
+90:                                               ; preds = %89, %88, %14
+  %.065 = phi i32 [ 0, %89 ], [ 1, %14 ], [ %.066, %88 ]
   ret i32 %.065
 }
 

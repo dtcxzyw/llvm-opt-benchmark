@@ -98,33 +98,33 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   store i8 0, ptr %3, align 16, !tbaa !11
   br label %9
 
-7:                                                ; preds = %258, %204, %46
-  %.1286 = phi ptr [ %.3288, %258 ], [ %.0354, %204 ], [ %.0354, %46 ]
-  %.1230 = phi ptr [ %260, %258 ], [ %183, %204 ], [ %47, %46 ]
-  %.1224.idx = phi i64 [ %.3226.idx, %258 ], [ %.0223.add, %204 ], [ %.0223.idx356, %46 ]
-  %.1221 = phi i32 [ 3, %258 ], [ %.0220357, %204 ], [ %spec.select, %46 ]
-  %.1218 = phi i32 [ %259, %258 ], [ %206, %204 ], [ %42, %46 ]
-  %.1 = phi i32 [ %.6, %258 ], [ %.7, %204 ], [ -2, %46 ]
+7:                                                ; preds = %._crit_edge418, %204, %46
+  %.1285 = phi ptr [ %.3287, %._crit_edge418 ], [ %.0353, %204 ], [ %.0353, %46 ]
+  %.1230 = phi ptr [ %249, %._crit_edge418 ], [ %183, %204 ], [ %47, %46 ]
+  %.1224.idx = phi i64 [ %.3226.idx.lcssa, %._crit_edge418 ], [ %.0223.add, %204 ], [ %.0223.idx355, %46 ]
+  %.1221 = phi i32 [ 3, %._crit_edge418 ], [ %.0220356, %204 ], [ %spec.select, %46 ]
+  %.1218 = phi i32 [ 3, %._crit_edge418 ], [ %206, %204 ], [ %42, %46 ]
+  %.1 = phi i32 [ %.6, %._crit_edge418 ], [ %.7, %204 ], [ -2, %46 ]
   %.1224.add = add nsw i64 %.1224.idx, 1
   %.0223.ptr = getelementptr inbounds i8, ptr %3, i64 %.1224.add
   %8 = trunc nsw i32 %.1218 to i8
   store i8 %8, ptr %.0223.ptr, align 1, !tbaa !11
   %.not = icmp slt i64 %.1224.idx, 198
-  br i1 %.not, label %9, label %262
+  br i1 %.not, label %9, label %251
 
 9:                                                ; preds = %1, %7
-  %.0223.ptr361 = phi ptr [ %3, %1 ], [ %.0223.ptr, %7 ]
-  %.0212360 = phi i32 [ -2, %1 ], [ %.1, %7 ]
-  %.0217358 = phi i32 [ 0, %1 ], [ %.1218, %7 ]
-  %.0220357 = phi i32 [ 0, %1 ], [ %.1221, %7 ]
-  %.0223.idx356 = phi i64 [ 0, %1 ], [ %.1224.add, %7 ]
-  %.0229355 = phi ptr [ %4, %1 ], [ %.1230, %7 ]
-  %.0354 = phi ptr [ %5, %1 ], [ %.1286, %7 ]
-  %10 = icmp eq i32 %.0217358, 2
-  br i1 %10, label %.loopexit337, label %11
+  %.0223.ptr360 = phi ptr [ %3, %1 ], [ %.0223.ptr, %7 ]
+  %.0212359 = phi i32 [ -2, %1 ], [ %.1, %7 ]
+  %.0217357 = phi i32 [ 0, %1 ], [ %.1218, %7 ]
+  %.0220356 = phi i32 [ 0, %1 ], [ %.1221, %7 ]
+  %.0223.idx355 = phi i64 [ 0, %1 ], [ %.1224.add, %7 ]
+  %.0229354 = phi ptr [ %4, %1 ], [ %.1230, %7 ]
+  %.0353 = phi ptr [ %5, %1 ], [ %.1285, %7 ]
+  %10 = icmp eq i32 %.0217357, 2
+  br i1 %10, label %.loopexit336, label %11
 
 11:                                               ; preds = %9
-  %12 = sext i32 %.0217358 to i64
+  %12 = sext i32 %.0217357 to i64
   %13 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = sext i16 %14 to i32
@@ -132,7 +132,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br i1 %16, label %49, label %17
 
 17:                                               ; preds = %11
-  %18 = icmp eq i32 %.0212360, -2
+  %18 = icmp eq i32 %.0212359, -2
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -140,7 +140,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %21
 
 21:                                               ; preds = %19, %17
-  %.4 = phi i32 [ %20, %19 ], [ %.0212360, %17 ]
+  %.4 = phi i32 [ %20, %19 ], [ %.0212359, %17 ]
   %22 = icmp slt i32 %.4, 1
   br i1 %22, label %32, label %23
 
@@ -186,14 +186,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %54
 
 46:                                               ; preds = %39
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0220357, i32 1)
-  %47 = getelementptr inbounds nuw i8, ptr %.0229355, i64 8
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0220356, i32 1)
+  %47 = getelementptr inbounds nuw i8, ptr %.0229354, i64 8
   %48 = load i64, ptr %2, align 8, !tbaa !4
   store i64 %48, ptr %47, align 8, !tbaa !4
   br label %7
 
 49:                                               ; preds = %32, %34, %11
-  %.3 = phi i32 [ %.0212360, %11 ], [ %.5, %32 ], [ %.5, %34 ]
+  %.3 = phi i32 [ %.0212359, %11 ], [ %.5, %32 ], [ %.5, %34 ]
   %50 = getelementptr inbounds i8, ptr @_ZL8yydefact, i64 %12
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = sext i8 %51 to i32
@@ -208,7 +208,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   %57 = load i8, ptr %56, align 1, !tbaa !11
   %58 = sext i8 %57 to i64
   %59 = sub nsw i64 1, %58
-  %60 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229355, i64 %59
+  %60 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229354, i64 %59
   %.sroa.0.0.copyload = load ptr, ptr %60, align 8, !tbaa !4
   switch i32 %.0235, label %180 [
     i32 4, label %61
@@ -244,7 +244,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 63:                                               ; preds = %54
   %64 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %65 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %65 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %66 = load ptr, ptr %65, align 8, !tbaa !14
   call void @_Z23cmFortranParser_RuleUseP17cmFortranParser_sPKc(ptr noundef %64, ptr noundef %66)
   %67 = load ptr, ptr %65, align 8, !tbaa !14
@@ -253,7 +253,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 68:                                               ; preds = %54
   %69 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %70 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %70 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %71 = load ptr, ptr %70, align 8, !tbaa !14
   call void @_Z26cmFortranParser_RuleModuleP17cmFortranParser_sPKc(ptr noundef %69, ptr noundef %71)
   %72 = load ptr, ptr %70, align 8, !tbaa !14
@@ -262,9 +262,9 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 73:                                               ; preds = %54
   %74 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %75 = getelementptr inbounds i8, ptr %.0229355, i64 -24
+  %75 = getelementptr inbounds i8, ptr %.0229354, i64 -24
   %76 = load ptr, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %77 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %78 = load ptr, ptr %77, align 8, !tbaa !14
   call void @_Z29cmFortranParser_RuleSubmoduleP17cmFortranParser_sPKcS2_(ptr noundef %74, ptr noundef %76, ptr noundef %78)
   %79 = load ptr, ptr %75, align 8, !tbaa !14
@@ -275,11 +275,11 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 81:                                               ; preds = %54
   %82 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %83 = getelementptr inbounds i8, ptr %.0229355, i64 -40
+  %83 = getelementptr inbounds i8, ptr %.0229354, i64 -40
   %84 = load ptr, ptr %83, align 8, !tbaa !14
-  %85 = getelementptr inbounds i8, ptr %.0229355, i64 -24
+  %85 = getelementptr inbounds i8, ptr %.0229354, i64 -24
   %86 = load ptr, ptr %85, align 8, !tbaa !14
-  %87 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %87 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %88 = load ptr, ptr %87, align 8, !tbaa !14
   call void @_Z35cmFortranParser_RuleSubmoduleNestedP17cmFortranParser_sPKcS2_S2_(ptr noundef %82, ptr noundef %84, ptr noundef %86, ptr noundef %88)
   %89 = load ptr, ptr %83, align 8, !tbaa !14
@@ -293,7 +293,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 92:                                               ; preds = %54
   %93 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z30cmFortranParser_SetInInterfaceP17cmFortranParser_sb(ptr noundef %93, i1 noundef zeroext true)
-  %94 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %94 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %95 = load ptr, ptr %94, align 8, !tbaa !14
   call void @free(ptr noundef %95) #9
   br label %180
@@ -301,7 +301,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 96:                                               ; preds = %54
   %97 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z30cmFortranParser_SetInInterfaceP17cmFortranParser_sb(ptr noundef %97, i1 noundef zeroext false)
-  %98 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %98 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %99 = load ptr, ptr %98, align 8, !tbaa !14
   call void @free(ptr noundef %99) #9
   br label %180
@@ -313,7 +313,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 102:                                              ; preds = %54
   %103 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %104 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %104 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %105 = load ptr, ptr %104, align 8, !tbaa !14
   call void @_Z23cmFortranParser_RuleUseP17cmFortranParser_sPKc(ptr noundef %103, ptr noundef %105)
   %106 = load ptr, ptr %104, align 8, !tbaa !14
@@ -321,7 +321,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %180
 
 107:                                              ; preds = %54
-  %108 = getelementptr inbounds i8, ptr %.0229355, i64 -32
+  %108 = getelementptr inbounds i8, ptr %.0229354, i64 -32
   %109 = load ptr, ptr %108, align 8, !tbaa !14
   %110 = call i32 @cmsysString_strcasecmp(ptr noundef %109, ptr noundef nonnull @.str)
   %111 = icmp eq i32 %110, 0
@@ -329,7 +329,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 112:                                              ; preds = %107
   %113 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %114 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %114 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %115 = load ptr, ptr %114, align 8, !tbaa !14
   call void @_Z23cmFortranParser_RuleUseP17cmFortranParser_sPKc(ptr noundef %113, ptr noundef %115)
   br label %116
@@ -342,7 +342,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 120:                                              ; preds = %116
   %121 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %122 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %122 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %123 = load ptr, ptr %122, align 8, !tbaa !14
   call void @_Z32cmFortranParser_RuleUseIntrinsicP17cmFortranParser_sPKc(ptr noundef %121, ptr noundef %123)
   br label %124
@@ -350,14 +350,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 124:                                              ; preds = %120, %116
   %125 = load ptr, ptr %108, align 8, !tbaa !14
   call void @free(ptr noundef %125) #9
-  %126 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %126 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %127 = load ptr, ptr %126, align 8, !tbaa !14
   call void @free(ptr noundef %127) #9
   br label %180
 
 128:                                              ; preds = %54
   %129 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %130 = getelementptr inbounds i8, ptr %.0229355, i64 -8
+  %130 = getelementptr inbounds i8, ptr %.0229354, i64 -8
   %131 = load ptr, ptr %130, align 8, !tbaa !14
   call void @_Z27cmFortranParser_RuleIncludeP17cmFortranParser_sPKc(ptr noundef %129, ptr noundef %131)
   %132 = load ptr, ptr %130, align 8, !tbaa !14
@@ -366,7 +366,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 133:                                              ; preds = %54
   %134 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %135 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %135 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %136 = load ptr, ptr %135, align 8, !tbaa !14
   call void @_Z33cmFortranParser_RuleLineDirectiveP17cmFortranParser_sPKc(ptr noundef %134, ptr noundef %136)
   %137 = load ptr, ptr %135, align 8, !tbaa !14
@@ -375,7 +375,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 138:                                              ; preds = %54
   %139 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %140 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %140 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %141 = load ptr, ptr %140, align 8, !tbaa !14
   call void @_Z27cmFortranParser_RuleIncludeP17cmFortranParser_sPKc(ptr noundef %139, ptr noundef %141)
   %142 = load ptr, ptr %140, align 8, !tbaa !14
@@ -384,7 +384,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 143:                                              ; preds = %54
   %144 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %145 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %145 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %146 = load ptr, ptr %145, align 8, !tbaa !14
   call void @_Z27cmFortranParser_RuleIncludeP17cmFortranParser_sPKc(ptr noundef %144, ptr noundef %146)
   %147 = load ptr, ptr %145, align 8, !tbaa !14
@@ -393,7 +393,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 148:                                              ; preds = %54
   %149 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %150 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %150 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %151 = load ptr, ptr %150, align 8, !tbaa !14
   call void @_Z26cmFortranParser_RuleDefineP17cmFortranParser_sPKc(ptr noundef %149, ptr noundef %151)
   %152 = load ptr, ptr %150, align 8, !tbaa !14
@@ -402,7 +402,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 153:                                              ; preds = %54
   %154 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %155 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %155 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %156 = load ptr, ptr %155, align 8, !tbaa !14
   call void @_Z25cmFortranParser_RuleUndefP17cmFortranParser_sPKc(ptr noundef %154, ptr noundef %156)
   %157 = load ptr, ptr %155, align 8, !tbaa !14
@@ -411,7 +411,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 158:                                              ; preds = %54
   %159 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %160 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %160 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %161 = load ptr, ptr %160, align 8, !tbaa !14
   call void @_Z25cmFortranParser_RuleIfdefP17cmFortranParser_sPKc(ptr noundef %159, ptr noundef %161)
   %162 = load ptr, ptr %160, align 8, !tbaa !14
@@ -420,7 +420,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 163:                                              ; preds = %54
   %164 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  %165 = getelementptr inbounds i8, ptr %.0229355, i64 -16
+  %165 = getelementptr inbounds i8, ptr %.0229354, i64 -16
   %166 = load ptr, ptr %165, align 8, !tbaa !14
   call void @_Z26cmFortranParser_RuleIfndefP17cmFortranParser_sPKc(ptr noundef %164, ptr noundef %166)
   %167 = load ptr, ptr %165, align 8, !tbaa !14
@@ -448,19 +448,19 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %180
 
 176:                                              ; preds = %54
-  %177 = load ptr, ptr %.0229355, align 8, !tbaa !14
+  %177 = load ptr, ptr %.0229354, align 8, !tbaa !14
   call void @free(ptr noundef %177) #9
   br label %180
 
 178:                                              ; preds = %54
-  %179 = load ptr, ptr %.0229355, align 8, !tbaa !14
+  %179 = load ptr, ptr %.0229354, align 8, !tbaa !14
   call void @free(ptr noundef %179) #9
   br label %180
 
 180:                                              ; preds = %54, %178, %176, %174, %172, %170, %168, %163, %158, %153, %148, %143, %138, %133, %128, %124, %102, %100, %96, %92, %81, %73, %68, %63, %61
   %181 = sub nsw i64 0, %58
-  %182 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229355, i64 %181
-  %.0223.add = sub nsw i64 %.0223.idx356, %58
+  %182 = getelementptr inbounds %struct.cmFortran_yystype, ptr %.0229354, i64 %181
+  %.0223.add = sub nsw i64 %.0223.idx355, %58
   %.ptr254 = getelementptr inbounds i8, ptr %3, i64 %.0223.add
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %.sroa.0.0.copyload, ptr %183, align 8, !tbaa !4
@@ -515,13 +515,13 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 215:                                              ; preds = %210, %209, %207
   %216 = phi i32 [ -2, %207 ], [ %214, %210 ], [ 2, %209 ]
-  switch i32 %.0220357, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit [
+  switch i32 %.0220356, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit [
     i32 0, label %217
     i32 3, label %231
   ]
 
 217:                                              ; preds = %215
-  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr %.0354, ptr nonnull %.0223.ptr361, i32 %216)
+  %218 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr %.0353, ptr nonnull %.0223.ptr360, i32 %216)
   switch i32 %218, label %229 [
     i32 0, label %219
     i32 -1, label %220
@@ -531,11 +531,11 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %229
 
 220:                                              ; preds = %217
-  %.not259 = icmp eq ptr %.0354, %5
+  %.not259 = icmp eq ptr %.0353, %5
   br i1 %.not259, label %222, label %221
 
 221:                                              ; preds = %220
-  call void @free(ptr noundef %.0354) #9
+  call void @free(ptr noundef %.0353) #9
   br label %222
 
 222:                                              ; preds = %221, %220
@@ -545,7 +545,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br i1 %.not260, label %228, label %225
 
 225:                                              ; preds = %222
-  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %224, ptr nonnull %.0223.ptr361, i32 %216)
+  %226 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %6, ptr nonnull %224, ptr nonnull %.0223.ptr360, i32 %216)
   %227 = icmp eq i32 %226, -2
   br label %229
 
@@ -554,12 +554,12 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %229
 
 229:                                              ; preds = %217, %228, %225, %219
-  %.5290 = phi ptr [ %.0354, %217 ], [ %.0354, %219 ], [ %5, %228 ], [ %224, %225 ]
-  %.0210 = phi ptr [ @.str.2, %217 ], [ %.0354, %219 ], [ @.str.2, %228 ], [ %224, %225 ]
+  %.5289 = phi ptr [ %.0353, %217 ], [ %.0353, %219 ], [ %5, %228 ], [ %224, %225 ]
+  %.0210 = phi ptr [ @.str.2, %217 ], [ %.0353, %219 ], [ @.str.2, %228 ], [ %224, %225 ]
   %.0209 = phi i1 [ true, %217 ], [ false, %219 ], [ true, %228 ], [ %227, %225 ]
   %230 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %230, ptr noundef %.0210)
-  br i1 %.0209, label %262, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %.0209, label %251, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
 
 231:                                              ; preds = %215
   %232 = icmp slt i32 %.3, 1
@@ -567,7 +567,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 
 233:                                              ; preds = %231
   %234 = icmp eq i32 %.3, 0
-  br i1 %234, label %.thread310, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %234, label %.thread309, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
 
 235:                                              ; preds = %231
   %.off.i = add nsw i32 %216, -32
@@ -580,147 +580,132 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
 
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, %229, %.sink.split.i, %235, %23, %233
-  %.3288 = phi ptr [ %.0354, %233 ], [ %.0354, %.sink.split.i ], [ %.0354, %215 ], [ %.0354, %23 ], [ %.0354, %235 ], [ %.5290, %229 ]
+  %.3287 = phi ptr [ %.0353, %233 ], [ %.0353, %.sink.split.i ], [ %.0353, %215 ], [ %.0353, %23 ], [ %.0353, %235 ], [ %.5289, %229 ]
   %.6 = phi i32 [ %.3, %233 ], [ -2, %.sink.split.i ], [ %.3, %215 ], [ 257, %23 ], [ -2, %235 ], [ %.3, %229 ]
-  br label %237
+  %237 = icmp eq i32 %.0217357, 1
+  br i1 %237, label %._crit_edge418, label %.lr.ph417
 
-237:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
-  %238 = phi i16 [ %14, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.pre, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273 ]
-  %.3232 = phi ptr [ %.0229355, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %255, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273 ]
-  %.3226.idx = phi i64 [ %.0223.idx356, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.3226.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273 ]
-  %.2219 = phi i32 [ %.0217358, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %257, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273 ]
-  %239 = sext i32 %.2219 to i64
-  %240 = icmp sgt i16 %238, -2
-  %241 = icmp eq i32 %.2219, 1
-  %or.cond264 = and i1 %241, %240
-  br i1 %or.cond264, label %242, label %248
+.lr.ph417:                                        ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
+  %.in420 = phi i32 [ %247, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ], [ %.0217357, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
+  %.3226.idx416 = phi i64 [ %.3226.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ], [ %.0223.idx355, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
+  %.3232415 = phi ptr [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ], [ %.0229354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
+  %238 = icmp eq i64 %.3226.idx416, 0
+  br i1 %238, label %.loopexit336, label %239
 
-242:                                              ; preds = %237
-  %243 = sext i16 %238 to i64
-  %244 = getelementptr i8, ptr @_ZL7yytable, i64 %243
-  %245 = getelementptr i8, ptr %244, i64 1
-  %246 = load i8, ptr %245, align 1, !tbaa !11
-  %247 = icmp sgt i8 %246, 0
-  br i1 %247, label %258, label %248
+239:                                              ; preds = %.lr.ph417
+  %240 = sext i32 %.in420 to i64
+  %241 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %240
+  %242 = load i8, ptr %241, align 1, !tbaa !11
+  %243 = sext i8 %242 to i32
+  %.off.i269 = add nsw i32 %243, -32
+  %switch.i270 = icmp ult i32 %.off.i269, 3
+  br i1 %switch.i270, label %.sink.split.i271, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
 
-248:                                              ; preds = %242, %237
-  %249 = icmp eq i64 %.3226.idx, 0
-  br i1 %249, label %.loopexit337, label %250
+.sink.split.i271:                                 ; preds = %239
+  %244 = load ptr, ptr %.3232415, align 8, !tbaa !14
+  call void @free(ptr noundef %244) #9
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
 
-250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %239
-  %252 = load i8, ptr %251, align 1, !tbaa !11
-  %253 = sext i8 %252 to i32
-  %.off.i270 = add nsw i32 %253, -32
-  %switch.i271 = icmp ult i32 %.off.i270, 3
-  br i1 %switch.i271, label %.sink.split.i272, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273
-
-.sink.split.i272:                                 ; preds = %250
-  %254 = load ptr, ptr %.3232, align 8, !tbaa !14
-  call void @free(ptr noundef %254) #9
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273
-
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit273: ; preds = %250, %.sink.split.i272
-  %255 = getelementptr inbounds i8, ptr %.3232, i64 -8
-  %.3226.add = add nsw i64 %.3226.idx, -1
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %239, %.sink.split.i271
+  %245 = getelementptr inbounds i8, ptr %.3232415, i64 -8
+  %.3226.add = add nsw i64 %.3226.idx416, -1
   %.ptr255 = getelementptr inbounds i8, ptr %3, i64 %.3226.add
-  %256 = load i8, ptr %.ptr255, align 1, !tbaa !11
-  %257 = sext i8 %256 to i32
-  %.phi.trans.insert = sext i8 %256 to i64
-  %.phi.trans.insert379 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert379, align 2, !tbaa !12
-  br label %237, !llvm.loop !16
+  %246 = load i8, ptr %.ptr255, align 1, !tbaa !11
+  %247 = sext i8 %246 to i32
+  %248 = icmp eq i8 %246, 1
+  br i1 %248, label %._crit_edge418, label %.lr.ph417, !llvm.loop !16
 
-258:                                              ; preds = %242
-  %259 = zext nneg i8 %246 to i32
-  %260 = getelementptr inbounds nuw i8, ptr %.3232, i64 8
-  %261 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %261, ptr %260, align 8, !tbaa !4
+._crit_edge418:                                   ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  %.3232.lcssa = phi ptr [ %.0229354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
+  %.3226.idx.lcssa = phi i64 [ %.0223.idx355, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.3226.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
+  %249 = getelementptr inbounds nuw i8, ptr %.3232.lcssa, i64 8
+  %250 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %250, ptr %249, align 8, !tbaa !4
   br label %7
 
-262:                                              ; preds = %229, %7
-  %.0229.lcssa = phi ptr [ %.0229355, %229 ], [ %.1230, %7 ]
-  %.0223.ptr.lcssa = phi ptr [ %.0223.ptr361, %229 ], [ %.0223.ptr, %7 ]
-  %.2287 = phi ptr [ %.5290, %229 ], [ %.1286, %7 ]
+251:                                              ; preds = %229, %7
+  %.0229.lcssa = phi ptr [ %.0229354, %229 ], [ %.1230, %7 ]
+  %.0223.ptr.lcssa = phi ptr [ %.0223.ptr360, %229 ], [ %.0223.ptr, %7 ]
+  %.2286 = phi ptr [ %.5289, %229 ], [ %.1285, %7 ]
   %.2 = phi i32 [ %.3, %229 ], [ %.1, %7 ]
-  %263 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %263, ptr noundef nonnull @.str.5)
-  br label %.loopexit337
+  %252 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
+  call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %252, ptr noundef nonnull @.str.5)
+  br label %.loopexit336
 
-.loopexit337:                                     ; preds = %9, %248, %262
-  %.6291 = phi ptr [ %.3288, %248 ], [ %.2287, %262 ], [ %.0354, %9 ]
-  %.0236 = phi i32 [ 1, %248 ], [ 2, %262 ], [ 0, %9 ]
-  %.4233 = phi ptr [ %.3232, %248 ], [ %.0229.lcssa, %262 ], [ %.0229355, %9 ]
-  %.4227 = phi ptr [ %3, %248 ], [ %.0223.ptr.lcssa, %262 ], [ %.0223.ptr361, %9 ]
-  %.9 = phi i32 [ %.6, %248 ], [ %.2, %262 ], [ %.0212360, %9 ]
+.loopexit336:                                     ; preds = %9, %.lr.ph417, %251
+  %.6290 = phi ptr [ %.3287, %.lr.ph417 ], [ %.2286, %251 ], [ %.0353, %9 ]
+  %.0236 = phi i32 [ 1, %.lr.ph417 ], [ 2, %251 ], [ 0, %9 ]
+  %.4233 = phi ptr [ %.3232415, %.lr.ph417 ], [ %.0229.lcssa, %251 ], [ %.0229354, %9 ]
+  %.4227 = phi ptr [ %3, %.lr.ph417 ], [ %.0223.ptr.lcssa, %251 ], [ %.0223.ptr360, %9 ]
+  %.9 = phi i32 [ %.6, %.lr.ph417 ], [ %.2, %251 ], [ %.0212359, %9 ]
   %or.cond11 = icmp ult i32 %.9, 296
-  br i1 %or.cond11, label %.thread310, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
+  br i1 %or.cond11, label %.thread309, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
 
-.thread310:                                       ; preds = %233, %.loopexit337
-  %.6291301325 = phi ptr [ %.6291, %.loopexit337 ], [ %.0354, %233 ]
-  %.0236303323 = phi i32 [ %.0236, %.loopexit337 ], [ 1, %233 ]
-  %.4233305321 = phi ptr [ %.4233, %.loopexit337 ], [ %.0229355, %233 ]
-  %.4227307319 = phi ptr [ %.4227, %.loopexit337 ], [ %.0223.ptr361, %233 ]
-  %.9309317 = phi i32 [ %.9, %.loopexit337 ], [ 0, %233 ]
-  %264 = zext nneg i32 %.9309317 to i64
-  %265 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %264
-  %266 = load i8, ptr %265, align 1, !tbaa !11
-  %267 = sext i8 %266 to i32
-  %.off.i274 = add nsw i32 %267, -32
-  %switch.i275 = icmp ult i32 %.off.i274, 3
-  br i1 %switch.i275, label %.sink.split.i276, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
+.thread309:                                       ; preds = %233, %.loopexit336
+  %.6290300324 = phi ptr [ %.6290, %.loopexit336 ], [ %.0353, %233 ]
+  %.0236302322 = phi i32 [ %.0236, %.loopexit336 ], [ 1, %233 ]
+  %.4233304320 = phi ptr [ %.4233, %.loopexit336 ], [ %.0229354, %233 ]
+  %.4227306318 = phi ptr [ %.4227, %.loopexit336 ], [ %.0223.ptr360, %233 ]
+  %.9308316 = phi i32 [ %.9, %.loopexit336 ], [ 0, %233 ]
+  %253 = zext nneg i32 %.9308316 to i64
+  %254 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %253
+  %255 = load i8, ptr %254, align 1, !tbaa !11
+  %256 = sext i8 %255 to i32
+  %.off.i273 = add nsw i32 %256, -32
+  %switch.i274 = icmp ult i32 %.off.i273, 3
+  br i1 %switch.i274, label %.sink.split.i275, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
 
-.sink.split.i276:                                 ; preds = %.thread310
-  %268 = load ptr, ptr %2, align 8, !tbaa !14
-  call void @free(ptr noundef %268) #9
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
+.sink.split.i275:                                 ; preds = %.thread309
+  %257 = load ptr, ptr %2, align 8, !tbaa !14
+  call void @free(ptr noundef %257) #9
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277: ; preds = %.sink.split.i276, %.thread310, %.loopexit337
-  %.4227308 = phi ptr [ %.4227, %.loopexit337 ], [ %.4227307319, %.sink.split.i276 ], [ %.4227307319, %.thread310 ]
-  %.4233306 = phi ptr [ %.4233, %.loopexit337 ], [ %.4233305321, %.sink.split.i276 ], [ %.4233305321, %.thread310 ]
-  %.0236304 = phi i32 [ %.0236, %.loopexit337 ], [ %.0236303323, %.sink.split.i276 ], [ %.0236303323, %.thread310 ]
-  %.6291302 = phi ptr [ %.6291, %.loopexit337 ], [ %.6291301325, %.sink.split.i276 ], [ %.6291301325, %.thread310 ]
-  %.not262362 = icmp eq ptr %.4227308, %3
-  br i1 %.not262362, label %._crit_edge, label %.lr.ph
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276: ; preds = %.sink.split.i275, %.thread309, %.loopexit336
+  %.4227307 = phi ptr [ %.4227, %.loopexit336 ], [ %.4227306318, %.sink.split.i275 ], [ %.4227306318, %.thread309 ]
+  %.4233305 = phi ptr [ %.4233, %.loopexit336 ], [ %.4233304320, %.sink.split.i275 ], [ %.4233304320, %.thread309 ]
+  %.0236303 = phi i32 [ %.0236, %.loopexit336 ], [ %.0236302322, %.sink.split.i275 ], [ %.0236302322, %.thread309 ]
+  %.6290301 = phi ptr [ %.6290, %.loopexit336 ], [ %.6290300324, %.sink.split.i275 ], [ %.6290300324, %.thread309 ]
+  %.not262361 = icmp eq ptr %.4227307, %3
+  br i1 %.not262361, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281
-  %.5228364 = phi ptr [ %276, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281 ], [ %.4227308, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277 ]
-  %.5234363 = phi ptr [ %275, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281 ], [ %.4233306, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277 ]
-  %269 = load i8, ptr %.5228364, align 1, !tbaa !11
-  %270 = sext i8 %269 to i64
-  %271 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %270
-  %272 = load i8, ptr %271, align 1, !tbaa !11
-  %273 = sext i8 %272 to i32
-  %.off.i278 = add nsw i32 %273, -32
-  %switch.i279 = icmp ult i32 %.off.i278, 3
-  br i1 %switch.i279, label %.sink.split.i280, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281
+.lr.ph:                                           ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280
+  %.5228363 = phi ptr [ %265, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280 ], [ %.4227307, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ]
+  %.5234362 = phi ptr [ %264, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280 ], [ %.4233305, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ]
+  %258 = load i8, ptr %.5228363, align 1, !tbaa !11
+  %259 = sext i8 %258 to i64
+  %260 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %259
+  %261 = load i8, ptr %260, align 1, !tbaa !11
+  %262 = sext i8 %261 to i32
+  %.off.i277 = add nsw i32 %262, -32
+  %switch.i278 = icmp ult i32 %.off.i277, 3
+  br i1 %switch.i278, label %.sink.split.i279, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280
 
-.sink.split.i280:                                 ; preds = %.lr.ph
-  %274 = load ptr, ptr %.5234363, align 8, !tbaa !14
-  call void @free(ptr noundef %274) #9
-  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281
+.sink.split.i279:                                 ; preds = %.lr.ph
+  %263 = load ptr, ptr %.5234362, align 8, !tbaa !14
+  call void @free(ptr noundef %263) #9
+  br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281: ; preds = %.lr.ph, %.sink.split.i280
-  %275 = getelementptr inbounds i8, ptr %.5234363, i64 -8
-  %276 = getelementptr inbounds i8, ptr %.5228364, i64 -1
-  %.not262 = icmp eq ptr %276, %3
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280: ; preds = %.lr.ph, %.sink.split.i279
+  %264 = getelementptr inbounds i8, ptr %.5234362, i64 -8
+  %265 = getelementptr inbounds i8, ptr %.5228363, i64 -1
+  %.not262 = icmp eq ptr %265, %3
   br i1 %.not262, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit281, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit277
-  %.not263 = icmp eq ptr %.6291302, %5
-  br i1 %.not263, label %278, label %277
+._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit280, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
+  %.not263 = icmp eq ptr %.6290301, %5
+  br i1 %.not263, label %267, label %266
 
-277:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.6291302) #9
-  br label %278
+266:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %.6290301) #9
+  br label %267
 
-278:                                              ; preds = %._crit_edge, %277
+267:                                              ; preds = %._crit_edge, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0236304
+  ret i32 %.0236303
 }
 
 declare noundef i32 @_Z15cmFortran_yylexP17cmFortran_yystypePv(ptr noundef, ptr noundef) local_unnamed_addr #1

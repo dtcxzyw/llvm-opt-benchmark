@@ -1548,7 +1548,7 @@ define dso_local range(i32 0, 2) i32 @quicklistDelIndex(ptr noundef captures(non
 
 8:                                                ; preds = %3
   tail call void @__quicklistDelNode(ptr noundef %0, ptr noundef nonnull %1)
-  br label %29
+  br label %28
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1562,30 +1562,29 @@ define dso_local range(i32 0, 2) i32 @quicklistDelIndex(ptr noundef captures(non
   %17 = and i32 %14, -65536
   %18 = or disjoint i32 %16, %17
   store i32 %18, ptr %4, align 8
-  %19 = and i32 %14, 65535
-  %.not = icmp eq i32 %19, 1
-  br i1 %.not, label %20, label %21
+  %.not = icmp eq i32 %16, 0
+  br i1 %.not, label %19, label %20
+
+19:                                               ; preds = %9
+  tail call void @__quicklistDelNode(ptr noundef %0, ptr noundef nonnull %1)
+  br label %23
 
 20:                                               ; preds = %9
-  tail call void @__quicklistDelNode(ptr noundef %0, ptr noundef nonnull %1)
-  br label %24
+  %21 = tail call i64 @lpBytes(ptr noundef %13) #23
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %21, ptr %22, align 8, !tbaa !15
+  br label %23
 
-21:                                               ; preds = %9
-  %22 = tail call i64 @lpBytes(ptr noundef %13) #23
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %22, ptr %23, align 8, !tbaa !15
-  br label %24
+23:                                               ; preds = %20, %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !5
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %24, align 8, !tbaa !5
+  %27 = zext i1 %.not to i32
+  br label %28
 
-24:                                               ; preds = %21, %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !5
-  %27 = add i64 %26, -1
-  store i64 %27, ptr %25, align 8, !tbaa !5
-  %28 = zext i1 %.not to i32
-  br label %29
-
-29:                                               ; preds = %24, %8
-  %.015 = phi i32 [ 1, %8 ], [ %28, %24 ]
+28:                                               ; preds = %23, %8
+  %.015 = phi i32 [ 1, %8 ], [ %27, %23 ]
   ret i32 %.015
 }
 
@@ -1607,7 +1606,7 @@ define dso_local void @quicklistDelEntry(ptr noundef captures(none) initializes(
 
 quicklistDelIndex.exit.thread:                    ; preds = %2
   tail call void @__quicklistDelNode(ptr noundef %8, ptr noundef nonnull %4)
-  br label %34
+  br label %33
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1622,55 +1621,54 @@ quicklistDelIndex.exit.thread:                    ; preds = %2
   %22 = and i32 %19, -65536
   %23 = or disjoint i32 %21, %22
   store i32 %23, ptr %9, align 8
-  %24 = and i32 %19, 65535
-  %.not.i = icmp eq i32 %24, 1
+  %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %quicklistDelIndex.exit, label %quicklistDelIndex.exit.thread16
 
 quicklistDelIndex.exit.thread16:                  ; preds = %13
-  %25 = tail call i64 @lpBytes(ptr noundef %18) #23
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %25, ptr %26, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !5
-  %29 = add i64 %28, -1
-  store i64 %29, ptr %27, align 8, !tbaa !5
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %30, align 8, !tbaa !38
-  br label %44
+  %24 = tail call i64 @lpBytes(ptr noundef %18) #23
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %24, ptr %25, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !5
+  %28 = add i64 %27, -1
+  store i64 %28, ptr %26, align 8, !tbaa !5
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %29, align 8, !tbaa !38
+  br label %43
 
 quicklistDelIndex.exit:                           ; preds = %13
   tail call void @__quicklistDelNode(ptr noundef %8, ptr noundef nonnull %4)
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !5
-  %33 = add i64 %32, -1
-  store i64 %33, ptr %31, align 8, !tbaa !5
-  br label %34
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %31 = load i64, ptr %30, align 8, !tbaa !5
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %30, align 8, !tbaa !5
+  br label %33
 
-34:                                               ; preds = %quicklistDelIndex.exit, %quicklistDelIndex.exit.thread
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %35, align 8, !tbaa !38
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !40
-  switch i32 %37, label %44 [
-    i32 0, label %38
-    i32 1, label %41
+33:                                               ; preds = %quicklistDelIndex.exit, %quicklistDelIndex.exit.thread
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %34, align 8, !tbaa !38
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load i32, ptr %35, align 8, !tbaa !40
+  switch i32 %36, label %43 [
+    i32 0, label %37
+    i32 1, label %40
   ]
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %39, align 8, !tbaa !41
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %40, align 8, !tbaa !42
-  br label %44
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %38, align 8, !tbaa !41
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %39, align 8, !tbaa !42
+  br label %43
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %42, align 8, !tbaa !41
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -1, ptr %43, align 8, !tbaa !42
-  br label %44
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %41, align 8, !tbaa !41
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 -1, ptr %42, align 8, !tbaa !42
+  br label %43
 
-44:                                               ; preds = %quicklistDelIndex.exit.thread16, %34, %38, %41
+43:                                               ; preds = %quicklistDelIndex.exit.thread16, %33, %37, %40
   ret void
 }
 
@@ -4263,7 +4261,7 @@ define dso_local void @quicklistRotate(ptr noundef captures(none) %0) local_unna
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !5
   %8 = icmp ult i64 %7, 2
-  br i1 %8, label %78, label %9
+  br i1 %8, label %77, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4286,7 +4284,7 @@ define dso_local void @quicklistRotate(ptr noundef captures(none) %0) local_unna
   store ptr null, ptr %11, align 8, !tbaa !23
   store ptr %11, ptr %0, align 8, !tbaa !16
   store ptr %17, ptr %10, align 8, !tbaa !16
-  br label %78
+  br label %77
 
 22:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4365,44 +4363,43 @@ define dso_local void @quicklistRotate(ptr noundef captures(none) %0) local_unna
   %66 = and i32 %63, -65536
   %67 = or disjoint i32 %65, %66
   store i32 %67, ptr %54, align 8
-  %68 = and i32 %63, 65535
-  %.not.i = icmp eq i32 %68, 1
-  br i1 %.not.i, label %69, label %70
+  %.not.i = icmp eq i32 %65, 0
+  br i1 %.not.i, label %68, label %69
+
+68:                                               ; preds = %59
+  call void @__quicklistDelNode(ptr noundef nonnull %0, ptr noundef nonnull %53)
+  br label %72
 
 69:                                               ; preds = %59
-  call void @__quicklistDelNode(ptr noundef nonnull %0, ptr noundef nonnull %53)
-  br label %73
+  %70 = call i64 @lpBytes(ptr noundef %62) #23
+  %71 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  store i64 %70, ptr %71, align 8, !tbaa !15
+  br label %72
 
-70:                                               ; preds = %59
-  %71 = call i64 @lpBytes(ptr noundef %62) #23
-  %72 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store i64 %71, ptr %72, align 8, !tbaa !15
-  br label %73
-
-73:                                               ; preds = %70, %69
-  %74 = load i64, ptr %6, align 8, !tbaa !5
-  %75 = add i64 %74, -1
-  store i64 %75, ptr %6, align 8, !tbaa !5
+72:                                               ; preds = %69, %68
+  %73 = load i64, ptr %6, align 8, !tbaa !5
+  %74 = add i64 %73, -1
+  store i64 %74, ptr %6, align 8, !tbaa !5
   br label %quicklistDelIndex.exit
 
-quicklistDelIndex.exit:                           ; preds = %58, %73
+quicklistDelIndex.exit:                           ; preds = %58, %72
   %.not20 = icmp eq ptr %.0, %5
   %.not21 = icmp eq ptr %.0, %26
   %or.cond = or i1 %.not20, %.not21
-  br i1 %or.cond, label %77, label %76
+  br i1 %or.cond, label %76, label %75
 
-76:                                               ; preds = %quicklistDelIndex.exit
+75:                                               ; preds = %quicklistDelIndex.exit
   call void @zfree(ptr noundef %.0) #23
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %quicklistDelIndex.exit
+76:                                               ; preds = %75, %quicklistDelIndex.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %78
+  br label %77
 
-78:                                               ; preds = %1, %77, %16
+77:                                               ; preds = %1, %76, %16
   ret void
 }
 
@@ -4574,28 +4571,27 @@ define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef captures(no
   %80 = and i32 %77, -65536
   %81 = or disjoint i32 %79, %80
   store i32 %81, ptr %29, align 8
-  %82 = and i32 %77, 65535
-  %.not.i = icmp eq i32 %82, 1
-  br i1 %.not.i, label %83, label %84
+  %.not.i = icmp eq i32 %79, 0
+  br i1 %.not.i, label %82, label %83
+
+82:                                               ; preds = %74
+  call void @__quicklistDelNode(ptr noundef nonnull %0, ptr noundef nonnull %.0)
+  br label %86
 
 83:                                               ; preds = %74
-  call void @__quicklistDelNode(ptr noundef nonnull %0, ptr noundef nonnull %.0)
-  br label %87
+  %84 = call i64 @lpBytes(ptr noundef %76) #23
+  %85 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store i64 %84, ptr %85, align 8, !tbaa !15
+  br label %86
 
-84:                                               ; preds = %74
-  %85 = call i64 @lpBytes(ptr noundef %76) #23
-  %86 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store i64 %85, ptr %86, align 8, !tbaa !15
-  br label %87
-
-87:                                               ; preds = %84, %83
-  %88 = load i64, ptr %11, align 8, !tbaa !5
-  %89 = add i64 %88, -1
-  store i64 %89, ptr %11, align 8, !tbaa !5
+86:                                               ; preds = %83, %82
+  %87 = load i64, ptr %11, align 8, !tbaa !5
+  %88 = add i64 %87, -1
+  store i64 %88, ptr %11, align 8, !tbaa !5
   br label %quicklistDelIndex.exit
 
-quicklistDelIndex.exit:                           ; preds = %21, %87, %73, %47, %25, %23, %6
-  %.041 = phi i32 [ 0, %6 ], [ 1, %47 ], [ 1, %87 ], [ 0, %25 ], [ 0, %23 ], [ 1, %73 ], [ 0, %21 ]
+quicklistDelIndex.exit:                           ; preds = %21, %86, %73, %47, %25, %23, %6
+  %.041 = phi i32 [ 0, %6 ], [ 1, %47 ], [ 1, %86 ], [ 0, %25 ], [ 0, %23 ], [ 1, %73 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
