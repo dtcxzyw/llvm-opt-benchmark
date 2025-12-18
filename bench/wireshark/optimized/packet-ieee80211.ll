@@ -45623,9 +45623,9 @@ sta_is_s1g.exit:                                  ; preds = %4, %7
   br label %249
 
 249:                                              ; preds = %246, %243, %241
-  %hf_ieee80211_htc_msi_stbc_reserved.sink271.sink = phi ptr [ %hf_ieee80211_htc_msi_stbc_reserved.hf_ieee80211_htc_msi, %241 ], [ @hf_ieee80211_htc_ppdu_stbc_encoded, %246 ], [ @hf_ieee80211_htc_msi_stbc_reserved, %243 ]
+  %hf_ieee80211_htc_msi_stbc_reserved.sink270.sink = phi ptr [ %hf_ieee80211_htc_msi_stbc_reserved.hf_ieee80211_htc_msi, %241 ], [ @hf_ieee80211_htc_ppdu_stbc_encoded, %246 ], [ @hf_ieee80211_htc_msi_stbc_reserved, %243 ]
   %hf_ieee80211_htc_gid_l.sink = phi ptr [ @hf_ieee80211_htc_mfsi, %241 ], [ @hf_ieee80211_htc_gid_l, %246 ], [ @hf_ieee80211_htc_gid_l, %243 ]
-  %250 = load i32, ptr %hf_ieee80211_htc_msi_stbc_reserved.sink271.sink, align 4
+  %250 = load i32, ptr %hf_ieee80211_htc_msi_stbc_reserved.sink270.sink, align 4
   %251 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %250, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %252 = load i32, ptr %hf_ieee80211_htc_gid_l.sink, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %252, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
@@ -45649,16 +45649,16 @@ sta_is_s1g.exit:                                  ; preds = %4, %7
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %264, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %266 = and i32 %14, 65024
   %267 = icmp eq i32 %266, 65024
-  br i1 %267, label %.loopexit.thread266, label %268
+  br i1 %267, label %.loopexit.thread265, label %268
 
 268:                                              ; preds = %249
   %269 = load i32, ptr @hf_ieee80211_htc_gid_h, align 4
   %270 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %269, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %271 = load i32, ptr @hf_ieee80211_htc_coding_type, align 4
   %272 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %271, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
-  br label %.loopexit.thread266
+  br label %.loopexit.thread265
 
-.loopexit.thread266:                              ; preds = %249, %268
+.loopexit.thread265:                              ; preds = %249, %268
   %hf_ieee80211_htc_fb_tx_type.sink = phi ptr [ @hf_ieee80211_htc_fb_tx_type, %268 ], [ @hf_ieee80211_htc_reserved3, %249 ]
   %273 = load i32, ptr %hf_ieee80211_htc_fb_tx_type.sink, align 4
   %274 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %273, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
@@ -45716,7 +45716,7 @@ sta_is_s1g.exit:                                  ; preds = %4, %7
   %311 = icmp eq i32 %.pre, 0
   br i1 %311, label %312, label %.loopexit.thread
 
-312:                                              ; preds = %.loopexit.thread266, %.loopexit
+312:                                              ; preds = %.loopexit.thread265, %.loopexit
   %313 = load i32, ptr @hf_ieee80211_htc_ac_constraint, align 4
   %314 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %313, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %315 = load i32, ptr @hf_ieee80211_htc_rdg_more_ppdu, align 4

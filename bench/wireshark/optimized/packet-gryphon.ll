@@ -4701,7 +4701,7 @@ define internal fastcc i32 @filter_block(ptr noundef %0, i32 noundef %1, ptr nou
   %.not = icmp eq i32 %61, 3
   br i1 %.not, label %67, label %62
 
-62:                                               ; preds = %58
+62:; preds = %58
   %63 = xor i32 %61, 3
   %64 = load i32, ptr @hf_gryphon_padding, align 4
   %65 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %.1, i32 noundef %63, i32 noundef 0)

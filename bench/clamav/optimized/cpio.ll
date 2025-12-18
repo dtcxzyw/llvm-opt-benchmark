@@ -488,8 +488,8 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %15
 
 15:                                               ; preds = %.lr.ph, %.backedge
-  %16 = phi i64 [ %11, %.lr.ph ], [ %102, %.backedge ]
-  %17 = phi ptr [ %9, %.lr.ph ], [ %100, %.backedge ]
+  %16 = phi i64 [ %11, %.lr.ph ], [ %103, %.backedge ]
+  %17 = phi ptr [ %9, %.lr.ph ], [ %101, %.backedge ]
   %.076 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %.03475 = phi i32 [ 0, %.lr.ph ], [ %.135, %.backedge ]
   %.03674 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
@@ -633,27 +633,27 @@ sanitname.exit:                                   ; preds = %57, %47
 
 76:                                               ; preds = %67, %73, %72, %34
   %.135 = phi i32 [ %spec.select, %67 ], [ %spec.select, %73 ], [ %spec.select, %72 ], [ %.03475, %34 ]
-  %.1 = phi i64 [ %71, %67 ], [ %75, %73 ], [ %48, %72 ], [ %24, %34 ]
+  %.135 = phi i64 [ %71, %67 ], [ %75, %73 ], [ %48, %72 ], [ %24, %34 ]
   %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 8) #9
   store i8 0, ptr %13, align 1, !tbaa !30
-  %78 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %6) #9
-  %.not58 = icmp eq i32 %78, 1
-  br i1 %.not58, label %79, label %fmap_readn.exit.thread.sink.split
+  %79 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.16, ptr noundef nonnull %6) #9
+  %.not58 = icmp eq i32 %79, 1
+  br i1 %.not58, label %80, label %fmap_readn.exit.thread.sink.split
 
-79:                                               ; preds = %76
+80:                                               ; preds = %76
   %80 = load i32, ptr %6, align 4, !tbaa !31
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %80) #9
   %81 = load i32, ptr %6, align 4, !tbaa !31
   %.not59 = icmp eq i32 %81, 0
   br i1 %.not59, label %.backedge, label %82
 
-82:                                               ; preds = %79
+82:   ; preds = %80
   %83 = zext i32 %81 to i64
   %84 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %83, i64 noundef %83, i32 noundef 0, i32 noundef %31, i32 noundef 0) #9
   %85 = icmp eq i32 %84, 1
   br i1 %85, label %fmap_readn.exit.thread, label %86
 
-86:                                               ; preds = %82
+86:; preds = %82
   %87 = load ptr, ptr %8, align 8, !tbaa !3
   %88 = load i32, ptr %6, align 4, !tbaa !31
   %89 = zext i32 %88 to i64
@@ -661,30 +661,30 @@ sanitname.exit:                                   ; preds = %57, %47
   %.not60 = icmp eq i32 %90, 0
   br i1 %.not60, label %91, label %fmap_readn.exit.thread
 
-91:                                               ; preds = %86
+91: ; preds = %86
   %92 = load i32, ptr %6, align 4, !tbaa !31
   %93 = and i32 %92, 3
   %.not61 = icmp eq i32 %93, 0
   br i1 %.not61, label %96, label %94
 
-94:                                               ; preds = %91
+94:  ; preds = %91
   %reass.sub = and i32 %92, -4
   %95 = add i32 %reass.sub, 4
   store i32 %95, ptr %6, align 4, !tbaa !31
   br label %96
 
-96:                                               ; preds = %94, %91
+96:; preds = %94, %91
   %97 = phi i32 [ %95, %94 ], [ %92, %91 ]
   %98 = zext i32 %97 to i64
   %99 = add i64 %.1, %98
   br label %.backedge
 
-.backedge:                                        ; preds = %96, %79
+.backedge:                                        ; preds = %96, %80
   %.0.be = phi i64 [ %99, %96 ], [ %.1, %79 ]
-  %100 = load ptr, ptr %8, align 8, !tbaa !3
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 88
-  %102 = load i64, ptr %101, align 8, !tbaa !23
-  %or.cond70.not = icmp ult i64 %.0.be, %102
+  %101 = load ptr, ptr %8, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 88
+  %103 = load i64, ptr %102, align 8, !tbaa !23
+  %or.cond70.not = icmp ult i64 %.0.be, %103
   br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread.sink.split:                ; preds = %76, %fmap_readn.exit65, %42, %36, %30, %29, %.critedge

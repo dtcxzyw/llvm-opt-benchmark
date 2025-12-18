@@ -436,42 +436,42 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %276 = icmp eq i16 %272, 15
   br i1 %276, label %277, label %280, !prof !5
 
-277:                                              ; preds = %268
+277:; preds = %268
   %278 = load i16, ptr %257, align 4
   %279 = or i16 %278, 1
   store i16 %279, ptr %257, align 4
   br label %.thread
 
-280:                                              ; preds = %268
-  %281 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %282 = load ptr, ptr %281, align 8
-  %283 = icmp eq ptr %282, @tcp6_gro_receive
-  br i1 %283, label %284, label %286, !prof !12
+279:                                              ; preds = %268
+  %280 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %281 = load ptr, ptr %280, align 8
+  %282 = icmp eq ptr %281, @tcp6_gro_receive
+  br i1 %282, label %283, label %285, !prof !12
 
-284:                                              ; preds = %280
-  %285 = tail call ptr @tcp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
+283:                                              ; preds = %279
+  %284 = tail call ptr @tcp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
   br label %.thread
 
-286:                                              ; preds = %280
-  %287 = icmp eq ptr %282, @udp6_gro_receive
-  br i1 %287, label %288, label %290, !prof !12
+285:                                              ; preds = %279
+  %286 = icmp eq ptr %281, @udp6_gro_receive
+  br i1 %286, label %287, label %289, !prof !12
 
-288:                                              ; preds = %286
-  %289 = tail call ptr @udp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
+287:                                              ; preds = %285
+  %288 = tail call ptr @udp6_gro_receive(ptr noundef %0, ptr noundef %1) #8
   br label %.thread
 
-290:                                              ; preds = %286
-  %291 = tail call ptr %282(ptr noundef %0, ptr noundef %1) #8
+289:                                              ; preds = %285
+  %290 = tail call ptr %282(ptr noundef %0, ptr noundef %1) #8
   br label %.thread
 
-.thread:                                          ; preds = %18, %20, %290, %288, %284, %277, %142, %.thread17, %26
-  %292 = phi i16 [ 1, %26 ], [ %50, %142 ], [ %50, %.thread17 ], [ %168, %284 ], [ %168, %290 ], [ %168, %288 ], [ %168, %277 ], [ 1, %20 ], [ 1, %18 ]
-  %293 = phi ptr [ null, %26 ], [ null, %142 ], [ null, %.thread17 ], [ %285, %284 ], [ %291, %290 ], [ %289, %288 ], [ null, %277 ], [ null, %20 ], [ null, %18 ]
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %295 = load i16, ptr %294, align 4
-  %296 = or i16 %295, %292
-  store i16 %296, ptr %294, align 4
-  ret ptr %293
+.thread:                                          ; preds = %18, %20, %289, %287, %283, %277, %142, %.thread17, %26
+  %291 = phi i16 [ 1, %26 ], [ %50, %142 ], [ %50, %.thread17 ], [ %168, %284 ], [ %168, %290 ], [ %168, %288 ], [ %168, %277 ], [ 1, %20 ], [ 1, %18 ]
+  %292 = phi ptr [ null, %26 ], [ null, %142 ], [ null, %.thread17 ], [ %284, %284 ], [ %290, %290 ], [ %288, %288 ], [ null, %277 ], [ null, %20 ], [ null, %18 ]
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %294 = load i16, ptr %293, align 4
+  %295 = or i16 %294, %291
+  store i16 %295, ptr %293, align 4
+  ret ptr %292
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

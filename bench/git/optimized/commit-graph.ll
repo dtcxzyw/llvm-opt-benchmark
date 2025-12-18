@@ -3456,18 +3456,18 @@ st_mult.exit178:                                  ; preds = %st_mult.exit178.lr.
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr readonly align 1 %182, i64 %187, i1 false)
   %188 = load i64, ptr %186, align 8, !tbaa !72
   %189 = icmp ult i64 %188, 32
-  br i1 %189, label %190, label %.preheader382
+  br i1 %189, label %190, label %.preheader381
 
 190:                                              ; preds = %st_mult.exit178
   %191 = getelementptr inbounds nuw i8, ptr %25, i64 %188
   %192 = sub nuw nsw i64 32, %188
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %191, i8 0, i64 %192, i1 false)
-  br label %.preheader382
+  br label %.preheader381
 
-.preheader382:                                    ; preds = %190, %st_mult.exit178
+.preheader381:                                    ; preds = %190, %st_mult.exit178
   br label %193
 
-193:                                              ; preds = %.preheader382, %195
+193:                                              ; preds = %.preheader381, %195
   %.0811.i.i = phi i64 [ %196, %195 ], [ 0, %.preheader382 ]
   %194 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %185, %194
@@ -4549,10 +4549,10 @@ _.exit156.i:                                      ; preds = %662, %660
   br label %672
 
 672:                                              ; preds = %668, %666
-  %.sink210.i = phi ptr [ %651, %666 ], [ %.val148.i, %668 ]
-  %.sink208.i = phi i32 [ %667, %666 ], [ %671, %668 ]
-  %673 = call ptr @get_tempfile_path(ptr noundef %.sink210.i) #24
-  %674 = call ptr @hashfd(i32 noundef %.sink208.i, ptr noundef %673) #24
+  %.sink209.i = phi ptr [ %651, %666 ], [ %.val148.i, %668 ]
+  %.sink207.i = phi i32 [ %667, %666 ], [ %671, %668 ]
+  %673 = call ptr @get_tempfile_path(ptr noundef %.sink209.i) #24
+  %674 = call ptr @hashfd(i32 noundef %.sink207.i, ptr noundef %673) #24
   %675 = call ptr @init_chunkfile(ptr noundef %674) #24
   call void @add_chunk(ptr noundef %675, i32 noundef 1330201670, i64 noundef 1024, ptr noundef nonnull @write_graph_chunk_fanout) #24
   %676 = and i64 %620, 4294967295

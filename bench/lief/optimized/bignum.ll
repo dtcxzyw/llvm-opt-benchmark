@@ -509,13 +509,13 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(addre
   %31 = load i16, ptr %30, align 2, !tbaa !3
   %32 = zext i16 %31 to i64
   %.not38 = icmp ult i64 %.0.lcssa, %32
-  br i1 %.not38, label %44, label %33
+  br i1 %.not38, label %52, label %33
 
-33:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %._crit_edge
   %34 = icmp ugt i64 %.0.lcssa, 9999
   br i1 %34, label %mbedtls_mpi_grow.exit, label %35
 
-35:                                               ; preds = %33
+48:                                               ; preds = %33
   %36 = tail call noalias ptr @calloc(i64 noundef %26, i64 noundef 8) #18
   %37 = icmp eq ptr %36, null
   br i1 %37, label %mbedtls_mpi_grow.exit, label %38
@@ -537,7 +537,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(addre
   store ptr %36, ptr %0, align 8, !tbaa !12
   br label %mbedtls_mpi_grow.exit.thread
 
-44:                                               ; preds = %._crit_edge
+52:                                               ; preds = %._crit_edge
   %45 = load ptr, ptr %0, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i64, ptr %45, i64 %26
   %47 = sub nsw i64 %32, %26
@@ -546,8 +546,8 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_copy(ptr noundef captures(addre
   %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %mbedtls_mpi_grow.exit.thread
 
-mbedtls_mpi_grow.exit.thread:                     ; preds = %42, %44
-  %49 = phi ptr [ %36, %42 ], [ %.pre, %44 ]
+mbedtls_mpi_grow.exit.thread:                     ; preds = %42, %52
+  %59 = phi ptr [ %36, %42 ], [ %.pre, %44 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !12
   %51 = shl nuw nsw i64 %26, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(1) %50, i64 %51, i1 false)

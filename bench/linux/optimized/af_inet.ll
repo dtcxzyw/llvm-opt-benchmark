@@ -3287,41 +3287,41 @@ define dso_local ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %189 = icmp eq i16 %186, 15
   br i1 %189, label %190, label %192, !prof !28
 
-190:                                              ; preds = %.loopexit
+190:; preds = %.loopexit
   %191 = or i16 %168, 1
   store i16 %191, ptr %166, align 4
   br label %.thread
 
-192:                                              ; preds = %.loopexit
-  %193 = load ptr, ptr %37, align 8
-  %194 = icmp eq ptr %193, @tcp4_gro_receive
-  br i1 %194, label %195, label %197, !prof !9
+191:                                              ; preds = %.loopexit
+  %192 = load ptr, ptr %37, align 8
+  %193 = icmp eq ptr %192, @tcp4_gro_receive
+  br i1 %193, label %194, label %196, !prof !9
 
-195:                                              ; preds = %192
-  %196 = tail call ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
+194:                                              ; preds = %191
+  %195 = tail call ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-197:                                              ; preds = %192
-  %198 = icmp eq ptr %193, @udp4_gro_receive
-  br i1 %198, label %199, label %201, !prof !9
+196:                                              ; preds = %191
+  %197 = icmp eq ptr %192, @udp4_gro_receive
+  br i1 %197, label %198, label %200, !prof !9
 
-199:                                              ; preds = %197
-  %200 = tail call ptr @udp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
+198:                                              ; preds = %196
+  %199 = tail call ptr @udp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-201:                                              ; preds = %197
-  %202 = tail call ptr %193(ptr noundef %0, ptr noundef %1) #15
+200:                                              ; preds = %196
+  %201 = tail call ptr %193(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-.thread:                                          ; preds = %18, %20, %201, %199, %195, %190, %48, %43, %40, %36, %29, %26
-  %203 = phi i32 [ 1, %26 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %36 ], [ 1, %29 ], [ %67, %195 ], [ %67, %201 ], [ %67, %199 ], [ %67, %190 ], [ 1, %20 ], [ 1, %18 ]
-  %204 = phi ptr [ null, %26 ], [ null, %40 ], [ null, %43 ], [ null, %48 ], [ null, %36 ], [ null, %29 ], [ %196, %195 ], [ %202, %201 ], [ %200, %199 ], [ null, %190 ], [ null, %20 ], [ null, %18 ]
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %206 = load i16, ptr %205, align 4
-  %207 = trunc i32 %203 to i16
-  %208 = or i16 %206, %207
-  store i16 %208, ptr %205, align 4
-  ret ptr %204
+.thread:                                          ; preds = %18, %20, %200, %198, %194, %190, %48, %43, %40, %36, %29, %26
+  %202 = phi i32 [ 1, %26 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %36 ], [ 1, %29 ], [ %67, %195 ], [ %67, %201 ], [ %67, %199 ], [ %67, %190 ], [ 1, %20 ], [ 1, %18 ]
+  %203 = phi ptr [ null, %26 ], [ null, %40 ], [ null, %43 ], [ null, %48 ], [ null, %36 ], [ null, %29 ], [ %195, %195 ], [ %201, %201 ], [ %199, %199 ], [ null, %190 ], [ null, %20 ], [ null, %18 ]
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %205 = load i16, ptr %204, align 4
+  %206 = trunc i32 %202 to i16
+  %207 = or i16 %205, %206
+  store i16 %207, ptr %204, align 4
+  ret ptr %203
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

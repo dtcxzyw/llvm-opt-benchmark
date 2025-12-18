@@ -343,9 +343,9 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
 
 .preheader:                                       ; preds = %30
   %28 = icmp sgt i32 %41, 0
-  br i1 %28, label %.lr.ph26, label %._crit_edge
+  br i1 %28, label %.lr.ph27, label %._crit_edge
 
-.lr.ph26:                                         ; preds = %.preheader
+.lr.ph27:                                         ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %44
 
@@ -369,10 +369,10 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %43 = icmp slt i64 %indvars.iv.next, %42
   br i1 %43, label %30, label %.preheader, !llvm.loop !37
 
-44:                                               ; preds = %.lr.ph26, %86
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %86 ]
+44:                                               ; preds = %.lr.ph27, %86
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %86 ]
   %45 = load ptr, ptr %29, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv28
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv29
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !30
@@ -395,14 +395,14 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %62 = icmp eq i32 %58, 3
   br i1 %62, label %63, label %65
 
-63:                                               ; preds = %52
+63:; preds = %52
   %64 = or disjoint i32 %60, 2048
   store i32 %64, ptr %54, align 8
   br label %65
 
-65:                                               ; preds = %63, %52, %44
-  %66 = load ptr, ptr %29, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv28
+65: ; preds = %63, %52, %44
+  %65 = load ptr, ptr %29, align 8, !tbaa !24
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv28
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !31
@@ -411,7 +411,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %.not23 = icmp eq i64 %72, 0
   br i1 %.not23, label %86, label %73
 
-73:                                               ; preds = %65
+73:; preds = %65
   %74 = inttoptr i64 %72 to ptr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 8
@@ -425,7 +425,7 @@ Fraig_Dfs.exit:                                   ; preds = %.lr.ph.i, %1
   %83 = icmp eq i32 %79, 3
   br i1 %83, label %84, label %86
 
-84:                                               ; preds = %73
+84:; preds = %73
   %85 = or disjoint i32 %81, 2048
   store i32 %85, ptr %75, align 8
   br label %86

@@ -27,21 +27,21 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %12 = icmp ne i32 %3, -1
   %13 = icmp ne i32 %4, 0
   %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %89, label %14
+  br i1 %or.cond, label %90, label %14
 
 14:                                               ; preds = %11
   tail call void @BN_zero_ex(ptr noundef %1) #5
-  br label %90
+  br label %91
 
 15:                                               ; preds = %7
   %16 = icmp slt i32 %2, 0
-  br i1 %16, label %89, label %17
+  br i1 %16, label %90, label %17
 
 17:                                               ; preds = %15
   %18 = icmp eq i32 %2, 1
   %19 = icmp sgt i32 %3, 0
   %or.cond3 = and i1 %18, %19
-  br i1 %or.cond3, label %89, label %20
+  br i1 %or.cond3, label %90, label %20
 
 20:                                               ; preds = %17
   %21 = add nuw i32 %2, 7
@@ -51,7 +51,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %25 = zext nneg i32 %22 to i64
   %26 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 43) #5
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %88, label %28
+  br i1 %27, label %89, label %28
 
 28:                                               ; preds = %20
   %29 = icmp eq i32 %0, 0
@@ -60,12 +60,12 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 30:                                               ; preds = %28
   %31 = tail call i32 @RAND_priv_bytes_ex(ptr noundef %9, ptr noundef nonnull %26, i64 noundef %25, i32 noundef %5) #5
   %32 = icmp slt i32 %31, 1
-  br i1 %32, label %88, label %35
+  br i1 %32, label %89, label %35
 
 .thread:                                          ; preds = %28
   %33 = tail call i32 @RAND_bytes_ex(ptr noundef %9, ptr noundef nonnull %26, i64 noundef %25, i32 noundef %5) #5
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %88, label %.thread75
+  br i1 %34, label %89, label %.thread75
 
 35:                                               ; preds = %30
   %36 = icmp eq i32 %0, 1
@@ -124,7 +124,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
 
 56:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %88
+  br label %89
 
 .thread75:                                        ; preds = %.thread, %.thread76, %35
   %57 = icmp sgt i32 %3, -1
@@ -171,34 +171,34 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   %80 = and i8 %77, %79
   store i8 %80, ptr %26, align 1, !tbaa !3
   %.not72 = icmp eq i32 %4, 0
-  br i1 %.not72, label %86, label %81
+  br i1 %.not72, label %87, label %82
 
-81:                                               ; preds = %76
-  %82 = getelementptr i8, ptr %26, i64 %25
-  %83 = getelementptr i8, ptr %82, i64 -1
-  %84 = load i8, ptr %83, align 1, !tbaa !3
-  %85 = or i8 %84, 1
-  store i8 %85, ptr %83, align 1, !tbaa !3
-  br label %86
+82:                                               ; preds = %76
+  %83 = getelementptr i8, ptr %26, i64 %25
+  %84 = getelementptr i8, ptr %83, i64 -1
+  %85 = load i8, ptr %84, align 1, !tbaa !3
+  %86 = or i8 %85, 1
+  store i8 %86, ptr %84, align 1, !tbaa !3
+  br label %87
 
-86:                                               ; preds = %81, %76
-  %87 = call ptr @BN_bin2bn(ptr noundef nonnull %26, i32 noundef %22, ptr noundef %1) #5
-  %.not73 = icmp ne ptr %87, null
+87:                                               ; preds = %82, %76
+  %88 = call ptr @BN_bin2bn(ptr noundef nonnull %26, i32 noundef %22, ptr noundef %1) #5
+  %.not73 = icmp ne ptr %88, null
   %spec.select = zext i1 %.not73 to i32
-  br label %88
+  br label %89
 
-88:                                               ; preds = %56, %.thread, %86, %30, %20
+89:                                               ; preds = %56, %.thread, %87, %30, %20
   %.066 = phi i32 [ 0, %20 ], [ 0, %30 ], [ 0, %56 ], [ %spec.select, %86 ], [ 0, %.thread ]
   call void @CRYPTO_clear_free(ptr noundef %26, i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 91) #5
-  br label %90
+  br label %91
 
-89:                                               ; preds = %15, %17, %11
+90:                                               ; preds = %15, %17, %11
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__func__.bnrand) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 118, ptr noundef null) #5
-  br label %90
+  br label %91
 
-90:                                               ; preds = %89, %88, %14
+91:                                               ; preds = %90, %89, %14
   %.065 = phi i32 [ 0, %89 ], [ 1, %14 ], [ %.066, %88 ]
   ret i32 %.065
 }

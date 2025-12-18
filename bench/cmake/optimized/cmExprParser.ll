@@ -639,10 +639,10 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ;
   %.6 = phi i32 [ %.3, %254 ], [ -2, %258 ], [ %.3, %236 ], [ 257, %46 ], [ -2, %256 ], [ %.3, %250 ]
   br label %268
 
-268:                                              ; preds = %301, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
+268:                                              ; preds = %297, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
   %.3205.idx = phi i64 [ %.0202.idx, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %.3205.add293, %301 ]
-  %.3196 = phi ptr [ %.0193, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %302, %301 ]
-  %.2187 = phi i32 [ %.0185, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %303, %301 ]
+  %.3196 = phi ptr [ %.0193, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %298, %301 ]
+  %.2187 = phi i32 [ %.0185, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %299, %301 ]
   %269 = sext i32 %.2187 to i64
   %270 = shl nuw i64 1, %269
   %271 = and i64 %270, 1925219999776
@@ -665,7 +665,7 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ;
   %281 = load i64, ptr %2, align 8, !tbaa !4
   store i64 %281, ptr %280, align 8, !tbaa !4
   %282 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  %.not246 = icmp eq i32 %282, 0
+  %.not4.i259 = icmp eq i32 %282, 0
   br i1 %.not246, label %11, label %304
 
 283:                                              ; preds = %273, %268
@@ -680,44 +680,44 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ;
 _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread: ; preds = %285
   %.3205.add290 = add nsw i64 %.3205.idx, -1
   %.ptr228291 = getelementptr inbounds i8, ptr %3, i64 %.3205.add290
-  %287 = load i8, ptr %.ptr228291, align 1, !tbaa !13
-  br label %301
+  %283 = load i8, ptr %.ptr228291, align 1, !tbaa !13
+  br label %297
 
 _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263: ; preds = %285
-  %288 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %269
-  %289 = load i8, ptr %288, align 1, !tbaa !13
-  %290 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %290, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #16
-  %292 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %293 = and i64 %270, 2146959423
-  %.not336 = icmp eq i64 %293, 0
+  %284 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %269
+  %285 = load i8, ptr %284, align 1, !tbaa !13
+  %286 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #16
+  %288 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %289 = and i64 %270, 2146959423
+  %.not336 = icmp eq i64 %289, 0
   %.str.19..str.20.i.i260 = select i1 %.not336, ptr @.str.20, ptr @.str.19
-  %294 = sext i8 %289 to i64
-  %295 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %294
-  %296 = load ptr, ptr %295, align 8, !tbaa !16
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %296) #16
-  %fputc.i.i261 = call i32 @fputc(i32 41, ptr %292)
-  %298 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %fputc.i262 = call i32 @fputc(i32 10, ptr %298)
+  %290 = sext i8 %285 to i64
+  %291 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %290
+  %292 = load ptr, ptr %291, align 8, !tbaa !16
+  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %292) #16
+  %fputc.i.i261 = call i32 @fputc(i32 41, ptr %288)
+  %294 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %fputc.i262 = call i32 @fputc(i32 10, ptr %294)
   %.pr289 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.3205.add = add nsw i64 %.3205.idx, -1
   %.ptr228 = getelementptr inbounds i8, ptr %3, i64 %.3205.add
-  %299 = load i8, ptr %.ptr228, align 1, !tbaa !13
+  %295 = load i8, ptr %.ptr228, align 1, !tbaa !13
   %.not248 = icmp eq i32 %.pr289, 0
-  br i1 %.not248, label %301, label %300
+  br i1 %.not248, label %297, label %296
 
-300:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
+296:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.ptr228)
-  br label %301
+  br label %297
 
-301:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread, %300, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
-  %.in337 = phi i8 [ %287, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %299, %300 ], [ %299, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
+297:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread, %296, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
+  %.in337 = phi i8 [ %283, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %295, %300 ], [ %295, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
   %.3205.add293 = phi i64 [ %.3205.add290, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %.3205.add, %300 ], [ %.3205.add, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
-  %302 = getelementptr inbounds i8, ptr %.3196, i64 -8
-  %303 = sext i8 %.in337 to i32
+  %298 = getelementptr inbounds i8, ptr %.3196, i64 -8
+  %299 = sext i8 %.in337 to i32
   br label %268, !llvm.loop !18
 
-304:                                              ; preds = %279
+300:                                              ; preds = %279
   %305 = load ptr, ptr @stderr, align 8, !tbaa !10
   %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #16
   %307 = load ptr, ptr @stderr, align 8, !tbaa !10

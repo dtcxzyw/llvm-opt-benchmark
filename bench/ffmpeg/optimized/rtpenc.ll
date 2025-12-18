@@ -1583,7 +1583,7 @@ define internal fastcc void @rtcp_send_sr(ptr noundef %0, i64 noundef %1, i32 no
   %.not5457 = icmp eq i32 %63, 0
   br i1 %.not5457, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %48, %.lr.ph
+.lr.ph:; preds = %48, %.lr.ph
   %.058 = phi i32 [ %65, %.lr.ph ], [ %63, %48 ]
   %64 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @avio_w8(ptr noundef %64, i32 noundef 0) #7

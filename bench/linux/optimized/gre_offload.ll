@@ -691,25 +691,25 @@ define internal ptr @gre_gro_receive(ptr noundef %0, ptr noundef %1) #2 align 16
   %159 = icmp eq i16 %155, 15
   br i1 %159, label %160, label %164, !prof !6
 
-160:                                              ; preds = %149
+160: ; preds = %149
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %162 = load i16, ptr %161, align 4
   %163 = or i16 %162, 1
   store i16 %163, ptr %161, align 4
   br label %.thread
 
-164:                                              ; preds = %149
-  %165 = tail call ptr %152(ptr noundef %0, ptr noundef %1) #7
+163:                                              ; preds = %149
+  %164 = tail call ptr %152(ptr noundef %0, ptr noundef %1) #7
   br label %.thread
 
-.thread:                                          ; preds = %69, %71, %24, %26, %164, %160, %91, %75, %45, %41, %35, %32, %2
-  %166 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %160 ], [ 0, %164 ], [ 1, %24 ], [ 1, %26 ], [ 1, %71 ], [ 1, %69 ]
-  %167 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %160 ], [ %165, %164 ], [ null, %24 ], [ null, %26 ], [ null, %71 ], [ null, %69 ]
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %169 = load i16, ptr %168, align 4
-  %170 = or i16 %169, %166
-  store i16 %170, ptr %168, align 4
-  ret ptr %167
+.thread:                                          ; preds = %69, %71, %24, %26, %163, %160, %91, %75, %45, %41, %35, %32, %2
+  %165 = phi i16 [ 1, %2 ], [ 1, %32 ], [ 1, %35 ], [ 1, %41 ], [ 1, %75 ], [ 1, %45 ], [ 1, %91 ], [ 0, %160 ], [ 0, %164 ], [ 1, %24 ], [ 1, %26 ], [ 1, %71 ], [ 1, %69 ]
+  %166 = phi ptr [ null, %2 ], [ null, %32 ], [ null, %35 ], [ null, %41 ], [ null, %75 ], [ null, %45 ], [ null, %91 ], [ null, %160 ], [ %165, %164 ], [ null, %24 ], [ null, %26 ], [ null, %71 ], [ null, %69 ]
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %168 = load i16, ptr %167, align 4
+  %169 = or i16 %168, %165
+  store i16 %169, ptr %167, align 4
+  ret ptr %166
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -2014,7 +2014,7 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
   %.not225 = icmp eq i32 %1145, 7
   br i1 %.not225, label %.thread324, label %1146
 
-1146:                                             ; preds = %1143
+1146:; preds = %1143
   %1147 = xor i32 %1145, 7
   %1148 = lshr i32 %.val257, 3
   %1149 = zext nneg i32 %1148 to i64
